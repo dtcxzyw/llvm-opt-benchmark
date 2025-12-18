@@ -15875,7 +15875,7 @@ _ZN7rocksdb10autovectorIPNS_11VersionEditELm8EED2Ev.exit15: ; preds = %_ZN7rocks
   br label %common.resume
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %30, %13, %25, %_ZN7rocksdb10autovectorIPNS_11VersionEditELm8EED2Ev.exit
-  %105 = phi i32 [ %.pre, %_ZN7rocksdb10autovectorIPNS_11VersionEditELm8EED2Ev.exit ], [ %7, %25 ], [ %7, %13 ], [ %7, %30 ]
+  %105 = phi i32 [ %7, %13 ], [ %.pre, %_ZN7rocksdb10autovectorIPNS_11VersionEditELm8EED2Ev.exit ], [ %7, %25 ], [ %7, %30 ]
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %108 = load i64, ptr %107, align 8, !tbaa !1030
@@ -15935,7 +15935,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   br label %common.resume
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEixEOj.exit: ; preds = %118, %113, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %114, %113 ], [ %129, %.loopexit.i.i ], [ %120, %118 ]
+  %.pn.i.i = phi ptr [ %129, %.loopexit.i.i ], [ %114, %113 ], [ %120, %118 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %131 = load i32, ptr %.1.i.i, align 4, !tbaa !66
   %132 = zext i32 %131 to i64
@@ -21392,7 +21392,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %86, %_ZNKSt14defaul
   br i1 %149, label %_ZNSt13unordered_mapIiN7rocksdb11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE4findERS7_.exit100, label %.lr.ph.i.i.i.i91, !llvm.loop !1150
 
 _ZNSt13unordered_mapIiN7rocksdb11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE4findERS7_.exit100: ; preds = %.lr.ph.i.i.i.i91, %.preheader, %133
-  %.sroa.06.1.i.i96 = phi ptr [ %140, %133 ], [ %.sroa.06.0.i.i98, %.preheader ], [ %144, %.lr.ph.i.i.i.i91 ]
+  %.sroa.06.1.i.i96 = phi ptr [ %.sroa.06.0.i.i98, %.preheader ], [ %140, %133 ], [ %144, %.lr.ph.i.i.i.i91 ]
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i96, i64 16
   invoke void @_ZN7rocksdb6DBImpl15RecoveryContext18UpdateVersionEditsEPNS_16ColumnFamilyDataERKNS_11VersionEditE(ptr noundef nonnull align 8 dereferenceable(1057) %7, ptr noundef nonnull %.sroa.0116.0, ptr noundef nonnull align 8 dereferenceable(504) %150)
           to label %123 unwind label %151
@@ -24042,7 +24042,7 @@ define void @_ZN7rocksdb6DBImpl32MaybeWriteLevel0TableForRecoveryEbbmiPKmPSt13un
   br i1 %55, label %_ZNSt13unordered_mapIiN7rocksdb11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE4findERS7_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1150
 
 _ZNSt13unordered_mapIiN7rocksdb11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE4findERS7_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader44, %39
-  %.sroa.06.1.i.i = phi ptr [ %46, %39 ], [ %.sroa.06.0.i.i, %.preheader44 ], [ %50, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %.preheader44 ], [ %46, %39 ], [ %50, %.lr.ph.i.i.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %57 = getelementptr inbounds nuw i8, ptr %29, i64 2448
@@ -38668,7 +38668,7 @@ _ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt4pai
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread
-  %.02126.i.be = phi ptr [ %.021.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i ], [ %.021.i19, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread ]
+  %.02126.i.be = phi ptr [ %.021.i19, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread ], [ %.021.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i ]
   br label %.lr.ph.i, !llvm.loop !1628
 
 _ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread: ; preds = %14, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.i
@@ -40647,7 +40647,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 16) #27
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -45748,7 +45748,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiN7rocksdb11Version
   resume { ptr, i32 } %51
 
 _ZNKSt10_HashtableIiSt4pairIKiN7rocksdb11VersionEditEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %39, %23, %34
-  %.sroa.036.0.ph = phi ptr [ %35, %34 ], [ %.sroa.032.0, %23 ], [ %41, %39 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %23 ], [ %35, %34 ], [ %41, %39 ]
   tail call void @_ZN7rocksdb11VersionEditD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %8) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 520) #27
   br label %_ZNSt10_HashtableIiSt4pairIKiN7rocksdb11VersionEditEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit

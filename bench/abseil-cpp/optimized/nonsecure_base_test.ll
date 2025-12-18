@@ -5045,7 +5045,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %146, %.preheader57, %215, %217
-  %.0 = phi i32 [ -1, %215 ], [ %218, %217 ], [ 0, %.preheader57 ], [ %.134, %146 ]
+  %.0 = phi i32 [ %218, %217 ], [ -1, %215 ], [ 0, %.preheader57 ], [ %.134, %146 ]
   ret i32 %.0
 }
 

@@ -33088,7 +33088,7 @@ thread-pre-split.i.i.i:                           ; preds = %8556
   br i1 %8589, label %.lr.ph.i3.i.i, label %._crit_edge.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i3.i.i, %.preheader.i2.i.i, %.preheader.i.i.i
-  %8590 = phi ptr [ %8583, %.preheader.i2.i.i ], [ %8565, %.preheader.i.i.i ], [ %8583, %.lr.ph.i3.i.i ]
+  %8590 = phi ptr [ %8565, %.preheader.i.i.i ], [ %8583, %.preheader.i2.i.i ], [ %8583, %.lr.ph.i3.i.i ]
   call void @free(ptr noundef nonnull %8590) #8
   store ptr null, ptr @exts_i, align 8, !tbaa !18
   br label %8591
@@ -35608,7 +35608,7 @@ thread-pre-split.i.i:                             ; preds = %1154
   br i1 %1187, label %.lr.ph.i3.i, label %._crit_edge.i.i, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i3.i, %.preheader.i.i, %.preheader.i2.i
-  %1188 = phi ptr [ %1181, %.preheader.i2.i ], [ %1163, %.preheader.i.i ], [ %1181, %.lr.ph.i3.i ]
+  %1188 = phi ptr [ %1163, %.preheader.i.i ], [ %1181, %.preheader.i2.i ], [ %1181, %.lr.ph.i3.i ]
   call void @free(ptr noundef nonnull %1188) #8
   store ptr null, ptr @exts_i, align 8, !tbaa !18
   br label %1189

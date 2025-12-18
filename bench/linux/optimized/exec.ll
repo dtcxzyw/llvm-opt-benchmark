@@ -2372,8 +2372,8 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly capture
   %143 = tail call fastcc i32 @bprm_execve(ptr noundef %18)
   br label %.thread29
 
-.thread29:                                        ; preds = %37, %30, %63, %.preheader, %.lr.ph, %115, %.lr.ph52, %136, %.thread, %.thread34, %._crit_edge53, %88, %72, %49
-  %144 = phi i32 [ %47, %49 ], [ %73, %72 ], [ -514, %63 ], [ %96, %88 ], [ -514, %136 ], [ %109, %.lr.ph ], [ %143, %._crit_edge53 ], [ -7, %.thread34 ], [ -22, %.thread ], [ %130, %.lr.ph52 ], [ -514, %115 ], [ -7, %.preheader ], [ -514, %37 ], [ -7, %30 ]
+.thread29:                                        ; preds = %30, %37, %63, %.preheader, %.lr.ph, %115, %.lr.ph52, %136, %.thread, %.thread34, %._crit_edge53, %88, %72, %49
+  %144 = phi i32 [ %47, %49 ], [ %73, %72 ], [ -514, %63 ], [ %96, %88 ], [ -514, %136 ], [ %109, %.lr.ph ], [ %143, %._crit_edge53 ], [ -7, %.thread34 ], [ -22, %.thread ], [ %130, %.lr.ph52 ], [ -514, %115 ], [ -7, %.preheader ], [ -7, %30 ], [ -514, %37 ]
   tail call fastcc void @free_bprm(ptr noundef %18)
   br label %145
 
@@ -2911,7 +2911,7 @@ define internal fastcc i32 @bprm_execve(ptr noundef %0) unnamed_addr #0 align 16
   call void @fput(ptr noundef %170) #15
   br label %186
 
-186:                                              ; preds = %185, %184
+186:                                              ; preds = %184, %185
   %187 = add nuw nsw i32 %98, 1
   %exitcond = icmp eq i32 %187, 6
   br i1 %exitcond, label %.thread21, label %97, !llvm.loop !73
@@ -4152,8 +4152,8 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   br i1 %140, label %54, label %.thread24.thread, !llvm.loop !90
 
 .thread24:                                        ; preds = %.loopexit, %38, %43, %47, %18, %28, %89, %68
-  %141 = phi ptr [ %55, %89 ], [ %55, %68 ], [ %55, %.loopexit ], [ %13, %38 ], [ %13, %43 ], [ %13, %47 ], [ %13, %18 ], [ %13, %28 ]
-  %142 = phi i32 [ -7, %89 ], [ -514, %68 ], [ 0, %.loopexit ], [ -14, %38 ], [ -7, %43 ], [ -7, %47 ], [ -14, %18 ], [ -14, %28 ]
+  %141 = phi ptr [ %55, %89 ], [ %55, %68 ], [ %13, %28 ], [ %13, %38 ], [ %13, %43 ], [ %13, %47 ], [ %55, %.loopexit ], [ %13, %18 ]
+  %142 = phi i32 [ -7, %89 ], [ -514, %68 ], [ -14, %28 ], [ -14, %38 ], [ -7, %43 ], [ -7, %47 ], [ 0, %.loopexit ], [ -14, %18 ]
   %143 = icmp eq ptr %141, null
   br i1 %143, label %.thread24.thread78, label %.thread24.thread
 

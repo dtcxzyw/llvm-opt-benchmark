@@ -1330,7 +1330,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
   br label %.loopexit82
 
 .loopexit82:                                      ; preds = %51, %62, %43, %36, %33, %28, %.lr.ph88, %57, %.lr.ph, %22, %65, %14, %9, %4, %2, %.loopexit84
-  %.064 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %65 ], [ 1, %.loopexit84 ], [ 0, %22 ], [ 0, %57 ], [ 0, %.lr.ph ], [ 0, %.lr.ph88 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %43 ], [ 0, %62 ], [ 0, %51 ]
+  %.064 = phi i32 [ 0, %57 ], [ 0, %2 ], [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 1, %.loopexit84 ], [ 0, %65 ], [ 0, %22 ], [ 0, %.lr.ph ], [ 0, %.lr.ph88 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %43 ], [ 0, %62 ], [ 0, %51 ]
   ret i32 %.064
 }
 
@@ -1861,7 +1861,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   br i1 %exitcond.not, label %.thread, label %28, !llvm.loop !84
 
 .thread:                                          ; preds = %28, %20, %3, %6
-  %.141 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 1, %20 ], [ 1, %28 ]
+  %.141 = phi i32 [ 0, %6 ], [ 1, %20 ], [ 1, %3 ], [ 1, %28 ]
   ret i32 %.141
 }
 
@@ -2543,7 +2543,7 @@ vorbiscomment_find_entry_from_.exit.thread:       ; preds = %FLAC__metadata_obje
   br label %.loopexit
 
 .loopexit:                                        ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54, %89, %.lr.ph, %vorbiscomment_find_entry_from_.exit74, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67, %vorbiscomment_find_entry_from_.exit61, %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread, %vorbiscomment_find_entry_from_.exit.thread, %8, %44, %48, %FLAC__metadata_object_vorbiscomment_set_comment.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ %108, %vorbiscomment_find_entry_from_.exit.thread ], [ 0, %8 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit ], [ 1, %44 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread ], [ 1, %48 ], [ 1, %vorbiscomment_find_entry_from_.exit61 ], [ 1, %vorbiscomment_find_entry_from_.exit74 ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67 ], [ 1, %89 ], [ 0, %.lr.ph ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54 ]
+  %.0 = phi i32 [ 0, %5 ], [ %108, %vorbiscomment_find_entry_from_.exit.thread ], [ 0, %8 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit ], [ 1, %44 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread ], [ 1, %48 ], [ 1, %vorbiscomment_find_entry_from_.exit61 ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67 ], [ 1, %vorbiscomment_find_entry_from_.exit74 ], [ 1, %89 ], [ 0, %.lr.ph ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54 ]
   ret i32 %.0
 }
 
@@ -3856,7 +3856,7 @@ get_index_01_offset_.exit:                        ; preds = %28, %16
   br i1 %.not.i18, label %cddb_add_digits_.exit, label %.lr.ph.i, !llvm.loop !97
 
 cddb_add_digits_.exit:                            ; preds = %.lr.ph.i, %24, %9, %10, %22, %get_index_01_offset_.exit
-  %.0.lcssa.i = phi i32 [ 0, %get_index_01_offset_.exit ], [ 0, %22 ], [ 0, %10 ], [ 0, %9 ], [ 0, %24 ], [ %37, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ 0, %get_index_01_offset_.exit ], [ 0, %24 ], [ 0, %22 ], [ 0, %10 ], [ 0, %9 ], [ %37, %.lr.ph.i ]
   %39 = add i32 %.0.lcssa.i, %.029
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8

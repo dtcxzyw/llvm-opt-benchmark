@@ -653,7 +653,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit:   ; preds = %43
   %.not86.i = icmp eq i32 %92, 0
   br label %.lr.ph.i.i
 
-.loopexit:                                        ; preds = %165, %146, %131, %95, %106, %109, %159
+.loopexit:                                        ; preds = %165, %146, %95, %131, %106, %109, %159
   %93 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 4
   %.not.not.i.i = icmp eq ptr %93, %89
   br i1 %.not.not.i.i, label %.loopexit59, label %.lr.ph.i.i
@@ -1171,7 +1171,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.thread: ; preds = %.lr.ph, %83, %
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _Z6any_ofI10ptr_vectorIN5nlsat6clauseEEZNS1_8simplify3imp12elim_uncnstrEvEUlPS2_E_EbRKT_RKT0_.exit: ; preds = %.lr.ph.i, %._crit_edge.thread27.i, %._crit_edge.i, %._crit_edge
-  %.0 = phi i1 [ %.010.lcssa, %._crit_edge ], [ %.010.lcssa, %._crit_edge.i ], [ %.010.lcssa, %._crit_edge.thread27.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %.010.lcssa, %._crit_edge.thread27.i ], [ %.010.lcssa, %._crit_edge ], [ %.010.lcssa, %._crit_edge.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -3428,7 +3428,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat8simplify3imp8subsumesEN
   br i1 %93, label %78, label %.thread83
 
 .thread83:                                        ; preds = %81, %78, %61, %58, %.preheader88, %.preheader, %45, %74, %19, %22, %5, %3
-  %.054 = phi i1 [ true, %3 ], [ false, %45 ], [ false, %5 ], [ true, %.preheader88 ], [ false, %19 ], [ false, %22 ], [ false, %74 ], [ true, %.preheader ], [ %73, %61 ], [ %73, %58 ], [ %93, %78 ], [ %93, %81 ]
+  %.054 = phi i1 [ true, %3 ], [ true, %.preheader88 ], [ false, %5 ], [ false, %45 ], [ false, %19 ], [ false, %22 ], [ false, %74 ], [ true, %.preheader ], [ %73, %61 ], [ %73, %58 ], [ %93, %78 ], [ %93, %81 ]
   ret i1 %.054
 }
 
@@ -5765,8 +5765,8 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit.i202: ; preds = %2
           to label %253 unwind label %121
 
 253:                                              ; preds = %150, %111, %89, %252
-  %.0121 = phi i1 [ false, %252 ], [ false, %89 ], [ true, %150 ], [ true, %111 ]
-  %.0119.in = phi i1 [ %83, %252 ], [ %83, %89 ], [ %83, %150 ], [ %112, %111 ]
+  %.0121 = phi i1 [ false, %252 ], [ true, %150 ], [ false, %89 ], [ true, %111 ]
+  %.0119.in = phi i1 [ %83, %252 ], [ %83, %150 ], [ %83, %89 ], [ %112, %111 ]
   br i1 %.0119.in, label %.thread, label %.thread321
 
 .thread:                                          ; preds = %.invoke517, %_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit174, %253
@@ -7663,8 +7663,8 @@ _ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit88: ; preds = %47
   br label %64
 
 ._crit_edge146:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113, %47, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit88
-  %61 = phi ptr [ %48, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit88 ], [ %48, %47 ], [ %80, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113 ]
-  %62 = phi ptr [ %49, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit88 ], [ %49, %47 ], [ %89, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113 ]
+  %61 = phi ptr [ %48, %47 ], [ %48, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit88 ], [ %80, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113 ]
+  %62 = phi ptr [ %49, %47 ], [ %49, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit88 ], [ %89, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113 ]
   %63 = getelementptr inbounds nuw i8, ptr %.064148, i64 56
   %.not69 = icmp eq ptr %63, %31
   br i1 %.not69, label %._crit_edge150, label %47
@@ -8196,8 +8196,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113: ; preds = %275,
   br label %308
 
 ._crit_edge154:                                   ; preds = %288, %._crit_edge, %._crit_edge150, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit86
-  %278 = phi ptr [ %41, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit86 ], [ %62, %._crit_edge150 ], [ null, %._crit_edge ], [ %41, %288 ]
-  %279 = phi ptr [ %40, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit86 ], [ %61, %._crit_edge150 ], [ null, %._crit_edge ], [ %40, %288 ]
+  %278 = phi ptr [ null, %._crit_edge ], [ %41, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit86 ], [ %62, %._crit_edge150 ], [ %41, %288 ]
+  %279 = phi ptr [ null, %._crit_edge ], [ %40, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit86 ], [ %61, %._crit_edge150 ], [ %40, %288 ]
   %280 = load ptr, ptr %4, align 8, !tbaa !136
   %281 = icmp eq ptr %280, null
   br i1 %281, label %._crit_edge158, label %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit115

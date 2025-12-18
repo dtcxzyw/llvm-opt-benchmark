@@ -622,7 +622,7 @@ define dso_local void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 nound
   br label %.thread
 
 45:                                               ; preds = %21, %23, %25, %27, %33, %36
-  %.0 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %37, %36 ]
+  %.0 = phi ptr [ %37, %36 ], [ %34, %33 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2808
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2816

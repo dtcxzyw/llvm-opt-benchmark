@@ -602,7 +602,7 @@ hash_filespec.exit.i.i:                           ; preds = %189, %180
   br label %basename_same.exit.i.i
 
 basename_same.exit.i.i:                           ; preds = %217, %231, %230, %224
-  %.2.i.i.i = phi i32 [ %.mux.i.i.i, %224 ], [ 1, %230 ], [ %237, %231 ], [ %.1.i.i.i, %217 ]
+  %.2.i.i.i = phi i32 [ %237, %231 ], [ %.mux.i.i.i, %224 ], [ 1, %230 ], [ %.1.i.i.i, %217 ]
   %238 = add nsw i32 %.2.i.i.i, %204
   %239 = icmp sgt i32 %238, %.03469.i.i
   br i1 %239, label %240, label %242
@@ -1967,7 +1967,7 @@ st_mult.exit:                                     ; preds = %789
   br label %basename_same.exit
 
 basename_same.exit:                               ; preds = %837, %844, %850, %851
-  %.2.i = phi i32 [ %.mux.i, %844 ], [ 1, %850 ], [ %857, %851 ], [ %.1.i, %837 ]
+  %.2.i = phi i32 [ %857, %851 ], [ %.mux.i, %844 ], [ 1, %850 ], [ %.1.i, %837 ]
   br label %858
 
 858:                                              ; preds = %score_compare.exit.thread.i, %basename_same.exit
@@ -2752,7 +2752,7 @@ define internal fastcc void @remove_unneeded_paths_from_src(i32 noundef range(i3
   br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %64, %47, %26, %.lr.ph.split, %.preheader
-  %.016.lcssa = phi i32 [ 0, %.preheader ], [ %6, %.lr.ph.split ], [ %.1.us, %47 ], [ %.1.us.us, %26 ], [ %.1.us27, %64 ]
+  %.016.lcssa = phi i32 [ 0, %.preheader ], [ %.1.us, %47 ], [ %6, %.lr.ph.split ], [ %.1.us.us, %26 ], [ %.1.us27, %64 ]
   store i32 %.016.lcssa, ptr @rename_src_nr, align 4, !tbaa !81
   br label %65
 

@@ -448,7 +448,7 @@ define internal { double, double } @_ZL15igh_o_s_inverse5PJ_XYP8PJconsts(double 
 
 17:                                               ; preds = %15
   %18 = fcmp ult double %0, 0x3FF0C152382D7365
-  br i1 %18, label %select.unfold, label %34
+  br i1 %18, label %select.unfold97, label %34
 
 19:                                               ; preds = %13
   %20 = fcmp ult double %1, 0.000000e+00
@@ -460,7 +460,7 @@ define internal { double, double } @_ZL15igh_o_s_inverse5PJ_XYP8PJconsts(double 
 
 23:                                               ; preds = %21
   %24 = fcmp ult double %0, 0x3FF0C152382D7365
-  br i1 %24, label %select.unfold98, label %34
+  br i1 %24, label %select.unfold99, label %34
 
 25:                                               ; preds = %19
   %26 = fcmp ult double %1, 0xBFE6C069E29BDA5B
@@ -472,29 +472,29 @@ define internal { double, double } @_ZL15igh_o_s_inverse5PJ_XYP8PJconsts(double 
 
 29:                                               ; preds = %28
   %30 = fcmp ult double %0, 0x3FF921FB54442D18
-  br i1 %30, label %select.unfold99, label %34
+  br i1 %30, label %select.unfold, label %34
 
 31:                                               ; preds = %25
   br i1 %27, label %32, label %34
 
 32:                                               ; preds = %31
   %33 = fcmp ult double %0, 0x3FF921FB54442D18
-  br i1 %33, label %select.unfold97, label %34
+  br i1 %33, label %select.unfold98, label %34
 
-select.unfold:                                    ; preds = %17
+select.unfold:                                    ; preds = %29
   br label %34
 
-select.unfold97:                                  ; preds = %32
+select.unfold97:                                  ; preds = %17
   br label %34
 
-select.unfold98:                                  ; preds = %23
+select.unfold98:                                  ; preds = %32
   br label %34
 
-select.unfold99:                                  ; preds = %29
+select.unfold99:                                  ; preds = %23
   br label %34
 
-34:                                               ; preds = %29, %23, %32, %17, %15, %select.unfold, %21, %select.unfold98, %28, %select.unfold99, %31, %select.unfold97
-  %.087 = phi i32 [ 10, %31 ], [ 3, %17 ], [ 1, %15 ], [ 12, %32 ], [ 6, %23 ], [ 4, %21 ], [ 7, %28 ], [ 9, %29 ], [ 2, %select.unfold ], [ 11, %select.unfold97 ], [ 5, %select.unfold98 ], [ 8, %select.unfold99 ]
+34:                                               ; preds = %23, %32, %17, %29, %15, %select.unfold97, %21, %select.unfold99, %28, %select.unfold, %31, %select.unfold98
+  %.087 = phi i32 [ 10, %31 ], [ 9, %29 ], [ 3, %17 ], [ 1, %15 ], [ 12, %32 ], [ 6, %23 ], [ 4, %21 ], [ 7, %28 ], [ 8, %select.unfold ], [ 2, %select.unfold97 ], [ 11, %select.unfold98 ], [ 5, %select.unfold99 ]
   %35 = zext nneg i32 %.087 to i64
   %36 = getelementptr ptr, ptr %5, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -8
@@ -518,16 +518,16 @@ select.unfold99:                                  ; preds = %29
   %53 = fadd double %48, %.fr142
   switch i32 %.087, label %default.unreachable130 [
     i32 1, label %54
-    i32 2, label %.critedge
-    i32 3, label %64
-    i32 4, label %74
-    i32 5, label %78
-    i32 6, label %82
-    i32 7, label %86
-    i32 8, label %90
-    i32 9, label %94
-    i32 10, label %98
-    i32 11, label %102
+    i32 2, label %64
+    i32 3, label %68
+    i32 4, label %78
+    i32 5, label %82
+    i32 6, label %86
+    i32 7, label %90
+    i32 8, label %94
+    i32 9, label %98
+    i32 10, label %102
+    i32 11, label %106
     i32 12, label %112
   ]
 
@@ -550,82 +550,82 @@ select.unfold99:                                  ; preds = %29
   br i1 %63, label %119, label %.thread121
 
 64:                                               ; preds = %34
-  %65 = fcmp oge double %53, 0x3FF0C1523826942D
-  %66 = fcmp ole double %53, 0x400921FB54479CB4
-  %or.cond8 = and i1 %65, %66
-  br i1 %or.cond8, label %.thread121, label %67
+  %65 = fcmp oge double %53, 0xBFF921FB544B0C50
+  %66 = fcmp ole double %53, 0x3FF0C1523834529D
+  %67 = and i1 %65, %66
+  br i1 %67, label %119, label %.thread121
 
-67:                                               ; preds = %64
-  %68 = fcmp oge double %53, 0xC00921FB54479CB4
-  %69 = fcmp ole double %53, 0xC00657184AE3D4EB
-  %or.cond11 = and i1 %68, %69
-  br i1 %or.cond11, label %70, label %.thread121
+68:                                               ; preds = %34
+  %69 = fcmp oge double %53, 0x3FF0C1523826942D
+  %70 = fcmp ole double %53, 0x400921FB54479CB4
+  %or.cond8 = and i1 %69, %70
+  br i1 %or.cond8, label %.thread121, label %71
 
-70:                                               ; preds = %67
-  %71 = fcmp oge double %49, 0x3FEBECDE5D935739
-  %72 = fcmp ole double %49, 0x3FF921FB544B0C50
-  %73 = and i1 %71, %72
-  br i1 %73, label %119, label %.thread121
+71:                                               ; preds = %68
+  %72 = fcmp oge double %53, 0xC00921FB54479CB4
+  %73 = fcmp ole double %53, 0xC00657184AE3D4EB
+  %or.cond11 = and i1 %72, %73
+  br i1 %or.cond11, label %74, label %.thread121
 
-74:                                               ; preds = %34
-  %75 = fcmp oge double %53, 0xC00921FB54479CB4
-  %76 = fcmp ole double %53, 0xBFF921FB543D4DE0
+74:                                               ; preds = %71
+  %75 = fcmp oge double %49, 0x3FEBECDE5D935739
+  %76 = fcmp ole double %49, 0x3FF921FB544B0C50
   %77 = and i1 %75, %76
   br i1 %77, label %119, label %.thread121
 
 78:                                               ; preds = %34
-  %79 = fcmp oge double %53, 0xBFF921FB544B0C50
-  %80 = fcmp ole double %53, 0x3FF0C1523834529D
+  %79 = fcmp oge double %53, 0xC00921FB54479CB4
+  %80 = fcmp ole double %53, 0xBFF921FB543D4DE0
   %81 = and i1 %79, %80
   br i1 %81, label %119, label %.thread121
 
 82:                                               ; preds = %34
-  %83 = fcmp oge double %53, 0x3FF0C1523826942D
-  %84 = fcmp ole double %53, 0x400921FB54479CB4
+  %83 = fcmp oge double %53, 0xBFF921FB544B0C50
+  %84 = fcmp ole double %53, 0x3FF0C1523834529D
   %85 = and i1 %83, %84
   br i1 %85, label %119, label %.thread121
 
 86:                                               ; preds = %34
-  %87 = fcmp oge double %53, 0xC00921FB54479CB4
-  %88 = fcmp ole double %53, 0xBFF0C1523826942D
+  %87 = fcmp oge double %53, 0x3FF0C1523826942D
+  %88 = fcmp ole double %53, 0x400921FB54479CB4
   %89 = and i1 %87, %88
   br i1 %89, label %119, label %.thread121
 
 90:                                               ; preds = %34
-  %91 = fcmp oge double %53, 0xBFF0C1523834529D
-  %92 = fcmp ole double %53, 0x3FF921FB544B0C50
+  %91 = fcmp oge double %53, 0xC00921FB54479CB4
+  %92 = fcmp ole double %53, 0xBFF0C1523826942D
   %93 = and i1 %91, %92
   br i1 %93, label %119, label %.thread121
 
 94:                                               ; preds = %34
-  %95 = fcmp oge double %53, 0x3FF921FB543D4DE0
-  %96 = fcmp ole double %53, 0x400921FB54479CB4
+  %95 = fcmp oge double %53, 0xBFF0C1523834529D
+  %96 = fcmp ole double %53, 0x3FF921FB544B0C50
   %97 = and i1 %95, %96
   br i1 %97, label %119, label %.thread121
 
 98:                                               ; preds = %34
-  %99 = fcmp oge double %53, 0xC00921FB54479CB4
-  %100 = fcmp ole double %53, 0xBFF0C1523826942D
+  %99 = fcmp oge double %53, 0x3FF921FB543D4DE0
+  %100 = fcmp ole double %53, 0x400921FB54479CB4
   %101 = and i1 %99, %100
   br i1 %101, label %119, label %.thread121
 
 102:                                              ; preds = %34
-  %103 = fcmp oge double %53, 0xBFF0C1523834529D
-  %104 = fcmp ole double %53, 0x3FF921FB544B0C50
-  %or.cond14 = and i1 %103, %104
-  br i1 %or.cond14, label %.thread121, label %105
+  %103 = fcmp oge double %53, 0xC00921FB54479CB4
+  %104 = fcmp ole double %53, 0xBFF0C1523826942D
+  %105 = and i1 %103, %104
+  br i1 %105, label %119, label %.thread121
 
-105:                                              ; preds = %102
-  %106 = fcmp oge double %53, 0x3FF921FB543D4DE0
-  %107 = fcmp ole double %53, 0x3FFBECDE5DA7F4E1
-  %or.cond17 = and i1 %106, %107
-  br i1 %or.cond17, label %108, label %.thread121
+106:                                              ; preds = %34
+  %107 = fcmp oge double %53, 0xBFF0C1523834529D
+  %108 = fcmp ole double %53, 0x3FF921FB544B0C50
+  %or.cond14 = and i1 %107, %108
+  br i1 %or.cond14, label %.thread121, label %109
 
-108:                                              ; preds = %105
-  %109 = fcmp oge double %49, 0xBFF921FB544B0C50
-  %110 = fcmp ole double %49, 0xBFE657184AD98617
-  %111 = and i1 %109, %110
-  br i1 %111, label %119, label %.thread121
+109:                                              ; preds = %106
+  %110 = fcmp oge double %53, 0x3FF921FB543D4DE0
+  %111 = fcmp ole double %53, 0x3FFBECDE5DA7F4E1
+  %or.cond17 = and i1 %110, %111
+  br i1 %or.cond17, label %.critedge, label %.thread121
 
 112:                                              ; preds = %34
   %113 = fcmp oge double %53, 0x3FF921FB543D4DE0
@@ -636,18 +636,18 @@ select.unfold99:                                  ; preds = %29
 default.unreachable130:                           ; preds = %34
   unreachable
 
-.critedge:                                        ; preds = %34
-  %116 = fcmp oge double %53, 0xBFF921FB544B0C50
-  %117 = fcmp ole double %53, 0x3FF0C1523834529D
+.critedge:                                        ; preds = %109
+  %116 = fcmp oge double %49, 0xBFF921FB544B0C50
+  %117 = fcmp ole double %49, 0xBFE657184AD98617
   %118 = and i1 %116, %117
   br i1 %118, label %119, label %.thread121
 
-119:                                              ; preds = %74, %78, %82, %86, %90, %94, %98, %60, %70, %108, %112, %.critedge
+119:                                              ; preds = %64, %74, %78, %82, %86, %90, %94, %98, %102, %60, %112, %.critedge
   br label %.thread121
 
-.thread121:                                       ; preds = %74, %78, %82, %86, %90, %94, %98, %60, %70, %108, %112, %119, %.critedge, %3, %67, %57, %105, %54, %64, %102
-  %120 = phi double [ %53, %64 ], [ %53, %119 ], [ %53, %54 ], [ %53, %102 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %105 ], [ 0x7FF0000000000000, %112 ], [ 0x7FF0000000000000, %108 ], [ 0x7FF0000000000000, %70 ], [ 0x7FF0000000000000, %60 ], [ 0x7FF0000000000000, %98 ], [ 0x7FF0000000000000, %94 ], [ 0x7FF0000000000000, %90 ], [ 0x7FF0000000000000, %86 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %78 ], [ 0x7FF0000000000000, %74 ]
-  %121 = phi double [ %49, %64 ], [ %49, %119 ], [ %49, %54 ], [ %49, %102 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %105 ], [ 0x7FF0000000000000, %112 ], [ 0x7FF0000000000000, %108 ], [ 0x7FF0000000000000, %70 ], [ 0x7FF0000000000000, %60 ], [ 0x7FF0000000000000, %98 ], [ 0x7FF0000000000000, %94 ], [ 0x7FF0000000000000, %90 ], [ 0x7FF0000000000000, %86 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %78 ], [ 0x7FF0000000000000, %74 ]
+.thread121:                                       ; preds = %64, %74, %78, %82, %86, %90, %94, %98, %102, %60, %112, %119, %.critedge, %3, %71, %57, %109, %106, %54, %68
+  %120 = phi double [ %53, %54 ], [ %53, %119 ], [ %53, %106 ], [ %53, %68 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %71 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %109 ], [ 0x7FF0000000000000, %112 ], [ 0x7FF0000000000000, %60 ], [ 0x7FF0000000000000, %102 ], [ 0x7FF0000000000000, %98 ], [ 0x7FF0000000000000, %94 ], [ 0x7FF0000000000000, %90 ], [ 0x7FF0000000000000, %86 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %78 ], [ 0x7FF0000000000000, %74 ], [ 0x7FF0000000000000, %64 ]
+  %121 = phi double [ %49, %54 ], [ %49, %119 ], [ %49, %106 ], [ %49, %68 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %71 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %109 ], [ 0x7FF0000000000000, %112 ], [ 0x7FF0000000000000, %60 ], [ 0x7FF0000000000000, %102 ], [ 0x7FF0000000000000, %98 ], [ 0x7FF0000000000000, %94 ], [ 0x7FF0000000000000, %90 ], [ 0x7FF0000000000000, %86 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %78 ], [ 0x7FF0000000000000, %74 ], [ 0x7FF0000000000000, %64 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %120, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %121, 1
   ret { double, double } %.fca.1.insert

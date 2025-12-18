@@ -1103,7 +1103,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   br label %99
 
 .split54.us:                                      ; preds = %.lr.ph91, %.lr.ph76.preheader, %.lr.ph91.preheader, %.lr.ph76.preheader.preheader
-  %.us-phi55 = phi i64 [ %60, %.lr.ph76.preheader.preheader ], [ %48, %.lr.ph91.preheader ], [ %79, %.lr.ph76.preheader ], [ %57, %.lr.ph91 ]
+  %.us-phi55 = phi i64 [ %79, %.lr.ph76.preheader ], [ %60, %.lr.ph76.preheader.preheader ], [ %48, %.lr.ph91.preheader ], [ %57, %.lr.ph91 ]
   %85 = and i64 %.us-phi55, 2147483647
   %86 = getelementptr inbounds nuw i8, ptr %.027.ph95, i64 %85
   %87 = sub i64 %.028.ph93, %85

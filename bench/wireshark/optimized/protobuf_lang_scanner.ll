@@ -2521,9 +2521,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
   br label %.loopexit1864.backedge
 
 .loopexit1864.backedge:                           ; preds = %._crit_edge.i1839, %1550, %1750
-  %.01413.be = phi ptr [ %1748, %1750 ], [ %1478, %1550 ], [ %1748, %._crit_edge.i1839 ]
-  %.01406.be = phi ptr [ %1756, %1750 ], [ %1552, %1550 ], [ %1756, %._crit_edge.i1839 ]
-  %.01405.be = phi i32 [ %1757, %1750 ], [ %1551, %1550 ], [ %1798, %._crit_edge.i1839 ]
+  %.01413.be = phi ptr [ %1478, %1550 ], [ %1748, %1750 ], [ %1748, %._crit_edge.i1839 ]
+  %.01406.be = phi ptr [ %1552, %1550 ], [ %1756, %1750 ], [ %1756, %._crit_edge.i1839 ]
+  %.01405.be = phi i32 [ %1551, %1550 ], [ %1757, %1750 ], [ %1798, %._crit_edge.i1839 ]
   br label %.loopexit1864
 
 1553:                                             ; preds = %1463
@@ -4394,7 +4394,7 @@ protobuf_lang__delete_buffer.exit.i:              ; preds = %32, %.critedge.i.i
   br label %protobuf_lang_pop_buffer_state.exit
 
 protobuf_lang_pop_buffer_state.exit:              ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

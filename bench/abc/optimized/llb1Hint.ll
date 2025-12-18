@@ -617,7 +617,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %59, label %50, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %53, %50, %Vec_IntStartFull.exit, %.preheader, %.critedge
-  %.2 = phi i32 [ -1, %.critedge ], [ %42, %.preheader ], [ -1, %Vec_IntStartFull.exit ], [ 1, %50 ], [ %58, %53 ], [ %42, %37 ]
+  %.2 = phi i32 [ %42, %.preheader ], [ -1, %.critedge ], [ 1, %50 ], [ -1, %Vec_IntStartFull.exit ], [ %58, %53 ], [ %42, %37 ]
   %60 = load ptr, ptr %5, align 8, !tbaa !46
   %.not34 = icmp eq ptr %60, null
   br i1 %.not34, label %67, label %61

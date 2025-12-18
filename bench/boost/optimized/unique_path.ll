@@ -214,7 +214,7 @@ define internal noundef range(i32 5, 4) i32 @_ZN5boost10filesystem6detail12_GLOB
   br i1 %19, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %18, %2, %10, %13
-  %.3 = phi i32 [ %8, %10 ], [ %14, %13 ], [ 0, %2 ], [ 0, %18 ]
+  %.3 = phi i32 [ %14, %13 ], [ %8, %10 ], [ 0, %2 ], [ 0, %18 ]
   ret i32 %.3
 }
 

@@ -621,7 +621,7 @@ _ZN3igl8geodesic4Face12vertex_angleEPNS0_6VertexE.exit: ; preds = %123, %130
   br label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit.i
 
 _ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit.i: ; preds = %175, %170
-  %.0.i.i = phi double [ %176, %175 ], [ 0.000000e+00, %170 ]
+  %.0.i.i = phi double [ 0.000000e+00, %170 ], [ %176, %175 ]
   %177 = fcmp ult double %.0.i.i, %136
   br i1 %177, label %182, label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit.thread.i
 
@@ -659,7 +659,7 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.ex
   br label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit145.i
 
 _ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit145.i: ; preds = %191, %186
-  %.0.i144.i = phi double [ %192, %191 ], [ 0.000000e+00, %186 ]
+  %.0.i144.i = phi double [ 0.000000e+00, %186 ], [ %192, %191 ]
   %193 = fcmp ult double %.0.i144.i, %136
   br i1 %193, label %199, label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit145.thread.i
 
@@ -1036,7 +1036,7 @@ _ZN3igl8geodesic4Face12vertex_angleEPNS0_6VertexE.exit114: ; preds = %340, %347
   br label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit.i119
 
 _ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit.i119: ; preds = %394, %389
-  %396 = phi double [ %395, %394 ], [ 0.000000e+00, %389 ]
+  %396 = phi double [ 0.000000e+00, %389 ], [ %395, %394 ]
   %397 = fcmp ult double %396, %355
   br i1 %397, label %402, label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit.thread.i121
 
@@ -1074,7 +1074,7 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.ex
   br label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit145.i124
 
 _ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit145.i124: ; preds = %411, %406
-  %413 = phi double [ %412, %411 ], [ 0.000000e+00, %406 ]
+  %413 = phi double [ 0.000000e+00, %406 ], [ %412, %411 ]
   %414 = fcmp ult double %413, %355
   br i1 %414, label %420, label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_positive_intersectionEddddd.exit145.thread.i126
 
@@ -2080,7 +2080,7 @@ _ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21: ; preds = %74
   br label %_ZN3igl8geodesic12IntervalList6signalEd.exit
 
 _ZN3igl8geodesic12IntervalList6signalEd.exit:     ; preds = %73, %45, %97, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21, %69, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i
-  %98 = phi double [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i ], [ %.1.i.i, %69 ], [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21 ], [ %.1.i.i24, %97 ], [ 1.000000e+100, %45 ], [ 1.000000e+100, %73 ]
+  %98 = phi double [ 1.000000e+100, %45 ], [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i ], [ %.1.i.i, %69 ], [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21 ], [ %.1.i.i24, %97 ], [ 1.000000e+100, %73 ]
   %99 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %100 = load double, ptr %99, align 8, !tbaa !121
   %101 = fadd double %98, %100
@@ -8579,7 +8579,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS
   br label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit.i.i.i.i, !llvm.loop !341
 
 .loopexit.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i.i
-  %.us-phi.i.i = phi ptr [ %.sroa.04.0.i.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us.i ], [ %.sroa.04.0.us.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i.i ], [ %.sroa.04.0.us.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i.i ], [ %.sroa.04.0.i.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us.i ], [ %.sroa.04.0.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.i ], [ %.sroa.04.0.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i ]
+  %.us-phi.i.i = phi ptr [ %.sroa.04.0.us.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i.i ], [ %.sroa.04.0.i.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us.i ], [ %.sroa.04.0.us.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i.i ], [ %.sroa.04.0.i.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us.i ], [ %.sroa.04.0.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.i ], [ %.sroa.04.0.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i ]
   store ptr %12, ptr %.us-phi.i.i, align 8, !tbaa !282
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i, i64 8
   %.not.i = icmp eq ptr %53, %1
@@ -8715,8 +8715,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIN
   br label %.split.i.split, !llvm.loop !343
 
 .split25.us.i:                                    ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i
-  %.us-phi27.i = phi ptr [ %.sroa.019.1.i.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %.sroa.019.1.us.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %.sroa.019.1.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %.sroa.019.1.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %.sroa.019.1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %.sroa.019.1.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
-  %.us-phi28.i = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %19, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %33, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %45, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
+  %.us-phi27.i = phi ptr [ %.sroa.019.1.us.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %.sroa.019.1.i.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %.sroa.019.1.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %.sroa.019.1.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %.sroa.019.1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %.sroa.019.1.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
+  %.us-phi28.i = phi ptr [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %19, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %33, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %45, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
   br label %58
 
 58:                                               ; preds = %.backedge, %.split25.us.i
@@ -10626,8 +10626,8 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186:    ; preds = %.lr.ph182.split.spl
   br i1 %exitcond.not, label %._crit_edge, label %194, !llvm.loop !371
 
 ._crit_edge183:                                   ; preds = %_ZN3igl8geodesic8Interval6signalEd.exit174, %_ZN3igl8geodesic8Interval6signalEd.exit.us186, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us, %_ZN3igl8geodesic8Interval6signalEd.exit.us, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader, %._crit_edge
-  %204 = phi i1 [ false, %._crit_edge ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
-  %205 = phi i32 [ %141, %._crit_edge ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
+  %204 = phi i1 [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ false, %._crit_edge ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
+  %205 = phi i32 [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ %141, %._crit_edge ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
   %206 = fsub double %124, %11
   %207 = fcmp olt double %121, %206
   br i1 %207, label %227, label %234
@@ -11912,7 +11912,7 @@ _ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread: ; preds = %15
   br i1 %186, label %134, label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit84.thread, !llvm.loop !405
 
 _ZN3igl8geodesic12SurfacePoint4typeEv.exit84.thread: ; preds = %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread, %125, %43, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit, %.preheader101, %72, %5, %_ZN3igl8geodesic8Interval6signalEd.exit
-  %.067 = phi ptr [ null, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ null, %5 ], [ %.0.i, %_ZN3igl8geodesic8Interval6signalEd.exit ], [ %.2, %72 ], [ null, %.preheader101 ], [ %.4, %125 ], [ null, %43 ], [ %.6, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread ]
+  %.067 = phi ptr [ null, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ null, %43 ], [ null, %5 ], [ %.0.i, %_ZN3igl8geodesic8Interval6signalEd.exit ], [ %.4, %125 ], [ %.2, %72 ], [ null, %.preheader101 ], [ %.6, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread ]
   %187 = load double, ptr %2, align 8, !tbaa !77
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %189 = load double, ptr %188, align 8, !tbaa !105
@@ -12088,7 +12088,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split: ; preds = %_ZN3i
   br label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread
 
 _ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread: ; preds = %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread, %37, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split, %.preheader, %91, %2, %49, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit
-  %.1 = phi i64 [ -1, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ 0, %2 ], [ %52, %49 ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit ], [ %94, %91 ], [ -1, %.preheader ], [ 0, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split ], [ -1, %37 ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread ]
+  %.1 = phi i64 [ -1, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ 0, %2 ], [ -1, %.preheader ], [ %52, %49 ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit ], [ -1, %37 ], [ %94, %91 ], [ 0, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread ]
   ret i64 %.1
 }
 
@@ -13330,8 +13330,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIKP
   br i1 %131, label %_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEElEvRT_T0_St26random_access_iterator_tag.exit, label %.critedge, !llvm.loop !412
 
 .critedge:                                        ; preds = %130, %128, %5, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIS4_EEET_SE_SE_RKT0_T1_.exit
-  %.sroa.064.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIS4_EEET_SE_SE_RKT0_T1_.exit ], [ %0, %5 ], [ %.sroa.011.0.lcssa.i, %128 ], [ %.sroa.059.1, %130 ]
-  %.sroa.3.0 = phi ptr [ %95, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIS4_EEET_SE_SE_RKT0_T1_.exit ], [ %0, %5 ], [ %.sroa.011.1.i51, %128 ], [ %.sroa.059.1, %130 ]
+  %.sroa.064.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIS4_EEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.011.0.lcssa.i, %128 ], [ %0, %5 ], [ %.sroa.059.1, %130 ]
+  %.sroa.3.0 = phi ptr [ %95, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIS4_EEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.011.1.i51, %128 ], [ %0, %5 ], [ %.sroa.059.1, %130 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.064.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

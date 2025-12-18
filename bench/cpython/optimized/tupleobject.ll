@@ -1806,7 +1806,7 @@ Py_DECREF.exit:                                   ; preds = %.lr.ph27, %29, %32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
 
 .loopexit:                                        ; preds = %Py_DECREF.exit, %.preheader, %2, %._crit_edge
-  %.0 = phi ptr [ %.09.i24, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %2 ], [ null, %.preheader ], [ null, %Py_DECREF.exit ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %2 ], [ %.09.i24, %._crit_edge ], [ null, %.preheader ], [ null, %Py_DECREF.exit ]
   ret ptr %.0
 }
 
@@ -2280,7 +2280,7 @@ define internal ptr @tuple_richcompare(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %36, %34, %33, %31, %29, %28, %26, %3, %7, %38, %37
-  %.0 = phi ptr [ %_Py_TrueStruct._Py_FalseStruct, %26 ], [ @_Py_NotImplementedStruct, %3 ], [ %_Py_FalseStruct._Py_TrueStruct, %28 ], [ @_Py_NotImplementedStruct, %7 ], [ %_Py_TrueStruct._Py_FalseStruct53, %29 ], [ %43, %38 ], [ %_Py_TrueStruct._Py_FalseStruct54, %31 ], [ @_Py_TrueStruct, %37 ], [ %_Py_FalseStruct._Py_TrueStruct55, %33 ], [ %_Py_FalseStruct._Py_TrueStruct56, %34 ], [ @_Py_FalseStruct, %36 ], [ null, %17 ]
+  %.0 = phi ptr [ @_Py_FalseStruct, %36 ], [ %_Py_TrueStruct._Py_FalseStruct, %26 ], [ @_Py_NotImplementedStruct, %3 ], [ %_Py_FalseStruct._Py_TrueStruct, %28 ], [ @_Py_NotImplementedStruct, %7 ], [ %_Py_TrueStruct._Py_FalseStruct53, %29 ], [ %43, %38 ], [ %_Py_TrueStruct._Py_FalseStruct54, %31 ], [ @_Py_TrueStruct, %37 ], [ %_Py_FalseStruct._Py_TrueStruct55, %33 ], [ %_Py_FalseStruct._Py_TrueStruct56, %34 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -3781,7 +3781,7 @@ define internal ptr @tuple_index(ptr noundef readonly captures(none) %0, ptr nou
   br label %tuple_index_impl.exit
 
 tuple_index_impl.exit:                            ; preds = %37, %._crit_edge.i, %.thread.i, %18, %12, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %12 ], [ null, %._crit_edge.i ], [ %36, %.thread.i ], [ null, %37 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %12 ], [ %36, %.thread.i ], [ null, %._crit_edge.i ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

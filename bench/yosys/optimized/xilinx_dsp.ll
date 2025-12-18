@@ -54630,7 +54630,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i: ; pre
   br i1 %4756, label %.lr.ph.i.split.i, label %.loopexit.i, !llvm.loop !967
 
 .loopexit.i:                                      ; preds = %4753, %4745, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit891, %._crit_edge.i.i, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1371
-  %.13048 = phi i32 [ %4516, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1371 ], [ %.03047, %._crit_edge.i.i ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit891 ], [ %.03047, %4745 ], [ %.03047, %4753 ]
+  %.13048 = phi i32 [ %4516, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1371 ], [ %.03047, %._crit_edge.i.i ], [ %.03047, %4745 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit891 ], [ %.03047, %4753 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.sroa.0.0.copyload.i.fr.i, ptr %14, align 8
   store i32 %.sroa.92888.0.copyload2890, ptr %.sroa.92888.0..sroa_idx, align 8
@@ -57892,7 +57892,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i1501: ;
   br i1 %6176, label %.lr.ph.i.split.i1000, label %.loopexit.i985, !llvm.loop !967
 
 .loopexit.i985:                                   ; preds = %6173, %6165, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit983, %._crit_edge.i.i984, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1530
-  %.1 = phi i32 [ %5936, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1530 ], [ %.0, %._crit_edge.i.i984 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit983 ], [ %.0, %6165 ], [ %.0, %6173 ]
+  %.1 = phi i32 [ %5936, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1530 ], [ %.0, %._crit_edge.i.i984 ], [ %.0, %6165 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit983 ], [ %.0, %6173 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.sroa.0.0.copyload.i.fr.i995, ptr %11, align 8
   store i32 %.sroa.9.0.copyload2852, ptr %.sroa.9.0..sroa_idx, align 8
@@ -101489,7 +101489,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i: ; pre
   br i1 %4051, label %.lr.ph.i.split.i, label %.loopexit.i, !llvm.loop !967
 
 .loopexit.i:                                      ; preds = %4048, %4040, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit699, %._crit_edge.i.i, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1128
-  %.12660 = phi i32 [ %3811, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1128 ], [ %.02659, %._crit_edge.i.i ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit699 ], [ %.02659, %4040 ], [ %.02659, %4048 ]
+  %.12660 = phi i32 [ %3811, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1128 ], [ %.02659, %._crit_edge.i.i ], [ %.02659, %4040 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit699 ], [ %.02659, %4048 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.sroa.0.0.copyload.i.fr.i, ptr %14, align 8
   store i32 %.sroa.92506.0.copyload2508, ptr %.sroa.92506.0..sroa_idx, align 8
@@ -104751,7 +104751,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i1258: ;
   br i1 %5471, label %.lr.ph.i.split.i806, label %.loopexit.i791, !llvm.loop !967
 
 .loopexit.i791:                                   ; preds = %5468, %5460, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit789, %._crit_edge.i.i790, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1287
-  %.1 = phi i32 [ %5231, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1287 ], [ %.0, %._crit_edge.i.i790 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit789 ], [ %.0, %5460 ], [ %.0, %5468 ]
+  %.1 = phi i32 [ %5231, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1287 ], [ %.0, %._crit_edge.i.i790 ], [ %.0, %5460 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit789 ], [ %.0, %5468 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.sroa.0.0.copyload.i.fr.i801, ptr %11, align 8
   store i32 %.sroa.9.0.copyload2470, ptr %.sroa.9.0..sroa_idx, align 8
@@ -129195,7 +129195,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i: ; pre
   br i1 %1714, label %.lr.ph.i.split.i, label %.loopexit.i, !llvm.loop !967
 
 .loopexit.i:                                      ; preds = %1711, %1703, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit256, %._crit_edge.i.i, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit355
-  %.1 = phi i32 [ %1474, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit355 ], [ %.0, %._crit_edge.i.i ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit256 ], [ %.0, %1703 ], [ %.0, %1711 ]
+  %.1 = phi i32 [ %1474, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit355 ], [ %.0, %._crit_edge.i.i ], [ %.0, %1703 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit256 ], [ %.0, %1711 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.sroa.0.0.copyload.i.fr.i, ptr %7, align 8
   store i32 %.sroa.9.0.copyload620, ptr %.sroa.9.0..sroa_idx, align 8
@@ -142944,7 +142944,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i: ; pre
   br i1 %3288, label %.lr.ph.i.split.i, label %.loopexit.i, !llvm.loop !967
 
 .loopexit.i:                                      ; preds = %3285, %3277, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1478, %._crit_edge.i.i1479, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1579
-  %.1 = phi i32 [ %3048, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1579 ], [ %.0, %._crit_edge.i.i1479 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1478 ], [ %.0, %3277 ], [ %.0, %3285 ]
+  %.1 = phi i32 [ %3048, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1579 ], [ %.0, %._crit_edge.i.i1479 ], [ %.0, %3277 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1478 ], [ %.0, %3285 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.sroa.0.0.copyload.i.fr.i, ptr %7, align 8
   store i32 %.sroa.9.0.copyload1844, ptr %.sroa.9.0..sroa_idx, align 8

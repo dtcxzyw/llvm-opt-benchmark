@@ -475,7 +475,7 @@ av_cmp_q.exit.thread12.loopexit28.split.loop.exit30: ; preds = %20
   br label %av_cmp_q.exit.thread12
 
 av_cmp_q.exit.thread12:                           ; preds = %av_cmp_q.exit.thread, %av_cmp_q.exit.thread.us, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35
-  %.us-phi = phi i32 [ %25, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35 ], [ %26, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit ], [ %27, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30 ], [ 15, %av_cmp_q.exit.thread.us ], [ 15, %av_cmp_q.exit.thread ]
+  %.us-phi = phi i32 [ 15, %av_cmp_q.exit.thread.us ], [ %25, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35 ], [ %26, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit ], [ %27, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30 ], [ 15, %av_cmp_q.exit.thread ]
   ret i32 %.us-phi
 }
 
@@ -3167,7 +3167,7 @@ av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i: ; preds = %975
   br label %ff_h263_aspect_to_info.exit
 
 ff_h263_aspect_to_info.exit:                      ; preds = %av_cmp_q.exit.thread.i, %av_cmp_q.exit.thread.us.i, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i
-  %.us-phi.i = phi i32 [ %980, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i ], [ %981, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i ], [ %982, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i ], [ 15, %av_cmp_q.exit.thread.us.i ], [ 15, %av_cmp_q.exit.thread.i ]
+  %.us-phi.i = phi i32 [ 15, %av_cmp_q.exit.thread.us.i ], [ %980, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i ], [ %981, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i ], [ %982, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i ], [ 15, %av_cmp_q.exit.thread.i ]
   %983 = icmp sgt i32 %952, 4
   br i1 %983, label %984, label %987
 

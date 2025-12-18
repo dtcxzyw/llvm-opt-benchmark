@@ -2824,7 +2824,7 @@ _ZN6icu_7712_GLOBAL__N_115_isKeywordValueEPKcS2_i.exit.thread: ; preds = %.noexc
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %123, %34, %.critedge, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEE12adoptInsteadEPS1_.exit
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %.critedge ], [ %17, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEE12adoptInsteadEPS1_.exit ], [ %.sroa.0.0, %34 ], [ %.sroa.0.0, %123 ]
+  %.sroa.0.1 = phi ptr [ %17, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEE12adoptInsteadEPS1_.exit ], [ %.sroa.0.0, %.critedge ], [ %.sroa.0.0, %34 ], [ %.sroa.0.0, %123 ]
   %126 = icmp eq ptr %.sroa.0.1, null
   br i1 %126, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit, label %127
 

@@ -3750,7 +3750,7 @@ zero_for.exit.fold.split.i:                       ; preds = %RB_FLOAT_TYPE_P.exi
   br label %zero_for.exit.i
 
 zero_for.exit.i:                                  ; preds = %zero_for.exit.fold.split.i, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i115.i, %467, %465, %RB_FLOAT_TYPE_P.exit.thread.i112.i, %rb_integer_type_p.exit.thread.i107.i, %443, %441, %RB_FLOAT_TYPE_P.exit.i102.i, %433, %430, %420
-  %.039.i = phi i64 [ 0, %420 ], [ 1, %433 ], [ %.041.i, %443 ], [ %442, %441 ], [ -9223372036854775806, %430 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i102.i ], [ %455, %rb_integer_type_p.exit.thread.i107.i ], [ %464, %RB_FLOAT_TYPE_P.exit.thread.i112.i ], [ %466, %465 ], [ %468, %467 ], [ %469, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i115.i ], [ 1, %zero_for.exit.fold.split.i ]
+  %.039.i = phi i64 [ 0, %420 ], [ 1, %433 ], [ %.041.i, %443 ], [ %469, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i115.i ], [ %442, %441 ], [ -9223372036854775806, %430 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i102.i ], [ %455, %rb_integer_type_p.exit.thread.i107.i ], [ %464, %RB_FLOAT_TYPE_P.exit.thread.i112.i ], [ %466, %465 ], [ %468, %467 ], [ 1, %zero_for.exit.fold.split.i ]
   %470 = getelementptr i8, ptr %428, i64 4
   %471 = load i32, ptr %470, align 4, !tbaa !13
   switch i32 %471, label %zero_for.exit121.i [
@@ -3851,7 +3851,7 @@ zero_for.exit121.fold.split.i:                    ; preds = %RB_FLOAT_TYPE_P.exi
   br label %zero_for.exit121.i
 
 zero_for.exit121.i:                               ; preds = %zero_for.exit121.fold.split.i, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i131.i, %509, %507, %RB_FLOAT_TYPE_P.exit.thread.i128.i, %rb_integer_type_p.exit.thread.i123.i, %485, %483, %RB_FLOAT_TYPE_P.exit.i117.i, %475, %472, %zero_for.exit.i
-  %.0.i132 = phi i64 [ 0, %zero_for.exit.i ], [ 1, %475 ], [ %.041.i, %485 ], [ %484, %483 ], [ -9223372036854775806, %472 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i117.i ], [ %497, %rb_integer_type_p.exit.thread.i123.i ], [ %506, %RB_FLOAT_TYPE_P.exit.thread.i128.i ], [ %508, %507 ], [ %510, %509 ], [ %511, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i131.i ], [ 1, %zero_for.exit121.fold.split.i ]
+  %.0.i132 = phi i64 [ 0, %zero_for.exit.i ], [ 1, %475 ], [ %.041.i, %485 ], [ %511, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i131.i ], [ %484, %483 ], [ -9223372036854775806, %472 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i117.i ], [ %497, %rb_integer_type_p.exit.thread.i123.i ], [ %506, %RB_FLOAT_TYPE_P.exit.thread.i128.i ], [ %508, %507 ], [ %510, %509 ], [ 1, %zero_for.exit121.fold.split.i ]
   %512 = icmp eq i64 %0, 0
   %513 = and i64 %0, 7
   %514 = icmp ne i64 %513, 0
@@ -4361,7 +4361,7 @@ f_mul.exit.fold.split:                            ; preds = %725
   br label %f_mul.exit
 
 f_mul.exit:                                       ; preds = %725, %f_mul.exit.fold.split, %726, %rb_integer_type_p.exit.thread39.i, %731
-  %.0.i177 = phi i64 [ %732, %731 ], [ %.191207, %725 ], [ 5, %rb_integer_type_p.exit.thread39.i ], [ %727, %726 ], [ 5, %f_mul.exit.fold.split ]
+  %.0.i177 = phi i64 [ %732, %731 ], [ %.191207, %725 ], [ %727, %726 ], [ 5, %rb_integer_type_p.exit.thread39.i ], [ 5, %f_mul.exit.fold.split ]
   %733 = tail call fastcc i64 @f_mul(i64 noundef %.0.i177, i64 noundef %.193206)
   %734 = and i64 %.289208, 2
   %735 = icmp eq i64 %734, 0
@@ -11468,7 +11468,7 @@ read_comp.exit.thread:                            ; preds = %isimagunit.exit74.t
   store i64 %91, ptr %2, align 8, !tbaa !11
   br label %111
 
-read_comp.exit.thread17:                          ; preds = %87, %isimagunit.exit75.thread.i, %isimagunit.exit71.thread.i, %isimagunit.exit.thread.i
+read_comp.exit.thread17:                          ; preds = %isimagunit.exit.thread.i, %87, %isimagunit.exit75.thread.i, %isimagunit.exit71.thread.i
   %.promoted.i724 = phi ptr [ %51, %isimagunit.exit71.thread.i ], [ %84, %isimagunit.exit75.thread.i ], [ %49, %87 ], [ %41, %isimagunit.exit.thread.i ]
   %.sink.i.ph16 = phi i64 [ %53, %isimagunit.exit71.thread.i ], [ %86, %isimagunit.exit75.thread.i ], [ %89, %87 ], [ %43, %isimagunit.exit.thread.i ]
   store i64 %.sink.i.ph16, ptr %2, align 8, !tbaa !11
@@ -11912,8 +11912,8 @@ read_den.exit.sink.split:                         ; preds = %read_den.exit.sink.
   store ptr %134, ptr %2, align 8, !tbaa !54
   br label %read_den.exit
 
-read_den.exit:                                    ; preds = %.preheader.i.i32, %read_den.exit.sink.split, %17, %6, %.loopexit19.i.i33, %read_num.exit
-  %.0 = phi i32 [ 1, %read_num.exit ], [ 1, %.loopexit19.i.i33 ], [ 0, %6 ], [ 0, %17 ], [ 0, %read_den.exit.sink.split ], [ 1, %.preheader.i.i32 ]
+read_den.exit:                                    ; preds = %.preheader.i.i32, %read_den.exit.sink.split, %6, %17, %.loopexit19.i.i33, %read_num.exit
+  %.0 = phi i32 [ 0, %read_den.exit.sink.split ], [ 0, %6 ], [ 1, %read_num.exit ], [ 1, %.loopexit19.i.i33 ], [ 0, %17 ], [ 1, %.preheader.i.i32 ]
   ret i32 %.0
 }
 

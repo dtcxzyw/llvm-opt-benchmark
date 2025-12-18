@@ -927,7 +927,7 @@ cid_parse_dict.exit.i:                            ; preds = %260
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %173, %170, %121, %cid_load_keyword.exit.i.i, %345, %340, %335, %._crit_edge.i, %317, %313, %305, %300, %295, %260, %cid_load_keyword.exit.thread.i.i, %cid_parser_new.exit.thread98.i, %cid_parser_new.exit.thread159.i, %102, %99, %96, %.thread192.i.i, %45, %32
-  %.sink168.i = phi i32 [ 3, %cid_parser_new.exit.thread159.i ], [ 3, %317 ], [ 3, %313 ], [ %.8.i.ph.i, %cid_parser_new.exit.thread98.i ], [ %350, %._crit_edge.i ], [ 3, %305 ], [ 3, %300 ], [ 3, %295 ], [ %98, %96 ], [ 2, %45 ], [ %.4.ph.ph.i.i, %.thread192.i.i ], [ 3, %102 ], [ 2, %32 ], [ %101, %99 ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %260 ], [ 3, %345 ], [ %.031.i.i.i, %cid_load_keyword.exit.i.i ], [ 3, %335 ], [ 3, %340 ], [ 2, %170 ], [ 3, %173 ], [ %122, %121 ]
+  %.sink168.i = phi i32 [ 3, %cid_parser_new.exit.thread159.i ], [ 3, %313 ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %260 ], [ 3, %317 ], [ 3, %345 ], [ %.8.i.ph.i, %cid_parser_new.exit.thread98.i ], [ %.031.i.i.i, %cid_load_keyword.exit.i.i ], [ %350, %._crit_edge.i ], [ 3, %305 ], [ 3, %300 ], [ 3, %295 ], [ %98, %96 ], [ 2, %45 ], [ %.4.ph.ph.i.i, %.thread192.i.i ], [ 3, %102 ], [ 2, %32 ], [ %101, %99 ], [ 3, %335 ], [ 3, %340 ], [ 2, %170 ], [ 3, %173 ], [ %122, %121 ]
   store i32 %.sink168.i, ptr %10, align 4, !tbaa !19
   br label %.thread.i
 
@@ -2192,8 +2192,8 @@ define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i6
   br i1 %or.cond, label %.lr.ph.split.us.preheader, label %.thread, !llvm.loop !260
 
 .thread:                                          ; preds = %44, %32, %10, %14, %7, %4
-  %.060 = phi ptr [ %0, %4 ], [ %0, %7 ], [ %.161.ph68, %32 ], [ %.161.ph68, %14 ], [ %.161.ph68, %10 ], [ %.3, %44 ]
-  %.053 = phi i32 [ %6, %4 ], [ 0, %7 ], [ 160, %32 ], [ 160, %10 ], [ %17, %14 ], [ 0, %44 ]
+  %.060 = phi ptr [ %0, %4 ], [ %.161.ph68, %32 ], [ %0, %7 ], [ %.161.ph68, %14 ], [ %.161.ph68, %10 ], [ %.3, %44 ]
+  %.053 = phi i32 [ %6, %4 ], [ 160, %32 ], [ 0, %7 ], [ 160, %10 ], [ %17, %14 ], [ 0, %44 ]
   %48 = ptrtoint ptr %.060 to i64
   %49 = ptrtoint ptr %0 to i64
   %50 = sub i64 %48, %49
@@ -2468,8 +2468,8 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   ret i32 %122
 
 .thread155.sink.split:                            ; preds = %._crit_edge, %32, %.lr.ph
-  %.sink = phi i32 [ 3, %.lr.ph ], [ 160, %32 ], [ 3, %._crit_edge ]
-  %.1123159.ph = phi ptr [ %.2124, %.lr.ph ], [ %.0122188, %32 ], [ %.2124, %._crit_edge ]
+  %.sink = phi i32 [ 3, %.lr.ph ], [ 3, %._crit_edge ], [ 160, %32 ]
+  %.1123159.ph = phi ptr [ %.2124, %.lr.ph ], [ %.2124, %._crit_edge ], [ %.0122188, %32 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !19
   br label %.thread155
 

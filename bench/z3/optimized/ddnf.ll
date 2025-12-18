@@ -1508,14 +1508,14 @@ _ZNK7datalog8ddnf_mgr7displayERSo.exit40.thread:  ; preds = %.noexc44, %192
   br i1 %exitcond.not, label %.loopexit83, label %55, !llvm.loop !72
 
 .loopexit83:                                      ; preds = %_ZNK7datalog8ddnf_mgr7displayERSo.exit40.thread, %48, %_ZNK7datalog9ddnf_node12num_childrenEv.exit, %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE4backEv.exit
-  %205 = phi ptr [ %36, %_ZNK7datalog9ddnf_node12num_childrenEv.exit ], [ %36, %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE4backEv.exit ], [ %36, %48 ], [ %200, %_ZNK7datalog8ddnf_mgr7displayERSo.exit40.thread ]
+  %205 = phi ptr [ %36, %48 ], [ %36, %_ZNK7datalog9ddnf_node12num_childrenEv.exit ], [ %36, %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE4backEv.exit ], [ %200, %_ZNK7datalog8ddnf_mgr7displayERSo.exit40.thread ]
   %206 = getelementptr inbounds i8, ptr %205, i64 -4
   %207 = load i32, ptr %206, align 4, !tbaa !57
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %.thread, label %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE4backEv.exit
 
 .thread:                                          ; preds = %.loopexit83, %_ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE4sizeEv.exit.i35, %.noexc39, %_ZNK6vectorIPN7datalog9ddnf_nodeELb0EjE5emptyEv.exit.lr.ph, %_ZNK7datalog8ddnf_mgr7displayERSo.exit, %144
-  %209 = phi i1 [ false, %144 ], [ false, %_ZNK7datalog8ddnf_mgr7displayERSo.exit ], [ true, %_ZNK6vectorIPN7datalog9ddnf_nodeELb0EjE5emptyEv.exit.lr.ph ], [ false, %_ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE4sizeEv.exit.i35 ], [ false, %.noexc39 ], [ true, %.loopexit83 ]
+  %209 = phi i1 [ true, %_ZNK6vectorIPN7datalog9ddnf_nodeELb0EjE5emptyEv.exit.lr.ph ], [ false, %144 ], [ false, %_ZNK7datalog8ddnf_mgr7displayERSo.exit ], [ false, %_ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE4sizeEv.exit.i35 ], [ false, %.noexc39 ], [ true, %.loopexit83 ]
   %.pr = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjED2Ev.exit, label %210
@@ -10138,7 +10138,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   br i1 %.not27.old.i.i.i, label %_ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %164, %161
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %164 ], [ %163, %161 ]
+  %.137.i.i.i.be = phi ptr [ %163, %161 ], [ %.old.i.i.i, %164 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !534
 
 _ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit: ; preds = %145, %156
@@ -10933,7 +10933,7 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp12compile_exprEP4exprR7obj_
   br i1 %.not27.old.i.i.i, label %.loopexit98, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %50, %47
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %50 ], [ %49, %47 ]
+  %.137.i.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i.i, %50 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !547
 
 .loopexit:                                        ; preds = %31, %42
@@ -12411,7 +12411,7 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp11compile_varEP3varR7obj_re
   br i1 %.not27.old.i.i.i, label %.loopexit13, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !547
 
 .loopexit:                                        ; preds = %19, %30
@@ -12700,7 +12700,7 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp10compile_eqEP4exprR7obj_re
   br i1 %.not27.old.i.i.i, label %.loopexit71, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %44, %41
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !559
 
 _ZNK7obj_mapI4exprP3tbvE4findEPS0_RS2_.exit:      ; preds = %25, %36

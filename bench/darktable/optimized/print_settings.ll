@@ -7203,7 +7203,7 @@ define internal range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(n
   br i1 %56, label %.lr.ph, label %._crit_edge.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge59, %.preheader46, %.preheader44, %29
-  %.042 = phi i32 [ 1, %29 ], [ 0, %.preheader44 ], [ 0, %.preheader46 ], [ 0, %._crit_edge59 ], [ 0, %._crit_edge ]
+  %.042 = phi i32 [ 1, %29 ], [ 0, %.preheader44 ], [ 0, %._crit_edge59 ], [ 0, %.preheader46 ], [ 0, %._crit_edge ]
   ret i32 %.042
 }
 

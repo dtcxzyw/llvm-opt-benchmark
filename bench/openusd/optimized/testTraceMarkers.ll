@@ -3061,8 +3061,8 @@ define internal fastcc void @_ZL15GetTimeOfMarkerRKNSt7__cxx1112basic_stringIcSt
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, !llvm.loop !9
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit: ; preds = %.lr.ph.i.i.i.i, %42, %13, %12, %..loopexit_crit_edge21.i.i.i.i, %31, %19
-  %.pre-phi = phi i64 [ %21, %19 ], [ %21, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %31 ], [ %11, %13 ], [ %11, %12 ], [ %21, %42 ], [ %21, %.lr.ph.i.i.i.i ]
-  %.sroa.06.1.i.i = phi ptr [ null, %19 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %32, %31 ], [ %.sroa.06.0.i.i, %13 ], [ null, %12 ], [ null, %.lr.ph.i.i.i.i ], [ %50, %42 ]
+  %.pre-phi = phi i64 [ %11, %13 ], [ %21, %19 ], [ %21, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %31 ], [ %11, %12 ], [ %21, %42 ], [ %21, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %13 ], [ null, %19 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %32, %31 ], [ null, %12 ], [ null, %.lr.ph.i.i.i.i ], [ %50, %42 ]
   %55 = and i64 %.pre-phi, 7
   %.not.i.i4 = icmp eq i64 %55, 0
   br i1 %.not.i.i4, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %56

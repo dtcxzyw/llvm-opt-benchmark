@@ -804,10 +804,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread130
 
-.thread130:                                       ; preds = %186, %192, %182, %175, %196
-  %.1139 = phi i32 [ -1, %196 ], [ 0, %186 ], [ -1, %192 ], [ -1, %182 ], [ -1, %175 ]
-  %.099137 = phi i64 [ %121, %196 ], [ %.1100, %186 ], [ %.1100, %192 ], [ %.1100, %182 ], [ %.1100, %175 ]
-  %.0103136 = phi ptr [ %142, %196 ], [ %.1104, %186 ], [ %.1104, %192 ], [ %.1104, %182 ], [ %.1104, %175 ]
+.thread130:                                       ; preds = %175, %182, %192, %186, %196
+  %.1139 = phi i32 [ -1, %196 ], [ -1, %175 ], [ -1, %182 ], [ -1, %192 ], [ 0, %186 ]
+  %.099137 = phi i64 [ %121, %196 ], [ %.1100, %175 ], [ %.1100, %182 ], [ %.1100, %192 ], [ %.1100, %186 ]
+  %.0103136 = phi ptr [ %142, %196 ], [ %.1104, %175 ], [ %.1104, %182 ], [ %.1104, %192 ], [ %.1104, %186 ]
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %201 = load ptr, ptr %200, align 8, !tbaa !54
   %202 = call i32 @H5AC_unprotect(ptr noundef %201, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %.099137, ptr noundef nonnull %.0103136, i32 noundef %.196) #5

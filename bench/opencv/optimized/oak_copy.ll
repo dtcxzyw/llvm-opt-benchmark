@@ -1730,7 +1730,7 @@ _ZN2cv11GCompileArgD2Ev.exit:                     ; preds = %_ZNSt14_Function_ba
   br i1 %64, label %.body.thread, label %61
 
 .body.thread:                                     ; preds = %61, %_ZNSt14_Function_baseD2Ev.exit.i, %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn = phi { ptr, i32 } [ %13, %_ZNSt14_Function_baseD2Ev.exit.i ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %60, %.body ], [ %eh.lpad-body1732, %61 ]
+  %.pn = phi { ptr, i32 } [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %13, %_ZNSt14_Function_baseD2Ev.exit.i ], [ %60, %.body ], [ %eh.lpad-body1732, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }

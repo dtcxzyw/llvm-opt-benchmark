@@ -2575,7 +2575,7 @@ checkcontrol.exit:                                ; preds = %4, %3
   tail call void @warnfcont(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %checkcontrol.exit.thread
 
-checkcontrol.exit.thread:                         ; preds = %.tail.thread.sink.split.i, %sub_1.i, %sub_0.i, %.tail.i, %checkcontrol.exit
+checkcontrol.exit.thread:                         ; preds = %.tail.thread.sink.split.i, %sub_0.i, %sub_1.i, %.tail.i, %checkcontrol.exit
   ret void
 }
 

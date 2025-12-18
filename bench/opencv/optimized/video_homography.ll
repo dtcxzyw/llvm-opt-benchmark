@@ -1211,7 +1211,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit48.i.thread: ; preds = %_ZNSt12_Vec
   br label %.body116
 
 .loopexit.split-lp73.i.loopexit.split-lp:         ; preds = %380, %395
-  %.sroa.060.0.ph.i.ph = phi ptr [ null, %380 ], [ %.sroa.060.3.i, %395 ]
+  %.sroa.060.0.ph.i.ph = phi ptr [ %.sroa.060.3.i, %395 ], [ null, %380 ]
   %lpad.loopexit.split-lp248 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit48.i

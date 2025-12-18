@@ -1519,7 +1519,7 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   br label %115
 
 115:                                              ; preds = %109, %.fold.split, %112, %114, %113
-  %.0130 = phi ptr [ @.str.37, %112 ], [ @.str.38, %113 ], [ @.str.39, %114 ], [ @.str.36, %109 ], [ @.str.35, %.fold.split ]
+  %.0130 = phi ptr [ @.str.36, %109 ], [ @.str.37, %112 ], [ @.str.38, %113 ], [ @.str.39, %114 ], [ @.str.35, %.fold.split ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0130) #12
   br label %116
 

@@ -1185,10 +1185,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_huff(ptr noundef re
   br label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %26, %29
-  %.sroa.134.0 = phi i32 [ %30, %29 ], [ 0, %26 ]
-  %.sroa.94.7 = phi i32 [ 64, %29 ], [ 0, %26 ]
-  %.sroa.65.7 = phi ptr [ %33, %29 ], [ %21, %26 ]
-  %.sroa.0.6 = phi i64 [ %32, %29 ], [ 0, %26 ]
+  %.sroa.134.0 = phi i32 [ 0, %26 ], [ %30, %29 ]
+  %.sroa.94.7 = phi i32 [ 0, %26 ], [ 64, %29 ]
+  %.sroa.65.7 = phi ptr [ %21, %26 ], [ %33, %29 ]
+  %.sroa.0.6 = phi i64 [ 0, %26 ], [ %32, %29 ]
   %34 = zext nneg i32 %3 to i64
   %35 = getelementptr inbounds nuw %struct.ImageInfo, ptr @img_info, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
@@ -1710,7 +1710,7 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_init8_be.exit.thread
 
 bits_init8_be.exit.thread:                        ; preds = %bits_skip_be.exit108, %.lr.ph222, %206, %bits_read_vlc_be.exit, %4, %.thread186
-  %.049 = phi i32 [ 0, %.thread186 ], [ -1094995529, %4 ], [ -1094995529, %.lr.ph222 ], [ -1094995529, %206 ], [ -1094995529, %bits_read_vlc_be.exit ], [ -1094995529, %bits_skip_be.exit108 ]
+  %.049 = phi i32 [ 0, %.thread186 ], [ -1094995529, %.lr.ph222 ], [ -1094995529, %4 ], [ -1094995529, %206 ], [ -1094995529, %bits_read_vlc_be.exit ], [ -1094995529, %bits_skip_be.exit108 ]
   ret i32 %.049
 }
 

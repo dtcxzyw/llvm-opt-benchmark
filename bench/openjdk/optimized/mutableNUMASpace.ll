@@ -2300,7 +2300,7 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
   br i1 %61, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %42, %2
-  %.0.lcssa = phi ptr [ %1, %2 ], [ %43, %42 ], [ %.038, %.outer ]
+  %.0.lcssa = phi ptr [ %43, %42 ], [ %1, %2 ], [ %.038, %.outer ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr %.0.lcssa, ptr %62, align 8
   ret void

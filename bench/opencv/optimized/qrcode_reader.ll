@@ -5806,9 +5806,9 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit641: ; preds = %_ZNSt6ve
   %spec.select1023 = select i1 %cond3, i32 0, i32 %2043
   br label %.loopexit2634
 
-.loopexit2634:                                    ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433, %1175, %2068, %.preheader1061
-  %.10147.ph = phi i32 [ 0, %.preheader1061 ], [ %spec.select1023, %2068 ], [ 0, %1175 ], [ %.7144, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433 ]
-  %.14.ph = phi i1 [ %.11, %.preheader1061 ], [ %.19992, %2068 ], [ %.2326092614, %1175 ], [ %.11, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433 ]
+.loopexit2634:                                    ; preds = %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433, %1175, %.preheader1061, %2068
+  %.10147.ph = phi i32 [ 0, %1175 ], [ 0, %.preheader1061 ], [ %spec.select1023, %2068 ], [ %.7144, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433 ]
+  %.14.ph = phi i1 [ %.2326092614, %1175 ], [ %.11, %.preheader1061 ], [ %.19992, %2068 ], [ %.11, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit433 ]
   call void @_ZdlPv(ptr noundef %295) #21
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 

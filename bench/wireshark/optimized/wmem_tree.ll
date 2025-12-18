@@ -407,7 +407,7 @@ define internal fastcc void @rb_insert_case1(ptr noundef captures(none) %0, ptr 
   br label %node_uncle.exit.i
 
 node_uncle.exit.i:                                ; preds = %17, %13
-  %.0.i.i = phi ptr [ %19, %17 ], [ %15, %13 ]
+  %.0.i.i = phi ptr [ %15, %13 ], [ %19, %17 ]
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %node_uncle.exit.thread.thread.i, label %20
 
@@ -1248,7 +1248,7 @@ define ptr @wmem_tree_lookup32_ge(ptr noundef readonly captures(address_is_null)
   br i1 %.not41.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %.preheader.i, !llvm.loop !15
 
 wmem_tree_lookup32_ge_node.exit.thread6:          ; preds = %.lr.ph.i, %.preheader.i, %33, %28, %.lr.ph.i.preheader, %35
-  %.030.i8 = phi ptr [ %34, %35 ], [ %.047.i17, %33 ], [ %.047.i17, %28 ], [ %5, %.lr.ph.i.preheader ], [ %.250.i, %.preheader.i ], [ %.1.i, %.lr.ph.i ]
+  %.030.i8 = phi ptr [ %34, %35 ], [ %.047.i17, %28 ], [ %.047.i17, %33 ], [ %.250.i, %.preheader.i ], [ %5, %.lr.ph.i.preheader ], [ %.1.i, %.lr.ph.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.030.i8, i64 32
   %47 = load ptr, ptr %46, align 8
   br label %wmem_tree_lookup32_ge_node.exit.thread
@@ -1344,7 +1344,7 @@ define ptr @wmem_tree_lookup32_ge_full(ptr noundef readonly captures(address_is_
   br i1 %.not41.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %.preheader.i, !llvm.loop !15
 
 wmem_tree_lookup32_ge_node.exit.thread8:          ; preds = %.lr.ph.i, %.preheader.i, %34, %29, %.lr.ph.i.preheader, %36
-  %.030.i10 = phi ptr [ %35, %36 ], [ %.047.i19, %34 ], [ %.047.i19, %29 ], [ %6, %.lr.ph.i.preheader ], [ %.250.i, %.preheader.i ], [ %.1.i, %.lr.ph.i ]
+  %.030.i10 = phi ptr [ %35, %36 ], [ %.047.i19, %29 ], [ %.047.i19, %34 ], [ %.250.i, %.preheader.i ], [ %6, %.lr.ph.i.preheader ], [ %.1.i, %.lr.ph.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.030.i10, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
@@ -2290,7 +2290,7 @@ wmem_tree_lookup.exit.sink.split:                 ; preds = %.lr.ph.i, %.lr.ph.i
   br label %wmem_tree_lookup.exit
 
 wmem_tree_lookup.exit:                            ; preds = %12, %19, %wmem_tree_lookup.exit.sink.split, %14, %.split, %7, %.split4
-  %phi.call = phi ptr [ null, %.split4 ], [ null, %7 ], [ null, %.split ], [ null, %14 ], [ %22, %wmem_tree_lookup.exit.sink.split ], [ null, %19 ], [ null, %12 ]
+  %phi.call = phi ptr [ %22, %wmem_tree_lookup.exit.sink.split ], [ null, %.split4 ], [ null, %14 ], [ null, %7 ], [ null, %.split ], [ null, %19 ], [ null, %12 ]
   ret ptr %phi.call
 }
 
@@ -2364,8 +2364,8 @@ wmem_tree_lookup_string.exit:                     ; preds = %.lr.ph.i.i, %.lr.ph
   tail call void @wmem_tree_insert_string(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %2)
   br label %wmem_tree_lookup_string.exit.thread
 
-wmem_tree_lookup_string.exit.thread:              ; preds = %12, %19, %14, %.split.i, %7, %.split4.i, %23, %wmem_tree_lookup_string.exit
-  %phi.call.i9 = phi ptr [ null, %wmem_tree_lookup_string.exit ], [ %22, %23 ], [ null, %.split4.i ], [ null, %7 ], [ null, %.split.i ], [ null, %14 ], [ null, %19 ], [ null, %12 ]
+wmem_tree_lookup_string.exit.thread:              ; preds = %12, %19, %.split.i, %7, %14, %.split4.i, %23, %wmem_tree_lookup_string.exit
+  %phi.call.i9 = phi ptr [ null, %wmem_tree_lookup_string.exit ], [ %22, %23 ], [ null, %19 ], [ null, %.split4.i ], [ null, %14 ], [ null, %7 ], [ null, %.split.i ], [ null, %12 ]
   ret ptr %phi.call.i9
 }
 
@@ -2657,7 +2657,7 @@ wmem_tree_lookup32_node.exit.i:                   ; preds = %.lr.ph.i.i
   br label %wmem_tree_lookup32_array_helper.exit
 
 wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_lookup32.exit12, %.sink.split.i.i9, %41, %.preheader30.i, %wmem_tree_lookup32_node.exit.i, %._crit_edge43.i, %2
-  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ %43, %wmem_tree_lookup32_node.exit.i ], [ null, %._crit_edge43.i ], [ null, %.sink.split.i.i9 ], [ null, %41 ], [ null, %wmem_tree_lookup32.exit12 ], [ null, %9 ]
+  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ null, %41 ], [ %43, %wmem_tree_lookup32_node.exit.i ], [ null, %.sink.split.i.i9 ], [ null, %._crit_edge43.i ], [ null, %wmem_tree_lookup32.exit12 ], [ null, %9 ]
   ret ptr %.024.i
 }
 
@@ -2760,7 +2760,7 @@ define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly captures(address) %
   br i1 %.not41.i.i15, label %wmem_tree_lookup32_array_helper.exit, label %.preheader.i.i13, !llvm.loop !14
 
 wmem_tree_lookup32_le.exit16:                     ; preds = %25, %.lr.ph.i.i8, %.preheader.i.i13, %.lr.ph.i.preheader.i5, %37
-  %.030.i8.i11 = phi ptr [ %35, %37 ], [ %11, %.lr.ph.i.preheader.i5 ], [ %.253.i.i14, %.preheader.i.i13 ], [ %.050.i13.i7, %25 ], [ %.1.i.i9, %.lr.ph.i.i8 ]
+  %.030.i8.i11 = phi ptr [ %35, %37 ], [ %11, %.lr.ph.i.preheader.i5 ], [ %.253.i.i14, %.preheader.i.i13 ], [ %.1.i.i9, %.lr.ph.i.i8 ], [ %.050.i13.i7, %25 ]
   %48 = getelementptr inbounds nuw i8, ptr %.030.i8.i11, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not29.i = icmp eq ptr %49, null
@@ -2852,13 +2852,13 @@ wmem_tree_lookup32_le.exit16:                     ; preds = %25, %.lr.ph.i.i8, %
   br i1 %.not41.i.i, label %wmem_tree_lookup32_array_helper.exit, label %.preheader.i.i, !llvm.loop !14
 
 wmem_tree_lookup32_le_node.exit.thread6.i:        ; preds = %.lr.ph.i.i, %71, %.preheader.i.i, %83, %.lr.ph.i.preheader.i
-  %.030.i8.i = phi ptr [ %81, %83 ], [ %57, %.lr.ph.i.preheader.i ], [ %.253.i.i, %.preheader.i.i ], [ %.050.i13.i, %71 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %.030.i8.i = phi ptr [ %81, %83 ], [ %57, %.lr.ph.i.preheader.i ], [ %.253.i.i, %.preheader.i.i ], [ %.1.i.i, %.lr.ph.i.i ], [ %.050.i13.i, %71 ]
   %94 = getelementptr inbounds nuw i8, ptr %.030.i8.i, i64 32
   %95 = load ptr, ptr %94, align 8
   br label %wmem_tree_lookup32_array_helper.exit
 
 wmem_tree_lookup32_array_helper.exit:             ; preds = %34, %9, %wmem_tree_lookup32_le.exit16, %46, %92, %.preheader30.i, %wmem_tree_lookup32_le_node.exit.thread6.i, %80, %._crit_edge43.i, %2
-  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ %95, %wmem_tree_lookup32_le_node.exit.thread6.i ], [ null, %._crit_edge43.i ], [ null, %80 ], [ null, %46 ], [ null, %92 ], [ null, %wmem_tree_lookup32_le.exit16 ], [ null, %9 ], [ null, %34 ]
+  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ null, %92 ], [ %95, %wmem_tree_lookup32_le_node.exit.thread6.i ], [ null, %._crit_edge43.i ], [ null, %46 ], [ null, %80 ], [ null, %wmem_tree_lookup32_le.exit16 ], [ null, %9 ], [ null, %34 ]
   ret ptr %.024.i
 }
 

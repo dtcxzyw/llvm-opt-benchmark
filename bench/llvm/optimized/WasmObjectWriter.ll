@@ -2760,7 +2760,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapInfoINS_4wasm13
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i11.i, label %_ZN4llvm4wasmeqERKNS0_13WasmSignatureES3_.exit, !llvm.loop !344
 
 _ZN4llvm4wasmeqERKNS0_13WasmSignatureES3_.exit:   ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i11.i, %2, %8, %.loopexit.i, %29
-  %40 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %.loopexit.i ], [ true, %29 ], [ %37, %.lr.ph.i.i.i.i.i11.i ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %40 = phi i1 [ %37, %.lr.ph.i.i.i.i.i11.i ], [ false, %2 ], [ false, %8 ], [ false, %.loopexit.i ], [ true, %29 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %40
 }
 
@@ -6178,7 +6178,7 @@ _ZNSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE17_M_realloc_insertIJRN4
   br label %_ZL19isSectionReferencedRN4llvm11MCAssemblerERNS_13MCSectionWasmE.exit
 
 _ZL19isSectionReferencedRN4llvm11MCAssemblerERNS_13MCSectionWasmE.exit: ; preds = %.critedge.i, %631, %_ZNKSt14default_deleteIN12_GLOBAL__N_117WasmCustomSectionEEclEPS1_.exit.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNKSt14default_deleteIN12_GLOBAL__N_117WasmCustomSectionEEclEPS1_.exit.i.i.i.i407, %_ZN4llvmeqENS_9StringRefES0_.exit404.thread, %_ZNSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE17_M_realloc_insertIJRN4llvm9StringRefEPNS5_13MCSectionWasmEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %919, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNSt6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit, %_ZL7addDataRN4llvm15SmallVectorImplIcEERNS_13MCSectionWasmE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1200, %_ZN12_GLOBAL__N_112isDwoSectionERKN4llvm9MCSectionE.exit372, %_ZN12_GLOBAL__N_112isDwoSectionERKN4llvm9MCSectionE.exit
-  %.1 = phi i64 [ %.01421, %_ZN12_GLOBAL__N_112isDwoSectionERKN4llvm9MCSectionE.exit ], [ %.01421, %_ZNKSt14default_deleteIN12_GLOBAL__N_117WasmCustomSectionEEclEPS1_.exit.i.i.i.i ], [ %.01421, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1200 ], [ %.01421, %_ZNSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE17_M_realloc_insertIJRN4llvm9StringRefEPNS5_13MCSectionWasmEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.01421, %_ZN12_GLOBAL__N_112isDwoSectionERKN4llvm9MCSectionE.exit372 ], [ %807, %_ZNSt6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ], [ %807, %_ZL7addDataRN4llvm15SmallVectorImplIcEERNS_13MCSectionWasmE.exit ], [ %.01421, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %.01421, %919 ], [ %.01421, %_ZN4llvmeqENS_9StringRefES0_.exit404.thread ], [ %.01421, %_ZNKSt14default_deleteIN12_GLOBAL__N_117WasmCustomSectionEEclEPS1_.exit.i.i.i.i407 ], [ %.01421, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.01421, %631 ], [ %.01421, %.critedge.i ]
+  %.1 = phi i64 [ %.01421, %_ZN12_GLOBAL__N_112isDwoSectionERKN4llvm9MCSectionE.exit ], [ %.01421, %_ZNKSt14default_deleteIN12_GLOBAL__N_117WasmCustomSectionEEclEPS1_.exit.i.i.i.i ], [ %.01421, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1200 ], [ %.01421, %_ZNSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE17_M_realloc_insertIJRN4llvm9StringRefEPNS5_13MCSectionWasmEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.01421, %_ZN12_GLOBAL__N_112isDwoSectionERKN4llvm9MCSectionE.exit372 ], [ %.01421, %631 ], [ %807, %_ZNSt6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ], [ %807, %_ZL7addDataRN4llvm15SmallVectorImplIcEERNS_13MCSectionWasmE.exit ], [ %.01421, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %.01421, %919 ], [ %.01421, %_ZN4llvmeqENS_9StringRefES0_.exit404.thread ], [ %.01421, %_ZNKSt14default_deleteIN12_GLOBAL__N_117WasmCustomSectionEEclEPS1_.exit.i.i.i.i407 ], [ %.01421, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.01421, %.critedge.i ]
   %947 = getelementptr inbounds nuw i8, ptr %.sroa.01195.01420, i64 8
   %.not1262 = icmp eq ptr %947, %610
   br i1 %.not1262, label %._crit_edge.loopexit, label %624
@@ -13148,7 +13148,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i: ; preds = %_ZNKSt4les
   br i1 %.not.i19, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i.thread
-  %.01122.i.be = phi ptr [ %.011.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i ], [ %.011.i32, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i.thread ]
+  %.01122.i.be = phi ptr [ %.011.i32, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i.thread ], [ %.011.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i ]
   br label %.lr.ph.i, !llvm.loop !531
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread13.i.thread: ; preds = %.thread.i.i.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i
@@ -15742,7 +15742,7 @@ _ZN4llvm4wasm13WasmSignatureD2Ev.exit14:          ; preds = %_ZN4llvm11SmallVect
   br label %_ZN4llvm12DenseMapInfoINS_4wasm13WasmSignatureEvE7isEqualERKS2_S5_.exit
 
 _ZN4llvm12DenseMapInfoINS_4wasm13WasmSignatureEvE7isEqualERKS2_S5_.exit: ; preds = %69, %101, %92, %60, %.loopexit
-  %119 = phi ptr [ %.pre, %.loopexit ], [ %95, %92 ], [ %63, %60 ], [ %95, %101 ], [ %63, %69 ]
+  %119 = phi ptr [ %95, %101 ], [ %.pre, %.loopexit ], [ %95, %92 ], [ %63, %60 ], [ %63, %69 ]
   %120 = getelementptr inbounds nuw i8, ptr %.040, i64 40
   %121 = icmp eq ptr %119, %120
   br i1 %121, label %_ZN4llvm11SmallVectorINS_4wasm7ValTypeELj4EED2Ev.exit.i33, label %122

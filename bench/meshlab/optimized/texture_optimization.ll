@@ -980,7 +980,7 @@ _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit131:                                     ; preds = %107, %.noexc, %102
-  %.0.i.pn.i.i = phi ptr [ %103, %102 ], [ %118, %.noexc ], [ %109, %107 ]
+  %.0.i.pn.i.i = phi ptr [ %118, %.noexc ], [ %103, %102 ], [ %109, %107 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   %120 = load double, ptr %.0.i.i, align 8
   %121 = fadd double %81, %120
@@ -1043,7 +1043,7 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %.body
 
 .loopexit130:                                     ; preds = %134, %.noexc40, %129
-  %.0.i.pn.i.i38 = phi ptr [ %130, %129 ], [ %145, %.noexc40 ], [ %136, %134 ]
+  %.0.i.pn.i.i38 = phi ptr [ %145, %.noexc40 ], [ %130, %129 ], [ %136, %134 ]
   %.0.i.i39 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i38, i64 16
   store ptr %30, ptr %.0.i.i39, align 8
   br label %147
@@ -1154,7 +1154,7 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %.body
 
 .loopexit:                                        ; preds = %170, %.noexc53, %165
-  %.0.i.pn.i.i51 = phi ptr [ %166, %165 ], [ %181, %.noexc53 ], [ %172, %170 ]
+  %.0.i.pn.i.i51 = phi ptr [ %181, %.noexc53 ], [ %166, %165 ], [ %172, %170 ]
   %.0.i.i52 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i51, i64 16
   %183 = load ptr, ptr %.0.i.i52, align 8
   br label %184

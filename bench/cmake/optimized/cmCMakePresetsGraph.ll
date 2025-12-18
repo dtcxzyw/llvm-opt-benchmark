@@ -852,8 +852,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66: ; preds = %_ZN
 default.unreachable:                              ; preds = %18
   unreachable
 
-_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %99, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i48.i.i.i.i.i.i, %45, %39, %42, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66, %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit61, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %148
-  %.431.ph = phi i32 [ 0, %148 ], [ 2, %45 ], [ 2, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit61 ], [ 1, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %82 ], [ 1, %20 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66 ], [ 2, %42 ], [ 2, %39 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i48.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54.i.i.i.i.i.i ], [ 1, %99 ]
+_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %99, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i48.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54.i.i.i.i.i.i, %45, %39, %42, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66, %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit61, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %148
+  %.431.ph = phi i32 [ 0, %148 ], [ 2, %45 ], [ 2, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit61 ], [ 1, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %82 ], [ 1, %20 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66 ], [ 2, %42 ], [ 2, %39 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i48.i.i.i.i.i.i ], [ 1, %99 ]
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.091.0121, i64 1
   %.not = icmp eq ptr %166, %16
   br i1 %.not, label %._crit_edge, label %18
@@ -6266,7 +6266,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit.sink.split
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit.i.i
 
 _ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit.i.i: ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit149.i.i, %773, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit.sink.split.i.i, %776, %760, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i.i, %490, %487
-  %.0.i100.i = phi i1 [ false, %487 ], [ %.6.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148.i.i ], [ %.4.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i.i ], [ %.2.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i.i ], [ true, %490 ], [ true, %776 ], [ true, %760 ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit.sink.split.i.i ], [ false, %773 ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit149.i.i ]
+  %.0.i100.i = phi i1 [ false, %487 ], [ true, %760 ], [ %.6.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148.i.i ], [ %.4.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i.i ], [ %.2.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i.i ], [ true, %490 ], [ true, %776 ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit.sink.split.i.i ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit149.i.i ], [ false, %773 ]
   %780 = load ptr, ptr %23, align 8, !tbaa !14
   %781 = icmp eq ptr %780, %336
   br i1 %781, label %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_15ConfigurePresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150.i.i
@@ -6303,7 +6303,7 @@ _ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_15ConfigurePresetER
   br label %.body.i
 
 _ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit.thread183.i: ; preds = %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_15ConfigurePresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit99.thread.i, %440, %437, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread177.i
-  %.3.i = phi i1 [ %.0.i100.i, %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_15ConfigurePresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i ], [ %452, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit99.thread.i ], [ true, %440 ], [ true, %437 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread177.i ]
+  %.3.i = phi i1 [ %.0.i100.i, %_ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_15ConfigurePresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i ], [ %452, %_ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit99.thread.i ], [ true, %437 ], [ true, %440 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread177.i ]
   %791 = load ptr, ptr %32, align 8, !tbaa !182
   %792 = load ptr, ptr %332, align 8, !tbaa !184
   %.not4.i.i.i.i.i = icmp eq ptr %791, %792
@@ -6980,7 +6980,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i: ; preds
   br label %1038
 
 _ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_11BuildPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i: ; preds = %.noexc101.i, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i, %.noexc102.i, %.loopexit.sink.split.i.i, %1021, %._crit_edge.i.i, %1007, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.thread.i, %969, %966, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread176.i
-  %.3.i324 = phi i1 [ true, %.loopexit.sink.split.i.i ], [ %981, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.thread.i ], [ true, %1007 ], [ true, %1021 ], [ true, %._crit_edge.i.i ], [ true, %966 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread176.i ], [ true, %969 ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i ], [ false, %.noexc102.i ], [ false, %.noexc101.i ]
+  %.3.i324 = phi i1 [ true, %.loopexit.sink.split.i.i ], [ %981, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit99.thread.i ], [ true, %969 ], [ true, %_ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEE5resetEv.exit26.i.i ], [ true, %1007 ], [ true, %1021 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread176.i ], [ true, %._crit_edge.i.i ], [ true, %966 ], [ false, %.noexc102.i ], [ false, %.noexc101.i ]
   %1025 = load ptr, ptr %13, align 8, !tbaa !182
   %1026 = load ptr, ptr %816, align 8, !tbaa !184
   %.not4.i.i.i.i.i325 = icmp eq ptr %1025, %1026
@@ -7934,7 +7934,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPresetEE5resetEv.exit.i.i: ; preds = 
   br label %1403
 
 _ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_10TestPresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i: ; preds = %.noexc101.i424, %1389, %1388, %1385, %.noexc112.i, %1373, %1370, %.noexc111.i, %1363, %1360, %.noexc110.i, %1353, %1350, %.noexc109.i, %1339, %1336, %.noexc108.i, %1329, %1326, %.noexc107.i, %1314, %1311, %.noexc106.i, %1300, %1297, %.noexc105.i, %1290, %1287, %.noexc104.i, %1271, %1268, %.noexc103.i430, %1261, %1258, %.noexc102.i429, %1246, %1243, %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPresetEE5resetEv.exit99.thread.i, %1205, %1202, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread186.i
-  %.3.i408 = phi i1 [ %1217, %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPresetEE5resetEv.exit99.thread.i ], [ true, %1389 ], [ false, %.noexc111.i ], [ true, %1373 ], [ false, %.noexc110.i ], [ true, %1363 ], [ false, %.noexc109.i ], [ true, %1353 ], [ false, %.noexc108.i ], [ true, %1339 ], [ false, %.noexc107.i ], [ true, %1329 ], [ false, %.noexc106.i ], [ true, %1314 ], [ false, %.noexc105.i ], [ true, %1300 ], [ false, %.noexc104.i ], [ true, %1290 ], [ false, %.noexc103.i430 ], [ true, %1271 ], [ false, %.noexc102.i429 ], [ true, %1261 ], [ false, %.noexc112.i ], [ true, %1246 ], [ true, %1243 ], [ true, %1258 ], [ true, %1268 ], [ true, %1287 ], [ true, %1297 ], [ true, %1311 ], [ true, %1326 ], [ true, %1336 ], [ true, %1350 ], [ true, %1360 ], [ true, %1370 ], [ true, %1385 ], [ true, %1388 ], [ true, %1205 ], [ true, %1202 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread186.i ], [ false, %.noexc101.i424 ]
+  %.3.i408 = phi i1 [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread186.i ], [ %1217, %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPresetEE5resetEv.exit99.thread.i ], [ true, %1389 ], [ false, %.noexc111.i ], [ true, %1373 ], [ false, %.noexc110.i ], [ true, %1363 ], [ false, %.noexc109.i ], [ true, %1353 ], [ false, %.noexc108.i ], [ true, %1339 ], [ false, %.noexc107.i ], [ true, %1329 ], [ false, %.noexc106.i ], [ true, %1314 ], [ false, %.noexc105.i ], [ true, %1300 ], [ false, %.noexc104.i ], [ true, %1290 ], [ false, %.noexc103.i430 ], [ true, %1271 ], [ false, %.noexc102.i429 ], [ true, %1261 ], [ false, %.noexc112.i ], [ true, %1388 ], [ true, %1246 ], [ true, %1243 ], [ true, %1258 ], [ true, %1268 ], [ true, %1287 ], [ true, %1297 ], [ true, %1311 ], [ true, %1326 ], [ true, %1336 ], [ true, %1350 ], [ true, %1360 ], [ true, %1370 ], [ true, %1385 ], [ true, %1202 ], [ true, %1205 ], [ false, %.noexc101.i424 ]
   %1390 = load ptr, ptr %10, align 8, !tbaa !182
   %1391 = load ptr, ptr %1052, align 8, !tbaa !184
   %.not4.i.i.i.i.i409 = icmp eq ptr %1390, %1391
@@ -8699,7 +8699,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph13PackagePresetEE5resetEv.exit.i.i: ; preds
   br label %1677
 
 _ZN12_GLOBAL__N_112ExpandMacrosERK19cmCMakePresetsGraphRKNS0_13PackagePresetERSt8optionalIS3_ERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EE.exit.i: ; preds = %.noexc101.i515, %1663, %1662, %1659, %.noexc106.i524, %1652, %1649, %.noexc105.i523, %1642, %1639, %.noexc104.i522, %1632, %1629, %.noexc103.i521, %1622, %1619, %.noexc102.i520, %1611, %1608, %_ZNSt8optionalIN19cmCMakePresetsGraph13PackagePresetEE5resetEv.exit99.thread.i, %1570, %1567, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread180.i
-  %.3.i497 = phi i1 [ %1582, %_ZNSt8optionalIN19cmCMakePresetsGraph13PackagePresetEE5resetEv.exit99.thread.i ], [ true, %1663 ], [ false, %.noexc105.i523 ], [ true, %1652 ], [ false, %.noexc104.i522 ], [ true, %1642 ], [ false, %.noexc103.i521 ], [ true, %1632 ], [ false, %.noexc102.i520 ], [ true, %1622 ], [ false, %.noexc106.i524 ], [ true, %1611 ], [ true, %1608 ], [ true, %1619 ], [ true, %1629 ], [ true, %1639 ], [ true, %1649 ], [ true, %1659 ], [ true, %1662 ], [ true, %1570 ], [ true, %1567 ], [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread180.i ], [ false, %.noexc101.i515 ]
+  %.3.i497 = phi i1 [ false, %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit.thread180.i ], [ %1582, %_ZNSt8optionalIN19cmCMakePresetsGraph13PackagePresetEE5resetEv.exit99.thread.i ], [ true, %1663 ], [ false, %.noexc105.i523 ], [ true, %1652 ], [ false, %.noexc104.i522 ], [ true, %1642 ], [ false, %.noexc103.i521 ], [ true, %1632 ], [ false, %.noexc102.i520 ], [ true, %1622 ], [ false, %.noexc106.i524 ], [ true, %1662 ], [ true, %1611 ], [ true, %1608 ], [ true, %1619 ], [ true, %1629 ], [ true, %1639 ], [ true, %1649 ], [ true, %1659 ], [ true, %1567 ], [ true, %1570 ], [ false, %.noexc101.i515 ]
   %1664 = load ptr, ptr %7, align 8, !tbaa !182
   %1665 = load ptr, ptr %1417, align 8, !tbaa !184
   %.not4.i.i.i.i.i498 = icmp eq ptr %1664, %1665
@@ -9006,7 +9006,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresets
   br label %.loopexit.i537.invoke, !llvm.loop !262
 
 .loopexit.i537.invoke:                            ; preds = %1946, %1879, %1812, %1752, %.lr.ph.i.i.i.i.i.i607, %1874, %.lr.ph.i.i.i.i.i.i564, %1807, %.lr.ph.i.i.i.i.i.i655, %1941, %.lr.ph.i.i.i.i.i.i, %1747, %..loopexit_crit_edge21.i.i.i.i.i.i659, %..loopexit_crit_edge21.i.i.i.i.i.i611, %..loopexit_crit_edge21.i.i.i.i.i.i568, %..loopexit_crit_edge21.i.i.i.i.i.i
-  %1774 = phi ptr [ %1712, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %1777, %..loopexit_crit_edge21.i.i.i.i.i.i568 ], [ %1844, %..loopexit_crit_edge21.i.i.i.i.i.i611 ], [ %1911, %..loopexit_crit_edge21.i.i.i.i.i.i659 ], [ %1911, %.lr.ph.i.i.i.i.i.i655 ], [ %1777, %1807 ], [ %1777, %.lr.ph.i.i.i.i.i.i564 ], [ %1844, %1874 ], [ %1844, %.lr.ph.i.i.i.i.i.i607 ], [ %1712, %1747 ], [ %1712, %.lr.ph.i.i.i.i.i.i ], [ %1911, %1941 ], [ %1911, %1946 ], [ %1777, %1812 ], [ %1712, %1752 ], [ %1844, %1879 ]
+  %1774 = phi ptr [ %1712, %.lr.ph.i.i.i.i.i.i ], [ %1712, %1747 ], [ %1911, %..loopexit_crit_edge21.i.i.i.i.i.i659 ], [ %1844, %.lr.ph.i.i.i.i.i.i607 ], [ %1844, %1874 ], [ %1712, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %1911, %.lr.ph.i.i.i.i.i.i655 ], [ %1911, %1941 ], [ %1777, %..loopexit_crit_edge21.i.i.i.i.i.i568 ], [ %1777, %.lr.ph.i.i.i.i.i.i564 ], [ %1777, %1807 ], [ %1844, %..loopexit_crit_edge21.i.i.i.i.i.i611 ], [ %1911, %1946 ], [ %1777, %1812 ], [ %1712, %1752 ], [ %1844, %1879 ]
   invoke void @_ZN20cmCMakePresetsErrors35WORKFLOW_STEP_UNREACHABLE_FROM_FILEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(32) %1774, ptr noundef nonnull %1685)
           to label %.critedge161 unwind label %.loopexit
 
@@ -10020,7 +10020,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14
   br i1 %.not838, label %.critedge161, label %1698
 
 .critedge161:                                     ; preds = %2145, %.loopexit.i537.invoke, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread.i.invoke, %.critedge172, %.thread822.thread, %2143, %1715, %1713, %157, %199, %241, %283, %1680, %.loopexit856, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit466.thread, %1406, %.loopexit871, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit377.thread, %1041, %.loopexit887, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread, %806, %325, %113, %.critedge, %110, %61
-  %.0 = phi i1 [ false, %113 ], [ false, %110 ], [ true, %.critedge ], [ false, %61 ], [ false, %325 ], [ false, %157 ], [ false, %1406 ], [ false, %1041 ], [ false, %806 ], [ false, %1680 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %.loopexit887 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit377.thread ], [ false, %.loopexit871 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit466.thread ], [ false, %.loopexit856 ], [ false, %283 ], [ false, %241 ], [ false, %199 ], [ false, %1713 ], [ false, %1715 ], [ false, %2143 ], [ false, %.thread822.thread ], [ true, %.critedge172 ], [ false, %.loopexit.i537.invoke ], [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread.i.invoke ], [ true, %2145 ]
+  %.0 = phi i1 [ false, %113 ], [ false, %110 ], [ true, %.critedge ], [ false, %61 ], [ false, %325 ], [ false, %157 ], [ false, %1406 ], [ false, %1041 ], [ false, %806 ], [ false, %1680 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %.loopexit887 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit377.thread ], [ false, %.loopexit871 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit466.thread ], [ false, %.loopexit856 ], [ false, %283 ], [ false, %241 ], [ false, %199 ], [ false, %.loopexit.i537.invoke ], [ false, %1713 ], [ false, %1715 ], [ false, %2143 ], [ false, %.thread822.thread ], [ true, %.critedge172 ], [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread.i.invoke ], [ true, %2145 ]
   %2147 = load ptr, ptr %48, align 8, !tbaa !377
   %.not.i.i.i719 = icmp eq ptr %2147, null
   br i1 %.not.i.i.i719, label %_ZNSt6vectorIPN19cmCMakePresetsGraph4FileESaIS2_EED2Ev.exit, label %2148
@@ -17482,7 +17482,7 @@ _ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEEaSERKS2_.exit: ; preds = %_Z
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread, %.loopexit, %133, %34, %203, %204, %4, %27, %11
-  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %.loopexit ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %125 ]
+  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_15ConfigurePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %.loopexit ], [ false, %125 ]
   ret i1 %.0
 }
 
@@ -18611,7 +18611,7 @@ _ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEEaSERKS2_.exit: ; preds = %_Z
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_11BuildPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread, %.loopexit, %133, %34, %203, %204, %4, %27, %11
-  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %.loopexit ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_11BuildPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %125 ]
+  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_11BuildPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %.loopexit ], [ false, %125 ]
   ret i1 %.0
 }
 
@@ -19097,7 +19097,7 @@ _ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEEaSERKS2_.exit: ; preds = %_Z
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_10TestPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread, %.loopexit, %133, %34, %203, %204, %4, %27, %11
-  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %.loopexit ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_10TestPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %125 ]
+  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_10TestPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %.loopexit ], [ false, %125 ]
   ret i1 %.0
 }
 
@@ -19583,7 +19583,7 @@ _ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEEaSERKS2_.exit: ; preds = %_Z
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_13PackagePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread, %.loopexit, %133, %34, %203, %204, %4, %27, %11
-  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %.loopexit ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_13PackagePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %125 ]
+  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_13PackagePresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %.loopexit ], [ false, %125 ]
   ret i1 %.0
 }
 
@@ -20069,7 +20069,7 @@ _ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEEaSERKS2_.exit: ; preds = %_Z
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_14WorkflowPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread, %.loopexit, %133, %34, %203, %204, %4, %27, %11
-  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %.loopexit ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_14WorkflowPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %125 ]
+  %.0 = phi i1 [ false, %27 ], [ true, %4 ], [ false, %11 ], [ true, %204 ], [ false, %203 ], [ false, %34 ], [ false, %133 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsGraph10PresetPairINS6_14WorkflowPresetEEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread ], [ false, %.loopexit ], [ false, %125 ]
   ret i1 %.0
 }
 
@@ -22256,7 +22256,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
 _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit: ; preds = %48, %58, %53, %62, %65, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23
-  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ 0, %58 ], [ %56, %53 ], [ 2, %48 ]
+  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ %56, %53 ], [ 0, %58 ], [ 2, %48 ]
   ret i32 %.2
 }
 
@@ -23048,7 +23048,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
 _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit: ; preds = %48, %58, %53, %62, %65, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23
-  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ 0, %58 ], [ %56, %53 ], [ 2, %48 ]
+  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ %56, %53 ], [ 0, %58 ], [ 2, %48 ]
   ret i32 %.2
 }
 
@@ -23840,7 +23840,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
 _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit: ; preds = %48, %58, %53, %62, %65, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23
-  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ 0, %58 ], [ %56, %53 ], [ 2, %48 ]
+  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ %56, %53 ], [ 0, %58 ], [ 2, %48 ]
   ret i32 %.2
 }
 
@@ -25017,7 +25017,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
 _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit: ; preds = %48, %58, %53, %62, %65, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23
-  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ 0, %58 ], [ %56, %53 ], [ 2, %48 ]
+  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ %56, %53 ], [ 0, %58 ], [ 2, %48 ]
   ret i32 %.2
 }
 
@@ -25617,7 +25617,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
 _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit: ; preds = %48, %58, %53, %62, %65, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23
-  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ 0, %58 ], [ %56, %53 ], [ 2, %48 ]
+  %.2 = phi i32 [ 1, %62 ], [ 0, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23 ], [ 2, %65 ], [ %56, %53 ], [ 0, %58 ], [ 2, %48 ]
   ret i32 %.2
 }
 

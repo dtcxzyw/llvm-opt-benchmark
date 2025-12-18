@@ -1119,7 +1119,7 @@ convert_timestamp.exit.i:                         ; preds = %194, %init_convert_
   br label %mmap_read_frame.exit.thread
 
 mmap_read_frame.exit.thread:                      ; preds = %31, %.critedge83.i, %41, %enqueue_buffer.exit.i
-  %.0.i.ph = phi i32 [ %80, %enqueue_buffer.exit.i ], [ -22, %41 ], [ -12, %.critedge83.i ], [ -11, %31 ]
+  %.0.i.ph = phi i32 [ -12, %.critedge83.i ], [ %80, %enqueue_buffer.exit.i ], [ -22, %41 ], [ -11, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

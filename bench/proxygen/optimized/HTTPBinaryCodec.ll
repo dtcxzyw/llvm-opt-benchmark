@@ -8227,7 +8227,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %sw.bb11.i, %sw.bb5.i, %sw.bb17.i, %sw.bb8.i, %sw.bb2.i
-  %retval.i.0 = phi i64 [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ], [ %3, %sw.bb5.i ], [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ]
+  %retval.i.0 = phi i64 [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ]
   %cmp = icmp ugt i64 %retval.i.0, 2147483647
   br i1 %cmp, label %if.then, label %if.end
 
@@ -8351,7 +8351,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %sw.bb11.i, %sw.bb5.i, %sw.bb17.i, %sw.bb8.i, %sw.bb2.i
-  %retval.i.0 = phi i64 [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ], [ %3, %sw.bb5.i ], [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ]
+  %retval.i.0 = phi i64 [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ]
   %cmp = icmp ugt i64 %retval.i.0, 2147483647
   br i1 %cmp, label %if.then, label %if.end
 

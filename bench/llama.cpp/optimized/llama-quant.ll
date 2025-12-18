@@ -3554,19 +3554,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit475: ; preds = %11
   br label %.body
 
 .loopexit.split-lp953.loopexit:                   ; preds = %.noexc.i.i, %853, %1813, %1806, %1800, %1792, %1783, %1781, %1223, %1221, %.thread, %850
-  %.sroa.0689.9.ph.ph = phi ptr [ %.sroa.0689.10, %1813 ], [ %.sroa.0689.10, %1806 ], [ %.sroa.0689.10, %1800 ], [ %.sroa.0689.10, %1792 ], [ %.sroa.0689.10, %1783 ], [ %.sroa.0689.10, %1781 ], [ %.sroa.0689.32276, %1223 ], [ %.sroa.0689.32276, %1221 ], [ %.sroa.0689.32276, %.thread ], [ %.sroa.0689.32276, %.noexc.i.i ], [ %.sroa.0689.32276, %853 ], [ %.sroa.0689.32276, %850 ]
-  %.sroa.15.9.ph.ph = phi ptr [ %.sroa.15.10, %1813 ], [ %.sroa.15.10, %1806 ], [ %.sroa.15.10, %1800 ], [ %.sroa.15.10, %1792 ], [ %.sroa.15.10, %1783 ], [ %.sroa.15.10, %1781 ], [ %.sroa.15.32278, %1223 ], [ %.sroa.15.32278, %1221 ], [ %.sroa.15.32278, %.thread ], [ %.sroa.15.32278, %.noexc.i.i ], [ %.sroa.15.32278, %853 ], [ %.sroa.15.32278, %850 ]
-  %.sroa.0681.9.ph.ph = phi ptr [ %.sroa.0681.10, %1813 ], [ %.sroa.0681.10, %1806 ], [ %.sroa.0681.10, %1800 ], [ %.sroa.0681.10, %1792 ], [ %.sroa.0681.10, %1783 ], [ %.sroa.0681.10, %1781 ], [ %.sroa.0681.32279, %1223 ], [ %.sroa.0681.32279, %1221 ], [ %.sroa.0681.32279, %.thread ], [ %.sroa.0681.32279, %.noexc.i.i ], [ %.sroa.0681.32279, %853 ], [ %.sroa.0681.32279, %850 ]
-  %.sroa.16.9.ph.ph = phi ptr [ %.sroa.16.10, %1813 ], [ %.sroa.16.10, %1806 ], [ %.sroa.16.10, %1800 ], [ %.sroa.16.10, %1792 ], [ %.sroa.16.10, %1783 ], [ %.sroa.16.10, %1781 ], [ %.sroa.16.32281, %1223 ], [ %.sroa.16.32281, %1221 ], [ %.sroa.16.32281, %.thread ], [ %.sroa.16.32281, %.noexc.i.i ], [ %.sroa.16.32281, %853 ], [ %.sroa.16.32281, %850 ]
+  %.sroa.0689.9.ph.ph = phi ptr [ %.sroa.0689.32276, %850 ], [ %.sroa.0689.10, %1813 ], [ %.sroa.0689.10, %1806 ], [ %.sroa.0689.10, %1800 ], [ %.sroa.0689.10, %1792 ], [ %.sroa.0689.10, %1783 ], [ %.sroa.0689.10, %1781 ], [ %.sroa.0689.32276, %1223 ], [ %.sroa.0689.32276, %1221 ], [ %.sroa.0689.32276, %.thread ], [ %.sroa.0689.32276, %.noexc.i.i ], [ %.sroa.0689.32276, %853 ]
+  %.sroa.15.9.ph.ph = phi ptr [ %.sroa.15.32278, %850 ], [ %.sroa.15.10, %1813 ], [ %.sroa.15.10, %1806 ], [ %.sroa.15.10, %1800 ], [ %.sroa.15.10, %1792 ], [ %.sroa.15.10, %1783 ], [ %.sroa.15.10, %1781 ], [ %.sroa.15.32278, %1223 ], [ %.sroa.15.32278, %1221 ], [ %.sroa.15.32278, %.thread ], [ %.sroa.15.32278, %.noexc.i.i ], [ %.sroa.15.32278, %853 ]
+  %.sroa.0681.9.ph.ph = phi ptr [ %.sroa.0681.32279, %850 ], [ %.sroa.0681.10, %1813 ], [ %.sroa.0681.10, %1806 ], [ %.sroa.0681.10, %1800 ], [ %.sroa.0681.10, %1792 ], [ %.sroa.0681.10, %1783 ], [ %.sroa.0681.10, %1781 ], [ %.sroa.0681.32279, %1223 ], [ %.sroa.0681.32279, %1221 ], [ %.sroa.0681.32279, %.thread ], [ %.sroa.0681.32279, %.noexc.i.i ], [ %.sroa.0681.32279, %853 ]
+  %.sroa.16.9.ph.ph = phi ptr [ %.sroa.16.32281, %850 ], [ %.sroa.16.10, %1813 ], [ %.sroa.16.10, %1806 ], [ %.sroa.16.10, %1800 ], [ %.sroa.16.10, %1792 ], [ %.sroa.16.10, %1783 ], [ %.sroa.16.10, %1781 ], [ %.sroa.16.32281, %1223 ], [ %.sroa.16.32281, %1221 ], [ %.sroa.16.32281, %.thread ], [ %.sroa.16.32281, %.noexc.i.i ], [ %.sroa.16.32281, %853 ]
   %lpad.loopexit981 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp953.loopexit.split-lp:          ; preds = %.noexc.i469, %1804
-  %.sroa.0689.9.ph.ph977 = phi ptr [ %.sroa.0689.32276, %.noexc.i469 ], [ %.sroa.0689.10, %1804 ]
-  %.sroa.15.9.ph.ph978 = phi ptr [ %.sroa.15.32278, %.noexc.i469 ], [ %.sroa.15.10, %1804 ]
-  %.sroa.0681.9.ph.ph979 = phi ptr [ %.sroa.0681.32279, %.noexc.i469 ], [ %.sroa.0681.10, %1804 ]
-  %.sroa.16.9.ph.ph980 = phi ptr [ %.sroa.16.32281, %.noexc.i469 ], [ %.sroa.16.10, %1804 ]
+  %.sroa.0689.9.ph.ph977 = phi ptr [ %.sroa.0689.10, %1804 ], [ %.sroa.0689.32276, %.noexc.i469 ]
+  %.sroa.15.9.ph.ph978 = phi ptr [ %.sroa.15.10, %1804 ], [ %.sroa.15.32278, %.noexc.i469 ]
+  %.sroa.0681.9.ph.ph979 = phi ptr [ %.sroa.0681.10, %1804 ], [ %.sroa.0681.32279, %.noexc.i469 ]
+  %.sroa.16.9.ph.ph980 = phi ptr [ %.sroa.16.10, %1804 ], [ %.sroa.16.32281, %.noexc.i469 ]
   %lpad.loopexit.split-lp982 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4049,15 +4049,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501: ; preds = %13
   br label %.body
 
 .loopexit.split-lp962.loopexit.split-lp.loopexit: ; preds = %1370, %_ZL28llama_tensor_dequantize_implP11ggml_tensorRSt6vectorI7no_initIfESaIS3_EERS1_ISt6threadSaIS7_EEmi.exit, %1589, %.noexc511, %.noexc512, %1470, %1473, %1476, %1478, %1485, %1487, %_ZNKSt6vectorI7no_initIhESaIS1_EE12_M_check_lenEmPKc.exit.i.i531, %_ZNKSt6vectorI7no_initIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.0681.12.ph.ph.ph = phi ptr [ %.sroa.0681.32279, %1370 ], [ %.sroa.0681.32279, %_ZNKSt6vectorI7no_initIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0681.14, %.noexc511 ], [ %.sroa.0681.14, %.noexc512 ], [ %.sroa.0681.14, %1485 ], [ %.sroa.0681.14, %1487 ], [ %.sroa.0681.14, %1473 ], [ %.sroa.0681.14, %1470 ], [ %.sroa.0681.14, %1476 ], [ %.sroa.0681.14, %1478 ], [ %.sroa.0681.11, %_ZL28llama_tensor_dequantize_implP11ggml_tensorRSt6vectorI7no_initIfESaIS3_EERS1_ISt6threadSaIS7_EEmi.exit ], [ %.sroa.0681.11, %1589 ], [ %.sroa.0681.11, %_ZNKSt6vectorI7no_initIhESaIS1_EE12_M_check_lenEmPKc.exit.i.i531 ]
-  %.sroa.16.12.ph.ph.ph = phi ptr [ %.sroa.16.32281, %1370 ], [ %.sroa.16.32281, %_ZNKSt6vectorI7no_initIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.16.14, %.noexc511 ], [ %.sroa.16.14, %.noexc512 ], [ %.sroa.16.14, %1485 ], [ %.sroa.16.14, %1487 ], [ %.sroa.16.14, %1473 ], [ %.sroa.16.14, %1470 ], [ %.sroa.16.14, %1476 ], [ %.sroa.16.14, %1478 ], [ %.sroa.16.11, %_ZL28llama_tensor_dequantize_implP11ggml_tensorRSt6vectorI7no_initIfESaIS3_EERS1_ISt6threadSaIS7_EEmi.exit ], [ %.sroa.16.11, %1589 ], [ %.sroa.16.11, %_ZNKSt6vectorI7no_initIhESaIS1_EE12_M_check_lenEmPKc.exit.i.i531 ]
+  %.sroa.0681.12.ph.ph.ph = phi ptr [ %.sroa.0681.32279, %_ZNKSt6vectorI7no_initIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0681.14, %.noexc511 ], [ %.sroa.0681.14, %.noexc512 ], [ %.sroa.0681.14, %1485 ], [ %.sroa.0681.14, %1487 ], [ %.sroa.0681.11, %_ZNKSt6vectorI7no_initIhESaIS1_EE12_M_check_lenEmPKc.exit.i.i531 ], [ %.sroa.0681.32279, %1370 ], [ %.sroa.0681.14, %1473 ], [ %.sroa.0681.14, %1470 ], [ %.sroa.0681.14, %1476 ], [ %.sroa.0681.14, %1478 ], [ %.sroa.0681.11, %_ZL28llama_tensor_dequantize_implP11ggml_tensorRSt6vectorI7no_initIfESaIS3_EERS1_ISt6threadSaIS7_EEmi.exit ], [ %.sroa.0681.11, %1589 ]
+  %.sroa.16.12.ph.ph.ph = phi ptr [ %.sroa.16.32281, %_ZNKSt6vectorI7no_initIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.16.14, %.noexc511 ], [ %.sroa.16.14, %.noexc512 ], [ %.sroa.16.14, %1485 ], [ %.sroa.16.14, %1487 ], [ %.sroa.16.11, %_ZNKSt6vectorI7no_initIhESaIS1_EE12_M_check_lenEmPKc.exit.i.i531 ], [ %.sroa.16.32281, %1370 ], [ %.sroa.16.14, %1473 ], [ %.sroa.16.14, %1470 ], [ %.sroa.16.14, %1476 ], [ %.sroa.16.14, %1478 ], [ %.sroa.16.11, %_ZL28llama_tensor_dequantize_implP11ggml_tensorRSt6vectorI7no_initIfESaIS3_EERS1_ISt6threadSaIS7_EEmi.exit ], [ %.sroa.16.11, %1589 ]
   %lpad.loopexit991 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp962.loopexit.split-lp.loopexit.split-lp: ; preds = %1483, %1493, %1536, %1608, %1412
-  %.sroa.0681.12.ph.ph.ph989 = phi ptr [ %.sroa.0681.32279, %1412 ], [ %.sroa.0681.14, %1493 ], [ %.sroa.0681.14, %1483 ], [ %.sroa.0681.14, %1536 ], [ %.sroa.0681.11, %1608 ]
-  %.sroa.16.12.ph.ph.ph990 = phi ptr [ %.sroa.16.32281, %1412 ], [ %.sroa.16.14, %1493 ], [ %.sroa.16.14, %1483 ], [ %.sroa.16.14, %1536 ], [ %.sroa.16.11, %1608 ]
+  %.sroa.0681.12.ph.ph.ph989 = phi ptr [ %.sroa.0681.14, %1483 ], [ %.sroa.0681.14, %1493 ], [ %.sroa.0681.32279, %1412 ], [ %.sroa.0681.11, %1608 ], [ %.sroa.0681.14, %1536 ]
+  %.sroa.16.12.ph.ph.ph990 = phi ptr [ %.sroa.16.14, %1483 ], [ %.sroa.16.14, %1493 ], [ %.sroa.16.32281, %1412 ], [ %.sroa.16.11, %1608 ], [ %.sroa.16.14, %1536 ]
   %lpad.loopexit.split-lp992 = landingpad { ptr, i32 }
           cleanup
   br label %.body

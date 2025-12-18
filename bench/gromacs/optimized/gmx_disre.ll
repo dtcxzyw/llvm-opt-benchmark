@@ -2453,7 +2453,7 @@ _ZNSt10_HashtableIiSt4pairIKibESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body.i
 
 .loopexit177.i:                                   ; preds = %865, %.noexc.i365, %860
-  %.pn.i.i.i = phi ptr [ %861, %860 ], [ %876, %.noexc.i365 ], [ %867, %865 ]
+  %.pn.i.i.i = phi ptr [ %876, %.noexc.i365 ], [ %861, %860 ], [ %867, %865 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 12
   %878 = load i8, ptr %.1.i.i.i, align 1, !tbaa !280, !range !241, !noundef !242
   %879 = trunc nuw i8 %878 to i1
@@ -2643,7 +2643,7 @@ _ZNSt10_HashtableIiSt4pairIKibESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body.i
 
 .loopexit.i:                                      ; preds = %964, %.noexc97.i, %959
-  %.pn.i.i95.i = phi ptr [ %960, %959 ], [ %975, %.noexc97.i ], [ %966, %964 ]
+  %.pn.i.i95.i = phi ptr [ %975, %.noexc97.i ], [ %960, %959 ], [ %966, %964 ]
   %.1.i.i96.i = getelementptr inbounds nuw i8, ptr %.pn.i.i95.i, i64 12
   %977 = fadd double %.069254.i, %952
   %978 = fadd double %.071253.i, %950
@@ -4368,8 +4368,8 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
   br label %1751
 
 1751:                                             ; preds = %.loopexit.split-lp510, %1750
-  %1752 = phi i8 [ %.pre684, %1750 ], [ %431, %.loopexit.split-lp510 ]
-  %.pn182 = phi { ptr, i32 } [ %.pn178.pn.pn, %1750 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp510 ]
+  %1752 = phi i8 [ %431, %.loopexit.split-lp510 ], [ %.pre684, %1750 ]
+  %.pn182 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp510 ], [ %.pn178.pn.pn, %1750 ]
   %1753 = trunc nuw i8 %1752 to i1
   br i1 %1753, label %1754, label %_ZNSt14_Optional_baseI13t_cluster_ndxLb0ELb0EED2Ev.exit435
 

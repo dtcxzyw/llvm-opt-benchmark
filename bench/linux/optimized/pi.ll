@@ -1049,8 +1049,8 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.split21.us
 
 .split21.us:                                      ; preds = %.split, %.split.us, %.split21.us.loopexit98, %.split21.us.loopexit90
-  %101 = phi ptr [ %32, %.split.us ], [ %42, %.split21.us.loopexit98 ], [ %32, %.split21.us.loopexit90 ], [ %42, %.split ]
-  %102 = phi i32 [ 0, %.split.us ], [ %43, %.split21.us.loopexit98 ], [ %33, %.split21.us.loopexit90 ], [ 0, %.split ]
+  %101 = phi ptr [ %42, %.split21.us.loopexit98 ], [ %32, %.split21.us.loopexit90 ], [ %32, %.split.us ], [ %42, %.split ]
+  %102 = phi i32 [ %43, %.split21.us.loopexit98 ], [ %33, %.split21.us.loopexit90 ], [ 0, %.split.us ], [ 0, %.split ]
   call void @futex_q_unlock(ptr noundef %101) #13
   br label %.loopexit8
 

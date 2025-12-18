@@ -98970,8 +98970,8 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorke
   br label %_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS0_8hash_opsIS3_EEEixERKS3_.exit
 
 _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS0_8hash_opsIS3_EEEixERKS3_.exit: ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i, %86, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_EiEEERSB_DpOT_.exit.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i
-  %.val9.i = phi ptr [ %.val12.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.val10.pre.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_EiEEERSB_DpOT_.exit.i.i ], [ %.val20.i.i, %86 ], [ %.val20.i.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i ]
-  %.0.i = phi i32 [ %168, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.pre43.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_EiEEERSB_DpOT_.exit.i.i ], [ %.022.i.us.i, %86 ], [ %.022.i.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i ]
+  %.val9.i = phi ptr [ %.val10.pre.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_EiEEERSB_DpOT_.exit.i.i ], [ %.val12.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.val20.i.i, %86 ], [ %.val20.i.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i ]
+  %.0.i = phi i32 [ %.pre43.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_EiEEERSB_DpOT_.exit.i.i ], [ %168, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_112DftTagWorker7tag_setENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.022.i.us.i, %86 ], [ %.022.i.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i ]
   %171 = sext i32 %.0.i to i64
   %172 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::SigBit, (anonymous namespace)::DftTagWorker::tag_set>::entry_t", ptr %.val9.i, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -119962,7 +119962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2633: ; preds = %_
   br i1 %6165, label %.loopexit, label %6162
 
 .loopexit:                                        ; preds = %6162, %.loopexit.loopexit3174, %.thread
-  %.pn603.pn.pn = phi { ptr, i32 } [ %5966, %.thread ], [ %6152, %.loopexit.loopexit3174 ], [ %.pn603.pn, %6162 ]
+  %.pn603.pn.pn = phi { ptr, i32 } [ %6152, %.loopexit.loopexit3174 ], [ %5966, %.thread ], [ %.pn603.pn, %6162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %263)
   call void @llvm.lifetime.end.p0(ptr nonnull %262)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %257) #26
@@ -121277,7 +121277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2743: ; preds = %_
   br i1 %6598, label %.loopexit3163, label %6595
 
 .loopexit3163:                                    ; preds = %6595, %.loopexit3163.loopexit3175, %.thread3099
-  %.pn554.pn.pn = phi { ptr, i32 } [ %6383, %.thread3099 ], [ %6585, %.loopexit3163.loopexit3175 ], [ %.pn554.pn, %6595 ]
+  %.pn554.pn.pn = phi { ptr, i32 } [ %6585, %.loopexit3163.loopexit3175 ], [ %6383, %.thread3099 ], [ %.pn554.pn, %6595 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %330)
   call void @llvm.lifetime.end.p0(ptr nonnull %329)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %324) #26

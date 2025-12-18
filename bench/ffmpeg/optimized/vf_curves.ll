@@ -285,7 +285,7 @@ parse_psfile.exit.thread:                         ; preds = %19
   br i1 %exitcond68.not.i, label %parse_psfile.exit, label %38, !llvm.loop !34
 
 parse_psfile.exit:                                ; preds = %38, %75, %79, %.lr.ph.i.preheader, %.lr.ph, %.lr.phthread-pre-split.i, %23, %26, %31
-  %.029.i = phi i32 [ -1094995529, %23 ], [ -1094995529, %26 ], [ %21, %31 ], [ -1094995529, %.lr.ph ], [ -1094995529, %.lr.phthread-pre-split.i ], [ -1094995529, %.lr.ph.i.preheader ], [ -12, %75 ], [ -1094995529, %38 ], [ %21, %79 ]
+  %.029.i = phi i32 [ -1094995529, %.lr.ph ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ %21, %31 ], [ -1094995529, %.lr.phthread-pre-split.i ], [ %21, %79 ], [ -1094995529, %38 ], [ -12, %75 ], [ -1094995529, %.lr.ph.i.preheader ]
   %80 = call i32 @av_bprint_finalize(ptr noundef nonnull %4, ptr noundef null) #13
   %81 = load ptr, ptr %2, align 8, !tbaa !22
   %82 = load i64, ptr %3, align 8, !tbaa !27
@@ -399,7 +399,7 @@ parse_psfile.exit:                                ; preds = %38, %75, %79, %.lr.
   br label %.loopexit71
 
 .loopexit71:                                      ; preds = %12, %parse_psfile.exit.thread, %85, %136, %131, %119, %106, %94, %parse_psfile.exit
-  %.0 = phi i32 [ -12, %131 ], [ -12, %119 ], [ -12, %106 ], [ -12, %94 ], [ %.029.i, %parse_psfile.exit ], [ 0, %136 ], [ 0, %85 ], [ %21, %parse_psfile.exit.thread ], [ -12, %12 ]
+  %.0 = phi i32 [ %21, %parse_psfile.exit.thread ], [ -12, %131 ], [ -12, %119 ], [ -12, %106 ], [ -12, %94 ], [ %.029.i, %parse_psfile.exit ], [ 0, %136 ], [ 0, %85 ], [ -12, %12 ]
   ret i32 %.0
 }
 
@@ -2034,8 +2034,8 @@ interpolate_pchip.exit.sink.split:                ; preds = %._crit_edge.thread.
   br label %interpolate_pchip.exit
 
 interpolate_pchip.exit:                           ; preds = %.lr.ph296.i, %.lr.ph299.split.i, %.lr.ph299.split.us.i, %interpolate_pchip.exit.sink.split, %134, %170, %._crit_edge292.i
-  %.sink = phi ptr [ %139, %170 ], [ %139, %._crit_edge292.i ], [ %139, %134 ], [ %.sink.ph, %interpolate_pchip.exit.sink.split ], [ %139, %.lr.ph299.split.i ], [ %139, %.lr.ph299.split.us.i ], [ %139, %.lr.ph296.i ]
-  %.086 = phi i32 [ 0, %170 ], [ 0, %._crit_edge292.i ], [ -12, %134 ], [ %.086.ph, %interpolate_pchip.exit.sink.split ], [ 0, %.lr.ph299.split.i ], [ 0, %.lr.ph299.split.us.i ], [ 0, %.lr.ph296.i ]
+  %.sink = phi ptr [ %139, %170 ], [ %139, %.lr.ph299.split.us.i ], [ %139, %.lr.ph299.split.i ], [ %.sink.ph, %interpolate_pchip.exit.sink.split ], [ %139, %._crit_edge292.i ], [ %139, %134 ], [ %139, %.lr.ph296.i ]
+  %.086 = phi i32 [ 0, %170 ], [ 0, %.lr.ph299.split.us.i ], [ 0, %.lr.ph299.split.i ], [ %.086.ph, %interpolate_pchip.exit.sink.split ], [ 0, %._crit_edge292.i ], [ -12, %134 ], [ 0, %.lr.ph296.i ]
   call void @av_free(ptr noundef %.sink) #13
   %673 = icmp slt i32 %.086, 0
   br i1 %673, label %.loopexit, label %interpolate_pchip.exit.thread
@@ -2300,7 +2300,7 @@ dump_curves.exit:                                 ; preds = %710, %.split51.us.i
   br i1 %exitcond227.not, label %.loopexit, label %761, !llvm.loop !121
 
 .loopexit:                                        ; preds = %interpolate_pchip.exit, %40, %._crit_edge173, %parse_points_str.exit.thread
-  %.0 = phi i32 [ %.2.i.ph, %parse_points_str.exit.thread ], [ 0, %._crit_edge173 ], [ %.086, %interpolate_pchip.exit ], [ -12, %40 ]
+  %.0 = phi i32 [ 0, %._crit_edge173 ], [ %.2.i.ph, %parse_points_str.exit.thread ], [ %.086, %interpolate_pchip.exit ], [ -12, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2716,7 +2716,7 @@ define internal noundef i32 @filter_slice_planar(ptr noundef readonly captures(n
   br i1 %289, label %.lr.ph.split, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
-  %290 = phi i32 [ %231, %.preheader ], [ %257, %.lr.ph.split.us ], [ %287, %.lr.ph.split ]
+  %290 = phi i32 [ %257, %.lr.ph.split.us ], [ %231, %.preheader ], [ %287, %.lr.ph.split ]
   %291 = load i32, ptr %163, align 4, !tbaa !33
   %292 = sext i32 %291 to i64
   %293 = getelementptr inbounds i8, ptr %.0186202, i64 %292

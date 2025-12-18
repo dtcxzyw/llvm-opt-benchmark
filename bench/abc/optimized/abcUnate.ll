@@ -327,8 +327,8 @@ Abc_ObjGlobalBdd.exit77.i:                        ; preds = %145, %142, %Vec_Att
   br i1 %164, label %105, label %.critedge.i, !llvm.loop !48
 
 .critedge.i:                                      ; preds = %91, %156, %100, %.preheader.i
-  %.152.i = phi i32 [ 0, %100 ], [ 0, %.preheader.i ], [ %161, %156 ], [ %96, %91 ]
-  %.1.i = phi i32 [ 0, %100 ], [ 0, %.preheader.i ], [ %158, %156 ], [ %93, %91 ]
+  %.152.i = phi i32 [ %161, %156 ], [ 0, %100 ], [ 0, %.preheader.i ], [ %96, %91 ]
+  %.1.i = phi i32 [ %158, %156 ], [ 0, %100 ], [ 0, %.preheader.i ], [ %93, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %165 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #12
   %166 = icmp slt i32 %165, 0

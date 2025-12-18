@@ -91,7 +91,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_24ExternalSourceSymbolAttrEN4llvm11Sm
   br label %_ZL15isGeneratedDeclPKN5clang4DeclE.exit
 
 _ZL15isGeneratedDeclPKN5clang4DeclE.exit:         ; preds = %17, %2, %6, %_ZN5clangneENS_22specific_attr_iteratorINS_24ExternalSourceSymbolAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %.loopexit.i
-  %35 = phi i1 [ %34, %.loopexit.i ], [ true, %2 ], [ true, %_ZN5clangneENS_22specific_attr_iteratorINS_24ExternalSourceSymbolAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i ], [ true, %6 ], [ true, %17 ]
+  %35 = phi i1 [ %34, %.loopexit.i ], [ true, %2 ], [ true, %6 ], [ true, %_ZN5clangneENS_22specific_attr_iteratorINS_24ExternalSourceSymbolAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i ], [ true, %17 ]
   ret i1 %35
 }
 
@@ -1087,8 +1087,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %41, %47
   br i1 %.not52, label %.thread76.loopexit, label %tailrecurse
 
 50:                                               ; preds = %6, %15, %22, %31, %38
-  %51 = phi ptr [ %36, %38 ], [ %29, %31 ], [ %23, %22 ], [ %16, %15 ], [ %7, %6 ]
-  %.941.ph = phi i32 [ %39, %38 ], [ %32, %31 ], [ %24, %22 ], [ %17, %15 ], [ %11, %6 ]
+  %51 = phi ptr [ %7, %6 ], [ %16, %15 ], [ %36, %38 ], [ %23, %22 ], [ %29, %31 ]
+  %.941.ph = phi i32 [ %11, %6 ], [ %17, %15 ], [ %39, %38 ], [ %24, %22 ], [ %32, %31 ]
   switch i32 %.941.ph, label %58 [
     i32 0, label %.thread76
     i32 2, label %59

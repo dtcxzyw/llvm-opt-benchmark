@@ -4921,7 +4921,7 @@ cf_read_record.exit:                              ; preds = %4
   br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !26
 
 .loopexit:                                        ; preds = %81, %75, %.lr.ph75, %71, %20, %.preheader, %79, %46
-  %.057.shrunk = phi i1 [ %.not63, %79 ], [ %47, %46 ], [ false, %20 ], [ false, %.preheader ], [ true, %71 ], [ false, %.lr.ph75 ], [ false, %75 ], [ false, %81 ]
+  %.057.shrunk = phi i1 [ false, %20 ], [ %.not63, %79 ], [ %47, %46 ], [ true, %71 ], [ false, %.preheader ], [ false, %.lr.ph75 ], [ false, %75 ], [ false, %81 ]
   %.057 = zext i1 %.057.shrunk to i32
   call void @epan_dissect_cleanup(ptr noundef nonnull %7)
   br label %82
@@ -5443,7 +5443,7 @@ cf_read_record.exit:                              ; preds = %4
   br i1 %91, label %38, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %._crit_edge90, %38, %22, %cf_read_record.exit, %53, %73
-  %.065 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %53 ], [ 1, %73 ], [ 0, %22 ], [ 0, %38 ], [ 0, %._crit_edge90 ]
+  %.065 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %73 ], [ 1, %53 ], [ 0, %22 ], [ 0, %38 ], [ 0, %._crit_edge90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.065
 }
@@ -5627,7 +5627,7 @@ cf_read_record.exit:                              ; preds = %4
   br i1 %.not84, label %.loopexit, label %46, !llvm.loop !33
 
 .loopexit:                                        ; preds = %._crit_edge100, %46, %44, %cf_read_record.exit, %61, %80, %22
-  %.069 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %22 ], [ 1, %61 ], [ 1, %80 ], [ 0, %44 ], [ 0, %46 ], [ 0, %._crit_edge100 ]
+  %.069 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %22 ], [ 1, %80 ], [ 1, %61 ], [ 0, %44 ], [ 0, %46 ], [ 0, %._crit_edge100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.069
 }
@@ -6316,7 +6316,7 @@ cf_read_record.exit:                              ; preds = %4
   br i1 %89, label %39, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %._crit_edge91, %39, %19, %cf_read_record.exit, %53, %71
-  %.066 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %53 ], [ 1, %71 ], [ 0, %19 ], [ 0, %39 ], [ 0, %._crit_edge91 ]
+  %.066 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %71 ], [ 1, %53 ], [ 0, %19 ], [ 0, %39 ], [ 0, %._crit_edge91 ]
   ret i32 %.066
 }
 
@@ -6493,7 +6493,7 @@ cf_read_record.exit:                              ; preds = %4
   br i1 %96, label %46, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %._crit_edge99, %46, %41, %cf_read_record.exit, %62, %79, %19
-  %.070 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %19 ], [ 1, %62 ], [ 1, %79 ], [ 0, %41 ], [ 0, %46 ], [ 0, %._crit_edge99 ]
+  %.070 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %19 ], [ 1, %79 ], [ 1, %62 ], [ 0, %41 ], [ 0, %46 ], [ 0, %._crit_edge99 ]
   ret i32 %.070
 }
 

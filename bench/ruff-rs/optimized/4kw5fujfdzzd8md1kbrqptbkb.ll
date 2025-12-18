@@ -155,8 +155,8 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h85dd91c8de4a07d3E(
   br i1 %13, label %14, label %15
 
 .outer._crit_edge:                                ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit", %92, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit.thread", %7
-  %.sroa.0.0.ph.lcssa80 = phi ptr [ %0, %7 ], [ %78, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit.thread" ], [ %.sroa.0.0.ph89, %92 ], [ %85, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit" ]
-  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit.thread" ], [ %.sroa.11.1.lcssa.i, %92 ], [ %77, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit" ]
+  %.sroa.0.0.ph.lcssa80 = phi ptr [ %78, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit.thread" ], [ %0, %7 ], [ %.sroa.0.0.ph89, %92 ], [ %85, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit" ]
+  %.sroa.12.0.lcssa = phi i64 [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit.thread" ], [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %92 ], [ %77, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0a64fbdf359a46fdE.exit" ]
   call void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc6dd8965e0056118E(ptr noalias noundef nonnull align 8 %.sroa.0.0.ph.lcssa80, i64 noundef range(i64 0, 33) %.sroa.12.0.lcssa, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %20
 
@@ -1237,7 +1237,7 @@ default.unreachable:                              ; preds = %653
   br label %189
 
 .invoke:                                          ; preds = %752, %780, %141, %171
-  %188 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %171 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %141 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %780 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %752 ]
+  %188 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %141 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %171 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %780 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %752 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.2b7fee92aba3c2a5a7d3466dc36c671a.62, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %188) #19
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -3750,7 +3750,7 @@ default.unreachable:                              ; preds = %652
   br label %189
 
 .invoke:                                          ; preds = %751, %779, %141, %171
-  %188 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %171 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %141 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %779 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %751 ]
+  %188 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %141 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.68, %171 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %779 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.98, %751 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.2b7fee92aba3c2a5a7d3466dc36c671a.62, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %188) #19
           to label %.cont unwind label %.loopexit.split-lp
 

@@ -406,15 +406,15 @@ is_top_left.exit795.thread:                       ; preds = %209, %211
   %212 = icmp eq i32 %142, %139
   br i1 %212, label %221, label %223
 
-is_top_left.exit795.thread976:                    ; preds = %204, %206
-  %.0.i895.ph = phi i1 [ %.0.i896909, %206 ], [ %.0.i896908, %204 ]
-  %.1579842874.ph = phi i32 [ %.0578, %206 ], [ 0, %204 ]
+is_top_left.exit795.thread976:                    ; preds = %206, %204
+  %.0.i895.ph = phi i1 [ %.0.i896908, %204 ], [ %.0.i896909, %206 ]
+  %.1579842874.ph = phi i32 [ 0, %204 ], [ %.0578, %206 ]
   %213 = icmp eq i32 %142, %139
   br i1 %213, label %216, label %218
 
 214:                                              ; preds = %206, %204
-  %.0.i894 = phi i1 [ %.0.i896909, %206 ], [ %.0.i896908, %204 ]
-  %.1579842873 = phi i32 [ %.0578, %206 ], [ 0, %204 ]
+  %.0.i894 = phi i1 [ %.0.i896908, %204 ], [ %.0.i896909, %206 ]
+  %.1579842873 = phi i32 [ 0, %204 ], [ %.0578, %206 ]
   %215 = icmp eq i32 %142, %139
   br i1 %215, label %216, label %218
 
@@ -1808,17 +1808,17 @@ is_top_left.exit691.thread:                       ; preds = %255, %257
   %258 = icmp eq i32 %172, %169
   br i1 %258, label %272, label %275
 
-is_top_left.exit691.thread869:                    ; preds = %247, %250
-  %.ph = phi i32 [ %251, %250 ], [ %248, %247 ]
-  %.0.i787.ph = phi i1 [ %.0.i788801, %250 ], [ %.0.i788800, %247 ]
-  %.1578733766.ph = phi i32 [ %.0577, %250 ], [ 0, %247 ]
+is_top_left.exit691.thread869:                    ; preds = %250, %247
+  %.ph = phi i32 [ %248, %247 ], [ %251, %250 ]
+  %.0.i787.ph = phi i1 [ %.0.i788800, %247 ], [ %.0.i788801, %250 ]
+  %.1578733766.ph = phi i32 [ 0, %247 ], [ %.0577, %250 ]
   %259 = icmp eq i32 %172, %169
   br i1 %259, label %263, label %267
 
 260:                                              ; preds = %250, %247
-  %261 = phi i32 [ %251, %250 ], [ %248, %247 ]
-  %.0.i786 = phi i1 [ %.0.i788801, %250 ], [ %.0.i788800, %247 ]
-  %.1578733765 = phi i32 [ %.0577, %250 ], [ 0, %247 ]
+  %261 = phi i32 [ %248, %247 ], [ %251, %250 ]
+  %.0.i786 = phi i1 [ %.0.i788800, %247 ], [ %.0.i788801, %250 ]
+  %.1578733765 = phi i32 [ 0, %247 ], [ %.0577, %250 ]
   %262 = icmp eq i32 %172, %169
   br i1 %262, label %263, label %267
 
@@ -2622,8 +2622,8 @@ is_top_left.exit696:                              ; preds = %263, %267, %272, %2
   br i1 %712, label %.preheader985, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge1002, %._crit_edge1013, %._crit_edge1024, %.preheader.lr.ph, %.preheader979.lr.ph, %.preheader982.lr.ph, %.preheader985.lr.ph, %.preheader986, %.preheader983, %.preheader980, %.preheader978, %362, %51, %361, %294, %290
-  %.0545 = phi i32 [ %.1546, %361 ], [ 0, %51 ], [ %.1546, %362 ], [ %.1546, %294 ], [ %.1546, %290 ], [ %.1546, %.preheader983 ], [ %.1546, %.preheader978 ], [ %.1546, %.preheader980 ], [ %.1546, %.preheader986 ], [ %.1546, %.preheader.lr.ph ], [ %.1546, %.preheader979.lr.ph ], [ %.1546, %.preheader982.lr.ph ], [ %.1546, %.preheader985.lr.ph ], [ %.1546, %._crit_edge1002 ], [ %.1546, %._crit_edge1024 ], [ %.1546, %._crit_edge1013 ], [ %.1546, %._crit_edge ]
-  %.0539.shrunk = phi i1 [ %.1.shrunk, %361 ], [ false, %51 ], [ true, %362 ], [ %295, %294 ], [ %291, %290 ], [ true, %.preheader983 ], [ true, %.preheader978 ], [ true, %.preheader980 ], [ true, %.preheader986 ], [ true, %.preheader.lr.ph ], [ true, %.preheader979.lr.ph ], [ true, %.preheader982.lr.ph ], [ true, %.preheader985.lr.ph ], [ true, %._crit_edge1002 ], [ true, %._crit_edge1024 ], [ true, %._crit_edge1013 ], [ true, %._crit_edge ]
+  %.0545 = phi i32 [ %.1546, %361 ], [ 0, %51 ], [ %.1546, %.preheader980 ], [ %.1546, %.preheader983 ], [ %.1546, %.preheader978 ], [ %.1546, %362 ], [ %.1546, %294 ], [ %.1546, %290 ], [ %.1546, %.preheader.lr.ph ], [ %.1546, %.preheader986 ], [ %.1546, %._crit_edge1024 ], [ %.1546, %.preheader979.lr.ph ], [ %.1546, %._crit_edge1013 ], [ %.1546, %.preheader982.lr.ph ], [ %.1546, %._crit_edge1002 ], [ %.1546, %.preheader985.lr.ph ], [ %.1546, %._crit_edge ]
+  %.0539.shrunk = phi i1 [ %.1.shrunk, %361 ], [ false, %51 ], [ true, %.preheader980 ], [ true, %.preheader983 ], [ true, %.preheader978 ], [ true, %362 ], [ %295, %294 ], [ %291, %290 ], [ true, %.preheader.lr.ph ], [ true, %.preheader986 ], [ true, %._crit_edge1024 ], [ true, %.preheader979.lr.ph ], [ true, %._crit_edge1013 ], [ true, %.preheader982.lr.ph ], [ true, %._crit_edge1002 ], [ true, %.preheader985.lr.ph ], [ true, %._crit_edge ]
   br i1 %.not, label %714, label %713
 
 713:                                              ; preds = %.loopexit

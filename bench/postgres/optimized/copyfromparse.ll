@@ -2530,7 +2530,7 @@ CopyReadBinaryAttribute.exit:                     ; preds = %255, %281
   br label %.critedge223
 
 .critedge223:                                     ; preds = %.lr.ph253, %.critedge221, %211, %195, %.critedge, %.critedge219
-  %.4 = phi i1 [ false, %.critedge219 ], [ true, %.critedge ], [ false, %195 ], [ false, %211 ], [ true, %.critedge221 ], [ true, %.lr.ph253 ]
+  %.4 = phi i1 [ false, %.critedge219 ], [ false, %211 ], [ true, %.critedge ], [ false, %195 ], [ true, %.critedge221 ], [ true, %.lr.ph253 ]
   ret i1 %.4
 }
 

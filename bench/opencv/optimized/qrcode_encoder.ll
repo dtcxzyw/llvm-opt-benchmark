@@ -572,13 +572,13 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
   unreachable
 
 .split.us:                                        ; preds = %.split.i21.us61, %.split.i21.us50, %.split.i21.us39, %.split.i21.us
-  %.us-phi.in = phi i64 [ %indvars.iv85, %.split.i21.us50 ], [ %indvars.iv91, %.split.i21.us ], [ %indvars.iv88, %.split.i21.us39 ], [ %indvars.iv, %.split.i21.us61 ]
+  %.us-phi.in = phi i64 [ %indvars.iv88, %.split.i21.us39 ], [ %indvars.iv85, %.split.i21.us50 ], [ %indvars.iv91, %.split.i21.us ], [ %indvars.iv, %.split.i21.us61 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %60 = icmp samesign ult i32 %.us-phi, 40
   br i1 %60, label %.thread, label %62
 
 .thread:                                          ; preds = %58, %54, %50, %46, %.split.us
-  %storemerge35 = phi i32 [ %.us-phi, %.split.us ], [ 0, %54 ], [ 0, %46 ], [ 0, %50 ], [ 0, %58 ]
+  %storemerge35 = phi i32 [ %.us-phi, %.split.us ], [ 0, %50 ], [ 0, %54 ], [ 0, %46 ], [ 0, %58 ]
   %61 = add nuw nsw i32 %storemerge35, 1
   br label %62
 
@@ -2693,7 +2693,7 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit70: ; preds = %_ZN2cvL8decToBin
   br label %.critedge44
 
 .critedge44:                                      ; preds = %_ZN2cvL9mapSymbolEc.exit54, %78, %121, %.critedge42, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit70
-  %.3 = phi i1 [ true, %.critedge42 ], [ true, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit70 ], [ false, %121 ], [ false, %78 ], [ false, %_ZN2cvL9mapSymbolEc.exit54 ]
+  %.3 = phi i1 [ true, %.critedge42 ], [ false, %121 ], [ true, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit70 ], [ false, %78 ], [ false, %_ZN2cvL9mapSymbolEc.exit54 ]
   ret i1 %.3
 }
 
@@ -3120,7 +3120,7 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit71: ; preds = %_ZN2cvL8decToBin
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %48, %52, %94, %109, %100, %103, %84, %90
-  %.0 = phi i1 [ false, %84 ], [ false, %103 ], [ true, %100 ], [ true, %109 ], [ true, %94 ], [ false, %90 ], [ false, %52 ], [ false, %48 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %84 ], [ false, %90 ], [ false, %103 ], [ true, %100 ], [ true, %94 ], [ true, %109 ], [ false, %52 ], [ false, %48 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3744,7 +3744,7 @@ define hidden noundef range(i32 1, 5) i32 @_ZNK2cv17QRCodeEncoderImpl14autoEncod
   br i1 %exitcond.not.i5, label %_ZNK2cv17QRCodeEncoderImpl14isAlphaNumericERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i3, !llvm.loop !58
 
 _ZNK2cv17QRCodeEncoderImpl14isAlphaNumericERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %7, %17, %18, %2
-  %.0 = phi i32 [ 1, %2 ], [ 2, %18 ], [ 4, %17 ], [ 1, %7 ]
+  %.0 = phi i32 [ 2, %18 ], [ 1, %2 ], [ 4, %17 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -9792,8 +9792,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %exitcond497.not, label %557, label %.preheader, !llvm.loop !298
 
 .loopexit333:                                     ; preds = %.loopexit333.loopexit, %.thread, %550, %552
-  %.sroa.0262.1 = phi ptr [ %.sroa.0262.8, %.thread ], [ %.sroa.0262.2.lcssa, %552 ], [ %.sroa.0262.4, %550 ], [ %.sroa.0262.8, %.loopexit333.loopexit ]
-  %.pn161.pn.pn.pn.pn = phi { ptr, i32 } [ %266, %.thread ], [ %553, %552 ], [ %.pn161.pn, %550 ], [ %288, %.loopexit333.loopexit ]
+  %.sroa.0262.1 = phi ptr [ %.sroa.0262.4, %550 ], [ %.sroa.0262.8, %.thread ], [ %.sroa.0262.2.lcssa, %552 ], [ %.sroa.0262.8, %.loopexit333.loopexit ]
+  %.pn161.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn161.pn, %550 ], [ %266, %.thread ], [ %553, %552 ], [ %288, %.loopexit333.loopexit ]
   %.not.i.i.i256 = icmp eq ptr %.sroa.0262.1, null
   br i1 %.not.i.i.i256, label %_ZNSt6vectorIhSaIhEED2Ev.exit257, label %590
 

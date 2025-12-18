@@ -454,7 +454,7 @@ define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_bytes(ptr noundef %0,
   br label %ssl3_get_record.exit.thread
 
 ssl3_get_record.exit.thread:                      ; preds = %31, %.backedge.i, %49, %65, %78, %48, %72
-  %.0.i.ph = phi i32 [ -1, %78 ], [ -1, %65 ], [ -1, %72 ], [ -1, %48 ], [ %51, %49 ], [ %56, %.backedge.i ], [ %33, %31 ]
+  %.0.i.ph = phi i32 [ -1, %78 ], [ -1, %65 ], [ %51, %49 ], [ -1, %72 ], [ -1, %48 ], [ %56, %.backedge.i ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -844,7 +844,7 @@ thread-pre-split:                                 ; preds = %90, %122
   br label %ssl3_send_alert.exit
 
 ssl3_send_alert.exit:                             ; preds = %163, %217, %207, %244, %237, %ssl3_get_record.exit.thread, %156, %109, %121, %114, %107, %173, %89, %25
-  %.0 = phi i32 [ -1, %25 ], [ -1, %244 ], [ 0, %89 ], [ %.0.i.ph, %ssl3_get_record.exit.thread ], [ %3, %107 ], [ %., %109 ], [ -1, %173 ], [ %., %114 ], [ %., %121 ], [ -1, %156 ], [ -1, %237 ], [ 0, %207 ], [ 0, %217 ], [ %169, %163 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %244 ], [ 0, %89 ], [ 0, %217 ], [ %.0.i.ph, %ssl3_get_record.exit.thread ], [ %3, %107 ], [ %., %109 ], [ -1, %173 ], [ %., %114 ], [ %., %121 ], [ -1, %156 ], [ -1, %237 ], [ 0, %207 ], [ %169, %163 ]
   ret i32 %.0
 }
 

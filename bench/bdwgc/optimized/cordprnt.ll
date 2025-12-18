@@ -1006,7 +1006,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
   br label %.critedge141
 
 .critedge141:                                     ; preds = %62, %246, %40, %74, %96, %.critedge139, %._crit_edge
-  %.1 = phi i32 [ %461, %._crit_edge ], [ -1, %.critedge139 ], [ -1, %74 ], [ -1, %96 ], [ -1, %40 ], [ -1, %246 ], [ -1, %62 ]
+  %.1 = phi i32 [ -1, %74 ], [ %461, %._crit_edge ], [ -1, %.critedge139 ], [ -1, %96 ], [ -1, %40 ], [ -1, %246 ], [ -1, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -1325,7 +1325,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser10EatCommentEv(ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader20, %.preheader, %17, %17, %9, %28, %1, %5
-  %.015 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %28 ], [ false, %9 ], [ %.not19.not.not, %.preheader ], [ %.not19.not.not, %17 ], [ %.not19.not.not, %17 ], [ false, %.preheader20 ]
+  %.015 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %28 ], [ %.not19.not.not, %.preheader ], [ false, %9 ], [ %.not19.not.not, %17 ], [ %.not19.not.not, %17 ], [ false, %.preheader20 ]
   ret i1 %.015
 }
 
@@ -3816,7 +3816,7 @@ _ZN4base8internal10JSONParser13StringBuilder6AppendERKc.exit: ; preds = %_ZNSt7_
   br label %.loopexit116
 
 .loopexit116:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %.critedge21, %._crit_edge, %445, %199, %134, %123, %79, %_ZN4base16IsValidCharacterEj.exit.thread105
-  %.2 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread105 ], [ true, %79 ], [ false, %445 ], [ false, %.critedge21 ], [ false, %134 ], [ false, %199 ], [ false, %123 ], [ false, %._crit_edge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
+  %.2 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread105 ], [ true, %79 ], [ false, %445 ], [ false, %.critedge21 ], [ false, %134 ], [ false, %._crit_edge ], [ false, %199 ], [ false, %123 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

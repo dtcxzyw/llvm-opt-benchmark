@@ -1005,7 +1005,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i:            ; preds = %127, %118
   br label %.thread25.i
 
 .thread25.i:                                      ; preds = %112, %_ZNK5clang9NamedDecl7getNameEv.exit.i, %108, %95, %87, %84, %68, %43
-  %.051.i = phi ptr [ null, %43 ], [ %70, %68 ], [ %.354.i, %108 ], [ %.354.i, %95 ], [ %.354.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i ], [ %89, %87 ], [ %86, %84 ], [ %.354.i, %112 ]
+  %.051.i = phi ptr [ null, %43 ], [ %86, %84 ], [ %70, %68 ], [ %.354.i, %108 ], [ %.354.i, %95 ], [ %.354.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i ], [ %89, %87 ], [ %.354.i, %112 ]
   %136 = load ptr, ptr %51, align 8, !tbaa !172
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load i64, ptr %137, align 8, !tbaa !129

@@ -3931,7 +3931,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %45, %41, %thread-pr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_number.exit, %zend_parse_arg_string.exit, %10, %53
+.thread:                                          ; preds = %zend_parse_arg_number.exit, %zend_parse_arg_long_ex.exit, %zend_parse_arg_string.exit, %10, %53
   %.089170 = phi i32 [ 4, %53 ], [ 1, %zend_parse_arg_number.exit ], [ 2, %zend_parse_arg_long_ex.exit ], [ 3, %zend_parse_arg_string.exit ], [ 0, %10 ]
   %.090169 = phi ptr [ %42, %53 ], [ %12, %zend_parse_arg_number.exit ], [ %20, %zend_parse_arg_long_ex.exit ], [ %29, %zend_parse_arg_string.exit ], [ null, %10 ]
   %.091168 = phi i32 [ 5, %53 ], [ 22, %zend_parse_arg_number.exit ], [ 0, %zend_parse_arg_long_ex.exit ], [ 5, %zend_parse_arg_string.exit ], [ 0, %10 ]

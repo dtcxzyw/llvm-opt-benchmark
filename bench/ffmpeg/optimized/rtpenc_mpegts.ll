@@ -192,7 +192,7 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
   br label %120
 
 .loopexit:                                        ; preds = %27, %._crit_edge, %59, %12
-  %.068.ph = phi i32 [ -12, %12 ], [ %63, %59 ], [ %57, %._crit_edge ], [ -12, %27 ]
+  %.068.ph = phi i32 [ %57, %._crit_edge ], [ -12, %12 ], [ %63, %59 ], [ -12, %27 ]
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @ffio_free_dyn_buf(ptr noundef nonnull %102) #4
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 192

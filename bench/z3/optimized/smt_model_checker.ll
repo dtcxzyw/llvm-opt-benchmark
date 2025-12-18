@@ -875,7 +875,7 @@ define hidden noundef ptr @_ZN3smt13model_checker17get_term_from_ctxEP4expr(ptr 
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %36, %33
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !76
 
 _ZNK7obj_mapI4exprPS0_E9find_coreES1_.exit.i:     ; preds = %17, %28
@@ -885,7 +885,7 @@ _ZNK7obj_mapI4exprPS0_E9find_coreES1_.exit.i:     ; preds = %17, %28
   br label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit:        ; preds = %22, %33, %36, %.preheader.i.i.i, %_ZNK7obj_mapI4exprPS0_E9find_coreES1_.exit.i
-  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ %38, %_ZNK7obj_mapI4exprPS0_E9find_coreES1_.exit.i ], [ null, %33 ], [ null, %36 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ null, %33 ], [ %38, %_ZNK7obj_mapI4exprPS0_E9find_coreES1_.exit.i ], [ null, %36 ], [ null, %22 ]
   ret ptr %.0
 }
 
@@ -1197,7 +1197,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %48, %51
   br i1 %.not27.old.i.i.i.i, label %_ZN3smt13model_checker17get_term_from_ctxEP4expr.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %92, %89
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %92 ], [ %91, %89 ]
+  %.137.i.i.i.i.be = phi ptr [ %91, %89 ], [ %.old.i.i.i.i, %92 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !76
 
 _ZN3smt13model_checker17get_term_from_ctxEP4expr.exit: ; preds = %73, %84
@@ -2595,7 +2595,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %100, %97
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %100 ], [ %99, %97 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %99, %97 ], [ %.old.i.i.i.i.i, %100 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !189
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit.i: ; preds = %81, %92
@@ -2758,7 +2758,7 @@ _ZN10model_core21get_some_const_interpEP9func_decl.exit: ; preds = %_ZNK10model_
   br i1 %.not27.old.i.i.i.i, label %_ZN3smt13model_checker17get_term_from_ctxEP4expr.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %168, %165
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %168 ], [ %167, %165 ]
+  %.137.i.i.i.i.be = phi ptr [ %167, %165 ], [ %.old.i.i.i.i, %168 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !76
 
 _ZN3smt13model_checker17get_term_from_ctxEP4expr.exit: ; preds = %149, %160
@@ -3006,7 +3006,7 @@ _ZNK17array_recognizers11is_as_arrayEP4exprRP9func_decl.exit: ; preds = %249
   br i1 %.not27.old.i.i.i.i139, label %_ZNK17array_recognizers11is_as_arrayEP4exprRP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i135.backedge
 
 .lr.ph38.i.i.i.i135.backedge:                     ; preds = %282, %279
-  %.137.i.i.i.i136.be = phi ptr [ %.old.i.i.i.i138, %282 ], [ %281, %279 ]
+  %.137.i.i.i.i136.be = phi ptr [ %281, %279 ], [ %.old.i.i.i.i138, %282 ]
   br label %.lr.ph38.i.i.i.i135, !llvm.loop !212
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %263, %274
@@ -3722,7 +3722,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit225:      ; preds = %557, %560, %566
   br i1 %exitcond.not, label %.critedge102, label %59, !llvm.loop !224
 
 .body:                                            ; preds = %208, %380, %541, %113, %179, %181, %133
-  %.pn87.pn = phi { ptr, i32 } [ %180, %179 ], [ %134, %133 ], [ %182, %181 ], [ %114, %113 ], [ %381, %380 ], [ %.pn82.pn.pn.pn, %541 ], [ %209, %208 ]
+  %.pn87.pn = phi { ptr, i32 } [ %.pn82.pn.pn.pn, %541 ], [ %180, %179 ], [ %134, %133 ], [ %182, %181 ], [ %114, %113 ], [ %381, %380 ], [ %209, %208 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
   br label %570
 
@@ -4511,7 +4511,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %59, %56
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %59 ], [ %58, %56 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %58, %56 ], [ %.old.i.i.i.i.i, %59 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !189
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit.i: ; preds = %40, %51
@@ -14636,7 +14636,7 @@ define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIZN3smt13model_check
   br i1 %.not27.old.i.i.i.i, label %_ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN16beta_reducer_cfg9get_substES2_RS2_RP3app.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %38, %35
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !76
 
 _ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN16beta_reducer_cfg9get_substES2_RS2_RP3app.exit: ; preds = %19, %30
@@ -15979,7 +15979,7 @@ define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIZN3smt13model_check
   br i1 %.not27.old.i.i.i.i, label %_ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN16beta_reducer_cfg9get_substES2_RS2_RP3app.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %38, %35
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !76
 
 _ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN16beta_reducer_cfg9get_substES2_RS2_RP3app.exit: ; preds = %19, %30

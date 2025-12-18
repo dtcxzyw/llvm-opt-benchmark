@@ -944,8 +944,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %20, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, %.critedge2
-  %25 = phi i64 [ %22, %.critedge2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %2 ], [ 0, %20 ]
-  %.0.lcssa38 = phi i64 [ %.021, %.critedge2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %2 ], [ %.pr, %20 ]
+  %25 = phi i64 [ %22, %.critedge2 ], [ 0, %2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %20 ]
+  %.0.lcssa38 = phi i64 [ %.021, %.critedge2 ], [ 0, %2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.pr, %20 ]
   switch i64 %.0.lcssa38, label %29 [
     i64 -1, label %26
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit13

@@ -2737,7 +2737,7 @@ gv_calloc.exit170.thread.i:                       ; preds = %929
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread178.i, %.loopexit.sink.split.i, %gv_calloc.exit165.i
-  %.0134.i = phi i32 [ 0, %gv_calloc.exit165.i ], [ 1, %.loopexit.sink.split.i ], [ 0, %.thread178.i ]
+  %.0134.i = phi i32 [ 1, %.loopexit.sink.split.i ], [ 0, %gv_calloc.exit165.i ], [ 0, %.thread178.i ]
   %990 = load i64, ptr %621, align 8, !tbaa !34
   %991 = icmp ugt i64 %990, 2
   br i1 %991, label %.lr.ph224.i, label %._crit_edge225.i

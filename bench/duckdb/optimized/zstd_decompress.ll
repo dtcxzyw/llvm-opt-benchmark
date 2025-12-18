@@ -868,9 +868,9 @@ define noundef i64 @_ZN11duckdb_zstd25ZSTD_findDecompressedSizeEPKvm(ptr noundef
 
 28:                                               ; preds = %12, %25
   %.145 = phi i64 [ %.04471, %12 ], [ %24, %25 ]
-  %..i.pn = phi i64 [ %16, %12 ], [ %26, %25 ]
-  %.234 = getelementptr inbounds nuw i8, ptr %.03273, i64 %..i.pn
-  %.242 = sub i64 %.04072, %..i.pn
+  %.pn = phi i64 [ %16, %12 ], [ %26, %25 ]
+  %.234 = getelementptr inbounds nuw i8, ptr %.03273, i64 %.pn
+  %.242 = sub i64 %.04072, %.pn
   %.not = icmp ult i64 %.242, 5
   br i1 %.not, label %._crit_edge, label %7
 
@@ -1503,7 +1503,7 @@ _ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.i: ; preds = %143
   br i1 %172, label %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread.i, label %.thread172.i
 
 _ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread.i: ; preds = %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.i, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread165.i, %167, %157, %155
-  %.0121169.i = phi i64 [ %163, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread165.i ], [ %171, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.i ], [ 0, %155 ], [ %139, %157 ], [ 0, %167 ]
+  %.0121169.i = phi i64 [ %163, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread165.i ], [ %171, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.i ], [ 0, %167 ], [ %139, %157 ], [ 0, %155 ]
   %173 = load i32, ptr %42, align 8, !tbaa !102
   %.not142.i = icmp eq i32 %173, 0
   br i1 %.not142.i, label %176, label %174
@@ -1631,8 +1631,8 @@ _ZN11duckdb_zstdL20ZSTD_decompressFrameEPNS_11ZSTD_DCtx_sEPvmPPKvPm.exit: ; pred
   br i1 %.not67127, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !118
 
 .outer._crit_edge:                                ; preds = %.outer, %73, %14
-  %.050.ph.lcssa126 = phi ptr [ %1, %14 ], [ %.050.ph139, %73 ], [ %220, %.outer ]
-  %.087.lcssa = phi i64 [ %4, %14 ], [ %75, %73 ], [ %.389, %.outer ]
+  %.050.ph.lcssa126 = phi ptr [ %.050.ph139, %73 ], [ %1, %14 ], [ %220, %.outer ]
+  %.087.lcssa = phi i64 [ %75, %73 ], [ %4, %14 ], [ %.389, %.outer ]
   %.not68 = icmp eq i64 %.087.lcssa, 0
   br i1 %.not68, label %225, label %.thread
 
@@ -3770,7 +3770,7 @@ _ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_cu
   br label %_ZN11duckdb_zstdL26ZSTD_DDictHashSet_addDDictEPNS_17ZSTD_DDictHashSetEPKNS_12ZSTD_DDict_sENS_14ZSTD_customMemE.exit.thread
 
 _ZN11duckdb_zstdL26ZSTD_DDictHashSet_addDDictEPNS_17ZSTD_DDictHashSetEPKNS_12ZSTD_DDict_sENS_14ZSTD_customMemE.exit.thread: ; preds = %52, %._crit_edge.i20.i, %97, %_ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_customMemE.exit.thread.i, %_ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i, %7, %12, %_ZN11duckdb_zstdL23ZSTD_createDDictHashSetENS_14ZSTD_customMemE.exit.thread, %2
-  %.017 = phi i64 [ -60, %2 ], [ -64, %_ZN11duckdb_zstdL23ZSTD_createDDictHashSetENS_14ZSTD_customMemE.exit.thread ], [ 0, %7 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i ], [ 0, %12 ], [ -1, %_ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_customMemE.exit.thread.i ], [ 0, %97 ], [ 0, %._crit_edge.i20.i ], [ -1, %52 ]
+  %.017 = phi i64 [ -60, %2 ], [ -64, %_ZN11duckdb_zstdL23ZSTD_createDDictHashSetENS_14ZSTD_customMemE.exit.thread ], [ 0, %7 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i ], [ 0, %12 ], [ 0, %._crit_edge.i20.i ], [ -1, %_ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_customMemE.exit.thread.i ], [ 0, %97 ], [ -1, %52 ]
   ret i64 %.017
 }
 
@@ -5018,7 +5018,7 @@ _ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE.exit: ; preds = %395
   br label %_ZN11duckdb_zstdL19ZSTD_checkOutBufferEPKNS_11ZSTD_DCtx_sEPKNS_16ZSTD_outBuffer_sE.exit.thread
 
 _ZN11duckdb_zstdL19ZSTD_checkOutBufferEPKNS_11ZSTD_DCtx_sEPKNS_16ZSTD_outBuffer_sE.exit.thread: ; preds = %.thread492, %330, %342, %274, %286, %169, %302, %_ZN11duckdb_zstdL26ZSTD_DCtx_selectFrameDDictEPNS_11ZSTD_DCtx_sE.exit, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit, %237, %205, %201, %157, %132, %138, %31, %406, %_ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE.exit, %407, %402, %410, %409, %392, %390, %21, %3
-  %.0 = phi i64 [ -80, %390 ], [ -72, %3 ], [ -82, %392 ], [ %143, %138 ], [ %416, %_ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE.exit ], [ -70, %21 ], [ 1, %406 ], [ %136, %132 ], [ 0, %402 ], [ 1, %410 ], [ 0, %407 ], [ 1, %409 ], [ -104, %31 ], [ %159, %157 ], [ -1, %.thread492 ], [ -16, %205 ], [ %91, %_ZN11duckdb_zstdL26ZSTD_DCtx_selectFrameDDictEPNS_11ZSTD_DCtx_sE.exit ], [ -70, %169 ], [ %290, %286 ], [ %203, %201 ], [ -64, %237 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit ], [ -20, %302 ], [ %279, %274 ], [ %335, %330 ], [ %346, %342 ]
+  %.0 = phi i64 [ -80, %390 ], [ -72, %3 ], [ -82, %392 ], [ %143, %138 ], [ %416, %_ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE.exit ], [ -70, %21 ], [ 1, %406 ], [ %136, %132 ], [ 0, %402 ], [ 1, %410 ], [ 0, %407 ], [ 1, %409 ], [ -104, %31 ], [ %159, %157 ], [ -1, %.thread492 ], [ %91, %_ZN11duckdb_zstdL26ZSTD_DCtx_selectFrameDDictEPNS_11ZSTD_DCtx_sE.exit ], [ -70, %169 ], [ %290, %286 ], [ %203, %201 ], [ -16, %205 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit ], [ -64, %237 ], [ -20, %302 ], [ %279, %274 ], [ %335, %330 ], [ %346, %342 ]
   ret i64 %.0
 }
 

@@ -473,7 +473,7 @@ loop_filter_alloc.exit.i:                         ; preds = %91, %89, %87
   br i1 %.not30.us.us.us.i.i, label %._crit_edge40.split.us.us.us.i.i, label %.lr.ph.us.us.us.i.i.preheader
 
 ..loopexit_crit_edge.us.us.us.i.i:                ; preds = %.lr.ph.us.us.us.i.i, %113, %111
-  %.2.us.us.us.i.i = phi ptr [ %.137.us.us.us.i.i, %111 ], [ %.137.us.us.us.i.i, %113 ], [ %122, %.lr.ph.us.us.us.i.i ]
+  %.2.us.us.us.i.i = phi ptr [ %.137.us.us.us.i.i, %113 ], [ %.137.us.us.us.i.i, %111 ], [ %122, %.lr.ph.us.us.us.i.i ]
   %119 = add i32 %.02835.us.us.us.i.i, 1
   %exitcond.not.i51.i = icmp eq i32 %119, %4
   br i1 %exitcond.not.i51.i, label %._crit_edge40.split.us.us.us.i.i, label %110, !llvm.loop !15

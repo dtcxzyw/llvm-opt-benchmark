@@ -442,7 +442,7 @@ fmap_readn.exit147.thread:                        ; preds = %106, %100, %fmap_re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %145, %._crit_edge, %156, %76, %121, %fmap_readn.exit147.thread, %63, %58, %fmap_readn.exit142.thread, %fmap_readn.exit137.thread, %26, %17, %fmap_readn.exit.thread, %8
-  %.049 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %17 ], [ 26, %26 ], [ 26, %fmap_readn.exit137.thread ], [ 26, %fmap_readn.exit142.thread ], [ 26, %58 ], [ 26, %63 ], [ %77, %76 ], [ 26, %fmap_readn.exit147.thread ], [ 26, %121 ], [ 0, %156 ], [ 0, %._crit_edge ], [ 2, %8 ], [ %152, %145 ]
+  %.049 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %17 ], [ 26, %26 ], [ 26, %fmap_readn.exit137.thread ], [ 26, %fmap_readn.exit142.thread ], [ 26, %58 ], [ 26, %63 ], [ %77, %76 ], [ 26, %fmap_readn.exit147.thread ], [ 26, %121 ], [ 2, %8 ], [ 0, %156 ], [ 0, %._crit_edge ], [ %152, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

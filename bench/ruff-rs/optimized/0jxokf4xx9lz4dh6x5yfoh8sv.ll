@@ -18551,13 +18551,13 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h80d90020f4debf84E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h80d90020f4debf84E.exit": ; preds = %.loopexit.i.i.i.i, %10, %27, %31
-  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %10 ], [ %28, %27 ], [ %28, %31 ], [ %.sroa.12.0, %.loopexit.i.i.i.i ]
-  %.sroa.9.3 = phi i64 [ %.sroa.9.0, %10 ], [ %20, %27 ], [ %20, %31 ], [ 0, %.loopexit.i.i.i.i ]
-  %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
-  %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %27 ], [ %.sroa.4.1, %31 ], [ 59, %.loopexit.i.i.i.i ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %.sroa.17.0, %27 ], [ %32, %31 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
-  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
-  %.sink.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0, %31 ], [ null, %.loopexit.i.i.i.i ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %10 ], [ %28, %31 ], [ %28, %27 ], [ %.sroa.12.0, %.loopexit.i.i.i.i ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.0, %10 ], [ %20, %31 ], [ %20, %27 ], [ 0, %.loopexit.i.i.i.i ]
+  %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
+  %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %31 ], [ %.sroa.4.1, %27 ], [ 59, %.loopexit.i.i.i.i ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %32, %31 ], [ %.sroa.17.0, %27 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
+  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.10, %31 ], [ %.sroa.49, %27 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
+  %.sink.i = phi ptr [ null, %10 ], [ %.sroa.17.0, %31 ], [ null, %27 ], [ null, %.loopexit.i.i.i.i ]
   store ptr %.sink.i, ptr %.sink25.i.sroa.phi, align 8, !alias.scope !536, !noalias !548
   %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. = load i64, ptr %.sroa.49, align 8, !noundef !4
   %34 = inttoptr i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. to ptr

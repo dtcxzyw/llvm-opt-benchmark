@@ -99,7 +99,7 @@ thread-pre-split.thread.sink.split.i:             ; preds = %thread-pre-split.i,
   call void @addReplyErrorExpireTime(ptr noundef %0) #11
   br label %getExpireMillisecondsOrReply.exit
 
-getExpireMillisecondsOrReply.exit.thread:         ; preds = %23, %thread-pre-split.i, %8
+getExpireMillisecondsOrReply.exit.thread:         ; preds = %thread-pre-split.i, %23, %8
   %29 = and i32 %1, 32
   %.not81 = icmp eq i32 %29, 0
   br i1 %.not81, label %getGenericCommand.exit.thread, label %30
@@ -732,7 +732,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   br label %.loopexit
 
 171:                                              ; preds = %54, %78, %103, %144, %167, %121, %86, %67, %40
-  %.2143 = phi i32 [ %.0141211, %40 ], [ %.0141211, %54 ], [ %.0141211, %67 ], [ %169, %167 ], [ %146, %144 ], [ %123, %121 ], [ %105, %103 ], [ %.0141211, %86 ], [ %.0141211, %78 ]
+  %.2143 = phi i32 [ %.0141211, %78 ], [ %.0141211, %40 ], [ %.0141211, %54 ], [ %.0141211, %67 ], [ %169, %167 ], [ %146, %144 ], [ %123, %121 ], [ %105, %103 ], [ %.0141211, %86 ]
   %172 = add nsw i32 %.2143, 1
   %173 = load i32, ptr %8, align 8, !tbaa !59
   %174 = icmp slt i32 %172, %173
@@ -962,7 +962,7 @@ thread-pre-split.thread.sink.split.i:             ; preds = %thread-pre-split.i,
   call void @addReplyErrorExpireTime(ptr noundef nonnull %0) #11
   br label %getExpireMillisecondsOrReply.exit
 
-getExpireMillisecondsOrReply.exit.thread:         ; preds = %35, %thread-pre-split.i, %21
+getExpireMillisecondsOrReply.exit.thread:         ; preds = %thread-pre-split.i, %35, %21
   call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef nonnull %17) #11
   %41 = and i32 %.pre, 192
   %or.cond = icmp eq i32 %41, 0

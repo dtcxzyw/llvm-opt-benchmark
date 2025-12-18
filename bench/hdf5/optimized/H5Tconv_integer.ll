@@ -1221,7 +1221,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   br label %.thread569
 
 .loopexit574:                                     ; preds = %544, %119, %.thread560, %416, %.thread545, %.thread536, %.thread525, %.thread516, %.thread506, %477, %348, %304, %255, %212
-  %.1384 = phi i32 [ -1, %.thread516 ], [ -1, %304 ], [ -1, %.thread525 ], [ -1, %348 ], [ -1, %.thread536 ], [ -1, %477 ], [ -1, %.thread560 ], [ -1, %.thread545 ], [ -1, %416 ], [ -1, %212 ], [ -1, %.thread506 ], [ -1, %255 ], [ 0, %119 ], [ 0, %544 ]
+  %.1384 = phi i32 [ -1, %.thread516 ], [ -1, %304 ], [ -1, %.thread525 ], [ -1, %348 ], [ -1, %.thread536 ], [ -1, %255 ], [ -1, %477 ], [ -1, %.thread560 ], [ -1, %.thread545 ], [ -1, %416 ], [ -1, %212 ], [ -1, %.thread506 ], [ 0, %119 ], [ 0, %544 ]
   %.not465 = icmp eq ptr %.1411, null
   br i1 %.not465, label %.thread569, label %552
 
@@ -2706,7 +2706,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_uchar(ptr noundef readonly captures
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.thread392, %.preheader407, %.thread379.us, %.preheader403.us, %.thread366.us, %.preheader399.us, %.thread353.us, %.preheader.us, %80, %190, %.thread385, %.split474.us, %.thread372, %.split460.us, %.thread359, %.split446.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.thread353.us ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.preheader403.us ], [ 0, %.thread379.us ], [ 0, %.thread392 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ 0, %80 ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.thread379.us ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.preheader403.us ], [ 0, %.thread353.us ], [ 0, %.thread392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -3151,7 +3151,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_short(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -3824,7 +3824,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ushort(ptr noundef readonly capture
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.loopexit408, %.loopexit406.us, %.loopexit402.us, %.loopexit398.us, %80, %288, %.thread382, %.split474.us, %.thread369, %.split460.us, %.thread356, %.split446.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit408 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ 0, %80 ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit408 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -4269,7 +4269,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_int(ptr noundef readonly captures(a
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -4942,7 +4942,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_uint(ptr noundef readonly captures(
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.loopexit416, %.loopexit414.us, %.loopexit410.us, %.loopexit406.us, %80, %288, %.thread390, %.split482.us, %.thread377, %.split468.us, %.thread364, %.split454.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit414.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit416 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit414.us ], [ 0, %.loopexit416 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -5387,7 +5387,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_long(ptr noundef readonly captures(
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -6060,7 +6060,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ulong(ptr noundef readonly captures
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.loopexit408, %.loopexit406.us, %.loopexit402.us, %.loopexit398.us, %80, %288, %.thread382, %.split474.us, %.thread369, %.split460.us, %.thread356, %.split446.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit408 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ 0, %80 ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit408 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -6505,7 +6505,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_llong(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -7178,7 +7178,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ullong(ptr noundef readonly capture
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.loopexit408, %.loopexit406.us, %.loopexit402.us, %.loopexit398.us, %80, %288, %.thread382, %.split474.us, %.thread369, %.split460.us, %.thread356, %.split446.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit408 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ 0, %80 ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit408 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -7539,8 +7539,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split810.us824.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us926
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -7600,7 +7600,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br i1 %.not648.us.us, label %161, label %.split810.us824.us
 
 .split810.us824.us:                               ; preds = %.preheader.split.us823.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ], [ %spec.select.us.us, %166 ]
   %203 = zext i8 %.fr864 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -7763,8 +7763,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us841.us, %256, %254, %252, %250, %248, %246
-  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ %spec.select672.us.us, %256 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ %spec.select672.us.us, %256 ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ 0, %.preheader754.us.us ]
   %258 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us929
   %259 = and i64 %258, 4294967295
   %.not645.us.us = icmp ult i64 %259, %.0526
@@ -7815,7 +7815,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br i1 %.not630.us.us, label %240, label %.split.us841.us
 
 .split.us841.us:                                  ; preds = %.preheader754.split.us840.us, %245, %244, %243, %242, %241, %240
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %245 ], [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ], [ %spec.select667.us.us, %245 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -7944,7 +7944,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !139
@@ -7987,7 +7987,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -8169,7 +8169,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !141
@@ -8212,7 +8212,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -8306,7 +8306,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit773.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split862.us, %.thread696, %.split847.us, %.thread, %.split830.us, %46, %22, %464, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit773.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %468
@@ -8667,8 +8667,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split810.us824.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us926
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -8728,7 +8728,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br i1 %.not648.us.us, label %161, label %.split810.us824.us
 
 .split810.us824.us:                               ; preds = %.preheader.split.us823.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ], [ %spec.select.us.us, %166 ]
   %203 = zext i8 %.fr864 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -8891,8 +8891,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us841.us, %256, %254, %252, %250, %248, %246
-  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ %spec.select672.us.us, %256 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ %spec.select672.us.us, %256 ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ 0, %.preheader754.us.us ]
   %258 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us929
   %259 = and i64 %258, 4294967295
   %.not645.us.us = icmp ult i64 %259, %.0526
@@ -8943,7 +8943,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br i1 %.not630.us.us, label %240, label %.split.us841.us
 
 .split.us841.us:                                  ; preds = %.preheader754.split.us840.us, %245, %244, %243, %242, %241, %240
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %245 ], [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ], [ %spec.select667.us.us, %245 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -9072,7 +9072,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !156
@@ -9115,7 +9115,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -9297,7 +9297,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !158
@@ -9340,7 +9340,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -9434,7 +9434,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly captures
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit773.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split862.us, %.thread696, %.split847.us, %.thread, %.split830.us, %46, %22, %464, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit773.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %468
@@ -9795,8 +9795,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split810.us824.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us926
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -9856,7 +9856,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br i1 %.not648.us.us, label %161, label %.split810.us824.us
 
 .split810.us824.us:                               ; preds = %.preheader.split.us823.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ], [ %spec.select.us.us, %166 ]
   %203 = zext i8 %.fr864 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -10019,8 +10019,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us841.us, %256, %254, %252, %250, %248, %246
-  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ %spec.select672.us.us, %256 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ %spec.select672.us.us, %256 ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ 0, %.preheader754.us.us ]
   %258 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us929
   %259 = and i64 %258, 4294967295
   %.not645.us.us = icmp ult i64 %259, %.0526
@@ -10071,7 +10071,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br i1 %.not630.us.us, label %240, label %.split.us841.us
 
 .split.us841.us:                                  ; preds = %.preheader754.split.us840.us, %245, %244, %243, %242, %241, %240
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %245 ], [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ], [ %spec.select667.us.us, %245 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -10200,7 +10200,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !173
@@ -10243,7 +10243,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -10425,7 +10425,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !175
@@ -10468,7 +10468,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -10562,7 +10562,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly capture
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit773.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split862.us, %.thread696, %.split847.us, %.thread, %.split830.us, %46, %22, %464, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit773.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %468
@@ -10925,8 +10925,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -10978,7 +10978,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br i1 %.not648.us.us, label %161, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %166 ]
   %199 = zext i8 %.fr862 to i32
   %200 = and i32 %199, 1
   %.not656.us.us = icmp eq i32 %200, 0
@@ -11136,8 +11136,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %252, %250, %248, %246, %244, %242
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %242 ], [ %.1490.us.us.ph, %244 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %242 ], [ 4294967294, %244 ], [ 4294967293, %246 ], [ 4294967292, %248 ], [ 4294967291, %250 ], [ %spec.select672.us.us, %252 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %242 ], [ %.1490.us.us.ph, %244 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %252 ], [ 4294967295, %242 ], [ 4294967294, %244 ], [ 4294967293, %246 ], [ 4294967292, %248 ], [ 4294967291, %250 ], [ 0, %.preheader754.us.us ]
   %254 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %255 = and i64 %254, 4294967295
   %.not645.us.us = icmp ult i64 %255, %.0526
@@ -11188,7 +11188,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br i1 %.not630.us.us, label %236, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %241, %240, %239, %238, %237, %236
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %241 ], [ 2, %240 ], [ 3, %239 ], [ 4, %238 ], [ 5, %237 ], [ 6, %236 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %240 ], [ 3, %239 ], [ 4, %238 ], [ 5, %237 ], [ 6, %236 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %241 ]
   %274 = zext i8 %.fr to i32
   %275 = and i32 %274, 1
   %.not638.us.us = icmp eq i32 %275, 0
@@ -11314,7 +11314,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %317, %316, %315, %314, %313, %312, %311
-  %.1471.us.us = phi i64 [ 7, %311 ], [ 6, %312 ], [ 5, %313 ], [ 4, %314 ], [ 3, %315 ], [ 2, %316 ], [ %spec.select668.us.us, %317 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %317 ], [ 7, %311 ], [ 6, %312 ], [ 5, %313 ], [ 4, %314 ], [ 3, %315 ], [ 2, %316 ], [ 0, %.preheader757.us.us ]
   %318 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %318, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %319, !llvm.loop !190
@@ -11357,7 +11357,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %332, %330, %328, %326, %324, %322, %319
-  %.2472.neg.us.us = phi i64 [ 0, %319 ], [ 4294967295, %322 ], [ 4294967294, %324 ], [ 4294967293, %326 ], [ 4294967292, %328 ], [ 4294967291, %330 ], [ %spec.select674.us.us, %332 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %319 ], [ %spec.select674.us.us, %332 ], [ 4294967295, %322 ], [ 4294967294, %324 ], [ 4294967293, %326 ], [ 4294967292, %328 ], [ 4294967291, %330 ], [ 0, %.loopexit758.us.us ]
   %334 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %335 = and i64 %334, 4294967295
   %.not627.us.us = icmp ult i64 %335, %.0526
@@ -11526,7 +11526,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %401, %400, %399, %398, %397, %396, %395
-  %.1457.us = phi i64 [ 7, %395 ], [ 6, %396 ], [ 5, %397 ], [ 4, %398 ], [ 3, %399 ], [ 2, %400 ], [ %spec.select669.us, %401 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %401 ], [ 7, %395 ], [ 6, %396 ], [ 5, %397 ], [ 4, %398 ], [ 3, %399 ], [ 2, %400 ], [ 0, %.preheader760.us ]
   %402 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %402, 0
   br i1 %.not601.us, label %.loopexit759.us, label %403, !llvm.loop !192
@@ -11569,7 +11569,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %416, %414, %412, %410, %408, %406, %403
-  %.2458.neg.us = phi i64 [ 0, %403 ], [ 4294967295, %406 ], [ 4294967294, %408 ], [ 4294967293, %410 ], [ 4294967292, %412 ], [ 4294967291, %414 ], [ %spec.select676.us, %416 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %403 ], [ %spec.select676.us, %416 ], [ 4294967295, %406 ], [ 4294967294, %408 ], [ 4294967293, %410 ], [ 4294967292, %412 ], [ 4294967291, %414 ], [ 0, %.loopexit761.us ]
   %418 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %419 = and i64 %418, 4294967295
   %.not609.us = icmp ult i64 %419, %.0526
@@ -11663,7 +11663,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly captur
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %454, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %454 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %454 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %458
@@ -12031,8 +12031,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %180, %178, %176, %174, %172, %170
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ %.1524.us.us.ph, %180 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %170 ], [ 4294967294, %172 ], [ 4294967293, %174 ], [ 4294967292, %176 ], [ 4294967291, %178 ], [ %spec.select670.us.us, %180 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %180 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %180 ], [ 4294967295, %170 ], [ 4294967294, %172 ], [ 4294967293, %174 ], [ 4294967292, %176 ], [ 4294967291, %178 ], [ 0, %.preheader.us.us ]
   %182 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %183 = and i64 %182, 4294967295
   %.not663.us.us = icmp ult i64 %183, %.0526
@@ -12086,7 +12086,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br i1 %.not648.us.us, label %164, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %169, %168, %167, %166, %165, %164
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %169 ], [ 2, %168 ], [ 3, %167 ], [ 4, %166 ], [ 5, %165 ], [ 6, %164 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %168 ], [ 3, %167 ], [ 4, %166 ], [ 5, %165 ], [ 6, %164 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %169 ]
   %203 = zext i8 %.fr862 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -12248,8 +12248,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %258, %256, %254, %252, %250, %248
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %258 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %248 ], [ 4294967294, %250 ], [ 4294967293, %252 ], [ 4294967292, %254 ], [ 4294967291, %256 ], [ %spec.select672.us.us, %258 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %258 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %258 ], [ 4294967295, %248 ], [ 4294967294, %250 ], [ 4294967293, %252 ], [ 4294967292, %254 ], [ 4294967291, %256 ], [ 0, %.preheader754.us.us ]
   %260 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %261 = and i64 %260, 4294967295
   %.not645.us.us = icmp ult i64 %261, %.0526
@@ -12302,7 +12302,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br i1 %.not630.us.us, label %242, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %247, %246, %245, %244, %243, %242
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %247 ], [ 2, %246 ], [ 3, %245 ], [ 4, %244 ], [ 5, %243 ], [ 6, %242 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %246 ], [ 3, %245 ], [ 4, %244 ], [ 5, %243 ], [ 6, %242 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %247 ]
   %281 = zext i8 %.fr to i32
   %282 = and i32 %281, 1
   %.not638.us.us = icmp eq i32 %282, 0
@@ -12432,7 +12432,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %326, %325, %324, %323, %322, %321, %320
-  %.1471.us.us = phi i64 [ 7, %320 ], [ 6, %321 ], [ 5, %322 ], [ 4, %323 ], [ 3, %324 ], [ 2, %325 ], [ %spec.select668.us.us, %326 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %326 ], [ 7, %320 ], [ 6, %321 ], [ 5, %322 ], [ 4, %323 ], [ 3, %324 ], [ 2, %325 ], [ 0, %.preheader757.us.us ]
   %327 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %327, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %328, !llvm.loop !205
@@ -12475,7 +12475,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %341, %339, %337, %335, %333, %331, %328
-  %.2472.neg.us.us = phi i64 [ 0, %328 ], [ 4294967295, %331 ], [ 4294967294, %333 ], [ 4294967293, %335 ], [ 4294967292, %337 ], [ 4294967291, %339 ], [ %spec.select674.us.us, %341 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %328 ], [ %spec.select674.us.us, %341 ], [ 4294967295, %331 ], [ 4294967294, %333 ], [ 4294967293, %335 ], [ 4294967292, %337 ], [ 4294967291, %339 ], [ 0, %.loopexit758.us.us ]
   %343 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %344 = and i64 %343, 4294967295
   %.not627.us.us = icmp ult i64 %344, %.0526
@@ -12646,7 +12646,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !207
@@ -12689,7 +12689,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -12789,7 +12789,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_fcomplex(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %467, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %467 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %467 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %471
@@ -13155,8 +13155,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %178, %176, %174, %172, %170, %168
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ %spec.select670.us.us, %178 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %178 ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %178 ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ 0, %.preheader.us.us ]
   %180 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %181 = and i64 %180, 4294967295
   %.not663.us.us = icmp ult i64 %181, %.0526
@@ -13209,7 +13209,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br i1 %.not648.us.us, label %162, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %167, %166, %165, %164, %163, %162
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %167 ], [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %167 ]
   %200 = zext i8 %.fr862 to i32
   %201 = and i32 %200, 1
   %.not656.us.us = icmp eq i32 %201, 0
@@ -13371,8 +13371,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %255, %253, %251, %249, %247, %245
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ %.1490.us.us.ph, %255 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ %spec.select672.us.us, %255 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %255 ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %255 ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ 0, %.preheader754.us.us ]
   %257 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %258 = and i64 %257, 4294967295
   %.not645.us.us = icmp ult i64 %258, %.0526
@@ -13425,7 +13425,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br i1 %.not630.us.us, label %239, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %244, %243, %242, %241, %240, %239
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %244 ], [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %244 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -13553,7 +13553,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !220
@@ -13596,7 +13596,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -13766,7 +13766,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %405, %404, %403, %402, %401, %400, %399
-  %.1457.us = phi i64 [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ %spec.select669.us, %405 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %405 ], [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ 0, %.preheader760.us ]
   %406 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %406, 0
   br i1 %.not601.us, label %.loopexit759.us, label %407, !llvm.loop !222
@@ -13809,7 +13809,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %420, %418, %416, %414, %412, %410, %407
-  %.2458.neg.us = phi i64 [ 0, %407 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ %spec.select676.us, %420 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %407 ], [ %spec.select676.us, %420 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ 0, %.loopexit761.us ]
   %422 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %423 = and i64 %422, 4294967295
   %.not609.us = icmp ult i64 %423, %.0526
@@ -13909,7 +13909,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_dcomplex(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %461, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %465
@@ -14275,8 +14275,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %178, %176, %174, %172, %170, %168
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ %spec.select670.us.us, %178 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %178 ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %178 ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ 0, %.preheader.us.us ]
   %180 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %181 = and i64 %180, 4294967295
   %.not663.us.us = icmp ult i64 %181, %.0526
@@ -14329,7 +14329,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br i1 %.not648.us.us, label %162, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %167, %166, %165, %164, %163, %162
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %167 ], [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %167 ]
   %200 = zext i8 %.fr862 to i32
   %201 = and i32 %200, 1
   %.not656.us.us = icmp eq i32 %201, 0
@@ -14491,8 +14491,8 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %255, %253, %251, %249, %247, %245
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ %.1490.us.us.ph, %255 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ %spec.select672.us.us, %255 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %255 ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %255 ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ 0, %.preheader754.us.us ]
   %257 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %258 = and i64 %257, 4294967295
   %.not645.us.us = icmp ult i64 %258, %.0526
@@ -14545,7 +14545,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br i1 %.not630.us.us, label %239, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %244, %243, %242, %241, %240, %239
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %244 ], [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %244 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -14673,7 +14673,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !235
@@ -14716,7 +14716,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -14886,7 +14886,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %405, %404, %403, %402, %401, %400, %399
-  %.1457.us = phi i64 [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ %spec.select669.us, %405 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %405 ], [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ 0, %.preheader760.us ]
   %406 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %406, 0
   br i1 %.not601.us, label %.loopexit759.us, label %407, !llvm.loop !237
@@ -14929,7 +14929,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %420, %418, %416, %414, %412, %410, %407
-  %.2458.neg.us = phi i64 [ 0, %407 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ %spec.select676.us, %420 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %407 ], [ %spec.select676.us, %420 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ 0, %.loopexit761.us ]
   %422 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %423 = and i64 %422, 4294967295
   %.not609.us = icmp ult i64 %423, %.0526
@@ -15029,7 +15029,7 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_lcomplex(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %461, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %465
@@ -15501,7 +15501,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_schar(ptr noundef readonly captures
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.thread392, %.preheader407, %.thread379.us, %.preheader403.us, %.thread366.us, %.preheader399.us, %.thread353.us, %.preheader.us, %80, %190, %.thread385, %.split474.us, %.thread372, %.split460.us, %.thread359, %.split446.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.thread353.us ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.preheader403.us ], [ 0, %.thread379.us ], [ 0, %.thread392 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ 0, %80 ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.thread379.us ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.preheader403.us ], [ 0, %.thread353.us ], [ 0, %.thread392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -15946,7 +15946,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_short(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -16385,7 +16385,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ushort(ptr noundef readonly capture
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -16824,7 +16824,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_int(ptr noundef readonly captures(a
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -17263,7 +17263,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_uint(ptr noundef readonly captures(
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -17702,7 +17702,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_long(ptr noundef readonly captures(
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -18141,7 +18141,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ulong(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -18580,7 +18580,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_llong(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -19019,7 +19019,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ullong(ptr noundef readonly capture
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -19374,8 +19374,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split810.us824.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us926
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -19435,7 +19435,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br i1 %.not648.us.us, label %161, label %.split810.us824.us
 
 .split810.us824.us:                               ; preds = %.preheader.split.us823.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ], [ %spec.select.us.us, %166 ]
   %203 = zext i8 %.fr864 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -19598,8 +19598,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us841.us, %256, %254, %252, %250, %248, %246
-  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ %spec.select672.us.us, %256 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ %spec.select672.us.us, %256 ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ 0, %.preheader754.us.us ]
   %258 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us929
   %259 = and i64 %258, 4294967295
   %.not645.us.us = icmp ult i64 %259, %.0526
@@ -19650,7 +19650,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br i1 %.not630.us.us, label %240, label %.split.us841.us
 
 .split.us841.us:                                  ; preds = %.preheader754.split.us840.us, %245, %244, %243, %242, %241, %240
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %245 ], [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ], [ %spec.select667.us.us, %245 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -19779,7 +19779,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !330
@@ -19822,7 +19822,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -20004,7 +20004,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !332
@@ -20047,7 +20047,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -20141,7 +20141,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit773.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split862.us, %.thread696, %.split847.us, %.thread, %.split830.us, %46, %22, %464, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit773.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %468
@@ -20502,8 +20502,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split810.us824.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us926
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -20563,7 +20563,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br i1 %.not648.us.us, label %161, label %.split810.us824.us
 
 .split810.us824.us:                               ; preds = %.preheader.split.us823.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ], [ %spec.select.us.us, %166 ]
   %203 = zext i8 %.fr864 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -20726,8 +20726,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us841.us, %256, %254, %252, %250, %248, %246
-  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ %spec.select672.us.us, %256 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ %spec.select672.us.us, %256 ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ 0, %.preheader754.us.us ]
   %258 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us929
   %259 = and i64 %258, 4294967295
   %.not645.us.us = icmp ult i64 %259, %.0526
@@ -20778,7 +20778,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br i1 %.not630.us.us, label %240, label %.split.us841.us
 
 .split.us841.us:                                  ; preds = %.preheader754.split.us840.us, %245, %244, %243, %242, %241, %240
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %245 ], [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ], [ %spec.select667.us.us, %245 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -20907,7 +20907,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !345
@@ -20950,7 +20950,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -21132,7 +21132,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !347
@@ -21175,7 +21175,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -21269,7 +21269,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly captures
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit773.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split862.us, %.thread696, %.split847.us, %.thread, %.split830.us, %46, %22, %464, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit773.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %468
@@ -21630,8 +21630,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split810.us824.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us926 = phi i64 [ %.1524.us.us.ph, %.split810.us824.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split810.us824.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us926
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -21691,7 +21691,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br i1 %.not648.us.us, label %161, label %.split810.us824.us
 
 .split810.us824.us:                               ; preds = %.preheader.split.us823.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us823.us ], [ %spec.select.us.us, %166 ]
   %203 = zext i8 %.fr864 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -21854,8 +21854,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us841.us, %256, %254, %252, %250, %248, %246
-  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ %spec.select672.us.us, %256 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us929 = phi i64 [ %.1490.us.us.ph, %.split.us841.us ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us841.us ], [ %spec.select672.us.us, %256 ], [ 4294967295, %246 ], [ 4294967294, %248 ], [ 4294967293, %250 ], [ 4294967292, %252 ], [ 4294967291, %254 ], [ 0, %.preheader754.us.us ]
   %258 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us929
   %259 = and i64 %258, 4294967295
   %.not645.us.us = icmp ult i64 %259, %.0526
@@ -21906,7 +21906,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br i1 %.not630.us.us, label %240, label %.split.us841.us
 
 .split.us841.us:                                  ; preds = %.preheader754.split.us840.us, %245, %244, %243, %242, %241, %240
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %245 ], [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %244 ], [ 3, %243 ], [ 4, %242 ], [ 5, %241 ], [ 6, %240 ], [ 7, %.preheader754.split.us840.us ], [ %spec.select667.us.us, %245 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -22035,7 +22035,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !360
@@ -22078,7 +22078,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -22260,7 +22260,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !362
@@ -22303,7 +22303,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -22397,7 +22397,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly capture
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit773.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split862.us, %.thread696, %.split847.us, %.thread, %.split830.us, %46, %22, %464, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit773.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %464 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split830.us ], [ -1, %.split847.us ], [ -1, %.split862.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %468
@@ -22760,8 +22760,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %177, %175, %173, %171, %169, %167
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ %.1524.us.us.ph, %177 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ %spec.select670.us.us, %177 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %177 ], [ %.1524.us.us.ph, %167 ], [ %.1524.us.us.ph, %169 ], [ %.1524.us.us.ph, %171 ], [ %.1524.us.us.ph, %173 ], [ %.1524.us.us.ph, %175 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %177 ], [ 4294967295, %167 ], [ 4294967294, %169 ], [ 4294967293, %171 ], [ 4294967292, %173 ], [ 4294967291, %175 ], [ 0, %.preheader.us.us ]
   %179 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %180 = and i64 %179, 4294967295
   %.not663.us.us = icmp ult i64 %180, %.0526
@@ -22813,7 +22813,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br i1 %.not648.us.us, label %161, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %166, %165, %164, %163, %162, %161
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %166 ], [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %165 ], [ 3, %164 ], [ 4, %163 ], [ 5, %162 ], [ 6, %161 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %166 ]
   %199 = zext i8 %.fr862 to i32
   %200 = and i32 %199, 1
   %.not656.us.us = icmp eq i32 %200, 0
@@ -22971,8 +22971,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %252, %250, %248, %246, %244, %242
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %242 ], [ %.1490.us.us.ph, %244 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %242 ], [ 4294967294, %244 ], [ 4294967293, %246 ], [ 4294967292, %248 ], [ 4294967291, %250 ], [ %spec.select672.us.us, %252 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %242 ], [ %.1490.us.us.ph, %244 ], [ %.1490.us.us.ph, %246 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %252 ], [ 4294967295, %242 ], [ 4294967294, %244 ], [ 4294967293, %246 ], [ 4294967292, %248 ], [ 4294967291, %250 ], [ 0, %.preheader754.us.us ]
   %254 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %255 = and i64 %254, 4294967295
   %.not645.us.us = icmp ult i64 %255, %.0526
@@ -23023,7 +23023,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br i1 %.not630.us.us, label %236, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %241, %240, %239, %238, %237, %236
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %241 ], [ 2, %240 ], [ 3, %239 ], [ 4, %238 ], [ 5, %237 ], [ 6, %236 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %240 ], [ 3, %239 ], [ 4, %238 ], [ 5, %237 ], [ 6, %236 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %241 ]
   %274 = zext i8 %.fr to i32
   %275 = and i32 %274, 1
   %.not638.us.us = icmp eq i32 %275, 0
@@ -23149,7 +23149,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %317, %316, %315, %314, %313, %312, %311
-  %.1471.us.us = phi i64 [ 7, %311 ], [ 6, %312 ], [ 5, %313 ], [ 4, %314 ], [ 3, %315 ], [ 2, %316 ], [ %spec.select668.us.us, %317 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %317 ], [ 7, %311 ], [ 6, %312 ], [ 5, %313 ], [ 4, %314 ], [ 3, %315 ], [ 2, %316 ], [ 0, %.preheader757.us.us ]
   %318 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %318, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %319, !llvm.loop !375
@@ -23192,7 +23192,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %332, %330, %328, %326, %324, %322, %319
-  %.2472.neg.us.us = phi i64 [ 0, %319 ], [ 4294967295, %322 ], [ 4294967294, %324 ], [ 4294967293, %326 ], [ 4294967292, %328 ], [ 4294967291, %330 ], [ %spec.select674.us.us, %332 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %319 ], [ %spec.select674.us.us, %332 ], [ 4294967295, %322 ], [ 4294967294, %324 ], [ 4294967293, %326 ], [ 4294967292, %328 ], [ 4294967291, %330 ], [ 0, %.loopexit758.us.us ]
   %334 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %335 = and i64 %334, 4294967295
   %.not627.us.us = icmp ult i64 %335, %.0526
@@ -23361,7 +23361,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %401, %400, %399, %398, %397, %396, %395
-  %.1457.us = phi i64 [ 7, %395 ], [ 6, %396 ], [ 5, %397 ], [ 4, %398 ], [ 3, %399 ], [ 2, %400 ], [ %spec.select669.us, %401 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %401 ], [ 7, %395 ], [ 6, %396 ], [ 5, %397 ], [ 4, %398 ], [ 3, %399 ], [ 2, %400 ], [ 0, %.preheader760.us ]
   %402 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %402, 0
   br i1 %.not601.us, label %.loopexit759.us, label %403, !llvm.loop !377
@@ -23404,7 +23404,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %416, %414, %412, %410, %408, %406, %403
-  %.2458.neg.us = phi i64 [ 0, %403 ], [ 4294967295, %406 ], [ 4294967294, %408 ], [ 4294967293, %410 ], [ 4294967292, %412 ], [ 4294967291, %414 ], [ %spec.select676.us, %416 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %403 ], [ %spec.select676.us, %416 ], [ 4294967295, %406 ], [ 4294967294, %408 ], [ 4294967293, %410 ], [ 4294967292, %412 ], [ 4294967291, %414 ], [ 0, %.loopexit761.us ]
   %418 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %419 = and i64 %418, 4294967295
   %.not609.us = icmp ult i64 %419, %.0526
@@ -23498,7 +23498,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly captur
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %454, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %454 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %454 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %458
@@ -23866,8 +23866,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %180, %178, %176, %174, %172, %170
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ %.1524.us.us.ph, %180 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %170 ], [ 4294967294, %172 ], [ 4294967293, %174 ], [ 4294967292, %176 ], [ 4294967291, %178 ], [ %spec.select670.us.us, %180 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %180 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %180 ], [ 4294967295, %170 ], [ 4294967294, %172 ], [ 4294967293, %174 ], [ 4294967292, %176 ], [ 4294967291, %178 ], [ 0, %.preheader.us.us ]
   %182 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %183 = and i64 %182, 4294967295
   %.not663.us.us = icmp ult i64 %183, %.0526
@@ -23921,7 +23921,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br i1 %.not648.us.us, label %164, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %169, %168, %167, %166, %165, %164
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %169 ], [ 2, %168 ], [ 3, %167 ], [ 4, %166 ], [ 5, %165 ], [ 6, %164 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %168 ], [ 3, %167 ], [ 4, %166 ], [ 5, %165 ], [ 6, %164 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %169 ]
   %203 = zext i8 %.fr862 to i32
   %204 = and i32 %203, 1
   %.not656.us.us = icmp eq i32 %204, 0
@@ -24083,8 +24083,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %258, %256, %254, %252, %250, %248
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ %.1490.us.us.ph, %258 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %248 ], [ 4294967294, %250 ], [ 4294967293, %252 ], [ 4294967292, %254 ], [ 4294967291, %256 ], [ %spec.select672.us.us, %258 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %258 ], [ %.1490.us.us.ph, %248 ], [ %.1490.us.us.ph, %250 ], [ %.1490.us.us.ph, %252 ], [ %.1490.us.us.ph, %254 ], [ %.1490.us.us.ph, %256 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %258 ], [ 4294967295, %248 ], [ 4294967294, %250 ], [ 4294967293, %252 ], [ 4294967292, %254 ], [ 4294967291, %256 ], [ 0, %.preheader754.us.us ]
   %260 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %261 = and i64 %260, 4294967295
   %.not645.us.us = icmp ult i64 %261, %.0526
@@ -24137,7 +24137,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br i1 %.not630.us.us, label %242, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %247, %246, %245, %244, %243, %242
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %247 ], [ 2, %246 ], [ 3, %245 ], [ 4, %244 ], [ 5, %243 ], [ 6, %242 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %246 ], [ 3, %245 ], [ 4, %244 ], [ 5, %243 ], [ 6, %242 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %247 ]
   %281 = zext i8 %.fr to i32
   %282 = and i32 %281, 1
   %.not638.us.us = icmp eq i32 %282, 0
@@ -24267,7 +24267,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %326, %325, %324, %323, %322, %321, %320
-  %.1471.us.us = phi i64 [ 7, %320 ], [ 6, %321 ], [ 5, %322 ], [ 4, %323 ], [ 3, %324 ], [ 2, %325 ], [ %spec.select668.us.us, %326 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %326 ], [ 7, %320 ], [ 6, %321 ], [ 5, %322 ], [ 4, %323 ], [ 3, %324 ], [ 2, %325 ], [ 0, %.preheader757.us.us ]
   %327 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %327, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %328, !llvm.loop !390
@@ -24310,7 +24310,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %341, %339, %337, %335, %333, %331, %328
-  %.2472.neg.us.us = phi i64 [ 0, %328 ], [ 4294967295, %331 ], [ 4294967294, %333 ], [ 4294967293, %335 ], [ 4294967292, %337 ], [ 4294967291, %339 ], [ %spec.select674.us.us, %341 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %328 ], [ %spec.select674.us.us, %341 ], [ 4294967295, %331 ], [ 4294967294, %333 ], [ 4294967293, %335 ], [ 4294967292, %337 ], [ 4294967291, %339 ], [ 0, %.loopexit758.us.us ]
   %343 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %344 = and i64 %343, 4294967295
   %.not627.us.us = icmp ult i64 %344, %.0526
@@ -24481,7 +24481,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %411, %410, %409, %408, %407, %406, %405
-  %.1457.us = phi i64 [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ %spec.select669.us, %411 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %411 ], [ 7, %405 ], [ 6, %406 ], [ 5, %407 ], [ 4, %408 ], [ 3, %409 ], [ 2, %410 ], [ 0, %.preheader760.us ]
   %412 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %412, 0
   br i1 %.not601.us, label %.loopexit759.us, label %413, !llvm.loop !392
@@ -24524,7 +24524,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %426, %424, %422, %420, %418, %416, %413
-  %.2458.neg.us = phi i64 [ 0, %413 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ %spec.select676.us, %426 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %413 ], [ %spec.select676.us, %426 ], [ 4294967295, %416 ], [ 4294967294, %418 ], [ 4294967293, %420 ], [ 4294967292, %422 ], [ 4294967291, %424 ], [ 0, %.loopexit761.us ]
   %428 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %429 = and i64 %428, 4294967295
   %.not609.us = icmp ult i64 %429, %.0526
@@ -24624,7 +24624,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_fcomplex(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %467, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %467 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %467 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %471
@@ -24990,8 +24990,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %178, %176, %174, %172, %170, %168
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ %spec.select670.us.us, %178 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %178 ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %178 ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ 0, %.preheader.us.us ]
   %180 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %181 = and i64 %180, 4294967295
   %.not663.us.us = icmp ult i64 %181, %.0526
@@ -25044,7 +25044,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br i1 %.not648.us.us, label %162, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %167, %166, %165, %164, %163, %162
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %167 ], [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %167 ]
   %200 = zext i8 %.fr862 to i32
   %201 = and i32 %200, 1
   %.not656.us.us = icmp eq i32 %201, 0
@@ -25206,8 +25206,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %255, %253, %251, %249, %247, %245
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ %.1490.us.us.ph, %255 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ %spec.select672.us.us, %255 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %255 ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %255 ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ 0, %.preheader754.us.us ]
   %257 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %258 = and i64 %257, 4294967295
   %.not645.us.us = icmp ult i64 %258, %.0526
@@ -25260,7 +25260,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br i1 %.not630.us.us, label %239, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %244, %243, %242, %241, %240, %239
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %244 ], [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %244 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -25388,7 +25388,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !405
@@ -25431,7 +25431,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -25601,7 +25601,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %405, %404, %403, %402, %401, %400, %399
-  %.1457.us = phi i64 [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ %spec.select669.us, %405 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %405 ], [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ 0, %.preheader760.us ]
   %406 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %406, 0
   br i1 %.not601.us, label %.loopexit759.us, label %407, !llvm.loop !407
@@ -25644,7 +25644,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %420, %418, %416, %414, %412, %410, %407
-  %.2458.neg.us = phi i64 [ 0, %407 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ %spec.select676.us, %420 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %407 ], [ %spec.select676.us, %420 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ 0, %.loopexit761.us ]
   %422 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %423 = and i64 %422, 4294967295
   %.not609.us = icmp ult i64 %423, %.0526
@@ -25744,7 +25744,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_dcomplex(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %461, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %465
@@ -26110,8 +26110,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br label %.loopexit.split.us.us.us
 
 .loopexit.split.us.us.us:                         ; preds = %.preheader.us.us, %.split809.us822.us, %178, %176, %174, %172, %170, %168
-  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ %.1524.us.us.ph, %178 ], [ 0, %.preheader.us.us ]
-  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ %spec.select670.us.us, %178 ], [ 0, %.preheader.us.us ]
+  %.1524.us.us922 = phi i64 [ %.1524.us.us.ph, %.split809.us822.us ], [ %.1524.us.us.ph, %178 ], [ %.1524.us.us.ph, %168 ], [ %.1524.us.us.ph, %170 ], [ %.1524.us.us.ph, %172 ], [ %.1524.us.us.ph, %174 ], [ %.1524.us.us.ph, %176 ], [ 0, %.preheader.us.us ]
+  %.2525.neg.us.us = phi i64 [ 0, %.split809.us822.us ], [ %spec.select670.us.us, %178 ], [ 4294967295, %168 ], [ 4294967294, %170 ], [ 4294967293, %172 ], [ 4294967292, %174 ], [ 4294967291, %176 ], [ 0, %.preheader.us.us ]
   %180 = add nuw nsw i64 %.2525.neg.us.us, %.1524.us.us922
   %181 = and i64 %180, 4294967295
   %.not663.us.us = icmp ult i64 %181, %.0526
@@ -26164,7 +26164,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br i1 %.not648.us.us, label %162, label %.split809.us822.us
 
 .split809.us822.us:                               ; preds = %.preheader.split.us821.us, %167, %166, %165, %164, %163, %162
-  %.1524.us.us.ph = phi i64 [ %spec.select.us.us, %167 ], [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ]
+  %.1524.us.us.ph = phi i64 [ 2, %166 ], [ 3, %165 ], [ 4, %164 ], [ 5, %163 ], [ 6, %162 ], [ 7, %.preheader.split.us821.us ], [ %spec.select.us.us, %167 ]
   %200 = zext i8 %.fr862 to i32
   %201 = and i32 %200, 1
   %.not656.us.us = icmp eq i32 %201, 0
@@ -26326,8 +26326,8 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br label %.loopexit753.split.us.us.us
 
 .loopexit753.split.us.us.us:                      ; preds = %.preheader754.us.us, %.split.us839.us, %255, %253, %251, %249, %247, %245
-  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ %.1490.us.us.ph, %255 ], [ 0, %.preheader754.us.us ]
-  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ %spec.select672.us.us, %255 ], [ 0, %.preheader754.us.us ]
+  %.1490.us.us925 = phi i64 [ %.1490.us.us.ph, %.split.us839.us ], [ %.1490.us.us.ph, %255 ], [ %.1490.us.us.ph, %245 ], [ %.1490.us.us.ph, %247 ], [ %.1490.us.us.ph, %249 ], [ %.1490.us.us.ph, %251 ], [ %.1490.us.us.ph, %253 ], [ 0, %.preheader754.us.us ]
+  %.2491.neg.us.us = phi i64 [ 0, %.split.us839.us ], [ %spec.select672.us.us, %255 ], [ 4294967295, %245 ], [ 4294967294, %247 ], [ 4294967293, %249 ], [ 4294967292, %251 ], [ 4294967291, %253 ], [ 0, %.preheader754.us.us ]
   %257 = add nuw nsw i64 %.2491.neg.us.us, %.1490.us.us925
   %258 = and i64 %257, 4294967295
   %.not645.us.us = icmp ult i64 %258, %.0526
@@ -26380,7 +26380,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br i1 %.not630.us.us, label %239, label %.split.us839.us
 
 .split.us839.us:                                  ; preds = %.preheader754.split.us838.us, %244, %243, %242, %241, %240, %239
-  %.1490.us.us.ph = phi i64 [ %spec.select667.us.us, %244 ], [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ]
+  %.1490.us.us.ph = phi i64 [ 2, %243 ], [ 3, %242 ], [ 4, %241 ], [ 5, %240 ], [ 6, %239 ], [ 7, %.preheader754.split.us838.us ], [ %spec.select667.us.us, %244 ]
   %278 = zext i8 %.fr to i32
   %279 = and i32 %278, 1
   %.not638.us.us = icmp eq i32 %279, 0
@@ -26508,7 +26508,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br label %.loopexit758.us.us
 
 .loopexit758.us.us:                               ; preds = %.preheader757.us.us, %321, %320, %319, %318, %317, %316, %315
-  %.1471.us.us = phi i64 [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ %spec.select668.us.us, %321 ], [ 0, %.preheader757.us.us ]
+  %.1471.us.us = phi i64 [ %spec.select668.us.us, %321 ], [ 7, %315 ], [ 6, %316 ], [ 5, %317 ], [ 4, %318 ], [ 3, %319 ], [ 2, %320 ], [ 0, %.preheader757.us.us ]
   %322 = load i8, ptr %.5539796.us.us, align 1, !tbaa !25
   %.not619.us.us = icmp eq i8 %322, 0
   br i1 %.not619.us.us, label %.loopexit756.us.us, label %323, !llvm.loop !420
@@ -26551,7 +26551,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br label %.loopexit756.us.us
 
 .loopexit756.us.us:                               ; preds = %.loopexit758.us.us, %336, %334, %332, %330, %328, %326, %323
-  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ %spec.select674.us.us, %336 ], [ 0, %.loopexit758.us.us ]
+  %.2472.neg.us.us = phi i64 [ 0, %323 ], [ %spec.select674.us.us, %336 ], [ 4294967295, %326 ], [ 4294967294, %328 ], [ 4294967293, %330 ], [ 4294967292, %332 ], [ 4294967291, %334 ], [ 0, %.loopexit758.us.us ]
   %338 = add nuw nsw i64 %.2472.neg.us.us, %.1471.us.us
   %339 = and i64 %338, 4294967295
   %.not627.us.us = icmp ult i64 %339, %.0526
@@ -26721,7 +26721,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br label %.loopexit761.us
 
 .loopexit761.us:                                  ; preds = %.preheader760.us, %405, %404, %403, %402, %401, %400, %399
-  %.1457.us = phi i64 [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ %spec.select669.us, %405 ], [ 0, %.preheader760.us ]
+  %.1457.us = phi i64 [ %spec.select669.us, %405 ], [ 7, %399 ], [ 6, %400 ], [ 5, %401 ], [ 4, %402 ], [ 3, %403 ], [ 2, %404 ], [ 0, %.preheader760.us ]
   %406 = load i8, ptr %.7541786.us, align 1, !tbaa !25
   %.not601.us = icmp eq i8 %406, 0
   br i1 %.not601.us, label %.loopexit759.us, label %407, !llvm.loop !422
@@ -26764,7 +26764,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br label %.loopexit759.us
 
 .loopexit759.us:                                  ; preds = %.loopexit761.us, %420, %418, %416, %414, %412, %410, %407
-  %.2458.neg.us = phi i64 [ 0, %407 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ %spec.select676.us, %420 ], [ 0, %.loopexit761.us ]
+  %.2458.neg.us = phi i64 [ 0, %407 ], [ %spec.select676.us, %420 ], [ 4294967295, %410 ], [ 4294967294, %412 ], [ 4294967293, %414 ], [ 4294967292, %416 ], [ 4294967291, %418 ], [ 0, %.loopexit761.us ]
   %422 = add nuw nsw i64 %.2458.neg.us, %.1457.us
   %423 = and i64 %422, 4294967295
   %.not609.us = icmp ult i64 %423, %.0526
@@ -26864,7 +26864,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_lcomplex(ptr noundef readonly captu
   br label %.loopexit778
 
 .loopexit778:                                     ; preds = %.loopexit775, %.loopexit771.us, %.loopexit769.us, %.loopexit765.us, %121, %.thread734, %.split791.us, %.thread715, %.split860.us, %.thread696, %.split845.us, %.thread, %.split828.us, %46, %22, %461, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ -1, %.thread734 ], [ 0, %121 ], [ 0, %.loopexit771.us ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit775 ]
+  %.1474 = phi i32 [ -1, %461 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread715 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread734 ], [ -1, %.thread ], [ -1, %.thread696 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split828.us ], [ -1, %.split845.us ], [ -1, %.split860.us ], [ -1, %.split791.us ], [ 0, %121 ], [ 0, %.loopexit765.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit771.us ], [ 0, %.loopexit775 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %465
@@ -27707,7 +27707,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_schar(ptr noundef readonly captures
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -28554,7 +28554,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_uchar(ptr noundef readonly captures
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -29027,7 +29027,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ushort(ptr noundef readonly capture
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.thread392, %.preheader407, %.thread379.us, %.preheader403.us, %.thread366.us, %.preheader399.us, %.thread353.us, %.preheader.us, %80, %190, %.thread385, %.split474.us, %.thread372, %.split460.us, %.thread359, %.split446.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.thread353.us ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.preheader403.us ], [ 0, %.thread379.us ], [ 0, %.thread392 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ 0, %80 ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.thread379.us ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.preheader403.us ], [ 0, %.thread353.us ], [ 0, %.thread392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -29472,7 +29472,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_int(ptr noundef readonly captures(a
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -30145,7 +30145,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_uint(ptr noundef readonly captures(
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.loopexit416, %.loopexit414.us, %.loopexit410.us, %.loopexit406.us, %80, %288, %.thread390, %.split482.us, %.thread377, %.split468.us, %.thread364, %.split454.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit414.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit416 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit414.us ], [ 0, %.loopexit416 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -30590,7 +30590,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_long(ptr noundef readonly captures(
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -31263,7 +31263,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ulong(ptr noundef readonly captures
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.loopexit408, %.loopexit406.us, %.loopexit402.us, %.loopexit398.us, %80, %288, %.thread382, %.split474.us, %.thread369, %.split460.us, %.thread356, %.split446.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit408 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ 0, %80 ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit408 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -31708,7 +31708,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_llong(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -32381,7 +32381,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ullong(ptr noundef readonly capture
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.loopexit408, %.loopexit406.us, %.loopexit402.us, %.loopexit398.us, %80, %288, %.thread382, %.split474.us, %.thread369, %.split460.us, %.thread356, %.split446.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit408 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ 0, %80 ], [ 0, %.loopexit398.us ], [ 0, %.loopexit402.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit408 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -33647,7 +33647,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short__Float16(ptr noundef readonly captu
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split881.us, %.thread699, %.split866.us, %.thread, %.split852.us, %46, %22, %555, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %555 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %555 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread692.us.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread730.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
@@ -35112,7 +35112,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_float(ptr noundef readonly captures
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %650, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %654
@@ -36577,7 +36577,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_double(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %650, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %654
@@ -38020,7 +38020,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ldouble(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %642, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %642 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %642 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %646
@@ -39488,7 +39488,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_fcomplex(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %655, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %655 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %655 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %659
@@ -40950,7 +40950,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_dcomplex(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %649, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %653
@@ -42412,7 +42412,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_lcomplex(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %649, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %653
@@ -43091,7 +43091,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_schar(ptr noundef readonly capture
   br label %.loopexit412
 
 .loopexit412:                                     ; preds = %.loopexit409, %.loopexit407.us, %.loopexit403.us, %.loopexit399.us, %80, %288, %.thread382, %.split475.us, %.thread369, %.split461.us, %.thread356, %.split447.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split475.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split447.us ], [ -1, %.split461.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit399.us ], [ 0, %.loopexit403.us ], [ 0, %.loopexit409 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split475.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split447.us ], [ -1, %.split461.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ 0, %80 ], [ 0, %.loopexit399.us ], [ 0, %.loopexit403.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit409 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -43770,7 +43770,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_uchar(ptr noundef readonly capture
   br label %.loopexit412
 
 .loopexit412:                                     ; preds = %.loopexit409, %.loopexit407.us, %.loopexit403.us, %.loopexit399.us, %80, %288, %.thread382, %.split475.us, %.thread369, %.split461.us, %.thread356, %.split447.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split475.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split447.us ], [ -1, %.split461.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit399.us ], [ 0, %.loopexit403.us ], [ 0, %.loopexit409 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split475.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split447.us ], [ -1, %.split461.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread356 ], [ -1, %.thread369 ], [ -1, %.thread382 ], [ 0, %80 ], [ 0, %.loopexit399.us ], [ 0, %.loopexit403.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit409 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -44243,7 +44243,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_short(ptr noundef readonly capture
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.thread392, %.preheader407, %.thread379.us, %.preheader403.us, %.thread366.us, %.preheader399.us, %.thread353.us, %.preheader.us, %80, %190, %.thread385, %.split474.us, %.thread372, %.split460.us, %.thread359, %.split446.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.thread353.us ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.preheader403.us ], [ 0, %.thread379.us ], [ 0, %.thread392 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split474.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split446.us ], [ -1, %.split460.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread359 ], [ -1, %.thread372 ], [ -1, %.thread385 ], [ 0, %80 ], [ 0, %.preheader399.us ], [ 0, %.thread366.us ], [ 0, %.thread379.us ], [ 0, %.preheader407 ], [ 0, %.preheader.us ], [ 0, %.preheader403.us ], [ 0, %.thread353.us ], [ 0, %.thread392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -44688,7 +44688,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_int(ptr noundef readonly captures(
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -45127,7 +45127,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_uint(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -45566,7 +45566,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_long(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -46005,7 +46005,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_ulong(ptr noundef readonly capture
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -46444,7 +46444,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_llong(ptr noundef readonly capture
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -46883,7 +46883,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_ullong(ptr noundef readonly captur
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -47444,7 +47444,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort__Float16(ptr noundef readonly capt
   br label %.loopexit877
 
 .loopexit877:                                     ; preds = %243, %259, %179, %196, %142, %156, %105, %120, %80, %239, %.thread850, %.split940.us, %.thread836, %.split926.us, %.thread822, %.split912.us, %.thread, %46, %22, %263, %57, %51, %42, %28
-  %.1639 = phi i32 [ -1, %263 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split940.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split912.us ], [ -1, %.split926.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread822 ], [ -1, %.thread836 ], [ -1, %.thread850 ], [ -1, %239 ], [ 0, %80 ], [ 0, %259 ], [ 0, %120 ], [ 0, %105 ], [ 0, %156 ], [ 0, %142 ], [ 0, %196 ], [ 0, %179 ], [ 0, %243 ]
+  %.1639 = phi i32 [ -1, %263 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split940.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %239 ], [ -1, %.split912.us ], [ -1, %.split926.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread822 ], [ -1, %.thread836 ], [ -1, %.thread850 ], [ 0, %80 ], [ 0, %156 ], [ 0, %142 ], [ 0, %179 ], [ 0, %259 ], [ 0, %120 ], [ 0, %196 ], [ 0, %105 ], [ 0, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %267
@@ -48912,7 +48912,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_float(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %650, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %654
@@ -50377,7 +50377,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_double(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %650, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %650 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %654
@@ -51820,7 +51820,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_ldouble(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %642, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %642 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %642 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %646
@@ -53288,7 +53288,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_fcomplex(ptr noundef readonly capt
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %655, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %655 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %655 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %659
@@ -54750,7 +54750,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_dcomplex(ptr noundef readonly capt
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %649, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %653
@@ -56212,7 +56212,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_lcomplex(ptr noundef readonly capt
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %649, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %649 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %653
@@ -57055,7 +57055,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_schar(ptr noundef readonly captures(a
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -57902,7 +57902,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_uchar(ptr noundef readonly captures(a
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -58745,7 +58745,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_short(ptr noundef readonly captures(a
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -59592,7 +59592,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ushort(ptr noundef readonly captures(
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -60065,7 +60065,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_uint(ptr noundef readonly captures(ad
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -60510,7 +60510,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_long(ptr noundef readonly captures(ad
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -61183,7 +61183,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ulong(ptr noundef readonly captures(a
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.loopexit416, %.loopexit414.us, %.loopexit410.us, %.loopexit406.us, %80, %288, %.thread390, %.split482.us, %.thread377, %.split468.us, %.thread364, %.split454.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit414.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit416 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit414.us ], [ 0, %.loopexit416 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -61628,7 +61628,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_llong(ptr noundef readonly captures(a
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -62301,7 +62301,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ullong(ptr noundef readonly captures(
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.loopexit416, %.loopexit414.us, %.loopexit410.us, %.loopexit406.us, %80, %288, %.thread390, %.split482.us, %.thread377, %.split468.us, %.thread364, %.split454.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit414.us ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit416 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit406.us ], [ 0, %.loopexit410.us ], [ 0, %.loopexit414.us ], [ 0, %.loopexit416 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -64184,7 +64184,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int__Float16(ptr noundef readonly capture
   br label %.thread927
 
 .thread927:                                       ; preds = %.loopexit1082, %.loopexit1080.us, %.loopexit1076.us, %.loopexit1072.us, %129, %.thread1032, %844, %.thread992, %.split1203.us, %.thread952, %.split1177.us, %.thread912, %.split1151.us, %.thread1026, %751, %.thread1020, %728, %.thread986, %.split1209.us, %.thread980, %.split1215.us, %.thread946, %.split1183.us, %.thread940, %.split1189.us, %.thread906, %.split1157.us, %.thread, %.split1163.us, %54, %30, %872, %65, %59, %50, %36
-  %.1639 = phi i32 [ -1, %872 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.thread992 ], [ -1, %59 ], [ -1, %65 ], [ -1, %.thread1026 ], [ -1, %.thread912 ], [ -1, %.thread952 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread986 ], [ -1, %.thread906 ], [ -1, %.thread946 ], [ -1, %.split1163.us ], [ -1, %.thread ], [ -1, %.split1157.us ], [ -1, %.split1189.us ], [ -1, %.thread940 ], [ -1, %.split1183.us ], [ -1, %.split1215.us ], [ -1, %.thread980 ], [ -1, %.split1209.us ], [ -1, %728 ], [ -1, %.thread1020 ], [ -1, %751 ], [ -1, %.split1151.us ], [ -1, %.split1177.us ], [ -1, %.split1203.us ], [ -1, %844 ], [ -1, %.thread1032 ], [ 0, %129 ], [ 0, %.loopexit1080.us ], [ 0, %.loopexit1072.us ], [ 0, %.loopexit1076.us ], [ 0, %.loopexit1082 ]
+  %.1639 = phi i32 [ -1, %872 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.thread992 ], [ -1, %59 ], [ -1, %65 ], [ -1, %.thread1026 ], [ -1, %.thread912 ], [ -1, %.thread952 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread1032 ], [ -1, %.thread986 ], [ -1, %.thread906 ], [ -1, %.thread946 ], [ -1, %.split1163.us ], [ -1, %.thread ], [ -1, %.split1157.us ], [ -1, %.split1189.us ], [ -1, %.thread940 ], [ -1, %.split1183.us ], [ -1, %.split1215.us ], [ -1, %.thread980 ], [ -1, %.split1209.us ], [ -1, %728 ], [ -1, %.thread1020 ], [ -1, %751 ], [ -1, %.split1151.us ], [ -1, %.split1177.us ], [ -1, %.split1203.us ], [ -1, %844 ], [ 0, %129 ], [ 0, %.loopexit1072.us ], [ 0, %.loopexit1076.us ], [ 0, %.loopexit1080.us ], [ 0, %.loopexit1082 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %876
@@ -65462,7 +65462,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_float(ptr noundef readonly captures(a
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split881.us, %.thread699, %.split866.us, %.thread, %.split852.us, %46, %22, %559, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread692.us.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread730.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %563
@@ -66939,7 +66939,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_double(ptr noundef readonly captures(
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %654, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %658
@@ -68394,7 +68394,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ldouble(ptr noundef readonly captures
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %646, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %650
@@ -69874,7 +69874,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_fcomplex(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %659, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %659 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %659 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %663
@@ -71348,7 +71348,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_dcomplex(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -72822,7 +72822,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_lcomplex(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -73501,7 +73501,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_schar(ptr noundef readonly captures(
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -74180,7 +74180,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_uchar(ptr noundef readonly captures(
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -74859,7 +74859,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_short(ptr noundef readonly captures(
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -75538,7 +75538,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_ushort(ptr noundef readonly captures
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -76011,7 +76011,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_int(ptr noundef readonly captures(ad
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -76456,7 +76456,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_long(ptr noundef readonly captures(a
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -76895,7 +76895,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_ulong(ptr noundef readonly captures(
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -77334,7 +77334,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_llong(ptr noundef readonly captures(
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -77773,7 +77773,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_ullong(ptr noundef readonly captures
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit248.us ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -78526,7 +78526,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint__Float16(ptr noundef readonly captur
   br label %.loopexit882
 
 .loopexit882:                                     ; preds = %.loopexit879, %.loopexit877.us, %.loopexit873.us, %.loopexit869.us, %80, %333, %.thread855, %.split945.us, %.thread841, %.split931.us, %.thread827, %.split917.us, %.thread, %46, %22, %358, %57, %51, %42, %28
-  %.1639 = phi i32 [ -1, %358 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split945.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split917.us ], [ -1, %.split931.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread827 ], [ -1, %.thread841 ], [ -1, %.thread855 ], [ -1, %333 ], [ 0, %80 ], [ 0, %.loopexit877.us ], [ 0, %.loopexit869.us ], [ 0, %.loopexit873.us ], [ 0, %.loopexit879 ]
+  %.1639 = phi i32 [ -1, %358 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split945.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %333 ], [ -1, %.split917.us ], [ -1, %.split931.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread827 ], [ -1, %.thread841 ], [ -1, %.thread855 ], [ 0, %80 ], [ 0, %.loopexit869.us ], [ 0, %.loopexit873.us ], [ 0, %.loopexit877.us ], [ 0, %.loopexit879 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %362
@@ -79804,7 +79804,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_float(ptr noundef readonly captures(
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split881.us, %.thread699, %.split866.us, %.thread, %.split852.us, %46, %22, %559, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread692.us.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread730.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %563
@@ -81281,7 +81281,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_double(ptr noundef readonly captures
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %654, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %658
@@ -82736,7 +82736,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_ldouble(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %646, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %650
@@ -84216,7 +84216,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_fcomplex(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %659, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %659 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %659 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %663
@@ -85690,7 +85690,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_dcomplex(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -87164,7 +87164,7 @@ define range(i32 -1, 1) i32 @H5T__conv_uint_lcomplex(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -88007,7 +88007,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_schar(ptr noundef readonly captures(
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -88854,7 +88854,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uchar(ptr noundef readonly captures(
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -89697,7 +89697,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_short(ptr noundef readonly captures(
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -90544,7 +90544,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ushort(ptr noundef readonly captures
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -91387,7 +91387,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_int(ptr noundef readonly captures(ad
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -92234,7 +92234,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uint(ptr noundef readonly captures(a
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -92707,7 +92707,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ulong(ptr noundef readonly captures(
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -92965,7 +92965,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_llong(ptr noundef readonly captures(
   br label %.loopexit254
 
 .loopexit254:                                     ; preds = %.preheader252, %.preheader250, %.preheader248.us, %.preheader246.us, %.preheader244.us, %.preheader242.us, %.preheader240.us, %.preheader.us, %74, %9, %40, %16, %105, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %105 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.preheader250 ], [ 0, %.preheader.us ], [ 0, %.preheader240.us ], [ 0, %.preheader242.us ], [ 0, %.preheader244.us ], [ 0, %.preheader246.us ], [ 0, %.preheader248.us ], [ 0, %.preheader252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %105 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.preheader.us ], [ 0, %.preheader244.us ], [ 0, %.preheader248.us ], [ 0, %.preheader242.us ], [ 0, %.preheader246.us ], [ 0, %.preheader250 ], [ 0, %.preheader240.us ], [ 0, %.preheader252 ]
   ret i32 %.0212
 }
 
@@ -93432,7 +93432,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ullong(ptr noundef readonly captures
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -95345,7 +95345,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long__Float16(ptr noundef readonly captur
   br label %.thread937
 
 .thread937:                                       ; preds = %.loopexit1092, %.loopexit1090.us, %.loopexit1086.us, %.loopexit1082.us, %129, %.thread1042, %845, %.thread1002, %.split1213.us, %.thread962, %.split1187.us, %.thread922, %.split1161.us, %.thread1036, %752, %.thread1030, %729, %.thread996, %.split1219.us, %.thread990, %.split1225.us, %.thread956, %.split1193.us, %.thread950, %.split1199.us, %.thread916, %.split1167.us, %.thread, %.split1173.us, %54, %30, %872, %65, %59, %50, %36
-  %.1639 = phi i32 [ -1, %872 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.thread1002 ], [ -1, %59 ], [ -1, %65 ], [ -1, %.thread1036 ], [ -1, %.thread922 ], [ -1, %.thread962 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread996 ], [ -1, %.thread916 ], [ -1, %.thread956 ], [ -1, %.split1173.us ], [ -1, %.thread ], [ -1, %.split1167.us ], [ -1, %.split1199.us ], [ -1, %.thread950 ], [ -1, %.split1193.us ], [ -1, %.split1225.us ], [ -1, %.thread990 ], [ -1, %.split1219.us ], [ -1, %729 ], [ -1, %.thread1030 ], [ -1, %752 ], [ -1, %.split1161.us ], [ -1, %.split1187.us ], [ -1, %.split1213.us ], [ -1, %845 ], [ -1, %.thread1042 ], [ 0, %129 ], [ 0, %.loopexit1090.us ], [ 0, %.loopexit1082.us ], [ 0, %.loopexit1086.us ], [ 0, %.loopexit1092 ]
+  %.1639 = phi i32 [ -1, %872 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.thread1002 ], [ -1, %59 ], [ -1, %65 ], [ -1, %.thread1036 ], [ -1, %.thread922 ], [ -1, %.thread962 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread1042 ], [ -1, %.thread996 ], [ -1, %.thread916 ], [ -1, %.thread956 ], [ -1, %.split1173.us ], [ -1, %.thread ], [ -1, %.split1167.us ], [ -1, %.split1199.us ], [ -1, %.thread950 ], [ -1, %.split1193.us ], [ -1, %.split1225.us ], [ -1, %.thread990 ], [ -1, %.split1219.us ], [ -1, %729 ], [ -1, %.thread1030 ], [ -1, %752 ], [ -1, %.split1161.us ], [ -1, %.split1187.us ], [ -1, %.split1213.us ], [ -1, %845 ], [ 0, %129 ], [ 0, %.loopexit1082.us ], [ 0, %.loopexit1086.us ], [ 0, %.loopexit1090.us ], [ 0, %.loopexit1092 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %876
@@ -96830,7 +96830,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_float(ptr noundef readonly captures(
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %654, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %658
@@ -98116,7 +98116,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_double(ptr noundef readonly captures
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split881.us, %.thread699, %.split866.us, %.thread, %.split852.us, %46, %22, %559, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread692.us.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread730.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %563
@@ -99579,7 +99579,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ldouble(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %646, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %650
@@ -100878,7 +100878,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_fcomplex(ptr noundef readonly captur
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split879.us, %.thread699, %.split865.us, %.thread, %.split850.us, %46, %22, %564, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread730.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us.us ], [ 0, %.thread749.us ], [ 0, %.thread692.us ], [ 0, %.preheader765.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %568
@@ -102360,7 +102360,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_dcomplex(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -103842,7 +103842,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_lcomplex(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -104521,7 +104521,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_schar(ptr noundef readonly captures
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -105200,7 +105200,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_uchar(ptr noundef readonly captures
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -105879,7 +105879,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_short(ptr noundef readonly captures
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -106558,7 +106558,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_ushort(ptr noundef readonly capture
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -107237,7 +107237,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_int(ptr noundef readonly captures(a
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -107916,7 +107916,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_uint(ptr noundef readonly captures(
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -108389,7 +108389,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_long(ptr noundef readonly captures(
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -108862,7 +108862,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_llong(ptr noundef readonly captures
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -109120,7 +109120,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_ullong(ptr noundef readonly capture
   br label %.loopexit254
 
 .loopexit254:                                     ; preds = %.preheader252, %.preheader250, %.preheader248.us, %.preheader246.us, %.preheader244.us, %.preheader242.us, %.preheader240.us, %.preheader.us, %74, %9, %40, %16, %105, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %105 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.preheader250 ], [ 0, %.preheader.us ], [ 0, %.preheader240.us ], [ 0, %.preheader242.us ], [ 0, %.preheader244.us ], [ 0, %.preheader246.us ], [ 0, %.preheader248.us ], [ 0, %.preheader252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %105 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.preheader.us ], [ 0, %.preheader244.us ], [ 0, %.preheader248.us ], [ 0, %.preheader242.us ], [ 0, %.preheader246.us ], [ 0, %.preheader250 ], [ 0, %.preheader240.us ], [ 0, %.preheader252 ]
   ret i32 %.0212
 }
 
@@ -109869,7 +109869,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong__Float16(ptr noundef readonly captu
   br label %.loopexit882
 
 .loopexit882:                                     ; preds = %.loopexit879, %.loopexit877.us, %.loopexit873.us, %.loopexit869.us, %80, %330, %.thread855, %.split945.us, %.thread841, %.split931.us, %.thread827, %.split917.us, %.thread, %46, %22, %354, %57, %51, %42, %28
-  %.1639 = phi i32 [ -1, %354 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split945.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split917.us ], [ -1, %.split931.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread827 ], [ -1, %.thread841 ], [ -1, %.thread855 ], [ -1, %330 ], [ 0, %80 ], [ 0, %.loopexit877.us ], [ 0, %.loopexit869.us ], [ 0, %.loopexit873.us ], [ 0, %.loopexit879 ]
+  %.1639 = phi i32 [ -1, %354 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split945.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %330 ], [ -1, %.split917.us ], [ -1, %.split931.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread827 ], [ -1, %.thread841 ], [ -1, %.thread855 ], [ 0, %80 ], [ 0, %.loopexit869.us ], [ 0, %.loopexit873.us ], [ 0, %.loopexit877.us ], [ 0, %.loopexit879 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %358
@@ -111354,7 +111354,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_float(ptr noundef readonly captures
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %654, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %658
@@ -112640,7 +112640,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_double(ptr noundef readonly capture
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split881.us, %.thread699, %.split866.us, %.thread, %.split852.us, %46, %22, %559, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread692.us.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread730.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %563
@@ -114103,7 +114103,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_ldouble(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %646, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %650
@@ -115402,7 +115402,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_fcomplex(ptr noundef readonly captu
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split879.us, %.thread699, %.split865.us, %.thread, %.split850.us, %46, %22, %564, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread730.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us.us ], [ 0, %.thread749.us ], [ 0, %.thread692.us ], [ 0, %.preheader765.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %568
@@ -116884,7 +116884,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_dcomplex(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -118366,7 +118366,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ulong_lcomplex(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -119209,7 +119209,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_schar(ptr noundef readonly captures
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -120056,7 +120056,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uchar(ptr noundef readonly captures
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -120899,7 +120899,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_short(ptr noundef readonly captures
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -121746,7 +121746,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ushort(ptr noundef readonly capture
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -122589,7 +122589,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_int(ptr noundef readonly captures(a
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %353, %374, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %389, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ -1, %374 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %389 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %374 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %353 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %393
@@ -123436,7 +123436,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uint(ptr noundef readonly captures(
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit512.us, %.loopexit508.us, %84, %356, %377, %.thread488, %.thread494, %.split600.us, %.split594.us, %.thread468, %.thread474, %.split580.us, %.split574.us, %.thread448, %.thread454, %.split560.us, %.split554.us, %.thread, %.thread434, %50, %26, %393, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ -1, %377 ], [ 0, %84 ], [ 0, %.loopexit514.us ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %393 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split594.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %377 ], [ -1, %.split554.us ], [ -1, %.split574.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split560.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split580.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split600.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %356 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit508.us ], [ 0, %.loopexit512.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %397
@@ -123694,7 +123694,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_long(ptr noundef readonly captures(
   br label %.loopexit437
 
 .loopexit437:                                     ; preds = %.preheader435, %.preheader433, %.preheader431.us, %.preheader429.us, %.preheader427.us, %.preheader425.us, %.preheader423.us, %.preheader.us, %74, %22, %36, %45, %51, %109, %16, %40, %9
-  %.0391 = phi i32 [ 0, %9 ], [ -1, %109 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.preheader433 ], [ 0, %.preheader.us ], [ 0, %.preheader423.us ], [ 0, %.preheader425.us ], [ 0, %.preheader427.us ], [ 0, %.preheader429.us ], [ 0, %.preheader431.us ], [ 0, %.preheader435 ]
+  %.0391 = phi i32 [ 0, %9 ], [ -1, %109 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.preheader.us ], [ 0, %.preheader427.us ], [ 0, %.preheader431.us ], [ 0, %.preheader425.us ], [ 0, %.preheader429.us ], [ 0, %.preheader433 ], [ 0, %.preheader423.us ], [ 0, %.preheader435 ]
   ret i32 %.0391
 }
 
@@ -124161,7 +124161,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ulong(ptr noundef readonly captures
   br label %.loopexit427
 
 .loopexit427:                                     ; preds = %197, %.preheader423, %149, %.preheader419.us, %125, %.preheader415.us, %102, %.preheader.us, %80, %193, %.thread400, %.split490.us, %.thread386, %.split476.us, %.thread372, %.split462.us, %.thread, %46, %22, %205, %57, %51, %42, %28
-  %.1320 = phi i32 [ -1, %205 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split490.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split462.us ], [ -1, %.split476.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread372 ], [ -1, %.thread386 ], [ -1, %.thread400 ], [ -1, %193 ], [ 0, %80 ], [ 0, %.preheader423 ], [ 0, %.preheader.us ], [ 0, %102 ], [ 0, %.preheader415.us ], [ 0, %125 ], [ 0, %.preheader419.us ], [ 0, %149 ], [ 0, %197 ]
+  %.1320 = phi i32 [ -1, %205 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split490.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %193 ], [ -1, %.split462.us ], [ -1, %.split476.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread372 ], [ -1, %.thread386 ], [ -1, %.thread400 ], [ 0, %80 ], [ 0, %.preheader415.us ], [ 0, %125 ], [ 0, %149 ], [ 0, %.preheader423 ], [ 0, %.preheader.us ], [ 0, %.preheader419.us ], [ 0, %102 ], [ 0, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %209
@@ -124634,7 +124634,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ullong(ptr noundef readonly capture
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -126547,7 +126547,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong__Float16(ptr noundef readonly captu
   br label %.thread937
 
 .thread937:                                       ; preds = %.loopexit1092, %.loopexit1090.us, %.loopexit1086.us, %.loopexit1082.us, %129, %.thread1042, %845, %.thread1002, %.split1213.us, %.thread962, %.split1187.us, %.thread922, %.split1161.us, %.thread1036, %752, %.thread1030, %729, %.thread996, %.split1219.us, %.thread990, %.split1225.us, %.thread956, %.split1193.us, %.thread950, %.split1199.us, %.thread916, %.split1167.us, %.thread, %.split1173.us, %54, %30, %872, %65, %59, %50, %36
-  %.1639 = phi i32 [ -1, %872 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.thread1002 ], [ -1, %59 ], [ -1, %65 ], [ -1, %.thread1036 ], [ -1, %.thread922 ], [ -1, %.thread962 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread996 ], [ -1, %.thread916 ], [ -1, %.thread956 ], [ -1, %.split1173.us ], [ -1, %.thread ], [ -1, %.split1167.us ], [ -1, %.split1199.us ], [ -1, %.thread950 ], [ -1, %.split1193.us ], [ -1, %.split1225.us ], [ -1, %.thread990 ], [ -1, %.split1219.us ], [ -1, %729 ], [ -1, %.thread1030 ], [ -1, %752 ], [ -1, %.split1161.us ], [ -1, %.split1187.us ], [ -1, %.split1213.us ], [ -1, %845 ], [ -1, %.thread1042 ], [ 0, %129 ], [ 0, %.loopexit1090.us ], [ 0, %.loopexit1082.us ], [ 0, %.loopexit1086.us ], [ 0, %.loopexit1092 ]
+  %.1639 = phi i32 [ -1, %872 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.thread1002 ], [ -1, %59 ], [ -1, %65 ], [ -1, %.thread1036 ], [ -1, %.thread922 ], [ -1, %.thread962 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread1042 ], [ -1, %.thread996 ], [ -1, %.thread916 ], [ -1, %.thread956 ], [ -1, %.split1173.us ], [ -1, %.thread ], [ -1, %.split1167.us ], [ -1, %.split1199.us ], [ -1, %.thread950 ], [ -1, %.split1193.us ], [ -1, %.split1225.us ], [ -1, %.thread990 ], [ -1, %.split1219.us ], [ -1, %729 ], [ -1, %.thread1030 ], [ -1, %752 ], [ -1, %.split1161.us ], [ -1, %.split1187.us ], [ -1, %.split1213.us ], [ -1, %845 ], [ 0, %129 ], [ 0, %.loopexit1082.us ], [ 0, %.loopexit1086.us ], [ 0, %.loopexit1090.us ], [ 0, %.loopexit1092 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %876
@@ -128032,7 +128032,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_float(ptr noundef readonly captures
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %654, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %658
@@ -129318,7 +129318,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_double(ptr noundef readonly capture
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split881.us, %.thread699, %.split866.us, %.thread, %.split852.us, %46, %22, %559, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread692.us.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread730.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %563
@@ -130781,7 +130781,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ldouble(ptr noundef readonly captur
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %646, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %650
@@ -132080,7 +132080,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_fcomplex(ptr noundef readonly captu
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split879.us, %.thread699, %.split865.us, %.thread, %.split850.us, %46, %22, %564, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread730.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us.us ], [ 0, %.thread749.us ], [ 0, %.thread692.us ], [ 0, %.preheader765.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %568
@@ -133562,7 +133562,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_dcomplex(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -135044,7 +135044,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_lcomplex(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -135723,7 +135723,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_schar(ptr noundef readonly capture
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -136402,7 +136402,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_uchar(ptr noundef readonly capture
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -137081,7 +137081,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_short(ptr noundef readonly capture
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -137760,7 +137760,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_ushort(ptr noundef readonly captur
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -138439,7 +138439,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_int(ptr noundef readonly captures(
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -139118,7 +139118,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_uint(ptr noundef readonly captures
   br label %.loopexit420
 
 .loopexit420:                                     ; preds = %.loopexit417, %.loopexit415.us, %.loopexit411.us, %.loopexit407.us, %80, %288, %.thread390, %.split483.us, %.thread377, %.split469.us, %.thread364, %.split455.us, %.thread, %46, %22, %302, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ -1, %288 ], [ 0, %80 ], [ 0, %.loopexit415.us ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit417 ]
+  %.1316 = phi i32 [ -1, %302 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split483.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %288 ], [ -1, %.split455.us ], [ -1, %.split469.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread364 ], [ -1, %.thread377 ], [ -1, %.thread390 ], [ 0, %80 ], [ 0, %.loopexit407.us ], [ 0, %.loopexit411.us ], [ 0, %.loopexit415.us ], [ 0, %.loopexit417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
@@ -139591,7 +139591,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_long(ptr noundef readonly captures
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -139849,7 +139849,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_ulong(ptr noundef readonly capture
   br label %.loopexit361
 
 .loopexit361:                                     ; preds = %.preheader359, %.preheader357, %.preheader355.us, %.preheader353.us, %.preheader351.us, %.preheader349.us, %.preheader347.us, %.preheader.us, %74, %22, %36, %45, %51, %109, %16, %40, %9
-  %.0315 = phi i32 [ 0, %9 ], [ -1, %109 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.preheader357 ], [ 0, %.preheader.us ], [ 0, %.preheader347.us ], [ 0, %.preheader349.us ], [ 0, %.preheader351.us ], [ 0, %.preheader353.us ], [ 0, %.preheader355.us ], [ 0, %.preheader359 ]
+  %.0315 = phi i32 [ 0, %9 ], [ -1, %109 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.preheader.us ], [ 0, %.preheader351.us ], [ 0, %.preheader355.us ], [ 0, %.preheader349.us ], [ 0, %.preheader353.us ], [ 0, %.preheader357 ], [ 0, %.preheader347.us ], [ 0, %.preheader359 ]
   ret i32 %.0315
 }
 
@@ -140316,7 +140316,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_llong(ptr noundef readonly capture
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %.thread400, %.preheader415, %.thread387.us, %.preheader411.us, %.thread374.us, %.preheader407.us, %.thread361.us, %.preheader.us, %80, %190, %.thread393, %.split482.us, %.thread380, %.split468.us, %.thread367, %.split454.us, %.thread, %46, %22, %201, %57, %51, %42, %28
-  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ -1, %190 ], [ 0, %80 ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.thread361.us ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.preheader411.us ], [ 0, %.thread387.us ], [ 0, %.thread400 ]
+  %.1316 = phi i32 [ -1, %201 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split482.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %190 ], [ -1, %.split454.us ], [ -1, %.split468.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread367 ], [ -1, %.thread380 ], [ -1, %.thread393 ], [ 0, %80 ], [ 0, %.preheader407.us ], [ 0, %.thread374.us ], [ 0, %.thread387.us ], [ 0, %.preheader415 ], [ 0, %.preheader.us ], [ 0, %.preheader411.us ], [ 0, %.thread361.us ], [ 0, %.thread400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
@@ -141071,7 +141071,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong__Float16(ptr noundef readonly capt
   br label %.loopexit882
 
 .loopexit882:                                     ; preds = %.loopexit879, %.loopexit877.us, %.loopexit873.us, %.loopexit869.us, %80, %330, %.thread855, %.split945.us, %.thread841, %.split931.us, %.thread827, %.split917.us, %.thread, %46, %22, %354, %57, %51, %42, %28
-  %.1639 = phi i32 [ -1, %354 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split945.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %.split917.us ], [ -1, %.split931.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread827 ], [ -1, %.thread841 ], [ -1, %.thread855 ], [ -1, %330 ], [ 0, %80 ], [ 0, %.loopexit877.us ], [ 0, %.loopexit869.us ], [ 0, %.loopexit873.us ], [ 0, %.loopexit879 ]
+  %.1639 = phi i32 [ -1, %354 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.split945.us ], [ -1, %51 ], [ -1, %57 ], [ -1, %330 ], [ -1, %.split917.us ], [ -1, %.split931.us ], [ 0, %46 ], [ 0, %22 ], [ -1, %.thread ], [ -1, %.thread827 ], [ -1, %.thread841 ], [ -1, %.thread855 ], [ 0, %80 ], [ 0, %.loopexit869.us ], [ 0, %.loopexit873.us ], [ 0, %.loopexit877.us ], [ 0, %.loopexit879 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %358
@@ -142556,7 +142556,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_float(ptr noundef readonly capture
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit777.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split882.us, %.thread700, %.split867.us, %.thread, %.split853.us, %46, %22, %654, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit777.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %654 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split853.us ], [ -1, %.split867.us ], [ -1, %.split882.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit777.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %658
@@ -143842,7 +143842,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_double(ptr noundef readonly captur
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split881.us, %.thread699, %.split866.us, %.thread, %.split852.us, %46, %22, %559, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %559 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split852.us ], [ -1, %.split866.us ], [ -1, %.split881.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread692.us.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread730.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %563
@@ -145305,7 +145305,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_ldouble(ptr noundef readonly captu
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %646, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %646 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %650
@@ -146604,7 +146604,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_fcomplex(ptr noundef readonly capt
   br label %.loopexit781
 
 .loopexit781:                                     ; preds = %.thread749, %.thread749.us, %.preheader777, %.thread730.us, %.thread730.us.us, %.preheader773.us, %.thread711.us, %.thread711.us.us, %.preheader769.us, %.thread692.us, %.thread692.us.us, %.preheader765.us, %121, %.thread737, %.split813.us, %.thread718, %.split879.us, %.thread699, %.split865.us, %.thread, %.split850.us, %46, %22, %564, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ -1, %.thread737 ], [ 0, %121 ], [ 0, %.thread749.us ], [ 0, %.preheader765.us ], [ 0, %.thread692.us.us ], [ 0, %.thread692.us ], [ 0, %.preheader769.us ], [ 0, %.thread711.us.us ], [ 0, %.thread711.us ], [ 0, %.preheader773.us ], [ 0, %.thread730.us.us ], [ 0, %.thread730.us ], [ 0, %.preheader777 ], [ 0, %.thread749 ]
+  %.1474 = phi i32 [ -1, %564 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread718 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread737 ], [ -1, %.thread ], [ -1, %.thread699 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split850.us ], [ -1, %.split865.us ], [ -1, %.split879.us ], [ -1, %.split813.us ], [ 0, %121 ], [ 0, %.preheader773.us ], [ 0, %.preheader777 ], [ 0, %.thread730.us ], [ 0, %.preheader769.us ], [ 0, %.thread730.us.us ], [ 0, %.thread692.us.us ], [ 0, %.thread749.us ], [ 0, %.thread692.us ], [ 0, %.preheader765.us ], [ 0, %.thread711.us ], [ 0, %.thread711.us.us ], [ 0, %.thread749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %568
@@ -148086,7 +148086,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_dcomplex(ptr noundef readonly capt
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657
@@ -149568,7 +149568,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ullong_lcomplex(ptr noundef readonly capt
   br label %.loopexit782
 
 .loopexit782:                                     ; preds = %.loopexit779, %.loopexit775.us, %.loopexit773.us, %.loopexit769.us, %121, %.thread738, %.split814.us, %.thread719, %.split880.us, %.thread700, %.split866.us, %.thread, %.split851.us, %46, %22, %653, %57, %51, %42, %28
-  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ -1, %.thread738 ], [ 0, %121 ], [ 0, %.loopexit775.us ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit779 ]
+  %.1474 = phi i32 [ -1, %653 ], [ -1, %28 ], [ -1, %42 ], [ -1, %.thread719 ], [ -1, %51 ], [ -1, %57 ], [ -1, %.thread738 ], [ -1, %.thread ], [ -1, %.thread700 ], [ 0, %46 ], [ 0, %22 ], [ -1, %.split851.us ], [ -1, %.split866.us ], [ -1, %.split880.us ], [ -1, %.split814.us ], [ 0, %121 ], [ 0, %.loopexit769.us ], [ 0, %.loopexit773.us ], [ 0, %.loopexit775.us ], [ 0, %.loopexit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %657

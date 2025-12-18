@@ -1877,8 +1877,8 @@ common.resume.sink.split.i.i:                     ; preds = %687, %679, %632, %.
   br i1 %.not.i.i79.i.i, label %697, label %.critedge62.thread.i.i
 
 .critedge62.thread.i.i:                           ; preds = %635, %631, %.critedge62.i.i, %682, %677, %613
-  %.sroa.9.0161.i.i = phi i8 [ %.sroa.9.0.i.i, %.critedge62.i.i ], [ 0, %613 ], [ 1, %677 ], [ 1, %682 ], [ 1, %631 ], [ 1, %635 ]
-  %.sroa.0141.0159.i.i = phi i32 [ %.sroa.0141.0.i.i, %.critedge62.i.i ], [ 1, %613 ], [ 2, %677 ], [ 2, %682 ], [ 3, %635 ], [ 2, %631 ]
+  %.sroa.9.0161.i.i = phi i8 [ %.sroa.9.0.i.i, %.critedge62.i.i ], [ 1, %682 ], [ 0, %613 ], [ 1, %677 ], [ 1, %631 ], [ 1, %635 ]
+  %.sroa.0141.0159.i.i = phi i32 [ %.sroa.0141.0.i.i, %.critedge62.i.i ], [ 2, %682 ], [ 1, %613 ], [ 2, %677 ], [ 3, %635 ], [ 2, %631 ]
   %691 = ptrtoint ptr %.sroa.30138.1.i.i to i64
   %692 = ptrtoint ptr %.sroa.0130.1.i.i to i64
   %693 = sub i64 %691, %692
@@ -2726,7 +2726,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit: ; preds = %_ZN3gmxL2
   br i1 %.not38.not, label %.loopexit39, label %.lr.ph52
 
 .loopexit39:                                      ; preds = %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader
-  %.not3842 = phi i1 [ false, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ true, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit ], [ false, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit ]
+  %.not3842 = phi i1 [ true, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit ], [ false, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ false, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit ]
   %.not.i.i.i22 = icmp eq ptr %.sroa.028.1, null
   br i1 %.not.i.i.i22, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit23, label %75
 
@@ -3152,9 +3152,9 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader: ; preds = 
   br i1 %.not60, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.thread, %.lr.ph79, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader, %60
-  %.not6065 = phi i1 [ false, %60 ], [ true, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ false, %.lr.ph79 ], [ true, %.thread ]
-  %.sroa.6.1 = phi i32 [ %62, %60 ], [ -1, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ %.sroa.speculated, %.lr.ph79 ], [ -1, %.thread ]
-  %.sroa.046.1 = phi i32 [ %62, %60 ], [ -1, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ %.sroa.speculated50, %.lr.ph79 ], [ -1, %.thread ]
+  %.not6065 = phi i1 [ false, %60 ], [ false, %.lr.ph79 ], [ true, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ true, %.thread ]
+  %.sroa.6.1 = phi i32 [ %62, %60 ], [ %.sroa.speculated, %.lr.ph79 ], [ -1, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ -1, %.thread ]
+  %.sroa.046.1 = phi i32 [ %62, %60 ], [ %.sroa.speculated50, %.lr.ph79 ], [ -1, %_ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader ], [ -1, %.thread ]
   %.not.i.i.i36 = icmp eq ptr %.sroa.042.1, null
   br i1 %.not.i.i.i36, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit37, label %84
 
@@ -4221,7 +4221,7 @@ _ZNK3gmx17RangePartitioning5blockEi.exit133.i:    ; preds = %_ZNK3gmx17RangePart
   br label %_ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_rangeERS5_.exit.thread.i.i, !llvm.loop !154
 
 _ZNKSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i.i.i: ; preds = %364, %351, %359
-  %.sroa.06.1.i.i.i.i.i = phi ptr [ %360, %359 ], [ %.sroa.06.0.i.i.i.i.i, %351 ], [ %366, %364 ]
+  %.sroa.06.1.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i, %351 ], [ %360, %359 ], [ %366, %364 ]
   br label %372
 
 372:                                              ; preds = %373, %_ZNKSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i.i.i
@@ -4522,7 +4522,7 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
   br label %_ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_rangeERS5_.exit.thread.i155.i, !llvm.loop !154
 
 _ZNKSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i.i160.i: ; preds = %491, %478, %486
-  %.sroa.06.1.i.i.i.i161.i = phi ptr [ %487, %486 ], [ %.sroa.06.0.i.i.i.i179.i, %478 ], [ %493, %491 ]
+  %.sroa.06.1.i.i.i.i161.i = phi ptr [ %.sroa.06.0.i.i.i.i179.i, %478 ], [ %487, %486 ], [ %493, %491 ]
   br label %499
 
 499:                                              ; preds = %500, %_ZNKSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i.i160.i

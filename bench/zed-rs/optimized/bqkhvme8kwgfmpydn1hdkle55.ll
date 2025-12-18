@@ -12508,8 +12508,8 @@ define { i64, i64 } @_ZN7channel13channel_store12ChannelStore27last_acknowledge_
   br i1 %trunc, label %40, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h644716e40b576996E.exit.thread"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h644716e40b576996E.exit.thread": ; preds = %._crit_edge.i.i, %40, %2, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h644716e40b576996E.exit"
-  %.sroa.4.0 = phi i64 [ %spec.select, %40 ], [ undef, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h644716e40b576996E.exit" ], [ undef, %2 ], [ undef, %._crit_edge.i.i ]
-  %.sroa.0.0 = phi i64 [ %spec.select12, %40 ], [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h644716e40b576996E.exit" ], [ 0, %2 ], [ 0, %._crit_edge.i.i ]
+  %.sroa.4.0 = phi i64 [ undef, %2 ], [ %spec.select, %40 ], [ undef, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h644716e40b576996E.exit" ], [ undef, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %spec.select12, %40 ], [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h644716e40b576996E.exit" ], [ 0, %._crit_edge.i.i ]
   %38 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %39 = insertvalue { i64, i64 } %38, i64 %.sroa.4.0, 1
   ret { i64, i64 } %39
@@ -14810,7 +14810,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore14handle_connect17h6
   br i1 %55, label %common.resume, label %.lr.ph12.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$channel..channel_store..Channel$GT$$GT$17ha6261b29c4e0b762E.exit8.i", %293, %297, %301, %.thread, %288, %63, %46
-  %common.resume.op = phi { ptr, i32 } [ %289, %288 ], [ %47, %46 ], [ %64, %63 ], [ %.pn1284, %.thread ], [ %294, %293 ], [ %294, %301 ], [ %294, %297 ], [ %47, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$channel..channel_store..Channel$GT$$GT$17ha6261b29c4e0b762E.exit8.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %289, %288 ], [ %47, %46 ], [ %64, %63 ], [ %294, %297 ], [ %.pn1284, %.thread ], [ %294, %293 ], [ %294, %301 ], [ %47, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$channel..channel_store..Channel$GT$$GT$17ha6261b29c4e0b762E.exit8.i" ]
   resume { ptr, i32 } %common.resume.op
 
 56:                                               ; preds = %54

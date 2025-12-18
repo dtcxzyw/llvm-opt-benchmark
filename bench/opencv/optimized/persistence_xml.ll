@@ -3519,13 +3519,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %99
   br i1 %111, label %.thread118, label %.preheader127.backedge
 
 .preheader127.backedge:                           ; preds = %109, %.critedge
-  %.062.be = phi ptr [ %108, %109 ], [ %.264.ph, %.critedge ]
-  %.059.be = phi i32 [ %.160108, %109 ], [ %.160.ph, %.critedge ]
-  %.048.be = phi i32 [ %.1109, %109 ], [ %.1.ph, %.critedge ]
+  %.062.be = phi ptr [ %.264.ph, %.critedge ], [ %108, %109 ]
+  %.059.be = phi i32 [ %.160.ph, %.critedge ], [ %.160108, %109 ]
+  %.048.be = phi i32 [ %.1.ph, %.critedge ], [ %.1109, %109 ]
   br label %.preheader127
 
 .thread118:                                       ; preds = %109, %57, %61, %65, %86, %104, %.preheader126
-  %.270 = phi ptr [ %43, %.preheader126 ], [ %108, %109 ], [ %55, %61 ], [ %55, %65 ], [ %55, %86 ], [ %55, %57 ], [ null, %104 ]
+  %.270 = phi ptr [ %43, %.preheader126 ], [ %55, %61 ], [ %55, %65 ], [ %55, %86 ], [ %108, %109 ], [ %55, %57 ], [ null, %104 ]
   ret ptr %.270
 
 112:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

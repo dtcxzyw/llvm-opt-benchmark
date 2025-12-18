@@ -3976,8 +3976,8 @@ Vec_IntDrop.exit42.i.i:                           ; preds = %.lr.ph.i39.i.i, %17
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %143, !llvm.loop !91
 
 .critedge.i.i:                                    ; preds = %tailrecurse.backedge.i.i, %188, %134
-  %.tr46.lcssa.i.i = phi i32 [ %140, %134 ], [ %.tr4674.i.i, %188 ], [ %.tr46.be.i.i, %tailrecurse.backedge.i.i ]
-  %.val.lcssa.i.i = phi i32 [ %.val73.i.i, %134 ], [ %.val75.i.i, %188 ], [ %.val.i.i, %tailrecurse.backedge.i.i ]
+  %.tr46.lcssa.i.i = phi i32 [ %.tr4674.i.i, %188 ], [ %140, %134 ], [ %.tr46.be.i.i, %tailrecurse.backedge.i.i ]
+  %.val.lcssa.i.i = phi i32 [ %.val75.i.i, %188 ], [ %.val73.i.i, %134 ], [ %.val.i.i, %tailrecurse.backedge.i.i ]
   %189 = load i32, ptr %4, align 8, !tbaa !11
   %190 = icmp eq i32 %.val.lcssa.i.i, %189
   br i1 %190, label %191, label %.critedge.Vec_IntGrow.exit26.i_crit_edge.i.i
@@ -4104,7 +4104,7 @@ Gia_PolynMergeConst.exit:                         ; preds = %Gia_PolynMergeConst
   br label %.critedge
 
 .critedge:                                        ; preds = %Vec_WecPush.exit, %Vec_IntPush.exit, %240, %Gia_PolynMergeConst.exit
-  %.0 = phi i32 [ %., %240 ], [ -1, %Gia_PolynMergeConst.exit ], [ 1, %Vec_IntPush.exit ], [ 1, %Vec_WecPush.exit ]
+  %.0 = phi i32 [ -1, %Gia_PolynMergeConst.exit ], [ %., %240 ], [ 1, %Vec_IntPush.exit ], [ 1, %Vec_WecPush.exit ]
   ret i32 %.0
 }
 
@@ -5458,8 +5458,8 @@ Gia_PolynPrepare2.exit:                           ; preds = %Vec_IntGrow.exit.i7
   br label %.critedge4
 
 .critedge4:                                       ; preds = %341, %.critedge4.loopexit473, %.preheader425, %.preheader424
-  %.1238 = phi i32 [ 0, %.preheader424 ], [ 0, %.preheader425 ], [ %indvars494, %.critedge4.loopexit473 ], [ %342, %341 ]
-  %.2232 = phi i32 [ 0, %.preheader424 ], [ 0, %.preheader425 ], [ %.1231, %.critedge4.loopexit473 ], [ %.4234, %341 ]
+  %.1238 = phi i32 [ %indvars494, %.critedge4.loopexit473 ], [ 0, %.preheader424 ], [ 0, %.preheader425 ], [ %342, %341 ]
+  %.2232 = phi i32 [ %.1231, %.critedge4.loopexit473 ], [ 0, %.preheader424 ], [ 0, %.preheader425 ], [ %.4234, %341 ]
   %345 = getelementptr i8, ptr %5, i64 4
   %.val271 = load i32, ptr %345, align 4, !tbaa !6
   %346 = icmp sgt i32 %.val271, 0

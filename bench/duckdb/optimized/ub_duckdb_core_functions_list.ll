@@ -5302,7 +5302,7 @@ _ZNSt14_Function_baseD2Ev.exit166:                ; preds = %470, %472
   br i1 %482, label %.loopexit240, label %479
 
 .loopexit240:                                     ; preds = %479, %.loopexit240.loopexit254, %.thread
-  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %123, %.thread ], [ %458, %.loopexit240.loopexit254 ], [ %.pn49.pn.pn.pn.pn, %479 ]
+  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %458, %.loopexit240.loopexit254 ], [ %123, %.thread ], [ %.pn49.pn.pn.pn.pn, %479 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %547
 
@@ -5394,7 +5394,7 @@ _ZNSt14_Function_baseD2Ev.exit168:                ; preds = %500, %502
   br i1 %512, label %.loopexit238, label %509
 
 .loopexit238:                                     ; preds = %485, %509, %.thread233
-  %.pn56.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %225, %.thread233 ], [ %.pn56.pn.pn.pn.pn, %509 ], [ %484, %485 ]
+  %.pn56.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %509 ], [ %225, %.thread233 ], [ %484, %485 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %547
 
@@ -5486,7 +5486,7 @@ _ZNSt14_Function_baseD2Ev.exit170:                ; preds = %530, %532
   br i1 %542, label %.loopexit, label %539
 
 .loopexit:                                        ; preds = %515, %539, %.thread235
-  %.pn63.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %329, %.thread235 ], [ %.pn63.pn.pn.pn.pn, %539 ], [ %514, %515 ]
+  %.pn63.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn.pn, %539 ], [ %329, %.thread235 ], [ %514, %515 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %547
 
@@ -7970,7 +7970,7 @@ _ZNSt14_Function_baseD2Ev.exit166:                ; preds = %470, %472
   br i1 %482, label %.loopexit240, label %479
 
 .loopexit240:                                     ; preds = %479, %.loopexit240.loopexit254, %.thread
-  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %123, %.thread ], [ %458, %.loopexit240.loopexit254 ], [ %.pn49.pn.pn.pn.pn, %479 ]
+  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %458, %.loopexit240.loopexit254 ], [ %123, %.thread ], [ %.pn49.pn.pn.pn.pn, %479 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %547
 
@@ -8062,7 +8062,7 @@ _ZNSt14_Function_baseD2Ev.exit168:                ; preds = %500, %502
   br i1 %512, label %.loopexit238, label %509
 
 .loopexit238:                                     ; preds = %485, %509, %.thread233
-  %.pn56.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %225, %.thread233 ], [ %.pn56.pn.pn.pn.pn, %509 ], [ %484, %485 ]
+  %.pn56.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %509 ], [ %225, %.thread233 ], [ %484, %485 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %547
 
@@ -8154,7 +8154,7 @@ _ZNSt14_Function_baseD2Ev.exit170:                ; preds = %530, %532
   br i1 %542, label %.loopexit, label %539
 
 .loopexit:                                        ; preds = %515, %539, %.thread235
-  %.pn63.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %329, %.thread235 ], [ %.pn63.pn.pn.pn.pn, %539 ], [ %514, %515 ]
+  %.pn63.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn.pn, %539 ], [ %329, %.thread235 ], [ %514, %515 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %547
 
@@ -18024,7 +18024,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond16.not.i.i.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i", label %214, !llvm.loop !430
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i": ; preds = %.critedge50.i.i.i.i.i.i, %281, %278, %265, %245, %242, %238, %.preheader.i.i.i.i.i.i, %.lr.ph.split.i.i.i.i
-  %.0.i.i.i.i.i.i = phi i8 [ 0, %.lr.ph.split.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i.i ], [ 1, %281 ], [ 1, %238 ], [ 1, %245 ], [ 1, %265 ], [ 1, %242 ], [ 1, %278 ], [ 0, %.critedge50.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi i8 [ 0, %.lr.ph.split.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i.i ], [ 1, %265 ], [ 1, %245 ], [ 1, %281 ], [ 1, %238 ], [ 1, %242 ], [ 1, %278 ], [ 0, %.critedge50.i.i.i.i.i.i ]
   %291 = getelementptr inbounds nuw i8, ptr %111, i64 %.1203.i.i.i.i
   store i8 %.0.i.i.i.i.i.i, ptr %291, align 1, !tbaa !395, !alias.scope !412, !noalias !416
   %292 = add nuw i64 %.1203.i.i.i.i, 1
@@ -18342,7 +18342,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond16.not.i.i99.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit109.i.i.i.i", label %335, !llvm.loop !430
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit109.i.i.i.i": ; preds = %.critedge50.i.i98.i.i.i.i, %402, %399, %386, %366, %363, %359, %.preheader.i.i86.i.i.i.i, %296
-  %.0.i.i88.i.i.i.i = phi i8 [ 0, %296 ], [ 0, %.preheader.i.i86.i.i.i.i ], [ 1, %402 ], [ 1, %359 ], [ 1, %366 ], [ 1, %386 ], [ 1, %363 ], [ 1, %399 ], [ 0, %.critedge50.i.i98.i.i.i.i ]
+  %.0.i.i88.i.i.i.i = phi i8 [ 0, %296 ], [ 0, %.preheader.i.i86.i.i.i.i ], [ 1, %386 ], [ 1, %366 ], [ 1, %402 ], [ 1, %359 ], [ 1, %363 ], [ 1, %399 ], [ 0, %.critedge50.i.i98.i.i.i.i ]
   %412 = getelementptr inbounds nuw i8, ptr %111, i64 %.4204.i.i.i.i
   store i8 %.0.i.i88.i.i.i.i, ptr %412, align 1, !tbaa !395, !alias.scope !412, !noalias !416
   br label %413
@@ -18353,7 +18353,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond233.not.i.i.i.i, label %.loopexit199.i.i.i.i, label %.lr.ph205.i.i.i.i, !llvm.loop !432
 
 .loopexit199.i.i.i.i:                             ; preds = %413, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i", %.preheader198.i.i.i.i, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i.i.i", %.preheader200.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %171, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.0208.i.i.i.i, %.preheader198.i.i.i.i ], [ %.0208.i.i.i.i, %.preheader200.i.i.i.i ], [ %172, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i.i.i" ], [ %172, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i" ], [ %171, %413 ]
+  %.3.i.i.i.i = phi i64 [ %171, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %172, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i.i.i" ], [ %.0208.i.i.i.i, %.preheader198.i.i.i.i ], [ %.0208.i.i.i.i, %.preheader200.i.i.i.i ], [ %172, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i" ], [ %171, %413 ]
   %415 = add nuw nsw i64 %.069207.i.i.i.i, 1
   %exitcond234.not.i.i.i.i = icmp eq i64 %415, %160
   br i1 %exitcond234.not.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tES2_bNS_19BinaryLambdaWrapperEbZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0Lb0ELb1EEEvS9_S9_S9_mT4_.exit.i.i", label %164, !llvm.loop !433
@@ -18901,7 +18901,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond16.not.i.i.i.i121.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i95.i.i", label %537, !llvm.loop !430
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i95.i.i": ; preds = %.critedge50.i.i.i.i120.i.i, %604, %601, %588, %568, %565, %561, %.preheader.i.i.i.i93.i.i, %.lr.ph.split.i.i74.i.i
-  %.0.i.i.i.i96.i.i = phi i8 [ 0, %.lr.ph.split.i.i74.i.i ], [ 0, %.preheader.i.i.i.i93.i.i ], [ 1, %604 ], [ 1, %561 ], [ 1, %568 ], [ 1, %588 ], [ 1, %565 ], [ 1, %601 ], [ 0, %.critedge50.i.i.i.i120.i.i ]
+  %.0.i.i.i.i96.i.i = phi i8 [ 0, %.lr.ph.split.i.i74.i.i ], [ 0, %.preheader.i.i.i.i93.i.i ], [ 1, %588 ], [ 1, %568 ], [ 1, %604 ], [ 1, %561 ], [ 1, %565 ], [ 1, %601 ], [ 0, %.critedge50.i.i.i.i120.i.i ]
   %614 = getelementptr inbounds nuw i8, ptr %434, i64 %.1203.i.i75.i.i
   store i8 %.0.i.i.i.i96.i.i, ptr %614, align 1, !tbaa !395, !alias.scope !440, !noalias !444
   %615 = add nuw i64 %.1203.i.i75.i.i, 1
@@ -19219,7 +19219,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond16.not.i.i99.i.i218.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit109.i.i192.i.i", label %658, !llvm.loop !430
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit109.i.i192.i.i": ; preds = %.critedge50.i.i98.i.i217.i.i, %725, %722, %709, %689, %686, %682, %.preheader.i.i86.i.i190.i.i, %619
-  %.0.i.i88.i.i193.i.i = phi i8 [ 0, %619 ], [ 0, %.preheader.i.i86.i.i190.i.i ], [ 1, %725 ], [ 1, %682 ], [ 1, %689 ], [ 1, %709 ], [ 1, %686 ], [ 1, %722 ], [ 0, %.critedge50.i.i98.i.i217.i.i ]
+  %.0.i.i88.i.i193.i.i = phi i8 [ 0, %619 ], [ 0, %.preheader.i.i86.i.i190.i.i ], [ 1, %709 ], [ 1, %689 ], [ 1, %725 ], [ 1, %682 ], [ 1, %686 ], [ 1, %722 ], [ 0, %.critedge50.i.i98.i.i217.i.i ]
   %735 = getelementptr inbounds nuw i8, ptr %434, i64 %.4204.i.i169.i.i
   store i8 %.0.i.i88.i.i193.i.i, ptr %735, align 1, !tbaa !395, !alias.scope !440, !noalias !444
   br label %736
@@ -19230,7 +19230,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond233.not.i.i194.i.i, label %.loopexit199.i.i67.i.i, label %.lr.ph205.i.i168.i.i, !llvm.loop !447
 
 .loopexit199.i.i67.i.i:                           ; preds = %736, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i95.i.i", %.preheader198.i.i167.i.i, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i165.i.i", %.preheader200.i.i70.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i66.i.i
-  %.3.i.i68.i.i = phi i64 [ %494, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i66.i.i ], [ %.0208.i.i63.i.i, %.preheader198.i.i167.i.i ], [ %.0208.i.i63.i.i, %.preheader200.i.i70.i.i ], [ %495, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i165.i.i" ], [ %495, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i95.i.i" ], [ %494, %736 ]
+  %.3.i.i68.i.i = phi i64 [ %494, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i66.i.i ], [ %495, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i165.i.i" ], [ %.0208.i.i63.i.i, %.preheader198.i.i167.i.i ], [ %.0208.i.i63.i.i, %.preheader200.i.i70.i.i ], [ %495, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i95.i.i" ], [ %494, %736 ]
   %738 = add nuw nsw i64 %.069207.i.i64.i.i, 1
   %exitcond234.not.i.i69.i.i = icmp eq i64 %738, %483
   br i1 %exitcond234.not.i.i69.i.i, label %"_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tES2_bNS_19BinaryLambdaWrapperEbZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0Lb1ELb0EEEvS9_S9_S9_mT4_.exit.i.i", label %487, !llvm.loop !448
@@ -19753,7 +19753,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond16.not.i.i.i.i328.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i303.i.i", label %857, !llvm.loop !430
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i303.i.i": ; preds = %.critedge50.i.i.i.i327.i.i, %924, %921, %908, %888, %885, %881, %.preheader.i.i.i.i301.i.i, %.lr.ph.i.i288.i.i
-  %.0.i.i.i.i304.i.i = phi i8 [ 0, %.lr.ph.i.i288.i.i ], [ 0, %.preheader.i.i.i.i301.i.i ], [ 1, %924 ], [ 1, %881 ], [ 1, %888 ], [ 1, %908 ], [ 1, %885 ], [ 1, %921 ], [ 0, %.critedge50.i.i.i.i327.i.i ]
+  %.0.i.i.i.i304.i.i = phi i8 [ 0, %.lr.ph.i.i288.i.i ], [ 0, %.preheader.i.i.i.i301.i.i ], [ 1, %908 ], [ 1, %888 ], [ 1, %924 ], [ 1, %881 ], [ 1, %885 ], [ 1, %921 ], [ 0, %.critedge50.i.i.i.i327.i.i ]
   %934 = getelementptr inbounds nuw i8, ptr %753, i64 %.1212.i.i.i.i
   store i8 %.0.i.i.i.i304.i.i, ptr %934, align 1, !tbaa !395, !alias.scope !455, !noalias !460
   %935 = add nuw i64 %.1212.i.i.i.i, 1
@@ -20073,7 +20073,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond16.not.i.i108.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit118.i.i.i.i", label %979, !llvm.loop !430
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit118.i.i.i.i": ; preds = %.critedge50.i.i107.i.i.i.i, %1046, %1043, %1030, %1010, %1007, %1003, %.preheader.i.i95.i.i.i.i, %939
-  %.0.i.i97.i.i.i.i = phi i8 [ 0, %939 ], [ 0, %.preheader.i.i95.i.i.i.i ], [ 1, %1046 ], [ 1, %1003 ], [ 1, %1010 ], [ 1, %1030 ], [ 1, %1007 ], [ 1, %1043 ], [ 0, %.critedge50.i.i107.i.i.i.i ]
+  %.0.i.i97.i.i.i.i = phi i8 [ 0, %939 ], [ 0, %.preheader.i.i95.i.i.i.i ], [ 1, %1030 ], [ 1, %1010 ], [ 1, %1046 ], [ 1, %1003 ], [ 1, %1007 ], [ 1, %1043 ], [ 0, %.critedge50.i.i107.i.i.i.i ]
   %1056 = getelementptr inbounds nuw i8, ptr %753, i64 %.4213.i.i.i.i
   store i8 %.0.i.i97.i.i.i.i, ptr %1056, align 1, !tbaa !395, !alias.scope !455, !noalias !460
   br label %1057
@@ -20084,7 +20084,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond240.not.i.i.i.i, label %.loopexit208.i.i.i.i, label %.lr.ph214.i.i.i.i, !llvm.loop !462
 
 .loopexit208.i.i.i.i:                             ; preds = %1057, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i303.i.i", %.preheader207.i.i.i.i, %.preheader209.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i286.i.i
-  %.3.i.i287.i.i = phi i64 [ %814, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i286.i.i ], [ %.0217.i.i.i.i, %.preheader207.i.i.i.i ], [ %.0217.i.i.i.i, %.preheader209.i.i.i.i ], [ %815, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i303.i.i" ], [ %814, %1057 ]
+  %.3.i.i287.i.i = phi i64 [ %814, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i286.i.i ], [ %815, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i303.i.i" ], [ %.0217.i.i.i.i, %.preheader207.i.i.i.i ], [ %.0217.i.i.i.i, %.preheader209.i.i.i.i ], [ %814, %1057 ]
   %1059 = add nuw nsw i64 %.078216.i.i.i.i, 1
   %exitcond241.not.i.i.i.i = icmp eq i64 %1059, %803
   br i1 %exitcond241.not.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tES2_bNS_19BinaryLambdaWrapperEbZNS_L18ListHasAnyFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0Lb0ELb0EEEvS9_S9_S9_mT4_.exit.i.i", label %807, !llvm.loop !463
@@ -23352,7 +23352,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond15.not.i.i.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i", label %.lr.ph11.i.i.i.i.i.i, !llvm.loop !512
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i": ; preds = %.critedge25.i.i.i.i.i.i, %.noexc66, %232, %287, %285, %271, %269, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i.i.i, %.preheader.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = phi i8 [ 1, %.preheader.i.i.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i.i.i ], [ 0, %271 ], [ 0, %287 ], [ 0, %269 ], [ 0, %285 ], [ 0, %232 ], [ 0, %.noexc66 ], [ 1, %.critedge25.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi i8 [ 0, %287 ], [ 1, %.preheader.i.i.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i.i.i ], [ 0, %271 ], [ 0, %269 ], [ 0, %285 ], [ 0, %232 ], [ 0, %.noexc66 ], [ 1, %.critedge25.i.i.i.i.i.i ]
   %292 = getelementptr inbounds nuw i8, ptr %119, i64 %.1191.i.i.i.i
   store i8 %.0.i.i.i.i.i.i, ptr %292, align 1, !tbaa !395, !alias.scope !505, !noalias !509
   %293 = add nuw i64 %.1191.i.i.i.i, 1
@@ -23645,7 +23645,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond15.not.i.i89.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.i.i.i.i", label %.lr.ph11.i.i80.i.i.i.i, !llvm.loop !512
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.i.i.i.i": ; preds = %.critedge25.i.i88.i.i.i.i, %.noexc68, %345, %400, %398, %384, %382, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i138.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i147.i.i.i.i, %.preheader.i.i77.i.i.i.i, %297
-  %.0.i.i79.i.i.i.i = phi i8 [ 1, %297 ], [ 1, %.preheader.i.i77.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i147.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i138.i.i.i.i ], [ 0, %384 ], [ 0, %400 ], [ 0, %382 ], [ 0, %398 ], [ 0, %345 ], [ 0, %.noexc68 ], [ 1, %.critedge25.i.i88.i.i.i.i ]
+  %.0.i.i79.i.i.i.i = phi i8 [ 1, %297 ], [ 1, %.preheader.i.i77.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i138.i.i.i.i ], [ 0, %400 ], [ 0, %384 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i147.i.i.i.i ], [ 0, %382 ], [ 0, %398 ], [ 0, %345 ], [ 0, %.noexc68 ], [ 1, %.critedge25.i.i88.i.i.i.i ]
   %405 = getelementptr inbounds nuw i8, ptr %119, i64 %.4192.i.i.i.i
   store i8 %.0.i.i79.i.i.i.i, ptr %405, align 1, !tbaa !395, !alias.scope !505, !noalias !509
   br label %406
@@ -23656,7 +23656,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond221.not.i.i.i.i, label %.loopexit187.i.i.i.i, label %.lr.ph193.i.i.i.i, !llvm.loop !514
 
 .loopexit187.i.i.i.i:                             ; preds = %406, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i", %.preheader186.i.i.i.i, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i.i.i", %.preheader188.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.0196.i.i.i.i, %.preheader186.i.i.i.i ], [ %.0196.i.i.i.i, %.preheader188.i.i.i.i ], [ %182, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i.i.i" ], [ %182, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i" ], [ %181, %406 ]
+  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %182, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.us.preheader.i.i.i.i" ], [ %.0196.i.i.i.i, %.preheader186.i.i.i.i ], [ %.0196.i.i.i.i, %.preheader188.i.i.i.i ], [ %182, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i" ], [ %181, %406 ]
   %408 = add nuw nsw i64 %.069195.i.i.i.i, 1
   %exitcond222.not.i.i.i.i = icmp eq i64 %408, %168
   br i1 %exitcond222.not.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tES2_bNS_19BinaryLambdaWrapperEbZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0Lb0ELb1EEEvS9_S9_S9_mT4_.exit.i.i", label %174, !llvm.loop !515
@@ -24175,7 +24175,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond15.not.i.i.i.i115.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i85.i.i", label %.lr.ph11.i.i.i.i88.i.i, !llvm.loop !512
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i85.i.i": ; preds = %.critedge25.i.i.i.i114.i.i, %.noexc77, %541, %596, %594, %580, %578, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i133.i.i, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i142.i.i, %.preheader.i.i.i.i83.i.i, %495
-  %.0.i.i.i.i86.i.i = phi i8 [ 1, %495 ], [ 1, %.preheader.i.i.i.i83.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i142.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i133.i.i ], [ 0, %580 ], [ 0, %596 ], [ 0, %578 ], [ 0, %594 ], [ 0, %541 ], [ 0, %.noexc77 ], [ 1, %.critedge25.i.i.i.i114.i.i ]
+  %.0.i.i.i.i86.i.i = phi i8 [ 1, %495 ], [ 1, %.preheader.i.i.i.i83.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i133.i.i ], [ 0, %596 ], [ 0, %580 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i142.i.i ], [ 0, %578 ], [ 0, %594 ], [ 0, %541 ], [ 0, %.noexc77 ], [ 1, %.critedge25.i.i.i.i114.i.i ]
   %601 = getelementptr inbounds nuw i8, ptr %427, i64 %.1191.i.i74.i.i
   store i8 %.0.i.i.i.i86.i.i, ptr %601, align 1, !tbaa !395, !alias.scope !522, !noalias !527
   %602 = add nuw i64 %.1191.i.i74.i.i, 1
@@ -24468,7 +24468,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond15.not.i.i89.i.i199.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.i.i170.i.i", label %.lr.ph11.i.i80.i.i172.i.i, !llvm.loop !512
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.i.i170.i.i": ; preds = %.critedge25.i.i88.i.i198.i.i, %.noexc79, %654, %709, %707, %693, %691, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i138.i.i217.i.i, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i147.i.i226.i.i, %.preheader.i.i77.i.i168.i.i, %606
-  %.0.i.i79.i.i171.i.i = phi i8 [ 1, %606 ], [ 1, %.preheader.i.i77.i.i168.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i147.i.i226.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i138.i.i217.i.i ], [ 0, %693 ], [ 0, %709 ], [ 0, %691 ], [ 0, %707 ], [ 0, %654 ], [ 0, %.noexc79 ], [ 1, %.critedge25.i.i88.i.i198.i.i ]
+  %.0.i.i79.i.i171.i.i = phi i8 [ 1, %606 ], [ 1, %.preheader.i.i77.i.i168.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i138.i.i217.i.i ], [ 0, %709 ], [ 0, %693 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i147.i.i226.i.i ], [ 0, %691 ], [ 0, %707 ], [ 0, %654 ], [ 0, %.noexc79 ], [ 1, %.critedge25.i.i88.i.i198.i.i ]
   %714 = getelementptr inbounds nuw i8, ptr %427, i64 %.4192.i.i157.i.i
   store i8 %.0.i.i79.i.i171.i.i, ptr %714, align 1, !tbaa !395, !alias.scope !522, !noalias !527
   br label %715
@@ -24479,7 +24479,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond219.not.i.i.i.i, label %.loopexit187.i.i68.i.i, label %.lr.ph193.i.i156.i.i, !llvm.loop !529
 
 .loopexit187.i.i68.i.i:                           ; preds = %715, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i85.i.i", %.preheader186.i.i155.i.i, %.preheader188.i.i70.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i67.i.i
-  %.3.i.i69.i.i = phi i64 [ %489, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i67.i.i ], [ %.0196.i.i64.i.i, %.preheader186.i.i155.i.i ], [ %.0196.i.i64.i.i, %.preheader188.i.i70.i.i ], [ %490, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i85.i.i" ], [ %489, %715 ]
+  %.3.i.i69.i.i = phi i64 [ %489, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i67.i.i ], [ %490, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i85.i.i" ], [ %.0196.i.i64.i.i, %.preheader186.i.i155.i.i ], [ %.0196.i.i64.i.i, %.preheader188.i.i70.i.i ], [ %489, %715 ]
   %717 = add nuw nsw i64 %.069195.i.i65.i.i, 1
   %exitcond220.not.i.i.i.i = icmp eq i64 %717, %476
   br i1 %exitcond220.not.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tES2_bNS_19BinaryLambdaWrapperEbZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0Lb1ELb0EEEvS9_S9_S9_mT4_.exit.i.i", label %482, !llvm.loop !530
@@ -24979,7 +24979,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond15.not.i.i.i.i301.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i272.i.i", label %.lr.ph11.i.i.i.i275.i.i, !llvm.loop !512
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i272.i.i": ; preds = %.critedge25.i.i.i.i300.i.i, %.noexc88, %847, %902, %900, %886, %884, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i318.i.i, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i326.i.i, %.preheader.i.i.i.i270.i.i, %.lr.ph.i.i265.i.i
-  %.0.i.i.i.i273.i.i = phi i8 [ 1, %.lr.ph.i.i265.i.i ], [ 1, %.preheader.i.i.i.i270.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i326.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i318.i.i ], [ 0, %886 ], [ 0, %902 ], [ 0, %884 ], [ 0, %900 ], [ 0, %847 ], [ 0, %.noexc88 ], [ 1, %.critedge25.i.i.i.i300.i.i ]
+  %.0.i.i.i.i273.i.i = phi i8 [ 1, %.lr.ph.i.i265.i.i ], [ 1, %.preheader.i.i.i.i270.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i.i318.i.i ], [ 0, %902 ], [ 0, %886 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i.i.i326.i.i ], [ 0, %884 ], [ 0, %900 ], [ 0, %847 ], [ 0, %.noexc88 ], [ 1, %.critedge25.i.i.i.i300.i.i ]
   %907 = getelementptr inbounds nuw i8, ptr %732, i64 %.1200.i.i.i.i
   store i8 %.0.i.i.i.i273.i.i, ptr %907, align 1, !tbaa !395, !alias.scope !537, !noalias !542
   %908 = add nuw i64 %.1200.i.i.i.i, 1
@@ -25274,7 +25274,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond15.not.i.i98.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit108.i.i.i.i", label %.lr.ph11.i.i89.i.i.i.i, !llvm.loop !512
 
 "_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit108.i.i.i.i": ; preds = %.critedge25.i.i97.i.i.i.i, %.noexc90, %961, %1016, %1014, %1000, %998, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i147.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i156.i.i.i.i, %.preheader.i.i86.i.i.i.i, %912
-  %.0.i.i88.i.i.i.i = phi i8 [ 1, %912 ], [ 1, %.preheader.i.i86.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i156.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i147.i.i.i.i ], [ 0, %1000 ], [ 0, %1016 ], [ 0, %998 ], [ 0, %1014 ], [ 0, %961 ], [ 0, %.noexc90 ], [ 1, %.critedge25.i.i97.i.i.i.i ]
+  %.0.i.i88.i.i.i.i = phi i8 [ 1, %912 ], [ 1, %.preheader.i.i86.i.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i147.i.i.i.i ], [ 0, %1016 ], [ 0, %1000 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us.i156.i.i.i.i ], [ 0, %998 ], [ 0, %1014 ], [ 0, %961 ], [ 0, %.noexc90 ], [ 1, %.critedge25.i.i97.i.i.i.i ]
   %1021 = getelementptr inbounds nuw i8, ptr %732, i64 %.4201.i.i.i.i
   store i8 %.0.i.i88.i.i.i.i, ptr %1021, align 1, !tbaa !395, !alias.scope !537, !noalias !542
   br label %1022
@@ -25285,7 +25285,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %exitcond228.not.i.i.i.i, label %.loopexit196.i.i.i.i, label %.lr.ph202.i.i.i.i, !llvm.loop !544
 
 .loopexit196.i.i.i.i:                             ; preds = %1022, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i272.i.i", %.preheader195.i.i.i.i, %.preheader197.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i263.i.i
-  %.3.i.i264.i.i = phi i64 [ %795, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i263.i.i ], [ %.0205.i.i.i.i, %.preheader195.i.i.i.i ], [ %.0205.i.i.i.i, %.preheader197.i.i.i.i ], [ %796, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i272.i.i" ], [ %795, %1022 ]
+  %.3.i.i264.i.i = phi i64 [ %795, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i263.i.i ], [ %796, %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i272.i.i" ], [ %.0205.i.i.i.i, %.preheader195.i.i.i.i ], [ %.0205.i.i.i.i, %.preheader197.i.i.i.i ], [ %795, %1022 ]
   %1024 = add nuw nsw i64 %.078204.i.i.i.i, 1
   %exitcond229.not.i.i.i.i = icmp eq i64 %1024, %782
   br i1 %exitcond229.not.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tES2_bNS_19BinaryLambdaWrapperEbZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0Lb0ELb0EEEvS9_S9_S9_mT4_.exit.i.i", label %788, !llvm.loop !545
@@ -26598,7 +26598,7 @@ _ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %77, %79
   br label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %.thread, %.thread37, %.thread57
-  %.pn.pn.pn.pn.pn36.ph = phi { ptr, i32 } [ %.pn.pn.pn, %.thread37 ], [ %11, %.thread57 ], [ %73, %.thread ]
+  %.pn.pn.pn.pn.pn36.ph = phi { ptr, i32 } [ %11, %.thread57 ], [ %.pn.pn.pn, %.thread37 ], [ %73, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -33153,7 +33153,7 @@ _ZNSt14_Function_baseD2Ev.exit52.i:               ; preds = %171, %169
   br i1 %180, label %.loopexit.i, label %177
 
 .loopexit.i:                                      ; preds = %177, %.loopexit.loopexit132.i, %.thread.i
-  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %75, %.thread.i ], [ %159, %.loopexit.loopexit132.i ], [ %.pn40.pn.pn.pn.i, %177 ]
+  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %159, %.loopexit.loopexit132.i ], [ %75, %.thread.i ], [ %.pn40.pn.pn.pn.i, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %307
 
@@ -33506,7 +33506,7 @@ _ZNSt14_Function_baseD2Ev.exit83.i:               ; preds = %278, %276
   br i1 %287, label %.loopexit127.i, label %284
 
 .loopexit127.i:                                   ; preds = %284, %.loopexit127.loopexit133.i, %.thread110.i
-  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %182, %.thread110.i ], [ %266, %.loopexit127.loopexit133.i ], [ %.pn34.pn.pn.pn.i, %284 ]
+  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %266, %.loopexit127.loopexit133.i ], [ %182, %.thread110.i ], [ %.pn34.pn.pn.pn.i, %284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %307
 
@@ -34172,7 +34172,7 @@ _ZNSt14_Function_baseD2Ev.exit52.i:               ; preds = %170, %168
   br i1 %179, label %.loopexit.i, label %176
 
 .loopexit.i:                                      ; preds = %176, %.loopexit.loopexit132.i, %.thread.i
-  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %74, %.thread.i ], [ %158, %.loopexit.loopexit132.i ], [ %.pn40.pn.pn.pn.i, %176 ]
+  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %158, %.loopexit.loopexit132.i ], [ %74, %.thread.i ], [ %.pn40.pn.pn.pn.i, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %306
 
@@ -34525,7 +34525,7 @@ _ZNSt14_Function_baseD2Ev.exit83.i:               ; preds = %277, %275
   br i1 %286, label %.loopexit127.i, label %283
 
 .loopexit127.i:                                   ; preds = %283, %.loopexit127.loopexit133.i, %.thread110.i
-  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %181, %.thread110.i ], [ %265, %.loopexit127.loopexit133.i ], [ %.pn34.pn.pn.pn.i, %283 ]
+  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %265, %.loopexit127.loopexit133.i ], [ %181, %.thread110.i ], [ %.pn34.pn.pn.pn.i, %283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
 
@@ -35166,7 +35166,7 @@ _ZNSt14_Function_baseD2Ev.exit52.i:               ; preds = %170, %168
   br i1 %179, label %.loopexit.i, label %176
 
 .loopexit.i:                                      ; preds = %176, %.loopexit.loopexit132.i, %.thread.i
-  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %74, %.thread.i ], [ %158, %.loopexit.loopexit132.i ], [ %.pn40.pn.pn.pn.i, %176 ]
+  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %158, %.loopexit.loopexit132.i ], [ %74, %.thread.i ], [ %.pn40.pn.pn.pn.i, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %306
 
@@ -35519,7 +35519,7 @@ _ZNSt14_Function_baseD2Ev.exit83.i:               ; preds = %277, %275
   br i1 %286, label %.loopexit127.i, label %283
 
 .loopexit127.i:                                   ; preds = %283, %.loopexit127.loopexit133.i, %.thread110.i
-  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %181, %.thread110.i ], [ %265, %.loopexit127.loopexit133.i ], [ %.pn34.pn.pn.pn.i, %283 ]
+  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %265, %.loopexit127.loopexit133.i ], [ %181, %.thread110.i ], [ %.pn34.pn.pn.pn.i, %283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
 
@@ -36166,7 +36166,7 @@ _ZNSt14_Function_baseD2Ev.exit52.i:               ; preds = %175, %173
   br i1 %184, label %.loopexit.i, label %181
 
 .loopexit.i:                                      ; preds = %181, %.loopexit.loopexit132.i, %.thread.i
-  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %79, %.thread.i ], [ %163, %.loopexit.loopexit132.i ], [ %.pn40.pn.pn.pn.i, %181 ]
+  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %163, %.loopexit.loopexit132.i ], [ %79, %.thread.i ], [ %.pn40.pn.pn.pn.i, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %311
 
@@ -36519,7 +36519,7 @@ _ZNSt14_Function_baseD2Ev.exit83.i:               ; preds = %282, %280
   br i1 %291, label %.loopexit127.i, label %288
 
 .loopexit127.i:                                   ; preds = %288, %.loopexit127.loopexit133.i, %.thread110.i
-  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %186, %.thread110.i ], [ %270, %.loopexit127.loopexit133.i ], [ %.pn34.pn.pn.pn.i, %288 ]
+  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %270, %.loopexit127.loopexit133.i ], [ %186, %.thread110.i ], [ %.pn34.pn.pn.pn.i, %288 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %311
 
@@ -37181,7 +37181,7 @@ _ZNSt14_Function_baseD2Ev.exit52.i:               ; preds = %170, %168
   br i1 %179, label %.loopexit.i, label %176
 
 .loopexit.i:                                      ; preds = %176, %.loopexit.loopexit132.i, %.thread.i
-  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %74, %.thread.i ], [ %158, %.loopexit.loopexit132.i ], [ %.pn40.pn.pn.pn.i, %176 ]
+  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %158, %.loopexit.loopexit132.i ], [ %74, %.thread.i ], [ %.pn40.pn.pn.pn.i, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %306
 
@@ -37534,7 +37534,7 @@ _ZNSt14_Function_baseD2Ev.exit83.i:               ; preds = %277, %275
   br i1 %286, label %.loopexit127.i, label %283
 
 .loopexit127.i:                                   ; preds = %283, %.loopexit127.loopexit133.i, %.thread110.i
-  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %181, %.thread110.i ], [ %265, %.loopexit127.loopexit133.i ], [ %.pn34.pn.pn.pn.i, %283 ]
+  %.pn34.pn.pn.pn.pn.i = phi { ptr, i32 } [ %265, %.loopexit127.loopexit133.i ], [ %181, %.thread110.i ], [ %.pn34.pn.pn.pn.i, %283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
 
@@ -38496,7 +38496,7 @@ _ZNSt14_Function_baseD2Ev.exit64:                 ; preds = %277, %279
   br i1 %288, label %.loopexit, label %285
 
 .loopexit:                                        ; preds = %267, %285, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %.thread ], [ %.pn.pn.pn, %285 ], [ %266, %267 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %285 ], [ %12, %.thread ], [ %266, %267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %303
 
@@ -47079,7 +47079,7 @@ _ZNSt14_Function_baseD2Ev.exit191:                ; preds = %529, %531
   br label %.loopexit253
 
 .loopexit253.sink.split:                          ; preds = %.thread, %.thread238, %.thread321
-  %.pn60.pn.pn.pn.pn.pn237.ph = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %.thread238 ], [ %65, %.thread321 ], [ %520, %.thread ]
+  %.pn60.pn.pn.pn.pn.pn237.ph = phi { ptr, i32 } [ %65, %.thread321 ], [ %.pn60.pn.pn.pn, %.thread238 ], [ %520, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit253
 
@@ -49871,7 +49871,7 @@ _ZNSt14_Function_baseD2Ev.exit191:                ; preds = %529, %531
   br label %.loopexit253
 
 .loopexit253.sink.split:                          ; preds = %.thread, %.thread238, %.thread321
-  %.pn60.pn.pn.pn.pn.pn237.ph = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %.thread238 ], [ %65, %.thread321 ], [ %520, %.thread ]
+  %.pn60.pn.pn.pn.pn.pn237.ph = phi { ptr, i32 } [ %65, %.thread321 ], [ %.pn60.pn.pn.pn, %.thread238 ], [ %520, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit253
 
@@ -51396,7 +51396,7 @@ _ZNSt14_Function_baseD2Ev.exit118:                ; preds = %360, %362
   br label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %.thread, %.thread146, %.thread193
-  %.pn41.pn.pn.pn.pn.pn145.ph = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %.thread146 ], [ %56, %.thread193 ], [ %351, %.thread ]
+  %.pn41.pn.pn.pn.pn.pn145.ph = phi { ptr, i32 } [ %56, %.thread193 ], [ %.pn41.pn.pn.pn, %.thread146 ], [ %351, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
@@ -58089,8 +58089,8 @@ _ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14Strin
   resume { ptr, i32 } %72
 
 _ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %22, %19, %15, %57, %60, %44, %.critedge
-  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.sroa.028.046.us, %15 ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %57 ], [ %.0.i.i, %60 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
-  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %15 ], [ 0, %44 ], [ 0, %57 ], [ 0, %60 ], [ 0, %19 ], [ 0, %22 ]
+  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.0.i.i, %57 ], [ %.sroa.028.046.us, %15 ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %60 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
+  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %57 ], [ 0, %15 ], [ 0, %44 ], [ 0, %60 ], [ 0, %19 ], [ 0, %22 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -76809,7 +76809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70
   br i1 %79, label %.loopexit, label %78
 
 .loopexit:                                        ; preds = %.preheader, %78, %17
-  %.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn.pn, %78 ], [ %18, %.preheader ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %78 ], [ %18, %17 ], [ %18, %.preheader ]
   resume { ptr, i32 } %.pn.pn.pn
 
 80:                                               ; preds = %68
@@ -77370,7 +77370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70
   br i1 %79, label %.loopexit, label %78
 
 .loopexit:                                        ; preds = %.preheader, %78, %17
-  %.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn.pn, %78 ], [ %18, %.preheader ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %78 ], [ %18, %17 ], [ %18, %.preheader ]
   resume { ptr, i32 } %.pn.pn.pn
 
 80:                                               ; preds = %68
@@ -77876,7 +77876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %74
   br i1 %.0, label %.sink.split, label %79
 
 .loopexit:                                        ; preds = %.preheader122.split, %.preheader122.split.us, %.preheader.split, %.preheader.split.us, %43, %5
-  %.054 = phi i64 [ 0, %5 ], [ 0, %43 ], [ %.271.us, %.preheader122.split.us ], [ %.069.us, %.preheader.split.us ], [ %.069, %.preheader.split ], [ %.271, %.preheader122.split ]
+  %.054 = phi i64 [ 0, %5 ], [ 0, %43 ], [ %.271.us, %.preheader122.split.us ], [ %.069, %.preheader.split ], [ %.069.us, %.preheader.split.us ], [ %.271, %.preheader122.split ]
   ret i64 %.054
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -78219,7 +78219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70
   br i1 %79, label %.loopexit, label %78
 
 .loopexit:                                        ; preds = %.preheader, %78, %17
-  %.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn.pn, %78 ], [ %18, %.preheader ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %78 ], [ %18, %17 ], [ %18, %.preheader ]
   resume { ptr, i32 } %.pn.pn.pn
 
 80:                                               ; preds = %68
@@ -78531,7 +78531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70
   br i1 %79, label %.loopexit, label %78
 
 .loopexit:                                        ; preds = %.preheader, %78, %17
-  %.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn.pn, %78 ], [ %18, %.preheader ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %78 ], [ %18, %17 ], [ %18, %.preheader ]
   resume { ptr, i32 } %.pn.pn.pn
 
 80:                                               ; preds = %68
@@ -79724,7 +79724,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %48
-  %.014.i.i = phi i64 [ 0, %48 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %63, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %48 ], [ %63, %.preheader.i.i ]
   %75 = icmp eq i64 %.014.i.i, %41
   br i1 %75, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %76
 
@@ -79905,7 +79905,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %98
-  %.014.i.i71 = phi i64 [ 0, %98 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %113, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %98 ], [ %113, %.preheader.i.i67 ]
   %125 = icmp eq i64 %.014.i.i71, %42
   br i1 %125, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %126
 
@@ -80428,7 +80428,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10
   br i1 %exitcond37.not.i.i.i.i, label %.loopexit14.i.i.i.i, label %.lr.ph23.i.i.i.i, !llvm.loop !1249
 
 .loopexit14.i.i.i.i:                              ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, %270, %.preheader13.i.i.i.i, %.preheader15.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %193, %270 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
+  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %270 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
   %272 = add nuw nsw i64 %.06925.i.i.i.i, 1
   %exitcond38.not.i.i.i.i = icmp eq i64 %272, %189
   br i1 %exitcond38.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i, !llvm.loop !1250
@@ -80816,7 +80816,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10
   br i1 %exitcond47.not.i.i.i.i, label %.loopexit14.i.i54.i.i, label %.lr.ph26.i.i.i.i, !llvm.loop !1264
 
 .loopexit14.i.i54.i.i:                            ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, %376, %.preheader13.i.i91.i.i, %.preheader15.i.i56.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
-  %.3.i.i55.i.i = phi i64 [ %299, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %299, %376 ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
+  %.3.i.i55.i.i = phi i64 [ %299, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %299, %376 ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
   %378 = add nuw nsw i64 %.06928.i.i.i.i, 1
   %exitcond48.not.i.i.i.i = icmp eq i64 %378, %295
   br i1 %exitcond48.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i, !llvm.loop !1265
@@ -81177,7 +81177,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10
   br i1 %exitcond38.not.i.i175.i.i, label %.loopexit14.i.i139.i.i, label %.lr.ph23.i.i173.i.i, !llvm.loop !1279
 
 .loopexit14.i.i139.i.i:                           ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i, %484, %.preheader13.i.i172.i.i, %.preheader15.i.i142.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i
-  %.3.i.i140.i.i = phi i64 [ %406, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %406, %484 ], [ %406, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
+  %.3.i.i140.i.i = phi i64 [ %406, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %406, %484 ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %406, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
   %486 = add nuw nsw i64 %.07825.i.i.i.i, 1
   %exitcond39.not.i.i141.i.i = icmp eq i64 %486, %402
   br i1 %exitcond39.not.i.i141.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i, !llvm.loop !1280
@@ -81884,7 +81884,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %48
-  %.014.i.i = phi i64 [ 0, %48 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %63, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %48 ], [ %63, %.preheader.i.i ]
   %75 = icmp eq i64 %.014.i.i, %41
   br i1 %75, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %76
 
@@ -82065,7 +82065,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %98
-  %.014.i.i71 = phi i64 [ 0, %98 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %113, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %98 ], [ %113, %.preheader.i.i67 ]
   %125 = icmp eq i64 %.014.i.i71, %42
   br i1 %125, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %126
 
@@ -82588,7 +82588,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10
   br i1 %exitcond37.not.i.i.i.i, label %.loopexit14.i.i.i.i, label %.lr.ph23.i.i.i.i, !llvm.loop !1316
 
 .loopexit14.i.i.i.i:                              ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, %270, %.preheader13.i.i.i.i, %.preheader15.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %193, %270 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
+  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %270 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
   %272 = add nuw nsw i64 %.06925.i.i.i.i, 1
   %exitcond38.not.i.i.i.i = icmp eq i64 %272, %189
   br i1 %exitcond38.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i, !llvm.loop !1317
@@ -82976,7 +82976,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10
   br i1 %exitcond47.not.i.i.i.i, label %.loopexit14.i.i54.i.i, label %.lr.ph26.i.i.i.i, !llvm.loop !1331
 
 .loopexit14.i.i54.i.i:                            ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, %376, %.preheader13.i.i91.i.i, %.preheader15.i.i56.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
-  %.3.i.i55.i.i = phi i64 [ %299, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %299, %376 ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
+  %.3.i.i55.i.i = phi i64 [ %299, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %299, %376 ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %299, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
   %378 = add nuw nsw i64 %.06928.i.i.i.i, 1
   %exitcond48.not.i.i.i.i = icmp eq i64 %378, %295
   br i1 %exitcond48.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i, !llvm.loop !1332
@@ -83337,7 +83337,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10
   br i1 %exitcond38.not.i.i175.i.i, label %.loopexit14.i.i139.i.i, label %.lr.ph23.i.i173.i.i, !llvm.loop !1346
 
 .loopexit14.i.i139.i.i:                           ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i, %484, %.preheader13.i.i172.i.i, %.preheader15.i.i142.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i
-  %.3.i.i140.i.i = phi i64 [ %406, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %406, %484 ], [ %406, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
+  %.3.i.i140.i.i = phi i64 [ %406, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %406, %484 ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %406, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
   %486 = add nuw nsw i64 %.07825.i.i.i.i, 1
   %exitcond39.not.i.i141.i.i = icmp eq i64 %486, %402
   br i1 %exitcond39.not.i.i141.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i, !llvm.loop !1347
@@ -84826,7 +84826,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %48
-  %.014.i.i = phi i64 [ 0, %48 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %63, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %48 ], [ %63, %.preheader.i.i ]
   %75 = icmp eq i64 %.014.i.i, %41
   br i1 %75, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %76
 
@@ -85007,7 +85007,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %98
-  %.014.i.i71 = phi i64 [ 0, %98 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %113, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %98 ], [ %113, %.preheader.i.i67 ]
   %125 = icmp eq i64 %.014.i.i71, %42
   br i1 %125, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %126
 
@@ -85526,7 +85526,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14
   br i1 %exitcond37.not.i.i.i.i, label %.loopexit14.i.i.i.i, label %.lr.ph23.i.i.i.i, !llvm.loop !1392
 
 .loopexit14.i.i.i.i:                              ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, %266, %.preheader13.i.i.i.i, %.preheader15.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %193, %266 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
+  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %266 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
   %268 = add nuw nsw i64 %.06925.i.i.i.i, 1
   %exitcond38.not.i.i.i.i = icmp eq i64 %268, %189
   br i1 %exitcond38.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i, !llvm.loop !1393
@@ -85910,7 +85910,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14
   br i1 %exitcond47.not.i.i.i.i, label %.loopexit14.i.i54.i.i, label %.lr.ph26.i.i.i.i, !llvm.loop !1407
 
 .loopexit14.i.i54.i.i:                            ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, %368, %.preheader13.i.i91.i.i, %.preheader15.i.i56.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
-  %.3.i.i55.i.i = phi i64 [ %295, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %295, %368 ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
+  %.3.i.i55.i.i = phi i64 [ %295, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %295, %368 ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
   %370 = add nuw nsw i64 %.06928.i.i.i.i, 1
   %exitcond48.not.i.i.i.i = icmp eq i64 %370, %291
   br i1 %exitcond48.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i, !llvm.loop !1408
@@ -86267,7 +86267,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14
   br i1 %exitcond38.not.i.i175.i.i, label %.loopexit14.i.i139.i.i, label %.lr.ph23.i.i173.i.i, !llvm.loop !1422
 
 .loopexit14.i.i139.i.i:                           ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i, %472, %.preheader13.i.i172.i.i, %.preheader15.i.i142.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i
-  %.3.i.i140.i.i = phi i64 [ %398, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %398, %472 ], [ %398, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
+  %.3.i.i140.i.i = phi i64 [ %398, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %398, %472 ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %398, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
   %474 = add nuw nsw i64 %.07825.i.i.i.i, 1
   %exitcond39.not.i.i141.i.i = icmp eq i64 %474, %394
   br i1 %exitcond39.not.i.i141.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i, !llvm.loop !1423
@@ -86974,7 +86974,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %48
-  %.014.i.i = phi i64 [ 0, %48 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %63, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %48 ], [ %63, %.preheader.i.i ]
   %75 = icmp eq i64 %.014.i.i, %41
   br i1 %75, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %76
 
@@ -87155,7 +87155,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %98
-  %.014.i.i71 = phi i64 [ 0, %98 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %113, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %98 ], [ %113, %.preheader.i.i67 ]
   %125 = icmp eq i64 %.014.i.i71, %42
   br i1 %125, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %126
 
@@ -87674,7 +87674,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14
   br i1 %exitcond37.not.i.i.i.i, label %.loopexit14.i.i.i.i, label %.lr.ph23.i.i.i.i, !llvm.loop !1457
 
 .loopexit14.i.i.i.i:                              ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, %266, %.preheader13.i.i.i.i, %.preheader15.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %193, %266 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
+  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %266 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
   %268 = add nuw nsw i64 %.06925.i.i.i.i, 1
   %exitcond38.not.i.i.i.i = icmp eq i64 %268, %189
   br i1 %exitcond38.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i, !llvm.loop !1458
@@ -88058,7 +88058,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14
   br i1 %exitcond47.not.i.i.i.i, label %.loopexit14.i.i54.i.i, label %.lr.ph26.i.i.i.i, !llvm.loop !1472
 
 .loopexit14.i.i54.i.i:                            ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, %368, %.preheader13.i.i91.i.i, %.preheader15.i.i56.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
-  %.3.i.i55.i.i = phi i64 [ %295, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %295, %368 ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
+  %.3.i.i55.i.i = phi i64 [ %295, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %295, %368 ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %295, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
   %370 = add nuw nsw i64 %.06928.i.i.i.i, 1
   %exitcond48.not.i.i.i.i = icmp eq i64 %370, %291
   br i1 %exitcond48.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i, !llvm.loop !1473
@@ -88415,7 +88415,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14
   br i1 %exitcond38.not.i.i175.i.i, label %.loopexit14.i.i139.i.i, label %.lr.ph23.i.i173.i.i, !llvm.loop !1487
 
 .loopexit14.i.i139.i.i:                           ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i, %472, %.preheader13.i.i172.i.i, %.preheader15.i.i142.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i
-  %.3.i.i140.i.i = phi i64 [ %398, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %398, %472 ], [ %398, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
+  %.3.i.i140.i.i = phi i64 [ %398, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %398, %472 ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %398, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
   %474 = add nuw nsw i64 %.07825.i.i.i.i, 1
   %exitcond39.not.i.i141.i.i = icmp eq i64 %474, %394
   br i1 %exitcond39.not.i.i141.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i, !llvm.loop !1488
@@ -89380,7 +89380,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %48
-  %.014.i.i = phi i64 [ 0, %48 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %63, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %48 ], [ %63, %.preheader.i.i ]
   %75 = icmp eq i64 %.014.i.i, %41
   br i1 %75, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %76
 
@@ -89561,7 +89561,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %98
-  %.014.i.i71 = phi i64 [ 0, %98 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %113, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %98 ], [ %113, %.preheader.i.i67 ]
   %125 = icmp eq i64 %.014.i.i71, %42
   br i1 %125, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %126
 
@@ -90082,7 +90082,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22
   br i1 %exitcond37.not.i.i.i.i, label %.loopexit14.i.i.i.i, label %.lr.ph23.i.i.i.i, !llvm.loop !1529
 
 .loopexit14.i.i.i.i:                              ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, %268, %.preheader13.i.i.i.i, %.preheader15.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %193, %268 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
+  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %268 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
   %270 = add nuw nsw i64 %.06925.i.i.i.i, 1
   %exitcond38.not.i.i.i.i = icmp eq i64 %270, %189
   br i1 %exitcond38.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i, !llvm.loop !1530
@@ -90468,7 +90468,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22
   br i1 %exitcond47.not.i.i.i.i, label %.loopexit14.i.i54.i.i, label %.lr.ph26.i.i.i.i, !llvm.loop !1544
 
 .loopexit14.i.i54.i.i:                            ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, %372, %.preheader13.i.i91.i.i, %.preheader15.i.i56.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
-  %.3.i.i55.i.i = phi i64 [ %297, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %297, %372 ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
+  %.3.i.i55.i.i = phi i64 [ %297, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %297, %372 ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
   %374 = add nuw nsw i64 %.06928.i.i.i.i, 1
   %exitcond48.not.i.i.i.i = icmp eq i64 %374, %293
   br i1 %exitcond48.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i, !llvm.loop !1545
@@ -90827,7 +90827,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22
   br i1 %exitcond38.not.i.i175.i.i, label %.loopexit14.i.i139.i.i, label %.lr.ph23.i.i173.i.i, !llvm.loop !1559
 
 .loopexit14.i.i139.i.i:                           ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i, %478, %.preheader13.i.i172.i.i, %.preheader15.i.i142.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i
-  %.3.i.i140.i.i = phi i64 [ %402, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %402, %478 ], [ %402, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
+  %.3.i.i140.i.i = phi i64 [ %402, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %402, %478 ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %402, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
   %480 = add nuw nsw i64 %.07825.i.i.i.i, 1
   %exitcond39.not.i.i141.i.i = icmp eq i64 %480, %398
   br i1 %exitcond39.not.i.i141.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i, !llvm.loop !1560
@@ -91534,7 +91534,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %48
-  %.014.i.i = phi i64 [ 0, %48 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %63, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %48 ], [ %63, %.preheader.i.i ]
   %75 = icmp eq i64 %.014.i.i, %41
   br i1 %75, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %76
 
@@ -91715,7 +91715,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %98
-  %.014.i.i71 = phi i64 [ 0, %98 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %113, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %98 ], [ %113, %.preheader.i.i67 ]
   %125 = icmp eq i64 %.014.i.i71, %42
   br i1 %125, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %126
 
@@ -92236,7 +92236,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22
   br i1 %exitcond37.not.i.i.i.i, label %.loopexit14.i.i.i.i, label %.lr.ph23.i.i.i.i, !llvm.loop !1593
 
 .loopexit14.i.i.i.i:                              ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, %268, %.preheader13.i.i.i.i, %.preheader15.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %193, %268 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
+  %.3.i.i.i.i = phi i64 [ %193, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.preheader13.i.i.i.i ], [ %.026.i.i.i.i, %.preheader15.i.i.i.i ], [ %193, %268 ], [ %193, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.loopexit.i.i.i ]
   %270 = add nuw nsw i64 %.06925.i.i.i.i, 1
   %exitcond38.not.i.i.i.i = icmp eq i64 %270, %189
   br i1 %exitcond38.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i, !llvm.loop !1594
@@ -92622,7 +92622,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22
   br i1 %exitcond47.not.i.i.i.i, label %.loopexit14.i.i54.i.i, label %.lr.ph26.i.i.i.i, !llvm.loop !1608
 
 .loopexit14.i.i54.i.i:                            ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, %372, %.preheader13.i.i91.i.i, %.preheader15.i.i56.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
-  %.3.i.i55.i.i = phi i64 [ %297, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %297, %372 ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
+  %.3.i.i55.i.i = phi i64 [ %297, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i ], [ %297, %372 ], [ %.029.i.i.i.i, %.preheader13.i.i91.i.i ], [ %.029.i.i.i.i, %.preheader15.i.i56.i.i ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %297, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.loopexit.i.i.i.i ]
   %374 = add nuw nsw i64 %.06928.i.i.i.i, 1
   %exitcond48.not.i.i.i.i = icmp eq i64 %374, %293
   br i1 %exitcond48.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i, !llvm.loop !1609
@@ -92981,7 +92981,7 @@ _ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22
   br i1 %exitcond38.not.i.i175.i.i, label %.loopexit14.i.i139.i.i, label %.lr.ph23.i.i173.i.i, !llvm.loop !1623
 
 .loopexit14.i.i139.i.i:                           ; preds = %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i, %478, %.preheader13.i.i172.i.i, %.preheader15.i.i142.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i
-  %.3.i.i140.i.i = phi i64 [ %402, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %402, %478 ], [ %402, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
+  %.3.i.i140.i.i = phi i64 [ %402, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i ], [ %402, %478 ], [ %.026.i.i138.i.i, %.preheader13.i.i172.i.i ], [ %.026.i.i138.i.i, %.preheader15.i.i142.i.i ], [ %402, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.i.i.i ]
   %480 = add nuw nsw i64 %.07825.i.i.i.i, 1
   %exitcond39.not.i.i141.i.i = icmp eq i64 %480, %398
   br i1 %exitcond39.not.i.i141.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i137.i.i, !llvm.loop !1624
@@ -93930,7 +93930,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %30
-  %.014.i.i = phi i64 [ 0, %30 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %45, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %30 ], [ %45, %.preheader.i.i ]
   %57 = icmp eq i64 %.014.i.i, %23
   br i1 %57, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %58
 
@@ -94111,7 +94111,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %80
-  %.014.i.i71 = phi i64 [ 0, %80 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %95, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %80 ], [ %95, %.preheader.i.i67 ]
   %107 = icmp eq i64 %.014.i.i71, %24
   br i1 %107, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %108
 
@@ -94398,7 +94398,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
   br i1 %exitcond94.not.i.i.i.i, label %.loopexit76.i.i.i.i, label %.lr.ph82.i.i.i.i, !llvm.loop !1665
 
 .loopexit76.i.i.i.i:                              ; preds = %197, %185, %.preheader75.i.i.i.i, %.preheader77.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %182, %185 ], [ %181, %197 ]
+  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %182, %185 ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %181, %197 ]
   %199 = add nuw nsw i64 %.06984.i.i.i.i, 1
   %exitcond95.not.i.i.i.i = icmp eq i64 %199, %173
   br i1 %exitcond95.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_18CosineSimilarityOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %174, !llvm.loop !1666
@@ -94553,7 +94553,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i: ; pred
   br i1 %exitcond94.not.i.i72.i.i, label %.loopexit76.i.i52.i.i, label %.lr.ph82.i.i65.i.i, !llvm.loop !1680
 
 .loopexit76.i.i52.i.i:                            ; preds = %247, %235, %.preheader75.i.i64.i.i, %.preheader77.i.i55.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i
-  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %232, %235 ], [ %231, %247 ]
+  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %232, %235 ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %231, %247 ]
   %249 = add nuw nsw i64 %.06984.i.i49.i.i, 1
   %exitcond95.not.i.i54.i.i = icmp eq i64 %249, %223
   br i1 %exitcond95.not.i.i54.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_18CosineSimilarityOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %224, !llvm.loop !1681
@@ -94697,7 +94697,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i: ; pred
   br i1 %exitcond103.not.i.i.i.i, label %.loopexit85.i.i.i.i, label %.lr.ph91.i.i.i.i, !llvm.loop !1695
 
 .loopexit85.i.i.i.i:                              ; preds = %298, %.lr.ph.i.i89.i.i, %.preheader84.i.i.i.i, %.preheader86.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i
-  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %281, %298 ]
+  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %281, %298 ]
   %300 = add nuw nsw i64 %.07893.i.i.i.i, 1
   %exitcond104.not.i.i.i.i = icmp eq i64 %300, %274
   br i1 %exitcond104.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_18CosineSimilarityOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %.lr.ph95.i.i.i.i, !llvm.loop !1696
@@ -95390,7 +95390,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %30
-  %.014.i.i = phi i64 [ 0, %30 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %45, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %30 ], [ %45, %.preheader.i.i ]
   %57 = icmp eq i64 %.014.i.i, %23
   br i1 %57, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %58
 
@@ -95571,7 +95571,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %80
-  %.014.i.i71 = phi i64 [ 0, %80 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %95, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %80 ], [ %95, %.preheader.i.i67 ]
   %107 = icmp eq i64 %.014.i.i71, %24
   br i1 %107, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %108
 
@@ -95858,7 +95858,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
   br i1 %exitcond94.not.i.i.i.i, label %.loopexit76.i.i.i.i, label %.lr.ph82.i.i.i.i, !llvm.loop !1729
 
 .loopexit76.i.i.i.i:                              ; preds = %197, %185, %.preheader75.i.i.i.i, %.preheader77.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %182, %185 ], [ %181, %197 ]
+  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %182, %185 ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %181, %197 ]
   %199 = add nuw nsw i64 %.06984.i.i.i.i, 1
   %exitcond95.not.i.i.i.i = icmp eq i64 %199, %173
   br i1 %exitcond95.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_18CosineSimilarityOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %174, !llvm.loop !1730
@@ -96013,7 +96013,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i: ; pred
   br i1 %exitcond94.not.i.i72.i.i, label %.loopexit76.i.i52.i.i, label %.lr.ph82.i.i65.i.i, !llvm.loop !1744
 
 .loopexit76.i.i52.i.i:                            ; preds = %247, %235, %.preheader75.i.i64.i.i, %.preheader77.i.i55.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i
-  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %232, %235 ], [ %231, %247 ]
+  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %232, %235 ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %231, %247 ]
   %249 = add nuw nsw i64 %.06984.i.i49.i.i, 1
   %exitcond95.not.i.i54.i.i = icmp eq i64 %249, %223
   br i1 %exitcond95.not.i.i54.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_18CosineSimilarityOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %224, !llvm.loop !1745
@@ -96157,7 +96157,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i: ; pred
   br i1 %exitcond103.not.i.i.i.i, label %.loopexit85.i.i.i.i, label %.lr.ph91.i.i.i.i, !llvm.loop !1759
 
 .loopexit85.i.i.i.i:                              ; preds = %298, %.lr.ph.i.i89.i.i, %.preheader84.i.i.i.i, %.preheader86.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i
-  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %281, %298 ]
+  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %281, %298 ]
   %300 = add nuw nsw i64 %.07893.i.i.i.i, 1
   %exitcond104.not.i.i.i.i = icmp eq i64 %300, %274
   br i1 %exitcond104.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_18CosineSimilarityOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %.lr.ph95.i.i.i.i, !llvm.loop !1760
@@ -97184,7 +97184,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %30
-  %.014.i.i = phi i64 [ 0, %30 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %45, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %30 ], [ %45, %.preheader.i.i ]
   %57 = icmp eq i64 %.014.i.i, %23
   br i1 %57, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %58
 
@@ -97365,7 +97365,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %80
-  %.014.i.i71 = phi i64 [ 0, %80 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %95, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %80 ], [ %95, %.preheader.i.i67 ]
   %107 = icmp eq i64 %.014.i.i71, %24
   br i1 %107, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %108
 
@@ -97652,7 +97652,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
   br i1 %exitcond94.not.i.i.i.i, label %.loopexit76.i.i.i.i, label %.lr.ph82.i.i.i.i, !llvm.loop !1803
 
 .loopexit76.i.i.i.i:                              ; preds = %197, %185, %.preheader75.i.i.i.i, %.preheader77.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %182, %185 ], [ %181, %197 ]
+  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %182, %185 ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %181, %197 ]
   %199 = add nuw nsw i64 %.06984.i.i.i.i, 1
   %exitcond95.not.i.i.i.i = icmp eq i64 %199, %173
   br i1 %exitcond95.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_16CosineDistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %174, !llvm.loop !1804
@@ -97807,7 +97807,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i: ; pred
   br i1 %exitcond94.not.i.i72.i.i, label %.loopexit76.i.i52.i.i, label %.lr.ph82.i.i65.i.i, !llvm.loop !1818
 
 .loopexit76.i.i52.i.i:                            ; preds = %247, %235, %.preheader75.i.i64.i.i, %.preheader77.i.i55.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i
-  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %232, %235 ], [ %231, %247 ]
+  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %232, %235 ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %231, %247 ]
   %249 = add nuw nsw i64 %.06984.i.i49.i.i, 1
   %exitcond95.not.i.i54.i.i = icmp eq i64 %249, %223
   br i1 %exitcond95.not.i.i54.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_16CosineDistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %224, !llvm.loop !1819
@@ -97951,7 +97951,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i: ; pred
   br i1 %exitcond103.not.i.i.i.i, label %.loopexit85.i.i.i.i, label %.lr.ph91.i.i.i.i, !llvm.loop !1833
 
 .loopexit85.i.i.i.i:                              ; preds = %298, %.lr.ph.i.i89.i.i, %.preheader84.i.i.i.i, %.preheader86.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i
-  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %281, %298 ]
+  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %281, %298 ]
   %300 = add nuw nsw i64 %.07893.i.i.i.i, 1
   %exitcond104.not.i.i.i.i = icmp eq i64 %300, %274
   br i1 %exitcond104.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_fZNS_L15ListGenericFoldIfNS_16CosineDistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %.lr.ph95.i.i.i.i, !llvm.loop !1834
@@ -98644,7 +98644,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds =
   br i1 %.not49.i.i, label %.preheader.i.preheader.i, label %.lr.ph.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit: ; preds = %.preheader.i.i, %.loopexit.us.i.i, %30
-  %.014.i.i = phi i64 [ 0, %30 ], [ %.3.us.i.i, %.loopexit.us.i.i ], [ %45, %.preheader.i.i ]
+  %.014.i.i = phi i64 [ %.3.us.i.i, %.loopexit.us.i.i ], [ 0, %30 ], [ %45, %.preheader.i.i ]
   %57 = icmp eq i64 %.014.i.i, %23
   br i1 %57, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit.thread, label %58
 
@@ -98825,7 +98825,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i76: ; preds
   br i1 %.not49.i.i63, label %.preheader.i.preheader.i64, label %.lr.ph.i59
 
 _ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86: ; preds = %.preheader.i.i67, %.loopexit.us.i.i79, %80
-  %.014.i.i71 = phi i64 [ 0, %80 ], [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ %95, %.preheader.i.i67 ]
+  %.014.i.i71 = phi i64 [ %.3.us.i.i80, %.loopexit.us.i.i79 ], [ 0, %80 ], [ %95, %.preheader.i.i67 ]
   %107 = icmp eq i64 %.014.i.i71, %24
   br i1 %107, label %_ZNK6duckdb21TemplatedValidityMaskImE13CheckAllValidEm.exit86.thread, label %108
 
@@ -99112,7 +99112,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
   br i1 %exitcond94.not.i.i.i.i, label %.loopexit76.i.i.i.i, label %.lr.ph82.i.i.i.i, !llvm.loop !1867
 
 .loopexit76.i.i.i.i:                              ; preds = %197, %185, %.preheader75.i.i.i.i, %.preheader77.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %182, %185 ], [ %181, %197 ]
+  %.3.i.i.i.i = phi i64 [ %181, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %182, %185 ], [ %.085.i.i.i.i, %.preheader75.i.i.i.i ], [ %.085.i.i.i.i, %.preheader77.i.i.i.i ], [ %181, %197 ]
   %199 = add nuw nsw i64 %.06984.i.i.i.i, 1
   %exitcond95.not.i.i.i.i = icmp eq i64 %199, %173
   br i1 %exitcond95.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_16CosineDistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %174, !llvm.loop !1868
@@ -99267,7 +99267,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i: ; pred
   br i1 %exitcond94.not.i.i72.i.i, label %.loopexit76.i.i52.i.i, label %.lr.ph82.i.i65.i.i, !llvm.loop !1882
 
 .loopexit76.i.i52.i.i:                            ; preds = %247, %235, %.preheader75.i.i64.i.i, %.preheader77.i.i55.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i
-  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %232, %235 ], [ %231, %247 ]
+  %.3.i.i53.i.i = phi i64 [ %231, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i51.i.i ], [ %232, %235 ], [ %.085.i.i48.i.i, %.preheader75.i.i64.i.i ], [ %.085.i.i48.i.i, %.preheader77.i.i55.i.i ], [ %231, %247 ]
   %249 = add nuw nsw i64 %.06984.i.i49.i.i, 1
   %exitcond95.not.i.i54.i.i = icmp eq i64 %249, %223
   br i1 %exitcond95.not.i.i54.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_16CosineDistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %224, !llvm.loop !1883
@@ -99411,7 +99411,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i: ; pred
   br i1 %exitcond103.not.i.i.i.i, label %.loopexit85.i.i.i.i, label %.lr.ph91.i.i.i.i, !llvm.loop !1897
 
 .loopexit85.i.i.i.i:                              ; preds = %298, %.lr.ph.i.i89.i.i, %.preheader84.i.i.i.i, %.preheader86.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i
-  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %281, %298 ]
+  %.3.i.i88.i.i = phi i64 [ %281, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i87.i.i ], [ %282, %.lr.ph.i.i89.i.i ], [ %.094.i.i.i.i, %.preheader84.i.i.i.i ], [ %.094.i.i.i.i, %.preheader86.i.i.i.i ], [ %281, %298 ]
   %300 = add nuw nsw i64 %.07893.i.i.i.i, 1
   %exitcond104.not.i.i.i.i = icmp eq i64 %300, %274
   br i1 %exitcond104.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor16ExecuteWithNullsINS_12list_entry_tES2_dZNS_L15ListGenericFoldIdNS_16CosineDistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS2_SC_RNS_12ValidityMaskEmE_EEvSA_SA_SA_mT2_.exit, label %.lr.ph95.i.i.i.i, !llvm.loop !1898

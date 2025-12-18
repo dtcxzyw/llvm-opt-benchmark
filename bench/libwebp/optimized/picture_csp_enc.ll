@@ -432,7 +432,7 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge108.us, %.loopexit.sink.split, %.lr.ph110, %71, %25, %1
-  %.085 = phi i32 [ 0, %1 ], [ 1, %71 ], [ 1, %.lr.ph110 ], [ 0, %25 ], [ %98, %.loopexit.sink.split ], [ 1, %._crit_edge108.us ]
+  %.085 = phi i32 [ 0, %1 ], [ 1, %71 ], [ 1, %.lr.ph110 ], [ %98, %.loopexit.sink.split ], [ 0, %25 ], [ 1, %._crit_edge108.us ]
   ret i32 %.085
 }
 

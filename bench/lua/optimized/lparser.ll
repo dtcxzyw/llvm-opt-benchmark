@@ -5098,7 +5098,7 @@ reglevel.exit41.thread.i:                         ; preds = %233, %247, %regleve
   br label %solvegotos.exit
 
 solvegotos.exit:                                  ; preds = %reglevel.exit41.thread.us.i, %reglevel.exit41.thread.us.us.i, %reglevel.exit.i, %._crit_edge.loopexit.i
-  %255 = phi ptr [ %93, %reglevel.exit.i ], [ %.pre65.i, %._crit_edge.loopexit.i ], [ %93, %reglevel.exit41.thread.us.us.i ], [ %93, %reglevel.exit41.thread.us.i ]
+  %255 = phi ptr [ %93, %reglevel.exit41.thread.us.us.i ], [ %93, %reglevel.exit.i ], [ %.pre65.i, %._crit_edge.loopexit.i ], [ %93, %reglevel.exit41.thread.us.i ]
   %256 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %257 = load i32, ptr %256, align 8, !tbaa !76
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 40

@@ -866,7 +866,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %.loopexit347
 
 .loopexit347:                                     ; preds = %._crit_edge, %._crit_edge383, %._crit_edge397, %._crit_edge411, %._crit_edge684, %._crit_edge686, %._crit_edge688, %23, %39, %60, %75, %.loopexit356, %104, %135, %6, %.loopexit351, %248
-  %.0 = phi double [ undef, %248 ], [ %311, %.loopexit351 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %.loopexit356 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %60 ], [ 1.000000e+00, %39 ], [ 1.000000e+00, %23 ], [ %.5.lcssa, %._crit_edge383 ], [ %.16, %._crit_edge688 ], [ %.14, %._crit_edge686 ], [ %.18, %._crit_edge684 ], [ %.11.lcssa, %._crit_edge411 ], [ %.8.lcssa, %._crit_edge397 ], [ %.2.lcssa, %._crit_edge ]
+  %.0 = phi double [ undef, %248 ], [ %.18, %._crit_edge684 ], [ %.14, %._crit_edge686 ], [ %.16, %._crit_edge688 ], [ %.5.lcssa, %._crit_edge383 ], [ %.11.lcssa, %._crit_edge411 ], [ 0.000000e+00, %6 ], [ %.8.lcssa, %._crit_edge397 ], [ %311, %.loopexit351 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %.loopexit356 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %60 ], [ 1.000000e+00, %39 ], [ 1.000000e+00, %23 ], [ %.2.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

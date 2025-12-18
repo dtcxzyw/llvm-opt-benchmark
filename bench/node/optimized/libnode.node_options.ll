@@ -3050,7 +3050,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %port_.i = getelementptr inbounds nuw i8, ptr %ref.tmp275, i64 32
   br label %land.rhs
 
-while.cond.backedge:                              ; preds = %if.then.i155, %if.else.i157, %cleanup278
+while.cond.backedge:                              ; preds = %if.else.i157, %if.then.i155, %cleanup278
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %original_name) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arg) #22
@@ -4548,7 +4548,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %port_.i = getelementptr inbounds nuw i8, ptr %ref.tmp275, i64 32
   br label %land.rhs
 
-while.cond.backedge:                              ; preds = %if.then.i155, %if.else.i157, %cleanup278
+while.cond.backedge:                              ; preds = %if.else.i157, %if.then.i155, %cleanup278
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %original_name) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arg) #22
@@ -6032,7 +6032,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %port_.i = getelementptr inbounds nuw i8, ptr %ref.tmp275, i64 32
   br label %land.rhs
 
-while.cond.backedge:                              ; preds = %if.then.i155, %if.else.i157, %cleanup278
+while.cond.backedge:                              ; preds = %if.else.i157, %if.then.i155, %cleanup278
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %original_name) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arg) #22
@@ -12808,7 +12808,7 @@ for.inc.i.i:                                      ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.not.i.i, label %if.end14.i, label %for.body.i57.i, !llvm.loop !110
 
 if.end14.thread.i:                                ; preds = %land.rhs.i62.i, %while.cond.i.i
-  %__first.addr.0.ph.i = phi ptr [ %add.ptr, %while.cond.i.i ], [ %incdec.ptr.i.i, %land.rhs.i62.i ]
+  %__first.addr.0.ph.i = phi ptr [ %incdec.ptr.i.i, %land.rhs.i62.i ], [ %add.ptr, %while.cond.i.i ]
   %cmp15111.i = icmp eq ptr %__first.addr.0.ph.i, %port.coerce1
   br i1 %cmp15111.i, label %if.end, label %if.then
 

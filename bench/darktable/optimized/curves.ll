@@ -217,12 +217,12 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   br i1 %.not185208, label %._crit_edge212, label %.lr.ph211
 
 .preheader:                                       ; preds = %._crit_edge212, %._crit_edge195.thread, %._crit_edge195, %.preheader190
-  %113 = phi ptr [ %23, %._crit_edge195.thread ], [ %33, %.preheader190 ], [ %33, %._crit_edge195 ], [ %33, %._crit_edge212 ]
-  %114 = phi ptr [ %21, %._crit_edge195.thread ], [ %31, %.preheader190 ], [ %31, %._crit_edge195 ], [ %31, %._crit_edge212 ]
-  %115 = phi ptr [ %20, %._crit_edge195.thread ], [ %30, %.preheader190 ], [ %30, %._crit_edge195 ], [ %30, %._crit_edge212 ]
-  %116 = phi ptr [ %19, %._crit_edge195.thread ], [ %29, %.preheader190 ], [ %29, %._crit_edge195 ], [ %29, %._crit_edge212 ]
-  %117 = phi i32 [ %24, %._crit_edge195.thread ], [ 1, %.preheader190 ], [ 0, %._crit_edge195 ], [ %46, %._crit_edge212 ]
-  %118 = phi i1 [ false, %._crit_edge195.thread ], [ true, %.preheader190 ], [ false, %._crit_edge195 ], [ true, %._crit_edge212 ]
+  %113 = phi ptr [ %23, %._crit_edge195.thread ], [ %33, %._crit_edge195 ], [ %33, %.preheader190 ], [ %33, %._crit_edge212 ]
+  %114 = phi ptr [ %21, %._crit_edge195.thread ], [ %31, %._crit_edge195 ], [ %31, %.preheader190 ], [ %31, %._crit_edge212 ]
+  %115 = phi ptr [ %20, %._crit_edge195.thread ], [ %30, %._crit_edge195 ], [ %30, %.preheader190 ], [ %30, %._crit_edge212 ]
+  %116 = phi ptr [ %19, %._crit_edge195.thread ], [ %29, %._crit_edge195 ], [ %29, %.preheader190 ], [ %29, %._crit_edge212 ]
+  %117 = phi i32 [ %24, %._crit_edge195.thread ], [ 0, %._crit_edge195 ], [ 1, %.preheader190 ], [ %46, %._crit_edge212 ]
+  %118 = phi i1 [ false, %._crit_edge195.thread ], [ false, %._crit_edge195 ], [ true, %.preheader190 ], [ true, %._crit_edge212 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %wide.trip.count257 = zext i32 %117 to i64
   br label %135

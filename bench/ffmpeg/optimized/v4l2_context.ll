@@ -1263,7 +1263,7 @@ ctx_to_m2mctx.exit147:                            ; preds = %248, %switch.lookup
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %88, %.preheader, %274, %210, %.thread153, %211, %284, %232, %logger.exit145, %235, %216, %logger.exit139, %69, %205, %._crit_edge165
-  %.0 = phi ptr [ null, %69 ], [ null, %205 ], [ null, %logger.exit139 ], [ null, %216 ], [ null, %232 ], [ null, %274 ], [ null, %210 ], [ %280, %284 ], [ null, %._crit_edge165 ], [ null, %235 ], [ null, %logger.exit145 ], [ %280, %.thread153 ], [ null, %211 ], [ null, %.preheader ], [ null, %88 ], [ null, %60 ]
+  %.0 = phi ptr [ null, %69 ], [ null, %.preheader ], [ null, %205 ], [ null, %logger.exit139 ], [ null, %216 ], [ null, %232 ], [ null, %274 ], [ null, %210 ], [ %280, %284 ], [ null, %._crit_edge165 ], [ null, %211 ], [ null, %235 ], [ null, %logger.exit145 ], [ %280, %.thread153 ], [ null, %88 ], [ null, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1422,7 +1422,7 @@ v4l2_get_raw_format.exit:                         ; preds = %ctx_to_m2mctx.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
-54:                                               ; preds = %v4l2_try_raw_format.exit23.i, %ctx_to_m2mctx.exit.i.i
+54:                                               ; preds = %ctx_to_m2mctx.exit.i.i, %v4l2_try_raw_format.exit23.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not16 = icmp eq i32 %1, 0
   %55 = zext i1 %.not16 to i32

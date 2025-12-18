@@ -295,7 +295,7 @@ Abc_Clock.exit94:                                 ; preds = %103, %106
   br label %115
 
 115:                                              ; preds = %.sink.split, %102, %Abc_Clock.exit94, %114, %95, %76, %57, %38
-  %.0 = phi ptr [ null, %114 ], [ null, %38 ], [ null, %57 ], [ null, %76 ], [ null, %95 ], [ %99, %Abc_Clock.exit94 ], [ %99, %102 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %114 ], [ null, %38 ], [ null, %57 ], [ null, %76 ], [ null, %95 ], [ %99, %102 ], [ %99, %Abc_Clock.exit94 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0

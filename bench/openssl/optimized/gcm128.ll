@@ -333,7 +333,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   br label %57
 
 57:                                               ; preds = %.sink.split, %7, %3
-  %.052 = phi i32 [ -2, %3 ], [ -1, %7 ], [ 0, %.sink.split ]
+  %.052 = phi i32 [ -1, %7 ], [ -2, %3 ], [ 0, %.sink.split ]
   ret i32 %.052
 }
 

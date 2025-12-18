@@ -3183,7 +3183,7 @@ _ZN16ExpertPacketItem5childEi.exit21:             ; preds = %_ZN16ExpertPacketIt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN16ExpertPacketItem5childEi.exit21, %26, %.preheader, %51, %2, %55
-  %.018 = phi i32 [ 0, %2 ], [ %58, %55 ], [ %29, %26 ], [ 0, %51 ], [ 0, %.preheader ], [ %49, %_ZN16ExpertPacketItem5childEi.exit21 ]
+  %.018 = phi i32 [ 0, %51 ], [ 0, %2 ], [ %58, %55 ], [ %29, %26 ], [ 0, %.preheader ], [ %49, %_ZN16ExpertPacketItem5childEi.exit21 ]
   ret i32 %.018
 }
 

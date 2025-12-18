@@ -1459,7 +1459,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %9, %3, %_ZNK11ast_m
   br i1 %.not27.old.i.i, label %.loopexit31, label %.lr.ph37.i.i.backedge
 
 .lr.ph37.i.i.backedge:                            ; preds = %76, %73
-  %.136.i.i.be = phi ptr [ %.old.i.i, %76 ], [ %75, %73 ]
+  %.136.i.i.be = phi ptr [ %75, %73 ], [ %.old.i.i, %76 ]
   br label %.lr.ph37.i.i, !llvm.loop !580
 
 .loopexit31:                                      ; preds = %57, %76, %73, %.preheader.i.i
@@ -1543,7 +1543,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %9, %3, %_ZNK11ast_m
   br i1 %.not27.old.i.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit3, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %118, %115
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %118 ], [ %117, %115 ]
+  %.136.i.i.i.be = phi ptr [ %117, %115 ], [ %.old.i.i.i, %118 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !582
 
 .loopexit:                                        ; preds = %93, %109
@@ -1998,7 +1998,7 @@ _ZN6vectorISt4pairIP3appS2_ELb0EjE3endEv.exit:    ; preds = %_ZN6vectorISt4pairI
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph37.i.i.backedge
 
 .lr.ph37.i.i.backedge:                            ; preds = %83, %80
-  %.136.i.i.be = phi ptr [ %.old.i.i, %83 ], [ %82, %80 ]
+  %.136.i.i.be = phi ptr [ %82, %80 ], [ %.old.i.i, %83 ]
   br label %.lr.ph37.i.i, !llvm.loop !580
 
 _ZNK14core_hashtableI19obj_pair_hash_entryI3appS1_E17obj_ptr_pair_hashIS1_S1_E10default_eqISt4pairIPS1_S7_EEE8containsERKS8_.exit: ; preds = %58, %74
@@ -2117,7 +2117,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %_ZNK14core_hashtabl
   br i1 %.not27.old.i.i.i, label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %138, %135
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %138 ], [ %137, %135 ]
+  %.136.i.i.i.be = phi ptr [ %137, %135 ], [ %.old.i.i.i, %138 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !582
 
 _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i: ; preds = %113, %129
@@ -2128,7 +2128,7 @@ _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i: ; preds = %113, %129
   br label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit
 
 _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit: ; preds = %119, %135, %138, %.preheader.i.i.i, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i
-  %.037 = phi double [ 0.000000e+00, %.preheader.i.i.i ], [ %141, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %119 ]
+  %.037 = phi double [ 0.000000e+00, %.preheader.i.i.i ], [ 0.000000e+00, %135 ], [ %141, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %119 ]
   %142 = load ptr, ptr %22, align 8, !tbaa !586
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load double, ptr %143, align 8, !tbaa !596
@@ -2436,7 +2436,7 @@ define hidden void @_ZN3smt15dyn_ack_manager13del_clause_ehEPNS_6clauseE(ptr nou
   br i1 %.not27.old.i.i.i, label %.loopexit27, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %45, %42
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %45 ], [ %44, %42 ]
+  %.137.i.i.i.be = phi ptr [ %44, %42 ], [ %.old.i.i.i, %45 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !607
 
 .loopexit26:                                      ; preds = %26, %37
@@ -2528,7 +2528,7 @@ define hidden void @_ZN3smt15dyn_ack_manager13del_clause_ehEPNS_6clauseE(ptr nou
   br i1 %.not27.old.i.i.i17, label %_ZNK7obj_mapIN3smt6clauseE6tripleIP3appS4_S4_EE4findEPS1_RS5_.exit.thread, label %.lr.ph38.i.i.i13.backedge
 
 .lr.ph38.i.i.i13.backedge:                        ; preds = %83, %80
-  %.137.i.i.i14.be = phi ptr [ %.old.i.i.i16, %83 ], [ %82, %80 ]
+  %.137.i.i.i14.be = phi ptr [ %82, %80 ], [ %.old.i.i.i16, %83 ]
   br label %.lr.ph38.i.i.i13, !llvm.loop !613
 
 .loopexit:                                        ; preds = %64, %75
@@ -4731,7 +4731,7 @@ _ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit174: ; preds 
   br label %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit
 
 _ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit:       ; preds = %52, %72, %._crit_edge._crit_edge.i.i.i, %._crit_edge.i.i.i, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit174, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit172, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %49, %._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %72 ], [ %spec.select, %._crit_edge._crit_edge52.i.i.i ], [ %85, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit174 ], [ %83, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit ], [ %84, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit172 ], [ %.02946.i.i.i, %52 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %49, %._crit_edge.i.i.i ], [ %84, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit172 ], [ %.029.lcssa.i.i.i, %72 ], [ %spec.select, %._crit_edge._crit_edge52.i.i.i ], [ %85, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit174 ], [ %83, %_ZSt4findIPKP4exprP3appET_S6_S6_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %52 ]
   %86 = getelementptr inbounds i8, ptr %43, i64 -4
   %87 = load i32, ptr %86, align 4, !tbaa !541
   %88 = zext i32 %87 to i64
@@ -6852,7 +6852,7 @@ _ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1
   br i1 %.not27.old, label %.loopexit, label %.lr.ph39.backedge
 
 .lr.ph39.backedge:                                ; preds = %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit30.thread, %72
-  %.138.be = phi ptr [ %.old, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit30.thread ], [ %74, %72 ]
+  %.138.be = phi ptr [ %74, %72 ], [ %.old, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit30.thread ]
   br label %.lr.ph39, !llvm.loop !750
 
 .loopexit:                                        ; preds = %55, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit30, %72, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit30.thread, %.preheader
@@ -6977,7 +6977,7 @@ _ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dat
   br i1 %.not27.old.i, label %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE9find_coreERKS5_.exit, label %.lr.ph41.i.backedge
 
 .lr.ph41.i.backedge:                              ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i, %69
-  %.140.i.be = phi ptr [ %.old.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i ], [ %71, %69 ]
+  %.140.i.be = phi ptr [ %71, %69 ], [ %.old.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i ]
   br label %.lr.ph41.i, !llvm.loop !752
 
 _ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE9find_coreERKS5_.exit: ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit.i, %52, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.i, %69, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i, %.preheader.i
@@ -7910,7 +7910,7 @@ _ZSt13move_backwardIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.
   br i1 %.not27.old.i.i.i.i, label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i, label %.lr.ph37.i.i.i.i.backedge
 
 .lr.ph37.i.i.i.i.backedge:                        ; preds = %88, %85
-  %.136.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %88 ], [ %87, %85 ]
+  %.136.i.i.i.i.be = phi ptr [ %87, %85 ], [ %.old.i.i.i.i, %88 ]
   br label %.lr.ph37.i.i.i.i, !llvm.loop !582
 
 _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i: ; preds = %63, %79
@@ -7920,7 +7920,7 @@ _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i: ; preds = %63, %79
   br label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i
 
 _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i: ; preds = %69, %88, %85, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i, %.preheader.i.i.i.i
-  %.024.i = phi i32 [ 0, %.preheader.i.i.i.i ], [ %90, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i ], [ 0, %88 ], [ 0, %85 ], [ 0, %69 ]
+  %.024.i = phi i32 [ 0, %.preheader.i.i.i.i ], [ 0, %88 ], [ %90, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i ], [ 0, %85 ], [ 0, %69 ]
   %91 = load ptr, ptr %.0.i, align 8, !tbaa !543
   %92 = getelementptr inbounds i8, ptr %.012.i, i64 -8
   %93 = load ptr, ptr %92, align 8, !tbaa !547
@@ -8010,7 +8010,7 @@ _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i: ; preds = %69, %88, %85, %_Z
   br i1 %.not27.old.i.i.i15.i, label %_ZNK3smt11app_pair_ltclERKSt4pairIP3appS3_ES6_.exit, label %.lr.ph37.i.i.i12.i.backedge
 
 .lr.ph37.i.i.i12.i.backedge:                      ; preds = %141, %138
-  %.136.i.i.i13.i.be = phi ptr [ %.old.i.i.i14.i, %141 ], [ %140, %138 ]
+  %.136.i.i.i13.i.be = phi ptr [ %140, %138 ], [ %.old.i.i.i14.i, %141 ]
   br label %.lr.ph37.i.i.i12.i, !llvm.loop !582
 
 _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i: ; preds = %116, %132
@@ -8020,7 +8020,7 @@ _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i: ; preds = %116, %132
   br label %_ZNK3smt11app_pair_ltclERKSt4pairIP3appS3_ES6_.exit
 
 _ZNK3smt11app_pair_ltclERKSt4pairIP3appS3_ES6_.exit: ; preds = %122, %138, %141, %.preheader.i.i.i10.i, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i
-  %.0.i17 = phi i32 [ 0, %.preheader.i.i.i10.i ], [ %143, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i ], [ 0, %138 ], [ 0, %141 ], [ 0, %122 ]
+  %.0.i17 = phi i32 [ 0, %.preheader.i.i.i10.i ], [ 0, %138 ], [ %143, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i ], [ 0, %141 ], [ 0, %122 ]
   %144 = icmp ugt i32 %.024.i, %.0.i17
   br i1 %144, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPSt4pairIP3appS2_EN9__gnu_cxx5__ops14_Val_comp_iterIN3smt11app_pair_ltEEEEvT_T0_.exit, !llvm.loop !766
 
@@ -8273,7 +8273,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3smt11app_pair_ltclERKSt4pair
   br i1 %.not27.old.i.i.i, label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %61, %58
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %61 ], [ %60, %58 ]
+  %.136.i.i.i.be = phi ptr [ %60, %58 ], [ %.old.i.i.i, %61 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !582
 
 _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i: ; preds = %36, %52
@@ -8283,7 +8283,7 @@ _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i: ; preds = %36, %52
   br label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit
 
 _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit: ; preds = %42, %58, %61, %.preheader.i.i.i, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i
-  %.024 = phi i32 [ 0, %.preheader.i.i.i ], [ %63, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i ], [ 0, %58 ], [ 0, %61 ], [ 0, %42 ]
+  %.024 = phi i32 [ 0, %.preheader.i.i.i ], [ 0, %58 ], [ %63, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i ], [ 0, %61 ], [ 0, %42 ]
   %64 = load ptr, ptr %2, align 8, !tbaa !543
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !547
@@ -8373,7 +8373,7 @@ _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit: ; preds = %42, %58, %61, %.pre
   br i1 %.not27.old.i.i.i15, label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit22, label %.lr.ph37.i.i.i12.backedge
 
 .lr.ph37.i.i.i12.backedge:                        ; preds = %114, %111
-  %.136.i.i.i13.be = phi ptr [ %.old.i.i.i14, %114 ], [ %113, %111 ]
+  %.136.i.i.i13.be = phi ptr [ %113, %111 ], [ %.old.i.i.i14, %114 ]
   br label %.lr.ph37.i.i.i12, !llvm.loop !582
 
 _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18: ; preds = %89, %105
@@ -8383,7 +8383,7 @@ _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18: ; preds = %89, %105
   br label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit22
 
 _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit22: ; preds = %95, %111, %114, %.preheader.i.i.i10, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18
-  %.0 = phi i32 [ 0, %.preheader.i.i.i10 ], [ %116, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18 ], [ 0, %111 ], [ 0, %114 ], [ 0, %95 ]
+  %.0 = phi i32 [ 0, %.preheader.i.i.i10 ], [ 0, %111 ], [ %116, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18 ], [ 0, %114 ], [ 0, %95 ]
   %117 = icmp ugt i32 %.024, %.0
   ret i1 %117
 }
@@ -9018,7 +9018,7 @@ define linkonce_odr hidden void @_ZSt17__merge_sort_loopIPSt4pairIP3appS2_ES4_lN
   br i1 %.not27.old.i.i.i.i, label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i, label %.lr.ph37.i.i.i.i.backedge
 
 .lr.ph37.i.i.i.i.backedge:                        ; preds = %71, %68
-  %.136.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %71 ], [ %70, %68 ]
+  %.136.i.i.i.i.be = phi ptr [ %70, %68 ], [ %.old.i.i.i.i, %71 ]
   br label %.lr.ph37.i.i.i.i, !llvm.loop !582
 
 _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i: ; preds = %46, %62
@@ -9028,7 +9028,7 @@ _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i: ; preds = %46, %62
   br label %_ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i
 
 _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i: ; preds = %52, %71, %68, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i, %.preheader.i.i.i.i
-  %.024.i = phi i32 [ 0, %.preheader.i.i.i.i ], [ %73, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i ], [ 0, %71 ], [ 0, %68 ], [ 0, %52 ]
+  %.024.i = phi i32 [ 0, %.preheader.i.i.i.i ], [ 0, %71 ], [ %73, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i.i ], [ 0, %68 ], [ 0, %52 ]
   %74 = load ptr, ptr %.01829.i, align 8, !tbaa !543
   %75 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !547
@@ -9118,7 +9118,7 @@ _ZNK12obj_pair_mapI3appS0_jE4findEPS0_S2_Rj.exit.i: ; preds = %52, %71, %68, %_Z
   br i1 %.not27.old.i.i.i15.i, label %_ZNK3smt11app_pair_ltclERKSt4pairIP3appS3_ES6_.exit, label %.lr.ph37.i.i.i12.i.backedge
 
 .lr.ph37.i.i.i12.i.backedge:                      ; preds = %124, %121
-  %.136.i.i.i13.i.be = phi ptr [ %.old.i.i.i14.i, %124 ], [ %123, %121 ]
+  %.136.i.i.i13.i.be = phi ptr [ %123, %121 ], [ %.old.i.i.i14.i, %124 ]
   br label %.lr.ph37.i.i.i12.i, !llvm.loop !582
 
 _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i: ; preds = %99, %115
@@ -9128,7 +9128,7 @@ _ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i: ; preds = %99, %115
   br label %_ZNK3smt11app_pair_ltclERKSt4pairIP3appS3_ES6_.exit
 
 _ZNK3smt11app_pair_ltclERKSt4pairIP3appS3_ES6_.exit: ; preds = %105, %121, %124, %.preheader.i.i.i10.i, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i
-  %.0.i = phi i32 [ 0, %.preheader.i.i.i10.i ], [ %126, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i ], [ 0, %121 ], [ 0, %124 ], [ 0, %105 ]
+  %.0.i = phi i32 [ 0, %.preheader.i.i.i10.i ], [ 0, %121 ], [ %126, %_ZNK12obj_pair_mapI3appS0_jE9find_coreEPS0_S2_.exit.i18.i ], [ 0, %124 ], [ 0, %105 ]
   %127 = icmp ugt i32 %.024.i, %.0.i
   br i1 %127, label %128, label %130
 
@@ -9475,7 +9475,7 @@ _ZSt4moveIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit54: ; preds = %.lr.ph.i.i.i.i.i5
   br label %_ZSt4moveIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit42
 
 _ZSt4moveIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit42: ; preds = %.lr.ph.i.i.i.i.i38, %.lr.ph.i.i.i.i.i56, %_ZSt4moveIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit54, %_ZSt13move_backwardIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit, %50, %9, %90
-  %.0 = phi ptr [ %2, %50 ], [ %91, %90 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit54 ], [ %83, %.lr.ph.i.i.i.i.i56 ], [ %46, %.lr.ph.i.i.i.i.i38 ]
+  %.0 = phi ptr [ %2, %50 ], [ %91, %90 ], [ %83, %.lr.ph.i.i.i.i.i56 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit54 ], [ %46, %.lr.ph.i.i.i.i.i38 ]
   ret ptr %.0
 }
 
@@ -9576,7 +9576,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI19obj_pair_hash_entryI3appS
   br i1 %.not32.old, label %.loopexit, label %.lr.ph46.backedge
 
 .lr.ph46.backedge:                                ; preds = %59, %56
-  %.245.be = phi ptr [ %.old, %59 ], [ %58, %56 ]
+  %.245.be = phi ptr [ %58, %56 ], [ %.old, %59 ]
   br label %.lr.ph46, !llvm.loop !782
 
 .loopexit36:                                      ; preds = %34, %50
@@ -9825,7 +9825,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseESt4p
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !787
 
 .loopexit38:                                      ; preds = %17, %28
@@ -10118,7 +10118,7 @@ _ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1
   br i1 %.not32.old, label %.loopexit, label %.lr.ph49.backedge
 
 .lr.ph49.backedge:                                ; preds = %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit35.thread, %72
-  %.248.be = phi ptr [ %.old, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit35.thread ], [ %74, %72 ]
+  %.248.be = phi ptr [ %74, %72 ], [ %.old, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit35.thread ]
   br label %.lr.ph49, !llvm.loop !792
 
 .loopexit39:                                      ; preds = %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit, %_ZNK14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6equalsERKS8_SC_.exit35
@@ -10355,7 +10355,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseE6tri
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !798
 
 .loopexit38:                                      ; preds = %17, %28
@@ -12211,7 +12211,7 @@ _ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dat
   br i1 %.not27.old.i.i32, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i, label %.lr.ph41.i.i27.backedge
 
 .lr.ph41.i.i27.backedge:                          ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i30, %98
-  %.140.i.i28.be = phi ptr [ %.old.i.i31, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i30 ], [ %100, %98 ]
+  %.140.i.i28.be = phi ptr [ %100, %98 ], [ %.old.i.i31, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i30 ]
   br label %.lr.ph41.i.i27, !llvm.loop !752
 
 _ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_.exit40: ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit.i.i39, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.i.i36
@@ -12336,7 +12336,7 @@ _ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dat
   br i1 %.not27.old.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclI6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i, label %.lr.ph41.i.i.backedge
 
 .lr.ph41.i.i.backedge:                            ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i, %166
-  %.140.i.i.be = phi ptr [ %.old.i.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i ], [ %168, %166 ]
+  %.140.i.i.be = phi ptr [ %168, %166 ], [ %.old.i.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i ]
   br label %.lr.ph41.i.i, !llvm.loop !752
 
 _ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_.exit: ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit.i.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.i.i
@@ -13277,7 +13277,7 @@ _ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dat
   br i1 %.not27.old.i.i56, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i, label %.lr.ph41.i.i51.backedge
 
 .lr.ph41.i.i51.backedge:                          ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i54, %87
-  %.140.i.i52.be = phi ptr [ %.old.i.i55, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i54 ], [ %89, %87 ]
+  %.140.i.i52.be = phi ptr [ %89, %87 ], [ %.old.i.i55, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i54 ]
   br label %.lr.ph41.i.i51, !llvm.loop !752
 
 _ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_.exit64: ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit.i.i63, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.i.i60
@@ -13402,7 +13402,7 @@ _ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dat
   br i1 %.not27.old.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i, label %.lr.ph41.i.i.backedge
 
 .lr.ph41.i.i.backedge:                            ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i, %155
-  %.140.i.i.be = phi ptr [ %.old.i.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i ], [ %157, %155 ]
+  %.140.i.i.be = phi ptr [ %157, %155 ], [ %.old.i.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.thread.i.i ]
   br label %.lr.ph41.i.i, !llvm.loop !752
 
 _ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_.exit: ; preds = %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit.i.i, %_ZNK14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6equalsERKS5_SB_.exit30.i.i

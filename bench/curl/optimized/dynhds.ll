@@ -491,7 +491,7 @@ define hidden range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captures
   br label %.critedge73
 
 .critedge73:                                      ; preds = %.critedge3, %.critedge, %49, %28, %8, %3, %63
-  %.0 = phi i32 [ 0, %3 ], [ %67, %63 ], [ 43, %49 ], [ 0, %28 ], [ 43, %8 ], [ 27, %.critedge ], [ 43, %.critedge3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %67, %63 ], [ 43, %49 ], [ 0, %28 ], [ 27, %.critedge ], [ 43, %8 ], [ 43, %.critedge3 ]
   ret i32 %.0
 }
 

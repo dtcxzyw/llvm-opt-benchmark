@@ -4196,8 +4196,8 @@ define dso_local noundef range(i32 -22, 1) i32 @do_take_over_console(ptr noundef
   br label %.thread16.sink.split
 
 .thread16.sink.split:                             ; preds = %46, %.preheader22, %214, %229, %233, %83, %24
-  %.sink = phi ptr [ %5, %24 ], [ %61, %83 ], [ %61, %233 ], [ %61, %229 ], [ %61, %214 ], [ %61, %.preheader22 ], [ %5, %46 ]
-  %.ph76 = phi i32 [ -19, %24 ], [ 0, %83 ], [ 0, %233 ], [ 0, %229 ], [ 0, %214 ], [ 0, %.preheader22 ], [ -22, %46 ]
+  %.sink = phi ptr [ %5, %24 ], [ %61, %.preheader22 ], [ %61, %214 ], [ %61, %83 ], [ %61, %233 ], [ %61, %229 ], [ %5, %46 ]
+  %.ph76 = phi i32 [ -19, %24 ], [ 0, %.preheader22 ], [ 0, %214 ], [ 0, %83 ], [ 0, %233 ], [ 0, %229 ], [ -22, %46 ]
   tail call void @module_put(ptr noundef %.sink) #25
   br label %.thread16
 

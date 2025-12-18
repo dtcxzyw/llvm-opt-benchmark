@@ -5624,7 +5624,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit201:    ; preds = %531, %534
   br i1 %550, label %.loopexit, label %547
 
 .loopexit:                                        ; preds = %547, %.loopexit.loopexit222, %.thread
-  %.pn125.pn = phi { ptr, i32 } [ %334, %.thread ], [ %538, %.loopexit.loopexit222 ], [ %.pn125, %547 ]
+  %.pn125.pn = phi { ptr, i32 } [ %538, %.loopexit.loopexit222 ], [ %334, %.thread ], [ %.pn125, %547 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %551
 

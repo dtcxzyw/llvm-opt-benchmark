@@ -1092,7 +1092,7 @@ write_tiles.exit:                                 ; preds = %auxiliary_info_add_
   br i1 %231, label %write_tiles.exit.thread, label %232
 
 write_tiles.exit.thread:                          ; preds = %write_tiles.exit, %120, %125, %86
-  %.2.i117 = phi i32 [ %84, %86 ], [ -1094995529, %120 ], [ -1094995529, %125 ], [ %.112121.i, %write_tiles.exit ]
+  %.2.i117 = phi i32 [ -1094995529, %120 ], [ %84, %86 ], [ -1094995529, %125 ], [ %.112121.i, %write_tiles.exit ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4) #5
   br label %mov_cenc_end_packet.exit
 

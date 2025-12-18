@@ -4231,7 +4231,7 @@ define internal fastcc i64 @int_pow(i64 noundef %0, i64 noundef %1) unnamed_addr
   br label %rb_long2num_inline.exit
 
 .loopexit:                                        ; preds = %23, %29, %32, %36, %39, %.lr.ph
-  %.25383 = phi i64 [ %.25388, %.lr.ph ], [ -1, %23 ], [ %.253.lcssa, %29 ], [ %.253.lcssa, %32 ], [ %.253.lcssa, %36 ], [ %.253.lcssa, %39 ]
+  %.25383 = phi i64 [ %.25388, %.lr.ph ], [ %.253.lcssa, %29 ], [ %.253.lcssa, %32 ], [ %.253.lcssa, %36 ], [ %.253.lcssa, %39 ], [ -1, %23 ]
   %.15080 = phi i64 [ %.15089, %.lr.ph ], [ %.150.lcssa, %39 ], [ %.150.lcssa, %36 ], [ %.150.lcssa, %32 ], [ %.150.lcssa, %29 ], [ %.150.lcssa, %23 ]
   %53 = tail call i64 @rb_int2big(i64 noundef %.25383) #27
   %54 = add i64 %.15080, 4611686018427387904
@@ -4900,7 +4900,7 @@ rb_float_new_inline.exit48:                       ; preds = %184, %188, %190
   br i1 %199, label %.lr.ph.split, label %RB_FLOAT_TYPE_P.exit40.thread56, !llvm.loop !33
 
 RB_FLOAT_TYPE_P.exit40.thread56:                  ; preds = %rb_float_new_inline.exit48, %rb_float_new_inline.exit48.us, %64, %82, %.preheader, %30, %RB_FLOAT_TYPE_P.exit40, %rb_float_new_inline.exit, %127
-  %.032 = phi i32 [ 1, %rb_float_new_inline.exit ], [ 1, %127 ], [ 0, %RB_FLOAT_TYPE_P.exit40 ], [ 0, %30 ], [ 1, %.preheader ], [ 1, %82 ], [ 1, %64 ], [ 1, %rb_float_new_inline.exit48.us ], [ 1, %rb_float_new_inline.exit48 ]
+  %.032 = phi i32 [ 1, %rb_float_new_inline.exit ], [ 0, %30 ], [ 1, %127 ], [ 0, %RB_FLOAT_TYPE_P.exit40 ], [ 1, %.preheader ], [ 1, %rb_float_new_inline.exit48.us ], [ 1, %64 ], [ 1, %82 ], [ 1, %rb_float_new_inline.exit48 ]
   ret i32 %.032
 }
 
@@ -10696,7 +10696,7 @@ RB_FLOAT_TYPE_P.exit.thread62:                    ; preds = %54, %RB_FLOAT_TYPE_
   br i1 %.not75, label %.lr.ph88, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph85, %.lr.ph88, %.preheader78, %.preheader76, %115, %107, %45
-  %.1 = phi i64 [ %.0, %45 ], [ %2, %107 ], [ %2, %.preheader76 ], [ %2, %115 ], [ %2, %.preheader78 ], [ %2, %.lr.ph85 ], [ %2, %.lr.ph88 ], [ %2, %.lr.ph ]
+  %.1 = phi i64 [ %.0, %45 ], [ %2, %107 ], [ %2, %115 ], [ %2, %.preheader76 ], [ %2, %.preheader78 ], [ %2, %.lr.ph85 ], [ %2, %.lr.ph88 ], [ %2, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.1
@@ -16715,7 +16715,7 @@ RARRAY_AREF.exit95._crit_edge:                    ; preds = %RARRAY_AREF.exit95,
   br i1 %187, label %.lr.ph117, label %.loopexit, !llvm.loop !101
 
 rb_fix_digits.exit:                               ; preds = %rb_array_len.exit, %RARRAY_AREF.exit81, %rb_long2num_inline.exit21.i, %39, %52
-  %.0 = phi i64 [ %53, %52 ], [ %40, %39 ], [ %42, %rb_long2num_inline.exit21.i ], [ %107, %RARRAY_AREF.exit81 ], [ %134, %rb_array_len.exit ]
+  %.0 = phi i64 [ %107, %RARRAY_AREF.exit81 ], [ %53, %52 ], [ %42, %rb_long2num_inline.exit21.i ], [ %40, %39 ], [ %134, %rb_array_len.exit ]
   ret i64 %.0
 }
 

@@ -6688,7 +6688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %77
   br i1 %93, label %.preheader169.lr.ph.split.split.us.us, label %.preheader169.us258
 
 ._crit_edge.us:                                   ; preds = %.preheader169.us258, %.preheader169.us248.us267, %.preheader169.us248.us.us, %.thread.us.us
-  %.us-phi247.us.in = phi i64 [ %indvars.iv.next285, %.preheader169.us248.us267 ], [ %indvars.iv.next291, %.thread.us.us ], [ %indvars.iv.next288, %.preheader169.us248.us.us ], [ %indvars.iv.next, %.preheader169.us258 ]
+  %.us-phi247.us.in = phi i64 [ %indvars.iv.next285, %.preheader169.us248.us267 ], [ %indvars.iv.next288, %.preheader169.us248.us.us ], [ %indvars.iv.next291, %.thread.us.us ], [ %indvars.iv.next, %.preheader169.us258 ]
   %110 = icmp slt i32 %105, %22
   br i1 %110, label %.preheader170.us, label %._crit_edge257, !llvm.loop !274
 

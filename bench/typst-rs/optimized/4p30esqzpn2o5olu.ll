@@ -19563,7 +19563,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$typst..foundations.
           to label %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i" unwind label %29
 
 common.resume:                                    ; preds = %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i", %69, %63, %83, %77, %"_ZN4core3ptr96drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$$GT$17h85f41a5db4a0b8e1E.llvm.17057414408856058071.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %42, %"_ZN4core3ptr96drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$$GT$17h85f41a5db4a0b8e1E.llvm.17057414408856058071.exit.i" ], [ %64, %63 ], [ %64, %69 ], [ %78, %83 ], [ %78, %77 ], [ %24, %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %78, %77 ], [ %42, %"_ZN4core3ptr96drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$$GT$17h85f41a5db4a0b8e1E.llvm.17057414408856058071.exit.i" ], [ %64, %63 ], [ %64, %69 ], [ %78, %83 ], [ %24, %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i" ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %25

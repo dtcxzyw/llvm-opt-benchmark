@@ -499,7 +499,7 @@ mb_strchr.exit:                                   ; preds = %.loopexit.i34, %.pr
   br i1 %.not31, label %mb_strchr.exit40, label %.lr.ph61, !llvm.loop !13
 
 mb_strchr.exit40:                                 ; preds = %mb_strchr.exit, %26, %.loopexit.i, %.preheader.i36, %.loopexit, %._crit_edge
-  %.028 = phi i1 [ false, %._crit_edge ], [ true, %.loopexit ], [ false, %.loopexit.i ], [ false, %.preheader.i36 ], [ true, %mb_strchr.exit ], [ false, %26 ]
+  %.028 = phi i1 [ true, %.loopexit ], [ false, %._crit_edge ], [ false, %.loopexit.i ], [ false, %.preheader.i36 ], [ true, %mb_strchr.exit ], [ false, %26 ]
   ret i1 %.028
 }
 

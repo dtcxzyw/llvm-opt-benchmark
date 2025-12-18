@@ -1324,8 +1324,8 @@ define void @ff_vp9_intra_recon_16bpp(ptr noundef readonly captures(none) %0, i6
   br label %.lr.ph121.us
 
 .loopexit116.us:                                  ; preds = %.critedge.i.us, %.lr.ph121.us, %.critedge.i.preheader.us, %183, %180
-  %.0273.i79.us = phi ptr [ %.0273.i.ph.us, %180 ], [ %.0273.i.ph.us, %183 ], [ undef, %.critedge.i.preheader.us ], [ %.0273.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.us ]
-  %.0275.i76.us = phi ptr [ %.0275.i.ph.us, %180 ], [ %.0275.i.ph.us, %183 ], [ undef, %.critedge.i.preheader.us ], [ %.0275.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.us ]
+  %.0273.i79.us = phi ptr [ %.0273.i.ph.us, %183 ], [ %.0273.i.ph.us, %180 ], [ %.0273.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.preheader.us ], [ undef, %.critedge.i.us ]
+  %.0275.i76.us = phi ptr [ %.0275.i.ph.us, %183 ], [ %.0275.i.ph.us, %180 ], [ %.0275.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.preheader.us ], [ undef, %.critedge.i.us ]
   %194 = and i64 %141, 2189
   %.not293.not.i.us = icmp eq i64 %194, 0
   br i1 %.not293.not.i.us, label %195, label %204
@@ -1393,7 +1393,7 @@ define void @ff_vp9_intra_recon_16bpp(ptr noundef readonly captures(none) %0, i6
   br i1 %219, label %.lr.ph121.us, label %.loopexit116.us, !llvm.loop !79
 
 .loopexit115.us:                                  ; preds = %209, %213, %204, %176, %175, %117
-  %.071.us = phi ptr [ %53, %213 ], [ %53, %204 ], [ %53, %117 ], [ %.0273.i.ph.us, %175 ], [ %.0273.i.ph.us, %176 ], [ %53, %209 ]
+  %.071.us = phi ptr [ %.0273.i.ph.us, %176 ], [ %53, %213 ], [ %53, %204 ], [ %53, %117 ], [ %.0273.i.ph.us, %175 ], [ %53, %209 ]
   %220 = and i64 %141, 30857
   %.not296.not.i.us = icmp eq i64 %220, 0
   br i1 %.not296.not.i.us, label %221, label %check_intra_mode.exit.us
@@ -1880,8 +1880,8 @@ check_intra_mode.exit.us:                         ; preds = %223, %.lr.ph126.us,
   br label %.lr.ph159.us.us.us
 
 .loopexit102.us.us.us:                            ; preds = %.critedge.i24.us.us.us, %.lr.ph159.us.us.us, %.critedge.i24.preheader.us.us.us, %470, %467
-  %.0273.i2391.us.us.us = phi ptr [ %.0273.i23.ph.us.us.us, %467 ], [ %.0273.i23.ph.us.us.us, %470 ], [ undef, %.critedge.i24.preheader.us.us.us ], [ %.0273.i23.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
-  %.0275.i2288.us.us.us = phi ptr [ %.0275.i22.ph.us.us.us, %467 ], [ %.0275.i22.ph.us.us.us, %470 ], [ undef, %.critedge.i24.preheader.us.us.us ], [ %.0275.i22.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
+  %.0273.i2391.us.us.us = phi ptr [ %.0273.i23.ph.us.us.us, %470 ], [ %.0273.i23.ph.us.us.us, %467 ], [ %.0273.i23.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.preheader.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
+  %.0275.i2288.us.us.us = phi ptr [ %.0275.i22.ph.us.us.us, %470 ], [ %.0275.i22.ph.us.us.us, %467 ], [ %.0275.i22.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.preheader.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
   %481 = and i64 %425, 2189
   %.not293.not.i26.us.us.us = icmp eq i64 %481, 0
   br i1 %.not293.not.i26.us.us.us, label %482, label %491
@@ -1949,7 +1949,7 @@ check_intra_mode.exit.us:                         ; preds = %223, %.lr.ph126.us,
   br i1 %506, label %.lr.ph159.us.us.us, label %.loopexit102.us.us.us, !llvm.loop !79
 
 .loopexit.us.us.us:                               ; preds = %496, %500, %491, %463, %462, %399
-  %.0.us.us.us = phi ptr [ %347, %500 ], [ %347, %491 ], [ %347, %399 ], [ %.0273.i23.ph.us.us.us, %462 ], [ %.0273.i23.ph.us.us.us, %463 ], [ %347, %496 ]
+  %.0.us.us.us = phi ptr [ %.0273.i23.ph.us.us.us, %463 ], [ %347, %500 ], [ %347, %491 ], [ %347, %399 ], [ %.0273.i23.ph.us.us.us, %462 ], [ %347, %496 ]
   %507 = and i64 %425, 30857
   %.not296.not.i7.us.us.us = icmp eq i64 %507, 0
   br i1 %.not296.not.i7.us.us.us, label %508, label %check_intra_mode.exit49.us.us.us

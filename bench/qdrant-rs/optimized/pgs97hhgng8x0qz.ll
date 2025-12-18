@@ -587,9 +587,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h009278cd587dc262E.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i56, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h6b1aa90c933f9558E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h6b1aa90c933f9558E.exit": ; preds = %.lr.ph.i56, %.lr.ph25.i, %191, %196
-  %.sroa.18.1.i = phi ptr [ %188, %191 ], [ %187, %196 ], [ %203, %.lr.ph25.i ], [ %212, %.lr.ph.i56 ]
-  %.sroa.10.1.i = phi ptr [ %193, %191 ], [ %197, %196 ], [ %205, %.lr.ph25.i ], [ %197, %.lr.ph.i56 ]
-  %.sroa.0.0.i55 = phi ptr [ %14, %191 ], [ %14, %196 ], [ %14, %.lr.ph25.i ], [ %217, %.lr.ph.i56 ]
+  %.sroa.18.1.i = phi ptr [ %203, %.lr.ph25.i ], [ %188, %191 ], [ %187, %196 ], [ %212, %.lr.ph.i56 ]
+  %.sroa.10.1.i = phi ptr [ %205, %.lr.ph25.i ], [ %193, %191 ], [ %197, %196 ], [ %197, %.lr.ph.i56 ]
+  %.sroa.0.0.i55 = phi ptr [ %14, %.lr.ph25.i ], [ %14, %191 ], [ %14, %196 ], [ %217, %.lr.ph.i56 ]
   %220 = ptrtoint ptr %.sroa.10.1.i to i64
   %221 = ptrtoint ptr %.sroa.0.0.i55 to i64
   %222 = sub nuw i64 %220, %221
@@ -1148,8 +1148,8 @@ define hidden void @_ZN4core5slice4sort7recurse17h05ac945fb295a000E.llvm.9329551
   br i1 %10, label %12, label %13
 
 .outer._crit_edge:                                ; preds = %.outer, %246, %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %247, %246 ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %248, %246 ], [ %.sroa.0.1, %.outer ]
+  %.sroa.14.0.lcssa = phi i64 [ %247, %246 ], [ %1, %5 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %248, %246 ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %11 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %11, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2902e15866dd9d86E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h06e2798425a2097eE.exit
 
@@ -1638,7 +1638,7 @@ _ZN4core5slice4sort12choose_pivot17h7559ed29547daebdE.exit: ; preds = %"_ZN4core
   br i1 %204, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader10.i.i, %.preheader.i.i, %188
-  %spec.select.lcssa.sink.i.i = phi ptr [ %spec.select.i.i, %188 ], [ %202, %.preheader.i.i ], [ %196, %.preheader10.i.i ]
+  %spec.select.lcssa.sink.i.i = phi ptr [ %202, %.preheader.i.i ], [ %spec.select.i.i, %188 ], [ %196, %.preheader10.i.i ]
   %205 = ptrtoint ptr %spec.select.lcssa.sink.i.i to i64
   %206 = ptrtoint ptr %122 to i64
   %207 = sub i64 %205, %206
@@ -1841,8 +1841,8 @@ define hidden void @_ZN4core5slice4sort7recurse17h720571937f88c4e7E.llvm.9329551
   br i1 %11, label %13, label %14
 
 .outer._crit_edge:                                ; preds = %.outer, %246, %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %247, %246 ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %248, %246 ], [ %.sroa.0.1, %.outer ]
+  %.sroa.14.0.lcssa = phi i64 [ %247, %246 ], [ %1, %5 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %248, %246 ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %12 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %12, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6c58a9aa6e8f204fE.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17hf4626fc25b14025dE.exit
 
@@ -2351,7 +2351,7 @@ _ZN4core5slice4sort12choose_pivot17h1003228491836206E.exit: ; preds = %"_ZN4core
   br i1 %206, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader10.i.i, %.preheader.i.i, %192
-  %spec.select.lcssa.sink.i.i = phi ptr [ %spec.select.i.i, %192 ], [ %205, %.preheader.i.i ], [ %199, %.preheader10.i.i ]
+  %spec.select.lcssa.sink.i.i = phi ptr [ %205, %.preheader.i.i ], [ %spec.select.i.i, %192 ], [ %199, %.preheader10.i.i ]
   %207 = ptrtoint ptr %spec.select.lcssa.sink.i.i to i64
   %208 = ptrtoint ptr %127 to i64
   %209 = sub i64 %207, %208

@@ -3644,7 +3644,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2065.thread: ; preds = 
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2075.thread
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2065: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2062, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2054, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2057
-  %.sroa.758.196 = phi i64 [ %.sroa.758.182, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2057 ], [ %spec.select13828, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2062 ], [ %spec.select13825, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2054 ]
+  %.sroa.758.196 = phi i64 [ %.sroa.758.182, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2057 ], [ %spec.select13825, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2054 ], [ %spec.select13828, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2062 ]
   %346 = and i64 %.sroa.758.196, 4294967296
   %.not16428 = icmp eq i64 %346, 0
   %.not.i.i.i2069 = icmp eq i64 %2, 11
@@ -4420,7 +4420,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i2708:        ; preds = %_ZN4llvm12StringSwi
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2711
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2711: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2708, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2700, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2703
-  %.sroa.758.276 = phi i64 [ %.sroa.758.271, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2703 ], [ %spec.select13999, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2708 ], [ %spec.select13996, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2700 ]
+  %.sroa.758.276 = phi i64 [ %.sroa.758.271, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit2703 ], [ %spec.select13996, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2700 ], [ %spec.select13999, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2708 ]
   %440 = icmp eq i32 %91, 4
   %441 = or i1 %440, %narrow1624016867168751689016907
   %narrow16510 = select i1 %249, i1 true, i1 %441
@@ -5044,7 +5044,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i3226:        ; preds = %_ZN4llvm12StringSwi
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3229
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3229: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3226, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3218, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3221
-  %.sroa.758.340 = phi i64 [ %.sroa.758.283, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3221 ], [ %spec.select14134, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3226 ], [ %spec.select14131, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3218 ]
+  %.sroa.758.340 = phi i64 [ %.sroa.758.283, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3221 ], [ %spec.select14131, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3218 ], [ %spec.select14134, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3226 ]
   %512 = or i1 %440, %427
   %narrow16577 = select i1 %249, i1 true, i1 %512
   %513 = and i64 %.sroa.758.340, 4294967296
@@ -5294,7 +5294,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i3444:        ; preds = %_ZN4llvm12StringSwi
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3447
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3447: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3444, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3436, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3439
-  %.sroa.758.367 = phi i64 [ %.sroa.758.341, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3439 ], [ %spec.select14193, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3444 ], [ %spec.select14190, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3436 ]
+  %.sroa.758.367 = phi i64 [ %.sroa.758.341, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3439 ], [ %spec.select14190, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3436 ], [ %spec.select14193, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3444 ]
   %542 = add i32 %17, -55
   %narrow16605 = icmp ult i32 %542, 2
   %543 = and i64 %.sroa.758.367, 4294967296
@@ -8663,7 +8663,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6082.thread: ; preds = 
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6102
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6092.thread23409: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6063, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6071, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6055, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6047
-  %.sroa.206.8.ph23403 = phi i64 [ %.sroa.206.4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6055 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6047 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6071 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6063 ]
+  %.sroa.206.8.ph23403 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6047 ], [ %.sroa.206.4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6055 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6071 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6063 ]
   %1017 = add i32 %999, -37
   %narrow1584923406 = icmp ult i32 %1017, 2
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6102
@@ -9164,7 +9164,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6382.thread: ; preds = 
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6392.thread
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6382: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6366, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6379
-  %.sroa.206.42 = phi i64 [ %spec.select14804, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6379 ], [ %.sroa.206.40, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6366 ]
+  %.sroa.206.42 = phi i64 [ %.sroa.206.40, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6366 ], [ %spec.select14804, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6379 ]
   %1099 = and i32 %1094, -2
   %narrow15888 = icmp eq i32 %1099, 16
   %1100 = and i64 %.sroa.206.42, 4294967296
@@ -12628,7 +12628,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8904.thread: ; preds = 
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8914.thread
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8904: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8888, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8901
-  %.sroa.202.40 = phi i64 [ %spec.select15390, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8901 ], [ %.sroa.202.38, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8888 ]
+  %.sroa.202.40 = phi i64 [ %.sroa.202.38, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8888 ], [ %spec.select15390, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8901 ]
   %1570 = and i32 %1565, -2
   %narrow15579 = icmp eq i32 %1570, 16
   %1571 = and i64 %.sroa.202.40, 4294967296
@@ -25819,7 +25819,7 @@ _ZN4llvm12StringSwitchIN5clang19AttributeCommonInfo12AttrArgsInfoES3_E4CaseENS_1
   br label %_ZN4llvm12StringSwitchIN5clang19AttributeCommonInfo12AttrArgsInfoES3_E4CaseENS_13StringLiteralES3_.exit73
 
 _ZN4llvm12StringSwitchIN5clang19AttributeCommonInfo12AttrArgsInfoES3_E4CaseENS_13StringLiteralES3_.exit65.thread337: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46
-  %.sroa.24.8.ph336 = phi i64 [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ]
+  %.sroa.24.8.ph336 = phi i64 [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46 ]
   br label %_ZN4llvm12StringSwitchIN5clang19AttributeCommonInfo12AttrArgsInfoES3_E4CaseENS_13StringLiteralES3_.exit73
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i70:          ; preds = %1
@@ -32932,8 +32932,8 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN5clang14ParsedAttrInfo
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
-  %.0161 = phi i64 [ %8, %.lr.ph ], [ %57, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread ]
-  %.029160 = phi ptr [ %0, %.lr.ph ], [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread ]
+  %.0161 = phi i64 [ %8, %.lr.ph ], [ %53, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread ]
+  %.029160 = phi ptr [ %0, %.lr.ph ], [ %52, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread ]
   %13 = load i32, ptr %.029160, align 8, !tbaa !58
   %14 = icmp eq i32 %13, %10
   br i1 %14, label %15, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
@@ -32942,7 +32942,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN5clang14ParsedAttrInfo
   %16 = getelementptr inbounds nuw i8, ptr %.029160, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !60
   %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
+  br i1 %.not.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %15
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #13
@@ -32951,124 +32951,124 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %15
   %.not.i3.i.i = icmp eq i64 %18, %.sroa.2.0.copyload.i.i
   br i1 %.not.i3.i.i, label %19, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
 
-19:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
-  %20 = icmp eq i64 %18, 0
-  br i1 %20, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %21
-
-21:                                               ; preds = %19
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %.sroa.0.0.copyload.i.i, i64 %18)
-  %22 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %22, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
-
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit: ; preds = %15
+_ZN4llvm9StringRefC2EPKc.exit.thread.i.i:         ; preds = %15
   %.sroa.2.0.copyload6.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i = icmp eq i64 %.sroa.2.0.copyload6.i.i, 0
   br i1 %.not.i37.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %12, %21, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit
-  %23 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !58
-  %25 = icmp eq i32 %24, %10
-  br i1 %25, label %26, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
+19:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
+  %20 = icmp eq i64 %18, 0
+  br i1 %20, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit
 
-26:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
-  %27 = getelementptr inbounds nuw i8, ptr %.029160, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !60
-  %.not.i.i.i30 = icmp eq ptr %28, null
-  br i1 %.not.i.i.i30, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41, label %_ZN4llvm9StringRefC2EPKc.exit.i.i31
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit: ; preds = %19
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %.sroa.0.0.copyload.i.i, i64 %18)
+  %21 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %21, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i31:              ; preds = %26
-  %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %12, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit
+  %22 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
+  %23 = load i32, ptr %22, align 8, !tbaa !58
+  %24 = icmp eq i32 %23, %10
+  br i1 %24, label %25, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
+
+25:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
+  %26 = getelementptr inbounds nuw i8, ptr %.029160, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !60
+  %.not.i.i.i30 = icmp eq ptr %27, null
+  br i1 %.not.i.i.i30, label %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i37, label %_ZN4llvm9StringRefC2EPKc.exit.i.i31
+
+_ZN4llvm9StringRefC2EPKc.exit.i.i31:              ; preds = %25
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
   %.sroa.0.0.copyload.i.i32 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0.copyload.i.i34 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
-  %.not.i3.i.i35 = icmp eq i64 %29, %.sroa.2.0.copyload.i.i34
-  br i1 %.not.i3.i.i35, label %30, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
+  %.not.i3.i.i35 = icmp eq i64 %28, %.sroa.2.0.copyload.i.i34
+  br i1 %.not.i3.i.i35, label %29, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
 
-30:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i31
-  %31 = icmp eq i64 %29, 0
-  br i1 %31, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201, label %32
-
-32:                                               ; preds = %30
-  %bcmp.i.i.i36 = tail call i32 @bcmp(ptr nonnull %28, ptr %.sroa.0.0.copyload.i.i32, i64 %29)
-  %33 = icmp eq i32 %bcmp.i.i.i36, 0
-  br i1 %33, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
-
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41: ; preds = %26
+_ZN4llvm9StringRefC2EPKc.exit.thread.i.i37:       ; preds = %25
   %.sroa.2.0.copyload6.i.i39 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i40 = icmp eq i64 %.sroa.2.0.copyload6.i.i39, 0
-  br i1 %.not.i37.i.i40, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
+  br i1 %.not.i37.i.i40, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i31, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread, %32, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41
-  %34 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !58
-  %36 = icmp eq i32 %35, %10
-  br i1 %36, label %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
+29:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i31
+  %30 = icmp eq i64 %28, 0
+  br i1 %30, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41
 
-37:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
-  %38 = getelementptr inbounds nuw i8, ptr %.029160, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !60
-  %.not.i.i.i42 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i42, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53, label %_ZN4llvm9StringRefC2EPKc.exit.i.i43
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41: ; preds = %29
+  %bcmp.i.i.i36 = tail call i32 @bcmp(ptr nonnull %27, ptr %.sroa.0.0.copyload.i.i32, i64 %28)
+  %31 = icmp eq i32 %bcmp.i.i.i36, 0
+  br i1 %31, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i43:              ; preds = %37
-  %40 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #13
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i31, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i37, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41
+  %32 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
+  %33 = load i32, ptr %32, align 8, !tbaa !58
+  %34 = icmp eq i32 %33, %10
+  br i1 %34, label %35, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
+
+35:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
+  %36 = getelementptr inbounds nuw i8, ptr %.029160, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !60
+  %.not.i.i.i42 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i42, label %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i49, label %_ZN4llvm9StringRefC2EPKc.exit.i.i43
+
+_ZN4llvm9StringRefC2EPKc.exit.i.i43:              ; preds = %35
+  %38 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #13
   %.sroa.0.0.copyload.i.i44 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0.copyload.i.i46 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
-  %.not.i3.i.i47 = icmp eq i64 %40, %.sroa.2.0.copyload.i.i46
-  br i1 %.not.i3.i.i47, label %41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
+  %.not.i3.i.i47 = icmp eq i64 %38, %.sroa.2.0.copyload.i.i46
+  br i1 %.not.i3.i.i47, label %39, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
 
-41:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i43
-  %42 = icmp eq i64 %40, 0
-  br i1 %42, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203, label %43
-
-43:                                               ; preds = %41
-  %bcmp.i.i.i48 = tail call i32 @bcmp(ptr nonnull %39, ptr %.sroa.0.0.copyload.i.i44, i64 %40)
-  %44 = icmp eq i32 %bcmp.i.i.i48, 0
-  br i1 %44, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
-
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53: ; preds = %37
+_ZN4llvm9StringRefC2EPKc.exit.thread.i.i49:       ; preds = %35
   %.sroa.2.0.copyload6.i.i51 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i52 = icmp eq i64 %.sroa.2.0.copyload6.i.i51, 0
-  br i1 %.not.i37.i.i52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
+  br i1 %.not.i37.i.i52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i43, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread, %43, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53
-  %45 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
-  %46 = load i32, ptr %45, align 8, !tbaa !58
-  %47 = icmp eq i32 %46, %10
-  br i1 %47, label %48, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
+39:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i43
+  %40 = icmp eq i64 %38, 0
+  br i1 %40, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53
 
-48:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
-  %49 = getelementptr inbounds nuw i8, ptr %.029160, i64 56
-  %50 = load ptr, ptr %49, align 8, !tbaa !60
-  %.not.i.i.i54 = icmp eq ptr %50, null
-  br i1 %.not.i.i.i54, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65, label %_ZN4llvm9StringRefC2EPKc.exit.i.i55
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53: ; preds = %39
+  %bcmp.i.i.i48 = tail call i32 @bcmp(ptr nonnull %37, ptr %.sroa.0.0.copyload.i.i44, i64 %38)
+  %41 = icmp eq i32 %bcmp.i.i.i48, 0
+  br i1 %41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i55:              ; preds = %48
-  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #13
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i43, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i49, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53
+  %42 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
+  %43 = load i32, ptr %42, align 8, !tbaa !58
+  %44 = icmp eq i32 %43, %10
+  br i1 %44, label %45, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
+
+45:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
+  %46 = getelementptr inbounds nuw i8, ptr %.029160, i64 56
+  %47 = load ptr, ptr %46, align 8, !tbaa !60
+  %.not.i.i.i54 = icmp eq ptr %47, null
+  br i1 %.not.i.i.i54, label %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i61, label %_ZN4llvm9StringRefC2EPKc.exit.i.i55
+
+_ZN4llvm9StringRefC2EPKc.exit.i.i55:              ; preds = %45
+  %48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #13
   %.sroa.0.0.copyload.i.i56 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0.copyload.i.i58 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
-  %.not.i3.i.i59 = icmp eq i64 %51, %.sroa.2.0.copyload.i.i58
-  br i1 %.not.i3.i.i59, label %52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
+  %.not.i3.i.i59 = icmp eq i64 %48, %.sroa.2.0.copyload.i.i58
+  br i1 %.not.i3.i.i59, label %49, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
 
-52:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i55
-  %53 = icmp eq i64 %51, 0
-  br i1 %53, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205, label %54
-
-54:                                               ; preds = %52
-  %bcmp.i.i.i60 = tail call i32 @bcmp(ptr nonnull %50, ptr %.sroa.0.0.copyload.i.i56, i64 %51)
-  %55 = icmp eq i32 %bcmp.i.i.i60, 0
-  br i1 %55, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
-
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65: ; preds = %48
+_ZN4llvm9StringRefC2EPKc.exit.thread.i.i61:       ; preds = %45
   %.sroa.2.0.copyload6.i.i63 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i64 = icmp eq i64 %.sroa.2.0.copyload6.i.i63, 0
-  br i1 %.not.i37.i.i64, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit193, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
+  br i1 %.not.i37.i.i64, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i55, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread, %54, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65
-  %56 = getelementptr inbounds nuw i8, ptr %.029160, i64 64
-  %57 = add nsw i64 %.0161, -1
-  %58 = icmp sgt i64 %.0161, 1
-  br i1 %58, label %12, label %._crit_edge.loopexit, !llvm.loop !62
+49:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i55
+  %50 = icmp eq i64 %48, 0
+  br i1 %50, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65
+
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65: ; preds = %49
+  %bcmp.i.i.i60 = tail call i32 @bcmp(ptr nonnull %47, ptr %.sroa.0.0.copyload.i.i56, i64 %48)
+  %51 = icmp eq i32 %bcmp.i.i.i60, 0
+  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit193, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
+
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i55, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i61, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65
+  %52 = getelementptr inbounds nuw i8, ptr %.029160, i64 64
+  %53 = add nsw i64 %.0161, -1
+  %54 = icmp sgt i64 %.0161, 1
+  br i1 %54, label %12, label %._crit_edge.loopexit, !llvm.loop !62
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
   %.pre174 = ptrtoint ptr %scevgep to i64
@@ -33078,177 +33078,177 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19Att
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.pre-phi176 = phi i64 [ %.pre175, %._crit_edge.loopexit ], [ %7, %4 ]
   %.029.lcssa = phi ptr [ %scevgep, %._crit_edge.loopexit ], [ %0, %4 ]
-  %59 = ashr exact i64 %.pre-phi176, 4
-  switch i64 %59, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread [
-    i64 3, label %60
+  %55 = ashr exact i64 %.pre-phi176, 4
+  switch i64 %55, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread [
+    i64 3, label %56
     i64 2, label %._crit_edge._crit_edge
     i64 1, label %._crit_edge._crit_edge172
   ]
 
 ._crit_edge._crit_edge172:                        ; preds = %._crit_edge
   %.pre173 = load i32, ptr %2, align 4, !tbaa !18
-  br label %86
+  br label %80
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.pre = load i32, ptr %2, align 4, !tbaa !18
-  br label %73
+  br label %68
 
-60:                                               ; preds = %._crit_edge
-  %61 = load i32, ptr %.029.lcssa, align 8, !tbaa !58
-  %62 = load i32, ptr %2, align 4, !tbaa !18
-  %63 = icmp eq i32 %61, %62
-  br i1 %63, label %64, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
+56:                                               ; preds = %._crit_edge
+  %57 = load i32, ptr %.029.lcssa, align 8, !tbaa !58
+  %58 = load i32, ptr %2, align 4, !tbaa !18
+  %59 = icmp eq i32 %57, %58
+  br i1 %59, label %60, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !60
-  %.not.i.i.i66 = icmp eq ptr %66, null
-  br i1 %.not.i.i.i66, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77, label %_ZN4llvm9StringRefC2EPKc.exit.i.i67
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !60
+  %.not.i.i.i66 = icmp eq ptr %62, null
+  br i1 %.not.i.i.i66, label %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i73, label %_ZN4llvm9StringRefC2EPKc.exit.i.i67
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i67:              ; preds = %64
-  %67 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #13
+_ZN4llvm9StringRefC2EPKc.exit.i.i67:              ; preds = %60
+  %63 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #13
   %.sroa.0.0.copyload.i.i68 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i70 = load i64, ptr %.sroa.2.0..sroa_idx.i.i69, align 8, !tbaa !55
-  %.not.i3.i.i71 = icmp eq i64 %67, %.sroa.2.0.copyload.i.i70
-  br i1 %.not.i3.i.i71, label %68, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
+  %.not.i3.i.i71 = icmp eq i64 %63, %.sroa.2.0.copyload.i.i70
+  br i1 %.not.i3.i.i71, label %64, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
 
-68:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i67
-  %69 = icmp eq i64 %67, 0
-  br i1 %69, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %70
-
-70:                                               ; preds = %68
-  %bcmp.i.i.i72 = tail call i32 @bcmp(ptr nonnull %66, ptr %.sroa.0.0.copyload.i.i68, i64 %67)
-  %71 = icmp eq i32 %bcmp.i.i.i72, 0
-  br i1 %71, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
-
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77: ; preds = %64
+_ZN4llvm9StringRefC2EPKc.exit.thread.i.i73:       ; preds = %60
   %.sroa.2.0..sroa_idx5.i.i74 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload6.i.i75 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i74, align 8, !tbaa !55
   %.not.i37.i.i76 = icmp eq i64 %.sroa.2.0.copyload6.i.i75, 0
   br i1 %.not.i37.i.i76, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i67, %60, %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77
-  %72 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 16
-  br label %73
+64:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i67
+  %65 = icmp eq i64 %63, 0
+  br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77
 
-73:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
-  %74 = phi i32 [ %62, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread ], [ %.pre, %._crit_edge._crit_edge ]
-  %.1 = phi ptr [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
-  %75 = load i32, ptr %.1, align 8, !tbaa !58
-  %76 = icmp eq i32 %75, %74
-  br i1 %76, label %77, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77: ; preds = %64
+  %bcmp.i.i.i72 = tail call i32 @bcmp(ptr nonnull %62, ptr %.sroa.0.0.copyload.i.i68, i64 %63)
+  %66 = icmp eq i32 %bcmp.i.i.i72, 0
+  br i1 %66, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !60
-  %.not.i.i.i78 = icmp eq ptr %79, null
-  br i1 %.not.i.i.i78, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89, label %_ZN4llvm9StringRefC2EPKc.exit.i.i79
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i67, %56, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i73, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77
+  %67 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 16
+  br label %68
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i79:              ; preds = %77
-  %80 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #13
+68:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
+  %69 = phi i32 [ %58, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %67, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
+  %70 = load i32, ptr %.1, align 8, !tbaa !58
+  %71 = icmp eq i32 %70, %69
+  br i1 %71, label %72, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
+
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !60
+  %.not.i.i.i78 = icmp eq ptr %74, null
+  br i1 %.not.i.i.i78, label %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i85, label %_ZN4llvm9StringRefC2EPKc.exit.i.i79
+
+_ZN4llvm9StringRefC2EPKc.exit.i.i79:              ; preds = %72
+  %75 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #13
   %.sroa.0.0.copyload.i.i80 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0..sroa_idx.i.i81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i.i81, align 8, !tbaa !55
-  %.not.i3.i.i83 = icmp eq i64 %80, %.sroa.2.0.copyload.i.i82
-  br i1 %.not.i3.i.i83, label %81, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
+  %.not.i3.i.i83 = icmp eq i64 %75, %.sroa.2.0.copyload.i.i82
+  br i1 %.not.i3.i.i83, label %76, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
 
-81:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i79
-  %82 = icmp eq i64 %80, 0
-  br i1 %82, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %83
-
-83:                                               ; preds = %81
-  %bcmp.i.i.i84 = tail call i32 @bcmp(ptr nonnull %79, ptr %.sroa.0.0.copyload.i.i80, i64 %80)
-  %84 = icmp eq i32 %bcmp.i.i.i84, 0
-  br i1 %84, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
-
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89: ; preds = %77
+_ZN4llvm9StringRefC2EPKc.exit.thread.i.i85:       ; preds = %72
   %.sroa.2.0..sroa_idx5.i.i86 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload6.i.i87 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i86, align 8, !tbaa !55
   %.not.i37.i.i88 = icmp eq i64 %.sroa.2.0.copyload6.i.i87, 0
   br i1 %.not.i37.i.i88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i79, %73, %83, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89
-  %85 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  br label %86
+76:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i79
+  %77 = icmp eq i64 %75, 0
+  br i1 %77, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89
 
-86:                                               ; preds = %._crit_edge._crit_edge172, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
-  %87 = phi i32 [ %74, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread ], [ %.pre173, %._crit_edge._crit_edge172 ]
-  %.2 = phi ptr [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread ], [ %.029.lcssa, %._crit_edge._crit_edge172 ]
-  %88 = load i32, ptr %.2, align 8, !tbaa !58
-  %89 = icmp eq i32 %88, %87
-  br i1 %89, label %90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89: ; preds = %76
+  %bcmp.i.i.i84 = tail call i32 @bcmp(ptr nonnull %74, ptr %.sroa.0.0.copyload.i.i80, i64 %75)
+  %78 = icmp eq i32 %bcmp.i.i.i84, 0
+  br i1 %78, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !60
-  %.not.i.i.i90 = icmp eq ptr %92, null
-  br i1 %.not.i.i.i90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101, label %_ZN4llvm9StringRefC2EPKc.exit.i.i91
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i79, %68, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i85, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89
+  %79 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  br label %80
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i91:              ; preds = %90
-  %93 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #13
+80:                                               ; preds = %._crit_edge._crit_edge172, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
+  %81 = phi i32 [ %69, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread ], [ %.pre173, %._crit_edge._crit_edge172 ]
+  %.2 = phi ptr [ %79, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread ], [ %.029.lcssa, %._crit_edge._crit_edge172 ]
+  %82 = load i32, ptr %.2, align 8, !tbaa !58
+  %83 = icmp eq i32 %82, %81
+  br i1 %83, label %84, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
+
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !60
+  %.not.i.i.i90 = icmp eq ptr %86, null
+  br i1 %.not.i.i.i90, label %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i97, label %_ZN4llvm9StringRefC2EPKc.exit.i.i91
+
+_ZN4llvm9StringRefC2EPKc.exit.i.i91:              ; preds = %84
+  %87 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #13
   %.sroa.0.0.copyload.i.i92 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0..sroa_idx.i.i93 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i94 = load i64, ptr %.sroa.2.0..sroa_idx.i.i93, align 8, !tbaa !55
-  %.not.i3.i.i95 = icmp eq i64 %93, %.sroa.2.0.copyload.i.i94
-  br i1 %.not.i3.i.i95, label %94, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
+  %.not.i3.i.i95 = icmp eq i64 %87, %.sroa.2.0.copyload.i.i94
+  br i1 %.not.i3.i.i95, label %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
 
-94:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i91
-  %95 = icmp eq i64 %93, 0
-  br i1 %95, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %96
-
-96:                                               ; preds = %94
-  %bcmp.i.i.i96 = tail call i32 @bcmp(ptr nonnull %92, ptr %.sroa.0.0.copyload.i.i92, i64 %93)
-  %97 = icmp eq i32 %bcmp.i.i.i96, 0
-  br i1 %97, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
-
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101: ; preds = %90
+_ZN4llvm9StringRefC2EPKc.exit.thread.i.i97:       ; preds = %84
   %.sroa.2.0..sroa_idx5.i.i98 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload6.i.i99 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i98, align 8, !tbaa !55
   %.not.i37.i.i100 = icmp eq i64 %.sroa.2.0.copyload6.i.i99, 0
   br i1 %.not.i37.i.i100, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i91, %86, %96, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101, %._crit_edge
+88:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i91
+  %89 = icmp eq i64 %87, 0
+  br i1 %89, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101
+
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101: ; preds = %88
+  %bcmp.i.i.i96 = tail call i32 @bcmp(ptr nonnull %86, ptr %.sroa.0.0.copyload.i.i92, i64 %87)
+  %90 = icmp eq i32 %bcmp.i.i.i96, 0
+  br i1 %90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
+
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i91, %80, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i97, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101, %._crit_edge
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41
-  %98 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit191: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53
-  %99 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit193: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65
-  %100 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195: ; preds = %32
-  %101 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i37
+  %94 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197: ; preds = %43
-  %102 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i49
+  %95 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199: ; preds = %54
-  %103 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i61
+  %96 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201: ; preds = %30
-  %104 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201: ; preds = %29
+  %97 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203: ; preds = %41
-  %105 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203: ; preds = %39
+  %98 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205: ; preds = %52
-  %106 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205: ; preds = %49
+  %99 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121: ; preds = %19, %21, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit191, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit193, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205, %94, %81, %68, %96, %83, %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
-  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89 ], [ %.1, %81 ], [ %.2, %94 ], [ %.029.lcssa, %70 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread ], [ %.029.lcssa, %68 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101 ], [ %.2, %96 ], [ %.1, %83 ], [ %106, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205 ], [ %104, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201 ], [ %105, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203 ], [ %103, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199 ], [ %98, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit ], [ %101, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195 ], [ %99, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit191 ], [ %102, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197 ], [ %100, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit193 ], [ %.029160, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit ], [ %.029160, %21 ], [ %.029160, %19 ]
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121: ; preds = %19, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit191, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit193, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205, %88, %76, %64, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i97, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i85, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i73, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
+  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89 ], [ %.1, %76 ], [ %.2, %88 ], [ %.029.lcssa, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i73 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread ], [ %.029.lcssa, %64 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101 ], [ %.2, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i97 ], [ %.1, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i85 ], [ %93, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit193 ], [ %95, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit197 ], [ %99, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit205 ], [ %96, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit199 ], [ %91, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit ], [ %94, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit195 ], [ %98, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit203 ], [ %97, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit201 ], [ %92, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit191 ], [ %.029160, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit ], [ %.029160, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.i ], [ %.029160, %19 ]
   ret ptr %.028
 }
 

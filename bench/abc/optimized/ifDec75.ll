@@ -1021,8 +1021,8 @@ Abc_TtHasVar.exit.i:                              ; preds = %48, %Abc_TtHasVar.e
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i.i, %47, %Abc_TtHasVar.exit.i, %.preheader.lr.ph.i.i
-  %.sink.i = phi i32 [ 1, %Abc_TtHasVar.exit.i ], [ 0, %.preheader.lr.ph.i.i ], [ 0, %47 ], [ 0, %._crit_edge.us.i.i ]
-  %.1.i = phi i32 [ %68, %Abc_TtHasVar.exit.i ], [ %.08.i, %.preheader.lr.ph.i.i ], [ %.08.i, %47 ], [ %.08.i, %._crit_edge.us.i.i ]
+  %.sink.i = phi i32 [ 1, %Abc_TtHasVar.exit.i ], [ 0, %47 ], [ 0, %.preheader.lr.ph.i.i ], [ 0, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %68, %Abc_TtHasVar.exit.i ], [ %.08.i, %47 ], [ %.08.i, %.preheader.lr.ph.i.i ], [ %.08.i, %._crit_edge.us.i.i ]
   %.124.i = add nuw nsw i32 %.sink.i, %.0237.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1175,7 +1175,7 @@ Abc_TtSwapAdjacent.exit.us.us.us.us.i.i:          ; preds = %._crit_edge.us.i.us
   br i1 %.not15.not.us.us.us.us.i.i, label %.lr.ph.us.us.i.i, label %._crit_edge.split.us.us.split.us.us.i.i, !llvm.loop !57
 
 Abc_TtMinimumBase.exit:                           ; preds = %80, %.lr.ph61.i.i, %70, %._crit_edge.i, %5
-  %.030 = phi i32 [ %3, %5 ], [ %.023.lcssa.i, %._crit_edge.i ], [ %.023.lcssa.i, %.lr.ph61.i.i ], [ %.023.lcssa.i, %70 ], [ %.023.lcssa.i, %80 ]
+  %.030 = phi i32 [ %3, %5 ], [ %.023.lcssa.i, %._crit_edge.i ], [ %.023.lcssa.i, %70 ], [ %.023.lcssa.i, %.lr.ph61.i.i ], [ %.023.lcssa.i, %80 ]
   %126 = icmp slt i32 %.030, 6
   br i1 %126, label %Abc_TtMinimumBase.exit.thread, label %127
 

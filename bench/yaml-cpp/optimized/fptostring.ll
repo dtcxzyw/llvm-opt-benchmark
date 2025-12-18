@@ -365,8 +365,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %.loopexit193
 
 .loopexit193:                                     ; preds = %104, %95, %88, %110, %.loopexit194
-  %.0180 = phi i32 [ 1, %110 ], [ %12, %88 ], [ %.1.lcssa.i, %.loopexit194 ], [ %12, %95 ], [ %105, %104 ]
-  %.sroa.047.0 = phi i64 [ %.sroa.047.4.insert.shift53, %110 ], [ %.sroa.047.4.insert.insert, %88 ], [ %.fca.0.extract, %.loopexit194 ], [ %.sroa.047.4.insert.insert, %95 ], [ %.sroa.047.4.insert.shift53, %104 ]
+  %.0180 = phi i32 [ 1, %110 ], [ %.1.lcssa.i, %.loopexit194 ], [ %12, %88 ], [ %12, %95 ], [ %105, %104 ]
+  %.sroa.047.0 = phi i64 [ %.sroa.047.4.insert.shift53, %110 ], [ %.fca.0.extract, %.loopexit194 ], [ %.sroa.047.4.insert.insert, %88 ], [ %.sroa.047.4.insert.insert, %95 ], [ %.sroa.047.4.insert.shift53, %104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %111 = trunc i8 %.fca.1.extract to i1
   br i1 %111, label %112, label %114
@@ -857,8 +857,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %105, %96, %89, %111, %.loopexit189
-  %.0175 = phi i32 [ 1, %111 ], [ %12, %89 ], [ %.1.lcssa.i, %.loopexit189 ], [ %12, %96 ], [ %106, %105 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.8.insert.insert52, %111 ], [ %.sroa.5.8.insert.insert, %89 ], [ %76, %.loopexit189 ], [ %.sroa.5.8.insert.insert, %96 ], [ %.sroa.5.8.insert.insert52, %105 ]
+  %.0175 = phi i32 [ 1, %111 ], [ %.1.lcssa.i, %.loopexit189 ], [ %12, %89 ], [ %12, %96 ], [ %106, %105 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.8.insert.insert52, %111 ], [ %76, %.loopexit189 ], [ %.sroa.5.8.insert.insert, %89 ], [ %.sroa.5.8.insert.insert, %96 ], [ %.sroa.5.8.insert.insert52, %105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %112 = and i64 %.sroa.5.0, 4294967296
   %.not = icmp eq i64 %112, 0

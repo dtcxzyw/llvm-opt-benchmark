@@ -773,7 +773,7 @@ _ZNK11ast_manager9poly_rootEP9func_decl.exit:     ; preds = %33, %44
   br i1 %.not27.old.i.i.i, label %_ZNK9func_decl14is_polymorphicEv.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %86, %83
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %86 ], [ %85, %83 ]
+  %.137.i.i.i.be = phi ptr [ %85, %83 ], [ %.old.i.i.i, %86 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !129
 
 _ZNK7obj_mapI3astPS0_E8containsES1_.exit:         ; preds = %67, %78
@@ -1057,7 +1057,7 @@ define hidden noundef zeroext i1 @_ZN15ast_translation5visitEP3ast(ptr noundef n
   br i1 %.not27.old.i.i.i, label %.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %40, %37
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !129
 
 .loopexit:                                        ; preds = %21, %32
@@ -2600,7 +2600,7 @@ _ZN6vectorIN15ast_translation5frameELb0EjE4backEv.exit: ; preds = %.preheader, %
   br i1 %.not27.old.i.i.i, label %.loopexit326, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %91, %88
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %91 ], [ %90, %88 ]
+  %.137.i.i.i.be = phi ptr [ %90, %88 ], [ %.old.i.i.i, %91 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !129
 
 .loopexit325:                                     ; preds = %72, %83
@@ -2874,7 +2874,7 @@ _ZN15ast_translation5cacheEP3astS1_.exit:         ; preds = %_ZN6vectorIP3astLb0
   br i1 %.not27.old.i.i.i.i, label %.sink.split.sink.split, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %224, %221
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %224 ], [ %223, %221 ]
+  %.137.i.i.i.i.be = phi ptr [ %223, %221 ], [ %.old.i.i.i.i, %224 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !129
 
 .loopexit.i:                                      ; preds = %205, %216
@@ -3134,7 +3134,7 @@ _ZNK10quantifier9get_childEj.exit:                ; preds = %301, %314, %306, %2
   br i1 %.not27.old.i.i.i.i165, label %.sink.split.sink.split, label %.lr.ph38.i.i.i.i161.backedge
 
 .lr.ph38.i.i.i.i161.backedge:                     ; preds = %359, %356
-  %.137.i.i.i.i162.be = phi ptr [ %.old.i.i.i.i164, %359 ], [ %358, %356 ]
+  %.137.i.i.i.i162.be = phi ptr [ %358, %356 ], [ %.old.i.i.i.i164, %359 ]
   br label %.lr.ph38.i.i.i.i161, !llvm.loop !129
 
 .loopexit.i169:                                   ; preds = %340, %351
@@ -3493,7 +3493,7 @@ _ZNK6vectorIP3astLb0EjE4sizeEv.exit:              ; preds = %481, %484
   br i1 %.not27.old.i.i.i.i201, label %.sink.split.sink.split, label %.lr.ph38.i.i.i.i197.backedge
 
 .lr.ph38.i.i.i.i197.backedge:                     ; preds = %534, %531
-  %.137.i.i.i.i198.be = phi ptr [ %.old.i.i.i.i200, %534 ], [ %533, %531 ]
+  %.137.i.i.i.i198.be = phi ptr [ %533, %531 ], [ %.old.i.i.i.i200, %534 ]
   br label %.lr.ph38.i.i.i.i197, !llvm.loop !129
 
 .loopexit.i205:                                   ; preds = %515, %526
@@ -3773,7 +3773,7 @@ _ZNK6vectorIP3astLb0EjE4sizeEv.exit214:           ; preds = %599, %602
   br i1 %.not27.old.i.i.i.i228, label %.sink.split.sink.split, label %.lr.ph38.i.i.i.i224.backedge
 
 .lr.ph38.i.i.i.i224.backedge:                     ; preds = %667, %664
-  %.137.i.i.i.i225.be = phi ptr [ %.old.i.i.i.i227, %667 ], [ %666, %664 ]
+  %.137.i.i.i.i225.be = phi ptr [ %666, %664 ], [ %.old.i.i.i.i227, %667 ]
   br label %.lr.ph38.i.i.i.i224, !llvm.loop !129
 
 .loopexit.i232:                                   ; preds = %648, %659
@@ -3930,14 +3930,14 @@ _ZN6vectorIP3astLb0EjE13expand_vectorEv.exit267:  ; preds = %678, %716
   br label %.critedgethread-pre-split
 
 .sink.split.sink.split:                           ; preds = %.preheader.i.i.i.i222, %.preheader.i.i.i.i195, %.preheader.i.i.i.i159, %.preheader.i.i.i.i, %653, %664, %667, %520, %531, %534, %345, %356, %359, %210, %221, %224
-  %.0123668.sink.ph = phi ptr [ %497, %.preheader.i.i.i.i195 ], [ %187, %221 ], [ %187, %210 ], [ %.0125, %356 ], [ %.0125, %345 ], [ %497, %531 ], [ %497, %520 ], [ %.0123, %664 ], [ %.0123, %653 ], [ %187, %.preheader.i.i.i.i ], [ %.0125, %.preheader.i.i.i.i159 ], [ %187, %224 ], [ %.0125, %359 ], [ %497, %534 ], [ %.0123, %667 ], [ %.0123, %.preheader.i.i.i.i222 ]
+  %.0123668.sink.ph = phi ptr [ %.0123, %664 ], [ %497, %520 ], [ %497, %531 ], [ %187, %.preheader.i.i.i.i ], [ %.0123, %653 ], [ %.0125, %356 ], [ %497, %.preheader.i.i.i.i195 ], [ %.0125, %.preheader.i.i.i.i159 ], [ %.0125, %345 ], [ %187, %210 ], [ %187, %221 ], [ %187, %224 ], [ %.0125, %359 ], [ %497, %534 ], [ %.0123, %667 ], [ %.0123, %.preheader.i.i.i.i222 ]
   %733 = load i32, ptr %26, align 8, !tbaa !130
   %734 = add i32 %733, 1
   store i32 %734, ptr %26, align 8, !tbaa !130
   br label %.sink.split
 
 .sink.split:                                      ; preds = %630, %.lr.ph399, %_ZNK10quantifier9get_childEj.exit, %182, %.sink.split.sink.split
-  %.0123668.sink = phi ptr [ %.0123668.sink.ph, %.sink.split.sink.split ], [ %497, %.lr.ph399 ], [ %187, %182 ], [ %.0125, %_ZNK10quantifier9get_childEj.exit ], [ %.0123, %630 ]
+  %.0123668.sink = phi ptr [ %.0125, %_ZNK10quantifier9get_childEj.exit ], [ %187, %182 ], [ %.0123668.sink.ph, %.sink.split.sink.split ], [ %497, %.lr.ph399 ], [ %.0123, %630 ]
   call void @_ZN15ast_translation10push_frameEP3ast(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.0123668.sink)
   br label %735
 

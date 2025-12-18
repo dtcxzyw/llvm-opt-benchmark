@@ -4569,7 +4569,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm2
   br i1 %.not.i35.i482, label %_ZN4llvm4sortIRSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEEEvOT_.exit159, label %1162, !llvm.loop !102
 
 _ZN4llvm4sortIRSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEEEvOT_.exit159: ; preds = %1198, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i522, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i150, %.preheader.i19.i466
-  %.0.lcssa.i.i.i.i.i.i156.ptr1259 = phi ptr [ %.0.lcssa.i.i.i.i.i.i156.ptr, %.preheader.i19.i466 ], [ %1102, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i150 ], [ %.0.lcssa.i.i.i.i.i.i156.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i522 ], [ %.0.lcssa.i.i.i.i.i.i156.ptr, %1198 ]
+  %.0.lcssa.i.i.i.i.i.i156.ptr1259 = phi ptr [ %.0.lcssa.i.i.i.i.i.i156.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i522 ], [ %1102, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i150 ], [ %.0.lcssa.i.i.i.i.i.i156.ptr, %.preheader.i19.i466 ], [ %.0.lcssa.i.i.i.i.i.i156.ptr, %1198 ]
   %1199 = load ptr, ptr %49, align 8, !tbaa !34
   %1200 = load ptr, ptr %50, align 8, !tbaa !33
   %.not.i.i160 = icmp eq ptr %1199, %1200
@@ -5963,8 +5963,8 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %104, %106
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %24, %90, %31, %..loopexit_crit_edge21.i.i.i.i, %2, %129
-  %.sroa.053.0 = phi i8 [ 10, %2 ], [ %.sroa.038.2.extract.trunc, %129 ], [ 10, %..loopexit_crit_edge21.i.i.i.i ], [ 10, %31 ], [ 10, %90 ], [ 10, %24 ], [ 10, %.lr.ph.i.i.i.i ]
-  %.sroa.5.0 = phi i64 [ 0, %2 ], [ %storemerge, %129 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %31 ], [ 0, %90 ], [ 0, %24 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.053.0 = phi i8 [ 10, %24 ], [ 10, %2 ], [ %.sroa.038.2.extract.trunc, %129 ], [ 10, %..loopexit_crit_edge21.i.i.i.i ], [ 10, %90 ], [ 10, %31 ], [ 10, %.lr.ph.i.i.i.i ]
+  %.sroa.5.0 = phi i64 [ 0, %24 ], [ 0, %2 ], [ %storemerge, %129 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %90 ], [ 0, %31 ], [ 0, %.lr.ph.i.i.i.i ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.053.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i8, i64 } %.fca.1.insert
@@ -6126,8 +6126,8 @@ _ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegali
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %46, %_ZNK4llvm3LLT14getNumElementsEv.exit, %51, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit, %18, %5
-  %.sroa.053.0 = phi i8 [ 10, %5 ], [ 10, %18 ], [ %.sroa.041.2.extract.trunc, %_ZNK4llvm3LLT14getNumElementsEv.exit ], [ %.sroa.035.2.extract.trunc, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit ], [ 10, %..loopexit_crit_edge21.i.i.i.i ], [ 10, %51 ], [ 10, %46 ], [ 10, %.lr.ph.i.i.i.i ]
-  %.sroa.654.0 = phi i64 [ %7, %5 ], [ %20, %18 ], [ %37, %_ZNK4llvm3LLT14getNumElementsEv.exit ], [ %83, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit ], [ %37, %..loopexit_crit_edge21.i.i.i.i ], [ %37, %51 ], [ %37, %46 ], [ %37, %.lr.ph.i.i.i.i ]
+  %.sroa.053.0 = phi i8 [ 10, %5 ], [ 10, %18 ], [ %.sroa.041.2.extract.trunc, %_ZNK4llvm3LLT14getNumElementsEv.exit ], [ %.sroa.035.2.extract.trunc, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit ], [ 10, %..loopexit_crit_edge21.i.i.i.i ], [ 10, %46 ], [ 10, %51 ], [ 10, %.lr.ph.i.i.i.i ]
+  %.sroa.654.0 = phi i64 [ %7, %5 ], [ %20, %18 ], [ %37, %_ZNK4llvm3LLT14getNumElementsEv.exit ], [ %83, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit ], [ %37, %..loopexit_crit_edge21.i.i.i.i ], [ %37, %46 ], [ %37, %51 ], [ %37, %.lr.ph.i.i.i.i ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.053.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.654.0, 1
   ret { i8, i64 } %.fca.1.insert

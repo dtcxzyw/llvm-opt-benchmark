@@ -205,7 +205,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %50
   br label %74
 
 _ZN6icu_7713UnicodeString6appendERKS0_ii.exit:    ; preds = %37, %_ZN6icu_7713UnicodeString6appendERKS0_.exit, %36, %43
-  %.2 = phi i32 [ 2, %36 ], [ 0, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ 0, %43 ], [ 2, %37 ]
+  %.2 = phi i32 [ 0, %43 ], [ 2, %36 ], [ 0, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ 2, %37 ]
   %67 = load i16, ptr %9, align 8, !tbaa !7
   %68 = icmp slt i16 %67, 0
   %69 = ashr i16 %67, 5
@@ -1077,7 +1077,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   resume { ptr, i32 } %48
 
 .loopexit:                                        ; preds = %42, %18, %11, %3
-  %.0 = phi i32 [ 2, %3 ], [ 2, %11 ], [ %.029.ph, %18 ], [ %41, %42 ]
+  %.0 = phi i32 [ %.029.ph, %18 ], [ 2, %11 ], [ 2, %3 ], [ %41, %42 ]
   ret i32 %.0
 }
 

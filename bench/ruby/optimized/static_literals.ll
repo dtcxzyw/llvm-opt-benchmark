@@ -572,7 +572,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %14, %24, %22, %tailrecurse._crit_edge
-  %.0 = phi i32 [ %6, %tailrecurse._crit_edge ], [ %17, %14 ], [ %32, %24 ], [ %23, %22 ], [ %21, %18 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %6, %tailrecurse._crit_edge ], [ %17, %14 ], [ %21, %18 ], [ %32, %24 ], [ %23, %22 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -829,21 +829,21 @@ tailrecurse.i:                                    ; preds = %49, %37
   %.tr.i = phi ptr [ %39, %37 ], [ %51, %49 ]
   %40 = load i16, ptr %.tr.i, align 8, !tbaa !7
   switch i16 %40, label %pm_static_literal_positive_p.exit.thread [
-    i16 54, label %41
-    i16 82, label %pm_static_literal_positive_p.exit
+    i16 54, label %pm_static_literal_positive_p.exit
+    i16 82, label %41
     i16 123, label %45
     i16 68, label %49
   ]
 
 41:                                               ; preds = %tailrecurse.i
-  %42 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 24
-  %43 = load double, ptr %42, align 8, !tbaa !29
-  %44 = fcmp ogt double %43, 0.000000e+00
-  br i1 %44, label %55, label %pm_static_literal_positive_p.exit.thread
+  %42 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 44
+  %43 = load i8, ptr %42, align 4, !tbaa !54, !range !44, !noundef !45
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %pm_static_literal_positive_p.exit.thread, label %55
 
 45:                                               ; preds = %tailrecurse.i
   %46 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 44
-  %47 = load i8, ptr %46, align 4, !tbaa !54, !range !44, !noundef !45
+  %47 = load i8, ptr %46, align 4, !tbaa !56, !range !44, !noundef !45
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %pm_static_literal_positive_p.exit.thread, label %55
 
@@ -853,16 +853,16 @@ tailrecurse.i:                                    ; preds = %49, %37
   br label %tailrecurse.i
 
 pm_static_literal_positive_p.exit:                ; preds = %tailrecurse.i
-  %52 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 44
-  %53 = load i8, ptr %52, align 4, !tbaa !56, !range !44, !noundef !45
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %pm_static_literal_positive_p.exit.thread, label %55
+  %52 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 24
+  %53 = load double, ptr %52, align 8, !tbaa !29
+  %54 = fcmp ogt double %53, 0.000000e+00
+  br i1 %54, label %55, label %pm_static_literal_positive_p.exit.thread
 
-55:                                               ; preds = %45, %41, %pm_static_literal_positive_p.exit
+55:                                               ; preds = %41, %45, %pm_static_literal_positive_p.exit
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 43) #9
   br label %pm_static_literal_positive_p.exit.thread
 
-pm_static_literal_positive_p.exit.thread:         ; preds = %tailrecurse.i, %45, %41, %55, %pm_static_literal_positive_p.exit
+pm_static_literal_positive_p.exit.thread:         ; preds = %tailrecurse.i, %41, %45, %55, %pm_static_literal_positive_p.exit
   tail call fastcc void @pm_static_literal_inspect_node(ptr noundef %0, ptr noundef %1, ptr noundef %39)
   %56 = load i16, ptr %39, align 8, !tbaa !7
   %57 = icmp eq i16 %56, 123
@@ -1740,9 +1740,9 @@ attributes #10 = { memory(none) }
 !52 = !{!"", !14, i64 0, !40, i64 8, !12, i64 16}
 !53 = !{!10, !10, i64 0}
 !54 = !{!55, !42, i64 44}
-!55 = !{!"pm_rational_node", !8, i64 0, !39, i64 24, !39, i64 48}
+!55 = !{!"pm_integer_node", !8, i64 0, !39, i64 24}
 !56 = !{!57, !42, i64 44}
-!57 = !{!"pm_integer_node", !8, i64 0, !39, i64 24}
+!57 = !{!"pm_rational_node", !8, i64 0, !39, i64 24, !39, i64 48}
 !58 = !{!8, !9, i64 2}
 !59 = !{!39, !40, i64 0}
 !60 = distinct !{!60, !28}

@@ -2291,7 +2291,7 @@ proto_item_set_generated.exit185:                 ; preds = %122, %119, %116, %1
   br label %.thread.sink.split
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %158, %137, %168, %128
-  %.0 = phi i16 [ %133, %137 ], [ %133, %168 ], [ 0, %128 ], [ %133, %158 ], [ 0, %.preheader ], [ %133, %.lr.ph ]
+  %.0 = phi i16 [ %133, %137 ], [ %133, %158 ], [ 0, %128 ], [ %133, %168 ], [ 0, %.preheader ], [ %133, %.lr.ph ]
   br i1 %.not, label %.thread, label %213
 
 .thread.sink.split:                               ; preds = %137, %137, %171, %172, %173

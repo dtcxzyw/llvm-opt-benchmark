@@ -241,7 +241,7 @@ Vec_IntFind.exit.thread:                          ; preds = %62, %.lr.ph73.split
   br label %.critedge
 
 .critedge:                                        ; preds = %Vec_IntFind.exit.thread, %.critedge.loopexit, %.preheader
-  %.168 = phi i32 [ 0, %.preheader ], [ %63, %.critedge.loopexit ], [ %.val51, %Vec_IntFind.exit.thread ]
+  %.168 = phi i32 [ %63, %.critedge.loopexit ], [ 0, %.preheader ], [ %.val51, %Vec_IntFind.exit.thread ]
   %64 = getelementptr i8, ptr %2, i64 8
   %65 = getelementptr i8, ptr %25, i64 8
   br label %66

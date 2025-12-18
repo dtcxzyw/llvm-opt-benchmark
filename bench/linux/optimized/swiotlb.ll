@@ -1226,7 +1226,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br label %.thread18
 
 .thread18:                                        ; preds = %106, %117, %.preheader21, %.preheader21.us, %.split31.us, %215, %208, %206, %9, %3
-  %217 = phi i32 [ -12, %215 ], [ 0, %3 ], [ 0, %9 ], [ 0, %206 ], [ 0, %208 ], [ -12, %.split31.us ], [ -12, %.preheader21 ], [ -12, %.preheader21.us ], [ %115, %117 ], [ -12, %106 ]
+  %217 = phi i32 [ -12, %215 ], [ 0, %3 ], [ 0, %9 ], [ 0, %206 ], [ 0, %208 ], [ -12, %.preheader21.us ], [ -12, %.split31.us ], [ -12, %.preheader21 ], [ %115, %117 ], [ -12, %106 ]
   ret i32 %217
 }
 

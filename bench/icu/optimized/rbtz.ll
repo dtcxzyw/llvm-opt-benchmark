@@ -707,9 +707,9 @@ _ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207: ; preds = %179
   unreachable
 
 .loopexit350:                                     ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread279, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread, %41
-  %.0150 = phi i1 [ false, %41 ], [ false, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread ], [ true, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread279 ], [ false, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207 ]
-  %.1116 = phi double [ 0xC384763B62073280, %41 ], [ %.2117, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread ], [ %.2117, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread279 ], [ %.2117, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207 ]
-  %.1 = phi ptr [ %31, %41 ], [ %.2, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread ], [ %.2, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread279 ], [ %.2, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207 ]
+  %.0150 = phi i1 [ false, %41 ], [ true, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread279 ], [ false, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread ], [ false, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207 ]
+  %.1116 = phi double [ 0xC384763B62073280, %41 ], [ %.2117, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread279 ], [ %.2117, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread ], [ %.2117, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207 ]
+  %.1 = phi ptr [ %31, %41 ], [ %.2, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread279 ], [ %.2, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread ], [ %.2, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207 ]
   invoke void @uprv_free_77(ptr noundef %39)
           to label %_ZN6icu_7711LocalMemoryIbED2Ev.exit208 unwind label %193
 
@@ -1374,7 +1374,7 @@ _ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit21.loopexit: ; preds = %.lr.ph.i1
   br label %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit21
 
 _ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit21: ; preds = %.lr.ph.i, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit21.loopexit, %60, %59, %40, %39, %16, %.preheader.i16, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit, %23, %_ZNKSt9type_infoneERKS_.exit, %_ZNKSt9type_infoneERKS_.exit.thread23, %2
-  %.0 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %2 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread23 ], [ false, %60 ], [ false, %23 ], [ false, %16 ], [ true, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit ], [ true, %.preheader.i16 ], [ false, %39 ], [ false, %40 ], [ false, %59 ], [ %.0.ph, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit21.loopexit ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %2 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread23 ], [ false, %60 ], [ false, %23 ], [ false, %16 ], [ true, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit ], [ true, %.preheader.i16 ], [ %.0.ph, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit21.loopexit ], [ false, %39 ], [ false, %40 ], [ false, %59 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -2374,11 +2374,11 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %73 = load ptr, ptr %72, align 8, !tbaa !43
   br label %74
 
-74:                                               ; preds = %18, %27, %._crit_edge, %50
-  %.sroa.9.0.ph = phi ptr [ %.sroa.9.2, %50 ], [ %71, %._crit_edge ], [ %.sroa.9.0.copyload39, %27 ], [ %.sroa.9.0.copyload, %18 ]
-  %.sroa.0.0.ph = phi double [ %.sroa.0.2, %50 ], [ %69, %._crit_edge ], [ %25, %27 ], [ %14, %18 ]
-  %.sroa.15.0.ph = phi ptr [ %.sroa.15.2, %50 ], [ %73, %._crit_edge ], [ %.sroa.15.0.copyload42, %27 ], [ %.sroa.15.0.copyload, %18 ]
-  %.not90 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %18 ]
+74:                                               ; preds = %18, %._crit_edge, %27, %50
+  %.sroa.9.0.ph = phi ptr [ %.sroa.9.2, %50 ], [ %.sroa.9.0.copyload39, %27 ], [ %71, %._crit_edge ], [ %.sroa.9.0.copyload, %18 ]
+  %.sroa.0.0.ph = phi double [ %.sroa.0.2, %50 ], [ %25, %27 ], [ %69, %._crit_edge ], [ %14, %18 ]
+  %.sroa.15.0.ph = phi ptr [ %.sroa.15.2, %50 ], [ %.sroa.15.0.copyload42, %27 ], [ %73, %._crit_edge ], [ %.sroa.15.0.copyload, %18 ]
+  %.not90 = phi i1 [ false, %50 ], [ true, %27 ], [ true, %._crit_edge ], [ true, %18 ]
   %75 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.0.ph)
   %76 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
   %77 = icmp eq i32 %75, %76
@@ -2567,7 +2567,7 @@ _ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit:  ; preds = %43, %.preheader.i, 
   br i1 %70, label %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit19, label %63
 
 _ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit19: ; preds = %.lr.ph.i, %.lr.ph.i16, %63, %58, %57, %38, %37, %16, %.preheader.i14, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit, %_ZNKSt9type_infoneERKS_.exit.thread21, %_ZNKSt9type_infoneERKS_.exit, %2
-  %.0 = phi i8 [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 1, %2 ], [ 0, %58 ], [ 0, %_ZNKSt9type_infoneERKS_.exit.thread21 ], [ 0, %16 ], [ 1, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit ], [ 1, %.preheader.i14 ], [ 0, %37 ], [ 0, %38 ], [ 0, %57 ], [ 1, %63 ], [ 0, %.lr.ph.i16 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i8 [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 1, %2 ], [ 0, %58 ], [ 0, %_ZNKSt9type_infoneERKS_.exit.thread21 ], [ 0, %16 ], [ 1, %_ZN6icu_77L12compareRulesEPNS_7UVectorES1_.exit ], [ 1, %.preheader.i14 ], [ 1, %63 ], [ 0, %37 ], [ 0, %38 ], [ 0, %57 ], [ 0, %.lr.ph.i16 ], [ 0, %.lr.ph.i ]
   ret i8 %.0
 }
 
@@ -2815,9 +2815,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findPre
   br label %64
 
 64:                                               ; preds = %16, %27, %._crit_edge, %53, %50
-  %.sroa.0.0.ph = phi double [ %.sroa.0.2, %50 ], [ %25, %53 ], [ %.sroa.0.0.copyload37, %._crit_edge ], [ %25, %27 ], [ %14, %16 ]
-  %.sroa.10.0.ph = phi ptr [ %.sroa.10.2, %50 ], [ %.sroa.10.0.copyload39, %53 ], [ %.sroa.10.0.copyload40, %._crit_edge ], [ %.sroa.10.0.copyload38, %27 ], [ %.sroa.10.0.copyload, %16 ]
-  %.sroa.15.0.ph = phi ptr [ %.sroa.15.2, %50 ], [ %.sroa.15.0.copyload44, %53 ], [ %.sroa.15.0.copyload45, %._crit_edge ], [ %.sroa.15.0.copyload43, %27 ], [ %.sroa.15.0.copyload, %16 ]
+  %.sroa.0.0.ph = phi double [ %.sroa.0.2, %50 ], [ %.sroa.0.0.copyload37, %._crit_edge ], [ %25, %27 ], [ %25, %53 ], [ %14, %16 ]
+  %.sroa.10.0.ph = phi ptr [ %.sroa.10.2, %50 ], [ %.sroa.10.0.copyload40, %._crit_edge ], [ %.sroa.10.0.copyload38, %27 ], [ %.sroa.10.0.copyload39, %53 ], [ %.sroa.10.0.copyload, %16 ]
+  %.sroa.15.0.ph = phi ptr [ %.sroa.15.2, %50 ], [ %.sroa.15.0.copyload45, %._crit_edge ], [ %.sroa.15.0.copyload43, %27 ], [ %.sroa.15.0.copyload44, %53 ], [ %.sroa.15.0.copyload, %16 ]
   %65 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.10.0.ph)
   %66 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
   %67 = icmp eq i32 %65, %66

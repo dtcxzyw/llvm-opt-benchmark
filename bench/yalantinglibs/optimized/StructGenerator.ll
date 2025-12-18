@@ -769,7 +769,7 @@ lpad69:                                           ; preds = %_ZNSt4pairIKNSt7__c
   br label %ehcleanup71
 
 ehcleanup71:                                      ; preds = %ehcleanup, %lpad2.i, %lpad.i, %lpad69
-  %.pn12 = phi { ptr, i32 } [ %81, %lpad69 ], [ %35, %lpad.i ], [ %36, %lpad2.i ], [ %.pn, %ehcleanup ]
+  %.pn12 = phi { ptr, i32 } [ %81, %lpad69 ], [ %36, %lpad2.i ], [ %35, %lpad.i ], [ %.pn, %ehcleanup ]
   call void @_ZN6google8protobuf2io7PrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %p) #19
   br label %ehcleanup72
 
@@ -841,7 +841,7 @@ lpad131:                                          ; preds = %_ZNSt7__cxx1112basi
   br label %ehcleanup134
 
 ehcleanup134:                                     ; preds = %ehcleanup122.thread223, %arraydestroy.body124.preheader, %lpad.i71, %lpad2.i76, %lpad131
-  %.pn19 = phi { ptr, i32 } [ %88, %lpad131 ], [ %.pn15, %ehcleanup122.thread223 ], [ %50, %lpad.i71 ], [ %51, %lpad2.i76 ], [ %.pn15.pn.pn222, %arraydestroy.body124.preheader ]
+  %.pn19 = phi { ptr, i32 } [ %88, %lpad131 ], [ %.pn15, %ehcleanup122.thread223 ], [ %51, %lpad2.i76 ], [ %50, %lpad.i71 ], [ %.pn15.pn.pn222, %arraydestroy.body124.preheader ]
   call void @_ZN6google8protobuf2io7PrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %p82) #19
   br label %ehcleanup135
 

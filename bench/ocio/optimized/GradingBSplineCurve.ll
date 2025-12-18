@@ -1657,7 +1657,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev22IsGradingCurveIdenti
   br label %_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10isIdentityEv.exit
 
 _ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10isIdentityEv.exit: ; preds = %.lr.ph.i, %1, %._crit_edge.i, %4
-  %.0 = phi i1 [ false, %4 ], [ %20, %._crit_edge.i ], [ false, %1 ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ %20, %._crit_edge.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -2308,12 +2308,12 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit98.i:      ; preds = %_ZNKSt6vectorIfSaIf
   br label %.thread.i
 
 260:                                              ; preds = %138, %.loopexit.split-lp192.i, %.loopexit191.i, %.loopexit.split-lp.i, %.loopexit.i
-  %261 = phi ptr [ null, %.loopexit.split-lp.i ], [ %139, %138 ], [ null, %.loopexit.i ], [ null, %.loopexit191.i ], [ null, %.loopexit.split-lp192.i ]
-  %.sroa.18.0225.i = phi ptr [ %.sroa.18.0232.i, %.loopexit.split-lp.i ], [ %.sroa.18.0.lcssa.i, %138 ], [ %.sroa.18.0232.i, %.loopexit.i ], [ %.sroa.15.0233.i, %.loopexit191.i ], [ %.sroa.15.0233.i, %.loopexit.split-lp192.i ]
-  %.sroa.0.0216.i = phi ptr [ %.sroa.0.0234.i, %.loopexit.split-lp.i ], [ %.sroa.0.0.lcssa.i, %138 ], [ %.sroa.0.0234.i, %.loopexit.i ], [ %.sroa.0.0234.i, %.loopexit191.i ], [ %.sroa.0.0234.i, %.loopexit.split-lp192.i ]
-  %.sroa.19.1.i = phi ptr [ %.sroa.16.0236.i, %.loopexit.split-lp.i ], [ %.sroa.19.0.lcssa.i, %138 ], [ %.sroa.16.0236.i, %.loopexit.i ], [ %.sroa.19.2.i, %.loopexit191.i ], [ %.sroa.19.2.i, %.loopexit.split-lp192.i ]
-  %.sroa.0164.1.i = phi ptr [ %.sroa.0164.0237.i, %.loopexit.split-lp.i ], [ %.sroa.0164.0.lcssa.i, %138 ], [ %.sroa.0164.0237.i, %.loopexit.i ], [ %.sroa.0164.2.i, %.loopexit191.i ], [ %.sroa.0164.2.i, %.loopexit.split-lp192.i ]
-  %.pn73.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp189.i, %.loopexit.split-lp.i ], [ %140, %138 ], [ %lpad.loopexit188.i, %.loopexit.i ], [ %lpad.loopexit193.i, %.loopexit191.i ], [ %lpad.loopexit.split-lp194.i, %.loopexit.split-lp192.i ]
+  %261 = phi ptr [ null, %.loopexit.split-lp192.i ], [ null, %.loopexit.split-lp.i ], [ %139, %138 ], [ null, %.loopexit191.i ], [ null, %.loopexit.i ]
+  %.sroa.18.0225.i = phi ptr [ %.sroa.15.0233.i, %.loopexit.split-lp192.i ], [ %.sroa.18.0232.i, %.loopexit.split-lp.i ], [ %.sroa.18.0.lcssa.i, %138 ], [ %.sroa.15.0233.i, %.loopexit191.i ], [ %.sroa.18.0232.i, %.loopexit.i ]
+  %.sroa.0.0216.i = phi ptr [ %.sroa.0.0234.i, %.loopexit.split-lp192.i ], [ %.sroa.0.0234.i, %.loopexit.split-lp.i ], [ %.sroa.0.0.lcssa.i, %138 ], [ %.sroa.0.0234.i, %.loopexit191.i ], [ %.sroa.0.0234.i, %.loopexit.i ]
+  %.sroa.19.1.i = phi ptr [ %.sroa.19.2.i, %.loopexit.split-lp192.i ], [ %.sroa.16.0236.i, %.loopexit.split-lp.i ], [ %.sroa.19.0.lcssa.i, %138 ], [ %.sroa.19.2.i, %.loopexit191.i ], [ %.sroa.16.0236.i, %.loopexit.i ]
+  %.sroa.0164.1.i = phi ptr [ %.sroa.0164.2.i, %.loopexit.split-lp192.i ], [ %.sroa.0164.0237.i, %.loopexit.split-lp.i ], [ %.sroa.0164.0.lcssa.i, %138 ], [ %.sroa.0164.2.i, %.loopexit191.i ], [ %.sroa.0164.0237.i, %.loopexit.i ]
+  %.pn73.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp194.i, %.loopexit.split-lp192.i ], [ %lpad.loopexit.split-lp189.i, %.loopexit.split-lp.i ], [ %140, %138 ], [ %lpad.loopexit193.i, %.loopexit191.i ], [ %lpad.loopexit188.i, %.loopexit.i ]
   %.not.i.i.i133.i = icmp eq ptr %.sroa.0.0216.i, null
   br i1 %.not.i.i.i133.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit134.i, label %.thread.i
 

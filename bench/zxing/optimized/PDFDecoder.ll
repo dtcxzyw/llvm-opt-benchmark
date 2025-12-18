@@ -2235,8 +2235,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.thread: ; pred
           to label %_ZN5ZXing6Pdf417L14ByteCompactionEiRKSt6vectorIiSaIiEEiRNS_7ContentE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN5ZXing6Pdf417L14ByteCompactionEiRKSt6vectorIiSaIiEEiRNS_7ContentE.exit: ; preds = %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit64.i, %.invoke, %685, %379, %370, %374, %.preheader.i, %.preheader.thread.i, %_ZN5ZXing6Pdf417L16DecodeMacroBlockERKSt6vectorIiSaIiEEiRNS0_18DecoderResultExtraE.exit, %368, %706
-  %.1183 = phi i8 [ %.0403, %.invoke ], [ 1, %685 ], [ %.0403, %370 ], [ %.0403, %706 ], [ %.0403, %368 ], [ %.0403, %_ZN5ZXing6Pdf417L16DecodeMacroBlockERKSt6vectorIiSaIiEEiRNS0_18DecoderResultExtraE.exit ], [ %.0403, %379 ], [ %.0403, %.preheader.thread.i ], [ %.0403, %.preheader.i ], [ %.0403, %374 ], [ %.0403, %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit64.i ]
-  %.147 = phi i32 [ %784, %.invoke ], [ 2, %685 ], [ %98, %370 ], [ 2, %706 ], [ %369, %368 ], [ %.1.lcssa242.i, %_ZN5ZXing6Pdf417L16DecodeMacroBlockERKSt6vectorIiSaIiEEiRNS0_18DecoderResultExtraE.exit ], [ %382, %379 ], [ %98, %.preheader.thread.i ], [ %.034.lcssa.i, %.preheader.i ], [ %375, %374 ], [ %.0.lcssa.i55.i, %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit64.i ]
+  %.1183 = phi i8 [ %.0403, %.invoke ], [ %.0403, %370 ], [ %.0403, %374 ], [ %.0403, %706 ], [ %.0403, %368 ], [ 1, %685 ], [ %.0403, %_ZN5ZXing6Pdf417L16DecodeMacroBlockERKSt6vectorIiSaIiEEiRNS0_18DecoderResultExtraE.exit ], [ %.0403, %379 ], [ %.0403, %.preheader.thread.i ], [ %.0403, %.preheader.i ], [ %.0403, %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit64.i ]
+  %.147 = phi i32 [ %784, %.invoke ], [ %98, %370 ], [ %375, %374 ], [ 2, %706 ], [ %369, %368 ], [ 2, %685 ], [ %.1.lcssa242.i, %_ZN5ZXing6Pdf417L16DecodeMacroBlockERKSt6vectorIiSaIiEEiRNS0_18DecoderResultExtraE.exit ], [ %382, %379 ], [ %98, %.preheader.thread.i ], [ %.034.lcssa.i, %.preheader.i ], [ %.0.lcssa.i55.i, %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit64.i ]
   %785 = load ptr, ptr %1, align 8, !tbaa !38
   %786 = load i32, ptr %785, align 4, !tbaa !39
   %787 = icmp slt i32 %.147, %786
@@ -3385,8 +3385,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 .critedge:                                        ; preds = %_ZN5ZXing6Pdf417L14ProcessTextECIERSt6vectorIiSaIiEERiRKS3_ii.exit, %.lr.ph, %26, %76, %66, %61, %18
-  %.4 = phi i32 [ %24, %18 ], [ %62, %61 ], [ %27, %26 ], [ %81, %76 ], [ %71, %66 ], [ %.227, %_ZN5ZXing6Pdf417L14ProcessTextECIERSt6vectorIiSaIiEERiRKS3_ii.exit ], [ %37, %.lr.ph ]
-  %.1 = phi i32 [ %13, %18 ], [ %13, %61 ], [ %13, %26 ], [ %77, %76 ], [ %67, %66 ], [ %.0.i, %_ZN5ZXing6Pdf417L14ProcessTextECIERSt6vectorIiSaIiEERiRKS3_ii.exit ], [ %36, %.lr.ph ]
+  %.4 = phi i32 [ %24, %18 ], [ %62, %61 ], [ %71, %66 ], [ %27, %26 ], [ %81, %76 ], [ %.227, %_ZN5ZXing6Pdf417L14ProcessTextECIERSt6vectorIiSaIiEERiRKS3_ii.exit ], [ %37, %.lr.ph ]
+  %.1 = phi i32 [ %13, %18 ], [ %13, %61 ], [ %67, %66 ], [ %13, %26 ], [ %77, %76 ], [ %.0.i, %_ZN5ZXing6Pdf417L14ProcessTextECIERSt6vectorIiSaIiEERiRKS3_ii.exit ], [ %36, %.lr.ph ]
   %.not112 = icmp slt i32 %.1, %4
   br i1 %.not112, label %.lr.ph51, label %._crit_edge, !llvm.loop !120
 
@@ -3760,9 +3760,9 @@ _ZN5ZXing7Content9push_backEh.exit99.i:           ; preds = %_ZNSt6vectorIhSaIhE
   br label %.critedge82.i, !llvm.loop !121
 
 .critedge82.i:                                    ; preds = %112, %..critedge82.loopexit_crit_edge.i, %_ZN5ZXing7Content9push_backEh.exit99.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i, %150, %123, %117, %107
-  %.174.i = phi i32 [ %.073118.i, %117 ], [ %.275104.i, %_ZN5ZXing7Content9push_backEh.exit99.i ], [ %.073118.i, %123 ], [ %.073118.i, %107 ], [ %.073118.i, %150 ], [ %.073118.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %.073118.i, %..critedge82.loopexit_crit_edge.i ], [ %.073118.i, %112 ]
-  %.171.i = phi i32 [ %120, %117 ], [ %256, %_ZN5ZXing7Content9push_backEh.exit99.i ], [ %124, %123 ], [ %108, %107 ], [ %132, %150 ], [ %132, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %.0.i89.i, %..critedge82.loopexit_crit_edge.i ], [ %113, %112 ]
-  %.1.i = phi i32 [ %.069120.i, %117 ], [ %.2105.i, %_ZN5ZXing7Content9push_backEh.exit99.i ], [ %.069120.i, %123 ], [ %.069120.i, %107 ], [ %.069120.i, %150 ], [ %.069120.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %.069120.i, %..critedge82.loopexit_crit_edge.i ], [ %.069120.i, %112 ]
+  %.174.i = phi i32 [ %.073118.i, %117 ], [ %.275104.i, %_ZN5ZXing7Content9push_backEh.exit99.i ], [ %.073118.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %.073118.i, %123 ], [ %.073118.i, %107 ], [ %.073118.i, %150 ], [ %.073118.i, %..critedge82.loopexit_crit_edge.i ], [ %.073118.i, %112 ]
+  %.171.i = phi i32 [ %120, %117 ], [ %256, %_ZN5ZXing7Content9push_backEh.exit99.i ], [ %132, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %124, %123 ], [ %108, %107 ], [ %132, %150 ], [ %.0.i89.i, %..critedge82.loopexit_crit_edge.i ], [ %113, %112 ]
+  %.1.i = phi i32 [ %.069120.i, %117 ], [ %.2105.i, %_ZN5ZXing7Content9push_backEh.exit99.i ], [ %.069120.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %.069120.i, %123 ], [ %.069120.i, %107 ], [ %.069120.i, %150 ], [ %.069120.i, %..critedge82.loopexit_crit_edge.i ], [ %.069120.i, %112 ]
   %257 = icmp slt i32 %.171.i, %.025.lcssa
   br i1 %257, label %101, label %_ZN5ZXing6Pdf417L20DecodeTextCompactionERKSt6vectorIiSaIiEEiRNS_7ContentE.exit.thread
 

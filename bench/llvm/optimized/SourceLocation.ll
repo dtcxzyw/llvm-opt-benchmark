@@ -1376,7 +1376,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %_
   br i1 %.not.i.i.i.i, label %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, label %.preheader.i
 
 _ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit: ; preds = %.preheader.i, %_ZNK5clang13FullSourceLoc9getFileIDEv.exit, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i
-  %21 = phi ptr [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %_ZNK5clang13FullSourceLoc9getFileIDEv.exit ], [ %20, %.preheader.i ]
+  %21 = phi ptr [ null, %_ZNK5clang13FullSourceLoc9getFileIDEv.exit ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ %20, %.preheader.i ]
   ret ptr %21
 }
 

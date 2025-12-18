@@ -2885,7 +2885,7 @@ draw_scope.exit:                                  ; preds = %157
   br i1 %exitcond166.not, label %._crit_edge, label %254, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %254, %.preheader141.lr.ph, %.preheader140
-  %.not173 = phi i1 [ true, %.preheader140 ], [ true, %.preheader141.lr.ph ], [ false, %254 ]
+  %.not173 = phi i1 [ true, %.preheader141.lr.ph ], [ true, %.preheader140 ], [ false, %254 ]
   %258 = load i32, ptr %178, align 4, !tbaa !162
   %.not136 = icmp eq i32 %258, 0
   br i1 %.not136, label %.loopexit, label %259

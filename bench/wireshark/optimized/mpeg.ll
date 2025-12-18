@@ -89,7 +89,7 @@ define hidden range(i32 -1, 2) i32 @mpeg_open(ptr noundef captures(none) %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.preheader, %17, %8, %21
-  %.0 = phi i32 [ 1, %21 ], [ %., %8 ], [ -1, %17 ], [ 0, %.preheader ], [ 0, %13 ]
+  %.0 = phi i32 [ -1, %17 ], [ 1, %21 ], [ %., %8 ], [ 0, %.preheader ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -494,7 +494,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   br label %mpeg_read_pes_packet.exit
 
 mpeg_read_pes_packet.exit:                        ; preds = %93, %95, %107, %103, %105, %168
-  %.0.i31 = phi i32 [ %.1.i32, %168 ], [ 0, %105 ], [ 0, %103 ], [ 0, %107 ], [ 0, %95 ], [ 0, %93 ]
+  %.0.i31 = phi i32 [ 0, %103 ], [ %.1.i32, %168 ], [ 0, %105 ], [ 0, %107 ], [ 0, %95 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %169
 

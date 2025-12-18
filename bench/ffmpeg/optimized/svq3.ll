@@ -626,7 +626,7 @@ init_dequant4_coeff_table.exit.sink.split:        ; preds = %195, %94, %90, %48,
   br label %init_dequant4_coeff_table.exit
 
 init_dequant4_coeff_table.exit:                   ; preds = %345, %init_dequant4_coeff_table.exit.sink.split, %294, %.critedge, %1, %20
-  %.0 = phi i32 [ -12, %294 ], [ -12, %.critedge ], [ -12, %1 ], [ -12, %20 ], [ %.0.ph, %init_dequant4_coeff_table.exit.sink.split ], [ 0, %345 ]
+  %.0 = phi i32 [ -12, %20 ], [ -12, %.critedge ], [ -12, %1 ], [ %.0.ph, %init_dequant4_coeff_table.exit.sink.split ], [ -12, %294 ], [ 0, %345 ]
   ret i32 %.0
 }
 
@@ -2421,7 +2421,7 @@ svq3_decode_mb.exit.thread:                       ; preds = %605, %601, %452, %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1066, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %1067, i32 noundef %1068) #12
   br label %.critedge
 
-1069:                                             ; preds = %.loopexit.i306, %1059
+1069:                                             ; preds = %1059, %.loopexit.i306
   br i1 %428, label %1070, label %.thread332
 
 1070:                                             ; preds = %1069
@@ -3077,7 +3077,7 @@ hl_decode_mb.exit:                                ; preds = %1402, %hl_decode_mb
   br label %.critedge
 
 .critedge:                                        ; preds = %345, %svq3_decode_mb.exit.thread, %1477, %1481, %1464, %235, %238, %174, %130, %65, %47, %45, %27, %12, %17, %20, %26, %23, %1447, %254
-  %.0 = phi i32 [ %24, %23 ], [ %77, %65 ], [ 0, %12 ], [ -1094995529, %27 ], [ -1, %45 ], [ -1094995529, %47 ], [ %178, %174 ], [ -1, %254 ], [ %10, %1477 ], [ -1, %1447 ], [ 0, %235 ], [ %1465, %1464 ], [ %134, %130 ], [ 0, %26 ], [ 0, %20 ], [ 0, %17 ], [ 0, %238 ], [ %10, %1481 ], [ -1, %svq3_decode_mb.exit.thread ], [ -1, %345 ]
+  %.0 = phi i32 [ %24, %23 ], [ %77, %65 ], [ 0, %12 ], [ -1094995529, %27 ], [ -1, %45 ], [ -1094995529, %47 ], [ %178, %174 ], [ -1, %254 ], [ %10, %1477 ], [ -1, %1447 ], [ 0, %235 ], [ %1465, %1464 ], [ %134, %130 ], [ 0, %26 ], [ 0, %20 ], [ 0, %17 ], [ -1, %svq3_decode_mb.exit.thread ], [ 0, %238 ], [ %10, %1481 ], [ -1, %345 ]
   ret i32 %.0
 }
 

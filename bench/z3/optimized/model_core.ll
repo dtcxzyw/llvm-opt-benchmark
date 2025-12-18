@@ -452,7 +452,7 @@ define hidden noundef zeroext i1 @_ZNK10model_core4evalEP9func_declR7obj_refI4ex
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %41, %38
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %41 ], [ %40, %38 ]
+  %.137.i.i.i.i.be = phi ptr [ %40, %38 ], [ %.old.i.i.i.i, %41 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !55
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %22, %33
@@ -558,7 +558,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit.thread: ; preds = %27, %38, 
   br i1 %.not27.old.i.i.i.i24, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i20.backedge
 
 .lr.ph38.i.i.i.i20.backedge:                      ; preds = %89, %86
-  %.137.i.i.i.i21.be = phi ptr [ %.old.i.i.i.i23, %89 ], [ %88, %86 ]
+  %.137.i.i.i.i21.be = phi ptr [ %88, %86 ], [ %.old.i.i.i.i23, %89 ]
   br label %.lr.ph38.i.i.i.i20, !llvm.loop !61
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %70, %81
@@ -606,7 +606,7 @@ _ZNK10model_core15get_func_interpEP9func_decl.exit.thread.sink.split: ; preds = 
   br label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit.thread: ; preds = %75, %86, %89, %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread.sink.split, %.preheader.i.i.i.i18, %_ZNK10model_core15get_func_interpEP9func_decl.exit
-  %.0 = phi i1 [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %.preheader.i.i.i.i18 ], [ %107, %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread.sink.split ], [ false, %86 ], [ false, %89 ], [ false, %75 ]
+  %.0 = phi i1 [ %107, %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread.sink.split ], [ false, %86 ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %.preheader.i.i.i.i18 ], [ false, %89 ], [ false, %75 ]
   ret i1 %.0
 }
 
@@ -975,7 +975,7 @@ define hidden void @_ZN10model_core15unregister_declEP9func_decl(ptr noundef non
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %38, %35
-  %.137.i.i.be = phi ptr [ %.old.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i, %38 ]
   br label %.lr.ph38.i.i, !llvm.loop !55
 
 _ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit: ; preds = %19, %30
@@ -1325,7 +1325,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %_ZN6vectorIP9func_d
   br i1 %.not27.old.i.i31, label %_ZN11ast_manager7dec_refEP3ast.exit18, label %.lr.ph38.i.i27.backedge
 
 .lr.ph38.i.i27.backedge:                          ; preds = %184, %181
-  %.137.i.i28.be = phi ptr [ %.old.i.i30, %184 ], [ %183, %181 ]
+  %.137.i.i28.be = phi ptr [ %183, %181 ], [ %.old.i.i30, %184 ]
   br label %.lr.ph38.i.i27, !llvm.loop !61
 
 _ZNK7obj_mapI9func_declP11func_interpE9find_coreEPS0_.exit: ; preds = %165, %176
@@ -2565,7 +2565,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declSt4pair
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !96
 
 .loopexit38:                                      ; preds = %17, %28
@@ -2819,7 +2819,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP11func
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !98
 
 .loopexit38:                                      ; preds = %17, %28

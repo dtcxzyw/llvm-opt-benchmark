@@ -1399,8 +1399,8 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %396
   br label %.body
 
 .loopexit:                                        ; preds = %514, %._crit_edge418, %504, %469
-  %523 = phi i32 [ %470, %469 ], [ %505, %504 ], [ %489, %._crit_edge418 ], [ %518, %514 ]
-  %.1205 = phi double [ 0.000000e+00, %469 ], [ 0.000000e+00, %504 ], [ %488, %._crit_edge418 ], [ %517, %514 ]
+  %523 = phi i32 [ %489, %._crit_edge418 ], [ %470, %469 ], [ %505, %504 ], [ %518, %514 ]
+  %.1205 = phi double [ %488, %._crit_edge418 ], [ 0.000000e+00, %469 ], [ 0.000000e+00, %504 ], [ %517, %514 ]
   %524 = sitofp i32 %523 to double
   %525 = fdiv double %.1205, %524
   %526 = fptrunc double %525 to float

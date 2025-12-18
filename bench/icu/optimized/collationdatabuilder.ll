@@ -1807,7 +1807,7 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i: ; preds = %_ZNK
   br label %_ZN6icu_7720CollationDataBuilder5addCEElR10UErrorCode.exit
 
 _ZN6icu_7720CollationDataBuilder5addCEElR10UErrorCode.exit: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i
-  %.1.i = phi i32 [ %38, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i ], [ %38, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i ], [ %56, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i ]
+  %.1.i = phi i32 [ %38, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i ], [ %38, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i ], [ %56, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i ]
   %57 = load i32, ptr %5, align 4, !tbaa !76
   %58 = icmp slt i32 %57, 1
   br i1 %58, label %59, label %68
@@ -1895,7 +1895,7 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit: ; preds = %_ZNK6i
   br label %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit
 
 _ZN6icu_779UVector6410addElementElR10UErrorCode.exit: ; preds = %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i
-  %.1 = phi i32 [ %6, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i ], [ %6, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i ], [ %24, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit ]
+  %.1 = phi i32 [ %6, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i ], [ %6, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i ], [ %24, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit ]
   ret i32 %.1
 }
 
@@ -2373,7 +2373,7 @@ _ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit: ; preds = %17
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %174, %166, %134, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit
-  %.2 = phi i32 [ %186, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ %170, %166 ], [ %176, %174 ], [ %138, %134 ]
+  %.2 = phi i32 [ %138, %134 ], [ %186, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ %176, %174 ], [ %170, %166 ]
   %191 = and i32 %.2, 192
   %.not = icmp eq i32 %191, 192
   br i1 %.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !131
@@ -2459,7 +2459,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit: ; preds = %_ZNK6i
   br label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit
 
 _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i
-  %.1 = phi i32 [ %6, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i ], [ %6, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i ], [ %25, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit ]
+  %.1 = phi i32 [ %6, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i ], [ %6, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i ], [ %25, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit ]
   ret i32 %.1
 }
 
@@ -3797,7 +3797,7 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i: ; preds = %_ZNK
   br label %_ZN6icu_7720CollationDataBuilder5addCEElR10UErrorCode.exit
 
 _ZN6icu_7720CollationDataBuilder5addCEElR10UErrorCode.exit: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i
-  %.1.i = phi i32 [ %26, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i ], [ %26, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i ], [ %44, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i ]
+  %.1.i = phi i32 [ %26, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i ], [ %26, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i ], [ %44, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.loopexit.i ]
   %45 = load i32, ptr %2, align 4, !tbaa !76
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %47, label %_ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El.exit.thread
@@ -5297,7 +5297,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit.i: ; preds = %_ZNK
   br label %_ZN6icu_7720CollationDataBuilder7addCE32EjR10UErrorCode.exit
 
 _ZN6icu_7720CollationDataBuilder7addCE32EjR10UErrorCode.exit: ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i, %.noexc
-  %.1.i = phi i32 [ %33, %.noexc ], [ %33, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i ], [ %49, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit.i ]
+  %.1.i = phi i32 [ %33, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i ], [ %33, %.noexc ], [ %49, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit.loopexit.i ]
   %50 = load i32, ptr %1, align 4, !tbaa !76
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %60, label %.critedge, !llvm.loop !164
@@ -5624,7 +5624,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %.preheader79, %_ZNK
   br i1 %71, label %_ZNK6icu_7713CollationData7getCE32Ei.exit, label %.loopexit, !llvm.loop !173
 
 .loopexit:                                        ; preds = %.split.us, %.split, %_ZNK6icu_7713CollationData7getCE32Ei.exit
-  %.057 = phi i32 [ %21, %.split ], [ -1, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %21, %.split.us ]
+  %.057 = phi i32 [ -1, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %21, %.split ], [ %21, %.split.us ]
   tail call void @_ZN6icu_7720CollationDataBuilder12setDigitTagsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %72
 

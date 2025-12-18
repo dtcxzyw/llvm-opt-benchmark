@@ -1986,7 +1986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i97: ; pre
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %.noexc103, %.noexc100
-  %.be = phi ptr [ %287, %.noexc103 ], [ %248, %.noexc100 ]
+  %.be = phi ptr [ %248, %.noexc100 ], [ %287, %.noexc103 ]
   br label %.preheader
 
 288:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i95

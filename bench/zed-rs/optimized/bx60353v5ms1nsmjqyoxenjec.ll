@@ -2679,8 +2679,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit25", label %26
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit25": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit" ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %100 ], [ undef, %21 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit" ], [ undef, %100 ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %21 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, ptr } %24, ptr %.sroa.5.0, 1
   ret { i64, ptr } %25
@@ -3388,7 +3388,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit22", label %24
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit22": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hd40251fbac3d1cb1E.llvm.5167274926106538911.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   ret i8 %.sroa.0.0
 
 24:                                               ; preds = %21, %10
@@ -5596,7 +5596,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   br i1 %27, label %28, label %30
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h8950061af59e5af5E.exit": ; preds = %83, %71, %._crit_edge.i50, %._crit_edge.i, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17heace37ea92eb04edE.exit", %24
-  %.sroa.0.0 = phi i8 [ %., %24 ], [ 2, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17heace37ea92eb04edE.exit" ], [ 2, %._crit_edge.i ], [ 2, %._crit_edge.i50 ], [ 2, %71 ], [ 2, %83 ]
+  %.sroa.0.0 = phi i8 [ %., %24 ], [ 2, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17heace37ea92eb04edE.exit" ], [ 2, %71 ], [ 2, %._crit_edge.i ], [ 2, %._crit_edge.i50 ], [ 2, %83 ]
   ret i8 %.sroa.0.0
 
 28:                                               ; preds = %26
@@ -6590,8 +6590,8 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit"
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit": ; preds = %99, %86, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split", %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit"
-  %104 = phi i64 [ %54, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %79, %86 ], [ %54, %99 ]
-  %105 = phi ptr [ %52, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.ph83, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %77, %86 ], [ %52, %99 ]
+  %104 = phi i64 [ %.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %54, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %79, %86 ], [ %54, %99 ]
+  %105 = phi ptr [ %.ph83, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %52, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %77, %86 ], [ %52, %99 ]
   store ptr %105, ptr %0, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %104, ptr %106, align 8
@@ -7066,7 +7066,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
   br label %85
@@ -7325,7 +7325,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
   br label %85
@@ -7584,7 +7584,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa82 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph86, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa82 = phi ptr [ %.sroa.0.0.ph86, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   br label %86
@@ -7844,7 +7844,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa82 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph86, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa82 = phi ptr [ %.sroa.0.0.ph86, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   br label %86
@@ -8104,7 +8104,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   br label %85
@@ -8552,7 +8552,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa82 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph86, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa82 = phi ptr [ %.sroa.0.0.ph86, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   br label %86
@@ -8816,7 +8816,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %22, label %.lr.ph161, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %81, %4
-  %.sroa.0.0.ph.lcssa87 = phi ptr [ null, %4 ], [ %.sroa.0.0.ph91, %81 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa87 = phi ptr [ %.sroa.0.0.ph91, %81 ], [ null, %4 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -9087,7 +9087,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa82 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph86, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa82 = phi ptr [ %.sroa.0.0.ph86, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   br label %86
@@ -9347,7 +9347,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   br label %85
@@ -9606,7 +9606,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa82 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph86, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa82 = phi ptr [ %.sroa.0.0.ph86, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 128, i1 false)
   br label %86

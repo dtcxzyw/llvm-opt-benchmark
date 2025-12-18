@@ -229,7 +229,7 @@ ir_bitqueue_pop.exit:                             ; preds = %25
   br i1 %69, label %.preheader166.i, label %ir_sccp_identity.exit.i
 
 ir_sccp_identity.exit.i:                          ; preds = %.preheader166.i, %58, %57
-  %.0.i.i = phi i32 [ %36, %58 ], [ 0, %57 ], [ %65, %.preheader166.i ]
+  %.0.i.i = phi i32 [ 0, %57 ], [ %36, %58 ], [ %65, %.preheader166.i ]
   %70 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !39
   %72 = sext i32 %71 to i64
@@ -372,7 +372,7 @@ ir_sccp_identity.exit.i:                          ; preds = %.preheader166.i, %5
   br i1 %141, label %.preheader163.i, label %ir_sccp_identity.exit141.i
 
 ir_sccp_identity.exit141.i:                       ; preds = %.preheader163.i, %129, %125
-  %.0.i139.i = phi i32 [ %127, %129 ], [ %127, %125 ], [ %137, %.preheader163.i ]
+  %.0.i139.i = phi i32 [ %127, %125 ], [ %127, %129 ], [ %137, %.preheader163.i ]
   %142 = icmp eq i32 %.0.i139.i, %.0.i.i
   br i1 %142, label %ir_sccp_add_input.exit.i, label %.loopexit.i
 
@@ -492,7 +492,7 @@ ir_sccp_add_input.exit.i:                         ; preds = %143, %ir_sccp_ident
   br i1 %203, label %.preheader162.i, label %ir_sccp_identity.exit144.i
 
 ir_sccp_identity.exit144.i:                       ; preds = %.preheader162.i, %191, %187
-  %.0.i142.i = phi i32 [ %189, %191 ], [ %189, %187 ], [ %199, %.preheader162.i ]
+  %.0.i142.i = phi i32 [ %189, %187 ], [ %189, %191 ], [ %199, %.preheader162.i ]
   %204 = icmp eq i32 %.0.i142.i, %.0.i.i
   %205 = icmp eq i32 %.0.i142.i, %.2.i386
   %or.cond.i = or i1 %204, %205
@@ -938,7 +938,7 @@ ir_sccp_make_bottom_ex.exit:                      ; preds = %382, %383
   br i1 %417, label %.preheader108.i, label %ir_sccp_identity.exit.i388
 
 ir_sccp_identity.exit.i388:                       ; preds = %.preheader108.i, %405, %._crit_edge.thread
-  %.0.i.i389 = phi i32 [ %399, %405 ], [ %399, %._crit_edge.thread ], [ %413, %.preheader108.i ]
+  %.0.i.i389 = phi i32 [ %399, %._crit_edge.thread ], [ %399, %405 ], [ %413, %.preheader108.i ]
   %418 = icmp sgt i32 %401, 0
   br i1 %418, label %419, label %ir_sccp_identity.exit87.i
 
@@ -962,7 +962,7 @@ ir_sccp_identity.exit.i388:                       ; preds = %.preheader108.i, %4
   br i1 %431, label %.preheader107.i, label %ir_sccp_identity.exit87.i
 
 ir_sccp_identity.exit87.i:                        ; preds = %.preheader107.i, %419, %ir_sccp_identity.exit.i388
-  %.0.i85.i = phi i32 [ %401, %419 ], [ %401, %ir_sccp_identity.exit.i388 ], [ %427, %.preheader107.i ]
+  %.0.i85.i = phi i32 [ %401, %ir_sccp_identity.exit.i388 ], [ %401, %419 ], [ %427, %.preheader107.i ]
   %432 = icmp sgt i32 %403, 0
   br i1 %432, label %433, label %ir_sccp_identity.exit90.i.preheader
 
@@ -1489,7 +1489,7 @@ ir_sccp_add_identity.exit425:                     ; preds = %.preheader.i422, %6
   store i32 108, ptr %703, align 8, !tbaa !39
   br label %725
 
-725:                                              ; preds = %700, %606, %605, %ir_sccp_add_identity.exit425, %646, %681, %701, %706, %724, %723
+725:                                              ; preds = %700, %606, %723, %605, %ir_sccp_add_identity.exit425, %646, %681, %701, %706, %724
   %726 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
   %727 = load i8, ptr %726, align 8, !tbaa !39
   %728 = icmp eq i8 %727, 108
@@ -2186,7 +2186,7 @@ ir_sccp_add_input.exit366:                        ; preds = %1047, %1050, %1062,
   br label %ir_sccp_add_input.exit368
 
 ir_sccp_add_input.exit368:                        ; preds = %ir_sccp_add_input.exit364, %1072, %1075, %1087, %1063, %1067, %ir_sccp_add_input.exit366
-  %.2 = phi i1 [ true, %1072 ], [ %.3, %1067 ], [ %.3, %1063 ], [ %.3, %ir_sccp_add_input.exit366 ], [ true, %1087 ], [ true, %1075 ], [ %.1, %ir_sccp_add_input.exit364 ]
+  %.2 = phi i1 [ true, %1075 ], [ true, %1072 ], [ %.3, %1067 ], [ %.3, %1063 ], [ %.3, %ir_sccp_add_input.exit366 ], [ true, %1087 ], [ %.1, %ir_sccp_add_input.exit364 ]
   %1088 = and i32 %47, 8192
   %.not340 = icmp eq i32 %1088, 0
   %or.cond356 = and i1 %.not340, %.2
@@ -2268,7 +2268,7 @@ ir_bitqueue_add.exit381.thread:                   ; preds = %1036, %ir_sccp_add_
   store i32 108, ptr %997, align 8, !tbaa !39
   br label %ir_sccp_make_bottom_ex.exit369
 
-ir_sccp_make_bottom_ex.exit369:                   ; preds = %._crit_edge506.thread, %792, %743, %733, %385, %725, %ir_sccp_make_bottom_ex.exit, %729, %395, %336, %335, %330, %310, %305, %285, %255, %ir_sccp_add_identity.exit, %304, %329, %749, %748, %794, %ir_bitqueue_add.exit379.thread, %ir_bitqueue_add.exit381.thread, %ir_bitqueue_add.exit380, %ir_bitqueue_add.exit378.thread
+ir_sccp_make_bottom_ex.exit369:                   ; preds = %._crit_edge506.thread, %792, %743, %733, %385, %725, %ir_sccp_make_bottom_ex.exit, %729, %395, %335, %330, %310, %305, %285, %255, %ir_sccp_add_identity.exit, %304, %336, %329, %749, %748, %794, %ir_bitqueue_add.exit379.thread, %ir_bitqueue_add.exit381.thread, %ir_bitqueue_add.exit380, %ir_bitqueue_add.exit378.thread
   %1136 = load ptr, ptr %11, align 8, !tbaa !41
   %1137 = getelementptr inbounds nuw %struct._ir_use_list, ptr %1136, i64 %42
   %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 4
@@ -2416,7 +2416,7 @@ define internal fastcc void @ir_sccp_transform(ptr noundef %0, ptr noundef reado
   br i1 %54, label %.preheader105, label %ir_sccp_identity.exit
 
 ir_sccp_identity.exit:                            ; preds = %.preheader105, %38, %42
-  %.0.i95 = phi i32 [ %40, %42 ], [ %40, %38 ], [ %50, %.preheader105 ]
+  %.0.i95 = phi i32 [ %40, %38 ], [ %40, %42 ], [ %50, %.preheader105 ]
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @ir_sccp_replace_insn(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %55, i32 noundef %.0.i95, ptr noundef %3)
   br label %ir_sccp_remove_insn.exit
@@ -3695,7 +3695,7 @@ ir_try_promote_ext.exit.thread.sink.split:        ; preds = %88, %84
   store i32 %.sink, ptr %75, align 4, !tbaa !39
   br label %ir_try_promote_ext.exit.thread
 
-ir_try_promote_ext.exit.thread:                   ; preds = %155, %159, %ir_try_promote_ext.exit.thread.sink.split, %130, %118, %109, %112, %99, %127, %59, %90, %82, %86, %66, %70
+ir_try_promote_ext.exit.thread:                   ; preds = %159, %155, %ir_try_promote_ext.exit.thread.sink.split, %130, %118, %109, %112, %99, %127, %59, %90, %82, %86, %66, %70
   %285 = load ptr, ptr %0, align 8, !tbaa !38
   %286 = getelementptr inbounds nuw %struct._ir_insn, ptr %285, i64 %34
   %287 = load i16, ptr %286, align 8, !tbaa !39
@@ -5426,7 +5426,7 @@ ir_sccp_add_uses.exit:                            ; preds = %ir_bitqueue_add.exi
   br i1 %75, label %.preheader, label %ir_sccp_identity.exit
 
 ir_sccp_identity.exit:                            ; preds = %.preheader, %ir_sccp_add_uses.exit, %63
-  %.0.i77 = phi i32 [ %.07181, %63 ], [ %.07181, %ir_sccp_add_uses.exit ], [ %71, %.preheader ]
+  %.0.i77 = phi i32 [ %.07181, %ir_sccp_add_uses.exit ], [ %.07181, %63 ], [ %71, %.preheader ]
   %76 = icmp eq i32 %.0.i77, %3
   br i1 %76, label %77, label %90
 
@@ -6034,7 +6034,7 @@ tailrecurse.backedge:                             ; preds = %19, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %35, %19, %15, %.loopexit.loopexit, %tailrecurse._crit_edge, %9
-  %.0 = phi i1 [ false, %tailrecurse._crit_edge ], [ %14, %9 ], [ true, %.loopexit.loopexit ], [ false, %15 ], [ false, %19 ], [ false, %35 ], [ false, %29 ]
+  %.0 = phi i1 [ false, %tailrecurse._crit_edge ], [ true, %.loopexit.loopexit ], [ %14, %9 ], [ false, %15 ], [ false, %19 ], [ false, %35 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -6534,7 +6534,7 @@ tailrecurse.backedge:                             ; preds = %23, %39
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %39, %23, %13, %.loopexit.loopexit, %tailrecurse._crit_edge, %9, %17
-  %.0 = phi i1 [ false, %tailrecurse._crit_edge ], [ %12, %9 ], [ %22, %17 ], [ true, %.loopexit.loopexit ], [ false, %13 ], [ false, %23 ], [ false, %39 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %tailrecurse._crit_edge ], [ true, %.loopexit.loopexit ], [ %12, %9 ], [ %22, %17 ], [ false, %13 ], [ false, %23 ], [ false, %39 ], [ false, %33 ]
   ret i1 %.0
 }
 
@@ -6796,7 +6796,7 @@ tailrecurse.backedge:                             ; preds = %24, %40
   br i1 %43, label %tailrecurse.backedge, label %switch.edge
 
 switch.edge:                                      ; preds = %11, %34, %40, %24, %tailrecurse._crit_edge, %15
-  %.0 = phi i1 [ %23, %15 ], [ %switch, %tailrecurse._crit_edge ], [ false, %24 ], [ false, %40 ], [ false, %34 ], [ false, %11 ]
+  %.0 = phi i1 [ %switch, %tailrecurse._crit_edge ], [ %23, %15 ], [ false, %24 ], [ false, %40 ], [ false, %34 ], [ false, %11 ]
   ret i1 %.0
 }
 

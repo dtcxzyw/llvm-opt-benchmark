@@ -3073,7 +3073,7 @@ for.end132:                                       ; preds = %_ZN2v810MaybeLocalI
   br label %return
 
 return:                                           ; preds = %if.end84, %if.then47, %entry, %for.end132
-  %retval.sroa.0.0 = phi i64 [ -94489280511, %entry ], [ 1, %for.end132 ], [ 0, %if.then47 ], [ 0, %if.end84 ]
+  %retval.sroa.0.0 = phi i64 [ 1, %for.end132 ], [ -94489280511, %entry ], [ 0, %if.then47 ], [ 0, %if.end84 ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -4015,7 +4015,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %return, !llvm.loop !21
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %5, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %9 = load ptr, ptr %second, align 8
   %vtable = load ptr, ptr %9, align 8
@@ -4025,7 +4025,7 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   br label %return
 
 return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.then
-  %retval.0 = phi i1 [ %call10, %if.then ], [ false, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %if.end3.i.i.i.i ]
+  %retval.0 = phi i1 [ %call10, %if.then ], [ false, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ false, %for.cond.i.i ], [ false, %if.end15.i.i ], [ false, %if.end3.i.i.i.i ]
   ret i1 %retval.0
 }
 

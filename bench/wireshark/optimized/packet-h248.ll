@@ -2444,7 +2444,7 @@ define hidden ptr @gcp_trx(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %69, %75, %5
-  %.047 = phi ptr [ null, %5 ], [ %.146, %75 ], [ %.146, %69 ], [ %15, %16 ]
+  %.047 = phi ptr [ null, %5 ], [ %.146, %69 ], [ %.146, %75 ], [ %15, %16 ]
   ret ptr %.047
 }
 
@@ -2834,7 +2834,7 @@ define hidden ptr @gcp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %74, %80, %7
-  %.071 = phi ptr [ null, %7 ], [ %.070, %80 ], [ %.070, %74 ], [ %20, %24 ]
+  %.071 = phi ptr [ null, %7 ], [ %.070, %74 ], [ %.070, %80 ], [ %20, %24 ]
   ret ptr %.071
 }
 
@@ -3137,7 +3137,7 @@ define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.lr.ph137, %23, %29, %22, %8, %7, %170, %162, %._crit_edge, %121, %93, %54, %34
-  %.0106 = phi ptr [ null, %7 ], [ @gcp_cmd_add_term.all_terms, %8 ], [ %3, %170 ], [ %35, %34 ], [ %169, %162 ], [ %75, %54 ], [ %116, %93 ], [ %128, %121 ], [ %134, %._crit_edge ], [ null, %29 ], [ null, %22 ], [ null, %23 ], [ %25, %.lr.ph137 ], [ null, %36 ]
+  %.0106 = phi ptr [ null, %7 ], [ @gcp_cmd_add_term.all_terms, %8 ], [ %3, %170 ], [ %35, %34 ], [ null, %23 ], [ %169, %162 ], [ %75, %54 ], [ %116, %93 ], [ %128, %121 ], [ %134, %._crit_edge ], [ null, %29 ], [ null, %22 ], [ %25, %.lr.ph137 ], [ null, %36 ]
   ret ptr %.0106
 }
 

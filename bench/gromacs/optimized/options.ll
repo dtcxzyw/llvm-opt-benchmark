@@ -1540,7 +1540,7 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZNSt6vectorINSt15_
   ret void
 
 .loopexit:                                        ; preds = %22, %52, %50, %61, %63, %58
-  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %.pn37, %63 ], [ %62, %61 ], [ %51, %50 ], [ %.pn23, %52 ], [ %23, %22 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %.pn37, %63 ], [ %62, %61 ], [ %.pn23, %52 ], [ %51, %50 ], [ %23, %22 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.merged

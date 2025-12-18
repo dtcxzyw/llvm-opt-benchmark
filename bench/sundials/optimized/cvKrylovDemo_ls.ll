@@ -463,7 +463,7 @@ check_retval.exit153:                             ; preds = %.split, %.split.us
   br i1 %exitcond.not, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %183, %175, %check_retval.exit153
-  %186 = phi ptr [ %180, %check_retval.exit153 ], [ %172, %175 ], [ %159, %183 ]
+  %186 = phi ptr [ %172, %175 ], [ %180, %check_retval.exit153 ], [ %159, %183 ]
   br i1 %.061, label %check_retval.exit129, label %187
 
 187:                                              ; preds = %.loopexit

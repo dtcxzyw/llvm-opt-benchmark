@@ -3630,12 +3630,12 @@ cleanup:                                          ; preds = %for.body37
   br i1 %or.cond, label %for.inc60, label %for.body37
 
 for.inc60:                                        ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %cleanup, %if.end30, %if.end, %if.end15.i.i.i
-  %.pre.pre.pre215 = phi ptr [ %.pre.pre.pre216, %if.end ], [ %.pre.pre.pre216, %if.end15.i.i.i ], [ %.pre.pre.pre216, %if.end30 ], [ %.pre.pre.pre216, %for.cond.i.i.i ], [ %21, %cleanup ], [ %.pre.pre.pre216, %if.end3.i.i.i.i.i ], [ %.pre.pre.pre216, %lor.lhs.false.i.i.i.i.i ]
-  %.pre.pre211 = phi ptr [ %.pre.pre212, %if.end ], [ %.pre.pre212, %if.end15.i.i.i ], [ %.pre.pre212, %if.end30 ], [ %.pre.pre212, %for.cond.i.i.i ], [ %21, %cleanup ], [ %.pre.pre212, %if.end3.i.i.i.i.i ], [ %.pre.pre212, %lor.lhs.false.i.i.i.i.i ]
-  %.pre208 = phi ptr [ %.pre209, %if.end ], [ %.pre209, %if.end15.i.i.i ], [ %.pre209, %if.end30 ], [ %.pre209, %for.cond.i.i.i ], [ %21, %cleanup ], [ %.pre209, %if.end3.i.i.i.i.i ], [ %.pre209, %lor.lhs.false.i.i.i.i.i ]
-  %22 = phi ptr [ %5, %if.end ], [ %5, %if.end15.i.i.i ], [ %5, %if.end30 ], [ %5, %for.cond.i.i.i ], [ %21, %cleanup ], [ %5, %if.end3.i.i.i.i.i ], [ %5, %lor.lhs.false.i.i.i.i.i ]
-  %previous_c.3147 = phi i16 [ %previous_c.2184, %if.end ], [ %n.sroa.0.0.extract.trunc126, %if.end15.i.i.i ], [ %previous_c.3153, %if.end30 ], [ %n.sroa.0.0.extract.trunc126, %for.cond.i.i.i ], [ %previous_c.3153, %cleanup ], [ %n.sroa.0.0.extract.trunc126, %if.end3.i.i.i.i.i ], [ %n.sroa.0.0.extract.trunc126, %lor.lhs.false.i.i.i.i.i ]
-  %lbm_list.3146 = phi ptr [ null, %if.end ], [ null, %if.end15.i.i.i ], [ %lbm_list.3152, %if.end30 ], [ null, %for.cond.i.i.i ], [ %lbm_list.3152, %cleanup ], [ null, %if.end3.i.i.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i ]
+  %.pre.pre.pre215 = phi ptr [ %.pre.pre.pre216, %if.end ], [ %.pre.pre.pre216, %if.end15.i.i.i ], [ %.pre.pre.pre216, %if.end30 ], [ %21, %cleanup ], [ %.pre.pre.pre216, %for.cond.i.i.i ], [ %.pre.pre.pre216, %if.end3.i.i.i.i.i ], [ %.pre.pre.pre216, %lor.lhs.false.i.i.i.i.i ]
+  %.pre.pre211 = phi ptr [ %.pre.pre212, %if.end ], [ %.pre.pre212, %if.end15.i.i.i ], [ %.pre.pre212, %if.end30 ], [ %21, %cleanup ], [ %.pre.pre212, %for.cond.i.i.i ], [ %.pre.pre212, %if.end3.i.i.i.i.i ], [ %.pre.pre212, %lor.lhs.false.i.i.i.i.i ]
+  %.pre208 = phi ptr [ %.pre209, %if.end ], [ %.pre209, %if.end15.i.i.i ], [ %.pre209, %if.end30 ], [ %21, %cleanup ], [ %.pre209, %for.cond.i.i.i ], [ %.pre209, %if.end3.i.i.i.i.i ], [ %.pre209, %lor.lhs.false.i.i.i.i.i ]
+  %22 = phi ptr [ %5, %if.end ], [ %5, %if.end15.i.i.i ], [ %5, %if.end30 ], [ %21, %cleanup ], [ %5, %for.cond.i.i.i ], [ %5, %if.end3.i.i.i.i.i ], [ %5, %lor.lhs.false.i.i.i.i.i ]
+  %previous_c.3147 = phi i16 [ %previous_c.2184, %if.end ], [ %n.sroa.0.0.extract.trunc126, %if.end15.i.i.i ], [ %previous_c.3153, %if.end30 ], [ %previous_c.3153, %cleanup ], [ %n.sroa.0.0.extract.trunc126, %for.cond.i.i.i ], [ %n.sroa.0.0.extract.trunc126, %if.end3.i.i.i.i.i ], [ %n.sroa.0.0.extract.trunc126, %lor.lhs.false.i.i.i.i.i ]
+  %lbm_list.3146 = phi ptr [ null, %if.end ], [ null, %if.end15.i.i.i ], [ %lbm_list.3152, %if.end30 ], [ %lbm_list.3152, %cleanup ], [ null, %for.cond.i.i.i ], [ null, %if.end3.i.i.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.inc63, label %for.body19, !llvm.loop !180
@@ -3982,7 +3982,7 @@ cond.end.i.thread.i.i:                            ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp.not.i32.i.i, label %if.end12.i.i.i, label %while.body.i.i.i.backedge
 
 while.body.i.i.i.backedge:                        ; preds = %cond.end.i.thread.i.i, %cond.end.i.i.i
-  %__x.059.i.i.i.be = phi ptr [ %__x.0.i.i.i, %cond.end.i.i.i ], [ %__x.0.i31.i.i, %cond.end.i.thread.i.i ]
+  %__x.059.i.i.i.be = phi ptr [ %__x.0.i31.i.i, %cond.end.i.thread.i.i ], [ %__x.0.i.i.i, %cond.end.i.i.i ]
   br label %while.body.i.i.i, !llvm.loop !243
 
 if.then.i.i.i:                                    ; preds = %cond.end.i.i.i, %if.then.i
@@ -4532,7 +4532,7 @@ cond.end.i.thread.i:                              ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp.not.i32.i, label %if.end12.i.i, label %while.body.i.i.backedge
 
 while.body.i.i.backedge:                          ; preds = %cond.end.i.thread.i, %cond.end.i.i
-  %__x.059.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i31.i, %cond.end.i.thread.i ]
+  %__x.059.i.i.be = phi ptr [ %__x.0.i31.i, %cond.end.i.thread.i ], [ %__x.0.i.i, %cond.end.i.i ]
   br label %while.body.i.i, !llvm.loop !243
 
 if.then.i.i:                                      ; preds = %cond.end.i.i, %if.then
@@ -33930,7 +33930,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %cleanup16
 
 cleanup16:                                        ; preds = %if.end4.i, %if.end4.us.i, %lor.lhs.false.i, %if.end3.i, %lor.lhs.false.us.i, %if.end3.us.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P23LoadingBlockModifierDefESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSC_15_Hash_node_baseEPNSC_10_Hash_nodeISA_Lb1EEE.exit, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P23LoadingBlockModifierDefENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.1 = phi i64 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P23LoadingBlockModifierDefESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSC_15_Hash_node_baseEPNSC_10_Hash_nodeISA_Lb1EEE.exit ], [ 0, %if.then ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P23LoadingBlockModifierDefENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ 0, %if.end4.us.i ], [ 0, %lor.lhs.false.us.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end3.us.i ], [ 0, %if.end3.i ], [ 0, %if.end4.i ]
+  %retval.1 = phi i64 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P23LoadingBlockModifierDefESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSC_15_Hash_node_baseEPNSC_10_Hash_nodeISA_Lb1EEE.exit ], [ 0, %if.then ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P23LoadingBlockModifierDefENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ 0, %if.end4.us.i ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false.us.i ], [ 0, %if.end3.us.i ], [ 0, %if.end3.i ], [ 0, %if.end4.i ]
   ret i64 %retval.1
 }
 

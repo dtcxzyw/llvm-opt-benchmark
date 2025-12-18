@@ -9346,7 +9346,7 @@ if.end276:                                        ; preds = %if.then257, %while.
   br i1 %cmp.i624.not, label %while.end280, label %land.rhs245, !llvm.loop !211
 
 cleanup.thread:                                   ; preds = %while.end, %do.end, %if.end233
-  %charsheight.2.lcssa.ph = phi i32 [ %charsheight.1, %if.end233 ], [ %charsheight.0772, %while.end ], [ 0, %do.end ]
+  %charsheight.2.lcssa.ph = phi i32 [ %charsheight.1, %if.end233 ], [ 0, %do.end ], [ %charsheight.0772, %while.end ]
   %y.3838 = add i32 %charsheight.2.lcssa.ph, %.us-phi
   br label %while.end427
 

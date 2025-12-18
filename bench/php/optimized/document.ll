@@ -3059,7 +3059,7 @@ php_dom_transfer_document_ref_single_aux.exit24.thread.i: ; preds = %php_dom_tra
   br i1 %.not17.i.i, label %.preheader.i, label %php_dom_next_in_tree_order.exit.i.backedge
 
 php_dom_next_in_tree_order.exit.i.backedge:       ; preds = %90, %php_dom_transfer_document_ref_single_aux.exit24.thread.i, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i
-  %.026.i.be = phi ptr [ %81, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i ], [ %83, %php_dom_transfer_document_ref_single_aux.exit24.thread.i ], [ %92, %90 ]
+  %.026.i.be = phi ptr [ %83, %php_dom_transfer_document_ref_single_aux.exit24.thread.i ], [ %81, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i ], [ %92, %90 ]
   br label %php_dom_next_in_tree_order.exit.i
 
 .preheader.i:                                     ; preds = %php_dom_transfer_document_ref_single_aux.exit24.thread.i, %90

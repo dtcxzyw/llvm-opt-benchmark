@@ -1609,7 +1609,7 @@ agxbuf_trim_zeros.exit.thread:                    ; preds = %108
   br label %agxbsizeof.exit.i.i34
 
 agxbuf_trim_zeros.exit:                           ; preds = %70, %85, %agxblen.exit42.i, %101, %105, %109
-  %.val.i30 = phi i8 [ %110, %109 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i39.i, %105 ], [ %.val.i39.i, %101 ], [ %.val.i3951.i, %85 ], [ %.val.i.i, %70 ]
+  %.val.i30 = phi i8 [ %110, %109 ], [ %.val.i39.i, %101 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i3951.i, %85 ], [ %.val.i39.i, %105 ], [ %.val.i.i, %70 ]
   %.not.i31 = icmp eq i8 %.val.i30, -1
   br i1 %.not.i31, label %agxbsizeof.exit.i.i34, label %agxblen.exit.i32
 

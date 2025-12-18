@@ -3161,9 +3161,9 @@ _ZN6bufferIPN18elim_unconstrained4nodeELb0ELj16EE6expandEv.exit.i: ; preds = %.n
   resume { ptr, i32 } %47
 
 .loopexit:                                        ; preds = %._crit_edge.i, %14, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE3endEv.exit, %7
-  %48 = phi ptr [ %8, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE3endEv.exit ], [ %8, %7 ], [ %8, %14 ], [ %39, %._crit_edge.i ]
-  %49 = phi i32 [ %10, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE3endEv.exit ], [ %10, %7 ], [ %10, %14 ], [ %44, %._crit_edge.i ]
-  %50 = phi i32 [ %9, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE3endEv.exit ], [ %9, %7 ], [ %9, %14 ], [ %40, %._crit_edge.i ]
+  %48 = phi ptr [ %8, %14 ], [ %8, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE3endEv.exit ], [ %8, %7 ], [ %39, %._crit_edge.i ]
+  %49 = phi i32 [ %10, %14 ], [ %10, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE3endEv.exit ], [ %10, %7 ], [ %44, %._crit_edge.i ]
+  %50 = phi i32 [ %9, %14 ], [ %9, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE3endEv.exit ], [ %9, %7 ], [ %40, %._crit_edge.i ]
   %51 = icmp eq i32 %49, 0
   br i1 %51, label %.thread, label %52
 
@@ -5523,7 +5523,7 @@ _ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit: ; preds = %38
   br label %52
 
 ._crit_edge39:                                    ; preds = %103, %38, %_ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit
-  %47 = phi ptr [ %25, %_ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit ], [ %25, %38 ], [ %104, %103 ]
+  %47 = phi ptr [ %25, %38 ], [ %25, %_ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit ], [ %104, %103 ]
   store ptr null, ptr %6, align 8, !tbaa !171
   invoke void @_ZN26model_reconstruction_trail4pushEP17expr_substitutionRK6vectorI14dependent_exprLb1EjE(ptr noundef nonnull align 8 dereferenceable(97) %13, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %105 unwind label %131
@@ -9005,7 +9005,7 @@ _ZSt13move_backwardIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit: ; preds =
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !262
 
 _ZSt11swap_rangesIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN18elim_unconstrained4nodeES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

@@ -4589,7 +4589,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   br label %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread"
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %112, %94, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exit
-  %.031.ph.ph = phi i8 [ 1, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exit ], [ 0, %112 ], [ 1, %94 ]
+  %.031.ph.ph = phi i8 [ 1, %94 ], [ 0, %112 ], [ 1, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exit ]
   %lpad.loopexit.split-lp92 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit"
@@ -6192,7 +6192,7 @@ define hidden void @_ZN9typst_pdf5image19encode_raster_image17h42aaa5eea4c21e75E
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdbfe9cd2284ac618E.exit"
 
-.thread39:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit.i.i", %53
+.thread39:                                        ; preds = %53, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !853
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

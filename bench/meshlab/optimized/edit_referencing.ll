@@ -9267,7 +9267,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i361: ; preds = %_ZN7
   br label %.loopexit436
 
 .loopexit436:                                     ; preds = %283, %288, %.thread420, %.loopexit.split-lp, %146, %140
-  %.pn54 = phi { ptr, i32 } [ %141, %140 ], [ %.pn52, %.loopexit.split-lp ], [ %125, %.thread420 ], [ %.pn48, %146 ], [ %287, %288 ], [ %282, %283 ]
+  %.pn54 = phi { ptr, i32 } [ %141, %140 ], [ %.pn52, %.loopexit.split-lp ], [ %.pn48, %146 ], [ %125, %.thread420 ], [ %287, %288 ], [ %282, %283 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #29
   br label %729
 
@@ -13363,7 +13363,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi
   br label %56
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi4ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph83.i.i.i.i, %49, %41
-  %53 = phi double [ %51, %49 ], [ %42, %41 ], [ %47, %.lr.ph83.i.i.i.i ]
+  %53 = phi double [ %42, %41 ], [ %51, %49 ], [ %47, %.lr.ph83.i.i.i.i ]
   %54 = load double, ptr %8, align 8
   %55 = fcmp ugt double %53, 0x10000000000000
   br i1 %55, label %.critedge, label %56
@@ -27369,7 +27369,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i437: ; preds = %_ZN7
   br label %.loopexit524
 
 .loopexit524:                                     ; preds = %334, %339, %.thread508, %.loopexit.split-lp, %164, %158
-  %.pn76 = phi { ptr, i32 } [ %159, %158 ], [ %.pn74, %.loopexit.split-lp ], [ %143, %.thread508 ], [ %.pn70, %164 ], [ %338, %339 ], [ %333, %334 ]
+  %.pn76 = phi { ptr, i32 } [ %159, %158 ], [ %.pn74, %.loopexit.split-lp ], [ %.pn70, %164 ], [ %143, %.thread508 ], [ %338, %339 ], [ %333, %334 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #29
   br label %980
 

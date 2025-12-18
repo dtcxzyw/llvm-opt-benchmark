@@ -1053,9 +1053,9 @@ isSSL.exit.thread.i:                              ; preds = %isSSL.exit98.i, %is
   br i1 %.not89.i, label %283, label %.thread129.thread152.i
 
 .thread129.thread152.i:                           ; preds = %.thread138.i, %274, %isSSL.exit.thread.i, %256, %241, %237, %235, %233, %226
-  %.0119133159.i = phi i32 [ %.0119142.i, %.thread138.i ], [ 100, %274 ], [ 100, %226 ], [ 100, %235 ], [ 100, %241 ], [ 100, %isSSL.exit.thread.i ], [ 100, %256 ], [ 100, %237 ], [ 100, %233 ]
-  %.057134158.i = phi ptr [ %.057143.i, %.thread138.i ], [ %221, %274 ], [ %221, %226 ], [ %221, %235 ], [ %221, %241 ], [ %221, %isSSL.exit.thread.i ], [ %221, %256 ], [ %221, %237 ], [ %221, %233 ]
-  %.0135157.i = phi ptr [ %.0144.i, %.thread138.i ], [ %225, %274 ], [ null, %226 ], [ %225, %235 ], [ %225, %241 ], [ %225, %isSSL.exit.thread.i ], [ %225, %256 ], [ %225, %237 ], [ %225, %233 ]
+  %.0119133159.i = phi i32 [ %.0119142.i, %.thread138.i ], [ 100, %274 ], [ 100, %233 ], [ 100, %237 ], [ 100, %256 ], [ 100, %226 ], [ 100, %235 ], [ 100, %241 ], [ 100, %isSSL.exit.thread.i ]
+  %.057134158.i = phi ptr [ %.057143.i, %.thread138.i ], [ %221, %274 ], [ %221, %233 ], [ %221, %237 ], [ %221, %256 ], [ %221, %226 ], [ %221, %235 ], [ %221, %241 ], [ %221, %isSSL.exit.thread.i ]
+  %.0135157.i = phi ptr [ %.0144.i, %.thread138.i ], [ %225, %274 ], [ %225, %233 ], [ %225, %237 ], [ %225, %256 ], [ null, %226 ], [ %225, %235 ], [ %225, %241 ], [ %225, %isSSL.exit.thread.i ]
   call void @free(ptr noundef nonnull %.057134158.i) #17
   br label %283
 
@@ -1407,7 +1407,7 @@ select.unfold:                                    ; preds = %377, %phishing_ret_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %.loopexit.sink.split, %.preheader, %21, %2
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %21 ], [ 0, %2 ], [ %.2.ph, %.loopexit.sink.split ], [ 0, %select.unfold ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %21 ], [ %.2.ph, %.loopexit.sink.split ], [ 0, %2 ], [ 0, %select.unfold ]
   ret i32 %.2
 }
 
@@ -2099,7 +2099,7 @@ define internal fastcc range(i32 0, 2) i32 @isURL(ptr noundef %0, i32 noundef ra
   br i1 %21, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %11, %19, %15, %9
-  %.082 = phi ptr [ %10, %9 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
+  %.082 = phi ptr [ %22, %19 ], [ %10, %9 ], [ %18, %15 ], [ %14, %11 ]
   %23 = getelementptr inbounds nuw i8, ptr %.082, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !94
   %25 = icmp eq i8 %24, 47
@@ -2112,7 +2112,7 @@ select.unfold:                                    ; preds = %11, %19, %15, %9
   br i1 %29, label %in_tld_set.exit.thread, label %.thread
 
 .thread:                                          ; preds = %.preheader159, %11, %19, %15, %26, %select.unfold
-  %.082142 = phi ptr [ %.082, %select.unfold ], [ %.082, %26 ], [ null, %15 ], [ null, %19 ], [ null, %11 ], [ null, %.preheader159 ]
+  %.082142 = phi ptr [ %.082, %select.unfold ], [ %.082, %26 ], [ null, %11 ], [ null, %15 ], [ null, %19 ], [ null, %.preheader159 ]
   %.not98 = icmp eq i32 %1, 0
   br i1 %.not98, label %32, label %30
 
@@ -2507,7 +2507,7 @@ in_tld_set.exit137:                               ; preds = %tld_hash.exit.i132,
   br label %in_tld_set.exit.thread
 
 in_tld_set.exit.thread:                           ; preds = %.lr.ph.split, %.lr.ph.i, %.lr.ph.split.us, %.lr.ph.i.us, %.critedge115, %233, %tld_hash.exit.i, %100, %106, %111, %69, %in_tld_set.exit137, %237, %.thread149, %.critedge, %26, %2, %238
-  %.088 = phi i32 [ 0, %2 ], [ 0, %.thread149 ], [ 1, %238 ], [ 0, %237 ], [ 0, %in_tld_set.exit137 ], [ 1, %26 ], [ 0, %.critedge ], [ 0, %tld_hash.exit.i ], [ 0, %69 ], [ 0, %111 ], [ 0, %106 ], [ 0, %100 ], [ %.mux, %233 ], [ 0, %.critedge115 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+  %.088 = phi i32 [ 0, %2 ], [ %.mux, %233 ], [ 0, %.thread149 ], [ 1, %238 ], [ 0, %237 ], [ 0, %in_tld_set.exit137 ], [ 0, %.lr.ph.i.us ], [ 1, %26 ], [ 0, %.critedge ], [ 0, %tld_hash.exit.i ], [ 0, %69 ], [ 0, %111 ], [ 0, %106 ], [ 0, %100 ], [ 0, %.critedge115 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.split ]
   ret i32 %.088
 }
 

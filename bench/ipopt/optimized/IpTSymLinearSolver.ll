@@ -1999,7 +1999,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit87..loopexit_crit_edge: ; preds = %_ZN5Ipopt9Timed
   br i1 %exitcond129.not, label %.loopexit93, label %214, !llvm.loop !110
 
 .loopexit93:                                      ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit85, %.loopexit, %.preheader
-  %306 = phi i32 [ 0, %.preheader ], [ 0, %.loopexit ], [ %209, %_ZN5Ipopt9TimedTask3EndEv.exit85 ]
+  %306 = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ %209, %_ZN5Ipopt9TimedTask3EndEv.exit85 ]
   tail call void @_ZdaPv(ptr noundef nonnull %38) #17
   br label %307
 

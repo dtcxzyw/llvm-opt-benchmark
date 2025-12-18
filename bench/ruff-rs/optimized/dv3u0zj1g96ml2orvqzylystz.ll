@@ -1757,7 +1757,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   ret void
 
 66:                                               ; preds = %53, %49
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %49 ], [ %59, %53 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %59, %53 ], [ %.sroa.6.1.i.i, %49 ]
   %67 = load i64, ptr %7, align 8, !range !180, !noundef !3
   %68 = load ptr, ptr %8, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !181)
@@ -1940,7 +1940,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7c
   ret void
 
 65:                                               ; preds = %51, %47
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %47 ], [ %57, %51 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %57, %51 ], [ %.sroa.6.1.i.i, %47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2124,7 +2124,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   ret i1 %.sroa.0.0
 
 58:                                               ; preds = %49, %45
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %45 ], [ %55, %49 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %55, %49 ], [ %.sroa.6.1.i.i, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -8552,7 +8552,7 @@ define hidden noundef zeroext i1 @_ZN21ruff_python_formatter9statement5suite49sh
   br i1 %or.cond.not15, label %14, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h37d37f355f4718feE.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h37d37f355f4718feE.exit": ; preds = %46, %41, %62, %60, %48, %79, %80, %72, %85, %5
-  %.sroa.03.0 = phi i1 [ true, %79 ], [ false, %5 ], [ true, %80 ], [ %86, %85 ], [ true, %72 ], [ false, %48 ], [ false, %41 ], [ %.not.not.not.i.not.not.not.i.not, %62 ], [ %.not.not.not.i.not.not.not.i.not, %60 ], [ true, %46 ]
+  %.sroa.03.0 = phi i1 [ true, %79 ], [ false, %5 ], [ true, %80 ], [ %86, %85 ], [ false, %41 ], [ true, %72 ], [ false, %48 ], [ %.not.not.not.i.not.not.not.i.not, %62 ], [ %.not.not.not.i.not.not.not.i.not, %60 ], [ true, %46 ]
   ret i1 %.sroa.03.0
 
 14:                                               ; preds = %5

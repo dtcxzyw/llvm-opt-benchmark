@@ -1412,8 +1412,8 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.th
   br label %.loopexit
 
 _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ; preds = %446, %462
-  %.5466 = phi i32 [ %.4, %462 ], [ %.1463493, %446 ]
-  %.032.i = phi i32 [ %.4.i, %462 ], [ %.lobit.i, %446 ]
+  %.5466 = phi i32 [ %.1463493, %446 ], [ %.4, %462 ]
+  %.032.i = phi i32 [ %.lobit.i, %446 ], [ %.4.i, %462 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %463 = icmp slt i32 %.032.i, 0
   br i1 %463, label %.loopexit, label %488
@@ -1497,11 +1497,11 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br i1 %.not446, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %488, %410, %383, %select.unfold
-  %.1463.lcssa = phi i32 [ %.0462508, %select.unfold ], [ %.0462508, %383 ], [ %.0462508, %410 ], [ %.3465, %488 ]
-  %.1402.lcssa = phi i8 [ %.0401509, %select.unfold ], [ %.0401509, %383 ], [ %.2403.us, %410 ], [ %.2403, %488 ]
-  %.1397.lcssa = phi i8 [ %.0396510, %select.unfold ], [ %.0396510, %383 ], [ %.2398.us, %410 ], [ %.2398, %488 ]
-  %.1392.lcssa = phi i8 [ %.0391511, %select.unfold ], [ %.0391511, %383 ], [ %.2393.us, %410 ], [ %.2393, %488 ]
-  %.1387.lcssa = phi i8 [ %.0386512, %select.unfold ], [ %.0386512, %383 ], [ %.2388.us, %410 ], [ %.2388, %488 ]
+  %.1463.lcssa = phi i32 [ %.0462508, %select.unfold ], [ %.0462508, %410 ], [ %.0462508, %383 ], [ %.3465, %488 ]
+  %.1402.lcssa = phi i8 [ %.0401509, %select.unfold ], [ %.2403.us, %410 ], [ %.0401509, %383 ], [ %.2403, %488 ]
+  %.1397.lcssa = phi i8 [ %.0396510, %select.unfold ], [ %.2398.us, %410 ], [ %.0396510, %383 ], [ %.2398, %488 ]
+  %.1392.lcssa = phi i8 [ %.0391511, %select.unfold ], [ %.2393.us, %410 ], [ %.0391511, %383 ], [ %.2393, %488 ]
+  %.1387.lcssa = phi i8 [ %.0386512, %select.unfold ], [ %.2388.us, %410 ], [ %.0386512, %383 ], [ %.2388, %488 ]
   %490 = icmp eq i32 %.1463.lcssa, 0
   br i1 %490, label %491, label %554
 

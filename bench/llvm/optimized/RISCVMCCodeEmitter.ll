@@ -15931,8 +15931,8 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getI
   br label %63
 
 63:                                               ; preds = %42, %38, %35, %58, %.fold.split, %29, %32, %37, %40, %41, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %59, %61, %62, %60
-  %.145 = phi i1 [ false, %29 ], [ false, %58 ], [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %53 ], [ false, %32 ], [ false, %52 ], [ false, %51 ], [ false, %50 ], [ false, %49 ], [ true, %48 ], [ true, %37 ], [ false, %.fold.split ], [ true, %40 ], [ false, %41 ], [ true, %42 ], [ true, %44 ], [ false, %45 ], [ false, %46 ], [ true, %47 ], [ true, %35 ], [ true, %38 ]
-  %.4 = phi i32 [ 154, %29 ], [ 142, %58 ], [ 143, %59 ], [ 144, %60 ], [ 145, %61 ], [ 130, %62 ], [ 154, %53 ], [ 154, %32 ], [ 153, %52 ], [ 152, %51 ], [ 151, %50 ], [ 150, %49 ], [ 147, %48 ], [ 128, %37 ], [ 154, %.fold.split ], [ 132, %40 ], [ 135, %41 ], [ %spec.select52, %42 ], [ 136, %44 ], [ 140, %45 ], [ 141, %46 ], [ 146, %47 ], [ %spec.select, %35 ], [ %spec.select51, %38 ]
+  %.145 = phi i1 [ false, %29 ], [ true, %38 ], [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %58 ], [ false, %53 ], [ false, %32 ], [ false, %52 ], [ false, %51 ], [ false, %50 ], [ false, %49 ], [ true, %48 ], [ true, %37 ], [ false, %.fold.split ], [ true, %40 ], [ false, %41 ], [ true, %42 ], [ true, %44 ], [ false, %45 ], [ false, %46 ], [ true, %47 ], [ true, %35 ]
+  %.4 = phi i32 [ 154, %29 ], [ %spec.select51, %38 ], [ 143, %59 ], [ 144, %60 ], [ 145, %61 ], [ 130, %62 ], [ 142, %58 ], [ 154, %53 ], [ 154, %32 ], [ 153, %52 ], [ 152, %51 ], [ 151, %50 ], [ 150, %49 ], [ 147, %48 ], [ 128, %37 ], [ 154, %.fold.split ], [ 132, %40 ], [ 135, %41 ], [ %spec.select52, %42 ], [ 136, %44 ], [ 140, %45 ], [ 141, %46 ], [ 146, %47 ], [ %spec.select, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %64, align 8, !tbaa !38

@@ -101,7 +101,7 @@ define void @DES_ede3_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not111, label %.loopexit, label %34, !llvm.loop !10
 
 .loopexit:                                        ; preds = %24, %42, %.preheader113, %.preheader
-  %.1103 = phi i32 [ %11, %.preheader ], [ %11, %.preheader113 ], [ %51, %42 ], [ %33, %24 ]
+  %.1103 = phi i32 [ %51, %42 ], [ %11, %.preheader ], [ %11, %.preheader113 ], [ %33, %24 ]
   store i32 %.1103, ptr %7, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
@@ -650,8 +650,8 @@ define void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not323, label %.loopexit328, label %163, !llvm.loop !14
 
 .loopexit328:                                     ; preds = %162, %262, %.preheader331, %.preheader327
-  %.2291 = phi i32 [ %29, %.preheader327 ], [ %29, %.preheader331 ], [ %.4293, %262 ], [ %.1290, %162 ]
-  %.2286 = phi i32 [ %41, %.preheader327 ], [ %41, %.preheader331 ], [ %.4288, %262 ], [ %.1285, %162 ]
+  %.2291 = phi i32 [ %.4293, %262 ], [ %29, %.preheader327 ], [ %29, %.preheader331 ], [ %.1290, %162 ]
+  %.2286 = phi i32 [ %.4288, %262 ], [ %41, %.preheader327 ], [ %41, %.preheader331 ], [ %.1285, %162 ]
   store i32 %.2291, ptr %7, align 1
   store i32 %.2286, ptr %25, align 1
   br label %264

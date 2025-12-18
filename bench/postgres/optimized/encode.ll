@@ -395,7 +395,7 @@ get_hex.exit39.thread:                            ; preds = %29, %get_hex.exit39
   br i1 %44, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.outer, %8, %4
-  %.034.ph.lcssa50 = phi ptr [ %2, %4 ], [ %.034.ph53, %8 ], [ %43, %.outer ]
+  %.034.ph.lcssa50 = phi ptr [ %.034.ph53, %8 ], [ %2, %4 ], [ %43, %.outer ]
   %45 = ptrtoint ptr %.034.ph.lcssa50 to i64
   %46 = ptrtoint ptr %2 to i64
   %47 = sub i64 %45, %46

@@ -576,7 +576,7 @@ define void @_ZN5ZXing12CenterOfRingERKNS_9BitMatrixENS_6PointTIiEEiib(ptr dead_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %50, %22, %56, %6, %58
-  %.sink = phi i8 [ 0, %6 ], [ 1, %58 ], [ 0, %56 ], [ 0, %22 ], [ 0, %50 ], [ 0, %42 ]
+  %.sink = phi i8 [ 0, %6 ], [ 0, %56 ], [ 1, %58 ], [ 0, %22 ], [ 0, %50 ], [ 0, %42 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %62, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1340,9 +1340,9 @@ _ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit: ; preds = 
   br i1 %.not.i.i.i10, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit.i, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %._crit_edge.i.i.i, %147
-  %.056.i.i.i.be = phi i64 [ %.0.i.i.i, %147 ], [ %138, %._crit_edge.i.i.i ]
-  %.0.i.i.i.be = phi i64 [ %148, %147 ], [ %154, %._crit_edge.i.i.i ]
-  %.sroa.026.0.i.i.i.be = phi ptr [ %.sroa.026.1.lcssa.i.i.i, %147 ], [ %.sroa.026.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.056.i.i.i.be = phi i64 [ %138, %._crit_edge.i.i.i ], [ %.0.i.i.i, %147 ]
+  %.0.i.i.i.be = phi i64 [ %154, %._crit_edge.i.i.i ], [ %148, %147 ]
+  %.sroa.026.0.i.i.i.be = phi ptr [ %.sroa.026.3.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.sroa.026.1.lcssa.i.i.i, %147 ]
   br label %.preheader.i, !llvm.loop !70
 
 .lr.ph.i.i94.i:                                   ; preds = %149, %.lr.ph.i.i94.i

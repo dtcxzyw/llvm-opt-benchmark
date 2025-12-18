@@ -559,7 +559,7 @@ seq_decode_op2.exit.thread128.i:                  ; preds = %224, %222, %79
   br label %seqvideo_decode.exit.thread
 
 seq_decode_op2.exit.thread132.i:                  ; preds = %.loopexit.loopexit.i.i, %87
-  %.0.i51.ph.i = phi ptr [ %265, %.loopexit.loopexit.i.i ], [ %84, %87 ]
+  %.0.i51.ph.i = phi ptr [ %84, %87 ], [ %265, %.loopexit.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %seq_decode_op2.exit.thread60.i
 

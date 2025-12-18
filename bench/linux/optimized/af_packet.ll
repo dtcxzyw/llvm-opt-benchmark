@@ -5829,10 +5829,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %.thread27, label %.thread25, !prof !22
 
-.thread27:                                        ; preds = %276, %193, %275, %271, %280
-  %284 = phi i32 [ 0, %280 ], [ %110, %271 ], [ %110, %275 ], [ %110, %193 ], [ %110, %276 ]
-  %285 = phi ptr [ null, %280 ], [ null, %271 ], [ null, %275 ], [ null, %193 ], [ %278, %276 ]
-  %286 = phi ptr [ null, %280 ], [ %113, %271 ], [ %113, %275 ], [ %113, %193 ], [ %113, %276 ]
+.thread27:                                        ; preds = %276, %271, %275, %193, %280
+  %284 = phi i32 [ 0, %280 ], [ %110, %193 ], [ %110, %275 ], [ %110, %271 ], [ %110, %276 ]
+  %285 = phi ptr [ null, %280 ], [ null, %193 ], [ null, %275 ], [ null, %271 ], [ %278, %276 ]
+  %286 = phi ptr [ null, %280 ], [ %113, %193 ], [ %113, %275 ], [ %113, %271 ], [ %113, %276 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 1172
   call void @_raw_spin_lock(ptr noundef nonnull %287) #19
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -8575,7 +8575,7 @@ define internal fastcc i32 @packet_mc_add(ptr noundef captures(none) %0, ptr nou
   br label %packet_dev_mc.exit
 
 packet_dev_mc.exit:                               ; preds = %71, %73, %75, %82
-  %84 = phi i32 [ %83, %82 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ]
+  %84 = phi i32 [ %83, %82 ], [ %72, %71 ], [ %76, %75 ], [ %74, %73 ]
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %packet_dev_mc.exit.thread6, label %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge
 

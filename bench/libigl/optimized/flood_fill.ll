@@ -1021,9 +1021,9 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   br i1 %104, label %.lr.ph41.i, label %.loopexit38.i, !llvm.loop !54
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %.preheader35.i
-  %105 = phi float [ %110, %.preheader35.i ], [ %110, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
-  %106 = phi float [ %111, %.preheader35.i ], [ %111, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
-  %107 = phi float [ %112, %.preheader35.i ], [ %111, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
+  %105 = phi float [ %110, %.preheader.lr.ph.i ], [ %110, %.preheader35.i ], [ %120, %._crit_edge.i ]
+  %106 = phi float [ %111, %.preheader.lr.ph.i ], [ %111, %.preheader35.i ], [ %120, %._crit_edge.i ]
+  %107 = phi float [ %111, %.preheader.lr.ph.i ], [ %112, %.preheader35.i ], [ %120, %._crit_edge.i ]
   %108 = add nsw i32 %113, -1
   %109 = icmp slt i32 %.273, %108
   br i1 %109, label %.preheader35.i, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit, !llvm.loop !55

@@ -2339,7 +2339,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %157, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i59, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i54, !llvm.loop !45
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb1EEEE11setConstantERKi.exit64: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i55, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i54, %77
-  %spec.select = phi i64 [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i54 ], [ %57, %77 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i55 ]
+  %spec.select = phi i64 [ %57, %77 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i54 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i55 ]
   %158 = trunc i64 %spec.select to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !60
@@ -7516,7 +7516,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %161, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i68, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit42: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39, %67, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63
-  %spec.select = phi i64 [ %47, %67 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
+  %spec.select = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %47, %67 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
   %162 = trunc i64 %spec.select to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62
@@ -10279,7 +10279,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %168, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i68, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit42: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39, %74, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63
-  %spec.select = phi i64 [ %54, %74 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
+  %spec.select = phi i64 [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %54, %74 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
   %169 = trunc i64 %spec.select to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62
@@ -10711,7 +10711,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %91, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i67, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit41: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62
-  %92 = phi i32 [ 1, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62 ], [ 3, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38 ], [ 1, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63 ]
+  %92 = phi i32 [ 3, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38 ], [ 1, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62 ], [ 1, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -11758,7 +11758,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %171, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i68, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit42: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39, %77, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63
-  %spec.select = phi i64 [ %57, %77 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %57, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
+  %spec.select = phi i64 [ %57, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %57, %77 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
   %172 = trunc i64 %spec.select to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62
@@ -13387,7 +13387,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %171, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i69, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i64, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit43: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i65, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i40, %77, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i64
-  %spec.select = phi i64 [ %57, %77 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i64 ], [ %57, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i40 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i65 ]
+  %spec.select = phi i64 [ %57, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i40 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i64 ], [ %57, %77 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i65 ]
   %172 = trunc i64 %spec.select to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62
@@ -22429,7 +22429,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %86, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i67, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit41: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62
-  %87 = phi i32 [ 1, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62 ], [ 3, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38 ], [ 1, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63 ]
+  %87 = phi i32 [ 3, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38 ], [ 1, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62 ], [ 1, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -24222,7 +24222,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %140, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i67, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit41: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38, %43, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62
-  %141 = phi i32 [ %62, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62 ], [ 1, %43 ], [ 1, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38 ], [ %62, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63 ]
+  %141 = phi i32 [ 1, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i38 ], [ %62, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62 ], [ 1, %43 ], [ %62, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -28254,7 +28254,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %168, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i68, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63, !llvm.loop !223
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE11setConstantERKi.exit42: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39, %74, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63
-  %spec.select = phi i64 [ %55, %74 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
+  %spec.select = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i39 ], [ %.pre.pre, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i63 ], [ %55, %74 ], [ %.pre.pre, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i64 ]
   %169 = trunc i64 %spec.select to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4, ptr %10, align 8, !tbaa !62

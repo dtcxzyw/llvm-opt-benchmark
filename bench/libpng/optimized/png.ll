@@ -1750,8 +1750,8 @@ png_muldiv.exit114:                               ; preds = %201, %213
   store i32 %.sink.i113, ptr %202, align 4, !tbaa !43
   br label %png_safe_add.exit.thread
 
-png_safe_add.exit.thread:                         ; preds = %190, %185, %160, %145, %141, %131, %137, %png_fp_add.exit7.i81, %103, %88, %84, %74, %80, %png_fp_add.exit7.i56, %46, %31, %19, %25, %png_fp_add.exit7.i, %png_muldiv.exit114, %204, %179, %173, %171
-  %.0 = phi i32 [ 1, %160 ], [ 1, %204 ], [ 1, %19 ], [ 1, %31 ], [ 1, %46 ], [ 1, %74 ], [ 1, %88 ], [ 1, %103 ], [ 1, %131 ], [ 1, %145 ], [ 1, %171 ], [ 1, %173 ], [ 1, %179 ], [ 0, %png_muldiv.exit114 ], [ 1, %png_fp_add.exit7.i ], [ 1, %25 ], [ 1, %190 ], [ 1, %png_fp_add.exit7.i56 ], [ 1, %80 ], [ 1, %84 ], [ 1, %png_fp_add.exit7.i81 ], [ 1, %137 ], [ 1, %141 ], [ 1, %185 ]
+png_safe_add.exit.thread:                         ; preds = %185, %190, %160, %141, %145, %131, %137, %png_fp_add.exit7.i81, %103, %84, %88, %74, %80, %png_fp_add.exit7.i56, %46, %31, %19, %25, %png_fp_add.exit7.i, %png_muldiv.exit114, %204, %179, %173, %171
+  %.0 = phi i32 [ 1, %160 ], [ 1, %204 ], [ 1, %19 ], [ 1, %185 ], [ 1, %46 ], [ 1, %74 ], [ 1, %84 ], [ 1, %103 ], [ 1, %131 ], [ 1, %141 ], [ 1, %171 ], [ 1, %173 ], [ 1, %179 ], [ 0, %png_muldiv.exit114 ], [ 1, %png_fp_add.exit7.i ], [ 1, %25 ], [ 1, %31 ], [ 1, %png_fp_add.exit7.i56 ], [ 1, %80 ], [ 1, %88 ], [ 1, %png_fp_add.exit7.i81 ], [ 1, %137 ], [ 1, %145 ], [ 1, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1855,7 +1855,7 @@ define range(i32 0, 2) i32 @png_muldiv(ptr noundef writeonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %8, %4
-  %.018 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %.thread.sink.split ]
+  %.018 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %.thread.sink.split ]
   ret i32 %.018
 }
 
@@ -2089,7 +2089,7 @@ png_fp_sub.exit130.thread:                        ; preds = %108, %114, %png_fp_
   br label %png_muldiv.exit137
 
 png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.thread, %129
-  %.0261 = phi i32 [ %130, %129 ], [ 0, %png_fp_sub.exit130.thread ]
+  %.0261 = phi i32 [ 0, %png_fp_sub.exit130.thread ], [ %130, %129 ]
   %.not94 = icmp sgt i32 %.0261, %33
   %or.cond356 = select i1 %or.cond.not, i1 %.not94, i1 false
   br i1 %or.cond356, label %131, label %.critedge
@@ -2186,7 +2186,7 @@ png_fp_sub.exit153.thread:                        ; preds = %156, %162, %png_fp_
   br label %png_muldiv.exit160
 
 png_muldiv.exit160:                               ; preds = %png_fp_sub.exit153.thread, %176
-  %.0260 = phi i32 [ %177, %176 ], [ 0, %png_fp_sub.exit153.thread ]
+  %.0260 = phi i32 [ 0, %png_fp_sub.exit153.thread ], [ %177, %176 ]
   %.not95 = icmp sgt i32 %.0260, %33
   %or.cond357 = select i1 %or.cond3.not, i1 %.not95, i1 false
   br i1 %or.cond357, label %178, label %.critedge
@@ -2494,8 +2494,8 @@ png_muldiv.exit234:                               ; preds = %339, %355
   store i32 %.sink.i233, ptr %340, align 4, !tbaa !43
   br label %.critedge
 
-.critedge:                                        ; preds = %328, %313, %298, %282, %268, %253, %237, %223, %210, %216, %166, %png_fp_sub.exit153, %119, %png_fp_sub.exit130, %png_muldiv.exit160, %png_muldiv.exit137, %42, %58, %70, %76, %82, %96, %132, %144, %png_muldiv.exit234, %345, %31, %28, %22, %19, %13, %10, %4, %2, %png_fp_sub.exit174
-  %.082 = phi i32 [ 1, %png_fp_sub.exit174 ], [ 1, %2 ], [ 1, %4 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %22 ], [ 1, %28 ], [ 1, %345 ], [ 1, %210 ], [ 1, %223 ], [ 1, %237 ], [ 1, %253 ], [ 1, %268 ], [ 1, %282 ], [ 1, %298 ], [ 1, %166 ], [ 1, %313 ], [ 1, %31 ], [ 0, %png_muldiv.exit234 ], [ 1, %119 ], [ 1, %144 ], [ 1, %132 ], [ 1, %png_muldiv.exit160 ], [ 1, %96 ], [ 1, %82 ], [ 1, %76 ], [ 1, %70 ], [ 1, %58 ], [ 1, %42 ], [ 1, %216 ], [ 1, %328 ], [ 1, %png_muldiv.exit137 ], [ 1, %png_fp_sub.exit130 ], [ 1, %png_fp_sub.exit153 ]
+.critedge:                                        ; preds = %328, %313, %298, %282, %268, %253, %237, %223, %210, %216, %png_fp_sub.exit153, %166, %png_fp_sub.exit130, %119, %png_muldiv.exit160, %png_muldiv.exit137, %42, %58, %70, %76, %82, %96, %132, %144, %png_muldiv.exit234, %345, %31, %28, %22, %19, %13, %10, %4, %2, %png_fp_sub.exit174
+  %.082 = phi i32 [ 1, %png_fp_sub.exit174 ], [ 1, %2 ], [ 1, %4 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %22 ], [ 1, %28 ], [ 1, %345 ], [ 1, %210 ], [ 1, %223 ], [ 1, %237 ], [ 1, %253 ], [ 1, %268 ], [ 1, %282 ], [ 1, %298 ], [ 1, %png_fp_sub.exit153 ], [ 1, %313 ], [ 1, %31 ], [ 0, %png_muldiv.exit234 ], [ 1, %png_fp_sub.exit130 ], [ 1, %144 ], [ 1, %132 ], [ 1, %png_muldiv.exit160 ], [ 1, %96 ], [ 1, %82 ], [ 1, %76 ], [ 1, %70 ], [ 1, %58 ], [ 1, %42 ], [ 1, %216 ], [ 1, %328 ], [ 1, %png_muldiv.exit137 ], [ 1, %119 ], [ 1, %166 ]
   ret i32 %.082
 }
 
@@ -4106,7 +4106,7 @@ thread-pre-split:                                 ; preds = %._crit_edge220, %71
   br i1 %.not158.wide, label %.thread200, label %.lr.ph243, !llvm.loop !149
 
 .thread200:                                       ; preds = %.lr.ph243, %.lr.ph247, %.preheader202, %._crit_edge238.thread, %.preheader
-  %.13.lcssa.sink = phi ptr [ %.7, %.preheader ], [ %.14, %.preheader202 ], [ %.14, %._crit_edge238.thread ], [ %155, %.lr.ph247 ], [ %183, %.lr.ph243 ]
+  %.13.lcssa.sink = phi ptr [ %155, %.lr.ph247 ], [ %.7, %.preheader ], [ %.14, %.preheader202 ], [ %.14, %._crit_edge238.thread ], [ %183, %.lr.ph243 ]
   store i8 0, ptr %.13.lcssa.sink, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

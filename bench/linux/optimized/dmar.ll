@@ -476,7 +476,7 @@ define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr nounde
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %40, %43, %79
-  %83 = phi i8 [ %.pre40, %79 ], [ %20, %43 ], [ %20, %40 ]
+  %83 = phi i8 [ %20, %43 ], [ %.pre40, %79 ], [ %20, %40 ]
   switch i8 %83, label %110 [
     i8 1, label %84
     i8 2, label %89
@@ -769,7 +769,7 @@ define dso_local ptr @dmar_find_matched_drhd_unit(ptr noundef readonly captures(
   br i1 %77, label %.loopexit7, label %52, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.loopexit7, %33, %64, %23, %12, %1
-  %78 = phi ptr [ null, %1 ], [ %28, %64 ], [ null, %23 ], [ %7, %12 ], [ %28, %33 ], [ null, %.loopexit7 ]
+  %78 = phi ptr [ null, %1 ], [ %28, %64 ], [ %7, %12 ], [ null, %23 ], [ null, %.loopexit7 ], [ %28, %33 ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %78
 }
@@ -5231,7 +5231,7 @@ define internal i32 @dmar_hp_remove_drhd(ptr noundef readonly captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %19, %51, %2, %.loopexit, %22
-  %54 = phi i32 [ %53, %.loopexit ], [ 0, %22 ], [ 0, %2 ], [ -16, %51 ], [ 0, %19 ]
+  %54 = phi i32 [ %53, %.loopexit ], [ 0, %22 ], [ -16, %51 ], [ 0, %2 ], [ 0, %19 ]
   ret i32 %54
 }
 

@@ -133,9 +133,9 @@ sub_149:                                          ; preds = %.tail
   br i1 %.not55, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !4
 
 .outer._crit_edge:                                ; preds = %.outer, %26, %10
-  %.037.ph.lcssa = phi i1 [ true, %10 ], [ %.037.ph64, %26 ], [ %.138, %.outer ]
-  %.035.ph.lcssa = phi i64 [ 0, %10 ], [ %.035.ph65, %26 ], [ %.136, %.outer ]
-  %.031.ph.lcssa = phi ptr [ %11, %10 ], [ %.031.ph67, %26 ], [ %.1, %.outer ]
+  %.037.ph.lcssa = phi i1 [ %.037.ph64, %26 ], [ true, %10 ], [ %.138, %.outer ]
+  %.035.ph.lcssa = phi i64 [ %.035.ph65, %26 ], [ 0, %10 ], [ %.136, %.outer ]
+  %.031.ph.lcssa = phi ptr [ %.031.ph67, %26 ], [ %11, %10 ], [ %.1, %.outer ]
   %50 = load i32, ptr %12, align 4
   %.not43 = icmp eq i32 %50, 0
   br i1 %.not43, label %55, label %51

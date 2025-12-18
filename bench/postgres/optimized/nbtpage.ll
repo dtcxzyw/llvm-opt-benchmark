@@ -726,7 +726,7 @@ BufferGetPage.exit128:                            ; preds = %163, %169
   unreachable
 
 .thread:                                          ; preds = %42, %57, %148, %192
-  %.0 = phi i32 [ %161, %192 ], [ %62, %148 ], [ 0, %57 ], [ %14, %42 ]
+  %.0 = phi i32 [ 0, %57 ], [ %161, %192 ], [ %62, %148 ], [ %14, %42 ]
   ret i32 %.0
 }
 
@@ -2997,7 +2997,7 @@ _bt_mark_page_halfdead.exit:                      ; preds = %350, %358, %361, %B
   %.pre = load i16, ptr %54, align 4
   br label %416
 
-.loopexit:                                        ; preds = %_bt_leftsib_splitflag.exit.i.i, %224, %181, %298, %183, %tailrecurse._crit_edge.i.i, %189
+.loopexit:                                        ; preds = %_bt_leftsib_splitflag.exit.i.i, %224, %181, %298, %183, %189, %tailrecurse._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #9
   call void @ReleaseBuffer(i32 noundef %.0) #9

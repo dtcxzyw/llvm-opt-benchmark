@@ -3048,7 +3048,7 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %2, %_ZNK3app13get_d
   br label %"_Z6any_ofI3appZNK3sls7bv_eval10bval1_boolEPS0_E3$_1EbRKT_RKT0_.exit"
 
 "_Z6any_ofI3appZNK3sls7bv_eval10bval1_boolEPS0_E3$_1EbRKT_RKT0_.exit": ; preds = %.loopexit, %131, %_ZN7obj_refI4expr11ast_managerED2Ev.exit54, %.lr.ph75, %.lr.ph79, %.lr.ph86, %.preheader, %119, %30, %21, %_ZNK3app13get_decl_kindEv.exit, %111, %115, %99, %103, %_ZNK3app13get_decl_kindEv.exit.thread, %129, %_ZN7obj_refI4expr11ast_managerED2Ev.exit49, %55, %39
-  %.038 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %114, %111 ], [ %43, %39 ], [ %62, %55 ], [ %73, %_ZN7obj_refI4expr11ast_managerED2Ev.exit49 ], [ %106, %103 ], [ %118, %115 ], [ false, %129 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %99 ], [ true, %.preheader ], [ false, %119 ], [ true, %21 ], [ false, %30 ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit54 ], [ %28, %.lr.ph86 ], [ %37, %.lr.ph79 ], [ %127, %.lr.ph75 ], [ true, %131 ], [ true, %.loopexit ]
+  %.038 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %.preheader ], [ %114, %111 ], [ %43, %39 ], [ %62, %55 ], [ %73, %_ZN7obj_refI4expr11ast_managerED2Ev.exit49 ], [ %127, %.lr.ph75 ], [ %106, %103 ], [ false, %119 ], [ %118, %115 ], [ false, %129 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %99 ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit54 ], [ true, %21 ], [ %28, %.lr.ph86 ], [ %37, %.lr.ph79 ], [ false, %30 ], [ true, %131 ], [ true, %.loopexit ]
   ret i1 %.038
 
 171:                                              ; preds = %169, %97
@@ -6548,7 +6548,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split: ; preds = %_ZN3sls7bv_ev
   br label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split, %90, %77, %72, %_ZNK11ast_manager5is_eqEPK4expr.exit, %87, %_ZN3sls7bv_eval13try_repair_eqEP3appj.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN3sls7bv_eval13try_repair_eqEP3appj.exit ], [ false, %87 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %77 ], [ false, %72 ], [ false, %90 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %3 ], [ false, %90 ], [ false, %72 ], [ false, %_ZN3sls7bv_eval13try_repair_eqEP3appj.exit ], [ false, %87 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %77 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -13287,8 +13287,8 @@ _ZN3sls12bv_valuation7try_setERKNS_5bvectE.exit.thread: ; preds = %.._crit_edge_
   br label %_ZN3sls12bv_valuation11try_set_bitEjb.exit
 
 _ZN3sls12bv_valuation7try_setERKNS_5bvectE.exit:  ; preds = %24, %40, %._ZN3sls12bv_valuation7try_setERKNS_5bvectE.exit_crit_edge, %_ZNK3sls12bv_valuation7is_zeroEv.exit, %_ZNK3sls12bv_valuation7is_onesERKNS_5bvectE.exit
-  %.pre-phi = phi i32 [ %.pre224, %._ZN3sls12bv_valuation7try_setERKNS_5bvectE.exit_crit_edge ], [ %22, %_ZNK3sls12bv_valuation7is_onesERKNS_5bvectE.exit ], [ %22, %_ZNK3sls12bv_valuation7is_zeroEv.exit ], [ %22, %40 ], [ %22, %24 ]
-  %.pre.i.i50 = phi ptr [ %.pre.i.i50.pre, %._ZN3sls12bv_valuation7try_setERKNS_5bvectE.exit_crit_edge ], [ %.pre.i.i, %_ZNK3sls12bv_valuation7is_onesERKNS_5bvectE.exit ], [ %.pre.i.i, %_ZNK3sls12bv_valuation7is_zeroEv.exit ], [ %.pre.i.i, %40 ], [ %.pre.i.i, %24 ]
+  %.pre-phi = phi i32 [ %.pre224, %._ZN3sls12bv_valuation7try_setERKNS_5bvectE.exit_crit_edge ], [ %22, %40 ], [ %22, %_ZNK3sls12bv_valuation7is_onesERKNS_5bvectE.exit ], [ %22, %_ZNK3sls12bv_valuation7is_zeroEv.exit ], [ %22, %24 ]
+  %.pre.i.i50 = phi ptr [ %.pre.i.i50.pre, %._ZN3sls12bv_valuation7try_setERKNS_5bvectE.exit_crit_edge ], [ %.pre.i.i, %40 ], [ %.pre.i.i, %_ZNK3sls12bv_valuation7is_onesERKNS_5bvectE.exit ], [ %.pre.i.i, %_ZNK3sls12bv_valuation7is_zeroEv.exit ], [ %.pre.i.i, %24 ]
   %.not12.i.i49 = icmp eq i32 %.pre-phi, 0
   br i1 %.not12.i.i49, label %_ZNK3sls12bv_valuation7is_zeroEv.exit60, label %.lr.ph.i.i51
 

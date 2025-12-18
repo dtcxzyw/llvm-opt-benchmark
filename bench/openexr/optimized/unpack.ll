@@ -156,7 +156,7 @@ define hidden nonnull ptr @internal_exr_match_decode(ptr noundef readonly captur
   br label %66
 
 66:                                               ; preds = %64, %24, %25, %40, %42, %51, %62, %58, %54, %43, %44, %38, %34, %18, %65, %63, %59, %55, %39, %35
-  %.0 = phi ptr [ %generic_unpack_deep.generic_unpack_deep_pointers, %18 ], [ @generic_unpack, %65 ], [ @unpack_32bit, %51 ], [ @unpack_half_to_float_3chan_interleave, %35 ], [ @unpack_half_to_float_4chan_interleave, %34 ], [ @unpack_half_to_float_3chan_interleave_rev, %39 ], [ @unpack_half_to_float_4chan_interleave_rev, %38 ], [ %switch.select55, %42 ], [ @generic_unpack, %43 ], [ @unpack_16bit_3chan_interleave, %55 ], [ @unpack_16bit_4chan_interleave, %54 ], [ @unpack_16bit_3chan_interleave_rev, %59 ], [ @unpack_16bit_4chan_interleave_rev, %58 ], [ @unpack_16bit_3chan_planar, %63 ], [ @unpack_16bit_4chan_planar, %62 ], [ %switch.select59, %64 ], [ @generic_unpack, %24 ], [ @generic_unpack, %44 ], [ @generic_unpack, %40 ], [ @generic_unpack, %25 ]
+  %.0 = phi ptr [ %generic_unpack_deep.generic_unpack_deep_pointers, %18 ], [ @generic_unpack, %65 ], [ @generic_unpack, %44 ], [ @generic_unpack, %24 ], [ @unpack_half_to_float_3chan_interleave, %35 ], [ @unpack_half_to_float_4chan_interleave, %34 ], [ @unpack_half_to_float_3chan_interleave_rev, %39 ], [ @unpack_half_to_float_4chan_interleave_rev, %38 ], [ %switch.select55, %42 ], [ @unpack_32bit, %51 ], [ @generic_unpack, %43 ], [ @unpack_16bit_3chan_interleave, %55 ], [ @unpack_16bit_4chan_interleave, %54 ], [ @unpack_16bit_3chan_interleave_rev, %59 ], [ @unpack_16bit_4chan_interleave_rev, %58 ], [ @unpack_16bit_3chan_planar, %63 ], [ @unpack_16bit_4chan_planar, %62 ], [ %switch.select59, %64 ], [ @generic_unpack, %25 ], [ @generic_unpack, %40 ]
   ret ptr %.0
 }
 
@@ -799,10 +799,10 @@ uint_to_half.exit:                                ; preds = %.lr.ph269, %238, %2
   br i1 %.not216, label %.lr.ph305.split, label %.thread228, !llvm.loop !27
 
 .thread228:                                       ; preds = %.loopexit248, %..loopexit251_crit_edge.us.us, %33, %.lr.ph305.split.us.split, %.preheader252
-  %289 = phi i16 [ %21, %.preheader252 ], [ %21, %.lr.ph305.split.us.split ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %33 ], [ %286, %.loopexit248 ]
-  %290 = phi i16 [ %22, %.preheader252 ], [ %21, %.lr.ph305.split.us.split ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %33 ], [ %287, %.loopexit248 ]
-  %291 = phi i16 [ %23, %.preheader252 ], [ %21, %.lr.ph305.split.us.split ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %33 ], [ %287, %.loopexit248 ]
-  %.1164.lcssa = phi ptr [ %.0163319, %.preheader252 ], [ %.0163319, %.lr.ph305.split.us.split ], [ %50, %..loopexit251_crit_edge.us.us ], [ %39, %33 ], [ %.3166.ph, %.loopexit248 ]
+  %289 = phi i16 [ %21, %.preheader252 ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %.lr.ph305.split.us.split ], [ %286, %.loopexit248 ]
+  %290 = phi i16 [ %22, %.preheader252 ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %.lr.ph305.split.us.split ], [ %287, %.loopexit248 ]
+  %291 = phi i16 [ %23, %.preheader252 ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %.lr.ph305.split.us.split ], [ %287, %.loopexit248 ]
+  %.1164.lcssa = phi ptr [ %.0163319, %.preheader252 ], [ %39, %33 ], [ %50, %..loopexit251_crit_edge.us.us ], [ %.0163319, %.lr.ph305.split.us.split ], [ %.3166.ph, %.loopexit248 ]
   %292 = getelementptr inbounds i32, ptr %.0172315, i64 %19
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
@@ -1290,7 +1290,7 @@ half_to_float.exit.us.us:                         ; preds = %225, %223, %212, %2
   br i1 %exitcond455.not, label %.loopexit.us.us, label %.lr.ph309.us.us, !llvm.loop !60
 
 .loopexit.us.us:                                  ; preds = %.lr.ph.us.us, %.lr.ph279.us.us, %uint_to_half.exit.us.us, %float_to_uint_int.exit.us.us, %.lr.ph294.us.us, %float_to_half_int.exit.us.us, %half_to_uint.exit.us.us, %half_to_float.exit.us.us, %.lr.ph314.us.us, %.preheader261.us.us, %.preheader259.us.us, %.preheader257.us.us, %.preheader255.us.us, %.preheader253.us.us, %.preheader251.us.us, %.preheader249.us.us, %.preheader247.us.us, %.preheader.us.us
-  %.5180.us.us = phi ptr [ %.0175320.us.us, %.preheader259.us.us ], [ %.0175320.us.us, %.preheader.us.us ], [ %.0175320.us.us, %.preheader247.us.us ], [ %.0175320.us.us, %.preheader249.us.us ], [ %.0175320.us.us, %.preheader251.us.us ], [ %.0175320.us.us, %.preheader253.us.us ], [ %.0175320.us.us, %.preheader255.us.us ], [ %.0175320.us.us, %.preheader257.us.us ], [ %.0175320.us.us, %.preheader261.us.us ], [ %63, %.lr.ph279.us.us ], [ %234, %.lr.ph314.us.us ], [ %227, %half_to_float.exit.us.us ], [ %203, %half_to_uint.exit.us.us ], [ %177, %float_to_half_int.exit.us.us ], [ %122, %.lr.ph294.us.us ], [ %119, %float_to_uint_int.exit.us.us ], [ %109, %uint_to_half.exit.us.us ], [ %59, %.lr.ph.us.us ]
+  %.5180.us.us = phi ptr [ %.0175320.us.us, %.preheader255.us.us ], [ %.0175320.us.us, %.preheader257.us.us ], [ %.0175320.us.us, %.preheader259.us.us ], [ %.0175320.us.us, %.preheader.us.us ], [ %.0175320.us.us, %.preheader247.us.us ], [ %.0175320.us.us, %.preheader249.us.us ], [ %.0175320.us.us, %.preheader251.us.us ], [ %.0175320.us.us, %.preheader253.us.us ], [ %227, %half_to_float.exit.us.us ], [ %203, %half_to_uint.exit.us.us ], [ %177, %float_to_half_int.exit.us.us ], [ %122, %.lr.ph294.us.us ], [ %119, %float_to_uint_int.exit.us.us ], [ %109, %uint_to_half.exit.us.us ], [ %63, %.lr.ph279.us.us ], [ %234, %.lr.ph314.us.us ], [ %.0175320.us.us, %.preheader261.us.us ], [ %59, %.lr.ph.us.us ]
   %229 = sext i32 %spec.select223.us.us to i64
   %230 = mul nsw i64 %229, %47
   %231 = getelementptr inbounds nuw i8, ptr %.4165321.us.us, i64 %230
@@ -2936,8 +2936,8 @@ uint_to_half.exit:                                ; preds = %220, %229, %231, %2
   br label %279
 
 279:                                              ; preds = %45, %58, %.loopexit, %41
-  %280 = phi i16 [ %27, %58 ], [ %27, %41 ], [ %.pre279, %.loopexit ], [ %27, %45 ]
-  %.3152 = phi ptr [ %61, %58 ], [ %.1150249, %41 ], [ %278, %.loopexit ], [ %48, %45 ]
+  %280 = phi i16 [ %27, %58 ], [ %27, %45 ], [ %27, %41 ], [ %.pre279, %.loopexit ]
+  %.3152 = phi ptr [ %61, %58 ], [ %48, %45 ], [ %.1150249, %41 ], [ %278, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %281 = sext i16 %280 to i64
   %282 = icmp slt i64 %indvars.iv.next, %281

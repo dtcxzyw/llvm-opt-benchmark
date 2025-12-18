@@ -987,7 +987,7 @@ strncmp_nullcheck.exit.thread:                    ; preds = %24, %strncmp_nullch
   br i1 %32, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %31, %getNextLevel.exit, %strncmp_nullcheck.exit.thread, %4
-  %.017 = phi ptr [ null, %4 ], [ null, %strncmp_nullcheck.exit.thread ], [ %.015, %31 ], [ null, %getNextLevel.exit ]
+  %.017 = phi ptr [ null, %4 ], [ null, %strncmp_nullcheck.exit.thread ], [ null, %getNextLevel.exit ], [ %.015, %31 ]
   ret ptr %.017
 }
 

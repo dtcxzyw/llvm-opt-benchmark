@@ -5606,8 +5606,8 @@ _ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %1060, label %.body238, label %1057
 
 .body238:                                         ; preds = %1057, %1053, %.body774
-  %1061 = phi i1 [ false, %.body774 ], [ false, %1053 ], [ true, %1057 ]
-  %.pn128.pn = phi { ptr, i32 } [ %307, %.body774 ], [ %1054, %1053 ], [ %.pn128, %1057 ]
+  %1061 = phi i1 [ false, %1053 ], [ false, %.body774 ], [ true, %1057 ]
+  %.pn128.pn = phi { ptr, i32 } [ %1054, %1053 ], [ %307, %.body774 ], [ %.pn128, %1057 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #32
   br label %.body228
 
@@ -5722,8 +5722,8 @@ _ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %1092, label %.body301, label %1089
 
 .body301:                                         ; preds = %1089, %1085, %.body798
-  %1093 = phi i1 [ false, %.body798 ], [ false, %1085 ], [ true, %1089 ]
-  %.pn136.pn = phi { ptr, i32 } [ %451, %.body798 ], [ %1086, %1085 ], [ %.pn136, %1089 ]
+  %1093 = phi i1 [ false, %1085 ], [ false, %.body798 ], [ true, %1089 ]
+  %.pn136.pn = phi { ptr, i32 } [ %1086, %1085 ], [ %451, %.body798 ], [ %.pn136, %1089 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #32
   br label %.body296
 
@@ -8177,10 +8177,10 @@ _ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14Cwis
   br i1 %331, label %245, label %.loopexit692, !llvm.loop !100
 
 .loopexit692:                                     ; preds = %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit, %._crit_edge.thread, %._crit_edge
-  %.not801 = phi i1 [ false, %._crit_edge ], [ %.not797, %._crit_edge.thread ], [ true, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %.1617799 = phi float [ %.1617, %._crit_edge ], [ %.1617796, %._crit_edge.thread ], [ %.1617, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %332 = phi ptr [ %230, %._crit_edge ], [ %235, %._crit_edge.thread ], [ %230, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %333 = phi i32 [ %175, %._crit_edge ], [ %175, %._crit_edge.thread ], [ %329, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %.not801 = phi i1 [ %.not797, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %.1617799 = phi float [ %.1617796, %._crit_edge.thread ], [ %.1617, %._crit_edge ], [ %.1617, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %332 = phi ptr [ %235, %._crit_edge.thread ], [ %230, %._crit_edge ], [ %230, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %333 = phi i32 [ %175, %._crit_edge.thread ], [ %175, %._crit_edge ], [ %329, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
   %334 = sext i32 %333 to i64
   %335 = icmp eq i32 %333, 0
   br i1 %335, label %._crit_edge701, label %336
@@ -8244,7 +8244,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %1020
 
 ._crit_edge701:                                   ; preds = %.lr.ph700, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i, %.loopexit692
-  %.sroa.0.0807 = phi ptr [ null, %.loopexit692 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i ], [ %342, %.lr.ph700 ]
+  %.sroa.0.0807 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i ], [ null, %.loopexit692 ], [ %342, %.lr.ph700 ]
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %360 = load ptr, ptr %359, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #32

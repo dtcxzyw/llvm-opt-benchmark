@@ -2621,7 +2621,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69: ; preds = %_ZN4cvc58internal12
   br label %345
 
 .critedge41.thread:                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69, %314, %321, %327, %._crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58
-  %.017 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ], [ true, %._crit_edge ], [ %319, %314 ], [ %319, %327 ], [ %319, %321 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69 ]
+  %.017 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ], [ %319, %314 ], [ true, %._crit_edge ], [ %319, %327 ], [ %319, %321 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69 ]
   %333 = load i64, ptr %.pre90, align 8
   %334 = and i64 %333, 1152920405095219200
   %.not.i.i77 = icmp eq i64 %334, 1152920405095219200

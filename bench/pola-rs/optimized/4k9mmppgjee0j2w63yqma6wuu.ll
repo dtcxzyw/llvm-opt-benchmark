@@ -12232,7 +12232,7 @@ define hidden void @_ZN10polars_ops6series3ops7various13SeriesMethods12value_cou
   br label %125
 
 207:                                              ; preds = %213, %227
-  %.sroa.06.6.ph = phi i8 [ 1, %213 ], [ 0, %227 ]
+  %.sroa.06.6.ph = phi i8 [ 0, %227 ], [ 1, %213 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -13204,7 +13204,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit7, %93, %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit.us, %71, %48, %107, %110, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17h912da29f60c36670E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17h912da29f60c36670E.exit22" ], [ %104, %110 ], [ %100, %107 ], [ true, %48 ], [ false, %93 ], [ false, %71 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit7 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17h912da29f60c36670E.exit22" ], [ %104, %110 ], [ %100, %107 ], [ false, %71 ], [ true, %48 ], [ false, %93 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit7 ]
   ret i1 %.sroa.0.1
 
 46:                                               ; preds = %22, %108, %105
@@ -13485,7 +13485,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit7, %93, %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit.us, %71, %48, %107, %110, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17h28a38a94d0b163d6E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17h28a38a94d0b163d6E.exit22" ], [ %104, %110 ], [ %100, %107 ], [ true, %48 ], [ false, %93 ], [ false, %71 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit7 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17h28a38a94d0b163d6E.exit22" ], [ %104, %110 ], [ %100, %107 ], [ false, %71 ], [ true, %48 ], [ false, %93 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit7 ]
   ret i1 %.sroa.0.1
 
 46:                                               ; preds = %22, %108, %105
@@ -13762,7 +13762,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit9, %85, %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit.us, %65, %44, %99, %102, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h3d935ce4fe5dc245E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h3d935ce4fe5dc245E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ true, %44 ], [ false, %85 ], [ false, %65 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h3d935ce4fe5dc245E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ false, %65 ], [ true, %44 ], [ false, %85 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 42:                                               ; preds = %22, %100, %97
@@ -14031,7 +14031,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit9, %83, %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit.us, %64, %42, %96, %99, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17hfebc428fff08d2a5E.exit21"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17hfebc428fff08d2a5E.exit21" ], [ %93, %99 ], [ %89, %96 ], [ true, %42 ], [ false, %83 ], [ false, %64 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17hfebc428fff08d2a5E.exit21" ], [ %93, %99 ], [ %89, %96 ], [ false, %64 ], [ true, %42 ], [ false, %83 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 40:                                               ; preds = %22, %97, %94
@@ -14302,7 +14302,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit9, %85, %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit.us, %65, %44, %99, %102, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17h9947449413c7f132E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17h9947449413c7f132E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ true, %44 ], [ false, %85 ], [ false, %65 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17h9947449413c7f132E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ false, %65 ], [ true, %44 ], [ false, %85 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 42:                                               ; preds = %22, %100, %97
@@ -14571,7 +14571,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit9, %82, %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit.us, %63, %42, %95, %98, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h3089b804aaefba4cE.exit21"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h3089b804aaefba4cE.exit21" ], [ %92, %98 ], [ %88, %95 ], [ true, %42 ], [ false, %82 ], [ false, %63 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h3089b804aaefba4cE.exit21" ], [ %92, %98 ], [ %88, %95 ], [ false, %63 ], [ true, %42 ], [ false, %82 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 40:                                               ; preds = %22, %96, %93
@@ -14840,7 +14840,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit9, %85, %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit.us, %65, %44, %99, %102, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h38d037f0b1cfc62dE.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h38d037f0b1cfc62dE.exit22" ], [ %96, %102 ], [ %92, %99 ], [ true, %44 ], [ false, %85 ], [ false, %65 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h38d037f0b1cfc62dE.exit22" ], [ %96, %102 ], [ %92, %99 ], [ false, %65 ], [ true, %44 ], [ false, %85 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 42:                                               ; preds = %22, %100, %97
@@ -15113,7 +15113,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit9, %85, %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit.us, %65, %44, %99, %102, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17ha006d412c57bff62E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17ha006d412c57bff62E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ true, %44 ], [ false, %85 ], [ false, %65 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17ha006d412c57bff62E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ false, %65 ], [ true, %44 ], [ false, %85 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 42:                                               ; preds = %22, %100, %97
@@ -15386,7 +15386,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit9, %85, %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit.us, %65, %44, %99, %102, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17hf2d9114bfb3fd266E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17hf2d9114bfb3fd266E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ true, %44 ], [ false, %85 ], [ false, %65 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17hf2d9114bfb3fd266E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ false, %65 ], [ true, %44 ], [ false, %85 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 42:                                               ; preds = %22, %100, %97
@@ -15659,7 +15659,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit9, %85, %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit.us, %65, %44, %99, %102, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17h11f5c13b3d25f15dE.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17h11f5c13b3d25f15dE.exit22" ], [ %96, %102 ], [ %92, %99 ], [ true, %44 ], [ false, %85 ], [ false, %65 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17h11f5c13b3d25f15dE.exit22" ], [ %96, %102 ], [ %92, %99 ], [ false, %65 ], [ true, %44 ], [ false, %85 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 42:                                               ; preds = %22, %100, %97
@@ -15932,7 +15932,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br label %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit9, %85, %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit.us, %65, %44, %99, %102, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17hcbac3ef77a2c6950E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17hcbac3ef77a2c6950E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ true, %44 ], [ false, %85 ], [ false, %65 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit9 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17hcbac3ef77a2c6950E.exit22" ], [ %96, %102 ], [ %92, %99 ], [ false, %65 ], [ true, %44 ], [ false, %85 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit9 ]
   ret i1 %.sroa.0.1
 
 42:                                               ; preds = %22, %100, %97
@@ -77959,7 +77959,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %160, label %156, label %165
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1533.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %50, %45 ], [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1533.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %163 = add i128 %.sroa.1533.0, 9223372036854775808
   %or.cond.i.i21 = icmp ult i128 %163, 18446744073709551616
   %164 = trunc nsw i128 %.sroa.1533.0 to i64
@@ -78376,7 +78376,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %165, label %161, label %169
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1544.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %50, %45 ], [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1544.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %or.cond.i.i31 = icmp ult i128 %.sroa.1544.0, 18446744073709551616
   %168 = trunc nuw i128 %.sroa.1544.0 to i64
   %.sroa.3.0.i.i32 = select i1 %or.cond.i.i31, i64 %168, i64 undef
@@ -78798,7 +78798,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %164, label %160, label %168
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1552.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %50, %45 ], [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1552.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %or.cond.i.i37 = icmp ult i128 %.sroa.1552.0, 4294967296
   %167 = trunc nuw i128 %.sroa.1552.0 to i32
   %.sroa.3.0.i.i38 = select i1 %or.cond.i.i37, i32 %167, i32 undef
@@ -79227,7 +79227,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %164, label %160, label %168
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1557.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %50, %45 ], [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1557.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %or.cond.i.i42 = icmp ult i128 %.sroa.1557.0, 65536
   %167 = trunc nuw i128 %.sroa.1557.0 to i16
   %.sroa.3.0.i.i43 = select i1 %or.cond.i.i42, i16 %167, i16 undef
@@ -79645,7 +79645,7 @@ thread-pre-split.i:                               ; preds = %7
   br i1 %163, label %159, label %167
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %44, %.preheader79.i, %72, %.preheader.i, %.preheader81.i
-  %.sroa.1544.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %49, %44 ], [ %77, %72 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1544.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %77, %72 ], [ %49, %44 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %or.cond.i.i34 = icmp ult i128 %.sroa.1544.0, 256
   %166 = trunc nuw i128 %.sroa.1544.0 to i8
   %.sroa.3.0.i.i35 = select i1 %or.cond.i.i34, i8 %166, i8 undef
@@ -80065,7 +80065,7 @@ thread-pre-split.i:                               ; preds = %7
   br i1 %170, label %166, label %175
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %44, %.preheader79.i, %72, %.preheader.i, %.preheader81.i
-  %.sroa.1544.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %49, %44 ], [ %77, %72 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1544.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %77, %72 ], [ %49, %44 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %173 = add i128 %.sroa.1544.0, 128
   %or.cond.i.i34 = icmp ult i128 %173, 256
   %174 = trunc nsw i128 %.sroa.1544.0 to i8
@@ -80483,7 +80483,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %165, label %161, label %170
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1547.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %50, %45 ], [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1547.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %168 = add i128 %.sroa.1547.0, 2147483648
   %or.cond.i.i32 = icmp ult i128 %168, 4294967296
   %169 = trunc nsw i128 %.sroa.1547.0 to i32
@@ -80878,7 +80878,7 @@ thread-pre-split.i:                               ; preds = %9
   br i1 %158, label %154, label %162
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %46, %.preheader79.i, %74, %.preheader.i, %.preheader81.i
-  %.sroa.1515.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %51, %46 ], [ %79, %74 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1515.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %79, %74 ], [ %51, %46 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %161 = sitofp i128 %.sroa.1515.0 to float
   br label %154
 
@@ -81323,7 +81323,7 @@ thread-pre-split.i:                               ; preds = %12
   br i1 %178, label %188, label %182
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %49, %.preheader79.i, %77, %.preheader.i, %.preheader81.i
-  %.sroa.1522.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %54, %49 ], [ %82, %77 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1522.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %82, %77 ], [ %54, %49 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.1522.0, ptr %181, align 16, !alias.scope !6453
   store i128 1, ptr %0, align 16, !alias.scope !6453
@@ -81732,7 +81732,7 @@ thread-pre-split.i:                               ; preds = %9
   br i1 %159, label %155, label %163
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %46, %.preheader79.i, %74, %.preheader.i, %.preheader81.i
-  %.sroa.1515.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %51, %46 ], [ %79, %74 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1515.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %79, %74 ], [ %51, %46 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %162 = sitofp i128 %.sroa.1515.0 to double
   br label %155
 
@@ -82138,7 +82138,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %169, label %165, label %174
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1555.0 = phi i128 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %50, %45 ], [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1555.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
   %172 = add i128 %.sroa.1555.0, 32768
   %or.cond.i.i40 = icmp ult i128 %172, 65536
   %173 = trunc nsw i128 %.sroa.1555.0 to i16
@@ -96372,7 +96372,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   invoke void %88(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %79, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %89 unwind label %105
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread18: ; preds = %20, %27, %34, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread18: ; preds = %27, %20, %34, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   store i64 0, ptr %0, align 8
   br label %103
 
@@ -125143,7 +125143,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit.i: ; preds =
           to label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit61.i unwind label %184, !noalias !10893
 
 .thread105.i:                                     ; preds = %227, %225, %264, %215, %184
-  %.pn.pn.i = phi { ptr, i32 } [ %265, %264 ], [ %185, %184 ], [ %216, %215 ], [ %226, %225 ], [ %226, %227 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %265, %264 ], [ %216, %215 ], [ %185, %184 ], [ %226, %225 ], [ %226, %227 ]
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8fa2153bc77e80e8E"(ptr noalias noundef align 16 dereferenceable(160) %52) #40
           to label %171 unwind label %262, !noalias !10893
 
@@ -142350,7 +142350,7 @@ _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E
 .thread559:                                       ; preds = %.thread563
   br i1 %.sroa.0155.1557, label %.thread559.thread662, label %800
 
-.thread563:                                       ; preds = %.body419, %551, %.body419.thread, %580, %.thread567
+.thread563:                                       ; preds = %.body419, %.body419.thread, %551, %580, %.thread567
   %.pn378558 = phi { ptr, i32 } [ %581, %580 ], [ %553, %.thread567 ], [ %563, %.body419 ], [ %eh.lpad-body420572, %.body419.thread ], [ %552, %551 ]
   %.sroa.0155.1557 = phi i1 [ false, %580 ], [ true, %.thread567 ], [ false, %.body419 ], [ false, %.body419.thread ], [ true, %551 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hd59e9e8e84e8dd45E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71) #40

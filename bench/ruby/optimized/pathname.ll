@@ -784,7 +784,7 @@ RSTRING_PTR.exit39:                               ; preds = %RSTRING_PTR.exit, %
   br label %54
 
 54:                                               ; preds = %.loopexit, %52, %2
-  %.027 = phi i64 [ 4, %2 ], [ %spec.select, %52 ], [ %..le, %.loopexit ]
+  %.027 = phi i64 [ %spec.select, %52 ], [ 4, %2 ], [ %..le, %.loopexit ]
   ret i64 %.027
 }
 

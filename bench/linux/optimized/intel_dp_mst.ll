@@ -724,7 +724,7 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
   br i1 %81, label %.thread11, label %42, !llvm.loop !22
 
 .thread11:                                        ; preds = %38, %76, %.thread13, %14, %2
-  %82 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %.thread13 ], [ true, %76 ], [ false, %38 ]
+  %82 = phi i1 [ false, %2 ], [ false, %.thread13 ], [ false, %14 ], [ true, %76 ], [ false, %38 ]
   ret i1 %82
 }
 

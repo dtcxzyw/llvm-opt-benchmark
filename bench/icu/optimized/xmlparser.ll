@@ -1242,7 +1242,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc121, %135
   br label %194, !llvm.loop !28
 
 .loopexit125:                                     ; preds = %237, %69, %186, %37, %207, %44
-  %.189 = phi ptr [ %.088, %186 ], [ %.088, %207 ], [ %36, %37 ], [ %36, %44 ], [ null, %69 ], [ %.088, %237 ]
+  %.189 = phi ptr [ %.088, %186 ], [ %.088, %207 ], [ null, %69 ], [ %36, %37 ], [ %36, %44 ], [ %.088, %237 ]
   invoke void @ucnv_close_77(ptr noundef %.189)
           to label %245 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1895,7 +1895,7 @@ _ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit: ; preds = %._crit_e
   br label %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit
 
 _ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit: ; preds = %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit, %239, %._crit_edge.i108, %271, %._crit_edge.i118
-  %.177 = phi ptr [ %.076, %271 ], [ %.076, %._crit_edge.i118 ], [ %83, %._crit_edge.i108 ], [ %83, %239 ], [ %83, %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit ]
+  %.177 = phi ptr [ %.076, %271 ], [ %.076, %._crit_edge.i118 ], [ %83, %239 ], [ %83, %._crit_edge.i108 ], [ %83, %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit ]
   %272 = icmp eq ptr %.177, null
   br i1 %272, label %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.thread, label %273
 

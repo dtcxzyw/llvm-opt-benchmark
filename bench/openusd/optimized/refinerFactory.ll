@@ -2876,7 +2876,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   br i1 %exitcond.not.i54.i.i, label %.loopexit.i55.i.i, label %.lr.ph59.i.i.i, !llvm.loop !37
 
 .loopexit.i55.i.i:                                ; preds = %.noexc47, %.noexc46, %.noexc45, %.preheader.i53.i.i
-  %.3.i.i.i = phi i64 [ %.162.i.i.i, %.noexc45 ], [ %.04269.i.i.i, %.preheader.i53.i.i ], [ %.1.i.i.i, %.noexc46 ], [ %1128, %.noexc47 ]
+  %.3.i.i.i = phi i64 [ %.1.i.i.i, %.noexc46 ], [ %.162.i.i.i, %.noexc45 ], [ %.04269.i.i.i, %.preheader.i53.i.i ], [ %1128, %.noexc47 ]
   %1133 = add nuw i64 %.04368.i.i.i, 1
   %exitcond82.not.i.i.i = icmp eq i64 %1133, %1087
   br i1 %exitcond82.not.i.i.i, label %._crit_edge71.i.i.i, label %.lr.ph70.i.i.i, !llvm.loop !38

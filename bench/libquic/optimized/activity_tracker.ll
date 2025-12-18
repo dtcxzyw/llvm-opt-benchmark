@@ -780,7 +780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br i1 %exitcond.not, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread, label %67, !llvm.loop !57
 
 _ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread: ; preds = %179, %.lr.ph, %167, %163, %159, %155, %151, %146, %143, %172, %2, %8, %13, %17, %21, %25, %30
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %30 ], [ false, %25 ], [ false, %21 ], [ false, %17 ], [ false, %13 ], [ false, %143 ], [ false, %167 ], [ false, %163 ], [ false, %159 ], [ false, %155 ], [ false, %151 ], [ false, %146 ], [ true, %172 ], [ true, %.lr.ph ], [ false, %179 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %30 ], [ false, %25 ], [ false, %21 ], [ false, %17 ], [ false, %13 ], [ true, %172 ], [ false, %146 ], [ false, %143 ], [ false, %167 ], [ false, %163 ], [ false, %159 ], [ false, %155 ], [ false, %151 ], [ true, %.lr.ph ], [ false, %179 ]
   ret i1 %.0
 }
 

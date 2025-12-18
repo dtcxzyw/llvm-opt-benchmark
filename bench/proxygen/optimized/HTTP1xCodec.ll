@@ -2216,7 +2216,7 @@ if.then109:                                       ; preds = %if.end103
   br label %return
 
 return:                                           ; preds = %if.then31, %entry, %if.end103, %if.then109, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %retval.0 = phi i64 [ %call, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %call54, %if.end103 ], [ %call54, %if.then109 ], [ 0, %entry ], [ 0, %if.then31 ]
+  %retval.0 = phi i64 [ %call54, %if.then109 ], [ %call, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %call54, %if.end103 ], [ 0, %entry ], [ 0, %if.then31 ]
   ret i64 %retval.0
 }
 
@@ -5547,8 +5547,8 @@ lor.rhs393:                                       ; preds = %invoke.cont391
   br label %lor.end401
 
 lor.end401:                                       ; preds = %land.lhs.true367, %lor.rhs393, %invoke.cont391
-  %bf.load406 = phi i32 [ %bf.load369, %land.lhs.true367 ], [ %bf.load406.pre, %invoke.cont391 ], [ %bf.load406.pre, %lor.rhs393 ]
-  %90 = phi i1 [ true, %land.lhs.true367 ], [ true, %invoke.cont391 ], [ %bf.cast398, %lor.rhs393 ]
+  %bf.load406 = phi i32 [ %bf.load369, %land.lhs.true367 ], [ %bf.load406.pre, %lor.rhs393 ], [ %bf.load406.pre, %invoke.cont391 ]
+  %90 = phi i1 [ true, %land.lhs.true367 ], [ %bf.cast398, %lor.rhs393 ], [ true, %invoke.cont391 ]
   %91 = load i8, ptr %hasTransferEncodingChunked, align 1
   %conv404 = zext i8 %91 to i32
   %and41182 = shl nuw nsw i32 %conv404, 8
@@ -9683,7 +9683,7 @@ cond.false.i:                                     ; preds = %_ZSt13find_first_of
   br label %return
 
 return:                                           ; preds = %for.cond1.for.inc4_crit_edge.i.i, %cond.false.i, %_ZSt13find_first_ofIPKcS1_ZN5folly6detail23qfind_first_byte_of_stdENS3_15StringPieceLiteES4_EUlccE_ET_S6_S6_T0_S7_T1_.exit.i, %entry, %if.then13
-  %retval.0 = phi i64 [ %call15, %if.then13 ], [ -1, %entry ], [ %sub.ptr.sub.i22, %cond.false.i ], [ -1, %_ZSt13find_first_ofIPKcS1_ZN5folly6detail23qfind_first_byte_of_stdENS3_15StringPieceLiteES4_EUlccE_ET_S6_S6_T0_S7_T1_.exit.i ], [ -1, %for.cond1.for.inc4_crit_edge.i.i ]
+  %retval.0 = phi i64 [ -1, %_ZSt13find_first_ofIPKcS1_ZN5folly6detail23qfind_first_byte_of_stdENS3_15StringPieceLiteES4_EUlccE_ET_S6_S6_T0_S7_T1_.exit.i ], [ %call15, %if.then13 ], [ -1, %entry ], [ %sub.ptr.sub.i22, %cond.false.i ], [ -1, %for.cond1.for.inc4_crit_edge.i.i ]
   ret i64 %retval.0
 }
 

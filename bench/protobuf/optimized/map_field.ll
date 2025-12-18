@@ -5602,8 +5602,8 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.end, label %for.body.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8iteratorppEv.exit: ; preds = %for.body, %if.then5.i.i.i, %if.else.i.i.i12
-  %__begin3.sroa.0.2 = phi ptr [ %19, %if.then5.i.i.i ], [ %23, %if.else.i.i.i12 ], [ %13, %for.body ]
-  %__begin3.sroa.11.2 = phi i32 [ %18, %if.then5.i.i.i ], [ %18, %if.else.i.i.i12 ], [ %__begin3.sroa.11.022, %for.body ]
+  %__begin3.sroa.0.2 = phi ptr [ %13, %for.body ], [ %19, %if.then5.i.i.i ], [ %23, %if.else.i.i.i12 ]
+  %__begin3.sroa.11.2 = phi i32 [ %__begin3.sroa.11.022, %for.body ], [ %18, %if.then5.i.i.i ], [ %18, %if.else.i.i.i12 ]
   %cmp.i.i4.not = icmp eq ptr %__begin3.sroa.0.2, null
   br i1 %cmp.i.i4.not, label %if.end, label %for.body
 
@@ -5877,8 +5877,8 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %for.end, label %for.body.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit: ; preds = %for.inc, %if.then5.i.i.i, %if.else.i.i.i42
-  %other_it.sroa.0.2 = phi ptr [ %30, %if.then5.i.i.i ], [ %34, %if.else.i.i.i42 ], [ %24, %for.inc ]
-  %other_it.sroa.22.2 = phi i32 [ %29, %if.then5.i.i.i ], [ %29, %if.else.i.i.i42 ], [ %other_it.sroa.22.063, %for.inc ]
+  %other_it.sroa.0.2 = phi ptr [ %24, %for.inc ], [ %30, %if.then5.i.i.i ], [ %34, %if.else.i.i.i42 ]
+  %other_it.sroa.22.2 = phi i32 [ %other_it.sroa.22.063, %for.inc ], [ %29, %if.then5.i.i.i ], [ %29, %if.else.i.i.i42 ]
   %cmp.i.i.not = icmp eq ptr %other_it.sroa.0.2, null
   br i1 %cmp.i.i.not, label %for.end, label %for.body, !llvm.loop !36
 
@@ -5972,7 +5972,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !37
 
 if.end:                                           ; preds = %for.body.i.i, %entry, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
-  %size.0 = phi i64 [ 0, %entry ], [ %cond9.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ %add7.i.i, %for.body.i.i ]
+  %size.0 = phi i64 [ %cond9.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ 0, %entry ], [ %add7.i.i, %for.body.i.i ]
   %8 = getelementptr inbounds nuw i8, ptr %map, i64 16
   %9 = load i32, ptr %8, align 8
   %conv.i = zext i32 %9 to i64
@@ -6208,8 +6208,8 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.end51, label %for.body.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit: ; preds = %while.body, %if.then5.i.i.i, %if.else.i.i.i52
-  %it.sroa.0.2 = phi ptr [ %32, %if.then5.i.i.i ], [ %36, %if.else.i.i.i52 ], [ %26, %while.body ]
-  %it.sroa.13.2 = phi i32 [ %31, %if.then5.i.i.i ], [ %31, %if.else.i.i.i52 ], [ %it.sroa.13.065, %while.body ]
+  %it.sroa.0.2 = phi ptr [ %26, %while.body ], [ %32, %if.then5.i.i.i ], [ %36, %if.else.i.i.i52 ]
+  %it.sroa.13.2 = phi i32 [ %it.sroa.13.065, %while.body ], [ %31, %if.then5.i.i.i ], [ %31, %if.else.i.i.i52 ]
   %cmp.i.i42.not = icmp eq ptr %it.sroa.0.2, null
   br i1 %cmp.i.i42.not, label %if.end51, label %while.body, !llvm.loop !41
 
@@ -6320,8 +6320,8 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %for.end.loopexit, label %for.body.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8iteratorppEv.exit: ; preds = %for.body, %if.then5.i.i.i, %if.else.i.i.i9
-  %__begin2.sroa.0.2 = phi ptr [ %16, %if.then5.i.i.i ], [ %20, %if.else.i.i.i9 ], [ %10, %for.body ]
-  %__begin2.sroa.11.2 = phi i32 [ %15, %if.then5.i.i.i ], [ %15, %if.else.i.i.i9 ], [ %__begin2.sroa.11.018, %for.body ]
+  %__begin2.sroa.0.2 = phi ptr [ %10, %for.body ], [ %16, %if.then5.i.i.i ], [ %20, %if.else.i.i.i9 ]
+  %__begin2.sroa.11.2 = phi i32 [ %__begin2.sroa.11.018, %for.body ], [ %15, %if.then5.i.i.i ], [ %15, %if.else.i.i.i9 ]
   %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.2, null
   br i1 %cmp.i.i.not, label %for.end.loopexit, label %for.body
 
@@ -8733,8 +8733,8 @@ if.then6:                                         ; preds = %while.end.i, %if.th
   %7 = extractvalue { ptr, i32 } %call9, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then6
-  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %while.end.i ], [ %1, %if.else.i ], [ %1, %if.then.i ]
+if.end10:                                         ; preds = %while.end.i, %if.else.i, %if.then.i, %if.then6
+  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %if.then.i ], [ %1, %if.else.i ], [ %1, %while.end.i ]
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %alloc_.i, align 8
   %cmp.i.i = icmp eq ptr %8, null
@@ -9256,8 +9256,8 @@ if.then6:                                         ; preds = %while.end.i, %if.th
   %7 = extractvalue { ptr, i32 } %call9, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then6
-  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %while.end.i ], [ %1, %if.else.i ], [ %1, %if.then.i ]
+if.end10:                                         ; preds = %while.end.i, %if.else.i, %if.then.i, %if.then6
+  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %if.then.i ], [ %1, %if.else.i ], [ %1, %while.end.i ]
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %alloc_.i, align 8
   %cmp.i.i = icmp eq ptr %8, null

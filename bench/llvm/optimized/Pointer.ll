@@ -4793,37 +4793,37 @@ _ZNK5clang6interp7Pointer7getBaseEv.exit19:       ; preds = %138, %139
 
 162:                                              ; preds = %152
   %163 = icmp eq i32 %160, 1
-  br i1 %163, label %164, label %173
+  br i1 %163, label %_ZNK5clang6interp7PointereqERKS1_.exit, label %164
 
 164:                                              ; preds = %162
-  %165 = load i64, ptr %29, align 8, !tbaa !56
-  %166 = load i64, ptr %134, align 8
-  %167 = icmp eq i64 %165, %166
-  %168 = load i64, ptr %4, align 8
-  %169 = load i64, ptr %0, align 8
-  %170 = icmp eq i64 %168, %169
-  %171 = select i1 %167, i1 %170, i1 false
-  %172 = trunc i64 %166 to i32
-  br i1 %171, label %189, label %_ZNK5clang6interp7PointereqERKS1_.exit.thread
-
-173:                                              ; preds = %162
-  %174 = load ptr, ptr %33, align 8, !tbaa !54
-  %175 = load ptr, ptr %133, align 8, !tbaa !54
-  %176 = icmp eq ptr %174, %175
+  %165 = load ptr, ptr %33, align 8, !tbaa !54
+  %166 = load ptr, ptr %133, align 8, !tbaa !54
+  %167 = icmp eq ptr %165, %166
   %.pre49 = load i32, ptr %134, align 8, !tbaa !74
-  %177 = load i32, ptr %29, align 8
-  %178 = icmp eq i32 %177, %.pre49
-  %or.cond65 = select i1 %176, i1 %178, i1 false
-  br i1 %or.cond65, label %_ZNK5clang6interp7PointereqERKS1_.exit, label %_ZNK5clang6interp7PointereqERKS1_.exit.thread
+  %168 = load i32, ptr %29, align 8
+  %169 = icmp eq i32 %168, %.pre49
+  %or.cond65 = select i1 %167, i1 %169, i1 false
+  br i1 %or.cond65, label %170, label %_ZNK5clang6interp7PointereqERKS1_.exit.thread
 
-_ZNK5clang6interp7PointereqERKS1_.exit:           ; preds = %173
-  %179 = load i64, ptr %4, align 8, !tbaa !29
-  %180 = load i64, ptr %0, align 8, !tbaa !29
-  %181 = icmp eq i64 %179, %180
-  br i1 %181, label %189, label %_ZNK5clang6interp7PointereqERKS1_.exit.thread
+170:                                              ; preds = %164
+  %171 = load i64, ptr %4, align 8, !tbaa !29
+  %172 = load i64, ptr %0, align 8, !tbaa !29
+  %173 = icmp eq i64 %171, %172
+  br i1 %173, label %189, label %_ZNK5clang6interp7PointereqERKS1_.exit.thread
 
-_ZNK5clang6interp7PointereqERKS1_.exit.thread:    ; preds = %._ZNK5clang6interp7PointereqERKS1_.exit.thread_crit_edge, %173, %164, %_ZNK5clang6interp7PointereqERKS1_.exit
-  %182 = phi i32 [ %.pre48, %._ZNK5clang6interp7PointereqERKS1_.exit.thread_crit_edge ], [ %.pre49, %173 ], [ %.pre49, %_ZNK5clang6interp7PointereqERKS1_.exit ], [ %172, %164 ]
+_ZNK5clang6interp7PointereqERKS1_.exit:           ; preds = %162
+  %174 = load i64, ptr %29, align 8, !tbaa !56
+  %175 = load i64, ptr %134, align 8
+  %176 = icmp eq i64 %174, %175
+  %177 = load i64, ptr %4, align 8
+  %178 = load i64, ptr %0, align 8
+  %179 = icmp eq i64 %177, %178
+  %180 = select i1 %176, i1 %179, i1 false
+  %181 = trunc i64 %175 to i32
+  br i1 %180, label %189, label %_ZNK5clang6interp7PointereqERKS1_.exit.thread
+
+_ZNK5clang6interp7PointereqERKS1_.exit.thread:    ; preds = %._ZNK5clang6interp7PointereqERKS1_.exit.thread_crit_edge, %164, %170, %_ZNK5clang6interp7PointereqERKS1_.exit
+  %182 = phi i32 [ %.pre48, %._ZNK5clang6interp7PointereqERKS1_.exit.thread_crit_edge ], [ %.pre49, %164 ], [ %181, %_ZNK5clang6interp7PointereqERKS1_.exit ], [ %.pre49, %170 ]
   %183 = load ptr, ptr %133, align 8, !tbaa !54
   %184 = zext i32 %182 to i64
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 %184
@@ -4833,7 +4833,7 @@ _ZNK5clang6interp7PointereqERKS1_.exit.thread:    ; preds = %._ZNK5clang6interp7
   store i8 %188, ptr %186, align 4
   br label %189
 
-189:                                              ; preds = %164, %_ZNK5clang6interp7PointereqERKS1_.exit, %_ZNK5clang6interp7PointereqERKS1_.exit.thread
+189:                                              ; preds = %170, %_ZNK5clang6interp7PointereqERKS1_.exit, %_ZNK5clang6interp7PointereqERKS1_.exit.thread
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %190 = getelementptr inbounds nuw i8, ptr %.045, i64 24

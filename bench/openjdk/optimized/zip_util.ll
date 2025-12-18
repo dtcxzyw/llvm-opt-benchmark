@@ -813,7 +813,7 @@ readFullyAt.exit68.i:                             ; preds = %.outer.i.i67.i
   %.not.i = icmp slt i64 %178, %13
   br i1 %.not.i, label %findEND.exit.thread, label %18, !llvm.loop !11
 
-findEND.exit.thread:                              ; preds = %22, %177, %37, %39, %.loopexit.i, %147, %2
+findEND.exit.thread:                              ; preds = %22, %177, %37, %39, %2, %.loopexit.i, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %557
 
@@ -1503,7 +1503,7 @@ hashN.exit:                                       ; preds = %.lr.ph.i191, %isMet
   br label %freeCEN.exit200
 
 readFullyAt.exit.thread:                          ; preds = %357, %359, %tailrecurse.i._crit_edge, %.loopexit.i190, %473, %342, %readFullyAt.exit, %339, %311, %538, %447, %441, %438, %433, %332, %304, %298
-  %.0151 = phi ptr [ null, %298 ], [ null, %304 ], [ null, %311 ], [ null, %332 ], [ %.1, %readFullyAt.exit ], [ %.1, %438 ], [ %.1, %441 ], [ %.1, %447 ], [ %.1, %433 ], [ %.1, %538 ], [ null, %339 ], [ %340, %342 ], [ %.1, %tailrecurse.i._crit_edge ], [ %.1, %473 ], [ %.1, %.loopexit.i190 ], [ %340, %359 ], [ %340, %357 ]
+  %.0151 = phi ptr [ null, %298 ], [ null, %304 ], [ null, %311 ], [ null, %332 ], [ %.1, %readFullyAt.exit ], [ %.1, %438 ], [ %.1, %441 ], [ %.1, %447 ], [ %.1, %473 ], [ %.1, %433 ], [ %.1, %538 ], [ null, %339 ], [ %340, %342 ], [ %.1, %tailrecurse.i._crit_edge ], [ %.1, %.loopexit.i190 ], [ %340, %359 ], [ %340, %357 ]
   %541 = load ptr, ptr %180, align 8
   tail call void @free(ptr noundef %541) #21
   store ptr null, ptr %180, align 8
@@ -2666,7 +2666,7 @@ readFullyAt.exit.sink.split:                      ; preds = %48, %50, %33, %26, 
   br label %readFullyAt.exit
 
 readFullyAt.exit:                                 ; preds = %.outer.i.i, %readFullyAt.exit.sink.split, %.outer.i.preheader.i, %21, %19, %5
-  %.0 = phi i32 [ -1, %21 ], [ -1, %5 ], [ 0, %19 ], [ %spec.select, %.outer.i.preheader.i ], [ -1, %readFullyAt.exit.sink.split ], [ %spec.select, %.outer.i.i ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %readFullyAt.exit.sink.split ], [ %spec.select, %.outer.i.preheader.i ], [ -1, %5 ], [ 0, %19 ], [ %spec.select, %.outer.i.i ]
   ret i32 %.0
 }
 
@@ -3359,7 +3359,7 @@ readFullyAt.exit:                                 ; preds = %readFullyAt.exit.lo
   br i1 %57, label %.outer.split.i, label %readFullyAt.exit.thread, !llvm.loop !8
 
 readFullyAt.exit.thread:                          ; preds = %21, %23, %52, %54, %8, %34, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %6, %8 ], [ %36, %52 ], [ %36, %54 ], [ %6, %23 ], [ %6, %21 ]
+  %.0 = phi ptr [ null, %2 ], [ %36, %52 ], [ null, %34 ], [ %6, %8 ], [ %36, %54 ], [ %6, %23 ], [ %6, %21 ]
   tail call void @free(ptr noundef %.0) #21
   br label %readFully.exit
 

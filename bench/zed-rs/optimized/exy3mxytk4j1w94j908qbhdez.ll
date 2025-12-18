@@ -2657,7 +2657,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h02a5b66264155e24E(ptr 
   br i1 %719, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit205.thread", label %721
 
 .invoke1071:                                      ; preds = %434, %411, %352, %329, %706
-  %720 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %706 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %434 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %411 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %352 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %329 ]
+  %720 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %706 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %411 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %352 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %329 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %434 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %720) #44
           to label %.cont1072 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2669,9 +2669,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h02a5b66264155e24E(ptr 
   br i1 %722, label %726, label %.invoke
 
 .invoke:                                          ; preds = %448, %425, %366, %343, %721
-  %723 = phi i64 [ %715, %721 ], [ %443, %448 ], [ %420, %425 ], [ %361, %366 ], [ %338, %343 ]
-  %724 = phi i64 [ %718, %721 ], [ %446, %448 ], [ %423, %425 ], [ %364, %366 ], [ %341, %343 ]
-  %725 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %721 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %448 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %425 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %366 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %343 ]
+  %723 = phi i64 [ %715, %721 ], [ %420, %425 ], [ %361, %366 ], [ %338, %343 ], [ %443, %448 ]
+  %724 = phi i64 [ %718, %721 ], [ %423, %425 ], [ %364, %366 ], [ %341, %343 ], [ %446, %448 ]
+  %725 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %721 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %425 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %366 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %343 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %448 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %723, i64 noundef %724, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %725) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4890,7 +4890,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h0428f906c1c33685E(ptr 
   br i1 %719, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit205.thread", label %721
 
 .invoke1071:                                      ; preds = %434, %411, %352, %329, %706
-  %720 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %706 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %434 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %411 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %352 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %329 ]
+  %720 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %706 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %411 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %352 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %329 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %434 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %720) #44
           to label %.cont1072 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4902,9 +4902,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h0428f906c1c33685E(ptr 
   br i1 %722, label %726, label %.invoke
 
 .invoke:                                          ; preds = %448, %425, %366, %343, %721
-  %723 = phi i64 [ %715, %721 ], [ %443, %448 ], [ %420, %425 ], [ %361, %366 ], [ %338, %343 ]
-  %724 = phi i64 [ %718, %721 ], [ %446, %448 ], [ %423, %425 ], [ %364, %366 ], [ %341, %343 ]
-  %725 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %721 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %448 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %425 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %366 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %343 ]
+  %723 = phi i64 [ %715, %721 ], [ %420, %425 ], [ %361, %366 ], [ %338, %343 ], [ %443, %448 ]
+  %724 = phi i64 [ %718, %721 ], [ %423, %425 ], [ %364, %366 ], [ %341, %343 ], [ %446, %448 ]
+  %725 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %721 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %425 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %366 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %343 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %448 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %723, i64 noundef %724, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %725) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7094,7 +7094,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h1a1f177c75e25424E(ptr 
   br i1 %718, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit203.thread", label %720
 
 .invoke1060:                                      ; preds = %433, %410, %351, %328, %705
-  %719 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %705 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %433 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %410 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %351 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %328 ]
+  %719 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %705 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %410 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %351 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %328 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %433 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %719) #44
           to label %.cont1061 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7106,9 +7106,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h1a1f177c75e25424E(ptr 
   br i1 %721, label %725, label %.invoke
 
 .invoke:                                          ; preds = %447, %424, %365, %342, %720
-  %722 = phi i64 [ %714, %720 ], [ %442, %447 ], [ %419, %424 ], [ %360, %365 ], [ %337, %342 ]
-  %723 = phi i64 [ %717, %720 ], [ %445, %447 ], [ %422, %424 ], [ %363, %365 ], [ %340, %342 ]
-  %724 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %720 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %447 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %424 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %365 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %342 ]
+  %722 = phi i64 [ %714, %720 ], [ %419, %424 ], [ %360, %365 ], [ %337, %342 ], [ %442, %447 ]
+  %723 = phi i64 [ %717, %720 ], [ %422, %424 ], [ %363, %365 ], [ %340, %342 ], [ %445, %447 ]
+  %724 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %720 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %424 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %365 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %342 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %447 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %722, i64 noundef %723, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %724) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9278,7 +9278,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h7198442eb00b374aE(ptr 
   br i1 %715, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit201.thread", label %717
 
 .invoke1095:                                      ; preds = %430, %407, %348, %325, %702
-  %716 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %702 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %430 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %407 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %348 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %325 ]
+  %716 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %702 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %407 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %348 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %325 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %430 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %716) #44
           to label %.cont1096 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9290,9 +9290,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h7198442eb00b374aE(ptr 
   br i1 %718, label %722, label %.invoke
 
 .invoke:                                          ; preds = %444, %421, %362, %339, %717
-  %719 = phi i64 [ %711, %717 ], [ %439, %444 ], [ %416, %421 ], [ %357, %362 ], [ %334, %339 ]
-  %720 = phi i64 [ %714, %717 ], [ %442, %444 ], [ %419, %421 ], [ %360, %362 ], [ %337, %339 ]
-  %721 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %717 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %444 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %421 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %362 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %339 ]
+  %719 = phi i64 [ %711, %717 ], [ %416, %421 ], [ %357, %362 ], [ %334, %339 ], [ %439, %444 ]
+  %720 = phi i64 [ %714, %717 ], [ %419, %421 ], [ %360, %362 ], [ %337, %339 ], [ %442, %444 ]
+  %721 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %717 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %421 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %362 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %339 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %444 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %719, i64 noundef %720, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %721) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -11499,7 +11499,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h916c1045128053d7E(ptr 
   br i1 %718, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit203.thread", label %720
 
 .invoke1060:                                      ; preds = %433, %410, %351, %328, %705
-  %719 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %705 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %433 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %410 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %351 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %328 ]
+  %719 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %705 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %410 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %351 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %328 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %433 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %719) #44
           to label %.cont1061 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -11511,9 +11511,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h916c1045128053d7E(ptr 
   br i1 %721, label %725, label %.invoke
 
 .invoke:                                          ; preds = %447, %424, %365, %342, %720
-  %722 = phi i64 [ %714, %720 ], [ %442, %447 ], [ %419, %424 ], [ %360, %365 ], [ %337, %342 ]
-  %723 = phi i64 [ %717, %720 ], [ %445, %447 ], [ %422, %424 ], [ %363, %365 ], [ %340, %342 ]
-  %724 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %720 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %447 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %424 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %365 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %342 ]
+  %722 = phi i64 [ %714, %720 ], [ %419, %424 ], [ %360, %365 ], [ %337, %342 ], [ %442, %447 ]
+  %723 = phi i64 [ %717, %720 ], [ %422, %424 ], [ %363, %365 ], [ %340, %342 ], [ %445, %447 ]
+  %724 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %720 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %424 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %365 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %342 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %447 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %722, i64 noundef %723, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %724) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -13698,7 +13698,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h91fa79d40f0d9722E(ptr 
   br i1 %719, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit202.thread", label %721
 
 .invoke1180:                                      ; preds = %434, %411, %352, %329, %706
-  %720 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %706 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %434 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %411 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %352 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %329 ]
+  %720 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %706 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %411 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %352 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %329 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %434 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %720) #44
           to label %.cont1181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -13710,9 +13710,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h91fa79d40f0d9722E(ptr 
   br i1 %722, label %726, label %.invoke
 
 .invoke:                                          ; preds = %448, %425, %366, %343, %721
-  %723 = phi i64 [ %715, %721 ], [ %443, %448 ], [ %420, %425 ], [ %361, %366 ], [ %338, %343 ]
-  %724 = phi i64 [ %718, %721 ], [ %446, %448 ], [ %423, %425 ], [ %364, %366 ], [ %341, %343 ]
-  %725 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %721 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %448 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %425 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %366 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %343 ]
+  %723 = phi i64 [ %715, %721 ], [ %420, %425 ], [ %361, %366 ], [ %338, %343 ], [ %443, %448 ]
+  %724 = phi i64 [ %718, %721 ], [ %423, %425 ], [ %364, %366 ], [ %341, %343 ], [ %446, %448 ]
+  %725 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %721 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %425 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %366 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %343 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %448 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %723, i64 noundef %724, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %725) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15918,7 +15918,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17ha911cea7c4495327E(ptr 
   br i1 %722, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit204.thread", label %724
 
 .invoke1066:                                      ; preds = %437, %414, %355, %332, %709
-  %723 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %709 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %437 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %414 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %355 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %332 ]
+  %723 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %709 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %414 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %355 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %332 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %437 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %723) #44
           to label %.cont1067 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15930,9 +15930,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17ha911cea7c4495327E(ptr 
   br i1 %725, label %729, label %.invoke
 
 .invoke:                                          ; preds = %451, %428, %369, %346, %724
-  %726 = phi i64 [ %718, %724 ], [ %446, %451 ], [ %423, %428 ], [ %364, %369 ], [ %341, %346 ]
-  %727 = phi i64 [ %721, %724 ], [ %449, %451 ], [ %426, %428 ], [ %367, %369 ], [ %344, %346 ]
-  %728 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %724 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %451 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %428 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %369 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %346 ]
+  %726 = phi i64 [ %718, %724 ], [ %423, %428 ], [ %364, %369 ], [ %341, %346 ], [ %446, %451 ]
+  %727 = phi i64 [ %721, %724 ], [ %426, %428 ], [ %367, %369 ], [ %344, %346 ], [ %449, %451 ]
+  %728 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %724 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %428 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %369 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %346 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %451 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %726, i64 noundef %727, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %728) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18159,7 +18159,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd29fcec899b69224E(ptr 
   br i1 %723, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36f1656051ae1918E.exit206.thread", label %725
 
 .invoke1078:                                      ; preds = %438, %415, %356, %333, %710
-  %724 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %710 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %438 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %415 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %356 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %333 ]
+  %724 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %710 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %415 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %356 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %333 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %438 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.f4eff85524c96750827aa33d1c6af008.151.llvm.15813213850108364184, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %724) #44
           to label %.cont1079 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18171,9 +18171,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd29fcec899b69224E(ptr 
   br i1 %726, label %730, label %.invoke
 
 .invoke:                                          ; preds = %452, %429, %370, %347, %725
-  %727 = phi i64 [ %719, %725 ], [ %447, %452 ], [ %424, %429 ], [ %365, %370 ], [ %342, %347 ]
-  %728 = phi i64 [ %722, %725 ], [ %450, %452 ], [ %427, %429 ], [ %368, %370 ], [ %345, %347 ]
-  %729 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %725 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %452 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %429 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %370 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %347 ]
+  %727 = phi i64 [ %719, %725 ], [ %424, %429 ], [ %365, %370 ], [ %342, %347 ], [ %447, %452 ]
+  %728 = phi i64 [ %722, %725 ], [ %427, %429 ], [ %368, %370 ], [ %345, %347 ], [ %450, %452 ]
+  %729 = phi ptr [ @anon.c6982e44894a2416dfab6f1fd54f614d.26, %725 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.19, %429 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.15, %370 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.13, %347 ], [ @anon.c6982e44894a2416dfab6f1fd54f614d.21, %452 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %727, i64 noundef %728, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %729) #44
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -61487,8 +61487,8 @@ _ZN3vim7command8commands17h84d7746bc2459339E.exit: ; preds = %.thread280, %397
   ret void
 
 556:                                              ; preds = %.noexc172, %483
-  %.sroa.8.0.i = phi ptr [ %.sroa.819.0.i, %483 ], [ %535, %.noexc172 ]
-  %.sroa.012.0.i = phi ptr [ %.sroa.016.0.i, %483 ], [ %534, %.noexc172 ]
+  %.sroa.8.0.i = phi ptr [ %535, %.noexc172 ], [ %.sroa.819.0.i, %483 ]
+  %.sroa.012.0.i = phi ptr [ %534, %.noexc172 ], [ %.sroa.016.0.i, %483 ]
   %557 = icmp eq ptr %.sroa.012.0.i, null
   br i1 %557, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$$GT$17h7264b1f9b1fbf7c3E.exit188", label %558
 
@@ -62716,7 +62716,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %21
           to label %245 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hd898b5f40a5fd3b7E.exit.thread": ; preds = %.noexc46, %.noexc65, %"_ZN4core6option15Option$LT$T$GT$7or_else17hfe494e4ad09974e2E.exit"
-  %.pn96.pn.pn = phi ptr [ %.pn96, %"_ZN4core6option15Option$LT$T$GT$7or_else17hfe494e4ad09974e2E.exit" ], [ %179, %.noexc65 ], [ %139, %.noexc46 ]
+  %.pn96.pn.pn = phi ptr [ %179, %.noexc65 ], [ %.pn96, %"_ZN4core6option15Option$LT$T$GT$7or_else17hfe494e4ad09974e2E.exit" ], [ %139, %.noexc46 ]
   %.sroa.02.0.i47.ph = getelementptr inbounds i8, ptr %.pn96.pn.pn, i64 -16
   %240 = load ptr, ptr %.sroa.02.0.i47.ph, align 8, !nonnull !5, !noundef !5
   %241 = getelementptr inbounds i8, ptr %.pn96.pn.pn, i64 -8
@@ -63345,7 +63345,7 @@ define noundef zeroext i1 @"_ZN63_$LT$vim..command..GoToLine$u20$as$u20$gpui..ac
     i32 0, label %20
     i32 1, label %26
     i32 2, label %32
-    i32 3, label %38
+    i32 3, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
   ]
 
 default.unreachable:                              ; preds = %64, %19
@@ -63357,7 +63357,7 @@ default.unreachable:                              ; preds = %64, %19
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %24 = load i32, ptr %23, align 4, !alias.scope !13498, !noalias !13497, !noundef !5
   %25 = icmp eq i32 %22, %24
-  br i1 %25, label %44, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
+  br i1 %25, label %38, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -63365,7 +63365,7 @@ default.unreachable:                              ; preds = %64, %19
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load i32, ptr %29, align 4, !range !5594, !alias.scope !13498, !noalias !13497, !noundef !5
   %31 = icmp eq i32 %28, %30
-  br i1 %31, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
+  br i1 %31, label %44, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
 
 32:                                               ; preds = %19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -63375,23 +63375,23 @@ default.unreachable:                              ; preds = %64, %19
   %37 = icmp eq i32 %34, %36
   br i1 %37, label %55, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
 
-38:                                               ; preds = %19
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+38:                                               ; preds = %20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 4, !alias.scope !13497, !noalias !13498, !noundef !5
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = load i32, ptr %41, align 4, !alias.scope !13498, !noalias !13497, !noundef !5
   %43 = icmp eq i32 %40, %42
   br i1 %43, label %55, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
 
-44:                                               ; preds = %20
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+44:                                               ; preds = %26
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = load i32, ptr %45, align 4, !alias.scope !13497, !noalias !13498, !noundef !5
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %48 = load i32, ptr %47, align 4, !alias.scope !13498, !noalias !13497, !noundef !5
   %49 = icmp eq i32 %46, %48
   br i1 %49, label %55, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
 
-"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %26
+"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %19
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %51 = load i32, ptr %50, align 4, !alias.scope !13497, !noalias !13498, !noundef !5
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -63450,7 +63450,7 @@ default.unreachable:                              ; preds = %64, %19
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hd8e3f52a76a304b9E.exit": ; preds = %3, %15, %20, %26, %32, %38, %44, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %55, %62, %65, %71, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.sink.split.i.i"
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %26 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %32 ], [ %.mux.i.i.i, %55 ], [ false, %71 ], [ false, %44 ], [ false, %38 ], [ false, %15 ], [ false, %62 ], [ false, %20 ], [ false, %65 ], [ %81, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.sink.split.i.i" ]
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %26 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %44 ], [ %.mux.i.i.i, %55 ], [ false, %71 ], [ false, %38 ], [ false, %32 ], [ false, %15 ], [ false, %62 ], [ false, %20 ], [ false, %65 ], [ %81, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.sink.split.i.i" ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -63657,7 +63657,7 @@ define noundef zeroext i1 @"_ZN66_$LT$vim..command..YankCommand$u20$as$u20$gpui.
     i32 0, label %20
     i32 1, label %26
     i32 2, label %32
-    i32 3, label %38
+    i32 3, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
   ]
 
 default.unreachable:                              ; preds = %64, %19
@@ -63669,7 +63669,7 @@ default.unreachable:                              ; preds = %64, %19
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %24 = load i32, ptr %23, align 4, !alias.scope !13535, !noalias !13534, !noundef !5
   %25 = icmp eq i32 %22, %24
-  br i1 %25, label %44, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
+  br i1 %25, label %38, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -63677,7 +63677,7 @@ default.unreachable:                              ; preds = %64, %19
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load i32, ptr %29, align 4, !range !5594, !alias.scope !13535, !noalias !13534, !noundef !5
   %31 = icmp eq i32 %28, %30
-  br i1 %31, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
+  br i1 %31, label %44, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
 
 32:                                               ; preds = %19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -63687,23 +63687,23 @@ default.unreachable:                              ; preds = %64, %19
   %37 = icmp eq i32 %34, %36
   br i1 %37, label %55, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
 
-38:                                               ; preds = %19
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+38:                                               ; preds = %20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 4, !alias.scope !13534, !noalias !13535, !noundef !5
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = load i32, ptr %41, align 4, !alias.scope !13535, !noalias !13534, !noundef !5
   %43 = icmp eq i32 %40, %42
   br i1 %43, label %55, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
 
-44:                                               ; preds = %20
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+44:                                               ; preds = %26
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = load i32, ptr %45, align 4, !alias.scope !13534, !noalias !13535, !noundef !5
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %48 = load i32, ptr %47, align 4, !alias.scope !13535, !noalias !13534, !noundef !5
   %49 = icmp eq i32 %46, %48
   br i1 %49, label %55, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
 
-"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %26
+"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %19
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %51 = load i32, ptr %50, align 4, !alias.scope !13534, !noalias !13535, !noundef !5
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -63762,7 +63762,7 @@ default.unreachable:                              ; preds = %64, %19
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hfad36306e08d883bE.exit": ; preds = %3, %15, %20, %26, %32, %38, %44, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %55, %62, %65, %71, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.sink.split.i.i"
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %26 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %32 ], [ %.mux.i.i.i, %55 ], [ false, %71 ], [ false, %44 ], [ false, %38 ], [ false, %15 ], [ false, %62 ], [ false, %20 ], [ false, %65 ], [ %81, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.sink.split.i.i" ]
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %26 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %44 ], [ %.mux.i.i.i, %55 ], [ false, %71 ], [ false, %38 ], [ false, %32 ], [ false, %15 ], [ false, %62 ], [ false, %20 ], [ false, %65 ], [ %81, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.sink.split.i.i" ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -63996,7 +63996,7 @@ define noundef zeroext i1 @"_ZN64_$LT$vim..command..WithRange$u20$as$u20$gpui..a
     i32 0, label %26
     i32 1, label %32
     i32 2, label %38
-    i32 3, label %44
+    i32 3, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
   ]
 
 default.unreachable:                              ; preds = %70, %25
@@ -64008,7 +64008,7 @@ default.unreachable:                              ; preds = %70, %25
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %30 = load i32, ptr %29, align 4, !alias.scope !13573, !noalias !13572, !noundef !5
   %31 = icmp eq i32 %28, %30
-  br i1 %31, label %50, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+  br i1 %31, label %44, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -64016,7 +64016,7 @@ default.unreachable:                              ; preds = %70, %25
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load i32, ptr %35, align 4, !range !5594, !alias.scope !13573, !noalias !13572, !noundef !5
   %37 = icmp eq i32 %34, %36
-  br i1 %37, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
+  br i1 %37, label %50, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
 38:                                               ; preds = %25
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -64026,23 +64026,23 @@ default.unreachable:                              ; preds = %70, %25
   %43 = icmp eq i32 %40, %42
   br i1 %43, label %61, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-44:                                               ; preds = %25
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %46 = load i32, ptr %45, align 4, !alias.scope !13572, !noalias !13573, !noundef !5
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
+44:                                               ; preds = %26
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load i32, ptr %45, align 8, !alias.scope !13572, !noalias !13573, !noundef !5
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load i32, ptr %47, align 4, !alias.scope !13573, !noalias !13572, !noundef !5
   %49 = icmp eq i32 %46, %48
   br i1 %49, label %61, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-50:                                               ; preds = %26
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load i32, ptr %51, align 8, !alias.scope !13572, !noalias !13573, !noundef !5
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
+50:                                               ; preds = %32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %52 = load i32, ptr %51, align 4, !alias.scope !13572, !noalias !13573, !noundef !5
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %54 = load i32, ptr %53, align 4, !alias.scope !13573, !noalias !13572, !noundef !5
   %55 = icmp eq i32 %52, %54
   br i1 %55, label %61, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
-"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %32
+"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i": ; preds = %25
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %57 = load i32, ptr %56, align 4, !alias.scope !13572, !noalias !13573, !noundef !5
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -64143,7 +64143,7 @@ default.unreachable:                              ; preds = %70, %25
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit": ; preds = %3, %15, %21, %26, %32, %38, %44, %50, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %68, %71, %77, %83, %89, %95, %101, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", %107
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %118, %107 ], [ false, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i" ], [ false, %15 ], [ false, %101 ], [ false, %95 ], [ false, %89 ], [ false, %83 ], [ false, %32 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %38 ], [ false, %77 ], [ false, %50 ], [ false, %44 ], [ false, %68 ], [ false, %71 ], [ false, %21 ], [ false, %26 ]
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %118, %107 ], [ false, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i" ], [ false, %15 ], [ false, %101 ], [ false, %89 ], [ false, %95 ], [ false, %83 ], [ false, %32 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %50 ], [ false, %77 ], [ false, %44 ], [ false, %38 ], [ false, %68 ], [ false, %71 ], [ false, %21 ], [ false, %26 ]
   ret i1 %.sroa.02.0.i
 }
 

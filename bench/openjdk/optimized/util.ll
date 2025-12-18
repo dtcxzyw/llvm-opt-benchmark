@@ -6403,7 +6403,7 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %54, %70
-  %.3 = phi i32 [ %spec.select, %70 ], [ 0, %54 ], [ %28, %23 ]
+  %.3 = phi i32 [ 0, %54 ], [ %spec.select, %70 ], [ %28, %23 ]
   %73 = load ptr, ptr @gdata, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 528
   %75 = load i32, ptr %74, align 8
@@ -6752,7 +6752,7 @@ define internal range(i32 256, 32769) i32 @cbObjectTagReferrer(i32 %0, ptr readn
   br label %36
 
 36:                                               ; preds = %.sink.split, %27, %28, %22, %16, %14, %9
-  %.0 = phi i32 [ 256, %22 ], [ 32768, %9 ], [ 32768, %14 ], [ 256, %16 ], [ 256, %28 ], [ 256, %27 ], [ 256, %.sink.split ]
+  %.0 = phi i32 [ 256, %22 ], [ 32768, %9 ], [ 32768, %14 ], [ 256, %16 ], [ 256, %27 ], [ 256, %28 ], [ 256, %.sink.split ]
   ret i32 %.0
 }
 

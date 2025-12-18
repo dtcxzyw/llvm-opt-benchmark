@@ -292,10 +292,10 @@ switch.lookup:                                    ; preds = %3
   br i1 %exitcond.not, label %.critedge.i, label %.lr.ph10.i.split, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %.lr.ph10.i.split, %.loopexit.i, %.loopexit.i.us, %.lr.ph10.i.split.us, %.split.us, %26
-  %.111 = phi ptr [ %.us-phi22, %.split.us ], [ %.010, %26 ], [ %.010, %.lr.ph10.i.split.us ], [ %scevgep49, %.loopexit.i.us ], [ %scevgep47, %.loopexit.i ], [ %.212, %.lr.ph10.i.split ]
-  %.1 = phi ptr [ %.us-phi23, %.split.us ], [ %.09, %26 ], [ %.09, %.lr.ph10.i.split.us ], [ %.09, %.loopexit.i.us ], [ %.4, %.loopexit.i ], [ %.3, %.lr.ph10.i.split ]
-  %.0455.i = phi i64 [ %.us-phi25, %.split.us ], [ 0, %26 ], [ 0, %.lr.ph10.i.split.us ], [ %.146.i.us, %.loopexit.i.us ], [ %.146.i, %.loopexit.i ], [ %.0457.i, %.lr.ph10.i.split ]
-  %.0433.i = phi i32 [ %.us-phi24, %.split.us ], [ 0, %26 ], [ 0, %.lr.ph10.i.split.us ], [ %.144.i.us, %.loopexit.i.us ], [ %.144.i, %.loopexit.i ], [ %.0438.i, %.lr.ph10.i.split ]
+  %.111 = phi ptr [ %.us-phi22, %.split.us ], [ %.010, %26 ], [ %scevgep49, %.loopexit.i.us ], [ %.010, %.lr.ph10.i.split.us ], [ %scevgep47, %.loopexit.i ], [ %.212, %.lr.ph10.i.split ]
+  %.1 = phi ptr [ %.us-phi23, %.split.us ], [ %.09, %26 ], [ %.09, %.loopexit.i.us ], [ %.09, %.lr.ph10.i.split.us ], [ %.4, %.loopexit.i ], [ %.3, %.lr.ph10.i.split ]
+  %.0455.i = phi i64 [ %.us-phi25, %.split.us ], [ 0, %26 ], [ %.146.i.us, %.loopexit.i.us ], [ 0, %.lr.ph10.i.split.us ], [ %.146.i, %.loopexit.i ], [ %.0457.i, %.lr.ph10.i.split ]
+  %.0433.i = phi i32 [ %.us-phi24, %.split.us ], [ 0, %26 ], [ %.144.i.us, %.loopexit.i.us ], [ 0, %.lr.ph10.i.split.us ], [ %.144.i, %.loopexit.i ], [ %.0438.i, %.lr.ph10.i.split ]
   %70 = lshr i16 %.fr, 3
   %71 = and i16 %70, 63
   %72 = zext nneg i16 %71 to i32
@@ -1229,7 +1229,7 @@ define internal fastcc noundef zeroext i1 @_parse_time(ptr noundef %0, ptr nound
   br i1 %.not47, label %.thread2, label %.lr.ph, !llvm.loop !28
 
 .thread2:                                         ; preds = %.lr.ph, %.lr.ph12, %23, %48, %41
-  %.140 = phi i32 [ %33, %48 ], [ %33, %41 ], [ 0, %23 ], [ %46, %.lr.ph12 ], [ %50, %.lr.ph ]
+  %.140 = phi i32 [ 0, %23 ], [ %46, %.lr.ph12 ], [ %33, %48 ], [ %33, %41 ], [ %50, %.lr.ph ]
   %52 = call i64 @mktime(ptr noundef nonnull %4) #19
   %53 = icmp eq i64 %52, -1
   br i1 %53, label %55, label %54

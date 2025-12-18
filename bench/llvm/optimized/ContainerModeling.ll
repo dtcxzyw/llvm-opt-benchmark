@@ -8029,7 +8029,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
   br i1 %.not6, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %14, %19, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit, %6, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
-  %.0 = phi i1 [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ false, %6 ], [ true, %19 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ false, %14 ]
+  %.0 = phi i1 [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ true, %19 ], [ false, %6 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -8148,7 +8148,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
   br i1 %.not18, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %14, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit33, %6, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
-  %.0 = phi i1 [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ false, %6 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %6 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -14967,7 +14967,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
   br i1 %.not18, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %14, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit33, %6, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
-  %.0 = phi i1 [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ false, %6 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %6 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ false, %14 ]
   ret i1 %.0
 }
 

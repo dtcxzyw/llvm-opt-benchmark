@@ -1357,7 +1357,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %524, label %.loopexit, label %521
 
 .loopexit:                                        ; preds = %515, %521, %.thread
-  %.pn189.pn = phi { ptr, i32 } [ %496, %.thread ], [ %520, %521 ], [ %514, %515 ]
+  %.pn189.pn = phi { ptr, i32 } [ %520, %521 ], [ %496, %.thread ], [ %514, %515 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %525
 
@@ -3335,7 +3335,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %251
   br i1 %276, label %.loopexit.i, label %273
 
 .loopexit.i:                                      ; preds = %273, %.loopexit.loopexit19.i, %.thread.i
-  %.pn14.i = phi { ptr, i32 } [ %267, %.thread.i ], [ %.pn.i39, %.loopexit.loopexit19.i ], [ %271, %273 ]
+  %.pn14.i = phi { ptr, i32 } [ %.pn.i39, %.loopexit.loopexit19.i ], [ %267, %.thread.i ], [ %271, %273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3753,7 +3753,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115dftMultiChannelERKN2cv11_InputAr
   br i1 %80, label %.loopexit, label %77
 
 .loopexit:                                        ; preds = %77, %.loopexit.loopexit51, %.thread
-  %.pn34.pn = phi { ptr, i32 } [ %72, %.thread ], [ %.pn31, %.loopexit.loopexit51 ], [ %76, %77 ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn31, %.loopexit.loopexit51 ], [ %72, %.thread ], [ %76, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 

@@ -2604,7 +2604,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit209: ; preds = %600, %594, %60
   br label %633
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit182, %614, %608, %605, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit202, %584, %572, %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstIbEERKT_v.exit, %.critedge153
-  %.287 = phi i1 [ false, %572 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit202 ], [ true, %584 ], [ true, %.critedge153 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstIbEERKT_v.exit ], [ true, %605 ], [ true, %608 ], [ true, %614 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit182 ]
+  %.287 = phi i1 [ false, %572 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit202 ], [ true, %584 ], [ true, %.critedge153 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstIbEERKT_v.exit ], [ true, %614 ], [ true, %605 ], [ true, %608 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit182 ]
   %620 = load ptr, ptr %8, align 8, !tbaa !88
   %621 = load i64, ptr %620, align 8
   %622 = and i64 %621, 1152920405095219200
@@ -5744,7 +5744,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit361: ; preds = %733, %739, %745
   br i1 %755, label %.loopexit525, label %752
 
 .loopexit525:                                     ; preds = %.preheader527, %752, %.body
-  %.pn121.pn.pn.pn = phi { ptr, i32 } [ %310, %.body ], [ %.pn121.pn.pn, %752 ], [ %310, %.preheader527 ]
+  %.pn121.pn.pn.pn = phi { ptr, i32 } [ %.pn121.pn.pn, %752 ], [ %310, %.body ], [ %310, %.preheader527 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %756
 
@@ -5761,7 +5761,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit361: ; preds = %733, %739, %745
   br i1 %761, label %.loopexit, label %758
 
 .loopexit:                                        ; preds = %758, %.loopexit.loopexit553, %.thread
-  %.pn131.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit.loopexit553 ], [ %.pn131.pn, %758 ]
+  %.pn131.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.loopexit.loopexit553 ], [ %lpad.thr_comm, %.thread ], [ %.pn131.pn, %758 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4cvc58internal6theory7strings9InferInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %4) #23
   br label %762

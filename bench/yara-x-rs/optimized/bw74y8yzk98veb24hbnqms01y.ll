@@ -2637,7 +2637,7 @@ define noundef align 8 ptr @"_ZN79_$LT$yara_x_proto_yaml..test..Message$u20$as$u
   br i1 %12, label %13, label %17
 
 .loopexit:                                        ; preds = %42, %49, %47, %28, %21, %13, %6
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %16, %13 ], [ %24, %21 ], [ %51, %49 ], [ %33, %28 ], [ %48, %47 ], [ %43, %42 ]
+  %.sroa.0.0 = phi ptr [ %48, %47 ], [ %9, %6 ], [ %16, %13 ], [ %24, %21 ], [ %51, %49 ], [ %33, %28 ], [ %43, %42 ]
   ret ptr %.sroa.0.0
 
 13:                                               ; preds = %10

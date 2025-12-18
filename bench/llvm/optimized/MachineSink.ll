@@ -5750,8 +5750,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i277: ; pr
   br i1 %.not204.i, label %.thread198.i, label %.lr.ph.i272
 
 .thread198.i:                                     ; preds = %1754, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i277, %1834, %.loopexit209.i, %1741, %.loopexit211.i
-  %.244.ph.i = phi i1 [ %.042.i, %1741 ], [ %.042.i, %.loopexit209.i ], [ %.042.i, %.loopexit211.i ], [ %.042.i, %1834 ], [ %.648.ph.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i277 ], [ %.042.i, %1754 ]
-  %.236.ph.i = phi i1 [ %.034.i, %1741 ], [ %.034.i, %.loopexit209.i ], [ %.034.i, %.loopexit211.i ], [ %.034.i, %1834 ], [ %.640.ph.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i277 ], [ %.034.i, %1754 ]
+  %.244.ph.i = phi i1 [ %.648.ph.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i277 ], [ %.042.i, %1741 ], [ %.042.i, %.loopexit209.i ], [ %.042.i, %.loopexit211.i ], [ %.042.i, %1834 ], [ %.042.i, %1754 ]
+  %.236.ph.i = phi i1 [ %.640.ph.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i277 ], [ %.034.i, %1741 ], [ %.034.i, %.loopexit209.i ], [ %.034.i, %.loopexit211.i ], [ %.034.i, %1834 ], [ %.034.i, %1754 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %13)
   %.pre.i271 = load ptr, ptr %282, align 8, !tbaa !550
@@ -5768,10 +5768,10 @@ _ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_L
   br label %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.i
 
 _ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.i: ; preds = %1712, %1729, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i
-  %1937 = phi ptr [ %.pre767, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ %1701, %1729 ], [ %1701, %1712 ]
-  %1938 = phi i1 [ true, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ false, %1729 ], [ false, %1712 ]
-  %.143.i = phi i1 [ %.143.ph.i, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ %.042.i, %1729 ], [ %.042.i, %1712 ]
-  %.135.i = phi i1 [ %.135.ph.i, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ %.034.i, %1729 ], [ %.034.i, %1712 ]
+  %1937 = phi ptr [ %1701, %1729 ], [ %.pre767, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ %1701, %1712 ]
+  %1938 = phi i1 [ false, %1729 ], [ true, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ false, %1712 ]
+  %.143.i = phi i1 [ %.042.i, %1729 ], [ %.143.ph.i, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ %.042.i, %1712 ]
+  %.135.i = phi i1 [ %.034.i, %1729 ], [ %.135.ph.i, %_ZNK4llvm11df_iteratorIPNS_17MachineBasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.sink.split.i ], [ %.034.i, %1712 ]
   %.not.i.i.i.i.i289 = icmp eq ptr %1937, null
   br i1 %.not.i.i.i.i.i289, label %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EED2Ev.exit.i.i, label %1939
 
@@ -7412,7 +7412,7 @@ _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread32.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i156, label %_ZL28mayLoadFromGOTOrConstantPoolRN4llvm12MachineInstrE.exit.i, label %.lr.ph.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %2625, %2619
-  %.sroa.0.0.i.i.i.i154 = phi ptr [ %.0.i.i.i.i.i152, %2619 ], [ %2624, %2625 ]
+  %.sroa.0.0.i.i.i.i154 = phi ptr [ %2624, %2625 ], [ %.0.i.i.i.i.i152, %2619 ]
   %2628 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i154, i64 24
   %2629 = load ptr, ptr %2628, align 8, !tbaa !472
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %2629, null
@@ -11858,8 +11858,8 @@ _ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstr
   %spec.select = select i1 %245, ptr %.263113, ptr null
   br label %.thread105.thread
 
-.thread105.thread:                                ; preds = %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit, %226, %225, %53, %59, %78, %63, %221, %.critedge, %5, %234, %230, %.thread105
-  %.9 = phi ptr [ null, %.thread105 ], [ null, %230 ], [ null, %234 ], [ %spec.select, %.critedge ], [ null, %5 ], [ null, %221 ], [ null, %63 ], [ null, %78 ], [ null, %59 ], [ null, %53 ], [ null, %225 ], [ null, %226 ], [ null, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit ]
+.thread105.thread:                                ; preds = %225, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit, %226, %53, %59, %78, %63, %221, %.critedge, %5, %234, %230, %.thread105
+  %.9 = phi ptr [ null, %.thread105 ], [ null, %221 ], [ null, %230 ], [ %spec.select, %.critedge ], [ null, %234 ], [ null, %5 ], [ null, %63 ], [ null, %78 ], [ null, %59 ], [ null, %53 ], [ null, %226 ], [ null, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit ], [ null, %225 ]
   ret ptr %.9
 }
 
@@ -12196,8 +12196,8 @@ _ZN12_GLOBAL__N_114MachineSinking27isWorthBreakingCriticalEdgeERN4llvm12MachineI
   br i1 %177, label %_ZNK4llvm9SetVectorISt4pairIPNS_17MachineBasicBlockES3_ENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE5countERKS4_.exit, label %.critedge
 
 _ZNK4llvm9SetVectorISt4pairIPNS_17MachineBasicBlockES3_ENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE5countERKS4_.exit: ; preds = %165, %_ZN12_GLOBAL__N_114MachineSinking27isWorthBreakingCriticalEdgeERN4llvm12MachineInstrEPNS1_17MachineBasicBlockES5_RS5_.exit, %132, %.thread40, %.loopexit, %122
-  %.not39 = phi i1 [ false, %.loopexit ], [ true, %.thread40 ], [ true, %122 ], [ false, %132 ], [ true, %_ZN12_GLOBAL__N_114MachineSinking27isWorthBreakingCriticalEdgeERN4llvm12MachineInstrEPNS1_17MachineBasicBlockES5_RS5_.exit ], [ false, %165 ]
-  %.0323538 = phi ptr [ %125, %.loopexit ], [ null, %.thread40 ], [ null, %122 ], [ %125, %132 ], [ null, %_ZN12_GLOBAL__N_114MachineSinking27isWorthBreakingCriticalEdgeERN4llvm12MachineInstrEPNS1_17MachineBasicBlockES5_RS5_.exit ], [ %125, %165 ]
+  %.not39 = phi i1 [ true, %_ZN12_GLOBAL__N_114MachineSinking27isWorthBreakingCriticalEdgeERN4llvm12MachineInstrEPNS1_17MachineBasicBlockES5_RS5_.exit ], [ false, %.loopexit ], [ true, %.thread40 ], [ true, %122 ], [ false, %132 ], [ false, %165 ]
+  %.0323538 = phi ptr [ null, %_ZN12_GLOBAL__N_114MachineSinking27isWorthBreakingCriticalEdgeERN4llvm12MachineInstrEPNS1_17MachineBasicBlockES5_RS5_.exit ], [ %125, %.loopexit ], [ null, %.thread40 ], [ null, %122 ], [ %125, %132 ], [ %125, %165 ]
   %178 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114MachineSinking26isLegalToBreakCriticalEdgeERN4llvm12MachineInstrEPNS1_17MachineBasicBlockES5_b(ptr noundef nonnull align 8 dereferenceable(1193) %0, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4)
   br i1 %178, label %179, label %.critedge
 
@@ -12441,7 +12441,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit: ; preds 
   br i1 %.not62.not, label %.loopexit66, label %10, !llvm.loop !844
 
 .loopexit66:                                      ; preds = %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit, %48, %42, %40, %6
-  %.not6269 = phi i1 [ false, %6 ], [ true, %48 ], [ true, %40 ], [ true, %42 ], [ false, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
+  %.not6269 = phi i1 [ true, %48 ], [ false, %6 ], [ true, %40 ], [ true, %42 ], [ false, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
   ret i1 %.not6269
 }
 
@@ -13595,7 +13595,7 @@ _ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread.sink.s
   br label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread
 
 _ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread: ; preds = %.critedge2.i.i.i.i, %.critedge2.i.i.i.i46, %90, %.critedge2.i.i, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread.sink.split, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockENS_8RegisterEPNS_17MachineBasicBlockESA_RbSB_E3$_0EEbOT_T0_.exit", %6
-  %.024 = phi i1 [ true, %6 ], [ true, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockENS_8RegisterEPNS_17MachineBasicBlockESA_RbSB_E3$_0EEbOT_T0_.exit" ], [ %.024.ph, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread.sink.split ], [ true, %.critedge2.i.i.i.i46 ], [ true, %.critedge2.i.i ], [ false, %90 ], [ true, %.critedge2.i.i.i.i ]
+  %.024 = phi i1 [ true, %.critedge2.i.i ], [ true, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockENS_8RegisterEPNS_17MachineBasicBlockESA_RbSB_E3$_0EEbOT_T0_.exit" ], [ true, %6 ], [ true, %.critedge2.i.i.i.i46 ], [ false, %90 ], [ %.024.ph, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread.sink.split ], [ true, %.critedge2.i.i.i.i ]
   ret i1 %.024
 }
 
@@ -14495,7 +14495,7 @@ _ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !892
 
 _ZSt11swap_rangesIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -24215,7 +24215,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit41: ; preds = %.loopexi
   br i1 %.not.not, label %_ZNK4llvm12LiveRegUnits9availableEt.exit, label %18, !llvm.loop !1094
 
 _ZNK4llvm12LiveRegUnits9availableEt.exit:         ; preds = %134, %44, %72, %109, %5
-  %.not63 = phi i1 [ false, %5 ], [ true, %44 ], [ true, %109 ], [ true, %72 ], [ false, %134 ]
+  %.not63 = phi i1 [ true, %109 ], [ true, %44 ], [ true, %72 ], [ false, %5 ], [ false, %134 ]
   ret i1 %.not63
 }
 

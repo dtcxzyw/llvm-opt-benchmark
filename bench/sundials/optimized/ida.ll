@@ -2754,30 +2754,30 @@ IDAWrmsNorm.exit.i70.i:                           ; preds = %737, %734
   %745 = fmul double %533, %744
   %746 = fmul double %742, %741
   %747 = icmp eq i32 %739, 1
-  br i1 %747, label %748, label %751
+  br i1 %747, label %756, label %748
 
 748:                                              ; preds = %IDAWrmsNorm.exit.i70.i
-  %749 = fmul double %745, 5.000000e-01
-  %750 = fcmp ult double %746, %749
-  br i1 %750, label %759, label %.thread153.i.i
+  %749 = sitofp i32 %739 to double
+  %750 = fmul double %.2.i, %749
+  %751 = fcmp olt double %745, %746
+  %752 = select i1 %751, double %745, double %746
+  %753 = fcmp ugt double %750, %752
+  br i1 %753, label %754, label %._crit_edge167.i.i
 
-751:                                              ; preds = %IDAWrmsNorm.exit.i70.i
-  %752 = sitofp i32 %739 to double
-  %753 = fmul double %.2.i, %752
-  %754 = fcmp olt double %745, %746
-  %755 = select i1 %754, double %745, double %746
-  %756 = fcmp ugt double %753, %755
-  br i1 %756, label %757, label %._crit_edge167.i.i
-
-._crit_edge167.i.i:                               ; preds = %751
+._crit_edge167.i.i:                               ; preds = %748
   %.pre168.i.i = add nsw i32 %739, -1
   br label %760
 
-757:                                              ; preds = %751
-  %758 = fcmp ult double %746, %745
+754:                                              ; preds = %748
+  %755 = fcmp ult double %746, %745
+  br i1 %755, label %759, label %.thread153.i.i
+
+756:                                              ; preds = %IDAWrmsNorm.exit.i70.i
+  %757 = fmul double %745, 5.000000e-01
+  %758 = fcmp ult double %746, %757
   br i1 %758, label %759, label %.thread153.i.i
 
-759:                                              ; preds = %757, %748
+759:                                              ; preds = %756, %754
   store i32 %743, ptr %223, align 8, !tbaa !125
   br label %.thread153.i.i
 
@@ -2786,9 +2786,9 @@ IDAWrmsNorm.exit.i70.i:                           ; preds = %737, %734
   store i32 %.pre-phi.i72.i, ptr %223, align 8, !tbaa !125
   br label %.thread153.i.i
 
-.thread153.i.i:                                   ; preds = %760, %759, %757, %748, %.thread148.i.i, %.thread148.thread.i.i
-  %761 = phi i32 [ %743, %759 ], [ %.pre-phi.i72.i, %760 ], [ %593, %.thread148.i.i ], [ %593, %.thread148.thread.i.i ], [ %739, %757 ], [ 1, %748 ]
-  %.0129.i.i = phi double [ %742, %759 ], [ %.2.i, %760 ], [ %533, %.thread148.i.i ], [ %533, %.thread148.thread.i.i ], [ %533, %757 ], [ %533, %748 ]
+.thread153.i.i:                                   ; preds = %760, %759, %756, %754, %.thread148.i.i, %.thread148.thread.i.i
+  %761 = phi i32 [ %743, %759 ], [ %.pre-phi.i72.i, %760 ], [ %593, %.thread148.i.i ], [ %593, %.thread148.thread.i.i ], [ 1, %756 ], [ %739, %754 ]
+  %.0129.i.i = phi double [ %742, %759 ], [ %.2.i, %760 ], [ %533, %.thread148.i.i ], [ %533, %.thread148.thread.i.i ], [ %533, %756 ], [ %533, %754 ]
   store double 1.000000e+00, ptr %258, align 8, !tbaa !149
   %762 = call double @llvm.fmuladd.f64(double %.0129.i.i, double 2.000000e+00, double 1.000000e-04)
   %763 = add nsw i32 %761, 1
@@ -2903,7 +2903,7 @@ switch.lookup:                                    ; preds = %622
   br label %.loopexit300
 
 .loopexit300:                                     ; preds = %680, %622, %switch.lookup, %633
-  %.039.i.ph = phi i32 [ -17, %622 ], [ %switch.select103.i.i, %633 ], [ %switch.load, %switch.lookup ], [ -3, %680 ]
+  %.039.i.ph = phi i32 [ %switch.select103.i.i, %633 ], [ -17, %622 ], [ %switch.load, %switch.lookup ], [ -3, %680 ]
   %823 = call fastcc i32 @IDAHandleFailure(ptr noundef %0, i32 noundef %.039.i.ph)
   %824 = load double, ptr %222, align 8, !tbaa !80
   %825 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -3085,7 +3085,7 @@ switch.lookup:                                    ; preds = %622
   br label %IDAStopTest2.exit.thread
 
 IDAStopTest2.exit.thread:                         ; preds = %905, %915, %912, %892, %281, %305, %.loopexit300, %850, %855, %329, %322, %210, %43, %207, %204, %201, %175, %172, %169, %142, %121, %70, %62, %52, %29, %26, %22, %18, %15, %10
-  %.0253 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -10, %207 ], [ -22, %52 ], [ -22, %62 ], [ -22, %70 ], [ -22, %121 ], [ -10, %142 ], [ -22, %169 ], [ -10, %172 ], [ 2, %175 ], [ 0, %201 ], [ %44, %43 ], [ %211, %210 ], [ 2, %204 ], [ -1, %281 ], [ -22, %305 ], [ -2, %329 ], [ -2, %322 ], [ %823, %.loopexit300 ], [ 2, %850 ], [ -10, %855 ], [ 0, %915 ], [ 0, %912 ], [ 1, %892 ], [ -22, %905 ]
+  %.0253 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -10, %207 ], [ -22, %52 ], [ -22, %62 ], [ -22, %70 ], [ -22, %121 ], [ -10, %142 ], [ -22, %169 ], [ -10, %172 ], [ 2, %175 ], [ 0, %201 ], [ %44, %43 ], [ %211, %210 ], [ 2, %204 ], [ -1, %281 ], [ -22, %305 ], [ -2, %329 ], [ -2, %322 ], [ %823, %.loopexit300 ], [ 2, %850 ], [ -10, %855 ], [ 1, %892 ], [ 0, %915 ], [ 0, %912 ], [ -22, %905 ]
   ret i32 %.0253
 }
 

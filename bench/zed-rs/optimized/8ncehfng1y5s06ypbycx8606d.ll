@@ -18913,7 +18913,7 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(176) ptr @_ZN14lan
   br label %.thread66
 
 .thread72.loopexit.split-lp:                      ; preds = %55, %139
-  %.sroa.08.0.ph.ph = phi i1 [ false, %139 ], [ true, %55 ]
+  %.sroa.08.0.ph.ph = phi i1 [ true, %55 ], [ false, %139 ]
   %lpad.loopexit.split-lp120 = landingpad { ptr, i32 }
           cleanup
   %.pre126 = load ptr, ptr %22, align 8, !alias.scope !4289
@@ -20304,7 +20304,7 @@ define noundef zeroext i1 @_ZN14language_tools7lsp_log8LogStore37disable_rpc_tra
   br label %select.unfold
 
 select.unfold:                                    ; preds = %._crit_edge.i.i, %"_ZN4core3ptr68drop_in_place$LT$language_tools..lsp_log..LanguageServerRpcState$GT$17h1be092071689145fE.exit.i", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h6362a47c0cb9f9feE.llvm.18046559547927896630.exit", %2
-  %57 = phi i1 [ false, %2 ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h6362a47c0cb9f9feE.llvm.18046559547927896630.exit" ], [ true, %"_ZN4core3ptr68drop_in_place$LT$language_tools..lsp_log..LanguageServerRpcState$GT$17h1be092071689145fE.exit.i" ], [ false, %._crit_edge.i.i ]
+  %57 = phi i1 [ false, %2 ], [ true, %"_ZN4core3ptr68drop_in_place$LT$language_tools..lsp_log..LanguageServerRpcState$GT$17h1be092071689145fE.exit.i" ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h6362a47c0cb9f9feE.llvm.18046559547927896630.exit" ], [ false, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %57
 }

@@ -3561,8 +3561,8 @@ bindlocal.exit:                                   ; preds = %167, %174, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split187
 
-bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, %bindlocal.exit.thread153
-  %.0.i130151 = phi i32 [ %.1.ph.i.ph, %bindlocal.exit.thread153 ], [ 43, %159 ], [ 45, %.split.us.i ]
+bindlocal.exit.thread148:                         ; preds = %.split.us.i, %159, %bindlocal.exit.thread153
+  %.0.i130151 = phi i32 [ %.1.ph.i.ph, %bindlocal.exit.thread153 ], [ 45, %.split.us.i ], [ 43, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

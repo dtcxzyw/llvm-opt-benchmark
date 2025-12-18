@@ -1470,8 +1470,8 @@ paint_rect.exit.us.loopexit.i:                    ; preds = %657
   br label %paint_rect.exit.us.i
 
 paint_rect.exit.us.i:                             ; preds = %._crit_edge.us229.us.i, %._crit_edge.us234.us.i, %.preheader204.lr.ph.us.i, %.preheader211.us.i, %.preheader209.us.i, %.preheader208.us.i, %paint_rect.exit.us.loopexit.i, %bytestream2_get_byte.exit120.us.i
-  %.pre-phi.i = phi i64 [ %523, %bytestream2_get_byte.exit120.us.i ], [ %.pre327.i, %paint_rect.exit.us.loopexit.i ], [ %523, %.preheader211.us.i ], [ %523, %.preheader209.us.i ], [ %523, %.preheader208.us.i ], [ %523, %.preheader204.lr.ph.us.i ], [ %523, %._crit_edge.us234.us.i ], [ %523, %._crit_edge.us229.us.i ]
-  %660 = phi ptr [ %655, %bytestream2_get_byte.exit120.us.i ], [ %.pre326.i, %paint_rect.exit.us.loopexit.i ], [ %655, %.preheader211.us.i ], [ %655, %.preheader209.us.i ], [ %655, %.preheader208.us.i ], [ %655, %.preheader204.lr.ph.us.i ], [ %655, %._crit_edge.us234.us.i ], [ %655, %._crit_edge.us229.us.i ]
+  %.pre-phi.i = phi i64 [ %523, %.preheader208.us.i ], [ %523, %.preheader204.lr.ph.us.i ], [ %523, %._crit_edge.us234.us.i ], [ %523, %bytestream2_get_byte.exit120.us.i ], [ %.pre327.i, %paint_rect.exit.us.loopexit.i ], [ %523, %.preheader211.us.i ], [ %523, %.preheader209.us.i ], [ %523, %._crit_edge.us229.us.i ]
+  %660 = phi ptr [ %655, %.preheader208.us.i ], [ %655, %.preheader204.lr.ph.us.i ], [ %655, %._crit_edge.us234.us.i ], [ %655, %bytestream2_get_byte.exit120.us.i ], [ %.pre326.i, %paint_rect.exit.us.loopexit.i ], [ %655, %.preheader211.us.i ], [ %655, %.preheader209.us.i ], [ %655, %._crit_edge.us229.us.i ]
   %661 = ptrtoint ptr %660 to i64
   %662 = sub i64 %.pre-phi.i, %661
   %663 = trunc i64 %662 to i32
@@ -1482,8 +1482,8 @@ paint_rect.exit.us.i:                             ; preds = %._crit_edge.us229.u
   br i1 %667, label %decode_hextile.exit, label %.preheader207.us.i
 
 paint_raw.exit.us.i:                              ; preds = %._crit_edge.us.us.i, %paint_rect.exit173.us.i, %.preheader206.lr.ph.us.i, %.preheader207.us.i, %543
-  %.5108.us.i = phi i32 [ %.2105191.us.i, %.preheader207.us.i ], [ %.1104249.us.i, %543 ], [ %.1104249.us.i, %.preheader206.lr.ph.us.i ], [ %.4107.us.i, %paint_rect.exit173.us.i ], [ %.1104249.us.i, %._crit_edge.us.us.i ]
-  %.3102.us.i = phi i32 [ %.2101184189.us.i, %.preheader207.us.i ], [ %.1100250.us.i, %543 ], [ %.1100250.us.i, %.preheader206.lr.ph.us.i ], [ %.2101184189.us.i, %paint_rect.exit173.us.i ], [ %.1100250.us.i, %._crit_edge.us.us.i ]
+  %.5108.us.i = phi i32 [ %.2105191.us.i, %.preheader207.us.i ], [ %.4107.us.i, %paint_rect.exit173.us.i ], [ %.1104249.us.i, %543 ], [ %.1104249.us.i, %.preheader206.lr.ph.us.i ], [ %.1104249.us.i, %._crit_edge.us.us.i ]
+  %.3102.us.i = phi i32 [ %.2101184189.us.i, %.preheader207.us.i ], [ %.2101184189.us.i, %paint_rect.exit173.us.i ], [ %.1100250.us.i, %543 ], [ %.1100250.us.i, %.preheader206.lr.ph.us.i ], [ %.1100250.us.i, %._crit_edge.us.us.i ]
   %668 = getelementptr inbounds i8, ptr %.097251.us.i, i64 %513
   %669 = icmp samesign ult i32 %529, %.0.i301
   br i1 %669, label %520, label %._crit_edge.us284.i, !llvm.loop !78

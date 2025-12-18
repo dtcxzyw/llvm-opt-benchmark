@@ -3155,7 +3155,7 @@ define internal fastcc ptr @_io_FileIO_readall_impl(ptr noundef readonly capture
   br label %Py_DECREF.exit54
 
 Py_DECREF.exit54:                                 ; preds = %45, %80, %.loopexit, %74, %71, %68, %67, %64, %61, %40, %37, %33, %.thread, %6
-  %.0 = phi ptr [ null, %6 ], [ @_Py_NoneStruct, %67 ], [ null, %.thread ], [ %77, %.loopexit ], [ null, %40 ], [ null, %33 ], [ null, %37 ], [ @_Py_NoneStruct, %61 ], [ @_Py_NoneStruct, %64 ], [ null, %68 ], [ null, %71 ], [ null, %74 ], [ %spec.select78, %80 ], [ null, %45 ]
+  %.0 = phi ptr [ null, %6 ], [ @_Py_NoneStruct, %67 ], [ %spec.select78, %80 ], [ null, %.thread ], [ null, %74 ], [ %77, %.loopexit ], [ null, %40 ], [ null, %33 ], [ null, %37 ], [ @_Py_NoneStruct, %61 ], [ @_Py_NoneStruct, %64 ], [ null, %68 ], [ null, %71 ], [ null, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

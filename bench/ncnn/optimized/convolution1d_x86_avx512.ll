@@ -5381,8 +5381,8 @@ _ZN4ncnn3MatD2Ev.exit1548.us.i:                   ; preds = %1292, %1291
   br i1 %1354, label %.lr.ph3240.us.i, label %.preheader2565.us.i
 
 ._crit_edge3269.us.i:                             ; preds = %._crit_edge3260.us.us.i, %.lr.ph3268.us.i, %.lr.ph3240.us.i, %.preheader2565.us.i
-  %.31456.lcssa.us.i = phi float [ %.11454.lcssa.us.i, %.preheader2565.us.i ], [ %.11454.lcssa.us.i, %.lr.ph3268.us.i ], [ %1342, %.lr.ph3240.us.i ], [ %1750, %._crit_edge3260.us.us.i ]
-  %.31451.lcssa.us.i = phi float [ %.11449.lcssa.us.i, %.preheader2565.us.i ], [ %.11449.lcssa.us.i, %.lr.ph3268.us.i ], [ %1352, %.lr.ph3240.us.i ], [ %1754, %._crit_edge3260.us.us.i ]
+  %.31456.lcssa.us.i = phi float [ %.11454.lcssa.us.i, %.preheader2565.us.i ], [ %1342, %.lr.ph3240.us.i ], [ %.11454.lcssa.us.i, %.lr.ph3268.us.i ], [ %1750, %._crit_edge3260.us.us.i ]
+  %.31451.lcssa.us.i = phi float [ %.11449.lcssa.us.i, %.preheader2565.us.i ], [ %1352, %.lr.ph3240.us.i ], [ %.11449.lcssa.us.i, %.lr.ph3268.us.i ], [ %1754, %._crit_edge3260.us.us.i ]
   switch i32 %1252, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit1574.us.i [
     i32 1, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread2513.us.i
     i32 2, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread2516.us.i
@@ -7832,7 +7832,7 @@ _ZN4ncnn3MatD2Ev.exit.us.i:                       ; preds = %2902, %2901
   br i1 %2936, label %.lr.ph3433.us.i, label %.preheader2549.us.i
 
 ._crit_edge3457.us.i:                             ; preds = %._crit_edge3450.us.us.i, %.lr.ph3456.us.i, %.lr.ph3433.us.i, %.preheader2549.us.i
-  %.31343.lcssa.us.i = phi float [ %.11341.lcssa.us.i, %.preheader2549.us.i ], [ %.11341.lcssa.us.i, %.lr.ph3456.us.i ], [ %2934, %.lr.ph3433.us.i ], [ %3274, %._crit_edge3450.us.us.i ]
+  %.31343.lcssa.us.i = phi float [ %.11341.lcssa.us.i, %.preheader2549.us.i ], [ %2934, %.lr.ph3433.us.i ], [ %.11341.lcssa.us.i, %.lr.ph3456.us.i ], [ %3274, %._crit_edge3450.us.us.i ]
   switch i32 %2866, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit1575.us.i [
     i32 1, label %2975
     i32 2, label %2970

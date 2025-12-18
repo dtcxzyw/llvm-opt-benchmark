@@ -13169,7 +13169,7 @@ _ZN5vcpkg4PathD2Ev.exit13.i.i:                    ; preds = %279, %_ZNKSt7__cxx1
   br i1 %287, label %.loopexit.i.i, label %279
 
 .loopexit.i.i:                                    ; preds = %_ZN5vcpkg4PathD2Ev.exit10.i.i, %_ZN5vcpkg4PathD2Ev.exit13.i.i, %.thread.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %234, %.thread.i.i ], [ %278, %_ZN5vcpkg4PathD2Ev.exit13.i.i ], [ %268, %_ZN5vcpkg4PathD2Ev.exit10.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %278, %_ZN5vcpkg4PathD2Ev.exit13.i.i ], [ %234, %.thread.i.i ], [ %268, %_ZN5vcpkg4PathD2Ev.exit10.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !209
   %288 = load ptr, ptr %2, align 8, !tbaa !27, !noalias !209
   %289 = getelementptr inbounds nuw i8, ptr %2, i64 16

@@ -20194,7 +20194,7 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h39b6d66d
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17hd4ea2907405eb7d6E.exit.ithread-pre-split"
 
 .loopexit.split-lp.i:                             ; preds = %245, %208, %198, %180, %170, %156, %142, %114, %96, %.invoke.i
-  %.sroa.0163.1.ph.i = phi i8 [ 1, %198 ], [ 1, %180 ], [ 1, %170 ], [ 1, %156 ], [ 1, %142 ], [ 1, %114 ], [ 1, %96 ], [ %.sroa.0163.6.i, %245 ], [ 1, %.invoke.i ], [ 1, %208 ]
+  %.sroa.0163.1.ph.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0163.6.i, %245 ], [ 1, %208 ], [ 1, %96 ], [ 1, %198 ], [ 1, %156 ], [ 1, %180 ], [ 1, %114 ], [ 1, %170 ], [ 1, %142 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17hd4ea2907405eb7d6E.exit.ithread-pre-split"

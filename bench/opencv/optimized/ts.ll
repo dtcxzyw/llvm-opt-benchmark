@@ -3994,7 +3994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
   br i1 %158, label %111, label %._crit_edge, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %155, %56, %.preheader183
-  %159 = phi i32 [ %108, %.preheader183 ], [ %57, %56 ], [ %156, %155 ]
+  %159 = phi i32 [ %57, %56 ], [ %108, %.preheader183 ], [ %156, %155 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
   br i1 %exitcond231.not, label %.preheader182.loopexit, label %56, !llvm.loop !148

@@ -1265,10 +1265,10 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i.i.i.i: ; pred
   br i1 %57, label %select.unfold.i.i, label %55
 
 select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i", %55, %.noexc, %.preheader.i.i.i.i.i.i, %46, %36
-  %.sroa.02.sroa.3.sroa.3.0.copyload24.i = phi i64 [ %.sroa.02.sroa.3.sroa.3.0.copyload2747.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %53, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %53, %55 ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ], [ %.sroa.4.0.i, %.noexc ]
-  %58 = phi i1 [ true, %36 ], [ true, %46 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ true, %55 ], [ true, %.preheader.i.i.i.i.i.i ], [ true, %.noexc ]
-  %59 = phi i64 [ %37, %36 ], [ %37, %46 ], [ %53, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %37, %55 ], [ %37, %.preheader.i.i.i.i.i.i ], [ %37, %.noexc ]
-  %.pn33.i = phi i64 [ %.sroa.4.0.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %54, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %.sroa.4.0.i, %55 ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ], [ %.sroa.4.0.i, %.noexc ]
+  %.sroa.02.sroa.3.sroa.3.0.copyload24.i = phi i64 [ %.sroa.02.sroa.3.sroa.3.0.copyload2747.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %53, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ], [ %.sroa.4.0.i, %.noexc ], [ %53, %55 ]
+  %58 = phi i1 [ true, %36 ], [ true, %46 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ true, %.preheader.i.i.i.i.i.i ], [ true, %.noexc ], [ true, %55 ]
+  %59 = phi i64 [ %37, %36 ], [ %37, %46 ], [ %53, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %37, %.preheader.i.i.i.i.i.i ], [ %37, %.noexc ], [ %37, %55 ]
+  %.pn33.i = phi i64 [ %.sroa.4.0.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %54, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ], [ %.sroa.4.0.i, %.noexc ], [ %.sroa.4.0.i, %55 ]
   %.not.i21.i = icmp eq i64 %.pn33.i, %37
   br i1 %.not.i21.i, label %_ZN7uv_dirs24locate_system_config_xdg17h941a2e6ce53570b7E.exit.thread, label %60
 

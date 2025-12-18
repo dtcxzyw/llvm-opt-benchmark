@@ -10007,7 +10007,7 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_interpn_weightsIdEEvxPKT_PKx
   br i1 %64, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %59, !llvm.loop !251
 
 _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %55, %57, %59, %60, %25, %37, %39, %48
-  %.042.i = phi i64 [ %spec.select.i, %25 ], [ %49, %48 ], [ 0, %37 ], [ 0, %39 ], [ %smax.i, %59 ], [ %.0.i, %60 ], [ %.043.i, %55 ], [ %.045.i.ph, %57 ]
+  %.042.i = phi i64 [ %smax.i, %59 ], [ %spec.select.i, %25 ], [ 0, %39 ], [ %49, %48 ], [ 0, %37 ], [ %.0.i, %60 ], [ %.043.i, %55 ], [ %.045.i.ph, %57 ]
   %65 = getelementptr inbounds nuw i64, ptr %5, i64 %.031
   store i64 %.042.i, ptr %65, align 8, !tbaa !41
   %66 = getelementptr inbounds double, ptr %17, i64 %.042.i

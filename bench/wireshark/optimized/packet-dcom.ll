@@ -754,7 +754,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph152, %.loopexit.sink.split, %6, %8
-  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ %.sink169, %.loopexit.sink.split ], [ %77, %.lr.ph152 ]
+  %.0 = phi ptr [ null, %6 ], [ %.sink169, %.loopexit.sink.split ], [ null, %8 ], [ %77, %.lr.ph152 ]
   ret ptr %.0
 }
 
@@ -2507,7 +2507,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph81, %.loopexit.loopexit, %.preheader73, %.preheader
-  %.163 = phi i32 [ 0, %.preheader ], [ 0, %.preheader73 ], [ %57, %.loopexit.loopexit ], [ %53, %.lr.ph81 ]
+  %.163 = phi i32 [ %57, %.loopexit.loopexit ], [ 0, %.preheader ], [ 0, %.preheader73 ], [ %53, %.lr.ph81 ]
   %58 = icmp ult i32 %.163, %4
   br i1 %58, label %60, label %59
 

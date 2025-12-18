@@ -105,7 +105,7 @@ define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %.lr.ph.split.us, %14, %.lr.ph.split, %3
-  %.2 = phi ptr [ null, %3 ], [ %.02029, %.lr.ph.split ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
+  %.2 = phi ptr [ %.02029, %.lr.ph.split ], [ null, %3 ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
   ret ptr %.2
 }
 
@@ -153,7 +153,7 @@ define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %.lr.ph.split.us, %14, %.lr.ph.split, %3
-  %.2 = phi ptr [ null, %3 ], [ %.02029, %.lr.ph.split ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
+  %.2 = phi ptr [ %.02029, %.lr.ph.split ], [ null, %3 ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
   ret ptr %.2
 }
 
@@ -1273,7 +1273,7 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   br i1 %25, label %select.unfold, label %.preheader
 
 select.unfold:                                    ; preds = %.preheader34, %22, %8, %20
-  %.023 = phi ptr [ null, %20 ], [ %18, %22 ], [ %storemerge30, %8 ], [ %storemerge, %.preheader34 ]
+  %.023 = phi ptr [ %storemerge30, %8 ], [ %18, %22 ], [ null, %20 ], [ %storemerge, %.preheader34 ]
   ret ptr %.023
 }
 
@@ -1331,7 +1331,7 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   br i1 %25, label %select.unfold, label %.preheader
 
 select.unfold:                                    ; preds = %.preheader34, %22, %8, %20
-  %.023 = phi ptr [ null, %20 ], [ %18, %22 ], [ %storemerge30, %8 ], [ %storemerge, %.preheader34 ]
+  %.023 = phi ptr [ %storemerge30, %8 ], [ %18, %22 ], [ null, %20 ], [ %storemerge, %.preheader34 ]
   ret ptr %.023
 }
 

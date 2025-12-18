@@ -772,8 +772,8 @@ select.unfold.i:                                  ; preds = %68, %61, %54, %20
   br i1 %.not.i, label %tailrecurse._crit_edge.i, label %14
 
 tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %select.unfold.i, %2
-  %.tr.lcssa.i = phi ptr [ null, %2 ], [ %.tr110.i, %select.unfold.i ], [ %15, %tailrecurse.i ]
-  %.0.lcssa.i = phi ptr [ %0, %2 ], [ %187, %select.unfold.i ], [ %70, %tailrecurse.i ]
+  %.tr.lcssa.i = phi ptr [ %.tr110.i, %select.unfold.i ], [ null, %2 ], [ %15, %tailrecurse.i ]
+  %.0.lcssa.i = phi ptr [ %187, %select.unfold.i ], [ %0, %2 ], [ %70, %tailrecurse.i ]
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %.tr.lcssa.i, ptr %189, align 8, !tbaa !62
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1509,7 +1509,7 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
   br i1 %.not.i, label %hwloc__pci_find_by_busid.exit, label %23, !llvm.loop !95
 
 hwloc__pci_find_by_busid.exit:                    ; preds = %tailrecurse.loopexit.i, %45, %50, %.thread.i, %86, %.loopexit
-  %.050.i = phi ptr [ %spec.select, %.loopexit ], [ %.tr79.i, %86 ], [ %.070.i, %45 ], [ %.tr79.i, %.thread.i ], [ %.tr79.i, %50 ], [ %.070.i, %tailrecurse.loopexit.i ]
+  %.050.i = phi ptr [ %.tr79.i, %86 ], [ %spec.select, %.loopexit ], [ %.070.i, %45 ], [ %.tr79.i, %.thread.i ], [ %.tr79.i, %50 ], [ %.070.i, %tailrecurse.loopexit.i ]
   %88 = icmp eq ptr %.050.i, %6
   %.043 = select i1 %88, ptr null, ptr %.050.i
   ret ptr %.043

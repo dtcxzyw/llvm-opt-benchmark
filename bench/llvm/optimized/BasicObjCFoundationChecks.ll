@@ -2532,8 +2532,8 @@ _ZN5clangL18getKeywordSelectorIJcEEENS_8SelectorERNS_10ASTContextEDpPKT_.exit124
   br i1 %.not84.i, label %_ZNK12_GLOBAL__N_113NilArgChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit, label %.thread148.i
 
 .thread148.i:                                     ; preds = %404, %401, %398, %397, %320, %317, %310
-  %.273153.i = phi i32 [ %406, %404 ], [ 1, %320 ], [ 0, %401 ], [ 1, %398 ], [ 0, %397 ], [ 0, %310 ], [ 0, %317 ]
-  %.075152.i = phi i1 [ false, %404 ], [ false, %320 ], [ false, %401 ], [ true, %398 ], [ false, %397 ], [ false, %310 ], [ true, %317 ]
+  %.273153.i = phi i32 [ %406, %404 ], [ 1, %320 ], [ 0, %401 ], [ 0, %397 ], [ 1, %398 ], [ 0, %310 ], [ 0, %317 ]
+  %.075152.i = phi i1 [ false, %404 ], [ false, %320 ], [ false, %401 ], [ false, %397 ], [ true, %398 ], [ false, %310 ], [ true, %317 ]
   call fastcc void @_ZNK12_GLOBAL__N_113NilArgChecker12warnIfNilArgERN5clang4ento14CheckerContextERKNS2_14ObjCMethodCallEj15FoundationClassb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.273153.i, i32 noundef %32, i1 noundef zeroext %.075152.i)
   br label %_ZNK12_GLOBAL__N_113NilArgChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
@@ -7258,69 +7258,69 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %86, %80
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 16580608
   %spec.select.i.i.i.i = icmp eq i32 %104, 65536
-  br i1 %spec.select.i.i.i.i, label %105, label %111
+  br i1 %spec.select.i.i.i.i, label %105, label %114
 
 105:                                              ; preds = %92
   %106 = call noundef ptr @_ZN5clang14ObjCMethodDecl17getClassInterfaceEv(ptr noundef nonnull align 8 dereferenceable(136) %75) #23
   %107 = call fastcc noundef i32 @_ZL14findKnownClassPKN5clang17ObjCInterfaceDeclEb(ptr noundef %106, i1 noundef zeroext true)
   switch i32 %107, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit [
-    i32 1, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
-    i32 5, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
-    i32 6, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
-    i32 2, label %108
+    i32 1, label %108
+    i32 5, label %108
+    i32 6, label %108
+    i32 2, label %111
   ]
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.04.0.copyload.i.i = load i64, ptr %109, align 8, !tbaa !9
-  %110 = icmp eq i64 %97, %.sroa.04.0.copyload.i.i
+108:                                              ; preds = %105, %105, %105
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.sroa.05.0.copyload.i.i = load i64, ptr %109, align 8, !tbaa !9
+  %110 = icmp eq i64 %97, %.sroa.05.0.copyload.i.i
   br i1 %110, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
-111:                                              ; preds = %92
-  %112 = load ptr, ptr %1, align 8, !tbaa !7
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
-  %114 = load ptr, ptr %113, align 8
-  %115 = call noundef ptr %114(ptr noundef nonnull align 8 dereferenceable(72) %1) #23
-  %116 = call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %115) #23
-  %117 = call fastcc noundef i32 @_ZL14findKnownClassPKN5clang17ObjCInterfaceDeclEb(ptr noundef %116, i1 noundef zeroext true)
-  switch i32 %117, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit [
-    i32 1, label %118
-    i32 5, label %121
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.sroa.04.0.copyload.i.i = load i64, ptr %112, align 8, !tbaa !9
+  %113 = icmp eq i64 %97, %.sroa.04.0.copyload.i.i
+  br i1 %113, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
+
+114:                                              ; preds = %92
+  %115 = load ptr, ptr %1, align 8, !tbaa !7
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 64
+  %117 = load ptr, ptr %116, align 8
+  %118 = call noundef ptr %117(ptr noundef nonnull align 8 dereferenceable(72) %1) #23
+  %119 = call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %118) #23
+  %120 = call fastcc noundef i32 @_ZL14findKnownClassPKN5clang17ObjCInterfaceDeclEb(ptr noundef %119, i1 noundef zeroext true)
+  switch i32 %120, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit [
+    i32 1, label %121
+    i32 5, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
     i32 6, label %124
     i32 2, label %127
   ]
 
-118:                                              ; preds = %111
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.03.0.copyload.i.i = load i64, ptr %119, align 8, !tbaa !9
-  %120 = icmp eq i64 %97, %.sroa.03.0.copyload.i.i
-  br i1 %120, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
-
-121:                                              ; preds = %111
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.02.0.copyload.i.i = load i64, ptr %122, align 8, !tbaa !9
-  %123 = icmp eq i64 %97, %.sroa.02.0.copyload.i.i
+121:                                              ; preds = %114
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.03.0.copyload.i.i = load i64, ptr %122, align 8, !tbaa !9
+  %123 = icmp eq i64 %97, %.sroa.03.0.copyload.i.i
   br i1 %123, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
-124:                                              ; preds = %111
+124:                                              ; preds = %114
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.01.0.copyload.i.i = load i64, ptr %125, align 8, !tbaa !9
   %126 = icmp eq i64 %97, %.sroa.01.0.copyload.i.i
   br i1 %126, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
-127:                                              ; preds = %111
+127:                                              ; preds = %114
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %128, align 8, !tbaa !9
   %129 = icmp eq i64 %97, %.sroa.0.0.copyload.i.i
   br i1 %129, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i: ; preds = %105, %105, %105
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.sroa.05.0.copyload.i.i = load i64, ptr %130, align 8, !tbaa !9
-  %131 = icmp eq i64 %97, %.sroa.05.0.copyload.i.i
+_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i: ; preds = %114
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.02.0.copyload.i.i = load i64, ptr %130, align 8, !tbaa !9
+  %131 = icmp eq i64 %97, %.sroa.02.0.copyload.i.i
   br i1 %131, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
-132:                                              ; preds = %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i, %127, %124, %121, %118, %108
+132:                                              ; preds = %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i, %127, %124, %121, %111, %108
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %133 = load ptr, ptr %1, align 8, !tbaa !7
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 64
@@ -7813,7 +7813,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i:        ; preds = %414, %_ZNSt10unique
   %.not41.i = icmp eq i32 %416, %143
   br i1 %.not41.i, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit, label %162, !llvm.loop !818
 
-_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit: ; preds = %415, %71, %76, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i, %105, %108, %111, %118, %121, %124, %127, %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i, %132
+_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit: ; preds = %415, %71, %76, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i, %105, %108, %111, %114, %121, %124, %127, %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i, %132
   ret void
 }
 

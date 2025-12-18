@@ -2456,7 +2456,7 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   br label %.body9
 
 .loopexit.split-lp:                               ; preds = %43, %56, %62
-  %.3.ph = phi i1 [ false, %62 ], [ true, %43 ], [ false, %56 ]
+  %.3.ph = phi i1 [ true, %43 ], [ false, %56 ], [ false, %62 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body9

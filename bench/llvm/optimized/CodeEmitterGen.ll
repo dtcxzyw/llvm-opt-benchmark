@@ -4342,7 +4342,7 @@ select.unfold157:                                 ; preds = %_ZNKSt3mapIjPKN4llv
   br label %.critedge
 
 _ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread: ; preds = %139, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit, %143, %select.unfold157, %128
-  %.464 = phi ptr [ %90, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit ], [ %90, %128 ], [ %233, %select.unfold157 ], [ %90, %143 ], [ %90, %139 ]
+  %.464 = phi ptr [ %90, %143 ], [ %90, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit ], [ %90, %128 ], [ %233, %select.unfold157 ], [ %90, %139 ]
   %237 = call noundef ptr @_ZNK4llvm6Record18getValueAsBitsInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.464, ptr nonnull @.str.7, i64 4) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %238 = load i32, ptr %69, align 8, !tbaa !8

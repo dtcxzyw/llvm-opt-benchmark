@@ -4092,7 +4092,7 @@ define linkonce_odr dso_local noundef ptr @_ZN21OrderMoveGraphBuilder14getOrigSe
   br label %_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit, !llvm.loop !247
 
 _ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i: ; preds = %39, %22, %34
-  %.sroa.06.1.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.06.0.i.i.i, %22 ], [ %41, %39 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %22 ], [ %35, %34 ], [ %41, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !248
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -4104,7 +4104,7 @@ _ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS
   br label %_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit
 
 _ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit: ; preds = %.lr.ph.i.i.i.i.i, %21, %9, %26, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i
-  %.0.i = phi ptr [ null, %9 ], [ %spec.select.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %26 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %21 ], [ %spec.select.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %26 ], [ null, %.lr.ph.i.i.i.i.i ]
   %.not3 = icmp eq ptr %.0.i, null
   %53 = select i1 %.not3, ptr %1, ptr %.0.i
   %54 = ptrtoint ptr %53 to i64

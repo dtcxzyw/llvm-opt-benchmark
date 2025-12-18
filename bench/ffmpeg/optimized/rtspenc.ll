@@ -369,7 +369,7 @@ define internal i32 @rtsp_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.thread, %37, %46, %50, %._crit_edge, %34
-  %.3 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %34 ], [ %45, %37 ], [ %51, %50 ], [ 0, %46 ], [ %.2.ph, %.thread ], [ -32, %26 ]
+  %.3 = phi i32 [ %.2.ph, %.thread ], [ -1094995529, %._crit_edge ], [ -1094995529, %34 ], [ %45, %37 ], [ %51, %50 ], [ 0, %46 ], [ -32, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
 }

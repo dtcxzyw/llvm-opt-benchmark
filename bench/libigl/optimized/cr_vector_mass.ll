@@ -253,7 +253,7 @@ define linkonce_odr dso_local void @_ZN3igl24cr_vector_mass_intrinsicIN5Eigen6Ma
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !24
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %55, %62
-  %.2.i.i.i.i = phi i32 [ %63, %62 ], [ %56, %55 ], [ %67, %.lr.ph85.i.i.i.i ], [ %60, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %67, %.lr.ph85.i.i.i.i ], [ %63, %62 ], [ %56, %55 ], [ %60, %.lr.ph80.i.i.i.i ]
   %69 = add nsw i32 %.2.i.i.i.i, 1
   %70 = mul nsw i64 %10, 6
   %71 = icmp ugt i64 %70, 576460752303423487

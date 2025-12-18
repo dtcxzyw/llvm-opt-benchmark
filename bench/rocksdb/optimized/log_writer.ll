@@ -3487,9 +3487,9 @@ _ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEE
   br label %_ZN7rocksdb30UserDefinedTimestampSizeRecordD2Ev.exit45
 
 .loopexit90:                                      ; preds = %42, %26, %37, %.loopexit89, %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEEENSt9enable_ifIXsr16is_constructibleIS6_OT_EE5valueES4_INSt8__detail14_Node_iteratorIS6_Lb0ELb0EEEbEE4typeESD_.exit
-  %.sroa.16.1 = phi ptr [ %.sroa.16.0111, %.loopexit89 ], [ %.sroa.16.5, %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEEENSt9enable_ifIXsr16is_constructibleIS6_OT_EE5valueES4_INSt8__detail14_Node_iteratorIS6_Lb0ELb0EEEbEE4typeESD_.exit ], [ %.sroa.16.0111, %37 ], [ %.sroa.16.0111, %26 ], [ %.sroa.16.0111, %42 ]
-  %.sroa.11.1 = phi ptr [ %.sroa.11.0112, %.loopexit89 ], [ %.sroa.11.2, %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEEENSt9enable_ifIXsr16is_constructibleIS6_OT_EE5valueES4_INSt8__detail14_Node_iteratorIS6_Lb0ELb0EEEbEE4typeESD_.exit ], [ %.sroa.11.0112, %37 ], [ %.sroa.11.0112, %26 ], [ %.sroa.11.0112, %42 ]
-  %.sroa.056.1 = phi ptr [ %.sroa.056.0113, %.loopexit89 ], [ %.sroa.056.5, %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEEENSt9enable_ifIXsr16is_constructibleIS6_OT_EE5valueES4_INSt8__detail14_Node_iteratorIS6_Lb0ELb0EEEbEE4typeESD_.exit ], [ %.sroa.056.0113, %37 ], [ %.sroa.056.0113, %26 ], [ %.sroa.056.0113, %42 ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.0111, %.loopexit89 ], [ %.sroa.16.5, %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEEENSt9enable_ifIXsr16is_constructibleIS6_OT_EE5valueES4_INSt8__detail14_Node_iteratorIS6_Lb0ELb0EEEbEE4typeESD_.exit ], [ %.sroa.16.0111, %26 ], [ %.sroa.16.0111, %37 ], [ %.sroa.16.0111, %42 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.0112, %.loopexit89 ], [ %.sroa.11.2, %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEEENSt9enable_ifIXsr16is_constructibleIS6_OT_EE5valueES4_INSt8__detail14_Node_iteratorIS6_Lb0ELb0EEEbEE4typeESD_.exit ], [ %.sroa.11.0112, %26 ], [ %.sroa.11.0112, %37 ], [ %.sroa.11.0112, %42 ]
+  %.sroa.056.1 = phi ptr [ %.sroa.056.0113, %.loopexit89 ], [ %.sroa.056.5, %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE6insertIS4_IjmEEENSt9enable_ifIXsr16is_constructibleIS6_OT_EE5valueES4_INSt8__detail14_Node_iteratorIS6_Lb0ELb0EEEbEE4typeESD_.exit ], [ %.sroa.056.0113, %26 ], [ %.sroa.056.0113, %37 ], [ %.sroa.056.0113, %42 ]
   %.sroa.053.0 = load ptr, ptr %.sroa.053.0114, align 8, !tbaa !60
   %.not = icmp eq ptr %.sroa.053.0, null
   br i1 %.not, label %._crit_edge, label %21
@@ -4303,7 +4303,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.042.0.ph = phi ptr [ %31, %30 ], [ %.sroa.034.0, %21 ], [ %37, %35 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #20
   br label %_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

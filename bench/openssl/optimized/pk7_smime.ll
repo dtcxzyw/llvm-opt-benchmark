@@ -331,7 +331,7 @@ pkcs7_copy_existing_digest.exit:                  ; preds = %82
   br label %94
 
 94:                                               ; preds = %.sink.split, %92, %pkcs7_copy_existing_digest.exit, %add_cipher_smcap.exit, %add_cipher_smcap.exit.thread, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %20, %16
-  %.0 = phi ptr [ null, %92 ], [ null, %pkcs7_copy_existing_digest.exit ], [ %25, %53 ], [ %25, %51 ], [ %25, %49 ], [ %25, %47 ], [ %25, %45 ], [ %25, %43 ], [ %25, %41 ], [ %25, %39 ], [ %25, %37 ], [ %25, %35 ], [ %25, %33 ], [ %25, %add_cipher_smcap.exit.thread ], [ %25, %add_cipher_smcap.exit ], [ null, %20 ], [ null, %16 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %92 ], [ null, %pkcs7_copy_existing_digest.exit ], [ null, %16 ], [ %25, %53 ], [ %25, %51 ], [ %25, %49 ], [ %25, %47 ], [ %25, %45 ], [ %25, %43 ], [ %25, %41 ], [ %25, %39 ], [ %25, %37 ], [ %25, %35 ], [ %25, %33 ], [ %25, %add_cipher_smcap.exit.thread ], [ %25, %add_cipher_smcap.exit ], [ null, %20 ], [ null, %.sink.split ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %.0, ptr noundef nonnull @X509_ALGOR_free) #3
   br label %95
 
@@ -769,9 +769,9 @@ define range(i32 0, 2) i32 @PKCS7_verify(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %66, %131, %.preheader, %127, %110, %.loopexit107, %51, %45, %36, %139, %123, %107, %.split111.us, %.split.us
-  %.085 = phi ptr [ null, %36 ], [ null, %.split111.us ], [ null, %.split.us ], [ null, %.loopexit107 ], [ null, %107 ], [ null, %110 ], [ null, %45 ], [ %111, %139 ], [ %111, %123 ], [ null, %51 ], [ %111, %127 ], [ %111, %.preheader ], [ null, %66 ], [ %111, %131 ], [ null, %81 ]
-  %.082 = phi i32 [ 0, %36 ], [ 0, %.split111.us ], [ 0, %.split.us ], [ 0, %.loopexit107 ], [ 0, %107 ], [ 0, %110 ], [ 0, %45 ], [ 0, %139 ], [ 0, %123 ], [ 0, %51 ], [ 1, %127 ], [ 1, %.preheader ], [ 0, %66 ], [ 1, %131 ], [ 0, %81 ]
-  %.081 = phi ptr [ null, %36 ], [ null, %.split111.us ], [ null, %.split.us ], [ null, %.loopexit107 ], [ %99, %107 ], [ %99, %110 ], [ null, %45 ], [ %99, %139 ], [ %99, %123 ], [ null, %51 ], [ %99, %127 ], [ %99, %.preheader ], [ null, %66 ], [ %99, %131 ], [ null, %81 ]
+  %.085 = phi ptr [ null, %36 ], [ null, %.split111.us ], [ %111, %.preheader ], [ null, %.split.us ], [ null, %.loopexit107 ], [ null, %107 ], [ null, %110 ], [ null, %45 ], [ %111, %139 ], [ %111, %123 ], [ null, %51 ], [ %111, %127 ], [ null, %66 ], [ %111, %131 ], [ null, %81 ]
+  %.082 = phi i32 [ 0, %36 ], [ 0, %.split111.us ], [ 1, %.preheader ], [ 0, %.split.us ], [ 0, %.loopexit107 ], [ 0, %107 ], [ 0, %110 ], [ 0, %45 ], [ 0, %139 ], [ 0, %123 ], [ 0, %51 ], [ 1, %127 ], [ 0, %66 ], [ 1, %131 ], [ 0, %81 ]
+  %.081 = phi ptr [ null, %36 ], [ null, %.split111.us ], [ %99, %.preheader ], [ null, %.split.us ], [ null, %.loopexit107 ], [ %99, %107 ], [ %99, %110 ], [ null, %45 ], [ %99, %139 ], [ %99, %123 ], [ null, %51 ], [ %99, %127 ], [ null, %66 ], [ %99, %131 ], [ null, %81 ]
   call void @X509_STORE_CTX_free(ptr noundef %40) #3
   call void @CRYPTO_free(ptr noundef %.085, ptr noundef nonnull @.str, i32 noundef 358) #3
   br i1 %19, label %142, label %140
@@ -1188,7 +1188,7 @@ define i32 @PKCS7_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %.not46, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %58, %55, %52, %47
-  %.135 = phi i32 [ 0, %47 ], [ %spec.select47, %55 ], [ 1, %52 ], [ 0, %58 ]
+  %.135 = phi i32 [ 0, %47 ], [ 1, %52 ], [ %spec.select47, %55 ], [ 0, %58 ]
   tail call void @CRYPTO_free(ptr noundef %48, ptr noundef nonnull @.str, i32 noundef 546) #3
   tail call void @BIO_free_all(ptr noundef nonnull %23) #3
   br label %60

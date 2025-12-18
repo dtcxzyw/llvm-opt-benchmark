@@ -1218,7 +1218,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %22, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit22", label %23
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit22": ; preds = %20, %98, %92, %79, %74, %69, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit" ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 0, %98 ], [ 2, %20 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit" ], [ 0, %98 ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 2, %20 ]
   ret i8 %.sroa.0.0
 
 23:                                               ; preds = %20, %10
@@ -1436,8 +1436,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %22, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit25", label %25
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit25": ; preds = %20, %98, %92, %79, %74, %69, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit" ], [ undef, %69 ], [ undef, %74 ], [ undef, %79 ], [ undef, %92 ], [ undef, %98 ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit" ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 0, %98 ], [ 2, %20 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit" ], [ undef, %98 ], [ undef, %69 ], [ undef, %74 ], [ undef, %79 ], [ undef, %92 ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h418b263e325bbd96E.llvm.2370907772506617092.exit" ], [ 0, %98 ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 2, %20 ]
   %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.sroa.5.0, 1
   ret { i64, ptr } %24
@@ -6205,7 +6205,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$sum_tree..Node$LT$t
   br i1 %33, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i", %36, %40, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %37, %40 ], [ %37, %36 ], [ %25, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %37, %36 ], [ %37, %40 ], [ %25, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 34:                                               ; preds = %32
@@ -27148,7 +27148,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   br label %.thread452
 
 .thread489.loopexit.split-lp.loopexit.split-lp:   ; preds = %425, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17hfd098a42328b3128E.exit"
-  %.sroa.037.0.ph.ph = phi i1 [ true, %425 ], [ false, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17hfd098a42328b3128E.exit" ]
+  %.sroa.037.0.ph.ph = phi i1 [ false, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17hfd098a42328b3128E.exit" ], [ true, %425 ]
   %lpad.loopexit.split-lp652 = landingpad { ptr, i32 }
           cleanup
   br label %.thread452
@@ -28642,9 +28642,9 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   store i32 0, ptr %49, align 8, !alias.scope !6832
   br label %.thread567
 
-.thread567.thread:                                ; preds = %.thread567, %706, %711, %682, %687
-  %.pn558606624 = phi { ptr, i32 } [ %712, %711 ], [ %.pn559, %.thread567 ], [ %683, %682 ], [ %688, %687 ], [ %707, %706 ]
-  %.sroa.033.1552608622 = phi i1 [ true, %711 ], [ false, %.thread567 ], [ true, %682 ], [ true, %687 ], [ true, %706 ]
+.thread567.thread:                                ; preds = %.thread567, %711, %706, %682, %687
+  %.pn558606624 = phi { ptr, i32 } [ %707, %706 ], [ %.pn559, %.thread567 ], [ %683, %682 ], [ %688, %687 ], [ %712, %711 ]
+  %.sroa.033.1552608622 = phi i1 [ true, %706 ], [ false, %.thread567 ], [ true, %682 ], [ true, %687 ], [ true, %711 ]
   %759 = load i32, ptr %50, align 8, !alias.scope !6835, !noundef !4
   %.not.i.i366 = icmp eq i32 %759, 0
   br i1 %.not.i.i366, label %"_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17hdf2c3a86e222c154E.exit368", label %760
@@ -33729,7 +33729,7 @@ common.resume:                                    ; preds = %1101, %1102, %87, %
   br label %.thread228
 
 138:                                              ; preds = %135, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e4a2b091cb57996E.exit.thread"
-  %.sroa.03.3.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e4a2b091cb57996E.exit.thread" ], [ true, %135 ]
+  %.sroa.03.3.ph = phi i1 [ true, %135 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e4a2b091cb57996E.exit.thread" ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -35351,7 +35351,7 @@ _ZN4core10intrinsics10typed_swap17he1a7f6a9f6a375f7E.exit.i: ; preds = %421
   br label %664
 
 .body56.i65:                                      ; preds = %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i", %.loopexit.split-lp137.i.loopexit, %.loopexit.split-lp137.i.loopexit.split-lp, %943, %955, %958, %900, %"_ZN4core3ptr98drop_in_place$LT$alloc..vec..drain..Drain$LT$sum_tree..Node$LT$text..InsertionFragment$GT$$GT$$GT$17h9c082cb7741a6673E.exit.i75", %783, %660
-  %.pn47.i66 = phi { ptr, i32 } [ %784, %783 ], [ %661, %660 ], [ %.pn45.i76, %"_ZN4core3ptr98drop_in_place$LT$alloc..vec..drain..Drain$LT$sum_tree..Node$LT$text..InsertionFragment$GT$$GT$$GT$17h9c082cb7741a6673E.exit.i75" ], [ %.pn45.i76, %900 ], [ %944, %943 ], [ %956, %958 ], [ %956, %955 ], [ %lpad.loopexit251, %.loopexit.split-lp137.i.loopexit ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp137.i.loopexit.split-lp ], [ %944, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i" ]
+  %.pn47.i66 = phi { ptr, i32 } [ %784, %783 ], [ %661, %660 ], [ %.pn45.i76, %"_ZN4core3ptr98drop_in_place$LT$alloc..vec..drain..Drain$LT$sum_tree..Node$LT$text..InsertionFragment$GT$$GT$$GT$17h9c082cb7741a6673E.exit.i75" ], [ %.pn45.i76, %900 ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp137.i.loopexit.split-lp ], [ %956, %958 ], [ %944, %943 ], [ %956, %955 ], [ %lpad.loopexit251, %.loopexit.split-lp137.i.loopexit ], [ %944, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i" ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$sum_tree..Node$LT$text..InsertionFragment$GT$$GT$$GT$17hb45dd1f7bca69fbcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #41
           to label %.body72.i unwind label %645, !noalias !8861
 
@@ -35635,7 +35635,7 @@ _ZN4core10intrinsics10typed_swap17he1a7f6a9f6a375f7E.exit.i: ; preds = %421
   br i1 %760, label %.body.i71.i, label %761
 
 .body174:                                         ; preds = %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i173", %740, %.body194, %754
-  %eh.lpad-body175 = phi { ptr, i32 } [ %741, %740 ], [ %700, %754 ], [ %700, %.body194 ], [ %741, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i173" ]
+  %eh.lpad-body175 = phi { ptr, i32 } [ %700, %754 ], [ %741, %740 ], [ %700, %.body194 ], [ %741, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i173" ]
   br label %759
 
 761:                                              ; preds = %759
@@ -35996,7 +35996,7 @@ _ZN4core10intrinsics10typed_swap17he1a7f6a9f6a375f7E.exit.i: ; preds = %421
   br i1 %884, label %.body.i78.i, label %885
 
 .body158:                                         ; preds = %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i157", %864, %.body184, %878
-  %eh.lpad-body159 = phi { ptr, i32 } [ %865, %864 ], [ %824, %878 ], [ %824, %.body184 ], [ %865, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i157" ]
+  %eh.lpad-body159 = phi { ptr, i32 } [ %824, %878 ], [ %865, %864 ], [ %824, %.body184 ], [ %865, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hd83a6cfd4be29908E.exit8.i.i.i.i.i157" ]
   br label %883
 
 885:                                              ; preds = %883

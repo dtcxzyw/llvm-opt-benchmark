@@ -287,7 +287,7 @@ _ZNK4llvm9StringRef5rfindEcm.exit:                ; preds = %5
   br label %_ZNK4llvm9StringRef5rfindEcm.exit.thread
 
 _ZNK4llvm9StringRef5rfindEcm.exit.thread:         ; preds = %4, %10, %_ZNK4llvm9StringRef5rfindEcm.exit
-  %.033 = phi i64 [ %spec.select, %10 ], [ %6, %_ZNK4llvm9StringRef5rfindEcm.exit ], [ -1, %4 ]
+  %.033 = phi i64 [ %6, %_ZNK4llvm9StringRef5rfindEcm.exit ], [ %spec.select, %10 ], [ -1, %4 ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %.033)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12

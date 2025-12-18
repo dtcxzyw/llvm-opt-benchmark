@@ -3788,9 +3788,9 @@ _ZN2cv3dpm16PyramidParameterD2Ev.exit:            ; preds = %212, %213
   br i1 %.not143.not, label %182, label %._crit_edge.split, !llvm.loop !156
 
 ._crit_edge182:                                   ; preds = %._crit_edge.split171, %._crit_edge.split171.us.us, %47, %.lr.ph181
-  %.0131.lcssa = phi double [ 0xFFF0000000000000, %.lr.ph181 ], [ 0xFFF0000000000000, %47 ], [ %.2133.us.us, %._crit_edge.split171.us.us ], [ %.2133, %._crit_edge.split171 ]
-  %.0128.lcssa = phi i32 [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2130.us.us, %._crit_edge.split171.us.us ], [ %.2130, %._crit_edge.split171 ]
-  %.0127.lcssa = phi i32 [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2.us.us, %._crit_edge.split171.us.us ], [ %.2, %._crit_edge.split171 ]
+  %.0131.lcssa = phi double [ %.2133.us.us, %._crit_edge.split171.us.us ], [ 0xFFF0000000000000, %.lr.ph181 ], [ 0xFFF0000000000000, %47 ], [ %.2133, %._crit_edge.split171 ]
+  %.0128.lcssa = phi i32 [ %.2130.us.us, %._crit_edge.split171.us.us ], [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2130, %._crit_edge.split171 ]
+  %.0127.lcssa = phi i32 [ %.2.us.us, %._crit_edge.split171.us.us ], [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2, %._crit_edge.split171 ]
   %. = select i1 %5, i64 176, i64 152
   %.274 = select i1 %5, i64 224, i64 200
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 %.

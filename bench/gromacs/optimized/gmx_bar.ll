@@ -4648,13 +4648,13 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i228.i: ; preds = %1618, %.noexc356
   br i1 %exitcond588.not.i, label %._crit_edge404.i, label %.lr.ph403.i, !llvm.loop !180
 
 ._crit_edge404.i:                                 ; preds = %.noexc363, %.preheader.i266, %.noexc314
-  %1764 = phi i1 [ false, %.preheader.i266 ], [ false, %.noexc314 ], [ true, %.noexc363 ]
-  %.0154.lcssa648.i = phi double [ %.2156.i, %.preheader.i266 ], [ -1.000000e+00, %.noexc314 ], [ %.2156.i, %.noexc363 ]
-  %.0157.lcssa647.i = phi i32 [ %.1158.i, %.preheader.i266 ], [ 0, %.noexc314 ], [ %.1158.i, %.noexc363 ]
-  %.055.lcssa646.i = phi double [ %.156.lcssa.i, %.preheader.i266 ], [ -1.000000e+00, %.noexc314 ], [ %.156.lcssa.i, %.noexc363 ]
-  %.062.lcssa645.i = phi ptr [ %.163.i, %.preheader.i266 ], [ null, %.noexc314 ], [ %.163.i, %.noexc363 ]
-  %.064.lcssa644.i = phi ptr [ %.165.i, %.preheader.i266 ], [ null, %.noexc314 ], [ %.165.i, %.noexc363 ]
-  %.066.lcssa643.i = phi ptr [ %.167.i, %.preheader.i266 ], [ null, %.noexc314 ], [ %.167.i, %.noexc363 ]
+  %1764 = phi i1 [ false, %.noexc314 ], [ false, %.preheader.i266 ], [ true, %.noexc363 ]
+  %.0154.lcssa648.i = phi double [ -1.000000e+00, %.noexc314 ], [ %.2156.i, %.preheader.i266 ], [ %.2156.i, %.noexc363 ]
+  %.0157.lcssa647.i = phi i32 [ 0, %.noexc314 ], [ %.1158.i, %.preheader.i266 ], [ %.1158.i, %.noexc363 ]
+  %.055.lcssa646.i = phi double [ -1.000000e+00, %.noexc314 ], [ %.156.lcssa.i, %.preheader.i266 ], [ %.156.lcssa.i, %.noexc363 ]
+  %.062.lcssa645.i = phi ptr [ null, %.noexc314 ], [ %.163.i, %.preheader.i266 ], [ %.163.i, %.noexc363 ]
+  %.064.lcssa644.i = phi ptr [ null, %.noexc314 ], [ %.165.i, %.preheader.i266 ], [ %.165.i, %.noexc363 ]
+  %.066.lcssa643.i = phi ptr [ null, %.noexc314 ], [ %.167.i, %.preheader.i266 ], [ %.167.i, %.noexc363 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %putchar.i = call i32 @putchar(i32 10)
   store i8 0, ptr %54, align 16, !tbaa !16
@@ -7822,9 +7822,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %_Z
   br i1 %exitcond396.not.i, label %.loopexit261.i, label %2996, !llvm.loop !235
 
 .loopexit261.i:                                   ; preds = %2959, %3007, %.preheader260.i, %.preheader262.i
-  %3009 = phi i32 [ %2972, %.preheader260.i ], [ %2924, %.preheader262.i ], [ %2972, %3007 ], [ %2924, %2959 ]
-  %3010 = phi ptr [ %2977, %.preheader260.i ], [ %2929, %.preheader262.i ], [ %2977, %3007 ], [ %2929, %2959 ]
-  %3011 = phi ptr [ %2970, %.preheader260.i ], [ %2922, %.preheader262.i ], [ %2970, %3007 ], [ %2922, %2959 ]
+  %3009 = phi i32 [ %2972, %3007 ], [ %2972, %.preheader260.i ], [ %2924, %.preheader262.i ], [ %2924, %2959 ]
+  %3010 = phi ptr [ %2977, %3007 ], [ %2977, %.preheader260.i ], [ %2929, %.preheader262.i ], [ %2929, %2959 ]
+  %3011 = phi ptr [ %2970, %3007 ], [ %2970, %.preheader260.i ], [ %2922, %.preheader262.i ], [ %2922, %2959 ]
   %3012 = load double, ptr %2919, align 8, !tbaa !229
   %3013 = getelementptr inbounds nuw i8, ptr %2910, i64 48
   %3014 = getelementptr inbounds nuw i8, ptr %2910, i64 64
@@ -7966,7 +7966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %_Z
   br i1 %exitcond.not.i623, label %.loopexit112.i, label %3084, !llvm.loop !237
 
 .loopexit112.i:                                   ; preds = %3084, %3067, %3071, %3059, %3049
-  %.197.i = phi double [ %.096120.i, %3049 ], [ %.096120.i, %3059 ], [ %.096120.i, %3071 ], [ %3070, %3067 ], [ %3093, %3084 ]
+  %.197.i = phi double [ %.096120.i, %3049 ], [ %3070, %3067 ], [ %.096120.i, %3059 ], [ %.096120.i, %3071 ], [ %3093, %3084 ]
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count150.i
   br i1 %exitcond151.not.i, label %.preheader.i612, label %3049, !llvm.loop !238
@@ -8050,7 +8050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %_Z
   br i1 %exitcond156.not.i, label %.loopexit.i614, label %3129, !llvm.loop !240
 
 .loopexit.i614:                                   ; preds = %3129, %3112, %3116, %3104, %3094
-  %.1101.i = phi double [ %.0100132.i, %3094 ], [ %.0100132.i, %3104 ], [ %.0100132.i, %3116 ], [ %3115, %3112 ], [ %3138, %3129 ]
+  %.1101.i = phi double [ %.0100132.i, %3094 ], [ %3115, %3112 ], [ %.0100132.i, %3104 ], [ %.0100132.i, %3116 ], [ %3138, %3129 ]
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next163.i, %wide.trip.count165.i
   br i1 %exitcond166.not.i, label %.noexc537, label %3094, !llvm.loop !241
@@ -8377,7 +8377,7 @@ _ZL19lambda_vec_abs_diffPK12lambda_vec_tS1_.exit.i: ; preds = %3206, %.preheader
   br i1 %exitcond.not.i.i520, label %.loopexit112.i.i, label %3260, !llvm.loop !237
 
 .loopexit112.i.i:                                 ; preds = %3260, %3243, %3247, %3235, %3225
-  %.197.i.i = phi double [ %.096120.i.i, %3225 ], [ %.096120.i.i, %3235 ], [ %.096120.i.i, %3247 ], [ %3246, %3243 ], [ %3269, %3260 ]
+  %.197.i.i = phi double [ %.096120.i.i, %3225 ], [ %3246, %3243 ], [ %.096120.i.i, %3235 ], [ %.096120.i.i, %3247 ], [ %3269, %3260 ]
   %indvars.iv.next148.i.i513 = add nuw nsw i64 %indvars.iv147.i.i512, 1
   %exitcond151.not.i.i = icmp eq i64 %indvars.iv.next148.i.i513, %wide.trip.count150.i.i
   br i1 %exitcond151.not.i.i, label %.preheader.i.i506, label %3225, !llvm.loop !238
@@ -8461,7 +8461,7 @@ _ZL19lambda_vec_abs_diffPK12lambda_vec_tS1_.exit.i: ; preds = %3206, %.preheader
   br i1 %exitcond156.not.i.i, label %.loopexit.i.i508, label %3305, !llvm.loop !240
 
 .loopexit.i.i508:                                 ; preds = %3305, %3288, %3292, %3280, %3270
-  %.1101.i.i = phi double [ %.0100132.i.i, %3270 ], [ %.0100132.i.i, %3280 ], [ %.0100132.i.i, %3292 ], [ %3291, %3288 ], [ %3314, %3305 ]
+  %.1101.i.i = phi double [ %.0100132.i.i, %3270 ], [ %3291, %3288 ], [ %.0100132.i.i, %3280 ], [ %.0100132.i.i, %3292 ], [ %3314, %3305 ]
   %indvars.iv.next163.i.i = add nuw nsw i64 %indvars.iv162.i.i, 1
   %exitcond166.not.i.i = icmp eq i64 %indvars.iv.next163.i.i, %wide.trip.count165.i.i
   br i1 %exitcond166.not.i.i, label %.loopexit.i507, label %3270, !llvm.loop !241
@@ -10145,8 +10145,8 @@ _ZL30lambda_data_insert_sample_collP13lambda_data_tP13sample_coll_t.exit: ; pred
   store ptr %141, ptr %203, align 8, !tbaa !259
   br label %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit.thread60
 
-_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit.thread60: ; preds = %.preheader.i.i, %137, %_ZL30lambda_data_insert_sample_collP13lambda_data_tP13sample_coll_t.exit, %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit
-  %.052 = phi ptr [ %141, %_ZL30lambda_data_insert_sample_collP13lambda_data_tP13sample_coll_t.exit ], [ %.015.i, %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit ], [ %.015.i, %137 ], [ %.015.i, %.preheader.i.i ]
+_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit.thread60: ; preds = %137, %.preheader.i.i, %_ZL30lambda_data_insert_sample_collP13lambda_data_tP13sample_coll_t.exit, %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit
+  %.052 = phi ptr [ %141, %_ZL30lambda_data_insert_sample_collP13lambda_data_tP13sample_coll_t.exit ], [ %.015.i, %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit ], [ %.015.i, %.preheader.i.i ], [ %.015.i, %137 ]
   %207 = getelementptr i8, ptr %1, i64 28
   %.val = load i32, ptr %207, align 4, !tbaa !103
   %208 = getelementptr inbounds nuw i8, ptr %.052, i64 16
@@ -11030,7 +11030,7 @@ thread-pre-split97.thread:                        ; preds = %147, %thread-pre-sp
   br label %.split.split, !llvm.loop !266
 
 .split116.us:                                     ; preds = %thread-pre-split97.us.us, %thread-pre-split97, %thread-pre-split97.us137, %thread-pre-split97.us
-  %.us-phi117 = phi i8 [ %.169, %thread-pre-split97 ], [ %.169.us, %thread-pre-split97.us ], [ %.169.us144, %thread-pre-split97.us137 ], [ %.169.us.us, %thread-pre-split97.us.us ]
+  %.us-phi117 = phi i8 [ %.169.us144, %thread-pre-split97.us137 ], [ %.169, %thread-pre-split97 ], [ %.169.us, %thread-pre-split97.us ], [ %.169.us.us, %thread-pre-split97.us.us ]
   %199 = trunc nuw i8 %.us-phi117 to i1
   br i1 %199, label %200, label %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.thread
 
@@ -11051,7 +11051,7 @@ thread-pre-split97.thread:                        ; preds = %147, %thread-pre-sp
   br label %204
 
 _ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.thread: ; preds = %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us, %169, %133, %86, %90, %92, %100, %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.us, %103, %188, %.split116.us
-  %.063 = phi i1 [ true, %.split116.us ], [ %191, %188 ], [ true, %169 ], [ true, %103 ], [ true, %133 ], [ false, %92 ], [ false, %90 ], [ false, %86 ], [ false, %100 ], [ false, %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.us ], [ true, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us ]
+  %.063 = phi i1 [ true, %.split116.us ], [ %191, %188 ], [ true, %133 ], [ true, %169 ], [ true, %103 ], [ false, %92 ], [ false, %90 ], [ false, %86 ], [ false, %100 ], [ false, %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.us ], [ true, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.063
 
@@ -11853,7 +11853,7 @@ define internal fastcc void @_ZL14calc_dg_stddevP13sample_coll_tS0_ddPd(ptr noun
   br i1 %106, label %89, label %.loopexit119, !llvm.loop !274
 
 .loopexit119:                                     ; preds = %89, %64, %76, %56, %46
-  %.1108 = phi double [ %.0107127, %46 ], [ %.0107127, %56 ], [ %.0107127, %76 ], [ %72, %64 ], [ %103, %89 ]
+  %.1108 = phi double [ %.0107127, %46 ], [ %72, %64 ], [ %.0107127, %56 ], [ %.0107127, %76 ], [ %103, %89 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %107 = load i32, ptr %29, align 8, !tbaa !110
   %108 = sext i32 %107 to i64
@@ -11951,7 +11951,7 @@ define internal fastcc void @_ZL14calc_dg_stddevP13sample_coll_tS0_ddPd(ptr noun
   br i1 %170, label %153, label %.loopexit, !llvm.loop !277
 
 .loopexit:                                        ; preds = %153, %128, %140, %120, %110
-  %.5 = phi double [ %.4139, %110 ], [ %.4139, %120 ], [ %.4139, %140 ], [ %136, %128 ], [ %167, %153 ]
+  %.5 = phi double [ %.4139, %110 ], [ %136, %128 ], [ %.4139, %120 ], [ %.4139, %140 ], [ %167, %153 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %171 = load i32, ptr %37, align 8, !tbaa !110
   %172 = sext i32 %171 to i64

@@ -599,9 +599,9 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit49
 
 145:                                              ; preds = %77, %128, %130, %64, %60, %44
-  %.sroa.21.1 = phi ptr [ %.sroa.21.0, %60 ], [ %.sroa.21.0, %64 ], [ %.sroa.21.0, %44 ], [ %.sroa.21.0, %77 ], [ %.sroa.11.1113, %130 ], [ %.sroa.21.4112, %128 ]
-  %.sroa.058.1 = phi ptr [ %.sroa.058.0, %60 ], [ %.sroa.058.0, %64 ], [ %.sroa.058.0, %44 ], [ %.sroa.058.0, %77 ], [ %.sroa.058.4114, %130 ], [ %.sroa.058.4114, %128 ]
-  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20, %60 ], [ %65, %64 ], [ %45, %44 ], [ %78, %77 ], [ %lpad.phi, %130 ], [ %129, %128 ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.0, %77 ], [ %.sroa.11.1113, %130 ], [ %.sroa.21.4112, %128 ], [ %.sroa.21.0, %60 ], [ %.sroa.21.0, %64 ], [ %.sroa.21.0, %44 ]
+  %.sroa.058.1 = phi ptr [ %.sroa.058.0, %77 ], [ %.sroa.058.4114, %130 ], [ %.sroa.058.4114, %128 ], [ %.sroa.058.0, %60 ], [ %.sroa.058.0, %64 ], [ %.sroa.058.0, %44 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %lpad.phi, %130 ], [ %129, %128 ], [ %.pn20, %60 ], [ %65, %64 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %146 = ptrtoint ptr %.sroa.21.1 to i64
   %147 = ptrtoint ptr %.sroa.058.1 to i64
@@ -6923,8 +6923,8 @@ _ZNSt10_HashtableIPN4cvc58internal6theory7strings8NfaStateES5_SaIS5_ENSt8__detai
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPN4cvc58internal6theory7strings8NfaStateES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -7681,8 +7681,8 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_Id
   resume { ptr, i32 } %48
 
 _ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit: ; preds = %11, %33, %.critedge, %24
-  %.sroa.031.1 = phi ptr [ %25, %24 ], [ %47, %.critedge ], [ %39, %33 ], [ %.sroa.028.0, %11 ]
-  %.sroa.432.1 = phi i8 [ 0, %24 ], [ 1, %.critedge ], [ 0, %33 ], [ 0, %11 ]
+  %.sroa.031.1 = phi ptr [ %47, %.critedge ], [ %39, %33 ], [ %25, %24 ], [ %.sroa.028.0, %11 ]
+  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %33 ], [ 0, %24 ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

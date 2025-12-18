@@ -421,7 +421,7 @@ default.unreachable290:                           ; preds = %.split
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge220, %._crit_edge231, %._crit_edge242, %.preheader202, %.preheader199, %.preheader196, %.preheader194, %33, %38, %18, %24, %2
-  %.0 = phi ptr [ null, %2 ], [ %23, %18 ], [ null, %24 ], [ %1, %38 ], [ null, %33 ], [ %1, %.preheader199 ], [ %1, %.preheader194 ], [ %1, %.preheader196 ], [ %1, %.preheader202 ], [ %1, %._crit_edge220 ], [ %1, %._crit_edge242 ], [ %1, %._crit_edge231 ], [ %1, %._crit_edge ]
+  %.0 = phi ptr [ null, %2 ], [ %23, %18 ], [ null, %24 ], [ null, %33 ], [ %1, %38 ], [ %1, %.preheader199 ], [ %1, %.preheader196 ], [ %1, %.preheader194 ], [ %1, %.preheader202 ], [ %1, %._crit_edge220 ], [ %1, %._crit_edge242 ], [ %1, %._crit_edge231 ], [ %1, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -783,7 +783,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   br i1 %exitcond.not, label %.thread96, label %14, !llvm.loop !67
 
 .thread96:                                        ; preds = %.thread92, %21, %6, %36, %64, %90, %24, %2
-  %.0 = phi i32 [ 0, %2 ], [ %41, %36 ], [ %.371, %90 ], [ %.270, %64 ], [ %28, %24 ], [ 0, %6 ], [ 0, %21 ], [ 0, %.thread92 ]
+  %.0 = phi i32 [ 0, %2 ], [ %28, %24 ], [ %41, %36 ], [ %.371, %90 ], [ %.270, %64 ], [ 0, %6 ], [ 0, %21 ], [ 0, %.thread92 ]
   ret i32 %.0
 }
 

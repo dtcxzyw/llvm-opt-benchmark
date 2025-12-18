@@ -414,8 +414,8 @@ _ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i: ; preds = %_ZNKSt4lessISt4p
   br i1 %.not.i.i, label %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit.i, label %.lr.ph.i.i, !llvm.loop !50
 
 _ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit.i: ; preds = %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %83
-  %.sroa.040.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %83 ], [ %.08.lcssa.i.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
-  %.sroa.3.0.i.i = phi ptr [ %.02247.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %83 ], [ %.19.i33.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
+  %.sroa.040.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %83 ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
+  %.sroa.3.0.i.i = phi ptr [ %.19.i33.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.02247.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %83 ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
   %117 = load ptr, ptr %32, align 8, !tbaa !36
   %118 = icmp eq ptr %.sroa.040.0.i.i, %117
   %119 = icmp eq ptr %.sroa.3.0.i.i, %30
@@ -507,7 +507,7 @@ _ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i: ; preds = %_ZNKSt4le
   br i1 %.not.i14.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i64.backedge
 
 .lr.ph.i.i64.backedge:                            ; preds = %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i68
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i68 ], [ %.021.i13.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i13.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i68 ]
   br label %.lr.ph.i.i64, !llvm.loop !52
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i68, %.loopexit.thread, %.loopexit
@@ -977,8 +977,8 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i: ; preds = %_ZNKSt4lessISt4p
   br i1 %.not.i.i, label %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit.i, label %.lr.ph.i.i, !llvm.loop !61
 
 _ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit.i: ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %86
-  %.sroa.040.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %86 ], [ %.08.lcssa.i.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.123.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i ]
-  %.sroa.3.0.i.i = phi ptr [ %.02247.i.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %86 ], [ %.19.i33.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.123.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i ]
+  %.sroa.040.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %86 ], [ %.123.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i ]
+  %.sroa.3.0.i.i = phi ptr [ %.19.i33.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.02247.i.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %86 ], [ %.123.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i ]
   %120 = load ptr, ptr %32, align 8, !tbaa !36
   %121 = icmp eq ptr %.sroa.040.0.i.i, %120
   %122 = icmp eq ptr %.sroa.3.0.i.i, %30
@@ -1072,7 +1072,7 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread.i: ; preds = %_ZNKSt4le
   br i1 %.not.i14.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i61.backedge
 
 .lr.ph.i.i61.backedge:                            ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i63
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i63 ], [ %.021.i13.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i13.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i63 ]
   br label %.lr.ph.i.i61, !llvm.loop !63
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i63, %.loopexit.thread, %.loopexit
@@ -1579,8 +1579,8 @@ _ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i: ; preds = %_ZNKSt4lessISt4p
   br i1 %.not.i.i, label %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit.i, label %.lr.ph.i.i, !llvm.loop !50
 
 _ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit.i: ; preds = %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %103
-  %.sroa.040.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %103 ], [ %.08.lcssa.i.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
-  %.sroa.3.0.i.i = phi ptr [ %.02247.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %103 ], [ %.19.i33.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
+  %.sroa.040.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %103 ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
+  %.sroa.3.0.i.i = phi ptr [ %.19.i33.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i31.i.i ], [ %.02247.i.i, %_ZNSt8_Rb_treeISt4pairIdiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %30, %103 ], [ %.123.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i ]
   %137 = load ptr, ptr %32, align 8, !tbaa !36
   %138 = icmp eq ptr %.sroa.040.0.i.i, %137
   %139 = icmp eq ptr %.sroa.3.0.i.i, %30
@@ -1672,7 +1672,7 @@ _ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i: ; preds = %_ZNKSt4le
   br i1 %.not.i14.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i68.backedge
 
 .lr.ph.i.i68.backedge:                            ; preds = %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i72
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i72 ], [ %.021.i13.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i13.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i72 ]
   br label %.lr.ph.i.i68, !llvm.loop !52
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIdiEEclERKS1_S4_.exit.thread.i.i72, %.loopexit.thread, %.loopexit

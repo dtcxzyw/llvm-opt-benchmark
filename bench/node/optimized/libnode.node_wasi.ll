@@ -3442,7 +3442,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -3664,7 +3664,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -3779,7 +3779,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -4141,7 +4141,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -5313,7 +5313,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end17, %if.then.i.i.i.i.i
-  %ri_data.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end17 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %ri_data.sroa.0.0 = phi ptr [ null, %do.end17 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %9 = load i32, ptr %ri_data_ptr.addr, align 4
   %conv20 = zext i32 %9 to i64
   %call22 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv20, ptr noundef %ri_data.sroa.0.0, i32 noundef %8) #22
@@ -5435,7 +5435,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %si_data.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %si_data.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %si_data_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %si_data.sroa.0.0, i32 noundef %7) #22

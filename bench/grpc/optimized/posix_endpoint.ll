@@ -3378,7 +3378,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_114CmsgIsZeroCopyERK7cmsghdr.ex
   br label %13, !llvm.loop !269
 
 .thread:                                          ; preds = %33, %23, %30, %._crit_edge, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_114CmsgIsZeroCopyERK7cmsghdr.exit, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113CmsgIsIpLevelERK7cmsghdr.exit.thread.i, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_114CmsgIsZeroCopyERK7cmsghdr.exit.thread
-  %.129.in = phi i1 [ %.1315280, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_114CmsgIsZeroCopyERK7cmsghdr.exit ], [ %.1315280, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_114CmsgIsZeroCopyERK7cmsghdr.exit.thread ], [ %.1315280, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113CmsgIsIpLevelERK7cmsghdr.exit.thread.i ], [ %.13152.lcssa, %._crit_edge ], [ %.030, %23 ], [ %.030, %30 ], [ %.030, %33 ]
+  %.129.in = phi i1 [ %.1315280, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_114CmsgIsZeroCopyERK7cmsghdr.exit ], [ %.1315280, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_114CmsgIsZeroCopyERK7cmsghdr.exit.thread ], [ %.1315280, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113CmsgIsIpLevelERK7cmsghdr.exit.thread.i ], [ %.13152.lcssa, %._crit_edge ], [ %.030, %23 ], [ %.030, %33 ], [ %.030, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -10075,7 +10075,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47, %0
-  %.017 = phi i64 [ -1, %0 ], [ %71, %72 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
+  %.017 = phi i64 [ -1, %0 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47 ], [ %71, %72 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
   ret i64 %.017
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %77, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
@@ -10399,7 +10399,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %145, %134, %125, %._crit_edge.i.i.i.i, %116, %109, %102
-  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i23, %145 ], [ %136, %134 ], [ %122, %125 ], [ %.cast23.i.i.i.i, %116 ], [ %.cast22.i.i.i.i, %109 ], [ %.cast.i.i.i.i, %102 ], [ %84, %._crit_edge.i.i.i.i ], [ %91, %.lr.ph.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i23, %145 ], [ %136, %134 ], [ %122, %125 ], [ %84, %._crit_edge.i.i.i.i ], [ %.cast23.i.i.i.i, %116 ], [ %.cast22.i.i.i.i, %109 ], [ %.cast.i.i.i.i, %102 ], [ %91, %.lr.ph.i.i.i.i ]
   %152 = sub i64 %.sink.i.i.i.i, %84
   store i64 %152, ptr %77, align 8, !tbaa !94
   %153 = getelementptr inbounds nuw i8, ptr %80, i64 %152

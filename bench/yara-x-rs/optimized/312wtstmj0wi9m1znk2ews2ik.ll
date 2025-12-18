@@ -3185,7 +3185,7 @@ define noundef align 8 ptr @"_ZN84_$LT$yara_x_proto_yaml..yara..FieldOptions$u20
   br i1 %.not55, label %17, label %14
 
 .loopexit:                                        ; preds = %25, %51, %45, %36, %30, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %50, %45 ], [ %26, %25 ]
+  %.sroa.0.0 = phi ptr [ %50, %45 ], [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %26, %25 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -3351,7 +3351,7 @@ define void @"_ZN84_$LT$yara_x_proto_yaml..yara..FieldOptions$u20$as$u20$protobu
           to label %18 unwind label %25
 
 common.resume:                                    ; preds = %18, %6, %32, %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %33, %32 ], [ %7, %6 ], [ %21, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %39, %38 ], [ %33, %32 ], [ %21, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %22
@@ -4378,7 +4378,7 @@ define noundef align 8 ptr @"_ZN80_$LT$yara_x_proto_yaml..yara..AclEntry$u20$as$
   br i1 %.not44, label %20, label %14
 
 .loopexit:                                        ; preds = %28, %42, %48, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %50, %48 ], [ %19, %14 ], [ %47, %42 ], [ %33, %28 ]
+  %.sroa.0.0 = phi ptr [ %47, %42 ], [ %10, %5 ], [ %19, %14 ], [ %50, %48 ], [ %33, %28 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -4545,7 +4545,7 @@ define void @"_ZN80_$LT$yara_x_proto_yaml..yara..AclEntry$u20$as$u20$protobuf..m
           to label %23 unwind label %30
 
 common.resume:                                    ; preds = %23, %41, %6, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %7, %6 ], [ %44, %41 ], [ %26, %23 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %44, %41 ], [ %13, %12 ], [ %26, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %27

@@ -1083,7 +1083,7 @@ make_bitmap_paths_for_or_group.exit.thread:       ; preds = %269, %243, %271, %m
   br label %284
 
 284:                                              ; preds = %281, %make_bitmap_paths_for_or_group.exit.thread
-  %.3 = phi ptr [ %283, %281 ], [ %275, %make_bitmap_paths_for_or_group.exit.thread ]
+  %.3 = phi ptr [ %275, %make_bitmap_paths_for_or_group.exit.thread ], [ %283, %281 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv152, 1
   %285 = load i32, ptr %215, align 4
   %286 = sext i32 %285 to i64
@@ -2662,7 +2662,7 @@ get_rightop.exit:                                 ; preds = %209, %208, %204, %l
   br i1 %259, label %.split273.us, label %.lr.ph240.split
 
 .split273.us:                                     ; preds = %.thread148._crit_edge.split, %._crit_edge.split.us.split.split.us245, %.preheader164.us.us279, %.preheader164.us.us, %.preheader164.us.us.us
-  %.us-phi274 = phi ptr [ null, %._crit_edge.split.us.split.split.us245 ], [ null, %.preheader164.us.us.us ], [ null, %.preheader164.us.us ], [ null, %.preheader164.us.us279 ], [ %.0101.lcssa, %.thread148._crit_edge.split ]
+  %.us-phi274 = phi ptr [ null, %._crit_edge.split.us.split.split.us245 ], [ null, %.preheader164.us.us279 ], [ null, %.preheader164.us.us.us ], [ null, %.preheader164.us.us ], [ %.0101.lcssa, %.thread148._crit_edge.split ]
   br i1 %.not126, label %.thread162, label %260
 
 260:                                              ; preds = %.split273.us
@@ -2677,7 +2677,7 @@ get_rightop.exit:                                 ; preds = %209, %208, %204, %l
   br i1 %263, label %.lr.ph390, label %.thread162
 
 .thread162:                                       ; preds = %.lr.ph240.split, %.lr.ph240.split.us.split.split, %._crit_edge.split.us.split.split.us.us.us.thread, %88, %70, %.lr.ph240.split.preheader, %.lr.ph240.split.us.split.split.preheader, %.lr.ph240.split.us.split.split.us.preheader, %42, %.lr.ph240.split.us.split.us.split.split, %.lr.ph240.split.us.split.us.split.us.split, %260, %.split273.us, %.critedge, %6
-  %.0 = phi i1 [ false, %.critedge ], [ false, %6 ], [ true, %.split273.us ], [ true, %260 ], [ false, %.lr.ph240.split.us.split.us.split.us.split ], [ false, %42 ], [ false, %.lr.ph240.split.us.split.us.split.split ], [ false, %.lr.ph240.split.us.split.split.preheader ], [ false, %.lr.ph240.split.us.split.split.us.preheader ], [ false, %.lr.ph240.split.preheader ], [ false, %.lr.ph240.split.us.split.split ], [ false, %70 ], [ false, %88 ], [ false, %._crit_edge.split.us.split.split.us.us.us.thread ], [ false, %.lr.ph240.split ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %6 ], [ true, %260 ], [ true, %.split273.us ], [ false, %.lr.ph240.split.us.split.us.split.us.split ], [ false, %.lr.ph240.split.us.split.split.preheader ], [ false, %42 ], [ false, %.lr.ph240.split.us.split.us.split.split ], [ false, %.lr.ph240.split.us.split.split.us.preheader ], [ false, %.lr.ph240.split.preheader ], [ false, %.lr.ph240.split.us.split.split ], [ false, %70 ], [ false, %88 ], [ false, %._crit_edge.split.us.split.split.us.us.us.thread ], [ false, %.lr.ph240.split ]
   ret i1 %.0
 }
 
@@ -3745,8 +3745,8 @@ match_clause_to_ordering_op.exit.thread.i:        ; preds = %195, %192, %190, %1
   br i1 %212, label %.lr.ph282, label %match_pathkeys_to_index.exit
 
 match_pathkeys_to_index.exit:                     ; preds = %127, %121, %117, %.lr.ph290, %.thread78.i, %.lr.ph93.i, %.loopexit.i
-  %.1173229 = phi ptr [ %.1173287, %.loopexit.i ], [ %.1173287, %127 ], [ %.1173287, %121 ], [ %.1173287, %117 ], [ %.1173287, %.lr.ph290 ], [ %202, %.thread78.i ], [ %.1173287, %.lr.ph93.i ]
-  %.1227 = phi ptr [ %.1288, %.loopexit.i ], [ %.1288, %127 ], [ %.1288, %121 ], [ %.1288, %117 ], [ %.1288, %.lr.ph290 ], [ %203, %.thread78.i ], [ %.1288, %.lr.ph93.i ]
+  %.1173229 = phi ptr [ %.1173287, %.loopexit.i ], [ %.1173287, %127 ], [ %.1173287, %121 ], [ %.1173287, %117 ], [ %.1173287, %.lr.ph290 ], [ %.1173287, %.lr.ph93.i ], [ %202, %.thread78.i ]
+  %.1227 = phi ptr [ %.1288, %.loopexit.i ], [ %.1288, %127 ], [ %.1288, %121 ], [ %.1288, %117 ], [ %.1288, %.lr.ph290 ], [ %.1288, %.lr.ph93.i ], [ %203, %.thread78.i ]
   %.pr = load ptr, ptr %102, align 8
   %.not.i155 = icmp eq ptr %.pr, null
   br i1 %.not.i155, label %list_length.exit.thread, label %list_length.exit
@@ -3987,7 +3987,7 @@ check_index_only.exit:                            ; preds = %.thread198, %._crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %77, %27, %301, %305, %311, %322, %321, %302, %9
-  %.0 = phi ptr [ null, %9 ], [ %307, %321 ], [ %307, %322 ], [ %307, %311 ], [ %307, %305 ], [ %.0132, %302 ], [ %.0132, %301 ], [ null, %27 ], [ null, %77 ]
+  %.0 = phi ptr [ null, %9 ], [ %.0132, %301 ], [ %307, %321 ], [ %307, %322 ], [ %307, %311 ], [ %307, %305 ], [ %.0132, %302 ], [ null, %27 ], [ null, %77 ]
   ret ptr %.0
 }
 
@@ -5453,7 +5453,7 @@ list_length.exit179.thread.i.i:                   ; preds = %list_length.exit179
   br label %match_clause_to_indexcol.exit.thread40
 
 match_clause_to_indexcol.exit:                    ; preds = %106, %.thread.i.i, %.split.i.i
-  %.0.i = phi ptr [ %137, %.thread.i.i ], [ %157, %.split.i.i ], [ %109, %106 ]
+  %.0.i = phi ptr [ %109, %106 ], [ %137, %.thread.i.i ], [ %157, %.split.i.i ]
   %.not33 = icmp eq ptr %.0.i, null
   br i1 %.not33, label %match_clause_to_indexcol.exit.thread, label %match_clause_to_indexcol.exit.thread40.loopexit
 
@@ -5462,16 +5462,16 @@ match_clause_to_indexcol.exit.thread40.loopexit:  ; preds = %match_clause_to_ind
   %644 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   br label %match_clause_to_indexcol.exit.thread40
 
-match_clause_to_indexcol.exit.thread40:           ; preds = %match_clause_to_indexcol.exit.thread40.loopexit, %597, %expand_indexqual_rowcompare.exit.i.i, %195, %96, %124, %634
-  %645 = phi ptr [ %635, %634 ], [ %598, %597 ], [ %258, %expand_indexqual_rowcompare.exit.i.i ], [ %196, %195 ], [ %97, %96 ], [ %125, %124 ], [ %644, %match_clause_to_indexcol.exit.thread40.loopexit ]
-  %.0.i43 = phi ptr [ %636, %634 ], [ %610, %597 ], [ %259, %expand_indexqual_rowcompare.exit.i.i ], [ %197, %195 ], [ %98, %96 ], [ %127, %124 ], [ %.0.i43.ph, %match_clause_to_indexcol.exit.thread40.loopexit ]
+match_clause_to_indexcol.exit.thread40:           ; preds = %match_clause_to_indexcol.exit.thread40.loopexit, %124, %96, %195, %expand_indexqual_rowcompare.exit.i.i, %597, %634
+  %645 = phi ptr [ %598, %597 ], [ %125, %124 ], [ %97, %96 ], [ %196, %195 ], [ %258, %expand_indexqual_rowcompare.exit.i.i ], [ %635, %634 ], [ %644, %match_clause_to_indexcol.exit.thread40.loopexit ]
+  %.0.i43 = phi ptr [ %610, %597 ], [ %127, %124 ], [ %98, %96 ], [ %197, %195 ], [ %259, %expand_indexqual_rowcompare.exit.i.i ], [ %636, %634 ], [ %.0.i43.ph, %match_clause_to_indexcol.exit.thread40.loopexit ]
   %646 = load ptr, ptr %645, align 8
   %647 = call ptr @lappend(ptr noundef %646, ptr noundef nonnull %.0.i43) #7
   store ptr %647, ptr %645, align 8
   store i8 1, ptr %3, align 8
   br label %.critedge35
 
-match_clause_to_indexcol.exit.thread:             ; preds = %151, %625, %629, %619, %622, %list_length.exit.thread.i.i, %247, %250, %245, %231, %252, %205, %186, %188, %193, %190, %158, %138, %.lr.ph.i.i, %110, %112, %115, %list_length.exit.i.i, %452, %255, %163, %60, %.critedge, %match_clause_to_indexcol.exit
+match_clause_to_indexcol.exit.thread:             ; preds = %151, %629, %619, %622, %list_length.exit.thread.i.i, %247, %250, %245, %231, %252, %205, %186, %188, %193, %190, %158, %.lr.ph.i.i, %138, %110, %112, %115, %list_length.exit.i.i, %452, %255, %163, %625, %60, %.critedge, %match_clause_to_indexcol.exit
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %648 = load i32, ptr %18, align 8
   %649 = sext i32 %648 to i64

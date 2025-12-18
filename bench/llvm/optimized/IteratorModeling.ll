@@ -6340,7 +6340,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143.i: ; pred
   br i1 %530, label %.lr.ph.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit132.i, !llvm.loop !403
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit132.i: ; preds = %.critedge97.i, %522, %.critedge95.i, %441, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit130.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
-  %.sroa.0152.0.i = phi ptr [ %395, %522 ], [ %395, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %.sroa.0152.2.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit130.i ], [ %.sroa.0152.2.i, %441 ], [ %395, %.critedge95.i ], [ %395, %.critedge97.i ]
+  %.sroa.0152.0.i = phi ptr [ %395, %522 ], [ %.sroa.0152.2.i, %441 ], [ %395, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %.sroa.0152.2.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit130.i ], [ %395, %.critedge95.i ], [ %395, %.critedge97.i ]
   %.not.i.i144.i = icmp eq ptr %.sroa.0152.0.i, null
   br i1 %.not.i.i144.i, label %_ZNK12_GLOBAL__N_116IteratorModeling13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %531
 
@@ -7315,9 +7315,9 @@ _ZNK12_GLOBAL__N_116IteratorModeling17processComparisonERN5clang4ento14CheckerCo
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit109
 
-_ZNK12_GLOBAL__N_116IteratorModeling17processComparisonERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESC_NS2_4SValENS1_22OverloadedOperatorKindE.exit.thread47: ; preds = %208, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i.thread
-  %.sroa.014.261 = phi ptr [ %.sroa.014.256, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i.thread ], [ %.sroa.014.258, %208 ]
-  %.sroa.07.0.ph = phi ptr [ %.sroa.014.256, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i.thread ], [ %192, %208 ]
+_ZNK12_GLOBAL__N_116IteratorModeling17processComparisonERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESC_NS2_4SValENS1_22OverloadedOperatorKindE.exit.thread47: ; preds = %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i.thread, %208
+  %.sroa.014.261 = phi ptr [ %.sroa.014.258, %208 ], [ %.sroa.014.256, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i.thread ]
+  %.sroa.07.0.ph = phi ptr [ %192, %208 ], [ %.sroa.014.256, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)

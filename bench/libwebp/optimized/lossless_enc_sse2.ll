@@ -1021,8 +1021,8 @@ define internal void @BundleColorMap_SSE2(ptr noalias noundef %0, i32 noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit125, %.loopexit.loopexit124, %.loopexit.loopexit123, %.loopexit.loopexit, %.preheader99, %.preheader97, %.preheader95, %.preheader
-  %.182 = phi i32 [ 0, %.preheader ], [ 0, %.preheader95 ], [ 0, %.preheader97 ], [ 0, %.preheader99 ], [ %55, %.loopexit.loopexit ], [ %56, %.loopexit.loopexit123 ], [ %57, %.loopexit.loopexit124 ], [ %58, %.loopexit.loopexit125 ]
-  %.1 = phi ptr [ %3, %.preheader ], [ %3, %.preheader95 ], [ %3, %.preheader97 ], [ %3, %.preheader99 ], [ %54, %.loopexit.loopexit ], [ %22, %.loopexit.loopexit123 ], [ %30, %.loopexit.loopexit124 ], [ %40, %.loopexit.loopexit125 ]
+  %.182 = phi i32 [ %55, %.loopexit.loopexit ], [ %57, %.loopexit.loopexit124 ], [ %56, %.loopexit.loopexit123 ], [ 0, %.preheader ], [ 0, %.preheader95 ], [ 0, %.preheader97 ], [ 0, %.preheader99 ], [ %58, %.loopexit.loopexit125 ]
+  %.1 = phi ptr [ %54, %.loopexit.loopexit ], [ %30, %.loopexit.loopexit124 ], [ %22, %.loopexit.loopexit123 ], [ %3, %.preheader ], [ %3, %.preheader95 ], [ %3, %.preheader97 ], [ %3, %.preheader99 ], [ %40, %.loopexit.loopexit125 ]
   %.not94 = icmp eq i32 %.182, %1
   br i1 %.not94, label %63, label %59
 

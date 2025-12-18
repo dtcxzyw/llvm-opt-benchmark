@@ -2718,7 +2718,7 @@ define range(i32 -2147483648, 1) i32 @ff_ffv1_encode_init(ptr noundef %0) local_
   unreachable
 
 set_micro_version.exit:                           ; preds = %171, %353, %350, %.thread334, %141, %91, %53, %22
-  %.0275 = phi i32 [ -22, %22 ], [ -22, %53 ], [ -1094995529, %91 ], [ %.1276.ph, %.thread334 ], [ %143, %141 ], [ 0, %350 ], [ 0, %353 ], [ -12, %171 ]
+  %.0275 = phi i32 [ -22, %22 ], [ -22, %53 ], [ -1094995529, %91 ], [ %.1276.ph, %.thread334 ], [ %143, %141 ], [ 0, %353 ], [ 0, %350 ], [ -12, %171 ]
   ret i32 %.0275
 }
 
@@ -4043,7 +4043,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_init_internal(ptr noundef 
   br i1 %.not137, label %.preheader, label %.critedge145, !llvm.loop !151
 
 .critedge145:                                     ; preds = %102, %95, %87, %.critedge143, %147, %.preheader146, %123, %127, %.critedge141, %42, %39, %36, %30, %10, %1
-  %.0 = phi i32 [ -12, %127 ], [ %4, %1 ], [ %13, %10 ], [ %31, %30 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %121, %.critedge141 ], [ 0, %123 ], [ 0, %.preheader146 ], [ 0, %.critedge143 ], [ -12, %147 ], [ -12, %87 ], [ -12, %95 ], [ -12, %102 ]
+  %.0 = phi i32 [ -12, %127 ], [ %4, %1 ], [ %13, %10 ], [ %31, %30 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ 0, %123 ], [ -12, %147 ], [ %121, %.critedge141 ], [ 0, %.preheader146 ], [ 0, %.critedge143 ], [ -12, %87 ], [ -12, %95 ], [ -12, %102 ]
   ret i32 %.0
 }
 
@@ -8110,8 +8110,8 @@ put_symbol_inline.exit.us.i:                      ; preds = %put_rac.exit100.us.
   br i1 %exitcond220.not.i, label %._crit_edge91.i, label %.preheader61.us.i, !llvm.loop !224
 
 ._crit_edge91.i:                                  ; preds = %._crit_edge.split.us97.i, %._crit_edge.split.us.us.us.split.i, %._crit_edge.split.us.us.us.split.us.us.i, %.._crit_edge91.i_crit_edge, %.preheader61.lr.ph.i
-  %1390 = phi ptr [ %.pre, %.._crit_edge91.i_crit_edge ], [ %.pre859, %.preheader61.lr.ph.i ], [ %.pre859, %._crit_edge.split.us.us.us.split.i ], [ %.pre859, %._crit_edge.split.us.us.us.split.us.us.i ], [ %.pre859, %._crit_edge.split.us97.i ]
-  %.0588.lcssa.i = phi i64 [ 0, %.._crit_edge91.i_crit_edge ], [ 0, %.preheader61.lr.ph.i ], [ %indvars.iv.next222.i, %._crit_edge.split.us.us.us.split.i ], [ %indvars.iv.next236.i, %._crit_edge.split.us.us.us.split.us.us.i ], [ %.us-phi, %._crit_edge.split.us97.i ]
+  %1390 = phi ptr [ %.pre, %.._crit_edge91.i_crit_edge ], [ %.pre859, %._crit_edge.split.us.us.us.split.us.us.i ], [ %.pre859, %.preheader61.lr.ph.i ], [ %.pre859, %._crit_edge.split.us.us.us.split.i ], [ %.pre859, %._crit_edge.split.us97.i ]
+  %.0588.lcssa.i = phi i64 [ 0, %.._crit_edge91.i_crit_edge ], [ %indvars.iv.next236.i, %._crit_edge.split.us.us.us.split.us.us.i ], [ 0, %.preheader61.lr.ph.i ], [ %indvars.iv.next222.i, %._crit_edge.split.us.us.us.split.i ], [ %.us-phi, %._crit_edge.split.us97.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1390, ptr %9, align 16, !tbaa !225
   %sext318.i = shl i64 %.0588.lcssa.i, 32
@@ -12334,7 +12334,7 @@ put_bits.exit337.i:                               ; preds = %3580, %3572, %3562
   br label %._crit_edge73.thread.i
 
 ._crit_edge73.thread.i:                           ; preds = %put_symbol_inline.exit138.i.i.thread, %put_symbol_inline.exit138.i.i, %put_bits.exit337.i, %._crit_edge81.i, %.preheader26.i
-  %.5.i.i = phi i32 [ %.6.i.lcssa.i, %put_bits.exit337.i ], [ %.6.i.lcssa.i, %._crit_edge81.i ], [ %2161, %.preheader26.i ], [ %.0104.i69.ph.i.ph, %put_symbol_inline.exit138.i.i ], [ %.4108.i.ph.i, %put_symbol_inline.exit138.i.i.thread ]
+  %.5.i.i = phi i32 [ %.6.i.lcssa.i, %put_bits.exit337.i ], [ %.6.i.lcssa.i, %._crit_edge81.i ], [ %.0104.i69.ph.i.ph, %put_symbol_inline.exit138.i.i ], [ %2161, %.preheader26.i ], [ %.4108.i.ph.i, %put_symbol_inline.exit138.i.i.thread ]
   store i32 %.5.i.i, ptr %306, align 8, !tbaa !259
   br label %encode_line32.exit.i
 
@@ -12353,7 +12353,7 @@ encode_float32_rgb_frame.exit.sink.split:         ; preds = %2171, %2164
   br label %encode_float32_rgb_frame.exit
 
 encode_float32_rgb_frame.exit:                    ; preds = %._crit_edge92.i, %encode_float32_rgb_frame.exit.sink.split, %2075
-  %.3.i = phi i32 [ 0, %2075 ], [ -1094995529, %encode_float32_rgb_frame.exit.sink.split ], [ 0, %._crit_edge92.i ]
+  %.3.i = phi i32 [ -1094995529, %encode_float32_rgb_frame.exit.sink.split ], [ 0, %2075 ], [ 0, %._crit_edge92.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -17972,7 +17972,7 @@ encode_line.exit:                                 ; preds = %._crit_edge764, %17
   br i1 %exitcond953.not, label %encode_line.exit.thread, label %.preheader705, !llvm.loop !286
 
 encode_line.exit.thread:                          ; preds = %encode_line.exit, %10, %1591, %1605, %109, %123
-  %.0 = phi i32 [ -1094995529, %109 ], [ -1094995529, %123 ], [ -1094995529, %1605 ], [ -1094995529, %1591 ], [ 0, %10 ], [ 0, %encode_line.exit ]
+  %.0 = phi i32 [ -1094995529, %109 ], [ -1094995529, %1591 ], [ -1094995529, %123 ], [ -1094995529, %1605 ], [ 0, %10 ], [ 0, %encode_line.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -23567,7 +23567,7 @@ encode_line32.exit.sink.split:                    ; preds = %1674, %1667, %231, 
   br label %encode_line32.exit
 
 encode_line32.exit:                               ; preds = %._crit_edge880, %encode_line32.exit.sink.split, %7
-  %.3 = phi i32 [ 0, %7 ], [ -1094995529, %encode_line32.exit.sink.split ], [ 0, %._crit_edge880 ]
+  %.3 = phi i32 [ -1094995529, %encode_line32.exit.sink.split ], [ 0, %7 ], [ 0, %._crit_edge880 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29213,7 +29213,7 @@ encode_line.exit.sink.split:                      ; preds = %1711, %1704, %256, 
   br label %encode_line.exit
 
 encode_line.exit:                                 ; preds = %._crit_edge895, %encode_line.exit.sink.split, %7
-  %.3 = phi i32 [ 0, %7 ], [ -1094995529, %encode_line.exit.sink.split ], [ 0, %._crit_edge895 ]
+  %.3 = phi i32 [ -1094995529, %encode_line.exit.sink.split ], [ 0, %7 ], [ 0, %._crit_edge895 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31781,7 +31781,7 @@ renorm_encoder.exit.i476:                         ; preds = %1351, %._crit_edge.
   br label %put_symbol_inline.exit186
 
 put_symbol_inline.exit186:                        ; preds = %put_rac.exit472, %put_rac.exit441, %put_rac.exit430, %renorm_encoder.exit.i476, %1315
-  %1359 = phi i32 [ %1320, %1315 ], [ %1113, %put_rac.exit430 ], [ %1358, %renorm_encoder.exit.i476 ], [ %1167, %put_rac.exit441 ], [ %1313, %put_rac.exit472 ]
+  %1359 = phi i32 [ %1167, %put_rac.exit441 ], [ %1320, %1315 ], [ %1113, %put_rac.exit430 ], [ %1358, %renorm_encoder.exit.i476 ], [ %1313, %put_rac.exit472 ]
   %1360 = icmp sgt i32 %.fr160, 1
   br i1 %1360, label %1361, label %put_symbol_inline.exit178
 

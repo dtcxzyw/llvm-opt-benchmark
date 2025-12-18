@@ -330,7 +330,7 @@ sub_150.us:                                       ; preds = %.tail.us
   br label %.split82.us
 
 .split82.us:                                      ; preds = %.outer.loopexit.split.us, %.backedge.us, %.outer.loopexit.split.us73, %.backedge.us74, %36, %.split.us, %.preheader
-  %.2 = phi i32 [ -1, %.split.us ], [ 0, %.preheader ], [ %.037.ph64, %.backedge.us ], [ -1, %36 ], [ -1, %.outer.loopexit.split.us73 ], [ %.037.ph64.us, %.backedge.us74 ], [ -1, %.outer.loopexit.split.us ]
+  %.2 = phi i32 [ -1, %36 ], [ -1, %.split.us ], [ -1, %.outer.loopexit.split.us73 ], [ 0, %.preheader ], [ %.037.ph64, %.backedge.us ], [ %.037.ph64.us, %.backedge.us74 ], [ -1, %.outer.loopexit.split.us ]
   %67 = tail call i32 @closedir(ptr noundef nonnull %6)
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2648), align 8, !tbaa !14
   %69 = icmp eq ptr %68, null

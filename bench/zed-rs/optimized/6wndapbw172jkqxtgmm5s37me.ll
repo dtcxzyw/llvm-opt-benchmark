@@ -584,7 +584,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5afba6022094a7d4E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.sroa.0.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ], [ %.sroa.08.0.i13.us, %10 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %10 ], [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -692,7 +692,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5afba6022094a7d4E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %43, %21, %41
-  %.sroa.0.0.be = phi i32 [ %45, %43 ], [ %.sroa.08.0.i, %21 ], [ %.sroa.08.0.i13, %41 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %41 ], [ %45, %43 ], [ %.sroa.08.0.i, %21 ]
   br label %.split
 }
 
@@ -12298,7 +12298,7 @@ define hidden void @_ZN4call4room4Room11clear_state17h0a1de39c95aa6869E(ptr noal
           to label %94 unwind label %101, !noalias !2538
 
 common.resume:                                    ; preds = %94, %.body.i, %"_ZN4core3ptr77drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..Project$GT$$GT$17hb9d1e8528ecafa68E.exit35", %"_ZN4core3ptr77drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..Project$GT$$GT$17hb9d1e8528ecafa68E.exit"
-  %common.resume.op = phi { ptr, i32 } [ %.pn9, %"_ZN4core3ptr77drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..Project$GT$$GT$17hb9d1e8528ecafa68E.exit35" ], [ %.pn13, %"_ZN4core3ptr77drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..Project$GT$$GT$17hb9d1e8528ecafa68E.exit" ], [ %115, %.body.i ], [ %97, %94 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn13, %"_ZN4core3ptr77drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..Project$GT$$GT$17hb9d1e8528ecafa68E.exit" ], [ %115, %.body.i ], [ %.pn9, %"_ZN4core3ptr77drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..Project$GT$$GT$17hb9d1e8528ecafa68E.exit35" ], [ %97, %94 ]
   resume { ptr, i32 } %common.resume.op
 
 101:                                              ; preds = %98

@@ -2004,7 +2004,7 @@ default.unreachable285.i:                         ; preds = %148
   br label %generate_density_map.exit
 
 generate_density_map.exit:                        ; preds = %55, %73, %315, %.critedge, %58, %44, %43
-  %.062 = phi i32 [ %., %315 ], [ %313, %.critedge ], [ -12, %44 ], [ -22, %43 ], [ -12, %58 ], [ -12, %73 ], [ -12, %55 ]
+  %.062 = phi i32 [ -12, %73 ], [ %., %315 ], [ %313, %.critedge ], [ -12, %44 ], [ -22, %43 ], [ -12, %58 ], [ -12, %55 ]
   ret i32 %.062
 }
 
@@ -2728,7 +2728,7 @@ generate_tape_maps.exit.thread:                   ; preds = %220, %44, %41, %36
   br i1 %411, label %.lr.ph237, label %.preheader, !llvm.loop !159
 
 ._crit_edge240:                                   ; preds = %set_meta.exit, %335, %.preheader
-  %.us-phi235304306 = phi double [ %.us-phi.us, %.preheader ], [ 0.000000e+00, %335 ], [ %.us-phi.us, %set_meta.exit ]
+  %.us-phi235304306 = phi double [ 0.000000e+00, %335 ], [ %.us-phi.us, %.preheader ], [ %.us-phi.us, %set_meta.exit ]
   %412 = fptrunc nsz double %.us-phi235304306 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %413 = fpext nsz float %412 to double

@@ -2557,7 +2557,7 @@ parser_location.exit.i23:                         ; preds = %128, %103
   unreachable
 
 rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i37.i, %.lr.ph.i31.i, %.lr.ph.i.i, %136, %134, %132
-  %.lcssa.i36.sink.i = phi i64 [ %.pr.i.i, %132 ], [ %.pr.i28.i, %134 ], [ %.pr.i34.i, %136 ], [ %135, %.lr.ph.i31.i ], [ %133, %.lr.ph.i.i ], [ %137, %.lr.ph.i37.i ]
+  %.lcssa.i36.sink.i = phi i64 [ %135, %.lr.ph.i31.i ], [ %133, %.lr.ph.i.i ], [ %.pr.i.i, %132 ], [ %.pr.i28.i, %134 ], [ %.pr.i34.i, %136 ], [ %137, %.lr.ph.i37.i ]
   %141 = call i64 @rb_id2sym(i64 noundef %.lcssa.i36.sink.i) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %108, ptr %10, align 16, !tbaa !7
@@ -2681,7 +2681,7 @@ parser_location.exit.i29:                         ; preds = %185, %160
   unreachable
 
 rbimpl_intern_const.exit.i30:                     ; preds = %.lr.ph.i30.i, %.lr.ph.i.i37, %191, %189
-  %.lcssa.i29.sink.i = phi i64 [ %.pr.i.i35, %189 ], [ %.pr.i27.i, %191 ], [ %190, %.lr.ph.i.i37 ], [ %192, %.lr.ph.i30.i ]
+  %.lcssa.i29.sink.i = phi i64 [ %190, %.lr.ph.i.i37 ], [ %.pr.i.i35, %189 ], [ %.pr.i27.i, %191 ], [ %192, %.lr.ph.i30.i ]
   %196 = call i64 @rb_id2sym(i64 noundef %.lcssa.i29.sink.i) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %165, ptr %8, align 16, !tbaa !7

@@ -5108,7 +5108,7 @@ sema_analyse_ct_for_stmt.exit:                    ; preds = %2280, %2282, %2304,
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.sema_analyse_statement_inner, ptr noundef nonnull @.str.17, i32 noundef 2945) #9
   unreachable
 
-sema_analyse_statement_inner.exit.thread199:      ; preds = %1635, %1282, %sema_return_optional_check_is_valid_in_scope.exit.i, %1544, %1497, %1604, %1516, %sema_return_optional_check_is_valid_in_scope.exit.i.i, %1299, %1359, %1297, %sema_analyse_macro_constant_ensures.exit.thread64.i.i
+sema_analyse_statement_inner.exit.thread199:      ; preds = %1635, %1282, %sema_analyse_macro_constant_ensures.exit.thread64.i.i, %sema_return_optional_check_is_valid_in_scope.exit.i, %1544, %1497, %1604, %1516, %sema_return_optional_check_is_valid_in_scope.exit.i.i, %1299, %1359, %1297
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5120,7 +5120,7 @@ sema_analyse_statement_inner.exit:                ; preds = %1649, %1647, %._cri
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %sema_analyse_statement_inner.exit.thread196
 
-sema_analyse_statement_inner.exit.thread196:      ; preds = %73, %.thread, %1809, %.loopexit.i, %147, %1867, %427, %1717, %1737, %62, %486, %482, %282, %._crit_edge.i146, %._crit_edge.thread.i, %493, %496, %464, %431, %489, %sema_analyse_then_overwrite.exit.i94.thread, %218, %138, %173, %479, %sema_analyse_then_overwrite.exit.i.thread, %23, %sema_analyse_ct_for_stmt.exit.thread, %sema_analyse_ct_foreach_stmt.exit.thread, %sema_analyse_if_stmt.exit.thread, %sema_analyse_statement_inner.exit, %1650, %sema_analyse_foreach_stmt.exit, %sema_analyse_compound_stmt.exit, %1070, %295, %419
+sema_analyse_statement_inner.exit.thread196:      ; preds = %73, %.thread, %1809, %.loopexit.i, %147, %1867, %427, %1717, %1737, %62, %486, %482, %282, %._crit_edge.i146, %._crit_edge.thread.i, %493, %496, %464, %431, %489, %sema_analyse_then_overwrite.exit.i94.thread, %218, %173, %479, %sema_analyse_then_overwrite.exit.i.thread, %138, %23, %sema_analyse_ct_for_stmt.exit.thread, %sema_analyse_ct_foreach_stmt.exit.thread, %sema_analyse_if_stmt.exit.thread, %sema_analyse_statement_inner.exit, %1650, %sema_analyse_foreach_stmt.exit, %sema_analyse_compound_stmt.exit, %1070, %295, %419
   %2359 = and i8 %25, 2
   %.not = icmp eq i8 %2359, 0
   br i1 %.not, label %2372, label %2360
@@ -5152,8 +5152,8 @@ sema_analyse_statement_inner.exit.thread196:      ; preds = %73, %.thread, %1809
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.i127, %74, %42, %40, %2366, %2363, %2363, %419, %295, %1070, %sema_analyse_compound_stmt.exit, %sema_analyse_foreach_stmt.exit, %1650, %sema_analyse_statement_inner.exit.thread199, %sema_analyse_foreach_stmt.exit.thread, %sema_analyse_if_stmt.exit, %sema_analyse_ct_foreach_stmt.exit, %sema_analyse_ct_for_stmt.exit, %232, %207, %265, %432, %1820, %.critedge.i.i135, %52, %127, %134, %92, %.loopexit.i131, %164, %.critedge.i123, %.critedge70.i, %context_labels_exist_in_scope.exit.i, %.loopexit.i120, %277, %261, %sema_analyse_then_overwrite.exit.i94, %421, %sema_analyse_defer_stmt_body.exit.i.thread, %sema_analyse_defer_stmt_body.exit.i, %477, %473, %1690, %._crit_edge183.i, %1775, %._crit_edge179.i, %1679, %._crit_edge.i, %1761, %1754, %1697, %1671, %1672, %sema_analyse_then_overwrite.exit.i, %2370
-  %.sink847 = phi i8 [ 0, %419 ], [ 0, %2370 ], [ 0, %sema_analyse_then_overwrite.exit.i ], [ 0, %1672 ], [ 0, %1671 ], [ 0, %1697 ], [ 0, %1754 ], [ 0, %1761 ], [ 0, %._crit_edge.i ], [ 0, %1679 ], [ 0, %._crit_edge179.i ], [ 0, %1775 ], [ 0, %._crit_edge183.i ], [ 0, %1690 ], [ 0, %473 ], [ 0, %477 ], [ 0, %sema_analyse_defer_stmt_body.exit.i ], [ 0, %sema_analyse_defer_stmt_body.exit.i.thread ], [ 0, %421 ], [ 0, %sema_analyse_then_overwrite.exit.i94 ], [ 0, %261 ], [ 0, %277 ], [ 0, %.loopexit.i120 ], [ 0, %context_labels_exist_in_scope.exit.i ], [ 0, %.critedge70.i ], [ 0, %.critedge.i123 ], [ 0, %164 ], [ 0, %.loopexit.i131 ], [ 0, %92 ], [ 0, %134 ], [ 0, %127 ], [ 0, %52 ], [ 0, %.critedge.i.i135 ], [ 0, %1820 ], [ 0, %432 ], [ 0, %265 ], [ 0, %207 ], [ 0, %232 ], [ 0, %sema_analyse_ct_for_stmt.exit ], [ 0, %sema_analyse_ct_foreach_stmt.exit ], [ 0, %sema_analyse_if_stmt.exit ], [ 0, %sema_analyse_foreach_stmt.exit.thread ], [ 0, %sema_analyse_statement_inner.exit.thread199 ], [ 0, %1650 ], [ 0, %sema_analyse_foreach_stmt.exit ], [ 0, %sema_analyse_compound_stmt.exit ], [ 0, %1070 ], [ 0, %295 ], [ 24, %2363 ], [ 24, %2363 ], [ 24, %2366 ], [ 0, %74 ], [ 0, %40 ], [ 0, %42 ], [ 0, %.lr.ph.i127 ]
-  %.0.ph = phi i1 [ false, %419 ], [ false, %2370 ], [ false, %sema_analyse_then_overwrite.exit.i ], [ false, %1672 ], [ false, %1671 ], [ false, %1697 ], [ false, %1754 ], [ false, %1761 ], [ false, %._crit_edge.i ], [ false, %1679 ], [ false, %._crit_edge179.i ], [ false, %1775 ], [ false, %._crit_edge183.i ], [ false, %1690 ], [ false, %473 ], [ false, %477 ], [ false, %sema_analyse_defer_stmt_body.exit.i ], [ false, %sema_analyse_defer_stmt_body.exit.i.thread ], [ false, %421 ], [ false, %sema_analyse_then_overwrite.exit.i94 ], [ false, %261 ], [ false, %277 ], [ false, %.loopexit.i120 ], [ false, %context_labels_exist_in_scope.exit.i ], [ false, %.critedge70.i ], [ false, %.critedge.i123 ], [ false, %164 ], [ false, %.loopexit.i131 ], [ false, %92 ], [ false, %134 ], [ false, %127 ], [ false, %52 ], [ false, %.critedge.i.i135 ], [ false, %1820 ], [ false, %432 ], [ false, %265 ], [ false, %207 ], [ false, %232 ], [ false, %sema_analyse_ct_for_stmt.exit ], [ false, %sema_analyse_ct_foreach_stmt.exit ], [ false, %sema_analyse_if_stmt.exit ], [ false, %sema_analyse_foreach_stmt.exit.thread ], [ false, %sema_analyse_statement_inner.exit.thread199 ], [ false, %1650 ], [ false, %sema_analyse_foreach_stmt.exit ], [ false, %sema_analyse_compound_stmt.exit ], [ false, %1070 ], [ false, %295 ], [ true, %2363 ], [ true, %2363 ], [ true, %2366 ], [ false, %74 ], [ false, %40 ], [ false, %42 ], [ false, %.lr.ph.i127 ]
+  %.sink847 = phi i8 [ 0, %419 ], [ 0, %2370 ], [ 0, %74 ], [ 0, %42 ], [ 0, %40 ], [ 24, %2366 ], [ 0, %sema_analyse_then_overwrite.exit.i ], [ 0, %1672 ], [ 0, %1671 ], [ 0, %1697 ], [ 0, %1754 ], [ 0, %1761 ], [ 0, %._crit_edge.i ], [ 0, %1679 ], [ 0, %._crit_edge179.i ], [ 0, %1775 ], [ 0, %._crit_edge183.i ], [ 0, %1690 ], [ 0, %473 ], [ 0, %477 ], [ 0, %sema_analyse_defer_stmt_body.exit.i ], [ 0, %sema_analyse_defer_stmt_body.exit.i.thread ], [ 0, %421 ], [ 0, %sema_analyse_then_overwrite.exit.i94 ], [ 0, %261 ], [ 0, %277 ], [ 0, %.loopexit.i120 ], [ 0, %context_labels_exist_in_scope.exit.i ], [ 0, %.critedge70.i ], [ 0, %.critedge.i123 ], [ 0, %164 ], [ 0, %.loopexit.i131 ], [ 0, %92 ], [ 0, %134 ], [ 0, %127 ], [ 0, %52 ], [ 0, %.critedge.i.i135 ], [ 0, %1820 ], [ 0, %432 ], [ 0, %265 ], [ 0, %207 ], [ 0, %232 ], [ 0, %sema_analyse_ct_for_stmt.exit ], [ 0, %sema_analyse_ct_foreach_stmt.exit ], [ 0, %sema_analyse_if_stmt.exit ], [ 0, %sema_analyse_foreach_stmt.exit.thread ], [ 0, %sema_analyse_statement_inner.exit.thread199 ], [ 0, %1650 ], [ 0, %sema_analyse_foreach_stmt.exit ], [ 0, %sema_analyse_compound_stmt.exit ], [ 0, %1070 ], [ 0, %295 ], [ 24, %2363 ], [ 24, %2363 ], [ 0, %.lr.ph.i127 ]
+  %.0.ph = phi i1 [ false, %419 ], [ false, %2370 ], [ false, %74 ], [ false, %42 ], [ false, %40 ], [ true, %2366 ], [ false, %sema_analyse_then_overwrite.exit.i ], [ false, %1672 ], [ false, %1671 ], [ false, %1697 ], [ false, %1754 ], [ false, %1761 ], [ false, %._crit_edge.i ], [ false, %1679 ], [ false, %._crit_edge179.i ], [ false, %1775 ], [ false, %._crit_edge183.i ], [ false, %1690 ], [ false, %473 ], [ false, %477 ], [ false, %sema_analyse_defer_stmt_body.exit.i ], [ false, %sema_analyse_defer_stmt_body.exit.i.thread ], [ false, %421 ], [ false, %sema_analyse_then_overwrite.exit.i94 ], [ false, %261 ], [ false, %277 ], [ false, %.loopexit.i120 ], [ false, %context_labels_exist_in_scope.exit.i ], [ false, %.critedge70.i ], [ false, %.critedge.i123 ], [ false, %164 ], [ false, %.loopexit.i131 ], [ false, %92 ], [ false, %134 ], [ false, %127 ], [ false, %52 ], [ false, %.critedge.i.i135 ], [ false, %1820 ], [ false, %432 ], [ false, %265 ], [ false, %207 ], [ false, %232 ], [ false, %sema_analyse_ct_for_stmt.exit ], [ false, %sema_analyse_ct_foreach_stmt.exit ], [ false, %sema_analyse_if_stmt.exit ], [ false, %sema_analyse_foreach_stmt.exit.thread ], [ false, %sema_analyse_statement_inner.exit.thread199 ], [ false, %1650 ], [ false, %sema_analyse_foreach_stmt.exit ], [ false, %sema_analyse_compound_stmt.exit ], [ false, %1070 ], [ false, %295 ], [ true, %2363 ], [ true, %2363 ], [ false, %.lr.ph.i127 ]
   store i8 %.sink847, ptr %20, align 4
   br label %2372
 
@@ -5451,7 +5451,7 @@ sema_analyse_optional_returns.exit:               ; preds = %95, %19, %16, %14, 
   br i1 %.not, label %sema_analyse_optional_returns.exit.thread, label %7, !llvm.loop !40
 
 sema_analyse_optional_returns.exit.thread:        ; preds = %14, %sema_analyse_optional_returns.exit, %38, %5, %44, %._crit_edge.i, %35, %sema_analyse_ensure.exit
-  %.not48 = phi i1 [ false, %sema_analyse_ensure.exit ], [ false, %44 ], [ false, %._crit_edge.i ], [ false, %35 ], [ true, %5 ], [ false, %38 ], [ false, %14 ], [ true, %sema_analyse_optional_returns.exit ]
+  %.not48 = phi i1 [ false, %38 ], [ false, %sema_analyse_ensure.exit ], [ false, %44 ], [ false, %._crit_edge.i ], [ false, %35 ], [ true, %5 ], [ false, %14 ], [ true, %sema_analyse_optional_returns.exit ]
   ret i1 %.not48
 }
 
@@ -5784,7 +5784,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %133, %121
   br i1 %exitcond145.not, label %.loopexit, label %149, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph125, %149, %145, %144, %sema_analyse_compound_statement_no_scope.exit, %.loopexit118, %7, %141
-  %.093 = phi i1 [ false, %7 ], [ false, %sema_analyse_compound_statement_no_scope.exit ], [ false, %141 ], [ false, %.loopexit118 ], [ true, %144 ], [ true, %145 ], [ false, %.lr.ph125 ], [ true, %149 ], [ false, %.lr.ph ]
+  %.093 = phi i1 [ false, %7 ], [ true, %145 ], [ false, %sema_analyse_compound_statement_no_scope.exit ], [ false, %141 ], [ false, %.loopexit118 ], [ false, %.lr.ph125 ], [ true, %144 ], [ true, %149 ], [ false, %.lr.ph ]
   ret i1 %.093
 }
 
@@ -5953,7 +5953,7 @@ define internal fastcc zeroext i1 @sema_analyse_for_stmt(ptr noundef %0, ptr nou
   br label %sema_analyse_for_cond.exit
 
 sema_analyse_for_cond.exit:                       ; preds = %37, %.critedge.i
-  %.3 = phi i1 [ %.2, %.critedge.i ], [ true, %37 ]
+  %.3 = phi i1 [ true, %37 ], [ %.2, %.critedge.i ]
   br i1 %.074, label %91, label %sema_analyse_for_cond.exit.thread
 
 sema_analyse_for_cond.exit.thread:                ; preds = %47, %49, %sema_analyse_for_cond.exit
@@ -6670,7 +6670,7 @@ extend_span_with_token.exit77.i:                  ; preds = %232, %231
   br i1 %exitcond.not.i, label %.loopexit141, label %.lr.ph.i, !llvm.loop !46
 
 sema_check_value_case.exit.thread:                ; preds = %184, %171, %extend_span_with_token.exit77.i, %273, %extend_span_with_token.exit.i
-  %.3.ph = phi i8 [ %.0122157, %extend_span_with_token.exit.i ], [ 0, %extend_span_with_token.exit77.i ], [ %.2124, %273 ], [ %.0122157, %171 ], [ %.0122157, %184 ]
+  %.3.ph = phi i8 [ %.2124, %273 ], [ %.0122157, %extend_span_with_token.exit.i ], [ 0, %extend_span_with_token.exit77.i ], [ %.0122157, %171 ], [ %.0122157, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %sema_check_type_case.exit.thread
 
@@ -6695,19 +6695,19 @@ sema_check_value_case.exit.thread:                ; preds = %184, %171, %extend_
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.sema_analyse_switch_body, ptr noundef nonnull @.str.17, i32 noundef 2323) #9
   unreachable
 
-sema_check_type_case.exit.thread:                 ; preds = %132, %278, %167, %sema_check_value_case.exit.thread
-  %.1123.ph = phi i8 [ %.3.ph, %sema_check_value_case.exit.thread ], [ %.0122157, %167 ], [ %.0122157, %278 ], [ %.0122157, %132 ]
-  %.1271.i.ph = phi i8 [ %.0270.i164, %sema_check_value_case.exit.thread ], [ %.0270.i164, %167 ], [ 1, %278 ], [ %.0270.i164, %132 ]
+sema_check_type_case.exit.thread:                 ; preds = %132, %278, %sema_check_value_case.exit.thread, %167
+  %.1123.ph = phi i8 [ %.0122157, %167 ], [ %.3.ph, %sema_check_value_case.exit.thread ], [ %.0122157, %278 ], [ %.0122157, %132 ]
+  %.1271.i.ph = phi i8 [ %.0270.i164, %167 ], [ %.0270.i164, %sema_check_value_case.exit.thread ], [ 1, %278 ], [ %.0270.i164, %132 ]
   store ptr %126, ptr %111, align 8
   store i32 %125, ptr %110, align 8
   store ptr %128, ptr %112, align 8
   br label %._crit_edge.loopexit
 
 sema_check_type_case.exit:                        ; preds = %170, %.loopexit141, %140, %145, %277
-  %.1123 = phi i8 [ %.3, %.loopexit141 ], [ %.0122157, %277 ], [ %.0122157, %145 ], [ %.0122157, %140 ], [ %.0122157, %170 ]
-  %.1120 = phi i1 [ %.2, %.loopexit141 ], [ %.0119158, %277 ], [ %.0119158, %145 ], [ %.0119158, %140 ], [ %.0119158, %170 ]
-  %.1271.i = phi i8 [ %.0270.i164, %.loopexit141 ], [ 1, %277 ], [ %.0270.i164, %145 ], [ %.0270.i164, %140 ], [ %.0270.i164, %170 ]
-  %.1269.i = phi ptr [ %.0268.i165, %.loopexit141 ], [ %117, %277 ], [ %.0268.i165, %145 ], [ %.0268.i165, %140 ], [ %.0268.i165, %170 ]
+  %.1123 = phi i8 [ %.0122157, %140 ], [ %.0122157, %145 ], [ %.0122157, %277 ], [ %.3, %.loopexit141 ], [ %.0122157, %170 ]
+  %.1120 = phi i1 [ %.0119158, %140 ], [ %.0119158, %145 ], [ %.0119158, %277 ], [ %.2, %.loopexit141 ], [ %.0119158, %170 ]
+  %.1271.i = phi i8 [ %.0270.i164, %140 ], [ %.0270.i164, %145 ], [ 1, %277 ], [ %.0270.i164, %.loopexit141 ], [ %.0270.i164, %170 ]
+  %.1269.i = phi ptr [ %.0268.i165, %140 ], [ %.0268.i165, %145 ], [ %117, %277 ], [ %.0268.i165, %.loopexit141 ], [ %.0268.i165, %170 ]
   store ptr %126, ptr %111, align 8
   store i32 %125, ptr %110, align 8
   store ptr %128, ptr %112, align 8
@@ -8646,8 +8646,8 @@ sema_analyse_cond_list.exit:                      ; preds = %sema_analyse_last_c
 538:                                              ; preds = %535, %.critedge87
   br label %sema_analyse_cond_list.exit.thread
 
-sema_analyse_cond_list.exit.thread:               ; preds = %.lr.ph.i, %.lr.ph.i76.i.i, %193, %177, %153, %.critedge158.i.i.i.i, %117, %.critedge155.thread.i.i.i.i, %.critedge166.i.i.i.i, %44, %219, %207, %.critedge95.i.i.i, %255, %248, %.critedge96.i.i.i, %304, %.critedge98.i.i.i, %301, %295, %289, %279, %110, %162, %168, %174, %.critedge162.i.i.i.i, %.critedge160.i.i.i.i, %137, %61, %82, %83, %138, %226, %23, %393, %417, %.thread.i.i, %sema_analyse_last_cond.exit.i, %535, %.critedge, %506, %538, %532, %530, %510, %490, %475, %450
-  %.069 = phi i1 [ false, %450 ], [ false, %510 ], [ false, %535 ], [ %493, %490 ], [ false, %475 ], [ false, %530 ], [ false, %532 ], [ true, %538 ], [ true, %.critedge ], [ true, %506 ], [ false, %sema_analyse_last_cond.exit.i ], [ false, %.thread.i.i ], [ false, %417 ], [ false, %393 ], [ false, %23 ], [ false, %226 ], [ false, %138 ], [ false, %83 ], [ false, %82 ], [ false, %61 ], [ false, %137 ], [ false, %.critedge160.i.i.i.i ], [ false, %.critedge162.i.i.i.i ], [ false, %174 ], [ false, %168 ], [ false, %162 ], [ false, %110 ], [ false, %279 ], [ false, %289 ], [ false, %295 ], [ false, %301 ], [ false, %.critedge98.i.i.i ], [ false, %304 ], [ false, %.critedge96.i.i.i ], [ false, %248 ], [ false, %255 ], [ false, %.critedge95.i.i.i ], [ false, %.lr.ph.i76.i.i ], [ false, %193 ], [ false, %207 ], [ false, %219 ], [ false, %44 ], [ false, %.critedge166.i.i.i.i ], [ false, %.critedge155.thread.i.i.i.i ], [ false, %117 ], [ false, %.critedge158.i.i.i.i ], [ false, %153 ], [ false, %177 ], [ false, %.lr.ph.i ]
+sema_analyse_cond_list.exit.thread:               ; preds = %.lr.ph.i, %.lr.ph.i76.i.i, %193, %177, %153, %.critedge158.i.i.i.i, %117, %.critedge155.thread.i.i.i.i, %.critedge166.i.i.i.i, %44, %219, %207, %289, %279, %295, %301, %.critedge98.i.i.i, %304, %.critedge96.i.i.i, %248, %255, %.critedge95.i.i.i, %110, %162, %168, %174, %.critedge162.i.i.i.i, %.critedge160.i.i.i.i, %137, %61, %82, %83, %138, %226, %23, %393, %417, %.thread.i.i, %sema_analyse_last_cond.exit.i, %535, %.critedge, %506, %538, %532, %530, %510, %490, %475, %450
+  %.069 = phi i1 [ false, %450 ], [ false, %510 ], [ false, %535 ], [ %493, %490 ], [ false, %475 ], [ false, %530 ], [ false, %532 ], [ true, %538 ], [ true, %.critedge ], [ true, %506 ], [ false, %193 ], [ false, %sema_analyse_last_cond.exit.i ], [ false, %.thread.i.i ], [ false, %.lr.ph.i76.i.i ], [ false, %417 ], [ false, %393 ], [ false, %23 ], [ false, %226 ], [ false, %138 ], [ false, %83 ], [ false, %82 ], [ false, %61 ], [ false, %137 ], [ false, %.critedge160.i.i.i.i ], [ false, %.critedge162.i.i.i.i ], [ false, %174 ], [ false, %168 ], [ false, %162 ], [ false, %110 ], [ false, %.critedge95.i.i.i ], [ false, %255 ], [ false, %248 ], [ false, %.critedge96.i.i.i ], [ false, %304 ], [ false, %.critedge98.i.i.i ], [ false, %301 ], [ false, %295 ], [ false, %279 ], [ false, %289 ], [ false, %207 ], [ false, %219 ], [ false, %44 ], [ false, %.critedge166.i.i.i.i ], [ false, %.critedge155.thread.i.i.i.i ], [ false, %117 ], [ false, %.critedge158.i.i.i.i ], [ false, %153 ], [ false, %177 ], [ false, %.lr.ph.i ]
   ret i1 %.069
 }
 

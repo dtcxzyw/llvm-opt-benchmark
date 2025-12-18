@@ -12403,7 +12403,7 @@ _ZNK15QTreeWidgetItem5childEi.exit1495.thread:    ; preds = %_ZNK15QTreeWidgetIt
   br label %_ZNK15QTreeWidgetItem5childEi.exit1495.thread, !llvm.loop !109
 
 .loopexit:                                        ; preds = %3049, %_ZN7QStringD2Ev.exit853, %_ZN7QStringD2Ev.exit822, %189
-  %.0402.ph = phi i32 [ 1, %_ZN7QStringD2Ev.exit853 ], [ 1, %_ZN7QStringD2Ev.exit822 ], [ 0, %189 ], [ 1, %3049 ]
+  %.0402.ph = phi i32 [ 0, %189 ], [ 1, %_ZN7QStringD2Ev.exit853 ], [ 1, %_ZN7QStringD2Ev.exit822 ], [ 1, %3049 ]
   %.pr = load ptr, ptr %31, align 8
   %.not.i.i.i2457 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i2457, label %_ZN7QStringD2Ev.exit2460, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2458

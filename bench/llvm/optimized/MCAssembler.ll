@@ -1521,7 +1521,7 @@ define dso_local void @_ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_
   br i1 %or.cond, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
 
 _ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit: ; preds = %29, %23, %25
-  %.0.i = phi i64 [ %24, %23 ], [ %28, %25 ], [ %31, %29 ]
+  %.0.i = phi i64 [ %28, %25 ], [ %24, %23 ], [ %31, %29 ]
   %32 = icmp ugt i64 %.0.i, 255
   br i1 %32, label %33, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
 

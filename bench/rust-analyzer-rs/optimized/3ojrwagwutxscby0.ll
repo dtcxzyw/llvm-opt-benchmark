@@ -881,9 +881,9 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %.not.i.i.i.i, label %._crit_edge.split.i, label %.lr.ph.i
 
 .split.us.i.invoke:                               ; preds = %.lr.ph.i, %.lr.ph.us.i, %.loopexit
-  %89 = phi i64 [ %.sroa.3.0.i.ph, %.loopexit ], [ %.val.i.i.i.us.us.i, %.lr.ph.us.i ], [ %.val.i.i.i.i, %.lr.ph.i ]
-  %90 = phi i64 [ %116, %.loopexit ], [ %11, %.lr.ph.us.i ], [ %11, %.lr.ph.i ]
-  %91 = phi ptr [ @anon.5b0f7399e6860fbd1571b9ed460b0621.19, %.loopexit ], [ @anon.5b0f7399e6860fbd1571b9ed460b0621.18, %.lr.ph.us.i ], [ @anon.5b0f7399e6860fbd1571b9ed460b0621.18, %.lr.ph.i ]
+  %89 = phi i64 [ %.val.i.i.i.us.us.i, %.lr.ph.us.i ], [ %.sroa.3.0.i.ph, %.loopexit ], [ %.val.i.i.i.i, %.lr.ph.i ]
+  %90 = phi i64 [ %11, %.lr.ph.us.i ], [ %116, %.loopexit ], [ %11, %.lr.ph.i ]
+  %91 = phi ptr [ @anon.5b0f7399e6860fbd1571b9ed460b0621.18, %.lr.ph.us.i ], [ @anon.5b0f7399e6860fbd1571b9ed460b0621.19, %.loopexit ], [ @anon.5b0f7399e6860fbd1571b9ed460b0621.18, %.lr.ph.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %89, i64 noundef %90, ptr noalias noundef readonly align 8 dereferenceable(24) %91) #30
           to label %.split.us.i.cont unwind label %.loopexit.split-lp
 
@@ -1308,8 +1308,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   br label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$3get17h647c61194bafdf81E.llvm.16399167019466869338.exit"
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$3get17h647c61194bafdf81E.llvm.16399167019466869338.exit": ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %47, %.split13.us.loopexit21
-  %.sroa.3.0 = phi i64 [ %.pre, %.split13.us.loopexit21 ], [ undef, %._crit_edge.split.us.us ], [ %.val.i.i.i.us.us, %47 ], [ undef, %._crit_edge.split ]
-  %.sroa.0.0 = phi i64 [ 1, %.split13.us.loopexit21 ], [ 0, %._crit_edge.split.us.us ], [ 1, %47 ], [ 0, %._crit_edge.split ]
+  %.sroa.3.0 = phi i64 [ undef, %._crit_edge.split.us.us ], [ %.val.i.i.i.us.us, %47 ], [ %.pre, %.split13.us.loopexit21 ], [ undef, %._crit_edge.split ]
+  %.sroa.0.0 = phi i64 [ 0, %._crit_edge.split.us.us ], [ 1, %47 ], [ 1, %.split13.us.loopexit21 ], [ 0, %._crit_edge.split ]
   %82 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %83 = insertvalue { i64, i64 } %82, i64 %.sroa.3.0, 1
   ret { i64, i64 } %83

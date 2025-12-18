@@ -1711,7 +1711,7 @@ H5MF__alloc_pagefs.exit.thread:                   ; preds = %232, %128, %146, %1
   br label %H5MF__alloc_pagefs.exit
 
 H5MF__alloc_pagefs.exit:                          ; preds = %221, %225, %172, %150, %86, %249, %252, %H5MF__alloc_pagefs.exit.thread, %82, %74, %57
-  %256 = phi i64 [ -1, %57 ], [ %.pre66, %86 ], [ %250, %249 ], [ -1, %252 ], [ -1, %H5MF__alloc_pagefs.exit.thread ], [ -1, %82 ], [ -1, %74 ], [ %183, %221 ], [ %183, %225 ], [ %144, %172 ], [ %144, %150 ]
+  %256 = phi i64 [ -1, %57 ], [ %.pre66, %86 ], [ %250, %249 ], [ -1, %252 ], [ -1, %H5MF__alloc_pagefs.exit.thread ], [ -1, %82 ], [ -1, %74 ], [ %183, %221 ], [ %183, %225 ], [ %144, %150 ], [ %144, %172 ]
   %257 = load i32, ptr %4, align 4, !tbaa !11
   %.not34 = icmp eq i32 %257, 0
   br i1 %.not34, label %259, label %258
@@ -4077,7 +4077,7 @@ H5MF__close_fstype.exit.thread:                   ; preds = %.H5MF__close_fstype
   br label %130
 
 130:                                              ; preds = %H5MF__close_fstype.exit.thread, %125
-  %.147 = phi i32 [ %.04680, %H5MF__close_fstype.exit.thread ], [ %spec.select, %125 ]
+  %.147 = phi i32 [ %spec.select, %125 ], [ %.04680, %H5MF__close_fstype.exit.thread ]
   %131 = add i32 %.147, 1
   %132 = icmp ult i32 %131, %.049
   br i1 %132, label %40, label %._crit_edge, !llvm.loop !118
@@ -4911,7 +4911,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5MF__close_shrink_eoa(ptr noundef 
   br label %.backedge, !llvm.loop !129
 
 .loopexit67.sink.split:                           ; preds = %61, %30, %52
-  %.sink = phi i32 [ 2084, %30 ], [ 2108, %52 ], [ 2116, %61 ]
+  %.sink = phi i32 [ 2108, %52 ], [ 2084, %30 ], [ 2116, %61 ]
   %65 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %66 = load i64, ptr @H5E_CANTSHRINK_g, align 8, !tbaa !41
   %67 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__close_shrink_eoa, i32 noundef %.sink, i64 noundef %65, i64 noundef %66, ptr noundef nonnull @.str.59) #7

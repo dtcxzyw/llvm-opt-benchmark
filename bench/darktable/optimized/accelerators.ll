@@ -2724,11 +2724,11 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br label %.thread223
 
 .thread223:                                       ; preds = %186, %.preheader, %.thread187, %191, %195, %._crit_edge
-  %198 = phi ptr [ %178, %.thread187 ], [ %181, %191 ], [ %181, %195 ], [ %181, %._crit_edge ], [ %178, %.preheader ], [ %181, %186 ]
-  %199 = phi i1 [ false, %.thread187 ], [ %.ph286, %191 ], [ %.ph286, %195 ], [ %.ph286, %._crit_edge ], [ %.ph, %.preheader ], [ %.ph286, %186 ]
-  %.0106197214231 = phi ptr [ %.0106198, %.thread187 ], [ %.0106197213236.ph279, %191 ], [ %.0106197213236.ph279, %195 ], [ %.0106197213236.ph279, %._crit_edge ], [ %.0106198, %.preheader ], [ %.0106197213236.ph279, %186 ]
-  %.0115195216230 = phi i32 [ %.0115196, %.thread187 ], [ 0, %191 ], [ 0, %195 ], [ %.0115195215235.ph281, %._crit_edge ], [ %.0115196, %.preheader ], [ %.0115195215235.ph281, %186 ]
-  %.not163222229 = phi i1 [ true, %.thread187 ], [ false, %191 ], [ false, %195 ], [ false, %._crit_edge ], [ false, %.preheader ], [ false, %186 ]
+  %198 = phi ptr [ %178, %.thread187 ], [ %178, %.preheader ], [ %181, %191 ], [ %181, %195 ], [ %181, %._crit_edge ], [ %181, %186 ]
+  %199 = phi i1 [ false, %.thread187 ], [ %.ph, %.preheader ], [ %.ph286, %191 ], [ %.ph286, %195 ], [ %.ph286, %._crit_edge ], [ %.ph286, %186 ]
+  %.0106197214231 = phi ptr [ %.0106198, %.thread187 ], [ %.0106198, %.preheader ], [ %.0106197213236.ph279, %191 ], [ %.0106197213236.ph279, %195 ], [ %.0106197213236.ph279, %._crit_edge ], [ %.0106197213236.ph279, %186 ]
+  %.0115195216230 = phi i32 [ %.0115196, %.thread187 ], [ %.0115196, %.preheader ], [ 0, %191 ], [ 0, %195 ], [ %.0115195215235.ph281, %._crit_edge ], [ %.0115195215235.ph281, %186 ]
+  %.not163222229 = phi i1 [ true, %.thread187 ], [ false, %.preheader ], [ false, %191 ], [ false, %195 ], [ false, %._crit_edge ], [ false, %186 ]
   %200 = call i32 @dt_view_get_current() #25
   %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 560
@@ -8188,7 +8188,7 @@ default.unreachable31:                            ; preds = %.critedge
   unreachable
 
 .critedge22:                                      ; preds = %4, %1, %.critedge, %.critedge, %19, %15, %7, %11, %36, %33, %29, %32
-  %.0 = phi i32 [ 0, %33 ], [ %10, %7 ], [ %14, %11 ], [ -536870913, %19 ], [ -536870913, %36 ], [ 536870912, %15 ], [ 46, %29 ], [ 47, %32 ], [ 2, %.critedge ], [ 2, %.critedge ], [ 0, %1 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %33 ], [ 2, %.critedge ], [ %10, %7 ], [ %14, %11 ], [ -536870913, %19 ], [ -536870913, %36 ], [ 536870912, %15 ], [ 46, %29 ], [ 47, %32 ], [ 2, %.critedge ], [ 0, %1 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -8406,7 +8406,7 @@ dt_dev_gui_module.exit:                           ; preds = %27
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %58, %40, %56, %18, %20, %65, %64, %dt_dev_gui_module.exit, %.thread144
-  %.0103.ph = phi ptr [ %30, %dt_dev_gui_module.exit ], [ %63, %.thread144 ], [ %66, %65 ], [ %19, %64 ], [ %19, %20 ], [ %19, %18 ], [ %19, %56 ], [ null, %40 ], [ %19, %58 ]
+  %.0103.ph = phi ptr [ %30, %dt_dev_gui_module.exit ], [ %63, %.thread144 ], [ %19, %18 ], [ %66, %65 ], [ %19, %64 ], [ null, %40 ], [ %19, %20 ], [ %19, %56 ], [ %19, %58 ]
   %.pr = load i32, ptr %0, align 8, !tbaa !94
   br label %67
 
@@ -9801,8 +9801,8 @@ _shortcut_is_speed.exit.thread:                   ; preds = %98, %101, %105, %10
   br label %195
 
 195:                                              ; preds = %184, %192, %179
-  %.3144 = phi ptr [ %.2143, %184 ], [ %194, %192 ], [ %.2143, %179 ]
-  %.4132 = phi i32 [ %190, %184 ], [ %.3131, %192 ], [ %.3131, %179 ]
+  %.3144 = phi ptr [ %.2143, %179 ], [ %194, %192 ], [ %.2143, %184 ]
+  %.4132 = phi i32 [ %.3131, %179 ], [ %.3131, %192 ], [ %190, %184 ]
   %196 = tail call i32 @g_sequence_iter_is_end(ptr noundef %49) #25
   %.not171 = icmp eq i32 %196, 0
   br i1 %.not171, label %197, label %.critedge6
@@ -12287,8 +12287,8 @@ define void @dt_action_widget_toast(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread36
 
 .thread36:                                        ; preds = %23, %18, %28, %35, %.thread
-  %.025 = phi ptr [ @.str.5, %.thread ], [ %21, %35 ], [ %21, %28 ], [ %21, %18 ], [ %21, %23 ]
-  %.1 = phi ptr [ %.035, %.thread ], [ %20, %35 ], [ %29, %28 ], [ %20, %18 ], [ %20, %23 ]
+  %.025 = phi ptr [ @.str.5, %.thread ], [ %21, %28 ], [ %21, %35 ], [ %21, %18 ], [ %21, %23 ]
+  %.1 = phi ptr [ %.035, %.thread ], [ %29, %28 ], [ %20, %35 ], [ %20, %18 ], [ %20, %23 ]
   call fastcc void @_action_distinct_label(ptr noundef %5, ptr noundef %.1, ptr noundef nonnull %.025)
   %36 = load ptr, ptr %5, align 8, !tbaa !18
   call void (ptr, ...) @dt_toast_log(ptr noundef nonnull @.str.162, ptr noundef %36, ptr noundef %10) #25
@@ -13156,7 +13156,7 @@ define internal fastcc range(i32 0, 2) i32 @_find_relative_instance(ptr noundef 
   br label %.critedge47
 
 .critedge47:                                      ; preds = %5, %3, %21, %25, %50, %._crit_edge, %16, %17, %.critedge, %11
-  %.0 = phi i32 [ 1, %16 ], [ 0, %.critedge ], [ 0, %11 ], [ 1, %17 ], [ 1, %._crit_edge ], [ 1, %50 ], [ 1, %25 ], [ 1, %21 ], [ 0, %3 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %.critedge ], [ 1, %21 ], [ 0, %11 ], [ 1, %17 ], [ 1, %._crit_edge ], [ 1, %50 ], [ 1, %25 ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -13984,9 +13984,9 @@ _shortcut_is_speed.exit135:                       ; preds = %183, %186, %189, %1
   br i1 %.old2.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %235, %201, %112, %114, %.critedge114, %65, %67, %180, %207, %210, %231, %.critedge, %_shortcut_is_speed.exit135, %_shortcut_is_speed.exit126.thread, %75, %_shortcut_is_speed.exit126, %_shortcut_is_speed.exit.thread, %60, %35, %_shortcut_is_speed.exit, %32, %33, %29
-  %.184 = phi i32 [ 400, %.critedge ], [ 400, %29 ], [ 400, %33 ], [ 400, %32 ], [ 400, %35 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %201 ], [ 400, %60 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %75 ], [ 400, %_shortcut_is_speed.exit126 ], [ 300, %65 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %_shortcut_is_speed.exit135 ], [ 400, %207 ], [ %.487, %180 ], [ 400, %210 ], [ %spec.select117, %231 ], [ %74, %67 ], [ %130, %.critedge114 ], [ 300, %114 ], [ 400, %112 ], [ 400, %235 ]
-  %.178 = phi i32 [ 0, %.critedge ], [ 0, %29 ], [ 0, %33 ], [ 0, %32 ], [ 0, %35 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %201 ], [ 0, %60 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %75 ], [ 0, %_shortcut_is_speed.exit126 ], [ 1, %65 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %_shortcut_is_speed.exit135 ], [ 0, %207 ], [ %spec.select116, %180 ], [ 0, %210 ], [ 1, %231 ], [ 1, %67 ], [ 1, %.critedge114 ], [ 1, %114 ], [ 1, %112 ], [ 0, %235 ]
-  %.1 = phi ptr [ null, %.critedge ], [ %31, %29 ], [ %34, %33 ], [ null, %32 ], [ null, %35 ], [ null, %_shortcut_is_speed.exit ], [ null, %201 ], [ null, %60 ], [ null, %_shortcut_is_speed.exit.thread ], [ null, %75 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %65 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %_shortcut_is_speed.exit135 ], [ null, %207 ], [ %.4, %180 ], [ null, %210 ], [ %232, %231 ], [ %72, %67 ], [ %128, %.critedge114 ], [ null, %114 ], [ null, %112 ], [ null, %235 ]
+  %.184 = phi i32 [ 400, %.critedge ], [ 400, %29 ], [ 400, %33 ], [ 400, %32 ], [ 400, %35 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %201 ], [ 400, %60 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %75 ], [ 400, %_shortcut_is_speed.exit126 ], [ 300, %65 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %_shortcut_is_speed.exit135 ], [ 400, %207 ], [ %.487, %180 ], [ %spec.select117, %231 ], [ 400, %210 ], [ %74, %67 ], [ %130, %.critedge114 ], [ 300, %114 ], [ 400, %112 ], [ 400, %235 ]
+  %.178 = phi i32 [ 0, %.critedge ], [ 0, %29 ], [ 0, %33 ], [ 0, %32 ], [ 0, %35 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %201 ], [ 0, %60 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %75 ], [ 0, %_shortcut_is_speed.exit126 ], [ 1, %65 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %_shortcut_is_speed.exit135 ], [ 0, %207 ], [ %spec.select116, %180 ], [ 1, %231 ], [ 0, %210 ], [ 1, %67 ], [ 1, %.critedge114 ], [ 1, %114 ], [ 1, %112 ], [ 0, %235 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %31, %29 ], [ %34, %33 ], [ null, %32 ], [ null, %35 ], [ null, %_shortcut_is_speed.exit ], [ null, %201 ], [ null, %60 ], [ null, %_shortcut_is_speed.exit.thread ], [ null, %75 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %65 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %_shortcut_is_speed.exit135 ], [ null, %207 ], [ %.4, %180 ], [ %232, %231 ], [ null, %210 ], [ %72, %67 ], [ %128, %.critedge114 ], [ null, %114 ], [ null, %112 ], [ null, %235 ]
   %238 = load i32, ptr %23, align 8, !tbaa !82
   %.not112 = icmp eq i32 %238, 0
   %spec.select118 = select i1 %.not112, i32 0, i32 %.178
@@ -14302,7 +14302,7 @@ define internal void @_export_id_changed(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.us32, label %.lr.ph.split.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %54, %35, %.lr.ph.split.us, %15
-  %.0.lcssa = phi i32 [ 0, %15 ], [ %.1.us31, %35 ], [ %23, %.lr.ph.split.us ], [ %.1, %54 ]
+  %.0.lcssa = phi i32 [ 0, %15 ], [ %23, %.lr.ph.split.us ], [ %.1.us31, %35 ], [ %.1, %54 ]
   %38 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.129, i32 noundef 5) #25
   %39 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.253, i32 noundef %.0.lcssa, ptr noundef %38) #25
   %40 = tail call i64 @gtk_label_get_type() #26

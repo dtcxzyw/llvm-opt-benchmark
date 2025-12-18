@@ -1159,10 +1159,10 @@ define i32 @fastlz_decompress(ptr noundef readonly captures(address) %0, i32 nou
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph128.i, %79, %56, %.lr.ph134.preheader.i, %53
-  %.191.i = phi ptr [ %.595.lcssa.i, %79 ], [ %55, %53 ], [ %61, %56 ], [ %35, %.lr.ph134.preheader.i ], [ %65, %.lr.ph128.i ]
-  %.186.i = phi i32 [ %82, %79 ], [ %.287.i, %53 ], [ %.287.i, %56 ], [ %.287.i, %.lr.ph134.preheader.i ], [ %.287.i, %.lr.ph128.i ]
-  %.182.i = phi i32 [ 1, %79 ], [ %.283.i, %53 ], [ %.283.i, %56 ], [ %.283.i, %.lr.ph134.preheader.i ], [ %.283.i, %.lr.ph128.i ]
-  %.276.i = phi ptr [ %80, %79 ], [ %.3.i, %53 ], [ %.3.i, %56 ], [ %.3.i, %.lr.ph134.preheader.i ], [ %.3.i, %.lr.ph128.i ]
+  %.191.i = phi ptr [ %35, %.lr.ph134.preheader.i ], [ %.595.lcssa.i, %79 ], [ %55, %53 ], [ %61, %56 ], [ %65, %.lr.ph128.i ]
+  %.186.i = phi i32 [ %.287.i, %.lr.ph134.preheader.i ], [ %82, %79 ], [ %.287.i, %53 ], [ %.287.i, %56 ], [ %.287.i, %.lr.ph128.i ]
+  %.182.i = phi i32 [ %.283.i, %.lr.ph134.preheader.i ], [ 1, %79 ], [ %.283.i, %53 ], [ %.283.i, %56 ], [ %.283.i, %.lr.ph128.i ]
+  %.276.i = phi ptr [ %.3.i, %.lr.ph134.preheader.i ], [ %80, %79 ], [ %.3.i, %53 ], [ %.3.i, %56 ], [ %.3.i, %.lr.ph128.i ]
   %.not106.i = icmp eq i32 %.182.i, 0
   br i1 %.not106.i, label %.thread.i, label %15, !prof !33, !llvm.loop !34
 
@@ -1361,10 +1361,10 @@ define i32 @fastlz_decompress(ptr noundef readonly captures(address) %0, i32 nou
   br label %.loopexit.i17
 
 .loopexit.i17:                                    ; preds = %.lr.ph151.i, %174, %151, %.lr.ph157.preheader.i, %146
-  %.5114.i = phi ptr [ %.7116.lcssa.i, %174 ], [ %148, %146 ], [ %156, %151 ], [ %scevgep165.i, %.lr.ph157.preheader.i ], [ %160, %.lr.ph151.i ]
-  %.6.i = phi ptr [ %175, %174 ], [ %.5108.i, %146 ], [ %.5108.i, %151 ], [ %.5108.i, %.lr.ph157.preheader.i ], [ %.5108.i, %.lr.ph151.i ]
-  %.3101.i = phi i32 [ %177, %174 ], [ %.2100.i, %146 ], [ %.2100.i, %151 ], [ %.2100.i, %.lr.ph157.preheader.i ], [ %.2100.i, %.lr.ph151.i ]
-  %.396.i = phi i32 [ 1, %174 ], [ %.295.i, %146 ], [ %.295.i, %151 ], [ %.295.i, %.lr.ph157.preheader.i ], [ %.295.i, %.lr.ph151.i ]
+  %.5114.i = phi ptr [ %.7116.lcssa.i, %174 ], [ %scevgep165.i, %.lr.ph157.preheader.i ], [ %148, %146 ], [ %156, %151 ], [ %160, %.lr.ph151.i ]
+  %.6.i = phi ptr [ %175, %174 ], [ %.5108.i, %.lr.ph157.preheader.i ], [ %.5108.i, %146 ], [ %.5108.i, %151 ], [ %.5108.i, %.lr.ph151.i ]
+  %.3101.i = phi i32 [ %177, %174 ], [ %.2100.i, %.lr.ph157.preheader.i ], [ %.2100.i, %146 ], [ %.2100.i, %151 ], [ %.2100.i, %.lr.ph151.i ]
+  %.396.i = phi i32 [ 1, %174 ], [ %.295.i, %.lr.ph157.preheader.i ], [ %.295.i, %146 ], [ %.295.i, %151 ], [ %.295.i, %.lr.ph151.i ]
   %.not126.i = icmp eq i32 %.396.i, 0
   br i1 %.not126.i, label %.thread.i16, label %95, !prof !33, !llvm.loop !38
 
@@ -1377,7 +1377,7 @@ define i32 @fastlz_decompress(ptr noundef readonly captures(address) %0, i32 nou
   br label %_ZL18fastlz1_decompressPKviPvi.exit
 
 _ZL18fastlz1_decompressPKviPvi.exit:              ; preds = %162, %133, %128, %67, %37, %28, %.thread.i16, %.thread.i, %4
-  %.0 = phi i32 [ 0, %4 ], [ %86, %.thread.i ], [ %181, %.thread.i16 ], [ 0, %67 ], [ 0, %28 ], [ 0, %37 ], [ 0, %128 ], [ 0, %133 ], [ 0, %162 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %67 ], [ %86, %.thread.i ], [ %181, %.thread.i16 ], [ 0, %28 ], [ 0, %37 ], [ 0, %128 ], [ 0, %133 ], [ 0, %162 ]
   ret i32 %.0
 }
 

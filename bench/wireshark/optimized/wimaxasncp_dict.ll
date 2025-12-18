@@ -2281,9 +2281,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %._crit_edge.i509, %1102, %1256
-  %.0341.be = phi ptr [ %1254, %1256 ], [ %1032, %1102 ], [ %1254, %._crit_edge.i509 ]
-  %.0334.be = phi ptr [ %1262, %1256 ], [ %1104, %1102 ], [ %1262, %._crit_edge.i509 ]
-  %.0326.be = phi i32 [ %1263, %1256 ], [ %1103, %1102 ], [ %1304, %._crit_edge.i509 ]
+  %.0341.be = phi ptr [ %1032, %1102 ], [ %1254, %1256 ], [ %1254, %._crit_edge.i509 ]
+  %.0334.be = phi ptr [ %1104, %1102 ], [ %1262, %1256 ], [ %1262, %._crit_edge.i509 ]
+  %.0326.be = phi i32 [ %1103, %1102 ], [ %1263, %1256 ], [ %1304, %._crit_edge.i509 ]
   br label %.loopexit
 
 1105:                                             ; preds = %1017
@@ -4069,7 +4069,7 @@ WimaxasncpDict__delete_buffer.exit.i:             ; preds = %32, %.critedge.i.i
   br label %WimaxasncpDict_pop_buffer_state.exit
 
 WimaxasncpDict_pop_buffer_state.exit:             ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

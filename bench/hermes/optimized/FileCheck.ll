@@ -825,7 +825,7 @@ if.end285:                                        ; preds = %if.then282, %if.the
   br label %return
 
 return:                                           ; preds = %if.end249, %if.end92, %while.end277, %if.end285, %if.then233, %if.then207, %if.then192, %if.then158, %if.then131, %if.then114, %if.then83, %if.then61, %if.then47, %_ZN4llvhplERKNS_5TwineES2_.exit161, %_ZN4llvhplERKNS_5TwineES2_.exit
-  %retval.0 = phi i1 [ true, %_ZN4llvhplERKNS_5TwineES2_.exit ], [ false, %if.then47 ], [ true, %if.then83 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit161 ], [ true, %if.then114 ], [ true, %if.then131 ], [ true, %if.then158 ], [ true, %if.then192 ], [ true, %if.then207 ], [ true, %if.then233 ], [ false, %if.then61 ], [ false, %if.end285 ], [ false, %while.end277 ], [ true, %if.end92 ], [ true, %if.end249 ]
+  %retval.0 = phi i1 [ true, %_ZN4llvhplERKNS_5TwineES2_.exit ], [ false, %if.then47 ], [ true, %if.then83 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit161 ], [ true, %if.then114 ], [ true, %if.then131 ], [ true, %if.then158 ], [ true, %if.then192 ], [ true, %if.then207 ], [ true, %if.then233 ], [ false, %while.end277 ], [ false, %if.end285 ], [ false, %if.then61 ], [ true, %if.end92 ], [ true, %if.end249 ]
   ret i1 %retval.0
 }
 
@@ -3426,7 +3426,7 @@ if.end.i482:                                      ; preds = %for.end172
   br label %cleanup176
 
 cleanup176:                                       ; preds = %_ZN4llvh16FileCheckPatternD2Ev.exit345, %if.end.i482, %if.then.i479, %if.end134, %_ZN4llvhplERKNS_5TwineES2_.exit
-  %retval.1 = phi i1 [ false, %if.end134 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit ], [ true, %if.then.i479 ], [ true, %if.end.i482 ], [ true, %_ZN4llvh16FileCheckPatternD2Ev.exit345 ]
+  %retval.1 = phi i1 [ false, %if.end134 ], [ true, %if.end.i482 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit ], [ true, %if.then.i479 ], [ true, %_ZN4llvh16FileCheckPatternD2Ev.exit345 ]
   %139 = load ptr, ptr %DagNotMatches, align 8
   %140 = load ptr, ptr %_M_finish.i.i.i87568, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %139, %140
@@ -4713,7 +4713,7 @@ for.inc.i.i:                                      ; preds = %if.then4.i.i, %for.
   br i1 %cmp.not.i.i, label %_ZN4llvh9StringSetINS_15MallocAllocatorEED2Ev.exit, label %for.body.i.i, !llvm.loop !160
 
 _ZN4llvh9StringSetINS_15MallocAllocatorEED2Ev.exit: ; preds = %for.inc.i.i, %entry, %cleanup, %if.then.i.i
-  %cmp.i9.not.lcssa22 = phi i1 [ %cmp.i9.not.lcssa.ph, %if.then.i.i ], [ %cmp.i9.not.lcssa.ph, %cleanup ], [ true, %entry ], [ %cmp.i9.not.lcssa.ph, %for.inc.i.i ]
+  %cmp.i9.not.lcssa22 = phi i1 [ true, %entry ], [ %cmp.i9.not.lcssa.ph, %if.then.i.i ], [ %cmp.i9.not.lcssa.ph, %cleanup ], [ %cmp.i9.not.lcssa.ph, %for.inc.i.i ]
   %8 = load ptr, ptr %PrefixSet, align 8
   call void @free(ptr noundef %8) #18
   ret i1 %cmp.i9.not.lcssa22

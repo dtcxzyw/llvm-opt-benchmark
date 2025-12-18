@@ -904,9 +904,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h7a0d425d20d49f59E.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i56, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h38d5d76186a5b008E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h38d5d76186a5b008E.exit": ; preds = %.lr.ph.i56, %.lr.ph26.i, %183, %188
-  %.sroa.18.1.i = phi ptr [ %180, %183 ], [ %179, %188 ], [ %195, %.lr.ph26.i ], [ %204, %.lr.ph.i56 ]
-  %.sroa.10.1.i = phi ptr [ %185, %183 ], [ %189, %188 ], [ %197, %.lr.ph26.i ], [ %189, %.lr.ph.i56 ]
-  %.sroa.0.0.i55 = phi ptr [ %14, %183 ], [ %14, %188 ], [ %14, %.lr.ph26.i ], [ %209, %.lr.ph.i56 ]
+  %.sroa.18.1.i = phi ptr [ %195, %.lr.ph26.i ], [ %180, %183 ], [ %179, %188 ], [ %204, %.lr.ph.i56 ]
+  %.sroa.10.1.i = phi ptr [ %197, %.lr.ph26.i ], [ %185, %183 ], [ %189, %188 ], [ %189, %.lr.ph.i56 ]
+  %.sroa.0.0.i55 = phi ptr [ %14, %.lr.ph26.i ], [ %14, %183 ], [ %14, %188 ], [ %209, %.lr.ph.i56 ]
   %212 = ptrtoint ptr %.sroa.10.1.i to i64
   %213 = ptrtoint ptr %.sroa.0.0.i55 to i64
   %214 = sub nuw i64 %212, %213
@@ -1536,9 +1536,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h8a392099e7e7250aE.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i56, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h13653c98c5aa73beE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h13653c98c5aa73beE.exit": ; preds = %.lr.ph.i56, %.lr.ph24.i, %188, %193
-  %.sroa.18.1.i = phi ptr [ %185, %188 ], [ %184, %193 ], [ %200, %.lr.ph24.i ], [ %207, %.lr.ph.i56 ]
-  %.sroa.10.1.i = phi ptr [ %190, %188 ], [ %194, %193 ], [ %202, %.lr.ph24.i ], [ %194, %.lr.ph.i56 ]
-  %.sroa.0.0.i55 = phi ptr [ %14, %188 ], [ %14, %193 ], [ %14, %.lr.ph24.i ], [ %212, %.lr.ph.i56 ]
+  %.sroa.18.1.i = phi ptr [ %200, %.lr.ph24.i ], [ %185, %188 ], [ %184, %193 ], [ %207, %.lr.ph.i56 ]
+  %.sroa.10.1.i = phi ptr [ %202, %.lr.ph24.i ], [ %190, %188 ], [ %194, %193 ], [ %194, %.lr.ph.i56 ]
+  %.sroa.0.0.i55 = phi ptr [ %14, %.lr.ph24.i ], [ %14, %188 ], [ %14, %193 ], [ %212, %.lr.ph.i56 ]
   %215 = ptrtoint ptr %.sroa.10.1.i to i64
   %216 = ptrtoint ptr %.sroa.0.0.i55 to i64
   %217 = sub nuw i64 %215, %216
@@ -2175,9 +2175,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h1797c8f38114646dE.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i56, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h853111980157b740E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h853111980157b740E.exit": ; preds = %.lr.ph.i56, %.lr.ph26.i, %195, %200
-  %.sroa.18.1.i = phi ptr [ %192, %195 ], [ %191, %200 ], [ %209, %.lr.ph26.i ], [ %220, %.lr.ph.i56 ]
-  %.sroa.10.1.i = phi ptr [ %197, %195 ], [ %201, %200 ], [ %211, %.lr.ph26.i ], [ %201, %.lr.ph.i56 ]
-  %.sroa.0.0.i55 = phi ptr [ %14, %195 ], [ %14, %200 ], [ %14, %.lr.ph26.i ], [ %225, %.lr.ph.i56 ]
+  %.sroa.18.1.i = phi ptr [ %209, %.lr.ph26.i ], [ %192, %195 ], [ %191, %200 ], [ %220, %.lr.ph.i56 ]
+  %.sroa.10.1.i = phi ptr [ %211, %.lr.ph26.i ], [ %197, %195 ], [ %201, %200 ], [ %201, %.lr.ph.i56 ]
+  %.sroa.0.0.i55 = phi ptr [ %14, %.lr.ph26.i ], [ %14, %195 ], [ %14, %200 ], [ %225, %.lr.ph.i56 ]
   %228 = ptrtoint ptr %.sroa.10.1.i to i64
   %229 = ptrtoint ptr %.sroa.0.0.i55 to i64
   %230 = sub nuw i64 %228, %229
@@ -2818,9 +2818,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h5f598d6a051d2639E.exit: ; preds = %_
   br i1 %or.cond4.i, label %.lr.ph.i56, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h238433ba619f96eeE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h238433ba619f96eeE.exit": ; preds = %.lr.ph.i56, %.lr.ph24.i, %192, %197
-  %.sroa.18.1.i = phi ptr [ %189, %192 ], [ %188, %197 ], [ %204, %.lr.ph24.i ], [ %213, %.lr.ph.i56 ]
-  %.sroa.10.1.i = phi ptr [ %194, %192 ], [ %198, %197 ], [ %206, %.lr.ph24.i ], [ %198, %.lr.ph.i56 ]
-  %.sroa.0.0.i55 = phi ptr [ %14, %192 ], [ %14, %197 ], [ %14, %.lr.ph24.i ], [ %218, %.lr.ph.i56 ]
+  %.sroa.18.1.i = phi ptr [ %204, %.lr.ph24.i ], [ %189, %192 ], [ %188, %197 ], [ %213, %.lr.ph.i56 ]
+  %.sroa.10.1.i = phi ptr [ %206, %.lr.ph24.i ], [ %194, %192 ], [ %198, %197 ], [ %198, %.lr.ph.i56 ]
+  %.sroa.0.0.i55 = phi ptr [ %14, %.lr.ph24.i ], [ %14, %192 ], [ %14, %197 ], [ %218, %.lr.ph.i56 ]
   %221 = ptrtoint ptr %.sroa.10.1.i to i64
   %222 = ptrtoint ptr %.sroa.0.0.i55 to i64
   %223 = sub nuw i64 %221, %222
@@ -3460,8 +3460,8 @@ define hidden void @_ZN4core5slice4sort7recurse17h432c4fc62b3d7b0aE.llvm.1425881
   br i1 %12, label %14, label %15
 
 .outer._crit_edge:                                ; preds = %.outer, %264, %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %265, %264 ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %266, %264 ], [ %.sroa.0.1, %.outer ]
+  %.sroa.14.0.lcssa = phi i64 [ %265, %264 ], [ %1, %5 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %266, %264 ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %13 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %13, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h4642e6a7f6d6e73cE.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h6bead0ed0dbc6ebbE.exit
 
@@ -3987,7 +3987,7 @@ _ZN4core5slice4sort12choose_pivot17hb5c93c13172dad72E.exit: ; preds = %"_ZN4core
   br i1 %222, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader10.i.i, %.preheader.i.i, %208
-  %spec.select.lcssa.sink.i.i = phi ptr [ %spec.select.i.i, %208 ], [ %221, %.preheader.i.i ], [ %215, %.preheader10.i.i ]
+  %spec.select.lcssa.sink.i.i = phi ptr [ %221, %.preheader.i.i ], [ %spec.select.i.i, %208 ], [ %215, %.preheader10.i.i ]
   %223 = ptrtoint ptr %spec.select.lcssa.sink.i.i to i64
   %224 = ptrtoint ptr %141 to i64
   %225 = sub i64 %223, %224
@@ -4228,8 +4228,8 @@ define hidden void @_ZN4core5slice4sort7recurse17hb587c931825c4a6fE.llvm.1425881
   br i1 %12, label %14, label %15
 
 .outer._crit_edge:                                ; preds = %.outer, %264, %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %265, %264 ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %266, %264 ], [ %.sroa.0.1, %.outer ]
+  %.sroa.14.0.lcssa = phi i64 [ %265, %264 ], [ %1, %5 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %266, %264 ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %13 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %13, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h08cad69bca2f3c83E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h437a686cbe85cc18E.exit
 
@@ -4758,7 +4758,7 @@ _ZN4core5slice4sort12choose_pivot17hbf4d060c15fa5f21E.exit: ; preds = %"_ZN4core
   br i1 %222, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader10.i.i, %.preheader.i.i, %208
-  %spec.select.lcssa.sink.i.i = phi ptr [ %spec.select.i.i, %208 ], [ %221, %.preheader.i.i ], [ %215, %.preheader10.i.i ]
+  %spec.select.lcssa.sink.i.i = phi ptr [ %221, %.preheader.i.i ], [ %spec.select.i.i, %208 ], [ %215, %.preheader10.i.i ]
   %223 = ptrtoint ptr %spec.select.lcssa.sink.i.i to i64
   %224 = ptrtoint ptr %141 to i64
   %225 = sub i64 %223, %224

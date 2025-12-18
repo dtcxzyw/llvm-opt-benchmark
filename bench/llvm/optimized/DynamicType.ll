@@ -15409,7 +15409,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
   br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit36
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit36: ; preds = %108, %.critedge, %229, %228, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit
-  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit ], [ true, %228 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %229 ], [ false, %.critedge ], [ false, %108 ]
+  %.1 = phi i1 [ false, %.critedge ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit ], [ true, %228 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %229 ], [ false, %108 ]
   %233 = load ptr, ptr %6, align 8, !tbaa !73
   %234 = icmp eq ptr %233, %40
   br i1 %234, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEED2Ev.exit, label %235

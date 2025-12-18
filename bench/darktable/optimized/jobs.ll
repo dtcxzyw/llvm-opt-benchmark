@@ -640,7 +640,7 @@ _control_job_print.exit:                          ; preds = %14, %26
   br label %_control_job_equal.exit
 
 _control_job_equal.exit:                          ; preds = %71, %89
-  %.0.shrunk.i.in = phi i32 [ %bcmp.i, %71 ], [ %91, %89 ]
+  %.0.shrunk.i.in = phi i32 [ %91, %89 ], [ %bcmp.i, %71 ]
   %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
   br i1 %.0.shrunk.i.not, label %92, label %_control_job_equal.exit..critedge_crit_edge
 
@@ -776,7 +776,7 @@ _control_job_equal.exit..critedge_crit_edge:      ; preds = %_control_job_equal.
   br label %_control_job_equal.exit129
 
 _control_job_equal.exit129:                       ; preds = %139, %157
-  %.0.shrunk.i125.in = phi i32 [ %bcmp.i128, %139 ], [ %159, %157 ]
+  %.0.shrunk.i125.in = phi i32 [ %159, %157 ], [ %bcmp.i128, %139 ]
   %.0.shrunk.i125.not = icmp eq i32 %.0.shrunk.i125.in, 0
   br i1 %.0.shrunk.i125.not, label %160, label %_control_job_equal.exit129.thread
 

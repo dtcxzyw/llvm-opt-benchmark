@@ -3067,45 +3067,45 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i": ; preds = %.noexc38
   %lhsc.i = load i8, ptr %95, align 1, !noalias !284
   switch i8 %lhsc.i, label %.thread61 [
-    i8 75, label %114
-    i8 77, label %98
-    i8 71, label %102
-    i8 84, label %106
-    i8 80, label %110
+    i8 75, label %98
+    i8 77, label %102
+    i8 71, label %106
+    i8 84, label %110
+    i8 80, label %114
   ]
 
 98:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %99 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
+  %99 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000)
   %100 = extractvalue { i64, i1 } %99, 1
   %101 = extractvalue { i64, i1 } %99, 0
   br i1 %100, label %.thread61, label %.thread65
 
 102:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %103 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
+  %103 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
   %104 = extractvalue { i64, i1 } %103, 1
   %105 = extractvalue { i64, i1 } %103, 0
   br i1 %104, label %.thread61, label %.thread65
 
 106:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %107 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
+  %107 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
   %108 = extractvalue { i64, i1 } %107, 1
   %109 = extractvalue { i64, i1 } %107, 0
   br i1 %108, label %.thread61, label %.thread65
 
 110:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %111 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
+  %111 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
   %112 = extractvalue { i64, i1 } %111, 1
   %113 = extractvalue { i64, i1 } %111, 0
   br i1 %112, label %.thread61, label %.thread65
 
 114:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %115 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000)
+  %115 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
   %116 = extractvalue { i64, i1 } %115, 1
   %117 = extractvalue { i64, i1 } %115, 0
   br i1 %116, label %.thread61, label %.thread65
 
-.thread65:                                        ; preds = %.noexc38, %102, %106, %110, %98, %114
-  %.sroa.14.0.i69 = phi i64 [ %105, %102 ], [ %117, %114 ], [ %101, %98 ], [ %113, %110 ], [ %109, %106 ], [ %92, %.noexc38 ]
+.thread65:                                        ; preds = %.noexc38, %102, %98, %106, %110, %114
+  %.sroa.14.0.i69 = phi i64 [ %105, %102 ], [ %117, %114 ], [ %113, %110 ], [ %109, %106 ], [ %101, %98 ], [ %92, %.noexc38 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3113,7 +3113,7 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a
   store i64 2, ptr %0, align 8
   br label %121
 
-.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i", %.noexc38, %.noexc37, %102, %106, %110, %98, %114
+.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i", %.noexc38, %.noexc37, %102, %98, %106, %110, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.049)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !287
   store ptr @anon.8ec2f0b8b4464c66ba659efff469466f.35, ptr %4, align 8, !noalias !291
@@ -3404,45 +3404,45 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i": ; preds = %.noexc38
   %lhsc.i = load i8, ptr %94, align 1, !noalias !334
   switch i8 %lhsc.i, label %.thread61 [
-    i8 75, label %113
-    i8 77, label %97
-    i8 71, label %101
-    i8 84, label %105
-    i8 80, label %109
+    i8 75, label %97
+    i8 77, label %101
+    i8 71, label %105
+    i8 84, label %109
+    i8 80, label %113
   ]
 
 97:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %98 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000)
+  %98 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000)
   %99 = extractvalue { i64, i1 } %98, 1
   %100 = extractvalue { i64, i1 } %98, 0
   br i1 %99, label %.thread61, label %.thread65
 
 101:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %102 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000)
+  %102 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000)
   %103 = extractvalue { i64, i1 } %102, 1
   %104 = extractvalue { i64, i1 } %102, 0
   br i1 %103, label %.thread61, label %.thread65
 
 105:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %106 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000)
+  %106 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000)
   %107 = extractvalue { i64, i1 } %106, 1
   %108 = extractvalue { i64, i1 } %106, 0
   br i1 %107, label %.thread61, label %.thread65
 
 109:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %110 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000000)
+  %110 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000)
   %111 = extractvalue { i64, i1 } %110, 1
   %112 = extractvalue { i64, i1 } %110, 0
   br i1 %111, label %.thread61, label %.thread65
 
 113:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %114 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000)
+  %114 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000000)
   %115 = extractvalue { i64, i1 } %114, 1
   %116 = extractvalue { i64, i1 } %114, 0
   br i1 %115, label %.thread61, label %.thread65
 
-.thread65:                                        ; preds = %.noexc38, %101, %105, %109, %97, %113
-  %.sroa.14.0.i69 = phi i64 [ %104, %101 ], [ %116, %113 ], [ %100, %97 ], [ %112, %109 ], [ %108, %105 ], [ %91, %.noexc38 ]
+.thread65:                                        ; preds = %.noexc38, %101, %97, %105, %109, %113
+  %.sroa.14.0.i69 = phi i64 [ %104, %101 ], [ %116, %113 ], [ %112, %109 ], [ %108, %105 ], [ %100, %97 ], [ %91, %.noexc38 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3450,7 +3450,7 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300
   store i64 2, ptr %0, align 8
   br label %120
 
-.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i", %.noexc38, %.noexc37, %101, %105, %109, %97, %113
+.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i", %.noexc38, %.noexc37, %101, %97, %105, %109, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.049)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !337
   store ptr @anon.8ec2f0b8b4464c66ba659efff469466f.35, ptr %4, align 8, !noalias !341
@@ -3757,45 +3757,45 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i": ; preds = %.noexc38
   %lhsc.i = load i8, ptr %95, align 1, !noalias !389
   switch i8 %lhsc.i, label %.thread63 [
-    i8 75, label %114
-    i8 77, label %98
-    i8 71, label %102
-    i8 84, label %106
-    i8 80, label %110
+    i8 75, label %98
+    i8 77, label %102
+    i8 71, label %106
+    i8 84, label %110
+    i8 80, label %114
   ]
 
 98:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %99 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
+  %99 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000)
   %100 = extractvalue { i64, i1 } %99, 1
   %101 = extractvalue { i64, i1 } %99, 0
   br i1 %100, label %.thread63, label %.thread67
 
 102:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %103 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
+  %103 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
   %104 = extractvalue { i64, i1 } %103, 1
   %105 = extractvalue { i64, i1 } %103, 0
   br i1 %104, label %.thread63, label %.thread67
 
 106:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %107 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
+  %107 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
   %108 = extractvalue { i64, i1 } %107, 1
   %109 = extractvalue { i64, i1 } %107, 0
   br i1 %108, label %.thread63, label %.thread67
 
 110:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %111 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
+  %111 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
   %112 = extractvalue { i64, i1 } %111, 1
   %113 = extractvalue { i64, i1 } %111, 0
   br i1 %112, label %.thread63, label %.thread67
 
 114:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i"
-  %115 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000)
+  %115 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
   %116 = extractvalue { i64, i1 } %115, 1
   %117 = extractvalue { i64, i1 } %115, 0
   br i1 %116, label %.thread63, label %.thread67
 
-.thread67:                                        ; preds = %.noexc38, %102, %106, %110, %98, %114
-  %.sroa.14.0.i71 = phi i64 [ %105, %102 ], [ %117, %114 ], [ %101, %98 ], [ %113, %110 ], [ %109, %106 ], [ %92, %.noexc38 ]
+.thread67:                                        ; preds = %.noexc38, %102, %98, %106, %110, %114
+  %.sroa.14.0.i71 = phi i64 [ %105, %102 ], [ %117, %114 ], [ %113, %110 ], [ %109, %106 ], [ %101, %98 ], [ %92, %.noexc38 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3803,7 +3803,7 @@ define hidden void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b
   store i64 2, ptr %0, align 8
   br label %121
 
-.thread63:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i", %.noexc38, %.noexc37, %102, %106, %110, %98, %114
+.thread63:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit45.i", %.noexc38, %.noexc37, %102, %98, %106, %110, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.053)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !392
   store ptr @anon.8ec2f0b8b4464c66ba659efff469466f.35, ptr %5, align 8, !noalias !396
@@ -4096,21 +4096,21 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67
   %lhsc.i = load i8, ptr %94, align 1, !noalias !439
   switch i8 %lhsc.i, label %.thread61 [
     i8 75, label %99
-    i8 77, label %103
-    i8 71, label %111
-    i8 84, label %119
-    i8 80, label %128
+    i8 77, label %106
+    i8 71, label %114
+    i8 84, label %131
+    i8 80, label %127
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i": ; preds = %.noexc38
   %bcmp.i83.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %94, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.48, i64 2), !alias.scope !442, !noalias !439
   %97 = icmp eq i32 %bcmp.i83.i, 0
-  br i1 %97, label %132, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
+  br i1 %97, label %103, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
   %bcmp.i91.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %94, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.49, i64 2), !alias.scope !446, !noalias !439
   %98 = icmp eq i32 %bcmp.i91.i, 0
-  br i1 %98, label %108, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
+  br i1 %98, label %111, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
 
 99:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
   %100 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000)
@@ -4118,70 +4118,70 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67
   %102 = extractvalue { i64, i1 } %100, 0
   br i1 %101, label %.thread61, label %.thread65
 
-103:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %104 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000)
-  %105 = extractvalue { i64, i1 } %104, 1
-  %106 = extractvalue { i64, i1 } %104, 0
-  br i1 %105, label %.thread61, label %.thread65
+103:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
+  %104 = icmp ult i64 %91, 18014398509481984
+  %105 = shl nuw i64 %91, 10
+  br i1 %104, label %.thread65, label %.thread61
+
+106:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %107 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000)
+  %108 = extractvalue { i64, i1 } %107, 1
+  %109 = extractvalue { i64, i1 } %107, 0
+  br i1 %108, label %.thread61, label %.thread65
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
   %bcmp.i99.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %94, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.50, i64 2), !alias.scope !450, !noalias !439
-  %107 = icmp eq i32 %bcmp.i99.i, 0
-  br i1 %107, label %116, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
+  %110 = icmp eq i32 %bcmp.i99.i, 0
+  br i1 %110, label %119, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
 
-108:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
-  %109 = icmp ult i64 %91, 17592186044416
-  %110 = shl nuw i64 %91, 20
-  br i1 %109, label %.thread65, label %.thread61
+111:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
+  %112 = icmp ult i64 %91, 17592186044416
+  %113 = shl nuw i64 %91, 20
+  br i1 %112, label %.thread65, label %.thread61
 
-111:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %112 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000)
-  %113 = extractvalue { i64, i1 } %112, 1
-  %114 = extractvalue { i64, i1 } %112, 0
-  br i1 %113, label %.thread61, label %.thread65
+114:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %115 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000)
+  %116 = extractvalue { i64, i1 } %115, 1
+  %117 = extractvalue { i64, i1 } %115, 0
+  br i1 %116, label %.thread61, label %.thread65
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
   %bcmp.i107.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %94, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.51, i64 2), !alias.scope !454, !noalias !439
-  %115 = icmp eq i32 %bcmp.i107.i, 0
-  br i1 %115, label %123, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i"
+  %118 = icmp eq i32 %bcmp.i107.i, 0
+  br i1 %118, label %122, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i"
 
-116:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
-  %117 = icmp ult i64 %91, 17179869184
-  %118 = shl nuw i64 %91, 30
-  br i1 %117, label %.thread65, label %.thread61
+119:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
+  %120 = icmp ult i64 %91, 17179869184
+  %121 = shl nuw i64 %91, 30
+  br i1 %120, label %.thread65, label %.thread61
 
-119:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %120 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000)
-  %121 = extractvalue { i64, i1 } %120, 1
-  %122 = extractvalue { i64, i1 } %120, 0
-  br i1 %121, label %.thread61, label %.thread65
-
-123:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
-  %124 = icmp ult i64 %91, 16777216
-  %125 = shl nuw i64 %91, 40
-  br i1 %124, label %.thread65, label %.thread61
+122:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
+  %123 = icmp ult i64 %91, 16777216
+  %124 = shl nuw i64 %91, 40
+  br i1 %123, label %.thread65, label %.thread61
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
   %bcmp.i115.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %94, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.52, i64 2), !alias.scope !458, !noalias !439
   %.not.i = icmp eq i32 %bcmp.i115.i, 0
-  %126 = icmp ult i64 %91, 16384
-  %or.cond.i = select i1 %.not.i, i1 %126, i1 false
-  %127 = shl nuw i64 %91, 50
+  %125 = icmp ult i64 %91, 16384
+  %or.cond.i = select i1 %.not.i, i1 %125, i1 false
+  %126 = shl nuw i64 %91, 50
   br i1 %or.cond.i, label %.thread65, label %.thread61
 
-128:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %129 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000000)
-  %130 = extractvalue { i64, i1 } %129, 1
-  %131 = extractvalue { i64, i1 } %129, 0
-  br i1 %130, label %.thread61, label %.thread65
+127:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %128 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000000)
+  %129 = extractvalue { i64, i1 } %128, 1
+  %130 = extractvalue { i64, i1 } %128, 0
+  br i1 %129, label %.thread61, label %.thread65
 
-132:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
-  %133 = icmp ult i64 %91, 18014398509481984
-  %134 = shl nuw i64 %91, 10
-  br i1 %133, label %.thread65, label %.thread61
+131:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %132 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 1000000000000)
+  %133 = extractvalue { i64, i1 } %132, 1
+  %134 = extractvalue { i64, i1 } %132, 0
+  br i1 %133, label %.thread61, label %.thread65
 
-.thread65:                                        ; preds = %.noexc38, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %103, %128, %108, %99, %111, %123, %116, %119, %132
-  %.sroa.24.0.i69 = phi i64 [ %127, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i" ], [ %134, %132 ], [ %122, %119 ], [ %118, %116 ], [ %125, %123 ], [ %114, %111 ], [ %102, %99 ], [ %110, %108 ], [ %131, %128 ], [ %106, %103 ], [ %91, %.noexc38 ]
+.thread65:                                        ; preds = %.noexc38, %103, %119, %106, %127, %111, %99, %114, %122, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %131
+  %.sroa.24.0.i69 = phi i64 [ %105, %103 ], [ %134, %131 ], [ %126, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i" ], [ %124, %122 ], [ %117, %114 ], [ %102, %99 ], [ %113, %111 ], [ %130, %127 ], [ %109, %106 ], [ %121, %119 ], [ %91, %.noexc38 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4189,7 +4189,7 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67
   store i64 2, ptr %0, align 8
   br label %138
 
-.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i", %.noexc38, %.noexc37, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %103, %128, %108, %99, %111, %123, %116, %119, %132
+.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i", %.noexc38, %.noexc37, %103, %119, %106, %127, %111, %99, %114, %122, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %131
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.049)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !462
   store ptr @anon.8ec2f0b8b4464c66ba659efff469466f.35, ptr %4, align 8, !noalias !466
@@ -4498,21 +4498,21 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911f
   %lhsc.i = load i8, ptr %95, align 1, !noalias !514
   switch i8 %lhsc.i, label %.thread63 [
     i8 75, label %100
-    i8 77, label %104
-    i8 71, label %112
-    i8 84, label %120
-    i8 80, label %129
+    i8 77, label %107
+    i8 71, label %115
+    i8 84, label %132
+    i8 80, label %128
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i": ; preds = %.noexc38
   %bcmp.i83.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.48, i64 2), !alias.scope !517, !noalias !514
   %98 = icmp eq i32 %bcmp.i83.i, 0
-  br i1 %98, label %133, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
+  br i1 %98, label %104, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
   %bcmp.i91.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.49, i64 2), !alias.scope !521, !noalias !514
   %99 = icmp eq i32 %bcmp.i91.i, 0
-  br i1 %99, label %109, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
+  br i1 %99, label %112, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
 
 100:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
   %101 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000)
@@ -4520,70 +4520,70 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911f
   %103 = extractvalue { i64, i1 } %101, 0
   br i1 %102, label %.thread63, label %.thread67
 
-104:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %105 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
-  %106 = extractvalue { i64, i1 } %105, 1
-  %107 = extractvalue { i64, i1 } %105, 0
-  br i1 %106, label %.thread63, label %.thread67
+104:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
+  %105 = icmp ult i64 %92, 18014398509481984
+  %106 = shl nuw i64 %92, 10
+  br i1 %105, label %.thread67, label %.thread63
+
+107:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %108 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
+  %109 = extractvalue { i64, i1 } %108, 1
+  %110 = extractvalue { i64, i1 } %108, 0
+  br i1 %109, label %.thread63, label %.thread67
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
   %bcmp.i99.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.50, i64 2), !alias.scope !525, !noalias !514
-  %108 = icmp eq i32 %bcmp.i99.i, 0
-  br i1 %108, label %117, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
+  %111 = icmp eq i32 %bcmp.i99.i, 0
+  br i1 %111, label %120, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
 
-109:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
-  %110 = icmp ult i64 %92, 17592186044416
-  %111 = shl nuw i64 %92, 20
-  br i1 %110, label %.thread67, label %.thread63
+112:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
+  %113 = icmp ult i64 %92, 17592186044416
+  %114 = shl nuw i64 %92, 20
+  br i1 %113, label %.thread67, label %.thread63
 
-112:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %113 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
-  %114 = extractvalue { i64, i1 } %113, 1
-  %115 = extractvalue { i64, i1 } %113, 0
-  br i1 %114, label %.thread63, label %.thread67
+115:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %116 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
+  %117 = extractvalue { i64, i1 } %116, 1
+  %118 = extractvalue { i64, i1 } %116, 0
+  br i1 %117, label %.thread63, label %.thread67
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
   %bcmp.i107.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.51, i64 2), !alias.scope !529, !noalias !514
-  %116 = icmp eq i32 %bcmp.i107.i, 0
-  br i1 %116, label %124, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i"
+  %119 = icmp eq i32 %bcmp.i107.i, 0
+  br i1 %119, label %123, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i"
 
-117:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
-  %118 = icmp ult i64 %92, 17179869184
-  %119 = shl nuw i64 %92, 30
-  br i1 %118, label %.thread67, label %.thread63
+120:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
+  %121 = icmp ult i64 %92, 17179869184
+  %122 = shl nuw i64 %92, 30
+  br i1 %121, label %.thread67, label %.thread63
 
-120:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %121 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
-  %122 = extractvalue { i64, i1 } %121, 1
-  %123 = extractvalue { i64, i1 } %121, 0
-  br i1 %122, label %.thread63, label %.thread67
-
-124:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
-  %125 = icmp ult i64 %92, 16777216
-  %126 = shl nuw i64 %92, 40
-  br i1 %125, label %.thread67, label %.thread63
+123:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
+  %124 = icmp ult i64 %92, 16777216
+  %125 = shl nuw i64 %92, 40
+  br i1 %124, label %.thread67, label %.thread63
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
   %bcmp.i115.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.52, i64 2), !alias.scope !533, !noalias !514
   %.not.i = icmp eq i32 %bcmp.i115.i, 0
-  %127 = icmp ult i64 %92, 16384
-  %or.cond.i = select i1 %.not.i, i1 %127, i1 false
-  %128 = shl nuw i64 %92, 50
+  %126 = icmp ult i64 %92, 16384
+  %or.cond.i = select i1 %.not.i, i1 %126, i1 false
+  %127 = shl nuw i64 %92, 50
   br i1 %or.cond.i, label %.thread67, label %.thread63
 
-129:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %130 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
-  %131 = extractvalue { i64, i1 } %130, 1
-  %132 = extractvalue { i64, i1 } %130, 0
-  br i1 %131, label %.thread63, label %.thread67
+128:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %129 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
+  %130 = extractvalue { i64, i1 } %129, 1
+  %131 = extractvalue { i64, i1 } %129, 0
+  br i1 %130, label %.thread63, label %.thread67
 
-133:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
-  %134 = icmp ult i64 %92, 18014398509481984
-  %135 = shl nuw i64 %92, 10
-  br i1 %134, label %.thread67, label %.thread63
+132:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %133 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
+  %134 = extractvalue { i64, i1 } %133, 1
+  %135 = extractvalue { i64, i1 } %133, 0
+  br i1 %134, label %.thread63, label %.thread67
 
-.thread67:                                        ; preds = %.noexc38, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %104, %129, %109, %100, %112, %124, %117, %120, %133
-  %.sroa.24.0.i71 = phi i64 [ %128, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i" ], [ %135, %133 ], [ %123, %120 ], [ %119, %117 ], [ %126, %124 ], [ %115, %112 ], [ %103, %100 ], [ %111, %109 ], [ %132, %129 ], [ %107, %104 ], [ %92, %.noexc38 ]
+.thread67:                                        ; preds = %.noexc38, %104, %120, %107, %128, %112, %100, %115, %123, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %132
+  %.sroa.24.0.i71 = phi i64 [ %106, %104 ], [ %135, %132 ], [ %127, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i" ], [ %125, %123 ], [ %118, %115 ], [ %103, %100 ], [ %114, %112 ], [ %131, %128 ], [ %110, %107 ], [ %122, %120 ], [ %92, %.noexc38 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4591,7 +4591,7 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911f
   store i64 2, ptr %0, align 8
   br label %139
 
-.thread63:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i", %.noexc38, %.noexc37, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %104, %129, %109, %100, %112, %124, %117, %120, %133
+.thread63:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i", %.noexc38, %.noexc37, %104, %120, %107, %128, %112, %100, %115, %123, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %132
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.053)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !537
   store ptr @anon.8ec2f0b8b4464c66ba659efff469466f.35, ptr %5, align 8, !noalias !541
@@ -4888,21 +4888,21 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17habfae79
   %lhsc.i = load i8, ptr %95, align 1, !noalias !589
   switch i8 %lhsc.i, label %.thread61 [
     i8 75, label %100
-    i8 77, label %104
-    i8 71, label %112
-    i8 84, label %120
-    i8 80, label %129
+    i8 77, label %107
+    i8 71, label %115
+    i8 84, label %132
+    i8 80, label %128
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i": ; preds = %.noexc38
   %bcmp.i83.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.48, i64 2), !alias.scope !592, !noalias !589
   %98 = icmp eq i32 %bcmp.i83.i, 0
-  br i1 %98, label %133, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
+  br i1 %98, label %104, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
   %bcmp.i91.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.49, i64 2), !alias.scope !596, !noalias !589
   %99 = icmp eq i32 %bcmp.i91.i, 0
-  br i1 %99, label %109, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
+  br i1 %99, label %112, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
 
 100:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
   %101 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000)
@@ -4910,70 +4910,70 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17habfae79
   %103 = extractvalue { i64, i1 } %101, 0
   br i1 %102, label %.thread61, label %.thread65
 
-104:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %105 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
-  %106 = extractvalue { i64, i1 } %105, 1
-  %107 = extractvalue { i64, i1 } %105, 0
-  br i1 %106, label %.thread61, label %.thread65
+104:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
+  %105 = icmp ult i64 %92, 18014398509481984
+  %106 = shl nuw i64 %92, 10
+  br i1 %105, label %.thread65, label %.thread61
+
+107:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %108 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000)
+  %109 = extractvalue { i64, i1 } %108, 1
+  %110 = extractvalue { i64, i1 } %108, 0
+  br i1 %109, label %.thread61, label %.thread65
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
   %bcmp.i99.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.50, i64 2), !alias.scope !600, !noalias !589
-  %108 = icmp eq i32 %bcmp.i99.i, 0
-  br i1 %108, label %117, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
+  %111 = icmp eq i32 %bcmp.i99.i, 0
+  br i1 %111, label %120, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
 
-109:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
-  %110 = icmp ult i64 %92, 17592186044416
-  %111 = shl nuw i64 %92, 20
-  br i1 %110, label %.thread65, label %.thread61
+112:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit88.thread.thread.i"
+  %113 = icmp ult i64 %92, 17592186044416
+  %114 = shl nuw i64 %92, 20
+  br i1 %113, label %.thread65, label %.thread61
 
-112:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %113 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
-  %114 = extractvalue { i64, i1 } %113, 1
-  %115 = extractvalue { i64, i1 } %113, 0
-  br i1 %114, label %.thread61, label %.thread65
+115:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %116 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000)
+  %117 = extractvalue { i64, i1 } %116, 1
+  %118 = extractvalue { i64, i1 } %116, 0
+  br i1 %117, label %.thread61, label %.thread65
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
   %bcmp.i107.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.51, i64 2), !alias.scope !604, !noalias !589
-  %116 = icmp eq i32 %bcmp.i107.i, 0
-  br i1 %116, label %124, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i"
+  %119 = icmp eq i32 %bcmp.i107.i, 0
+  br i1 %119, label %123, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i"
 
-117:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
-  %118 = icmp ult i64 %92, 17179869184
-  %119 = shl nuw i64 %92, 30
-  br i1 %118, label %.thread65, label %.thread61
+120:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit96.thread.thread.i"
+  %121 = icmp ult i64 %92, 17179869184
+  %122 = shl nuw i64 %92, 30
+  br i1 %121, label %.thread65, label %.thread61
 
-120:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %121 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
-  %122 = extractvalue { i64, i1 } %121, 1
-  %123 = extractvalue { i64, i1 } %121, 0
-  br i1 %122, label %.thread61, label %.thread65
-
-124:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
-  %125 = icmp ult i64 %92, 16777216
-  %126 = shl nuw i64 %92, 40
-  br i1 %125, label %.thread65, label %.thread61
+123:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
+  %124 = icmp ult i64 %92, 16777216
+  %125 = shl nuw i64 %92, 40
+  br i1 %124, label %.thread65, label %.thread61
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit104.thread.thread.i"
   %bcmp.i115.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %95, ptr noundef nonnull dereferenceable(2) @anon.8ec2f0b8b4464c66ba659efff469466f.52, i64 2), !alias.scope !608, !noalias !589
   %.not.i = icmp eq i32 %bcmp.i115.i, 0
-  %127 = icmp ult i64 %92, 16384
-  %or.cond.i = select i1 %.not.i, i1 %127, i1 false
-  %128 = shl nuw i64 %92, 50
+  %126 = icmp ult i64 %92, 16384
+  %or.cond.i = select i1 %.not.i, i1 %126, i1 false
+  %127 = shl nuw i64 %92, 50
   br i1 %or.cond.i, label %.thread65, label %.thread61
 
-129:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
-  %130 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
-  %131 = extractvalue { i64, i1 } %130, 1
-  %132 = extractvalue { i64, i1 } %130, 0
-  br i1 %131, label %.thread61, label %.thread65
+128:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %129 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000000)
+  %130 = extractvalue { i64, i1 } %129, 1
+  %131 = extractvalue { i64, i1 } %129, 0
+  br i1 %130, label %.thread61, label %.thread65
 
-133:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit84.i"
-  %134 = icmp ult i64 %92, 18014398509481984
-  %135 = shl nuw i64 %92, 10
-  br i1 %134, label %.thread65, label %.thread61
+132:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i"
+  %133 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %92, i64 1000000000000)
+  %134 = extractvalue { i64, i1 } %133, 1
+  %135 = extractvalue { i64, i1 } %133, 0
+  br i1 %134, label %.thread61, label %.thread65
 
-.thread65:                                        ; preds = %.noexc38, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %104, %129, %109, %100, %112, %124, %117, %120, %133
-  %.sroa.24.0.i69 = phi i64 [ %128, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i" ], [ %135, %133 ], [ %123, %120 ], [ %119, %117 ], [ %126, %124 ], [ %115, %112 ], [ %103, %100 ], [ %111, %109 ], [ %132, %129 ], [ %107, %104 ], [ %92, %.noexc38 ]
+.thread65:                                        ; preds = %.noexc38, %104, %120, %107, %128, %112, %100, %115, %123, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %132
+  %.sroa.24.0.i69 = phi i64 [ %106, %104 ], [ %135, %132 ], [ %127, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i" ], [ %125, %123 ], [ %118, %115 ], [ %103, %100 ], [ %114, %112 ], [ %131, %128 ], [ %110, %107 ], [ %122, %120 ], [ %92, %.noexc38 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4981,7 +4981,7 @@ define hidden void @_ZN14wasmtime_cache6config22deserialize_disk_space17habfae79
   store i64 2, ptr %0, align 8
   br label %139
 
-.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i", %.noexc38, %.noexc37, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %104, %129, %109, %100, %112, %124, %117, %120, %133
+.thread61:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit80.i", %.noexc38, %.noexc37, %104, %120, %107, %128, %112, %100, %115, %123, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit116.i", %132
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.049)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !612
   store ptr @anon.8ec2f0b8b4464c66ba659efff469466f.35, ptr %4, align 8, !noalias !616

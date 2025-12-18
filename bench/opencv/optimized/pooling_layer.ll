@@ -9879,7 +9879,7 @@ _ZSt11max_elementIPKfET_S2_S2_.exit:              ; preds = %.lr.ph.i.i, %367
   br i1 %.not.i, label %_ZSt10accumulateIPKffET0_T_S3_S2_.exit, label %.lr.ph.i, !llvm.loop !184
 
 _ZSt10accumulateIPKffET0_T_S3_S2_.exit:           ; preds = %._crit_edge657.split.us.us.us, %.lr.ph.i, %.preheader641, %461
-  %.0291.lcssa.sink = phi float [ 0.000000e+00, %461 ], [ 0.000000e+00, %.preheader641 ], [ %467, %.lr.ph.i ], [ %457, %._crit_edge657.split.us.us.us ]
+  %.0291.lcssa.sink = phi float [ %467, %.lr.ph.i ], [ 0.000000e+00, %461 ], [ 0.000000e+00, %.preheader641 ], [ %457, %._crit_edge657.split.us.us.us ]
   %469 = fmul float %446, %.0291.lcssa.sink
   %470 = getelementptr inbounds float, ptr %327, i64 %indvars.iv772
   store float %469, ptr %470, align 4, !tbaa !115

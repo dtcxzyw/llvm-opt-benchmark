@@ -537,7 +537,7 @@ decomp_block.exit.thread214.loopexit:             ; preds = %183
   store ptr %185, ptr %69, align 8
   br label %decomp_block.exit.thread214
 
-decomp_block.exit.thread214:                      ; preds = %.loopexit119.i.i, %241, %133, %.lr.ph.i.i.i, %.lr.ph.i107.i.i, %.outer.split.i.i, %125, %145, %206, %decomp_block.exit.thread214.loopexit
+decomp_block.exit.thread214:                      ; preds = %133, %241, %.loopexit119.i.i, %.lr.ph.i.i.i, %.lr.ph.i107.i.i, %.outer.split.i.i, %125, %145, %206, %decomp_block.exit.thread214.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %decomp_block.exit.thread
@@ -1151,7 +1151,7 @@ getbits.exit78.thread:                            ; preds = %37
   br label %.loopexit114
 
 .loopexit114:                                     ; preds = %63, %72, %126, %94, %28, %getbits.exit78.thread, %.loopexit110.thread, %167, %170, %.split.us, %.loopexit
-  %.057 = phi i32 [ 0, %28 ], [ 0, %.split.us ], [ 1, %.loopexit ], [ 0, %170 ], [ 0, %167 ], [ 0, %.loopexit110.thread ], [ 0, %getbits.exit78.thread ], [ 0, %72 ], [ 0, %94 ], [ 0, %126 ], [ 0, %63 ]
+  %.057 = phi i32 [ 0, %167 ], [ 0, %28 ], [ 0, %.split.us ], [ 0, %72 ], [ 0, %getbits.exit78.thread ], [ 1, %.loopexit ], [ 0, %.loopexit110.thread ], [ 0, %170 ], [ 0, %94 ], [ 0, %126 ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.057
 }
@@ -1319,7 +1319,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
   br i1 %84, label %.lr.ph129, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %42, %46, %24, %65, %67, %81, %.preheader, %60
-  %.0 = phi i8 [ 0, %60 ], [ 1, %.preheader ], [ 0, %42 ], [ 1, %81 ], [ 0, %67 ], [ 0, %65 ], [ 0, %24 ], [ 0, %46 ], [ 0, %.lr.ph ]
+  %.0 = phi i8 [ 0, %42 ], [ 1, %81 ], [ 0, %60 ], [ 1, %.preheader ], [ 0, %67 ], [ 0, %65 ], [ 0, %24 ], [ 0, %46 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.0

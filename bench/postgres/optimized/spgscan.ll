@@ -1184,7 +1184,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
   br label %.thread104
 
 .thread104:                                       ; preds = %.lr.ph, %.preheader, %.preheader110, %273, %.thread102, %57
-  %.4 = phi i32 [ %.3, %57 ], [ %.5, %273 ], [ %.5, %.thread102 ], [ %.5, %.preheader110 ], [ %.5, %.preheader ], [ %.5, %.lr.ph ]
+  %.4 = phi i32 [ %.3, %57 ], [ %.5, %.preheader ], [ %.5, %273 ], [ %.5, %.thread102 ], [ %.5, %.preheader110 ], [ %.5, %.lr.ph ]
   %274 = load i8, ptr %48, align 1, !range !9, !noundef !10
   %275 = trunc nuw i8 %274 to i1
   br i1 %275, label %276, label %279

@@ -886,7 +886,7 @@ _ZNK9used_vars8containsEj.exit.thread:            ; preds = %149, %_ZNK6vectorIP
   br i1 %.not27.old.i.i, label %.loopexit386, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %192, %189
-  %.137.i.i.be = phi ptr [ %.old.i.i, %192 ], [ %191, %189 ]
+  %.137.i.i.be = phi ptr [ %191, %189 ], [ %.old.i.i, %192 ]
   br label %.lr.ph38.i.i, !llvm.loop !88
 
 .loopexit386:                                     ; preds = %178, %192, %189, %.preheader.i.i
@@ -956,7 +956,7 @@ _ZNK9used_vars8containsEj.exit.thread:            ; preds = %149, %_ZNK6vectorIP
   br i1 %.not27.old.i.i129, label %.loopexit382, label %.lr.ph38.i.i125.backedge
 
 .lr.ph38.i.i125.backedge:                         ; preds = %221, %218
-  %.137.i.i126.be = phi ptr [ %.old.i.i128, %221 ], [ %220, %218 ]
+  %.137.i.i126.be = phi ptr [ %220, %218 ], [ %.old.i.i128, %221 ]
   br label %.lr.ph38.i.i125, !llvm.loop !88
 
 .loopexit382:                                     ; preds = %207, %221, %218, %.preheader.i.i123
@@ -1150,7 +1150,7 @@ _ZNK9used_vars8containsEj.exit157.thread:         ; preds = %246, %_ZNK6vectorIP
   br i1 %.not27.old.i.i171, label %.loopexit379, label %.lr.ph38.i.i167.backedge
 
 .lr.ph38.i.i167.backedge:                         ; preds = %289, %286
-  %.137.i.i168.be = phi ptr [ %.old.i.i170, %289 ], [ %288, %286 ]
+  %.137.i.i168.be = phi ptr [ %288, %286 ], [ %.old.i.i170, %289 ]
   br label %.lr.ph38.i.i167, !llvm.loop !88
 
 .loopexit379:                                     ; preds = %275, %289, %286, %.preheader.i.i165
@@ -1220,7 +1220,7 @@ _ZNK9used_vars8containsEj.exit157.thread:         ; preds = %246, %_ZNK6vectorIP
   br i1 %.not27.old.i.i191, label %.loopexit, label %.lr.ph38.i.i187.backedge
 
 .lr.ph38.i.i187.backedge:                         ; preds = %318, %315
-  %.137.i.i188.be = phi ptr [ %.old.i.i190, %318 ], [ %317, %315 ]
+  %.137.i.i188.be = phi ptr [ %317, %315 ], [ %.old.i.i190, %318 ]
   br label %.lr.ph38.i.i187, !llvm.loop !88
 
 .loopexit:                                        ; preds = %304, %318, %315, %.preheader.i.i185
@@ -1395,7 +1395,7 @@ _ZN14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6inser
   br i1 %.not27.old.i.i234, label %_ZN14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5eraseERKPS1_.exit, label %.lr.ph38.i.i230.backedge
 
 .lr.ph38.i.i230.backedge:                         ; preds = %375, %372
-  %.137.i.i231.be = phi ptr [ %.old.i.i233, %375 ], [ %374, %372 ]
+  %.137.i.i231.be = phi ptr [ %374, %372 ], [ %.old.i.i233, %375 ]
   br label %.lr.ph38.i.i230, !llvm.loop !88
 
 _ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit240: ; preds = %356, %367
@@ -1465,7 +1465,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   br i1 %.not27.old.i.i254, label %_ZN14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5eraseERKPS1_.exit, label %.lr.ph38.i.i250.backedge
 
 .lr.ph38.i.i250.backedge:                         ; preds = %404, %401
-  %.137.i.i251.be = phi ptr [ %.old.i.i253, %404 ], [ %403, %401 ]
+  %.137.i.i251.be = phi ptr [ %403, %401 ], [ %.old.i.i253, %404 ]
   br label %.lr.ph38.i.i250, !llvm.loop !88
 
 _ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit260: ; preds = %385, %396
@@ -1578,7 +1578,7 @@ _ZN14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5erase
   br i1 %.not27.old.i.i275, label %_ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit281.thread, label %.lr.ph38.i.i271.backedge
 
 .lr.ph38.i.i271.backedge:                         ; preds = %446, %443
-  %.137.i.i272.be = phi ptr [ %.old.i.i274, %446 ], [ %445, %443 ]
+  %.137.i.i272.be = phi ptr [ %445, %443 ], [ %.old.i.i274, %446 ]
   br label %.lr.ph38.i.i271, !llvm.loop !88
 
 _ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit281.thread: ; preds = %432, %443, %446, %.preheader.i.i269, %413
@@ -1655,7 +1655,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   br i1 %.not27.old.i.i295, label %_ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit301.thread, label %.lr.ph38.i.i291.backedge
 
 .lr.ph38.i.i291.backedge:                         ; preds = %479, %476
-  %.137.i.i292.be = phi ptr [ %.old.i.i294, %479 ], [ %478, %476 ]
+  %.137.i.i292.be = phi ptr [ %478, %476 ], [ %.old.i.i294, %479 ]
   br label %.lr.ph38.i.i291, !llvm.loop !88
 
 480:                                              ; preds = %.lr.ph408
@@ -1674,7 +1674,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   br label %_ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit281
 
 _ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit281: ; preds = %427, %438, %460, %471, %_ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit301.thread
-  %.151 = phi i32 [ %485, %_ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit301.thread ], [ %.050404, %438 ], [ %.050404, %471 ], [ %.050404, %460 ], [ %.050404, %427 ]
+  %.151 = phi i32 [ %485, %_ZNK14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit301.thread ], [ %.050404, %438 ], [ %.050404, %460 ], [ %.050404, %471 ], [ %.050404, %427 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2760,7 +2760,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI3varE12obj
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !178
 
 .loopexit38:                                      ; preds = %17, %28

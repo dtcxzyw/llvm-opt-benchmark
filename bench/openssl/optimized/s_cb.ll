@@ -1626,10 +1626,10 @@ lookup.exit71.thread122:                          ; preds = %.lr.ph.i73.preheade
   br label %.lr.ph103.preheader
 
 lookup.exit71:                                    ; preds = %.lr.ph.i73, %.lr.ph.i67, %.lookup.exit71.loopexit90_crit_edge, %.lookup.exit71.loopexit_crit_edge, %lookup.exit, %37, %38, %39, %40, %15, %42
-  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.57, %15 ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ @.str.53, %39 ], [ %switch.select65, %.lookup.exit71.loopexit_crit_edge ], [ @.str.54, %.lookup.exit71.loopexit90_crit_edge ], [ %switch.select65, %.lr.ph.i67 ], [ %33, %.lr.ph.i73 ]
-  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.53, %15 ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ @.str.53, %39 ], [ @.str.60, %.lookup.exit71.loopexit_crit_edge ], [ @.str.53, %.lookup.exit71.loopexit90_crit_edge ], [ %23, %.lr.ph.i67 ], [ @.str.53, %.lr.ph.i73 ]
-  %.057 = phi ptr [ %8, %40 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %15 ], [ @.str.62, %37 ], [ @.str.63, %38 ], [ @.str.64, %39 ], [ @.str.56, %.lookup.exit71.loopexit_crit_edge ], [ @.str.61, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.56, %.lr.ph.i67 ], [ @.str.61, %.lr.ph.i73 ]
-  %.056 = phi ptr [ %.0.i, %40 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %15 ], [ %.0.i, %37 ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ %.0.i, %.lookup.exit71.loopexit_crit_edge ], [ %.0.i, %.lookup.exit71.loopexit90_crit_edge ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lr.ph.i73 ]
+  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.57, %15 ], [ @.str.53, %39 ], [ @.str.54, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ %switch.select65, %.lr.ph.i67 ], [ %switch.select65, %.lookup.exit71.loopexit_crit_edge ], [ %33, %.lr.ph.i73 ]
+  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.53, %15 ], [ @.str.53, %39 ], [ @.str.53, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ %23, %.lr.ph.i67 ], [ @.str.60, %.lookup.exit71.loopexit_crit_edge ], [ @.str.53, %.lr.ph.i73 ]
+  %.057 = phi ptr [ %8, %40 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %15 ], [ @.str.64, %39 ], [ @.str.61, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.62, %37 ], [ @.str.63, %38 ], [ @.str.56, %.lr.ph.i67 ], [ @.str.56, %.lookup.exit71.loopexit_crit_edge ], [ @.str.61, %.lr.ph.i73 ]
+  %.056 = phi ptr [ %.0.i, %40 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %15 ], [ %.0.i, %39 ], [ %.0.i, %.lookup.exit71.loopexit90_crit_edge ], [ %.0.i, %37 ], [ %.0.i, %38 ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lookup.exit71.loopexit_crit_edge ], [ %.0.i, %.lr.ph.i73 ]
   %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef %.056, ptr noundef nonnull %.057, i64 noundef %4, ptr noundef %.1, ptr noundef nonnull %.058) #6
   %.not63 = icmp eq i64 %4, 0
   br i1 %.not63, label %59, label %.lr.ph103.preheader
@@ -2429,8 +2429,8 @@ define void @print_verify_detail(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not.i28, label %hexencode.exit, label %.lr.ph.i24, !llvm.loop !67
 
 hexencode.exit:                                   ; preds = %.lr.ph.i24, %.lr.ph.i, %45
-  %.017.lcssa.i.sink = phi ptr [ %48, %45 ], [ %44, %.lr.ph.i ], [ %62, %.lr.ph.i24 ]
-  %.0 = phi ptr [ %48, %45 ], [ %30, %.lr.ph.i ], [ %48, %.lr.ph.i24 ]
+  %.017.lcssa.i.sink = phi ptr [ %44, %.lr.ph.i ], [ %48, %45 ], [ %62, %.lr.ph.i24 ]
+  %.0 = phi ptr [ %30, %.lr.ph.i ], [ %48, %45 ], [ %48, %.lr.ph.i24 ]
   store i8 0, ptr %.017.lcssa.i.sink, align 1, !tbaa !15
   %63 = load i8, ptr %4, align 1, !tbaa !15
   %64 = zext i8 %63 to i32

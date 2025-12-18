@@ -3136,7 +3136,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl10compu
   br i1 %90, label %.loopexit, label %87
 
 .loopexit:                                        ; preds = %87, %.body, %.body.thread
-  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %40, %.body.thread ], [ %.pn30, %.body ], [ %.pn35.pn.pn, %87 ]
+  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn30, %.body ], [ %40, %.body.thread ], [ %.pn35.pn.pn, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %91
 

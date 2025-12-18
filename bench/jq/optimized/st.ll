@@ -762,7 +762,7 @@ define dso_local noalias noundef ptr @onig_st_copy(ptr noundef readonly captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %.preheader, %1
-  %.0 = phi ptr [ null, %1 ], [ %4, %.preheader ], [ null, %.loopexit.sink.split ], [ %4, %._crit_edge ]
+  %.0 = phi ptr [ null, %1 ], [ null, %.loopexit.sink.split ], [ %4, %.preheader ], [ %4, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -1173,7 +1173,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_foreach(ptr noundef captures(none)
   br i1 %46, label %9, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph49, %19, %23, %26, %3
-  %.032 = phi i32 [ 0, %3 ], [ 0, %.lr.ph49 ], [ 1, %26 ], [ 1, %23 ], [ 1, %19 ], [ 0, %._crit_edge ]
+  %.032 = phi i32 [ 0, %.lr.ph49 ], [ 1, %26 ], [ 0, %3 ], [ 1, %23 ], [ 1, %19 ], [ 0, %._crit_edge ]
   ret i32 %.032
 }
 

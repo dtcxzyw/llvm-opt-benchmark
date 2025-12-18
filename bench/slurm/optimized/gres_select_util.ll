@@ -600,7 +600,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   br i1 %.not46, label %.outer, label %34, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.outer, %26, %8
-  %.031.ph.lcssa = phi i1 [ false, %8 ], [ %.031.ph65, %26 ], [ true, %.outer ]
+  %.031.ph.lcssa = phi i1 [ %.031.ph65, %26 ], [ false, %8 ], [ true, %.outer ]
   call void @slurm_list_iterator_destroy(ptr noundef %9) #4
   br label %62
 

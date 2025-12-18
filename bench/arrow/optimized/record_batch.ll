@@ -34248,12 +34248,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1321
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIhEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IhEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1322
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIhEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IhEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1282
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -34522,12 +34522,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1364
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIaEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IaEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1365
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIaEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IaEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1325
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -34796,12 +34796,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1411
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplItEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ItEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1412
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplItEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ItEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1372
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35070,12 +35070,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1454
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIsEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IsEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1455
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIsEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IsEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1415
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35344,12 +35344,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1500
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIjEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IjEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1501
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIjEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IjEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1461
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35618,12 +35618,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1543
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIiEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IiEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1544
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIiEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IiEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1504
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35892,12 +35892,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1590
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplImEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ImEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1591
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplImEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ImEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1551
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -36166,12 +36166,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1633
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIlEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IlEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1634
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIlEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IlEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1594
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -38668,7 +38668,7 @@ _ZN5arrow6StatusD2Ev.exit69.thread.i.i.i:         ; preds = %312, %275, %238, %_
   br label %_ZN5arrow6StatusD2Ev.exit71.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit69.thread78.i.i.i:       ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i33.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i28.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i23.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  %.ph.i.i.i = phi ptr [ %.pr.i.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i.i.i.i.i ], [ %.pr.i.i.i.i.i25.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i23.i.i.i.i.i ], [ %.pr.i.i.i.i.i30.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i28.i.i.i.i.i ], [ %.pr.i.i.i.i.i35.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i33.i.i.i.i.i ]
+  %.ph.i.i.i = phi ptr [ %.pr.i.i.i.i.i30.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i28.i.i.i.i.i ], [ %.pr.i.i.i.i.i25.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i23.i.i.i.i.i ], [ %.pr.i.i.i.i.i35.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i33.i.i.i.i.i ], [ %.pr.i.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i.i.i.i.i ]
   store ptr %.ph.i.i.i, ptr %0, align 8, !tbaa !85, !alias.scope !1939
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1809
   br label %"_ZSt10__invoke_rIN5arrow6StatusERZNKS0_11RecordBatch19MakeStatisticsArrayEPNS0_10MemoryPoolEE3$_1JRKNS0_12_GLOBAL__N_120EnumeratedStatisticsEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"

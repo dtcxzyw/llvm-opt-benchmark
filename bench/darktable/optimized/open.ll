@@ -1914,7 +1914,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %.loopexit785
 
 .loopexit785:                                     ; preds = %655, %625, %696, %667
-  %.0334 = phi i32 [ 6, %625 ], [ 2, %696 ], [ 2, %667 ], [ 6, %655 ]
+  %.0334 = phi i32 [ 2, %667 ], [ 2, %696 ], [ 6, %625 ], [ 6, %655 ]
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %.rhs.trunc728 = trunc nuw nsw i32 %.0334 to i16
   br label %698
@@ -2576,8 +2576,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br i1 %exitcond931.not, label %994, label %995, !llvm.loop !167
 
 .thread720:                                       ; preds = %994, %.lr.ph832, %.preheader780, %945, %.loopexit781
-  %.unpack515 = phi i64 [ 0, %945 ], [ %.unpack502, %.loopexit781 ], [ 0, %.preheader780 ], [ 0, %.lr.ph832 ], [ 0, %994 ]
-  %.unpack513 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %945 ], [ %.unpack500, %.loopexit781 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.preheader780 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.lr.ph832 ], [ ptrtoint (ptr @_ZN6LibRaw15nikon_load_srawEv to i64), %994 ]
+  %.unpack515 = phi i64 [ 0, %.lr.ph832 ], [ 0, %945 ], [ %.unpack502, %.loopexit781 ], [ 0, %.preheader780 ], [ 0, %994 ]
+  %.unpack513 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.lr.ph832 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %945 ], [ %.unpack500, %.loopexit781 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.preheader780 ], [ ptrtoint (ptr @_ZN6LibRaw15nikon_load_srawEv to i64), %994 ]
   %999 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw14nikon_load_rawEv to i64)
   %1000 = icmp eq i64 %.unpack515, 0
   %1001 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64)

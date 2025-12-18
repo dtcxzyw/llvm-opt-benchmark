@@ -10634,7 +10634,7 @@ thread-pre-split:                                 ; preds = %4
   br i1 %.not, label %.loopexit, label %39
 
 .loopexit:                                        ; preds = %37, %30, %73, %36, %90, %130, %.preheader87, %.preheader
-  %.sroa.023.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader87 ], [ %35, %30 ], [ %135, %130 ], [ %95, %90 ], [ %.sroa.023.0, %36 ], [ %78, %73 ], [ %.sroa.023.3, %37 ]
+  %.sroa.023.1 = phi i64 [ %35, %30 ], [ %135, %130 ], [ %78, %73 ], [ 0, %.preheader ], [ %.sroa.023.0, %36 ], [ 0, %.preheader87 ], [ %95, %90 ], [ %.sroa.023.3, %37 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.023.1, ptr %38, align 8
   br label %7
@@ -10896,7 +10896,7 @@ thread-pre-split:                                 ; preds = %3
   br i1 %.not, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %.preheader83, %48, %.preheader79, %84, %.preheader81, %.preheader
-  %.sroa.023.1 = phi i128 [ 0, %.preheader ], [ 0, %.preheader81 ], [ %53, %48 ], [ %89, %84 ], [ %.sroa.023.0, %.preheader79 ], [ %.sroa.023.3, %.preheader83 ]
+  %.sroa.023.1 = phi i128 [ %53, %48 ], [ %89, %84 ], [ %.sroa.023.0, %.preheader79 ], [ 0, %.preheader ], [ 0, %.preheader81 ], [ %.sroa.023.3, %.preheader83 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.023.1, ptr %21, align 16
   br label %6
@@ -11108,7 +11108,7 @@ define internal fastcc void @"_ZN4core3num22_$LT$impl$u20$u128$GT$16from_ascii_r
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader44, %45, %.preheader
-  %.sroa.013.1 = phi i128 [ 0, %.preheader ], [ %50, %45 ], [ %.sroa.013.0, %.preheader44 ]
+  %.sroa.013.1 = phi i128 [ %50, %45 ], [ 0, %.preheader ], [ %.sroa.013.0, %.preheader44 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.013.1, ptr %18, align 16
   br label %6
@@ -15504,7 +15504,7 @@ select.unfold.i:                                  ; preds = %"_ZN4core3str4iter2
   br label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit": ; preds = %.preheader.i, %.preheader.i94, %.preheader.i105, %110, %.loopexit149, %.loopexit269
-  %.sroa.0.0 = phi i24 [ 65536, %.loopexit149 ], [ 65792, %.loopexit269 ], [ %spec.select, %110 ], [ 1, %.preheader.i94 ], [ 256, %.preheader.i105 ], [ 65536, %.preheader.i ]
+  %.sroa.0.0 = phi i24 [ 65536, %.loopexit149 ], [ 256, %.preheader.i105 ], [ 1, %.preheader.i94 ], [ 65792, %.loopexit269 ], [ %spec.select, %110 ], [ 65536, %.preheader.i ]
   ret i24 %.sroa.0.0
 }
 

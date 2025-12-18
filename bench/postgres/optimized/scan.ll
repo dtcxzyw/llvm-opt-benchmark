@@ -248,9 +248,9 @@ core_yyensure_buffer_stack.exit:                  ; preds = %39, %42, %50
   br label %.loopexit868
 
 .loopexit868.loopexit:                            ; preds = %.lr.ph.i833, %1665, %1884
-  %.3687.ph = phi ptr [ %1882, %1884 ], [ %1647, %1665 ], [ %1882, %.lr.ph.i833 ]
-  %.5683.ph = phi ptr [ %1891, %1884 ], [ %1670, %1665 ], [ %1891, %.lr.ph.i833 ]
-  %.5.ph = phi ptr [ %1895, %1884 ], [ %1669, %1665 ], [ %1903, %.lr.ph.i833 ]
+  %.3687.ph = phi ptr [ %1647, %1665 ], [ %1882, %1884 ], [ %1882, %.lr.ph.i833 ]
+  %.5683.ph = phi ptr [ %1670, %1665 ], [ %1891, %1884 ], [ %1891, %.lr.ph.i833 ]
+  %.5.ph = phi ptr [ %1669, %1665 ], [ %1895, %1884 ], [ %1903, %.lr.ph.i833 ]
   %.06901396.pre = load i8, ptr %.5683.ph, align 1
   br label %.loopexit868
 
@@ -2268,7 +2268,7 @@ addlit.exit812:                                   ; preds = %1133, %1142
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit1921, %.critedge30.preheader, %1284, %1270
-  %.1696 = phi i32 [ %.0695, %1270 ], [ %.0695, %1284 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit1921 ], [ 1, %.critedge30.backedge ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ]
+  %.1696 = phi i32 [ %.0695, %1270 ], [ %.0695, %1284 ], [ 1, %.critedge30.backedge ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit1921 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ]
   %1301 = load ptr, ptr %2, align 8
   %1302 = load ptr, ptr %1301, align 8
   %1303 = ptrtoint ptr %1302 to i64
@@ -3392,7 +3392,7 @@ yy_get_previous_state.exit839:                    ; preds = %yy_get_next_buffer.
   br label %1927
 
 1927:                                             ; preds = %1329, %.fold.split, %1567, %1584, %.thread860, %1314, %1321, %1325, %1332, %279, %296, %1601, %1589, %1504, %process_integer_literal.exit821, %1468, %process_integer_literal.exit819, %process_integer_literal.exit817, %process_integer_literal.exit815, %process_integer_literal.exit, %1358, %1258, %1249, %1240, %1231, %1222, %1213, %1204, %1195, %1186, %1170, %1095, %1087, %886, %864, %420, %407, %385, %373
-  %.1 = phi i32 [ 0, %1601 ], [ 263, %373 ], [ 264, %385 ], [ 261, %407 ], [ 262, %420 ], [ %878, %864 ], [ 261, %886 ], [ 258, %1087 ], [ 259, %1095 ], [ 258, %1170 ], [ 268, %1186 ], [ 269, %1195 ], [ 270, %1204 ], [ 271, %1213 ], [ 272, %1222 ], [ 273, %1231 ], [ 274, %1240 ], [ 274, %1249 ], [ %1269, %1258 ], [ 258, %296 ], [ 267, %1358 ], [ %.0.i813, %process_integer_literal.exit ], [ %.0.i814, %process_integer_literal.exit815 ], [ %.0.i816, %process_integer_literal.exit817 ], [ %.0.i818, %process_integer_literal.exit819 ], [ 260, %1468 ], [ %.0.i820, %process_integer_literal.exit821 ], [ 260, %1504 ], [ 274, %1332 ], [ %1600, %1589 ], [ %295, %279 ], [ 265, %.thread860 ], [ %1317, %1314 ], [ 271, %1321 ], [ 273, %1325 ], [ 272, %1329 ], [ %1583, %1567 ], [ 258, %1584 ], [ 274, %.fold.split ]
+  %.1 = phi i32 [ 0, %1601 ], [ 263, %373 ], [ 264, %385 ], [ 261, %407 ], [ 262, %420 ], [ %878, %864 ], [ 261, %886 ], [ 258, %1087 ], [ 259, %1095 ], [ 258, %1170 ], [ 268, %1186 ], [ 269, %1195 ], [ 270, %1204 ], [ 271, %1213 ], [ 272, %1222 ], [ 273, %1231 ], [ 274, %1240 ], [ 274, %1249 ], [ %1269, %1258 ], [ 258, %296 ], [ 267, %1358 ], [ %.0.i813, %process_integer_literal.exit ], [ %.0.i814, %process_integer_literal.exit815 ], [ %.0.i816, %process_integer_literal.exit817 ], [ %.0.i818, %process_integer_literal.exit819 ], [ 260, %1468 ], [ %.0.i820, %process_integer_literal.exit821 ], [ 260, %1504 ], [ 274, %1332 ], [ %1600, %1589 ], [ %295, %279 ], [ 265, %.thread860 ], [ %1317, %1314 ], [ 271, %1321 ], [ 273, %1325 ], [ 272, %1329 ], [ 258, %1584 ], [ %1583, %1567 ], [ 274, %.fold.split ]
   ret i32 %.1
 }
 
@@ -4986,7 +4986,7 @@ core_yy_delete_buffer.exit.i:                     ; preds = %36, %33, %.critedge
   br label %core_yypop_buffer_state.exit
 
 core_yypop_buffer_state.exit:                     ; preds = %27, %46, %49
-  %58 = phi ptr [ %26, %27 ], [ %45, %46 ], [ %45, %49 ]
+  %58 = phi ptr [ %45, %49 ], [ %26, %27 ], [ %45, %46 ]
   %59 = load i64, ptr %4, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

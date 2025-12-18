@@ -1280,7 +1280,7 @@ tok_next.exit:                                    ; preds = %66
   br label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %89, %._crit_edge.thread, %.thread146
-  %.sroa.25.3.ph = phi i64 [ %64, %.thread146 ], [ %.sroa.25.1157259270289, %._crit_edge.thread ], [ %64, %89 ]
+  %.sroa.25.3.ph = phi i64 [ %.sroa.25.1157259270289, %._crit_edge.thread ], [ %64, %.thread146 ], [ %64, %89 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %99
@@ -4177,8 +4177,8 @@ copyPts.exit:                                     ; preds = %copyPts.exit.loopex
   unreachable
 
 boxf_overlap.exit.thread.i.i.i:                   ; preds = %614, %614, %814, %813, %812, %791, %789, %753, %750, %743, %737, %copyPts.exit, %705, %copyPts.exit91, %671, %copyPts.exit99, %637, %622, %616
-  %.1100.i.i.i = phi i32 [ %.099184.ph.i.i.i, %622 ], [ %.099184.ph.i.i.i, %616 ], [ %.099184.ph.i.i.i, %copyPts.exit99 ], [ %.099184.ph.i.i.i, %737 ], [ %.099184.ph.i.i.i, %copyPts.exit91 ], [ %.099184.ph.i.i.i, %637 ], [ %.099184.ph.i.i.i, %copyPts.exit ], [ %.099184.ph.i.i.i, %671 ], [ %.099184.ph.i.i.i, %743 ], [ %.099184.ph.i.i.i, %705 ], [ 1, %750 ], [ 1, %753 ], [ %.099184.ph.i.i.i, %813 ], [ %.099184.ph.i.i.i, %812 ], [ 2, %791 ], [ %.099184.ph.i.i.i, %814 ], [ 3, %789 ], [ %.099184.ph.i.i.i, %614 ], [ %.099184.ph.i.i.i, %614 ]
-  %.1.i.i.i = phi i32 [ %.0187.ph.i.i.i, %622 ], [ %.0187.ph.i.i.i, %616 ], [ %.0187.ph.i.i.i, %copyPts.exit99 ], [ %.0187.ph.i.i.i, %737 ], [ %.0187.ph.i.i.i, %copyPts.exit91 ], [ %.0187.ph.i.i.i, %637 ], [ %.0187.ph.i.i.i, %copyPts.exit ], [ %.0187.ph.i.i.i, %671 ], [ %.0187.ph.i.i.i, %743 ], [ %.0187.ph.i.i.i, %705 ], [ %.0187.ph.i.i.i, %750 ], [ %.0187.ph.i.i.i, %753 ], [ 0, %813 ], [ %.0187.ph.i.i.i, %812 ], [ %.0187.ph.i.i.i, %791 ], [ 0, %814 ], [ %.0187.ph.i.i.i, %789 ], [ %.0187.ph.i.i.i, %614 ], [ %.0187.ph.i.i.i, %614 ]
+  %.1100.i.i.i = phi i32 [ %.099184.ph.i.i.i, %622 ], [ %.099184.ph.i.i.i, %616 ], [ %.099184.ph.i.i.i, %copyPts.exit99 ], [ %.099184.ph.i.i.i, %737 ], [ %.099184.ph.i.i.i, %copyPts.exit91 ], [ %.099184.ph.i.i.i, %637 ], [ %.099184.ph.i.i.i, %copyPts.exit ], [ %.099184.ph.i.i.i, %671 ], [ %.099184.ph.i.i.i, %743 ], [ %.099184.ph.i.i.i, %705 ], [ 1, %750 ], [ 1, %753 ], [ %.099184.ph.i.i.i, %813 ], [ %.099184.ph.i.i.i, %812 ], [ 2, %791 ], [ 3, %789 ], [ %.099184.ph.i.i.i, %814 ], [ %.099184.ph.i.i.i, %614 ], [ %.099184.ph.i.i.i, %614 ]
+  %.1.i.i.i = phi i32 [ %.0187.ph.i.i.i, %622 ], [ %.0187.ph.i.i.i, %616 ], [ %.0187.ph.i.i.i, %copyPts.exit99 ], [ %.0187.ph.i.i.i, %737 ], [ %.0187.ph.i.i.i, %copyPts.exit91 ], [ %.0187.ph.i.i.i, %637 ], [ %.0187.ph.i.i.i, %copyPts.exit ], [ %.0187.ph.i.i.i, %671 ], [ %.0187.ph.i.i.i, %743 ], [ %.0187.ph.i.i.i, %705 ], [ %.0187.ph.i.i.i, %750 ], [ %.0187.ph.i.i.i, %753 ], [ 0, %813 ], [ %.0187.ph.i.i.i, %812 ], [ %.0187.ph.i.i.i, %791 ], [ %.0187.ph.i.i.i, %789 ], [ 0, %814 ], [ %.0187.ph.i.i.i, %614 ], [ %.0187.ph.i.i.i, %614 ]
   %818 = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 128
   %819 = add nuw i64 %.0101183.i.i.i, 1
   %820 = load i64, ptr %608, align 8, !tbaa !146
@@ -5494,8 +5494,8 @@ gv_strdup.exit11:                                 ; preds = %43
   br i1 %exitcond.not, label %colorsegs_free.exit, label %62, !llvm.loop !117
 
 colorsegs_free.exit:                              ; preds = %62, %24, %19
-  %.pre27.pre28.sink = phi ptr [ %.pre27, %19 ], [ %.pre2736, %24 ], [ %.pre27.pre28, %62 ]
-  %.0 = phi i1 [ false, %19 ], [ false, %24 ], [ true, %62 ]
+  %.pre27.pre28.sink = phi ptr [ %.pre2736, %24 ], [ %.pre27, %19 ], [ %.pre27.pre28, %62 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %19 ], [ true, %62 ]
   tail call void @free(ptr noundef %.pre27.pre28.sink) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -6069,8 +6069,8 @@ gv_calloc.exit198.i:                              ; preds = %.thread.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %gv_calloc.exit192.i, %gv_calloc.exit196.i, %.lr.ph.i, %.loopexit.sink.split.i, %209
-  %.2171.i = phi ptr [ %215, %209 ], [ %.sink232.i, %.loopexit.sink.split.i ], [ %253, %gv_calloc.exit196.i ], [ %215, %.lr.ph.i ], [ %233, %gv_calloc.exit192.i ]
-  %.2.i = phi i64 [ 0, %209 ], [ 2, %.loopexit.sink.split.i ], [ %spec.select190.i, %gv_calloc.exit196.i ], [ %164, %.lr.ph.i ], [ %164, %gv_calloc.exit192.i ]
+  %.2171.i = phi ptr [ %215, %209 ], [ %.sink232.i, %.loopexit.sink.split.i ], [ %215, %.lr.ph.i ], [ %253, %gv_calloc.exit196.i ], [ %233, %gv_calloc.exit192.i ]
+  %.2.i = phi i64 [ 0, %209 ], [ 2, %.loopexit.sink.split.i ], [ %164, %.lr.ph.i ], [ %spec.select190.i, %gv_calloc.exit196.i ], [ %164, %gv_calloc.exit192.i ]
   %288 = and i32 %44, 8192
   %.not188.i = icmp eq i32 %288, 0
   br i1 %.not188.i, label %289, label %291
@@ -7276,7 +7276,7 @@ gv_strdup.exit365.i:                              ; preds = %525
   br label %553
 
 553:                                              ; preds = %.sink.split671.i, %543, %471
-  %.0248.i = phi ptr [ null, %543 ], [ null, %471 ], [ %.1249.i, %.sink.split671.i ]
+  %.0248.i = phi ptr [ null, %471 ], [ null, %543 ], [ %.1249.i, %.sink.split671.i ]
   %554 = and i32 %219, 4194304
   %.not334.i = icmp eq i32 %554, 0
   br i1 %.not334.i, label %739, label %555
@@ -12674,7 +12674,7 @@ is_natural_number.exit.i66:                       ; preds = %.preheader14.i64
   br label %layer_index.exit79
 
 layer_index.exit79:                               ; preds = %92, %81, %84, %.preheader.i69, %.loopexit.loopexit.split.loop.exit21.i78
-  %.012.i77 = phi i32 [ -1, %84 ], [ %83, %81 ], [ -1, %.preheader.i69 ], [ %93, %.loopexit.loopexit.split.loop.exit21.i78 ], [ -1, %92 ]
+  %.012.i77 = phi i32 [ -1, %84 ], [ %83, %81 ], [ %93, %.loopexit.loopexit.split.loop.exit21.i78 ], [ -1, %.preheader.i69 ], [ -1, %92 ]
   %94 = icmp eq i32 %.012.i77, %1
   br i1 %94, label %.critedge, label %.backedge
 

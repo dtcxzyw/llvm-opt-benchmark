@@ -991,7 +991,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %3, %3
-  %.0 = phi i16 [ %., %7 ], [ 6284, %12 ], [ 6488, %11 ], [ 6444, %3 ], [ 6444, %3 ]
+  %.0 = phi i16 [ %., %7 ], [ 6444, %3 ], [ 6284, %12 ], [ 6488, %11 ], [ 6444, %3 ]
   %14 = icmp ult i16 %.0, %2
   br i1 %14, label %15, label %.fold.split
 
@@ -6534,7 +6534,7 @@ _ZNK21libraw_static_table_tixEj.exit174:          ; preds = %363, %364, %366, %3
   br i1 %exitcond301.not, label %.loopexit210, label %.preheader214, !llvm.loop !215
 
 .loopexit210:                                     ; preds = %.loopexit, %112, %76, %67, %403, %389, %382, %145, %138, %131, %124, %105, %169, %187, %181, %_ZNK21libraw_static_table_tixEj.exit174, %_ZNK21libraw_static_table_tixEj.exit162.thread, %230, %_ZNK21libraw_static_table_tixEj.exit150, %55
-  %.1 = phi i32 [ %.0119266, %55 ], [ %231, %230 ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit150 ], [ %335, %_ZNK21libraw_static_table_tixEj.exit162.thread ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit174 ], [ %.0119266, %382 ], [ %.0119266, %181 ], [ %.0119266, %187 ], [ %.0119266, %169 ], [ %.0119266, %105 ], [ %.0119266, %124 ], [ %.0119266, %131 ], [ %.0119266, %138 ], [ %.0119266, %145 ], [ %.0119266, %112 ], [ %.0119266, %389 ], [ %.0119266, %403 ], [ %.0119266, %67 ], [ %.0119266, %76 ], [ %.0119266, %.loopexit ]
+  %.1 = phi i32 [ %.0119266, %55 ], [ %231, %230 ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit150 ], [ %335, %_ZNK21libraw_static_table_tixEj.exit162.thread ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit174 ], [ %.0119266, %145 ], [ %.0119266, %403 ], [ %.0119266, %382 ], [ %.0119266, %181 ], [ %.0119266, %187 ], [ %.0119266, %169 ], [ %.0119266, %389 ], [ %.0119266, %112 ], [ %.0119266, %76 ], [ %.0119266, %67 ], [ %.0119266, %105 ], [ %.0119266, %124 ], [ %.0119266, %131 ], [ %.0119266, %138 ], [ %.0119266, %.loopexit ]
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %.loopexit242, label %52, !llvm.loop !216
 

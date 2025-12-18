@@ -1326,7 +1326,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   br label %._crit_edge96.i.i
 
 ._crit_edge96.i.i:                                ; preds = %._crit_edge96.sink.split.i.i, %474, %467, %464
-  %.169.i.i = phi i64 [ %.06890.i.i, %464 ], [ %.06890.i.i, %._crit_edge96.sink.split.i.i ], [ %.pre97.i.i, %467 ], [ %spec.select102.i.i, %474 ]
+  %.169.i.i = phi i64 [ %.06890.i.i, %._crit_edge96.sink.split.i.i ], [ %.pre97.i.i, %467 ], [ %.06890.i.i, %464 ], [ %spec.select102.i.i, %474 ]
   %477 = call i32 @set_job_resources_node(ptr noundef nonnull %392, i32 noundef %437) #11
   %.not87.i.i = icmp eq i32 %477, 0
   br i1 %.not87.i.i, label %480, label %478
@@ -5474,9 +5474,9 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   br i1 %403, label %.thread336, label %.preheader361, !llvm.loop !52
 
 .thread336:                                       ; preds = %202, %.preheader361, %397, %._crit_edge428, %277, %268, %.preheader364, %.critedge
-  %.5245377 = phi i32 [ %.4244, %.critedge ], [ %.0240.lcssa, %.preheader364 ], [ %.5245490, %277 ], [ %.5245490, %268 ], [ %.5245490, %.preheader361 ], [ %.11251, %397 ], [ %.5245490, %._crit_edge428 ], [ %208, %202 ]
-  %.6232374 = phi i32 [ %.5231, %.critedge ], [ %.1227.lcssa, %.preheader364 ], [ %.6232491, %277 ], [ %.6232491, %268 ], [ %.6232491, %.preheader361 ], [ %.12238, %397 ], [ %.6232491, %._crit_edge428 ], [ %181, %202 ]
-  %.5371 = phi i32 [ %.4, %.critedge ], [ %.0201.lcssa, %.preheader364 ], [ %.5493, %277 ], [ %.5493, %268 ], [ %.5493, %.preheader361 ], [ %.11, %397 ], [ %.5493, %._crit_edge428 ], [ %217, %202 ]
+  %.5245377 = phi i32 [ %.0240.lcssa, %.preheader364 ], [ %.4244, %.critedge ], [ %.5245490, %.preheader361 ], [ %.5245490, %268 ], [ %.5245490, %277 ], [ %.11251, %397 ], [ %.5245490, %._crit_edge428 ], [ %208, %202 ]
+  %.6232374 = phi i32 [ %.1227.lcssa, %.preheader364 ], [ %.5231, %.critedge ], [ %.6232491, %.preheader361 ], [ %.6232491, %268 ], [ %.6232491, %277 ], [ %.12238, %397 ], [ %.6232491, %._crit_edge428 ], [ %181, %202 ]
+  %.5371 = phi i32 [ %.0201.lcssa, %.preheader364 ], [ %.4, %.critedge ], [ %.5493, %.preheader361 ], [ %.5493, %268 ], [ %.5493, %277 ], [ %.11, %397 ], [ %.5493, %._crit_edge428 ], [ %217, %202 ]
   %404 = icmp slt i32 %.5245377, 1
   br i1 %404, label %405, label %409
 

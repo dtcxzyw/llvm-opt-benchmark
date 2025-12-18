@@ -1704,7 +1704,7 @@ thread-pre-split:                                 ; preds = %1
   br label %_ZNK4llvm6detail9IEEEFloat29isSignificandAllOnesExceptLSBEv.exit
 
 _ZNK4llvm6detail9IEEEFloat29isSignificandAllOnesExceptLSBEv.exit: ; preds = %.lr.ph.i8, %.lr.ph.i, %68, %.critedge.i13, %.critedge.i, %27, %53, %26, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %26 ], [ false, %53 ], [ false, %27 ], [ %.not18.i, %.critedge.i ], [ %.not14.i, %68 ], [ false, %.critedge.i13 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i8 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %.lr.ph.i ], [ true, %26 ], [ false, %53 ], [ false, %27 ], [ %.not18.i, %.critedge.i ], [ %.not14.i, %68 ], [ false, %.critedge.i13 ], [ false, %.lr.ph.i8 ]
   ret i1 %.0
 }
 
@@ -6886,7 +6886,7 @@ _ZNK4llvm6detail9IEEEFloat10isDenormalEv.exit.thread: ; preds = %6, %11, %_ZNK4l
   br label %40
 
 40:                                               ; preds = %1, %.fold.split9, %.fold.split, %29, %_ZNK4llvm6detail9IEEEFloat10isDenormalEv.exit.thread
-  %.0 = phi i32 [ %28, %_ZNK4llvm6detail9IEEEFloat10isDenormalEv.exit.thread ], [ -2147483648, %1 ], [ %39, %29 ], [ -2147483647, %.fold.split ], [ 2147483647, %.fold.split9 ]
+  %.0 = phi i32 [ %28, %_ZNK4llvm6detail9IEEEFloat10isDenormalEv.exit.thread ], [ -2147483648, %1 ], [ -2147483647, %.fold.split ], [ %39, %29 ], [ 2147483647, %.fold.split9 ]
   ret i32 %.0
 }
 
@@ -7446,7 +7446,7 @@ _ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit: ; preds = %66, %67, %64, %7
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %98, %7, %37, %91, %94, %96, %97, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread81
-  %.0 = phi i32 [ 1, %96 ], [ 16, %97 ], [ 1, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread81 ], [ 1, %37 ], [ 1, %7 ], [ 1, %91 ], [ 1, %94 ], [ %.mux, %98 ], [ 0, %.critedge.sink.split ]
+  %.0 = phi i32 [ 1, %96 ], [ %.mux, %98 ], [ 16, %97 ], [ 1, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread81 ], [ 1, %37 ], [ 1, %7 ], [ 1, %91 ], [ 1, %94 ], [ 0, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -8610,7 +8610,7 @@ _ZN4llvm6detail9IEEEFloat8makeZeroEb.exit:        ; preds = %63, %80
   br label %_ZN4llvmL16ulpsFromBoundaryEPKmjb.exit
 
 _ZN4llvmL16ulpsFromBoundaryEPKmjb.exit:           ; preds = %164, %155, %150, %158, %160, %167
-  %.029.i = phi i64 [ %..i, %150 ], [ %169, %167 ], [ %159, %158 ], [ -1, %160 ], [ -1, %155 ], [ -1, %164 ]
+  %.029.i = phi i64 [ %..i, %150 ], [ -1, %155 ], [ %169, %167 ], [ %159, %158 ], [ -1, %160 ], [ -1, %164 ]
   %170 = shl i64 %.029.i, 1
   %.not = icmp ult i64 %170, %130
   br i1 %.not, label %208, label %171
@@ -16129,7 +16129,7 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat15getExactLog2AbsEv(ptr 
   br i1 %exitcond51.not, label %.loopexit33, label %.preheader, !llvm.loop !440
 
 .loopexit33:                                      ; preds = %19, %38, %32, %.critedge, %1
-  %.024 = phi i32 [ -2147483648, %1 ], [ %27, %.critedge ], [ %37, %32 ], [ -2147483648, %38 ], [ -2147483648, %19 ]
+  %.024 = phi i32 [ -2147483648, %1 ], [ -2147483648, %38 ], [ %27, %.critedge ], [ %37, %32 ], [ -2147483648, %19 ]
   ret i32 %.024
 }
 
@@ -21525,7 +21525,7 @@ tailrecurse:                                      ; preds = %.lr.ph39
   br i1 %.not, label %.lr.ph, label %_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_.exit
 
 _ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_.exit: ; preds = %tailrecurse, %.lr.ph39, %2, %27, %22, %16, %16, %13, %6, %.lr.ph._crit_edge
-  %.0 = phi i1 [ true, %16 ], [ false, %22 ], [ true, %.lr.ph._crit_edge ], [ %.not9.i.i.i.i.i, %27 ], [ true, %16 ], [ false, %13 ], [ false, %6 ], [ false, %2 ], [ false, %.lr.ph39 ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ true, %16 ], [ false, %6 ], [ false, %22 ], [ true, %.lr.ph._crit_edge ], [ %.not9.i.i.i.i.i, %27 ], [ true, %16 ], [ false, %13 ], [ false, %2 ], [ false, %.lr.ph39 ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -25599,7 +25599,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !605
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

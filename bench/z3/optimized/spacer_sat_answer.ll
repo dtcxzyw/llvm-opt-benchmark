@@ -978,7 +978,7 @@ _ZNK6vectorIN6spacer20ground_sat_answer_op5frameELb1EjE5emptyEv.exit: ; preds = 
   br i1 %.not27.old.i.i.i, label %.loopexit166, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %350, %347
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %350 ], [ %349, %347 ]
+  %.137.i.i.i.be = phi ptr [ %349, %347 ], [ %.old.i.i.i, %350 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprP3appE8containsEPS0_.exit:      ; preds = %331, %342
@@ -4436,7 +4436,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableIN7obj_mapIKN7datalo
   br i1 %.not27.old, label %.loopexit, label %.lr.ph38.backedge
 
 .lr.ph38.backedge:                                ; preds = %40, %37
-  %.136.be = phi ptr [ %.old, %40 ], [ %39, %37 ]
+  %.136.be = phi ptr [ %39, %37 ], [ %.old, %40 ]
   br label %.lr.ph38, !llvm.loop !329
 
 .loopexit:                                        ; preds = %23, %19, %33, %37, %40, %._crit_edge

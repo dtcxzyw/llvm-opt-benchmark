@@ -809,7 +809,7 @@ peak_write_chunk.exit:                            ; preds = %36, %.thread.i, %54
   br label %131
 
 131:                                              ; preds = %.sink.split, %119, %1
-  %.0 = phi i32 [ %.1, %119 ], [ 0, %1 ], [ %.1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %119 ], [ %.1, %.sink.split ]
   ret i32 %.0
 }
 

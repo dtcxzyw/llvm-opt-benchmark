@@ -485,8 +485,8 @@ _ZN7rocksdb6StatusD2Ev.exit41:                    ; preds = %_ZN7rocksdb6Statusa
   br label %108
 
 108:                                              ; preds = %106, %104
-  %109 = phi ptr [ %.pre45, %104 ], [ %79, %106 ]
-  %.pn28.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %107, %106 ]
+  %109 = phi ptr [ %79, %106 ], [ %.pre45, %104 ]
+  %.pn28.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
   %.not.i.i42 = icmp eq ptr %109, null
   br i1 %.not.i.i42, label %_ZN7rocksdb6StatusD2Ev.exit44, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i43
 

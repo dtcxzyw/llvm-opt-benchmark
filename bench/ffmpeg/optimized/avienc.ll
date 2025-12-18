@@ -794,7 +794,7 @@ split:                                            ; preds = %172
   br label %.thread359
 
 .thread359:                                       ; preds = %25, %232, %263, %231, %238, %141, %split, %341, %14
-  %.0286 = phi i32 [ -22, %14 ], [ 0, %341 ], [ -22, %238 ], [ -1163346256, %141 ], [ -22, %split ], [ -22, %231 ], [ -12, %263 ], [ %236, %232 ], [ -12, %25 ]
+  %.0286 = phi i32 [ -22, %14 ], [ 0, %341 ], [ -12, %263 ], [ -22, %238 ], [ -1163346256, %141 ], [ -22, %split ], [ -22, %231 ], [ %236, %232 ], [ -12, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

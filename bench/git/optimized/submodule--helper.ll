@@ -3096,7 +3096,7 @@ _.exit31.i.i.i:                                   ; preds = %544, %skip_prefix.e
   br label %remote_submodule_branch.exit.thread.i.i
 
 remote_submodule_branch.exit.i.i:                 ; preds = %_.exit31.i.i.i, %_.exit28.i.i.i, %_.exit25.i.i.i, %_.exit.i71.i.i
-  %.0.i69.i.i = phi i32 [ %502, %_.exit.i71.i.i ], [ %546, %_.exit31.i.i.i ], [ %535, %_.exit28.i.i.i ], [ %527, %_.exit25.i.i.i ]
+  %.0.i69.i.i = phi i32 [ %502, %_.exit.i71.i.i ], [ %527, %_.exit25.i.i.i ], [ %535, %_.exit28.i.i.i ], [ %546, %_.exit31.i.i.i ]
   %.not54.i.i = icmp eq i32 %.0.i69.i.i, 0
   br i1 %.not54.i.i, label %remote_submodule_branch.exit.remote_submodule_branch.exit.thread_crit_edge.i.i, label %.thread.i.i
 
@@ -3865,7 +3865,7 @@ update_submodule.exit.i:                          ; preds = %801, %728, %run_upd
   br i1 %808, label %384, label %update_submodules.exit, !llvm.loop !162
 
 update_submodules.exit:                           ; preds = %384, %803, %805, %334, %.preheader.i
-  %.025.i = phi i32 [ 0, %.preheader.i ], [ 1, %334 ], [ 128, %384 ], [ %.024.i, %803 ], [ %.2.ph.i, %805 ]
+  %.025.i = phi i32 [ 1, %334 ], [ 0, %.preheader.i ], [ 128, %384 ], [ %.024.i, %803 ], [ %.2.ph.i, %805 ]
   %809 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %810 = load ptr, ptr %809, align 8, !tbaa !136
   call void @free(ptr noundef %810) #20
@@ -5761,7 +5761,7 @@ prepare_submodule_summary.exit.sink.split.i:      ; preds = %145, %140
   br label %prepare_submodule_summary.exit.i
 
 prepare_submodule_summary.exit.i:                 ; preds = %207, %170, %prepare_submodule_summary.exit.sink.split.i, %153
-  %.0.i = phi i32 [ 0, %153 ], [ -1, %prepare_submodule_summary.exit.sink.split.i ], [ 0, %170 ], [ 0, %207 ]
+  %.0.i = phi i32 [ -1, %prepare_submodule_summary.exit.sink.split.i ], [ 0, %153 ], [ 0, %170 ], [ 0, %207 ]
   call void @strvec_clear(ptr noundef nonnull %7) #20
   call void @release_revisions(ptr noundef nonnull %8) #20
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -5947,7 +5947,7 @@ define internal noundef i32 @push_check(i32 noundef %0, ptr noundef %1, ptr read
   br label %.split.us
 
 .split.us:                                        ; preds = %57, %61, %.split.us.loopexit, %45
-  %.us-phi = phi ptr [ %46, %45 ], [ %66, %.split.us.loopexit ], [ %58, %61 ], [ %58, %57 ]
+  %.us-phi = phi ptr [ %66, %.split.us.loopexit ], [ %46, %45 ], [ %58, %61 ], [ %58, %57 ]
   %67 = load ptr, ptr %.us-phi, align 8, !tbaa !255
   call void (ptr, ...) @die(ptr noundef nonnull @.str.331, ptr noundef %67) #21
   unreachable

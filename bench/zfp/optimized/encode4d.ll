@@ -1424,10 +1424,10 @@ stream_write_bit.exit44.i:                        ; preds = %116, %.lr.ph96.i
   br i1 %122, label %.lr.ph110.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge2.i, %stream_write_bit.exit43.i, %118, %.critedge2.thread.i.loopexit53, %.preheader80.i
-  %.137.lcssa.i = phi i32 [ %.036122.i, %.preheader80.i ], [ %119, %.critedge2.thread.i.loopexit53 ], [ 256, %118 ], [ %.137108.i, %stream_write_bit.exit43.i ], [ %121, %.critedge2.i ]
-  %.sroa.15.3.i = phi i64 [ %.sroa.15.6.i, %.preheader80.i ], [ %.sroa.15.7.i, %.critedge2.thread.i.loopexit53 ], [ %.sroa.15.8.i, %118 ], [ %.sroa.15.7.i, %stream_write_bit.exit43.i ], [ %.sroa.15.8.i, %.critedge2.i ]
-  %.sroa.0.3.i34 = phi i64 [ %.sroa.0.6.i31, %.preheader80.i ], [ %.sroa.0.7.i35, %.critedge2.thread.i.loopexit53 ], [ %.sroa.0.8.i37, %118 ], [ %.sroa.0.7.i35, %stream_write_bit.exit43.i ], [ %.sroa.0.8.i37, %.critedge2.i ]
-  %.sroa.21.3.i = phi ptr [ %.sroa.21.6.i, %.preheader80.i ], [ %.sroa.21.7.i, %.critedge2.thread.i.loopexit53 ], [ %.sroa.21.8.i, %118 ], [ %.sroa.21.7.i, %stream_write_bit.exit43.i ], [ %.sroa.21.8.i, %.critedge2.i ]
+  %.137.lcssa.i = phi i32 [ %.036122.i, %.preheader80.i ], [ 256, %118 ], [ %119, %.critedge2.thread.i.loopexit53 ], [ %121, %.critedge2.i ], [ %.137108.i, %stream_write_bit.exit43.i ]
+  %.sroa.15.3.i = phi i64 [ %.sroa.15.6.i, %.preheader80.i ], [ %.sroa.15.8.i, %118 ], [ %.sroa.15.7.i, %.critedge2.thread.i.loopexit53 ], [ %.sroa.15.8.i, %.critedge2.i ], [ %.sroa.15.7.i, %stream_write_bit.exit43.i ]
+  %.sroa.0.3.i34 = phi i64 [ %.sroa.0.6.i31, %.preheader80.i ], [ %.sroa.0.8.i37, %118 ], [ %.sroa.0.7.i35, %.critedge2.thread.i.loopexit53 ], [ %.sroa.0.8.i37, %.critedge2.i ], [ %.sroa.0.7.i35, %stream_write_bit.exit43.i ]
+  %.sroa.21.3.i = phi ptr [ %.sroa.21.6.i, %.preheader80.i ], [ %.sroa.21.8.i, %118 ], [ %.sroa.21.7.i, %.critedge2.thread.i.loopexit53 ], [ %.sroa.21.8.i, %.critedge2.i ], [ %.sroa.21.7.i, %stream_write_bit.exit43.i ]
   %indvars.iv.next136.i = add nsw i64 %indvars.iv135.i, -1
   %123 = icmp samesign ugt i64 %indvars.iv135.i, %75
   br i1 %123, label %.preheader81.i, label %encode_many_ints_prec_uint64.exit
@@ -1816,7 +1816,7 @@ pad_block_double.exit105.us161.us.us.i:           ; preds = %pad_block_double.ex
   br i1 %exitcond247.not.i, label %gather_partial_double_4.exit, label %.preheader106.us210.i
 
 .preheader112.i:                                  ; preds = %20, %95, %.preheader113.i
-  %.170.lcssa.i = phi ptr [ %.069148.i, %.preheader113.i ], [ %97, %95 ], [ %23, %20 ]
+  %.170.lcssa.i = phi ptr [ %97, %95 ], [ %.069148.i, %.preheader113.i ], [ %23, %20 ]
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 %.pre.i
   br label %.preheader109.i
 

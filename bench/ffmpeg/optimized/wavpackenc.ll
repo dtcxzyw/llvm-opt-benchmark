@@ -1284,8 +1284,8 @@ scan_float.exit.i:                                ; preds = %383, %380, %378
   br label %470
 
 470:                                              ; preds = %.loopexit146.i.i, %.loopexit144.i.i, %.loopexit.i693.i, %463
-  %471 = phi i32 [ %.promoted187.i.i, %463 ], [ %452, %.loopexit.i693.i ], [ %466, %.loopexit144.i.i ], [ %459, %.loopexit146.i.i ]
-  %.1107.i.i = phi i32 [ 0, %463 ], [ %453, %.loopexit.i693.i ], [ %467, %.loopexit144.i.i ], [ %460, %.loopexit146.i.i ]
+  %471 = phi i32 [ %466, %.loopexit144.i.i ], [ %.promoted187.i.i, %463 ], [ %452, %.loopexit.i693.i ], [ %459, %.loopexit146.i.i ]
+  %.1107.i.i = phi i32 [ %467, %.loopexit144.i.i ], [ 0, %463 ], [ %453, %.loopexit.i693.i ], [ %460, %.loopexit146.i.i ]
   %472 = lshr i32 %471, 18
   %473 = and i32 %472, 31
   %474 = icmp samesign ugt i32 %473, 23
@@ -1355,7 +1355,7 @@ scan_float.exit.i:                                ; preds = %383, %380, %378
   br i1 %exitcond.not.i141.i.i, label %scan_int32.exit.i, label %.lr.ph.i138.i.i, !llvm.loop !76
 
 scan_int32.exit.i:                                ; preds = %.lr.ph.i.i688.i, %.lr.ph.i138.i.i, %492, %488, %482, %447, %scan_float.exit.i
-  %.0449.i = phi i32 [ %388, %scan_float.exit.i ], [ 0, %447 ], [ %483, %492 ], [ %483, %488 ], [ %483, %482 ], [ %483, %.lr.ph.i138.i.i ], [ %483, %.lr.ph.i.i688.i ]
+  %.0449.i = phi i32 [ %388, %scan_float.exit.i ], [ 0, %447 ], [ %483, %.lr.ph.i138.i.i ], [ %483, %482 ], [ %483, %492 ], [ %483, %488 ], [ %483, %.lr.ph.i.i688.i ]
   store i32 0, ptr %52, align 8, !tbaa !74
   %499 = icmp eq i32 %.0449.i, 0
   br label %595
@@ -1559,11 +1559,11 @@ scan_int32.exit.i:                                ; preds = %.lr.ph.i.i688.i, %.
   br label %567
 
 567:                                              ; preds = %.loopexit147.i.i, %.loopexit145.i.i, %.loopexit.i721.i
-  %568 = phi i8 [ 0, %.loopexit.i721.i ], [ %indvars1681.i, %.loopexit145.i.i ], [ 0, %.loopexit147.i.i ]
-  %569 = phi i8 [ 0, %.loopexit.i721.i ], [ 0, %.loopexit145.i.i ], [ %indvars.i, %.loopexit147.i.i ]
-  %570 = phi i8 [ %indvars1683.i, %.loopexit.i721.i ], [ 0, %.loopexit145.i.i ], [ 0, %.loopexit147.i.i ]
-  %571 = phi i32 [ %549, %.loopexit.i721.i ], [ %563, %.loopexit145.i.i ], [ %556, %.loopexit147.i.i ]
-  %.1100.ph.i.i = phi i32 [ %550, %.loopexit.i721.i ], [ %564, %.loopexit145.i.i ], [ %557, %.loopexit147.i.i ]
+  %568 = phi i8 [ %indvars1681.i, %.loopexit145.i.i ], [ 0, %.loopexit.i721.i ], [ 0, %.loopexit147.i.i ]
+  %569 = phi i8 [ 0, %.loopexit145.i.i ], [ 0, %.loopexit.i721.i ], [ %indvars.i, %.loopexit147.i.i ]
+  %570 = phi i8 [ 0, %.loopexit145.i.i ], [ %indvars1683.i, %.loopexit.i721.i ], [ 0, %.loopexit147.i.i ]
+  %571 = phi i32 [ %563, %.loopexit145.i.i ], [ %549, %.loopexit.i721.i ], [ %556, %.loopexit147.i.i ]
+  %.1100.ph.i.i = phi i32 [ %564, %.loopexit145.i.i ], [ %550, %.loopexit.i721.i ], [ %557, %.loopexit147.i.i ]
   %572 = or i32 %571, 256
   store i32 %572, ptr %46, align 4, !tbaa !60
   %573 = and i32 %571, 1073741828
@@ -1609,9 +1609,9 @@ scan_int32.exit.i:                                ; preds = %.lr.ph.i.i688.i, %.
   br i1 %exitcond.not.i137.i.i, label %scan_int23.exit.i, label %.lr.ph.i134.i.i, !llvm.loop !76
 
 scan_int23.exit.i:                                ; preds = %.lr.ph.i724.i, %.lr.ph177.i731.i, %.lr.ph.i.i712.i, %.lr.ph.i134.i.i, %578, %574, %560, %544
-  %585 = phi i8 [ %568, %578 ], [ 0, %544 ], [ 0, %560 ], [ %568, %574 ], [ 0, %.lr.ph177.i731.i ], [ %568, %.lr.ph.i134.i.i ], [ %568, %.lr.ph.i.i712.i ], [ 0, %.lr.ph.i724.i ]
-  %586 = phi i8 [ %569, %578 ], [ 0, %544 ], [ 0, %560 ], [ %569, %574 ], [ 0, %.lr.ph177.i731.i ], [ %569, %.lr.ph.i134.i.i ], [ %569, %.lr.ph.i.i712.i ], [ 0, %.lr.ph.i724.i ]
-  %587 = phi i8 [ %570, %578 ], [ 0, %544 ], [ 0, %560 ], [ %570, %574 ], [ 0, %.lr.ph177.i731.i ], [ %570, %.lr.ph.i134.i.i ], [ %570, %.lr.ph.i.i712.i ], [ 0, %.lr.ph.i724.i ]
+  %585 = phi i8 [ 0, %.lr.ph177.i731.i ], [ %568, %.lr.ph.i.i712.i ], [ %568, %.lr.ph.i134.i.i ], [ %568, %578 ], [ 0, %544 ], [ 0, %560 ], [ %568, %574 ], [ 0, %.lr.ph.i724.i ]
+  %586 = phi i8 [ 0, %.lr.ph177.i731.i ], [ %569, %.lr.ph.i.i712.i ], [ %569, %.lr.ph.i134.i.i ], [ %569, %578 ], [ 0, %544 ], [ 0, %560 ], [ %569, %574 ], [ 0, %.lr.ph.i724.i ]
+  %587 = phi i8 [ 0, %.lr.ph177.i731.i ], [ %570, %.lr.ph.i.i712.i ], [ %570, %.lr.ph.i134.i.i ], [ %570, %578 ], [ 0, %544 ], [ 0, %560 ], [ %570, %574 ], [ 0, %.lr.ph.i724.i ]
   %588 = load i32, ptr %57, align 4, !tbaa !112
   %589 = zext i8 %587 to i32
   %590 = zext i8 %586 to i32
@@ -2940,8 +2940,8 @@ bytestream2_put_le16.exit564.i:                   ; preds = %1282, %wp_exp2.exit
   br label %bytestream2_put_le16.exit556.i
 
 bytestream2_put_le16.exit556.i:                   ; preds = %bytestream2_put_le16.exit564.i, %1287, %1157, %wp_exp2.exit639.i, %.preheader1431.i, %1096, %wp_exp2.exit633.i, %bytestream2_put_le16.exit552.i
-  %.sroa.292.11.i = phi i32 [ %.sroa.292.81544.i, %1287 ], [ %.sroa.292.33.i, %bytestream2_put_le16.exit552.i ], [ 1, %wp_exp2.exit633.i ], [ 0, %1096 ], [ 1, %wp_exp2.exit639.i ], [ 0, %1157 ], [ %.sroa.292.81544.i, %.preheader1431.i ], [ %.sroa.292.10.i, %bytestream2_put_le16.exit564.i ]
-  %.sroa.0.11.i = phi ptr [ %.sroa.0.81545.i, %1287 ], [ %.sroa.0.33.i, %bytestream2_put_le16.exit552.i ], [ %.sroa.0.34.i, %wp_exp2.exit633.i ], [ %1097, %1096 ], [ %.sroa.0.36.i, %wp_exp2.exit639.i ], [ %1158, %1157 ], [ %.sroa.0.81545.i, %.preheader1431.i ], [ %.sroa.0.10.i, %bytestream2_put_le16.exit564.i ]
+  %.sroa.292.11.i = phi i32 [ %.sroa.292.81544.i, %1287 ], [ %.sroa.292.33.i, %bytestream2_put_le16.exit552.i ], [ 1, %wp_exp2.exit633.i ], [ 0, %1157 ], [ 0, %1096 ], [ 1, %wp_exp2.exit639.i ], [ %.sroa.292.81544.i, %.preheader1431.i ], [ %.sroa.292.10.i, %bytestream2_put_le16.exit564.i ]
+  %.sroa.0.11.i = phi ptr [ %.sroa.0.81545.i, %1287 ], [ %.sroa.0.33.i, %bytestream2_put_le16.exit552.i ], [ %.sroa.0.34.i, %wp_exp2.exit633.i ], [ %1158, %1157 ], [ %1097, %1096 ], [ %.sroa.0.36.i, %wp_exp2.exit639.i ], [ %.sroa.0.81545.i, %.preheader1431.i ], [ %.sroa.0.10.i, %bytestream2_put_le16.exit564.i ]
   %indvars.iv.next1720.i = add nuw nsw i64 %indvars.iv1719.i, 1
   %1289 = load i32, ptr %52, align 8, !tbaa !74
   %1290 = sext i32 %1289 to i64
@@ -6538,7 +6538,7 @@ log2mono.exit.i.i:                                ; preds = %log2sample.exit.i.i
   br i1 %447, label %.preheader141.i.i, label %delta_mono.exit.i, !llvm.loop !186
 
 .thread.i.i:                                      ; preds = %log2mono.exit.i.i, %432, %327
-  %.not96145.i.i = phi i1 [ true, %327 ], [ %.not96150.i.i, %432 ], [ %.not96150.i.i, %log2mono.exit.i.i ]
+  %.not96145.i.i = phi i1 [ %.not96150.i.i, %432 ], [ true, %327 ], [ %.not96150.i.i, %log2mono.exit.i.i ]
   %448 = icmp slt i32 %328, 7
   %449 = and i1 %448, %.not96145.i.i
   br i1 %449, label %.preheader.lr.ph.i.i, label %delta_mono.exit.i

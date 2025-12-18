@@ -322,7 +322,7 @@ _ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.ex
   br i1 %.not.i.i10, label %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit, label %32, !llvm.loop !6
 
 _ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit: ; preds = %20, %45, %41, %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit.thread
-  %.0 = phi i1 [ false, %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit.thread ], [ true, %41 ], [ false, %45 ], [ true, %20 ]
+  %.0 = phi i1 [ true, %41 ], [ false, %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit.thread ], [ false, %45 ], [ true, %20 ]
   ret i1 %.0
 }
 

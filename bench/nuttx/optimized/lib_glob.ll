@@ -212,7 +212,7 @@ append.exit.thread:                               ; preds = %31
   br label %freelist.exit
 
 freelist.exit:                                    ; preds = %.lr.ph.i, %.lr.ph.i84, %.lr.ph.i89, %48, %31, %25, %71, %78, %._crit_edge.thread, %20
-  %.0 = phi i32 [ %.06394124128, %71 ], [ 2, %._crit_edge.thread ], [ 3, %31 ], [ 3, %20 ], [ %.06394124128, %78 ], [ 3, %25 ], [ 3, %48 ], [ 3, %.lr.ph.i84 ], [ 3, %.lr.ph.i89 ], [ 3, %.lr.ph.i ]
+  %.0 = phi i32 [ %.06394124128, %71 ], [ 2, %._crit_edge.thread ], [ 3, %31 ], [ 3, %.lr.ph.i84 ], [ 3, %20 ], [ 3, %.lr.ph.i89 ], [ %.06394124128, %78 ], [ 3, %25 ], [ 3, %48 ], [ 3, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -633,7 +633,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   br label %append.exit
 
 append.exit:                                      ; preds = %.thread, %59, %42, %._crit_edge288, %102, %.thread243, %119, %162, %79, %27, %168, %155, %85
-  %.0 = phi i32 [ %154, %155 ], [ %spec.select216, %119 ], [ 0, %168 ], [ 0, %27 ], [ 1, %162 ], [ 3, %.thread243 ], [ 1, %79 ], [ 0, %85 ], [ 0, %102 ], [ 0, %._crit_edge288 ], [ 0, %42 ], [ 0, %59 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %102 ], [ 0, %85 ], [ %154, %155 ], [ %spec.select216, %119 ], [ 0, %168 ], [ 0, %27 ], [ 1, %162 ], [ 3, %.thread243 ], [ 1, %79 ], [ 0, %._crit_edge288 ], [ 0, %42 ], [ 0, %59 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

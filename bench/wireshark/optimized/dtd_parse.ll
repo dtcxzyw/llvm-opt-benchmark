@@ -1411,9 +1411,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i314, %828
   br label %.loopexit358.backedge
 
 .loopexit358.backedge:                            ; preds = %._crit_edge.i332, %850, %1021
-  %.0262.be = phi ptr [ %1019, %1021 ], [ %778, %850 ], [ %1019, %._crit_edge.i332 ]
-  %.0254.be = phi ptr [ %1027, %1021 ], [ %852, %850 ], [ %1027, %._crit_edge.i332 ]
-  %.0243.be = phi i32 [ %1028, %1021 ], [ %851, %850 ], [ %1069, %._crit_edge.i332 ]
+  %.0262.be = phi ptr [ %778, %850 ], [ %1019, %1021 ], [ %1019, %._crit_edge.i332 ]
+  %.0254.be = phi ptr [ %852, %850 ], [ %1027, %1021 ], [ %1027, %._crit_edge.i332 ]
+  %.0243.be = phi i32 [ %851, %850 ], [ %1028, %1021 ], [ %1069, %._crit_edge.i332 ]
   br label %.loopexit358
 
 853:                                              ; preds = %763
@@ -3259,7 +3259,7 @@ Dtd_Parse__delete_buffer.exit.i:                  ; preds = %32, %.critedge.i.i
   br label %Dtd_Parse_pop_buffer_state.exit
 
 Dtd_Parse_pop_buffer_state.exit:                  ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

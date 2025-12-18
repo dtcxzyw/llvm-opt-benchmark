@@ -7935,7 +7935,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us51:        ; preds = %_ZNK4llvm3EVT6bitsG
   br i1 %43, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us38, label %.split35.us, !llvm.loop !274
 
 .split35.us:                                      ; preds = %50, %40, %29, %19
-  %.us-phi = phi i32 [ %.1.us52, %40 ], [ %.1.us.us, %19 ], [ %.1.us, %29 ], [ %.1, %50 ]
+  %.us-phi = phi i32 [ %.1.us52, %40 ], [ %.1.us, %29 ], [ %.1.us.us, %19 ], [ %.1, %50 ]
   ret i32 %.us-phi
 
 .split.split:                                     ; preds = %.split, %50

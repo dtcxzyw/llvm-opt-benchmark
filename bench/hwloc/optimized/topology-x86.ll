@@ -5013,8 +5013,8 @@ cpuid_or_from_dump.exit95:                        ; preds = %137, %139
   br i1 %exitcond195.not, label %.split159.us, label %.split157, !llvm.loop !161
 
 .split159.us:                                     ; preds = %176, %cpuid_or_from_dump.exit95, %cpuid_or_from_dump.exit95.us, %cpuid_or_from_dump.exit95.thread, %.split157.us, %..split159.us_crit_edge
-  %.us-phi160 = phi i32 [ 0, %.split157.us ], [ %97, %..split159.us_crit_edge ], [ %.069153, %cpuid_or_from_dump.exit95.thread ], [ %97, %cpuid_or_from_dump.exit95.us ], [ %.069153, %cpuid_or_from_dump.exit95 ], [ %153, %176 ]
-  %.us-phi161 = phi i32 [ 0, %.split157.us ], [ %98, %..split159.us_crit_edge ], [ %.068154, %cpuid_or_from_dump.exit95.thread ], [ %98, %cpuid_or_from_dump.exit95.us ], [ %.068154, %cpuid_or_from_dump.exit95 ], [ %154, %176 ]
+  %.us-phi160 = phi i32 [ %.069153, %cpuid_or_from_dump.exit95.thread ], [ 0, %.split157.us ], [ %97, %..split159.us_crit_edge ], [ %97, %cpuid_or_from_dump.exit95.us ], [ %153, %176 ], [ %.069153, %cpuid_or_from_dump.exit95 ]
+  %.us-phi161 = phi i32 [ %.068154, %cpuid_or_from_dump.exit95.thread ], [ 0, %.split157.us ], [ %98, %..split159.us_crit_edge ], [ %98, %cpuid_or_from_dump.exit95.us ], [ %154, %176 ], [ %.068154, %cpuid_or_from_dump.exit95 ]
   store i32 %.us-phi160, ptr %73, align 4, !tbaa !105
   %177 = lshr i32 %.us-phi160, %.us-phi161
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -627,7 +627,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %62, %.preheade
   br i1 %275, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 .thread:                                          ; preds = %._crit_edge, %.lr.ph339, %._crit_edge345, %.loopexit, %36, %142, %42, %10, %2, %178, %131, %122, %100, %38, %4
-  %.1219 = phi i1 [ false, %131 ], [ false, %4 ], [ false, %38 ], [ false, %122 ], [ false, %100 ], [ false, %178 ], [ true, %2 ], [ true, %142 ], [ true, %10 ], [ true, %42 ], [ true, %.lr.ph339 ], [ true, %36 ], [ true, %.loopexit ], [ true, %._crit_edge345 ], [ true, %._crit_edge ]
+  %.1219 = phi i1 [ false, %131 ], [ false, %4 ], [ false, %38 ], [ false, %122 ], [ false, %100 ], [ false, %178 ], [ true, %.loopexit ], [ true, %10 ], [ true, %142 ], [ true, %2 ], [ true, %42 ], [ true, %36 ], [ true, %.lr.ph339 ], [ true, %._crit_edge345 ], [ true, %._crit_edge ]
   ret i1 %.1219
 }
 

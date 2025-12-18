@@ -294,7 +294,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %.thread, %12, %.lr.ph, %.lr.ph98, %.thread78, %92, %89, %116, %69, %64, %61, %50, %46, %2, %114, %109
-  %.042 = phi i32 [ 0, %2 ], [ 0, %46 ], [ 0, %61 ], [ 0, %64 ], [ 0, %69 ], [ 0, %89 ], [ 0, %50 ], [ %110, %109 ], [ %115, %114 ], [ %spec.select, %92 ], [ 0, %116 ], [ %spec.select68, %.thread78 ], [ 0, %.lr.ph ], [ 0, %.lr.ph98 ], [ 0, %12 ], [ 0, %.thread ]
+  %.042 = phi i32 [ 0, %.lr.ph98 ], [ 0, %2 ], [ 0, %46 ], [ 0, %61 ], [ 0, %64 ], [ 0, %69 ], [ 0, %89 ], [ 0, %.lr.ph ], [ 0, %50 ], [ %spec.select68, %.thread78 ], [ %110, %109 ], [ %115, %114 ], [ %spec.select, %92 ], [ 0, %116 ], [ 0, %12 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -862,7 +862,7 @@ ensure_in_buff_size.exit308:                      ; preds = %107
   br i1 %134, label %135, label %.thread322
 
 135:                                              ; preds = %129, %133
-  %.0206 = phi i64 [ 6, %129 ], [ 13, %133 ]
+  %.0206 = phi i64 [ 13, %133 ], [ 6, %129 ]
   %136 = getelementptr inbounds nuw i8, ptr %.1242567, i64 %.0206
   %137 = load i8, ptr %136, align 1, !tbaa !11
   %138 = and i8 %137, -8
@@ -1273,19 +1273,19 @@ ensure_in_buff_size.exit308:                      ; preds = %107
   br label %.thread322
 
 .thread322:                                       ; preds = %.thread323, %.thread322.loopexit775.split.loop.exit884, %.thread322.loopexit775.split.loop.exit887, %.thread322.loopexit.split.loop.exit, %.thread322.loopexit.split.loop.exit891, %.thread322.loopexit.split.loop.exit894, %127, %203, %._crit_edge, %.thread361, %135, %139, %143, %147, %177, %151, %274, %253, %133, %131
-  %.019.i744 = phi i64 [ %79, %127 ], [ %79, %177 ], [ %79, %131 ], [ %79, %133 ], [ %79, %.thread361 ], [ %79, %274 ], [ %79, %._crit_edge ], [ %79, %135 ], [ %.019.i743748, %253 ], [ %79, %139 ], [ %79, %143 ], [ %79, %203 ], [ %79, %147 ], [ %79, %151 ], [ %79, %.thread322.loopexit.split.loop.exit ], [ %79, %.thread322.loopexit.split.loop.exit894 ], [ %79, %.thread322.loopexit.split.loop.exit891 ], [ %79, %.thread322.loopexit775.split.loop.exit887 ], [ %79, %.thread322.loopexit775.split.loop.exit884 ], [ %79, %.thread323 ]
-  %.1244.ph = phi ptr [ %.0243566, %127 ], [ %.0243566, %177 ], [ %.0243566, %131 ], [ %.0243566, %133 ], [ %.9252367, %.thread361 ], [ %.0243566, %274 ], [ %.8251.lcssa, %._crit_edge ], [ %.0243566, %135 ], [ %.0243566, %253 ], [ %.0243566, %139 ], [ %.0243566, %143 ], [ %.0243566, %203 ], [ %.0243566, %147 ], [ %.0243566, %151 ], [ %314, %.thread322.loopexit.split.loop.exit ], [ %314, %.thread322.loopexit.split.loop.exit894 ], [ %298, %.thread322.loopexit.split.loop.exit891 ], [ %221, %.thread322.loopexit775.split.loop.exit887 ], [ %234, %.thread322.loopexit775.split.loop.exit884 ], [ %243, %.thread323 ]
-  %.2228.ph = phi i64 [ %.1227573, %127 ], [ %.1227573, %177 ], [ %.1227573, %131 ], [ %.1227573, %133 ], [ %.10236368, %.thread361 ], [ %.1227573, %274 ], [ %.9235.lcssa, %._crit_edge ], [ %.1227573, %135 ], [ %.1227573, %253 ], [ %.1227573, %139 ], [ %.1227573, %143 ], [ %.1227573, %203 ], [ %.1227573, %147 ], [ %.1227573, %151 ], [ %344, %.thread322.loopexit.split.loop.exit ], [ %346, %.thread322.loopexit.split.loop.exit894 ], [ %345, %.thread322.loopexit.split.loop.exit891 ], [ %348, %.thread322.loopexit775.split.loop.exit887 ], [ %347, %.thread322.loopexit775.split.loop.exit884 ], [ %244, %.thread323 ]
+  %.019.i744 = phi i64 [ %79, %127 ], [ %79, %177 ], [ %79, %131 ], [ %79, %133 ], [ %79, %.thread361 ], [ %79, %274 ], [ %79, %._crit_edge ], [ %79, %135 ], [ %.019.i743748, %253 ], [ %79, %139 ], [ %79, %.thread322.loopexit.split.loop.exit ], [ %79, %143 ], [ %79, %203 ], [ %79, %147 ], [ %79, %151 ], [ %79, %.thread322.loopexit.split.loop.exit894 ], [ %79, %.thread322.loopexit.split.loop.exit891 ], [ %79, %.thread322.loopexit775.split.loop.exit884 ], [ %79, %.thread322.loopexit775.split.loop.exit887 ], [ %79, %.thread323 ]
+  %.1244.ph = phi ptr [ %.0243566, %127 ], [ %.0243566, %177 ], [ %.0243566, %131 ], [ %.0243566, %133 ], [ %.9252367, %.thread361 ], [ %.0243566, %274 ], [ %.8251.lcssa, %._crit_edge ], [ %.0243566, %135 ], [ %.0243566, %253 ], [ %.0243566, %139 ], [ %314, %.thread322.loopexit.split.loop.exit ], [ %.0243566, %143 ], [ %.0243566, %203 ], [ %.0243566, %147 ], [ %.0243566, %151 ], [ %314, %.thread322.loopexit.split.loop.exit894 ], [ %298, %.thread322.loopexit.split.loop.exit891 ], [ %234, %.thread322.loopexit775.split.loop.exit884 ], [ %221, %.thread322.loopexit775.split.loop.exit887 ], [ %243, %.thread323 ]
+  %.2228.ph = phi i64 [ %.1227573, %127 ], [ %.1227573, %177 ], [ %.1227573, %131 ], [ %.1227573, %133 ], [ %.10236368, %.thread361 ], [ %.1227573, %274 ], [ %.9235.lcssa, %._crit_edge ], [ %.1227573, %135 ], [ %.1227573, %253 ], [ %.1227573, %139 ], [ %344, %.thread322.loopexit.split.loop.exit ], [ %.1227573, %143 ], [ %.1227573, %203 ], [ %.1227573, %147 ], [ %.1227573, %151 ], [ %346, %.thread322.loopexit.split.loop.exit894 ], [ %345, %.thread322.loopexit.split.loop.exit891 ], [ %347, %.thread322.loopexit775.split.loop.exit884 ], [ %348, %.thread322.loopexit775.split.loop.exit887 ], [ %244, %.thread323 ]
   %349 = getelementptr inbounds nuw i8, ptr %.1242567, i64 %.019.i744
   %350 = add nuw nsw i64 %.019.i744, %.1238571
   %351 = load i64, ptr %3, align 8, !tbaa !9
   %352 = icmp slt i64 %350, %351
   br i1 %352, label %.lr.ph.i.preheader, label %.critedge.thread389, !llvm.loop !41
 
-.critedge.thread389:                              ; preds = %24, %58, %181, %257, %.thread322, %119, %88
-  %353 = phi i64 [ %.pre715, %119 ], [ %61, %88 ], [ %61, %181 ], [ %61, %257 ], [ %351, %.thread322 ], [ %59, %58 ], [ %25, %24 ]
-  %.0237 = phi i64 [ %61, %119 ], [ %61, %88 ], [ %.1238571, %181 ], [ %.1238571, %257 ], [ %350, %.thread322 ], [ 0, %58 ], [ %25, %24 ]
-  %.0226 = phi i64 [ %.1227573, %119 ], [ %.1227573, %88 ], [ %.1227573, %181 ], [ %.1227573, %257 ], [ %.2228.ph, %.thread322 ], [ 0, %58 ], [ 0, %24 ]
+.critedge.thread389:                              ; preds = %24, %58, %257, %181, %.thread322, %119, %88
+  %353 = phi i64 [ %61, %88 ], [ %61, %257 ], [ %.pre715, %119 ], [ %61, %181 ], [ %351, %.thread322 ], [ %59, %58 ], [ %25, %24 ]
+  %.0237 = phi i64 [ %61, %88 ], [ %.1238571, %257 ], [ %61, %119 ], [ %.1238571, %181 ], [ %350, %.thread322 ], [ 0, %58 ], [ %25, %24 ]
+  %.0226 = phi i64 [ %.1227573, %88 ], [ %.1227573, %257 ], [ %.1227573, %119 ], [ %.1227573, %181 ], [ %.2228.ph, %.thread322 ], [ 0, %58 ], [ 0, %24 ]
   %354 = icmp slt i64 %25, %353
   %.neg = sub i64 %25, %353
   %355 = select i1 %354, i64 %.neg, i64 0
@@ -1300,7 +1300,7 @@ ensure_in_buff_size.exit308:                      ; preds = %107
   br label %.critedge.thread382
 
 .critedge.thread382:                              ; preds = %.critedge, %2, %.thread341, %197, %190, %ensure_in_buff_size.exit308, %.thread361.thread, %174, %124, %254, %97, %89, %ensure_in_buff_size.exit, %.critedge.thread389, %33
-  %.1211 = phi i64 [ -30, %ensure_in_buff_size.exit ], [ %.0226, %.critedge.thread389 ], [ -30, %33 ], [ -30, %89 ], [ -30, %97 ], [ -30, %254 ], [ -30, %124 ], [ -30, %174 ], [ -30, %.thread361.thread ], [ -30, %ensure_in_buff_size.exit308 ], [ -30, %190 ], [ -30, %197 ], [ -30, %.thread341 ], [ -30, %2 ], [ -30, %.critedge ]
+  %.1211 = phi i64 [ -30, %ensure_in_buff_size.exit ], [ %.0226, %.critedge.thread389 ], [ -30, %33 ], [ -30, %.thread341 ], [ -30, %89 ], [ -30, %97 ], [ -30, %254 ], [ -30, %124 ], [ -30, %174 ], [ -30, %.thread361.thread ], [ -30, %ensure_in_buff_size.exit308 ], [ -30, %190 ], [ -30, %197 ], [ -30, %2 ], [ -30, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.1211
 }

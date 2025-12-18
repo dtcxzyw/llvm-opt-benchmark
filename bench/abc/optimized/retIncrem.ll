@@ -267,8 +267,8 @@ Abc_NtkRetimeNodeIsEnabled.exit.i:                ; preds = %88, %.loopexit49.Ab
   br i1 %105, label %.split.i, label %.loopexit50.i, !llvm.loop !38
 
 .loopexit50.i:                                    ; preds = %.split.i, %.critedge.i.loopexit46, %.critedge.i.loopexit.us, %.split.i.us, %.critedge.thread.i
-  %.0.i68 = phi ptr [ %.0.i6973, %.critedge.thread.i ], [ %30, %.critedge.i.loopexit.us ], [ %30, %.split.i.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
-  %.034.i66 = phi ptr [ %.034.i6775, %.critedge.thread.i ], [ %29, %.critedge.i.loopexit.us ], [ %29, %.split.i.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
+  %.0.i68 = phi ptr [ %30, %.critedge.i.loopexit.us ], [ %.0.i6973, %.critedge.thread.i ], [ %30, %.split.i.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
+  %.034.i66 = phi ptr [ %29, %.critedge.i.loopexit.us ], [ %.034.i6775, %.critedge.thread.i ], [ %29, %.split.i.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
   br i1 %.not.i, label %.loopexit50.i.thread78, label %.loopexit50.i.thread
 
 .loopexit50.i.thread:                             ; preds = %.thread, %.loopexit50.i

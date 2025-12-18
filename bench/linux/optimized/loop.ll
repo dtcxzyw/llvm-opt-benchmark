@@ -1206,7 +1206,7 @@ define internal void @lo_complete_rq(ptr noundef %0) #2 align 16 {
   br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %7, %12, %25, %.thread5, %17
-  %33 = phi i8 [ %19, %.thread5 ], [ 0, %17 ], [ 10, %25 ], [ 0, %12 ], [ 0, %7 ], [ 10, %.preheader ]
+  %33 = phi i8 [ %19, %.thread5 ], [ 0, %17 ], [ 10, %25 ], [ 0, %7 ], [ 0, %12 ], [ 10, %.preheader ]
   tail call void @blk_mq_end_request(ptr noundef %0, i8 noundef zeroext %33) #14
   br label %34
 

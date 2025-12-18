@@ -5877,7 +5877,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = icmp eq ptr %20, %17
   br i1 %26, label %.loopexit, label %.lr.ph.i.i.i.i.i.i
 
-.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten15try_flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17hc34429aef3b5667eE.exit.thread.i.i.i.i.i.i", %15, %3
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten15try_flatten_one28_$u7b$$u7b$closure$u7d$$u7d$17hc34429aef3b5667eE.exit.thread.i.i.i.i.i.i", %3, %15
   store i64 0, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %27, align 8
@@ -16283,7 +16283,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1b3bc341ec193eccE.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1b3bc341ec193eccE.exit": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd30a5341144fe15cE.exit31.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hced065b4072495b3E.exit20.i.i", %81, %74, %67, %58, %42
-  %.sink37.i = phi i64 [ %197, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd30a5341144fe15cE.exit31.i" ], [ %48, %42 ], [ %119, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hced065b4072495b3E.exit20.i.i" ], [ %64, %58 ], [ %88, %81 ], [ %73, %67 ], [ %80, %74 ]
+  %.sink37.i = phi i64 [ %197, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd30a5341144fe15cE.exit31.i" ], [ %80, %74 ], [ %48, %42 ], [ %119, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hced065b4072495b3E.exit20.i.i" ], [ %73, %67 ], [ %64, %58 ], [ %88, %81 ]
   %198 = icmp ugt i64 %.sink37.i, %18
   br i1 %198, label %199, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1fb0ef65bc5eeb7E.exit.i", !prof !4692
 

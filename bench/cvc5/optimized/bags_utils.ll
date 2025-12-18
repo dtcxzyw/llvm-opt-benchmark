@@ -1528,7 +1528,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit105: ; preds = %_ZN4cvc58internal1
   br label %540
 
 .loopexit:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit54, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit63, %507, %505
-  %.128 = phi i1 [ %.not, %507 ], [ false, %505 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit63 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit54 ]
+  %.128 = phi i1 [ false, %505 ], [ %.not, %507 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit63 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit54 ]
   %515 = load ptr, ptr %4, align 8, !tbaa !8
   %516 = load i64, ptr %515, align 8
   %517 = and i64 %516, 1152920405095219200

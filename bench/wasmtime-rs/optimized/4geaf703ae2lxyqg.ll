@@ -782,7 +782,7 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
   br i1 %.not16, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", label %35
 
 "_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread": ; preds = %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", %61, %40, %35, %46, %73, %67, %52, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", %19
-  %.013 = phi i8 [ %.015, %19 ], [ %.1.ph22, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ 2, %61 ], [ 2, %40 ], [ 2, %35 ], [ 2, %46 ], [ 2, %73 ], [ 2, %67 ], [ 2, %52 ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
+  %.013 = phi i8 [ %.1.ph22, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ %.015, %19 ], [ 2, %61 ], [ 2, %40 ], [ 2, %35 ], [ 2, %46 ], [ 2, %73 ], [ 2, %67 ], [ 2, %52 ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
   ret i8 %.013
 
 35:                                               ; preds = %30

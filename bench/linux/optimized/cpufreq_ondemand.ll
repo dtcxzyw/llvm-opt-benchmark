@@ -678,7 +678,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %266, label %.split83.split, label %.loopexit59
 
 .loopexit59:                                      ; preds = %.loopexit57.us, %.loopexit54.us.us, %.loopexit51.us, %.loopexit48.us.us, %.loopexit45, %.loopexit42.us, %263, %227
-  %267 = phi i32 [ %228, %227 ], [ 0, %263 ], [ %125, %.loopexit54.us.us ], [ %207, %.loopexit42.us ], [ %264, %.loopexit45 ], [ %.us-phi82.us.us, %.loopexit48.us.us ], [ %87, %.loopexit51.us ], [ %.us-phi.us, %.loopexit57.us ]
+  %267 = phi i32 [ %228, %227 ], [ 0, %263 ], [ %207, %.loopexit42.us ], [ %125, %.loopexit54.us.us ], [ %.us-phi82.us.us, %.loopexit48.us.us ], [ %264, %.loopexit45 ], [ %87, %.loopexit51.us ], [ %.us-phi.us, %.loopexit57.us ]
   %268 = zext i32 %267 to i64
   %.split29 = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %268
   %269 = getelementptr i8, ptr %.split29, i64 8

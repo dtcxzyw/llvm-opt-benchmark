@@ -696,8 +696,8 @@ _.exit59:                                         ; preds = %_.exit56, %121
   br i1 %exitcond.not, label %clear_commit_seen.exit, label %.lr.ph.i, !llvm.loop !40
 
 clear_commit_seen.exit:                           ; preds = %.lr.ph.i, %2, %._crit_edge98.thread
-  %.087 = phi i32 [ %.0, %._crit_edge98.thread ], [ 0, %2 ], [ %.0, %.lr.ph.i ]
-  %.sroa.2977.086 = phi ptr [ %.sroa.2977.3.lcssa132, %._crit_edge98.thread ], [ null, %2 ], [ %.sroa.2977.3.lcssa132, %.lr.ph.i ]
+  %.087 = phi i32 [ 0, %2 ], [ %.0, %._crit_edge98.thread ], [ %.0, %.lr.ph.i ]
+  %.sroa.2977.086 = phi ptr [ null, %2 ], [ %.sroa.2977.3.lcssa132, %._crit_edge98.thread ], [ %.sroa.2977.3.lcssa132, %.lr.ph.i ]
   call void @free(ptr noundef %.sroa.2977.086) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.087

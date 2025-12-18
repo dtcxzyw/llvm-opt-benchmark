@@ -3339,7 +3339,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %28, %1
-  %.0 = phi i1 [ true, %1 ], [ %or.cond, %28 ], [ true, %12 ]
+  %.0 = phi i1 [ %or.cond, %28 ], [ true, %1 ], [ true, %12 ]
   ret i1 %.0
 }
 

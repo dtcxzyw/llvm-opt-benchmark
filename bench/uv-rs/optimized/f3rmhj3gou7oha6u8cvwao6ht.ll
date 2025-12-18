@@ -21333,8 +21333,8 @@ define void @_ZN11uv_settings8settings24ResolverInstallerOptions11relative_to17h
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$17h52659ab866ce1bd0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %274)
           to label %.thread428 unwind label %157
 
-"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h7232c2029fe45b91E.exit287": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit234", %151, %.thread416, %.thread428, %285, %273
-  %.pn182341408420 = phi { ptr, i32 } [ %.pn180, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit234" ], [ %lpad.thr_comm414, %.thread416 ], [ %.pn, %273 ], [ %.pn182341408421, %285 ], [ %.pn182341408421, %.thread428 ], [ %.pn180, %151 ]
+"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h7232c2029fe45b91E.exit287": ; preds = %151, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit234", %.thread416, %.thread428, %285, %273
+  %.pn182341408420 = phi { ptr, i32 } [ %.pn180, %151 ], [ %lpad.thr_comm414, %.thread416 ], [ %.pn, %273 ], [ %.pn182341408421, %285 ], [ %.pn182341408421, %.thread428 ], [ %.pn180, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit234" ]
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %279 = load i64, ptr %278, align 8, !range !392, !alias.scope !1524, !noundef !3
   %280 = icmp eq i64 %279, -9223372036854775808

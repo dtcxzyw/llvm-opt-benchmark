@@ -3590,7 +3590,7 @@ Py_DECREF.exit:                                   ; preds = %96, %99, %102
   br label %.thread96
 
 .thread96:                                        ; preds = %.lr.ph, %Py_DECREF.exit75, %Py_DECREF.exit, %93, %Py_DECREF.exit.us, %71, %._crit_edge, %106, %33
-  %.056101 = phi ptr [ %107, %106 ], [ null, %33 ], [ null, %._crit_edge ], [ null, %Py_DECREF.exit ], [ null, %Py_DECREF.exit.us ], [ null, %71 ], [ null, %93 ], [ null, %Py_DECREF.exit75 ], [ null, %.lr.ph ]
+  %.056101 = phi ptr [ null, %Py_DECREF.exit.us ], [ %107, %106 ], [ null, %33 ], [ null, %._crit_edge ], [ null, %Py_DECREF.exit ], [ null, %71 ], [ null, %93 ], [ null, %Py_DECREF.exit75 ], [ null, %.lr.ph ]
   %108 = load i32, ptr %31, align 8, !tbaa !18
   %.not.i.i80 = icmp sgt i32 %108, -1
   br i1 %.not.i.i80, label %109, label %Py_XDECREF.exit
@@ -7118,7 +7118,7 @@ define internal ptr @sock_accept(ptr noundef %0, ptr readnone captures(none) %1)
   br label %40
 
 40:                                               ; preds = %38, %30
-  %.0 = phi ptr [ null, %30 ], [ %39, %38 ]
+  %.0 = phi ptr [ %39, %38 ], [ null, %30 ]
   %41 = load i32, ptr %26, align 8, !tbaa !18
   %.not.i.i = icmp sgt i32 %41, -1
   br i1 %.not.i.i, label %42, label %Py_XDECREF.exit
@@ -7901,8 +7901,8 @@ sock_recvfrom_guts.exit:                          ; preds = %32
   br label %50
 
 50:                                               ; preds = %45, %._crit_edge
-  %51 = phi ptr [ %.pre22, %45 ], [ %.pre21, %._crit_edge ]
-  %.07 = phi ptr [ null, %45 ], [ %49, %._crit_edge ]
+  %51 = phi ptr [ %.pre21, %._crit_edge ], [ %.pre22, %45 ]
+  %.07 = phi ptr [ %49, %._crit_edge ], [ null, %45 ]
   %.not.i12 = icmp eq ptr %51, null
   br i1 %.not.i12, label %Py_XDECREF.exit.thread, label %.thread
 
@@ -8232,7 +8232,7 @@ define internal noundef ptr @sock_sendall(ptr noundef %0, ptr noundef %1) #0 {
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %.split, %36, %25, %21, %45, %.split35.us, %.split33.us
-  %.0 = phi ptr [ null, %.split33.us ], [ @_Py_NoneStruct, %.split35.us ], [ @_Py_NoneStruct, %45 ], [ null, %25 ], [ null, %21 ], [ null, %36 ], [ null, %.split ]
+  %.0 = phi ptr [ null, %.split33.us ], [ @_Py_NoneStruct, %45 ], [ @_Py_NoneStruct, %.split35.us ], [ null, %25 ], [ null, %21 ], [ null, %36 ], [ null, %.split ]
   call void @PyBuffer_Release(ptr noundef nonnull %4) #13
   br label %47
 
@@ -8790,9 +8790,9 @@ define internal ptr @sock_recvmsg_into(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %exitcond70.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !171
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %27, %15, %.loopexit
-  %.090 = phi ptr [ %.0, %.loopexit ], [ null, %15 ], [ null, %27 ], [ %.0, %.lr.ph66 ]
-  %.04289 = phi ptr [ %.042, %.loopexit ], [ null, %15 ], [ null, %27 ], [ %.042, %.lr.ph66 ]
-  %.04588 = phi ptr [ %.045, %.loopexit ], [ null, %15 ], [ %21, %27 ], [ %.045, %.lr.ph66 ]
+  %.090 = phi ptr [ null, %27 ], [ %.0, %.loopexit ], [ null, %15 ], [ %.0, %.lr.ph66 ]
+  %.04289 = phi ptr [ null, %27 ], [ %.042, %.loopexit ], [ null, %15 ], [ %.042, %.lr.ph66 ]
+  %.04588 = phi ptr [ %21, %27 ], [ %.045, %.loopexit ], [ null, %15 ], [ %.045, %.lr.ph66 ]
   call void @PyMem_Free(ptr noundef %.04289) #13
   call void @PyMem_Free(ptr noundef %.04588) #13
   %52 = load i32, ptr %9, align 8, !tbaa !18
@@ -9140,9 +9140,9 @@ cmsg_min_space.exit:                              ; preds = %127
   br label %._crit_edge
 
 .thread158:                                       ; preds = %57, %125, %.critedge, %__cmsg_nxthdr.exit.thread.thread236, %83, %73, %77, %.loopexit, %157
-  %.0100 = phi i64 [ %smax, %.loopexit ], [ %smax, %157 ], [ %64, %77 ], [ %64, %73 ], [ %smax, %83 ], [ %smax, %__cmsg_nxthdr.exit.thread.thread236 ], [ %smax, %.critedge ], [ %smax, %125 ], [ %.1101, %57 ]
-  %.096 = phi ptr [ %.197, %.loopexit ], [ %.197, %157 ], [ null, %77 ], [ null, %73 ], [ null, %83 ], [ %81, %__cmsg_nxthdr.exit.thread.thread236 ], [ %81, %.critedge ], [ %81, %125 ], [ null, %57 ]
-  %.089 = phi ptr [ null, %.loopexit ], [ %160, %157 ], [ null, %77 ], [ null, %73 ], [ null, %83 ], [ null, %__cmsg_nxthdr.exit.thread.thread236 ], [ null, %.critedge ], [ null, %125 ], [ null, %57 ]
+  %.0100 = phi i64 [ %smax, %125 ], [ %smax, %.critedge ], [ %smax, %__cmsg_nxthdr.exit.thread.thread236 ], [ %smax, %.loopexit ], [ %smax, %157 ], [ %64, %77 ], [ %smax, %83 ], [ %64, %73 ], [ %.1101, %57 ]
+  %.096 = phi ptr [ %81, %125 ], [ %81, %.critedge ], [ %81, %__cmsg_nxthdr.exit.thread.thread236 ], [ %.197, %.loopexit ], [ %.197, %157 ], [ null, %77 ], [ null, %83 ], [ null, %73 ], [ null, %57 ]
+  %.089 = phi ptr [ null, %125 ], [ null, %.critedge ], [ null, %__cmsg_nxthdr.exit.thread.thread236 ], [ null, %.loopexit ], [ %160, %157 ], [ null, %77 ], [ null, %83 ], [ null, %73 ], [ null, %57 ]
   call void @PyMem_Free(ptr noundef %.096) #13
   %161 = icmp sgt i64 %.0100, 0
   br i1 %161, label %.lr.ph, label %._crit_edge
@@ -9954,7 +9954,7 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
   br label %.critedge
 
 .critedge:                                        ; preds = %.split86, %79, %71, %.split105.us, %.critedge121, %.split89.us, %.split84.us, %.split84.us.thread, %88, %89, %.split100.us, %84, %.split98.us
-  %.0 = phi i32 [ -1, %.split98.us ], [ -1, %.split100.us ], [ -1, %88 ], [ 0, %.split84.us ], [ -1, %84 ], [ -1, %89 ], [ 0, %.split84.us.thread ], [ -1, %.split89.us ], [ -1, %.critedge121 ], [ -1, %.split105.us ], [ -1, %79 ], [ -1, %71 ], [ -1, %.split86 ]
+  %.0 = phi i32 [ -1, %79 ], [ -1, %.split98.us ], [ -1, %.split100.us ], [ -1, %88 ], [ 0, %.split84.us ], [ -1, %84 ], [ -1, %89 ], [ 0, %.split84.us.thread ], [ -1, %.split89.us ], [ -1, %.critedge121 ], [ -1, %.split105.us ], [ -1, %71 ], [ -1, %.split86 ]
   ret i32 %.0
 }
 
@@ -12214,9 +12214,9 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
   br label %Py_XDECREF.exit
 
 .loopexit:                                        ; preds = %35, %39, %13, %27, %20, %11
-  %.042.ph = phi i64 [ 0, %27 ], [ 0, %20 ], [ 0, %11 ], [ 0, %13 ], [ %.1437, %35 ], [ %9, %39 ]
-  %.041.ph = phi i32 [ -1, %27 ], [ -1, %20 ], [ -1, %11 ], [ 0, %13 ], [ -1, %35 ], [ 0, %39 ]
-  %.0.ph = phi ptr [ null, %27 ], [ null, %20 ], [ null, %11 ], [ null, %13 ], [ %25, %39 ], [ %25, %35 ]
+  %.042.ph = phi i64 [ 0, %11 ], [ 0, %20 ], [ 0, %27 ], [ 0, %13 ], [ %.1437, %35 ], [ %9, %39 ]
+  %.041.ph = phi i32 [ -1, %11 ], [ -1, %20 ], [ -1, %27 ], [ 0, %13 ], [ -1, %35 ], [ 0, %39 ]
+  %.0.ph = phi ptr [ null, %11 ], [ null, %20 ], [ null, %27 ], [ null, %13 ], [ %25, %39 ], [ %25, %35 ]
   store ptr %.0.ph, ptr %2, align 8, !tbaa !172
   store i64 %.042.ph, ptr %3, align 8, !tbaa !47
   %47 = load i32, ptr %5, align 8, !tbaa !18

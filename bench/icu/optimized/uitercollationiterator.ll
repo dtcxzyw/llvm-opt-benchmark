@@ -1183,8 +1183,8 @@ select.unfold:                                    ; preds = %115, %18, %49
           cleanup
   br label %.loopexit.split-lp
 
-.thread56:                                        ; preds = %99, %102, %132
-  %.4 = phi i8 [ 1, %132 ], [ 0, %99 ], [ 1, %102 ]
+.thread56:                                        ; preds = %102, %99, %132
+  %.4 = phi i8 [ 1, %132 ], [ 1, %102 ], [ 0, %99 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %136
@@ -1761,8 +1761,8 @@ _ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit: ; preds = %84, %
 .backedge.backedge:                               ; preds = %_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit, %59
   br label %.backedge, !llvm.loop !70
 
-_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %59, %16, %18, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %77, %79, %73, %96, %87, %15
-  %.120 = phi i32 [ -1, %15 ], [ %13, %77 ], [ %99, %96 ], [ %89, %87 ], [ %76, %73 ], [ %13, %79 ], [ %13, %18 ], [ %13, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ -1, %59 ], [ %13, %16 ]
+_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %59, %16, %18, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %79, %77, %73, %96, %87, %15
+  %.120 = phi i32 [ -1, %15 ], [ %13, %79 ], [ %99, %96 ], [ %89, %87 ], [ %76, %73 ], [ %13, %77 ], [ %13, %18 ], [ %13, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ -1, %59 ], [ %13, %16 ]
   ret i32 %.120
 }
 
@@ -2040,8 +2040,8 @@ select.unfold:                                    ; preds = %132, %18, %49
           cleanup
   br label %.loopexit.split-lp
 
-.thread64:                                        ; preds = %109, %112, %150
-  %.4 = phi i8 [ 1, %150 ], [ 0, %109 ], [ 1, %112 ]
+.thread64:                                        ; preds = %112, %109, %150
+  %.4 = phi i8 [ 1, %150 ], [ 1, %112 ], [ 0, %109 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %154

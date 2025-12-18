@@ -399,8 +399,8 @@ _ZN4core3ops8function6FnOnce9call_once17ha8214dbf1123523eE.exit.i.i: ; preds = %
   store i64 -9223372036854775807, ptr %28, align 8, !alias.scope !54, !noalias !57
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc00779f389023329E.exit"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit.thread": ; preds = %20, %.sink.split.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit"
-  %.0.i1.i2 = phi ptr [ %26, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit" ], [ %15, %20 ], [ %8, %.sink.split.i.i.i.i.i ]
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit.thread": ; preds = %.sink.split.i.i.i.i.i, %20, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit"
+  %.0.i1.i2 = phi ptr [ %26, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit" ], [ %8, %.sink.split.i.i.i.i.i ], [ %15, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !59
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -662,7 +662,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha8214dbf1123523eE.exit.i: ; preds = %se
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6caee1e8000385bfE.llvm.3506456842714578515.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h6caee1e8000385bfE.llvm.3506456842714578515.exit": ; preds = %17, %.sink.split.i.i.i.i, %19, %22
-  %.0.i1 = phi ptr [ null, %19 ], [ %24, %22 ], [ %5, %.sink.split.i.i.i.i ], [ %12, %17 ]
+  %.0.i1 = phi ptr [ null, %19 ], [ %24, %22 ], [ %12, %17 ], [ %5, %.sink.split.i.i.i.i ]
   ret ptr %.0.i1
 }
 
@@ -10869,7 +10869,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %39, %2, %.split.us, %.split72.us
-  %storemerge23 = phi i64 [ 0, %.split.us ], [ 1, %.split72.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
+  %storemerge23 = phi i64 [ 1, %.split72.us ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
   store i64 %storemerge23, ptr %0, align 8
   ret void
 }
@@ -12600,7 +12600,7 @@ common.resume:                                    ; preds = %.body.thread45, %53
   br label %"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4d45782a5a83cd66E.exit.i.i"
 
 "_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4d45782a5a83cd66E.exit.i.i": ; preds = %"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4d45782a5a83cd66E.exit.fold.split.i.i", %84, %.noexc.i.i, %76, %72, %69
-  %.0.i.i.i = phi i8 [ %87, %84 ], [ %82, %.noexc.i.i ], [ 1, %"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4d45782a5a83cd66E.exit.fold.split.i.i" ], [ 1, %76 ], [ -1, %72 ], [ -1, %69 ]
+  %.0.i.i.i = phi i8 [ %87, %84 ], [ %82, %.noexc.i.i ], [ 1, %"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4d45782a5a83cd66E.exit.fold.split.i.i" ], [ 1, %76 ], [ -1, %69 ], [ -1, %72 ]
   invoke void @"_ZN72_$LT$semver..identifier..Identifier$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2be2ae9091aa993eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27)
           to label %"_ZN13project_model13build_scripts21WorkspaceBuildScripts17run_for_workspace28_$u7b$$u7b$closure$u7d$$u7d$17he500add2343a4786E.exit.i" unwind label %90
 

@@ -19210,7 +19210,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #35
   br label %_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -24842,8 +24842,8 @@ _ZN7rocksdb12_GLOBAL__N_116MemTableInserter37DecrementProtectionInfoIdxForTryAga
   ret void
 
 173:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, %131
-  %174 = phi ptr [ %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %71, %131 ]
-  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %132, %131 ]
+  %174 = phi ptr [ %71, %131 ], [ %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ]
   %.not.i.i49 = icmp eq ptr %174, null
   br i1 %.not.i.i49, label %_ZN7rocksdb6StatusD2Ev.exit51, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50
 
@@ -25145,7 +25145,7 @@ _ZNSt10_HashtableIPN7rocksdb8MemTableESt4pairIKS2_PvESaIS6_ENSt8__detail10_Selec
   br label %.body
 
 _ZNSt13unordered_mapIPN7rocksdb8MemTableEPvSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEixERS9_.exit: ; preds = %135, %130, %.noexc96
-  %.pn.i.i = phi ptr [ %131, %130 ], [ %146, %.noexc96 ], [ %137, %135 ]
+  %.pn.i.i = phi ptr [ %146, %.noexc96 ], [ %131, %130 ], [ %137, %135 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   br label %148
 
@@ -28195,7 +28195,7 @@ _ZNSt10_HashtableIPN7rocksdb8MemTableESt4pairIKS2_PvESaIS6_ENSt8__detail10_Selec
   br label %.body
 
 _ZNSt13unordered_mapIPN7rocksdb8MemTableEPvSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEixERS9_.exit: ; preds = %118, %113, %.noexc82
-  %.pn.i.i = phi ptr [ %114, %113 ], [ %129, %.noexc82 ], [ %120, %118 ]
+  %.pn.i.i = phi ptr [ %129, %.noexc82 ], [ %114, %113 ], [ %120, %118 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   br label %131
 
@@ -28689,7 +28689,7 @@ _ZNSt10_HashtableIPN7rocksdb8MemTableESt4pairIKS2_PvESaIS6_ENSt8__detail10_Selec
   br label %.body
 
 _ZNSt13unordered_mapIPN7rocksdb8MemTableEPvSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEixERS9_.exit: ; preds = %116, %111, %.noexc82
-  %.pn.i.i = phi ptr [ %112, %111 ], [ %127, %.noexc82 ], [ %118, %116 ]
+  %.pn.i.i = phi ptr [ %127, %.noexc82 ], [ %112, %111 ], [ %118, %116 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   br label %129
 
@@ -29231,7 +29231,7 @@ _ZNSt10_HashtableIPN7rocksdb8MemTableESt4pairIKS2_PvESaIS6_ENSt8__detail10_Selec
   br label %.thread
 
 _ZNSt13unordered_mapIPN7rocksdb8MemTableEPvSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEixERS9_.exit: ; preds = %62, %57, %.noexc9
-  %.pn.i.i = phi ptr [ %58, %57 ], [ %73, %.noexc9 ], [ %64, %62 ]
+  %.pn.i.i = phi ptr [ %73, %.noexc9 ], [ %58, %57 ], [ %64, %62 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   br label %75
 
@@ -29823,7 +29823,7 @@ _ZNSt10_HashtableIPN7rocksdb8MemTableESt4pairIKS2_PvESaIS6_ENSt8__detail10_Selec
   br label %.body
 
 _ZNSt13unordered_mapIPN7rocksdb8MemTableEPvSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEixERS9_.exit: ; preds = %118, %113, %.noexc82
-  %.pn.i.i = phi ptr [ %114, %113 ], [ %129, %.noexc82 ], [ %120, %118 ]
+  %.pn.i.i = phi ptr [ %129, %.noexc82 ], [ %114, %113 ], [ %120, %118 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   br label %131
 

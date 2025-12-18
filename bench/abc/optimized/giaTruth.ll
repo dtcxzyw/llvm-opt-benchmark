@@ -2376,7 +2376,7 @@ Gla_ObjTruthConst0.exit:                          ; preds = %Gia_ObjIsPi.exit.th
   br i1 %exitcond.not.i185, label %Gla_ObjTruthDup.exit, label %.lr.ph.split.i, !llvm.loop !79
 
 Gla_ObjTruthDup.exit:                             ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %Gla_ObjTruthConst0.exit.thread260, %Gla_ObjTruthConst0.exit
-  %377 = phi ptr [ %306, %Gla_ObjTruthConst0.exit.thread260 ], [ %363, %Gla_ObjTruthConst0.exit ], [ %365, %.lr.ph.split.us.i ], [ %365, %.lr.ph.split.i ]
+  %377 = phi ptr [ %365, %.lr.ph.split.us.i ], [ %306, %Gla_ObjTruthConst0.exit.thread260 ], [ %363, %Gla_ObjTruthConst0.exit ], [ %365, %.lr.ph.split.i ]
   ret ptr %377
 }
 
@@ -3643,7 +3643,7 @@ Vec_WrdFillExtra.exit182:                         ; preds = %Vec_WrdGrow.exit.i1
   br i1 %327, label %.critedge2, label %.critedge4, !llvm.loop !97
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader, %.lr.ph.preheader.i, %72, %Vec_IntFind.exit
-  %.0 = phi ptr [ %24, %Vec_IntFind.exit ], [ %78, %72 ], [ %78, %.lr.ph.preheader.i ], [ %310, %.critedge2.preheader ], [ %310, %.critedge2 ]
+  %.0 = phi ptr [ %24, %Vec_IntFind.exit ], [ %78, %.lr.ph.preheader.i ], [ %78, %72 ], [ %310, %.critedge2.preheader ], [ %310, %.critedge2 ]
   ret ptr %.0
 }
 
@@ -4273,8 +4273,8 @@ Abc_TtHasVar.exit.i:                              ; preds = %248, %Abc_TtHasVar.
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i.i, %247, %Abc_TtHasVar.exit.i, %.preheader.lr.ph.i.i
-  %.sink.i = phi i32 [ 1, %Abc_TtHasVar.exit.i ], [ 0, %.preheader.lr.ph.i.i ], [ 0, %247 ], [ 0, %._crit_edge.us.i.i ]
-  %.1.i = phi i32 [ %268, %Abc_TtHasVar.exit.i ], [ %.08.i, %.preheader.lr.ph.i.i ], [ %.08.i, %247 ], [ %.08.i, %._crit_edge.us.i.i ]
+  %.sink.i = phi i32 [ 1, %Abc_TtHasVar.exit.i ], [ 0, %247 ], [ 0, %.preheader.lr.ph.i.i ], [ 0, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %268, %Abc_TtHasVar.exit.i ], [ %.08.i, %247 ], [ %.08.i, %.preheader.lr.ph.i.i ], [ %.08.i, %._crit_edge.us.i.i ]
   %.124.i = add nuw nsw i32 %.sink.i, %.0237.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

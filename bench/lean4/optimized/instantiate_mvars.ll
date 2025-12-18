@@ -1455,7 +1455,7 @@ define linkonce_odr hidden void @_ZN4lean21instantiate_lmvars_fn5visitERKNS_5lev
   br label %_ZN4lean5levelC2ERKS0_.exit44, !llvm.loop !57
 
 _ZNSt13unordered_mapIP11lean_objectN4lean5levelESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit: ; preds = %49, %31, %44
-  %.sroa.06.1.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i, %31 ], [ %51, %49 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %31 ], [ %45, %44 ], [ %51, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   store ptr %58, ptr %0, align 8, !tbaa !3
@@ -2366,7 +2366,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
   resume { ptr, i32 } %49
 
 _ZNKSt10_HashtableIP11lean_objectSt4pairIKS1_N4lean5levelEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %37, %23, %32
-  %.sroa.036.0.ph = phi ptr [ %33, %32 ], [ %.sroa.032.0, %23 ], [ %39, %37 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %23 ], [ %33, %32 ], [ %39, %37 ]
   %50 = ptrtoint ptr %10 to i64
   %51 = and i64 %50, 1
   %.not.i.i.i.i.i = icmp eq i64 %51, 0
@@ -3195,7 +3195,7 @@ define linkonce_odr hidden void @_ZN4lean20instantiate_mvars_fn5visitERKNS_4expr
   br label %_ZN4lean4exprC2ERKS0_.exit72, !llvm.loop !118
 
 _ZNSt13unordered_mapIP11lean_objectN4lean4exprESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit: ; preds = %70, %52, %65
-  %.sroa.06.1.i.i = phi ptr [ %66, %65 ], [ %.sroa.06.0.i.i, %52 ], [ %72, %70 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %52 ], [ %66, %65 ], [ %72, %70 ]
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !3
   store ptr %79, ptr %0, align 8, !tbaa !3
@@ -5714,7 +5714,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
   resume { ptr, i32 } %49
 
 _ZNKSt10_HashtableIP11lean_objectSt4pairIKS1_N4lean4exprEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %37, %23, %32
-  %.sroa.036.0.ph = phi ptr [ %33, %32 ], [ %.sroa.032.0, %23 ], [ %39, %37 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %23 ], [ %33, %32 ], [ %39, %37 ]
   %50 = ptrtoint ptr %10 to i64
   %51 = and i64 %50, 1
   %.not.i.i.i.i.i = icmp eq i64 %51, 0

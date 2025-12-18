@@ -1052,10 +1052,10 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit.i:        ; preds = %_ZNSt6vectorIN2cv6P
   br label %123, !llvm.loop !98
 
 _ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7ContourEb.exit: ; preds = %212, %81, %91, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %.sroa.17.0.i = phi i32 [ %.sroa.12126.0.extract.trunc.i, %81 ], [ %.sroa.12126.0.extract.trunc.i, %91 ], [ %.sroa.12126.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.17.2.i, %212 ]
-  %.sroa.12.0.i = phi i32 [ %.sroa.0110.0.extract.trunc.i, %81 ], [ %.sroa.0110.0.extract.trunc.i, %91 ], [ %.sroa.0110.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.12.2.i, %212 ]
-  %.sroa.8.0.i = phi i32 [ %.sroa.12126.0.extract.trunc.i, %81 ], [ %.sroa.12126.0.extract.trunc.i, %91 ], [ %.sroa.12126.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.8.2.i, %212 ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.0110.0.extract.trunc.i, %81 ], [ %.sroa.0110.0.extract.trunc.i, %91 ], [ %.sroa.0110.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0.2.i, %212 ]
+  %.sroa.17.0.i = phi i32 [ %.sroa.12126.0.extract.trunc.i, %81 ], [ %.sroa.12126.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.12126.0.extract.trunc.i, %91 ], [ %.sroa.17.2.i, %212 ]
+  %.sroa.12.0.i = phi i32 [ %.sroa.0110.0.extract.trunc.i, %81 ], [ %.sroa.0110.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0110.0.extract.trunc.i, %91 ], [ %.sroa.12.2.i, %212 ]
+  %.sroa.8.0.i = phi i32 [ %.sroa.12126.0.extract.trunc.i, %81 ], [ %.sroa.12126.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.12126.0.extract.trunc.i, %91 ], [ %.sroa.8.2.i, %212 ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.0110.0.extract.trunc.i, %81 ], [ %.sroa.0110.0.extract.trunc.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0110.0.extract.trunc.i, %91 ], [ %.sroa.0.2.i, %212 ]
   %.neg.i = add i32 %.sroa.12.0.i, 1
   %222 = sub i32 %.neg.i, %.sroa.0.0.i
   %.neg146.i = add i32 %.sroa.17.0.i, 1
@@ -1659,10 +1659,10 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit:          ; preds = %_ZNSt6vectorIN2cv6P
   br label %.split
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %168, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %54, %44
-  %.sroa.17.0 = phi i32 [ %.sroa.12120.0.extract.trunc, %44 ], [ %.sroa.12120.0.extract.trunc, %54 ], [ %.sroa.12120.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.17.2, %168 ]
-  %.sroa.12.0 = phi i32 [ %.sroa.0104.0.extract.trunc, %44 ], [ %.sroa.0104.0.extract.trunc, %54 ], [ %.sroa.0104.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.12.2, %168 ]
-  %.sroa.8.0 = phi i32 [ %.sroa.12120.0.extract.trunc, %44 ], [ %.sroa.12120.0.extract.trunc, %54 ], [ %.sroa.12120.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.8.2, %168 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0104.0.extract.trunc, %44 ], [ %.sroa.0104.0.extract.trunc, %54 ], [ %.sroa.0104.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0.2, %168 ]
+  %.sroa.17.0 = phi i32 [ %.sroa.12120.0.extract.trunc, %44 ], [ %.sroa.12120.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.12120.0.extract.trunc, %54 ], [ %.sroa.17.2, %168 ]
+  %.sroa.12.0 = phi i32 [ %.sroa.0104.0.extract.trunc, %44 ], [ %.sroa.0104.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0104.0.extract.trunc, %54 ], [ %.sroa.12.2, %168 ]
+  %.sroa.8.0 = phi i32 [ %.sroa.12120.0.extract.trunc, %44 ], [ %.sroa.12120.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.12120.0.extract.trunc, %54 ], [ %.sroa.8.2, %168 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0104.0.extract.trunc, %44 ], [ %.sroa.0104.0.extract.trunc, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0104.0.extract.trunc, %54 ], [ %.sroa.0.2, %168 ]
   %.neg = add i32 %.sroa.12.0, 1
   %178 = sub i32 %.neg, %.sroa.0.0
   %.neg140 = add i32 %.sroa.17.0, 1
@@ -2220,7 +2220,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thre
   br i1 %.not, label %.thread66, label %17
 
 .thread66:                                        ; preds = %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, %155, %104, %166, %116, %5
-  %.02390 = phi i32 [ %4, %5 ], [ %.02397, %116 ], [ %.02397, %166 ], [ %.02397, %104 ], [ %.02397, %155 ], [ %.2, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ], [ %.02397, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02397, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ]
+  %.02390 = phi i32 [ %.02397, %155 ], [ %.02397, %104 ], [ %.02397, %166 ], [ %.02397, %116 ], [ %4, %5 ], [ %.2, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ], [ %.02397, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02397, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ]
   ret i32 %.02390
 }
 
@@ -2314,7 +2314,7 @@ define hidden noundef i32 @_ZN15ContourScanner_9findNextXEiiRiS0_(ptr noundef no
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %.critedge2, %.critedge.loopexit48.split.loop.exit, %.critedge.loopexit.split.loop.exit, %.preheader25, %.preheader
-  %.1 = phi i32 [ %1, %.preheader25 ], [ %1, %.preheader ], [ %49, %.critedge.loopexit.split.loop.exit ], [ %50, %.critedge.loopexit48.split.loop.exit ], [ %10, %.critedge2 ], [ %10, %48 ]
+  %.1 = phi i32 [ %1, %.preheader25 ], [ %1, %.preheader ], [ %10, %.critedge2 ], [ %49, %.critedge.loopexit.split.loop.exit ], [ %50, %.critedge.loopexit48.split.loop.exit ], [ %10, %48 ]
   ret i32 %.1
 }
 
@@ -2479,9 +2479,9 @@ _ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42: ; preds = %82
   br label %_ZN15ContourScanner_9findNextXEiiRiS0_.exit
 
 _ZN15ContourScanner_9findNextXEiiRiS0_.exit:      ; preds = %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit, %.preheader25.i, %.preheader.i, %.critedge.loopexit.split.loop.exit.i, %.critedge.loopexit48.split.loop.exit.i
-  %.3 = phi i32 [ %.2, %.critedge.loopexit.split.loop.exit.i ], [ %.155, %.preheader.i ], [ %.155, %.critedge.loopexit48.split.loop.exit.i ], [ %.155, %.preheader25.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
-  %85 = phi i32 [ %71, %.critedge.loopexit.split.loop.exit.i ], [ %50, %.preheader.i ], [ %80, %.critedge.loopexit48.split.loop.exit.i ], [ %50, %.preheader25.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
-  %.1.i = phi i32 [ %83, %.critedge.loopexit.split.loop.exit.i ], [ %.12356, %.preheader.i ], [ %84, %.critedge.loopexit48.split.loop.exit.i ], [ %.12356, %.preheader25.i ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
+  %.3 = phi i32 [ %.155, %.preheader25.i ], [ %.2, %.critedge.loopexit.split.loop.exit.i ], [ %.155, %.preheader.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %.155, %.critedge.loopexit48.split.loop.exit.i ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
+  %85 = phi i32 [ %50, %.preheader25.i ], [ %71, %.critedge.loopexit.split.loop.exit.i ], [ %50, %.preheader.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %80, %.critedge.loopexit48.split.loop.exit.i ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
+  %.1.i = phi i32 [ %.12356, %.preheader25.i ], [ %83, %.critedge.loopexit.split.loop.exit.i ], [ %.12356, %.preheader.i ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %84, %.critedge.loopexit48.split.loop.exit.i ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
   %.not = icmp slt i32 %.1.i, %13
   br i1 %.not, label %86, label %_ZN15ContourScanner_9findNextXEiiRiS0_.exit._crit_edge
 

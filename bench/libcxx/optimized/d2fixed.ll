@@ -849,8 +849,8 @@ _ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit: ; preds = %._crit_edge.i274, %
   %.not252 = icmp ult i32 %.reass, %259
   br i1 %.not252, label %.lr.ph482, label %._crit_edge483
 
-423:                                              ; preds = %_ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit, %388
-  %.14.ph = phi ptr [ %.11354480, %388 ], [ %419, %_ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit ]
+423:                                              ; preds = %388, %_ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit
+  %.14.ph = phi ptr [ %419, %_ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit ], [ %.11354480, %388 ]
   %.not256 = icmp eq i32 %.4223, 0
   br i1 %.not256, label %.thread280, label %.preheader
 
@@ -910,8 +910,8 @@ _ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit: ; preds = %._crit_edge.i274, %
   br label %.thread280
 
 439:                                              ; preds = %433, %.lr.ph372
-  %.7226 = phi i32 [ 1, %433 ], [ %.5224369, %.lr.ph372 ]
-  %.2 = phi ptr [ %.0371, %433 ], [ %431, %.lr.ph372 ]
+  %.7226 = phi i32 [ %.5224369, %.lr.ph372 ], [ 1, %433 ]
+  %.2 = phi ptr [ %431, %.lr.ph372 ], [ %.0371, %433 ]
   %440 = icmp eq ptr %431, %0
   br i1 %440, label %._crit_edge373, label %.lr.ph372
 
@@ -929,8 +929,8 @@ _ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit: ; preds = %._crit_edge.i274, %
   br label %.thread280
 
 .thread280:                                       ; preds = %_ZNSt3__116__decimalLength9B8ne210000Ej.exit, %113, %337, %235, %244, %427, %._crit_edge483, %389, %437, %.thread307, %423, %429, %434, %.thread, %.thread284, %222, %441, %447, %7, %17, %15
-  %.sroa.0.1 = phi ptr [ %16, %15 ], [ %1, %7 ], [ %20, %17 ], [ %1, %.thread284 ], [ %1, %441 ], [ %241, %.thread ], [ %1, %222 ], [ %448, %447 ], [ %1, %244 ], [ %1, %235 ], [ %1, %389 ], [ %1, %._crit_edge483 ], [ %1, %427 ], [ %.14.ph, %437 ], [ %273, %.thread307 ], [ %.14.ph, %423 ], [ %430, %429 ], [ %.14.ph, %434 ], [ %1, %337 ], [ %1, %113 ], [ %1, %_ZNSt3__116__decimalLength9B8ne210000Ej.exit ]
-  %.sroa.15.1 = phi i32 [ 0, %15 ], [ 75, %7 ], [ 0, %17 ], [ 75, %.thread284 ], [ 75, %441 ], [ 0, %.thread ], [ 75, %222 ], [ 0, %447 ], [ 75, %244 ], [ 75, %235 ], [ 75, %389 ], [ 75, %._crit_edge483 ], [ 75, %427 ], [ 0, %437 ], [ 0, %.thread307 ], [ 0, %423 ], [ 0, %429 ], [ 0, %434 ], [ 75, %337 ], [ 75, %113 ], [ 75, %_ZNSt3__116__decimalLength9B8ne210000Ej.exit ]
+  %.sroa.0.1 = phi ptr [ %16, %15 ], [ %1, %7 ], [ %20, %17 ], [ %1, %.thread284 ], [ %1, %441 ], [ %241, %.thread ], [ %1, %222 ], [ %448, %447 ], [ %1, %244 ], [ %1, %235 ], [ %1, %337 ], [ %1, %389 ], [ %1, %._crit_edge483 ], [ %1, %427 ], [ %.14.ph, %437 ], [ %273, %.thread307 ], [ %.14.ph, %423 ], [ %430, %429 ], [ %.14.ph, %434 ], [ %1, %113 ], [ %1, %_ZNSt3__116__decimalLength9B8ne210000Ej.exit ]
+  %.sroa.15.1 = phi i32 [ 0, %15 ], [ 75, %7 ], [ 0, %17 ], [ 75, %.thread284 ], [ 75, %441 ], [ 0, %.thread ], [ 75, %222 ], [ 0, %447 ], [ 75, %244 ], [ 75, %235 ], [ 75, %337 ], [ 75, %389 ], [ 75, %._crit_edge483 ], [ 75, %427 ], [ 0, %437 ], [ 0, %.thread307 ], [ 0, %423 ], [ 0, %429 ], [ 0, %434 ], [ 75, %113 ], [ 75, %_ZNSt3__116__decimalLength9B8ne210000Ej.exit ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.15.1, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1998,7 +1998,7 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit365: ; preds = %571, %580
   br label %.thread443
 
 602:                                              ; preds = %596, %.lr.ph521
-  %.3237 = phi i32 [ %.1235519, %.lr.ph521 ], [ 1, %596 ]
+  %.3237 = phi i32 [ 1, %596 ], [ %.1235519, %.lr.ph521 ]
   %603 = icmp eq ptr %594, %0
   br i1 %603, label %._crit_edge522, label %.lr.ph521
 
@@ -2047,8 +2047,8 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit365: ; preds = %571, %580
   br label %.thread382
 
 .thread382:                                       ; preds = %172, %233, %119, %445, %384, %331, %.thread443, %625, %614, %585, %523, %487, %22, %7
-  %.sroa.0.1 = phi ptr [ %1, %7 ], [ %23, %22 ], [ %630, %625 ], [ %1, %523 ], [ %1, %585 ], [ %1, %487 ], [ %1, %.thread443 ], [ %624, %614 ], [ %1, %445 ], [ %1, %331 ], [ %1, %384 ], [ %1, %119 ], [ %1, %233 ], [ %1, %172 ]
-  %.sroa.14.1 = phi i32 [ 75, %7 ], [ 0, %22 ], [ 0, %625 ], [ 75, %523 ], [ 75, %585 ], [ 75, %487 ], [ 75, %.thread443 ], [ 0, %614 ], [ 75, %445 ], [ 75, %331 ], [ 75, %384 ], [ 75, %119 ], [ 75, %233 ], [ 75, %172 ]
+  %.sroa.0.1 = phi ptr [ %1, %7 ], [ %23, %22 ], [ %1, %445 ], [ %630, %625 ], [ %1, %523 ], [ %1, %585 ], [ %1, %487 ], [ %1, %.thread443 ], [ %624, %614 ], [ %1, %331 ], [ %1, %384 ], [ %1, %119 ], [ %1, %233 ], [ %1, %172 ]
+  %.sroa.14.1 = phi i32 [ 75, %7 ], [ 0, %22 ], [ 75, %445 ], [ 0, %625 ], [ 75, %523 ], [ 75, %585 ], [ 75, %487 ], [ 75, %.thread443 ], [ 0, %614 ], [ 75, %331 ], [ 75, %384 ], [ 75, %119 ], [ 75, %233 ], [ 75, %172 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.14.1, 1
   ret { ptr, i32 } %.fca.1.insert

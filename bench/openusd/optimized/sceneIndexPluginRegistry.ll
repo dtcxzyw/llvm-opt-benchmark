@@ -4144,7 +4144,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   br i1 %445, label %.loopexit, label %442
 
 .loopexit:                                        ; preds = %442, %.body, %.body.thread169, %.body.thread
-  %.pn50.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread169 ], [ %25, %.body.thread ], [ %lpad.thr_comm.split-lp, %.body ], [ %.pn50, %442 ]
+  %.pn50.pn = phi { ptr, i32 } [ %25, %.body.thread ], [ %lpad.thr_comm, %.body.thread169 ], [ %lpad.thr_comm.split-lp, %.body ], [ %.pn50, %442 ]
   resume { ptr, i32 } %.pn50.pn
 }
 

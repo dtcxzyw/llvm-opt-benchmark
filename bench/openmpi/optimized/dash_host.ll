@@ -1168,7 +1168,7 @@ pmix_pointer_array_get_item.exit304:              ; preds = %.preheader, %475
   br label %.thread
 
 .thread:                                          ; preds = %480, %454, %._crit_edge373, %.preheader._crit_edge, %._crit_edge363, %141, %pmix_pointer_array_get_item.exit295.thread, %119, %108, %47
-  %.2226.ph.ph = phi i32 [ 0, %454 ], [ -43, %.preheader._crit_edge ], [ -43, %108 ], [ -43, %119 ], [ -43, %pmix_pointer_array_get_item.exit295.thread ], [ -43, %141 ], [ 0, %._crit_edge363 ], [ %46, %47 ], [ 0, %._crit_edge373 ], [ 0, %480 ]
+  %.2226.ph.ph = phi i32 [ 0, %._crit_edge373 ], [ 0, %454 ], [ -43, %.preheader._crit_edge ], [ -43, %108 ], [ -43, %119 ], [ -43, %pmix_pointer_array_get_item.exit295.thread ], [ -43, %141 ], [ 0, %._crit_edge363 ], [ %46, %47 ], [ 0, %480 ]
   %.pr.pr = load ptr, ptr %4, align 8, !tbaa !34
   %.not283 = icmp eq ptr %.pr.pr, null
   br i1 %.not283, label %.thread322, label %.thread.thread
@@ -1512,7 +1512,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %59, %90
-  %.3 = phi i32 [ %91, %90 ], [ %.295156, %59 ], [ %.295156, %66 ]
+  %.3 = phi i32 [ %.295156, %59 ], [ %91, %90 ], [ %.295156, %66 ]
   %92 = icmp slt i32 %.3, 1
   %.not129 = icmp eq ptr %60, %7
   %or.cond = select i1 %92, i1 true, i1 %.not129
@@ -1658,8 +1658,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %23
   br label %.critedge
 
 .critedge:                                        ; preds = %.backedge, %.loopexit, %96, %52, %157, %144
-  %.4 = phi i32 [ %.093161, %144 ], [ %.093161, %157 ], [ %.194, %52 ], [ %.093161, %96 ], [ %.3, %.loopexit ], [ %.093161, %.backedge ]
-  %.2 = phi i1 [ %.091162, %144 ], [ %.091162, %157 ], [ %.192, %52 ], [ %.091162, %96 ], [ %.192, %.loopexit ], [ %.091162, %.backedge ]
+  %.4 = phi i32 [ %.093161, %96 ], [ %.093161, %157 ], [ %.093161, %144 ], [ %.194, %52 ], [ %.3, %.loopexit ], [ %.093161, %.backedge ]
+  %.2 = phi i1 [ %.091162, %96 ], [ %.091162, %157 ], [ %.091162, %144 ], [ %.192, %52 ], [ %.192, %.loopexit ], [ %.091162, %.backedge ]
   %161 = load ptr, ptr %4, align 8, !tbaa !34
   %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv179
   %163 = load ptr, ptr %162, align 8, !tbaa !3

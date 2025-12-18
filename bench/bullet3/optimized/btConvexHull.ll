@@ -1139,7 +1139,7 @@ define dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN14btHullTria
   br i1 %exitcond.not, label %.thread, label %4, !llvm.loop !49
 
 .thread:                                          ; preds = %33, %28, %16
-  %.2 = phi ptr [ %32, %28 ], [ %20, %16 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %33 ]
+  %.2 = phi ptr [ %20, %16 ], [ %32, %28 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %33 ]
   ret ptr %.2
 }
 
@@ -1218,7 +1218,7 @@ define dso_local void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef 
   br i1 %20, label %_ZN14btHullTriangle4neibEii.exit, label %19, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit:                 ; preds = %46, %31, %42
-  %.2.i = phi ptr [ %45, %42 ], [ %34, %31 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %46 ]
+  %.2.i = phi ptr [ %34, %31 ], [ %45, %42 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %46 ]
   %47 = load i32, ptr %.2.i, align 4, !tbaa !46
   br label %48
 
@@ -1273,7 +1273,7 @@ _ZN14btHullTriangle4neibEii.exit:                 ; preds = %46, %31, %42
   br i1 %49, label %_ZN14btHullTriangle4neibEii.exit34, label %48, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit34:               ; preds = %75, %60, %71
-  %.2.i27 = phi ptr [ %74, %71 ], [ %63, %60 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %75 ]
+  %.2.i27 = phi ptr [ %63, %60 ], [ %74, %71 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %75 ]
   %76 = load i32, ptr %.2.i27, align 4, !tbaa !46
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds ptr, ptr %5, i64 %77
@@ -1333,7 +1333,7 @@ _ZN14btHullTriangle4neibEii.exit34:               ; preds = %75, %60, %71
   br i1 %81, label %_ZN14btHullTriangle4neibEii.exit45, label %80, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit45:               ; preds = %109, %92, %104
-  %.2.i38 = phi ptr [ %108, %104 ], [ %96, %92 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %109 ]
+  %.2.i38 = phi ptr [ %96, %92 ], [ %108, %104 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %109 ]
   store i32 %47, ptr %.2.i38, align 4, !tbaa !46
   br label %110
 
@@ -1388,7 +1388,7 @@ _ZN14btHullTriangle4neibEii.exit45:               ; preds = %109, %92, %104
   br i1 %111, label %_ZN14btHullTriangle4neibEii.exit56, label %110, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit56:               ; preds = %137, %122, %133
-  %.2.i49 = phi ptr [ %136, %133 ], [ %125, %122 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %137 ]
+  %.2.i49 = phi ptr [ %125, %122 ], [ %136, %133 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %137 ]
   %138 = load i32, ptr %.2.i49, align 4, !tbaa !46
   br label %139
 
@@ -1443,7 +1443,7 @@ _ZN14btHullTriangle4neibEii.exit56:               ; preds = %137, %122, %133
   br i1 %140, label %_ZN14btHullTriangle4neibEii.exit67, label %139, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit67:               ; preds = %166, %151, %162
-  %.2.i60 = phi ptr [ %165, %162 ], [ %154, %151 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %166 ]
+  %.2.i60 = phi ptr [ %154, %151 ], [ %165, %162 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %166 ]
   %167 = load i32, ptr %.2.i60, align 4, !tbaa !46
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds ptr, ptr %5, i64 %168
@@ -1503,7 +1503,7 @@ _ZN14btHullTriangle4neibEii.exit67:               ; preds = %166, %151, %162
   br i1 %172, label %_ZN14btHullTriangle4neibEii.exit78, label %171, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit78:               ; preds = %200, %183, %195
-  %.2.i71 = phi ptr [ %199, %195 ], [ %187, %183 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %200 ]
+  %.2.i71 = phi ptr [ %187, %183 ], [ %199, %195 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %200 ]
   store i32 %138, ptr %.2.i71, align 4, !tbaa !46
   %exitcond.not = icmp eq i32 %9, 3
   br i1 %exitcond.not, label %201, label %8, !llvm.loop !56
@@ -1742,7 +1742,7 @@ define dso_local void @_ZN11HullLibrary7extrudeEP14btHullTrianglei(ptr noundef n
   br i1 %19, label %_ZN14btHullTriangle4neibEii.exit, label %18, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit:                 ; preds = %47, %30, %42
-  %.2.i = phi ptr [ %46, %42 ], [ %34, %30 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %47 ]
+  %.2.i = phi ptr [ %34, %30 ], [ %46, %42 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %47 ]
   store i32 %5, ptr %.2.i, align 4, !tbaa !46
   %48 = tail call noundef ptr @_ZN11HullLibrary16allocateTriangleEiii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %2, i32 noundef %.sroa.11.0.copyload, i32 noundef %.sroa.072.0.copyload)
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1813,7 +1813,7 @@ _ZN14btHullTriangle4neibEii.exit:                 ; preds = %47, %30, %42
   br i1 %58, label %_ZN14btHullTriangle4neibEii.exit50, label %57, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit50:               ; preds = %86, %69, %81
-  %.2.i43 = phi ptr [ %85, %81 ], [ %73, %69 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %86 ]
+  %.2.i43 = phi ptr [ %73, %69 ], [ %85, %81 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %86 ]
   store i32 %9, ptr %.2.i43, align 4, !tbaa !46
   %87 = tail call noundef ptr @_ZN11HullLibrary16allocateTriangleEiii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %2, i32 noundef %.sroa.072.0.copyload, i32 noundef %.sroa.7.0.copyload)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1884,7 +1884,7 @@ _ZN14btHullTriangle4neibEii.exit50:               ; preds = %86, %69, %81
   br i1 %97, label %_ZN14btHullTriangle4neibEii.exit61, label %96, !llvm.loop !49
 
 _ZN14btHullTriangle4neibEii.exit61:               ; preds = %125, %108, %120
-  %.2.i54 = phi ptr [ %124, %120 ], [ %112, %108 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %125 ]
+  %.2.i54 = phi ptr [ %112, %108 ], [ %124, %120 ], [ @_ZZN14btHullTriangle4neibEiiE2er, %125 ]
   store i32 %10, ptr %.2.i54, align 4, !tbaa !46
   %126 = load i32, ptr %11, align 4, !tbaa !46
   %127 = sext i32 %126 to i64
@@ -3503,7 +3503,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %_ZN20btAlignedObjec
   br i1 %.not133, label %._crit_edge409, label %.lr.ph408, !llvm.loop !86
 
 ._crit_edge409:                                   ; preds = %.backedge, %381
-  %454 = phi i32 [ %375, %381 ], [ %453, %.backedge ]
+  %454 = phi i32 [ %453, %.backedge ], [ %375, %381 ]
   %.not136411 = icmp eq i32 %454, 0
   br i1 %.not136411, label %.thread, label %.lr.ph413.preheader
 

@@ -865,7 +865,7 @@ smb_send_open.exit:                               ; preds = %178, %smb_send_mess
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %413
 
-240:                                              ; preds = %152, %119, %123
+240:                                              ; preds = %123, %119, %152
   %241 = getelementptr inbounds nuw i8, ptr %13, i64 1176
   store i64 0, ptr %241, align 8, !tbaa !120
   %242 = load ptr, ptr %15, align 8, !tbaa !7

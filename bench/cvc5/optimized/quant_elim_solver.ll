@@ -2918,7 +2918,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc706
   br label %.body425
 
 .body425:                                         ; preds = %.body430, %1192, %.body.i
-  %.pn146.pn = phi { ptr, i32 } [ %1193, %1192 ], [ %.pn.i.i, %.body.i ], [ %.pn146, %.body430 ]
+  %.pn146.pn = phi { ptr, i32 } [ %.pn.i.i, %.body.i ], [ %1193, %1192 ], [ %.pn146, %.body430 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %_ZN4cvc58internal6ResultD2Ev.exit670

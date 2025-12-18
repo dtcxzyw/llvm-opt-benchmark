@@ -4475,8 +4475,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %.noexc366, %_ZNSt6v
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor10OctaveLineESaIS3_EEC2EmRKS4_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !229
 
 _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor10OctaveLineESaIS3_EEC2EmRKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %3, %.noexc367, %._crit_edge
-  %116 = phi i32 [ %102, %.noexc367 ], [ %102, %._crit_edge ], [ %11, %3 ], [ %102, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0396.0 = phi ptr [ %109, %.noexc367 ], [ null, %._crit_edge ], [ null, %3 ], [ %109, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %116 = phi i32 [ %102, %._crit_edge ], [ %102, %.noexc367 ], [ %11, %3 ], [ %102, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0396.0 = phi ptr [ null, %._crit_edge ], [ %109, %.noexc367 ], [ null, %3 ], [ %109, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %118 = load ptr, ptr %117, align 8, !tbaa !37
   %119 = load ptr, ptr %118, align 8, !tbaa !56
@@ -12356,7 +12356,7 @@ _ZN2cv4Mat_IfEaSERKNS_7MatExprE.exit109:          ; preds = %165
   br i1 %exitcond133.not, label %.sink.split, label %.lr.ph117, !llvm.loop !381
 
 .sink.split:                                      ; preds = %.lr.ph117, %.lr.ph128, %_ZN2cv4Mat_IfEaSERKNS_7MatExprE.exit109, %_ZN2cv4Mat_IfEaSERKNS_7MatExprE.exit107
-  %.193.lcssa.sink = phi double [ 0.000000e+00, %_ZN2cv4Mat_IfEaSERKNS_7MatExprE.exit107 ], [ 0.000000e+00, %_ZN2cv4Mat_IfEaSERKNS_7MatExprE.exit109 ], [ %130, %.lr.ph128 ], [ %234, %.lr.ph117 ]
+  %.193.lcssa.sink = phi double [ %130, %.lr.ph128 ], [ 0.000000e+00, %_ZN2cv4Mat_IfEaSERKNS_7MatExprE.exit107 ], [ 0.000000e+00, %_ZN2cv4Mat_IfEaSERKNS_7MatExprE.exit109 ], [ %234, %.lr.ph117 ]
   %236 = call double @sqrt(double noundef %.193.lcssa.sink) #26, !tbaa !47
   br label %237
 
@@ -14853,7 +14853,7 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt4pai
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread
-  %.02126.i.be = phi ptr [ %.021.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i ], [ %.021.i18, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread ]
+  %.02126.i.be = phi ptr [ %.021.i18, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread ], [ %.021.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i ]
   br label %.lr.ph.i, !llvm.loop !406
 
 _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread: ; preds = %17, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i

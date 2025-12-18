@@ -129,9 +129,9 @@ define internal i32 @webp_parse(ptr noundef readonly captures(none) %0, ptr read
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph102, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %41, %52
-  %.173 = phi i32 [ %5, %52 ], [ %.0.lcssa, %.preheader ], [ %42, %41 ]
-  %.257 = phi i64 [ %28, %52 ], [ %.055.ph, %.preheader ], [ 0, %41 ]
-  %.053 = phi i32 [ -100, %52 ], [ -100, %.preheader ], [ %44, %41 ]
+  %.173 = phi i32 [ %5, %52 ], [ %42, %41 ], [ %.0.lcssa, %.preheader ]
+  %.257 = phi i64 [ %28, %52 ], [ 0, %41 ], [ %.055.ph, %.preheader ]
+  %.053 = phi i32 [ -100, %52 ], [ %44, %41 ], [ -100, %.preheader ]
   store i64 %.257, ptr %10, align 8, !tbaa !15
   br label %.loopexit67
 

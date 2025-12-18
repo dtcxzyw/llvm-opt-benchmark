@@ -2846,7 +2846,7 @@ lpad27.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNKSt8functionI
   br label %ehcleanup537
 
 lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then41.invoke, %while.end, %_ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEmESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i, %invoke.cont85, %if.then119, %if.then104, %if.end72, %if.end63, %if.then55
-  %annot_records.sroa.0.1.ph.ph.ph.ph = phi ptr [ %annot_records.sroa.0.3910, %if.then41.invoke ], [ %annot_records.sroa.0.3910, %invoke.cont85 ], [ %annot_records.sroa.0.3910, %if.end72 ], [ %annot_records.sroa.0.3910, %if.end63 ], [ %annot_records.sroa.0.3910, %if.then55 ], [ %annot_records.sroa.0.3910, %if.then119 ], [ %annot_records.sroa.0.3910, %if.then104 ], [ %annot_records.sroa.0.5, %while.end ], [ %annot_records.sroa.0.3910, %_ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEmESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %annot_records.sroa.0.1.ph.ph.ph.ph = phi ptr [ %annot_records.sroa.0.3910, %invoke.cont85 ], [ %annot_records.sroa.0.3910, %if.end72 ], [ %annot_records.sroa.0.3910, %if.end63 ], [ %annot_records.sroa.0.3910, %if.then55 ], [ %annot_records.sroa.0.3910, %if.then119 ], [ %annot_records.sroa.0.3910, %if.then104 ], [ %annot_records.sroa.0.5, %while.end ], [ %annot_records.sroa.0.3910, %_ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEmESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %annot_records.sroa.0.3910, %if.then41.invoke ]
   %lpad.loopexit609 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup537
@@ -2857,7 +2857,7 @@ lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup537
 
 lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.invoke, %if.else.i.i158, %if.then.i.i.i.i, %if.else.i251, %if.then.i.i261, %if.else.i481, %if.else.i497, %if.then532
-  %annot_records.sroa.0.1.ph.ph.ph.ph608.ph = phi ptr [ %annot_records.sroa.0.0.lcssa, %if.else.i481 ], [ %annot_records.sroa.0.0.lcssa, %if.else.i497 ], [ %annot_records.sroa.0.0.lcssa, %if.then532 ], [ %annot_records.sroa.0.3910, %if.then.i.i.i.i ], [ %annot_records.sroa.0.3910, %if.else.i.i158 ], [ %annot_records.sroa.0.3910, %if.else.i251 ], [ %annot_records.sroa.0.3910, %if.then.i.i261 ], [ %annot_records.sroa.0.3910, %if.then.i.i.i.invoke ]
+  %annot_records.sroa.0.1.ph.ph.ph.ph608.ph = phi ptr [ %annot_records.sroa.0.0.lcssa, %if.then532 ], [ %annot_records.sroa.0.3910, %if.then.i.i.i.i ], [ %annot_records.sroa.0.3910, %if.else.i.i158 ], [ %annot_records.sroa.0.3910, %if.else.i251 ], [ %annot_records.sroa.0.0.lcssa, %if.else.i497 ], [ %annot_records.sroa.0.3910, %if.then.i.i261 ], [ %annot_records.sroa.0.0.lcssa, %if.else.i481 ], [ %annot_records.sroa.0.3910, %if.then.i.i.i.invoke ]
   %lpad.loopexit.split-lp618 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup537
@@ -4335,8 +4335,8 @@ for.inc:                                          ; preds = %lor.rhs.i.i435
   br i1 %cmp.i429.not, label %for.end, label %lor.rhs.i.i435
 
 for.end:                                          ; preds = %for.inc, %if.then434, %lor.rhs.i.i435.lr.ph, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit443
-  %text435.sroa.0.1 = phi i64 [ %sub.i.i442, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit443 ], [ 0, %lor.rhs.i.i435.lr.ph ], [ %text435.sroa.0.0.copyload, %if.then434 ], [ %text435.sroa.0.0.copyload, %for.inc ]
-  %text435.sroa.4.1 = phi ptr [ %add.ptr.i.i441, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit443 ], [ %text435.sroa.4.0.copyload, %lor.rhs.i.i435.lr.ph ], [ %text435.sroa.4.0.copyload, %if.then434 ], [ %text435.sroa.4.0.copyload, %for.inc ]
+  %text435.sroa.0.1 = phi i64 [ %sub.i.i442, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit443 ], [ %text435.sroa.0.0.copyload, %if.then434 ], [ 0, %lor.rhs.i.i435.lr.ph ], [ %text435.sroa.0.0.copyload, %for.inc ]
+  %text435.sroa.4.1 = phi ptr [ %add.ptr.i.i441, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit443 ], [ %text435.sroa.4.0.copyload, %if.then434 ], [ %text435.sroa.4.0.copyload, %lor.rhs.i.i435.lr.ph ], [ %text435.sroa.4.0.copyload, %for.inc ]
   invoke void @_ZN6google8protobuf2io7Printer8WriteRawEPKcm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %text435.sroa.4.1, i64 noundef %text435.sroa.0.1)
           to label %if.end457 unwind label %lpad258.loopexit.split-lp.loopexit.split-lp.loopexit
 

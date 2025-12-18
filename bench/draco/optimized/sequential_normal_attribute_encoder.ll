@@ -1916,7 +1916,7 @@ _ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTyp
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit, label %.lr.ph.i, !llvm.loop !207
 
-_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit.i.preheader.critedge: ; preds = %_ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPiSD_SD_.exit.i, %_ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %62, %58
+_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit.i.preheader.critedge: ; preds = %_ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPiSD_SD_.exit.i, %_ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %58, %62
   %117 = add i32 %.039.in82, -2
   %118 = mul nsw i32 %117, %4
   %119 = getelementptr inbounds i32, ptr %1, i64 %60
@@ -3411,8 +3411,8 @@ _ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_ta
   br label %_ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit209
 
 _ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit209: ; preds = %260, %262, %248
-  %.sroa.0384.2 = phi i32 [ %.sroa.0384.1, %248 ], [ %261, %260 ], [ %263, %262 ]
-  %.1152 = phi i1 [ %.0151590, %248 ], [ false, %260 ], [ false, %262 ]
+  %.sroa.0384.2 = phi i32 [ %.sroa.0384.1, %248 ], [ %263, %262 ], [ %261, %260 ]
+  %.1152 = phi i1 [ %.0151590, %248 ], [ false, %262 ], [ false, %260 ]
   %.not456 = icmp eq i32 %.sroa.0384.2, -1
   br i1 %.not456, label %._crit_edge, label %139, !llvm.loop !230
 
@@ -6468,7 +6468,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29Attrib
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %288, %.lr.ph42.i146, %260, %.lr.ph42.i, %228, %200, %198, %174, %149, %124, %99, %74, %49, %24, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, %.critedge.i169, %.critedge.i155, %.lr.ph.i143, %.critedge.i137, %.lr.ph.i132, %.critedge.i129, %.critedge.i120, %.critedge.i107, %.critedge.i94, %.critedge.i81, %.critedge.i68, %.critedge.i55, %.critedge.i, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.critedge.i55 ], [ true, %.critedge.i68 ], [ true, %.critedge.i81 ], [ true, %.critedge.i94 ], [ true, %.critedge.i107 ], [ true, %.critedge.i120 ], [ true, %.critedge.i129 ], [ true, %.critedge.i137 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i155 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i169 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %.lr.ph42.i146 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ false, %174 ], [ false, %200 ], [ false, %.lr.ph42.i ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
+  %.0 = phi i1 [ false, %.lr.ph42.i146 ], [ false, %4 ], [ false, %6 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %200 ], [ false, %.lr.ph42.i ], [ true, %.critedge.i ], [ false, %174 ], [ true, %.critedge.i55 ], [ true, %.critedge.i129 ], [ true, %.critedge.i68 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i81 ], [ true, %.critedge.i137 ], [ true, %.critedge.i94 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i107 ], [ true, %.critedge.i155 ], [ true, %.critedge.i120 ], [ true, %.critedge.i169 ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
   ret i1 %.0
 }
 
@@ -8979,8 +8979,8 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br label %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit202
 
 _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit202: ; preds = %223, %225, %217
-  %.sroa.0377.2 = phi i32 [ %.sroa.0377.1, %217 ], [ %224, %223 ], [ %226, %225 ]
-  %.1152 = phi i1 [ %.0151584, %217 ], [ false, %223 ], [ false, %225 ]
+  %.sroa.0377.2 = phi i32 [ %.sroa.0377.1, %217 ], [ %226, %225 ], [ %224, %223 ]
+  %.1152 = phi i1 [ %.0151584, %217 ], [ false, %225 ], [ false, %223 ]
   %.not449 = icmp eq i32 %.sroa.0377.2, -1
   br i1 %.not449, label %._crit_edge, label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, !llvm.loop !398
 

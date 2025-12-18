@@ -927,7 +927,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   br i1 %134, label %123, label %._crit_edge135, !llvm.loop !9
 
 ._crit_edge135:                                   ; preds = %84, %133, %.critedge.thread, %.critedge
-  %135 = phi ptr [ %60, %.critedge.thread ], [ %39, %.critedge ], [ %119, %133 ], [ %39, %84 ]
+  %135 = phi ptr [ %60, %.critedge.thread ], [ %119, %133 ], [ %39, %.critedge ], [ %39, %84 ]
   call void @pfree(ptr noundef %135) #5
   br label %136
 

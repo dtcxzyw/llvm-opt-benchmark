@@ -918,7 +918,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr noundef readonl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %42, %40, %4
-  %.017 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ true, %42 ], [ true, %40 ], [ false, %.lr.ph ]
+  %.017 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ true, %40 ], [ true, %42 ], [ false, %.lr.ph ]
   ret i1 %.017
 }
 

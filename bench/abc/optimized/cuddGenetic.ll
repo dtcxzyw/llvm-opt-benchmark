@@ -1270,7 +1270,7 @@ sift_up.exit.sink.split:                          ; preds = %15, %._crit_edge43
   br label %sift_up.exit
 
 sift_up.exit:                                     ; preds = %.lr.ph.i, %sift_up.exit.sink.split, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %sift_up.exit.sink.split ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 1, %sift_up.exit.sink.split ], [ 0, %._crit_edge ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

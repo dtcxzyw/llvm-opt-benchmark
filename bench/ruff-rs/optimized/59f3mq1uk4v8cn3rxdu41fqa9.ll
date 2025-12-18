@@ -2180,7 +2180,7 @@ define hidden void @_ZN10rayon_core5scope9ScopeBase8complete17he63e295a975dda2eE
   br label %422
 
 .loopexit.split-lp.i.i.i.i.i:                     ; preds = %410, %200, %168, %158, %155
-  %.sroa.019.0.ph.i.i.i.i.i = phi i8 [ 1, %168 ], [ 1, %155 ], [ 1, %158 ], [ 1, %200 ], [ %.sroa.019.6.i.i.i.i.i, %410 ]
+  %.sroa.019.0.ph.i.i.i.i.i = phi i8 [ 1, %155 ], [ 1, %158 ], [ 1, %168 ], [ 1, %200 ], [ %.sroa.019.6.i.i.i.i.i, %410 ]
   %lpad.loopexit.split-lp.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr null

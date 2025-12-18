@@ -435,13 +435,13 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   br i1 %134, label %.lr.ph417.i, label %._crit_edge.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %131, %.thread342.i, %124, %120, %.thread328.i
-  %.2227515.i = phi i8 [ %127, %.thread342.i ], [ %.0225425.i, %120 ], [ %.0225425.i, %.thread328.i ], [ %.0225425.i, %124 ], [ %127, %131 ]
-  %.0242340349514.i = phi i32 [ %122, %.thread342.i ], [ %122, %120 ], [ %119, %.thread328.i ], [ %122, %124 ], [ %122, %131 ]
-  %.0229310318339350513.i = phi i32 [ %114, %.thread342.i ], [ %114, %120 ], [ %.0229310319.i, %.thread328.i ], [ %114, %124 ], [ %114, %131 ]
-  %.2235292298309320338351512.i = phi i32 [ %107, %.thread342.i ], [ %107, %120 ], [ %.2235292298309321.i, %.thread328.i ], [ %107, %124 ], [ %107, %131 ]
-  %.2232287291299308322337352511.i = phi i16 [ %104, %.thread342.i ], [ %104, %120 ], [ %.2232287291299308323.i, %.thread328.i ], [ %104, %124 ], [ %104, %131 ]
-  %.2238300307324336353510.i = phi i32 [ %111, %.thread342.i ], [ %111, %120 ], [ %.2238300307325.i, %.thread328.i ], [ %111, %124 ], [ %111, %131 ]
-  %.0228326335354509.i = phi i8 [ %118, %.thread342.i ], [ %118, %120 ], [ %.0228327.i, %.thread328.i ], [ %118, %124 ], [ %118, %131 ]
+  %.2227515.i = phi i8 [ %.0225425.i, %124 ], [ %127, %.thread342.i ], [ %.0225425.i, %120 ], [ %.0225425.i, %.thread328.i ], [ %127, %131 ]
+  %.0242340349514.i = phi i32 [ %122, %124 ], [ %122, %.thread342.i ], [ %122, %120 ], [ %119, %.thread328.i ], [ %122, %131 ]
+  %.0229310318339350513.i = phi i32 [ %114, %124 ], [ %114, %.thread342.i ], [ %114, %120 ], [ %.0229310319.i, %.thread328.i ], [ %114, %131 ]
+  %.2235292298309320338351512.i = phi i32 [ %107, %124 ], [ %107, %.thread342.i ], [ %107, %120 ], [ %.2235292298309321.i, %.thread328.i ], [ %107, %131 ]
+  %.2232287291299308322337352511.i = phi i16 [ %104, %124 ], [ %104, %.thread342.i ], [ %104, %120 ], [ %.2232287291299308323.i, %.thread328.i ], [ %104, %131 ]
+  %.2238300307324336353510.i = phi i32 [ %111, %124 ], [ %111, %.thread342.i ], [ %111, %120 ], [ %.2238300307325.i, %.thread328.i ], [ %111, %131 ]
+  %.0228326335354509.i = phi i8 [ %118, %124 ], [ %118, %.thread342.i ], [ %118, %120 ], [ %.0228327.i, %.thread328.i ], [ %118, %131 ]
   %135 = icmp slt i32 %.0242340349514.i, 1
   br i1 %135, label %141, label %136
 
@@ -673,7 +673,7 @@ skip_reserved.exit:                               ; preds = %.lr.ph.i68, %222, %
   br i1 %.not271.i, label %.thread356.i, label %231
 
 .thread356.i:                                     ; preds = %194, %.preheader.i, %229, %skip_reserved.exit, %192, %186, %180, %152, %143, %141, %130, %96, %88, %79, %72, %60, %48
-  %234 = phi i1 [ false, %88 ], [ false, %79 ], [ false, %72 ], [ false, %skip_reserved.exit ], [ true, %229 ], [ false, %48 ], [ false, %152 ], [ false, %60 ], [ false, %96 ], [ false, %130 ], [ false, %141 ], [ false, %143 ], [ false, %180 ], [ false, %186 ], [ false, %192 ], [ true, %.preheader.i ], [ true, %194 ]
+  %234 = phi i1 [ false, %88 ], [ false, %79 ], [ false, %72 ], [ false, %192 ], [ false, %skip_reserved.exit ], [ true, %229 ], [ false, %48 ], [ false, %152 ], [ false, %60 ], [ false, %96 ], [ false, %130 ], [ false, %141 ], [ false, %143 ], [ false, %180 ], [ true, %.preheader.i ], [ false, %186 ], [ true, %194 ]
   tail call void @av_freep(ptr noundef nonnull %14) #13
   %235 = load i32, ptr %17, align 8, !tbaa !60
   %236 = icmp sgt i32 %235, 1
@@ -1443,8 +1443,8 @@ skip_reserved.exit.i:                             ; preds = %.lr.ph.i.i, %.loope
   br label %.loopexit187.i
 
 .loopexit187.i:                                   ; preds = %.lr.ph.i59, %skip_reserved.exit.i, %.loopexit.i, %.split225.us.i, %.split223.us.i, %.split.us.i, %.thread.i, %474, %473
-  %.0145.i = phi ptr [ %476, %.loopexit.i ], [ %476, %skip_reserved.exit.i ], [ %476, %474 ], [ null, %473 ], [ %476, %.split225.us.i ], [ %476, %.split223.us.i ], [ %476, %.split.us.i ], [ %476, %.thread.i ], [ %476, %.lr.ph.i59 ]
-  %.0144.i = phi ptr [ %479, %.loopexit.i ], [ %479, %skip_reserved.exit.i ], [ %479, %474 ], [ null, %473 ], [ %479, %.split225.us.i ], [ %479, %.split223.us.i ], [ %479, %.split.us.i ], [ %479, %.thread.i ], [ %479, %.lr.ph.i59 ]
+  %.0145.i = phi ptr [ %476, %.thread.i ], [ %476, %.loopexit.i ], [ %476, %skip_reserved.exit.i ], [ %476, %474 ], [ null, %473 ], [ %476, %.split225.us.i ], [ %476, %.split223.us.i ], [ %476, %.split.us.i ], [ %476, %.lr.ph.i59 ]
+  %.0144.i = phi ptr [ %479, %.thread.i ], [ %479, %.loopexit.i ], [ %479, %skip_reserved.exit.i ], [ %479, %474 ], [ null, %473 ], [ %479, %.split225.us.i ], [ %479, %.split223.us.i ], [ %479, %.split.us.i ], [ %479, %.lr.ph.i59 ]
   call void @av_free(ptr noundef %.0145.i) #13
   call void @av_free(ptr noundef %.0144.i) #13
   br label %554

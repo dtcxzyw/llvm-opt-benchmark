@@ -866,7 +866,7 @@ findIdx.exit:                                     ; preds = %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %findIdx.exit.thread, %.preheader, %._crit_edge, %43, %._crit_edge.thread112
-  %.0 = phi i32 [ 1, %._crit_edge.thread112 ], [ 1, %43 ], [ 1, %._crit_edge ], [ 1, %.preheader ], [ 0, %findIdx.exit.thread ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %43 ], [ 1, %._crit_edge.thread112 ], [ 1, %.preheader ], [ 0, %findIdx.exit.thread ], [ 0, %24 ]
   ret i32 %.0
 }
 

@@ -8590,7 +8590,7 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread36: ; preds = %30
   br label %50
 
 _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %22, %41, %43, %45, %47
-  %49 = phi i32 [ %48, %47 ], [ %23, %22 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
+  %49 = phi i32 [ %44, %43 ], [ %48, %47 ], [ %23, %22 ], [ %46, %45 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %49, -1
   br i1 %.not, label %._crit_edge, label %50

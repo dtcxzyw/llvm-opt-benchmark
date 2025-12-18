@@ -1401,7 +1401,7 @@ define hidden void @"_ZN11signal_hook8iterator7backend27SignalDelivery$LT$R$C$E$
           to label %.thread59 unwind label %64
 
 "_ZN4core3ptr59drop_in_place$LT$std..os..unix..net..stream..UnixStream$GT$17h066902e1afb93889E.exit30": ; preds = %.thread59, %58
-  %.pn23.pn.pn5862 = phi { ptr, i32 } [ %59, %58 ], [ %.pn23.pn.pn5863, %.thread59 ]
+  %.pn23.pn.pn5862 = phi { ptr, i32 } [ %.pn23.pn.pn5863, %.thread59 ], [ %59, %58 ]
   resume { ptr, i32 } %.pn23.pn.pn5862
 
 .thread59:                                        ; preds = %69, %.thread45, %70

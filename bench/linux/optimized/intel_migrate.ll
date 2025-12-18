@@ -1014,7 +1014,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %406, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %357, %._crit_edge, %402, %375, %379, %372, %367, %371, %364
-  %.ph = phi i32 [ 0, %364 ], [ 0, %371 ], [ 0, %367 ], [ 0, %372 ], [ 0, %379 ], [ 0, %375 ], [ -22, %402 ], [ %156, %._crit_edge ], [ %332, %357 ]
+  %.ph = phi i32 [ 0, %364 ], [ 0, %371 ], [ 0, %367 ], [ 0, %372 ], [ 0, %379 ], [ 0, %375 ], [ %156, %._crit_edge ], [ -22, %402 ], [ %332, %357 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

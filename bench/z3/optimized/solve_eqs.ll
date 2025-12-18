@@ -859,7 +859,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread
   br i1 %.not27.old.i.i.i.i, label %_ZNK3euf9solve_eqs10check_occsEP4expr.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %69, %66
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %69 ], [ %68, %66 ]
+  %.137.i.i.i.i.be = phi ptr [ %68, %66 ], [ %.old.i.i.i.i, %69 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !119
 
 _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i:     ; preds = %50, %61
@@ -870,7 +870,7 @@ _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i:     ; preds = %50, %61
   br label %_ZNK3euf9solve_eqs10check_occsEP4expr.exit
 
 _ZNK3euf9solve_eqs10check_occsEP4expr.exit:       ; preds = %55, %69, %66, %2, %7, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i, %.preheader.i.i.i.i, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit, %_Z17is_uninterp_constPK4expr.exit
-  %73 = phi i1 [ false, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ], [ false, %_Z17is_uninterp_constPK4expr.exit ], [ true, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread ], [ true, %.preheader.i.i.i.i ], [ %72, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i ], [ false, %7 ], [ false, %2 ], [ true, %69 ], [ true, %66 ], [ true, %55 ]
+  %73 = phi i1 [ false, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ], [ false, %_Z17is_uninterp_constPK4expr.exit ], [ true, %69 ], [ true, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread ], [ true, %.preheader.i.i.i.i ], [ false, %2 ], [ %72, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i ], [ false, %7 ], [ true, %66 ], [ true, %55 ]
   ret i1 %73
 }
 
@@ -1061,7 +1061,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN6vectorIjLb0EjE6resizeIjEEvjT_z.exit
 
 _ZN6vectorIjLb0EjE6resizeIjEEvjT_z.exit:          ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i, %_ZN6vectorIjLb0EjE5resetEv.exit.thread, %.lr.ph.preheader.i, %_ZN6vectorIjLb0EjE5resetEv.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
-  %34 = phi ptr [ %15, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %15, %_ZN6vectorIjLb0EjE5resetEv.exit ], [ %.ph465, %.lr.ph.preheader.i ], [ %19, %_ZN6vectorIjLb0EjE5resetEv.exit.thread ], [ %19, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ]
+  %34 = phi ptr [ %15, %_ZN6vectorIjLb0EjE5resetEv.exit ], [ %15, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.ph465, %.lr.ph.preheader.i ], [ %19, %_ZN6vectorIjLb0EjE5resetEv.exit.thread ], [ %19, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %36 = load ptr, ptr %35, align 8, !tbaa !48
   %.not.i72 = icmp eq ptr %36, null
@@ -2391,7 +2391,7 @@ _ZN13ast_fast_markILj1EED2Ev.exit133:             ; preds = %.loopexit.i130, %57
   br i1 %.not.old, label %.loopexit249.loopexit, label %.lr.ph283.backedge
 
 .lr.ph283.backedge:                               ; preds = %.critedge, %_ZN13ast_fast_markILj1EED2Ev.exit
-  %.059280.be = phi ptr [ %.old, %.critedge ], [ %567, %_ZN13ast_fast_markILj1EED2Ev.exit ]
+  %.059280.be = phi ptr [ %567, %_ZN13ast_fast_markILj1EED2Ev.exit ], [ %.old, %.critedge ]
   br label %.lr.ph283
 
 .loopexit249.loopexit:                            ; preds = %_ZN13ast_fast_markILj1EED2Ev.exit, %.critedge
@@ -5555,7 +5555,7 @@ define hidden noundef zeroext i1 @_ZNK3euf9solve_eqs10check_occsEP4expr(ptr noun
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %40, %37
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !119
 
 _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i:       ; preds = %21, %32
@@ -5566,7 +5566,7 @@ _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i:       ; preds = %21, %32
   br label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit
 
 _ZNK7obj_mapI4exprjE4findEPS0_Rj.exit:            ; preds = %26, %40, %37, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i, %.preheader.i.i.i, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %.preheader.i.i.i ], [ %43, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ true, %40 ], [ true, %37 ], [ true, %26 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %.preheader.i.i.i ], [ true, %40 ], [ %43, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ true, %37 ], [ true, %26 ]
   ret i1 %.0
 }
 

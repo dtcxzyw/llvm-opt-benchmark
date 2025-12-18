@@ -610,7 +610,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %27
   ret void
 
 .body:                                            ; preds = %.preheader.i.i, %36, %12
-  %eh.lpad-body = phi { ptr, i32 } [ %13, %12 ], [ %35, %36 ], [ %13, %.preheader.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %36 ], [ %13, %12 ], [ %13, %.preheader.i.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 128) #15
   resume { ptr, i32 } %eh.lpad-body
 }

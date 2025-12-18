@@ -1970,7 +1970,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %149, %153
   br i1 %203, label %177, label %.critedge8, !llvm.loop !80
 
 .critedge8:                                       ; preds = %28, %175, %185, %.critedge6, %.critedge6.preheader
-  %.0104 = phi i32 [ 0, %.critedge6.preheader ], [ 1, %175 ], [ 0, %.critedge6 ], [ 1, %185 ], [ 1, %28 ]
+  %.0104 = phi i32 [ 1, %175 ], [ 0, %.critedge6.preheader ], [ 0, %.critedge6 ], [ 1, %185 ], [ 1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0104
 }

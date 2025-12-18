@@ -9102,7 +9102,7 @@ switch.lookup587:                                 ; preds = %75
   br label %.thread501
 
 .thread501:                                       ; preds = %79, %83, %.fold.split, %52, %94, %93, %84
-  %.5394 = phi i32 [ 2256, %.fold.split ], [ %92, %84 ], [ 2296, %83 ], [ 4352, %93 ], [ %98, %94 ], [ %57, %52 ], [ %80, %79 ]
+  %.5394 = phi i32 [ 2256, %.fold.split ], [ %57, %52 ], [ %92, %84 ], [ 2296, %83 ], [ 4352, %93 ], [ %98, %94 ], [ %80, %79 ]
   %.not428 = icmp eq i32 %7, %.5394
   br i1 %.not428, label %.thread502, label %99
 
@@ -15054,7 +15054,7 @@ clusterAddSlot.exit:                              ; preds = %clusterAddSlot.exit
   unreachable
 
 clusterSaveConfigOrDie.exit:                      ; preds = %.lr.ph, %51, %50, %3, %0
-  %.019 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %50 ], [ 0, %51 ], [ -1, %.lr.ph ]
+  %.019 = phi i32 [ 0, %51 ], [ 0, %0 ], [ 0, %3 ], [ 0, %50 ], [ -1, %.lr.ph ]
   ret i32 %.019
 }
 
@@ -15410,7 +15410,7 @@ sdslen.exit116.thread:                            ; preds = %39, %sdslen.exit116
   br i1 %164, label %141, label %representSlotInfo.exit, !llvm.loop !298
 
 representSlotInfo.exit:                           ; preds = %133, %162, %118, %136
-  %.6 = phi ptr [ %115, %136 ], [ %115, %118 ], [ %.8, %162 ], [ %.1.i, %133 ]
+  %.6 = phi ptr [ %115, %136 ], [ %.8, %162 ], [ %115, %118 ], [ %.1.i, %133 ]
   %165 = load i32, ptr %83, align 8, !tbaa !82
   %166 = and i32 %165, 16
   %.not110 = icmp eq i32 %166, 0
@@ -15799,7 +15799,7 @@ define dso_local range(i32 -1, 1) i32 @checkSlotAssignmentsOrReply(ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %17, %.loopexit.sink.split, %5
-  %.016 = phi i32 [ 0, %5 ], [ -1, %.loopexit.sink.split ], [ 0, %17 ], [ 0, %28 ]
+  %.016 = phi i32 [ 0, %17 ], [ -1, %.loopexit.sink.split ], [ 0, %5 ], [ 0, %28 ]
   ret i32 %.016
 }
 

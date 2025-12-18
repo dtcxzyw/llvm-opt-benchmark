@@ -1814,7 +1814,7 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %._crit_edge, %21, %15, %10, %44, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %44 ], [ 0, %._crit_edge ], [ 0, %10 ], [ 0, %15 ], [ 0, %21 ], [ 1, %._crit_edge.thread.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %21 ], [ 0, %15 ], [ 0, %44 ], [ 0, %._crit_edge ], [ 0, %10 ], [ 1, %._crit_edge.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2643,9 +2643,9 @@ H5FD__onion_archival_index_find.exit.us:          ; preds = %.lr.ph.i.us, %90, %
   br i1 %exitcond98.not, label %._crit_edge78, label %.lr.ph77.split.us.split.split, !llvm.loop !91
 
 ._crit_edge78:                                    ; preds = %H5FD__onion_archival_index_find.exit, %H5FD__onion_archival_index_find.exit.us, %.lr.ph77.split.us.split.split.us, %H5FD__onion_archival_index_find.exit.us.us, %.._crit_edge78_crit_edge
-  %.145113 = phi ptr [ null, %.._crit_edge78_crit_edge ], [ %36, %H5FD__onion_archival_index_find.exit.us ], [ %36, %H5FD__onion_archival_index_find.exit.us.us ], [ %36, %.lr.ph77.split.us.split.split.us ], [ %36, %H5FD__onion_archival_index_find.exit ]
-  %94 = phi ptr [ %.pre, %.._crit_edge78_crit_edge ], [ %43, %H5FD__onion_archival_index_find.exit.us ], [ %43, %H5FD__onion_archival_index_find.exit.us.us ], [ %43, %.lr.ph77.split.us.split.split.us ], [ %43, %H5FD__onion_archival_index_find.exit ]
-  %.046.lcssa = phi i64 [ 0, %.._crit_edge78_crit_edge ], [ %.147.us, %H5FD__onion_archival_index_find.exit.us ], [ %26, %H5FD__onion_archival_index_find.exit.us.us ], [ %26, %.lr.ph77.split.us.split.split.us ], [ %26, %H5FD__onion_archival_index_find.exit ]
+  %.145113 = phi ptr [ null, %.._crit_edge78_crit_edge ], [ %36, %H5FD__onion_archival_index_find.exit.us.us ], [ %36, %.lr.ph77.split.us.split.split.us ], [ %36, %H5FD__onion_archival_index_find.exit.us ], [ %36, %H5FD__onion_archival_index_find.exit ]
+  %94 = phi ptr [ %.pre, %.._crit_edge78_crit_edge ], [ %43, %H5FD__onion_archival_index_find.exit.us.us ], [ %43, %.lr.ph77.split.us.split.split.us ], [ %43, %H5FD__onion_archival_index_find.exit.us ], [ %43, %H5FD__onion_archival_index_find.exit ]
+  %.046.lcssa = phi i64 [ 0, %.._crit_edge78_crit_edge ], [ %26, %H5FD__onion_archival_index_find.exit.us.us ], [ %26, %.lr.ph77.split.us.split.split.us ], [ %.147.us, %H5FD__onion_archival_index_find.exit.us ], [ %26, %H5FD__onion_archival_index_find.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %96 = tail call ptr @H5MM_xfree(ptr noundef %94) #14
   %97 = add i64 %.046.lcssa, %.sroa.4.0.lcssa

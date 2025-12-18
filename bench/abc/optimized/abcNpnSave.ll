@@ -347,7 +347,7 @@ Npn_ManObj.exit43.loopexit:                       ; preds = %.lr.ph62
   br label %Npn_ManObj.exit43
 
 Npn_ManObj.exit43:                                ; preds = %Npn_ManObj.exit43.loopexit, %27
-  %.035.lcssa = phi ptr [ %48, %Npn_ManObj.exit43.loopexit ], [ %31, %27 ]
+  %.035.lcssa = phi ptr [ %31, %27 ], [ %48, %Npn_ManObj.exit43.loopexit ]
   %49 = load i32, ptr %11, align 8, !tbaa !24
   store i32 %49, ptr %.035.lcssa, align 4, !tbaa !3
   %50 = add nsw i32 %49, 1

@@ -161,7 +161,7 @@ define range(i32 0, 5) i32 @solve3(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond.not, label %solve2.exit, label %97, !llvm.loop !9
 
 solve2.exit:                                      ; preds = %97, %33, %27, %18, %15, %13
-  %.0 = phi i32 [ 0, %18 ], [ 1, %33 ], [ 2, %27 ], [ %..i.i, %13 ], [ 1, %15 ], [ %.063, %97 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %18 ], [ 1, %33 ], [ 2, %27 ], [ %..i.i, %13 ], [ %.063, %97 ]
   ret i32 %.0
 }
 

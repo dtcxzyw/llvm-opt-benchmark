@@ -6207,7 +6207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %.loopexit.loopexit, %9, %17
-  %.0 = phi i1 [ true, %.loopexit.loopexit ], [ true, %17 ], [ true, %9 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
+  %.0 = phi i1 [ true, %.loopexit.loopexit ], [ true, %9 ], [ true, %17 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #39
@@ -7454,8 +7454,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %133
   br label %28, !llvm.loop !132
 
 .loopexit:                                        ; preds = %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %17, %10
-  %.sroa.10.0 = phi i32 [ %.sroa.10.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %.sroa.10.0.extract.trunc82, %17 ], [ %.sroa.10.0.extract.trunc84, %10 ], [ %.sroa.10.1, %30 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %16, %17 ], [ %9, %10 ], [ 0, %30 ]
+  %.sroa.10.0 = phi i32 [ %.sroa.10.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %.sroa.10.0.extract.trunc84, %10 ], [ %.sroa.10.0.extract.trunc82, %17 ], [ %.sroa.10.1, %30 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %9, %10 ], [ %16, %17 ], [ 0, %30 ]
   call void @_ZN5cmsys9DirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.10.0.insert.ext = zext i32 %.sroa.10.0 to i64

@@ -4829,7 +4829,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit.thread:      ; preds = %481, %_ZNK7pb_util5
   br label %626
 
 .loopexit:                                        ; preds = %505, %514, %393, %._crit_edge180, %613, %_ZNK7pb_util5is_eqEP4expr.exit137, %597, %_ZNK11ast_manager5is_orEPK4expr.exit.thread, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
-  %.1 = phi i1 [ %239, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ], [ false, %597 ], [ true, %._crit_edge180 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.thread ], [ true, %_ZNK7pb_util5is_eqEP4expr.exit137 ], [ true, %613 ], [ false, %393 ], [ false, %514 ], [ false, %505 ]
+  %.1 = phi i1 [ %239, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ], [ false, %597 ], [ true, %._crit_edge180 ], [ false, %393 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.thread ], [ true, %_ZNK7pb_util5is_eqEP4expr.exit137 ], [ true, %613 ], [ false, %514 ], [ false, %505 ]
   %618 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !111
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %618, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc.i155 unwind label %619
@@ -7343,7 +7343,7 @@ define linkonce_odr hidden i32 @_ZN3smt6pb_sls3imp14mk_aux_literalEP4expr(ptr no
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !254
 
 _ZNK7obj_mapI4exprjE4findEPS0_Rj.exit:            ; preds = %20, %31

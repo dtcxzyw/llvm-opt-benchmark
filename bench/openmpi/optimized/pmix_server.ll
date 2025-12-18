@@ -1899,17 +1899,17 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   br i1 %142, label %.lr.ph289, label %.thread265.sink.split, !llvm.loop !110
 
 .thread265.sink.split:                            ; preds = %139, %126, %128
-  %.lcssa.sink = phi i64 [ 0, %128 ], [ %124, %126 ], [ %140, %139 ]
-  %.1213.lcssa.sink = phi i64 [ 0, %128 ], [ 0, %126 ], [ %.2214, %139 ]
-  %.1222.ph = phi ptr [ %130, %128 ], [ null, %126 ], [ %130, %139 ]
+  %.lcssa.sink = phi i64 [ %124, %126 ], [ 0, %128 ], [ %140, %139 ]
+  %.1213.lcssa.sink = phi i64 [ 0, %126 ], [ 0, %128 ], [ %.2214, %139 ]
+  %.1222.ph = phi ptr [ null, %126 ], [ %130, %128 ], [ %130, %139 ]
   call void @PMIx_Info_free(ptr noundef nonnull %39, i64 noundef %.lcssa.sink) #17
   store i64 %.1213.lcssa.sink, ptr %10, align 8, !tbaa !108
   br label %.thread265
 
 .thread265:                                       ; preds = %.thread265.sink.split, %.preheader, %36, %45, %._crit_edge
-  %.0215272 = phi ptr [ %.2217, %._crit_edge ], [ null, %45 ], [ null, %36 ], [ null, %.preheader ], [ %.2217, %.thread265.sink.split ]
-  %.0218271 = phi i32 [ %.2220, %._crit_edge ], [ 0, %45 ], [ 0, %36 ], [ 0, %.preheader ], [ %.2220, %.thread265.sink.split ]
-  %.1222 = phi ptr [ %39, %._crit_edge ], [ null, %45 ], [ null, %36 ], [ %39, %.preheader ], [ %.1222.ph, %.thread265.sink.split ]
+  %.0215272 = phi ptr [ null, %.preheader ], [ null, %36 ], [ %.2217, %._crit_edge ], [ null, %45 ], [ %.2217, %.thread265.sink.split ]
+  %.0218271 = phi i32 [ 0, %.preheader ], [ 0, %36 ], [ %.2220, %._crit_edge ], [ 0, %45 ], [ %.2220, %.thread265.sink.split ]
+  %.1222 = phi ptr [ %39, %.preheader ], [ null, %36 ], [ %39, %._crit_edge ], [ null, %45 ], [ %.1222.ph, %.thread265.sink.split ]
   %143 = call ptr @prte_get_job_data_object(ptr noundef nonnull %9) #17
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %184

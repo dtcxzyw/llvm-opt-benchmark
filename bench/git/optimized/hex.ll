@@ -218,7 +218,7 @@ get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i
   br i1 %35, label %3, label %get_oid_hex_algop.exit.thread, !llvm.loop !39
 
 get_oid_hex_algop.exit.thread:                    ; preds = %get_oid_hex_algop.exit, %31, %oid_set_algo.exit.i
-  %.06 = phi i32 [ %.016, %oid_set_algo.exit.i ], [ %.016, %31 ], [ 0, %get_oid_hex_algop.exit ]
+  %.06 = phi i32 [ %.016, %31 ], [ %.016, %oid_set_algo.exit.i ], [ 0, %get_oid_hex_algop.exit ]
   ret i32 %.06
 }
 

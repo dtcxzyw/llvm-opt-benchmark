@@ -623,8 +623,8 @@ bytestream2_peek_le16.exit140.i:                  ; preds = %184, %170
   br label %.loopexit103
 
 .loopexit103:                                     ; preds = %42, %.backedge153.i, %169, %.loopexit103.loopexit120, %bytestream2_get_le32.exit.i
-  %199 = phi ptr [ %115, %.loopexit103.loopexit120 ], [ %23, %bytestream2_get_le32.exit.i ], [ %43, %169 ], [ %43, %42 ], [ %192, %.backedge153.i ]
-  %200 = phi ptr [ %.pre, %.loopexit103.loopexit120 ], [ %26, %bytestream2_get_le32.exit.i ], [ %44, %169 ], [ %44, %42 ], [ %193, %.backedge153.i ]
+  %199 = phi ptr [ %43, %169 ], [ %115, %.loopexit103.loopexit120 ], [ %23, %bytestream2_get_le32.exit.i ], [ %192, %.backedge153.i ], [ %43, %42 ]
+  %200 = phi ptr [ %44, %169 ], [ %.pre, %.loopexit103.loopexit120 ], [ %26, %bytestream2_get_le32.exit.i ], [ %193, %.backedge153.i ], [ %44, %42 ]
   %201 = ptrtoint ptr %200 to i64
   %202 = ptrtoint ptr %199 to i64
   %203 = sub i64 %201, %202

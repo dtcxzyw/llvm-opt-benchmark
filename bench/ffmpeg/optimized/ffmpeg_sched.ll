@@ -866,9 +866,9 @@ err_merge.exit117:                                ; preds = %task_stop.exit113, 
   br i1 %exitcond.not.i, label %._crit_edge.split.us.us.i, label %196, !llvm.loop !81
 
 trailing_dts.exit:                                ; preds = %._crit_edge.split.us.us.i, %196, %._crit_edge151.thread, %188
-  %.4.lcssa189195 = phi i32 [ %.0.i116, %188 ], [ %.3.lcssa, %._crit_edge151.thread ], [ %.0.i116, %196 ], [ %.0.i116, %._crit_edge.split.us.us.i ]
-  %.not47.i = phi i1 [ false, %188 ], [ false, %._crit_edge151.thread ], [ true, %196 ], [ false, %._crit_edge.split.us.us.i ]
-  %.128.i = phi i64 [ 9223372036854775807, %188 ], [ 9223372036854775807, %._crit_edge151.thread ], [ %.22949.us.us.i, %196 ], [ %.229.lcssa.us.i, %._crit_edge.split.us.us.i ]
+  %.4.lcssa189195 = phi i32 [ %.0.i116, %188 ], [ %.0.i116, %196 ], [ %.3.lcssa, %._crit_edge151.thread ], [ %.0.i116, %._crit_edge.split.us.us.i ]
+  %.not47.i = phi i1 [ false, %188 ], [ true, %196 ], [ false, %._crit_edge151.thread ], [ false, %._crit_edge.split.us.us.i ]
+  %.128.i = phi i64 [ 9223372036854775807, %188 ], [ %.22949.us.us.i, %196 ], [ 9223372036854775807, %._crit_edge151.thread ], [ %.229.lcssa.us.i, %._crit_edge.split.us.us.i ]
   %202 = icmp eq i64 %.128.i, 9223372036854775807
   %203 = select i1 %.not47.i, i1 true, i1 %202
   %.5.i = select i1 %203, i64 -9223372036854775808, i64 %.128.i
@@ -3103,8 +3103,8 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
   %312 = call i32 @sch_stop(ptr noundef nonnull %0, ptr noundef null)
   br label %start_prepare.exit.thread
 
-start_prepare.exit.thread:                        ; preds = %20, %47, %77, %._crit_edge375.i, %.thread239.i, %.thread253.i, %.thread251.i, %76, %check_acyclic.exit.thread.i, %.thread222.thread.i, %.thread218.i, %72, %.thread.i, %start_prepare.exit, %.thread95, %._crit_edge194
-  %.0 = phi i32 [ %.4, %.thread95 ], [ 0, %._crit_edge194 ], [ -22, %.thread.i ], [ -22, %72 ], [ -22, %.thread218.i ], [ %spec.select.i, %start_prepare.exit ], [ -22, %.thread239.i ], [ -22, %.thread253.i ], [ -22, %.thread251.i ], [ -22, %76 ], [ -12, %check_acyclic.exit.thread.i ], [ -22, %.thread222.thread.i ], [ -12, %47 ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -12, %20 ]
+start_prepare.exit.thread:                        ; preds = %20, %47, %77, %._crit_edge375.i, %.thread239.i, %.thread218.i, %.thread.i, %.thread251.i, %.thread253.i, %76, %check_acyclic.exit.thread.i, %.thread222.thread.i, %72, %start_prepare.exit, %.thread95, %._crit_edge194
+  %.0 = phi i32 [ %.4, %.thread95 ], [ 0, %._crit_edge194 ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -22, %72 ], [ %spec.select.i, %start_prepare.exit ], [ -12, %47 ], [ -22, %.thread239.i ], [ -22, %.thread218.i ], [ -22, %.thread.i ], [ -22, %.thread251.i ], [ -22, %.thread253.i ], [ -22, %76 ], [ -12, %check_acyclic.exit.thread.i ], [ -22, %.thread222.thread.i ], [ -12, %20 ]
   ret i32 %.0
 }
 
@@ -4022,7 +4022,7 @@ demux_stream_send_to_dst.exit.i:                  ; preds = %157, %124
   br label %demux_flush.exit
 
 demux_flush.exit:                                 ; preds = %159, %120, %62, %._crit_edge.loopexit.i27, %101, %.thread70.i, %87, %waiter_wait.exit
-  %.0 = phi i32 [ -1414092869, %waiter_wait.exit ], [ 0, %.thread70.i ], [ %76, %87 ], [ %165, %._crit_edge.loopexit.i27 ], [ -541478725, %101 ], [ %70, %62 ], [ %145, %159 ], [ %122, %120 ]
+  %.0 = phi i32 [ %70, %62 ], [ -1414092869, %waiter_wait.exit ], [ 0, %.thread70.i ], [ %76, %87 ], [ %165, %._crit_edge.loopexit.i27 ], [ -541478725, %101 ], [ %122, %120 ], [ %145, %159 ]
   ret i32 %.0
 }
 
@@ -4448,7 +4448,7 @@ dec_send_to_dst.exit:                             ; preds = %63
   br label %.thread58
 
 95:                                               ; preds = %.thread, %dec_send_to_dst.exit
-  %.241 = phi i32 [ %92, %.thread ], [ %.03969, %dec_send_to_dst.exit ]
+  %.241 = phi i32 [ %.03969, %dec_send_to_dst.exit ], [ %92, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = load i32, ptr %23, align 8, !tbaa !124
   %97 = zext i32 %96 to i64
@@ -5970,7 +5970,7 @@ dec_done.exit.sink.split:                         ; preds = %demux_done.exit, %m
   br label %dec_done.exit
 
 dec_done.exit:                                    ; preds = %enc_send_to_dst.exit.i, %._crit_edge.i19, %dec_done.exit.sink.split, %139, %86
-  %.0 = phi i32 [ 0, %139 ], [ 0, %86 ], [ %.0.ph, %dec_done.exit.sink.split ], [ 0, %._crit_edge.i19 ], [ 0, %enc_send_to_dst.exit.i ]
+  %.0 = phi i32 [ 0, %86 ], [ 0, %139 ], [ 0, %._crit_edge.i19 ], [ %.0.ph, %dec_done.exit.sink.split ], [ 0, %enc_send_to_dst.exit.i ]
   ret i32 %.0
 }
 

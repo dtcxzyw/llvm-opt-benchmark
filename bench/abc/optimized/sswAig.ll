@@ -1015,7 +1015,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %14
   br i1 %65, label %.critedge, label %.critedge2.preheader, !llvm.loop !73
 
 .critedge4.preheader:                             ; preds = %Ssw_FramesConstrainNode.exit, %.critedge.preheader, %.critedge2.preheader
-  %66 = phi ptr [ %63, %.critedge2.preheader ], [ %29, %.critedge.preheader ], [ %140, %Ssw_FramesConstrainNode.exit ]
+  %66 = phi ptr [ %29, %.critedge.preheader ], [ %63, %.critedge2.preheader ], [ %140, %Ssw_FramesConstrainNode.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !11
   %69 = getelementptr i8, ptr %68, i64 4

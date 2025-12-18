@@ -204,7 +204,7 @@ _ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit: ; preds = %67
   br i1 %103, label %.lr.ph78, label %.thread70, !llvm.loop !13
 
 .thread70:                                        ; preds = %.lr.ph78, %90, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread, %79, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit, %84, %82, %._crit_edge, %15, %7
-  %.0 = phi i64 [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %82 ], [ -70, %84 ], [ %.0.i59.ph, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread ], [ %81, %79 ], [ %71, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit ], [ %88, %90 ], [ %88, %.lr.ph78 ]
+  %.0 = phi i64 [ %71, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit ], [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %82 ], [ -70, %84 ], [ %.0.i59.ph, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread ], [ %81, %79 ], [ %88, %90 ], [ %88, %.lr.ph78 ]
   ret i64 %.0
 }
 
@@ -853,7 +853,7 @@ select.unfold.i:                                  ; preds = %203, %.lr.ph122.i
   br i1 %213, label %.lr.ph129.i.preheader, label %.critedge.i
 
 .lr.ph129.i.preheader:                            ; preds = %select.unfold.i, %.thread.i, %.lr.ph134.i
-  %indvars.iv163.i.ph = phi i64 [ 1, %.lr.ph134.i ], [ %indvars.iv160.i, %.thread.i ], [ 1, %select.unfold.i ]
+  %indvars.iv163.i.ph = phi i64 [ %indvars.iv160.i, %.thread.i ], [ 1, %.lr.ph134.i ], [ 1, %select.unfold.i ]
   br label %.lr.ph129.i
 
 .lr.ph129.i:                                      ; preds = %.lr.ph129.i.preheader, %217
@@ -2601,9 +2601,9 @@ _ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i: ; preds = %109
   br i1 %873, label %.preheader583.i, label %_ZN11duckdb_zstdL45HUF_compress1X_usingCTable_internal_body_loopEPNS_13HUF_CStream_tEPKhmPKmiii.exit.i, !llvm.loop !56
 
 _ZN11duckdb_zstdL45HUF_compress1X_usingCTable_internal_body_loopEPNS_13HUF_CStream_tEPKhmPKmiii.exit.i: ; preds = %729, %607, %485, %364, %244, %849, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i, %810, %689, %567, %445, %325, %204, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68.i
-  %.sroa.264.0.i = phi i64 [ %.sroa.264.3.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68.i ], [ %.sroa.264.9.i, %810 ], [ %.sroa.264.15.i, %204 ], [ %.sroa.264.21.i, %325 ], [ %.sroa.264.27.i, %445 ], [ %.sroa.264.33.i, %567 ], [ %.sroa.264.39.i, %689 ], [ %630, %607 ], [ %143, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i ], [ %871, %849 ], [ %267, %244 ], [ %386, %364 ], [ %508, %485 ], [ %752, %729 ]
-  %.sroa.458.0.i = phi ptr [ %.sroa.458.2.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68.i ], [ %.sroa.458.5.i, %810 ], [ %.sroa.458.8.i, %204 ], [ %.sroa.458.11.i, %325 ], [ %.sroa.458.14.i, %445 ], [ %.sroa.458.17.i, %567 ], [ %.sroa.458.20.i, %689 ], [ %631, %607 ], [ %spec.select580.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i ], [ %872, %849 ], [ %268, %244 ], [ %387, %364 ], [ %509, %485 ], [ %753, %729 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.3.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68.i ], [ %.sroa.0.9.i, %810 ], [ %.sroa.0.15.i, %204 ], [ %.sroa.0.21.i, %325 ], [ %.sroa.0.27.i, %445 ], [ %.sroa.0.33.i, %567 ], [ %.sroa.0.39.i, %689 ], [ %624, %607 ], [ %137, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i ], [ %865, %849 ], [ %261, %244 ], [ %380, %364 ], [ %502, %485 ], [ %746, %729 ]
+  %.sroa.264.0.i = phi i64 [ %871, %849 ], [ %267, %244 ], [ %386, %364 ], [ %508, %485 ], [ %630, %607 ], [ %143, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i ], [ %.sroa.264.3.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68.i ], [ %.sroa.264.9.i, %810 ], [ %.sroa.264.15.i, %204 ], [ %.sroa.264.21.i, %325 ], [ %.sroa.264.27.i, %445 ], [ %.sroa.264.33.i, %567 ], [ %.sroa.264.39.i, %689 ], [ %752, %729 ]
+  %.sroa.458.0.i = phi ptr [ %872, %849 ], [ %268, %244 ], [ %387, %364 ], [ %509, %485 ], [ %631, %607 ], [ %spec.select580.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i ], [ %.sroa.458.2.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68.i ], [ %.sroa.458.5.i, %810 ], [ %.sroa.458.8.i, %204 ], [ %.sroa.458.11.i, %325 ], [ %.sroa.458.14.i, %445 ], [ %.sroa.458.17.i, %567 ], [ %.sroa.458.20.i, %689 ], [ %753, %729 ]
+  %.sroa.0.0.i = phi i64 [ %865, %849 ], [ %261, %244 ], [ %380, %364 ], [ %502, %485 ], [ %624, %607 ], [ %137, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66.i ], [ %.sroa.0.3.i, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68.i ], [ %.sroa.0.9.i, %810 ], [ %.sroa.0.15.i, %204 ], [ %.sroa.0.21.i, %325 ], [ %.sroa.0.27.i, %445 ], [ %.sroa.0.33.i, %567 ], [ %.sroa.0.39.i, %689 ], [ %746, %729 ]
   %874 = lshr i64 %.sroa.0.0.i, 1
   %875 = or disjoint i64 %874, -9223372036854775808
   %876 = add nuw nsw i64 %.sroa.264.0.i, -9223372036854775807
@@ -4728,9 +4728,9 @@ _ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66: ; preds = %104
   br i1 %868, label %.preheader583, label %_ZN11duckdb_zstdL45HUF_compress1X_usingCTable_internal_body_loopEPNS_13HUF_CStream_tEPKhmPKmiii.exit, !llvm.loop !56
 
 _ZN11duckdb_zstdL45HUF_compress1X_usingCTable_internal_body_loopEPNS_13HUF_CStream_tEPKhmPKmiii.exit: ; preds = %724, %602, %480, %359, %239, %844, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66, %684, %562, %440, %320, %199, %805, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68
-  %.sroa.264.0 = phi i64 [ %.sroa.264.3, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68 ], [ %.sroa.264.9, %805 ], [ %.sroa.264.15, %199 ], [ %.sroa.264.21, %320 ], [ %.sroa.264.27, %440 ], [ %.sroa.264.33, %562 ], [ %.sroa.264.39, %684 ], [ %625, %602 ], [ %138, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66 ], [ %866, %844 ], [ %262, %239 ], [ %381, %359 ], [ %503, %480 ], [ %747, %724 ]
-  %.sroa.458.0 = phi ptr [ %.sroa.458.2, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68 ], [ %.sroa.458.5, %805 ], [ %.sroa.458.8, %199 ], [ %.sroa.458.11, %320 ], [ %.sroa.458.14, %440 ], [ %.sroa.458.17, %562 ], [ %.sroa.458.20, %684 ], [ %626, %602 ], [ %spec.select580, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66 ], [ %867, %844 ], [ %263, %239 ], [ %382, %359 ], [ %504, %480 ], [ %748, %724 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.3, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68 ], [ %.sroa.0.9, %805 ], [ %.sroa.0.15, %199 ], [ %.sroa.0.21, %320 ], [ %.sroa.0.27, %440 ], [ %.sroa.0.33, %562 ], [ %.sroa.0.39, %684 ], [ %619, %602 ], [ %132, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66 ], [ %860, %844 ], [ %256, %239 ], [ %375, %359 ], [ %497, %480 ], [ %741, %724 ]
+  %.sroa.264.0 = phi i64 [ %866, %844 ], [ %262, %239 ], [ %381, %359 ], [ %503, %480 ], [ %625, %602 ], [ %138, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66 ], [ %.sroa.264.3, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68 ], [ %.sroa.264.9, %805 ], [ %.sroa.264.15, %199 ], [ %.sroa.264.21, %320 ], [ %.sroa.264.27, %440 ], [ %.sroa.264.33, %562 ], [ %.sroa.264.39, %684 ], [ %747, %724 ]
+  %.sroa.458.0 = phi ptr [ %867, %844 ], [ %263, %239 ], [ %382, %359 ], [ %504, %480 ], [ %626, %602 ], [ %spec.select580, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66 ], [ %.sroa.458.2, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68 ], [ %.sroa.458.5, %805 ], [ %.sroa.458.8, %199 ], [ %.sroa.458.11, %320 ], [ %.sroa.458.14, %440 ], [ %.sroa.458.17, %562 ], [ %.sroa.458.20, %684 ], [ %748, %724 ]
+  %.sroa.0.0 = phi i64 [ %860, %844 ], [ %256, %239 ], [ %375, %359 ], [ %497, %480 ], [ %619, %602 ], [ %132, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit66 ], [ %.sroa.0.3, %_ZN11duckdb_zstdL13HUF_flushBitsEPNS_13HUF_CStream_tEi.exit68 ], [ %.sroa.0.9, %805 ], [ %.sroa.0.15, %199 ], [ %.sroa.0.21, %320 ], [ %.sroa.0.27, %440 ], [ %.sroa.0.33, %562 ], [ %.sroa.0.39, %684 ], [ %741, %724 ]
   %869 = lshr i64 %.sroa.0.0, 1
   %870 = or disjoint i64 %869, -9223372036854775808
   %871 = add nuw nsw i64 %.sroa.264.0, -9223372036854775807

@@ -1020,8 +1020,8 @@ Wlc_PrsFindSymbolTwo.exit.preheader167:           ; preds = %Wlc_PrsFindSymbolTw
   br label %.thread132thread-pre-split
 
 .thread132thread-pre-split:                       ; preds = %184, %12, %Vec_StrPush.exit116, %112, %191, %195, %197, %183, %._crit_edge, %164, %160, %Wlc_PrsFindSymbol.exit.preheader, %Wlc_PrsFindSymbolTwo.exit.preheader, %Wlc_PrsFindSymbol.exit125.preheader, %Wlc_PrsFindSymbol.exit.preheader166, %Wlc_PrsFindSymbolTwo.exit.preheader167, %Wlc_PrsFindSymbol.exit125.preheader169
-  %.190.ph.ph = phi i32 [ %.089162, %Wlc_PrsFindSymbol.exit125.preheader169 ], [ %.089162, %Wlc_PrsFindSymbolTwo.exit.preheader167 ], [ %.089162, %Wlc_PrsFindSymbol.exit.preheader166 ], [ %.089162, %Wlc_PrsFindSymbolTwo.exit.preheader ], [ %.089162, %Wlc_PrsFindSymbol.exit.preheader ], [ %.089162, %Wlc_PrsFindSymbol.exit125.preheader ], [ %.089162, %12 ], [ %.089162, %160 ], [ %.089162, %164 ], [ %.089162, %Vec_StrPush.exit116 ], [ %.089162, %112 ], [ %.089162, %195 ], [ %.089162, %197 ], [ %.089162, %191 ], [ 1, %183 ], [ 1, %._crit_edge ], [ %.089162, %184 ]
-  %.2.ph.ph = phi ptr [ %.01016.i120, %Wlc_PrsFindSymbol.exit125.preheader169 ], [ %indvars.iv194, %Wlc_PrsFindSymbolTwo.exit.preheader167 ], [ %.01016.i, %Wlc_PrsFindSymbol.exit.preheader166 ], [ %.087163, %Wlc_PrsFindSymbolTwo.exit.preheader ], [ %.087163, %Wlc_PrsFindSymbol.exit.preheader ], [ %.087163, %Wlc_PrsFindSymbol.exit125.preheader ], [ %.087163, %12 ], [ %.087163, %160 ], [ %.087163, %164 ], [ %.087163, %Vec_StrPush.exit116 ], [ %.087163, %112 ], [ %.087163, %195 ], [ %.087163, %197 ], [ %.087163, %191 ], [ %.5.lcssa, %183 ], [ %.5.lcssa, %._crit_edge ], [ %.087163, %184 ]
+  %.190.ph.ph = phi i32 [ %.089162, %12 ], [ %.089162, %Wlc_PrsFindSymbolTwo.exit.preheader167 ], [ %.089162, %Wlc_PrsFindSymbol.exit.preheader166 ], [ %.089162, %Wlc_PrsFindSymbol.exit125.preheader169 ], [ %.089162, %160 ], [ %.089162, %164 ], [ %.089162, %Vec_StrPush.exit116 ], [ %.089162, %112 ], [ %.089162, %Wlc_PrsFindSymbol.exit.preheader ], [ %.089162, %Wlc_PrsFindSymbol.exit125.preheader ], [ %.089162, %195 ], [ %.089162, %197 ], [ %.089162, %191 ], [ %.089162, %Wlc_PrsFindSymbolTwo.exit.preheader ], [ 1, %183 ], [ 1, %._crit_edge ], [ %.089162, %184 ]
+  %.2.ph.ph = phi ptr [ %.087163, %12 ], [ %indvars.iv194, %Wlc_PrsFindSymbolTwo.exit.preheader167 ], [ %.01016.i, %Wlc_PrsFindSymbol.exit.preheader166 ], [ %.01016.i120, %Wlc_PrsFindSymbol.exit125.preheader169 ], [ %.087163, %160 ], [ %.087163, %164 ], [ %.087163, %Vec_StrPush.exit116 ], [ %.087163, %112 ], [ %.087163, %Wlc_PrsFindSymbol.exit.preheader ], [ %.087163, %Wlc_PrsFindSymbol.exit125.preheader ], [ %.087163, %195 ], [ %.087163, %197 ], [ %.087163, %191 ], [ %.087163, %Wlc_PrsFindSymbolTwo.exit.preheader ], [ %.5.lcssa, %183 ], [ %.5.lcssa, %._crit_edge ], [ %.087163, %184 ]
   %.pr.pr = load i8, ptr %.2.ph.ph, align 1, !tbaa !39
   br label %.thread132
 
@@ -1047,12 +1047,12 @@ Wlc_PrsFindSymbolTwo.exit.preheader167:           ; preds = %Wlc_PrsFindSymbolTw
   br i1 %201, label %10, label %.loopexit, !llvm.loop !49
 
 .loopexit.sink.split:                             ; preds = %142, %.preheader, %134
-  %.str.6.sink = phi ptr [ @.str.6, %.preheader ], [ @.str.4, %134 ], [ @.str.5, %142 ]
+  %.str.6.sink = phi ptr [ @.str.4, %134 ], [ @.str.6, %.preheader ], [ @.str.5, %142 ]
   %202 = tail call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef nonnull %0, ptr noundef nonnull %.087163, ptr noundef nonnull %.str.6.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread132.thread, %.loopexit.sink.split, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %.loopexit.sink.split ], [ 1, %.thread132.thread ]
+  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %1 ], [ 1, %.thread132.thread ]
   ret i32 %.0
 }
 
@@ -2421,7 +2421,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %124
 
-188:                                              ; preds = %169, %173
+188:                                              ; preds = %173, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %189
 
@@ -2600,7 +2600,7 @@ Wlc_PrsFindSymbol.exit43:                         ; preds = %.lr.ph.i36, %.lr.ph
   br label %Wlc_PrsFindSymbol.exit43.thread
 
 Wlc_PrsFindSymbol.exit43.thread:                  ; preds = %4, %23, %43, %Wlc_PrsSkipSpaces.exit55, %Wlc_PrsSkipSpaces.exit34, %37, %10, %Wlc_PrsFindSymbol.exit43
-  %.0 = phi ptr [ null, %Wlc_PrsSkipSpaces.exit34 ], [ %48, %Wlc_PrsFindSymbol.exit43 ], [ null, %Wlc_PrsSkipSpaces.exit55 ], [ null, %10 ], [ null, %37 ], [ null, %23 ], [ null, %43 ], [ %.0.i, %4 ]
+  %.0 = phi ptr [ null, %43 ], [ null, %Wlc_PrsSkipSpaces.exit34 ], [ %48, %Wlc_PrsFindSymbol.exit43 ], [ null, %Wlc_PrsSkipSpaces.exit55 ], [ null, %10 ], [ null, %37 ], [ null, %23 ], [ %.0.i, %4 ]
   ret ptr %.0
 }
 
@@ -2903,7 +2903,7 @@ Wlc_PrsSkipSpaces.exit356:                        ; preds = %.preheader540, %41,
   br label %.thread439
 
 .thread439:                                       ; preds = %63, %62, %67, %66
-  %.2259 = phi i32 [ 15, %63 ], [ 51, %66 ], [ 52, %67 ], [ 26, %62 ]
+  %.2259 = phi i32 [ 26, %62 ], [ 15, %63 ], [ 51, %66 ], [ 52, %67 ]
   br label %68
 
 68:                                               ; preds = %68, %.thread439
@@ -3595,7 +3595,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %314
   br label %Wlc_PrsFindName.exit.thread
 
 Wlc_PrsFindName.exit.thread:                      ; preds = %10, %312, %.thread463, %.thread445, %Wlc_PrsSkipSpaces.exit370.thread, %Wlc_PrsSkipSpaces.exit356.thread, %94, %280, %.thread518.thread, %.thread454, %60, %.loopexit, %.thread532, %153, %148, %144, %135, %131, %127, %123, %Wlc_PrsFindSymbol.exit396.thread, %86
-  %.0 = phi i32 [ 0, %Wlc_PrsSkipSpaces.exit370.thread ], [ 0, %.loopexit ], [ 0, %280 ], [ 0, %60 ], [ 0, %86 ], [ 0, %.thread445 ], [ 0, %94 ], [ 0, %Wlc_PrsFindSymbol.exit396.thread ], [ 0, %127 ], [ 0, %123 ], [ 0, %135 ], [ 0, %131 ], [ 0, %148 ], [ 0, %153 ], [ 0, %144 ], [ 0, %.thread463 ], [ 0, %.thread518.thread ], [ 0, %.thread454 ], [ 0, %.thread532 ], [ 0, %Wlc_PrsSkipSpaces.exit356.thread ], [ %.1258, %312 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %Wlc_PrsSkipSpaces.exit370.thread ], [ 0, %.loopexit ], [ 0, %280 ], [ 0, %60 ], [ 0, %86 ], [ 0, %.thread445 ], [ 0, %94 ], [ 0, %Wlc_PrsFindSymbol.exit396.thread ], [ 0, %127 ], [ 0, %123 ], [ 0, %135 ], [ 0, %131 ], [ 0, %148 ], [ 0, %153 ], [ 0, %144 ], [ 0, %.thread463 ], [ 0, %.thread518.thread ], [ 0, %.thread454 ], [ 0, %.thread532 ], [ %.1258, %312 ], [ 0, %Wlc_PrsSkipSpaces.exit356.thread ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -3674,8 +3674,8 @@ Wlc_PrsSkipSpaces.exit1894.loopexit:              ; preds = %.preheader2013
   br i1 %.not.i.not, label %Wlc_PrsSkipSpaces.exit1894.outer._crit_edge, label %307
 
 Wlc_PrsSkipSpaces.exit1894.outer._crit_edge:      ; preds = %Wlc_PrsSkipSpaces.exit1894.outer, %Wlc_PrsSkipSpaces.exit1894.loopexit, %Wlc_PrsSkipSpaces.exit1894.preheader
-  %.1769.ph.lcssa2155 = phi i32 [ %.07682503, %Wlc_PrsSkipSpaces.exit1894.preheader ], [ %.1769.ph2456, %Wlc_PrsSkipSpaces.exit1894.loopexit ], [ %.9777, %Wlc_PrsSkipSpaces.exit1894.outer ]
-  %.0752.lcssa = phi ptr [ %46, %Wlc_PrsSkipSpaces.exit1894.preheader ], [ %.0.i1891, %Wlc_PrsSkipSpaces.exit1894.loopexit ], [ %.0.i1450, %Wlc_PrsSkipSpaces.exit1894.outer ]
+  %.1769.ph.lcssa2155 = phi i32 [ %.1769.ph2456, %Wlc_PrsSkipSpaces.exit1894.loopexit ], [ %.07682503, %Wlc_PrsSkipSpaces.exit1894.preheader ], [ %.9777, %Wlc_PrsSkipSpaces.exit1894.outer ]
+  %.0752.lcssa = phi ptr [ %.0.i1891, %Wlc_PrsSkipSpaces.exit1894.loopexit ], [ %46, %Wlc_PrsSkipSpaces.exit1894.preheader ], [ %.0.i1450, %Wlc_PrsSkipSpaces.exit1894.outer ]
   %49 = getelementptr inbounds nuw i8, ptr %.0752.lcssa, i64 6
   br label %50
 
@@ -6242,7 +6242,7 @@ Wlc_PrsSkipSpaces.exit1482:                       ; preds = %Wlc_PrsFindSymbol.e
   br i1 %.not994, label %1045, label %.backedge2026
 
 .backedge2026:                                    ; preds = %1016, %1036, %1042
-  %.7759.be = phi ptr [ %.0.i1465, %1042 ], [ %1007, %1016 ], [ %1018, %1036 ]
+  %.7759.be = phi ptr [ %.0.i1465, %1042 ], [ %1018, %1036 ], [ %1007, %1016 ]
   %1044 = load i8, ptr %.7759.be, align 1, !tbaa !39
   %.not15.i1455 = icmp eq i8 %1044, 0
   br i1 %.not15.i1455, label %.loopexit1986, label %.lr.ph.i1456.backedge
@@ -8584,7 +8584,7 @@ Wlc_PrsFindLine.exit:                             ; preds = %1913, %.thread1967,
   br label %.loopexit2016
 
 .loopexit2016:                                    ; preds = %85, %1887, %.loopexit2016.loopexit3134.split.loop.exit, %246, %Wlc_PrsStrtok.exit1186, %Wlc_PrsStrtok.exit1186.thread, %Vec_IntPush.exit1890, %1754, %1673, %1604, %1515, %1352, %Vec_IntPush.exit1544, %730, %580, %.tail1969.thread
-  %.3771 = phi i32 [ %.4772.lcssa.ph, %246 ], [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186 ], [ %.1769.ph2456, %.tail1969.thread ], [ %.1769.ph2456, %580 ], [ %.1769.ph2456, %730 ], [ %.1769.ph2456, %Vec_IntPush.exit1544 ], [ %.1769.ph2456, %1352 ], [ %.1769.ph2456, %1515 ], [ %.1769.ph2456, %1604 ], [ %.1769.ph2456, %1673 ], [ %.1769.ph2456, %1754 ], [ %.1769.ph2456, %Vec_IntPush.exit1890 ], [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186.thread ], [ %1921, %.loopexit2016.loopexit3134.split.loop.exit ], [ %.1769.ph2456, %1887 ], [ %smax, %85 ]
+  %.3771 = phi i32 [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186.thread ], [ %.1769.ph2456, %1887 ], [ %.4772.lcssa.ph, %246 ], [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186 ], [ %.1769.ph2456, %.tail1969.thread ], [ %.1769.ph2456, %580 ], [ %.1769.ph2456, %730 ], [ %.1769.ph2456, %Vec_IntPush.exit1544 ], [ %.1769.ph2456, %1352 ], [ %.1769.ph2456, %1515 ], [ %.1769.ph2456, %1604 ], [ %.1769.ph2456, %1673 ], [ %.1769.ph2456, %1754 ], [ %.1769.ph2456, %Vec_IntPush.exit1890 ], [ %1921, %.loopexit2016.loopexit3134.split.loop.exit ], [ %smax, %85 ]
   %1922 = add nsw i32 %.3771, 1
   %1923 = load ptr, ptr %30, align 8, !tbaa !23
   %1924 = getelementptr i8, ptr %1923, i64 4
@@ -8693,7 +8693,7 @@ Wlc_PrsFindLine.exit:                             ; preds = %1913, %.thread1967,
   br label %.loopexit2017
 
 .loopexit2017:                                    ; preds = %.tail1969.thread, %532, %.tail1969, %302, %294, %.thread1934, %.thread, %1949, %1952, %.critedge1061, %.critedge1059, %.critedge1057, %.critedge1055, %.critedge1051, %.critedge1049, %.critedge1047, %.critedge1045, %.critedge1043, %1918, %249, %75
-  %.2 = phi i32 [ 0, %75 ], [ 0, %.thread ], [ 0, %249 ], [ 0, %1918 ], [ 0, %.critedge1043 ], [ 0, %.critedge1045 ], [ 0, %.thread1934 ], [ 0, %.critedge1047 ], [ 0, %.critedge1049 ], [ 0, %.critedge1051 ], [ 0, %.critedge1055 ], [ 0, %.critedge1057 ], [ 0, %.critedge1059 ], [ 0, %.critedge1061 ], [ 1, %1952 ], [ 1, %1949 ], [ 0, %302 ], [ 0, %294 ], [ 0, %.tail1969 ], [ 0, %532 ], [ 0, %.tail1969.thread ]
+  %.2 = phi i32 [ 0, %75 ], [ 0, %.thread ], [ 0, %249 ], [ 0, %1918 ], [ 1, %1949 ], [ 0, %302 ], [ 1, %1952 ], [ 0, %.critedge1061 ], [ 0, %.critedge1043 ], [ 0, %.critedge1045 ], [ 0, %.thread1934 ], [ 0, %.critedge1047 ], [ 0, %.critedge1049 ], [ 0, %.critedge1051 ], [ 0, %.critedge1055 ], [ 0, %.critedge1057 ], [ 0, %.critedge1059 ], [ 0, %294 ], [ 0, %.tail1969 ], [ 0, %532 ], [ 0, %.tail1969.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }
@@ -9016,7 +9016,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Wlc_PrsSkipSpaces.exit52
 
 Wlc_PrsSkipSpaces.exit52:                         ; preds = %118, %76, %84, %.critedge
-  %.133 = phi ptr [ null, %.critedge ], [ null, %84 ], [ null, %76 ], [ %.0.i49, %118 ]
+  %.133 = phi ptr [ null, %76 ], [ null, %.critedge ], [ null, %84 ], [ %.0.i49, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.133
 }

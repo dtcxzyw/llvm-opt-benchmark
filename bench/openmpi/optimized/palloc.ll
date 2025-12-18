@@ -993,7 +993,7 @@ pmix_cmd_line_get_param.exit454:                  ; preds = %.lr.ph.i449, %355
   br i1 %.not.i460, label %pmix_cmd_line_get_param.exit462, label %.lr.ph.i457, !llvm.loop !37
 
 pmix_cmd_line_get_param.exit462:                  ; preds = %.lr.ph.i457, %361
-  %.08.i461 = phi ptr [ null, %361 ], [ %.011.i458, %.lr.ph.i457 ]
+  %.08.i461 = phi ptr [ %.011.i458, %.lr.ph.i457 ], [ null, %361 ]
   %.not296 = icmp eq ptr %.08.i461, null
   %.1210 = select i1 %.not296, i8 %spec.select, i8 3
   br label %.lr.ph.i465
@@ -1519,7 +1519,7 @@ pmix_obj_run_destructors.exit518:                 ; preds = %.lr.ph.i515, %552
 597:                                              ; preds = %pmix_obj_new_tma.exit, %486
   br i1 %.not22.i, label %.thread591, label %.thread598
 
-.thread598:                                       ; preds = %pmix_obj_update.exit, %594, %590, %571, %566, %597
+.thread598:                                       ; preds = %566, %571, %590, %594, %pmix_obj_update.exit, %597
   %.0200603 = phi i32 [ %483, %597 ], [ 0, %590 ], [ 0, %571 ], [ %537, %566 ], [ 0, %pmix_obj_update.exit ], [ 0, %594 ]
   %598 = call i32 @pthread_mutex_lock(ptr noundef nonnull %467) #16
   %599 = icmp eq i32 %598, 35

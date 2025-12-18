@@ -2056,9 +2056,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %36, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader57, %50, %12
-  %.041 = phi i32 [ %51, %50 ], [ %13, %12 ], [ %22, %.preheader57 ]
-  %.040 = phi i8 [ 1, %50 ], [ 0, %12 ], [ 0, %.preheader57 ]
-  %.0 = phi i32 [ %11, %50 ], [ %11, %12 ], [ %19, %.preheader57 ]
+  %.041 = phi i32 [ %13, %12 ], [ %51, %50 ], [ %22, %.preheader57 ]
+  %.040 = phi i8 [ 0, %12 ], [ 1, %50 ], [ 0, %.preheader57 ]
+  %.0 = phi i32 [ %11, %12 ], [ %11, %50 ], [ %19, %.preheader57 ]
   %.not55 = icmp eq ptr %2, null
   br i1 %.not55, label %53, label %52
 
@@ -3367,8 +3367,8 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   unreachable
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.0263.ph.lcssa340 = phi i32 [ %.2257360, %.preheader ], [ %.0263.ph355, %.backedge ], [ %.1264, %.outer ]
-  %.2260.lcssa = phi ptr [ %.0258359, %.preheader ], [ %.2260.be, %.backedge ], [ %277, %.outer ]
+  %.0263.ph.lcssa340 = phi i32 [ %.0263.ph355, %.backedge ], [ %.2257360, %.preheader ], [ %.1264, %.outer ]
+  %.2260.lcssa = phi ptr [ %.2260.be, %.backedge ], [ %.0258359, %.preheader ], [ %277, %.outer ]
   %116 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %.0263.ph.lcssa340, ptr noundef null, ptr noundef null, ptr noundef null)
   %117 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %116, ptr noundef nonnull %18, ptr noundef null)
   %118 = load ptr, ptr %85, align 8
@@ -4449,9 +4449,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br i1 %123, label %.split151.us, label %187
 
 .split151.us:                                     ; preds = %120, %106, %100, %67, %85, %79
-  %.us-phi = phi i1 [ true, %106 ], [ true, %85 ], [ false, %67 ], [ true, %79 ], [ true, %100 ], [ false, %120 ]
-  %.us-phi152 = phi ptr [ %.0148.us178, %106 ], [ %.0148.us.us181.us, %85 ], [ %.0148.us165.us, %67 ], [ %.0148.us.us181.us, %79 ], [ %.0148.us178, %100 ], [ %.0148, %120 ]
-  %.us-phi153 = phi ptr [ %96, %106 ], [ %75, %85 ], [ %63, %67 ], [ %75, %79 ], [ %96, %100 ], [ %114, %120 ]
+  %.us-phi = phi i1 [ false, %67 ], [ true, %85 ], [ true, %106 ], [ true, %79 ], [ true, %100 ], [ false, %120 ]
+  %.us-phi152 = phi ptr [ %.0148.us165.us, %67 ], [ %.0148.us.us181.us, %85 ], [ %.0148.us178, %106 ], [ %.0148.us.us181.us, %79 ], [ %.0148.us178, %100 ], [ %.0148, %120 ]
+  %.us-phi153 = phi ptr [ %63, %67 ], [ %75, %85 ], [ %96, %106 ], [ %75, %79 ], [ %96, %100 ], [ %114, %120 ]
   %124 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 24
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 4
@@ -4565,7 +4565,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br i1 %.not217, label %.outer134._crit_edge, label %.thread, !llvm.loop !23
 
 .outer134._crit_edge:                             ; preds = %.outer, %.split.us, %.loopexit.us, %187, %71
-  %.0114.ph.lcssa147 = phi i32 [ %.0114.ph210, %.split.us ], [ %.0114.ph210, %71 ], [ %.0114.ph210, %187 ], [ %.0114.ph210, %.loopexit.us ], [ %.1115, %.outer ]
+  %.0114.ph.lcssa147 = phi i32 [ %.0114.ph210, %.split.us ], [ %.0114.ph210, %71 ], [ %.0114.ph210, %.loopexit.us ], [ %.0114.ph210, %187 ], [ %.1115, %.outer ]
   br i1 %.not, label %192, label %191
 
 191:                                              ; preds = %.outer134._crit_edge
@@ -5750,8 +5750,8 @@ thread-pre-split:                                 ; preds = %22
   br label %135
 
 .loopexit:                                        ; preds = %65, %100, %97, %93, %82, %108, %56
-  %.0134 = phi ptr [ %62, %56 ], [ %64, %108 ], [ %64, %82 ], [ %64, %93 ], [ %64, %97 ], [ %64, %100 ], [ %64, %65 ]
-  %.0128 = phi ptr [ %57, %56 ], [ %113, %108 ], [ @.str.35, %82 ], [ @.str.36, %93 ], [ @.str.38, %97 ], [ @.str.38, %100 ], [ @.str.32, %65 ]
+  %.0134 = phi ptr [ %62, %56 ], [ %64, %97 ], [ %64, %108 ], [ %64, %82 ], [ %64, %100 ], [ %64, %93 ], [ %64, %65 ]
+  %.0128 = phi ptr [ %57, %56 ], [ @.str.38, %97 ], [ %113, %108 ], [ @.str.35, %82 ], [ @.str.38, %100 ], [ @.str.36, %93 ], [ @.str.32, %65 ]
   %124 = icmp sgt i32 %5, 0
   br i1 %124, label %125, label %129
 

@@ -205,7 +205,7 @@ _ZNK4decl13get_decl_kindEv.exit.thread.sink.split: ; preds = %99, %93, %91, %77,
   br label %_ZNK4decl13get_decl_kindEv.exit.thread
 
 _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split, %5, %78, %_ZNK4decl13get_decl_kindEv.exit
-  %.0 = phi i32 [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %78 ], [ 5, %5 ], [ 4, %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split ]
+  %.0 = phi i32 [ 5, %5 ], [ 5, %78 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 4, %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

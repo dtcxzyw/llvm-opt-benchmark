@@ -779,7 +779,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16ConstraintSystem19mayHaveSolution
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.critedge, %"_ZN4llvm6all_ofIRNS_11SmallVectorINS1_INS_16ConstraintSystem5EntryELj8EEELj4EEEZNS2_19mayHaveSolutionImplEvE3$_0EEbOT_T0_.exit"
-  %.0 = phi i1 [ %79, %"_ZN4llvm6all_ofIRNS_11SmallVectorINS1_INS_16ConstraintSystem5EntryELj8EEELj4EEEZNS2_19mayHaveSolutionImplEvE3$_0EEbOT_T0_.exit" ], [ true, %.critedge ], [ true, %7 ]
+  %.0 = phi i1 [ true, %.critedge ], [ %79, %"_ZN4llvm6all_ofIRNS_11SmallVectorINS1_INS_16ConstraintSystem5EntryELj8EEELj4EEEZNS2_19mayHaveSolutionImplEvE3$_0EEbOT_T0_.exit" ], [ true, %7 ]
   ret i1 %.0
 }
 

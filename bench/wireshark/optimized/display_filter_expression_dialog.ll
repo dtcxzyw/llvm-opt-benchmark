@@ -13848,7 +13848,7 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIN5QListIP15QTreeWidgetItem
   br i1 %31, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !115
 
 _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %26, %15
-  %.sink.i = phi ptr [ %0, %15 ], [ %.sroa.0.022.i, %26 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %0, %15 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.022.i, %26 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
   store ptr %14, ptr %.sink.i, align 8
   %.sroa.0.0.i = getelementptr i8, ptr %.sroa.0.022.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %1
@@ -14223,7 +14223,7 @@ _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ;
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
 
 _ZSt11swap_rangesIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %5, %3
-  %.sroa.029.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.029.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.029.0
 }
 
@@ -14591,7 +14591,7 @@ _ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_
   br i1 %35, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !115
 
 _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %30, %19
-  %.sink.i = phi ptr [ %.sroa.030.036, %19 ], [ %.sroa.0.022.i, %30 ], [ %.sroa.030.036, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %.sroa.030.036, %19 ], [ %.sroa.030.036, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.022.i, %30 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
   store ptr %18, ptr %.sink.i, align 8
   %.sroa.0.0.i = getelementptr i8, ptr %.sroa.0.022.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %14
@@ -14661,7 +14661,7 @@ _ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_
   br i1 %60, label %.lr.ph.i.i20, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i16, !llvm.loop !115
 
 _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i16: ; preds = %.lr.ph.i.i20, %.lr.ph.i.i.i.i.i.i25, %55, %44
-  %.sink.i17 = phi ptr [ %.sroa.030.0.lcssa, %44 ], [ %.sroa.0.022.i14, %55 ], [ %.sroa.030.0.lcssa, %.lr.ph.i.i.i.i.i.i25 ], [ %.sroa.0.010.i.i21, %.lr.ph.i.i20 ]
+  %.sink.i17 = phi ptr [ %.sroa.030.0.lcssa, %44 ], [ %.sroa.030.0.lcssa, %.lr.ph.i.i.i.i.i.i25 ], [ %.sroa.0.022.i14, %55 ], [ %.sroa.0.010.i.i21, %.lr.ph.i.i20 ]
   store ptr %43, ptr %.sink.i17, align 8
   %.sroa.0.0.i18 = getelementptr i8, ptr %.sroa.0.022.i14, i64 8
   %.not.i19 = icmp eq ptr %.sroa.0.0.i18, %1
@@ -15165,7 +15165,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %
   br label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit
 
 _ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i39, %.lr.ph.i.i.i.i.i52, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %41, %9, %72
-  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %73, %72 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %69, %.lr.ph.i.i.i.i.i52 ], [ %37, %.lr.ph.i.i.i.i.i39 ]
+  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %73, %72 ], [ %69, %.lr.ph.i.i.i.i.i52 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %37, %.lr.ph.i.i.i.i.i39 ]
   ret ptr %.sroa.032.0
 }
 

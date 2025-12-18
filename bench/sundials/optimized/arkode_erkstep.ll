@@ -520,7 +520,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %erkStep_AccessStepMem.exit, %89, %77, %7, %.thread, %43, %25, %22
-  %.042 = phi i32 [ 0, %.thread ], [ -21, %erkStep_AccessStepMem.exit ], [ -22, %22 ], [ -22, %25 ], [ -22, %43 ], [ 0, %7 ], [ -20, %77 ], [ -20, %89 ], [ -20, %60 ]
+  %.042 = phi i32 [ 0, %.thread ], [ -21, %erkStep_AccessStepMem.exit ], [ -22, %22 ], [ -22, %25 ], [ -22, %43 ], [ 0, %7 ], [ -20, %89 ], [ -20, %77 ], [ -20, %60 ]
   ret i32 %.042
 }
 

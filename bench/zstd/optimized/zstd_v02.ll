@@ -5756,7 +5756,7 @@ FSE_initDState.exit44.i.i:                        ; preds = %213
   %.036.idx.i.i100.i = phi i64 [ %.036.add.i.i.i, %237 ], [ 0, %.lr.ph.i.preheader ]
   %.sroa.0.0.i99.i = phi i64 [ %287, %237 ], [ %206, %.lr.ph.i.preheader ]
   %.sroa.0207.0.i98.i = phi i64 [ %273, %237 ], [ %186, %.lr.ph.i.preheader ]
-  %.sroa.61220.0.idx.i97.i = phi i64 [ %.sroa.61220.0.add.pn.i.i, %237 ], [ %.sroa.61220.0.idx.i97.i.ph, %.lr.ph.i.preheader ]
+  %.sroa.61220.0.idx.i97.i = phi i64 [ %.sroa.61220.8.idx.i.i, %237 ], [ %.sroa.61220.0.idx.i97.i.ph, %.lr.ph.i.preheader ]
   %.sroa.27.0.i96.i = phi i32 [ %285, %237 ], [ %.sroa.27.0.i96.i.ph, %.lr.ph.i.preheader ]
   %.sroa.0214.0.i95.i = phi i64 [ %.sroa.0214.6.i.i, %237 ], [ %.sroa.0214.0.i95.i.ph, %.lr.ph.i.preheader ]
   %.036.ptr.ptr.i.i101.i = getelementptr inbounds nuw i8, ptr %0, i64 %.036.idx.i.i100.i
@@ -5785,11 +5785,11 @@ FSE_initDState.exit44.i.i:                        ; preds = %213
   br label %BIT_reloadDStream.exit.i.i
 
 BIT_reloadDStream.exit.i.i:                       ; preds = %227, %221
-  %.pn.i23.i = phi i64 [ %223, %221 ], [ %231, %227 ]
-  %.sroa.27.8.i.i = phi i32 [ %224, %221 ], [ %233, %227 ]
-  %.025.i.i.i = phi i1 [ true, %221 ], [ %230, %227 ]
-  %.sroa.61220.0.add.pn.i.i = sub nsw i64 %.sroa.61220.0.idx.i97.i, %.pn.i23.i
-  %.sroa.0214.6.in.i.i = getelementptr inbounds i8, ptr %111, i64 %.sroa.61220.0.add.pn.i.i
+  %.sroa.27.8.i.i = phi i32 [ %233, %227 ], [ %224, %221 ]
+  %.pn.i23.i = phi i64 [ %231, %227 ], [ %223, %221 ]
+  %.025.i.i.i = phi i1 [ %230, %227 ], [ true, %221 ]
+  %.sroa.61220.8.idx.i.i = sub nsw i64 %.sroa.61220.0.idx.i97.i, %.pn.i23.i
+  %.sroa.0214.6.in.i.i = getelementptr inbounds i8, ptr %111, i64 %.sroa.61220.8.idx.i.i
   %.sroa.0214.6.i.i = load i64, ptr %.sroa.0214.6.in.i.i, align 1
   %234 = icmp samesign ult i64 %.036.idx.i.i100.i, 252
   %235 = select i1 %.025.i.i.i, i1 %234, i1 false
@@ -5800,7 +5800,7 @@ BIT_reloadDStream.exit.i.i:                       ; preds = %227, %221
   br i1 %236, label %BIT_reloadDStream.exit81.split.loop.exit451.i.i, label %.lr.ph.i24.i.preheader
 
 .lr.ph.i24.i.preheader:                           ; preds = %225, %.preheader438.i.i
-  %.sroa.61220.1.idx470.i.i.ph = phi i64 [ %.sroa.61220.0.add.pn.i.i, %.preheader438.i.i ], [ 0, %225 ]
+  %.sroa.61220.1.idx470.i.i.ph = phi i64 [ %.sroa.61220.8.idx.i.i, %.preheader438.i.i ], [ 0, %225 ]
   %.sroa.27.1469.i.i.ph = phi i32 [ %.sroa.27.8.i.i, %.preheader438.i.i ], [ %.sroa.27.0.i96.i, %225 ]
   %.sroa.0214.1468.i.i.ph = phi i64 [ %.sroa.0214.6.i.i, %.preheader438.i.i ], [ %.sroa.0214.0.i95.i, %225 ]
   br label %.lr.ph.i24.i
@@ -6030,11 +6030,11 @@ BIT_reloadDStream.exit81.split.loop.exit445.i.i:  ; preds = %BIT_endOfDStream.ex
   br label %BIT_reloadDStream.exit81.i.i
 
 BIT_reloadDStream.exit81.split.loop.exit451.i.i:  ; preds = %237, %BIT_endOfDStream.exit98.thread.i.i, %.preheader438.i.i, %FSE_initDState.exit44.i.i, %FSE_initDState.exit.i.i
-  %.sroa.61220.1.idx.lcssa.i.i = phi i64 [ %.sroa.61220.0.add.pn.i.i, %.preheader438.i.i ], [ %.sroa.61220.5.ptr.add.i.i, %FSE_initDState.exit44.i.i ], [ %.sroa.61220.5.idx.i.i, %FSE_initDState.exit.i.i ], [ %.sroa.61220.10.idx.i.i, %BIT_endOfDStream.exit98.thread.i.i ], [ %.sroa.61220.0.add.pn.i.i, %237 ]
-  %.sroa.0.1.lcssa.ph452.i.i = phi i64 [ %.sroa.0.0.i99.i, %.preheader438.i.i ], [ %206, %FSE_initDState.exit44.i.i ], [ %206, %FSE_initDState.exit.i.i ], [ %344, %BIT_endOfDStream.exit98.thread.i.i ], [ %287, %237 ]
-  %.sroa.27.2.ph453.i.i = phi i32 [ %.sroa.27.8.i.i, %.preheader438.i.i ], [ %219, %FSE_initDState.exit44.i.i ], [ %207, %FSE_initDState.exit.i.i ], [ %342, %BIT_endOfDStream.exit98.thread.i.i ], [ %285, %237 ]
-  %.sroa.0207.2.ph455.i.i = phi i64 [ %.sroa.0207.0.i98.i, %.preheader438.i.i ], [ %186, %FSE_initDState.exit44.i.i ], [ %186, %FSE_initDState.exit.i.i ], [ %316, %BIT_endOfDStream.exit98.thread.i.i ], [ %273, %237 ]
-  %.2.idx.i.ph456.i.i = phi i64 [ %.036.idx.i.i100.i, %.preheader438.i.i ], [ 0, %FSE_initDState.exit44.i.i ], [ 0, %FSE_initDState.exit.i.i ], [ %.add.i.i.i, %BIT_endOfDStream.exit98.thread.i.i ], [ %.036.add.i.i.i, %237 ]
+  %.sroa.61220.1.idx.lcssa.i.i = phi i64 [ %.sroa.61220.8.idx.i.i, %.preheader438.i.i ], [ %.sroa.61220.10.idx.i.i, %BIT_endOfDStream.exit98.thread.i.i ], [ %.sroa.61220.5.ptr.add.i.i, %FSE_initDState.exit44.i.i ], [ %.sroa.61220.5.idx.i.i, %FSE_initDState.exit.i.i ], [ %.sroa.61220.8.idx.i.i, %237 ]
+  %.sroa.0.1.lcssa.ph452.i.i = phi i64 [ %.sroa.0.0.i99.i, %.preheader438.i.i ], [ %344, %BIT_endOfDStream.exit98.thread.i.i ], [ %206, %FSE_initDState.exit44.i.i ], [ %206, %FSE_initDState.exit.i.i ], [ %287, %237 ]
+  %.sroa.27.2.ph453.i.i = phi i32 [ %.sroa.27.8.i.i, %.preheader438.i.i ], [ %342, %BIT_endOfDStream.exit98.thread.i.i ], [ %219, %FSE_initDState.exit44.i.i ], [ %207, %FSE_initDState.exit.i.i ], [ %285, %237 ]
+  %.sroa.0207.2.ph455.i.i = phi i64 [ %.sroa.0207.0.i98.i, %.preheader438.i.i ], [ %316, %BIT_endOfDStream.exit98.thread.i.i ], [ %186, %FSE_initDState.exit44.i.i ], [ %186, %FSE_initDState.exit.i.i ], [ %273, %237 ]
+  %.2.idx.i.ph456.i.i = phi i64 [ %.036.idx.i.i100.i, %.preheader438.i.i ], [ %.add.i.i.i, %BIT_endOfDStream.exit98.thread.i.i ], [ 0, %FSE_initDState.exit44.i.i ], [ 0, %FSE_initDState.exit.i.i ], [ %.036.add.i.i.i, %237 ]
   %.sroa.61220.1.ptr.le.i.i = getelementptr inbounds i8, ptr %111, i64 %.sroa.61220.1.idx.lcssa.i.i
   br label %BIT_reloadDStream.exit81.i.i
 
@@ -6554,11 +6554,11 @@ BIT_reloadDStream.exit175.split.loop.exit485.i.i: ; preds = %BIT_endOfDStream.ex
   br label %BIT_reloadDStream.exit175.i.i
 
 BIT_reloadDStream.exit175.split.loop.exit491.i.i: ; preds = %472, %BIT_endOfDStream.exit193.thread.i.i, %.preheader.i26.i, %FSE_initDState.exit129.i.i, %FSE_initDState.exit120.i.i
-  %.sroa.61278.1.idx.lcssa.i.i = phi i64 [ %.sroa.61278.8.idx.i.i, %.preheader.i26.i ], [ %.sroa.61278.5.ptr.add.i.i, %FSE_initDState.exit129.i.i ], [ %.sroa.61278.5.idx.i.i, %FSE_initDState.exit120.i.i ], [ %.sroa.61278.10.idx.i.i, %BIT_endOfDStream.exit193.thread.i.i ], [ %.sroa.61278.8.idx.i.i, %472 ]
-  %.sroa.0255.1.lcssa.ph492.i.i = phi i64 [ %.sroa.0255.0.i107.i, %.preheader.i26.i ], [ %441, %FSE_initDState.exit129.i.i ], [ %441, %FSE_initDState.exit120.i.i ], [ %585, %BIT_endOfDStream.exit193.thread.i.i ], [ %526, %472 ]
-  %.sroa.0262.2.ph493.i.i = phi i64 [ %.sroa.0262.0.i106.i, %.preheader.i26.i ], [ %421, %FSE_initDState.exit129.i.i ], [ %421, %FSE_initDState.exit120.i.i ], [ %556, %BIT_endOfDStream.exit193.thread.i.i ], [ %511, %472 ]
-  %.sroa.27271.2.ph495.i.i = phi i32 [ %.sroa.27271.8.i.i, %.preheader.i26.i ], [ %454, %FSE_initDState.exit129.i.i ], [ %442, %FSE_initDState.exit120.i.i ], [ %583, %BIT_endOfDStream.exit193.thread.i.i ], [ %524, %472 ]
-  %.2.idx.i18.ph496.i.i = phi i64 [ %.036.idx.i13.i111.i, %.preheader.i26.i ], [ 0, %FSE_initDState.exit129.i.i ], [ 0, %FSE_initDState.exit120.i.i ], [ %.add.i27.i.i, %BIT_endOfDStream.exit193.thread.i.i ], [ %.036.add.i28.i.i, %472 ]
+  %.sroa.61278.1.idx.lcssa.i.i = phi i64 [ %.sroa.61278.8.idx.i.i, %.preheader.i26.i ], [ %.sroa.61278.10.idx.i.i, %BIT_endOfDStream.exit193.thread.i.i ], [ %.sroa.61278.5.ptr.add.i.i, %FSE_initDState.exit129.i.i ], [ %.sroa.61278.5.idx.i.i, %FSE_initDState.exit120.i.i ], [ %.sroa.61278.8.idx.i.i, %472 ]
+  %.sroa.0255.1.lcssa.ph492.i.i = phi i64 [ %.sroa.0255.0.i107.i, %.preheader.i26.i ], [ %585, %BIT_endOfDStream.exit193.thread.i.i ], [ %441, %FSE_initDState.exit129.i.i ], [ %441, %FSE_initDState.exit120.i.i ], [ %526, %472 ]
+  %.sroa.0262.2.ph493.i.i = phi i64 [ %.sroa.0262.0.i106.i, %.preheader.i26.i ], [ %556, %BIT_endOfDStream.exit193.thread.i.i ], [ %421, %FSE_initDState.exit129.i.i ], [ %421, %FSE_initDState.exit120.i.i ], [ %511, %472 ]
+  %.sroa.27271.2.ph495.i.i = phi i32 [ %.sroa.27271.8.i.i, %.preheader.i26.i ], [ %583, %BIT_endOfDStream.exit193.thread.i.i ], [ %454, %FSE_initDState.exit129.i.i ], [ %442, %FSE_initDState.exit120.i.i ], [ %524, %472 ]
+  %.2.idx.i18.ph496.i.i = phi i64 [ %.036.idx.i13.i111.i, %.preheader.i26.i ], [ %.add.i27.i.i, %BIT_endOfDStream.exit193.thread.i.i ], [ 0, %FSE_initDState.exit129.i.i ], [ 0, %FSE_initDState.exit120.i.i ], [ %.036.add.i28.i.i, %472 ]
   %.sroa.61278.1.ptr.le.i.i = getelementptr inbounds i8, ptr %111, i64 %.sroa.61278.1.idx.lcssa.i.i
   br label %BIT_reloadDStream.exit175.i.i
 
@@ -6687,7 +6687,7 @@ FSE_decompress.exit:                              ; preds = %BIT_reloadDStream.e
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph167, %.loopexit, %FSE_decompress.exit.thread, %613, %619, %608, %._crit_edge, %FSE_decompress.exit, %39, %23, %6, %631
-  %.0 = phi i64 [ %.0.i, %FSE_decompress.exit ], [ -20, %._crit_edge ], [ -20, %619 ], [ %634, %631 ], [ -20, %613 ], [ -72, %6 ], [ -72, %39 ], [ -72, %23 ], [ -20, %608 ], [ %.0.i.ph, %FSE_decompress.exit.thread ], [ -20, %.loopexit ], [ -20, %.lr.ph167 ]
+  %.0 = phi i64 [ %.0.i, %FSE_decompress.exit ], [ %.0.i.ph, %FSE_decompress.exit.thread ], [ -20, %._crit_edge ], [ -20, %619 ], [ %634, %631 ], [ -20, %613 ], [ -72, %6 ], [ -72, %39 ], [ -72, %23 ], [ -20, %608 ], [ -20, %.loopexit ], [ -20, %.lr.ph167 ]
   ret i64 %.0
 }
 
@@ -6834,10 +6834,10 @@ define internal fastcc i64 @FSE_readNCount(ptr noundef nonnull writeonly capture
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge185._crit_edge, %22
-  %.1132 = phi ptr [ %.0131194, %22 ], [ %57, %._crit_edge185._crit_edge ], [ %.2133.lcssa, %60 ]
-  %.1120 = phi i32 [ %.0119198, %22 ], [ %59, %._crit_edge185._crit_edge ], [ %61, %60 ]
-  %.1116 = phi i32 [ %.0115199, %22 ], [ %58, %._crit_edge185._crit_edge ], [ %44, %60 ]
-  %.1112 = phi i32 [ %.0111200, %22 ], [ %.3114.lcssa, %._crit_edge185._crit_edge ], [ %.3114.lcssa, %60 ]
+  %.1132 = phi ptr [ %.0131194, %22 ], [ %.2133.lcssa, %60 ], [ %57, %._crit_edge185._crit_edge ]
+  %.1120 = phi i32 [ %.0119198, %22 ], [ %61, %60 ], [ %59, %._crit_edge185._crit_edge ]
+  %.1116 = phi i32 [ %.0115199, %22 ], [ %44, %60 ], [ %58, %._crit_edge185._crit_edge ]
+  %.1112 = phi i32 [ %.0111200, %22 ], [ %.3114.lcssa, %60 ], [ %.3114.lcssa, %._crit_edge185._crit_edge ]
   %63 = shl nsw i32 %.0126197, 1
   %64 = add nsw i32 %63, -1
   %65 = sub nsw i32 %64, %.0128196

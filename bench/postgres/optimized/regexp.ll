@@ -1837,8 +1837,8 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph9, %.preheader, %131, %117
-  %.4152 = phi i32 [ %126, %117 ], [ %126, %131 ], [ %.0148, %.preheader ], [ %109, %.lr.ph9 ]
-  %.5 = phi i32 [ %.0141, %117 ], [ %spec.select174, %131 ], [ %.0141, %.preheader ], [ %.4, %.lr.ph9 ]
+  %.4152 = phi i32 [ %126, %131 ], [ %126, %117 ], [ %.0148, %.preheader ], [ %109, %.lr.ph9 ]
+  %.5 = phi i32 [ %spec.select174, %131 ], [ %.0141, %117 ], [ %.0141, %.preheader ], [ %.4, %.lr.ph9 ]
   %133 = load i32, ptr %64, align 8
   %134 = add i32 %133, 1
   store i32 %134, ptr %64, align 8

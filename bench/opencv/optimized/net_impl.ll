@@ -32930,7 +32930,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024122311BackendNodeEEaSERKS4_.exit1987.thread: ; pre
   br label %._crit_edge.i.i1992
 
 _ZN2cv3PtrINS_3dnn14dnn4_v2024122311BackendNodeEEaSERKS4_.exit1987: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i1985, %1738
-  %1770 = phi ptr [ %.pre2695, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i1985 ], [ %1740, %1738 ]
+  %1770 = phi ptr [ %1740, %1738 ], [ %.pre2695, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i1985 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %1771 = icmp eq ptr %1770, null
   br i1 %1771, label %._crit_edge.i.i1992, label %1772
@@ -39334,7 +39334,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit18:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not28, label %.loopexit, label %50, !llvm.loop !714
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit18, %6, %44
-  %storemerge = phi ptr [ null, %44 ], [ null, %6 ], [ %83, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit18 ], [ %42, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %storemerge = phi ptr [ %83, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit18 ], [ null, %44 ], [ null, %6 ], [ %42, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 

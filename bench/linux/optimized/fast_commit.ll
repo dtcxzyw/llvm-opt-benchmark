@@ -3902,7 +3902,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   br label %.thread70
 
 864:                                              ; preds = %791, %542, %345, %302
-  %865 = phi i32 [ %792, %791 ], [ %544, %542 ], [ %346, %345 ], [ %303, %302 ]
+  %865 = phi i32 [ %303, %302 ], [ %792, %791 ], [ %346, %345 ], [ %544, %542 ]
   %866 = icmp slt i32 %865, 0
   br i1 %866, label %.thread70, label %.thread68
 
@@ -5072,7 +5072,7 @@ define internal fastcc noundef i32 @ext4_fc_replay_link_internal(ptr noundef %0,
   br label %24
 
 24:                                               ; preds = %23, %21, %18
-  %25 = phi i32 [ 0, %23 ], [ -12, %18 ], [ %22, %21 ]
+  %25 = phi i32 [ 0, %23 ], [ %22, %21 ], [ -12, %18 ]
   %26 = icmp eq ptr %16, null
   br i1 %26, label %.thread, label %27
 

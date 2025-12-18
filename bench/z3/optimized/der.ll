@@ -847,7 +847,7 @@ _ZL6is_varP4exprj.exit32.thread.sink.split:       ; preds = %284, %277, %275, %2
   br label %_ZL6is_varP4exprj.exit32.thread
 
 _ZL6is_varP4exprj.exit32.thread:                  ; preds = %_ZL6is_varP4exprj.exit32.thread.sink.split, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit36.thread, %_ZL6is_varP4exprj.exit51, %243, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i57, %254, %258, %183, %178, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i45, %194, %198, %59, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit58, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit46, %_ZL6is_varP4exprj.exit32
-  %.0 = phi i1 [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit46 ], [ false, %_ZL6is_varP4exprj.exit32 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit58 ], [ false, %183 ], [ false, %59 ], [ false, %198 ], [ false, %194 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i45 ], [ false, %178 ], [ false, %258 ], [ false, %254 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i57 ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit36.thread ], [ false, %243 ], [ false, %_ZL6is_varP4exprj.exit51 ], [ true, %_ZL6is_varP4exprj.exit32.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit51 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit46 ], [ false, %243 ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit36.thread ], [ false, %_ZL6is_varP4exprj.exit32 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i57 ], [ false, %254 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit58 ], [ false, %183 ], [ false, %59 ], [ false, %198 ], [ false, %194 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i45 ], [ false, %178 ], [ false, %258 ], [ true, %_ZL6is_varP4exprj.exit32.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -1242,7 +1242,7 @@ _ZL6is_varP4exprj.exit23.thread.sink.split:       ; preds = %193, %186, %184, %1
   br label %_ZL6is_varP4exprj.exit23.thread
 
 _ZL6is_varP4exprj.exit23.thread:                  ; preds = %_ZL6is_varP4exprj.exit23.thread.sink.split, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit27.thread, %_ZL6is_varP4exprj.exit35, %152, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %163, %167, %83, %37, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit, %_ZL6is_varP4exprj.exit29, %_ZL6is_varP4exprj.exit23
-  %.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit29 ], [ false, %_ZL6is_varP4exprj.exit23 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit ], [ false, %83 ], [ false, %37 ], [ false, %167 ], [ false, %163 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit27.thread ], [ false, %152 ], [ false, %_ZL6is_varP4exprj.exit35 ], [ true, %_ZL6is_varP4exprj.exit23.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit35 ], [ false, %_ZL6is_varP4exprj.exit29 ], [ false, %152 ], [ false, %_ZL6is_varP4exprj.exit23 ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit27.thread ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit ], [ false, %83 ], [ false, %37 ], [ false, %167 ], [ false, %163 ], [ true, %_ZL6is_varP4exprj.exit23.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -3156,7 +3156,7 @@ _ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit.preheader.i: ; preds = %.noexc.i
   br label %thread-pre-split.i, !llvm.loop !193
 
 thread-pre-split.i:                               ; preds = %.preheader, %.thread-pre-split.i.loopexit_crit_edge, %350, %_ZN6bufferIP3astLb0ELj16EE9push_backERKS1_.exit.i154.i, %324, %299, %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i
-  %.pr326.lcssa.sink.i = phi ptr [ %296, %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i ], [ %351, %350 ], [ %300, %299 ], [ %.pre.i, %_ZN6bufferIP3astLb0ELj16EE9push_backERKS1_.exit.i154.i ], [ %.pr326.i56, %324 ], [ %354, %.thread-pre-split.i.loopexit_crit_edge ], [ %.pr326.lcssa.sink.sink.i57, %.preheader ]
+  %.pr326.lcssa.sink.i = phi ptr [ %296, %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i ], [ %351, %350 ], [ %.pr326.i56, %324 ], [ %300, %299 ], [ %.pre.i, %_ZN6bufferIP3astLb0ELj16EE9push_backERKS1_.exit.i154.i ], [ %354, %.thread-pre-split.i.loopexit_crit_edge ], [ %.pr326.lcssa.sink.sink.i57, %.preheader ]
   %122 = getelementptr inbounds i8, ptr %.pr326.lcssa.sink.i, i64 -4
   %123 = load i32, ptr %122, align 4, !tbaa !165
   %124 = add i32 %123, -1
@@ -10298,7 +10298,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !266
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i

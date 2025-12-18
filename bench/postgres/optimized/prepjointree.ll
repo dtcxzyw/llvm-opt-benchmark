@@ -905,7 +905,7 @@ is_safe_append_member.exit.thread114.thread:      ; preds = %73, %76, %79, %82, 
   br label %is_simple_values.exit.thread
 
 is_safe_append_member.exit.thread114:             ; preds = %is_simple_union_all.exit.is_safe_append_member.exit.thread114_crit_edge, %13, %is_safe_append_member.exit
-  %127 = phi i32 [ %.pre, %is_simple_union_all.exit.is_safe_append_member.exit.thread114_crit_edge ], [ %26, %13 ], [ %.pr, %is_safe_append_member.exit ]
+  %127 = phi i32 [ %.pre, %is_simple_union_all.exit.is_safe_append_member.exit.thread114_crit_edge ], [ %.pr, %is_safe_append_member.exit ], [ %26, %13 ]
   %128 = icmp eq i32 %127, 5
   %129 = icmp eq ptr %2, null
   %or.cond = and i1 %129, %128
@@ -1192,7 +1192,7 @@ pull_up_constant_function.exit:                   ; preds = %192, %197, %list_le
   ]
 
 common.ret147:                                    ; preds = %.split89, %pull_up_constant_function.exit, %pull_up_simple_values.exit, %pull_up_simple_union_all.exit, %.split, %is_simple_values.exit.thread, %.lr.ph, %245, %.lr.ph122, %283, %276, %269, %262
-  %common.ret147.op = phi ptr [ %1, %283 ], [ %1, %262 ], [ %1, %269 ], [ %1, %276 ], [ %1, %pull_up_simple_values.exit ], [ %1, %245 ], [ %1, %.lr.ph ], [ %34, %.split ], [ %1, %pull_up_constant_function.exit ], [ %1, %is_simple_values.exit.thread ], [ %58, %.split89 ], [ %1, %pull_up_simple_union_all.exit ], [ %1, %.lr.ph122 ]
+  %common.ret147.op = phi ptr [ %1, %283 ], [ %1, %262 ], [ %1, %269 ], [ %1, %276 ], [ %58, %.split89 ], [ %1, %.lr.ph ], [ %1, %245 ], [ %1, %pull_up_simple_union_all.exit ], [ %1, %pull_up_constant_function.exit ], [ %1, %is_simple_values.exit.thread ], [ %34, %.split ], [ %1, %pull_up_simple_values.exit ], [ %1, %.lr.ph122 ]
   ret ptr %common.ret147.op
 
 262:                                              ; preds = %259
@@ -2018,7 +2018,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
   unreachable
 
 .sink.split:                                      ; preds = %43, %38, %156, %160, %16
-  %.0124.sink = phi ptr [ %20, %16 ], [ %.0124, %160 ], [ %.0124, %156 ], [ %20, %38 ], [ %20, %43 ]
+  %.0124.sink = phi ptr [ %.0124, %156 ], [ %20, %16 ], [ %.0124, %160 ], [ %20, %38 ], [ %20, %43 ]
   tail call void @bms_free(ptr noundef %.0124.sink) #6
   br label %167
 
@@ -2946,7 +2946,7 @@ is_notclause.exit:                                ; preds = %10
   br label %96
 
 96:                                               ; preds = %.sink.split, %68, %71, %83, %84, %74
-  %.2 = phi ptr [ %1, %74 ], [ %1, %84 ], [ %1, %83 ], [ %1, %71 ], [ %1, %68 ], [ null, %.sink.split ]
+  %.2 = phi ptr [ %1, %68 ], [ %1, %71 ], [ %1, %74 ], [ %1, %84 ], [ %1, %83 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %is_andclause.exit.thread
 
@@ -3695,7 +3695,7 @@ list_length.exit136:                              ; preds = %272
   br label %is_safe_append_member.exit
 
 is_safe_append_member.exit:                       ; preds = %list_length.exit.i, %106, %103, %101, %272, %fix_append_rel_relids.exit, %list_length.exit136, %preprocess_function_rtes.exit, %278
-  %.0 = phi ptr [ %280, %278 ], [ %1, %preprocess_function_rtes.exit ], [ %268, %fix_append_rel_relids.exit ], [ %268, %list_length.exit136 ], [ %268, %272 ], [ %1, %101 ], [ %1, %103 ], [ %1, %106 ], [ %1, %list_length.exit.i ]
+  %.0 = phi ptr [ %280, %278 ], [ %268, %272 ], [ %1, %preprocess_function_rtes.exit ], [ %268, %list_length.exit136 ], [ %268, %fix_append_rel_relids.exit ], [ %1, %101 ], [ %1, %103 ], [ %1, %106 ], [ %1, %list_length.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }

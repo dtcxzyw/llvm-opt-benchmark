@@ -659,7 +659,7 @@ define dso_local i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr nou
   br label %zend_get_internal_func_info.exit
 
 zend_get_internal_func_info.exit:                 ; preds = %21, %23
-  %.015.i = phi i32 [ %spec.select.i, %23 ], [ %22, %21 ]
+  %.015.i = phi i32 [ %22, %21 ], [ %spec.select.i, %23 ]
   %.not37 = icmp eq i32 %.015.i, 0
   br i1 %.not37, label %zend_get_internal_func_info.exit.thread, label %.critedge
 

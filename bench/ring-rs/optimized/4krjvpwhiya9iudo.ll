@@ -1359,7 +1359,7 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %24, %.lr.ph, %2
-  %18 = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ false, %24 ]
+  %18 = phi i1 [ true, %.lr.ph ], [ false, %2 ], [ false, %24 ]
   ret i1 %18
 
 ._crit_edge:                                      ; preds = %27, %15

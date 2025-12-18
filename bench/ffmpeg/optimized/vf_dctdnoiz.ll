@@ -661,7 +661,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %73, %84, %109, %118, %._crit_edge, %37, %._crit_edge194
-  %.0 = phi i32 [ -22, %37 ], [ 0, %._crit_edge194 ], [ -12, %._crit_edge ], [ -12, %118 ], [ %87, %84 ], [ -12, %109 ], [ -12, %73 ], [ -12, %55 ]
+  %.0 = phi i32 [ -12, %118 ], [ -22, %37 ], [ %87, %84 ], [ -12, %109 ], [ 0, %._crit_edge194 ], [ -12, %._crit_edge ], [ -12, %73 ], [ -12, %55 ]
   ret i32 %.0
 }
 

@@ -1793,8 +1793,8 @@ define internal fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStrin
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sink.sroa.gep112 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sink.sroa.gep113 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep114 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep115 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep114 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep115 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sink.sroa.gep116 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %62
@@ -1938,8 +1938,8 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %176
 
 ._crit_edge87.invoke:                             ; preds = %167, %122, %60, %46, %.preheader, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %.sink.sroa.gep112, %.preheader ], [ %.sink.sroa.gep113, %46 ], [ %.sink.sroa.gep115, %122 ], [ %.sink.sroa.gep114, %60 ], [ %.sink.sroa.gep116, %167 ]
-  %.sink = phi ptr [ %17, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %25, %.preheader ], [ %11, %46 ], [ %17, %122 ], [ %11, %60 ], [ %25, %167 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %.sink.sroa.gep112, %.preheader ], [ %.sink.sroa.gep114, %122 ], [ %.sink.sroa.gep113, %60 ], [ %.sink.sroa.gep115, %46 ], [ %.sink.sroa.gep116, %167 ]
+  %.sink = phi ptr [ %17, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %25, %.preheader ], [ %17, %122 ], [ %11, %60 ], [ %11, %46 ], [ %25, %167 ]
   store ptr @.str.55, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink)
@@ -17753,7 +17753,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -17898,7 +17898,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16

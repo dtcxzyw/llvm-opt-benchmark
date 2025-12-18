@@ -968,7 +968,7 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
   br i1 %exitcond119.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %32, %29, %50, %39, %43, %19, %17, %15, %13, %11, %9, %7, %4
-  %.sink = phi i32 [ -12, %39 ], [ -19, %19 ], [ -18, %17 ], [ -17, %15 ], [ -16, %13 ], [ -9, %11 ], [ -8, %9 ], [ -7, %7 ], [ -5, %4 ], [ -12, %43 ], [ -12, %50 ], [ -12, %29 ], [ -12, %32 ]
+  %.sink = phi i32 [ -12, %39 ], [ -12, %50 ], [ -12, %43 ], [ -19, %19 ], [ -18, %17 ], [ -17, %15 ], [ -16, %13 ], [ -9, %11 ], [ -8, %9 ], [ -7, %7 ], [ -5, %4 ], [ -12, %29 ], [ -12, %32 ]
   %55 = tail call noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %.sink, ptr noundef nonnull align 4 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   br label %.loopexit
 
@@ -1156,7 +1156,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   br i1 %exitcond140.not, label %.loopexit, label %.preheader92, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %45, %57, %67, %12, %10, %5
-  %.sink = phi i32 [ -3, %12 ], [ -10, %10 ], [ -2, %5 ], [ -13, %57 ], [ -4, %67 ], [ -14, %45 ]
+  %.sink = phi i32 [ -13, %57 ], [ -4, %67 ], [ -3, %12 ], [ -10, %10 ], [ -2, %5 ], [ -14, %45 ]
   %72 = tail call noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %.sink, ptr noundef nonnull align 4 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   br label %.loopexit
 

@@ -10138,8 +10138,8 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   ret void
 
 81:                                               ; preds = %60, %64
-  %82 = phi i8 [ %62, %60 ], [ %.pre, %64 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.128.i.i, %60 ], [ %70, %64 ]
+  %82 = phi i8 [ %.pre, %64 ], [ %62, %60 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %70, %64 ], [ %.sroa.4.128.i.i, %60 ]
   %83 = load i64, ptr %11, align 8, !noundef !8
   %84 = icmp ult i64 %83, 28120036697727976
   tail call void @llvm.assume(i1 %84)

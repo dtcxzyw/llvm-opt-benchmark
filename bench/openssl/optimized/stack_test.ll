@@ -599,8 +599,8 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %.preheader, %50, %45, %23, %20, %17, %62, %43, %36, %31, %14
-  %.047 = phi ptr [ null, %14 ], [ %21, %20 ], [ %24, %43 ], [ %24, %36 ], [ %24, %31 ], [ null, %62 ], [ null, %17 ], [ null, %50 ], [ null, %45 ], [ %24, %23 ], [ null, %.preheader ], [ null, %3 ]
-  %.0 = phi i32 [ 0, %14 ], [ 0, %20 ], [ 0, %43 ], [ 0, %36 ], [ 0, %31 ], [ 0, %62 ], [ 0, %17 ], [ 0, %50 ], [ 0, %45 ], [ 0, %23 ], [ 1, %.preheader ], [ 0, %3 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %.preheader ], [ %21, %20 ], [ %24, %43 ], [ %24, %36 ], [ %24, %31 ], [ null, %62 ], [ null, %17 ], [ null, %50 ], [ null, %45 ], [ %24, %23 ], [ null, %3 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %.preheader ], [ 0, %20 ], [ 0, %43 ], [ 0, %36 ], [ 0, %31 ], [ 0, %62 ], [ 0, %17 ], [ 0, %50 ], [ 0, %45 ], [ 0, %23 ], [ 0, %3 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %.047, ptr noundef nonnull @SS_free) #5
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @SS_free) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

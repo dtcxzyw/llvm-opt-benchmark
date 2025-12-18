@@ -254,7 +254,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   br label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490b1a392b39e50cE.exit.i"
 
 "_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490b1a392b39e50cE.exit.i": ; preds = %85, %79
-  %86 = phi i64 [ %.sroa.0.0.copyload.i, %79 ], [ %.sroa.025.0.copyload.i.i.i, %85 ]
+  %86 = phi i64 [ %.sroa.025.0.copyload.i.i.i, %85 ], [ %.sroa.0.0.copyload.i, %79 ]
   %87 = icmp eq i64 %86, -9223372036854775808
   br i1 %87, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2a2bc17ebe46c2c6E.exit, label %88
 
@@ -1334,7 +1334,7 @@ _ZN4text12subscription7publish17h7a1104ffe22ce693E.exit: ; preds = %328, %325
   br label %427
 
 397:                                              ; preds = %383, %380, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i134", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i"
-  %.sroa.029.5.ph = phi i1 [ false, %380 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i" ], [ false, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i134" ], [ false, %383 ]
+  %.sroa.029.5.ph = phi i1 [ false, %383 ], [ false, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i134" ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i" ], [ false, %380 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %398 = load i64, ptr %52, align 8, !noalias !365, !noundef !19
@@ -2781,7 +2781,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h04e8b50b8cbfb1faE.exit124.i: ; preds =
   br label %.thread433.i
 
 .thread444.loopexit.split-lp.i:                   ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i.i", %800, %782, %781, %.loopexit511.i
-  %.sroa.040.3.ph.ph.i = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i.i" ], [ 0, %800 ], [ 1, %781 ], [ 1, %.loopexit511.i ], [ 1, %782 ]
+  %.sroa.040.3.ph.ph.i = phi i8 [ 0, %800 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i.i" ], [ 1, %781 ], [ 1, %.loopexit511.i ], [ 1, %782 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread433.i
@@ -11716,8 +11716,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 
@@ -12802,7 +12802,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
   br label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i"
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.loopexit224.split.loop.exit", %308, %.preheader.i.i.i, %.noexc63, %299
-  %.sroa.4.0.i = phi i64 [ %291, %299 ], [ %291, %308 ], [ %291, %.preheader.i.i.i ], [ %.mux.le, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.loopexit224.split.loop.exit" ], [ %291, %.noexc63 ]
+  %.sroa.4.0.i = phi i64 [ %291, %299 ], [ %291, %.preheader.i.i.i ], [ %291, %308 ], [ %.mux.le, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.loopexit224.split.loop.exit" ], [ %291, %.noexc63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2182
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h12104dffd206eb60E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, i64 noundef %.sroa.4.0.i, i1 noundef zeroext false)
           to label %.noexc66 unwind label %.loopexit.split-lp
@@ -14273,7 +14273,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfd81ec0e27b2f1d7E.exit: ; preds = %.no
           to label %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit" unwind label %.thread43
 
 "_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit": ; preds = %311, %318
-  %.sroa.0.0.i29 = phi i1 [ %.mux.i, %311 ], [ %319, %318 ]
+  %.sroa.0.0.i29 = phi i1 [ %319, %318 ], [ %.mux.i, %311 ]
   br i1 %.sroa.0.0.i29, label %326, label %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread"
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$language..buffer..Diagnostic$GT$$GT$17hb8154b65202e4d45E.exit32": ; preds = %237, %326, %328, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$language..buffer..Diagnostic$GT$$GT$17hb8154b65202e4d45E.exit"

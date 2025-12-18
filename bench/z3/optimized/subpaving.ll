@@ -2014,24 +2014,24 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %49, %_ZN3f2nI11mpf_
   %62 = load i8, ptr %18, align 4
   %63 = and i8 %62, 1
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %65, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
+  br i1 %64, label %65, label %70
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1700
   %67 = load i8, ptr %66, align 4
   %68 = and i8 %67, 1
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %70, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
+  br i1 %69, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, label %70
 
-70:                                               ; preds = %65
-  %71 = load i32, ptr %17, align 8, !tbaa !10
-  %72 = load i32, ptr %61, align 8, !tbaa !10
-  %73 = icmp eq i32 %71, %72
-  br i1 %73, label %77, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
+70:                                               ; preds = %65, %60
+  %71 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %44, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %61)
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %77, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %60, %65
-  %74 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %44, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %61)
-  %75 = icmp eq i32 %74, 0
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %65
+  %73 = load i32, ptr %17, align 8, !tbaa !10
+  %74 = load i32, ptr %61, align 8, !tbaa !10
+  %75 = icmp eq i32 %73, %74
   br i1 %75, label %77, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %54, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %70, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit

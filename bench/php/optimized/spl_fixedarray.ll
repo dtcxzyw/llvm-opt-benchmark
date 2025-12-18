@@ -2339,7 +2339,7 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   br i1 %.not68, label %.thread72, label %.lr.ph77
 
 .thread72:                                        ; preds = %76, %45, %.thread, %.loopexit, %42, %20, %21
-  %.0 = phi ptr [ null, %20 ], [ null, %21 ], [ %30, %42 ], [ %30, %.loopexit ], [ null, %.thread ], [ %30, %45 ], [ %30, %76 ]
+  %.0 = phi ptr [ null, %20 ], [ null, %21 ], [ null, %.thread ], [ %30, %42 ], [ %30, %.loopexit ], [ %30, %45 ], [ %30, %76 ]
   ret ptr %.0
 }
 
@@ -2506,7 +2506,7 @@ zend_dval_to_lval_safe.exit.loopexit:             ; preds = %3
   br label %zend_dval_to_lval_safe.exit
 
 zend_dval_to_lval_safe.exit:                      ; preds = %3, %zend_dval_to_lval_safe.exit.loopexit, %35, %zend_dval_to_lval.exit, %_zend_handle_numeric_str.exit, %.loopexit, %41, %36
-  %.1 = phi i64 [ 0, %.loopexit ], [ %21, %_zend_handle_numeric_str.exit ], [ %37, %36 ], [ %44, %41 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ %.0.i13, %zend_dval_to_lval.exit ], [ %.0.i13, %35 ], [ 1, %3 ]
+  %.1 = phi i64 [ 0, %.loopexit ], [ %21, %_zend_handle_numeric_str.exit ], [ %.0.i13, %35 ], [ %37, %36 ], [ %44, %41 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ %.0.i13, %zend_dval_to_lval.exit ], [ 1, %3 ]
   ret i64 %.1
 }
 

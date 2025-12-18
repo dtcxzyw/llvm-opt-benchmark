@@ -2067,9 +2067,9 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   br i1 %exitcond.not.i, label %.critedge.i58, label %.preheader.i, !llvm.loop !18
 
 .critedge.i58:                                    ; preds = %323, %293, %286, %279
-  %.062.i = phi ptr [ null, %279 ], [ null, %286 ], [ null, %293 ], [ %326, %323 ]
-  %.061.i = phi ptr [ null, %279 ], [ null, %286 ], [ null, %293 ], [ %290, %323 ]
-  %.060.i = phi ptr [ @.str.49, %279 ], [ %290, %286 ], [ %290, %293 ], [ @.str.49, %323 ]
+  %.062.i = phi ptr [ null, %293 ], [ null, %279 ], [ null, %286 ], [ %326, %323 ]
+  %.061.i = phi ptr [ null, %293 ], [ null, %279 ], [ null, %286 ], [ %290, %323 ]
+  %.060.i = phi ptr [ %290, %293 ], [ @.str.49, %279 ], [ %290, %286 ], [ @.str.49, %323 ]
   call void @llvm_emit_panic(ptr noundef nonnull %0, ptr noundef %.060.i, i64 %.sroa.0.0.copyload.i, ptr noundef %.061.i, ptr noundef %.062.i)
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %281) #9
   %329 = load ptr, ptr %16, align 8

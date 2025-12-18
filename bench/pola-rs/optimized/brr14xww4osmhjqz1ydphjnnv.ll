@@ -1538,7 +1538,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit": ; preds = %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ec22de3040ee86dE.exit.i.i.i", %87
-  %88 = phi i64 [ %storemerge.i.i.i.i, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ec22de3040ee86dE.exit.i.i.i" ], [ %.pre, %87 ]
+  %88 = phi i64 [ %.pre, %87 ], [ %storemerge.i.i.i.i, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ec22de3040ee86dE.exit.i.i.i" ]
   %89 = trunc nuw i64 %88 to i1
   br i1 %89, label %90, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had5718cfd63e8d35E.exit.thread"
 
@@ -3448,7 +3448,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit": ; preds = %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcde4c09e12acb7f8E.exit.i.i.i", %64
-  %65 = phi i64 [ %storemerge.i.i.i.i, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcde4c09e12acb7f8E.exit.i.i.i" ], [ %.pre, %64 ]
+  %65 = phi i64 [ %.pre, %64 ], [ %storemerge.i.i.i.i, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcde4c09e12acb7f8E.exit.i.i.i" ]
   %66 = trunc nuw i64 %65 to i1
   br i1 %66, label %67, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddb021a062204020E.exit.thread"
 
@@ -4658,7 +4658,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @anon.ed06e595e37926ce62257f82b3d740a0.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.110, i64 4), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.116)
   br label %26
 
-24:                                               ; preds = %1, %10, %18, %15
+24:                                               ; preds = %1, %15, %10, %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %25, align 8
   br label %26
@@ -13539,8 +13539,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17h3
   br i1 %19, label %_ZN18streaming_iterator17StreamingIterator4next17h33a306142a01bcbaE.exit, label %6
 
 _ZN18streaming_iterator17StreamingIterator4next17h33a306142a01bcbaE.exit: ; preds = %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit", %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit.i", %.thread.i
-  %.sroa.3.0 = phi i64 [ undef, %.thread.i ], [ %13, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit.i" ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit.i" ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit" ]
+  %.sroa.3.0 = phi i64 [ %13, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit.i" ], [ undef, %.thread.i ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit.i" ], [ null, %.thread.i ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17hb40f60ba3d72f54dE.exit" ]
   %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %21
@@ -13768,8 +13768,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17h3
   br i1 %86, label %_ZN18streaming_iterator17StreamingIterator4next17ha375168bd6e821b5E.exit, label %11
 
 _ZN18streaming_iterator17StreamingIterator4next17ha375168bd6e821b5E.exit: ; preds = %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit", %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit.i", %.thread.i
-  %.sroa.3.0 = phi i64 [ undef, %.thread.i ], [ %49, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit.i" ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit.i" ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit" ]
+  %.sroa.3.0 = phi i64 [ %49, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit.i" ], [ undef, %.thread.i ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit.i" ], [ null, %.thread.i ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h644b55a36df4c733E.exit" ]
   %87 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %88 = insertvalue { ptr, i64 } %87, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %88
@@ -14236,8 +14236,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17h4
   br i1 %88, label %_ZN18streaming_iterator17StreamingIterator4next17h7e6258d0337960c6E.exit, label %13
 
 _ZN18streaming_iterator17StreamingIterator4next17h7e6258d0337960c6E.exit: ; preds = %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit", %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit.i", %.thread.i
-  %.sroa.3.0 = phi i64 [ undef, %.thread.i ], [ %51, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit.i" ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit.i" ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit" ]
+  %.sroa.3.0 = phi i64 [ %51, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit.i" ], [ undef, %.thread.i ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit.i" ], [ null, %.thread.i ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17he578f7fbfacd6fd9E.exit" ]
   %89 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %90 = insertvalue { ptr, i64 } %89, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %90
@@ -14516,8 +14516,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17h6
   br i1 %50, label %_ZN18streaming_iterator17StreamingIterator4next17h44ba784448a17abcE.exit, label %8
 
 _ZN18streaming_iterator17StreamingIterator4next17h44ba784448a17abcE.exit: ; preds = %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit", %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit.i", %.thread.i
-  %.sroa.3.0 = phi i64 [ undef, %.thread.i ], [ %29, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit.i" ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit.i" ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit" ]
+  %.sroa.3.0 = phi i64 [ %29, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit.i" ], [ undef, %.thread.i ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit.i" ], [ null, %.thread.i ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h75d1e6fe3e374da2E.exit" ]
   %51 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %52 = insertvalue { ptr, i64 } %51, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %52
@@ -15378,8 +15378,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17ha
   br i1 %86, label %_ZN18streaming_iterator17StreamingIterator4next17hbb58739710682065E.exit, label %11
 
 _ZN18streaming_iterator17StreamingIterator4next17hbb58739710682065E.exit: ; preds = %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit", %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit.i", %.thread.i
-  %.sroa.3.0 = phi i64 [ undef, %.thread.i ], [ %49, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit.i" ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit.i" ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit" ]
+  %.sroa.3.0 = phi i64 [ %49, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit.i" ], [ undef, %.thread.i ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit.i" ], [ null, %.thread.i ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h91f4579c70752f93E.exit" ]
   %87 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %88 = insertvalue { ptr, i64 } %87, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %88
@@ -16081,8 +16081,8 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17he
   br i1 %87, label %_ZN18streaming_iterator17StreamingIterator4next17h98962dcd68d6ec27E.exit, label %12
 
 _ZN18streaming_iterator17StreamingIterator4next17h98962dcd68d6ec27E.exit: ; preds = %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit", %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit.i", %.thread.i
-  %.sroa.3.0 = phi i64 [ undef, %.thread.i ], [ %50, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit.i" ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit.i" ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit" ]
+  %.sroa.3.0 = phi i64 [ %50, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit.i" ], [ undef, %.thread.i ], [ undef, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select.i, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit.i" ], [ null, %.thread.i ], [ null, %"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterator$LT$I$C$F$C$T$GT$$u20$as$u20$streaming_iterator..StreamingIterator$GT$7advance17h8393e7dd44fb46d0E.exit" ]
   %88 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %89 = insertvalue { ptr, i64 } %88, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %89

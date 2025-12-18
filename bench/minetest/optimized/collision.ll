@@ -1274,8 +1274,8 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end3.i.i.i
   br i1 %cmp.not.i.i.i1743, label %for.cond.i.i.i, label %invoke.cont255, !llvm.loop !109
 
 if.end.i:                                         ; preds = %land.rhs.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %land.rhs.i.us.i.i.i
-  %130 = phi ptr [ %.pre, %land.rhs.i.i.i.i.i.i.i ], [ %.pre, %land.rhs.i.us.i.i.i ], [ %88, %land.rhs.i.i.i.i ]
-  %retval.sroa.0.1.i = phi ptr [ %__p.0.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %__p.0.us.i.i.i, %land.rhs.i.us.i.i.i ], [ %retval.sroa.0.036.i, %land.rhs.i.i.i.i ]
+  %130 = phi ptr [ %.pre, %land.rhs.i.us.i.i.i ], [ %.pre, %land.rhs.i.i.i.i.i.i.i ], [ %88, %land.rhs.i.i.i.i ]
+  %retval.sroa.0.1.i = phi ptr [ %__p.0.us.i.i.i, %land.rhs.i.us.i.i.i ], [ %__p.0.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %retval.sroa.0.036.i, %land.rhs.i.i.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i, i64 40
   %131 = load i32, ptr %second.i, align 8, !tbaa !110
   %132 = call i32 @llvm.abs.i32(i32 %131, i1 true)

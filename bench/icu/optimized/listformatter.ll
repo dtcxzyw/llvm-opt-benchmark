@@ -1754,7 +1754,7 @@ _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sin
   br label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleER10UErrorCode.exit
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i.i, %9, %.noexc
-  %.0.i.i = phi ptr [ null, %.noexc ], [ %7, %9 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i.i ]
+  %.0.i.i = phi ptr [ %7, %9 ], [ null, %.noexc ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i.i ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
@@ -1800,7 +1800,7 @@ _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sin
   br label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.exit
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.exit: ; preds = %2, %9, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i
-  %.0.i = phi ptr [ null, %2 ], [ %7, %9 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i ]
+  %.0.i = phi ptr [ %7, %9 ], [ null, %2 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i ]
   ret ptr %.0.i
 }
 
@@ -1858,7 +1858,7 @@ _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sin
   br label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit: ; preds = %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split, %18, %switch.lookup
-  %.0 = phi ptr [ null, %switch.lookup ], [ %16, %18 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split ]
+  %.0 = phi ptr [ %16, %18 ], [ null, %switch.lookup ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -4047,7 +4047,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit44:            ; preds = %27
   br label %32
 
 32:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit32, %_ZNK6icu_7713UnicodeStringixEi.exit, %_ZNK6icu_7713UnicodeStringixEi.exit, %_ZNK6icu_7713UnicodeStringixEi.exit, %27, %_ZNK6icu_7713UnicodeStringixEi.exit44, %1, %.thread48
-  %.0 = phi i1 [ false, %.thread48 ], [ false, %1 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ true, %27 ], [ %switch.selectcmp, %_ZNK6icu_7713UnicodeStringixEi.exit32 ]
+  %.0 = phi i1 [ false, %.thread48 ], [ false, %1 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %27 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ %switch.selectcmp, %_ZNK6icu_7713UnicodeStringixEi.exit32 ]
   ret i1 %.0
 }
 

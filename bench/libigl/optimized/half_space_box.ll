@@ -3113,7 +3113,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph96.i.i.i.i, !llvm.loop !87
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph91.i.i.i.i, %.lr.ph96.i.i.i.i, %643, %.preheader.i.i.i.i
-  %.2.i.i.i.i = phi double [ %644, %643 ], [ %.072.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %649, %.lr.ph96.i.i.i.i ], [ %640, %.lr.ph91.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %649, %.lr.ph96.i.i.i.i ], [ %644, %643 ], [ %.072.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %640, %.lr.ph91.i.i.i.i ]
   %651 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
           to label %652 unwind label %2623
 
@@ -3253,7 +3253,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i320, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit, label %.lr.ph96.i.i.i.i317, !llvm.loop !92
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit: ; preds = %.lr.ph91.i.i.i.i299, %.lr.ph96.i.i.i.i317, %710, %.preheader.i.i.i.i296
-  %.2.i.i.i.i298 = phi double [ %711, %710 ], [ %.072.lcssa.i.i.i.i297, %.preheader.i.i.i.i296 ], [ %716, %.lr.ph96.i.i.i.i317 ], [ %707, %.lr.ph91.i.i.i.i299 ]
+  %.2.i.i.i.i298 = phi double [ %716, %.lr.ph96.i.i.i.i317 ], [ %711, %710 ], [ %.072.lcssa.i.i.i.i297, %.preheader.i.i.i.i296 ], [ %707, %.lr.ph91.i.i.i.i299 ]
   %718 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
           to label %719 unwind label %2625
 
@@ -3472,7 +3472,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i358, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit359, label %.lr.ph96.i.i.i.i355, !llvm.loop !87
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit359: ; preds = %.lr.ph91.i.i.i.i337, %.lr.ph96.i.i.i.i355, %815, %.preheader.i.i.i.i334
-  %.2.i.i.i.i336 = phi double [ %816, %815 ], [ %.072.lcssa.i.i.i.i335, %.preheader.i.i.i.i334 ], [ %821, %.lr.ph96.i.i.i.i355 ], [ %812, %.lr.ph91.i.i.i.i337 ]
+  %.2.i.i.i.i336 = phi double [ %821, %.lr.ph96.i.i.i.i355 ], [ %816, %815 ], [ %.072.lcssa.i.i.i.i335, %.preheader.i.i.i.i334 ], [ %812, %.lr.ph91.i.i.i.i337 ]
   %823 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
           to label %824 unwind label %2629
 
@@ -3612,7 +3612,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i394, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit395, label %.lr.ph96.i.i.i.i391, !llvm.loop !92
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit395: ; preds = %.lr.ph91.i.i.i.i373, %.lr.ph96.i.i.i.i391, %882, %.preheader.i.i.i.i370
-  %.2.i.i.i.i372 = phi double [ %883, %882 ], [ %.072.lcssa.i.i.i.i371, %.preheader.i.i.i.i370 ], [ %888, %.lr.ph96.i.i.i.i391 ], [ %879, %.lr.ph91.i.i.i.i373 ]
+  %.2.i.i.i.i372 = phi double [ %888, %.lr.ph96.i.i.i.i391 ], [ %883, %882 ], [ %.072.lcssa.i.i.i.i371, %.preheader.i.i.i.i370 ], [ %879, %.lr.ph91.i.i.i.i373 ]
   %890 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
           to label %891 unwind label %2631
 
@@ -3903,7 +3903,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i435, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit436, label %.lr.ph96.i.i.i.i432, !llvm.loop !87
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit436: ; preds = %.lr.ph91.i.i.i.i414, %.lr.ph96.i.i.i.i432, %1019, %.preheader.i.i.i.i411
-  %.2.i.i.i.i413 = phi double [ %1020, %1019 ], [ %.072.lcssa.i.i.i.i412, %.preheader.i.i.i.i411 ], [ %1025, %.lr.ph96.i.i.i.i432 ], [ %1016, %.lr.ph91.i.i.i.i414 ]
+  %.2.i.i.i.i413 = phi double [ %1025, %.lr.ph96.i.i.i.i432 ], [ %1020, %1019 ], [ %.072.lcssa.i.i.i.i412, %.preheader.i.i.i.i411 ], [ %1016, %.lr.ph91.i.i.i.i414 ]
   %1027 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
           to label %1028 unwind label %2637
 
@@ -4043,7 +4043,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i471, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit472, label %.lr.ph96.i.i.i.i468, !llvm.loop !92
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit472: ; preds = %.lr.ph91.i.i.i.i450, %.lr.ph96.i.i.i.i468, %1086, %.preheader.i.i.i.i447
-  %.2.i.i.i.i449 = phi double [ %1087, %1086 ], [ %.072.lcssa.i.i.i.i448, %.preheader.i.i.i.i447 ], [ %1092, %.lr.ph96.i.i.i.i468 ], [ %1083, %.lr.ph91.i.i.i.i450 ]
+  %.2.i.i.i.i449 = phi double [ %1092, %.lr.ph96.i.i.i.i468 ], [ %1087, %1086 ], [ %.072.lcssa.i.i.i.i448, %.preheader.i.i.i.i447 ], [ %1083, %.lr.ph91.i.i.i.i450 ]
   %1094 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
           to label %1095 unwind label %2639
 
@@ -47831,7 +47831,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %454
 
 454:                                              ; preds = %.sink.split, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242
-  %.2 = phi i64 [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %.sink289, %.sink.split ]
+  %.2 = phi i64 [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %.sink289, %.sink.split ]
   %.not138 = icmp eq i64 %.2, 0
   br i1 %.not138, label %.thread, label %.critedge.outer.backedge
 
@@ -63537,7 +63537,7 @@ _ZN4CGAL7PlaneC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   br label %.body
 
 .body:                                            ; preds = %68, %26, %48, %237, %58, %37
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %38, %37 ], [ %49, %48 ], [ %59, %58 ], [ %238, %237 ], [ %67, %68 ]
+  %.pn = phi { ptr, i32 } [ %238, %237 ], [ %27, %26 ], [ %38, %37 ], [ %49, %48 ], [ %59, %58 ], [ %67, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 320) #36
@@ -71404,7 +71404,7 @@ _ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8back
   br label %.body
 
 .body:                                            ; preds = %53, %23, %44, %215, %34
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %45, %44 ], [ %216, %215 ], [ %52, %53 ]
+  %.pn = phi { ptr, i32 } [ %216, %215 ], [ %24, %23 ], [ %35, %34 ], [ %45, %44 ], [ %52, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 240) #36

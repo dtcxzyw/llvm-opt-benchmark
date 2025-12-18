@@ -1571,7 +1571,7 @@ php_mail_build_headers_check_field_name.exit:     ; preds = %13, %6
     i8 9, label %.backedge.i
   ]
 
-38:                                               ; preds = %35, %32
+38:                                               ; preds = %32, %35
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.40, ptr noundef nonnull %7) #11
   br label %93
 
@@ -1579,7 +1579,7 @@ php_mail_build_headers_check_field_name.exit:     ; preds = %13, %6
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %7) #11
   br label %93
 
-40:                                               ; preds = %27, %24
+40:                                               ; preds = %24, %27
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.42, ptr noundef nonnull %7) #11
   br label %93
 
@@ -2144,7 +2144,7 @@ thread-pre-split284:                              ; preds = %zend_parse_arg_str_
   br label %.loopexit340
 
 .loopexit340:                                     ; preds = %.critedge, %.lr.ph, %135
-  %.2 = phi i64 [ %.0344, %135 ], [ %.0344, %.lr.ph ], [ %.1, %.critedge ]
+  %.2 = phi i64 [ %.0344, %.lr.ph ], [ %.0344, %135 ], [ %.1, %.critedge ]
   %136 = add i64 %.2, 1
   %137 = getelementptr inbounds nuw i8, ptr %102, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !12
@@ -2236,7 +2236,7 @@ thread-pre-split284:                              ; preds = %zend_parse_arg_str_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2, %.lr.ph348, %173
-  %.5 = phi i64 [ %.3347, %173 ], [ %.3347, %.lr.ph348 ], [ %.4, %.critedge2 ]
+  %.5 = phi i64 [ %.3347, %.lr.ph348 ], [ %.3347, %173 ], [ %.4, %.critedge2 ]
   %174 = add i64 %.5, 1
   %175 = getelementptr inbounds nuw i8, ptr %140, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !12

@@ -783,7 +783,7 @@ predictor_calc_error.exit221:                     ; preds = %.lr.ph.i212, %.lr.p
   br i1 %exitcond303.not, label %._crit_edge270, label %.lr.ph265.us, !llvm.loop !82
 
 ._crit_edge270:                                   ; preds = %._crit_edge266.us, %.lr.ph262, %.preheader, %.lr.ph269, %.loopexit
-  %.pre308335 = phi i32 [ %.pre308, %.lr.ph269 ], [ %.pre308, %.loopexit ], [ %.pre308.pre311, %.preheader ], [ %.pre308.pre311333, %.lr.ph262 ], [ %.pre308, %._crit_edge266.us ]
+  %.pre308335 = phi i32 [ %.pre308.pre311333, %.lr.ph262 ], [ %.pre308, %.lr.ph269 ], [ %.pre308, %.loopexit ], [ %.pre308.pre311, %.preheader ], [ %.pre308, %._crit_edge266.us ]
   %313 = sext i32 %.pre308335 to i64
   %314 = load i64, ptr %13, align 8, !tbaa !32
   %315 = sub i64 %314, %313
@@ -1081,11 +1081,11 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   br label %113
 
 113:                                              ; preds = %109, %.thread166
-  %spec.select.i.i199 = phi i32 [ %spec.select.i.i200, %.thread166 ], [ %spec.select.i.i201, %109 ]
-  %.3127172 = phi i32 [ %.3127173, %.thread166 ], [ %.3127, %109 ]
-  %.3131170 = phi i32 [ %.3131171, %.thread166 ], [ %.3131, %109 ]
-  %.1122 = phi i32 [ %111, %.thread166 ], [ %.2123, %109 ]
-  %.1119 = phi i32 [ %112, %.thread166 ], [ %.0118196, %109 ]
+  %spec.select.i.i199 = phi i32 [ %spec.select.i.i201, %109 ], [ %spec.select.i.i200, %.thread166 ]
+  %.3127172 = phi i32 [ %.3127, %109 ], [ %.3127173, %.thread166 ]
+  %.3131170 = phi i32 [ %.3131, %109 ], [ %.3131171, %.thread166 ]
+  %.1122 = phi i32 [ %.2123, %109 ], [ %111, %.thread166 ]
+  %.1119 = phi i32 [ %.0118196, %109 ], [ %112, %.thread166 ]
   %114 = icmp slt i32 %.3127172, %2
   br i1 %114, label %44, label %.lr.ph209, !llvm.loop !88
 
@@ -1216,7 +1216,7 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   br i1 %exitcond219.not, label %.critedge, label %155, !llvm.loop !90
 
 .critedge:                                        ; preds = %44, %69, %131, %.lr.ph209, %175, %.preheader188, %.loopexit
-  %.2 = phi i32 [ 0, %.loopexit ], [ 0, %.preheader188 ], [ -1094995529, %131 ], [ 0, %175 ], [ -1094995529, %.lr.ph209 ], [ -1094995529, %69 ], [ -1094995529, %44 ]
+  %.2 = phi i32 [ 0, %175 ], [ -1094995529, %131 ], [ 0, %.preheader188 ], [ 0, %.loopexit ], [ -1094995529, %.lr.ph209 ], [ -1094995529, %69 ], [ -1094995529, %44 ]
   ret i32 %.2
 }
 

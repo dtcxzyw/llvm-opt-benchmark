@@ -430,7 +430,7 @@ get_libs_order.exit.i11:                          ; preds = %get_libs_order.exit
   br i1 %.not12.i, label %get_libs_order.exit.i11, label %get_loaded.exit, !llvm.loop !10
 
 get_loaded.exit:                                  ; preds = %26, %20, %53, %47, %get_libs_order.exit.i11, %33, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %33 ], [ 1, %47 ], [ 1, %53 ], [ 0, %get_libs_order.exit.i11 ], [ 1, %20 ], [ 1, %26 ]
+  %.0 = phi i32 [ 1, %47 ], [ 1, %1 ], [ 0, %33 ], [ 1, %53 ], [ 0, %get_libs_order.exit.i11 ], [ 1, %20 ], [ 1, %26 ]
   ret i32 %.0
 }
 

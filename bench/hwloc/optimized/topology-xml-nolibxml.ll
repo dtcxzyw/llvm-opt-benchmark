@@ -140,8 +140,8 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_file(ptr noundef %0,
   br label %sub_0
 
 sub_0:                                            ; preds = %._crit_edge.i, %11
-  %.022 = phi ptr [ %5, %._crit_edge.i ], [ %10, %11 ]
-  %.021 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
+  %.022 = phi ptr [ %10, %11 ], [ %5, %._crit_edge.i ]
+  %.021 = phi i32 [ %12, %11 ], [ %.pre.i, %._crit_edge.i ]
   %14 = load i8, ptr %2, align 1
   %.not26 = icmp eq i8 %14, 45
   br i1 %.not26, label %hwloc_nolibxml_export_buffer.exit.tail, label %hwloc_nolibxml_export_buffer.exit.tail.thread
@@ -441,8 +441,8 @@ hwloc__nolibxml_import_find_child.exit:           ; preds = %59, %63
   call void @free(ptr noundef %82) #21
   br label %84
 
-hwloc__nolibxml_import_find_child.exit.thread:    ; preds = %.critedge, %44, %59, %48, %28, %.thread61, %hwloc__nolibxml_import_find_child.exit
-  %.042 = phi ptr [ null, %hwloc__nolibxml_import_find_child.exit ], [ %.166, %.thread61 ], [ null, %44 ], [ null, %28 ], [ null, %48 ], [ null, %59 ], [ null, %.critedge ]
+hwloc__nolibxml_import_find_child.exit.thread:    ; preds = %.critedge, %44, %48, %59, %28, %.thread61, %hwloc__nolibxml_import_find_child.exit
+  %.042 = phi ptr [ null, %48 ], [ null, %hwloc__nolibxml_import_find_child.exit ], [ %.166, %.thread61 ], [ null, %44 ], [ null, %28 ], [ null, %59 ], [ null, %.critedge ]
   %83 = load ptr, ptr %8, align 8, !tbaa !21
   tail call void @free(ptr noundef %83) #21
   tail call void @free(ptr noundef %.042) #21
@@ -486,8 +486,8 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_file(ptr nounde
   br label %sub_0
 
 sub_0:                                            ; preds = %._crit_edge.i, %10
-  %.021 = phi ptr [ %4, %._crit_edge.i ], [ %9, %10 ]
-  %.020 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %10 ]
+  %.021 = phi ptr [ %9, %10 ], [ %4, %._crit_edge.i ]
+  %.020 = phi i32 [ %11, %10 ], [ %.pre.i, %._crit_edge.i ]
   %13 = load i8, ptr %2, align 1
   %.not25 = icmp eq i8 %13, 45
   br i1 %.not25, label %hwloc_nolibxml_export_diff_buffer.exit.tail, label %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
@@ -1040,7 +1040,7 @@ sub_1100:                                         ; preds = %sub_094
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %.tail98.thread, %6, %12, %3, %66
-  %.0 = phi i32 [ -1, %3 ], [ -1, %6 ], [ 0, %66 ], [ -1, %12 ], [ -1, %.tail98.thread ], [ -1, %60 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %6 ], [ -1, %12 ], [ 0, %66 ], [ -1, %.tail98.thread ], [ -1, %60 ]
   ret i32 %.0
 }
 
@@ -1120,7 +1120,7 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
   br label %38
 
 38:                                               ; preds = %.sink.split, %31, %20, %16, %12, %3
-  %.0 = phi i32 [ 0, %16 ], [ 0, %3 ], [ -1, %12 ], [ -1, %20 ], [ -1, %31 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %3 ], [ -1, %12 ], [ -1, %31 ], [ -1, %20 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

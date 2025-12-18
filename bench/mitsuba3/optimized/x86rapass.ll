@@ -5529,7 +5529,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   br i1 %194, label %.loopexit14, label %16, !llvm.loop !286
 
 .loopexit14:                                      ; preds = %.loopexit15, %135, %166, %3
-  %195 = phi i32 [ 0, %3 ], [ 30, %166 ], [ %147, %135 ], [ 0, %.loopexit15 ]
+  %195 = phi i32 [ 0, %3 ], [ 30, %166 ], [ 0, %.loopexit15 ], [ %147, %135 ]
   ret i32 %195
 }
 

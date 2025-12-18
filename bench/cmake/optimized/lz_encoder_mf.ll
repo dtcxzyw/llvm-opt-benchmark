@@ -406,7 +406,7 @@ lzma_memcmplen.exit.us:                           ; preds = %57, %.thread.us
   br i1 %or.cond, label %.lr.ph91.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread64, %50, %.thread64.us, %._crit_edge92.split, %10
-  %.1.ph = phi ptr [ %8, %10 ], [ %81, %._crit_edge92.split ], [ %.151.us, %.thread64.us ], [ %53, %50 ], [ %8, %.thread64 ]
+  %.1.ph = phi ptr [ %.151.us, %.thread64.us ], [ %8, %10 ], [ %81, %._crit_edge92.split ], [ %53, %50 ], [ %8, %.thread64 ]
   ret ptr %.1.ph
 }
 

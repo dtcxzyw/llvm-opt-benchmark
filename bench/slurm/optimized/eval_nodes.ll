@@ -2564,8 +2564,8 @@ eval_nodes_cpus_to_use.exit.i97:                  ; preds = %818, %773
   br i1 %.not239.i, label %.critedge.thread.i109, label %.preheader.i90.preheader
 
 .critedge.thread.i109:                            ; preds = %.thread270.i, %887, %.preheader.i90.preheader.us, %.lr.ph338.i, %749
-  %.3188.lcssa388.i = phi i32 [ %.2187269.i, %749 ], [ %.2187269.i, %.lr.ph338.i ], [ %873, %887 ], [ %.2187269.i, %.preheader.i90.preheader.us ], [ %.4189.i176.ph, %.thread270.i ]
-  %.3206.lcssa387.i = phi i32 [ %.2205267.i, %749 ], [ %.2205267.i, %.lr.ph338.i ], [ %877, %887 ], [ %.2205267.i, %.preheader.i90.preheader.us ], [ %.4207.i174.ph, %.thread270.i ]
+  %.3188.lcssa388.i = phi i32 [ %.2187269.i, %749 ], [ %873, %887 ], [ %.2187269.i, %.lr.ph338.i ], [ %.2187269.i, %.preheader.i90.preheader.us ], [ %.4189.i176.ph, %.thread270.i ]
+  %.3206.lcssa387.i = phi i32 [ %.2205267.i, %749 ], [ %877, %887 ], [ %.2205267.i, %.lr.ph338.i ], [ %.2205267.i, %.preheader.i90.preheader.us ], [ %.4207.i174.ph, %.thread270.i ]
   tail call void @list_iterator_destroy(ptr noundef %753) #8
   %891 = icmp sgt i32 %.3188.lcssa388.i, 0
   %892 = icmp sgt i32 %.3206.lcssa387.i, 0
@@ -4016,8 +4016,8 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   br label %.critedge3.i
 
 .critedge3.i:                                     ; preds = %1584, %._crit_edge650.i.us, %1391, %1384, %.lr.ph773.i, %.preheader587.i, %.preheader588.i, %.loopexit590.thread.i
-  %.3368601.i = phi i32 [ %.1366.i, %.preheader588.i ], [ %.1366.i, %.loopexit590.thread.i ], [ %.1366.i, %.lr.ph773.i ], [ %.1366.i, %.preheader587.i ], [ %.3368771.i195.us, %1384 ], [ %.9374.i.us, %1584 ], [ %.3368771.i195.us, %._crit_edge650.i.us ], [ %.3368771.i195.us, %1391 ]
-  %.2363598.i = phi i32 [ %.0361.i, %.preheader588.i ], [ %.0361.i, %.loopexit590.thread.i ], [ %.0361.i, %.lr.ph773.i ], [ %.0361.i, %.preheader587.i ], [ %.2363772.i194.us, %1384 ], [ %.8.i130.us, %1584 ], [ %.2363772.i194.us, %._crit_edge650.i.us ], [ %.2363772.i194.us, %1391 ]
+  %.3368601.i = phi i32 [ %.1366.i, %.loopexit590.thread.i ], [ %.1366.i, %.preheader588.i ], [ %.3368771.i195.us, %1384 ], [ %.1366.i, %.lr.ph773.i ], [ %.1366.i, %.preheader587.i ], [ %.9374.i.us, %1584 ], [ %.3368771.i195.us, %._crit_edge650.i.us ], [ %.3368771.i195.us, %1391 ]
+  %.2363598.i = phi i32 [ %.0361.i, %.loopexit590.thread.i ], [ %.0361.i, %.preheader588.i ], [ %.2363772.i194.us, %1384 ], [ %.0361.i, %.lr.ph773.i ], [ %.0361.i, %.preheader587.i ], [ %.8.i130.us, %1584 ], [ %.2363772.i194.us, %._crit_edge650.i.us ], [ %.2363772.i194.us, %1391 ]
   %1595 = icmp slt i32 %.2363598.i, 1
   br i1 %1595, label %1596, label %.thread565.i
 
@@ -4539,17 +4539,17 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   br i1 %.not200.not, label %.preheader, label %.critedge3, !llvm.loop !43
 
 .critedge3:                                       ; preds = %.preheader, %199
-  %.5181 = phi i64 [ %.6182, %199 ], [ %.4180266, %.preheader ]
-  %.5167 = phi i32 [ %.6168, %199 ], [ %.4166268, %.preheader ]
-  %.6161 = phi i32 [ %.7, %199 ], [ %.5160269, %.preheader ]
-  %.5 = phi i32 [ %.6, %199 ], [ %.4270, %.preheader ]
+  %.5181 = phi i64 [ %.4180266, %.preheader ], [ %.6182, %199 ]
+  %.5167 = phi i32 [ %.4166268, %.preheader ], [ %.6168, %199 ]
+  %.6161 = phi i32 [ %.5160269, %.preheader ], [ %.7, %199 ]
+  %.5 = phi i32 [ %.4270, %.preheader ], [ %.6, %199 ]
   %200 = tail call ptr @list_next(ptr noundef %156) #8
   %.not199 = icmp eq ptr %200, null
   br i1 %.not199, label %.critedge.thread, label %.preheader.preheader, !llvm.loop !44
 
 .critedge.thread:                                 ; preds = %.critedge3, %196, %.preheader.us, %.lr.ph312.split.preheader, %152
-  %.3.lcssa358 = phi i32 [ %.2154226, %152 ], [ %.2154226, %.lr.ph312.split.preheader ], [ %182, %196 ], [ %.2154226, %.preheader.us ], [ %.5, %.critedge3 ]
-  %.3165.lcssa357 = phi i32 [ %.2164224, %152 ], [ %.2164224, %.lr.ph312.split.preheader ], [ %186, %196 ], [ %.2164224, %.preheader.us ], [ %.5167, %.critedge3 ]
+  %.3.lcssa358 = phi i32 [ %.2154226, %152 ], [ %.2154226, %.preheader.us ], [ %182, %196 ], [ %.2154226, %.lr.ph312.split.preheader ], [ %.5, %.critedge3 ]
+  %.3165.lcssa357 = phi i32 [ %.2164224, %152 ], [ %.2164224, %.preheader.us ], [ %186, %196 ], [ %.2164224, %.lr.ph312.split.preheader ], [ %.5167, %.critedge3 ]
   tail call void @list_iterator_destroy(ptr noundef %156) #8
   %201 = icmp sgt i32 %.3.lcssa358, 0
   %202 = icmp sgt i32 %.3165.lcssa357, 0

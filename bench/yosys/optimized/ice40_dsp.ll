@@ -30407,7 +30407,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i: ; pre
   br i1 %3692, label %.lr.ph.i.split.i, label %.loopexit.i, !llvm.loop !519
 
 .loopexit.i:                                      ; preds = %3689, %3681, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit467, %._crit_edge.i.i, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit966
-  %.12536 = phi i32 [ %3452, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit966 ], [ %.02535, %._crit_edge.i.i ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit467 ], [ %.02535, %3681 ], [ %.02535, %3689 ]
+  %.12536 = phi i32 [ %3452, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit966 ], [ %.02535, %._crit_edge.i.i ], [ %.02535, %3681 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit467 ], [ %.02535, %3689 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.sroa.0.0.copyload.i.fr.i, ptr %14, align 8
   store i32 %.sroa.92383.0.copyload2385, ptr %.sroa.92383.0..sroa_idx, align 8
@@ -33669,7 +33669,7 @@ _ZN5Yosys7hashlib8hash_opsISt5tupleIJNS_5RTLIL6SigBitEEEE4hashES5_.exit.i1096: ;
   br i1 %5112, label %.lr.ph.i.split.i573, label %.loopexit.i558, !llvm.loop !519
 
 .loopexit.i558:                                   ; preds = %5109, %5101, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit556, %._crit_edge.i.i557, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1125
-  %.1 = phi i32 [ %4872, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1125 ], [ %.0, %._crit_edge.i.i557 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit556 ], [ %.0, %5101 ], [ %.0, %5109 ]
+  %.1 = phi i32 [ %4872, %_ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEiEESaIS9_EENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit1125 ], [ %.0, %._crit_edge.i.i557 ], [ %.0, %5101 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit556 ], [ %.0, %5109 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.sroa.0.0.copyload.i.fr.i568, ptr %11, align 8
   store i32 %.sroa.9.0.copyload2346, ptr %.sroa.9.0..sroa_idx, align 8

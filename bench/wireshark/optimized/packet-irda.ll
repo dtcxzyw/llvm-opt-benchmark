@@ -1378,7 +1378,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br i1 %.not232.i.i.i, label %.critedge246.i.i.i, label %.lr.ph262.i.i.i, !llvm.loop !12
 
 .critedge246.i.i.i:                               ; preds = %321, %.critedge.i.i.i, %.critedge.preheader.i.i.i, %315, %297
-  %.0213.i.i.i = phi ptr [ null, %297 ], [ %.1214257.i.i.i, %.critedge.preheader.i.i.i ], [ null, %315 ], [ %.3216.i.i.i, %.critedge.i.i.i ], [ null, %321 ]
+  %.0213.i.i.i = phi ptr [ null, %297 ], [ null, %315 ], [ %.1214257.i.i.i, %.critedge.preheader.i.i.i ], [ %.3216.i.i.i, %.critedge.i.i.i ], [ null, %321 ]
   %329 = load ptr, ptr %64, align 8
   call void @col_set_str(ptr noundef %329, i32 noundef 25, ptr noundef nonnull @.str.261)
   %330 = load ptr, ptr %64, align 8
@@ -1676,7 +1676,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br i1 %490, label %463, label %.thread251.i.i.i, !llvm.loop !14
 
 .thread251.i.i.i:                                 ; preds = %456, %486, %.preheader.i149.i.i, %375, %358, %.thread.i146.i.i
-  %.2.i.i.i = phi i32 [ 2, %358 ], [ 2, %.thread.i146.i.i ], [ 4, %.preheader.i149.i.i ], [ 4, %375 ], [ %488, %486 ], [ %457, %456 ]
+  %.2.i.i.i = phi i32 [ %488, %486 ], [ 2, %.thread.i146.i.i ], [ 2, %358 ], [ 4, %.preheader.i149.i.i ], [ 4, %375 ], [ %457, %456 ]
   %491 = call ptr @tvb_new_subset_remaining(ptr noundef %.0.i.i, i32 noundef %.2.i.i.i)
   %492 = call i32 @call_data_dissector(ptr noundef %491, ptr noundef %1, ptr noundef %2)
   br label %dissect_iap_result.exit.i.i

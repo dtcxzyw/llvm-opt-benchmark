@@ -9836,8 +9836,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EP
   br i1 %81, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %78, !llvm.loop !318
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85: ; preds = %78, %79, %59, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
-  %.0.i729295 = phi ptr [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
-  %.0.i84 = phi ptr [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
+  %.0.i729295 = phi ptr [ null, %59 ], [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
+  %.0.i84 = phi ptr [ null, %59 ], [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
   %82 = getelementptr inbounds nuw i8, ptr %.0.i84, i64 1
   %83 = getelementptr inbounds nuw i8, ptr %.0.i729295, i64 1
   store i8 4, ptr %4, align 8, !tbaa !259

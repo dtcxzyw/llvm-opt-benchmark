@@ -2446,8 +2446,8 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit216:
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EED2Ev.exit638
 
 _ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure14loadFocusSignsEv.exit: ; preds = %.noexc218, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit216, %13
-  %50 = phi i1 [ %24, %13 ], [ false, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit216 ], [ %24, %.noexc218 ]
-  %51 = phi i32 [ %21, %13 ], [ 1, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit216 ], [ %21, %.noexc218 ]
+  %50 = phi i1 [ false, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit216 ], [ %24, %13 ], [ %24, %.noexc218 ]
+  %51 = phi i32 [ 1, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit216 ], [ %21, %13 ], [ %21, %.noexc218 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 304
   invoke void @_ZN4cvc58internal13DenseMultiset21removeOneOfEverythingEv(ptr noundef nonnull align 8 dereferenceable(72) %52)
           to label %53 unwind label %.loopexit.split-lp974

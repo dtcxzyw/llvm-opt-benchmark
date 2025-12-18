@@ -2202,7 +2202,7 @@ define noundef zeroext i1 @_ZNK6Assimp8Importer13ValidateFlagsEj(ptr noundef non
   br i1 %45, label %_Z14_ValidateFlagsj.exit, label %11, !llvm.loop !14
 
 _Z14_ValidateFlagsj.exit:                         ; preds = %.loopexit, %.preheader, %18, %.noexc, %42
-  %.019 = phi i1 [ false, %42 ], [ false, %.noexc ], [ false, %18 ], [ false, %.preheader ], [ true, %.loopexit ]
+  %.019 = phi i1 [ false, %42 ], [ false, %.noexc ], [ false, %18 ], [ true, %.loopexit ], [ false, %.preheader ]
   ret i1 %.019
 }
 
@@ -3524,9 +3524,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit267: ; preds = %_Z
   br i1 %.not129, label %.loopexit481.thread, label %._crit_edge.i.i296
 
 .loopexit481.thread:                              ; preds = %393, %198, %.preheader480, %.loopexit481
-  %.sroa.22.0.lcssa776807 = phi ptr [ %.sroa.22.1, %.loopexit481 ], [ %.sroa.22.1, %.preheader480 ], [ null, %198 ], [ %.sroa.22.1, %393 ]
-  %.sroa.0455.0.lcssa787806 = phi ptr [ %.sroa.0455.1, %.loopexit481 ], [ %.sroa.0455.1, %.preheader480 ], [ null, %198 ], [ %.sroa.0455.1, %393 ]
-  %396 = phi i64 [ %210, %.loopexit481 ], [ %210, %.preheader480 ], [ 0, %198 ], [ %210, %393 ]
+  %.sroa.22.0.lcssa776807 = phi ptr [ %.sroa.22.1, %.loopexit481 ], [ null, %198 ], [ %.sroa.22.1, %.preheader480 ], [ %.sroa.22.1, %393 ]
+  %.sroa.0455.0.lcssa787806 = phi ptr [ %.sroa.0455.1, %.loopexit481 ], [ null, %198 ], [ %.sroa.0455.1, %.preheader480 ], [ %.sroa.0455.1, %393 ]
+  %396 = phi i64 [ %210, %.loopexit481 ], [ 0, %198 ], [ %210, %.preheader480 ], [ %210, %393 ]
   %397 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %398 unwind label %288
 
@@ -13066,7 +13066,7 @@ define linkonce_odr hidden void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %78, %70, %59, %50, %38, %30, %22
-  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %46, %._crit_edge ], [ %10, %.lr.ph ]
+  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %46, %._crit_edge ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %10, %.lr.ph ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

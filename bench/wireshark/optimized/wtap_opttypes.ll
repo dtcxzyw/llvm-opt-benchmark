@@ -1309,7 +1309,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly ca
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1380,7 +1380,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly c
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1451,7 +1451,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly c
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1522,7 +1522,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly cap
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1593,7 +1593,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly ca
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1664,7 +1664,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly ca
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1735,7 +1735,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly cap
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1806,7 +1806,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly cap
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -1878,7 +1878,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly c
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %28, %6, %4, %14, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %6 ], [ -6, %4 ], [ -3, %14 ], [ -5, %28 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %14 ], [ -1, %6 ], [ -6, %4 ], [ -5, %28 ]
   ret i32 %.0
 }
 
@@ -1953,7 +1953,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -2035,7 +2035,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %26, %6, %4, %12, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %6 ], [ -6, %4 ], [ -3, %12 ], [ -5, %26 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %12 ], [ -1, %6 ], [ -6, %4 ], [ -5, %26 ]
   ret i32 %.0
 }
 
@@ -2111,7 +2111,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly c
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %29, %7, %5, %15, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %7 ], [ -6, %5 ], [ -3, %15 ], [ -5, %29 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %15 ], [ -1, %7 ], [ -6, %5 ], [ -5, %29 ]
   ret i32 %.0
 }
 
@@ -2231,7 +2231,7 @@ if_filter_dup.exit:                               ; preds = %.loopexit, %.sink.s
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %if_filter_dup.exit
-  %.0 = phi i32 [ 0, %if_filter_dup.exit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %if_filter_dup.exit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -2340,7 +2340,7 @@ packet_verdict_dup.exit:                          ; preds = %.loopexit, %40, %53
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %packet_verdict_dup.exit
-  %.0 = phi i32 [ 0, %packet_verdict_dup.exit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %packet_verdict_dup.exit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -2426,7 +2426,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -2599,7 +2599,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef reado
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -2663,7 +2663,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef reado
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -2726,7 +2726,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef read
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -2790,7 +2790,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef read
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -2853,7 +2853,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef read
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -2917,7 +2917,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef read
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -2980,7 +2980,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readon
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3044,7 +3044,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readon
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3107,7 +3107,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef reado
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3171,7 +3171,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef reado
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3234,7 +3234,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef reado
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3298,7 +3298,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef reado
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3361,7 +3361,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readon
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3425,7 +3425,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readon
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3491,7 +3491,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3554,7 +3554,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -3628,7 +3628,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %5, %3, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %5 ], [ -6, %3 ], [ -3, %13 ], [ -5, %27 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -5, %27 ]
   ret i32 %.0
 }
 
@@ -3704,7 +3704,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %28, %6, %3, %14, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %6 ], [ -6, %3 ], [ -3, %14 ], [ -5, %28 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %14 ], [ -1, %6 ], [ -6, %3 ], [ -5, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3839,7 +3839,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
   br label %wtap_block_add_string_option.exit
 
 wtap_block_add_string_option.exit:                ; preds = %50, %17, %14, %6, %4, %.loopexit.i, %37, %.thread, %63
-  %.0 = phi i32 [ 0, %63 ], [ 0, %.loopexit.i ], [ -1, %.thread ], [ -6, %4 ], [ -3, %37 ], [ -4, %17 ], [ -3, %14 ], [ -1, %6 ], [ -5, %50 ]
+  %.0 = phi i32 [ -1, %6 ], [ 0, %63 ], [ 0, %.loopexit.i ], [ -3, %37 ], [ -1, %.thread ], [ -6, %4 ], [ -4, %17 ], [ -3, %14 ], [ -5, %50 ]
   ret i32 %.0
 }
 
@@ -3915,7 +3915,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef 
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %7, %5, %15, %37
-  %.0 = phi i32 [ 0, %37 ], [ -2, %22 ], [ -4, %18 ], [ -1, %7 ], [ -6, %5 ], [ -3, %15 ], [ -2, %36 ]
+  %.0 = phi i32 [ 0, %37 ], [ -3, %15 ], [ -2, %22 ], [ -4, %18 ], [ -1, %7 ], [ -6, %5 ], [ -2, %36 ]
   ret i32 %.0
 }
 
@@ -4044,7 +4044,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
   br label %wtap_block_get_option_common.exit.thread.sink.split
 
 wtap_block_get_option_common.exit.thread.sink.split: ; preds = %50, %.loopexit.i, %37, %.thread, %63
-  %.0.ph = phi i32 [ 0, %63 ], [ 0, %.loopexit.i ], [ -1, %.thread ], [ -3, %37 ], [ -5, %50 ]
+  %.0.ph = phi i32 [ 0, %63 ], [ 0, %.loopexit.i ], [ -3, %37 ], [ -1, %.thread ], [ -5, %50 ]
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %wtap_block_get_option_common.exit.thread
 
@@ -4130,7 +4130,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr n
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %7, %4, %15, %37
-  %.0 = phi i32 [ 0, %37 ], [ -2, %22 ], [ -4, %18 ], [ -1, %7 ], [ -6, %4 ], [ -3, %15 ], [ -2, %36 ]
+  %.0 = phi i32 [ 0, %37 ], [ -3, %15 ], [ -2, %22 ], [ -4, %18 ], [ -1, %7 ], [ -6, %4 ], [ -2, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -4195,7 +4195,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef read
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -4269,7 +4269,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef 
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %6, %4, %14, %36
-  %.0 = phi i32 [ 0, %36 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -3, %14 ], [ -2, %35 ]
+  %.0 = phi i32 [ 0, %36 ], [ -3, %14 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -2, %35 ]
   ret i32 %.0
 }
 
@@ -4341,7 +4341,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly ca
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %28, %6, %4, %14, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %6 ], [ -6, %4 ], [ -3, %14 ], [ -5, %28 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -3, %14 ], [ -1, %6 ], [ -6, %4 ], [ -5, %28 ]
   ret i32 %.0
 }
 
@@ -4472,7 +4472,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
   br label %wtap_block_add_bytes_option.exit
 
 wtap_block_add_bytes_option.exit:                 ; preds = %50, %17, %14, %6, %4, %.loopexit.i, %37, %.thread, %63
-  %.0 = phi i32 [ 0, %63 ], [ 0, %.loopexit.i ], [ -1, %.thread ], [ -6, %4 ], [ -3, %37 ], [ -4, %17 ], [ -3, %14 ], [ -1, %6 ], [ -5, %50 ]
+  %.0 = phi i32 [ -1, %6 ], [ 0, %63 ], [ 0, %.loopexit.i ], [ -3, %37 ], [ -1, %.thread ], [ -6, %4 ], [ -4, %17 ], [ -3, %14 ], [ -5, %50 ]
   ret i32 %.0
 }
 
@@ -4551,7 +4551,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef r
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %6, %4, %14, %36
-  %.0 = phi i32 [ 0, %36 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -3, %14 ], [ -2, %35 ]
+  %.0 = phi i32 [ 0, %36 ], [ -3, %14 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -2, %35 ]
   ret i32 %.0
 }
 
@@ -4615,7 +4615,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef reado
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -4689,7 +4689,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef r
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %6, %4, %14, %36
-  %.0 = phi i32 [ 0, %36 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -3, %14 ], [ -2, %35 ]
+  %.0 = phi i32 [ 0, %36 ], [ -3, %14 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -2, %35 ]
   ret i32 %.0
 }
 
@@ -5295,7 +5295,7 @@ if_filter_dup.exit:                               ; preds = %31, %.sink.split.i
   br label %if_filter_free.exit
 
 if_filter_free.exit:                              ; preds = %26, %20, %16, %13, %5, %3, %.sink.split.i6, %if_filter_dup.exit
-  %.0 = phi i32 [ 0, %.sink.split.i6 ], [ 0, %if_filter_dup.exit ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %.sink.split.i6 ], [ 0, %if_filter_dup.exit ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -5358,7 +5358,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -6, %3 ], [ -2, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ -6, %3 ], [ -2, %20 ], [ -4, %16 ], [ -3, %13 ], [ -1, %5 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -5476,7 +5476,7 @@ packet_verdict_dup.exit:                          ; preds = %36, %39, %52, %56
   br label %wtap_packet_verdict_free.exit
 
 wtap_packet_verdict_free.exit:                    ; preds = %35, %21, %17, %6, %4, %14, %60, %packet_verdict_dup.exit
-  %.0 = phi i32 [ 0, %60 ], [ 0, %packet_verdict_dup.exit ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -3, %14 ], [ -2, %35 ]
+  %.0 = phi i32 [ 0, %60 ], [ 0, %packet_verdict_dup.exit ], [ -3, %14 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -2, %35 ]
   ret i32 %.0
 }
 
@@ -5549,7 +5549,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr 
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %6, %4, %14, %36
-  %.0 = phi i32 [ 0, %36 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -3, %14 ], [ -2, %35 ]
+  %.0 = phi i32 [ 0, %36 ], [ -3, %14 ], [ -2, %21 ], [ -4, %17 ], [ -1, %6 ], [ -6, %4 ], [ -2, %35 ]
   ret i32 %.0
 }
 

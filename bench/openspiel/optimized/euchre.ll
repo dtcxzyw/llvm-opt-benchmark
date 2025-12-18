@@ -2505,7 +2505,7 @@ _ZN10open_spiel6euchre5TrickD2Ev.exit.i:          ; preds = %122, %119
   br i1 %128, label %_ZNSt5arrayIN10open_spiel6euchre5TrickELm5EED2Ev.exit, label %119
 
 _ZNSt5arrayIN10open_spiel6euchre5TrickELm5EED2Ev.exit: ; preds = %_ZN10open_spiel6euchre5TrickD2Ev.exit, %_ZN10open_spiel6euchre5TrickD2Ev.exit.i, %105
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %118, %_ZN10open_spiel6euchre5TrickD2Ev.exit.i ], [ %106, %_ZN10open_spiel6euchre5TrickD2Ev.exit ]
+  %.pn = phi { ptr, i32 } [ %118, %_ZN10open_spiel6euchre5TrickD2Ev.exit.i ], [ %106, %105 ], [ %106, %_ZN10open_spiel6euchre5TrickD2Ev.exit ]
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %68) #25
   br label %.body
 

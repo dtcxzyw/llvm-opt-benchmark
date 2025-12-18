@@ -476,7 +476,7 @@ skip_prefix.exit:                                 ; preds = %11, %16
   %exitcond.not = icmp eq i64 %43, %4
   br i1 %exitcond.not, label %skip_prefix.exit.thread25, label %6, !llvm.loop !22
 
-skip_prefix.exit.thread25:                        ; preds = %skip_prefix.exit, %16, %40, %.lr.ph.i.i, %3, %18
+skip_prefix.exit.thread25:                        ; preds = %skip_prefix.exit, %16, %.lr.ph.i.i, %40, %3, %18
   %.not11 = icmp eq i32 %2, 0
   br i1 %.not11, label %skip_prefix.exit.thread29, label %44
 
@@ -544,7 +544,7 @@ define dso_local range(i32 0, 2) i32 @parse_feature_request(ptr noundef readonly
   br i1 %.not55.i, label %parse_feature_value.exit, label %.lr.ph.i, !llvm.loop !21
 
 parse_feature_value.exit:                         ; preds = %16, %19, %.lr.ph.i, %25, %2, %3
-  %.0.i = phi i32 [ 0, %2 ], [ 0, %3 ], [ 1, %19 ], [ 1, %16 ], [ 0, %25 ], [ 0, %.lr.ph.i ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %19 ], [ 0, %25 ], [ 0, %.lr.ph.i ], [ 1, %16 ]
   ret i32 %.0.i
 }
 
@@ -1030,7 +1030,7 @@ _.exit.i.i24:                                     ; preds = %143, %141
   call void (ptr, ...) @warning(ptr noundef %.0.i.i.i25, ptr noundef nonnull %146) #24
   br label %process_shallow.exit.thread
 
-process_shallow.exit.thread:                      ; preds = %139, %_.exit.i.i24
+process_shallow.exit.thread:                      ; preds = %_.exit.i.i24, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread.backedge
 
@@ -1837,7 +1837,7 @@ skip_prefix.exit59.i:                             ; preds = %138, %135
   br i1 %150, label %117, label %process_ref_v2.exit, !llvm.loop !52
 
 process_ref_v2.exit:                              ; preds = %.loopexit82.i, %96, %80, %81, %.preheader.i, %skip_prefix.exit.i, %104
-  %.3 = phi ptr [ %108, %104 ], [ %.05676, %80 ], [ %.05676, %skip_prefix.exit.i ], [ %.05676, %.preheader.i ], [ %.05676, %81 ], [ %.05676, %96 ], [ %.2, %.loopexit82.i ]
+  %.3 = phi ptr [ %108, %104 ], [ %.05676, %80 ], [ %.05676, %skip_prefix.exit.i ], [ %.05676, %96 ], [ %.05676, %.preheader.i ], [ %.05676, %81 ], [ %.2, %.loopexit82.i ]
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1846,7 +1846,7 @@ process_ref_v2.exit:                              ; preds = %.loopexit82.i, %96,
   %152 = icmp eq i32 %151, 1
   br i1 %152, label %72, label %._crit_edge, !llvm.loop !53
 
-.loopexit:                                        ; preds = %72, %101, %98, %skip_prefix.exit59.i
+.loopexit:                                        ; preds = %72, %98, %101, %skip_prefix.exit59.i
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2000,7 +2000,7 @@ define dso_local ptr @parse_feature_value(ptr noundef %0, ptr noundef readonly c
   br label %.thread65
 
 .thread65:                                        ; preds = %44, %.lr.ph, %.thread65.sink.split, %10, %33, %41, %4
-  %.0 = phi ptr [ null, %4 ], [ %31, %33 ], [ %38, %41 ], [ null, %10 ], [ %.0.ph, %.thread65.sink.split ], [ null, %.lr.ph ], [ null, %44 ]
+  %.0 = phi ptr [ %38, %41 ], [ null, %4 ], [ %31, %33 ], [ %.0.ph, %.thread65.sink.split ], [ null, %10 ], [ null, %.lr.ph ], [ null, %44 ]
   ret ptr %.0
 }
 
@@ -2194,7 +2194,7 @@ next_server_feature_value.exit27:                 ; preds = %next_server_feature
   br i1 %.not13, label %next_server_feature_value.exit27.thread, label %.lr.ph, !llvm.loop !55
 
 next_server_feature_value.exit27.thread:          ; preds = %next_server_feature_value.exit27, %.lr.ph, %47, %.lr.ph.i.i16, %74, %44
-  %.08 = phi i32 [ 1, %44 ], [ 0, %.lr.ph.i.i16 ], [ 0, %74 ], [ 0, %47 ], [ 0, %.lr.ph ], [ 1, %next_server_feature_value.exit27 ]
+  %.08 = phi i32 [ 0, %.lr.ph.i.i16 ], [ 1, %44 ], [ 0, %74 ], [ 1, %next_server_feature_value.exit27 ], [ 0, %.lr.ph ], [ 0, %47 ]
   ret i32 %.08
 }
 
@@ -2278,7 +2278,7 @@ parse_feature_value.exit.sink.split:              ; preds = %25, %32
   br label %parse_feature_value.exit
 
 parse_feature_value.exit:                         ; preds = %.lr.ph.i, %34, %parse_feature_value.exit.sink.split, %29, %25, %2, %4
-  %.0.i = phi ptr [ null, %2 ], [ null, %4 ], [ %26, %25 ], [ %31, %29 ], [ %.0.i.ph, %parse_feature_value.exit.sink.split ], [ null, %34 ], [ null, %.lr.ph.i ]
+  %.0.i = phi ptr [ %26, %25 ], [ null, %2 ], [ null, %4 ], [ %31, %29 ], [ %.0.i.ph, %parse_feature_value.exit.sink.split ], [ null, %34 ], [ null, %.lr.ph.i ]
   ret ptr %.0.i
 }
 
@@ -2337,7 +2337,7 @@ define dso_local range(i32 0, 2) i32 @server_supports(ptr noundef readonly captu
   br i1 %.not55.i.i, label %server_feature_value.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 server_feature_value.exit:                        ; preds = %16, %19, %.lr.ph.i.i, %25, %1, %3
-  %.0.i.i = phi i32 [ 0, %1 ], [ 0, %3 ], [ 1, %19 ], [ 0, %.lr.ph.i.i ], [ 0, %25 ], [ 1, %16 ]
+  %.0.i.i = phi i32 [ 0, %3 ], [ 0, %1 ], [ 1, %19 ], [ 0, %25 ], [ 1, %16 ], [ 0, %.lr.ph.i.i ]
   ret i32 %.0.i.i
 }
 

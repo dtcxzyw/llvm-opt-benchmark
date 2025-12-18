@@ -1523,7 +1523,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel19filterAcceptsColumnEi
   br label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit
 
 _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: ; preds = %26, %3, %31, %17
-  %.0 = phi i1 [ false, %3 ], [ %35, %31 ], [ false, %17 ], [ false, %26 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %3 ], [ %35, %31 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1641,7 +1641,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: 
   br label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread
 
 _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread: ; preds = %11, %.preheader, %23, %2, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit
-  %.0 = phi i32 [ -1, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit ], [ -1, %2 ], [ %27, %23 ], [ -1, %.preheader ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %.preheader ], [ -1, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit ], [ -1, %2 ], [ %27, %23 ], [ -1, %11 ]
   ret i32 %.0
 }
 

@@ -5780,7 +5780,7 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   br i1 %exitcond94.not, label %.lr.ph71.preheader, label %.lr.ph68, !llvm.loop !246
 
 ._crit_edge:                                      ; preds = %.lr.ph71, %3, %.preheader48
-  %.044.lcssa103109115 = phi double [ %.044.lcssa104, %.preheader48 ], [ 0.000000e+00, %3 ], [ %.044.lcssa104, %.lr.ph71 ]
+  %.044.lcssa103109115 = phi double [ 0.000000e+00, %3 ], [ %.044.lcssa104, %.preheader48 ], [ %.044.lcssa104, %.lr.ph71 ]
   ret double %.044.lcssa103109115
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
@@ -7346,8 +7346,8 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit161: ; pr
   br label %.lr.ph301
 
 .preheader254:                                    ; preds = %._crit_edge302, %.preheader258, %.preheader256
-  %233 = phi ptr [ %219, %.preheader256 ], [ %114, %.preheader258 ], [ %219, %._crit_edge302 ]
-  %234 = phi ptr [ %218, %.preheader256 ], [ %113, %.preheader258 ], [ %218, %._crit_edge302 ]
+  %233 = phi ptr [ %114, %.preheader258 ], [ %219, %.preheader256 ], [ %219, %._crit_edge302 ]
+  %234 = phi ptr [ %113, %.preheader258 ], [ %218, %.preheader256 ], [ %218, %._crit_edge302 ]
   %235 = ptrtoint ptr %234 to i64
   %236 = ptrtoint ptr %233 to i64
   %237 = sub i64 %235, %236

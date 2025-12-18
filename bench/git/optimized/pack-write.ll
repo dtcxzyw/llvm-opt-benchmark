@@ -200,7 +200,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
   br i1 %62, label %.thread, label %66
 
 .thread:                                          ; preds = %55, %35, %36, %.loopexit171
-  %63 = phi i32 [ %61, %.loopexit171 ], [ 2, %36 ], [ 2, %35 ], [ 2, %55 ]
+  %63 = phi i32 [ %61, %.loopexit171 ], [ 2, %35 ], [ 2, %36 ], [ 2, %55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1666151679, ptr %13, align 4, !tbaa !26
   %64 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %63) #20, !srcloc !28

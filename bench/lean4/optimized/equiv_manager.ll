@@ -582,16 +582,16 @@ _ZN4lean13equiv_manager4findEj.exit63:            ; preds = %53
   switch i8 %trunc, label %_ZN4leaneqERKNS_3natES2_.exit [
     i8 0, label %67
     i8 4, label %72
-    i8 2, label %_ZN4leaneqERKNS_3natES2_.exit69
-    i8 1, label %85
-    i8 5, label %92
-    i8 6, label %103
-    i8 7, label %103
-    i8 3, label %114
-    i8 9, label %119
-    i8 10, label %124
-    i8 11, label %129
-    i8 8, label %148
+    i8 2, label %85
+    i8 1, label %92
+    i8 5, label %99
+    i8 6, label %110
+    i8 7, label %110
+    i8 3, label %121
+    i8 9, label %126
+    i8 10, label %131
+    i8 11, label %136
+    i8 8, label %155
   ]
 
 67:                                               ; preds = %63
@@ -633,123 +633,123 @@ _ZN4lean13equiv_manager4findEj.exit63:            ; preds = %53
   %89 = load ptr, ptr %86, align 8, !tbaa !27
   %90 = load ptr, ptr %88, align 8, !tbaa !27
   %91 = tail call zeroext i8 @lean_name_eq(ptr noundef %89, ptr noundef %90)
-  %.not73 = icmp eq i8 %91, 0
-  br i1 %.not73, label %_ZN4leaneqERKNS_3natES2_.exit, label %171
+  %.not74 = icmp eq i8 %91, 0
+  br i1 %.not74, label %_ZN4leaneqERKNS_3natES2_.exit, label %171
 
 92:                                               ; preds = %63
   %93 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %94 = load ptr, ptr %2, align 8, !tbaa !27
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(8) %95)
-  br i1 %96, label %97, label %_ZN4leaneqERKNS_3natES2_.exit
+  %96 = load ptr, ptr %93, align 8, !tbaa !27
+  %97 = load ptr, ptr %95, align 8, !tbaa !27
+  %98 = tail call zeroext i8 @lean_name_eq(ptr noundef %96, ptr noundef %97)
+  %.not73 = icmp eq i8 %98, 0
+  br i1 %.not73, label %_ZN4leaneqERKNS_3natES2_.exit, label %171
 
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %1, align 8, !tbaa !27
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load ptr, ptr %2, align 8, !tbaa !27
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull align 8 dereferenceable(8) %101)
-  br i1 %102, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+99:                                               ; preds = %63
+  %100 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %101 = load ptr, ptr %2, align 8, !tbaa !27
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull align 8 dereferenceable(8) %102)
+  br i1 %103, label %104, label %_ZN4leaneqERKNS_3natES2_.exit
 
-103:                                              ; preds = %63, %63
-  %104 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %105 = load ptr, ptr %2, align 8, !tbaa !27
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %1, align 8, !tbaa !27
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(8) %106)
-  br i1 %107, label %108, label %_ZN4leaneqERKNS_3natES2_.exit
+  %107 = load ptr, ptr %2, align 8, !tbaa !27
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %108)
+  br i1 %109, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %1, align 8, !tbaa !27
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = load ptr, ptr %2, align 8, !tbaa !27
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %113 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(8) %112)
-  br i1 %113, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+110:                                              ; preds = %63, %63
+  %111 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %112 = load ptr, ptr %2, align 8, !tbaa !27
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull align 8 dereferenceable(8) %113)
+  br i1 %114, label %115, label %_ZN4leaneqERKNS_3natES2_.exit
 
-114:                                              ; preds = %63
-  %115 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %116 = load ptr, ptr %2, align 8, !tbaa !27
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = tail call noundef zeroext i1 @_ZN4leaneqERKNS_5levelES2_(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull align 8 dereferenceable(8) %117)
-  br i1 %118, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %1, align 8, !tbaa !27
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %118 = load ptr, ptr %2, align 8, !tbaa !27
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  %120 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull align 8 dereferenceable(8) %119)
+  br i1 %120, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-119:                                              ; preds = %63
-  %120 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %121 = load ptr, ptr %2, align 8, !tbaa !27
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = tail call noundef zeroext i1 @_ZN4leaneqERKNS_7literalES2_(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull align 8 dereferenceable(8) %122)
-  br i1 %123, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+121:                                              ; preds = %63
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %123 = load ptr, ptr %2, align 8, !tbaa !27
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = tail call noundef zeroext i1 @_ZN4leaneqERKNS_5levelES2_(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull align 8 dereferenceable(8) %124)
+  br i1 %125, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-124:                                              ; preds = %63
-  %125 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %126 = load ptr, ptr %2, align 8, !tbaa !27
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %128 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(8) %127)
-  br i1 %128, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+126:                                              ; preds = %63
+  %127 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %128 = load ptr, ptr %2, align 8, !tbaa !27
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = tail call noundef zeroext i1 @_ZN4leaneqERKNS_7literalES2_(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull align 8 dereferenceable(8) %129)
+  br i1 %130, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-129:                                              ; preds = %63
-  %130 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %131 = load ptr, ptr %2, align 8, !tbaa !27
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %133 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull align 8 dereferenceable(8) %132)
-  br i1 %133, label %134, label %_ZN4leaneqERKNS_3natES2_.exit
+131:                                              ; preds = %63
+  %132 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %133 = load ptr, ptr %2, align 8, !tbaa !27
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %135 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull align 8 dereferenceable(8) %134)
+  br i1 %135, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-134:                                              ; preds = %129
-  %135 = load ptr, ptr %1, align 8, !tbaa !27
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %137 = load ptr, ptr %2, align 8, !tbaa !27
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %139 = load ptr, ptr %136, align 8, !tbaa !27
-  %140 = load ptr, ptr %138, align 8, !tbaa !27
-  %141 = ptrtoint ptr %139 to i64
-  %142 = ptrtoint ptr %140 to i64
-  %143 = and i64 %141, 1
-  %144 = and i64 %143, %142
-  %or.cond.not.i.i66 = icmp eq i64 %144, 0
-  br i1 %or.cond.not.i.i66, label %.critedge.i.i.i68, label %145, !prof !60
+136:                                              ; preds = %63
+  %137 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %138 = load ptr, ptr %2, align 8, !tbaa !27
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  %140 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull align 8 dereferenceable(8) %139)
+  br i1 %140, label %141, label %_ZN4leaneqERKNS_3natES2_.exit
 
-145:                                              ; preds = %134
-  %146 = icmp eq ptr %139, %140
-  br i1 %146, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+141:                                              ; preds = %136
+  %142 = load ptr, ptr %1, align 8, !tbaa !27
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %144 = load ptr, ptr %2, align 8, !tbaa !27
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  %146 = load ptr, ptr %143, align 8, !tbaa !27
+  %147 = load ptr, ptr %145, align 8, !tbaa !27
+  %148 = ptrtoint ptr %146 to i64
+  %149 = ptrtoint ptr %147 to i64
+  %150 = and i64 %148, 1
+  %151 = and i64 %150, %149
+  %or.cond.not.i.i66 = icmp eq i64 %151, 0
+  br i1 %or.cond.not.i.i66, label %.critedge.i.i.i68, label %152, !prof !60
 
-.critedge.i.i.i68:                                ; preds = %134
-  %147 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %139, ptr noundef %140)
-  br i1 %147, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+152:                                              ; preds = %141
+  %153 = icmp eq ptr %146, %147
+  br i1 %153, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-148:                                              ; preds = %63
-  %149 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %150 = load ptr, ptr %2, align 8, !tbaa !27
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %152 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull align 8 dereferenceable(8) %151)
-  br i1 %152, label %153, label %_ZN4leaneqERKNS_3natES2_.exit
+.critedge.i.i.i68:                                ; preds = %141
+  %154 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %146, ptr noundef %147)
+  br i1 %154, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-153:                                              ; preds = %148
-  %154 = load ptr, ptr %1, align 8, !tbaa !27
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %156 = load ptr, ptr %2, align 8, !tbaa !27
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %158 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull align 8 dereferenceable(8) %157)
-  br i1 %158, label %159, label %_ZN4leaneqERKNS_3natES2_.exit
+155:                                              ; preds = %63
+  %156 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %157 = load ptr, ptr %2, align 8, !tbaa !27
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %159 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull align 8 dereferenceable(8) %158)
+  br i1 %159, label %160, label %_ZN4leaneqERKNS_3natES2_.exit
 
-159:                                              ; preds = %153
-  %160 = load ptr, ptr %1, align 8, !tbaa !27
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
-  %162 = load ptr, ptr %2, align 8, !tbaa !27
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  %164 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %161, ptr noundef nonnull align 8 dereferenceable(8) %163)
-  br i1 %164, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %1, align 8, !tbaa !27
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
+  %163 = load ptr, ptr %2, align 8, !tbaa !27
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
+  %165 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull align 8 dereferenceable(8) %164)
+  br i1 %165, label %_ZN4leaneqERKNS_3natES2_.exit69, label %_ZN4leaneqERKNS_3natES2_.exit
 
-_ZN4leaneqERKNS_3natES2_.exit69:                  ; preds = %63
-  %165 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %166 = load ptr, ptr %2, align 8, !tbaa !27
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load ptr, ptr %165, align 8, !tbaa !27
-  %169 = load ptr, ptr %167, align 8, !tbaa !27
-  %170 = tail call zeroext i8 @lean_name_eq(ptr noundef %168, ptr noundef %169)
-  %.not74 = icmp eq i8 %170, 0
-  br i1 %.not74, label %_ZN4leaneqERKNS_3natES2_.exit, label %171
+_ZN4leaneqERKNS_3natES2_.exit69:                  ; preds = %160
+  %166 = load ptr, ptr %1, align 8, !tbaa !27
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
+  %168 = load ptr, ptr %2, align 8, !tbaa !27
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
+  %170 = tail call noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4exprES3_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull align 8 dereferenceable(8) %169)
+  br i1 %170, label %171, label %_ZN4leaneqERKNS_3natES2_.exit
 
-171:                                              ; preds = %85, %79, %97, %114, %119, %124, %108, %145, %.critedge.i.i.i68, %159, %_ZN4leaneqERKNS_3natES2_.exit69
+171:                                              ; preds = %85, %92, %79, %104, %121, %126, %131, %115, %152, %.critedge.i.i.i68, %_ZN4leaneqERKNS_3natES2_.exit69
   %172 = load ptr, ptr %0, align 8, !tbaa !9
   br label %173
 
@@ -800,8 +800,8 @@ _ZN4lean13equiv_manager4findEj.exit22.i:          ; preds = %_ZN4lean13equiv_man
   store i32 %192, ptr %183, align 4, !tbaa !14
   br label %_ZN4leaneqERKNS_3natES2_.exit
 
-_ZN4leaneqERKNS_3natES2_.exit:                    ; preds = %72, %148, %153, %129, %103, %92, %63, %191, %189, %188, %_ZN4lean13equiv_manager4findEj.exit22.i, %85, %79, %97, %114, %119, %124, %108, %145, %.critedge.i.i.i68, %159, %.critedge.i.i.i, %41, %_ZN4lean13equiv_manager4findEj.exit63, %58, %_ZN4leaneqERKNS_3natES2_.exit69, %12, %3
-  %.0 = phi i1 [ false, %12 ], [ true, %3 ], [ false, %_ZN4leaneqERKNS_3natES2_.exit69 ], [ false, %58 ], [ true, %_ZN4lean13equiv_manager4findEj.exit63 ], [ false, %85 ], [ %42, %41 ], [ %43, %.critedge.i.i.i ], [ true, %191 ], [ false, %159 ], [ false, %.critedge.i.i.i68 ], [ false, %145 ], [ false, %108 ], [ false, %124 ], [ false, %119 ], [ false, %114 ], [ false, %97 ], [ false, %79 ], [ true, %_ZN4lean13equiv_manager4findEj.exit22.i ], [ true, %188 ], [ true, %189 ], [ false, %63 ], [ false, %92 ], [ false, %103 ], [ false, %129 ], [ false, %153 ], [ false, %148 ], [ false, %72 ]
+_ZN4leaneqERKNS_3natES2_.exit:                    ; preds = %72, %155, %160, %136, %110, %99, %63, %191, %189, %188, %_ZN4lean13equiv_manager4findEj.exit22.i, %85, %92, %79, %104, %121, %126, %131, %115, %152, %.critedge.i.i.i68, %.critedge.i.i.i, %41, %_ZN4lean13equiv_manager4findEj.exit63, %58, %_ZN4leaneqERKNS_3natES2_.exit69, %12, %3
+  %.0 = phi i1 [ false, %12 ], [ true, %3 ], [ false, %_ZN4leaneqERKNS_3natES2_.exit69 ], [ false, %58 ], [ true, %_ZN4lean13equiv_manager4findEj.exit63 ], [ false, %85 ], [ %42, %41 ], [ %43, %.critedge.i.i.i ], [ true, %191 ], [ false, %.critedge.i.i.i68 ], [ false, %152 ], [ false, %115 ], [ false, %131 ], [ false, %126 ], [ false, %121 ], [ false, %104 ], [ false, %79 ], [ false, %92 ], [ true, %_ZN4lean13equiv_manager4findEj.exit22.i ], [ true, %188 ], [ true, %189 ], [ false, %63 ], [ false, %99 ], [ false, %110 ], [ false, %136 ], [ false, %160 ], [ false, %155 ], [ false, %72 ]
   ret i1 %.0
 }
 

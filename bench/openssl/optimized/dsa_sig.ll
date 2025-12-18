@@ -205,12 +205,12 @@ dsa_get_md_size.exit.i:                           ; preds = %42, %36
   br label %dsa_sign_directly.exit
 
 dsa_sign_directly.exit:                           ; preds = %dsa_get_md_size.exit.i, %47, %49, %50, %.sink.split.i
-  %.0.i24 = phi i32 [ 0, %dsa_get_md_size.exit.i ], [ 0, %47 ], [ 0, %49 ], [ 0, %50 ], [ 1, %.sink.split.i ]
+  %.0.i24 = phi i32 [ 0, %50 ], [ 0, %dsa_get_md_size.exit.i ], [ 0, %47 ], [ 0, %49 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dsa_sign_message_final.exit
 
 dsa_sign_message_final.exit:                      ; preds = %29, %dsa_get_md_size.exit.i.i, %16, %13, %dsa_signverify_message_update.exit, %dsa_sign_directly.exit, %34
-  %.0 = phi i32 [ 0, %dsa_signverify_message_update.exit ], [ %.0.i24, %dsa_sign_directly.exit ], [ %35, %34 ], [ 0, %13 ], [ 0, %dsa_get_md_size.exit.i.i ], [ 0, %16 ], [ 1, %29 ]
+  %.0 = phi i32 [ 0, %dsa_signverify_message_update.exit ], [ %.0.i24, %dsa_sign_directly.exit ], [ %35, %34 ], [ 0, %13 ], [ 1, %29 ], [ 0, %16 ], [ 0, %dsa_get_md_size.exit.i.i ]
   ret i32 %.0
 }
 
@@ -868,12 +868,12 @@ dsa_get_md_size.exit.i19:                         ; preds = %34, %.split10
   br label %dsa_sign_directly.exit23
 
 dsa_sign_directly.exit23:                         ; preds = %dsa_get_md_size.exit.i19, %38, %39, %.sink.split.i
-  %.0.i22 = phi i32 [ 0, %dsa_get_md_size.exit.i19 ], [ 1, %.sink.split.i ], [ 0, %38 ], [ 0, %39 ]
+  %.0.i22 = phi i32 [ 0, %39 ], [ 0, %dsa_get_md_size.exit.i19 ], [ 1, %.sink.split.i ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dsa_sign_directly.exit
 
 dsa_sign_directly.exit:                           ; preds = %24, %dsa_get_md_size.exit.i, %dsa_sign_directly.exit23, %25, %4, %11
-  %.0 = phi i32 [ 0, %4 ], [ 0, %25 ], [ 0, %11 ], [ %.0.i22, %dsa_sign_directly.exit23 ], [ 0, %dsa_get_md_size.exit.i ], [ 1, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %25 ], [ 0, %11 ], [ %.0.i22, %dsa_sign_directly.exit23 ], [ 1, %24 ], [ 0, %dsa_get_md_size.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

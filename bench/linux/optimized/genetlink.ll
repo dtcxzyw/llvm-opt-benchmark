@@ -905,8 +905,8 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   %346 = icmp samesign ult i64 %343, %345
   br i1 %346, label %336, label %.loopexit, !llvm.loop !65
 
-.thread32:                                        ; preds = %265, %260, %.preheader, %317, %181, %185, %329
-  %347 = phi i32 [ %314, %329 ], [ %314, %317 ], [ -22, %181 ], [ -22, %185 ], [ %314, %.preheader ], [ -12, %260 ], [ -12, %265 ]
+.thread32:                                        ; preds = %260, %265, %.preheader, %317, %181, %185, %329
+  %347 = phi i32 [ %314, %329 ], [ %314, %.preheader ], [ -22, %185 ], [ %314, %317 ], [ -22, %181 ], [ -12, %265 ], [ -12, %260 ]
   %348 = load i32, ptr %162, align 8
   %349 = sext i32 %348 to i64
   %350 = call ptr @idr_remove(ptr noundef nonnull @genl_fam_idr, i64 noundef %349) #15
@@ -1144,13 +1144,13 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   br label %.thread10
 
 .thread10:                                        ; preds = %43, %48, %51, %127
-  %133 = phi i64 [ -1, %51 ], [ -1, %43 ], [ -90, %127 ], [ -1, %48 ]
+  %133 = phi i64 [ -90, %127 ], [ -1, %51 ], [ -1, %43 ], [ -1, %48 ]
   call void @kfree_skb_reason(ptr noundef nonnull %28, i32 noundef 2) #15
   %134 = inttoptr i64 %133 to ptr
   br label %135
 
 135:                                              ; preds = %.critedge, %.thread10, %20, %16
-  %136 = phi ptr [ %22, %20 ], [ %14, %16 ], [ %134, %.thread10 ], [ %28, %.critedge ]
+  %136 = phi ptr [ %22, %20 ], [ %14, %16 ], [ %28, %.critedge ], [ %134, %.thread10 ]
   %137 = icmp ugt ptr %136, inttoptr (i64 -4096 to ptr)
   br i1 %137, label %.thread12, label %138
 

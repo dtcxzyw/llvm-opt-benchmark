@@ -5730,7 +5730,7 @@ define internal fastcc ptr @find_pers(i32 noundef %0, ptr noundef readonly captu
   br label %.split3.us
 
 .split3.us:                                       ; preds = %.split, %16, %20, %.split.us, %.split3.us.loopexit.split.loop.exit
-  %.us-phi = phi ptr [ %24, %.split3.us.loopexit.split.loop.exit ], [ null, %.split.us ], [ %14, %16 ], [ %14, %20 ], [ null, %.split ]
+  %.us-phi = phi ptr [ null, %.split.us ], [ %24, %.split3.us.loopexit.split.loop.exit ], [ %14, %16 ], [ %14, %20 ], [ null, %.split ]
   ret ptr %.us-phi
 }
 
@@ -10646,8 +10646,8 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   br label %.loopexit51
 
 .loopexit51:                                      ; preds = %486, %.loopexit49, %517, %514, %457
-  %528 = phi i64 [ %444, %517 ], [ %444, %.loopexit49 ], [ %346, %457 ], [ %444, %514 ], [ %444, %486 ]
-  %529 = phi i32 [ %483, %517 ], [ %483, %.loopexit49 ], [ %345, %457 ], [ %483, %514 ], [ %483, %486 ]
+  %528 = phi i64 [ %444, %517 ], [ %444, %.loopexit49 ], [ %444, %514 ], [ %346, %457 ], [ %444, %486 ]
+  %529 = phi i32 [ %483, %517 ], [ %483, %.loopexit49 ], [ %483, %514 ], [ %345, %457 ], [ %483, %486 ]
   %530 = icmp ult i64 %449, %305
   br i1 %530, label %.lr.ph74, label %.thread40
 
@@ -16170,7 +16170,7 @@ define internal i64 @layout_store(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %47
 
 45:                                               ; preds = %33, %23, %19
-  %46 = phi i64 [ %36, %33 ], [ -16, %19 ], [ -30, %23 ]
+  %46 = phi i64 [ %36, %33 ], [ -30, %23 ], [ -16, %19 ]
   call void @mddev_unlock(ptr noundef %0)
   br label %48
 
@@ -16593,7 +16593,7 @@ define internal i64 @chunk_size_store(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %51
 
 49:                                               ; preds = %35, %23, %19
-  %50 = phi i64 [ %38, %35 ], [ -16, %19 ], [ -30, %23 ]
+  %50 = phi i64 [ %38, %35 ], [ -30, %23 ], [ -16, %19 ]
   call void @mddev_unlock(ptr noundef %0)
   br label %52
 
@@ -16676,7 +16676,7 @@ define internal i64 @size_store(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   br label %36
 
 33:                                               ; preds = %27, %23
-  %34 = phi i32 [ %24, %23 ], [ -28, %27 ]
+  %34 = phi i32 [ -28, %27 ], [ %24, %23 ]
   call void @mddev_unlock(ptr noundef %0)
   %35 = sext i32 %34 to i64
   br label %37
@@ -17755,7 +17755,7 @@ split:                                            ; preds = %13
   br label %132
 
 132:                                              ; preds = %127, %106, %86, %84, %79, %77
-  %133 = phi i32 [ %80, %79 ], [ %131, %127 ], [ %78, %77 ], [ %107, %106 ], [ %85, %84 ], [ %90, %86 ]
+  %133 = phi i32 [ %80, %79 ], [ %90, %86 ], [ %131, %127 ], [ %78, %77 ], [ %85, %84 ], [ %107, %106 ]
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %.thread14, label %.thread12
 
@@ -17790,7 +17790,7 @@ split:                                            ; preds = %13
   br label %.thread
 
 .thread:                                          ; preds = %.critedge, %.critedge.us, %.split19.us, %146, %.thread12, %71, %65
-  %147 = phi i64 [ %66, %65 ], [ %72, %71 ], [ %145, %.thread12 ], [ %2, %146 ], [ -22, %.split19.us ], [ -22, %.critedge.us ], [ -22, %.critedge ]
+  %147 = phi i64 [ %66, %65 ], [ %72, %71 ], [ %145, %.thread12 ], [ -22, %.critedge.us ], [ -22, %.split19.us ], [ %2, %146 ], [ -22, %.critedge ]
   ret i64 %147
 }
 
@@ -20389,8 +20389,8 @@ cmd_match.exit34.thread:                          ; preds = %363, %375, %371, %c
   tail call void @kernfs_notify(ptr noundef nonnull %500) #32
   br label %505
 
-.thread42:                                        ; preds = %90, %471, %490, %487, %380, %78, %428, %437, %446, %459, %455, %450, %39, %496
-  %503 = phi i32 [ %497, %496 ], [ %94, %90 ], [ %475, %471 ], [ -22, %490 ], [ -22, %487 ], [ -22, %380 ], [ -16, %78 ], [ -16, %428 ], [ -16, %437 ], [ -22, %446 ], [ -16, %459 ], [ -16, %455 ], [ -16, %450 ], [ -16, %39 ]
+.thread42:                                        ; preds = %471, %490, %487, %90, %380, %78, %428, %437, %446, %459, %455, %450, %39, %496
+  %503 = phi i32 [ %497, %496 ], [ %475, %471 ], [ -22, %490 ], [ -22, %487 ], [ %94, %90 ], [ -22, %380 ], [ -16, %78 ], [ -16, %428 ], [ -16, %437 ], [ -22, %446 ], [ -16, %459 ], [ -16, %455 ], [ -16, %450 ], [ -16, %39 ]
   %504 = sext i32 %503 to i64
   br label %505
 
@@ -23528,7 +23528,7 @@ read_disk_sb.exit:                                ; preds = %29
   br label %.thread10
 
 .thread10:                                        ; preds = %205, %179, %175, %170, %308, %read_disk_sb.exit, %326, %322, %244, %157, %144, %94, %90, %86, %82, %74, %65, %60, %56, %52, %40, %3
-  %328 = phi i32 [ -22, %74 ], [ -22, %82 ], [ %313, %326 ], [ -22, %308 ], [ -22, %322 ], [ -22, %3 ], [ -22, %read_disk_sb.exit ], [ -22, %65 ], [ -22, %60 ], [ -22, %56 ], [ -22, %52 ], [ -22, %40 ], [ -22, %94 ], [ -22, %90 ], [ -22, %86 ], [ -22, %144 ], [ -22, %170 ], [ -12, %157 ], [ -22, %244 ], [ -5, %179 ], [ -22, %175 ], [ -22, %205 ]
+  %328 = phi i32 [ -22, %74 ], [ -22, %82 ], [ %313, %326 ], [ -22, %308 ], [ -22, %322 ], [ -22, %3 ], [ -22, %read_disk_sb.exit ], [ -22, %65 ], [ -22, %60 ], [ -22, %56 ], [ -22, %52 ], [ -22, %40 ], [ -22, %94 ], [ -22, %90 ], [ -22, %86 ], [ -22, %144 ], [ -22, %175 ], [ -12, %157 ], [ -22, %244 ], [ -22, %170 ], [ -5, %179 ], [ -22, %205 ]
   ret i32 %328
 }
 

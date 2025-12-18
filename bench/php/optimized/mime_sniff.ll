@@ -440,8 +440,8 @@ is_http_quoted_string_token.exit.thread.i:        ; preds = %is_http_quoted_stri
   br i1 %.not.i71, label %zend_string_release_ex.exit65.thread92, label %.lr.ph.i70
 
 zend_string_release_ex.exit65.sink.split:         ; preds = %is_http_quoted_string_token.exit.i, %128, %131, %.loopexit237
-  %.sink247 = phi ptr [ %114, %.loopexit237 ], [ %.042, %131 ], [ %.042, %128 ], [ %.042, %is_http_quoted_string_token.exit.i ]
-  %.1.ph = phi ptr [ %120, %.loopexit237 ], [ %.286, %131 ], [ %.286, %128 ], [ %.286, %is_http_quoted_string_token.exit.i ]
+  %.sink247 = phi ptr [ %114, %.loopexit237 ], [ %.042, %128 ], [ %.042, %131 ], [ %.042, %is_http_quoted_string_token.exit.i ]
+  %.1.ph = phi ptr [ %120, %.loopexit237 ], [ %.286, %128 ], [ %.286, %131 ], [ %.286, %is_http_quoted_string_token.exit.i ]
   store i32 0, ptr %.sink247, align 4, !tbaa !7
   tail call void @_efree(ptr noundef nonnull %.sink247) #10
   br label %zend_string_release_ex.exit65
@@ -452,7 +452,7 @@ zend_string_release_ex.exit65:                    ; preds = %zend_string_release
   br i1 %143, label %37, label %zend_string_release_ex.exit65.thread92
 
 zend_string_release_ex.exit65.thread92:           ; preds = %zend_string_release_ex.exit65, %collect_a_sequence_of_code_points.exit59, %134, %is_http_quoted_string_token.exit.thread.i, %collect_a_sequence_of_code_points.exit.thread, %collect_a_sequence_of_code_points.exit55, %collect_a_sequence_of_code_points.exit
-  %.0 = phi ptr [ null, %collect_a_sequence_of_code_points.exit ], [ null, %collect_a_sequence_of_code_points.exit55 ], [ null, %collect_a_sequence_of_code_points.exit.thread ], [ %.042, %is_http_quoted_string_token.exit.thread.i ], [ null, %zend_string_release_ex.exit65 ], [ null, %collect_a_sequence_of_code_points.exit59 ], [ %.042, %134 ]
+  %.0 = phi ptr [ null, %collect_a_sequence_of_code_points.exit.thread ], [ null, %collect_a_sequence_of_code_points.exit ], [ null, %collect_a_sequence_of_code_points.exit55 ], [ %.042, %is_http_quoted_string_token.exit.thread.i ], [ null, %zend_string_release_ex.exit65 ], [ null, %collect_a_sequence_of_code_points.exit59 ], [ %.042, %134 ]
   ret ptr %.0
 }
 

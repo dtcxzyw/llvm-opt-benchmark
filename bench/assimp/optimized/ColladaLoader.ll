@@ -9189,13 +9189,13 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   br label %.body
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread627: ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit, %._crit_edge879, %280, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %276
-  %.sroa.15589.1 = phi ptr [ %.sroa.15589.0895, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.15589.0895, %276 ], [ %.sroa.15589.0895, %280 ], [ %.sroa.15589.0895, %._crit_edge879 ], [ %.sroa.15589.5, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0896, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.10.0896, %276 ], [ %.sroa.10.0896, %280 ], [ %.sroa.10.0896, %._crit_edge879 ], [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.sroa.0582.1 = phi ptr [ %.sroa.0582.0897, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.0582.0897, %276 ], [ %.sroa.0582.0897, %280 ], [ %.sroa.0582.0897, %._crit_edge879 ], [ %.sroa.0582.5, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.sroa.20605.1 = phi ptr [ %.sroa.20605.0898, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.20605.0898, %276 ], [ %.sroa.20605.0898, %280 ], [ %.sroa.20605.3.lcssa, %._crit_edge879 ], [ %.sroa.20605.3.lcssa, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.sroa.12599.1 = phi ptr [ %.sroa.12599.0899, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.12599.0899, %276 ], [ %.sroa.12599.0899, %280 ], [ %.sroa.12599.2.lcssa, %._crit_edge879 ], [ %.sroa.12599.2.lcssa, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.sroa.0592.1 = phi ptr [ %.sroa.0592.0900, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.0592.0900, %276 ], [ %.sroa.0592.0900, %280 ], [ %.sroa.0592.3.lcssa, %._crit_edge879 ], [ %.sroa.0592.3.lcssa, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.1374 = phi i32 [ %.0373901, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.0373901, %276 ], [ %.0373901, %280 ], [ %305, %._crit_edge879 ], [ %305, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.sroa.15589.1 = phi ptr [ %.sroa.15589.0895, %280 ], [ %.sroa.15589.0895, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.15589.0895, %276 ], [ %.sroa.15589.0895, %._crit_edge879 ], [ %.sroa.15589.5, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0896, %280 ], [ %.sroa.10.0896, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.10.0896, %276 ], [ %.sroa.10.0896, %._crit_edge879 ], [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.sroa.0582.1 = phi ptr [ %.sroa.0582.0897, %280 ], [ %.sroa.0582.0897, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.0582.0897, %276 ], [ %.sroa.0582.0897, %._crit_edge879 ], [ %.sroa.0582.5, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.sroa.20605.1 = phi ptr [ %.sroa.20605.0898, %280 ], [ %.sroa.20605.0898, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.20605.0898, %276 ], [ %.sroa.20605.3.lcssa, %._crit_edge879 ], [ %.sroa.20605.3.lcssa, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.sroa.12599.1 = phi ptr [ %.sroa.12599.0899, %280 ], [ %.sroa.12599.0899, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.12599.0899, %276 ], [ %.sroa.12599.2.lcssa, %._crit_edge879 ], [ %.sroa.12599.2.lcssa, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.sroa.0592.1 = phi ptr [ %.sroa.0592.0900, %280 ], [ %.sroa.0592.0900, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.0592.0900, %276 ], [ %.sroa.0592.3.lcssa, %._crit_edge879 ], [ %.sroa.0592.3.lcssa, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.1374 = phi i32 [ %.0373901, %280 ], [ %.0373901, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.0373901, %276 ], [ %305, %._crit_edge879 ], [ %305, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %459 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0579.0894) #37
   %.not646 = icmp eq ptr %459, %234
   br i1 %.not646, label %._crit_edge904, label %273, !llvm.loop !81
@@ -10842,7 +10842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, %.loopexit.loopexit60, %._crit_edge, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ %86, %.loopexit.loopexit60 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ null, %54 ]
+  %.0 = phi ptr [ %86, %.loopexit.loopexit60 ], [ null, %2 ], [ null, %._crit_edge ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ null, %54 ]
   ret ptr %.0
 }
 
@@ -20624,8 +20624,8 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

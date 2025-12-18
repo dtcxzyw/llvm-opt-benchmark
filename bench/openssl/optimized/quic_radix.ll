@@ -1581,9 +1581,9 @@ SRDR_get_operand.exit180.i:                       ; preds = %340, %333
   br label %TERP_log_spin.exit142.i
 
 TERP_log_spin.exit142.i:                          ; preds = %364, %SRDR_get_operand.exit174.i, %TERP_stk_push.exit171.i, %SRDR_get_operand.exit163.i, %TERP_stk_push.exit160.i, %SRDR_get_operand.exit152.i, %TERP_stk_push.exit.i, %SRDR_get_operand.exit147.i, %SRDR_get_operand.exit.i, %362, %346, %SRDR_get_operand.exit180.i, %SRDR_get_operand.exit177.i, %206, %374, %367, %.thread209.i, %353, %203, %201, %191, %._crit_edge.i36
-  %.184.i = phi i64 [ %183, %._crit_edge.i36 ], [ %183, %374 ], [ %183, %203 ], [ %183, %.thread209.i ], [ %183, %201 ], [ %183, %353 ], [ %183, %367 ], [ %183, %191 ], [ %183, %362 ], [ %183, %206 ], [ %183, %SRDR_get_operand.exit177.i ], [ %183, %SRDR_get_operand.exit180.i ], [ %183, %346 ], [ %183, %TERP_stk_push.exit.i ], [ %183, %TERP_stk_push.exit160.i ], [ %183, %SRDR_get_operand.exit174.i ], [ %183, %TERP_stk_push.exit171.i ], [ %.083.i, %SRDR_get_operand.exit.i ], [ %183, %SRDR_get_operand.exit147.i ], [ %183, %SRDR_get_operand.exit152.i ], [ %183, %SRDR_get_operand.exit163.i ], [ %183, %364 ]
-  %.not120.i = phi i1 [ true, %._crit_edge.i36 ], [ true, %374 ], [ true, %203 ], [ false, %.thread209.i ], [ true, %201 ], [ true, %353 ], [ true, %367 ], [ true, %191 ], [ true, %362 ], [ true, %346 ], [ true, %SRDR_get_operand.exit180.i ], [ true, %SRDR_get_operand.exit177.i ], [ false, %206 ], [ true, %SRDR_get_operand.exit.i ], [ true, %SRDR_get_operand.exit147.i ], [ true, %TERP_stk_push.exit.i ], [ true, %SRDR_get_operand.exit152.i ], [ true, %TERP_stk_push.exit160.i ], [ true, %SRDR_get_operand.exit163.i ], [ true, %TERP_stk_push.exit171.i ], [ true, %SRDR_get_operand.exit174.i ], [ true, %364 ]
-  %.081.i = phi i32 [ 0, %._crit_edge.i36 ], [ 0, %374 ], [ 0, %203 ], [ 1, %.thread209.i ], [ 0, %201 ], [ 0, %353 ], [ 0, %367 ], [ 0, %191 ], [ 0, %362 ], [ 0, %346 ], [ 0, %SRDR_get_operand.exit180.i ], [ 0, %SRDR_get_operand.exit177.i ], [ 1, %206 ], [ 0, %SRDR_get_operand.exit.i ], [ 0, %SRDR_get_operand.exit147.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit152.i ], [ 0, %TERP_stk_push.exit160.i ], [ 0, %SRDR_get_operand.exit163.i ], [ 0, %TERP_stk_push.exit171.i ], [ 0, %SRDR_get_operand.exit174.i ], [ 0, %364 ]
+  %.184.i = phi i64 [ %183, %191 ], [ %183, %._crit_edge.i36 ], [ %183, %374 ], [ %183, %203 ], [ %183, %.thread209.i ], [ %183, %201 ], [ %183, %362 ], [ %183, %367 ], [ %183, %353 ], [ %183, %206 ], [ %183, %SRDR_get_operand.exit177.i ], [ %183, %SRDR_get_operand.exit180.i ], [ %183, %346 ], [ %.083.i, %SRDR_get_operand.exit.i ], [ %183, %SRDR_get_operand.exit147.i ], [ %183, %SRDR_get_operand.exit152.i ], [ %183, %SRDR_get_operand.exit163.i ], [ %183, %TERP_stk_push.exit171.i ], [ %183, %SRDR_get_operand.exit174.i ], [ %183, %TERP_stk_push.exit160.i ], [ %183, %TERP_stk_push.exit.i ], [ %183, %364 ]
+  %.not120.i = phi i1 [ true, %191 ], [ true, %._crit_edge.i36 ], [ true, %374 ], [ true, %203 ], [ false, %.thread209.i ], [ true, %201 ], [ true, %362 ], [ true, %367 ], [ true, %353 ], [ true, %346 ], [ true, %SRDR_get_operand.exit180.i ], [ true, %SRDR_get_operand.exit177.i ], [ false, %206 ], [ true, %SRDR_get_operand.exit.i ], [ true, %SRDR_get_operand.exit147.i ], [ true, %TERP_stk_push.exit.i ], [ true, %SRDR_get_operand.exit152.i ], [ true, %TERP_stk_push.exit160.i ], [ true, %SRDR_get_operand.exit163.i ], [ true, %TERP_stk_push.exit171.i ], [ true, %SRDR_get_operand.exit174.i ], [ true, %364 ]
+  %.081.i = phi i32 [ 0, %191 ], [ 0, %._crit_edge.i36 ], [ 0, %374 ], [ 0, %203 ], [ 1, %.thread209.i ], [ 0, %201 ], [ 0, %362 ], [ 0, %367 ], [ 0, %353 ], [ 0, %346 ], [ 0, %SRDR_get_operand.exit180.i ], [ 0, %SRDR_get_operand.exit177.i ], [ 1, %206 ], [ 0, %SRDR_get_operand.exit.i ], [ 0, %SRDR_get_operand.exit147.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit152.i ], [ 0, %TERP_stk_push.exit160.i ], [ 0, %SRDR_get_operand.exit163.i ], [ 0, %TERP_stk_push.exit171.i ], [ 0, %SRDR_get_operand.exit174.i ], [ 0, %364 ]
   %.not119.i = icmp eq i32 %.388.i, 0
   br i1 %.not119.i, label %377, label %375
 
@@ -1640,10 +1640,10 @@ TERP_execute.exit:                                ; preds = %382, %.sink.split.i
   br label %392
 
 392:                                              ; preds = %388, %TERP_execute.exit, %387
-  %393 = phi ptr [ %.pre143, %388 ], [ %.pre144, %TERP_execute.exit ], [ %.pre142, %387 ]
-  %394 = phi ptr [ %.pre, %388 ], [ %.pre142, %TERP_execute.exit ], [ %.pre142, %387 ]
-  %.not28 = phi i1 [ true, %388 ], [ true, %TERP_execute.exit ], [ false, %387 ]
-  %.0 = phi i32 [ 0, %388 ], [ 0, %TERP_execute.exit ], [ 1, %387 ]
+  %393 = phi ptr [ %.pre143, %388 ], [ %.pre142, %387 ], [ %.pre144, %TERP_execute.exit ]
+  %394 = phi ptr [ %.pre, %388 ], [ %.pre142, %387 ], [ %.pre142, %TERP_execute.exit ]
+  %.not28 = phi i1 [ true, %388 ], [ false, %387 ], [ true, %TERP_execute.exit ]
+  %.0 = phi i32 [ 0, %388 ], [ 1, %387 ], [ 0, %TERP_execute.exit ]
   %395 = ptrtoint ptr %393 to i64
   %396 = ptrtoint ptr %394 to i64
   %397 = sub i64 %395, %396
@@ -5558,8 +5558,8 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %80, %74, %74, %93, %90
-  %.037 = phi i64 [ 1, %93 ], [ 1, %90 ], [ 0, %74 ], [ 0, %74 ], [ 5, %80 ]
-  %.036 = phi ptr [ %6, %93 ], [ %7, %90 ], [ %6, %74 ], [ %6, %74 ], [ %6, %80 ]
+  %.037 = phi i64 [ 1, %93 ], [ 0, %74 ], [ 1, %90 ], [ 0, %74 ], [ 5, %80 ]
+  %.036 = phi ptr [ %6, %93 ], [ %6, %74 ], [ %7, %90 ], [ %6, %74 ], [ %6, %80 ]
   store i64 -1, ptr %5, align 8, !tbaa !82
   %96 = tail call i64 @ossl_time_now() #12
   %97 = call i32 @SSL_poll(ptr noundef nonnull %3, i64 noundef 6, i64 noundef 32, ptr noundef nonnull %.036, i64 noundef 0, ptr noundef nonnull %5) #12

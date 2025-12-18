@@ -930,7 +930,7 @@ h223_mux_check_hdlc.exit:                         ; preds = %44
   br i1 %.not71, label %61, label %59
 
 h223_mux_check_hdlc.exit.thread:                  ; preds = %h223_mux_check_hdlc.exit, %44, %39, %.thread, %26
-  %.17081 = phi i1 [ false, %26 ], [ true, %.thread ], [ true, %h223_mux_check_hdlc.exit ], [ true, %39 ], [ true, %44 ]
+  %.17081 = phi i1 [ false, %26 ], [ true, %.thread ], [ true, %44 ], [ true, %h223_mux_check_hdlc.exit ], [ true, %39 ]
   %.0..0..0..0.29 = load volatile i32, ptr %9, align 4
   %53 = call i32 @tvb_reported_length(ptr noundef %0)
   %54 = icmp ult i32 %.0..0..0..0.29, %53
@@ -1745,7 +1745,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph71, %17, %29, %32
-  %.3 = phi i32 [ %37, %32 ], [ %.05974, %29 ], [ %.05974, %17 ], [ %21, %.lr.ph71 ], [ %24, %.lr.ph ]
+  %.3 = phi i32 [ %.05974, %29 ], [ %21, %.lr.ph71 ], [ %37, %32 ], [ %.05974, %17 ], [ %24, %.lr.ph ]
   %40 = getelementptr inbounds nuw i8, ptr %.075, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null

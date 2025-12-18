@@ -365,9 +365,9 @@ bytestream2_peek_byte.exit.us:                    ; preds = %173, %166
   br i1 %189, label %.thread, label %.split.split, !llvm.loop !51
 
 .split128.us:                                     ; preds = %.split.split, %.split.split.us, %.split.us
-  %.us-phi = phi i32 [ %.184.us131, %.split.split.us ], [ %.184.us, %.split.us ], [ %.184, %.split.split ]
-  %.us-phi129 = phi ptr [ %.282.us132, %.split.split.us ], [ %.282.us, %.split.us ], [ %.282, %.split.split ]
-  %.us-phi130 = phi i32 [ %.0.us133, %.split.split.us ], [ %.0.us, %.split.us ], [ %.0, %.split.split ]
+  %.us-phi = phi i32 [ %.184.us, %.split.us ], [ %.184.us131, %.split.split.us ], [ %.184, %.split.split ]
+  %.us-phi129 = phi ptr [ %.282.us, %.split.us ], [ %.282.us132, %.split.split.us ], [ %.282, %.split.split ]
+  %.us-phi130 = phi i32 [ %.0.us, %.split.us ], [ %.0.us133, %.split.split.us ], [ %.0, %.split.split ]
   br i1 %146, label %190, label %201
 
 190:                                              ; preds = %.split128.us

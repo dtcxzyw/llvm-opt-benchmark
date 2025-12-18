@@ -758,7 +758,7 @@ pmix_pointer_array_get_item.exit142:              ; preds = %.preheader152, %133
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %128, %123, %72, %67, %63, %54, %49, %153, %150, %131, %126, %110, %101, %99, %96, %74, %70, %65, %57, %52, %36, %27, %25, %22
-  %.sink = phi ptr [ %97, %131 ], [ %23, %25 ], [ %23, %36 ], [ %23, %52 ], [ %23, %57 ], [ %23, %65 ], [ %23, %70 ], [ %23, %74 ], [ %97, %99 ], [ %97, %110 ], [ %97, %126 ], [ %23, %22 ], [ %23, %27 ], [ %97, %96 ], [ %97, %101 ], [ %.097, %150 ], [ %.097, %153 ], [ %23, %72 ], [ %23, %49 ], [ %23, %54 ], [ %23, %63 ], [ %23, %67 ], [ %97, %123 ], [ %97, %128 ]
+  %.sink = phi ptr [ %97, %131 ], [ %23, %25 ], [ %23, %36 ], [ %23, %52 ], [ %23, %57 ], [ %23, %65 ], [ %23, %70 ], [ %23, %74 ], [ %97, %99 ], [ %97, %110 ], [ %97, %126 ], [ %23, %22 ], [ %23, %27 ], [ %.097, %153 ], [ %.097, %150 ], [ %23, %72 ], [ %97, %96 ], [ %97, %101 ], [ %23, %49 ], [ %23, %54 ], [ %23, %63 ], [ %23, %67 ], [ %97, %123 ], [ %97, %128 ]
   call void @PMIx_Data_buffer_release(ptr noundef %.sink) #11
   br label %.thread
 
@@ -2382,7 +2382,7 @@ pack_state_for_proc.exit.thread37:                ; preds = %34, %pack_state_for
   br label %.loopexit
 
 .loopexit:                                        ; preds = %pack_state_for_proc.exit, %._crit_edge, %48, %._crit_edge, %pack_state_for_proc.exit.thread, %10, %2
-  %.0 = phi i32 [ %47, %._crit_edge ], [ %5, %10 ], [ %.0.i3436, %pack_state_for_proc.exit.thread ], [ %5, %2 ], [ %47, %._crit_edge ], [ %47, %48 ], [ %.sink43, %pack_state_for_proc.exit ]
+  %.0 = phi i32 [ %47, %._crit_edge ], [ %5, %10 ], [ %.0.i3436, %pack_state_for_proc.exit.thread ], [ %5, %2 ], [ %47, %48 ], [ %47, %._crit_edge ], [ %.sink43, %pack_state_for_proc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

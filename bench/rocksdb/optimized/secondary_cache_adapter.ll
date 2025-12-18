@@ -1066,7 +1066,7 @@ define noundef zeroext i1 @_ZN7rocksdb25CacheWithSecondaryAdapter15EvictionHandl
   br label %25
 
 25:                                               ; preds = %22, %.fold.split, %24
-  %.0 = phi i1 [ true, %24 ], [ %3, %22 ], [ false, %.fold.split ]
+  %.0 = phi i1 [ %3, %22 ], [ true, %24 ], [ false, %.fold.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %27 = load ptr, ptr %26, align 8, !tbaa !15
@@ -6438,7 +6438,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7rocksdb5Slic
   br label %26
 
 26:                                               ; preds = %.fold.split.i.i.i.i, %25, %23
-  %.0.i.i.i.i = phi i1 [ true, %25 ], [ %6, %23 ], [ false, %.fold.split.i.i.i.i ]
+  %.0.i.i.i.i = phi i1 [ %6, %23 ], [ true, %25 ], [ false, %.fold.split.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %28 = load ptr, ptr %27, align 8, !tbaa !15

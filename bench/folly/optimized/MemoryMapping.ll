@@ -1055,7 +1055,7 @@ _ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i: ; preds = %20, %3
   br label %127
 
 .loopexit:                                        ; preds = %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.i", %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.us.i", %.lr.ph.split.i, %.lr.ph.split.us.i
-  %.2.ph = phi i64 [ 0, %.lr.ph.split.i ], [ 0, %.lr.ph.split.us.i ], [ %32, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.us.i" ], [ %37, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.i" ]
+  %.2.ph = phi i64 [ 0, %.lr.ph.split.i ], [ %32, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.us.i" ], [ 0, %.lr.ph.split.us.i ], [ %37, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.i" ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %39, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

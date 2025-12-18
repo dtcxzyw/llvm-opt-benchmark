@@ -2054,8 +2054,8 @@ switch.lookup:                                    ; preds = %142
   br label %.backedge
 
 .backedge:                                        ; preds = %.thread1117, %610, %619, %617, %462, %499
-  %.0520.be = phi i32 [ %.3523, %499 ], [ %472, %462 ], [ %600, %617 ], [ %600, %619 ], [ %600, %610 ], [ %600, %.thread1117 ]
-  %.0.be = phi i32 [ %.3, %499 ], [ %471, %462 ], [ %599, %617 ], [ %599, %619 ], [ %599, %610 ], [ %599, %.thread1117 ]
+  %.0520.be = phi i32 [ %472, %462 ], [ %.3523, %499 ], [ %600, %617 ], [ %600, %619 ], [ %600, %610 ], [ %600, %.thread1117 ]
+  %.0.be = phi i32 [ %471, %462 ], [ %.3, %499 ], [ %599, %617 ], [ %599, %619 ], [ %599, %610 ], [ %599, %.thread1117 ]
   %473 = icmp sgt i32 %.0520.be, 0
   br i1 %473, label %68, label %.loopexit, !llvm.loop !15
 
@@ -4004,7 +4004,7 @@ define internal fastcc ptr @rtmpt_get_amf_param(ptr noundef %0, i32 noundef rang
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %57, %.lr.ph126, %54, %.thread.sink.split, %5, %31, %23, %48, %46, %28, %._crit_edge
-  %.4 = phi ptr [ null, %._crit_edge ], [ null, %28 ], [ null, %46 ], [ null, %48 ], [ null, %23 ], [ null, %31 ], [ null, %5 ], [ %64, %.thread.sink.split ], [ null, %57 ], [ null, %54 ], [ null, %.lr.ph126 ], [ null, %.lr.ph ]
+  %.4 = phi ptr [ %64, %.thread.sink.split ], [ null, %57 ], [ null, %31 ], [ null, %._crit_edge ], [ null, %23 ], [ null, %28 ], [ null, %48 ], [ null, %46 ], [ null, %5 ], [ null, %54 ], [ null, %.lr.ph126 ], [ null, %.lr.ph ]
   ret ptr %.4
 }
 

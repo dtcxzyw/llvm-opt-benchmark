@@ -1015,7 +1015,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   br label %.loopexit
 
 .loopexit:                                        ; preds = %186, %63, %_Z8EvaluatePK3posiPK10ThreadData.exit, %139, %133, %71, %68, %325, %137, %131
-  %.0 = phi i1 [ false, %133 ], [ %spec.select, %63 ], [ true, %68 ], [ false, %71 ], [ %132, %131 ], [ true, %139 ], [ %.1224, %325 ], [ %138, %137 ], [ %121, %_Z8EvaluatePK3posiPK10ThreadData.exit ], [ %spec.select293, %186 ]
+  %.0 = phi i1 [ false, %133 ], [ %spec.select, %63 ], [ true, %68 ], [ false, %71 ], [ %132, %131 ], [ true, %139 ], [ %.1224, %325 ], [ %spec.select293, %186 ], [ %138, %137 ], [ %121, %_Z8EvaluatePK3posiPK10ThreadData.exit ]
   ret i1 %.0
 }
 

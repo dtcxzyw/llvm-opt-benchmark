@@ -595,7 +595,7 @@ encode.exit.thread:                               ; preds = %encode.exit.thread.
   br label %291
 
 encode.exit.thread41:                             ; preds = %._crit_edge133.i, %78
-  %.ph40 = phi ptr [ %48, %._crit_edge133.i ], [ %81, %78 ]
+  %.ph40 = phi ptr [ %81, %78 ], [ %48, %._crit_edge133.i ]
   store i16 256, ptr %.ph40, align 1, !tbaa !38
   %274 = load ptr, ptr %5, align 8, !tbaa !33
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 2

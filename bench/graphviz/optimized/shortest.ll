@@ -252,7 +252,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br i1 %exitcond360.not, label %.loopexit299, label %.lr.ph310, !llvm.loop !32
 
 .loopexit299:                                     ; preds = %105, %84, %.preheader300, %60
-  %.2215 = phi i64 [ 0, %60 ], [ 0, %.preheader300 ], [ %.1214, %84 ], [ %.4, %105 ]
+  %.2215 = phi i64 [ 0, %.preheader300 ], [ 0, %60 ], [ %.1214, %84 ], [ %.4, %105 ]
   %107 = tail call fastcc i32 @triangulate(ptr noundef %19, i64 noundef %.2215)
   %.not241 = icmp eq i32 %107, 0
   br i1 %.not241, label %.preheader298, label %112

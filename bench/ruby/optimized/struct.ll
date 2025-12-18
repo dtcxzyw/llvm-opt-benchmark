@@ -552,8 +552,8 @@ RARRAY_AREF.exit58.us:                            ; preds = %.lr.ph84
   br i1 %117, label %RARRAY_AREF.exit61, label %.lr.ph
 
 RARRAY_AREF.exit61:                               ; preds = %RARRAY_AREF.exit58.thread, %RARRAY_AREF.exit58.us, %.split.us, %.split
-  %.13877 = phi i64 [ %.13880, %.split ], [ %.138.us82, %.split.us ], [ %.138.us, %RARRAY_AREF.exit58.us ], [ %.138, %RARRAY_AREF.exit58.thread ]
-  %.0.i.i60 = phi ptr [ %102, %.split ], [ %104, %.split.us ], [ %104, %RARRAY_AREF.exit58.us ], [ %102, %RARRAY_AREF.exit58.thread ]
+  %.13877 = phi i64 [ %.138.us, %RARRAY_AREF.exit58.us ], [ %.13880, %.split ], [ %.138.us82, %.split.us ], [ %.138, %RARRAY_AREF.exit58.thread ]
+  %.0.i.i60 = phi ptr [ %104, %RARRAY_AREF.exit58.us ], [ %102, %.split ], [ %104, %.split.us ], [ %102, %RARRAY_AREF.exit58.thread ]
   %118 = getelementptr i64, ptr %.0.i.i60, i64 %.13877
   %119 = getelementptr i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !7
@@ -578,7 +578,7 @@ RARRAY_AREF.exit58.thread:                        ; preds = %.lr.ph
   br i1 %129, label %RARRAY_AREF.exit61, label %.lr.ph
 
 .thread68:                                        ; preds = %.lr.ph, %.lr.ph84, %64, %55, %.preheader, %RARRAY_AREF.exit61, %.split89.us
-  %.0 = phi i32 [ %63, %.split89.us ], [ %122, %RARRAY_AREF.exit61 ], [ -1, %.preheader ], [ -1, %.lr.ph84 ], [ -1, %55 ], [ -1, %64 ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ %63, %.split89.us ], [ %122, %RARRAY_AREF.exit61 ], [ -1, %.preheader ], [ -1, %55 ], [ -1, %.lr.ph84 ], [ -1, %64 ], [ -1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3770,7 +3770,7 @@ RARRAY_AREF.exit.split:                           ; preds = %RARRAY_AREF.exit
   br i1 %.not42, label %.split.us, label %RARRAY_AREF.exit40
 
 .split.us:                                        ; preds = %RARRAY_AREF.exit40, %RARRAY_AREF.exit40.us, %RARRAY_AREF.exit.split, %RARRAY_AREF.exit.split.us
-  %.us-phi = phi i64 [ %.035.us44, %RARRAY_AREF.exit.split.us ], [ %.03541, %RARRAY_AREF.exit.split ], [ %.035.us, %RARRAY_AREF.exit40.us ], [ %.035, %RARRAY_AREF.exit40 ]
+  %.us-phi = phi i64 [ %.035.us, %RARRAY_AREF.exit40.us ], [ %.035.us44, %RARRAY_AREF.exit.split.us ], [ %.03541, %RARRAY_AREF.exit.split ], [ %.035, %RARRAY_AREF.exit40 ]
   tail call void @rb_ary_store(i64 noundef %18, i64 noundef %.us-phi, i64 noundef %33) #20
   %50 = or disjoint i64 %.us-phi, 1
   %51 = shl nuw i64 %.03649, 1

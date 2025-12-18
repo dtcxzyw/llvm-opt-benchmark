@@ -612,7 +612,7 @@ define range(i32 -1, 1) i32 @H5FA__dblock_delete(ptr noundef %0, i64 noundef %1)
   br label %H5FA__dblock_unprotect.exit.thread
 
 .loopexit:                                        ; preds = %34, %30, %12
-  %.1.ph = phi i32 [ -1, %30 ], [ 0, %12 ], [ 0, %34 ]
+  %.1.ph = phi i32 [ 0, %12 ], [ -1, %30 ], [ 0, %34 ]
   %44 = load i8, ptr @H5FA_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %45 = trunc nuw i8 %44 to i1
   %46 = load i8, ptr @H5_libterm_g, align 1, !range !7

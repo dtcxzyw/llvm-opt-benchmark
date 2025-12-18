@@ -4384,10 +4384,10 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit903
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit903:       ; preds = %1597, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i900
-  %.sroa.01312.6 = phi ptr [ %1610, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i900 ], [ %.sroa.01312.22573, %1597 ]
-  %.pn4238 = phi ptr [ %1611, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i900 ], [ %.sroa.19.22575, %1597 ]
-  %.sroa.33.6 = phi ptr [ %1614, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i900 ], [ %.sroa.33.22579, %1597 ]
-  %.sroa.19.3 = getelementptr inbounds nuw i8, ptr %.pn4238, i64 4
+  %.sroa.01312.6 = phi ptr [ %.sroa.01312.22573, %1597 ], [ %1610, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i900 ]
+  %.sroa.19.22575.pn = phi ptr [ %.sroa.19.22575, %1597 ], [ %1611, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i900 ]
+  %.sroa.33.6 = phi ptr [ %.sroa.33.22579, %1597 ], [ %1614, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i900 ]
+  %.sroa.19.3 = getelementptr inbounds nuw i8, ptr %.sroa.19.22575.pn, i64 4
   br label %.lr.ph2585, !llvm.loop !109
 
 ._crit_edge2586:                                  ; preds = %1534, %1532
@@ -4395,12 +4395,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit903:       ; preds = %1597, %_ZNSt6vector
   br label %2077
 
 ._crit_edge2586.thread:                           ; preds = %.split.us, %1346, %1367, %1353, %1307
-  %.sroa.33.2.lcssa3535 = phi ptr [ %1258, %1307 ], [ %.sroa.33.22579, %1367 ], [ %.sroa.33.22579, %1353 ], [ %.sroa.33.22579, %1346 ], [ %.sroa.33.22579, %.split.us ]
-  %.sroa.19.2.lcssa3534 = phi ptr [ %1258, %1307 ], [ %.sroa.19.22575, %1367 ], [ %.sroa.19.22575, %1353 ], [ %.sroa.19.22575, %1346 ], [ %.sroa.19.22575, %.split.us ]
-  %.sroa.01312.2.lcssa3533 = phi ptr [ %1257, %1307 ], [ %.sroa.01312.22573, %1367 ], [ %.sroa.01312.22573, %1353 ], [ %.sroa.01312.22573, %1346 ], [ %.sroa.01312.22573, %.split.us ]
-  %.sroa.47.3.lcssa3532 = phi ptr [ %1256, %1307 ], [ %.sroa.47.32571, %1367 ], [ %.sroa.47.32571, %1353 ], [ %.sroa.47.32571, %1346 ], [ %.sroa.47.32571, %.split.us ]
-  %.sroa.27.2.lcssa3531 = phi ptr [ %1256, %1307 ], [ %.sroa.27.22567, %1367 ], [ %.sroa.27.22567, %1353 ], [ %.sroa.27.22567, %1346 ], [ %.sroa.27.22567, %.split.us ]
-  %.sroa.01335.3.lcssa3530 = phi ptr [ %1253, %1307 ], [ %.sroa.01335.32565, %1367 ], [ %.sroa.01335.32565, %1353 ], [ %.sroa.01335.32565, %1346 ], [ %.sroa.01335.32565, %.split.us ]
+  %.sroa.33.2.lcssa3535 = phi ptr [ %1258, %1307 ], [ %.sroa.33.22579, %1353 ], [ %.sroa.33.22579, %1367 ], [ %.sroa.33.22579, %1346 ], [ %.sroa.33.22579, %.split.us ]
+  %.sroa.19.2.lcssa3534 = phi ptr [ %1258, %1307 ], [ %.sroa.19.22575, %1353 ], [ %.sroa.19.22575, %1367 ], [ %.sroa.19.22575, %1346 ], [ %.sroa.19.22575, %.split.us ]
+  %.sroa.01312.2.lcssa3533 = phi ptr [ %1257, %1307 ], [ %.sroa.01312.22573, %1353 ], [ %.sroa.01312.22573, %1367 ], [ %.sroa.01312.22573, %1346 ], [ %.sroa.01312.22573, %.split.us ]
+  %.sroa.47.3.lcssa3532 = phi ptr [ %1256, %1307 ], [ %.sroa.47.32571, %1353 ], [ %.sroa.47.32571, %1367 ], [ %.sroa.47.32571, %1346 ], [ %.sroa.47.32571, %.split.us ]
+  %.sroa.27.2.lcssa3531 = phi ptr [ %1256, %1307 ], [ %.sroa.27.22567, %1353 ], [ %.sroa.27.22567, %1367 ], [ %.sroa.27.22567, %1346 ], [ %.sroa.27.22567, %.split.us ]
+  %.sroa.01335.3.lcssa3530 = phi ptr [ %1253, %1307 ], [ %.sroa.01335.32565, %1353 ], [ %.sroa.01335.32565, %1367 ], [ %.sroa.01335.32565, %1346 ], [ %.sroa.01335.32565, %.split.us ]
   %1615 = icmp ne ptr %.sroa.01335.3.lcssa3530, %.sroa.27.2.lcssa3531
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %.sroa.27.2.lcssa3531, i64 -4
   %1616 = icmp ult ptr %.sroa.01335.3.lcssa3530, %.sroa.0.08.i.i
@@ -5428,10 +5428,10 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit1100
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit1100:      ; preds = %1954, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1097
-  %.sroa.01312.10 = phi ptr [ %1967, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1097 ], [ %.sroa.01312.92621, %1954 ]
-  %.pn4239 = phi ptr [ %1968, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1097 ], [ %.sroa.19.62623, %1954 ]
-  %.sroa.33.10 = phi ptr [ %1971, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1097 ], [ %.sroa.33.92627, %1954 ]
-  %.sroa.19.7 = getelementptr inbounds nuw i8, ptr %.pn4239, i64 4
+  %.sroa.01312.10 = phi ptr [ %.sroa.01312.92621, %1954 ], [ %1967, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1097 ]
+  %.sroa.19.62623.pn = phi ptr [ %.sroa.19.62623, %1954 ], [ %1968, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1097 ]
+  %.sroa.33.10 = phi ptr [ %.sroa.33.92627, %1954 ], [ %1971, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1097 ]
+  %.sroa.19.7 = getelementptr inbounds nuw i8, ptr %.sroa.19.62623.pn, i64 4
   br label %.lr.ph2633, !llvm.loop !114
 
 ._crit_edge2634:                                  ; preds = %1891, %1889
@@ -5439,12 +5439,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit1100:      ; preds = %1954, %_ZNSt6vector
   br label %2077
 
 ._crit_edge2634.thread:                           ; preds = %.split2603.us, %1706, %1724, %1713, %._crit_edge2597
-  %.sroa.33.9.lcssa3572 = phi ptr [ %.sroa.33.2.lcssa3535, %._crit_edge2597 ], [ %.sroa.33.92627, %1724 ], [ %.sroa.33.92627, %1713 ], [ %.sroa.33.92627, %1706 ], [ %.sroa.33.92627, %.split2603.us ]
-  %.sroa.19.6.lcssa3571 = phi ptr [ %.sroa.19.2.lcssa3534, %._crit_edge2597 ], [ %.sroa.19.62623, %1724 ], [ %.sroa.19.62623, %1713 ], [ %.sroa.19.62623, %1706 ], [ %.sroa.19.62623, %.split2603.us ]
-  %.sroa.01312.9.lcssa3569 = phi ptr [ %.sroa.01312.2.lcssa3533, %._crit_edge2597 ], [ %.sroa.01312.92621, %1724 ], [ %.sroa.01312.92621, %1713 ], [ %.sroa.01312.92621, %1706 ], [ %.sroa.01312.92621, %.split2603.us ]
-  %.sroa.47.13.lcssa3567 = phi ptr [ %.sroa.47.3.lcssa3532, %._crit_edge2597 ], [ %.sroa.47.132619, %1724 ], [ %.sroa.47.132619, %1713 ], [ %.sroa.47.132619, %1706 ], [ %.sroa.47.132619, %.split2603.us ]
-  %.sroa.27.6.lcssa3566 = phi ptr [ %.sroa.27.2.lcssa3531, %._crit_edge2597 ], [ %.sroa.27.62615, %1724 ], [ %.sroa.27.62615, %1713 ], [ %.sroa.27.62615, %1706 ], [ %.sroa.27.62615, %.split2603.us ]
-  %.sroa.01335.13.lcssa3564 = phi ptr [ %.sroa.01335.3.lcssa3530, %._crit_edge2597 ], [ %.sroa.01335.132613, %1724 ], [ %.sroa.01335.132613, %1713 ], [ %.sroa.01335.132613, %1706 ], [ %.sroa.01335.132613, %.split2603.us ]
+  %.sroa.33.9.lcssa3572 = phi ptr [ %.sroa.33.2.lcssa3535, %._crit_edge2597 ], [ %.sroa.33.92627, %1713 ], [ %.sroa.33.92627, %1724 ], [ %.sroa.33.92627, %1706 ], [ %.sroa.33.92627, %.split2603.us ]
+  %.sroa.19.6.lcssa3571 = phi ptr [ %.sroa.19.2.lcssa3534, %._crit_edge2597 ], [ %.sroa.19.62623, %1713 ], [ %.sroa.19.62623, %1724 ], [ %.sroa.19.62623, %1706 ], [ %.sroa.19.62623, %.split2603.us ]
+  %.sroa.01312.9.lcssa3569 = phi ptr [ %.sroa.01312.2.lcssa3533, %._crit_edge2597 ], [ %.sroa.01312.92621, %1713 ], [ %.sroa.01312.92621, %1724 ], [ %.sroa.01312.92621, %1706 ], [ %.sroa.01312.92621, %.split2603.us ]
+  %.sroa.47.13.lcssa3567 = phi ptr [ %.sroa.47.3.lcssa3532, %._crit_edge2597 ], [ %.sroa.47.132619, %1713 ], [ %.sroa.47.132619, %1724 ], [ %.sroa.47.132619, %1706 ], [ %.sroa.47.132619, %.split2603.us ]
+  %.sroa.27.6.lcssa3566 = phi ptr [ %.sroa.27.2.lcssa3531, %._crit_edge2597 ], [ %.sroa.27.62615, %1713 ], [ %.sroa.27.62615, %1724 ], [ %.sroa.27.62615, %1706 ], [ %.sroa.27.62615, %.split2603.us ]
+  %.sroa.01335.13.lcssa3564 = phi ptr [ %.sroa.01335.3.lcssa3530, %._crit_edge2597 ], [ %.sroa.01335.132613, %1713 ], [ %.sroa.01335.132613, %1724 ], [ %.sroa.01335.132613, %1706 ], [ %.sroa.01335.132613, %.split2603.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %.not2664 = icmp eq ptr %.sroa.27.6.lcssa3566, %.sroa.01335.13.lcssa3564

@@ -604,7 +604,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %regex_parse_value_ranges.exit.i
 
 regex_parse_value_ranges.exit.i:                  ; preds = %198, %221, %219, %217, %200
-  %.0.i139.i = phi i32 [ 0, %221 ], [ %199, %200 ], [ %218, %217 ], [ %218, %219 ], [ %199, %198 ]
+  %.0.i139.i = phi i32 [ 0, %221 ], [ %199, %200 ], [ %218, %219 ], [ %218, %217 ], [ %199, %198 ]
   %.not135.i = icmp eq ptr %.0111.i, null
   br i1 %.not135.i, label %223, label %222
 
@@ -648,8 +648,8 @@ regex_parse_value_ranges.exit.i:                  ; preds = %198, %221, %219, %2
   br i1 %.1250251.i, label %.backedge.i.backedge, label %.thread153.i
 
 .backedge.i.backedge:                             ; preds = %237, %233
-  %.0113.i.be = phi ptr [ %241, %237 ], [ %236, %233 ]
-  %.0109.i.be = phi i1 [ false, %237 ], [ true, %233 ]
+  %.0113.i.be = phi ptr [ %236, %233 ], [ %241, %237 ]
+  %.0109.i.be = phi i1 [ true, %233 ], [ false, %237 ]
   br label %.backedge.i, !llvm.loop !38
 
 .thread153.i:                                     ; preds = %237, %228, %225

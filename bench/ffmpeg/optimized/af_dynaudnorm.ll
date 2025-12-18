@@ -2348,7 +2348,7 @@ ff_bufqueue_add.exit:                             ; preds = %474, %476
   br label %.loopexit5
 
 .loopexit5:                                       ; preds = %85, %analyze_frame.exit, %.thread, %ff_bufqueue_add.exit, %505
-  %.2 = phi i32 [ %.1.ph.i, %analyze_frame.exit ], [ 1, %505 ], [ 1, %ff_bufqueue_add.exit ], [ -12, %.thread ], [ %86, %85 ]
+  %.2 = phi i32 [ -12, %.thread ], [ %.1.ph.i, %analyze_frame.exit ], [ 1, %505 ], [ 1, %ff_bufqueue_add.exit ], [ %86, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
@@ -2600,7 +2600,7 @@ define internal fastcc { double, double } @get_max_local_gain(ptr noundef %0, pt
   br i1 %exitcond.not.i, label %find_peak_magnitude.exit, label %.lr.ph.i, !llvm.loop !132
 
 find_peak_magnitude.exit:                         ; preds = %.lr.ph.i, %._crit_edge.us.i, %.preheader.i, %.lr.ph33.i, %21
-  %.2.i = phi nsz double [ 0x3CB0000000000000, %.preheader.i ], [ 0x3CB0000000000000, %21 ], [ 0x3CB0000000000000, %.lr.ph33.i ], [ %20, %._crit_edge.us.i ], [ %33, %.lr.ph.i ]
+  %.2.i = phi nsz double [ 0x3CB0000000000000, %.lr.ph33.i ], [ 0x3CB0000000000000, %.preheader.i ], [ %20, %._crit_edge.us.i ], [ 0x3CB0000000000000, %21 ], [ %33, %.lr.ph.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %35 = load double, ptr %34, align 8, !tbaa !90
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2488

@@ -7939,7 +7939,7 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit108"
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit108": ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit119", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit107", %93, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit146", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit122"
-  %.0 = phi i1 [ false, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit122" ], [ %.not57, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit146" ], [ true, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit107" ], [ true, %93 ], [ false, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit119" ]
+  %.0 = phi i1 [ true, %93 ], [ false, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit122" ], [ %.not57, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit146" ], [ true, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit107" ], [ false, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit119" ]
   ret i1 %.0
 
 96:                                               ; preds = %87, %78, %71, %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17h8c1f2d006b6a99e4E.exit"
@@ -8000,7 +8000,7 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %115, %62
-  %.052.be = phi i64 [ %.sroa.07.0.i100, %62 ], [ %.sroa.07.0.i114, %115 ]
+  %.052.be = phi i64 [ %.sroa.07.0.i114, %115 ], [ %.sroa.07.0.i100, %62 ]
   br label %.preheader
 
 116:                                              ; preds = %112
@@ -8076,8 +8076,8 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   br label %.thread235
 
 .thread246.loopexit.split-lp:                     ; preds = %146, %194, %140, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit"
-  %.sroa.0164.1.ph.ph.ph = phi ptr [ %141, %140 ], [ %141, %146 ], [ %.sroa.0164.4, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.0164.4, %194 ]
-  %.sroa.17.2.ph.ph.ph = phi ptr [ %142, %140 ], [ %142, %146 ], [ %.sroa.17.5, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.17.5, %194 ]
+  %.sroa.0164.1.ph.ph.ph = phi ptr [ %141, %146 ], [ %141, %140 ], [ %.sroa.0164.4, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.0164.4, %194 ]
+  %.sroa.17.2.ph.ph.ph = phi ptr [ %142, %146 ], [ %142, %140 ], [ %.sroa.17.5, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.17.5, %194 ]
   %lpad.loopexit.split-lp254 = landingpad { ptr, i32 }
           cleanup
   br label %.thread235

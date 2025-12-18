@@ -889,8 +889,8 @@ cdce.call:                                        ; preds = %._crit_edge83.threa
   br i1 %exitcond110.i, label %calc_distr.exit170, label %.preheader.i, !llvm.loop !15
 
 calc_distr.exit170:                               ; preds = %._crit_edge87.i, %cdce.call, %._crit_edge83.thread.i, %._crit_edge78.i
-  %.165.i = phi ptr [ %.064.lcssa.i160, %._crit_edge78.i ], [ %.058.lcssa.i161, %._crit_edge83.thread.i ], [ %.058.lcssa.i161, %cdce.call ], [ %.058.lcssa.i161, %._crit_edge87.i ]
-  %.159.i = phi ptr [ %.058.lcssa.i161, %._crit_edge78.i ], [ %.064.lcssa.i160, %._crit_edge83.thread.i ], [ %.064.lcssa.i160, %cdce.call ], [ %.064.lcssa.i160, %._crit_edge87.i ]
+  %.165.i = phi ptr [ %.064.lcssa.i160, %._crit_edge78.i ], [ %.058.lcssa.i161, %cdce.call ], [ %.058.lcssa.i161, %._crit_edge83.thread.i ], [ %.058.lcssa.i161, %._crit_edge87.i ]
+  %.159.i = phi ptr [ %.058.lcssa.i161, %._crit_edge78.i ], [ %.064.lcssa.i160, %cdce.call ], [ %.064.lcssa.i160, %._crit_edge83.thread.i ], [ %.064.lcssa.i160, %._crit_edge87.i ]
   tail call void @pfree(ptr noundef %.165.i) #9
   %182 = tail call ptr @palloc(i64 noundef %110) #9
   %183 = add nsw i32 %7, -2

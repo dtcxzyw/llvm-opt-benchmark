@@ -8781,8 +8781,8 @@ define hidden { ptr, i64 } @_ZN10supermaven24find_relevant_completion17h3954cc91
   br label %27
 
 .outer._crit_edge:                                ; preds = %.outer.loopexit, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread", %5
-  %.sroa.4.0.ph.lcssa79 = phi i64 [ undef, %5 ], [ %.sroa.4.0.ph83, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread" ], [ %.pn69, %.outer.loopexit ]
-  %.sroa.0.0.ph.lcssa78 = phi ptr [ null, %5 ], [ %.sroa.0.0.ph84, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread" ], [ %.sroa.011.0, %.outer.loopexit ]
+  %.sroa.4.0.ph.lcssa79 = phi i64 [ %.sroa.4.0.ph83, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread" ], [ undef, %5 ], [ %.pn69, %.outer.loopexit ]
+  %.sroa.0.0.ph.lcssa78 = phi ptr [ %.sroa.0.0.ph84, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread" ], [ null, %5 ], [ %.sroa.011.0, %.outer.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.ph.lcssa78, 0
   %26 = insertvalue { ptr, i64 } %25, i64 %.sroa.4.0.ph.lcssa79, 1

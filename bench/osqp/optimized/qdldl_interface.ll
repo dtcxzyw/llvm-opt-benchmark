@@ -801,7 +801,7 @@ define i64 @adjoint_derivative_qdldl(ptr readnone captures(none) %0, ptr noundef
   br i1 %exitcond.not.i, label %_colcount_diag.exit.i, label %.lr.ph.i.i, !llvm.loop !72
 
 _colcount_diag.exit.i:                            ; preds = %.lr.ph.i.i, %._crit_edge.i, %24
-  %39 = phi i1 [ false, %._crit_edge.i ], [ false, %24 ], [ true, %.lr.ph.i.i ]
+  %39 = phi i1 [ false, %24 ], [ false, %._crit_edge.i ], [ true, %.lr.ph.i.i ]
   %40 = load ptr, ptr %1, align 8, !tbaa !38
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !40

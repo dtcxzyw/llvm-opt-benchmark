@@ -1828,7 +1828,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
   br i1 %65, label %57, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %57, %43, %31, %13, %50, %4
-  %.051 = phi i32 [ -1, %13 ], [ 0, %4 ], [ -1, %50 ], [ 0, %43 ], [ 0, %31 ], [ 0, %57 ]
+  %.051 = phi i32 [ -1, %13 ], [ 0, %4 ], [ 0, %31 ], [ -1, %50 ], [ 0, %43 ], [ 0, %57 ]
   ret i32 %.051
 }
 

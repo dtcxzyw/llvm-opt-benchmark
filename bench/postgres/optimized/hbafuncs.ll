@@ -316,7 +316,7 @@ switch.lookup:                                    ; preds = %64
   br label %.thread.i.i
 
 139:                                              ; preds = %135, %124
-  %.077.i.i = phi ptr [ null, %124 ], [ %136, %135 ]
+  %.077.i.i = phi ptr [ %136, %135 ], [ null, %124 ]
   %.not96.i.i = icmp eq ptr %.176.i.i, null
   br i1 %.not96.i.i, label %.thread109.i.i, label %.thread.i.i
 

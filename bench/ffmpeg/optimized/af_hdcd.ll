@@ -1722,7 +1722,7 @@ hdcd_integrate.exit:                              ; preds = %144
   br i1 %163, label %22, label %.thread
 
 .thread:                                          ; preds = %159, %158, %.preheader77
-  %.158 = phi i32 [ 0, %.preheader77 ], [ %145, %158 ], [ %145, %159 ]
+  %.158 = phi i32 [ %145, %158 ], [ 0, %.preheader77 ], [ %145, %159 ]
   br label %164
 
 164:                                              ; preds = %.thread, %176

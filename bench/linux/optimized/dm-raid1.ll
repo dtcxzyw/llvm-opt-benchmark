@@ -2029,8 +2029,8 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br i1 %237, label %.loopexit48, label %231, !llvm.loop !29
 
 .loopexit48:                                      ; preds = %261, %272, %245
-  %278 = phi ptr [ %230, %272 ], [ %230, %245 ], [ %262, %261 ]
-  %279 = phi ptr [ %229, %272 ], [ %229, %245 ], [ %235, %261 ]
+  %278 = phi ptr [ %230, %245 ], [ %230, %272 ], [ %262, %261 ]
+  %279 = phi ptr [ %229, %245 ], [ %229, %272 ], [ %235, %261 ]
   %280 = icmp eq ptr %278, null
   br i1 %280, label %286, label %281, !prof !11
 

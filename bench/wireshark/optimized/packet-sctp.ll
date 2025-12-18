@@ -4750,7 +4750,7 @@ add_fragment.exit.thread49.i:                     ; preds = %add_fragment.exit.i
   br i1 %.not458.i.i, label %._crit_edge.i.i230, label %581, !llvm.loop !24
 
 ._crit_edge.i.i230:                               ; preds = %578, %581, %573, %562
-  %.0.lcssa.i.i = phi i32 [ 0, %562 ], [ 0, %573 ], [ %590, %581 ], [ 0, %578 ]
+  %.0.lcssa.i.i = phi i32 [ %590, %581 ], [ 0, %562 ], [ 0, %573 ], [ 0, %578 ]
   %595 = getelementptr inbounds nuw i8, ptr %530, i64 16
   %.1384522.i.i = load ptr, ptr %595, align 8
   %.not459523.i.i = icmp eq ptr %.1384522.i.i, null
@@ -5466,7 +5466,7 @@ add_fragment.exit.thread49.i:                     ; preds = %add_fragment.exit.i
   br label %fragment_reassembly.exit.i
 
 fragment_reassembly.exit.i:                       ; preds = %630, %637, %633, %601, %597, %.critedge25.i.i, %625, %614, %._crit_edge.i.i230
-  %.032.i = phi ptr [ %861, %.critedge25.i.i ], [ %549, %._crit_edge.i.i230 ], [ %549, %614 ], [ %549, %625 ], [ %549, %637 ], [ %549, %601 ], [ %549, %597 ], [ %549, %633 ], [ %549, %630 ]
+  %.032.i = phi ptr [ %549, %601 ], [ %549, %637 ], [ %549, %._crit_edge.i.i230 ], [ %549, %614 ], [ %549, %625 ], [ %861, %.critedge25.i.i ], [ %549, %597 ], [ %549, %633 ], [ %549, %630 ]
   %.not34.i = icmp eq ptr %.032.i, null
   br i1 %.not34.i, label %dissect_fragmented_payload.exit, label %929
 
@@ -8972,7 +8972,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.553, %5 ], [ %switch.select19, %12 ], [ @.str.553, %4 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.553, %5 ], [ %switch.select27, %9 ], [ @.str.553, %4 ], [ %switch.select23, %6 ], [ %switch.select19, %12 ]
   ret ptr %.0
 }
 
@@ -9030,7 +9030,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.553, %5 ], [ %switch.select19, %12 ], [ @.str.553, %4 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.553, %5 ], [ %switch.select27, %9 ], [ @.str.553, %4 ], [ %switch.select23, %6 ], [ %switch.select19, %12 ]
   ret ptr %.0
 }
 

@@ -1048,7 +1048,7 @@ define dso_local range(i32 0, 2) i32 @cmd_update_index(i32 noundef %0, ptr nound
   ]
 
 .lr.ph.backedge:                                  ; preds = %425, %455
-  %.041115.be = phi i32 [ %.1106109, %455 ], [ %424, %425 ]
+  %.041115.be = phi i32 [ %424, %425 ], [ %.1106109, %455 ]
   br label %.lr.ph, !llvm.loop !52
 
 426:                                              ; preds = %425, %425

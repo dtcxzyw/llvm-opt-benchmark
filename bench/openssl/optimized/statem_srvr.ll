@@ -399,7 +399,7 @@ received_client_cert.exit.thread:                 ; preds = %90, %received_clien
   tail call void @BIO_set_flags(ptr noundef %128, i32 noundef 9) #12
   br label %129
 
-.thread:                                          ; preds = %13, %20, %26, %33, %31, %received_client_cert.exit.thread.i, %41, %44, %46, %57, %55, %119, %104, %98, %72, %122
+.thread:                                          ; preds = %57, %55, %46, %44, %41, %received_client_cert.exit.thread.i, %31, %33, %26, %20, %13, %119, %104, %98, %72, %122
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @__func__.ossl_statem_server_read_transition) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 244, ptr noundef null) #12
@@ -6710,7 +6710,7 @@ define range(i32 0, 6) i32 @tls_post_process_client_hello(ptr noundef %0, i32 no
   br label %.thread364.i
 
 .thread364.i:                                     ; preds = %.lr.ph386.i, %.critedge343.i, %374, %359, %356, %354, %316
-  %.0239.ph.i = phi ptr [ %362, %374 ], [ null, %354 ], [ null, %356 ], [ null, %316 ], [ null, %359 ], [ null, %.critedge343.i ], [ %.3449.i, %.lr.ph386.i ]
+  %.0239.ph.i = phi ptr [ null, %316 ], [ null, %359 ], [ %362, %374 ], [ null, %354 ], [ null, %356 ], [ null, %.critedge343.i ], [ %.3449.i, %.lr.ph386.i ]
   %.pr367.i = load i32, ptr %95, align 8, !tbaa !100
   %.not320.i = icmp eq i32 %.pr367.i, 0
   br i1 %.not320.i, label %381, label %.thread364..thread368_crit_edge.i

@@ -865,8 +865,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h6a0ea1e55fc6e
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h2314e3231b48e9cfE.llvm.82137549275260458.exit._crit_edge", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hafefd9e966523233E.llvm.82137549275260458.exit": ; preds = %15, %2, %.noexc
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %14, %15 ], [ %14, %.noexc ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %15 ], [ 1, %.noexc ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %14, %.noexc ], [ %14, %15 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %.noexc ], [ 1, %15 ]
   %.not2.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not2.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h2314e3231b48e9cfE.llvm.82137549275260458.exit", label %.lr.ph.i2.preheader
 
@@ -1014,8 +1014,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h6b3cdef287469
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h0e6f2ca61260288cE.llvm.82137549275260458.exit._crit_edge", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha49aa078590f8025E.llvm.82137549275260458.exit": ; preds = %18, %15, %2, %.noexc
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %14, %15 ], [ %14, %18 ], [ %14, %.noexc ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %15 ], [ 1, %18 ], [ 1, %.noexc ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %14, %15 ], [ %14, %.noexc ], [ %14, %18 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %15 ], [ 1, %.noexc ], [ 1, %18 ]
   %.not2.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not2.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h0e6f2ca61260288cE.llvm.82137549275260458.exit", label %.lr.ph.i2.preheader
 
@@ -1166,8 +1166,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17he69fafd46d8ca
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha286367d4327e3a4E.llvm.82137549275260458.exit._crit_edge", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h72fee904471aec75E.llvm.82137549275260458.exit": ; preds = %18, %15, %2, %.noexc
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %14, %15 ], [ %14, %18 ], [ %14, %.noexc ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %15 ], [ 1, %18 ], [ 1, %.noexc ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %14, %15 ], [ %14, %.noexc ], [ %14, %18 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %15 ], [ 1, %.noexc ], [ 1, %18 ]
   %.not2.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not2.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha286367d4327e3a4E.llvm.82137549275260458.exit", label %.lr.ph.i2.preheader
 

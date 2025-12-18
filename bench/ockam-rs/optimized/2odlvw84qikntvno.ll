@@ -276,8 +276,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbf58c5a5e2313c23E(ptr noal
   br i1 %55, label %98, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6c3830fe1b2611c2E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6c3830fe1b2611c2E.exit": ; preds = %_ZN4core3mem4swap17h7f3e899bc4d289daE.exit.i.i, %.loopexit79.thread176, %41, %105, %.loopexit79
-  %82 = phi i64 [ %81, %.loopexit79 ], [ %99, %105 ], [ %1, %41 ], [ %56, %.loopexit79.thread176 ], [ %99, %_ZN4core3mem4swap17h7f3e899bc4d289daE.exit.i.i ]
-  %.sroa.0.0.i73 = phi i64 [ %.sroa.0.1.i, %.loopexit79 ], [ %.sroa.0.1.i175, %105 ], [ %44, %41 ], [ 2, %.loopexit79.thread176 ], [ %.sroa.0.1.i175, %_ZN4core3mem4swap17h7f3e899bc4d289daE.exit.i.i ]
+  %82 = phi i64 [ %1, %41 ], [ %81, %.loopexit79 ], [ %99, %105 ], [ %56, %.loopexit79.thread176 ], [ %99, %_ZN4core3mem4swap17h7f3e899bc4d289daE.exit.i.i ]
+  %.sroa.0.0.i73 = phi i64 [ %44, %41 ], [ %.sroa.0.1.i, %.loopexit79 ], [ %.sroa.0.1.i175, %105 ], [ 2, %.loopexit79.thread176 ], [ %.sroa.0.1.i175, %_ZN4core3mem4swap17h7f3e899bc4d289daE.exit.i.i ]
   %83 = icmp uge i64 %82, %.0111
   %84 = icmp ule i64 %82, %1
   %or.cond.i = and i1 %83, %84
@@ -311,8 +311,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbf58c5a5e2313c23E(ptr noal
 
 .invoke202:                                       ; preds = %98, %91, %177
   %94 = phi i64 [ %173, %177 ], [ %.0111, %91 ], [ %.0111, %98 ]
-  %95 = phi i64 [ %182, %177 ], [ %99, %98 ], [ %.0.sroa.speculated.i.i, %91 ]
-  %96 = phi ptr [ @anon.a20ea156f567cca42419891fa62f7a9c.18, %177 ], [ @anon.a20ea156f567cca42419891fa62f7a9c.15, %98 ], [ @anon.a20ea156f567cca42419891fa62f7a9c.40, %91 ]
+  %95 = phi i64 [ %182, %177 ], [ %.0.sroa.speculated.i.i, %91 ], [ %99, %98 ]
+  %96 = phi ptr [ @anon.a20ea156f567cca42419891fa62f7a9c.18, %177 ], [ @anon.a20ea156f567cca42419891fa62f7a9c.40, %91 ], [ @anon.a20ea156f567cca42419891fa62f7a9c.15, %98 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17he265421b305b24a6E(i64 noundef %94, i64 noundef %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96) #27
           to label %.cont203 unwind label %.loopexit.split-lp
 
@@ -624,9 +624,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h92c053cde3f741edE.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i62, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hd395bef7aed67347E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hd395bef7aed67347E.exit": ; preds = %.lr.ph.i62, %.lr.ph10.i, %192, %197
-  %.sroa.10.0.i = phi ptr [ %189, %192 ], [ %188, %197 ], [ %212, %.lr.ph10.i ], [ %226, %.lr.ph.i62 ]
-  %.sroa.6.0.i = phi ptr [ %194, %192 ], [ %198, %197 ], [ %213, %.lr.ph10.i ], [ %198, %.lr.ph.i62 ]
-  %.sroa.0.0.i61 = phi ptr [ %14, %192 ], [ %14, %197 ], [ %14, %.lr.ph10.i ], [ %229, %.lr.ph.i62 ]
+  %.sroa.10.0.i = phi ptr [ %212, %.lr.ph10.i ], [ %189, %192 ], [ %188, %197 ], [ %226, %.lr.ph.i62 ]
+  %.sroa.6.0.i = phi ptr [ %213, %.lr.ph10.i ], [ %194, %192 ], [ %198, %197 ], [ %198, %.lr.ph.i62 ]
+  %.sroa.0.0.i61 = phi ptr [ %14, %.lr.ph10.i ], [ %14, %192 ], [ %14, %197 ], [ %229, %.lr.ph.i62 ]
   %232 = ptrtoint ptr %.sroa.6.0.i to i64
   %233 = ptrtoint ptr %.sroa.0.0.i61 to i64
   %234 = sub nuw i64 %232, %233
@@ -960,7 +960,7 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit": ; preds = %15, %11
-  %.sroa.0.0.i.i.pn = phi ptr [ %13, %11 ], [ %16, %15 ]
+  %.sroa.0.0.i.i.pn = phi ptr [ %16, %15 ], [ %13, %11 ]
   %17 = icmp eq ptr %.sroa.0.0.i.i.pn, null
   br i1 %17, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.thread"
 
@@ -1009,7 +1009,7 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit": ; preds = %15, %11
-  %.sroa.0.0.i.i.pn = phi ptr [ %13, %11 ], [ %16, %15 ]
+  %.sroa.0.0.i.i.pn = phi ptr [ %16, %15 ], [ %13, %11 ]
   %17 = icmp eq ptr %.sroa.0.0.i.i.pn, null
   br i1 %17, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.thread"
 
@@ -1058,7 +1058,7 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit": ; preds = %15, %11
-  %.sroa.0.0.i.i.pn = phi ptr [ %13, %11 ], [ %16, %15 ]
+  %.sroa.0.0.i.i.pn = phi ptr [ %16, %15 ], [ %13, %11 ]
   %17 = icmp eq ptr %.sroa.0.0.i.i.pn, null
   br i1 %17, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.thread"
 

@@ -2560,7 +2560,7 @@ define hidden noundef zeroext i1 @_ZN7Compile23remove_unstable_if_trapEP18CallSt
   br i1 %exitcond.not, label %_ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit, label %9, !llvm.loop !24
 
 _ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit: ; preds = %28, %3, %24, %21, %17
-  %.0 = phi i1 [ false, %17 ], [ true, %21 ], [ true, %24 ], [ true, %3 ], [ true, %28 ]
+  %.0 = phi i1 [ false, %17 ], [ true, %24 ], [ true, %21 ], [ true, %3 ], [ true, %28 ]
   ret i1 %.0
 }
 
@@ -15767,7 +15767,7 @@ _ZN9Node_List4pushEP4Node.exit.i55:               ; preds = %138, %132
   br label %_ZN16Unique_Node_List4pushEP4Node.exit56
 
 _ZN16Unique_Node_List4pushEP4Node.exit56:         ; preds = %111, %67, %68, %.preheader, %_ZN9Node_List4pushEP4Node.exit.i55, %_ZN9VectorSet8test_setEj.exit.i52, %_ZN16Unique_Node_List6memberEP4Node.exit50
-  %.4 = phi i32 [ 0, %_ZN16Unique_Node_List6memberEP4Node.exit50 ], [ 1, %_ZN9VectorSet8test_setEj.exit.i52 ], [ 1, %_ZN9Node_List4pushEP4Node.exit.i55 ], [ 0, %.preheader ], [ 0, %68 ], [ %.1, %67 ], [ %.3, %111 ]
+  %.4 = phi i32 [ 1, %_ZN9Node_List4pushEP4Node.exit.i55 ], [ %.1, %67 ], [ 0, %_ZN16Unique_Node_List6memberEP4Node.exit50 ], [ 1, %_ZN9VectorSet8test_setEj.exit.i52 ], [ 0, %.preheader ], [ 0, %68 ], [ %.3, %111 ]
   ret i32 %.4
 }
 
@@ -17083,7 +17083,7 @@ _ZNK4Type16make_narrowklassEv.exit:               ; preds = %327
   br label %331
 
 331:                                              ; preds = %_ZNK4Type14make_narrowoopEv.exit, %_ZNK4Type16make_narrowklassEv.exit, %318, %299
-  %.0274 = phi ptr [ %303, %299 ], [ %320, %318 ], [ %326, %_ZNK4Type14make_narrowoopEv.exit ], [ %330, %_ZNK4Type16make_narrowklassEv.exit ]
+  %.0274 = phi ptr [ %303, %299 ], [ %320, %318 ], [ %330, %_ZNK4Type16make_narrowklassEv.exit ], [ %326, %_ZNK4Type14make_narrowoopEv.exit ]
   %.not313 = icmp eq ptr %.0274, null
   br i1 %.not313, label %.thread, label %332
 
@@ -20339,7 +20339,7 @@ define hidden noundef zeroext i1 @_ZNK7Compile22expensive_nodes_sortedEv(ptr nou
   br i1 %.not, label %6, label %_ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit, !llvm.loop !93
 
 _ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit: ; preds = %.loopexit, %6, %33, %1
-  %43 = phi i1 [ true, %1 ], [ false, %33 ], [ %.not17.not, %6 ], [ %.not17.not, %.loopexit ]
+  %43 = phi i1 [ false, %33 ], [ true, %1 ], [ %.not17.not, %6 ], [ %.not17.not, %.loopexit ]
   ret i1 %43
 }
 
@@ -20458,7 +20458,7 @@ _ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit: ; preds = %54, %25, %38
   br i1 %62, label %25, label %_ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit.thread, !llvm.loop !95
 
 _ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit.thread: ; preds = %_ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit, %.preheader.i.i, %53, %._crit_edge, %2
-  %.014 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ true, %53 ], [ false, %_ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit ], [ true, %.preheader.i.i ]
+  %.014 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ true, %53 ], [ false, %_ZN7Compile19cmp_expensive_nodesEPP4NodeS2_.exit ], [ true, %.preheader.i.i ]
   ret i1 %.014
 }
 

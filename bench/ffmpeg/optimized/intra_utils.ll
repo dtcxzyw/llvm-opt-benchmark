@@ -411,7 +411,7 @@ get_reconstructed_area.exit:                      ; preds = %67
   br i1 %85, label %62, label %.critedge, !llvm.loop !93
 
 .critedge:                                        ; preds = %get_reconstructed_area.exit, %63, %80, %45
-  %.07088 = phi i32 [ %1, %45 ], [ %.07090, %63 ], [ %.07090, %80 ], [ %83, %get_reconstructed_area.exit ]
+  %.07088 = phi i32 [ %.07090, %63 ], [ %1, %45 ], [ %.07090, %80 ], [ %83, %get_reconstructed_area.exit ]
   %86 = sub nsw i32 %.07088, %1
   br label %87
 
@@ -533,7 +533,7 @@ get_reconstructed_area.exit:                      ; preds = %58
   br i1 %76, label %53, label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %get_reconstructed_area.exit, %54, %71, %42
-  %.05467 = phi i32 [ %2, %42 ], [ %.05469, %54 ], [ %.05469, %71 ], [ %74, %get_reconstructed_area.exit ]
+  %.05467 = phi i32 [ %.05469, %54 ], [ %2, %42 ], [ %.05469, %71 ], [ %74, %get_reconstructed_area.exit ]
   %77 = sub nsw i32 %.05467, %2
   br label %78
 

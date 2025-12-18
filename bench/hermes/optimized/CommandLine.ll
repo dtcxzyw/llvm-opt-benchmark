@@ -3704,8 +3704,8 @@ for.inc.fold.split:                               ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then19, %if.then, %for.inc.fold.split, %if.then48, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit68, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit37, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit48, %if.then4, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit, %if.then55, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit58, %if.then42, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %if.then14
-  %I.1 = phi i64 [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit ], [ %I.0107, %if.then4 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit68 ], [ %call15, %if.then14 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit48 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit37 ], [ %call44, %if.then42 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit58 ], [ %I.0107, %if.then19 ], [ %call57, %if.then55 ], [ %I.0107, %if.then48 ], [ %I.0107, %if.then ], [ %I.0107, %for.inc.fold.split ]
-  %State.1 = phi i32 [ 0, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit ], [ 0, %if.then4 ], [ 2, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit68 ], [ 1, %if.then14 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ 0, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit48 ], [ 0, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit37 ], [ 1, %if.then42 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit58 ], [ 2, %if.then19 ], [ 2, %if.then55 ], [ 1, %if.then48 ], [ 0, %if.then ], [ 2, %for.inc.fold.split ]
+  %I.1 = phi i64 [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit ], [ %I.0107, %if.then4 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit68 ], [ %call15, %if.then14 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit48 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit37 ], [ %I.0107, %if.then ], [ %call44, %if.then42 ], [ %I.0107, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit58 ], [ %I.0107, %if.then19 ], [ %call57, %if.then55 ], [ %I.0107, %if.then48 ], [ %I.0107, %for.inc.fold.split ]
+  %State.1 = phi i32 [ 0, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit ], [ 0, %if.then4 ], [ 2, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit68 ], [ 1, %if.then14 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ 0, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit48 ], [ 0, %_ZN4llvh23SmallVectorTemplateBaseIPKcLb1EE9push_backERKS2_.exit37 ], [ 0, %if.then ], [ 1, %if.then42 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit58 ], [ 2, %if.then19 ], [ 2, %if.then55 ], [ 1, %if.then48 ], [ 2, %for.inc.fold.split ]
   %inc = add i64 %I.1, 1
   %cmp.not = icmp eq i64 %inc, %Src.coerce1
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !68
@@ -7103,7 +7103,7 @@ for.body424.i:                                    ; preds = %if.end419.i, %for.b
   br i1 %cmp423.not.i, label %if.end444.i, label %for.body424.i, !llvm.loop !119
 
 if.end444.i:                                      ; preds = %for.body424.i, %for.inc363.i, %if.end419.i, %land.lhs.true400.i, %if.then318.i, %if.then4.i.i738.i, %if.then.i.i741.i, %if.then4.i.i648.i, %if.then.i.i651.i
-  %ErrorParsing.8.i = phi i1 [ true, %if.then4.i.i648.i ], [ true, %if.then.i.i651.i ], [ true, %if.then4.i.i738.i ], [ true, %if.then.i.i741.i ], [ %ErrorParsing.3968.i, %if.then318.i ], [ %ErrorParsing.11.i, %if.end419.i ], [ %ErrorParsing.9.lcssa.i, %land.lhs.true400.i ], [ %ErrorParsing.3968.i, %for.inc363.i ], [ %or436180.i, %for.body424.i ]
+  %ErrorParsing.8.i = phi i1 [ true, %if.then4.i.i648.i ], [ true, %if.then.i.i741.i ], [ %ErrorParsing.3968.i, %if.then318.i ], [ true, %if.then.i.i651.i ], [ true, %if.then4.i.i738.i ], [ %ErrorParsing.3968.i, %for.inc363.i ], [ %ErrorParsing.11.i, %if.end419.i ], [ %ErrorParsing.9.lcssa.i, %land.lhs.true400.i ], [ %or436180.i, %for.body424.i ]
   %228 = load ptr, ptr %OptionsMap32.i, align 8
   %NumBuckets.i.i = getelementptr inbounds nuw i8, ptr %ChosenSubCommand.0.i, i64 136
   %229 = load i32, ptr %NumBuckets.i.i, align 8
@@ -8310,7 +8310,7 @@ for.body18:                                       ; preds = %if.else, %for.body1
   br i1 %cmp17.not, label %return, label %for.body18, !llvm.loop !160
 
 return:                                           ; preds = %for.body, %for.body18, %if.then, %if.else
-  %retval.0.in.sroa.speculated = phi i64 [ 0, %if.else ], [ %add, %if.then ], [ %.sroa.speculated, %for.body18 ], [ %.sroa.speculated11, %for.body ]
+  %retval.0.in.sroa.speculated = phi i64 [ %.sroa.speculated, %for.body18 ], [ 0, %if.else ], [ %add, %if.then ], [ %.sroa.speculated11, %for.body ]
   ret i64 %retval.0.in.sroa.speculated
 }
 
@@ -14658,8 +14658,8 @@ if.then.i.i148:                                   ; preds = %if.end.i142
   br i1 %or.cond.i155, label %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163, label %while.body.i134, !llvm.loop !188
 
 _ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163: ; preds = %if.end.i142, %if.then.i.i148, %if.end53, %_ZN4llvh9StringRefC2EPKc.exit74, %if.then.i124, %if.then.i53.i126
-  %Value.sroa.0.0.i157 = phi ptr [ %14, %_ZN4llvh9StringRefC2EPKc.exit74 ], [ %14, %if.then.i124 ], [ %14, %if.then.i53.i126 ], [ null, %if.end53 ], [ %add.ptr.i.i145, %if.then.i.i148 ], [ %add.ptr.i.i145, %if.end.i142 ]
-  %Value.sroa.4.0.i158 = phi i64 [ %call.i73, %_ZN4llvh9StringRefC2EPKc.exit74 ], [ 0, %if.then.i124 ], [ %call.i73, %if.then.i53.i126 ], [ 0, %if.end53 ], [ 0, %if.end.i142 ], [ %sub.i.i146, %if.then.i.i148 ]
+  %Value.sroa.0.0.i157 = phi ptr [ %14, %_ZN4llvh9StringRefC2EPKc.exit74 ], [ null, %if.end53 ], [ %14, %if.then.i53.i126 ], [ %14, %if.then.i124 ], [ %add.ptr.i.i145, %if.then.i.i148 ], [ %add.ptr.i.i145, %if.end.i142 ]
+  %Value.sroa.4.0.i158 = phi i64 [ %call.i73, %_ZN4llvh9StringRefC2EPKc.exit74 ], [ 0, %if.end53 ], [ %call.i73, %if.then.i53.i126 ], [ 0, %if.then.i124 ], [ 0, %if.end.i142 ], [ %sub.i.i146, %if.then.i.i148 ]
   %vtable13.i159 = load ptr, ptr %Handler, align 8
   %vfn14.i160 = getelementptr inbounds nuw i8, ptr %vtable13.i159, i64 80
   %17 = load ptr, ptr %vfn14.i160, align 8
@@ -14670,7 +14670,7 @@ _ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163:
   br i1 %or.cond, label %return, label %while.body, !llvm.loop !189
 
 return:                                           ; preds = %while.body.i87, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163, %while.body.i134, %while.body.i, %if.end44, %if.end9.i, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit116, %if.then48, %_ZN4llvhplERKNS_5TwineES2_.exit69, %if.then10, %if.then3
-  %retval.0 = phi i1 [ true, %_ZN4llvhplERKNS_5TwineES2_.exit69 ], [ true, %if.then48 ], [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit116 ], [ true, %if.then3 ], [ true, %if.then10 ], [ %call15.i, %if.end9.i ], [ false, %if.end44 ], [ %call15.i161, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163 ], [ true, %while.body.i ], [ true, %while.body.i134 ], [ true, %while.body.i87 ]
+  %retval.0 = phi i1 [ true, %while.body.i ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit69 ], [ true, %if.then48 ], [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit116 ], [ %call15.i161, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163 ], [ true, %if.then3 ], [ true, %if.then10 ], [ %call15.i, %if.end9.i ], [ true, %while.body.i134 ], [ false, %if.end44 ], [ true, %while.body.i87 ]
   ret i1 %retval.0
 }
 

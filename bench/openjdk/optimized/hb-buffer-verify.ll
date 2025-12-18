@@ -74,7 +74,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t6verifyEPS_P9hb_font_tPK12hb_f
   br i1 %exitcond.not.i, label %_ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit, label %27, !llvm.loop !6
 
 _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %33
-  %.017.i.ph = phi i1 [ true, %20 ], [ false, %33 ], [ true, %34 ]
+  %.017.i.ph = phi i1 [ false, %33 ], [ true, %20 ], [ true, %34 ]
   %.pr = load i32, ptr %18, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -204,8 +204,8 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %89, %94, %.critedge.loopexit119.split.loop.exit120.i, %.critedge.loopexit.split.loop.exit.i, %78, %74
-  %.288.i = phi i32 [ %.086105.i, %78 ], [ %.086105.i, %.critedge.loopexit.split.loop.exit.i ], [ %spec.select.i, %74 ], [ %101, %.critedge.loopexit119.split.loop.exit120.i ], [ %.086105.i, %94 ], [ %81, %89 ]
-  %.2.i = phi i32 [ %.083108.i, %78 ], [ %100, %.critedge.loopexit.split.loop.exit.i ], [ %spec.select124.i, %74 ], [ %.083108.i, %.critedge.loopexit119.split.loop.exit120.i ], [ 0, %94 ], [ %.083108.i, %89 ]
+  %.288.i = phi i32 [ %.086105.i, %94 ], [ %.086105.i, %78 ], [ %.086105.i, %.critedge.loopexit.split.loop.exit.i ], [ %spec.select.i, %74 ], [ %101, %.critedge.loopexit119.split.loop.exit120.i ], [ %81, %89 ]
+  %.2.i = phi i32 [ 0, %94 ], [ %.083108.i, %78 ], [ %100, %.critedge.loopexit.split.loop.exit.i ], [ %spec.select124.i, %74 ], [ %.083108.i, %.critedge.loopexit119.split.loop.exit120.i ], [ %.083108.i, %89 ]
   %.2.fr.i = freeze i32 %.2.i
   call void @hb_buffer_clear_contents(ptr noundef %36)
   %102 = call i32 @hb_buffer_get_flags(ptr noundef %36)
@@ -267,7 +267,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %111, %108, %.critedge.i, %126, %123, %._crit_edge.i
-  %.0.ph.i = phi i1 [ false, %126 ], [ %.017.i.ph, %123 ], [ %.017.i.ph, %._crit_edge.i ], [ %.017.i.ph, %.critedge.i ], [ %.017.i.ph, %108 ], [ %.017.i.ph, %111 ]
+  %.0.ph.i = phi i1 [ %.017.i.ph, %._crit_edge.i ], [ %.017.i.ph, %123 ], [ false, %126 ], [ %.017.i.ph, %.critedge.i ], [ %.017.i.ph, %108 ], [ %.017.i.ph, %111 ]
   call void @hb_buffer_destroy(ptr noundef %39)
   call void @hb_buffer_destroy(ptr noundef %36)
   br label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit

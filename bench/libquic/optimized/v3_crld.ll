@@ -219,7 +219,7 @@ crldp_from_section.exit.thread:                   ; preds = %13, %42
   store i32 0, ptr %58, align 8, !tbaa !23
   br label %59
 
-59:                                               ; preds = %56, %.loopexit
+59:                                               ; preds = %.loopexit, %56
   %60 = add nuw i64 %.03697, 1
   %61 = tail call i64 @sk_num(ptr noundef %2) #4
   %62 = icmp ult i64 %60, %61
@@ -787,7 +787,7 @@ define hidden range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef captures(ad
   br label %23
 
 23:                                               ; preds = %.sink.split, %._crit_edge, %5, %2, %3
-  %.0 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 1, %3 ], [ 1, %._crit_edge ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %._crit_edge ], [ 1, %3 ], [ 0, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1006,7 +1006,7 @@ define internal fastcc range(i32 0, 2) i32 @set_reasons(ptr noundef nonnull capt
   br i1 %.not27, label %.thread, label %19, !llvm.loop !56
 
 .thread:                                          ; preds = %15, %23, %7, %26, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 0, %26 ], [ 0, %15 ], [ 0, %23 ], [ 1, %7 ]
+  %.0 = phi i32 [ 0, %26 ], [ 1, %.preheader ], [ 0, %15 ], [ 0, %23 ], [ 1, %7 ]
   tail call void @sk_pop_free(ptr noundef nonnull %3, ptr noundef nonnull @X509V3_conf_free) #4
   br label %30
 

@@ -1495,7 +1495,7 @@ bsearch.exit.thread.sink.split:                   ; preds = %32, %10
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %obj_cmp.exit.thread, %bsearch.exit.thread.sink.split, %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ %5, %3 ], [ %36, %bsearch.exit.thread.sink.split ], [ 0, %obj_cmp.exit.thread ]
+  %.0 = phi i32 [ %36, %bsearch.exit.thread.sink.split ], [ 0, %1 ], [ %5, %3 ], [ 0, %obj_cmp.exit.thread ]
   ret i32 %.0
 }
 

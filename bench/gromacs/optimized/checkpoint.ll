@@ -6960,7 +6960,7 @@ _ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us: ; preds = %152
   br label %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us
 
 _ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us: ; preds = %_ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us, %_ZL25convertArrayRealPrecisionPKcPdi.exit.i.i.i.us.us.i.us
-  %.1.i.i.i.us.us.i.us = phi i32 [ 0, %_ZL25convertArrayRealPrecisionPKcPdi.exit.i.i.i.us.us.i.us ], [ %spec.select.i.i.i.us.us.i.us, %_ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us ]
+  %.1.i.i.i.us.us.i.us = phi i32 [ %spec.select.i.i.i.us.us.i.us, %_ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us ], [ 0, %_ZL25convertArrayRealPrecisionPKcPdi.exit.i.i.i.us.us.i.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next.i60.us = add nuw nsw i64 %indvars.iv.i59.us, 1
@@ -7071,7 +7071,7 @@ default.unreachable.i:                            ; preds = %194
   unreachable
 
 .loopexit.i:                                      ; preds = %.preheader68.i, %.preheader66.i, %.preheader.i, %214, %197, %195
-  %.5.i = phi i32 [ %196, %195 ], [ %198, %197 ], [ %215, %214 ], [ %205, %.preheader66.i ], [ %200, %.preheader.i ], [ %210, %.preheader68.i ]
+  %.5.i = phi i32 [ %196, %195 ], [ %198, %197 ], [ %205, %.preheader66.i ], [ %200, %.preheader.i ], [ %215, %214 ], [ %210, %.preheader68.i ]
   %221 = add nuw nsw i32 %.sroa.055.078.i, 1
   %222 = icmp eq i32 %.5.i, 0
   br i1 %222, label %194, label %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit, !llvm.loop !293
@@ -9430,7 +9430,7 @@ _ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us275: ; preds = %.lr.ph272.spli
   br i1 %1, label %194, label %199
 
 ._crit_edge273:                                   ; preds = %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us275, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us.us, %.preheader
-  %181 = phi i32 [ %149, %.preheader ], [ %178, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us275 ], [ %157, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us.us ], [ %168, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us ], [ %191, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171 ]
+  %181 = phi i32 [ %178, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us275 ], [ %168, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us ], [ %157, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171.us.us ], [ %149, %.preheader ], [ %191, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171 ]
   br i1 %.not252, label %.split279.us, label %.preheader, !llvm.loop !363
 
 .lr.ph272.split.split:                            ; preds = %.lr.ph272.split, %_ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit171

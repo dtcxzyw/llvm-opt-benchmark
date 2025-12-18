@@ -592,7 +592,7 @@ watcher_root_RB_MINMAX.exit.preheader.i:          ; preds = %thread-pre-split.i
   br i1 %42, label %36, label %watcher_root_RB_NEXT.exit.i
 
 watcher_root_RB_NEXT.exit.i:                      ; preds = %.preheader.i.i, %39, %36, %33
-  %.1.i.i = phi ptr [ %32, %33 ], [ null, %36 ], [ %38, %39 ], [ %.0.i40.i, %.preheader.i.i ]
+  %.1.i.i = phi ptr [ null, %36 ], [ %32, %33 ], [ %38, %39 ], [ %.0.i40.i, %.preheader.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %.050.i, i64 48
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.050.i, i64 32
@@ -3488,7 +3488,7 @@ uv__ifaddr_exclude.exit70.thread:                 ; preds = %86, %67, %62, %.lr.
   br i1 %.not59, label %._crit_edge98, label %.lr.ph97
 
 ._crit_edge98:                                    ; preds = %uv__ifaddr_exclude.exit70.thread, %.preheader80, %.preheader
-  %91 = phi ptr [ null, %.preheader ], [ null, %.preheader80 ], [ %.294.pre, %uv__ifaddr_exclude.exit70.thread ]
+  %91 = phi ptr [ null, %.preheader80 ], [ null, %.preheader ], [ %.294.pre, %uv__ifaddr_exclude.exit70.thread ]
   call void @freeifaddrs(ptr noundef %91) #17
   br label %92
 
@@ -4555,7 +4555,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %.not.i46, label %53, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %51, %.thread
-  %.02636.i.be = phi ptr [ %.026.i54, %.thread ], [ %.026.i, %51 ]
+  %.02636.i.be = phi ptr [ %.026.i, %51 ], [ %.026.i54, %.thread ]
   br label %.lr.ph.i
 
 .thread:                                          ; preds = %50
@@ -4864,7 +4864,7 @@ watcher_root_RB_INSERT_COLOR.exit.i:              ; preds = %.backedge.i.i, %.lr
   br label %find_watcher.exit
 
 find_watcher.exit:                                ; preds = %32, %50, %watcher_root_RB_INSERT_COLOR.exit.i
-  %.037 = phi ptr [ %38, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %38, %50 ], [ %.093.i.i, %32 ]
+  %.037 = phi ptr [ %38, %50 ], [ %38, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %.093.i.i, %32 ]
   %173 = load i32, ptr %5, align 8
   %174 = and i32 %173, 4
   %.not44 = icmp eq i32 %174, 0

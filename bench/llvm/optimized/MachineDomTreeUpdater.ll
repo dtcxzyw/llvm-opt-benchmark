@@ -1831,8 +1831,8 @@ _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit: ; preds = %76, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit129, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit131, %96, %102, %108
-  %115 = phi ptr [ %103, %102 ], [ %97, %96 ], [ %109, %108 ], [ %74, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit131 ], [ %74, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit129 ], [ %74, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %74, %76 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %102 ], [ %.029.lcssa.i.i.i.i, %96 ], [ %.2.i.i.i.i, %108 ], [ %114, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit131 ], [ %113, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit129 ], [ %112, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %76 ]
+  %115 = phi ptr [ %103, %102 ], [ %97, %96 ], [ %109, %108 ], [ %74, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %74, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit131 ], [ %74, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit129 ], [ %74, %76 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %102 ], [ %.029.lcssa.i.i.i.i, %96 ], [ %.2.i.i.i.i, %108 ], [ %112, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %114, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit131 ], [ %113, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit129 ], [ %.02946.i.i.i.i, %76 ]
   %.not79 = icmp eq ptr %.028.i.i.i.i, %72
   br i1 %.not79, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.thread, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_17MachineBasicBlockEEESaIS5_EE9push_backEOS5_.exit43
 
@@ -4452,7 +4452,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_17MachineBasicBlockES4_EiL
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_17MachineBasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E7reserveEj.exit
-  %.not6393 = phi i1 [ true, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_17MachineBasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E7reserveEj.exit ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ]
+  %.not6393 = phi i1 [ false, %.lr.ph.split.us ], [ true, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_17MachineBasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E7reserveEj.exit ], [ false, %.lr.ph.split ]
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %49, align 8, !tbaa !9
   %50 = load i32, ptr %7, align 8

@@ -1040,7 +1040,7 @@ _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %_ZStlsISt11char_tr
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %57, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %_ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit, %110, %112, %37, %39
-  %119 = phi i1 [ false, %37 ], [ false, %39 ], [ false, %112 ], [ false, %110 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split ], [ true, %57 ]
+  %119 = phi i1 [ false, %37 ], [ false, %110 ], [ false, %39 ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split ], [ false, %112 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit ], [ true, %57 ]
   %120 = load ptr, ptr %8, align 8, !tbaa !3
   %121 = load i64, ptr %120, align 8
   %122 = and i64 %121, 1152920405095219200

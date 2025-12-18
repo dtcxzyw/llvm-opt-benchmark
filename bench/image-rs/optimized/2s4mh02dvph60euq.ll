@@ -16128,7 +16128,7 @@ _ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us: ; preds 
   br i1 %38, label %.split.us, label %39
 
 "_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.thread": ; preds = %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit", %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit.us", %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us, %5, %75
-  %.0 = phi ptr [ %71, %75 ], [ null, %5 ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ %.0.i.i.i.us, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit.us" ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
+  %.0 = phi ptr [ %.0.i.i.i.us, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us ], [ %71, %75 ], [ null, %5 ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit.us" ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
   ret ptr %.0
 
 39:                                               ; preds = %.lr.ph25.split
@@ -16314,7 +16314,7 @@ _ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us: ; preds 
   br i1 %39, label %.split.us, label %40
 
 "_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.thread": ; preds = %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit", %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit.us", %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us, %5, %79
-  %.0 = phi ptr [ %75, %79 ], [ null, %5 ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ %.0.i.i.i.us, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit.us" ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
+  %.0 = phi ptr [ %.0.i.i.i.us, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i.us ], [ %75, %79 ], [ null, %5 ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit.us" ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
   ret ptr %.0
 
 40:                                               ; preds = %.lr.ph25.split
@@ -16510,7 +16510,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT
   br label %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.thread"
 
 "_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.thread": ; preds = %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit", %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f2fd16ffa1bc2fdE.llvm.3890463254259644073.exit.thread", %100, %49
-  %.047 = phi ptr [ %61, %100 ], [ %42, %49 ], [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f2fd16ffa1bc2fdE.llvm.3890463254259644073.exit.thread" ], [ %.0.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
+  %.047 = phi ptr [ %61, %100 ], [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f2fd16ffa1bc2fdE.llvm.3890463254259644073.exit.thread" ], [ %42, %49 ], [ %.0.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
   ret ptr %.047
 
 50:                                               ; preds = %.preheader, %99
@@ -30256,9 +30256,9 @@ _ZN5image4flat12SampleLayout4fits17hcdf65561a54bfc7dE.exit.thread.i: ; preds = %
   br i1 %411, label %1460, label %.invoke2204.i, !prof !590
 
 .invoke2204.i:                                    ; preds = %.lr.ph1837.i, %.noexc470.i, %.noexc480.i, %.noexc491.i, %.noexc502.i, %.noexc512.i, %.noexc526.i, %.noexc541.i, %.noexc556.i, %._crit_edge1838.i
-  %412 = phi i64 [ 3, %._crit_edge1838.i ], [ %628, %.noexc470.i ], [ %771, %.noexc556.i ], [ %935, %.noexc541.i ], [ %1102, %.noexc526.i ], [ %1279, %.noexc512.i ], [ %457, %.noexc502.i ], [ %509, %.noexc491.i ], [ %566, %.noexc480.i ], [ %410, %.lr.ph1837.i ]
-  %413 = phi i64 [ %.val573.i, %._crit_edge1838.i ], [ 280, %.noexc470.i ], [ 280, %.noexc556.i ], [ 280, %.noexc541.i ], [ 280, %.noexc526.i ], [ 280, %.noexc512.i ], [ 280, %.noexc502.i ], [ 280, %.noexc491.i ], [ 280, %.noexc480.i ], [ %.val571.i, %.lr.ph1837.i ]
-  %414 = phi ptr [ @anon.df12dd7d62f56185f0383eceae1d36f2.365, %._crit_edge1838.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc470.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc556.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc541.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc526.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc512.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc502.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc491.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc480.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.434, %.lr.ph1837.i ]
+  %412 = phi i64 [ 3, %._crit_edge1838.i ], [ %457, %.noexc502.i ], [ %509, %.noexc491.i ], [ %935, %.noexc541.i ], [ %628, %.noexc470.i ], [ %771, %.noexc556.i ], [ %566, %.noexc480.i ], [ %1102, %.noexc526.i ], [ %1279, %.noexc512.i ], [ %410, %.lr.ph1837.i ]
+  %413 = phi i64 [ %.val573.i, %._crit_edge1838.i ], [ 280, %.noexc502.i ], [ 280, %.noexc491.i ], [ 280, %.noexc541.i ], [ 280, %.noexc470.i ], [ 280, %.noexc556.i ], [ 280, %.noexc480.i ], [ 280, %.noexc526.i ], [ 280, %.noexc512.i ], [ %.val571.i, %.lr.ph1837.i ]
+  %414 = phi ptr [ @anon.df12dd7d62f56185f0383eceae1d36f2.365, %._crit_edge1838.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc502.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc491.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc541.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc470.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc556.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.356, %.noexc480.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc526.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.358, %.noexc512.i ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.434, %.lr.ph1837.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %412, i64 noundef %413, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %414) #35
           to label %.cont2205.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !4723
 
@@ -30848,10 +30848,10 @@ _ZN5image4flat12SampleLayout4fits17hcdf65561a54bfc7dE.exit.thread.i: ; preds = %
   br label %.preheader1731.split.i.backedge
 
 .preheader1731.split.i.backedge:                  ; preds = %634, %630, %.critedge.i.split.i
-  %.sroa.0939.0.i.be = phi i64 [ 1, %.critedge.i.split.i ], [ %.sroa.0939.514031424.i, %630 ], [ 1, %634 ]
-  %.sroa.56.0.i.be = phi ptr [ %.sroa.56.332105.i, %.critedge.i.split.i ], [ %.sroa.56.332104.i, %630 ], [ %.sroa.56.332105.i, %634 ]
-  %.sroa.81.0.i.be = phi i64 [ %.sroa.81.332108.i, %.critedge.i.split.i ], [ %.sroa.81.332107.i, %630 ], [ %.sroa.81.332108.i, %634 ]
-  %.sroa.28.0.i.be = phi i64 [ %.sroa.0.0.i.i.i709.lcssa.i, %.critedge.i.split.i ], [ %.sroa.0.0.i.i.i7091993.i, %630 ], [ %.sroa.0.0.i.i.i709.lcssa.i, %634 ]
+  %.sroa.0939.0.i.be = phi i64 [ 1, %634 ], [ 1, %.critedge.i.split.i ], [ %.sroa.0939.514031424.i, %630 ]
+  %.sroa.56.0.i.be = phi ptr [ %.sroa.56.332105.i, %634 ], [ %.sroa.56.332105.i, %.critedge.i.split.i ], [ %.sroa.56.332104.i, %630 ]
+  %.sroa.81.0.i.be = phi i64 [ %.sroa.81.332108.i, %634 ], [ %.sroa.81.332108.i, %.critedge.i.split.i ], [ %.sroa.81.332107.i, %630 ]
+  %.sroa.28.0.i.be = phi i64 [ %.sroa.0.0.i.i.i709.lcssa.i, %634 ], [ %.sroa.0.0.i.i.i709.lcssa.i, %.critedge.i.split.i ], [ %.sroa.0.0.i.i.i7091993.i, %630 ]
   br label %.preheader1731.split.i
 
 639:                                              ; preds = %.noexc469.i

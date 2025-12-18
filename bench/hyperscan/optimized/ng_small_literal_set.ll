@@ -965,8 +965,8 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit20.i.i.i.i: ; pred
   br label %.noexc12.i.i.i
 
 .noexc12.i.i.i:                                   ; preds = %.noexc22.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit14.thread.i.i.i.i, %.noexc17.i.i.i, %325, %._crit_edge.i.i.i.i
-  %.sroa.041.0.i.i.i.i = phi ptr [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit14.thread.i.i.i.i ], [ null, %._crit_edge.i.i.i.i ], [ %353, %.noexc17.i.i.i ], [ %326, %325 ], [ %398, %.noexc22.i.i.i ]
-  %.sroa.12.0.i.i.i.i = phi ptr [ %371, %_ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit14.thread.i.i.i.i ], [ %.pre51.i.i.i.i, %._crit_edge.i.i.i.i ], [ %354, %.noexc17.i.i.i ], [ %326, %325 ], [ %399, %.noexc22.i.i.i ]
+  %.sroa.041.0.i.i.i.i = phi ptr [ %326, %325 ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit14.thread.i.i.i.i ], [ %398, %.noexc22.i.i.i ], [ null, %._crit_edge.i.i.i.i ], [ %353, %.noexc17.i.i.i ]
+  %.sroa.12.0.i.i.i.i = phi ptr [ %326, %325 ], [ %371, %_ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit14.thread.i.i.i.i ], [ %399, %.noexc22.i.i.i ], [ %.pre51.i.i.i.i, %._crit_edge.i.i.i.i ], [ %354, %.noexc17.i.i.i ]
   %.not.i.i198.i = icmp eq ptr %.sroa.12.0.i.i.i.i, null
   br i1 %.not.i.i198.i, label %.thread10.i.i.i, label %.thread.i.i199.i
 
@@ -1688,7 +1688,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
   br i1 %.not416.i, label %.loopexit435.i, label %77, !llvm.loop !73
 
 .loopexit435.i:                                   ; preds = %.loopexit447.i, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit.i
-  %.not416511.i.not = phi i1 [ false, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit.i ], [ true, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i ], [ false, %.loopexit447.i ]
+  %.not416511.i.not = phi i1 [ true, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i ], [ false, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit.i ], [ false, %.loopexit447.i ]
   %.not.i.i.i221.i = icmp eq ptr %.sroa.0297.0.i, null
   br i1 %.not.i.i.i221.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %654
 
@@ -1907,7 +1907,7 @@ _ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i: ; preds = %.lr.ph.split.i
   br label %.body
 
 _ZN3ue2L33checkLongMixedSensitivityLiteralsERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit: ; preds = %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i, %710, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit, %665
-  %.1 = phi i1 [ false, %665 ], [ false, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit ], [ true, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread ], [ true, %710 ], [ false, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i ]
+  %.1 = phi i1 [ false, %665 ], [ true, %710 ], [ false, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit ], [ true, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread ], [ false, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i ]
   %.val27 = load ptr, ptr %20, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISA_ES6_IS2_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val27)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

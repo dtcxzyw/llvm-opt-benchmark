@@ -431,8 +431,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %67, %72
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !37
 
 .critedge:                                        ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us, %.split, %.split.us
-  %.sroa.0.0.copyload.i.i9 = phi i64 [ %.sroa.0.0.copyload.i.i9.pre23, %.split.us ], [ %.sroa.0.0.copyload.i.i9.pre, %.split ], [ %41, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us ], [ %77, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit ]
-  %.us-phi = phi i8 [ %9, %.split.us ], [ %9, %.split ], [ %42, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us ], [ %78, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit ]
+  %.sroa.0.0.copyload.i.i9 = phi i64 [ %41, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us ], [ %.sroa.0.0.copyload.i.i9.pre23, %.split.us ], [ %.sroa.0.0.copyload.i.i9.pre, %.split ], [ %77, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit ]
+  %.us-phi = phi i8 [ %42, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us ], [ %9, %.split.us ], [ %9, %.split ], [ %78, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit ]
   %82 = and i8 %.us-phi, 127
   %83 = load ptr, ptr %7, align 8, !tbaa !6
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8

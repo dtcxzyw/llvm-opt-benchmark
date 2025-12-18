@@ -1610,11 +1610,11 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond.not, label %.critedge2, label %120, !llvm.loop !95
 
 .critedge2:                                       ; preds = %.cont, %Vec_IntStart.exit83, %.lr.ph125, %.critedge
-  %.sroa.5103.0.lcssa154 = phi i32 [ %.sroa.5103.0.lcssa.ph, %.critedge ], [ %.sroa.5103.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5103.0.lcssa.ph, %.cont ]
-  %.sroa.0102.0.lcssa153 = phi i32 [ %.sroa.0102.0.lcssa.ph, %.critedge ], [ %.sroa.0102.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0102.0.lcssa.ph, %.cont ]
-  %132 = phi ptr [ %.val59142, %.critedge ], [ %.val59142, %.lr.ph125 ], [ %27, %Vec_IntStart.exit83 ], [ %.val59142, %.cont ]
-  %.sroa.0.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0.1, %.cont ]
-  %.sroa.5.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5.1, %.cont ]
+  %.sroa.5103.0.lcssa154 = phi i32 [ %.sroa.5103.0.lcssa.ph, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5103.0.lcssa.ph, %.lr.ph125 ], [ %.sroa.5103.0.lcssa.ph, %.cont ]
+  %.sroa.0102.0.lcssa153 = phi i32 [ %.sroa.0102.0.lcssa.ph, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0102.0.lcssa.ph, %.lr.ph125 ], [ %.sroa.0102.0.lcssa.ph, %.cont ]
+  %132 = phi ptr [ %.val59142, %.critedge ], [ %27, %Vec_IntStart.exit83 ], [ %.val59142, %.lr.ph125 ], [ %.val59142, %.cont ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ 0, %.lr.ph125 ], [ %.sroa.0.1, %.cont ]
+  %.sroa.5.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ 0, %.lr.ph125 ], [ %.sroa.5.1, %.cont ]
   %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.sroa.0.0.lcssa, i32 noundef %.sroa.0102.0.lcssa153, i32 noundef %.sroa.5.0.lcssa, i32 noundef %.sroa.5103.0.lcssa154)
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !71

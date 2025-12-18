@@ -954,7 +954,7 @@ report_last_gc_error.exit.thread:                 ; preds = %249, %258
   br label %279
 
 report_last_gc_error.exit:                        ; preds = %_.exit.i, %278
-  %.0.i75 = phi i32 [ %257, %_.exit.i ], [ %.1.i, %278 ]
+  %.0.i75 = phi i32 [ %.1.i, %278 ], [ %257, %_.exit.i ]
   call void @free(ptr noundef %247) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2238,7 +2238,7 @@ define internal fastcc range(i32 0, 2) i32 @too_many_loose_objects(ptr noundef r
   br i1 %exitcond.not, label %.loopexit, label %.outer, !llvm.loop !113
 
 .loopexit:                                        ; preds = %25, %.outer, %23
-  %.011 = phi i32 [ 0, %23 ], [ 0, %.outer ], [ 1, %25 ]
+  %.011 = phi i32 [ 0, %23 ], [ 1, %25 ], [ 0, %.outer ]
   %27 = tail call i32 @closedir(ptr noundef nonnull %8)
   br label %28
 
@@ -3752,7 +3752,7 @@ prune_packed.exit:                                ; preds = %2, %10
   br label %pack_loose.exit
 
 pack_loose.exit:                                  ; preds = %13, %38, %.sink.split.i
-  %.05.i = phi i32 [ 0, %13 ], [ 0, %38 ], [ 1, %.sink.split.i ]
+  %.05.i = phi i32 [ 0, %38 ], [ 0, %13 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55

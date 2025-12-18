@@ -1360,7 +1360,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit36:        ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   br label %109
 
-.thread72:                                        ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i, %37
+.thread72:                                        ; preds = %37, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i
   %lpad.thr_comm70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
@@ -1377,8 +1377,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit36:        ; preds = %_ZNSt6vectorIiSaIiE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %89, %55
-  %.sroa.0.0.ph.ph.ph.ph = phi ptr [ %.sroa.0.196, %55 ], [ %.sroa.0.2, %89 ]
-  %.sroa.10.0.ph.ph.ph.ph = phi ptr [ %.sroa.10.198, %55 ], [ %.sroa.10.2, %89 ]
+  %.sroa.0.0.ph.ph.ph.ph = phi ptr [ %.sroa.0.2, %89 ], [ %.sroa.0.196, %55 ]
+  %.sroa.10.0.ph.ph.ph.ph = phi ptr [ %.sroa.10.2, %89 ], [ %.sroa.10.198, %55 ]
   %lpad.loopexit.split-lp83 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1580,8 +1580,8 @@ _ZN4Node8AddInputEPKS_.exit:                      ; preds = %_ZNSt6vectorIPK4Nod
   br i1 %190, label %.preheader, label %._crit_edge106, !llvm.loop !19
 
 ._crit_edge106:                                   ; preds = %._crit_edge104, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit, %.preheader78
-  %.sroa.10.1.lcssa158 = phi ptr [ %.sroa.10.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.10.2, %._crit_edge104 ]
-  %.sroa.0.1.lcssa157 = phi ptr [ %.sroa.0.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.0.2, %._crit_edge104 ]
+  %.sroa.10.1.lcssa158 = phi ptr [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.10.2, %.preheader78 ], [ %.sroa.10.2, %._crit_edge104 ]
+  %.sroa.0.1.lcssa157 = phi ptr [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.0.2, %.preheader78 ], [ %.sroa.0.2, %._crit_edge104 ]
   %191 = load ptr, ptr %5, align 8
   %192 = load ptr, ptr %32, align 8
   %.not4.i.i.i.i = icmp eq ptr %191, %192

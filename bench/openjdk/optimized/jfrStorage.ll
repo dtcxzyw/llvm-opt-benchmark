@@ -1074,7 +1074,7 @@ define hidden noundef ptr @_ZN10JfrStorage24acquire_promotion_bufferEmP14JfrMemo
   br label %_Z30mspace_acquire_live_with_retryI14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb0EEENT_7NodePtrEmPS8_mP6Threadb.exit
 
 _Z30mspace_acquire_live_with_retryI14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb0EEENT_7NodePtrEmPS8_mP6Threadb.exit: ; preds = %21, %52, %50, %44, %.split16.us
-  %.0 = phi ptr [ null, %.split16.us ], [ %48, %44 ], [ null, %50 ], [ null, %52 ], [ %16, %21 ]
+  %.0 = phi ptr [ null, %.split16.us ], [ null, %52 ], [ %48, %44 ], [ null, %50 ], [ %16, %21 ]
   ret ptr %.0
 }
 
@@ -3839,7 +3839,7 @@ _ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i: ; preds = %.lr.ph
   br label %.lr.ph.i.preheader.i.i
 
 _ZN16JfrVersionSystem4Node6commitEv.exit:         ; preds = %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit, %135, %_ZN16JfrVersionSystem7inc_tipEv.exit.i
-  %.0 = phi ptr [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ %40, %135 ], [ null, %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit ]
+  %.0 = phi ptr [ %40, %135 ], [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ null, %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit ]
   %139 = load i64, ptr %27, align 8
   %140 = add nsw i64 %139, -1
   store i64 %140, ptr %27, align 8
@@ -4173,7 +4173,7 @@ _ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i: ; preds = %.lr.ph
   br label %.lr.ph.i.preheader.i.i
 
 _ZN16JfrVersionSystem4Node6commitEv.exit:         ; preds = %_Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit, %135, %_ZN16JfrVersionSystem7inc_tipEv.exit.i
-  %.0 = phi ptr [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ %40, %135 ], [ null, %_Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit ]
+  %.0 = phi ptr [ %40, %135 ], [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ null, %_Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit ]
   %139 = load i64, ptr %27, align 8
   %140 = add nsw i64 %139, -1
   store i64 %140, ptr %27, align 8
@@ -4644,7 +4644,7 @@ _ZL21align_allocation_sizemm.exit.i.i.i:          ; preds = %.preheader.i.i.i.i
   br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE13JfrLinkedListIS3_S4_ELb0EE16add_to_live_listEPS3_b.exit, label %16, !llvm.loop !18
 
 _ZN14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE13JfrLinkedListIS3_S4_ELb0EE16add_to_live_listEPS3_b.exit: ; preds = %16, %3, %10, %_ZL21align_allocation_sizemm.exit.i.i.i
-  %.0 = phi ptr [ null, %_ZL21align_allocation_sizemm.exit.i.i.i ], [ null, %10 ], [ null, %3 ], [ %12, %16 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZL21align_allocation_sizemm.exit.i.i.i ], [ null, %10 ], [ %12, %16 ]
   ret ptr %.0
 }
 

@@ -1468,7 +1468,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %137, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbb9b0977a0efaa53E.exit.thread", label %154
 
 138:                                              ; preds = %122, %92
-  %.0.i = phi ptr [ %93, %92 ], [ %105, %122 ]
+  %.0.i = phi ptr [ %105, %122 ], [ %93, %92 ]
   %139 = ptrtoint ptr %.0.i to i64
   %140 = and i64 %139, 3
   switch i64 %140, label %default.unreachable [
@@ -2225,8 +2225,8 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.noexc14, %.noexc, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i", %.noexc11
-  %67 = phi i8 [ 0, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i" ], [ 1, %.noexc11 ], [ %26, %.noexc ], [ 1, %.noexc14 ]
-  %68 = phi ptr [ %19, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i" ], [ %.pr.us3345.i.i, %.noexc11 ], [ %.pr.us.i.i, %.noexc ], [ %.pr.us33.i.i, %.noexc14 ]
+  %67 = phi i8 [ 0, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i" ], [ %26, %.noexc ], [ 1, %.noexc11 ], [ 1, %.noexc14 ]
+  %68 = phi ptr [ %19, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i" ], [ %.pr.us.i.i, %.noexc ], [ %.pr.us3345.i.i, %.noexc11 ], [ %.pr.us33.i.i, %.noexc14 ]
   %69 = load i64, ptr %15, align 8, !noalias !406, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !406
   %70 = invoke { i64, i64 } @_ZN3std3sys3pal4unix6memchr6memchr17h08233876ca0e05d2E(i8 noundef %10, ptr noalias noundef nonnull readonly align 1 %68, i64 noundef %69)

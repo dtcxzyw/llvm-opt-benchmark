@@ -1051,7 +1051,7 @@ define hidden ptr @_PyPegen_seq_insert_in_front(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %_PyPegen_singleton_seq.exit, label %23, !llvm.loop !21
 
 _PyPegen_singleton_seq.exit:                      ; preds = %23, %17, %8, %4, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %4 ], [ %7, %8 ], [ %16, %17 ], [ %16, %23 ]
+  %.0 = phi ptr [ %7, %8 ], [ null, %11 ], [ null, %4 ], [ %16, %17 ], [ %16, %23 ]
   ret ptr %.0
 }
 
@@ -1223,7 +1223,7 @@ _get_flattened_seq_size.exit.thread:              ; preds = %4
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !26
 
 .loopexit:                                        ; preds = %._crit_edge, %_get_flattened_seq_size.exit.thread29, %.thread32, %_get_flattened_seq_size.exit.thread, %_get_flattened_seq_size.exit
-  %.0 = phi ptr [ null, %_get_flattened_seq_size.exit ], [ null, %_get_flattened_seq_size.exit.thread ], [ %28, %.thread32 ], [ %24, %_get_flattened_seq_size.exit.thread29 ], [ %28, %._crit_edge ]
+  %.0 = phi ptr [ null, %_get_flattened_seq_size.exit ], [ %24, %_get_flattened_seq_size.exit.thread29 ], [ null, %_get_flattened_seq_size.exit.thread ], [ %28, %.thread32 ], [ %28, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -2404,7 +2404,7 @@ _make_posargs.exit:                               ; preds = %110, %122
   br i1 %126, label %_make_posonlyargs.exit.thread, label %_make_posargs.exit.thread100
 
 _make_posargs.exit.thread100:                     ; preds = %101, %114, %.preheader.i.i34, %_make_posargs.exit
-  %.sink.i37102 = phi ptr [ %.sink.i37, %_make_posargs.exit ], [ %86, %.preheader.i.i34 ], [ %70, %114 ], [ %86, %101 ]
+  %.sink.i37102 = phi ptr [ %.sink.i37, %_make_posargs.exit ], [ %70, %114 ], [ %86, %.preheader.i.i34 ], [ %86, %101 ]
   %127 = icmp ne ptr %2, null
   %128 = icmp ne ptr %4, null
   %or.cond.i = and i1 %127, %128
@@ -2634,8 +2634,8 @@ _make_posdefaults.exit:                           ; preds = %195, %219, %235
   br i1 %239, label %_make_posonlyargs.exit.thread, label %_make_posdefaults.exit.thread108
 
 _make_posdefaults.exit.thread108:                 ; preds = %228, %204, %184, %.preheader.i.i56, %_make_posdefaults.exit
-  %.sink.i37102156 = phi ptr [ %.sink.i37102158213, %_make_posdefaults.exit ], [ %.sink.i37102, %.preheader.i.i56 ], [ %.sink.i37102, %204 ], [ %.sink.i37102, %184 ], [ %.sink.i37102158214, %228 ]
-  %.sink.i51110 = phi ptr [ %.sink.i51, %_make_posdefaults.exit ], [ %169, %.preheader.i.i56 ], [ %199, %204 ], [ %169, %184 ], [ %223, %228 ]
+  %.sink.i37102156 = phi ptr [ %.sink.i37102158213, %_make_posdefaults.exit ], [ %.sink.i37102, %184 ], [ %.sink.i37102, %204 ], [ %.sink.i37102, %.preheader.i.i56 ], [ %.sink.i37102158214, %228 ]
+  %.sink.i51110 = phi ptr [ %.sink.i51, %_make_posdefaults.exit ], [ %169, %184 ], [ %199, %204 ], [ %169, %.preheader.i.i56 ], [ %223, %228 ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_get_names.exit.i78, label %240
 
@@ -2993,7 +2993,7 @@ _seq_number_of_starred_exprs.exit:                ; preds = %9
   br i1 %exitcond.not, label %_seq_number_of_starred_exprs.exit.thread, label %27, !llvm.loop !110
 
 _seq_number_of_starred_exprs.exit.thread:         ; preds = %37, %22, %2, %4, %17, %_seq_number_of_starred_exprs.exit
-  %.0 = phi ptr [ null, %_seq_number_of_starred_exprs.exit ], [ null, %17 ], [ null, %4 ], [ null, %2 ], [ %21, %22 ], [ %21, %37 ]
+  %.0 = phi ptr [ null, %_seq_number_of_starred_exprs.exit ], [ null, %17 ], [ null, %2 ], [ null, %4 ], [ %21, %22 ], [ %21, %37 ]
   ret ptr %.0
 }
 
@@ -3248,7 +3248,7 @@ _PyPegen_new_type_comment.exit:                   ; preds = %21
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %_PyPegen_new_type_comment.exit, %30, %27, %25, %7, %.critedge37
-  %.0 = phi ptr [ null, %7 ], [ %41, %.critedge37 ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ %41, %.critedge37 ], [ null, %30 ], [ null, %27 ], [ null, %25 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -4068,7 +4068,7 @@ Py_DECREF.exit:                                   ; preds = %191, %154, %151
   br label %.critedge
 
 .critedge:                                        ; preds = %114, %191, %._crit_edge277, %159, %.thread340.thread, %._crit_edge272.thread, %190, %187, %185, %.thread218, %.thread340, %219, %222, %._crit_edge272, %71, %Py_XDECREF.exit, %39
-  %.0 = phi ptr [ null, %39 ], [ %.1, %Py_XDECREF.exit ], [ %73, %71 ], [ null, %.thread340 ], [ null, %._crit_edge272 ], [ %221, %219 ], [ %224, %222 ], [ null, %.thread218 ], [ null, %185 ], [ null, %187 ], [ null, %190 ], [ null, %._crit_edge272.thread ], [ null, %.thread340.thread ], [ null, %191 ], [ null, %159 ], [ null, %._crit_edge277 ], [ null, %114 ]
+  %.0 = phi ptr [ null, %39 ], [ %.1, %Py_XDECREF.exit ], [ %73, %71 ], [ null, %.thread340 ], [ null, %._crit_edge272 ], [ %221, %219 ], [ null, %._crit_edge272.thread ], [ %224, %222 ], [ null, %190 ], [ null, %.thread218 ], [ null, %187 ], [ null, %185 ], [ null, %.thread340.thread ], [ null, %191 ], [ null, %159 ], [ null, %._crit_edge277 ], [ null, %114 ]
   ret ptr %.0
 }
 
@@ -4573,7 +4573,7 @@ tailrecurse.outer:                                ; preds = %33
   br label %.split.us
 
 .split.us:                                        ; preds = %tailrecurse.outer, %.split96.us, %33, %24, %.lr.ph113, %13, %.lr.ph119, %.lr.ph.split, %.split.us.loopexit212, %.split92.us, %.split88.us, %.lr.ph.split.us, %2, %.loopexit66.loopexit129, %21, %10
-  %.0 = phi ptr [ null, %21 ], [ null, %.split88.us ], [ null, %.loopexit66.loopexit129 ], [ null, %10 ], [ null, %.split92.us ], [ %.tr78, %.lr.ph.split ], [ %17, %.lr.ph119 ], [ null, %2 ], [ %.tr.ph108, %.lr.ph.split.us ], [ %28, %.lr.ph113 ], [ null, %.split.us.loopexit212 ], [ null, %13 ], [ null, %24 ], [ null, %33 ], [ %.tr78, %.split96.us ], [ null, %tailrecurse.outer ]
+  %.0 = phi ptr [ null, %21 ], [ null, %.split88.us ], [ null, %.split92.us ], [ %.tr.ph108, %.lr.ph.split.us ], [ null, %.loopexit66.loopexit129 ], [ null, %10 ], [ %.tr78, %.lr.ph.split ], [ %28, %.lr.ph113 ], [ null, %2 ], [ null, %.split.us.loopexit212 ], [ %17, %.lr.ph119 ], [ null, %13 ], [ null, %24 ], [ null, %tailrecurse.outer ], [ %.tr78, %.split96.us ], [ null, %33 ]
   ret ptr %.0
 }
 

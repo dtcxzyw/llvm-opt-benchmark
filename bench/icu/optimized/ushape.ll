@@ -818,7 +818,7 @@ _ZL10isAlefCharDs.exit70.thread:                  ; preds = %29, %29, %29, %29, 
   br i1 %exitcond99.not, label %.loopexit78, label %24, !llvm.loop !18
 
 .loopexit78:                                      ; preds = %23, %.thread, %3
-  %.045 = phi i32 [ %1, %3 ], [ %.4, %.thread ], [ %.247, %23 ]
+  %.045 = phi i32 [ %.4, %.thread ], [ %1, %3 ], [ %.247, %23 ]
   %35 = and i32 %2, 65563
   %or.cond67 = icmp eq i32 %35, 16
   %36 = icmp sgt i32 %1, 0
@@ -843,7 +843,7 @@ _ZL10isAlefCharDs.exit70.thread:                  ; preds = %29, %29, %29, %29, 
   br i1 %exitcond104.not, label %.loopexit, label %.lr.ph89, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph89, %.preheader77, %.preheader79, %.loopexit78
-  %.5 = phi i32 [ %.045, %.loopexit78 ], [ %1, %.preheader79 ], [ %1, %.preheader77 ], [ %spec.select, %.lr.ph89 ]
+  %.5 = phi i32 [ %.045, %.loopexit78 ], [ %1, %.preheader77 ], [ %1, %.preheader79 ], [ %spec.select, %.lr.ph89 ]
   ret i32 %.5
 }
 
@@ -2205,7 +2205,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread:          ; preds = %.lr.ph.split.split
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %125, %106, %78, %48
-  %.059.lcssa = phi i32 [ %spec.select.us83, %106 ], [ %spec.select.us.us, %48 ], [ %spec.select.us, %78 ], [ %spec.select, %125 ]
+  %.059.lcssa = phi i32 [ %spec.select.us.us, %48 ], [ %spec.select.us83, %106 ], [ %spec.select.us, %78 ], [ %spec.select, %125 ]
   %.not = icmp eq i32 %.059.lcssa, 0
   br i1 %.not, label %._crit_edge.thread, label %129
 
@@ -2848,7 +2848,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.thread.i: ; preds = %_ZL20isSeenTailFami
   br i1 %exitcond.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.split.i, !llvm.loop !37
 
 _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128: ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i, %218, %_ZL20isSeenTailFamilyCharDs.exit.thread.us6.us.i, %151, %108, %79, %.lr.ph.split.us.split.us.i, %64, %.thread145
-  %.4 = phi i32 [ %.3147, %.thread145 ], [ %1, %64 ], [ %1, %.lr.ph.split.us.split.us.i ], [ %1, %218 ], [ %1, %79 ], [ %1, %108 ], [ %1, %151 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us6.us.i ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i ]
+  %.4 = phi i32 [ %.3147, %.thread145 ], [ %1, %64 ], [ %1, %.lr.ph.split.us.split.us.i ], [ %1, %218 ], [ %1, %108 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us6.us.i ], [ %1, %151 ], [ %1, %79 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i ]
   %219 = icmp eq i32 %8, 0
   %or.cond115 = and i1 %219, %.not
   br i1 %or.cond115, label %220, label %.thread148
@@ -2955,7 +2955,7 @@ _ZL10isAlefCharDs.exit70.thread.i:                ; preds = %248, %245, %245, %2
   br i1 %exitcond99.not.i, label %.loopexit78.i, label %240, !llvm.loop !18
 
 .loopexit78.i:                                    ; preds = %239, %.thread.i, %220
-  %.045.i = phi i32 [ %1, %220 ], [ %.4.i, %.thread.i ], [ %.247.i, %239 ]
+  %.045.i = phi i32 [ %.4.i, %.thread.i ], [ %1, %220 ], [ %.247.i, %239 ]
   %251 = and i32 %3, 24
   %or.cond67.i = icmp eq i32 %251, 16
   %252 = icmp sgt i32 %1, 0
@@ -2980,7 +2980,7 @@ _ZL10isAlefCharDs.exit70.thread.i:                ; preds = %248, %245, %245, %2
   br i1 %exitcond104.not.i, label %_ZL13calculateSizePKDsiij.exit, label %.lr.ph89.i, !llvm.loop !19
 
 _ZL13calculateSizePKDsiij.exit:                   ; preds = %.lr.ph89.i, %.preheader79.i, %.preheader77.i, %.loopexit78.i
-  %.5.i = phi i32 [ %.045.i, %.loopexit78.i ], [ %1, %.preheader79.i ], [ %1, %.preheader77.i ], [ %spec.select.i, %.lr.ph89.i ]
+  %.5.i = phi i32 [ %.045.i, %.loopexit78.i ], [ %1, %.preheader77.i ], [ %1, %.preheader79.i ], [ %spec.select.i, %.lr.ph89.i ]
   %258 = shl i32 %.5.i, 1
   %259 = add i32 %258, 2
   %260 = sext i32 %259 to i64

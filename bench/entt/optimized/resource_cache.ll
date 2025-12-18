@@ -27311,7 +27311,7 @@ _ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_
   br label %142
 
 _ZN4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread: ; preds = %120, %127, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
-  %.sroa.0323.0.ph = phi ptr [ null, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i ], [ %129, %127 ], [ null, %120 ]
+  %.sroa.0323.0.ph = phi ptr [ %129, %127 ], [ null, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i ], [ null, %120 ]
   %.not341 = icmp eq ptr %.sroa.0323.0.ph, null
   %140 = zext i1 %.not341 to i8
   store i8 %140, ptr %8, align 8, !tbaa !53
@@ -27583,7 +27583,7 @@ _ZNK4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2
   br label %246
 
 _ZNK4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread: ; preds = %224, %231, %_ZNK4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
-  %.sroa.0317.0.ph = phi ptr [ null, %_ZNK4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i ], [ %233, %231 ], [ null, %224 ]
+  %.sroa.0317.0.ph = phi ptr [ %233, %231 ], [ null, %_ZNK4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i ], [ null, %224 ]
   %.not343 = icmp eq ptr %.sroa.0317.0.ph, null
   %244 = zext i1 %.not343 to i8
   store i8 %244, ptr %12, align 8, !tbaa !53
@@ -29940,7 +29940,7 @@ _ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_
   br label %137
 
 _ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit.thread: ; preds = %115, %122, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
-  %.sroa.0213.0.ph = phi ptr [ null, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i ], [ %124, %122 ], [ null, %115 ]
+  %.sroa.0213.0.ph = phi ptr [ %124, %122 ], [ null, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i ], [ null, %115 ]
   %.not235 = icmp eq ptr %.sroa.0213.0.ph, null
   %135 = zext i1 %.not235 to i8
   store i8 %135, ptr %9, align 8, !tbaa !53
@@ -30388,7 +30388,7 @@ _ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_
   br label %296
 
 _ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit177.thread: ; preds = %273, %280, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i171
-  %.sroa.0200.0.ph = phi ptr [ null, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i171 ], [ %282, %280 ], [ null, %273 ]
+  %.sroa.0200.0.ph = phi ptr [ %282, %280 ], [ null, %_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i171 ], [ null, %273 ]
   %293 = icmp ne ptr %.sroa.0200.0.ph, null
   %294 = zext i1 %293 to i8
   store i8 %294, ptr %18, align 8, !tbaa !53

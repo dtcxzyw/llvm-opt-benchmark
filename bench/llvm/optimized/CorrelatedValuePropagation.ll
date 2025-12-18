@@ -1469,7 +1469,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit80.i.i:       ; preds = %_ZN4llvm16dyn_cast_
   br i1 %671, label %_ZL14getValueOnEdgePN4llvm13LazyValueInfoEPNS_5ValueEPNS_10BasicBlockES5_PNS_11InstructionE.exit.i, label %_ZL14getValueOnEdgePN4llvm13LazyValueInfoEPNS_5ValueEPNS_10BasicBlockES5_PNS_11InstructionE.exit.thread.i
 
 _ZL14getValueOnEdgePN4llvm13LazyValueInfoEPNS_5ValueEPNS_10BasicBlockES5_PNS_11InstructionE.exit.i: ; preds = %_ZNK4llvm11ConstantInt6isZeroEv.exit80.i.i, %667, %652, %632, %628
-  %.1.i.in.i = phi ptr [ %629, %628 ], [ %653, %652 ], [ %633, %632 ], [ %634, %_ZNK4llvm11ConstantInt6isZeroEv.exit80.i.i ], [ %634, %667 ]
+  %.1.i.in.i = phi ptr [ %629, %628 ], [ %633, %632 ], [ %653, %652 ], [ %634, %_ZNK4llvm11ConstantInt6isZeroEv.exit80.i.i ], [ %634, %667 ]
   %.1.i.i = load ptr, ptr %.1.i.in.i, align 8, !tbaa !87
   %.not30.i = icmp eq ptr %.1.i.i, null
   br i1 %.not30.i, label %_ZL14getValueOnEdgePN4llvm13LazyValueInfoEPNS_5ValueEPNS_10BasicBlockES5_PNS_11InstructionE.exit.thread.i, label %_ZL14getValueOnEdgePN4llvm13LazyValueInfoEPNS_5ValueEPNS_10BasicBlockES5_PNS_11InstructionE.exit.thread36.i
@@ -1667,7 +1667,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8ConstantEjELb1EE9push_backES4_.ex
   br label %.thread80.i.i
 
 .thread80.i.i:                                    ; preds = %716, %735, %748, %.critedge73.i.i, %725, %._crit_edge.i.i, %.thread67.i
-  %.3.i.i = phi i1 [ false, %._crit_edge.i.i ], [ false, %.critedge73.i.i ], [ true, %748 ], [ false, %725 ], [ false, %.thread67.i ], [ false, %735 ], [ false, %716 ]
+  %.3.i.i = phi i1 [ false, %._crit_edge.i.i ], [ false, %.critedge73.i.i ], [ false, %735 ], [ true, %748 ], [ false, %725 ], [ false, %.thread67.i ], [ false, %716 ]
   %750 = load ptr, ptr %84, align 8, !tbaa !113
   %751 = icmp eq ptr %750, %356
   br i1 %751, label %753, label %752
@@ -3127,7 +3127,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit.i121:           ; preds = %1418, %1414
   br i1 %.not90.i, label %.loopexit.i, label %.lr.ph.i116
 
 .loopexit.i:                                      ; preds = %1371, %1421, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i, %1378
-  %.073.i = phi i1 [ false, %1378 ], [ false, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i ], [ %.275.i, %1421 ], [ false, %1371 ]
+  %.073.i = phi i1 [ false, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i ], [ false, %1378 ], [ %.275.i, %1421 ], [ false, %1371 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store ptr %326, ptr %80, align 8, !tbaa !113
   store i32 0, ptr %327, align 8, !tbaa !115
@@ -5200,9 +5200,9 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i:   ; preds = %2266, %2262
   br label %.thread111.i
 
 .thread111.i:                                     ; preds = %.thread111.loopexit.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i
-  %2272 = phi ptr [ %2251, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %2251, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %.pre.i193, %.thread111.loopexit.i ]
-  %.056122.i = phi i32 [ %.056129.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %.056129.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %.258.i, %.thread111.loopexit.i ]
-  %.155.i = phi i1 [ true, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ true, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %.2.i, %.thread111.loopexit.i ]
+  %2272 = phi ptr [ %2251, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %2251, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %.pre.i193, %.thread111.loopexit.i ]
+  %.056122.i = phi i32 [ %.056129.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %.056129.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %.258.i, %.thread111.loopexit.i ]
+  %.155.i = phi i1 [ true, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ true, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %.2.i, %.thread111.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2273 = getelementptr inbounds i8, ptr %2272, i64 -8
   %2274 = load ptr, ptr %2273, align 8, !tbaa !95
@@ -7516,7 +7516,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !329
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59
@@ -8569,7 +8569,7 @@ _ZN4llvm12PatternMatch14is_lowbit_mask7isValueERKNS_5APIntE.exit29: ; preds = %4
   br label %.thread36
 
 .thread36:                                        ; preds = %.thread36.sink.split, %42, %27, %29, %36, %_ZN4llvm12PatternMatch14is_lowbit_mask7isValueERKNS_5APIntE.exit29, %_ZN4llvm12PatternMatch14is_lowbit_mask7isValueERKNS_5APIntE.exit.thread
-  %.1 = phi i1 [ false, %_ZN4llvm12PatternMatch14is_lowbit_mask7isValueERKNS_5APIntE.exit.thread ], [ false, %_ZN4llvm12PatternMatch14is_lowbit_mask7isValueERKNS_5APIntE.exit29 ], [ false, %42 ], [ false, %36 ], [ false, %29 ], [ false, %27 ], [ true, %.thread36.sink.split ]
+  %.1 = phi i1 [ false, %27 ], [ false, %29 ], [ false, %_ZN4llvm12PatternMatch14is_lowbit_mask7isValueERKNS_5APIntE.exit.thread ], [ false, %_ZN4llvm12PatternMatch14is_lowbit_mask7isValueERKNS_5APIntE.exit29 ], [ false, %42 ], [ false, %36 ], [ true, %.thread36.sink.split ]
   ret i1 %.1
 }
 

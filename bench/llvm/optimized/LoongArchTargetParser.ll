@@ -947,7 +947,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread15.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not.not.i, label %_ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit, label %.split
 
 _ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
-  %.us-phi = phi i1 [ %.not.i.i.us, %.split.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.us-phi = phi i1 [ %.not.i.i.us, %.split.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ]
   ret i1 %.us-phi
 }
 

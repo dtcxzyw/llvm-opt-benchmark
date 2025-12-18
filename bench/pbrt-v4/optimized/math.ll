@@ -2437,9 +2437,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN4pbrt9NextPrimeEiENK3$_0clEi.exit"
 
 "_ZZN4pbrt9NextPrimeEiENK3$_0clEi.exit":          ; preds = %11, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %15
-  %.sroa.0.1 = phi ptr [ %29, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.0.056, %15 ], [ %.sroa.0.056, %11 ]
-  %.sroa.11.1 = phi ptr [ %33, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %16, %15 ], [ %.sroa.11.057, %11 ]
-  %.sroa.17.1 = phi ptr [ %34, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.17.058, %15 ], [ %.sroa.17.058, %11 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.056, %15 ], [ %29, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.0.056, %11 ]
+  %.sroa.11.1 = phi ptr [ %16, %15 ], [ %33, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.11.057, %11 ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.058, %15 ], [ %34, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.17.058, %11 ]
   %35 = add nuw nsw i32 %storemerge59, 2
   %36 = tail call noundef double @sqrt(double noundef %7) #30, !tbaa !8
   %37 = fptosi double %36 to i32

@@ -481,7 +481,7 @@ _ZN8facebook4yoga13inexactEqualsEff.exit173.thread: ; preds = %203, %.lr.ph201.s
   br i1 %exitcond234.not, label %.thread183, label %.lr.ph201.split.split.preheader, !llvm.loop !76
 
 .loopexit:                                        ; preds = %110, %150, %168, %211, %196, %_ZNK8facebook4yoga5Style20computeMarginForAxisENS0_13FlexDirectionEf.exit167
-  %.2 = phi ptr [ %spec.select, %196 ], [ %87, %_ZNK8facebook4yoga5Style20computeMarginForAxisENS0_13FlexDirectionEf.exit167 ], [ %131, %150 ], [ %200, %211 ], [ %154, %168 ], [ %111, %110 ]
+  %.2 = phi ptr [ %87, %_ZNK8facebook4yoga5Style20computeMarginForAxisENS0_13FlexDirectionEf.exit167 ], [ %154, %168 ], [ %spec.select, %196 ], [ %200, %211 ], [ %131, %150 ], [ %111, %110 ]
   %215 = icmp eq ptr %.2, null
   %or.cond.not = or i1 %39, %215
   br i1 %or.cond.not, label %.thread183, label %216
@@ -503,8 +503,8 @@ _ZN8facebook4yoga13inexactEqualsEff.exit173.thread: ; preds = %203, %.lr.ph201.s
   br label %259
 
 .thread183:                                       ; preds = %105, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us206, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread, %.preheader195, %.preheader, %189, %179, %175, %185, %192, %.loopexit
-  %226 = phi i1 [ %215, %.loopexit ], [ true, %192 ], [ true, %179 ], [ true, %189 ], [ true, %185 ], [ true, %175 ], [ true, %.preheader ], [ true, %.preheader195 ], [ true, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us ], [ true, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread ], [ true, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us206 ], [ true, %105 ]
-  %.2187 = phi ptr [ %.2, %.loopexit ], [ null, %192 ], [ null, %179 ], [ null, %189 ], [ null, %185 ], [ null, %175 ], [ null, %.preheader ], [ null, %.preheader195 ], [ null, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us ], [ null, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread ], [ null, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us206 ], [ null, %105 ]
+  %226 = phi i1 [ %215, %.loopexit ], [ true, %175 ], [ true, %.preheader ], [ true, %192 ], [ true, %179 ], [ true, %189 ], [ true, %185 ], [ true, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread ], [ true, %.preheader195 ], [ true, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us ], [ true, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us206 ], [ true, %105 ]
+  %.2187 = phi ptr [ %.2, %.loopexit ], [ null, %175 ], [ null, %.preheader ], [ null, %192 ], [ null, %179 ], [ null, %189 ], [ null, %185 ], [ null, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread ], [ null, %.preheader195 ], [ null, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us ], [ null, %_ZN8facebook4yoga13inexactEqualsEff.exit173.thread.us206 ], [ null, %105 ]
   tail call fastcc void @_ZN8facebook4yogaL19calculateLayoutImplEPNS0_4NodeEffNS0_9DirectionENS0_10SizingModeES4_ffbNS0_16LayoutPassReasonERNS0_10LayoutDataEjj(ptr noundef nonnull %0, float noundef %1, float noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, i1 noundef zeroext %8, i32 noundef %9, ptr noundef nonnull align 4 dereferenceable(56) %10, i32 noundef %16, i32 noundef %12)
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 %3, ptr %227, align 4, !tbaa !59
@@ -2097,7 +2097,7 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit1673.thread: ; pr
   br i1 %.not.i.i.i3.i1671, label %common.resume, label %.lr.ph.i.i.i.i1669, !llvm.loop !114
 
 common.resume:                                    ; preds = %.lr.ph.i.i.i.i1669, %.lr.ph.i.i.i.i1622, %.lr.ph.i.i.i.i, %1397, %790, %686, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1631, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1522, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1517
-  %common.resume.op = phi { ptr, i32 } [ %.pn66.i, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1522 ], [ %687, %686 ], [ %.pn828.pn.pn.pn.pn.pn, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1517 ], [ %791, %790 ], [ %.pn68.i, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1631 ], [ %1398, %1397 ], [ %791, %.lr.ph.i.i.i.i1622 ], [ %1398, %.lr.ph.i.i.i.i ], [ %687, %.lr.ph.i.i.i.i1669 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn66.i, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1522 ], [ %687, %686 ], [ %.pn828.pn.pn.pn.pn.pn, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1517 ], [ %791, %790 ], [ %.pn68.i, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1631 ], [ %1398, %.lr.ph.i.i.i.i ], [ %791, %.lr.ph.i.i.i.i1622 ], [ %1398, %1397 ], [ %687, %.lr.ph.i.i.i.i1669 ]
   resume { ptr, i32 } %common.resume.op
 
 690:                                              ; preds = %671
@@ -4341,7 +4341,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i1905: ; preds = %_ZNSt6
   br label %_ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i1862
 
 _ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i1862: ; preds = %1588, %1595, %1588, %1636, %1635, %.noexc1866
-  %.sroa.0.0.i.i1863 = phi float [ %1638, %1636 ], [ %.sink.in, %1635 ], [ 0x7FF8000000000000, %.noexc1866 ], [ 0x7FF8000000000000, %1588 ], [ 0x7FF8000000000000, %1595 ], [ 0x7FF8000000000000, %1588 ]
+  %.sroa.0.0.i.i1863 = phi float [ %1638, %1636 ], [ %.sink.in, %1635 ], [ 0x7FF8000000000000, %.noexc1866 ], [ 0x7FF8000000000000, %1588 ], [ 0x7FF8000000000000, %1588 ], [ 0x7FF8000000000000, %1595 ]
   %1639 = load i32, ptr %1591, align 8
   %1640 = and i32 %1639, 268435456
   %1641 = icmp eq i32 %1640, 0
@@ -5027,7 +5027,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i1883: ; preds = %_ZNSt6
   br label %_ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i1841
 
 _ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i1841: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.i.i, %1891, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.i.i, %1930, %1929, %.noexc1845
-  %.sroa.0.0.i.i1842 = phi float [ %1932, %1930 ], [ %.sink3622.in, %1929 ], [ 0x7FF8000000000000, %.noexc1845 ], [ 0x7FF8000000000000, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.i.i ], [ 0x7FF8000000000000, %1891 ], [ 0x7FF8000000000000, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.i.i ]
+  %.sroa.0.0.i.i1842 = phi float [ %1932, %1930 ], [ %.sink3622.in, %1929 ], [ 0x7FF8000000000000, %.noexc1845 ], [ 0x7FF8000000000000, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.i.i ], [ 0x7FF8000000000000, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.i.i ], [ 0x7FF8000000000000, %1891 ]
   %1933 = load i32, ptr %1591, align 8
   %1934 = and i32 %1933, 268435456
   %1935 = icmp eq i32 %1934, 0
@@ -5169,7 +5169,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i: ; preds = %_ZNSt6vect
   br label %_ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i1832
 
 _ZN8facebook4yoga15StyleSizeLength7resolveEf.exit.i1832: ; preds = %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit.i1696, %1953, %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit.i1696, %1992, %1991, %.noexc1836
-  %.sroa.0.0.i.i1833 = phi float [ %1994, %1992 ], [ %.sink3623.in, %1991 ], [ 0x7FF8000000000000, %.noexc1836 ], [ 0x7FF8000000000000, %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit.i1696 ], [ 0x7FF8000000000000, %1953 ], [ 0x7FF8000000000000, %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit.i1696 ]
+  %.sroa.0.0.i.i1833 = phi float [ %1994, %1992 ], [ %.sink3623.in, %1991 ], [ 0x7FF8000000000000, %.noexc1836 ], [ 0x7FF8000000000000, %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit.i1696 ], [ 0x7FF8000000000000, %_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionEffPNS0_10SizingModeEPf.exit.i1696 ], [ 0x7FF8000000000000, %1953 ]
   %1995 = load i32, ptr %1591, align 8
   %1996 = and i32 %1995, 268435456
   %1997 = icmp eq i32 %1996, 0
@@ -7592,7 +7592,7 @@ _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit1254.thread2135: ; 
   br i1 %.not.i.i.i.i.i1290, label %common.resume.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !114
 
 common.resume.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i3.i, %3063, %3024
-  %common.resume.op.i = phi { ptr, i32 } [ %3025, %3024 ], [ %3064, %3063 ], [ %3064, %.lr.ph.i.i.i3.i ], [ %3025, %.lr.ph.i.i.i.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %3025, %3024 ], [ %3064, %.lr.ph.i.i.i3.i ], [ %3064, %3063 ], [ %3025, %.lr.ph.i.i.i.i.i ]
   store ptr null, ptr %.sroa.1, align 8, !tbaa !113, !alias.scope !153
   br label %.body1297
 
@@ -7763,7 +7763,7 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1318: ; preds
   br i1 %.not.i.i.i1322, label %.body1192, label %.lr.ph.i.i.i1320, !llvm.loop !114
 
 .body1192:                                        ; preds = %.lr.ph.i.i.i.i1189, %.lr.ph.i.i.i1320, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1318, %2749
-  %.pn803.pn.pn = phi { ptr, i32 } [ %2750, %2749 ], [ %.pn803, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1318 ], [ %.pn803.pn2142.ph, %.lr.ph.i.i.i1320 ], [ %2750, %.lr.ph.i.i.i.i1189 ]
+  %.pn803.pn.pn = phi { ptr, i32 } [ %2750, %2749 ], [ %.pn803.pn2142.ph, %.lr.ph.i.i.i1320 ], [ %.pn803, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1318 ], [ %2750, %.lr.ph.i.i.i.i1189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01938)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.61939)
   %3082 = load ptr, ptr %2728, align 8, !tbaa !113
@@ -7778,7 +7778,7 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1318: ; preds
   br i1 %.not.i.i.i1327, label %.body, label %.lr.ph.i.i.i1325, !llvm.loop !114
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i1177, %.lr.ph.i.i.i1325, %.body1192, %2723
-  %.pn803.pn.pn.pn = phi { ptr, i32 } [ %2724, %2723 ], [ %.pn803.pn.pn, %.body1192 ], [ %.pn803.pn.pn, %.lr.ph.i.i.i1325 ], [ %2724, %.lr.ph.i.i.i.i1177 ]
+  %.pn803.pn.pn.pn = phi { ptr, i32 } [ %2724, %2723 ], [ %.pn803.pn.pn, %.lr.ph.i.i.i1325 ], [ %.pn803.pn.pn, %.body1192 ], [ %2724, %.lr.ph.i.i.i.i1177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %3471
 
@@ -8405,7 +8405,7 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1444: ; preds
   br i1 %.not.i.i.i1448, label %.body1409, label %.lr.ph.i.i.i1446, !llvm.loop !114
 
 .body1409:                                        ; preds = %.lr.ph.i.i.i.i1405, %.lr.ph.i.i.i1446, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1444, %3251
-  %.pn788.pn = phi { ptr, i32 } [ %3252, %3251 ], [ %.pn788, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1444 ], [ %.pn788, %.lr.ph.i.i.i1446 ], [ %3252, %.lr.ph.i.i.i.i1405 ]
+  %.pn788.pn = phi { ptr, i32 } [ %3252, %3251 ], [ %.pn788, %.lr.ph.i.i.i1446 ], [ %.pn788, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1444 ], [ %3252, %.lr.ph.i.i.i.i1405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %3471
 
@@ -8705,7 +8705,7 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1502: ; preds
   br i1 %.not.i.i.i1506, label %.body1456, label %.lr.ph.i.i.i1504, !llvm.loop !114
 
 .body1456:                                        ; preds = %.lr.ph.i.i.i.i1452, %.lr.ph.i.i.i1504, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1502, %3352
-  %.pn.pn = phi { ptr, i32 } [ %3353, %3352 ], [ %.pn, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1502 ], [ %.pn, %.lr.ph.i.i.i1504 ], [ %3353, %.lr.ph.i.i.i.i1452 ]
+  %.pn.pn = phi { ptr, i32 } [ %3353, %3352 ], [ %.pn, %.lr.ph.i.i.i1504 ], [ %.pn, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit1502 ], [ %3353, %.lr.ph.i.i.i.i1452 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %3471
 
@@ -11163,7 +11163,7 @@ define linkonce_odr hidden void @_ZN8facebook4yoga18LayoutableChildrenINS0_4Node
   br i1 %.not.i.i.i.i, label %common.resume, label %.lr.ph.i.i.i.i, !llvm.loop !114
 
 common.resume:                                    ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i3, %54, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %55, %54 ], [ %55, %.lr.ph.i.i.i3 ], [ %14, %.lr.ph.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %55, %.lr.ph.i.i.i3 ], [ %55, %54 ], [ %14, %.lr.ph.i.i.i.i ]
   store ptr null, ptr %4, align 8, !tbaa !113
   resume { ptr, i32 } %common.resume.op
 
@@ -12461,7 +12461,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %23, %_ZNSt6v
   br label %_ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit
 
 _ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit: ; preds = %2, %7, %12, %15, %49, %51, %.fold.split.i
-  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 27913093120, %15 ], [ 15028191232, %.fold.split.i ]
+  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 27913093120, %15 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 15028191232, %.fold.split.i ]
   ret i64 %.sroa.0.0.in.i
 }
 
@@ -12814,7 +12814,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %23, %_ZNSt6v
   br label %_ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit
 
 _ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit: ; preds = %2, %7, %12, %15, %49, %51, %.fold.split.i
-  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 27913093120, %15 ], [ 15028191232, %.fold.split.i ]
+  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 27913093120, %15 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 15028191232, %.fold.split.i ]
   ret i64 %.sroa.0.0.in.i
 }
 

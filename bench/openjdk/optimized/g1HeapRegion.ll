@@ -1698,7 +1698,7 @@ _ZN7oopDesc11oop_iterateI28G1VerifyLiveAndRemSetClosureEEvPT_.exit: ; preds = %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %83, %99, %97, %103
-  %.0 = phi i1 [ %105, %103 ], [ true, %97 ], [ true, %99 ], [ true, %83 ]
+  %.0 = phi i1 [ true, %99 ], [ %105, %103 ], [ true, %97 ], [ true, %83 ]
   ret i1 %.0
 }
 

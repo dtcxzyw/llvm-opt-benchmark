@@ -1733,15 +1733,15 @@ index_tree_next.exit65:                           ; preds = %.preheader17.i58, %
   br i1 %95, label %.preheader.i80, label %.critedge, !llvm.loop !66
 
 .critedge:                                        ; preds = %.preheader17.i76, %92, %.loopexit.us
-  %.us-phi = phi ptr [ %91, %92 ], [ %.011.i79.ph.us, %.loopexit.us ], [ %.0.i77, %.preheader17.i76 ]
+  %.us-phi = phi ptr [ %.011.i79.ph.us, %.loopexit.us ], [ %91, %92 ], [ %.0.i77, %.preheader17.i76 ]
   %96 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 64
   %97 = load ptr, ptr %96, align 8, !tbaa !51
   br label %.critedge56.thread
 
 .critedge56.thread:                               ; preds = %.preheader17.i67, %69, %index_tree_next.exit65, %.preheader, %60, %.critedge
-  %.348 = phi ptr [ %.045, %60 ], [ %.us-phi, %.critedge ], [ %38, %.preheader ], [ %.045, %69 ], [ %.011.i61, %index_tree_next.exit65 ], [ %.045, %.preheader17.i67 ]
-  %.2 = phi ptr [ %.144, %60 ], [ %97, %.critedge ], [ %40, %.preheader ], [ %68, %69 ], [ %53, %index_tree_next.exit65 ], [ %.0.i68, %.preheader17.i67 ]
-  %.1 = phi i64 [ %61, %60 ], [ 0, %.critedge ], [ 0, %.preheader ], [ 0, %69 ], [ 0, %index_tree_next.exit65 ], [ 0, %.preheader17.i67 ]
+  %.348 = phi ptr [ %.045, %69 ], [ %.045, %60 ], [ %.us-phi, %.critedge ], [ %38, %.preheader ], [ %.011.i61, %index_tree_next.exit65 ], [ %.045, %.preheader17.i67 ]
+  %.2 = phi ptr [ %68, %69 ], [ %.144, %60 ], [ %97, %.critedge ], [ %40, %.preheader ], [ %53, %index_tree_next.exit65 ], [ %.0.i68, %.preheader17.i67 ]
+  %.1 = phi i64 [ 0, %69 ], [ %61, %60 ], [ 0, %.critedge ], [ 0, %.preheader ], [ 0, %index_tree_next.exit65 ], [ 0, %.preheader17.i67 ]
   br i1 %35, label %98, label %.loopexit
 
 98:                                               ; preds = %.critedge56.thread
@@ -1779,7 +1779,7 @@ index_tree_next.exit65:                           ; preds = %.preheader17.i58, %
   br label %index_tree_next.exit83
 
 index_tree_next.exit83:                           ; preds = %.preheader.i80, %.preheader.i80.us, %.preheader.i62, %.loopexit, %2
-  %.049 = phi i8 [ 1, %2 ], [ 0, %.loopexit ], [ 1, %.preheader.i80.us ], [ 1, %.preheader.i62 ], [ 1, %.preheader.i80 ]
+  %.049 = phi i8 [ 1, %2 ], [ 1, %.preheader.i80.us ], [ 0, %.loopexit ], [ 1, %.preheader.i62 ], [ 1, %.preheader.i80 ]
   ret i8 %.049
 }
 

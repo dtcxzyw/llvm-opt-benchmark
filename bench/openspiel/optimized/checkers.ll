@@ -1204,9 +1204,9 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_
   br i1 %or.cond, label %.preheader, label %._crit_edge
 
 .loopexit:                                        ; preds = %162, %141, %.preheader
-  %121 = phi i32 [ %125, %.preheader ], [ %142, %141 ], [ %163, %162 ]
-  %122 = phi i32 [ %126, %.preheader ], [ %142, %141 ], [ %164, %162 ]
-  %123 = phi i32 [ %127, %.preheader ], [ %142, %141 ], [ %164, %162 ]
+  %121 = phi i32 [ %142, %141 ], [ %125, %.preheader ], [ %163, %162 ]
+  %122 = phi i32 [ %142, %141 ], [ %126, %.preheader ], [ %164, %162 ]
+  %123 = phi i32 [ %142, %141 ], [ %127, %.preheader ], [ %164, %162 ]
   %124 = icmp sgt i32 %.018.in44, 1
   br i1 %124, label %.preheader, label %._crit_edge, !llvm.loop !4
 
@@ -5537,7 +5537,7 @@ _ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit: ; preds = %_ZNK10ope
   br i1 %101, label %.lr.ph.split, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit, %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us, %.preheader
-  %102 = phi i32 [ %56, %.preheader ], [ %78, %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us ], [ %100, %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit ]
+  %102 = phi i32 [ %78, %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us ], [ %56, %.preheader ], [ %100, %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit ]
   %103 = add nuw nsw i32 %.01722, 1
   %104 = load i32, ptr %33, align 8
   %105 = icmp slt i32 %103, %104

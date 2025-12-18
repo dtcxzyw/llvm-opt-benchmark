@@ -3158,7 +3158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %48
   br label %544
 
 _ZNK8V3Number9bitsValueEii.exit.thread:           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341, %422, %_ZNK8V3Number9bitsValueEii.exit
-  %.2 = phi ptr [ %.0205579, %_ZNK8V3Number9bitsValueEii.exit ], [ %.0205579, %422 ], [ %scevgep620, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ]
+  %.2 = phi ptr [ %.0205579, %422 ], [ %.0205579, %_ZNK8V3Number9bitsValueEii.exit ], [ %scevgep620, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ]
   %487 = load i8, ptr %371, align 4, !tbaa !40
   %488 = icmp eq i8 %487, 3
   br i1 %488, label %489, label %494
@@ -4382,33 +4382,33 @@ _ZNK12V3NumberData3numEv.exit.i.i.i:              ; preds = %.lr.ph.split.split.
   %1036 = icmp eq i64 %1035, 0
   br i1 %1036, label %_ZNK8V3Number6bitIs0Ei.exit.backedge.i, label %_ZNK8V3Number8widthMinEv.exit
 
-_ZNK12V3NumberData3numEv.exit.i.i427:             ; preds = %.lr.ph.split.split.i
-  %1037 = lshr i32 %.0612.i, 5
-  %1038 = zext nneg i32 %1037 to i64
-  %1039 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i426, i64 %1038
-  %.sroa.0.0.copyload.i.i428 = load i32, ptr %1039, align 4, !tbaa !62
-  %1040 = zext i32 %.sroa.0.0.copyload.i.i428 to i64
-  %1041 = and i32 %.0612.i, 31
-  %1042 = zext nneg i32 %1041 to i64
-  %1043 = shl nuw nsw i64 1, %1042
-  %1044 = and i64 %1043, %1040
-  %1045 = icmp eq i64 %1044, 0
-  br i1 %1045, label %1046, label %_ZNK8V3Number8widthMinEv.exit
+_ZNK8V3Number6bitIs0Ei.exit.backedge.i:           ; preds = %1047, %_ZNK12V3NumberData3numEv.exit.i.i.i
+  %1037 = icmp samesign ugt i32 %.06.in11.i, 2
+  br i1 %1037, label %.lr.ph.split.split.i, label %_ZNK8V3Number8widthMinEv.exit, !llvm.loop !131
 
-1046:                                             ; preds = %_ZNK12V3NumberData3numEv.exit.i.i427
-  %.sroa.4.0..sroa_idx.i.i429 = getelementptr inbounds nuw i8, ptr %1039, i64 4
+_ZNK12V3NumberData3numEv.exit.i.i427:             ; preds = %.lr.ph.split.split.i
+  %1038 = lshr i32 %.0612.i, 5
+  %1039 = zext nneg i32 %1038 to i64
+  %1040 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i426, i64 %1039
+  %.sroa.0.0.copyload.i.i428 = load i32, ptr %1040, align 4, !tbaa !62
+  %1041 = zext i32 %.sroa.0.0.copyload.i.i428 to i64
+  %1042 = and i32 %.0612.i, 31
+  %1043 = zext nneg i32 %1042 to i64
+  %1044 = shl nuw nsw i64 1, %1043
+  %1045 = and i64 %1044, %1041
+  %1046 = icmp eq i64 %1045, 0
+  br i1 %1046, label %1047, label %_ZNK8V3Number8widthMinEv.exit
+
+1047:                                             ; preds = %_ZNK12V3NumberData3numEv.exit.i.i427
+  %.sroa.4.0..sroa_idx.i.i429 = getelementptr inbounds nuw i8, ptr %1040, i64 4
   %.sroa.4.0.copyload.i.i430 = load i32, ptr %.sroa.4.0..sroa_idx.i.i429, align 4, !tbaa !62
-  %1047 = zext i32 %.sroa.4.0.copyload.i.i430 to i64
-  %1048 = and i64 %1043, %1047
-  %.not7.i.i431 = icmp eq i64 %1048, 0
+  %1048 = zext i32 %.sroa.4.0.copyload.i.i430 to i64
+  %1049 = and i64 %1044, %1048
+  %.not7.i.i431 = icmp eq i64 %1049, 0
   br i1 %.not7.i.i431, label %_ZNK8V3Number6bitIs0Ei.exit.backedge.i, label %_ZNK8V3Number8widthMinEv.exit
 
-_ZNK8V3Number6bitIs0Ei.exit.backedge.i:           ; preds = %1046, %_ZNK12V3NumberData3numEv.exit.i.i.i
-  %1049 = icmp samesign ugt i32 %.06.in11.i, 2
-  br i1 %1049, label %.lr.ph.split.split.i, label %_ZNK8V3Number8widthMinEv.exit, !llvm.loop !131
-
-_ZNK8V3Number8widthMinEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i.i, %_ZNK12V3NumberData3numEv.exit.i.i427, %1046, %_ZNK8V3Number6bitIs0Ei.exit.backedge.i, %1021, %.lr.ph.i
-  %1050 = phi i32 [ %.fr.i.i.i, %.lr.ph.i ], [ 1, %1021 ], [ 1, %_ZNK8V3Number6bitIs0Ei.exit.backedge.i ], [ %.06.in11.i, %_ZNK12V3NumberData3numEv.exit.i.i427 ], [ %.06.in11.i, %1046 ], [ %.06.in11.i, %_ZNK12V3NumberData3numEv.exit.i.i.i ]
+_ZNK8V3Number8widthMinEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i.i, %_ZNK8V3Number6bitIs0Ei.exit.backedge.i, %_ZNK12V3NumberData3numEv.exit.i.i427, %1047, %1021, %.lr.ph.i
+  %1050 = phi i32 [ %.fr.i.i.i, %.lr.ph.i ], [ 1, %1021 ], [ 1, %_ZNK8V3Number6bitIs0Ei.exit.backedge.i ], [ %.06.in11.i, %_ZNK12V3NumberData3numEv.exit.i.i427 ], [ %.06.in11.i, %_ZNK12V3NumberData3numEv.exit.i.i.i ], [ %.06.in11.i, %1047 ]
   %1051 = add nsw i32 %.0217, -1
   %1052 = add i32 %1051, %1050
   %1053 = srem i32 %1052, %.0217
@@ -5683,33 +5683,33 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.split
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %_ZNK8V3Number6bitIs0Ei.exit.backedge, label %.thread
 
-_ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
-  %19 = lshr i32 %.0612, 5
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %20
-  %.sroa.0.0.copyload.i = load i32, ptr %21, align 4, !tbaa !62
-  %22 = zext i32 %.sroa.0.0.copyload.i to i64
-  %23 = and i32 %.0612, 31
-  %24 = zext nneg i32 %23 to i64
-  %25 = shl nuw nsw i64 1, %24
-  %26 = and i64 %25, %22
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.thread
+_ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %_ZNK12V3NumberData3numEv.exit.i.i, %29
+  %19 = icmp samesign ugt i32 %.06.in11, 2
+  br i1 %19, label %.lr.ph.split.split, label %.thread, !llvm.loop !131
 
-28:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 4
+_ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
+  %20 = lshr i32 %.0612, 5
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %21
+  %.sroa.0.0.copyload.i = load i32, ptr %22, align 4, !tbaa !62
+  %23 = zext i32 %.sroa.0.0.copyload.i to i64
+  %24 = and i32 %.0612, 31
+  %25 = zext nneg i32 %24 to i64
+  %26 = shl nuw nsw i64 1, %25
+  %27 = and i64 %26, %23
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %.thread
+
+29:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !62
-  %29 = zext i32 %.sroa.4.0.copyload.i to i64
-  %30 = and i64 %25, %29
-  %.not7.i = icmp eq i64 %30, 0
+  %30 = zext i32 %.sroa.4.0.copyload.i to i64
+  %31 = and i64 %26, %30
+  %.not7.i = icmp eq i64 %31, 0
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs0Ei.exit.backedge, label %.thread
 
-_ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %28, %_ZNK12V3NumberData3numEv.exit.i.i
-  %31 = icmp samesign ugt i32 %.06.in11, 2
-  br i1 %31, label %.lr.ph.split.split, label %.thread, !llvm.loop !131
-
-.thread:                                          ; preds = %_ZNK8V3Number6bitIs0Ei.exit.backedge, %_ZNK12V3NumberData3numEv.exit.i.i, %28, %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph, %1
-  %32 = phi i32 [ %.fr.i.i, %.lr.ph ], [ 1, %1 ], [ %.06.in11, %_ZNK12V3NumberData3numEv.exit.i.i ], [ %.06.in11, %28 ], [ %.06.in11, %_ZNK12V3NumberData3numEv.exit.i ], [ 1, %_ZNK8V3Number6bitIs0Ei.exit.backedge ]
+.thread:                                          ; preds = %_ZNK8V3Number6bitIs0Ei.exit.backedge, %29, %_ZNK12V3NumberData3numEv.exit.i.i, %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph, %1
+  %32 = phi i32 [ %.fr.i.i, %.lr.ph ], [ 1, %1 ], [ %.06.in11, %29 ], [ %.06.in11, %_ZNK12V3NumberData3numEv.exit.i.i ], [ %.06.in11, %_ZNK12V3NumberData3numEv.exit.i ], [ 1, %_ZNK8V3Number6bitIs0Ei.exit.backedge ]
   ret i32 %32
 }
 
@@ -7892,7 +7892,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %_ZNK12V3NumberData3numEv.exit, %22
-  %.0 = phi i1 [ false, %_ZNK12V3NumberData3numEv.exit ], [ %25, %22 ], [ false, %2 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %25, %22 ], [ false, %_ZNK12V3NumberData3numEv.exit ], [ false, %2 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -12970,31 +12970,31 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.split
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %_ZNK8V3Number6bitIs0Ei.exit.backedge, label %.preheader.lr.ph
 
-_ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
-  %58 = lshr i32 %.026187, 5
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %59
-  %.sroa.0.0.copyload.i = load i32, ptr %60, align 4, !tbaa !62
-  %61 = zext i32 %.sroa.0.0.copyload.i to i64
-  %62 = and i32 %.026187, 31
-  %63 = zext nneg i32 %62 to i64
-  %64 = shl nuw nsw i64 1, %63
-  %65 = and i64 %64, %61
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %.preheader.lr.ph
-
-67:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !62
-  %68 = zext i32 %.sroa.4.0.copyload.i to i64
-  %69 = and i64 %64, %68
-  %.not7.i = icmp eq i64 %69, 0
-  br i1 %.not7.i, label %_ZNK8V3Number6bitIs0Ei.exit.backedge, label %.preheader.lr.ph
-
-_ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %67, %_ZNK12V3NumberData3numEv.exit.i.i
+_ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %_ZNK12V3NumberData3numEv.exit.i.i, %68
   %.026 = add nsw i32 %.026187, -1
-  %70 = icmp sgt i32 %.026187, 0
-  br i1 %70, label %.lr.ph.split.split, label %._crit_edge201, !llvm.loop !257
+  %58 = icmp sgt i32 %.026187, 0
+  br i1 %58, label %.lr.ph.split.split, label %._crit_edge201, !llvm.loop !257
+
+_ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
+  %59 = lshr i32 %.026187, 5
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %60
+  %.sroa.0.0.copyload.i = load i32, ptr %61, align 4, !tbaa !62
+  %62 = zext i32 %.sroa.0.0.copyload.i to i64
+  %63 = and i32 %.026187, 31
+  %64 = zext nneg i32 %63 to i64
+  %65 = shl nuw nsw i64 1, %64
+  %66 = and i64 %65, %62
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %68, label %.preheader.lr.ph
+
+68:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !62
+  %69 = zext i32 %.sroa.4.0.copyload.i to i64
+  %70 = and i64 %65, %69
+  %.not7.i = icmp eq i64 %70, 0
+  br i1 %.not7.i, label %_ZNK8V3Number6bitIs0Ei.exit.backedge, label %.preheader.lr.ph
 
 .loopexit169:                                     ; preds = %._crit_edge
   %lpad.loopexit171 = landingpad { ptr, i32 }
@@ -13006,8 +13006,8 @@ _ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %67, %_ZNK12V3Number
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-.preheader.lr.ph:                                 ; preds = %67, %_ZNK12V3NumberData3numEv.exit.i.i, %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph
-  %.026.lcssa.ph = phi i32 [ %.026185, %.lr.ph ], [ %.026187, %_ZNK12V3NumberData3numEv.exit.i ], [ %.026187, %_ZNK12V3NumberData3numEv.exit.i.i ], [ %.026187, %67 ]
+.preheader.lr.ph:                                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i, %68, %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph
+  %.026.lcssa.ph = phi i32 [ %.026185, %.lr.ph ], [ %.026187, %_ZNK12V3NumberData3numEv.exit.i ], [ %.026187, %68 ], [ %.026187, %_ZNK12V3NumberData3numEv.exit.i.i ]
   %71 = icmp sgt i32 %10, 2
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -15444,7 +15444,7 @@ _ZNK8V3Number6bitIsZEi.exit.sink.split:           ; preds = %_ZNK12V3NumberData3
   br label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK8V3Number6bitIsZEi.exit.sink.split, %_ZNK12V3NumberData3numEv.exit.i, %10, %_ZNK12V3NumberData3numEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK12V3NumberData3numEv.exit ], [ false, %10 ], [ false, %_ZNK12V3NumberData3numEv.exit.i ], [ %35, %_ZNK8V3Number6bitIsZEi.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK12V3NumberData3numEv.exit ], [ false, %_ZNK12V3NumberData3numEv.exit.i ], [ false, %10 ], [ %35, %_ZNK8V3Number6bitIsZEi.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -15545,7 +15545,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.i:             ; preds = %_ZNK8V3Number6bitIs
   br i1 %exitcond.not.i11, label %_ZNK8V3Number6isAnyXEv.exit, label %.lr.ph.i.i, !llvm.loop !234
 
 _ZNK8V3Number6isAnyXEv.exit:                      ; preds = %_ZNK8V3Number6bitIsXEi.exit.i, %_ZNK8V3Number6bitIsZEi.exit.thread.i, %_ZNK8V3Number6bitIsZEi.exit.i, %.lr.ph.i, %.preheader.i, %1, %.lr.ph.i4
-  %38 = phi i1 [ false, %1 ], [ false, %.lr.ph.i4 ], [ false, %.preheader.i ], [ false, %.lr.ph.i ], [ false, %_ZNK8V3Number6bitIsZEi.exit.thread.i ], [ true, %_ZNK8V3Number6bitIsZEi.exit.i ], [ true, %_ZNK8V3Number6bitIsXEi.exit.i ]
+  %38 = phi i1 [ false, %.preheader.i ], [ false, %1 ], [ false, %.lr.ph.i4 ], [ false, %_ZNK8V3Number6bitIsZEi.exit.thread.i ], [ false, %.lr.ph.i ], [ true, %_ZNK8V3Number6bitIsZEi.exit.i ], [ true, %_ZNK8V3Number6bitIsXEi.exit.i ]
   ret i1 %38
 }
 
@@ -16022,7 +16022,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread.us109:         ; preds = %_ZNK8V3Number6bitIs
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK8V3Number5bitIsEi.exit.us106, !llvm.loop !282
 
 ._crit_edge:                                      ; preds = %_ZNK8V3Number6bitIs0Ei.exit.thread.us109, %_ZNK8V3Number6bitIs0Ei.exit.thread.us101, %_ZNK8V3Number6bitIs0Ei.exit.thread.us93, %_ZNK8V3Number6bitIs0Ei.exit.thread.us85, %_ZNK8V3Number6bitIs0Ei.exit.thread.us, %.lr.ph.split.split.split.us105, %.lr.ph.split.split.split.us97, %.lr.ph.split.split.split.us89, %.lr.ph.split.split.split.us, %.lr.ph.split.split, %.lr.ph.split.us, %2
-  %.012.lcssa = phi i32 [ 0, %2 ], [ 0, %.lr.ph.split.split.split.us105 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.split ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us89 ], [ 0, %.lr.ph.split.split.split.us97 ], [ %.1.us102, %_ZNK8V3Number6bitIs0Ei.exit.thread.us101 ], [ %.1.us, %_ZNK8V3Number6bitIs0Ei.exit.thread.us ], [ %.1.us86, %_ZNK8V3Number6bitIs0Ei.exit.thread.us85 ], [ %.1.us94, %_ZNK8V3Number6bitIs0Ei.exit.thread.us93 ], [ %.1.us110, %_ZNK8V3Number6bitIs0Ei.exit.thread.us109 ]
+  %.012.lcssa = phi i32 [ 0, %2 ], [ 0, %.lr.ph.split.split.split.us97 ], [ 0, %.lr.ph.split.split.split.us105 ], [ 0, %.lr.ph.split.split ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ %.1.us94, %_ZNK8V3Number6bitIs0Ei.exit.thread.us93 ], [ 0, %.lr.ph.split.split.split.us89 ], [ %.1.us102, %_ZNK8V3Number6bitIs0Ei.exit.thread.us101 ], [ %.1.us86, %_ZNK8V3Number6bitIs0Ei.exit.thread.us85 ], [ %.1.us, %_ZNK8V3Number6bitIs0Ei.exit.thread.us ], [ %.1.us110, %_ZNK8V3Number6bitIs0Ei.exit.thread.us109 ]
   ret i32 %.012.lcssa
 
 93:                                               ; preds = %.lr.ph.split
@@ -16392,7 +16392,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %21, label %.lr.ph.split, label %._crit_edge, !llvm.loop !284
 
 ._crit_edge:                                      ; preds = %18, %.backedge, %.lr.ph, %1
-  %22 = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ 0, %.backedge ], [ %.06.in10, %18 ]
+  %22 = phi i32 [ 0, %.lr.ph ], [ 0, %1 ], [ 0, %.backedge ], [ %.06.in10, %18 ]
   ret i32 %22
 }
 
@@ -17433,7 +17433,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.i.i:           ; preds = %_ZNK8V3Number6bitIs
   br i1 %exitcond.not.i11.i, label %_ZNK8V3Number7isAnyXZEv.exit, label %.lr.ph.i.i.i, !llvm.loop !234
 
 _ZNK8V3Number7isAnyXZEv.exit:                     ; preds = %_ZNK8V3Number6bitIsXEi.exit.i.i, %_ZNK8V3Number6bitIsZEi.exit.i.i, %_ZNK8V3Number6bitIsZEi.exit.thread.i.i, %7, %.preheader.i.i, %.lr.ph.i.i
-  %41 = phi i8 [ 0, %7 ], [ 0, %.lr.ph.i.i ], [ 0, %.preheader.i.i ], [ 1, %_ZNK8V3Number6bitIsZEi.exit.i.i ], [ 0, %_ZNK8V3Number6bitIsZEi.exit.thread.i.i ], [ 1, %_ZNK8V3Number6bitIsXEi.exit.i.i ]
+  %41 = phi i8 [ 0, %.preheader.i.i ], [ 0, %7 ], [ 0, %.lr.ph.i.i ], [ 1, %_ZNK8V3Number6bitIsZEi.exit.i.i ], [ 0, %_ZNK8V3Number6bitIsZEi.exit.thread.i.i ], [ 1, %_ZNK8V3Number6bitIsXEi.exit.i.i ]
   %42 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13setSingleBitsEc(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %41)
   ret ptr %0
 }
@@ -20026,7 +20026,7 @@ _ZNK12V3NumberData3numEv.exit.i63:                ; preds = %tailrecurse.i60
   br i1 %exitcond127.not, label %.thread, label %_ZNK12V3NumberData3numEv.exit.i48, !llvm.loop !307
 
 .thread:                                          ; preds = %_ZNK8V3Number6bitIs1Ei.exit, %_ZNK8V3Number6bitIs1Ei.exit55, %_ZNK12V3NumberData3numEv.exit.i63, %.preheader
-  %.2 = phi i8 [ %.034.lcssa, %.preheader ], [ %spec.store.select6, %_ZNK12V3NumberData3numEv.exit.i63 ], [ 1, %_ZNK8V3Number6bitIs1Ei.exit55 ], [ 1, %_ZNK8V3Number6bitIs1Ei.exit ]
+  %.2 = phi i8 [ %spec.store.select6, %_ZNK12V3NumberData3numEv.exit.i63 ], [ %.034.lcssa, %.preheader ], [ 1, %_ZNK8V3Number6bitIs1Ei.exit55 ], [ 1, %_ZNK8V3Number6bitIs1Ei.exit ]
   %82 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13setSingleBitsEc(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %.2)
   ret ptr %0
 }
@@ -20450,8 +20450,8 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i
-  %78 = phi ptr [ %24, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %24, %._crit_edge.i.i.i.i ], [ %.pre, %.loopexit.loopexit ]
-  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %33, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %.loopexit.loopexit ]
+  %78 = phi ptr [ %24, %._crit_edge.i.i.i.i ], [ %24, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %.pre, %.loopexit.loopexit ]
+  %.sroa.013.0.i.i = phi ptr [ %33, %._crit_edge.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %.sroa.013.2.i.i, %.loopexit.loopexit ]
   %79 = ptrtoint ptr %.sroa.013.0.i.i to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
@@ -23677,7 +23677,7 @@ _ZNK8V3Number7bitIsXZEi.exit206.thread:           ; preds = %_ZNK8V3Number7bitIs
   br i1 %exitcond.not, label %_ZNK8V3Number6bitIs0Ei.exit107.thread226, label %161, !llvm.loop !320
 
 _ZNK8V3Number6bitIs0Ei.exit107.thread226:         ; preds = %_ZNK8V3Number7bitIsXZEi.exit206.thread, %28, %_ZNK8V3Number12bitIs1ExtendEi.exit89.thread, %115, %128, %_ZNK8V3Number6bitIs0Ei.exit107, %_ZNK8V3Number12bitIs1ExtendEi.exit, %_ZNK8V3Number7bitIsXZEi.exit56, %_ZNK8V3Number7bitIsXZEi.exit
-  %.037 = phi i8 [ 0, %_ZNK8V3Number6bitIs0Ei.exit107 ], [ 120, %_ZNK8V3Number7bitIsXZEi.exit ], [ 120, %_ZNK8V3Number7bitIsXZEi.exit56 ], [ 1, %_ZNK8V3Number12bitIs1ExtendEi.exit ], [ 0, %128 ], [ 0, %115 ], [ 0, %_ZNK8V3Number12bitIs1ExtendEi.exit89.thread ], [ 0, %28 ], [ %233, %_ZNK8V3Number7bitIsXZEi.exit206.thread ]
+  %.037 = phi i8 [ 0, %_ZNK8V3Number6bitIs0Ei.exit107 ], [ 120, %_ZNK8V3Number7bitIsXZEi.exit ], [ 120, %_ZNK8V3Number7bitIsXZEi.exit56 ], [ 1, %_ZNK8V3Number12bitIs1ExtendEi.exit ], [ 0, %115 ], [ 0, %128 ], [ 0, %_ZNK8V3Number12bitIs1ExtendEi.exit89.thread ], [ 0, %28 ], [ %233, %_ZNK8V3Number7bitIsXZEi.exit206.thread ]
   %235 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13setSingleBitsEc(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %.037)
   ret ptr %0
 }
@@ -24964,7 +24964,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   br i1 %57, label %.lr.ph.split.i, label %_ZNK8V3Number12mostSetBitP1Ev.exit, !llvm.loop !284
 
 _ZNK8V3Number12mostSetBitP1Ev.exit:               ; preds = %54, %.backedge.i, %35, %.lr.ph.i
-  %58 = phi i32 [ 0, %35 ], [ 0, %.lr.ph.i ], [ %.06.in10.i, %54 ], [ 0, %.backedge.i ]
+  %58 = phi i32 [ 0, %.lr.ph.i ], [ 0, %35 ], [ %.06.in10.i, %54 ], [ 0, %.backedge.i ]
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %60 = load i32, ptr %59, align 8, !tbaa !39
   %61 = icmp sgt i32 %60, 0
@@ -25015,7 +25015,7 @@ _ZNK8V3Number12mostSetBitP1Ev.exit214:            ; preds = %74
   %78 = icmp eq i32 %58, 0
   br i1 %78, label %_ZNK8V3Number12mostSetBitP1Ev.exit214.thread, label %109, !prof !326
 
-_ZNK8V3Number12mostSetBitP1Ev.exit214.thread:     ; preds = %.backedge.i213, %.lr.ph.i199, %_ZNK8V3Number12mostSetBitP1Ev.exit, %_ZNK8V3Number12mostSetBitP1Ev.exit214
+_ZNK8V3Number12mostSetBitP1Ev.exit214.thread:     ; preds = %.backedge.i213, %_ZNK8V3Number12mostSetBitP1Ev.exit, %.lr.ph.i199, %_ZNK8V3Number12mostSetBitP1Ev.exit214
   %79 = tail call noundef i32 @_ZL5debugv()
   %80 = icmp sgt i32 %79, 8
   br i1 %80, label %81, label %526, !prof !133

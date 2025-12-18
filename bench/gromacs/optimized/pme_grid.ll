@@ -2685,12 +2685,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc39
   br i1 %exitcond97.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph.split.us.split, !llvm.loop !224
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph.split, %35, %44, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i.i.i.i.i37118 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i37.ph, %35 ], [ %.0.i.i.i.i.i37.ph, %44 ], [ %.0.i.i.i.i.i37.ph, %.lr.ph.split ]
-  %.sroa.14.0116 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %18, %35 ], [ %18, %44 ], [ %18, %.lr.ph.split ]
-  %.sroa.043.0114 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %17, %35 ], [ %17, %44 ], [ %17, %.lr.ph.split ]
-  %.sroa.17.076112 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %35 ], [ %11, %44 ], [ %11, %.lr.ph.split ]
-  %.sroa.056.078110 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %35 ], [ %10, %44 ], [ %10, %.lr.ph.split ]
-  %.0.i.i.i.i.i79108 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %35 ], [ %.0.i.i.i.i.i.ph, %44 ], [ %.0.i.i.i.i.i.ph, %.lr.ph.split ]
+  %.0.i.i.i.i.i37118 = phi ptr [ %.0.i.i.i.i.i37.ph, %35 ], [ %.0.i.i.i.i.i37.ph, %44 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i37.ph, %.lr.ph.split ]
+  %.sroa.14.0116 = phi ptr [ %18, %35 ], [ %18, %44 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %18, %.lr.ph.split ]
+  %.sroa.043.0114 = phi ptr [ %17, %35 ], [ %17, %44 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %17, %.lr.ph.split ]
+  %.sroa.17.076112 = phi ptr [ %11, %35 ], [ %11, %44 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %.lr.ph.split ]
+  %.sroa.056.078110 = phi ptr [ %10, %35 ], [ %10, %44 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %.lr.ph.split ]
+  %.0.i.i.i.i.i79108 = phi ptr [ %.0.i.i.i.i.i.ph, %35 ], [ %.0.i.i.i.i.i.ph, %44 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %.lr.ph.split ]
   store ptr %.sroa.043.0114, ptr %0, align 8, !tbaa !108
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i37118, ptr %45, align 8, !tbaa !225

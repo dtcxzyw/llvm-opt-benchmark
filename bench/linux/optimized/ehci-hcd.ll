@@ -1674,7 +1674,7 @@ define dso_local noundef range(i32 -110, 1) i32 @ehci_setup(ptr noundef initiali
   br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader5, %.preheader, %90, %83
-  %115 = phi i32 [ 0, %83 ], [ 0, %90 ], [ %113, %.preheader ], [ %106, %.preheader5 ]
+  %115 = phi i32 [ %113, %.preheader ], [ 0, %83 ], [ 0, %90 ], [ %106, %.preheader5 ]
   %116 = zext i32 %115 to i64
   %117 = shl nuw nsw i64 %116, 3
   %118 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %117, i32 noundef 3520) #22
@@ -5404,9 +5404,9 @@ check_intr_schedule.exit.loopexit56:              ; preds = %106
   br label %check_intr_schedule.exit
 
 check_intr_schedule.exit:                         ; preds = %97, %check_intr_schedule.exit.loopexit56, %162, %189
-  %192 = phi i8 [ 0, %189 ], [ %79, %162 ], [ %79, %check_intr_schedule.exit.loopexit56 ], [ %79, %97 ]
-  %.3 = phi i32 [ 0, %189 ], [ %164, %162 ], [ 0, %check_intr_schedule.exit.loopexit56 ], [ 0, %97 ]
-  %193 = phi i32 [ 0, %189 ], [ %130, %162 ], [ %191, %check_intr_schedule.exit.loopexit56 ], [ %95, %97 ]
+  %192 = phi i8 [ %79, %162 ], [ 0, %189 ], [ %79, %check_intr_schedule.exit.loopexit56 ], [ %79, %97 ]
+  %.3 = phi i32 [ %164, %162 ], [ 0, %189 ], [ 0, %check_intr_schedule.exit.loopexit56 ], [ 0, %97 ]
+  %193 = phi i32 [ %130, %162 ], [ 0, %189 ], [ %191, %check_intr_schedule.exit.loopexit56 ], [ %95, %97 ]
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %195 = load i16, ptr %194, align 4
   %196 = icmp eq i16 %195, 0
@@ -7829,7 +7829,7 @@ default.unreachable139:                           ; preds = %3
   br i1 %117, label %.loopexit, label %107, !llvm.loop !92
 
 .loopexit:                                        ; preds = %107, %98, %102
-  %118 = phi i32 [ %.ph54, %102 ], [ 0, %98 ], [ %.ph54, %107 ]
+  %118 = phi i32 [ 0, %98 ], [ %.ph54, %102 ], [ %.ph54, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %752
 
@@ -12153,7 +12153,7 @@ define internal fastcc i32 @iso_stream_schedule(ptr noundef captures(none) %0, p
   br i1 %113, label %.thread15, label %.thread12
 
 .thread12:                                        ; preds = %64, %77, %85, %98, %.split23.us
-  %116 = phi i32 [ %83, %.split23.us ], [ %66, %77 ], [ %83, %98 ], [ %83, %85 ], [ %66, %64 ]
+  %116 = phi i32 [ %66, %77 ], [ %83, %.split23.us ], [ %83, %98 ], [ %83, %85 ], [ %66, %64 ]
   %117 = lshr i32 %116, 3
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %119 = load i16, ptr %118, align 4
@@ -12815,7 +12815,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr noundef rea
   br label %.critedge
 
 .critedge:                                        ; preds = %74, %103, %59, %.split7.us, %15, %4
-  %122 = phi i32 [ 1, %.split7.us ], [ 0, %4 ], [ 0, %15 ], [ 0, %103 ], [ 0, %59 ], [ 0, %74 ]
+  %122 = phi i32 [ 1, %.split7.us ], [ 0, %4 ], [ 0, %15 ], [ 0, %59 ], [ 0, %103 ], [ 0, %74 ]
   ret i32 %122
 }
 

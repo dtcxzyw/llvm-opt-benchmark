@@ -366,7 +366,7 @@ default.unreachable:                              ; preds = %2
           to label %33 unwind label %31
 
 "_ZN63_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hc1af71a6b9e31360E.exit": ; preds = %13, %19, %27
-  %.0.shrunk.i = phi i1 [ %18, %13 ], [ %21, %19 ], [ %28, %27 ]
+  %.0.shrunk.i = phi i1 [ %28, %27 ], [ %18, %13 ], [ %21, %19 ]
   br i1 %.0.shrunk.i, label %"_ZN63_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hc1af71a6b9e31360E.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he1fadad14b650130E.exit"
 
 "_ZN63_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hc1af71a6b9e31360E.exit.thread": ; preds = %.noexc8, %.noexc9, %"_ZN63_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hc1af71a6b9e31360E.exit"

@@ -224,7 +224,7 @@ find_simple.exit63.thread66.sink.split:           ; preds = %55, %47, %32
   br label %find_simple.exit63.thread66
 
 find_simple.exit63.thread66:                      ; preds = %.lr.ph.i58, %find_simple.exit63.thread66.sink.split, %find_simple.exit63
-  %.1 = phi ptr [ %67, %find_simple.exit63 ], [ %71, %find_simple.exit63.thread66.sink.split ], [ %.09.i59, %.lr.ph.i58 ]
+  %.1 = phi ptr [ %71, %find_simple.exit63.thread66.sink.split ], [ %67, %find_simple.exit63 ], [ %.09.i59, %.lr.ph.i58 ]
   ret ptr %.1
 }
 

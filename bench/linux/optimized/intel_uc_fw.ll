@@ -1317,7 +1317,7 @@ __uc_fw_auto_select.exit:                         ; preds = %66
   br label %255
 
 255:                                              ; preds = %.loopexit, %246, %182, %121, %20
-  %256 = phi i32 [ %15, %20 ], [ %125, %121 ], [ %183, %182 ], [ %248, %246 ], [ %34, %.loopexit ]
+  %256 = phi i32 [ %15, %20 ], [ %248, %246 ], [ %125, %121 ], [ %183, %182 ], [ %34, %.loopexit ]
   %.fr = freeze i32 %256
   %257 = icmp eq i32 %.fr, -2
   %spec.select = select i1 %257, i32 3, i32 4

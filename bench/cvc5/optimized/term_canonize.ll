@@ -1304,8 +1304,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142: ; preds = %376, %381, %387
   br label %436
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit132: ; preds = %312, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit112, %400, %394, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142, %298, %292, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130, %326
-  %.2 = phi i1 [ %274, %298 ], [ %340, %326 ], [ %274, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130 ], [ %274, %292 ], [ %377, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142 ], [ %377, %394 ], [ %377, %400 ], [ undef, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit112 ], [ undef, %312 ]
-  %409 = phi i1 [ false, %298 ], [ false, %326 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130 ], [ false, %292 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142 ], [ false, %394 ], [ false, %400 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit112 ], [ true, %312 ]
+  %.2 = phi i1 [ %274, %298 ], [ %340, %326 ], [ %377, %400 ], [ %274, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130 ], [ %274, %292 ], [ %377, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142 ], [ %377, %394 ], [ undef, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit112 ], [ undef, %312 ]
+  %409 = phi i1 [ false, %298 ], [ false, %326 ], [ false, %400 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130 ], [ false, %292 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142 ], [ false, %394 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit112 ], [ true, %312 ]
   %410 = load ptr, ptr %5, align 8, !tbaa !40
   %411 = load i64, ptr %410, align 8
   %412 = and i64 %411, 1152920405095219200

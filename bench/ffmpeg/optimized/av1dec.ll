@@ -1789,8 +1789,8 @@ load_grain_params.exit.i.i:                       ; preds = %868, %867, %order_h
   br label %get_current_frame.exit.i
 
 .loopexit:                                        ; preds = %256, %335, %314, %.loopexit272.i, %213
-  %.str.35.sink.i = phi ptr [ @.str.35, %213 ], [ @.str.36, %.loopexit272.i ], [ @.str.37, %335 ], [ @.str.37, %314 ], [ @.str.20, %256 ]
-  %.0.i.ph.i = phi i32 [ %211, %213 ], [ %.031.i.ph.i.i, %.loopexit272.i ], [ %.0.i.i.i, %335 ], [ %.0.i.ph.i.i.i, %314 ], [ %264, %256 ]
+  %.str.35.sink.i = phi ptr [ @.str.35, %213 ], [ @.str.37, %314 ], [ @.str.36, %.loopexit272.i ], [ @.str.37, %335 ], [ @.str.20, %256 ]
+  %.0.i.ph.i = phi i32 [ %211, %213 ], [ %.0.i.ph.i.i.i, %314 ], [ %.031.i.ph.i.i, %.loopexit272.i ], [ %.0.i.i.i, %335 ], [ %264, %256 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.35.sink.i) #10
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23) #10
   br label %get_tiles_info.exit.thread252.i
@@ -2130,8 +2130,8 @@ get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i: ; preds = %1051
   br label %get_tiles_info.exit.thread252.i
 
 get_tiles_info.exit.thread252.i:                  ; preds = %81, %961, %955, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i, %1050, %1047, %1045, %1042, %.thread.i, %995, %914, %909, %.loopexit, %183, %182, %125, %99, %78, %39
-  %.8.i = phi i32 [ %1040, %1042 ], [ -1163346256, %78 ], [ %.4177.ph.i, %.thread.i ], [ -1094995529, %125 ], [ -1094995529, %914 ], [ %993, %995 ], [ %907, %909 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ %97, %99 ], [ 0, %1047 ], [ 0, %1045 ], [ %1048, %1050 ], [ -11, %39 ], [ -11, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ -1094995529, %961 ], [ -1094995529, %955 ], [ %84, %81 ]
-  %.4172.i = phi i32 [ %75, %1042 ], [ %75, %78 ], [ %75, %.thread.i ], [ %75, %125 ], [ %75, %914 ], [ %75, %995 ], [ %75, %909 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %99 ], [ %1033, %1047 ], [ %1033, %1045 ], [ %75, %1050 ], [ %42, %39 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ %75, %961 ], [ %75, %955 ], [ %75, %81 ]
+  %.8.i = phi i32 [ 0, %1045 ], [ -1163346256, %78 ], [ %1040, %1042 ], [ %.4177.ph.i, %.thread.i ], [ -1094995529, %125 ], [ -1094995529, %914 ], [ %993, %995 ], [ -11, %39 ], [ %907, %909 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ %97, %99 ], [ %1048, %1050 ], [ 0, %1047 ], [ -1094995529, %961 ], [ -11, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ -1094995529, %955 ], [ %84, %81 ]
+  %.4172.i = phi i32 [ %1033, %1045 ], [ %75, %78 ], [ %75, %1042 ], [ %75, %.thread.i ], [ %75, %125 ], [ %75, %914 ], [ %75, %995 ], [ %42, %39 ], [ %75, %909 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %99 ], [ %75, %1050 ], [ %1033, %1047 ], [ %75, %961 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ %75, %955 ], [ %75, %81 ]
   %1055 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %1056 = load i32, ptr %43, align 8, !tbaa !78
   %.not221.i = icmp sgt i32 %.4172.i, %1056

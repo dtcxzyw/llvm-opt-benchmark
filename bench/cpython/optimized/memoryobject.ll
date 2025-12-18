@@ -2100,7 +2100,7 @@ Py_DECREF.exit39.i:                               ; preds = %104, %101, %96
   br i1 %exitcond.not.i.i, label %init_strides_from_shape.exit.i, label %152, !llvm.loop !143
 
 init_strides_from_shape.exit.i:                   ; preds = %152, %138, %145, %125
-  %160 = phi i32 [ %127, %125 ], [ %147, %145 ], [ %127, %138 ], [ %147, %152 ]
+  %160 = phi i32 [ %127, %138 ], [ %127, %125 ], [ %147, %145 ], [ %147, %152 ]
   %161 = getelementptr inbounds nuw i8, ptr %99, i64 120
   store ptr null, ptr %161, align 8, !tbaa !123
   switch i32 %160, label %init_flags.exit.i [
@@ -2163,7 +2163,7 @@ Py_DECREF.exit41.sink.split.i:                    ; preds = %182, %93
   br label %memory_from_contiguous_copy.exit
 
 memory_from_contiguous_copy.exit:                 ; preds = %27, %Py_DECREF.exit43.i, %90, %93, %Py_DECREF.exit39.i, %init_flags.exit.thread.i, %180, %182, %Py_DECREF.exit41.sink.split.i
-  %.034.i = phi ptr [ null, %Py_DECREF.exit39.i ], [ null, %27 ], [ %99, %init_flags.exit.thread.i ], [ null, %Py_DECREF.exit43.i ], [ null, %90 ], [ null, %93 ], [ null, %180 ], [ null, %182 ], [ null, %Py_DECREF.exit41.sink.split.i ]
+  %.034.i = phi ptr [ null, %Py_DECREF.exit39.i ], [ null, %27 ], [ %99, %init_flags.exit.thread.i ], [ null, %Py_DECREF.exit43.i ], [ null, %182 ], [ null, %90 ], [ null, %93 ], [ null, %180 ], [ null, %Py_DECREF.exit41.sink.split.i ]
   %185 = load i32, ptr %4, align 8, !tbaa !102
   %.not.i = icmp sgt i32 %185, -1
   br i1 %.not.i, label %186, label %Py_DECREF.exit20
@@ -3360,9 +3360,9 @@ get_native_fmtchar.exit91.thread114:              ; preds = %73, %get_native_fmt
   br label %124
 
 124:                                              ; preds = %97, %111, %99, %91, %83
-  %.068 = phi ptr [ null, %83 ], [ %81, %91 ], [ %.169, %97 ], [ %.169, %99 ], [ %.169, %111 ]
-  %.067 = phi ptr [ null, %83 ], [ null, %91 ], [ %.1, %97 ], [ %.1, %99 ], [ %.1, %111 ]
-  %.0 = phi i32 [ %84, %83 ], [ %92, %91 ], [ %98, %97 ], [ %110, %99 ], [ %123, %111 ]
+  %.068 = phi ptr [ %.169, %99 ], [ %.169, %97 ], [ %.169, %111 ], [ null, %83 ], [ %81, %91 ]
+  %.067 = phi ptr [ %.1, %99 ], [ %.1, %97 ], [ %.1, %111 ], [ null, %83 ], [ null, %91 ]
+  %.0 = phi i32 [ %110, %99 ], [ %98, %97 ], [ %123, %111 ], [ %84, %83 ], [ %92, %91 ]
   %.0.fr = freeze i32 %.0
   %125 = icmp slt i32 %.0.fr, 0
   br i1 %125, label %126, label %.thread
@@ -5534,7 +5534,7 @@ define internal fastcc ptr @ptr_from_tuple(ptr noundef readonly captures(none) %
   br label %lookup_dimension.exit
 
 lookup_dimension.exit:                            ; preds = %71, %67, %60, %46, %42, %35
-  %phi.call = phi ptr [ %40, %35 ], [ %48, %46 ], [ %40, %42 ], [ %73, %71 ], [ %65, %67 ], [ %65, %60 ]
+  %phi.call = phi ptr [ %40, %35 ], [ %65, %60 ], [ %48, %46 ], [ %40, %42 ], [ %65, %67 ], [ %73, %71 ]
   %.not36 = icmp eq ptr %phi.call, null
   br i1 %.not36, label %.critedge, label %74
 
@@ -8220,7 +8220,7 @@ Py_DECREF.exit27:                                 ; preds = %18, %20, %23
   br label %.backedge
 
 .backedge:                                        ; preds = %37, %35, %Py_DECREF.exit27
-  %.014.be = phi i64 [ %24, %Py_DECREF.exit27 ], [ %36, %35 ], [ %.01437, %37 ]
+  %.014.be = phi i64 [ %24, %Py_DECREF.exit27 ], [ %.01437, %37 ], [ %36, %35 ]
   %25 = call i32 @PyIter_NextItem(ptr noundef nonnull %4, ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !179
@@ -8691,7 +8691,7 @@ define internal fastcc ptr @tolist_base(ptr noundef readonly captures(none) %0, 
   br i1 %40, label %.lr.ph.split, label %Py_DECREF.exit.thread, !llvm.loop !183
 
 Py_DECREF.exit.thread:                            ; preds = %34, %14, %.preheader, %.split.us, %30, %33, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %33 ], [ null, %30 ], [ null, %.split.us ], [ %8, %.preheader ], [ %8, %14 ], [ %8, %34 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %.split.us ], [ null, %33 ], [ null, %30 ], [ %8, %.preheader ], [ %8, %14 ], [ %8, %34 ]
   ret ptr %.0
 }
 
@@ -8788,7 +8788,7 @@ define internal fastcc ptr @tolist_rec(ptr noundef readonly captures(none) %0, p
   br i1 %50, label %.lr.ph.split, label %Py_DECREF.exit.thread, !llvm.loop !184
 
 Py_DECREF.exit.thread:                            ; preds = %44, %24, %.preheader, %.split.us, %40, %43, %11, %9
-  %.0 = phi ptr [ %10, %9 ], [ null, %11 ], [ null, %43 ], [ null, %40 ], [ null, %.split.us ], [ %13, %.preheader ], [ %13, %24 ], [ %13, %44 ]
+  %.0 = phi ptr [ %10, %9 ], [ null, %11 ], [ null, %.split.us ], [ null, %43 ], [ null, %40 ], [ %13, %.preheader ], [ %13, %24 ], [ %13, %44 ]
   ret ptr %.0
 }
 
@@ -9263,8 +9263,8 @@ init_flags.exit:                                  ; preds = %78, %84, %89, %90
   store i32 %.2.i21, ptr %98, align 8, !tbaa !109
   br label %copy_shape.exit.thread
 
-copy_shape.exit.thread:                           ; preds = %29, %.thread.i, %43, %34, %copy_shape.exit, %init_flags.exit, %76
-  %.016 = phi i32 [ -1, %76 ], [ 0, %init_flags.exit ], [ -1, %copy_shape.exit ], [ -1, %34 ], [ -1, %43 ], [ -1, %.thread.i ], [ -1, %29 ]
+copy_shape.exit.thread:                           ; preds = %.thread.i, %43, %34, %29, %copy_shape.exit, %init_flags.exit, %76
+  %.016 = phi i32 [ -1, %76 ], [ 0, %init_flags.exit ], [ -1, %copy_shape.exit ], [ -1, %29 ], [ -1, %34 ], [ -1, %43 ], [ -1, %.thread.i ]
   ret i32 %.016
 }
 
@@ -9568,7 +9568,7 @@ define internal ptr @memory_shape_get(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not.i, label %_IntTupleFromSsizet.exit, label %27, !llvm.loop !189
 
 _IntTupleFromSsizet.exit:                         ; preds = %37, %36, %33, %31, %.preheader.i, %22, %20, %12
-  %.0 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %22 ], [ null, %31 ], [ null, %33 ], [ null, %36 ], [ %24, %.preheader.i ], [ %24, %37 ]
+  %.0 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %36 ], [ null, %22 ], [ null, %31 ], [ null, %33 ], [ %24, %.preheader.i ], [ %24, %37 ]
   ret ptr %.0
 }
 
@@ -9652,7 +9652,7 @@ define internal ptr @memory_strides_get(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not.i, label %_IntTupleFromSsizet.exit, label %27, !llvm.loop !189
 
 _IntTupleFromSsizet.exit:                         ; preds = %37, %36, %33, %31, %.preheader.i, %22, %20, %12
-  %.0 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %22 ], [ null, %31 ], [ null, %33 ], [ null, %36 ], [ %24, %.preheader.i ], [ %24, %37 ]
+  %.0 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %36 ], [ null, %22 ], [ null, %31 ], [ null, %33 ], [ %24, %.preheader.i ], [ %24, %37 ]
   ret ptr %.0
 }
 
@@ -9736,7 +9736,7 @@ define internal ptr @memory_suboffsets_get(ptr noundef readonly captures(none) %
   br i1 %exitcond.not.i, label %_IntTupleFromSsizet.exit, label %27, !llvm.loop !189
 
 _IntTupleFromSsizet.exit:                         ; preds = %37, %36, %33, %31, %.preheader.i, %22, %20, %12
-  %.0 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %22 ], [ null, %31 ], [ null, %33 ], [ null, %36 ], [ %24, %.preheader.i ], [ %24, %37 ]
+  %.0 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %36 ], [ null, %22 ], [ null, %31 ], [ null, %33 ], [ %24, %.preheader.i ], [ %24, %37 ]
   ret ptr %.0
 }
 

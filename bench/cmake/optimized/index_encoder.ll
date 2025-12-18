@@ -224,7 +224,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %56, %53, %9, %._crit_edge, %71
-  %.0 = phi i32 [ %.3.ph, %71 ], [ %.3.ph, %._crit_edge ], [ 0, %9 ], [ 1, %56 ], [ 0, %53 ], [ 11, %15 ]
+  %.0 = phi i32 [ %.3.ph, %71 ], [ %.3.ph, %._crit_edge ], [ 1, %56 ], [ 0, %9 ], [ 0, %53 ], [ 11, %15 ]
   ret i32 %.0
 }
 

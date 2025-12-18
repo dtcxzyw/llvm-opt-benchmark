@@ -3451,7 +3451,7 @@ _ZNK7Imf_3_418DeepTiledInputFile9numYTilesEi.exit: ; preds = %_ZNK7Imf_3_418Deep
   br label %common.resume
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph37, %.preheader.lr.ph, %.preheader23, %16
-  %.1 = phi i32 [ 0, %16 ], [ 0, %.preheader23 ], [ 0, %.preheader.lr.ph ], [ %22, %.lr.ph37 ], [ %.3.lcssa, %._crit_edge ]
+  %.1 = phi i32 [ 0, %.preheader.lr.ph ], [ 0, %16 ], [ 0, %.preheader23 ], [ %22, %.lr.ph37 ], [ %.3.lcssa, %._crit_edge ]
   %91 = sext i32 %.1 to i64
   ret i64 %91
 }
@@ -4831,7 +4831,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %155
   br i1 %238, label %.preheader.i, label %_ZN7Imf_3_412_GLOBAL__N_111TileProcess17copy_sample_countEPKNS_15DeepFrameBufferEiiii.exit, !llvm.loop !249
 
 _ZN7Imf_3_412_GLOBAL__N_111TileProcess17copy_sample_countEPKNS_15DeepFrameBufferEiiii.exit: ; preds = %.loopexit.i, %.lr.ph44.split.us.i, %182, %.lr.ph44.split.i
-  %239 = phi i32 [ %204, %.lr.ph44.split.i ], [ %204, %182 ], [ %218, %.lr.ph44.split.us.i ], [ %234, %.loopexit.i ]
+  %239 = phi i32 [ %218, %.lr.ph44.split.us.i ], [ %204, %.lr.ph44.split.i ], [ %204, %182 ], [ %234, %.loopexit.i ]
   %240 = load i8, ptr %72, align 1, !tbaa !157, !range !78, !noundef !79
   %241 = trunc nuw i8 %240 to i1
   br i1 %241, label %_ZN7Imf_3_412_GLOBAL__N_111TileProcess8run_fillEPKNS_15DeepFrameBufferEiiiiRKSt6vectorINS_9DeepSliceESaIS6_EE.exit, label %242
@@ -5113,7 +5113,7 @@ _ZN9Imath_3_24halfC2Ef.exit.i:                    ; preds = %365, %362, %348, %3
   br label %.loopexit.i44
 
 .loopexit.i44:                                    ; preds = %.lr.ph.i45, %.lr.ph10.i, %.loopexit.loopexit.i48, %369, %_ZN9Imath_3_24halfC2Ef.exit.i, %307, %.lr.ph15.i
-  %379 = phi i32 [ %299, %.lr.ph15.i ], [ %.pre.i49, %.loopexit.loopexit.i48 ], [ %299, %369 ], [ %299, %_ZN9Imath_3_24halfC2Ef.exit.i ], [ %299, %307 ], [ %299, %.lr.ph10.i ], [ %299, %.lr.ph.i45 ]
+  %379 = phi i32 [ %299, %.lr.ph10.i ], [ %299, %.lr.ph15.i ], [ %.pre.i49, %.loopexit.loopexit.i48 ], [ %299, %369 ], [ %299, %_ZN9Imath_3_24halfC2Ef.exit.i ], [ %299, %307 ], [ %299, %.lr.ph.i45 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.06714.i, i64 %261
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %380 = sext i32 %379 to i64

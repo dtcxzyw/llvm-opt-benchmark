@@ -2933,8 +2933,8 @@ _ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit: ; preds = %.prehe
   %20 = icmp eq i32 %17, %19
   br label %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread
 
-_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread: ; preds = %2, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, %15
-  %21 = phi i1 [ %20, %15 ], [ false, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit ], [ false, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ false, %2 ]
+_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %2, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, %15
+  %21 = phi i1 [ %20, %15 ], [ false, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit ], [ false, %2 ], [ false, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ]
   ret i1 %21
 }
 
@@ -5110,7 +5110,7 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   br i1 %.not.i.i.i53, label %"_ZSt11nth_elementIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EvT_SE_SE_T0_.exit", label %89, !llvm.loop !360
 
 "_ZSt11nth_elementIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EvT_SE_SE_T0_.exit": ; preds = %117, %.preheader.i.i.i, %._crit_edge.i.i51, %73, %62, %_ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoNS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS_11SmallVectorISt4pairIS4_SA_ELj0EEEE10takeVectorEv.exit
-  %.033 = phi ptr [ %56, %_ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoNS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS_11SmallVectorISt4pairIS4_SA_ELj0EEEE10takeVectorEv.exit ], [ %56, %62 ], [ %66, %73 ], [ %66, %._crit_edge.i.i51 ], [ %66, %.preheader.i.i.i ], [ %66, %117 ]
+  %.033 = phi ptr [ %56, %_ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoNS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS_11SmallVectorISt4pairIS4_SA_ELj0EEEE10takeVectorEv.exit ], [ %56, %62 ], [ %66, %.preheader.i.i.i ], [ %66, %73 ], [ %66, %._crit_edge.i.i51 ], [ %66, %117 ]
   %.val40 = load ptr, ptr %8, align 8, !tbaa !111
   %.not.i.i56 = icmp eq ptr %.val40, %.033
   br i1 %.not.i.i56, label %"_ZSt4sortIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EvT_SE_T0_.exit", label %118
@@ -10581,7 +10581,7 @@ _ZN5clangeqERKNS_20CustomizableOptionalINS_12FileEntryRefEEEPKNS_9FileEntryE.exi
   br label %63
 
 _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread91: ; preds = %6, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %61
-  %.sroa.0.1 = phi i32 [ %62, %61 ], [ 0, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ 0, %6 ]
+  %.sroa.0.1 = phi i32 [ 0, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %62, %61 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
@@ -10752,7 +10752,7 @@ _ZN5clangeqERKNS_20CustomizableOptionalINS_12FileEntryRefEEEPKNS_9FileEntryE.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %134, %.critedge.loopexit73, %._crit_edge, %135, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread91
-  %.sroa.0.2 = phi i32 [ %136, %135 ], [ %.sroa.0.1, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread91 ], [ 0, %._crit_edge ], [ %137, %.critedge.loopexit73 ], [ 0, %134 ]
+  %.sroa.0.2 = phi i32 [ 0, %._crit_edge ], [ %136, %135 ], [ %.sroa.0.1, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread91 ], [ %137, %.critedge.loopexit73 ], [ 0, %134 ]
   ret i32 %.sroa.0.2
 }
 
@@ -11171,7 +11171,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %70
   br label %.loopexit
 
 97:                                               ; preds = %.critedge, %58, %.critedge43, %91, %85
-  %.1 = phi i32 [ %14, %.critedge43 ], [ %14, %91 ], [ %14, %58 ], [ %14, %85 ], [ %spec.select, %.critedge ]
+  %.1 = phi i32 [ %14, %.critedge43 ], [ %spec.select, %.critedge ], [ %14, %91 ], [ %14, %58 ], [ %14, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %13
 
@@ -14630,7 +14630,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %_
   br i1 %.not.i.i.i.i, label %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, label %.preheader.i13
 
 _ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit: ; preds = %.preheader.i13, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i
-  %34 = phi ptr [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ %33, %.preheader.i13 ]
+  %34 = phi ptr [ null, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ %33, %.preheader.i13 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !510
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

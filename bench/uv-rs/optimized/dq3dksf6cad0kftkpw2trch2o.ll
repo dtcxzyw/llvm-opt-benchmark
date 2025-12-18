@@ -9646,7 +9646,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..table_enum..TableEnumDeserializer$
           cleanup
   br label %.body228.thread
 
-.body228.thread386:                               ; preds = %398, %.body223.thread, %419, %.body228.thread
+.body228.thread386:                               ; preds = %.body223.thread, %398, %419, %.body228.thread
   %.pn102382 = phi { ptr, i32 } [ %.pn100, %.body223.thread ], [ %.pn102383, %419 ], [ %.pn102383, %.body228.thread ], [ %399, %398 ]
   resume { ptr, i32 } %.pn102382
 

@@ -1073,8 +1073,8 @@ thread-pre-split:                                 ; preds = %decode_vector.exit.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %437, %456, %454
-  %461 = phi i32 [ %.promoted240, %454 ], [ %.promoted240, %456 ], [ %spec.select.i199, %437 ]
-  %.1145 = phi i32 [ 0, %454 ], [ %spec.select, %456 ], [ %451, %437 ]
+  %461 = phi i32 [ %.promoted240, %456 ], [ %.promoted240, %454 ], [ %spec.select.i199, %437 ]
+  %.1145 = phi i32 [ %spec.select, %456 ], [ 0, %454 ], [ %451, %437 ]
   br i1 %244, label %.lr.ph244.preheader, label %._crit_edge245
 
 .lr.ph244.preheader:                              ; preds = %.loopexit

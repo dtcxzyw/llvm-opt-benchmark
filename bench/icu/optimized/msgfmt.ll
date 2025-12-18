@@ -2445,7 +2445,7 @@ _ZNK6icu_7713MessageFormat20nextTopLevelArgStartEi.exit: ; preds = %._crit_edge.
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit36, %.critedge.loopexit, %15
-  %.01530 = phi i32 [ 0, %15 ], [ %32, %.critedge.loopexit ], [ %33, %.critedge.loopexit36 ]
+  %.01530 = phi i32 [ %32, %.critedge.loopexit ], [ 0, %15 ], [ %33, %.critedge.loopexit36 ]
   %34 = icmp slt i32 %.01530, %2
   br i1 %34, label %.lr.ph35.preheader, label %._crit_edge
 
@@ -3161,7 +3161,7 @@ _ZN6icu_7713MessageFormat14argNameMatchesEiRKNS_13UnicodeStringEi.exit: ; preds 
   br label %_ZNK6icu_7713MessageFormat18getCachedFormatterEi.exit
 
 _ZNK6icu_7713MessageFormat18getCachedFormatterEi.exit: ; preds = %._crit_edge.i, %68, %65, %60, %18, %3
-  %.012 = phi ptr [ null, %3 ], [ null, %18 ], [ null, %60 ], [ %64, %65 ], [ null, %68 ], [ null, %._crit_edge.i ]
+  %.012 = phi ptr [ null, %3 ], [ null, %18 ], [ null, %68 ], [ null, %60 ], [ %64, %65 ], [ null, %._crit_edge.i ]
   ret ptr %.012
 }
 

@@ -595,7 +595,7 @@ define i32 @H5Tget_member_index(i64 noundef %0, ptr noundef readonly captures(no
   br label %.thread42
 
 .thread42:                                        ; preds = %66, %61, %.thread42.loopexit68.split.loop.exit, %.thread42.loopexit.split.loop.exit, %.preheader45, %.preheader
-  %.025.ph.ph = phi i32 [ -1, %.preheader45 ], [ -1, %.preheader ], [ %71, %.thread42.loopexit.split.loop.exit ], [ %72, %.thread42.loopexit68.split.loop.exit ], [ -1, %61 ], [ -1, %66 ]
+  %.025.ph.ph = phi i32 [ -1, %.preheader45 ], [ -1, %61 ], [ -1, %.preheader ], [ %71, %.thread42.loopexit.split.loop.exit ], [ %72, %.thread42.loopexit68.split.loop.exit ], [ -1, %66 ]
   %73 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
   br label %77
 

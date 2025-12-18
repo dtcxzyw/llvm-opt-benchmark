@@ -6350,9 +6350,9 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
           to label %154 unwind label %.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %164, %190, %132, %127
-  %289 = phi i64 [ %136, %132 ], [ %114, %127 ], [ %191, %190 ], [ %165, %164 ]
-  %290 = phi i64 [ %138, %132 ], [ %129, %127 ], [ %195, %190 ], [ %169, %164 ]
-  %291 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.257, %132 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.253, %127 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.260, %190 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.274, %164 ]
+  %289 = phi i64 [ %191, %190 ], [ %136, %132 ], [ %114, %127 ], [ %165, %164 ]
+  %290 = phi i64 [ %195, %190 ], [ %138, %132 ], [ %129, %127 ], [ %169, %164 ]
+  %291 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.260, %190 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.257, %132 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.253, %127 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.274, %164 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %289, i64 %290, ptr nonnull align 8 %291) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -6683,7 +6683,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
   br i1 %56, label %.invoke34, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha86be6a5bc2165fdE.exit27"
 
 .invoke34:                                        ; preds = %67, %64, %57, %96
-  %58 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.312, %96 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.307, %67 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.300, %57 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.304, %64 ]
+  %58 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.312, %96 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.300, %57 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.304, %64 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.307, %67 ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.3a4e41e0094de0b8ba6604e391603d5d.0, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.1, ptr nonnull align 8 %58) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

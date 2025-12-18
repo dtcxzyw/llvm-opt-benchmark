@@ -4012,8 +4012,8 @@ _ZNKSt6vectorI9aiColor4tIfESaIS1_EE12_M_check_lenEmPKc.exit.i293: ; preds = %419
   br i1 %.not439470, label %._crit_edge474, label %.lr.ph473
 
 ._crit_edge474:                                   ; preds = %427, %419, %335, %254, %.loopexit
-  %.sroa.0339.2573 = phi ptr [ %.sroa.0339.2, %.loopexit ], [ null, %254 ], [ null, %335 ], [ null, %419 ], [ %.sroa.0339.2, %427 ]
-  %.sroa.44.2572 = phi ptr [ %.sroa.44.2, %.loopexit ], [ null, %254 ], [ null, %335 ], [ null, %419 ], [ %.sroa.44.2, %427 ]
+  %.sroa.0339.2573 = phi ptr [ null, %419 ], [ %.sroa.0339.2, %.loopexit ], [ null, %254 ], [ null, %335 ], [ %.sroa.0339.2, %427 ]
+  %.sroa.44.2572 = phi ptr [ null, %419 ], [ %.sroa.44.2, %.loopexit ], [ null, %254 ], [ null, %335 ], [ %.sroa.44.2, %427 ]
   invoke void @_ZN6Assimp12X3DGeoHelper9add_colorER6aiMeshRKNSt7__cxx114listI9aiColor4tIfESaIS6_EEEb(ptr noundef nonnull align 8 dereferenceable(1320) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %4)
           to label %434 unwind label %41
 
@@ -5004,8 +5004,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br label %.critedge
 
 .critedge:                                        ; preds = %112, %.lr.ph346, %.critedge.sink.split, %.loopexit247
-  %.sroa.42.4 = phi ptr [ %.sroa.42.7, %.loopexit247 ], [ %.sroa.42.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.42.3, %112 ]
-  %.sroa.0195.4 = phi ptr [ %.sroa.0195.7, %.loopexit247 ], [ %.sroa.0195.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.0195.3, %112 ]
+  %.sroa.42.4 = phi ptr [ %.sroa.42.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.42.7, %.loopexit247 ], [ %.sroa.42.3, %112 ]
+  %.sroa.0195.4 = phi ptr [ %.sroa.0195.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.0195.7, %.loopexit247 ], [ %.sroa.0195.3, %112 ]
   %.not.i.i.i150 = icmp eq ptr %.sroa.0180.1.lcssa, null
   br i1 %.not.i.i.i150, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, label %.critedge.thread
 

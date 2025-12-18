@@ -1657,7 +1657,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   br label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit
 
 _ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %73, %3
-  %.0 = phi i1 [ false, %3 ], [ %7, %73 ], [ %7, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %7, %.lr.ph.i.i.i ]
+  %.0 = phi i1 [ false, %3 ], [ %7, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %7, %73 ], [ %7, %.lr.ph.i.i.i ]
   store i8 1, ptr %0, align 8, !tbaa !41
   ret i1 %.0
 }
@@ -1891,7 +1891,7 @@ _ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit: ; pr
   br label %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit.thread
 
 _ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %33, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit, %9, %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit, %6
-  %.0 = phi i1 [ false, %6 ], [ true, %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit ], [ false, %9 ], [ true, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit ], [ true, %33 ], [ true, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi i1 [ true, %33 ], [ false, %6 ], [ true, %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit ], [ false, %9 ], [ true, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit ], [ true, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0
 }
 

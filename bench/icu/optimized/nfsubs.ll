@@ -1618,17 +1618,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %_ZNKSt9type_infoeqE
   %37 = icmp eq ptr %36, null
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !6
-  br i1 %37, label %40, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit
+  br i1 %37, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit, label %40
 
 40:                                               ; preds = %34
-  %41 = icmp eq ptr %39, null
-  br i1 %41, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
+  %41 = load ptr, ptr %36, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br i1 %44, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 _ZNK6icu_7714NFSubstitutioneqERKS0_.exit:         ; preds = %34
-  %42 = load ptr, ptr %36, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  %45 = icmp eq ptr %39, null
   br i1 %45, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 46:                                               ; preds = %40, %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit
@@ -1769,17 +1769,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %_ZNKSt9type_infoeqE
   %37 = icmp eq ptr %36, null
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !6
-  br i1 %37, label %40, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit
+  br i1 %37, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit, label %40
 
 40:                                               ; preds = %34
-  %41 = icmp eq ptr %39, null
-  br i1 %41, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
+  %41 = load ptr, ptr %36, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br i1 %44, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 _ZNK6icu_7714NFSubstitutioneqERKS0_.exit:         ; preds = %34
-  %42 = load ptr, ptr %36, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  %45 = icmp eq ptr %39, null
   br i1 %45, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 46:                                               ; preds = %40, %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit
@@ -2567,17 +2567,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %_ZNKSt9type_infoeqE
   %37 = icmp eq ptr %36, null
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !6
-  br i1 %37, label %40, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit
+  br i1 %37, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit, label %40
 
 40:                                               ; preds = %34
-  %41 = icmp eq ptr %39, null
-  br i1 %41, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
+  %41 = load ptr, ptr %36, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br i1 %44, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 _ZNK6icu_7714NFSubstitutioneqERKS0_.exit:         ; preds = %34
-  %42 = load ptr, ptr %36, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  %45 = icmp eq ptr %39, null
   br i1 %45, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 46:                                               ; preds = %40, %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit
@@ -3124,17 +3124,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %_ZNKSt9type_infoeqE
   %37 = icmp eq ptr %36, null
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !6
-  br i1 %37, label %40, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit
+  br i1 %37, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit, label %40
 
 40:                                               ; preds = %34
-  %41 = icmp eq ptr %39, null
-  br i1 %41, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
+  %41 = load ptr, ptr %36, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br i1 %44, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 _ZNK6icu_7714NFSubstitutioneqERKS0_.exit:         ; preds = %34
-  %42 = load ptr, ptr %36, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  %45 = icmp eq ptr %39, null
   br i1 %45, label %46, label %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit.thread
 
 46:                                               ; preds = %40, %_ZNK6icu_7714NFSubstitutioneqERKS0_.exit

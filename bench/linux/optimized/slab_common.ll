@@ -2545,9 +2545,9 @@ define dso_local ptr @kmem_cache_create_usercopy(ptr noundef %0, i32 noundef %1,
   tail call void @mutex_unlock(ptr noundef nonnull @slab_mutex) #22
   br label %80
 
-.thread9:                                         ; preds = %16, %23
-  %.ph7 = phi i32 [ %20, %23 ], [ %3, %16 ]
-  %.ph8 = phi i32 [ -12, %23 ], [ -22, %16 ]
+.thread9:                                         ; preds = %23, %16
+  %.ph7 = phi i32 [ %3, %16 ], [ %20, %23 ]
+  %.ph8 = phi i32 [ -22, %16 ], [ -12, %23 ]
   tail call void @mutex_unlock(ptr noundef nonnull @slab_mutex) #22
   br label %72
 

@@ -1193,7 +1193,7 @@ X509_time_adj.exit:                               ; preds = %30, %32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %._crit_edge, %2, %10, %8, %47
-  %.0 = phi i32 [ 0, %10 ], [ 0, %8 ], [ 0, %2 ], [ %.016, %47 ], [ 0, %._crit_edge ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %8 ], [ 0, %2 ], [ 0, %._crit_edge ], [ %.016, %47 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -4712,7 +4712,7 @@ select.unfold:                                    ; preds = %222
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %1, %9
-  %.0192 = phi ptr [ null, %9 ], [ null, %1 ], [ %54, %.critedge.sink.split ]
+  %.0192 = phi ptr [ null, %1 ], [ null, %9 ], [ %54, %.critedge.sink.split ]
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3606, ptr noundef nonnull @__func__.build_chain) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786691, ptr noundef null) #10
@@ -5885,7 +5885,7 @@ check_name_constraints.exit:                      ; preds = %.loopexit.i, %430
   br label %check_extensions.exit.thread
 
 check_extensions.exit.thread:                     ; preds = %verify_cb_cert.exit.i, %verify_cb_cert.exit205.i, %verify_cb_cert.exit209.i, %verify_cb_cert.exit207.i, %verify_cb_cert.exit233.i, %verify_cb_cert.exit263.i, %check_purpose.exit.i, %verify_cb_cert.exit270.i, %verify_cb_cert.exit267.i, %verify_cb_cert.exit260.i, %verify_cb_cert.exit257.i, %verify_cb_cert.exit254.i, %verify_cb_cert.exit251.i, %verify_cb_cert.exit248.i, %verify_cb_cert.exit245.i, %verify_cb_cert.exit242.i, %verify_cb_cert.exit239.i, %verify_cb_cert.exit236.i, %verify_cb_cert.exit230.i, %verify_cb_cert.exit227.i, %verify_cb_cert.exit224.i, %verify_cb_cert.exit221.i, %verify_cb_cert.exit218.i, %verify_cb_cert.exit215.i, %verify_cb_cert.exit211.i, %verify_cb_cert.exit29.i, %verify_cb_cert.exit.i53, %verify_cb_cert.exit.i58, %506, %verify_cb_cert.exit93.i, %462, %517, %522, %514, %check_name_constraints.exit, %427, %verify_cb_cert.exit, %1, %check_auth_level.exit, %397, %400
-  %.031 = phi i32 [ %515, %514 ], [ %403, %400 ], [ 0, %verify_cb_cert.exit ], [ %428, %427 ], [ %512, %check_name_constraints.exit ], [ %4, %1 ], [ %515, %517 ], [ 0, %check_auth_level.exit ], [ -1, %397 ], [ %525, %522 ], [ -1, %462 ], [ 0, %verify_cb_cert.exit29.i ], [ -1, %506 ], [ 0, %verify_cb_cert.exit.i58 ], [ 0, %verify_cb_cert.exit93.i ], [ 0, %verify_cb_cert.exit.i53 ], [ 0, %verify_cb_cert.exit211.i ], [ 0, %verify_cb_cert.exit215.i ], [ 0, %verify_cb_cert.exit218.i ], [ 0, %verify_cb_cert.exit221.i ], [ 0, %verify_cb_cert.exit224.i ], [ 0, %verify_cb_cert.exit227.i ], [ 0, %verify_cb_cert.exit230.i ], [ 0, %verify_cb_cert.exit236.i ], [ 0, %verify_cb_cert.exit239.i ], [ 0, %verify_cb_cert.exit242.i ], [ 0, %verify_cb_cert.exit245.i ], [ 0, %verify_cb_cert.exit248.i ], [ 0, %verify_cb_cert.exit251.i ], [ 0, %verify_cb_cert.exit254.i ], [ 0, %verify_cb_cert.exit257.i ], [ 0, %verify_cb_cert.exit260.i ], [ 0, %verify_cb_cert.exit267.i ], [ 0, %verify_cb_cert.exit270.i ], [ 0, %check_purpose.exit.i ], [ 0, %verify_cb_cert.exit263.i ], [ 0, %verify_cb_cert.exit233.i ], [ 0, %verify_cb_cert.exit207.i ], [ 0, %verify_cb_cert.exit209.i ], [ 0, %verify_cb_cert.exit205.i ], [ 0, %verify_cb_cert.exit.i ]
+  %.031 = phi i32 [ %515, %514 ], [ %403, %400 ], [ 0, %verify_cb_cert.exit ], [ %428, %427 ], [ 0, %verify_cb_cert.exit.i58 ], [ %512, %check_name_constraints.exit ], [ %4, %1 ], [ %515, %517 ], [ 0, %verify_cb_cert.exit29.i ], [ 0, %check_auth_level.exit ], [ -1, %397 ], [ %525, %522 ], [ -1, %506 ], [ -1, %462 ], [ 0, %verify_cb_cert.exit93.i ], [ 0, %verify_cb_cert.exit.i53 ], [ 0, %verify_cb_cert.exit211.i ], [ 0, %verify_cb_cert.exit215.i ], [ 0, %verify_cb_cert.exit218.i ], [ 0, %verify_cb_cert.exit221.i ], [ 0, %verify_cb_cert.exit224.i ], [ 0, %verify_cb_cert.exit227.i ], [ 0, %verify_cb_cert.exit230.i ], [ 0, %verify_cb_cert.exit236.i ], [ 0, %verify_cb_cert.exit239.i ], [ 0, %verify_cb_cert.exit242.i ], [ 0, %verify_cb_cert.exit245.i ], [ 0, %verify_cb_cert.exit248.i ], [ 0, %verify_cb_cert.exit251.i ], [ 0, %verify_cb_cert.exit254.i ], [ 0, %verify_cb_cert.exit257.i ], [ 0, %verify_cb_cert.exit260.i ], [ 0, %verify_cb_cert.exit267.i ], [ 0, %verify_cb_cert.exit270.i ], [ 0, %check_purpose.exit.i ], [ 0, %verify_cb_cert.exit263.i ], [ 0, %verify_cb_cert.exit233.i ], [ 0, %verify_cb_cert.exit207.i ], [ 0, %verify_cb_cert.exit209.i ], [ 0, %verify_cb_cert.exit205.i ], [ 0, %verify_cb_cert.exit.i ]
   ret i32 %.031
 }
 
@@ -6558,8 +6558,8 @@ define internal fastcc range(i32 0, 2) i32 @get_crl_sk(ptr noundef %0, ptr nound
   br i1 %117, label %.lr.ph48.i.i, label %crl_akid_check.exit.i, !llvm.loop !208
 
 crl_akid_check.exit.i:                            ; preds = %113, %111, %.preheader.i.i, %._crit_edge.i.i, %89, %75
-  %.160 = phi ptr [ %82, %89 ], [ %.05981, %._crit_edge.i.i ], [ %104, %111 ], [ %.05981, %.preheader.i.i ], [ %69, %75 ], [ %.05981, %113 ]
-  %.4.i = phi i32 [ %90, %89 ], [ %.2.i, %._crit_edge.i.i ], [ %112, %111 ], [ %.2.i, %.preheader.i.i ], [ %76, %75 ], [ %.2.i, %113 ]
+  %.160 = phi ptr [ %82, %89 ], [ %.05981, %._crit_edge.i.i ], [ %104, %111 ], [ %69, %75 ], [ %.05981, %.preheader.i.i ], [ %.05981, %113 ]
+  %.4.i = phi i32 [ %90, %89 ], [ %.2.i, %._crit_edge.i.i ], [ %112, %111 ], [ %76, %75 ], [ %.2.i, %.preheader.i.i ], [ %.2.i, %113 ]
   %118 = and i32 %.4.i, 4
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %get_crl_score.exit.thread, label %120
@@ -6807,8 +6807,8 @@ crl_crldp_check.exit.i:                           ; preds = %._crit_edge.i31.i
   br label %get_crl_score.exit
 
 get_crl_score.exit:                               ; preds = %120, %126, %128, %238, %crl_crldp_check.exit.i, %246
-  %.061 = phi i32 [ %23, %crl_crldp_check.exit.i ], [ %247, %246 ], [ %23, %126 ], [ %23, %120 ], [ %23, %128 ], [ %23, %238 ]
-  %.023.i = phi i32 [ %.4.i, %crl_crldp_check.exit.i ], [ %248, %246 ], [ %.4.i, %126 ], [ %.4.i, %120 ], [ %.4.i, %128 ], [ %.4.i, %238 ]
+  %.061 = phi i32 [ %23, %238 ], [ %23, %128 ], [ %23, %120 ], [ %23, %126 ], [ %247, %246 ], [ %23, %crl_crldp_check.exit.i ]
+  %.023.i = phi i32 [ %.4.i, %238 ], [ %.4.i, %128 ], [ %.4.i, %120 ], [ %.4.i, %126 ], [ %248, %246 ], [ %.4.i, %crl_crldp_check.exit.i ]
   %249 = icmp slt i32 %.023.i, %.05382
   %250 = icmp eq i32 %.023.i, 0
   %or.cond = or i1 %249, %250
@@ -6849,11 +6849,11 @@ get_crl_score.exit.thread.sink.split:             ; preds = %259, %254, %264
   br label %get_crl_score.exit.thread
 
 get_crl_score.exit.thread:                        ; preds = %get_crl_score.exit.thread.sink.split, %33, %242, %crl_akid_check.exit.i, %50, %43, %21, %37, %251, %get_crl_score.exit
-  %.266 = phi ptr [ %.160, %get_crl_score.exit ], [ %.160, %251 ], [ %.05981, %37 ], [ %.05981, %43 ], [ %.05981, %33 ], [ %.05981, %50 ], [ %.160, %242 ], [ %.05981, %21 ], [ %.160, %crl_akid_check.exit.i ], [ %.160, %get_crl_score.exit.thread.sink.split ]
-  %.154 = phi i32 [ %.05382, %get_crl_score.exit ], [ %.023.i, %251 ], [ %.05382, %37 ], [ %.05382, %43 ], [ %.05382, %33 ], [ %.05382, %50 ], [ %.05382, %242 ], [ %.05382, %21 ], [ %.05382, %crl_akid_check.exit.i ], [ %.05382, %get_crl_score.exit.thread.sink.split ]
-  %.152 = phi i32 [ %.05183, %get_crl_score.exit ], [ %.061, %251 ], [ %.05183, %37 ], [ %.05183, %43 ], [ %.05183, %33 ], [ %.05183, %50 ], [ %.05183, %242 ], [ %.05183, %21 ], [ %.05183, %crl_akid_check.exit.i ], [ %.152.ph, %get_crl_score.exit.thread.sink.split ]
-  %.148 = phi ptr [ %.04785, %get_crl_score.exit ], [ %22, %251 ], [ %.04785, %37 ], [ %.04785, %43 ], [ %.04785, %33 ], [ %.04785, %50 ], [ %.04785, %242 ], [ %.04785, %21 ], [ %.04785, %crl_akid_check.exit.i ], [ %.148.ph, %get_crl_score.exit.thread.sink.split ]
-  %.1 = phi ptr [ %.04686, %get_crl_score.exit ], [ %.160, %251 ], [ %.04686, %37 ], [ %.04686, %43 ], [ %.04686, %33 ], [ %.04686, %50 ], [ %.04686, %242 ], [ %.04686, %21 ], [ %.04686, %crl_akid_check.exit.i ], [ %.1.ph, %get_crl_score.exit.thread.sink.split ]
+  %.266 = phi ptr [ %.160, %get_crl_score.exit ], [ %.160, %251 ], [ %.160, %crl_akid_check.exit.i ], [ %.05981, %21 ], [ %.05981, %37 ], [ %.05981, %43 ], [ %.05981, %33 ], [ %.05981, %50 ], [ %.160, %242 ], [ %.160, %get_crl_score.exit.thread.sink.split ]
+  %.154 = phi i32 [ %.05382, %get_crl_score.exit ], [ %.023.i, %251 ], [ %.05382, %crl_akid_check.exit.i ], [ %.05382, %21 ], [ %.05382, %37 ], [ %.05382, %43 ], [ %.05382, %33 ], [ %.05382, %50 ], [ %.05382, %242 ], [ %.05382, %get_crl_score.exit.thread.sink.split ]
+  %.152 = phi i32 [ %.05183, %get_crl_score.exit ], [ %.061, %251 ], [ %.05183, %crl_akid_check.exit.i ], [ %.05183, %21 ], [ %.05183, %37 ], [ %.05183, %43 ], [ %.05183, %33 ], [ %.05183, %50 ], [ %.05183, %242 ], [ %.152.ph, %get_crl_score.exit.thread.sink.split ]
+  %.148 = phi ptr [ %.04785, %get_crl_score.exit ], [ %22, %251 ], [ %.04785, %crl_akid_check.exit.i ], [ %.04785, %21 ], [ %.04785, %37 ], [ %.04785, %43 ], [ %.04785, %33 ], [ %.04785, %50 ], [ %.04785, %242 ], [ %.148.ph, %get_crl_score.exit.thread.sink.split ]
+  %.1 = phi ptr [ %.04686, %get_crl_score.exit ], [ %.160, %251 ], [ %.04686, %crl_akid_check.exit.i ], [ %.04686, %21 ], [ %.04686, %37 ], [ %.04686, %43 ], [ %.04686, %33 ], [ %.04686, %50 ], [ %.04686, %242 ], [ %.1.ph, %get_crl_score.exit.thread.sink.split ]
   %265 = add nuw nsw i32 %.05084, 1
   %266 = call i32 @OPENSSL_sk_num(ptr noundef %6) #10
   %267 = icmp slt i32 %265, %266

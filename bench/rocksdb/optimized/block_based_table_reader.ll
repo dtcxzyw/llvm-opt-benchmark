@@ -26919,7 +26919,7 @@ define noundef ptr @_ZN7rocksdb15BlockBasedTable29PartitionedIndexIteratorState2
   br label %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread, !llvm.loop !1019
 
 _ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit: ; preds = %27, %11, %22
-  %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %11 ], [ %29, %27 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %23, %22 ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !1007
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -26948,7 +26948,7 @@ _ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_t
   br label %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread
 
 _ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit
-  %.0 = phi ptr [ %58, %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %15 ], [ null, %10 ], [ null, %.lr.ph.i.i.i.i ]
+  %.0 = phi ptr [ %58, %_ZNSt13unordered_mapImN7rocksdb13CachableEntryINS0_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE4findERS9_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %10 ], [ null, %15 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 

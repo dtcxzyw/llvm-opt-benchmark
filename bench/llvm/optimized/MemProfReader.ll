@@ -2197,7 +2197,7 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %50, %59
   br label %90
 
 90:                                               ; preds = %71, %88, %69
-  %.245 = phi i32 [ 1, %88 ], [ %.043113, %71 ], [ %.043113, %69 ]
+  %.245 = phi i32 [ %.043113, %69 ], [ 1, %88 ], [ %.043113, %71 ]
   %91 = getelementptr inbounds nuw i8, ptr %.046112, i64 56
   %.not52 = icmp eq ptr %91, %67
   br i1 %.not52, label %.critedge55, label %69
@@ -6996,7 +6996,7 @@ _ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit:         ; preds = %31
   br label %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread
 
 _ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread:  ; preds = %31, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit, %43
-  %.2 = phi i32 [ 1, %43 ], [ %.01945, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit ], [ %.01945, %31 ]
+  %.2 = phi i32 [ %.01945, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit ], [ 1, %43 ], [ %.01945, %31 ]
   %47 = getelementptr inbounds nuw i8, ptr %.02144, i64 64
   %.not = icmp eq ptr %47, %28
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %31
@@ -8780,8 +8780,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoI
   br i1 %.not.i.i.i.i94, label %"_ZN4llvm8erase_ifINS_11SmallVectorImLj6EEEZNS_7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS_9symbolize18SymbolizableModuleESt14default_deleteIS7_EEE3$_0EEvRT_T0_.exit", label %.lr.ph.split.i.i.i.i, !llvm.loop !547
 
 "_ZN4llvm8erase_ifINS_11SmallVectorImLj6EEEZNS_7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS_9symbolize18SymbolizableModuleESt14default_deleteIS7_EEE3$_0EEvRT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i77.i.i.i.i.i.i, %820, %85, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge129.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS2_9symbolize18SymbolizableModuleESt14default_deleteIS7_EEE3$_0EclIPmEEbT_.exit82.i.i.i.i.i.i", %"_ZSt9__find_ifIPmN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS4_9symbolize18SymbolizableModuleESt14default_deleteIS9_EEE3$_0EEET_SF_SF_T0_.exit.i.i.i.i", %.preheader.i.i.i.i
-  %.val.i438 = phi ptr [ %.val.i.pre, %"_ZSt9__find_ifIPmN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS4_9symbolize18SymbolizableModuleESt14default_deleteIS9_EEE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %.val.i.pre, %._crit_edge.i.i.i.i.i.i ], [ %.val.i.pre, %._crit_edge._crit_edge129.i.i.i.i.i.i ], [ %.val.i.pre, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS2_9symbolize18SymbolizableModuleESt14default_deleteIS7_EEE3$_0EclIPmEEbT_.exit82.i.i.i.i.i.i" ], [ %.val.i.pre, %.preheader.i.i.i.i ], [ %87, %85 ], [ %.val.i.pre, %820 ], [ %.val.i.pre, %.lr.ph.i.i.i.i.i.i77.i.i.i.i.i.i ]
-  %.016.i.i.i.i = phi ptr [ %633, %"_ZSt9__find_ifIPmN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS4_9symbolize18SymbolizableModuleESt14default_deleteIS9_EEE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %633, %._crit_edge.i.i.i.i.i.i ], [ %633, %._crit_edge._crit_edge129.i.i.i.i.i.i ], [ %633, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS2_9symbolize18SymbolizableModuleESt14default_deleteIS7_EEE3$_0EclIPmEEbT_.exit82.i.i.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %87, %85 ], [ %.1.i.i.i.i, %820 ], [ %633, %.lr.ph.i.i.i.i.i.i77.i.i.i.i.i.i ]
+  %.val.i438 = phi ptr [ %.val.i.pre, %"_ZSt9__find_ifIPmN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS4_9symbolize18SymbolizableModuleESt14default_deleteIS9_EEE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %.val.i.pre, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS2_9symbolize18SymbolizableModuleESt14default_deleteIS7_EEE3$_0EclIPmEEbT_.exit82.i.i.i.i.i.i" ], [ %.val.i.pre, %._crit_edge.i.i.i.i.i.i ], [ %.val.i.pre, %._crit_edge._crit_edge129.i.i.i.i.i.i ], [ %.val.i.pre, %820 ], [ %.val.i.pre, %.preheader.i.i.i.i ], [ %87, %85 ], [ %.val.i.pre, %.lr.ph.i.i.i.i.i.i77.i.i.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %633, %"_ZSt9__find_ifIPmN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS4_9symbolize18SymbolizableModuleESt14default_deleteIS9_EEE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %633, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7memprof16RawMemProfReader29symbolizeAndFilterStackFramesESt10unique_ptrINS2_9symbolize18SymbolizableModuleESt14default_deleteIS7_EEE3$_0EclIPmEEbT_.exit82.i.i.i.i.i.i" ], [ %633, %._crit_edge.i.i.i.i.i.i ], [ %633, %._crit_edge._crit_edge129.i.i.i.i.i.i ], [ %.1.i.i.i.i, %820 ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %87, %85 ], [ %633, %.lr.ph.i.i.i.i.i.i77.i.i.i.i.i.i ]
   %821 = ptrtoint ptr %.016.i.i.i.i to i64
   %822 = ptrtoint ptr %.val.i438 to i64
   %823 = sub i64 %821, %822

@@ -65,7 +65,7 @@ define range(i32 -22, 1) i32 @ff_set_cmp(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !13
 
 .loopexit:                                        ; preds = %24, %.preheader, %18
-  %.019 = phi i32 [ -22, %18 ], [ 0, %.preheader ], [ 0, %24 ]
+  %.019 = phi i32 [ 0, %.preheader ], [ -22, %18 ], [ 0, %24 ]
   ret i32 %.019
 }
 

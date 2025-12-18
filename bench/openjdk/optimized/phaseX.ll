@@ -629,7 +629,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51: ; preds = %149
   br label %.split, !llvm.loop !11
 
 _ZN8NodeHash10check_growEv.exit:                  ; preds = %._crit_edge.us, %.preheader, %162, %57, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51, %.split68.us, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i, %19, %2
-  %.039 = phi ptr [ null, %2 ], [ null, %19 ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i ], [ null, %.split68.us ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51 ], [ %.041, %.preheader ], [ null, %57 ], [ null, %162 ], [ %.041.us, %._crit_edge.us ]
+  %.039 = phi ptr [ null, %57 ], [ %.041, %.preheader ], [ null, %2 ], [ null, %19 ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i ], [ null, %.split68.us ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51 ], [ null, %162 ], [ %.041.us, %._crit_edge.us ]
   ret ptr %.039
 }
 
@@ -4817,7 +4817,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit87:         ; preds = %_ZN9Node_List4pushE
   br i1 %310, label %.lr.ph99, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit87, %270, %82, %86, %265, %261, %256, %251, %_ZN16Unique_Node_List4pushEP4Node.exit
-  %.2 = phi i1 [ %.1, %265 ], [ %.1, %261 ], [ %.1, %256 ], [ %.1, %251 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %.052101, %86 ], [ %.052101, %82 ], [ %.1, %270 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit87 ]
+  %.2 = phi i1 [ %.052101, %82 ], [ %.1, %265 ], [ %.1, %261 ], [ %.1, %256 ], [ %.1, %251 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %.052101, %86 ], [ %.1, %270 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %311 = load i32, ptr %78, align 8
   %312 = zext i32 %311 to i64

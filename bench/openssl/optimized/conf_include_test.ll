@@ -208,7 +208,7 @@ change_path.exit:                                 ; preds = %12, %24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %27, %28, %0, %26, %11
-  %.0 = phi i32 [ 0, %0 ], [ 0, %26 ], [ 0, %11 ], [ 1, %28 ], [ 1, %27 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %0 ], [ 1, %27 ], [ 0, %26 ], [ 0, %11 ], [ 1, %28 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -543,7 +543,7 @@ define internal range(i32 0, 2) i32 @test_available_providers() #1 {
   br label %16
 
 16:                                               ; preds = %.sink.split, %13, %0
-  %.0 = phi i32 [ 0, %0 ], [ 1, %13 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %0 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

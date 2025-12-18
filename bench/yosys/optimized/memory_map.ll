@@ -11615,9 +11615,9 @@ _ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split: ; preds = %.noexc689, %.
   br label %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit
 
 _ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit:      ; preds = %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split, %429, %395, %547, %564, %607
-  %.2432.ph = phi i8 [ 0, %607 ], [ 0, %564 ], [ 0, %547 ], [ %.04305140, %395 ], [ %.04305140, %429 ], [ %.04305140, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split ]
-  %.2427.ph = phi i8 [ %.04255141, %607 ], [ 1, %564 ], [ 1, %547 ], [ %.04255141, %395 ], [ %.04255141, %429 ], [ %.04255141, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split ]
-  %.2422.ph = phi i8 [ %.3423, %607 ], [ %.04205142, %564 ], [ %.04205142, %547 ], [ %.04205142, %395 ], [ %.04205142, %429 ], [ %.04205142, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split ]
+  %.2432.ph = phi i8 [ 0, %607 ], [ 0, %564 ], [ %.04305140, %429 ], [ 0, %547 ], [ %.04305140, %395 ], [ %.04305140, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split ]
+  %.2427.ph = phi i8 [ %.04255141, %607 ], [ 1, %564 ], [ %.04255141, %429 ], [ 1, %547 ], [ %.04255141, %395 ], [ %.04255141, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split ]
+  %.2422.ph = phi i8 [ %.3423, %607 ], [ %.04205142, %564 ], [ %.04205142, %429 ], [ %.04205142, %547 ], [ %.04205142, %395 ], [ %.04205142, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.sink.split ]
   %indvars.iv.next5494 = add nuw nsw i64 %indvars.iv5493, 1
   %632 = load ptr, ptr %169, align 8, !tbaa !307
   %633 = load ptr, ptr %167, align 8, !tbaa !309

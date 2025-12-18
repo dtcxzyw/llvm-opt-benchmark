@@ -1122,8 +1122,8 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %23, %.lr.ph, %6, %41, %49
-  %.sink = phi ptr [ %.165.lcssa118, %49 ], [ %7, %6 ], [ %.165.lcssa118, %41 ], [ %7, %.lr.ph ], [ %7, %23 ]
-  %.0.ph = phi i32 [ %spec.select, %49 ], [ -84, %6 ], [ -84, %41 ], [ -84, %.lr.ph ], [ -84, %23 ]
+  %.sink = phi ptr [ %.165.lcssa118, %41 ], [ %7, %6 ], [ %.165.lcssa118, %49 ], [ %7, %.lr.ph ], [ %7, %23 ]
+  %.0.ph = phi i32 [ -84, %41 ], [ -84, %6 ], [ %spec.select, %49 ], [ -84, %.lr.ph ], [ -84, %23 ]
   store ptr %.sink, ptr %1, align 8, !tbaa !9
   br label %.critedge
 
@@ -1218,7 +1218,7 @@ select.unfold65.preheader:                        ; preds = %.lr.ph72.split, %.c
   br i1 %.not58, label %.critedge, label %.lr.ph72.split
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph72.split, %21, %select.unfold65.preheader.us, %.lr.ph72.split.us, %3
-  %.3 = phi i32 [ 0, %3 ], [ 1, %21 ], [ 0, %select.unfold65.preheader.us ], [ 0, %.lr.ph72.split.us ], [ 0, %.lr.ph72.split ], [ 0, %.critedge2 ]
+  %.3 = phi i32 [ 1, %21 ], [ 0, %3 ], [ 0, %select.unfold65.preheader.us ], [ 0, %.lr.ph72.split.us ], [ 0, %.lr.ph72.split ], [ 0, %.critedge2 ]
   ret i32 %.3
 }
 

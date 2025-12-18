@@ -1300,8 +1300,8 @@ slist_append.exit.i:                              ; preds = %.critedge.i
   br label %155
 
 .critedge56.i:                                    ; preds = %.critedge7.i, %.critedge.i, %122, %120, %switch.early.test.i, %switch.early.test.i, %119
-  %.3 = phi ptr [ %.2, %122 ], [ %.2, %119 ], [ %.2, %120 ], [ %.2, %switch.early.test.i ], [ %.2, %switch.early.test.i ], [ %129, %.critedge.i ], [ %.2, %.critedge7.i ]
-  %.147.i = phi i64 [ 0, %122 ], [ %.046.i, %119 ], [ %.046.i, %120 ], [ %.046.i, %switch.early.test.i ], [ %.046.i, %switch.early.test.i ], [ 0, %.critedge.i ], [ 0, %.critedge7.i ]
+  %.3 = phi ptr [ %.2, %122 ], [ %129, %.critedge.i ], [ %.2, %119 ], [ %.2, %120 ], [ %.2, %switch.early.test.i ], [ %.2, %switch.early.test.i ], [ %.2, %.critedge7.i ]
+  %.147.i = phi i64 [ 0, %122 ], [ 0, %.critedge.i ], [ %.046.i, %119 ], [ %.046.i, %120 ], [ %.046.i, %switch.early.test.i ], [ %.046.i, %switch.early.test.i ], [ 0, %.critedge7.i ]
   switch i32 %117, label %142 [
     i32 -1, label %131
     i32 13, label %116
@@ -1590,12 +1590,12 @@ slist_append.exit:                                ; preds = %.critedge38
   br label %.critedge221
 
 .critedge221:                                     ; preds = %.critedge221.loopexit, %.critedge38, %read_field_headers.exit, %110, %212, %218, %.critedge22, %.critedge46, %.critedge16
-  %.1 = phi ptr [ %.0335, %212 ], [ %.0335, %218 ], [ %.0335, %.critedge16 ], [ %.0335, %.critedge46 ], [ %.0335, %110 ], [ %.3, %read_field_headers.exit ], [ %.0335, %.critedge22 ], [ %176, %.critedge38 ], [ %.0335, %.critedge221.loopexit ]
-  %.1152 = phi ptr [ null, %212 ], [ null, %218 ], [ %55, %.critedge16 ], [ null, %.critedge46 ], [ null, %110 ], [ null, %read_field_headers.exit ], [ null, %.critedge22 ], [ null, %.critedge38 ], [ %.5156, %.critedge221.loopexit ]
-  %.1150 = phi i8 [ %215, %212 ], [ %215, %218 ], [ %56, %.critedge16 ], [ %202, %.critedge46 ], [ %108, %110 ], [ %108, %read_field_headers.exit ], [ %82, %.critedge22 ], [ %175, %.critedge38 ], [ %.lcssa347, %.critedge221.loopexit ]
-  %.1148 = phi ptr [ %.0147337, %212 ], [ %.0147337, %218 ], [ %.0147337, %.critedge16 ], [ %189, %.critedge46 ], [ %.0147337, %110 ], [ %.0147337, %read_field_headers.exit ], [ %.0147337, %.critedge22 ], [ %.0147337, %.critedge38 ], [ %.0147337, %.critedge221.loopexit ]
-  %.1146 = phi ptr [ %.0145338, %212 ], [ %.0145338, %218 ], [ %.0145338, %.critedge16 ], [ %.0145338, %.critedge46 ], [ %.0145338, %110 ], [ %.0145338, %read_field_headers.exit ], [ %69, %.critedge22 ], [ %.0145338, %.critedge38 ], [ %.0145338, %.critedge221.loopexit ]
-  %.1141 = phi ptr [ %.0140339, %212 ], [ %.0140339, %218 ], [ %storemerge, %.critedge16 ], [ %.0140339, %.critedge46 ], [ %.0140339, %110 ], [ %.0140339, %read_field_headers.exit ], [ %.0140339, %.critedge22 ], [ %.0140339, %.critedge38 ], [ %.0140339, %.critedge221.loopexit ]
+  %.1 = phi ptr [ %.0335, %212 ], [ %.0335, %218 ], [ %.0335, %.critedge16 ], [ %.0335, %.critedge46 ], [ %176, %.critedge38 ], [ %.0335, %110 ], [ %.3, %read_field_headers.exit ], [ %.0335, %.critedge22 ], [ %.0335, %.critedge221.loopexit ]
+  %.1152 = phi ptr [ null, %212 ], [ null, %218 ], [ %55, %.critedge16 ], [ null, %.critedge46 ], [ null, %.critedge38 ], [ null, %110 ], [ null, %read_field_headers.exit ], [ null, %.critedge22 ], [ %.5156, %.critedge221.loopexit ]
+  %.1150 = phi i8 [ %215, %212 ], [ %215, %218 ], [ %56, %.critedge16 ], [ %202, %.critedge46 ], [ %175, %.critedge38 ], [ %108, %110 ], [ %108, %read_field_headers.exit ], [ %82, %.critedge22 ], [ %.lcssa347, %.critedge221.loopexit ]
+  %.1148 = phi ptr [ %.0147337, %212 ], [ %.0147337, %218 ], [ %.0147337, %.critedge16 ], [ %189, %.critedge46 ], [ %.0147337, %.critedge38 ], [ %.0147337, %110 ], [ %.0147337, %read_field_headers.exit ], [ %.0147337, %.critedge22 ], [ %.0147337, %.critedge221.loopexit ]
+  %.1146 = phi ptr [ %.0145338, %212 ], [ %.0145338, %218 ], [ %.0145338, %.critedge16 ], [ %.0145338, %.critedge46 ], [ %.0145338, %.critedge38 ], [ %.0145338, %110 ], [ %.0145338, %read_field_headers.exit ], [ %69, %.critedge22 ], [ %.0145338, %.critedge221.loopexit ]
+  %.1141 = phi ptr [ %.0140339, %212 ], [ %.0140339, %218 ], [ %storemerge, %.critedge16 ], [ %.0140339, %.critedge46 ], [ %.0140339, %.critedge38 ], [ %.0140339, %110 ], [ %.0140339, %read_field_headers.exit ], [ %.0140339, %.critedge22 ], [ %.0140339, %.critedge221.loopexit ]
   %220 = icmp eq i8 %.1150, 59
   br i1 %220, label %.preheader251, label %._crit_edge, !llvm.loop !63
 

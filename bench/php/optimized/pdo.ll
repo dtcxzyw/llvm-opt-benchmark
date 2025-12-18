@@ -443,8 +443,8 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %.outer, %.thread.loopexit, %12
-  %.0152.ph.lcssa185 = phi i32 [ 0, %12 ], [ %.0152.ph194, %.thread.loopexit ], [ %26, %.outer ]
-  %.1156.lcssa = phi i64 [ %13, %12 ], [ %umax.le, %.thread.loopexit ], [ %27, %.outer ]
+  %.0152.ph.lcssa185 = phi i32 [ %.0152.ph194, %.thread.loopexit ], [ 0, %12 ], [ %26, %.outer ]
+  %.1156.lcssa = phi i64 [ %umax.le, %.thread.loopexit ], [ %13, %12 ], [ %27, %.outer ]
   %17 = trunc i64 %.1156.lcssa to i32
   br label %32
 

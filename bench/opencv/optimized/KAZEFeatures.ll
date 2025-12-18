@@ -3346,8 +3346,8 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   br i1 %exitcond192.not, label %.split172.us, label %.split.split.us, !llvm.loop !196
 
 .split172.us:                                     ; preds = %145, %132, %.split
-  %.us-phi = phi float [ 0.000000e+00, %.split ], [ %.198.us, %132 ], [ %.198.us178, %145 ]
-  %.us-phi173 = phi float [ 0.000000e+00, %.split ], [ %.196.us, %132 ], [ %.196.us179, %145 ]
+  %.us-phi = phi float [ %.198.us, %132 ], [ 0.000000e+00, %.split ], [ %.198.us178, %145 ]
+  %.us-phi173 = phi float [ %.196.us, %132 ], [ 0.000000e+00, %.split ], [ %.196.us179, %145 ]
   %147 = fmul float %.us-phi173, %.us-phi173
   %148 = tail call float @llvm.fmuladd.f32(float %.us-phi, float %.us-phi, float %147)
   %149 = fcmp ogt float %148, %.094184

@@ -7797,7 +7797,7 @@ const_num.exit:                                   ; preds = %256, %258
   br label %291
 
 291:                                              ; preds = %285, %.fold.split162, %286
-  %292 = phi i32 [ %290, %286 ], [ %.1137200278, %285 ], [ 2048, %.fold.split162 ]
+  %292 = phi i32 [ %.1137200278, %285 ], [ %290, %286 ], [ 2048, %.fold.split162 ]
   %293 = or i32 %292, %.3135
   %294 = trunc i32 %293 to i16
   %295 = getelementptr inbounds nuw i8, ptr %281, i64 2

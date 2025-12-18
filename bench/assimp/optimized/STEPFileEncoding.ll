@@ -780,7 +780,7 @@ _ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit224: ; preds = %_ZNSt10uni
   br i1 %.not427.not, label %.lr.ph416, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %.thread307, %_ZN6Assimp17HexOctetToDecimalEPKc.exit, %330, %97, %202, %._crit_edge, %127, %120, %1
-  %333 = phi i1 [ false, %._crit_edge ], [ true, %1 ], [ false, %120 ], [ false, %127 ], [ true, %330 ], [ false, %97 ], [ false, %202 ], [ false, %_ZN6Assimp17HexOctetToDecimalEPKc.exit ], [ true, %.thread307 ]
+  %333 = phi i1 [ true, %1 ], [ false, %120 ], [ false, %._crit_edge ], [ false, %127 ], [ true, %330 ], [ false, %97 ], [ false, %202 ], [ true, %.thread307 ], [ false, %_ZN6Assimp17HexOctetToDecimalEPKc.exit ]
   ret i1 %333
 }
 

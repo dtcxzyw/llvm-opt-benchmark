@@ -858,7 +858,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   br label %45
 
 .critedge:                                        ; preds = %69, %.lr.ph65, %27
-  %.1.lcssa = phi ptr [ %.044, %27 ], [ %.044, %.lr.ph65 ], [ %.4, %69 ]
+  %.1.lcssa = phi ptr [ %.044, %.lr.ph65 ], [ %.044, %27 ], [ %.4, %69 ]
   %38 = getelementptr i8, ptr %11, i64 16
   %.val = load ptr, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -2198,7 +2198,7 @@ list_length.exit.thread.i:                        ; preds = %37
   br i1 %69, label %.lr.ph9.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %.lr.ph6.i, %list_length.exit.thread.i, %37
-  %70 = phi i32 [ %49, %list_length.exit.thread.i ], [ %49, %.lr.ph6.i ], [ 0, %37 ], [ %49, %._crit_edge.i ]
+  %70 = phi i32 [ %49, %list_length.exit.thread.i ], [ 0, %37 ], [ %49, %.lr.ph6.i ], [ %49, %._crit_edge.i ]
   %71 = load ptr, ptr %35, align 8
   %.not.i173.i = icmp eq ptr %71, null
   br i1 %.not.i173.i, label %list_length.exit174.i, label %72

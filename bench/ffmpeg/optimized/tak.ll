@@ -584,7 +584,7 @@ bits_read_nz_le.exit85:                           ; preds = %218, %222, %bits_pr
   br i1 %exitcond.not, label %bits_read_bit_le.exit.thread, label %218, !llvm.loop !26
 
 bits_read_bit_le.exit.thread:                     ; preds = %242, %bits_read_bit_le.exit.thread144, %207, %176, %bits_read_bit_le.exit81, %bits_read_bit_le.exit
-  %.032 = phi i64 [ 0, %bits_read_bit_le.exit81 ], [ 0, %bits_read_bit_le.exit ], [ 0, %176 ], [ 0, %207 ], [ 0, %bits_read_bit_le.exit.thread144 ], [ %.2, %242 ]
+  %.032 = phi i64 [ 0, %207 ], [ 0, %bits_read_bit_le.exit81 ], [ 0, %bits_read_bit_le.exit ], [ 0, %176 ], [ 0, %bits_read_bit_le.exit.thread144 ], [ %.2, %242 ]
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.032, ptr %244, align 8, !tbaa !28
   %245 = icmp samesign ult i32 %84, 4

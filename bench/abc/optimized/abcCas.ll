@@ -379,7 +379,7 @@ Mini_AigNodeIsPo.exit119.thread:                  ; preds = %111, %116, %Mini_Ai
   br i1 %exitcond160.not, label %._crit_edge, label %111, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %Mini_AigNodeIsPo.exit119.thread, %.preheader129, %.preheader130, %Vec_PtrStart.exit, %.preheader
-  %.078.lcssa = phi i32 [ 0, %.preheader ], [ 0, %Vec_PtrStart.exit ], [ 0, %.preheader130 ], [ 0, %.preheader129 ], [ %.1, %Mini_AigNodeIsPo.exit119.thread ]
+  %.078.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.preheader129 ], [ 0, %Vec_PtrStart.exit ], [ 0, %.preheader130 ], [ %.1, %Mini_AigNodeIsPo.exit119.thread ]
   store i32 %.078.lcssa, ptr %14, align 4, !tbaa !3
   br label %122
 
@@ -1212,7 +1212,7 @@ select.unfold.us74:                               ; preds = %.lr.ph54.split.spli
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold.us, %59, %60, %select.unfold.us.us, %29, %30, %select.unfold.us74, %.lr.ph54.split.split.split.us, %.lr.ph54.split, %12, %.lr.ph54.split.split.split, %8
-  %.039 = phi i32 [ 0, %8 ], [ 0, %select.unfold.us.us ], [ %71, %.lr.ph54.split.split.split ], [ 0, %12 ], [ 0, %.lr.ph54.split ], [ 0, %select.unfold.us74 ], [ %68, %.lr.ph54.split.split.split.us ], [ %25, %29 ], [ %32, %30 ], [ %62, %60 ], [ %58, %59 ], [ 0, %select.unfold.us ]
+  %.039 = phi i32 [ 0, %8 ], [ 0, %.lr.ph54.split ], [ %32, %30 ], [ 0, %12 ], [ %71, %.lr.ph54.split.split.split ], [ 0, %select.unfold.us74 ], [ %68, %.lr.ph54.split.split.split.us ], [ 0, %select.unfold.us.us ], [ %25, %29 ], [ %62, %60 ], [ %58, %59 ], [ 0, %select.unfold.us ]
   ret i32 %.039
 }
 

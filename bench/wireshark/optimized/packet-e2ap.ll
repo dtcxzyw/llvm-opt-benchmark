@@ -4675,7 +4675,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
   br label %lookup_ranfunction_oid.exit.thread.sink.split.i
 
 lookup_ranfunction_oid.exit.thread.sink.split.i:  ; preds = %104, %111, %.loopexit.i
-  %.lcssa.sink.i = phi ptr [ %119, %.loopexit.i ], [ %113, %111 ], [ %106, %104 ]
+  %.lcssa.sink.i = phi ptr [ %113, %111 ], [ %119, %.loopexit.i ], [ %106, %104 ]
   %120 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1016
   store ptr %.lcssa.sink.i, ptr %120, align 8
   br label %update_dissector_using_oid.exit

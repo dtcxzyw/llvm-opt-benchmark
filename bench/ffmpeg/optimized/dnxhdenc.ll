@@ -838,7 +838,7 @@ dnxhd_write_header.exit:                          ; preds = %96, %111
   br i1 %exitcond.not.i76, label %._crit_edge156.loopexit.i, label %228, !llvm.loop !133
 
 ._crit_edge165.i:                                 ; preds = %._crit_edge161.i, %193, %.preheader.lr.ph.i, %187
-  %.1104.i = phi i32 [ 0, %187 ], [ 0, %.preheader.lr.ph.i ], [ %201, %193 ], [ %201, %._crit_edge161.i ]
+  %.1104.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ 0, %187 ], [ %201, %193 ], [ %201, %._crit_edge161.i ]
   %241 = load i32, ptr %64, align 16, !tbaa !128
   br i1 %.not.i71, label %242, label %244
 
@@ -982,7 +982,7 @@ select.unfold127.i:                               ; preds = %246, %242
   br i1 %or.cond.i.i, label %.preheader.us.i.i, label %._crit_edge78.i.i, !llvm.loop !135
 
 ._crit_edge78.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.lr.ph.i.i, %276
-  %.166.i.i = phi i32 [ 0, %276 ], [ 0, %.preheader.lr.ph.i.i ], [ %298, %._crit_edge.us.i.i ]
+  %.166.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ 0, %276 ], [ %298, %._crit_edge.us.i.i ]
   %302 = icmp ult i32 %.166.i.i, %.pre87.i.i
   br i1 %302, label %303, label %313
 
@@ -2092,9 +2092,9 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   br i1 %exitcond.not, label %128, label %131, !llvm.loop !177
 
 .loopexit:                                        ; preds = %128, %103, %.preheader97, %75
-  %147 = phi ptr [ %.pre130, %75 ], [ %.pre129, %.preheader97 ], [ %.pre130, %103 ], [ %.pre129, %128 ]
-  %148 = phi ptr [ %.pre128, %75 ], [ %.pre127, %.preheader97 ], [ %.pre128, %103 ], [ %.pre127, %128 ]
-  %149 = phi ptr [ %.pre, %75 ], [ %40, %.preheader97 ], [ %.pre, %103 ], [ %40, %128 ]
+  %147 = phi ptr [ %.pre130, %103 ], [ %.pre130, %75 ], [ %.pre129, %.preheader97 ], [ %.pre129, %128 ]
+  %148 = phi ptr [ %.pre128, %103 ], [ %.pre128, %75 ], [ %.pre127, %.preheader97 ], [ %.pre127, %128 ]
+  %149 = phi ptr [ %.pre, %103 ], [ %.pre, %75 ], [ %40, %.preheader97 ], [ %40, %128 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   store ptr %149, ptr %150, align 8, !tbaa !178
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 6672

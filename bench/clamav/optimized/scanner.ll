@@ -819,7 +819,7 @@ define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr noundef r
   br label %39
 
 39:                                               ; preds = %.sink.split, %.loopexit, %29, %26, %33, %16
-  %.016 = phi i32 [ 1, %16 ], [ 1, %33 ], [ 0, %26 ], [ 0, %29 ], [ 0, %.loopexit ], [ 1, %.sink.split ]
+  %.016 = phi i32 [ 1, %16 ], [ 1, %33 ], [ 0, %.loopexit ], [ 0, %29 ], [ 0, %26 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.016
 }

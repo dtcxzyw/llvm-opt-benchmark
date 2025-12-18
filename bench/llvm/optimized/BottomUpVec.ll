@@ -1756,7 +1756,7 @@ _ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit16: ; pred
   br label %_ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit, !llvm.loop !178
 
 _ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit: ; preds = %.lr.ph.i8, %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit_crit_edge, %.lr.ph.i8.preheader
-  %.0.lcssa.i = phi ptr [ %storemerge3.i24, %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit_crit_edge ], [ %.0.i, %.lr.ph.i8.preheader ], [ %storemerge3.i24, %.lr.ph.i8 ]
+  %.0.lcssa.i = phi ptr [ %.0.i, %.lr.ph.i8.preheader ], [ %storemerge3.i24, %._ZN4llvm9sandboxir8VecUtils16getLastPHIOrSelfEPNS0_11InstructionE.exit_crit_edge ], [ %storemerge3.i24, %.lr.ph.i8 ]
   call void @_ZNK4llvm9sandboxir11Instruction11getIteratorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::sandboxir::BBIterator") align 8 %10, ptr noundef nonnull align 8 dereferenceable(36) %.0.lcssa.i) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)

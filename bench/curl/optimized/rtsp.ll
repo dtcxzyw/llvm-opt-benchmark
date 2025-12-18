@@ -1175,7 +1175,7 @@ select.unfold.i:                                  ; preds = %.critedge2.i
   br i1 %.not68.i, label %rtsp_parse_transport.exit, label %.lr.ph.i
 
 rtsp_parse_transport.exit:                        ; preds = %.lr.ph.i, %select.unfold.i, %42, %26, %41, %44, %.thread, %39, %.loopexit.i, %18
-  %.1 = phi i32 [ 0, %44 ], [ 85, %18 ], [ 0, %.loopexit.i ], [ %spec.select85, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 86, %26 ], [ 86, %41 ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
+  %.1 = phi i32 [ 0, %44 ], [ 85, %18 ], [ 86, %41 ], [ 0, %.loopexit.i ], [ 86, %26 ], [ %spec.select85, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
   ret i32 %.1
 }
 
@@ -1574,9 +1574,9 @@ rtp_client_write.exit:                            ; preds = %139, %151, %155
   br label %.critedge169
 
 .critedge169:                                     ; preds = %122, %116, %rtp_write_body_junk.exit175.thread, %108, %72, %162
-  %.2136 = phi i64 [ %.0134247, %162 ], [ 0, %72 ], [ %.0134247, %108 ], [ %.0134247, %122 ], [ %.6140, %rtp_write_body_junk.exit175.thread ], [ %.0134247, %116 ]
-  %.2115 = phi i64 [ %143, %162 ], [ %76, %72 ], [ %112, %108 ], [ %120, %122 ], [ %.0113248, %rtp_write_body_junk.exit175.thread ], [ %120, %116 ]
-  %.2112 = phi ptr [ %142, %162 ], [ %75, %72 ], [ %111, %108 ], [ %119, %122 ], [ %.0110249, %rtp_write_body_junk.exit175.thread ], [ %119, %116 ]
+  %.2136 = phi i64 [ %.0134247, %162 ], [ 0, %72 ], [ %.0134247, %108 ], [ %.0134247, %122 ], [ %.0134247, %116 ], [ %.6140, %rtp_write_body_junk.exit175.thread ]
+  %.2115 = phi i64 [ %143, %162 ], [ %76, %72 ], [ %112, %108 ], [ %120, %122 ], [ %120, %116 ], [ %.0113248, %rtp_write_body_junk.exit175.thread ]
+  %.2112 = phi ptr [ %142, %162 ], [ %75, %72 ], [ %111, %108 ], [ %119, %122 ], [ %119, %116 ], [ %.0110249, %rtp_write_body_junk.exit175.thread ]
   %.not = icmp eq i64 %.2115, 0
   br i1 %.not, label %.critedge169.thread, label %19
 
@@ -1591,8 +1591,8 @@ rtp_client_write.exit:                            ; preds = %139, %151, %155
   br label %.critedge169.thread
 
 .critedge169.thread:                              ; preds = %.critedge169, %.critedge169.thread.loopexit291, %.critedge169.thread.loopexit, %158, %46
-  %.7141 = phi i64 [ %.1135239, %46 ], [ %.0134247, %158 ], [ %163, %.critedge169.thread.loopexit ], [ %164, %.critedge169.thread.loopexit291 ], [ %.2136, %.critedge169 ]
-  %.8 = phi ptr [ %.1111241, %46 ], [ %161, %158 ], [ %scevgep266.le, %.critedge169.thread.loopexit ], [ %scevgep.le, %.critedge169.thread.loopexit291 ], [ %.2112, %.critedge169 ]
+  %.7141 = phi i64 [ %.1135239, %46 ], [ %164, %.critedge169.thread.loopexit291 ], [ %163, %.critedge169.thread.loopexit ], [ %.0134247, %158 ], [ %.2136, %.critedge169 ]
+  %.8 = phi ptr [ %.1111241, %46 ], [ %scevgep.le, %.critedge169.thread.loopexit291 ], [ %scevgep266.le, %.critedge169.thread.loopexit ], [ %161, %158 ], [ %.2112, %.critedge169 ]
   %.not224 = icmp eq i64 %.7141, 0
   br i1 %.not224, label %rtp_write_body_junk.exit183, label %165
 

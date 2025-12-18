@@ -411,7 +411,7 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   br label %.thread62
 
 96:                                               ; preds = %36, %.thread
-  %.037 = phi i32 [ %37, %36 ], [ %.1.ph, %.thread ]
+  %.037 = phi i32 [ %.1.ph, %.thread ], [ %37, %36 ]
   %97 = call i32 @PaUnixThread_Terminate(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
   br label %.thread62
 

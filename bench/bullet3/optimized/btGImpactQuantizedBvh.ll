@@ -2601,7 +2601,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   br i1 %168, label %.critedge, label %140
 
 .critedge:                                        ; preds = %61, %93, %.loopexit, %141, %117
-  %.0 = phi i1 [ true, %117 ], [ false, %93 ], [ false, %141 ], [ true, %.loopexit ], [ false, %61 ]
+  %.0 = phi i1 [ true, %.loopexit ], [ false, %93 ], [ true, %117 ], [ false, %141 ], [ false, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

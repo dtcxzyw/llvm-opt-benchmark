@@ -3516,8 +3516,8 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEaSIKNS0_11matrix_game10MatrixGameEEENSt9e
   br i1 %1155, label %.body81.i, label %1152
 
 .body81.i:                                        ; preds = %1152, %1150, %1096
-  %1156 = phi i1 [ false, %1096 ], [ false, %1150 ], [ true, %1152 ]
-  %.pn.i56 = phi { ptr, i32 } [ %1097, %1096 ], [ %1151, %1150 ], [ %eh.lpad-body128205.i, %1152 ]
+  %1156 = phi i1 [ false, %1150 ], [ false, %1096 ], [ true, %1152 ]
+  %.pn.i56 = phi { ptr, i32 } [ %1151, %1150 ], [ %1097, %1096 ], [ %eh.lpad-body128205.i, %1152 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #20
   br label %.body76.i
 
@@ -6384,7 +6384,7 @@ _ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %46, %.preheader.i
   br i1 %59, label %28, label %_ZN10open_spiel7AllNearIdEEbRKSt6vectorIT_SaIS2_EES6_S2_.exit, !llvm.loop !14
 
 _ZN10open_spiel7AllNearIdEEbRKSt6vectorIT_SaIS2_EES6_S2_.exit: ; preds = %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, %28, %.lr.ph.i, %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.preheader, %3, %20
-  %.09 = phi i1 [ false, %20 ], [ false, %3 ], [ true, %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.preheader ], [ false, %.lr.ph.i ], [ %.not.i, %28 ], [ %.not.i, %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
+  %.09 = phi i1 [ false, %3 ], [ false, %20 ], [ true, %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.preheader ], [ false, %.lr.ph.i ], [ %.not.i, %28 ], [ %.not.i, %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   ret i1 %.09
 }
 

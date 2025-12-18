@@ -609,8 +609,8 @@ _ZL12BackupNumberPKcS0_.exit121:                  ; preds = %_ZL12isNumberCharc.
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader, %.lr.ph, %.critedge.thread.loopexit.loopexit
-  %.lcssa285.sink = phi ptr [ %scevgep228, %.critedge.thread.loopexit.loopexit ], [ %139, %.lr.ph ], [ %.promoted, %.preheader ]
-  %.lcssa282.sink = phi ptr [ %scevgep230.le, %.critedge.thread.loopexit.loopexit ], [ %140, %.lr.ph ], [ %.promoted206, %.preheader ]
+  %.lcssa285.sink = phi ptr [ %139, %.lr.ph ], [ %scevgep228, %.critedge.thread.loopexit.loopexit ], [ %.promoted, %.preheader ]
+  %.lcssa282.sink = phi ptr [ %140, %.lr.ph ], [ %scevgep230.le, %.critedge.thread.loopexit.loopexit ], [ %.promoted206, %.preheader ]
   store ptr %.lcssa285.sink, ptr %14, align 8
   store ptr %.lcssa282.sink, ptr %15, align 8
   %183 = icmp uge ptr %.lcssa285.sink, %117

@@ -2030,7 +2030,7 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   br i1 %121, label %._crit_edge19, label %.thread11, !llvm.loop !26
 
 .thread11:                                        ; preds = %63, %68, %59, %57, %52, %.thread12, %._crit_edge19, %.lr.ph18, %7, %3
-  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ false, %.lr.ph18 ], [ false, %52 ], [ true, %.thread12 ], [ true, %._crit_edge19 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
+  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ true, %.thread12 ], [ false, %.lr.ph18 ], [ false, %52 ], [ true, %._crit_edge19 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
   ret i1 %122
 }
 
@@ -2201,7 +2201,7 @@ define internal ptr @proc_sys_lookup(ptr noundef readonly captures(none) %0, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %51, %88, %93, %97, %20, %56, %58
-  %.ph = phi ptr [ inttoptr (i64 -2 to ptr), %20 ], [ inttoptr (i64 -2 to ptr), %58 ], [ inttoptr (i64 -2 to ptr), %56 ], [ %86, %97 ], [ %86, %93 ], [ %86, %88 ], [ inttoptr (i64 -2 to ptr), %51 ]
+  %.ph = phi ptr [ inttoptr (i64 -2 to ptr), %20 ], [ %86, %88 ], [ inttoptr (i64 -2 to ptr), %58 ], [ inttoptr (i64 -2 to ptr), %56 ], [ %86, %97 ], [ %86, %93 ], [ inttoptr (i64 -2 to ptr), %51 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @sysctl_lock) #20
   br label %98
 

@@ -462,9 +462,9 @@ bytestream2_get_byte.exit.i80:                    ; preds = %168, %164
   br label %getbit.exit56.i
 
 getbit.exit56.i:                                  ; preds = %180, %175
-  %.sroa.0.11.i = phi ptr [ %.sroa.0.9.i, %175 ], [ %181, %180 ]
-  %.4102.i = phi i32 [ %158, %175 ], [ %182, %180 ]
-  %.4.i = phi i32 [ %159, %175 ], [ 32, %180 ]
+  %.sroa.0.11.i = phi ptr [ %181, %180 ], [ %.sroa.0.9.i, %175 ]
+  %.4102.i = phi i32 [ %182, %180 ], [ %158, %175 ]
+  %.4.i = phi i32 [ 32, %180 ], [ %159, %175 ]
   %183 = shl i32 %.4102.i, 1
   %184 = add nsw i32 %.4.i, -1
   %.not41.i = icmp sgt i32 %.4102.i, -1
@@ -1405,7 +1405,7 @@ bytestream2_get_le16.exit159.i:                   ; preds = %555, %bytestream2_p
   br i1 %663, label %.preheader226.split.i, label %.loopexit227.i, !llvm.loop !64
 
 .loopexit227.i:                                   ; preds = %.preheader228.split.i, %.preheader228.split.us.i, %.preheader226.split.i, %.preheader226.split.us.i
-  %.6.i107 = phi i32 [ %.5.us.i, %.preheader228.split.us.i ], [ %.8.us.i, %.preheader226.split.us.i ], [ %.8.i, %.preheader226.split.i ], [ %.5.i, %.preheader228.split.i ]
+  %.6.i107 = phi i32 [ %.5.us.i, %.preheader228.split.us.i ], [ %.8.i, %.preheader226.split.i ], [ %.8.us.i, %.preheader226.split.us.i ], [ %.5.i, %.preheader228.split.i ]
   %664 = and i8 %.0.i169221.shrunk.i, 1
   %.not146.i = icmp eq i8 %664, 0
   br i1 %.not146.i, label %.loopexit.i108, label %665
@@ -1448,7 +1448,7 @@ decode_interframe_v4.exit:                        ; preds = %bytestream2_get_byt
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.10.sink.i) #7
   br label %.critedge
 
-.loopexit.loopexit:                               ; preds = %bytestream2_get_byte.exit.i111, %.loopexit.i108
+.loopexit.loopexit:                               ; preds = %.loopexit.i108, %bytestream2_get_byte.exit.i111
   %.val74.pre = load ptr, ptr %5, align 8, !tbaa !4
   br label %.loopexit
 

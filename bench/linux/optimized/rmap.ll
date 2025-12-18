@@ -1676,7 +1676,7 @@ define dso_local noundef ptr @folio_lock_anon_vma_read(ptr noundef %0, ptr nound
   br label %113
 
 .thread2:                                         ; preds = %39, %24, %64, %74, %62, %57, %52, %49, %2
-  %112 = phi ptr [ %30, %52 ], [ null, %57 ], [ null, %62 ], [ %30, %49 ], [ null, %2 ], [ null, %74 ], [ null, %64 ], [ %17, %24 ], [ %40, %39 ]
+  %112 = phi ptr [ %30, %52 ], [ null, %57 ], [ null, %62 ], [ %30, %49 ], [ null, %2 ], [ null, %74 ], [ %40, %39 ], [ %17, %24 ], [ null, %64 ]
   tail call void @__rcu_read_unlock() #17
   br label %113
 
@@ -4299,7 +4299,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   br i1 %561, label %117, label %.thread, !llvm.loop !90
 
 .thread:                                          ; preds = %560, %192, %195, %230, %233, %378, %414, %417, %432, %435, %460, %463, %143, %140, %82
-  %562 = phi i1 [ false, %140 ], [ false, %143 ], [ true, %82 ], [ false, %192 ], [ true, %233 ], [ true, %230 ], [ false, %195 ], [ false, %378 ], [ false, %414 ], [ false, %417 ], [ false, %432 ], [ false, %435 ], [ false, %460 ], [ false, %463 ], [ true, %560 ]
+  %562 = phi i1 [ false, %140 ], [ false, %143 ], [ true, %82 ], [ false, %463 ], [ false, %192 ], [ true, %233 ], [ true, %230 ], [ false, %195 ], [ false, %378 ], [ false, %414 ], [ false, %417 ], [ false, %432 ], [ false, %435 ], [ false, %460 ], [ true, %560 ]
   %563 = load i32, ptr %62, align 8
   %564 = and i32 %563, 1
   %565 = icmp eq i32 %564, 0
@@ -5266,7 +5266,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %482, %.thread.sink.split, %343, %316, %153, %190, %82
-  %484 = phi i1 [ true, %82 ], [ true, %190 ], [ false, %316 ], [ false, %343 ], [ false, %153 ], [ %.ph, %.thread.sink.split ], [ true, %482 ]
+  %484 = phi i1 [ true, %82 ], [ false, %153 ], [ %.ph, %.thread.sink.split ], [ false, %316 ], [ true, %190 ], [ false, %343 ], [ true, %482 ]
   %485 = load i32, ptr %62, align 8
   %486 = and i32 %485, 1
   %487 = icmp eq i32 %486, 0
@@ -5354,8 +5354,8 @@ define internal fastcc void @rmap_walk_anon(ptr noundef %0, ptr noundef %1, i1 n
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %.thread12
 
-.thread12:                                        ; preds = %26, %15, %29
-  %32 = phi ptr [ %30, %29 ], [ %13, %15 ], [ %13, %26 ]
+.thread12:                                        ; preds = %15, %26, %29
+  %32 = phi ptr [ %30, %29 ], [ %13, %26 ], [ %13, %15 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i64, ptr %33, align 16
   %35 = load volatile i64, ptr %0, align 16

@@ -491,7 +491,7 @@ define hidden void @"_ZN183_$LT$uv_distribution_types..index.._..$LT$impl$u20$se
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %205, %226, %285, %296, %307, %349, %367, %408, %481
-  %.sroa.0163.1.ph = phi i8 [ 1, %226 ], [ 1, %205 ], [ %.sroa.0163.6, %481 ], [ 1, %.invoke ], [ 1, %408 ], [ 1, %367 ], [ 1, %349 ], [ 1, %307 ], [ 1, %296 ], [ 1, %285 ]
+  %.sroa.0163.1.ph = phi i8 [ 1, %367 ], [ 1, %349 ], [ 1, %408 ], [ 1, %307 ], [ 1, %.invoke ], [ 1, %296 ], [ %.sroa.0163.6, %481 ], [ 1, %285 ], [ 1, %205 ], [ 1, %226 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4319,15 +4319,15 @@ define hidden void @"_ZN194_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %.loopexit, %180, %234, %280, %294, %305, %319, %333, %453, %237
-  %.sroa.17.0659 = phi i64 [ %.sroa.17.0660, %453 ], [ %.sroa.17.0871, %237 ], [ %.sroa.17.0871, %.invoke ], [ %.sroa.17.0871, %333 ], [ %.sroa.17.0871, %319 ], [ %.sroa.17.0871, %305 ], [ %.sroa.17.0871, %294 ], [ %.sroa.17.0871, %280 ], [ %.sroa.17.0871, %234 ], [ %.sroa.17.0871, %180 ], [ %.sroa.17.0660, %.loopexit ]
-  %.sroa.11357.0597 = phi ptr [ %.sroa.11357.0598, %453 ], [ %.sroa.11357.0873, %237 ], [ %.sroa.11357.0873, %.invoke ], [ %.sroa.11357.0873, %333 ], [ %.sroa.11357.0873, %319 ], [ %.sroa.11357.0873, %305 ], [ %.sroa.11357.0873, %294 ], [ %.sroa.11357.0873, %280 ], [ %.sroa.11357.0873, %234 ], [ %.sroa.11357.0873, %180 ], [ %.sroa.11357.0598, %.loopexit ]
-  %.sroa.0.0535 = phi i64 [ %.sroa.0.0536, %453 ], [ 0, %237 ], [ %.sroa.0.0875, %.invoke ], [ %.sroa.0.0875, %333 ], [ %.sroa.0.0875, %319 ], [ %.sroa.0.0875, %305 ], [ %.sroa.0.0875, %294 ], [ %.sroa.0.0875, %280 ], [ 1, %234 ], [ %.sroa.0.0875, %180 ], [ %.sroa.0.0536, %.loopexit ]
-  %.sroa.0126.1.ph = phi i1 [ false, %453 ], [ true, %237 ], [ true, %.invoke ], [ true, %333 ], [ true, %319 ], [ true, %305 ], [ true, %294 ], [ true, %280 ], [ true, %234 ], [ true, %180 ], [ true, %.loopexit ]
-  %.sroa.0127.1.ph = phi i1 [ %.not230, %453 ], [ true, %237 ], [ true, %.invoke ], [ true, %333 ], [ true, %319 ], [ true, %305 ], [ true, %294 ], [ true, %280 ], [ true, %234 ], [ true, %180 ], [ true, %.loopexit ]
-  %.sroa.0128.1.ph = phi i1 [ %.not227, %453 ], [ true, %237 ], [ true, %.invoke ], [ true, %333 ], [ true, %319 ], [ true, %305 ], [ true, %294 ], [ true, %280 ], [ true, %234 ], [ true, %180 ], [ true, %.loopexit ]
-  %.sroa.0129.1.ph = phi i1 [ %.not224, %453 ], [ true, %237 ], [ true, %.invoke ], [ true, %333 ], [ true, %319 ], [ true, %305 ], [ true, %294 ], [ true, %280 ], [ true, %234 ], [ true, %180 ], [ true, %.loopexit ]
-  %.sroa.0130.1.ph = phi i1 [ %.sroa.0130.5, %453 ], [ true, %237 ], [ true, %.invoke ], [ true, %333 ], [ true, %319 ], [ true, %305 ], [ true, %294 ], [ true, %280 ], [ true, %234 ], [ true, %180 ], [ true, %.loopexit ]
-  %.sroa.0131.1.ph = phi i1 [ %.not222, %453 ], [ true, %237 ], [ true, %.invoke ], [ true, %333 ], [ true, %319 ], [ true, %305 ], [ true, %294 ], [ true, %280 ], [ true, %234 ], [ true, %180 ], [ true, %.loopexit ]
+  %.sroa.17.0659 = phi i64 [ %.sroa.17.0871, %319 ], [ %.sroa.17.0871, %305 ], [ %.sroa.17.0871, %333 ], [ %.sroa.17.0871, %294 ], [ %.sroa.17.0871, %.invoke ], [ %.sroa.17.0871, %280 ], [ %.sroa.17.0871, %237 ], [ %.sroa.17.0871, %234 ], [ %.sroa.17.0660, %453 ], [ %.sroa.17.0871, %180 ], [ %.sroa.17.0660, %.loopexit ]
+  %.sroa.11357.0597 = phi ptr [ %.sroa.11357.0873, %319 ], [ %.sroa.11357.0873, %305 ], [ %.sroa.11357.0873, %333 ], [ %.sroa.11357.0873, %294 ], [ %.sroa.11357.0873, %.invoke ], [ %.sroa.11357.0873, %280 ], [ %.sroa.11357.0873, %237 ], [ %.sroa.11357.0873, %234 ], [ %.sroa.11357.0598, %453 ], [ %.sroa.11357.0873, %180 ], [ %.sroa.11357.0598, %.loopexit ]
+  %.sroa.0.0535 = phi i64 [ %.sroa.0.0875, %319 ], [ %.sroa.0.0875, %305 ], [ %.sroa.0.0875, %333 ], [ %.sroa.0.0875, %294 ], [ %.sroa.0.0875, %.invoke ], [ %.sroa.0.0875, %280 ], [ 0, %237 ], [ 1, %234 ], [ %.sroa.0.0536, %453 ], [ %.sroa.0.0875, %180 ], [ %.sroa.0.0536, %.loopexit ]
+  %.sroa.0126.1.ph = phi i1 [ true, %319 ], [ true, %305 ], [ true, %333 ], [ true, %294 ], [ true, %.invoke ], [ true, %280 ], [ true, %237 ], [ true, %234 ], [ false, %453 ], [ true, %180 ], [ true, %.loopexit ]
+  %.sroa.0127.1.ph = phi i1 [ true, %319 ], [ true, %305 ], [ true, %333 ], [ true, %294 ], [ true, %.invoke ], [ true, %280 ], [ true, %237 ], [ true, %234 ], [ %.not230, %453 ], [ true, %180 ], [ true, %.loopexit ]
+  %.sroa.0128.1.ph = phi i1 [ true, %319 ], [ true, %305 ], [ true, %333 ], [ true, %294 ], [ true, %.invoke ], [ true, %280 ], [ true, %237 ], [ true, %234 ], [ %.not227, %453 ], [ true, %180 ], [ true, %.loopexit ]
+  %.sroa.0129.1.ph = phi i1 [ true, %319 ], [ true, %305 ], [ true, %333 ], [ true, %294 ], [ true, %.invoke ], [ true, %280 ], [ true, %237 ], [ true, %234 ], [ %.not224, %453 ], [ true, %180 ], [ true, %.loopexit ]
+  %.sroa.0130.1.ph = phi i1 [ true, %319 ], [ true, %305 ], [ true, %333 ], [ true, %294 ], [ true, %.invoke ], [ true, %280 ], [ true, %237 ], [ true, %234 ], [ %.sroa.0130.5, %453 ], [ true, %180 ], [ true, %.loopexit ]
+  %.sroa.0131.1.ph = phi i1 [ true, %319 ], [ true, %305 ], [ true, %333 ], [ true, %294 ], [ true, %.invoke ], [ true, %280 ], [ true, %237 ], [ true, %234 ], [ %.not222, %453 ], [ true, %180 ], [ true, %.loopexit ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

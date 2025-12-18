@@ -583,7 +583,7 @@ define internal fastcc void @"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_ra
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader44, %45, %.preheader
-  %.sroa.013.1 = phi i64 [ 0, %.preheader ], [ %50, %45 ], [ %.sroa.013.0, %.preheader44 ]
+  %.sroa.013.1 = phi i64 [ %50, %45 ], [ 0, %.preheader ], [ %.sroa.013.0, %.preheader44 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.013.1, ptr %18, align 8
   br label %6

@@ -1750,7 +1750,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i:    ; preds = %12
   br i1 %.not, label %"_Z6all_ofI7svectorIN3sat7literalEjEZNK3smt10theory_sls23shared_clauses_are_trueEvE3$_0EbRKT_RKT0_.exit.thread", label %12
 
 "_Z6all_ofI7svectorIN3sat7literalEjEZNK3smt10theory_sls23shared_clauses_are_trueEvE3$_0EbRKT_RKT0_.exit.thread": ; preds = %"_Z6all_ofI7svectorIN3sat7literalEjEZNK3smt10theory_sls23shared_clauses_are_trueEvE3$_0EbRKT_RKT0_.exit", %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i, %12, %19, %1, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE3endEv.exit
-  %.not16 = phi i1 [ true, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE3endEv.exit ], [ true, %1 ], [ false, %19 ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i ], [ false, %12 ], [ true, %"_Z6all_ofI7svectorIN3sat7literalEjEZNK3smt10theory_sls23shared_clauses_are_trueEvE3$_0EbRKT_RKT0_.exit" ]
+  %.not16 = phi i1 [ false, %19 ], [ true, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE3endEv.exit ], [ true, %1 ], [ true, %"_Z6all_ofI7svectorIN3sat7literalEjEZNK3smt10theory_sls23shared_clauses_are_trueEvE3$_0EbRKT_RKT0_.exit" ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i ], [ false, %12 ]
   ret i1 %.not16
 }
 

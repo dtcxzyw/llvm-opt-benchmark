@@ -1239,7 +1239,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildCFGViewsEv(ptr
   br label %_ZN6asmjit9_abi_1_1013ZoneBitVector7releaseEPNS0_13ZoneAllocatorE.exit
 
 _ZN6asmjit9_abi_1_1013ZoneBitVector7releaseEPNS0_13ZoneAllocatorE.exit: ; preds = %75, %206, %212, %188, %31
-  %213 = phi i32 [ %32, %31 ], [ 0, %188 ], [ 0, %206 ], [ 0, %212 ], [ %76, %75 ]
+  %213 = phi i32 [ %32, %31 ], [ 0, %206 ], [ 0, %188 ], [ 0, %212 ], [ %76, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %214
 
@@ -4400,8 +4400,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass17runLocalAllocatorEv
   br i1 %301, label %.thread.thread, label %.loopexit
 
 .thread.thread:                                   ; preds = %.preheader, %.thread26, %.thread, %294, %272, %153
-  %302 = phi ptr [ null, %.thread ], [ %166, %294 ], [ %166, %272 ], [ null, %153 ], [ null, %.thread26 ], [ %166, %.preheader ]
-  %303 = phi i1 [ true, %.thread ], [ false, %294 ], [ false, %272 ], [ true, %153 ], [ true, %.thread26 ], [ false, %.preheader ]
+  %302 = phi ptr [ null, %.thread ], [ %166, %294 ], [ null, %.thread26 ], [ %166, %272 ], [ null, %153 ], [ %166, %.preheader ]
+  %303 = phi i1 [ true, %.thread ], [ false, %294 ], [ true, %.thread26 ], [ false, %272 ], [ true, %153 ], [ false, %.preheader ]
   %304 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %305 = load ptr, ptr %304, align 8, !tbaa !33
   store ptr %305, ptr %77, align 8, !tbaa !164
@@ -7848,7 +7848,7 @@ split:                                            ; preds = %126, %._crit_edge
   br label %.thread118
 
 .thread118:                                       ; preds = %250, %212, %532, %593, %590, %581, %619, %867, %.thread, %.loopexit, %.loopexit125, %1145, %1143, %1075, %43
-  %1262 = phi i32 [ 0, %.loopexit125 ], [ 0, %.loopexit ], [ 0, %1145 ], [ %44, %43 ], [ 0, %1143 ], [ 0, %1075 ], [ 0, %.thread ], [ %620, %619 ], [ 61, %593 ], [ %533, %532 ], [ %868, %867 ], [ 61, %581 ], [ 61, %590 ], [ %251, %250 ], [ %213, %212 ]
+  %1262 = phi i32 [ 0, %.loopexit125 ], [ 0, %.loopexit ], [ 0, %1145 ], [ %44, %43 ], [ 0, %1143 ], [ 0, %1075 ], [ 0, %.thread ], [ %533, %532 ], [ %868, %867 ], [ %620, %619 ], [ 61, %593 ], [ 61, %581 ], [ 61, %590 ], [ %213, %212 ], [ %251, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9151,7 +9151,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass16updateStackFrameEv(
   br i1 %221, label %_ZN6asmjit9_abi_1_1010BaseRAPass16_updateStackArgsEv.exit, label %170, !llvm.loop !386
 
 _ZN6asmjit9_abi_1_1010BaseRAPass16_updateStackArgsEv.exit: ; preds = %113, %70, %219, %178, %153, %150, %147, %140, %133, %.loopexit
-  %222 = phi i32 [ 0, %153 ], [ %148, %147 ], [ %141, %140 ], [ %138, %133 ], [ %131, %.loopexit ], [ 0, %150 ], [ 3, %70 ], [ 3, %178 ], [ 0, %219 ], [ 3, %113 ]
+  %222 = phi i32 [ 0, %153 ], [ 3, %178 ], [ %148, %147 ], [ %141, %140 ], [ %138, %133 ], [ %131, %.loopexit ], [ 0, %150 ], [ 3, %70 ], [ 0, %219 ], [ 3, %113 ]
   ret i32 %222
 }
 

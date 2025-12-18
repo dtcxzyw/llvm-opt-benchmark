@@ -2595,7 +2595,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdrNodeMetadata_Static
   unreachable
 
 .loopexit327:                                     ; preds = %628, %602, %617
-  %.sroa.06.1.i.i.i196 = phi ptr [ %618, %617 ], [ %.sroa.06.0.i.i.i198, %602 ], [ %636, %628 ]
+  %.sroa.06.1.i.i.i196 = phi ptr [ %.sroa.06.0.i.i.i198, %602 ], [ %618, %617 ], [ %636, %628 ]
   %641 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i196, i64 16
   %642 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %643 = load ptr, ptr %642, align 8

@@ -174,8 +174,8 @@ checkstride.exit126:                              ; preds = %51
   br label %checkstride.exit126.thread
 
 checkstride.exit126.thread:                       ; preds = %50, %28, %checkstride.exit.thread, %checkstride.exit126
-  %.pre193 = phi ptr [ %45, %checkstride.exit.thread ], [ %.pre193.pre, %checkstride.exit126 ], [ %33, %28 ], [ %45, %50 ]
-  %.pre191 = phi ptr [ %47, %checkstride.exit.thread ], [ %.pre191.pre, %checkstride.exit126 ], [ %30, %28 ], [ %47, %50 ]
+  %.pre193 = phi ptr [ %33, %28 ], [ %45, %checkstride.exit.thread ], [ %.pre193.pre, %checkstride.exit126 ], [ %45, %50 ]
+  %.pre191 = phi ptr [ %30, %28 ], [ %47, %checkstride.exit.thread ], [ %.pre191.pre, %checkstride.exit126 ], [ %47, %50 ]
   %56 = load ptr, ptr %16, align 8, !tbaa !35
   %.not98 = icmp eq ptr %56, null
   br i1 %.not98, label %checkstride.exit135.thread, label %57

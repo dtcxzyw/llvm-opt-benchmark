@@ -16757,7 +16757,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h7d851d9f53276e29E.llvm.7696744227858965148.exit22", label %24
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h7d851d9f53276e29E.llvm.7696744227858965148.exit22": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h7d851d9f53276e29E.llvm.7696744227858965148.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h7d851d9f53276e29E.llvm.7696744227858965148.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h7d851d9f53276e29E.llvm.7696744227858965148.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   ret i8 %.sroa.0.0
 
 24:                                               ; preds = %21, %10

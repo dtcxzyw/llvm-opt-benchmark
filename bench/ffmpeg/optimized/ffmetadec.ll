@@ -581,7 +581,7 @@ read_chapter.exit:                                ; preds = %get_line.exit47._cr
   br label %read_tag.exit
 
 read_tag.exit:                                    ; preds = %167, %.loopexit.i, %202, %170, %.thread, %read_chapter.exit
-  %.2 = phi ptr [ %50, %.thread ], [ %163, %read_chapter.exit ], [ %.02150, %170 ], [ %.02150, %202 ], [ %.02150, %.loopexit.i ], [ %.02150, %167 ]
+  %.2 = phi ptr [ %50, %.thread ], [ %163, %read_chapter.exit ], [ %.02150, %.loopexit.i ], [ %.02150, %170 ], [ %.02150, %202 ], [ %.02150, %167 ]
   %204 = load ptr, ptr %8, align 8, !tbaa !11
   %205 = call i32 @avio_feof(ptr noundef %204) #9
   %.not = icmp eq i32 %205, 0

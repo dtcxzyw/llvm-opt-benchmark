@@ -1660,7 +1660,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   ret void
 
 ._crit_edge:                                      ; preds = %137, %57, %.preheader
-  %82 = phi i32 [ %24, %.preheader ], [ %79, %57 ], [ %149, %137 ]
+  %82 = phi i32 [ %79, %57 ], [ %24, %.preheader ], [ %149, %137 ]
   %83 = add nuw nsw i32 %.059, 1
   %84 = load i32, ptr %18, align 4, !tbaa !53
   %85 = icmp slt i32 %83, %84
@@ -1814,7 +1814,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   ret void
 
 ._crit_edge:                                      ; preds = %256, %.lr.ph.split.us, %.preheader
-  %30 = phi i32 [ %23, %.preheader ], [ %27, %.lr.ph.split.us ], [ %259, %256 ]
+  %30 = phi i32 [ %27, %.lr.ph.split.us ], [ %23, %.preheader ], [ %259, %256 ]
   %31 = add nuw nsw i32 %.0204, 1
   %32 = load i32, ptr %18, align 4, !tbaa !53
   %33 = icmp slt i32 %31, %32

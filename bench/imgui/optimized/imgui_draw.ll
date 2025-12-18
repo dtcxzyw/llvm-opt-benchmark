@@ -10139,9 +10139,9 @@ _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %143, %145
   br i1 %264, label %.lr.ph403, label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us, %111, %85, %.thread369
-  %.0296.ph391 = phi ptr [ %.0296.ph425, %.thread369 ], [ %94, %85 ], [ %.0296.ph425, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.0296.ph425, %111 ], [ %.2298, %.outer ]
-  %.0287.ph389 = phi ptr [ %.0287.ph426, %.thread369 ], [ %96, %85 ], [ %.0287.ph426, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.0287.ph426, %111 ], [ %.2289, %.outer ]
-  %.0279.ph387 = phi i32 [ %.0279.ph427, %.thread369 ], [ %98, %85 ], [ %.0279.ph427, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.0279.ph427, %111 ], [ %.2281, %.outer ]
+  %.0296.ph391 = phi ptr [ %.0296.ph425, %.thread369 ], [ %.0296.ph425, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %94, %85 ], [ %.0296.ph425, %111 ], [ %.2298, %.outer ]
+  %.0287.ph389 = phi ptr [ %.0287.ph426, %.thread369 ], [ %.0287.ph426, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %96, %85 ], [ %.0287.ph426, %111 ], [ %.2289, %.outer ]
+  %.0279.ph387 = phi i32 [ %.0279.ph427, %.thread369 ], [ %.0279.ph427, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %98, %85 ], [ %.0279.ph427, %111 ], [ %.2281, %.outer ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %267 = load ptr, ptr %266, align 8, !tbaa !112
@@ -14868,8 +14868,8 @@ _ZL20stb_decompress_tokenPKh.exit.i:              ; preds = %_ZL8stb__litPKhj.ex
   br i1 %316, label %_ZL14stb_decompressPhPKhj.exit, label %_ZL20stb_decompress_tokenPKh.exit.thread.i
 
 _ZL20stb_decompress_tokenPKh.exit.thread.sink.split.i: ; preds = %.preheader.i84.i.i, %.preheader.i78.i.i, %.preheader.i68.i.i, %.preheader.i62.i.i, %.preheader.i56.i.i, %.preheader.i.i.i, %294, %281, %259, %251, %186, %173, %150, %142, %111, %103, %88, %83
-  %.lcssa.sink.i88.i.sink.i = phi ptr [ %86, %83 ], [ %76, %88 ], [ %109, %103 ], [ %76, %111 ], [ %148, %142 ], [ %76, %150 ], [ %184, %173 ], [ %76, %186 ], [ %257, %251 ], [ %76, %259 ], [ %292, %281 ], [ %76, %294 ], [ %280, %.preheader.i78.i.i ], [ %100, %.preheader.i.i.i ], [ %126, %.preheader.i56.i.i ], [ %170, %.preheader.i62.i.i ], [ %206, %.preheader.i68.i.i ], [ %315, %.preheader.i84.i.i ]
-  %.sink.i = phi i64 [ 2, %83 ], [ 2, %88 ], [ 3, %103 ], [ 3, %111 ], [ 4, %142 ], [ 4, %150 ], [ 5, %173 ], [ 5, %186 ], [ 5, %251 ], [ 5, %259 ], [ 6, %281 ], [ 6, %294 ], [ 5, %.preheader.i78.i.i ], [ 2, %.preheader.i.i.i ], [ 3, %.preheader.i56.i.i ], [ 4, %.preheader.i62.i.i ], [ 5, %.preheader.i68.i.i ], [ 6, %.preheader.i84.i.i ]
+  %.lcssa.sink.i88.i.sink.i = phi ptr [ %280, %.preheader.i78.i.i ], [ %206, %.preheader.i68.i.i ], [ %170, %.preheader.i62.i.i ], [ %126, %.preheader.i56.i.i ], [ %100, %.preheader.i.i.i ], [ %86, %83 ], [ %76, %88 ], [ %109, %103 ], [ %76, %111 ], [ %148, %142 ], [ %76, %150 ], [ %184, %173 ], [ %76, %186 ], [ %257, %251 ], [ %76, %259 ], [ %292, %281 ], [ %76, %294 ], [ %315, %.preheader.i84.i.i ]
+  %.sink.i = phi i64 [ 5, %.preheader.i78.i.i ], [ 5, %.preheader.i68.i.i ], [ 4, %.preheader.i62.i.i ], [ 3, %.preheader.i56.i.i ], [ 2, %.preheader.i.i.i ], [ 2, %83 ], [ 2, %88 ], [ 3, %103 ], [ 3, %111 ], [ 4, %142 ], [ 4, %150 ], [ 5, %173 ], [ 5, %186 ], [ 5, %251 ], [ 5, %259 ], [ 6, %281 ], [ 6, %294 ], [ 6, %.preheader.i84.i.i ]
   store ptr %.lcssa.sink.i88.i.sink.i, ptr @_ZL9stb__dout, align 8, !tbaa !282
   %317 = getelementptr inbounds nuw i8, ptr %.034.i, i64 %.sink.i
   br label %_ZL20stb_decompress_tokenPKh.exit.thread.i
@@ -17396,7 +17396,7 @@ _ZL17stbtt__find_tablePhjPKc.exit346.i.i:         ; preds = %993
   br label %_ZL17stbtt__find_tablePhjPKc.exit346.thread.i.i
 
 _ZL17stbtt__find_tablePhjPKc.exit346.thread.i.i:  ; preds = %997, %1016, %_ZL17stbtt__find_tablePhjPKc.exit346.i.i, %973
-  %.sink.i.i = phi i32 [ %1024, %1016 ], [ 65535, %973 ], [ 65535, %_ZL17stbtt__find_tablePhjPKc.exit346.i.i ], [ 65535, %997 ]
+  %.sink.i.i = phi i32 [ %1024, %1016 ], [ 65535, %_ZL17stbtt__find_tablePhjPKc.exit346.i.i ], [ 65535, %973 ], [ 65535, %997 ]
   %1025 = getelementptr inbounds nuw i8, ptr %81, i64 20
   store i32 %.sink.i.i, ptr %1025, align 4, !tbaa !347
   %1026 = getelementptr inbounds nuw i8, ptr %81, i64 52
@@ -18951,8 +18951,8 @@ _ZL22stbtt_GetGlyphHMetricsPK14stbtt_fontinfoiPiS2_.exit.i: ; preds = %1697, %16
   br label %_ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit.i.i
 
 _ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit.i.i: ; preds = %1826, %1751
-  %.041.i.i = phi i32 [ %1835, %1826 ], [ %1754, %1751 ]
-  %.0.i181.i = phi i32 [ %1842, %1826 ], [ %1756, %1751 ]
+  %.041.i.i = phi i32 [ %1754, %1751 ], [ %1835, %1826 ]
+  %.0.i181.i = phi i32 [ %1756, %1751 ], [ %1842, %1826 ]
   %1843 = sitofp i32 %.041.i.i to float
   %1844 = call float @llvm.fmuladd.f32(float %1843, float %1667, float 0.000000e+00)
   %1845 = fcmp ult float %1844, 0.000000e+00
@@ -21511,8 +21511,8 @@ _ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds =
   br i1 %exitcond183.not.i.i, label %.loopexit.i.i, label %.lr.ph138.i.i, !llvm.loop !481
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i441, %.lr.ph120.i.i, %.lr.ph126.i.i, %.lr.ph132.i.i, %.lr.ph138.i.i, %.preheader.i.i, %.preheader105.i.i, %.preheader107.i.i, %.preheader109.i.i, %.preheader111.i.i
-  %.189.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader105.i.i ], [ 0, %.preheader107.i.i ], [ 0, %.preheader109.i.i ], [ 0, %.preheader111.i.i ], [ %3197, %.lr.ph120.i.i ], [ %3197, %.lr.ph138.i.i ], [ %3197, %.lr.ph132.i.i ], [ %3197, %.lr.ph126.i.i ], [ %3197, %.lr.ph.i.i441 ]
-  %.1.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader105.i.i ], [ 0, %.preheader107.i.i ], [ 0, %.preheader109.i.i ], [ 0, %.preheader111.i.i ], [ %3235, %.lr.ph120.i.i ], [ %3263, %.lr.ph138.i.i ], [ %3207, %.lr.ph132.i.i ], [ %3221, %.lr.ph126.i.i ], [ %3248, %.lr.ph.i.i441 ]
+  %.189.i.i = phi i32 [ %3197, %.lr.ph126.i.i ], [ %3197, %.lr.ph120.i.i ], [ %3197, %.lr.ph138.i.i ], [ %3197, %.lr.ph132.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader105.i.i ], [ 0, %.preheader107.i.i ], [ 0, %.preheader109.i.i ], [ 0, %.preheader111.i.i ], [ %3197, %.lr.ph.i.i441 ]
+  %.1.i.i = phi i32 [ %3221, %.lr.ph126.i.i ], [ %3235, %.lr.ph120.i.i ], [ %3263, %.lr.ph138.i.i ], [ %3207, %.lr.ph132.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader105.i.i ], [ 0, %.preheader107.i.i ], [ 0, %.preheader109.i.i ], [ 0, %.preheader111.i.i ], [ %3248, %.lr.ph.i.i441 ]
   %3270 = icmp slt i32 %.189.i.i, %.pre248.pre255.i
   br i1 %3270, label %.lr.ph143.preheader.i.i, label %._crit_edge.i.i444
 
@@ -21732,8 +21732,8 @@ _ZL18stbtt__h_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__h_prefi
   br i1 %exitcond198.not.i.i, label %.loopexit.i172.i, label %.lr.ph153.i.i, !llvm.loop !488
 
 .loopexit.i172.i:                                 ; preds = %.lr.ph.i168.i, %.lr.ph135.i.i, %.lr.ph141.i.i, %.lr.ph147.i.i, %.lr.ph153.i.i, %.preheader.i180.i, %.preheader120.i.i, %.preheader122.i.i, %.preheader124.i.i, %.preheader126.i.i
-  %.1104.i.i = phi i32 [ 0, %.preheader.i180.i ], [ 0, %.preheader120.i.i ], [ 0, %.preheader122.i.i ], [ 0, %.preheader124.i.i ], [ 0, %.preheader126.i.i ], [ %3293, %.lr.ph135.i.i ], [ %3293, %.lr.ph153.i.i ], [ %3293, %.lr.ph147.i.i ], [ %3293, %.lr.ph141.i.i ], [ %3293, %.lr.ph.i168.i ]
-  %.1.i173.i = phi i32 [ 0, %.preheader.i180.i ], [ 0, %.preheader120.i.i ], [ 0, %.preheader122.i.i ], [ 0, %.preheader124.i.i ], [ 0, %.preheader126.i.i ], [ %3334, %.lr.ph135.i.i ], [ %3364, %.lr.ph153.i.i ], [ %3304, %.lr.ph147.i.i ], [ %3319, %.lr.ph141.i.i ], [ %3348, %.lr.ph.i168.i ]
+  %.1104.i.i = phi i32 [ %3293, %.lr.ph141.i.i ], [ %3293, %.lr.ph135.i.i ], [ %3293, %.lr.ph153.i.i ], [ %3293, %.lr.ph147.i.i ], [ 0, %.preheader.i180.i ], [ 0, %.preheader120.i.i ], [ 0, %.preheader122.i.i ], [ 0, %.preheader124.i.i ], [ 0, %.preheader126.i.i ], [ %3293, %.lr.ph.i168.i ]
+  %.1.i173.i = phi i32 [ %3319, %.lr.ph141.i.i ], [ %3334, %.lr.ph135.i.i ], [ %3364, %.lr.ph153.i.i ], [ %3304, %.lr.ph147.i.i ], [ 0, %.preheader.i180.i ], [ 0, %.preheader120.i.i ], [ 0, %.preheader122.i.i ], [ 0, %.preheader124.i.i ], [ 0, %.preheader126.i.i ], [ %3348, %.lr.ph.i168.i ]
   %3371 = icmp slt i32 %.1104.i.i, %.pre250.i
   br i1 %3371, label %.lr.ph158.preheader.i.i, label %._crit_edge.i174.i
 
@@ -24729,7 +24729,7 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74: ; preds = %235, %.split113
   br i1 %exitcond.not.i76, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79, label %.split113, !llvm.loop !552
 
 _ZL22FindFirstExistingGlyphP6ImFontPKti.exit79:   ; preds = %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74, %235, %231
-  %.us-phi114 = phi i16 [ 0, %231 ], [ %233, %235 ], [ 0, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74 ]
+  %.us-phi114 = phi i16 [ 0, %231 ], [ 0, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74 ], [ %233, %235 ]
   store i16 %.us-phi114, ptr %220, align 4, !tbaa !553
   br label %._crit_edge138
 
@@ -28168,7 +28168,7 @@ define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi
   br i1 %261, label %193, label %.loopexit, !llvm.loop !579
 
 .loopexit:                                        ; preds = %260, %172, %.thread, %169, %168, %51, %1, %40, %31, %24, %18, %9
-  %.1 = phi i32 [ 0, %9 ], [ 0, %24 ], [ 0, %1 ], [ 0, %51 ], [ %23, %18 ], [ %50, %40 ], [ 0, %31 ], [ %.4, %168 ], [ %.6, %.thread ], [ 0, %169 ], [ 0, %172 ], [ 0, %260 ]
+  %.1 = phi i32 [ 0, %169 ], [ 0, %9 ], [ 0, %24 ], [ 0, %1 ], [ 0, %51 ], [ %23, %18 ], [ %50, %40 ], [ 0, %31 ], [ %.4, %168 ], [ %.6, %.thread ], [ 0, %172 ], [ 0, %260 ]
   ret i32 %.1
 }
 
@@ -28354,10 +28354,10 @@ define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fonti
   br i1 %.not32, label %169, label %.sink.split
 
 _ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit: ; preds = %102, %12
-  %.041 = phi i32 [ %111, %102 ], [ %16, %12 ]
-  %.040 = phi i32 [ %118, %102 ], [ %19, %12 ]
-  %.039 = phi i32 [ %125, %102 ], [ %22, %12 ]
-  %.0 = phi i32 [ %132, %102 ], [ %25, %12 ]
+  %.041 = phi i32 [ %16, %12 ], [ %111, %102 ]
+  %.040 = phi i32 [ %19, %12 ], [ %118, %102 ]
+  %.039 = phi i32 [ %22, %12 ], [ %125, %102 ]
+  %.0 = phi i32 [ %25, %12 ], [ %132, %102 ]
   %136 = sitofp i32 %.041 to float
   %137 = call float @llvm.fmuladd.f32(float %136, float %2, float 0.000000e+00)
   %138 = fcmp ult float %137, 0.000000e+00
@@ -28741,7 +28741,7 @@ _ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i: ; preds = %33, %31
   br label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i
 
 _ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i: ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i, %34, %33, %31, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i34.i
-  %.promoted56.i = phi i32 [ %17, %34 ], [ %17, %33 ], [ %17, %31 ], [ %17, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i34.i ], [ %44, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i ], [ %38, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ], [ %indvars.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ %42, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i ]
+  %.promoted56.i = phi i32 [ %38, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ], [ %44, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i ], [ %17, %34 ], [ %17, %33 ], [ %17, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i34.i ], [ %17, %31 ], [ %indvars.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ %42, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i ]
   %.not.i.i = icmp slt i32 %.promoted56.i, %6
   br i1 %.not.i.i, label %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.i, label %.thread38.i, !llvm.loop !582
 
@@ -30310,7 +30310,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit47.i:       ; preds = %_ZL15stbtt__buf_get
   br i1 %or.cond.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit28.i:       ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i, %526, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i
-  %.021.i = phi i32 [ %530, %526 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i ], [ %.0.i38.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i ]
+  %.021.i = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i ], [ %530, %526 ], [ %.0.i38.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i ]
   %.sroa.03.0.copyload.i = load ptr, ptr %79, align 8, !tbaa !282
   %.sroa.24.0.copyload.i = load i64, ptr %.sroa.24.0..sroa_idx.i, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %80, align 8, !tbaa !282
@@ -31112,14 +31112,14 @@ _ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get
   br label %.thread
 
 .thread:                                          ; preds = %511, %.preheader496, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit, %490, %823, %808, %793, %782, %472, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304, %288, %309, %186, %235, %125, %118, %109, %104, %98, %927, %724, %720
-  %.1233490 = phi i32 [ %.0232526, %724 ], [ %.0232526, %927 ], [ %.0232526, %720 ], [ %.0232526, %823 ], [ %.0232526, %808 ], [ %.0232526, %793 ], [ %.0232526, %782 ], [ %.0232526, %472 ], [ %.0232526, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0232526, %288 ], [ %.0232526, %309 ], [ %.0232526, %186 ], [ %.0232526, %235 ], [ 0, %125 ], [ 0, %118 ], [ 0, %109 ], [ %.0232526, %104 ], [ 0, %98 ], [ %.0232526, %490 ], [ %.0232526, %.preheader496 ], [ %.0232526, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0232526, %511 ]
-  %.2236489 = phi i32 [ %.0234525, %724 ], [ %.0234525, %927 ], [ %.0234525, %720 ], [ %.0234525, %823 ], [ %.0234525, %808 ], [ %.0234525, %793 ], [ %.0234525, %782 ], [ %.0234525, %472 ], [ %.0234525, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0234525, %288 ], [ %.0234525, %309 ], [ %.0234525, %186 ], [ %.0234525, %235 ], [ %.0234525, %125 ], [ %.0234525, %118 ], [ %.0234525, %109 ], [ %106, %104 ], [ %.1235, %98 ], [ %.0234525, %490 ], [ %.0234525, %.preheader496 ], [ %.0234525, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0234525, %511 ]
-  %.1240488 = phi i32 [ %725, %724 ], [ %.0239524, %927 ], [ %642, %720 ], [ %.0239524, %823 ], [ %.0239524, %808 ], [ %.0239524, %793 ], [ %.0239524, %782 ], [ %.0239524, %472 ], [ %.0239524, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0239524, %288 ], [ %.0239524, %309 ], [ %.0239524, %186 ], [ %.0239524, %235 ], [ %.0239524, %125 ], [ %.0239524, %118 ], [ %.0239524, %109 ], [ %.0239524, %104 ], [ %.0239524, %98 ], [ %.0239524, %490 ], [ %.0239524, %.preheader496 ], [ %.0239524, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0239524, %511 ]
-  %.2250487 = phi i32 [ %.0248520, %724 ], [ %.0248520, %927 ], [ %.1249, %720 ], [ %.0248520, %823 ], [ %.0248520, %808 ], [ %.0248520, %793 ], [ %.0248520, %782 ], [ %.0248520, %472 ], [ %.0248520, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0248520, %288 ], [ %.0248520, %309 ], [ %.0248520, %186 ], [ %.0248520, %235 ], [ %.0248520, %125 ], [ %.0248520, %118 ], [ %.0248520, %109 ], [ %.0248520, %104 ], [ %.0248520, %98 ], [ %.0248520, %490 ], [ %.0248520, %.preheader496 ], [ %.0248520, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0248520, %511 ]
-  %.sroa.073.2486 = phi ptr [ %.sroa.073.0519, %724 ], [ %.sroa.073.0519, %927 ], [ %.sroa.073.1, %720 ], [ %.sroa.073.0519, %823 ], [ %.sroa.073.0519, %808 ], [ %.sroa.073.0519, %793 ], [ %.sroa.073.0519, %782 ], [ %.sroa.073.0519, %472 ], [ %.sroa.073.0519, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.sroa.073.0519, %288 ], [ %.sroa.073.0519, %309 ], [ %.sroa.073.0519, %186 ], [ %.sroa.073.0519, %235 ], [ %.sroa.073.0519, %125 ], [ %.sroa.073.0519, %118 ], [ %.sroa.073.0519, %109 ], [ %.sroa.073.0519, %104 ], [ %.sroa.073.0519, %98 ], [ %.sroa.073.0519, %490 ], [ %.sroa.073.0519, %.preheader496 ], [ %.sroa.073.0519, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.073.0519, %511 ]
-  %.sroa.0.1485 = phi ptr [ %.sroa.0.0.copyload398, %724 ], [ %.sroa.0.0518, %927 ], [ %721, %720 ], [ %.sroa.0.0518, %823 ], [ %.sroa.0.0518, %808 ], [ %.sroa.0.0518, %793 ], [ %.sroa.0.0518, %782 ], [ %.sroa.0.0518, %472 ], [ %.sroa.0.0518, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.sroa.0.0518, %288 ], [ %.sroa.0.0518, %309 ], [ %.sroa.0.0518, %186 ], [ %.sroa.0.0518, %235 ], [ %.sroa.0.0518, %125 ], [ %.sroa.0.0518, %118 ], [ %.sroa.0.0518, %109 ], [ %.sroa.0.0518, %104 ], [ %.sroa.0.0518, %98 ], [ %.sroa.0.0518, %490 ], [ %.sroa.0.0518, %.preheader496 ], [ %.sroa.0.0518, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.0.0518, %511 ]
-  %.sroa.10.1484 = phi i64 [ %.sroa.10.0.copyload400, %724 ], [ %.sroa.10.2, %927 ], [ %.sroa.10.8.insert.mask, %720 ], [ %.sroa.10.8.insert.insert417, %823 ], [ %.sroa.10.8.insert.insert417, %808 ], [ %.sroa.10.8.insert.insert417, %793 ], [ %.sroa.10.8.insert.insert417, %782 ], [ %.sroa.10.8.insert.insert405, %472 ], [ %.sroa.10.8.insert.insert405, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.sroa.10.8.insert.insert405, %288 ], [ %.sroa.10.8.insert.insert405, %309 ], [ %.sroa.10.8.insert.insert405, %186 ], [ %.sroa.10.8.insert.insert405, %235 ], [ %.sroa.10.8.insert.insert405, %125 ], [ %.sroa.10.8.insert.insert405, %118 ], [ %.sroa.10.8.insert.insert405, %109 ], [ %.sroa.10.8.insert.insert405, %104 ], [ %.sroa.10.8.insert.insert411, %98 ], [ %.sroa.10.8.insert.insert405, %490 ], [ %.sroa.10.8.insert.insert405, %.preheader496 ], [ %.sroa.10.8.insert.insert405, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.10.8.insert.insert405, %511 ]
-  %931 = phi i32 [ %.0241521, %724 ], [ %928, %927 ], [ %635, %720 ], [ 0, %823 ], [ 0, %808 ], [ 0, %793 ], [ 0, %782 ], [ 0, %472 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ 0, %288 ], [ 0, %309 ], [ 0, %186 ], [ 0, %235 ], [ 0, %125 ], [ 0, %118 ], [ 0, %109 ], [ 0, %104 ], [ 0, %98 ], [ 0, %490 ], [ 0, %.preheader496 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ 0, %511 ]
+  %.1233490 = phi i32 [ %.0232526, %724 ], [ %.0232526, %927 ], [ %.0232526, %720 ], [ %.0232526, %823 ], [ %.0232526, %808 ], [ %.0232526, %793 ], [ %.0232526, %782 ], [ %.0232526, %490 ], [ %.0232526, %472 ], [ %.0232526, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0232526, %.preheader496 ], [ %.0232526, %288 ], [ %.0232526, %309 ], [ %.0232526, %186 ], [ %.0232526, %235 ], [ 0, %98 ], [ 0, %125 ], [ 0, %118 ], [ 0, %109 ], [ %.0232526, %104 ], [ %.0232526, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0232526, %511 ]
+  %.2236489 = phi i32 [ %.0234525, %724 ], [ %.0234525, %927 ], [ %.0234525, %720 ], [ %.0234525, %823 ], [ %.0234525, %808 ], [ %.0234525, %793 ], [ %.0234525, %782 ], [ %.0234525, %490 ], [ %.0234525, %472 ], [ %.0234525, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0234525, %.preheader496 ], [ %.0234525, %288 ], [ %.0234525, %309 ], [ %.0234525, %186 ], [ %.0234525, %235 ], [ %.1235, %98 ], [ %.0234525, %125 ], [ %.0234525, %118 ], [ %.0234525, %109 ], [ %106, %104 ], [ %.0234525, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0234525, %511 ]
+  %.1240488 = phi i32 [ %725, %724 ], [ %.0239524, %927 ], [ %642, %720 ], [ %.0239524, %823 ], [ %.0239524, %808 ], [ %.0239524, %793 ], [ %.0239524, %782 ], [ %.0239524, %490 ], [ %.0239524, %472 ], [ %.0239524, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0239524, %.preheader496 ], [ %.0239524, %288 ], [ %.0239524, %309 ], [ %.0239524, %186 ], [ %.0239524, %235 ], [ %.0239524, %98 ], [ %.0239524, %125 ], [ %.0239524, %118 ], [ %.0239524, %109 ], [ %.0239524, %104 ], [ %.0239524, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0239524, %511 ]
+  %.2250487 = phi i32 [ %.0248520, %724 ], [ %.0248520, %927 ], [ %.1249, %720 ], [ %.0248520, %823 ], [ %.0248520, %808 ], [ %.0248520, %793 ], [ %.0248520, %782 ], [ %.0248520, %490 ], [ %.0248520, %472 ], [ %.0248520, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.0248520, %.preheader496 ], [ %.0248520, %288 ], [ %.0248520, %309 ], [ %.0248520, %186 ], [ %.0248520, %235 ], [ %.0248520, %98 ], [ %.0248520, %125 ], [ %.0248520, %118 ], [ %.0248520, %109 ], [ %.0248520, %104 ], [ %.0248520, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0248520, %511 ]
+  %.sroa.073.2486 = phi ptr [ %.sroa.073.0519, %724 ], [ %.sroa.073.0519, %927 ], [ %.sroa.073.1, %720 ], [ %.sroa.073.0519, %823 ], [ %.sroa.073.0519, %808 ], [ %.sroa.073.0519, %793 ], [ %.sroa.073.0519, %782 ], [ %.sroa.073.0519, %490 ], [ %.sroa.073.0519, %472 ], [ %.sroa.073.0519, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.sroa.073.0519, %.preheader496 ], [ %.sroa.073.0519, %288 ], [ %.sroa.073.0519, %309 ], [ %.sroa.073.0519, %186 ], [ %.sroa.073.0519, %235 ], [ %.sroa.073.0519, %98 ], [ %.sroa.073.0519, %125 ], [ %.sroa.073.0519, %118 ], [ %.sroa.073.0519, %109 ], [ %.sroa.073.0519, %104 ], [ %.sroa.073.0519, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.073.0519, %511 ]
+  %.sroa.0.1485 = phi ptr [ %.sroa.0.0.copyload398, %724 ], [ %.sroa.0.0518, %927 ], [ %721, %720 ], [ %.sroa.0.0518, %823 ], [ %.sroa.0.0518, %808 ], [ %.sroa.0.0518, %793 ], [ %.sroa.0.0518, %782 ], [ %.sroa.0.0518, %490 ], [ %.sroa.0.0518, %472 ], [ %.sroa.0.0518, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.sroa.0.0518, %.preheader496 ], [ %.sroa.0.0518, %288 ], [ %.sroa.0.0518, %309 ], [ %.sroa.0.0518, %186 ], [ %.sroa.0.0518, %235 ], [ %.sroa.0.0518, %98 ], [ %.sroa.0.0518, %125 ], [ %.sroa.0.0518, %118 ], [ %.sroa.0.0518, %109 ], [ %.sroa.0.0518, %104 ], [ %.sroa.0.0518, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.0.0518, %511 ]
+  %.sroa.10.1484 = phi i64 [ %.sroa.10.0.copyload400, %724 ], [ %.sroa.10.2, %927 ], [ %.sroa.10.8.insert.mask, %720 ], [ %.sroa.10.8.insert.insert417, %823 ], [ %.sroa.10.8.insert.insert417, %808 ], [ %.sroa.10.8.insert.insert417, %793 ], [ %.sroa.10.8.insert.insert417, %782 ], [ %.sroa.10.8.insert.insert405, %490 ], [ %.sroa.10.8.insert.insert405, %472 ], [ %.sroa.10.8.insert.insert405, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ %.sroa.10.8.insert.insert405, %.preheader496 ], [ %.sroa.10.8.insert.insert405, %288 ], [ %.sroa.10.8.insert.insert405, %309 ], [ %.sroa.10.8.insert.insert405, %186 ], [ %.sroa.10.8.insert.insert405, %235 ], [ %.sroa.10.8.insert.insert411, %98 ], [ %.sroa.10.8.insert.insert405, %125 ], [ %.sroa.10.8.insert.insert405, %118 ], [ %.sroa.10.8.insert.insert405, %109 ], [ %.sroa.10.8.insert.insert405, %104 ], [ %.sroa.10.8.insert.insert405, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.10.8.insert.insert405, %511 ]
+  %931 = phi i32 [ %.0241521, %724 ], [ %928, %927 ], [ %635, %720 ], [ 0, %823 ], [ 0, %808 ], [ 0, %793 ], [ 0, %782 ], [ 0, %490 ], [ 0, %472 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit304 ], [ 0, %.preheader496 ], [ 0, %288 ], [ 0, %309 ], [ 0, %186 ], [ 0, %235 ], [ 0, %98 ], [ 0, %125 ], [ 0, %118 ], [ 0, %109 ], [ 0, %104 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ 0, %511 ]
   %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.1484 to i32
   %.sroa.10.12.extract.shift453 = lshr i64 %.sroa.10.1484, 32
   %.sroa.10.12.extract.trunc454 = trunc nuw i64 %.sroa.10.12.extract.shift453 to i32
@@ -31127,7 +31127,7 @@ _ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get
   br i1 %932, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit, label %.critedge, !llvm.loop !606
 
 .critedge:                                        ; preds = %107, %116, %123, %130, %182, %184, %284, %286, %330, %347, %._crit_edge510, %417, %._crit_edge, %488, %632, %634, %_ZL15stbtt__get_subr10stbtt__bufi.exit, %722, %848, %925, %.thread, %791, %780, %_ZL15stbtt__buf_get8P10stbtt__buf.exit377, %806, %821, %775, %58, %_ZL14stbtt__buf_getP10stbtt__bufi.exit28.i, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i, %733
-  %.2 = phi i32 [ 1, %733 ], [ 1, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i ], [ 0, %58 ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit28.i ], [ 0, %775 ], [ 0, %821 ], [ 0, %806 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit377 ], [ 0, %780 ], [ 0, %791 ], [ 0, %.thread ], [ 0, %925 ], [ 0, %848 ], [ 0, %722 ], [ 0, %_ZL15stbtt__get_subr10stbtt__bufi.exit ], [ 0, %634 ], [ 0, %632 ], [ 0, %488 ], [ 0, %._crit_edge ], [ 0, %417 ], [ 0, %._crit_edge510 ], [ 0, %347 ], [ 0, %330 ], [ 0, %286 ], [ 0, %284 ], [ 0, %184 ], [ 0, %182 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %107 ]
+  %.2 = phi i32 [ 1, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i ], [ 1, %733 ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit28.i ], [ 0, %58 ], [ 0, %775 ], [ 0, %821 ], [ 0, %806 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit377 ], [ 0, %780 ], [ 0, %791 ], [ 0, %.thread ], [ 0, %925 ], [ 0, %848 ], [ 0, %722 ], [ 0, %_ZL15stbtt__get_subr10stbtt__bufi.exit ], [ 0, %634 ], [ 0, %632 ], [ 0, %488 ], [ 0, %._crit_edge ], [ 0, %417 ], [ 0, %._crit_edge510 ], [ 0, %347 ], [ 0, %330 ], [ 0, %286 ], [ 0, %284 ], [ 0, %184 ], [ 0, %182 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

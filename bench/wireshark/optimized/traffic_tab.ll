@@ -3725,7 +3725,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit106.thread: ; preds = %23
   br i1 %281, label %214, label %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit131, !llvm.loop !92
 
 _ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit131: ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit106.thread, %268, %273, %258, %_ZNK5QListIiE3midExx.exit
-  %.046 = phi i32 [ 0, %_ZNK5QListIiE3midExx.exit ], [ %279, %273 ], [ 0, %258 ], [ 0, %268 ], [ 0, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit106.thread ]
+  %.046 = phi i32 [ 0, %_ZNK5QListIiE3midExx.exit ], [ 0, %268 ], [ %279, %273 ], [ 0, %258 ], [ 0, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit106.thread ]
   %282 = invoke noundef ptr @_ZN10TrafficTab10createTreeEi(ptr noundef align 8 dereferenceable_or_null(130) %0, i32 noundef %1)
           to label %283 unwind label %357
 

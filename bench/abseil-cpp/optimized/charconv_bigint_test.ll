@@ -4630,8 +4630,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
   br i1 %314, label %.lr.ph.split.split.i, label %._crit_edge.i226, !llvm.loop !135
 
 ._crit_edge.i226:                                 ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i
-  %.pre471 = phi i32 [ %.pre471.pre, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i ], [ %.pre471475, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i ], [ %.sink.i21.i, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i ]
-  %.0.lcssa.i = phi i32 [ %293, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i ], [ %298, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i ], [ %313, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i ]
+  %.pre471 = phi i32 [ %.pre471475, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i ], [ %.pre471.pre, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i ], [ %.sink.i21.i, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i ]
+  %.0.lcssa.i = phi i32 [ %298, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i ], [ %293, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i ], [ %313, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i ]
   %315 = icmp sgt i32 %.0.lcssa.i, 0
   br i1 %315, label %._crit_edge.i226.thread, label %.noexc184
 
@@ -5153,8 +5153,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i262: ; preds 
   br i1 %523, label %.lr.ph.split.split.i259, label %._crit_edge.i239, !llvm.loop !135
 
 ._crit_edge.i239:                                 ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i262, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i280, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i281
-  %.pre473 = phi i32 [ %.pre473.pre, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i281 ], [ %.pre473478, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i280 ], [ %.sink.i21.i263, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i262 ]
-  %.0.lcssa.i240 = phi i32 [ %502, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i281 ], [ %507, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i280 ], [ %522, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i262 ]
+  %.pre473 = phi i32 [ %.pre473478, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i280 ], [ %.pre473.pre, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i281 ], [ %.sink.i21.i263, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i262 ]
+  %.0.lcssa.i240 = phi i32 [ %507, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us25.i280 ], [ %502, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us.preheader.i281 ], [ %522, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i262 ]
   %524 = icmp sgt i32 %.0.lcssa.i240, 0
   br i1 %524, label %._crit_edge.i239.thread, label %.noexc217
 

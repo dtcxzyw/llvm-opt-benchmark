@@ -215,7 +215,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br label %56
 
 56:                                               ; preds = %39, %._crit_edge85
-  %.159 = phi i64 [ %55, %._crit_edge85 ], [ %.05886, %39 ]
+  %.159 = phi i64 [ %.05886, %39 ], [ %55, %._crit_edge85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = add nuw i64 %.15688, 1
@@ -234,7 +234,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.critedge, %27, %._crit_edge, %6, %12, %._crit_edge90
-  %.0 = phi i32 [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %.critedge ], [ 1, %._crit_edge90 ], [ 0, %12 ], [ 1, %27 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %.critedge ], [ 1, %._crit_edge90 ], [ 1, %27 ], [ 0, %12 ], [ 0, %19 ]
   ret i32 %.0
 }
 

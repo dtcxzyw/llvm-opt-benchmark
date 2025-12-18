@@ -1497,9 +1497,9 @@ Py_DECREF.exit110.thread175.i:                    ; preds = %Py_DECREF.exit110.i
   br label %.thread180.i
 
 .thread180.i:                                     ; preds = %16, %._crit_edge200.i, %Py_DECREF.exit110.thread178.i, %Py_DECREF.exit110.thread.i, %85, %._crit_edge.i, %63, %60, %Py_DECREF.exit102.i, %33, %30, %27, %11, %9
-  %.072.i = phi ptr [ %77, %._crit_edge200.i ], [ null, %9 ], [ null, %60 ], [ %77, %85 ], [ null, %._crit_edge.i ], [ null, %11 ], [ null, %63 ], [ null, %33 ], [ null, %27 ], [ null, %30 ], [ null, %Py_DECREF.exit102.i ], [ %77, %Py_DECREF.exit110.thread178.i ], [ %77, %Py_DECREF.exit110.thread.i ], [ null, %16 ]
-  %.071.i = phi ptr [ %12, %._crit_edge200.i ], [ null, %9 ], [ %12, %60 ], [ %12, %85 ], [ %12, %._crit_edge.i ], [ null, %11 ], [ %12, %63 ], [ %12, %33 ], [ %12, %27 ], [ %12, %30 ], [ %12, %Py_DECREF.exit102.i ], [ %12, %Py_DECREF.exit110.thread178.i ], [ %12, %Py_DECREF.exit110.thread.i ], [ %12, %16 ]
-  %.067.i = phi i1 [ %169, %._crit_edge200.i ], [ true, %9 ], [ true, %60 ], [ true, %85 ], [ true, %._crit_edge.i ], [ true, %11 ], [ true, %63 ], [ true, %33 ], [ true, %27 ], [ true, %30 ], [ true, %Py_DECREF.exit102.i ], [ true, %Py_DECREF.exit110.thread178.i ], [ true, %Py_DECREF.exit110.thread.i ], [ true, %16 ]
+  %.072.i = phi ptr [ %77, %._crit_edge200.i ], [ null, %9 ], [ null, %60 ], [ %77, %85 ], [ null, %._crit_edge.i ], [ null, %11 ], [ null, %63 ], [ %77, %Py_DECREF.exit110.thread.i ], [ null, %33 ], [ null, %27 ], [ null, %30 ], [ null, %Py_DECREF.exit102.i ], [ %77, %Py_DECREF.exit110.thread178.i ], [ null, %16 ]
+  %.071.i = phi ptr [ %12, %._crit_edge200.i ], [ null, %9 ], [ %12, %60 ], [ %12, %85 ], [ %12, %._crit_edge.i ], [ null, %11 ], [ %12, %63 ], [ %12, %Py_DECREF.exit110.thread.i ], [ %12, %33 ], [ %12, %27 ], [ %12, %30 ], [ %12, %Py_DECREF.exit102.i ], [ %12, %Py_DECREF.exit110.thread178.i ], [ %12, %16 ]
+  %.067.i = phi i1 [ %169, %._crit_edge200.i ], [ true, %9 ], [ true, %60 ], [ true, %85 ], [ true, %._crit_edge.i ], [ true, %11 ], [ true, %63 ], [ true, %Py_DECREF.exit110.thread.i ], [ true, %33 ], [ true, %27 ], [ true, %30 ], [ true, %Py_DECREF.exit102.i ], [ true, %Py_DECREF.exit110.thread178.i ], [ true, %16 ]
   %170 = load i32, ptr %7, align 8, !tbaa !17
   %.not.i129.i = icmp sgt i32 %170, -1
   br i1 %.not.i129.i, label %171, label %Py_DECREF.exit130.i
@@ -2792,7 +2792,7 @@ Py_DECREF.exit95.i:                               ; preds = %151, %148, %145
   br label %_in_weak_set.exit.thread133.i
 
 _in_weak_set.exit.thread133.i:                    ; preds = %157, %.lr.ph.i, %161, %._crit_edge.i, %156, %153, %138, %129, %127, %126, %123, %Py_DECREF.exit99.i, %107, %Py_DECREF.exit101.i, %96, %Py_DECREF.exit103.i, %.thread143.i, %82, %_in_weak_set.exit126.i, %69, %59, %52, %_in_weak_set.exit.i, %39
-  %.070.i = phi ptr [ null, %_in_weak_set.exit.i ], [ null, %52 ], [ null, %.thread143.i ], [ null, %Py_DECREF.exit103.i ], [ null, %96 ], [ null, %Py_DECREF.exit101.i ], [ null, %107 ], [ null, %Py_DECREF.exit99.i ], [ null, %123 ], [ null, %126 ], [ null, %127 ], [ null, %129 ], [ null, %69 ], [ %130, %._crit_edge.i ], [ %130, %161 ], [ %130, %138 ], [ null, %39 ], [ null, %_in_weak_set.exit126.i ], [ null, %82 ], [ null, %59 ], [ %130, %153 ], [ %130, %156 ], [ %130, %.lr.ph.i ], [ %130, %157 ]
+  %.070.i = phi ptr [ null, %_in_weak_set.exit.i ], [ null, %52 ], [ null, %.thread143.i ], [ null, %Py_DECREF.exit103.i ], [ null, %96 ], [ null, %Py_DECREF.exit101.i ], [ null, %107 ], [ null, %Py_DECREF.exit99.i ], [ null, %123 ], [ null, %126 ], [ null, %127 ], [ null, %129 ], [ null, %69 ], [ %130, %._crit_edge.i ], [ %130, %161 ], [ %130, %138 ], [ null, %39 ], [ null, %_in_weak_set.exit126.i ], [ null, %82 ], [ null, %59 ], [ %130, %156 ], [ %130, %153 ], [ %130, %.lr.ph.i ], [ %130, %157 ]
   %162 = load i32, ptr %19, align 8, !tbaa !17
   %.not.i.i = icmp sgt i32 %162, -1
   br i1 %.not.i.i, label %163, label %Py_DECREF.exit.i

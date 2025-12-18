@@ -6111,13 +6111,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %.body
 
 .loopexit:                                        ; preds = %133, %75, %_ZNK3euf6egraph4findEP4expr.exit.thread, %69
-  %.1 = phi i32 [ %.0.ph100, %_ZNK3euf6egraph4findEP4expr.exit.thread ], [ %.sroa.speculated, %69 ], [ %.0.ph100, %75 ], [ %.0.ph100, %133 ]
+  %.1 = phi i32 [ %.sroa.speculated, %69 ], [ %.0.ph100, %_ZNK3euf6egraph4findEP4expr.exit.thread ], [ %.0.ph100, %75 ], [ %.0.ph100, %133 ]
   %.pre = load ptr, ptr %9, align 8, !tbaa !394
   %143 = icmp eq ptr %.pre, null
   br i1 %143, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread.split, label %.outer.split, !llvm.loop !598
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread.split: ; preds = %.loopexit, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
-  %.0.ph99 = phi i32 [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ %.0.ph100, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %.1, %.loopexit ]
+  %.0.ph99 = phi i32 [ %.0.ph100, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ %.1, %.loopexit ]
   %144 = load ptr, ptr %5, align 8, !tbaa !594
   %145 = load i32, ptr %7, align 8, !tbaa !596
   %146 = zext i32 %145 to i64

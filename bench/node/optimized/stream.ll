@@ -1858,7 +1858,7 @@ if.then30:                                        ; preds = %if.end27
   br label %return
 
 if.end32:                                         ; preds = %land.rhs, %land.rhs21, %land.rhs21.us, %if.end27.if.end32_crit_edge
-  %12 = phi i32 [ %.pr, %if.end27.if.end32_crit_edge ], [ %11, %land.rhs21 ], [ %3, %land.rhs21.us ], [ %9, %land.rhs ]
+  %12 = phi i32 [ %3, %land.rhs21.us ], [ %11, %land.rhs21 ], [ %.pr, %if.end27.if.end32_crit_edge ], [ %9, %land.rhs ]
   switch i32 %12, label %if.end44 [
     i32 11, label %return
     i32 105, label %return

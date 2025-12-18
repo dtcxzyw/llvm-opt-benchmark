@@ -7637,7 +7637,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h779609e5489ccb89E.exit.thread.i.i
   br label %587
 
 .thread28.i.i.i:                                  ; preds = %_ZN5serde3ser12SerializeMap15serialize_entry17h779609e5489ccb89E.exit.thread.i.i.i.i.i.i.i, %_ZN10serde_json3ser18format_escaped_str17h7b44169dee600354E.exit.i.i.i.i.i.i.i.i
-  %.sroa.0.0.i.i.ph.i.i.i = phi ptr [ %.sroa.0.0.i1933.i.i.i.i.i.i.i, %_ZN5serde3ser12SerializeMap15serialize_entry17h779609e5489ccb89E.exit.thread.i.i.i.i.i.i.i ], [ %488, %_ZN10serde_json3ser18format_escaped_str17h7b44169dee600354E.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.ph.i.i.i = phi ptr [ %488, %_ZN10serde_json3ser18format_escaped_str17h7b44169dee600354E.exit.i.i.i.i.i.i.i.i ], [ %.sroa.0.0.i1933.i.i.i.i.i.i.i, %_ZN5serde3ser12SerializeMap15serialize_entry17h779609e5489ccb89E.exit.thread.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1473
   br label %583
 

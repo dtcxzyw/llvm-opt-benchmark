@@ -1866,7 +1866,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt8functionIFN10open_spiel13TabularPolicyERKNS0_4GameEEED2Ev.exit34.i, %.body, %.body64, %.body84, %921, %.body.i29, %744, %.body.i, %.body61.i, %.body66.i, %.body84.i, %.body96.i, %.body127.i, %.body145.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %.pn.i30, %.body.i29 ], [ %.pn51.pn.pn.pn.pn.i, %.body96.i ], [ %.pn48.pn.i, %.body145.i ], [ %.pn42.pn.pn.pn.pn.i, %.body127.i ], [ %.pn39.pn.i, %.body84.i ], [ %.pn36.pn.i, %.body66.i ], [ %.pn33.pn.i, %.body61.i ], [ %.pn6.pn.i, %744 ], [ %.pn10.pn.i, %921 ], [ %.pn25.pn, %.body84 ], [ %.pn22.pn, %.body64 ], [ %.pn.pn.pn.pn.pn, %.body ], [ %838, %_ZNSt8functionIFN10open_spiel13TabularPolicyERKNS0_4GameEEED2Ev.exit34.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body ], [ %.pn.i, %.body.i ], [ %.pn.i30, %.body.i29 ], [ %.pn51.pn.pn.pn.pn.i, %.body96.i ], [ %.pn48.pn.i, %.body145.i ], [ %.pn42.pn.pn.pn.pn.i, %.body127.i ], [ %.pn39.pn.i, %.body84.i ], [ %.pn36.pn.i, %.body66.i ], [ %.pn33.pn.i, %.body61.i ], [ %.pn6.pn.i, %744 ], [ %.pn10.pn.i, %921 ], [ %.pn25.pn, %.body84 ], [ %.pn22.pn, %.body64 ], [ %838, %_ZNSt8functionIFN10open_spiel13TabularPolicyERKNS0_4GameEEED2Ev.exit34.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel10kuhn_poker12_GLOBAL__N_114BasicKuhnTestsEv.exit: ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit163.i, %636, %649, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i169.i

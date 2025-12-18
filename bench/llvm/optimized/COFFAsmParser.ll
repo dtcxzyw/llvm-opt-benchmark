@@ -792,8 +792,8 @@ _ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit:
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %182, label %307, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread
 
-_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread: ; preds = %173, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i, %149, %109, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %55
-  %.2 = phi i32 [ -1073741760, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ -1073741760, %55 ], [ -1073741760, %149 ], [ -1073741760, %109 ], [ %spec.select112.i, %173 ], [ %.05, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i ]
+_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread: ; preds = %173, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i, %109, %149, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %55
+  %.2 = phi i32 [ -1073741760, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ -1073741760, %55 ], [ -1073741760, %109 ], [ -1073741760, %149 ], [ %spec.select112.i, %173 ], [ %.05, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -998,8 +998,8 @@ _ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4C
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %307
 
-307:                                              ; preds = %84, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %109, %149, %50
-  %.0 = phi i1 [ %54, %50 ], [ %88, %84 ], [ %.3, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit ], [ true, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ true, %109 ], [ true, %149 ]
+307:                                              ; preds = %84, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %149, %109, %50
+  %.0 = phi i1 [ %54, %50 ], [ %88, %84 ], [ %.3, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit ], [ true, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ true, %149 ], [ true, %109 ]
   ret i1 %.0
 }
 
@@ -1108,8 +1108,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmeqENS_9Stri
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
-select.unfold:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
-  %.sroa.18.6.ph = phi i8 [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ]
+select.unfold:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
+  %.sroa.18.6.ph = phi i8 [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ]
   store i8 %.sroa.18.6.ph, ptr %1, align 1, !tbaa !31
   %38 = load ptr, ptr %5, align 8, !tbaa !6
   %39 = load ptr, ptr %38, align 8, !tbaa !3

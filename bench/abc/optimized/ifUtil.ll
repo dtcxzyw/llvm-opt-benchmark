@@ -282,8 +282,8 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr noundef readonly captur
   br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %44, %34, %8
-  %.136 = phi i32 [ %.4, %34 ], [ %.03565, %8 ], [ %.6, %44 ]
-  %.1 = phi i32 [ %spec.select, %34 ], [ %.066, %8 ], [ %spec.select, %44 ]
+  %.136 = phi i32 [ %.03565, %8 ], [ %.4, %34 ], [ %.6, %44 ]
+  %.1 = phi i32 [ %.066, %8 ], [ %spec.select, %34 ], [ %spec.select, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph70, label %8, !llvm.loop !44

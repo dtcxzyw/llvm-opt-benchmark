@@ -171,7 +171,7 @@ define dso_local range(i32 0, 2) i32 @lpStringToInt64(ptr noundef readonly captu
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.critedge.sink.split, %.thread73, %8, %32, %37, %35, %30, %11, %9, %3
-  %.045 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %35 ], [ 0, %30 ], [ 1, %37 ], [ 0, %8 ], [ 0, %.thread73 ], [ 1, %.critedge.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ]
+  %.045 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %8 ], [ 1, %.critedge.sink.split ], [ 1, %37 ], [ 0, %35 ], [ 0, %30 ], [ 0, %.thread73 ], [ 0, %22 ], [ 0, %.lr.ph ]
   ret i32 %.045
 }
 
@@ -1455,7 +1455,7 @@ define internal range(i32 0, 2) i32 @lpFindCmp(ptr readnone captures(none) %0, p
   %55 = icmp slt i64 %.0.lcssa.i, 0
   br i1 %55, label %.thread, label %.thread26
 
-.thread:                                          ; preds = %.lr.ph.i, %42, %17, %21, %31, %54, %50, %29, %.thread73.i
+.thread:                                          ; preds = %.lr.ph.i, %42, %17, %.thread73.i, %21, %31, %29, %54, %50
   store i32 255, ptr %15, align 4, !tbaa !26
   br label %59
 
@@ -2268,7 +2268,7 @@ lpStringToInt64.exit.thread20:                    ; preds = %.thread90.i, %10, %
   %83 = icmp ult i32 %1, 64
   br i1 %83, label %.loopexit.thread, label %86
 
-.loopexit.thread:                                 ; preds = %.thread73.i, %10, %12, %.loopexit
+.loopexit.thread:                                 ; preds = %10, %12, %.thread73.i, %.loopexit
   %84 = add nuw nsw i32 %1, 1
   %85 = zext nneg i32 %84 to i64
   br label %lpEncodeIntegerGetType.exit.sink.split
@@ -3934,7 +3934,7 @@ lpPrev.exit:                                      ; preds = %lpEncodeBacklenByte
   br i1 %70, label %43, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %lpPrev.exit, %23, %lpFirst.exit, %37, %14
-  %.030 = phi ptr [ null, %14 ], [ %38, %37 ], [ %24, %lpFirst.exit ], [ null, %23 ], [ %62, %lpPrev.exit ], [ null, %43 ], [ %32, %.lr.ph ]
+  %.030 = phi ptr [ %62, %lpPrev.exit ], [ null, %14 ], [ %38, %37 ], [ %24, %lpFirst.exit ], [ null, %23 ], [ null, %43 ], [ %32, %.lr.ph ]
   ret ptr %.030
 }
 
@@ -4340,7 +4340,7 @@ lpLength.exit94:                                  ; preds = %lpLength.exit, %._c
   br label %78
 
 78:                                               ; preds = %.sink.split, %2, %6, %10
-  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %6 ], [ %65, %.sink.split ]
+  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %10 ], [ %65, %.sink.split ]
   ret ptr %.0
 }
 
@@ -4471,8 +4471,8 @@ define dso_local range(i32 0, 2) i32 @lpValidateNext(ptr noundef readnone captur
   %switch.selectcmp16.i = icmp eq i8 %13, -16
   br i1 %switch.selectcmp16.i, label %select.unfold, label %lpCurrentEncodedSizeBytes.exit
 
-select.unfold:                                    ; preds = %27, %24, %15
-  %.0.i.ph = phi i64 [ 2, %24 ], [ 1, %15 ], [ 5, %27 ]
+select.unfold:                                    ; preds = %27, %15, %24
+  %.0.i.ph = phi i64 [ 1, %15 ], [ 2, %24 ], [ 5, %27 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.ph
   %29 = icmp ult ptr %28, %6
   %30 = icmp ugt ptr %28, %10
@@ -4586,7 +4586,7 @@ lpCurrentEncodedSizeBytes.exit.sink.split:        ; preds = %lpDecodeBacklen.exi
   br label %lpCurrentEncodedSizeBytes.exit
 
 lpCurrentEncodedSizeBytes.exit:                   ; preds = %72, %lpCurrentEncodedSizeBytes.exit.sink.split, %27, %select.unfold, %lpDecodeBacklen.exit, %lpEncodeBacklenBytes.exit, %5, %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %8 ], [ 0, %lpDecodeBacklen.exit ], [ 0, %select.unfold ], [ 0, %lpEncodeBacklenBytes.exit ], [ 0, %27 ], [ 1, %lpCurrentEncodedSizeBytes.exit.sink.split ], [ 0, %72 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %lpCurrentEncodedSizeBytes.exit.sink.split ], [ 0, %5 ], [ 0, %8 ], [ 0, %lpDecodeBacklen.exit ], [ 0, %select.unfold ], [ 0, %lpEncodeBacklenBytes.exit ], [ 0, %27 ], [ 0, %72 ]
   ret i32 %.0
 }
 
@@ -4923,7 +4923,7 @@ define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef readonly captures(no
   br label %lpStringToInt64.exit
 
 lpStringToInt64.exit:                             ; preds = %92, %.lr.ph.i, %.critedge.sink.split.i, %104, %100, %.thread73.i, %81, %79, %72, %66, %68, %3
-  %.010.shrunk = phi i1 [ false, %66 ], [ false, %3 ], [ %71, %68 ], [ false, %72 ], [ %106, %.critedge.sink.split.i ], [ false, %.thread73.i ], [ false, %79 ], [ false, %100 ], [ false, %104 ], [ false, %81 ], [ false, %.lr.ph.i ], [ false, %92 ]
+  %.010.shrunk = phi i1 [ false, %66 ], [ false, %3 ], [ %71, %68 ], [ false, %72 ], [ %106, %.critedge.sink.split.i ], [ false, %.thread73.i ], [ false, %79 ], [ false, %81 ], [ false, %104 ], [ false, %100 ], [ false, %.lr.ph.i ], [ false, %92 ]
   %.010 = zext i1 %.010.shrunk to i32
   ret i32 %.010
 }
@@ -5500,7 +5500,7 @@ lpSkip.exit.i:                                    ; preds = %switch.lookup, %86,
   br i1 %switch.selectcmp16.i.i, label %select.unfold.i, label %.loopexit
 
 select.unfold.i:                                  ; preds = %114, %111, %102
-  %.0.i.ph.i = phi i64 [ 2, %111 ], [ 1, %102 ], [ 5, %114 ]
+  %.0.i.ph.i = phi i64 [ 1, %102 ], [ 2, %111 ], [ 5, %114 ]
   %115 = getelementptr inbounds nuw i8, ptr %91, i64 %.0.i.ph.i
   %116 = icmp ult ptr %115, %32
   %117 = icmp ugt ptr %115, %100
@@ -6084,7 +6084,7 @@ lpGetValue.exit63:                                ; preds = %142, %132, %126, %1
   br label %.lr.ph123.preheader
 
 .lr.ph123.preheader:                              ; preds = %202, %192, %.lr.ph123.preheader.loopexit169.split.loop.exit, %.lr.ph123.preheader.loopexit.split.loop.exit, %lpGetValue.exit63
-  %.151.lcssa = phi i32 [ %.050131, %lpGetValue.exit63 ], [ %212, %.lr.ph123.preheader.loopexit.split.loop.exit ], [ %213, %.lr.ph123.preheader.loopexit169.split.loop.exit ], [ %1, %192 ], [ %1, %202 ]
+  %.151.lcssa = phi i32 [ %.050131, %lpGetValue.exit63 ], [ %1, %192 ], [ %212, %.lr.ph123.preheader.loopexit.split.loop.exit ], [ %213, %.lr.ph123.preheader.loopexit169.split.loop.exit ], [ %1, %202 ]
   %214 = add i32 %.052129, %4
   br label %.lr.ph123
 
@@ -6225,7 +6225,7 @@ lpSkip.exit.i:                                    ; preds = %switch.lookup, %252
   br i1 %switch.selectcmp16.i.i, label %select.unfold.i, label %.loopexit
 
 select.unfold.i:                                  ; preds = %280, %277, %268
-  %.0.i.ph.i = phi i64 [ 2, %277 ], [ 1, %268 ], [ 5, %280 ]
+  %.0.i.ph.i = phi i64 [ 1, %268 ], [ 2, %277 ], [ 5, %280 ]
   %281 = getelementptr inbounds nuw i8, ptr %257, i64 %.0.i.ph.i
   %282 = icmp ult ptr %281, %42
   %283 = icmp ugt ptr %281, %266
@@ -6978,7 +6978,7 @@ lpCurrentEncodedSizeBytes.exit:                   ; preds = %36
   br i1 %39, label %lpEncodeBacklenBytes.exit, label %lpCurrentEncodedSizeBytes.exit.thread
 
 lpCurrentEncodedSizeBytes.exit.thread:            ; preds = %49, %46, %lpCurrentEncodedSizeBytes.exit
-  %.0.i3339 = phi i32 [ 1, %lpCurrentEncodedSizeBytes.exit ], [ %switch.select17.i, %49 ], [ 2, %46 ]
+  %.0.i3339 = phi i32 [ 1, %lpCurrentEncodedSizeBytes.exit ], [ 2, %46 ], [ %switch.select17.i, %49 ]
   br i1 %41, label %lpCurrentEncodedSizeUnsafe.exit.thread, label %52
 
 lpCurrentEncodedSizeUnsafe.exit.thread:           ; preds = %lpCurrentEncodedSizeBytes.exit.thread

@@ -829,7 +829,7 @@ _ZN5boost9out_edgesIN3ue28NGHolderENS1_12_GLOBAL__N_117SpecialEdgeFilterENS_8kee
   unreachable
 
 _ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPN3ue25depthESt6vectorIS6_SaIS6_EEEENS5_9ue2_graphINS5_8NGHolderENS5_19NFAGraphVertexPropsENS5_17NFAGraphEdgePropsEE8prop_mapIRmSE_EES6_RS6_EENS_12on_tree_edgeEEEE9tree_edgeINS5_12graph_detail15edge_descriptorISG_EEKNS_14filtered_graphISD_NS5_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEENS_5graph32bfs_visitor_event_not_overriddenET_RT0_.exit.i.i.i.i.i.i: ; preds = %185, %191
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %190, %185 ], [ %192, %191 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %192, %191 ], [ %190, %185 ]
   %196 = getelementptr inbounds nuw i8, ptr %169, i64 80
   %197 = load i64, ptr %196, align 8
   %198 = getelementptr inbounds %"class.ue2::depth", ptr %.sroa.06.0, i64 %197
@@ -1502,7 +1502,7 @@ define linkonce_odr hidden i32 @_ZNK3ue25depthmiERKS0_(ptr noundef nonnull align
   unreachable
 
 _ZN3ue25depthC2Ej.exit:                           ; preds = %7, %13
-  %.sroa.0.0 = phi i32 [ %8, %7 ], [ %14, %13 ]
+  %.sroa.0.0 = phi i32 [ %14, %13 ], [ %8, %7 ]
   ret i32 %.sroa.0.0
 }
 

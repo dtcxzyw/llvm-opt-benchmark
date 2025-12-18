@@ -3627,7 +3627,7 @@ define internal void @_log_printf(ptr noundef readonly captures(none) %0, ptr no
   %.not.i = icmp eq i16 %26, 0
   br i1 %.not.i, label %_fd_writeable.exit, label %_fd_writeable.exit.thread
 
-_fd_writeable.exit.thread:                        ; preds = %17, %._crit_edge.i, %23
+_fd_writeable.exit.thread:                        ; preds = %17, %23, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

@@ -582,7 +582,7 @@ define i32 @pmix_mca_base_framework_components_open(ptr noundef %0, i32 noundef 
   br label %pmix_mca_base_show_load_errors.exit.i
 
 pmix_mca_base_show_load_errors.exit.i:            ; preds = %59, %._crit_edge.i.i, %48
-  %.015.i.i = phi i1 [ %66, %._crit_edge.i.i ], [ true, %48 ], [ %53, %59 ]
+  %.015.i.i = phi i1 [ true, %48 ], [ %66, %._crit_edge.i.i ], [ %53, %59 ]
   %brmerge.not.i = and i1 %or.cond.i, %.015.i.i
   br i1 %brmerge.not.i, label %67, label %pmix_mca_base_show_load_errors.exit.thread.i
 

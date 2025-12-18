@@ -2054,7 +2054,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !112
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %7, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %7, %if.end.i.i.i.i.i.i ], [ %9, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %12 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -2168,7 +2168,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i28: ; preds = %lor.lhs.false.
   br label %if.else.i.i29, !llvm.loop !112
 
 if.then8.i.i32:                                   ; preds = %for.cond.i.i.i.i.i.i30, %for.body.i.i.i.i58, %if.end.i.i.i.i.i.i18
-  %retval.sroa.0.1.i.i.i.i33 = phi ptr [ %29, %if.end.i.i.i.i.i.i18 ], [ %retval.sroa.0.0.i.i.i.i56, %for.body.i.i.i.i58 ], [ %31, %for.cond.i.i.i.i.i.i30 ]
+  %retval.sroa.0.1.i.i.i.i33 = phi ptr [ %retval.sroa.0.0.i.i.i.i56, %for.body.i.i.i.i58 ], [ %29, %if.end.i.i.i.i.i.i18 ], [ %31, %for.cond.i.i.i.i.i.i30 ]
   %graph_.i.i34 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %34 = load ptr, ptr %graph_.i.i34, align 8
   %_M_finish.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -2996,7 +2996,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end12, !llvm.loop !112
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %if.end.i.i.i.i ], [ %9, %for.cond.i.i.i.i ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -3233,7 +3233,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !112
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %11 = load ptr, ptr %second, align 8
   br label %return

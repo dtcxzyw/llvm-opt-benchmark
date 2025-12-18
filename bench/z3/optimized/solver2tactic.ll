@@ -849,7 +849,7 @@ _Z17is_uninterp_constPK4expr.exit.thread243:      ; preds = %246, %_Z17is_uninte
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %287, %284
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %287 ], [ %286, %284 ]
+  %.137.i.i.i.be = phi ptr [ %286, %284 ], [ %.old.i.i.i, %287 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !78
 
 .loopexit:                                        ; preds = %273, %284, %287, %.preheader.i.i.i91
@@ -1004,7 +1004,7 @@ _Z17is_uninterp_constPK4expr.exit.thread:         ; preds = %.lr.ph, %242, %255,
   br i1 %.not27.old.i.i.i115, label %.loopexit250, label %.lr.ph38.i.i.i111.backedge
 
 .lr.ph38.i.i.i111.backedge:                       ; preds = %351, %348
-  %.137.i.i.i112.be = phi ptr [ %.old.i.i.i114, %351 ], [ %350, %348 ]
+  %.137.i.i.i112.be = phi ptr [ %350, %348 ], [ %.old.i.i.i114, %351 ]
   br label %.lr.ph38.i.i.i111, !llvm.loop !78
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit:        ; preds = %332, %343

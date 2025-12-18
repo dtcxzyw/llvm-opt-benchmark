@@ -237,8 +237,8 @@ cfg_builder_current_block_is_terminated.exit.thread: ; preds = %12, %21, %switch
   %38 = tail call ptr @PyErr_NoMemory() #8
   br label %cfg_builder_current_block_is_terminated.exit.thread12
 
-cfg_builder_current_block_is_terminated.exit.thread12: ; preds = %basicblock_last_instr.exit.thread.i, %25, %cfg_builder_current_block_is_terminated.exit, %.thread, %37
-  %.1 = phi i32 [ -1, %37 ], [ 0, %.thread ], [ 0, %cfg_builder_current_block_is_terminated.exit ], [ 0, %25 ], [ 0, %basicblock_last_instr.exit.thread.i ]
+cfg_builder_current_block_is_terminated.exit.thread12: ; preds = %25, %basicblock_last_instr.exit.thread.i, %cfg_builder_current_block_is_terminated.exit, %.thread, %37
+  %.1 = phi i32 [ -1, %37 ], [ 0, %.thread ], [ 0, %cfg_builder_current_block_is_terminated.exit ], [ 0, %basicblock_last_instr.exit.thread.i ], [ 0, %25 ]
   ret i32 %.1
 }
 
@@ -2114,7 +2114,7 @@ jump_thread.exit285.i.i:                          ; preds = %basicblock_last_ins
   br label %.loopexit340.i.i
 
 .loopexit340.i.i:                                 ; preds = %.lr.ph.i.i210.i.i, %.lr.ph.i.i.i33.i, %818, %815, %811, %807, %806, %805, %803, %799, %797, %792, %790, %785, %781, %780, %778, %777, %771, %765, %763, %jump_thread.exit285.i.i, %jump_thread.exit275.i.i, %679, %673, %jump_thread.exit265.i.i, %630, %624, %jump_thread.exit255.i.i, %581, %jump_thread.exit245.i.i, %538, %jump_thread.exit235.i.i, %495, %jump_thread.exit.i.i, %452, %._crit_edge.i223.i.i, %394, %393, %._crit_edge.i.i.i, %347, %346, %345, %334
-  %.2.ph.i.i = phi i32 [ %.0183359.i.i, %._crit_edge.i223.i.i ], [ %.0183359.i.i, %394 ], [ %.0183359.i.i, %803 ], [ %.0183359.i.i, %797 ], [ %.0183359.i.i, %790 ], [ %.0183359.i.i, %781 ], [ %.0183359.i.i, %334 ], [ %.0183359.i.i, %785 ], [ %.0183359.i.i, %778 ], [ %.0183359.i.i, %780 ], [ %.0183359.i.i, %763 ], [ %.0183359.i.i, %765 ], [ %.0183359.i.i, %771 ], [ %.0183359.i.i, %777 ], [ %.0183359.i.i, %815 ], [ %.0183359.i.i, %679 ], [ %.0183359.i.i, %630 ], [ %.0183359.i.i, %581 ], [ %.0183359.i.i, %538 ], [ %580, %jump_thread.exit245.i.i ], [ %.0183359.i.i, %495 ], [ %537, %jump_thread.exit235.i.i ], [ %.0183359.i.i, %452 ], [ %494, %jump_thread.exit.i.i ], [ %.0183359.i.i, %393 ], [ %.0183359.i.i, %._crit_edge.i.i.i ], [ %.0183359.i.i, %347 ], [ %.0183359.i.i, %806 ], [ %.0183359.i.i, %818 ], [ %.0183359.i.i, %807 ], [ %.0183359.i.i, %805 ], [ %.0183359.i.i, %799 ], [ %.0183359.i.i, %792 ], [ %762, %jump_thread.exit285.i.i ], [ %721, %jump_thread.exit275.i.i ], [ %678, %673 ], [ %672, %jump_thread.exit265.i.i ], [ %629, %624 ], [ %623, %jump_thread.exit255.i.i ], [ %.0183359.i.i, %346 ], [ %.0183359.i.i, %345 ], [ %.0183359.i.i, %811 ], [ %.0183359.i.i, %.lr.ph.i.i.i33.i ], [ %.0183359.i.i, %.lr.ph.i.i210.i.i ]
+  %.2.ph.i.i = phi i32 [ %.0183359.i.i, %._crit_edge.i223.i.i ], [ %.0183359.i.i, %.lr.ph.i.i.i33.i ], [ %.0183359.i.i, %394 ], [ %.0183359.i.i, %811 ], [ %.0183359.i.i, %803 ], [ %.0183359.i.i, %797 ], [ %.0183359.i.i, %790 ], [ %.0183359.i.i, %781 ], [ %.0183359.i.i, %334 ], [ %.0183359.i.i, %785 ], [ %.0183359.i.i, %778 ], [ %.0183359.i.i, %780 ], [ %.0183359.i.i, %763 ], [ %.0183359.i.i, %765 ], [ %.0183359.i.i, %771 ], [ %.0183359.i.i, %777 ], [ %.0183359.i.i, %815 ], [ %.0183359.i.i, %679 ], [ %.0183359.i.i, %630 ], [ %.0183359.i.i, %581 ], [ %.0183359.i.i, %538 ], [ %580, %jump_thread.exit245.i.i ], [ %.0183359.i.i, %495 ], [ %537, %jump_thread.exit235.i.i ], [ %.0183359.i.i, %452 ], [ %494, %jump_thread.exit.i.i ], [ %.0183359.i.i, %393 ], [ %.0183359.i.i, %._crit_edge.i.i.i ], [ %.0183359.i.i, %347 ], [ %.0183359.i.i, %806 ], [ %.0183359.i.i, %818 ], [ %.0183359.i.i, %807 ], [ %.0183359.i.i, %805 ], [ %.0183359.i.i, %799 ], [ %.0183359.i.i, %792 ], [ %762, %jump_thread.exit285.i.i ], [ %721, %jump_thread.exit275.i.i ], [ %678, %673 ], [ %672, %jump_thread.exit265.i.i ], [ %629, %624 ], [ %623, %jump_thread.exit255.i.i ], [ %.0183359.i.i, %346 ], [ %.0183359.i.i, %345 ], [ %.0183359.i.i, %.lr.ph.i.i210.i.i ]
   %819 = add i32 %.2.ph.i.i, 1
   %820 = load i32, ptr %300, align 8, !tbaa !25
   %821 = icmp slt i32 %819, %820
@@ -2530,7 +2530,7 @@ next_swappable_instruction.exit91.loopexit103.i.i.i: ; preds = %927, %927, %927
   br i1 %962, label %891, label %fold_tuple_on_constants.exit.i.i, !llvm.loop !70
 
 fold_tuple_on_constants.exit.i.i:                 ; preds = %961, %947, %next_swappable_instruction.exit.i.i.i, %891, %900, %.split.i.i.i.i, %next_swappable_instruction.exit91.loopexit103.i.i.i, %next_swappable_instruction.exit91.loopexit.us.i.i.i, %956, %927, %.split.i87.i.i.i, %921, %916, %.split.us.i.us.i.i.i, %887, %.lr.ph361.i.i
-  %.0308.ph.i.i = phi i32 [ %.1309.ph.i.i, %887 ], [ %storemerge360.i.i, %.lr.ph361.i.i ], [ %.1309.ph.i.i, %900 ], [ %.1309.ph.i.i, %921 ], [ %.1309.ph.i.i, %927 ], [ %.1309.ph.i.i, %956 ], [ %.1309.ph.i.i, %next_swappable_instruction.exit91.loopexit.us.i.i.i ], [ %.1309.ph.i.i, %next_swappable_instruction.exit91.loopexit103.i.i.i ], [ %.1309.ph.i.i, %.split.us.i.us.i.i.i ], [ %.1309.ph.i.i, %916 ], [ %.1309.ph.i.i, %.split.i87.i.i.i ], [ %.1309.ph.i.i, %.split.i.i.i.i ], [ %.1309.ph.i.i, %891 ], [ %.1309.ph.i.i, %next_swappable_instruction.exit.i.i.i ], [ %.1309.ph.i.i, %947 ], [ %.1309.ph.i.i, %961 ]
+  %.0308.ph.i.i = phi i32 [ %.1309.ph.i.i, %956 ], [ %.1309.ph.i.i, %next_swappable_instruction.exit91.loopexit103.i.i.i ], [ %.1309.ph.i.i, %887 ], [ %.1309.ph.i.i, %921 ], [ %.1309.ph.i.i, %next_swappable_instruction.exit91.loopexit.us.i.i.i ], [ %.1309.ph.i.i, %927 ], [ %.1309.ph.i.i, %900 ], [ %storemerge360.i.i, %.lr.ph361.i.i ], [ %.1309.ph.i.i, %.split.us.i.us.i.i.i ], [ %.1309.ph.i.i, %916 ], [ %.1309.ph.i.i, %.split.i87.i.i.i ], [ %.1309.ph.i.i, %.split.i.i.i.i ], [ %.1309.ph.i.i, %891 ], [ %.1309.ph.i.i, %next_swappable_instruction.exit.i.i.i ], [ %.1309.ph.i.i, %947 ], [ %.1309.ph.i.i, %961 ]
   %963 = add i32 %.0308.ph.i.i, 1
   %964 = load i32, ptr %300, align 8, !tbaa !25
   %965 = icmp slt i32 %963, %964
@@ -2930,8 +2930,8 @@ optimize_cfg.exit:                                ; preds = %.loopexit.i
   br i1 %exitcond136.not.i, label %._crit_edge122.i, label %.lr.ph121.i, !llvm.loop !84
 
 ._crit_edge125.i:                                 ; preds = %1127, %.preheader110.i, %.preheader109.i
-  %1112 = phi i1 [ false, %.preheader109.i ], [ false, %.preheader110.i ], [ true, %1127 ]
-  %.090.lcssa158160.i = phi i64 [ %.1.i, %.preheader109.i ], [ 0, %.preheader110.i ], [ %.1.i, %1127 ]
+  %1112 = phi i1 [ false, %.preheader110.i ], [ false, %.preheader109.i ], [ true, %1127 ]
+  %.090.lcssa158160.i = phi i64 [ 0, %.preheader110.i ], [ %.1.i, %.preheader109.i ], [ %.1.i, %1127 ]
   %1113 = call i32 @PyList_SetSlice(ptr noundef %1, i64 noundef %.090.lcssa158160.i, i64 noundef %.val.i20, ptr noundef null) #8
   %1114 = icmp slt i32 %1113, 0
   br i1 %1114, label %optimize_cfg.exit.thread.critedge, label %1129
@@ -3040,7 +3040,7 @@ _Py_NewRef.exit.i:                                ; preds = %1124, %1118
   br i1 %exitcond143.not.i, label %._crit_edge132.i, label %1143, !llvm.loop !88
 
 remove_unused_consts.exit:                        ; preds = %._crit_edge132.i, %._crit_edge122.i, %.preheader106.i
-  %.087.i = phi ptr [ null, %._crit_edge122.i ], [ %1130, %.preheader106.i ], [ %1130, %._crit_edge132.i ]
+  %.087.i = phi ptr [ %1130, %.preheader106.i ], [ null, %._crit_edge122.i ], [ %1130, %._crit_edge132.i ]
   call void @PyMem_Free(ptr noundef nonnull %1076) #8
   call void @PyMem_Free(ptr noundef %.087.i) #8
   %.pr = load ptr, ptr %0, align 8, !tbaa !18
@@ -4004,8 +4004,8 @@ optimize_cfg.exit.thread.critedge:                ; preds = %1129, %._crit_edge1
   call void @PyMem_Free(ptr noundef null) #8
   br label %optimize_cfg.exit.thread
 
-optimize_cfg.exit.thread:                         ; preds = %basicblock_next_instr.exit.i.i.i.i, %99, %Py_DECREF.exit134.i.i.i, %Py_DECREF.exit.i.i.i, %get_const_value.exit.i.i.i, %get_const_value.exit139.i.i.i, %284, %get_const_value.exit142.i.i.i, %basicblock_remove_redundant_nops.exit.i.i, %optimize_cfg.exit.thread.critedge, %make_cfg_traversal_stack.exit.thread.i.i, %mark_warm.exit.thread.i.i, %.critedge85.i, %1562, %make_cfg_traversal_stack.exit.thread.i, %fast_scan_many_locals.exit.thread.i, %.thread154.sink.split.i.i.i, %138, %.thread.i, %.loopexit.i, %check_cfg.exit.i, %.loopexit78.i, %push_cold_blocks_to_end.exit, %insert_superinstructions.exit, %optimize_cfg.exit, %mark_except_handlers.exit, %6
-  %.0 = phi i32 [ %., %push_cold_blocks_to_end.exit ], [ -1, %make_cfg_traversal_stack.exit.thread.i ], [ -1, %6 ], [ -1, %mark_except_handlers.exit ], [ -1, %optimize_cfg.exit ], [ -1, %optimize_cfg.exit.thread.critedge ], [ -1, %insert_superinstructions.exit ], [ -1, %.loopexit78.i ], [ -1, %check_cfg.exit.i ], [ -1, %.loopexit.i ], [ -1, %.thread.i ], [ -1, %138 ], [ -1, %.thread154.sink.split.i.i.i ], [ -1, %fast_scan_many_locals.exit.thread.i ], [ -1, %1562 ], [ -1, %.critedge85.i ], [ -1, %mark_warm.exit.thread.i.i ], [ -1, %make_cfg_traversal_stack.exit.thread.i.i ], [ -1, %Py_DECREF.exit134.i.i.i ], [ -1, %basicblock_remove_redundant_nops.exit.i.i ], [ -1, %get_const_value.exit142.i.i.i ], [ -1, %284 ], [ -1, %get_const_value.exit139.i.i.i ], [ -1, %get_const_value.exit.i.i.i ], [ -1, %Py_DECREF.exit.i.i.i ], [ -1, %99 ], [ -1, %basicblock_next_instr.exit.i.i.i.i ]
+optimize_cfg.exit.thread:                         ; preds = %basicblock_next_instr.exit.i.i.i.i, %99, %get_const_value.exit139.i.i.i, %Py_DECREF.exit134.i.i.i, %get_const_value.exit142.i.i.i, %284, %Py_DECREF.exit.i.i.i, %get_const_value.exit.i.i.i, %basicblock_remove_redundant_nops.exit.i.i, %optimize_cfg.exit.thread.critedge, %make_cfg_traversal_stack.exit.thread.i.i, %mark_warm.exit.thread.i.i, %.critedge85.i, %1562, %make_cfg_traversal_stack.exit.thread.i, %fast_scan_many_locals.exit.thread.i, %.thread154.sink.split.i.i.i, %138, %.thread.i, %.loopexit.i, %check_cfg.exit.i, %.loopexit78.i, %push_cold_blocks_to_end.exit, %insert_superinstructions.exit, %optimize_cfg.exit, %mark_except_handlers.exit, %6
+  %.0 = phi i32 [ %., %push_cold_blocks_to_end.exit ], [ -1, %make_cfg_traversal_stack.exit.thread.i ], [ -1, %6 ], [ -1, %mark_except_handlers.exit ], [ -1, %optimize_cfg.exit ], [ -1, %optimize_cfg.exit.thread.critedge ], [ -1, %basicblock_remove_redundant_nops.exit.i.i ], [ -1, %insert_superinstructions.exit ], [ -1, %.loopexit78.i ], [ -1, %check_cfg.exit.i ], [ -1, %.loopexit.i ], [ -1, %.thread.i ], [ -1, %138 ], [ -1, %get_const_value.exit139.i.i.i ], [ -1, %make_cfg_traversal_stack.exit.thread.i.i ], [ -1, %.thread154.sink.split.i.i.i ], [ -1, %mark_warm.exit.thread.i.i ], [ -1, %.critedge85.i ], [ -1, %1562 ], [ -1, %fast_scan_many_locals.exit.thread.i ], [ -1, %get_const_value.exit.i.i.i ], [ -1, %Py_DECREF.exit.i.i.i ], [ -1, %284 ], [ -1, %get_const_value.exit142.i.i.i ], [ -1, %Py_DECREF.exit134.i.i.i ], [ -1, %99 ], [ -1, %basicblock_next_instr.exit.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -4684,7 +4684,7 @@ basicblock_next_instr.exit.i.i.i:                 ; preds = %73
   br label %basicblock_last_instr.exit.thread.i
 
 basicblock_last_instr.exit.thread.i:              ; preds = %45, %.lr.ph.i6.i.i, %.loopexit118.i, %is_exit_or_eval_check_without_lineno.exit.i, %next_nonempty_block.exit.i, %20, %basicblock_last_instr.exit.i, %10
-  %.144.ph.i = phi i32 [ %.043122.i, %10 ], [ %.043122.i, %is_exit_or_eval_check_without_lineno.exit.i ], [ %100, %.loopexit118.i ], [ %.043122.i, %20 ], [ %.043122.i, %basicblock_last_instr.exit.i ], [ %.043122.i, %next_nonempty_block.exit.i ], [ %.043122.i, %.lr.ph.i6.i.i ], [ %.043122.i, %45 ]
+  %.144.ph.i = phi i32 [ %.043122.i, %10 ], [ %.043122.i, %is_exit_or_eval_check_without_lineno.exit.i ], [ %100, %.loopexit118.i ], [ %.043122.i, %20 ], [ %.043122.i, %basicblock_last_instr.exit.i ], [ %.043122.i, %.lr.ph.i6.i.i ], [ %.043122.i, %next_nonempty_block.exit.i ], [ %.043122.i, %45 ]
   %101 = getelementptr inbounds nuw i8, ptr %.049121.i, i64 32
   %102 = load ptr, ptr %101, align 8, !tbaa !34
   %.not.i = icmp eq ptr %102, null
@@ -4947,7 +4947,7 @@ basicblock_last_instr.exit.thread.i2:             ; preds = %208, %basicblock_la
   br i1 %.not.i3, label %propagate_line_numbers.exit, label %.lr.ph39.i, !llvm.loop !122
 
 propagate_line_numbers.exit:                      ; preds = %73, %basicblock_next_instr.exit.i.i.i, %basicblock_last_instr.exit.thread.i2, %cfg_builder_new_block.exit.thread.i.i, %1, %duplicate_exits_without_lineno.exit
-  %.0 = phi i32 [ 0, %1 ], [ 0, %duplicate_exits_without_lineno.exit ], [ -1, %cfg_builder_new_block.exit.thread.i.i ], [ 0, %basicblock_last_instr.exit.thread.i2 ], [ -1, %basicblock_next_instr.exit.i.i.i ], [ -1, %73 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %basicblock_last_instr.exit.thread.i2 ], [ 0, %duplicate_exits_without_lineno.exit ], [ -1, %cfg_builder_new_block.exit.thread.i.i ], [ -1, %basicblock_next_instr.exit.i.i.i ], [ -1, %73 ]
   ret i32 %.0
 }
 
@@ -5787,7 +5787,7 @@ stackdepth_push.exit107.thread.i:                 ; preds = %stackdepth_push.exi
   %.not87.i = icmp eq ptr %.9.i, %74
   br i1 %.not87.i, label %calculate_stackdepth.exit, label %93
 
-calculate_stackdepth.exit.thread39:               ; preds = %stackdepth_push.exit.thread.i, %.thread34.i, %stackdepth_push.exit107.i
+calculate_stackdepth.exit.thread39:               ; preds = %stackdepth_push.exit.thread.i, %stackdepth_push.exit107.i, %.thread34.i
   call void @PyMem_Free(ptr noundef nonnull %74) #8
   store i32 -1, ptr %3, align 4, !tbaa !17
   br label %normalize_jumps.exit.thread
@@ -7645,7 +7645,7 @@ basicblock_nofallthrough.exit.thread:             ; preds = %61, %54, %basicbloc
   br label %maybe_push.exit46
 
 maybe_push.exit46:                                ; preds = %70, %66, %basicblock_nofallthrough.exit.thread, %._crit_edge
-  %75 = phi i32 [ %.pre, %70 ], [ %.lcssa, %66 ], [ %.lcssa, %basicblock_nofallthrough.exit.thread ], [ %.lcssa, %._crit_edge ]
+  %75 = phi i32 [ %.lcssa, %._crit_edge ], [ %.lcssa, %basicblock_nofallthrough.exit.thread ], [ %.lcssa, %66 ], [ %.pre, %70 ]
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %basicblock_last_instr.exit, label %maybe_push.exit49
 

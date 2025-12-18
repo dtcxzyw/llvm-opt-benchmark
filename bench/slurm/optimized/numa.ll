@@ -621,8 +621,8 @@ _str_to_memset.exit:                              ; preds = %155, %88
   %205 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21, i32 noundef %15) #8
   br label %_str_to_memset.exit.thread
 
-_str_to_memset.exit.thread:                       ; preds = %103, %select.unfold.i, %163, %45, %47, %204, %203, %._crit_edge118.thread, %60, %27
-  %.063 = phi i32 [ 1, %27 ], [ 0, %60 ], [ 1, %47 ], [ 0, %45 ], [ %spec.select98, %163 ], [ %.3, %203 ], [ 0, %204 ], [ 0, %._crit_edge118.thread ], [ 0, %select.unfold.i ], [ 0, %103 ]
+_str_to_memset.exit.thread:                       ; preds = %select.unfold.i, %103, %163, %45, %47, %204, %203, %._crit_edge118.thread, %60, %27
+  %.063 = phi i32 [ 1, %27 ], [ 0, %60 ], [ 1, %47 ], [ 0, %45 ], [ %spec.select98, %163 ], [ %.3, %203 ], [ 0, %204 ], [ 0, %._crit_edge118.thread ], [ 0, %103 ], [ 0, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.063
 }

@@ -444,7 +444,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EED
   br label %.body
 
 .body:                                            ; preds = %103, %98, %96, %44, %107, %38
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %108, %107 ], [ %97, %96 ], [ %45, %44 ], [ %99, %98 ], [ %99, %103 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %108, %107 ], [ %45, %44 ], [ %97, %96 ], [ %99, %98 ], [ %99, %103 ]
   call void @_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #19
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   br label %common.resume

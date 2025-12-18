@@ -254,9 +254,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %98, %
   br label %109
 
 .loopexit:                                        ; preds = %92, %67, %44
-  %.286 = phi double [ %.488, %67 ], [ %.185, %44 ], [ %.690, %92 ]
-  %.279 = phi i8 [ %.481, %67 ], [ %.178, %44 ], [ %.683, %92 ]
-  %.2 = phi i8 [ %.4, %67 ], [ %.176, %44 ], [ %.6, %92 ]
+  %.286 = phi double [ %.185, %44 ], [ %.488, %67 ], [ %.690, %92 ]
+  %.279 = phi i8 [ %.178, %44 ], [ %.481, %67 ], [ %.683, %92 ]
+  %.2 = phi i8 [ %.176, %44 ], [ %.4, %67 ], [ %.6, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 8

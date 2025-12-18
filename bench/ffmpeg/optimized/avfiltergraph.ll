@@ -1445,7 +1445,7 @@ formats_declared.exit:                            ; preds = %.thread44.i, %.preh
   br label %query_formats.exit.i
 
 query_formats.exit.i:                             ; preds = %183, %.loopexit.i, %465, %.thread292.i.i
-  %.2.i.i = phi i32 [ %.13.i.i, %465 ], [ %.9.ph.i.i, %.thread292.i.i ], [ %116, %.loopexit.i ], [ %186, %183 ]
+  %.2.i.i = phi i32 [ %116, %.loopexit.i ], [ %.9.ph.i.i, %.thread292.i.i ], [ %.13.i.i, %465 ], [ %186, %183 ]
   %466 = icmp eq i32 %.2.i.i, -11
   br i1 %466, label %467, label %graph_check_validity.exit
 
@@ -1571,15 +1571,15 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br label %.loopexit382.i.i.i
 
 .loopexit382.i.i.i:                               ; preds = %516, %521, %505, %498
-  %522 = phi i32 [ %.pre.i.i.i, %521 ], [ %499, %505 ], [ %499, %498 ], [ %499, %516 ]
-  %.4188.ph.i.i.i = phi i32 [ 1, %521 ], [ %.2186417.i.i.i, %505 ], [ %.2186417.i.i.i, %498 ], [ %.2186417.i.i.i, %516 ]
+  %522 = phi i32 [ %499, %498 ], [ %.pre.i.i.i, %521 ], [ %499, %505 ], [ %499, %516 ]
+  %.4188.ph.i.i.i = phi i32 [ %.2186417.i.i.i, %498 ], [ 1, %521 ], [ %.2186417.i.i.i, %505 ], [ %.2186417.i.i.i, %516 ]
   %indvars.iv.next509.i.i.i = add nuw nsw i64 %indvars.iv508.i.i.i, 1
   %523 = zext i32 %522 to i64
   %524 = icmp samesign ult i64 %indvars.iv.next509.i.i.i, %523
   br i1 %524, label %498, label %.loopexit383.i.i.i, !llvm.loop !121
 
 .loopexit383.i.i.i:                               ; preds = %.loopexit382.i.i.i, %511, %491, %489, %483
-  %.1185.ph.i.i.i = phi i32 [ 1, %511 ], [ %.0184420.i.i.i, %489 ], [ %.0184420.i.i.i, %483 ], [ %.0184420.i.i.i, %491 ], [ %.4188.ph.i.i.i, %.loopexit382.i.i.i ]
+  %.1185.ph.i.i.i = phi i32 [ 1, %511 ], [ %.0184420.i.i.i, %483 ], [ %.0184420.i.i.i, %489 ], [ %.0184420.i.i.i, %491 ], [ %.4188.ph.i.i.i, %.loopexit382.i.i.i ]
   %indvars.iv.next512.i.i.i = add nuw nsw i64 %indvars.iv511.i.i.i, 1
   %525 = load i32, ptr %477, align 8, !tbaa !58
   %526 = zext i32 %525 to i64
@@ -1672,15 +1672,15 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br label %.loopexit377.i.i.i
 
 .loopexit377.i.i.i:                               ; preds = %561, %566, %550, %543
-  %567 = phi i32 [ %.pre556.i.i.i, %566 ], [ %544, %550 ], [ %544, %543 ], [ %544, %561 ]
-  %.10194.ph.i.i.i = phi i32 [ 1, %566 ], [ %.8192427.i.i.i, %550 ], [ %.8192427.i.i.i, %543 ], [ %.8192427.i.i.i, %561 ]
+  %567 = phi i32 [ %544, %543 ], [ %.pre556.i.i.i, %566 ], [ %544, %550 ], [ %544, %561 ]
+  %.10194.ph.i.i.i = phi i32 [ %.8192427.i.i.i, %543 ], [ 1, %566 ], [ %.8192427.i.i.i, %550 ], [ %.8192427.i.i.i, %561 ]
   %indvars.iv.next520.i.i.i = add nuw nsw i64 %indvars.iv519.i.i.i, 1
   %568 = zext i32 %567 to i64
   %569 = icmp samesign ult i64 %indvars.iv.next520.i.i.i, %568
   br i1 %569, label %543, label %.loopexit378.i.i.i, !llvm.loop !124
 
 .loopexit378.i.i.i:                               ; preds = %.loopexit377.i.i.i, %556, %536, %534, %.lr.ph433.i.i.i
-  %.7191.ph.i.i.i = phi i32 [ 1, %556 ], [ %.6190431.i.i.i, %534 ], [ %.6190431.i.i.i, %.lr.ph433.i.i.i ], [ %.6190431.i.i.i, %536 ], [ %.10194.ph.i.i.i, %.loopexit377.i.i.i ]
+  %.7191.ph.i.i.i = phi i32 [ 1, %556 ], [ %.6190431.i.i.i, %.lr.ph433.i.i.i ], [ %.6190431.i.i.i, %534 ], [ %.6190431.i.i.i, %536 ], [ %.10194.ph.i.i.i, %.loopexit377.i.i.i ]
   %indvars.iv.next523.i.i.i = add nuw nsw i64 %indvars.iv522.i.i.i, 1
   %570 = load i32, ptr %477, align 8, !tbaa !58
   %571 = zext i32 %570 to i64
@@ -1773,15 +1773,15 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br label %.loopexit372.i.i.i
 
 .loopexit372.i.i.i:                               ; preds = %606, %611, %595, %588
-  %612 = phi i32 [ %.pre557.i.i.i, %611 ], [ %589, %595 ], [ %589, %588 ], [ %589, %606 ]
-  %.16200.ph.i.i.i = phi i32 [ 1, %611 ], [ %.14198438.i.i.i, %595 ], [ %.14198438.i.i.i, %588 ], [ %.14198438.i.i.i, %606 ]
+  %612 = phi i32 [ %589, %588 ], [ %.pre557.i.i.i, %611 ], [ %589, %595 ], [ %589, %606 ]
+  %.16200.ph.i.i.i = phi i32 [ %.14198438.i.i.i, %588 ], [ 1, %611 ], [ %.14198438.i.i.i, %595 ], [ %.14198438.i.i.i, %606 ]
   %indvars.iv.next531.i.i.i = add nuw nsw i64 %indvars.iv530.i.i.i, 1
   %613 = zext i32 %612 to i64
   %614 = icmp samesign ult i64 %indvars.iv.next531.i.i.i, %613
   br i1 %614, label %588, label %.loopexit373.i.i.i, !llvm.loop !127
 
 .loopexit373.i.i.i:                               ; preds = %.loopexit372.i.i.i, %601, %581, %579, %.lr.ph444.i.i.i
-  %.13197.ph.i.i.i = phi i32 [ 1, %601 ], [ %.12196442.i.i.i, %579 ], [ %.12196442.i.i.i, %.lr.ph444.i.i.i ], [ %.12196442.i.i.i, %581 ], [ %.16200.ph.i.i.i, %.loopexit372.i.i.i ]
+  %.13197.ph.i.i.i = phi i32 [ 1, %601 ], [ %.12196442.i.i.i, %.lr.ph444.i.i.i ], [ %.12196442.i.i.i, %579 ], [ %.12196442.i.i.i, %581 ], [ %.16200.ph.i.i.i, %.loopexit372.i.i.i ]
   %indvars.iv.next534.i.i.i = add nuw nsw i64 %indvars.iv533.i.i.i, 1
   %615 = load i32, ptr %477, align 8, !tbaa !58
   %616 = zext i32 %615 to i64
@@ -1874,15 +1874,15 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br label %.loopexit367.i.i.i
 
 .loopexit367.i.i.i:                               ; preds = %651, %656, %640, %633
-  %657 = phi i32 [ %.pre558.i.i.i, %656 ], [ %634, %640 ], [ %634, %633 ], [ %634, %651 ]
-  %.22206.ph.i.i.i = phi i32 [ 1, %656 ], [ %.20204449.i.i.i, %640 ], [ %.20204449.i.i.i, %633 ], [ %.20204449.i.i.i, %651 ]
+  %657 = phi i32 [ %634, %633 ], [ %.pre558.i.i.i, %656 ], [ %634, %640 ], [ %634, %651 ]
+  %.22206.ph.i.i.i = phi i32 [ %.20204449.i.i.i, %633 ], [ 1, %656 ], [ %.20204449.i.i.i, %640 ], [ %.20204449.i.i.i, %651 ]
   %indvars.iv.next542.i.i.i = add nuw nsw i64 %indvars.iv541.i.i.i, 1
   %658 = zext i32 %657 to i64
   %659 = icmp samesign ult i64 %indvars.iv.next542.i.i.i, %658
   br i1 %659, label %633, label %.loopexit368.i.i.i, !llvm.loop !130
 
 .loopexit368.i.i.i:                               ; preds = %.loopexit367.i.i.i, %646, %626, %624, %.lr.ph455.i.i.i
-  %.19203.ph.i.i.i = phi i32 [ 1, %646 ], [ %.18202453.i.i.i, %624 ], [ %.18202453.i.i.i, %.lr.ph455.i.i.i ], [ %.18202453.i.i.i, %626 ], [ %.22206.ph.i.i.i, %.loopexit367.i.i.i ]
+  %.19203.ph.i.i.i = phi i32 [ 1, %646 ], [ %.18202453.i.i.i, %.lr.ph455.i.i.i ], [ %.18202453.i.i.i, %624 ], [ %.18202453.i.i.i, %626 ], [ %.22206.ph.i.i.i, %.loopexit367.i.i.i ]
   %indvars.iv.next545.i.i.i = add nuw nsw i64 %indvars.iv544.i.i.i, 1
   %660 = load i32, ptr %477, align 8, !tbaa !58
   %661 = zext i32 %660 to i64
@@ -2000,7 +2000,7 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %707, %720, %705, %685, %676
-  %.28.ph.i.i.i = phi i32 [ 1, %720 ], [ %.26460.i.i.i, %685 ], [ %.26460.i.i.i, %676 ], [ %.26460.i.i.i, %705 ], [ %.26460.i.i.i, %707 ]
+  %.28.ph.i.i.i = phi i32 [ %.26460.i.i.i, %676 ], [ 1, %720 ], [ %.26460.i.i.i, %685 ], [ %.26460.i.i.i, %705 ], [ %.26460.i.i.i, %707 ]
   %indvars.iv.next551.i.i.i = add nuw nsw i64 %indvars.iv550.i.i.i, 1
   %721 = load i32, ptr %480, align 8, !tbaa !29
   %722 = zext i32 %721 to i64
@@ -2008,7 +2008,7 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br i1 %723, label %676, label %.loopexit364.i.i.i, !llvm.loop !139
 
 .loopexit364.i.i.i:                               ; preds = %.loopexit.i.i.i, %700, %671, %668, %.lr.ph466.i.i.i
-  %.25209.ph.i.i.i = phi i32 [ 1, %700 ], [ %.24208464.i.i.i, %668 ], [ %.24208464.i.i.i, %.lr.ph466.i.i.i ], [ %.24208464.i.i.i, %671 ], [ %.28.ph.i.i.i, %.loopexit.i.i.i ]
+  %.25209.ph.i.i.i = phi i32 [ 1, %700 ], [ %.24208464.i.i.i, %.lr.ph466.i.i.i ], [ %.24208464.i.i.i, %668 ], [ %.24208464.i.i.i, %671 ], [ %.28.ph.i.i.i, %.loopexit.i.i.i ]
   %indvars.iv.next554.i.i.i = add nuw nsw i64 %indvars.iv553.i.i.i, 1
   %724 = load i32, ptr %477, align 8, !tbaa !58
   %725 = zext i32 %724 to i64
@@ -2016,7 +2016,7 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br i1 %726, label %.lr.ph466.i.i.i, label %reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i, !llvm.loop !140
 
 reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i: ; preds = %.loopexit364.i.i.i, %.preheader.i.i.i, %.preheader369.i.i.i, %.preheader374.i.i.i, %.preheader379.i.i.i
-  %.5.i.i.i = phi i32 [ %.19203.ph.i.i.i, %.preheader.i.i.i ], [ %.1185.ph.i.i.i, %.preheader379.i.i.i ], [ %.13197.ph.i.i.i, %.preheader369.i.i.i ], [ %.7191.ph.i.i.i, %.preheader374.i.i.i ], [ %.25209.ph.i.i.i, %.loopexit364.i.i.i ]
+  %.5.i.i.i = phi i32 [ %.7191.ph.i.i.i, %.preheader374.i.i.i ], [ %.1185.ph.i.i.i, %.preheader379.i.i.i ], [ %.13197.ph.i.i.i, %.preheader369.i.i.i ], [ %.19203.ph.i.i.i, %.preheader.i.i.i ], [ %.25209.ph.i.i.i, %.loopexit364.i.i.i ]
   %.pre.i18.i = load i32, ptr %8, align 8, !tbaa !14
   %727 = or i32 %.5.i.i.i, %.0956.i.i
   br label %reduce_formats_on_filter.exit.thread13.i.i
@@ -3121,7 +3121,7 @@ graph_config_formats.exit.thread59.thread:        ; preds = %.split.i63.i, %._cr
   br label %graph_check_validity.exit
 
 graph_check_validity.exit:                        ; preds = %query_formats.exit.i, %511, %556, %601, %646, %700, %716, %1172, %1196, %1217, %1244, %1254, %1269, %1290, %49, %29, %graph_config_formats.exit.thread59.thread
-  %.0 = phi i32 [ %1306, %graph_config_formats.exit.thread59.thread ], [ -22, %29 ], [ -22, %49 ], [ %514, %511 ], [ %1297, %1290 ], [ %1270, %1269 ], [ %1258, %1254 ], [ %1248, %1244 ], [ %1220, %1217 ], [ %1197, %1196 ], [ %1173, %1172 ], [ %718, %716 ], [ %703, %700 ], [ %649, %646 ], [ %604, %601 ], [ %559, %556 ], [ %.2.i.i, %query_formats.exit.i ]
+  %.0 = phi i32 [ %1220, %1217 ], [ %1306, %graph_config_formats.exit.thread59.thread ], [ %604, %601 ], [ -22, %49 ], [ -22, %29 ], [ %1248, %1244 ], [ %1270, %1269 ], [ %1297, %1290 ], [ %1173, %1172 ], [ %649, %646 ], [ %718, %716 ], [ %703, %700 ], [ %1258, %1254 ], [ %1197, %1196 ], [ %514, %511 ], [ %559, %556 ], [ %.2.i.i, %query_formats.exit.i ]
   ret i32 %.0
 }
 
@@ -3285,7 +3285,7 @@ define internal fastcc range(i32 -22, 1) i32 @graph_config_pointers(ptr noundef 
   br label %.loopexit3
 
 .loopexit3:                                       ; preds = %25, %._crit_edge16, %54
-  %.0 = phi i32 [ 0, %54 ], [ -12, %._crit_edge16 ], [ -22, %25 ]
+  %.0 = phi i32 [ -12, %._crit_edge16 ], [ 0, %54 ], [ -22, %25 ]
   ret i32 %.0
 }
 

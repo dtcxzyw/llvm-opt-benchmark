@@ -902,7 +902,7 @@ define dso_local noundef zeroext i1 @_Z7fixLineiRNSt7__cxx1112basic_stringIcSt11
   br i1 %or.cond84, label %.critedge4, label %.lr.ph61, !llvm.loop !31
 
 .critedge4:                                       ; preds = %14, %19, %.lr.ph61, %26, %24, %.preheader, %.critedge, %.critedge2, %10, %8
-  %.034 = phi i1 [ false, %8 ], [ true, %10 ], [ false, %.critedge2 ], [ false, %.critedge ], [ false, %.preheader ], [ true, %19 ], [ true, %24 ], [ false, %.lr.ph61 ], [ false, %26 ], [ true, %14 ]
+  %.034 = phi i1 [ false, %8 ], [ true, %24 ], [ true, %10 ], [ false, %.critedge ], [ false, %.critedge2 ], [ true, %19 ], [ false, %.preheader ], [ false, %.lr.ph61 ], [ false, %26 ], [ true, %14 ]
   ret i1 %.034
 }
 

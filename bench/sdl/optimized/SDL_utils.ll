@@ -602,9 +602,9 @@ switch.early.test.i:                              ; preds = %59
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %84, %75, %55, %51
-  %.183.i = phi i32 [ %88, %.loopexit.loopexit.i ], [ %58, %55 ], [ %.08296.i, %51 ], [ %87, %84 ], [ %.08296.i, %75 ]
-  %.180.i = phi i32 [ 0, %.loopexit.loopexit.i ], [ 0, %55 ], [ 1, %51 ], [ 0, %84 ], [ 2, %75 ]
-  %.1.i = phi i8 [ %.07898.i, %.loopexit.loopexit.i ], [ %.07898.i, %55 ], [ 0, %51 ], [ %83, %84 ], [ %83, %75 ]
+  %.183.i = phi i32 [ %88, %.loopexit.loopexit.i ], [ %58, %55 ], [ %.08296.i, %51 ], [ %.08296.i, %75 ], [ %87, %84 ]
+  %.180.i = phi i32 [ 0, %.loopexit.loopexit.i ], [ 0, %55 ], [ 1, %51 ], [ 2, %75 ], [ 0, %84 ]
+  %.1.i = phi i8 [ %.07898.i, %.loopexit.loopexit.i ], [ %.07898.i, %55 ], [ 0, %51 ], [ %83, %75 ], [ %83, %84 ]
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %89 = icmp samesign ult i64 %indvars.iv.next110.i, %49
   %90 = icmp slt i32 %.183.i, %47
@@ -892,7 +892,7 @@ switch.lookup:                                    ; preds = %28
   br label %.thread137
 
 .thread137:                                       ; preds = %63, %71, %75
-  %.4 = phi i64 [ %80, %75 ], [ %.1101.lcssa, %71 ], [ %.1101.lcssa, %63 ]
+  %.4 = phi i64 [ %.1101.lcssa, %71 ], [ %80, %75 ], [ %.1101.lcssa, %63 ]
   %81 = add i64 %.4, -1
   %82 = icmp ugt i64 %81, 1
   br i1 %82, label %.lr.ph161, label %.thread
@@ -976,7 +976,7 @@ PrefixMatch.exit:                                 ; preds = %.lr.ph.i, %93
   br i1 %exitcond171.not, label %.thread, label %.lr.ph161, !llvm.loop !13
 
 .thread:                                          ; preds = %.critedge128, %.thread137, %35, %31, %15, %108, %37
-  %.097 = phi ptr [ null, %37 ], [ %.0106135, %108 ], [ null, %15 ], [ null, %31 ], [ null, %35 ], [ %.0106135, %.thread137 ], [ %.0106135, %.critedge128 ]
+  %.097 = phi ptr [ null, %37 ], [ %.0106135, %108 ], [ null, %35 ], [ null, %15 ], [ null, %31 ], [ %.0106135, %.thread137 ], [ %.0106135, %.critedge128 ]
   ret ptr %.097
 }
 

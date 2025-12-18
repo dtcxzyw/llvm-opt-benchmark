@@ -338,7 +338,7 @@ adx_encode.exit:                                  ; preds = %146, %87, %140
   br label %153
 
 153:                                              ; preds = %.sink.split, %23, %13, %.thread
-  %.0 = phi i32 [ %14, %13 ], [ 0, %.thread ], [ %30, %23 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %14, %13 ], [ %30, %23 ], [ 0, %.thread ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

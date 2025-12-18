@@ -2607,7 +2607,7 @@ define range(i32 0, -1) i32 @Cec3_ManSimHashKey(ptr noundef readonly captures(no
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph26, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph26, %.preheader20, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
+  %.1 = phi i32 [ %22, %.lr.ph26 ], [ 0, %.preheader ], [ 0, %.preheader20 ], [ %15, %.lr.ph ]
   %23 = urem i32 %.1, %2
   ret i32 %23
 }
@@ -2768,7 +2768,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %23
   br i1 %exitcond36.not.i, label %Cec3_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !103
 
 Cec3_ManSimHashKey.exit:                          ; preds = %.lr.ph.i86, %.lr.ph26.i, %.preheader20.i, %.preheader.i87
-  %.1.i = phi i32 [ 0, %.preheader.i87 ], [ 0, %.preheader20.i ], [ %67, %.lr.ph26.i ], [ %60, %.lr.ph.i86 ]
+  %.1.i = phi i32 [ %67, %.lr.ph26.i ], [ 0, %.preheader.i87 ], [ 0, %.preheader20.i ], [ %60, %.lr.ph.i86 ]
   %68 = urem i32 %.1.i, %21
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i32, ptr %30, i64 %69

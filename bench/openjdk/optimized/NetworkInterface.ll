@@ -448,7 +448,7 @@ openSocket.exit30:                                ; preds = %21
   br label %34
 
 34:                                               ; preds = %.sink.split, %openSocket.exit, %openSocket.exit30, %8
-  %.023 = phi ptr [ null, %8 ], [ %28, %openSocket.exit30 ], [ %.0, %openSocket.exit ], [ null, %.sink.split ]
+  %.023 = phi ptr [ null, %8 ], [ %.0, %openSocket.exit ], [ %28, %openSocket.exit30 ], [ null, %.sink.split ]
   ret ptr %.023
 }
 
@@ -829,7 +829,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %148, %129, %136, %74, %88, %95, %58, %65, %.lr.ph234, %._crit_edge228, %48, %._crit_edge, %10, %2, %._crit_edge235
-  %.0 = phi ptr [ %8, %._crit_edge235 ], [ null, %2 ], [ null, %10 ], [ null, %._crit_edge ], [ null, %48 ], [ null, %._crit_edge228 ], [ null, %.lr.ph234 ], [ null, %65 ], [ null, %58 ], [ null, %95 ], [ null, %88 ], [ null, %74 ], [ null, %136 ], [ null, %129 ], [ null, %148 ]
+  %.0 = phi ptr [ %8, %._crit_edge235 ], [ null, %2 ], [ null, %10 ], [ null, %._crit_edge ], [ null, %48 ], [ null, %.lr.ph234 ], [ null, %._crit_edge228 ], [ null, %65 ], [ null, %58 ], [ null, %95 ], [ null, %88 ], [ null, %74 ], [ null, %136 ], [ null, %129 ], [ null, %148 ]
   ret ptr %.0
 }
 
@@ -1048,8 +1048,8 @@ openSocket.exit51:                                ; preds = %50
   br label %find_bound_interface.exit
 
 find_bound_interface.exit:                        ; preds = %._crit_edge51.split.us.us.i, %43, %34, %openSocket.exit, %16, %63, %48, %openSocket.exit51, %21
-  %.1 = phi ptr [ %22, %21 ], [ null, %48 ], [ %57, %63 ], [ %57, %openSocket.exit51 ], [ null, %openSocket.exit ], [ null, %16 ], [ %22, %43 ], [ %22, %34 ], [ %22, %._crit_edge51.split.us.us.i ]
-  %.036 = phi i8 [ 0, %21 ], [ 0, %48 ], [ %spec.select48, %63 ], [ 0, %openSocket.exit51 ], [ 0, %openSocket.exit ], [ 0, %16 ], [ 1, %43 ], [ 0, %34 ], [ 0, %._crit_edge51.split.us.us.i ]
+  %.1 = phi ptr [ %22, %21 ], [ null, %48 ], [ %57, %63 ], [ %57, %openSocket.exit51 ], [ %22, %43 ], [ null, %16 ], [ null, %openSocket.exit ], [ %22, %34 ], [ %22, %._crit_edge51.split.us.us.i ]
+  %.036 = phi i8 [ 0, %21 ], [ 0, %48 ], [ %spec.select48, %63 ], [ 0, %openSocket.exit51 ], [ 1, %43 ], [ 0, %16 ], [ 0, %openSocket.exit ], [ 0, %34 ], [ 0, %._crit_edge51.split.us.us.i ]
   tail call fastcc void @freeif(ptr noundef %.1)
   br label %openSocket.exit51.thread
 
@@ -1314,7 +1314,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
   br i1 %.not38.us55.us, label %._crit_edge.split.us.us, label %.lr.ph.us69, !llvm.loop !17
 
 .thread:                                          ; preds = %._crit_edge.split.us.us, %41, %._crit_edge51.split.us.us, %12, %21, %.lr.ph61, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %.lr.ph61 ], [ %.03458.us64, %41 ], [ null, %12 ], [ null, %._crit_edge51.split.us.us ], [ %.03458.us, %21 ], [ null, %._crit_edge.split.us.us ]
+  %.0 = phi ptr [ null, %12 ], [ null, %._crit_edge51.split.us.us ], [ %.03458.us64, %41 ], [ null, %.lr.ph61 ], [ null, %4 ], [ %.03458.us, %21 ], [ null, %._crit_edge.split.us.us ]
   ret ptr %.0
 }
 
@@ -1544,8 +1544,8 @@ define internal fastcc range(i32 -1, 65536) i32 @getFlags0(ptr noundef %0, ptr n
   call void %30(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #16
   br label %43
 
-getFlags.exit:                                    ; preds = %24, %18
-  %.03.i.ph = phi i32 [ %19, %18 ], [ %25, %24 ]
+getFlags.exit:                                    ; preds = %18, %24
+  %.03.i.ph = phi i32 [ %25, %24 ], [ %19, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
@@ -1704,8 +1704,8 @@ openSocketWithFallback.exit:                      ; preds = %7, %10
   tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #16
   br label %.loopexit
 
-13:                                               ; preds = %10, %3
-  %.03.i.ph = phi i32 [ %5, %3 ], [ %11, %10 ]
+13:                                               ; preds = %3, %10
+  %.03.i.ph = phi i32 [ %11, %10 ], [ %5, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %15 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 15) #16
@@ -1799,8 +1799,8 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef r
   call void %32(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #16
   br label %46
 
-33:                                               ; preds = %26, %20
-  %.03.i.ph = phi i32 [ %21, %20 ], [ %27, %26 ]
+33:                                               ; preds = %20, %26
+  %.03.i.ph = phi i32 [ %27, %26 ], [ %21, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)

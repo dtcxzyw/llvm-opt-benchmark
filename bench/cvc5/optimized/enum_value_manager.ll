@@ -862,7 +862,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6th
   %.not1069 = icmp eq i64 %131, 0
   br i1 %.not1069, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread, label %.critedge.thread1067
 
-_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %89, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %94, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread1065, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit
+_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %89, %94, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread1065, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %132 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !tbaa !6, !noalias !154
   store ptr %132, ptr %0, align 8, !tbaa !6, !alias.scope !154

@@ -1947,7 +1947,7 @@ _ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit: ; preds = %_ZNKSt14__s
   ret void
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit69": ; preds = %100, %44, %_ZN5folly13SocketAddressD2Ev.exit64, %174, %172, %180, %178
-  %.merged56 = phi { ptr, i32 } [ %179, %178 ], [ %181, %180 ], [ %45, %44 ], [ %.pn52.pn.pn, %_ZN5folly13SocketAddressD2Ev.exit64 ], [ %.pn49, %174 ], [ %173, %172 ], [ %101, %100 ]
+  %.merged56 = phi { ptr, i32 } [ %179, %178 ], [ %181, %180 ], [ %45, %44 ], [ %.pn52.pn.pn, %_ZN5folly13SocketAddressD2Ev.exit64 ], [ %173, %172 ], [ %.pn49, %174 ], [ %101, %100 ]
   %.val.val.i68 = load ptr, ptr %8, align 8, !tbaa !125
   call void @freeaddrinfo(ptr noundef %.val.val.i68) #40
   br label %182
@@ -2458,7 +2458,7 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   unreachable
 
 .loopexit:                                        ; preds = %149, %136, %144
-  %.sroa.06.1.i.i.i = phi ptr [ %145, %144 ], [ %.sroa.06.0.i.i.i, %136 ], [ %151, %149 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %136 ], [ %145, %144 ], [ %151, %149 ]
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 32
   store ptr %74, ptr %157, align 8, !tbaa !159
   br label %.critedge
@@ -14440,7 +14440,7 @@ _ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENS
   resume { ptr, i32 } %45
 
 _ZNKSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %34, %20, %29
-  %.sroa.043.0.ph = phi ptr [ %30, %29 ], [ %.sroa.035.0, %20 ], [ %36, %34 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %20 ], [ %30, %29 ], [ %36, %34 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 40) #54
   br label %_ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -17578,7 +17578,7 @@ _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMe
           to label %_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13tryPutMessageEOS5_j.exit unwind label %210
 
 _ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13tryPutMessageEOS5_j.exit: ; preds = %189, %.noexc70, %_ZNSt7variantIJN5folly17AsyncServerSocket14NewConnMessageENS1_12ErrorMessageEEEC2IS3_vvS3_vEEOT_.exit, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE7tryPushEOS5_j.exit.i
-  %196 = phi i1 [ false, %_ZNSt7variantIJN5folly17AsyncServerSocket14NewConnMessageENS1_12ErrorMessageEEEC2IS3_vvS3_vEEOT_.exit ], [ true, %.noexc70 ], [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE7tryPushEOS5_j.exit.i ], [ false, %189 ]
+  %196 = phi i1 [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE7tryPushEOS5_j.exit.i ], [ true, %.noexc70 ], [ false, %_ZNSt7variantIJN5folly17AsyncServerSocket14NewConnMessageENS1_12ErrorMessageEEEC2IS3_vvS3_vEEOT_.exit ], [ false, %189 ]
   %197 = load i8, ptr %39, align 8, !tbaa !343
   switch i8 %197, label %205 [
     i8 -1, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJN5folly17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEED2Ev.exit
@@ -17911,7 +17911,7 @@ _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMe
           to label %_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13tryPutMessageEOS5_j.exit unwind label %119
 
 _ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13tryPutMessageEOS5_j.exit: ; preds = %89, %.noexc, %_ZNSt7variantIJN5folly17AsyncServerSocket14NewConnMessageENS1_12ErrorMessageEEEC2IS2_vvS2_vEEOT_.exit, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE7tryPushEOS5_j.exit.i
-  %96 = phi i1 [ false, %_ZNSt7variantIJN5folly17AsyncServerSocket14NewConnMessageENS1_12ErrorMessageEEEC2IS2_vvS2_vEEOT_.exit ], [ true, %.noexc ], [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE7tryPushEOS5_j.exit.i ], [ false, %89 ]
+  %96 = phi i1 [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE7tryPushEOS5_j.exit.i ], [ true, %.noexc ], [ false, %_ZNSt7variantIJN5folly17AsyncServerSocket14NewConnMessageENS1_12ErrorMessageEEEC2IS2_vvS2_vEEOT_.exit ], [ false, %89 ]
   %97 = load i8, ptr %64, align 8, !tbaa !343
   switch i8 %97, label %105 [
     i8 -1, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJN5folly17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEED2Ev.exit
@@ -18356,7 +18356,7 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   unreachable
 
 _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE2atERS8_.exit: ; preds = %61, %48, %56
-  %.sroa.06.1.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i.i, %48 ], [ %63, %61 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %48 ], [ %57, %56 ], [ %63, %61 ]
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   br label %95
 

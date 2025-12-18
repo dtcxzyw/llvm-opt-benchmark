@@ -1691,7 +1691,7 @@ _list_node_destroy.exit:                          ; preds = %36, %22
   br i1 %.not22, label %.loopexit, label %14, !llvm.loop !22
 
 .loopexit:                                        ; preds = %43, %7, %39, %42
-  %.016 = phi i32 [ 1, %42 ], [ 1, %39 ], [ 0, %7 ], [ 0, %43 ]
+  %.016 = phi i32 [ 1, %39 ], [ 1, %42 ], [ 0, %7 ], [ 0, %43 ]
   %45 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
   %.not25 = icmp eq i32 %45, 0
   br i1 %.not25, label %48, label %46
@@ -3063,7 +3063,7 @@ define dso_local ptr @list_remove_first(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not18, label %_list_node_destroy.exit, label %.lr.ph, !llvm.loop !32
 
 _list_node_destroy.exit:                          ; preds = %40, %.preheader, %._crit_edge.i, %13
-  %.014 = phi ptr [ %15, %._crit_edge.i ], [ null, %13 ], [ null, %.preheader ], [ null, %40 ]
+  %.014 = phi ptr [ null, %13 ], [ %15, %._crit_edge.i ], [ null, %.preheader ], [ null, %40 ]
   %42 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
   %.not20 = icmp eq i32 %42, 0
   br i1 %.not20, label %45, label %43
@@ -3410,8 +3410,8 @@ _list_node_destroy.exit:                          ; preds = %51, %37
   br label %_list_node_create.exit
 
 _list_node_create.exit:                           ; preds = %115, %83, %102, %70, %117
-  %.2 = phi i32 [ %.02463, %117 ], [ %.02463, %70 ], [ %85, %102 ], [ %.02463, %83 ], [ %85, %115 ]
-  %.1 = phi ptr [ %118, %117 ], [ %.064, %70 ], [ %.064, %102 ], [ %.064, %83 ], [ %.064, %115 ]
+  %.2 = phi i32 [ %.02463, %117 ], [ %.02463, %83 ], [ %.02463, %70 ], [ %85, %102 ], [ %85, %115 ]
+  %.1 = phi ptr [ %118, %117 ], [ %.064, %83 ], [ %.064, %70 ], [ %.064, %102 ], [ %.064, %115 ]
   %119 = load ptr, ptr %.1, align 8
   %.not35 = icmp eq ptr %119, null
   br i1 %.not35, label %._crit_edge, label %26, !llvm.loop !33

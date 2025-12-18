@@ -2259,7 +2259,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   br label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread, !llvm.loop !68
 
 _ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %40 = load i8, ptr %39, align 8, !tbaa !78, !range !79, !noundef !80
   %41 = trunc nuw i8 %40 to i1
@@ -10427,7 +10427,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %51
   br i1 %57, label %.loopexit21, label %51
 
 .loopexit21:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %43, %.thread
-  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %7, %.thread ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
@@ -10479,7 +10479,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %70
   br i1 %76, label %.loopexit, label %70
 
 .loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %.thread18
-  %.pn9 = phi { ptr, i32 } [ %22, %.thread18 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
+  %.pn9 = phi { ptr, i32 } [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %22, %.thread18 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
@@ -10897,7 +10897,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %51
   br i1 %57, label %.loopexit21, label %51
 
 .loopexit21:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %43, %.thread
-  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %7, %.thread ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
@@ -10949,7 +10949,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %70
   br i1 %76, label %.loopexit, label %70
 
 .loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %.thread18
-  %.pn9 = phi { ptr, i32 } [ %22, %.thread18 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
+  %.pn9 = phi { ptr, i32 } [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %22, %.thread18 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
@@ -13197,7 +13197,7 @@ _ZNKSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3
           to label %.loopexit52 unwind label %100
 
 .loopexit52:                                      ; preds = %39, %79, %81
-  %.merged39 = phi { ptr, i32 } [ %80, %79 ], [ %.pn34.pn, %81 ], [ %40, %39 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %81 ], [ %80, %79 ], [ %40, %39 ]
   call void @_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %82
 
@@ -15925,7 +15925,7 @@ _ZNKSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3
           to label %.loopexit52 unwind label %103
 
 .loopexit52:                                      ; preds = %39, %79, %81
-  %.merged39 = phi { ptr, i32 } [ %80, %79 ], [ %.pn34.pn, %81 ], [ %40, %39 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %81 ], [ %80, %79 ], [ %40, %39 ]
   call void @_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %82
 

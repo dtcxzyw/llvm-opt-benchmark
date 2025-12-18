@@ -1763,7 +1763,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit27: ; preds = %64, %70
   br label %77
 
 77:                                               ; preds = %.sink.split, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit27, %12
-  %.0 = phi ptr [ %2, %12 ], [ %.1.i, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %.1.i26, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit27 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %.1.i26, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit27 ], [ %2, %12 ], [ %.1.i, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -2430,9 +2430,9 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129: ; preds = %.crite
   br label %.thread220
 
 .thread220:                                       ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129, %.thread220.fold.split235, %.thread220.fold.split, %.thread
-  %.sroa.0171.1227 = phi i32 [ 0, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129 ], [ 2, %.thread ], [ 5, %.thread220.fold.split ], [ %281, %.thread220.fold.split235 ]
-  %.sroa.12177.0212217225 = phi ptr [ null, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129 ], [ %283, %.thread ], [ null, %.thread220.fold.split ], [ null, %.thread220.fold.split235 ]
-  %.sroa.14.0211218224 = phi i64 [ 0, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129 ], [ %284, %.thread ], [ 0, %.thread220.fold.split ], [ 0, %.thread220.fold.split235 ]
+  %.sroa.0171.1227 = phi i32 [ 5, %.thread220.fold.split ], [ 0, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129 ], [ 2, %.thread ], [ %281, %.thread220.fold.split235 ]
+  %.sroa.12177.0212217225 = phi ptr [ null, %.thread220.fold.split ], [ null, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129 ], [ %283, %.thread ], [ null, %.thread220.fold.split235 ]
+  %.sroa.14.0211218224 = phi i64 [ 0, %.thread220.fold.split ], [ 0, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit129 ], [ %284, %.thread ], [ 0, %.thread220.fold.split235 ]
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %287 = load ptr, ptr %286, align 8, !tbaa !688
   %288 = getelementptr inbounds nuw i8, ptr %.1.i120, i64 24
@@ -6178,7 +6178,7 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %45
   br i1 %.not11, label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread, label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread.sink.split
 
 _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread.sink.split: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread37, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit, %1
-  %.0.lcssa.i.sink = phi ptr [ %4, %1 ], [ %15, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ %.1.i1440, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread37 ], [ %53, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ %44, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %.1.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
+  %.0.lcssa.i.sink = phi ptr [ %4, %1 ], [ %44, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %15, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ %.1.i1440, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread37 ], [ %53, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ %.1.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sink, i64 32
   %.sroa.0.0.copyload.i16 = load i64, ptr %54, align 16, !tbaa !1021
   br label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread
@@ -6911,7 +6911,7 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread: ; preds = %_ZN
   br label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit69
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit69: ; preds = %158, %115, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread138, %178
-  %.025 = phi ptr [ %159, %158 ], [ %175, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread138 ], [ %183, %178 ], [ %116, %115 ]
+  %.025 = phi ptr [ %116, %115 ], [ %159, %158 ], [ %183, %178 ], [ %175, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread138 ]
   %.not43 = icmp eq ptr %.025, null
   br i1 %.not43, label %.critedge, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit69.thread
 
@@ -7849,7 +7849,7 @@ _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %315, %325, %
   br i1 %342, label %common.ret, label %332
 
 common.ret:                                       ; preds = %271, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %334, %.critedge.thread, %231, %218, %.lr.ph459, %124, %.lr.ph467, %23, %60, %129, %139, %151, %187, %20, %17, %9, %38, %.thread, %57, %52, %44, %77, %.thread308, %109, %115, %131, %292, %294, %313, %103, %106, %143, %64, %118, %_ZNK5clang8DeclStmt5declsEv.exit, %.thread316.loopexit602, %.thread316.loopexit704, %._crit_edge
-  %.0.sink = phi i32 [ %346, %._crit_edge ], [ %59, %57 ], [ %314, %313 ], [ 2, %44 ], [ %24, %23 ], [ 2, %17 ], [ 2, %38 ], [ %63, %60 ], [ 2, %52 ], [ %293, %292 ], [ 2, %77 ], [ 2, %103 ], [ 2, %109 ], [ %117, %115 ], [ %130, %129 ], [ %83, %.thread308 ], [ %140, %139 ], [ %156, %151 ], [ %108, %106 ], [ 2, %131 ], [ 0, %.thread316.loopexit602 ], [ 2, %9 ], [ 2, %143 ], [ %43, %.thread ], [ %188, %187 ], [ %22, %20 ], [ %300, %294 ], [ 0, %64 ], [ 0, %118 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ %72, %.lr.ph467 ], [ %.0.ph705, %.thread316.loopexit704 ], [ 1, %tailrecurse ], [ 2, %.lr.ph459 ], [ %.2213, %.critedge.thread ], [ %339, %334 ], [ %128, %124 ], [ 2, %218 ], [ 2, %231 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %265, %271 ]
+  %.0.sink = phi i32 [ %346, %._crit_edge ], [ %59, %57 ], [ %314, %313 ], [ 2, %231 ], [ %24, %23 ], [ 2, %17 ], [ 2, %38 ], [ %63, %60 ], [ 2, %52 ], [ 2, %9 ], [ %293, %292 ], [ 2, %77 ], [ 2, %103 ], [ 2, %109 ], [ %117, %115 ], [ %130, %129 ], [ %83, %.thread308 ], [ %140, %139 ], [ %156, %151 ], [ %.0.ph705, %.thread316.loopexit704 ], [ 1, %tailrecurse ], [ %108, %106 ], [ 2, %131 ], [ %300, %294 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %.thread316.loopexit602 ], [ 2, %.lr.ph459 ], [ 2, %44 ], [ 2, %143 ], [ %43, %.thread ], [ %188, %187 ], [ %22, %20 ], [ 0, %118 ], [ %339, %334 ], [ 0, %64 ], [ %72, %.lr.ph467 ], [ %128, %124 ], [ 2, %218 ], [ %.2213, %.critedge.thread ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %265, %271 ]
   %accumulator.ret.tr340 = tail call noundef i32 @llvm.smax.i32(i32 %.0.sink, i32 %accumulator.tr.ph)
   ret i32 %accumulator.ret.tr340
 

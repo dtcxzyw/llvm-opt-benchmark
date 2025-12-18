@@ -6790,7 +6790,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   br i1 %19, label %.lr.ph171, label %._crit_edge
 
 .thread65:                                        ; preds = %.outer.backedge, %79, %2
-  %.sroa.0.049.ph.lcssa97 = phi ptr [ null, %2 ], [ %.sroa.0.049.ph101, %79 ], [ %.sroa.0.049.ph.be, %.outer.backedge ]
+  %.sroa.0.049.ph.lcssa97 = phi ptr [ %.sroa.0.049.ph101, %79 ], [ null, %2 ], [ %.sroa.0.049.ph.be, %.outer.backedge ]
   %20 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
   br label %90
 
@@ -14681,7 +14681,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$4find17h6be352f06ef9
   br label %.outer
 
 .loopexit:                                        ; preds = %26, %23, %3, %57
-  %.sink = phi i64 [ 1, %57 ], [ 0, %3 ], [ 0, %23 ], [ 0, %26 ]
+  %.sink = phi i64 [ 0, %3 ], [ 1, %57 ], [ 0, %23 ], [ 0, %26 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -54842,8 +54842,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5851185471656548919.exit.
   br label %144
 
 140:                                              ; preds = %133, %.noexc162.i, %.loopexit14.i.i, %"_ZN4core3ptr175drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17hbc8a0226bfab9c11E.exit.sink.split.i.i"
-  %.sroa.5.0.i.i = phi ptr [ %.sroa.5.1.i.i, %133 ], [ %.sroa.5.1.i.i, %.loopexit14.i.i ], [ %.sroa.5.1.i.i, %.noexc162.i ], [ %.sroa.5.0.ph.i.i, %"_ZN4core3ptr175drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17hbc8a0226bfab9c11E.exit.sink.split.i.i" ]
-  %.sroa.03.0.i.i = phi i64 [ %.sroa.03.1.i.i, %133 ], [ %.sroa.03.1.i.i, %.loopexit14.i.i ], [ %.sroa.03.1.i.i, %.noexc162.i ], [ %.sroa.03.0.ph.i.i, %"_ZN4core3ptr175drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17hbc8a0226bfab9c11E.exit.sink.split.i.i" ]
+  %.sroa.5.0.i.i = phi ptr [ %.sroa.5.1.i.i, %133 ], [ %.sroa.5.0.ph.i.i, %"_ZN4core3ptr175drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17hbc8a0226bfab9c11E.exit.sink.split.i.i" ], [ %.sroa.5.1.i.i, %.noexc162.i ], [ %.sroa.5.1.i.i, %.loopexit14.i.i ]
+  %.sroa.03.0.i.i = phi i64 [ %.sroa.03.1.i.i, %133 ], [ %.sroa.03.0.ph.i.i, %"_ZN4core3ptr175drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17hbc8a0226bfab9c11E.exit.sink.split.i.i" ], [ %.sroa.03.1.i.i, %.noexc162.i ], [ %.sroa.03.1.i.i, %.loopexit14.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !10533
   %141 = icmp eq i64 %.sroa.03.0.i.i, 0
   br i1 %141, label %142, label %"_ZN4core3ptr216drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_tar..archive..ArchiveInner$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$$GT$17h91c7fb655c3a58e3E.llvm.5851185471656548919.exit176.i"
@@ -56507,8 +56507,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5851185471656548919.exit.
   br label %144
 
 140:                                              ; preds = %133, %.noexc162.i, %.loopexit14.i.i, %"_ZN4core3ptr193drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17ha90e5bb18cee812aE.exit.sink.split.i.i"
-  %.sroa.5.0.i.i = phi ptr [ %.sroa.5.1.i.i, %133 ], [ %.sroa.5.1.i.i, %.loopexit14.i.i ], [ %.sroa.5.1.i.i, %.noexc162.i ], [ %.sroa.5.0.ph.i.i, %"_ZN4core3ptr193drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17ha90e5bb18cee812aE.exit.sink.split.i.i" ]
-  %.sroa.03.0.i.i = phi i64 [ %.sroa.03.1.i.i, %133 ], [ %.sroa.03.1.i.i, %.loopexit14.i.i ], [ %.sroa.03.1.i.i, %.noexc162.i ], [ %.sroa.03.0.ph.i.i, %"_ZN4core3ptr193drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17ha90e5bb18cee812aE.exit.sink.split.i.i" ]
+  %.sroa.5.0.i.i = phi ptr [ %.sroa.5.1.i.i, %133 ], [ %.sroa.5.0.ph.i.i, %"_ZN4core3ptr193drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17ha90e5bb18cee812aE.exit.sink.split.i.i" ], [ %.sroa.5.1.i.i, %.noexc162.i ], [ %.sroa.5.1.i.i, %.loopexit14.i.i ]
+  %.sroa.03.0.i.i = phi i64 [ %.sroa.03.1.i.i, %133 ], [ %.sroa.03.0.ph.i.i, %"_ZN4core3ptr193drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17ha90e5bb18cee812aE.exit.sink.split.i.i" ], [ %.sroa.03.1.i.i, %.noexc162.i ], [ %.sroa.03.1.i.i, %.loopexit14.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !10832
   %141 = icmp eq i64 %.sroa.03.0.i.i, 0
   br i1 %141, label %142, label %"_ZN4core3ptr234drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_tar..archive..ArchiveInner$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$17h7d55f4690c7e06c4E.llvm.5851185471656548919.exit176.i"
@@ -58172,8 +58172,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5851185471656548919.exit.
   br label %144
 
 140:                                              ; preds = %133, %.noexc162.i, %.loopexit14.i.i, %"_ZN4core3ptr205drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h099f17403c72e968E.exit.sink.split.i.i"
-  %.sroa.5.0.i.i = phi ptr [ %.sroa.5.1.i.i, %133 ], [ %.sroa.5.1.i.i, %.loopexit14.i.i ], [ %.sroa.5.1.i.i, %.noexc162.i ], [ %.sroa.5.0.ph.i.i, %"_ZN4core3ptr205drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h099f17403c72e968E.exit.sink.split.i.i" ]
-  %.sroa.03.0.i.i = phi i64 [ %.sroa.03.1.i.i, %133 ], [ %.sroa.03.1.i.i, %.loopexit14.i.i ], [ %.sroa.03.1.i.i, %.noexc162.i ], [ %.sroa.03.0.ph.i.i, %"_ZN4core3ptr205drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h099f17403c72e968E.exit.sink.split.i.i" ]
+  %.sroa.5.0.i.i = phi ptr [ %.sroa.5.1.i.i, %133 ], [ %.sroa.5.0.ph.i.i, %"_ZN4core3ptr205drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h099f17403c72e968E.exit.sink.split.i.i" ], [ %.sroa.5.1.i.i, %.noexc162.i ], [ %.sroa.5.1.i.i, %.loopexit14.i.i ]
+  %.sroa.03.0.i.i = phi i64 [ %.sroa.03.1.i.i, %133 ], [ %.sroa.03.0.ph.i.i, %"_ZN4core3ptr205drop_in_place$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h099f17403c72e968E.exit.sink.split.i.i" ], [ %.sroa.03.1.i.i, %.noexc162.i ], [ %.sroa.03.1.i.i, %.loopexit14.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !11131
   %141 = icmp eq i64 %.sroa.03.0.i.i, 0
   br i1 %141, label %142, label %"_ZN4core3ptr246drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_tar..archive..ArchiveInner$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_util..io..buf_reader..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$17h5996442818f2d64dE.llvm.5851185471656548919.exit176.i"
@@ -67161,7 +67161,7 @@ define hidden void @"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..h
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$4find17h6be352f06ef97664E.llvm.5851185471656548919.exit"
 
 "_ZN4http6header3map18HeaderMap$LT$T$GT$4find17h6be352f06ef97664E.llvm.5851185471656548919.exit": ; preds = %23, %26, %3, %57
-  %.sink.i = phi i64 [ 1, %57 ], [ 0, %3 ], [ 0, %26 ], [ 0, %23 ]
+  %.sink.i = phi i64 [ 0, %3 ], [ 1, %57 ], [ 0, %26 ], [ 0, %23 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !12950, !noalias !12953
   ret void
 }

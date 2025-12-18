@@ -1068,7 +1068,7 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   br label %110
 
 40:                                               ; preds = %36, %29
-  %41 = phi i8 [ 0, %29 ], [ 1, %36 ]
+  %41 = phi i8 [ 1, %36 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %41, ptr %42, align 8
@@ -1167,7 +1167,7 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   br label %110
 
 95:                                               ; preds = %91, %84
-  %96 = phi i8 [ 0, %84 ], [ 1, %91 ]
+  %96 = phi i8 [ 1, %91 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %18, label %101, label %97
 

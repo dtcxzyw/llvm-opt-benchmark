@@ -2009,7 +2009,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit32:         ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %exitcond.not, label %.sink.split, label %81, !llvm.loop !7
 
 .sink.split:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit32, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %.preheader39, %.preheader
-  %.lcssa44.sink = phi ptr [ null, %.preheader ], [ null, %.preheader39 ], [ %80, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %116, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit32 ]
+  %.lcssa44.sink = phi ptr [ %80, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ null, %.preheader ], [ null, %.preheader39 ], [ %116, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit32 ]
   store ptr %.lcssa44.sink, ptr %0, align 8
   br label %117
 

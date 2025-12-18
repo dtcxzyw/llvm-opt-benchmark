@@ -5573,7 +5573,7 @@ _ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6sys
   br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
 
 _ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit: ; preds = %.preheader.i, %13, %_ZNK5boost6system10error_codecvbEv.exit.i.thread, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread, %33, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread
-  %34 = phi ptr [ %10, %_ZNK5boost6system10error_codecvbEv.exit.i.thread ], [ %10, %13 ], [ %23, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread ], [ %23, %33 ], [ %.ph, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread ], [ %23, %.preheader.i ]
+  %34 = phi ptr [ %10, %_ZNK5boost6system10error_codecvbEv.exit.i.thread ], [ %10, %13 ], [ %23, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread ], [ %.ph, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread ], [ %23, %33 ], [ %23, %.preheader.i ]
   %35 = load i64, ptr %34, align 8, !tbaa !177
   %36 = and i64 %35, 1
   %.not.i.i = icmp eq i64 %36, 0
@@ -5742,7 +5742,7 @@ _ZN5boost7process2v213basic_processINS_4asio10io_context19basic_executor_typeISa
   br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio10io_context19basic_executor_typeISaIvELm0EEEE4waitERiRNS_6system10error_codeE.exit
 
 _ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio10io_context19basic_executor_typeISaIvELm0EEEE4waitERiRNS_6system10error_codeE.exit: ; preds = %.preheader.i, %13, %_ZNK5boost6system10error_codecvbEv.exit.i.thread, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread, %33, %_ZN5boost7process2v213basic_processINS_4asio10io_context19basic_executor_typeISaIvELm0EEEE7runningERNS_6system10error_codeE.exit.thread
-  %34 = phi ptr [ %10, %_ZNK5boost6system10error_codecvbEv.exit.i.thread ], [ %10, %13 ], [ %23, %_ZN5boost7process2v213basic_processINS_4asio10io_context19basic_executor_typeISaIvELm0EEEE7runningERNS_6system10error_codeE.exit.thread ], [ %23, %33 ], [ %.ph, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread ], [ %23, %.preheader.i ]
+  %34 = phi ptr [ %10, %_ZNK5boost6system10error_codecvbEv.exit.i.thread ], [ %10, %13 ], [ %23, %_ZN5boost7process2v213basic_processINS_4asio10io_context19basic_executor_typeISaIvELm0EEEE7runningERNS_6system10error_codeE.exit.thread ], [ %.ph, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread ], [ %23, %33 ], [ %23, %.preheader.i ]
   %35 = load i64, ptr %34, align 8, !tbaa !177
   %36 = and i64 %35, 1
   %.not.i.i = icmp eq i64 %36, 0
@@ -126015,7 +126015,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error11misc_errorsEEERNSt9enable_ifIXsr1
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNK5boost6system10error_code8categoryEv.exit.i.i45.us, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit38.thread.us, %.critedge.thread.loopexit.split, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit, %93, %.critedge.thread80, %75, %15
-  %.021 = phi i64 [ 0, %15 ], [ 0, %75 ], [ 0, %.critedge.thread80 ], [ %.lcssa, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ], [ 0, %93 ], [ 0, %.critedge.thread.loopexit.split ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit38.thread.us ], [ 0, %_ZNK5boost6system10error_code8categoryEv.exit.i.i45.us ]
+  %.021 = phi i64 [ 0, %15 ], [ 0, %75 ], [ 0, %.critedge.thread80 ], [ 0, %93 ], [ %.lcssa, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ], [ 0, %.critedge.thread.loopexit.split ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit38.thread.us ], [ 0, %_ZNK5boost6system10error_code8categoryEv.exit.i.i45.us ]
   ret i64 %.021
 }
 
@@ -127083,7 +127083,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36: ; preds = %44
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36, %63, %60, %22, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
-  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ true, %60 ], [ %69, %63 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ %69, %63 ], [ true, %60 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
   ret i1 %.0
 }
 

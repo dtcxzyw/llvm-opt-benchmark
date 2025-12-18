@@ -1633,8 +1633,8 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %36, %33, %26
-  %.252 = phi i32 [ %.05088, %26 ], [ %.05088, %33 ], [ %spec.select74, %36 ]
-  %.2 = phi i32 [ %.04989, %26 ], [ %.3, %33 ], [ %.3, %36 ]
+  %.252 = phi i32 [ %spec.select74, %36 ], [ %.05088, %26 ], [ %.05088, %33 ]
+  %.2 = phi i32 [ %.3, %36 ], [ %.04989, %26 ], [ %.3, %33 ]
   %39 = tail call ptr @systable_getnext(ptr noundef %10) #15
   %.not.not = icmp eq ptr %39, null
   br i1 %.not.not, label %.thread, label %.lr.ph
@@ -1934,7 +1934,7 @@ define dso_local noundef zeroext i1 @vacuum_is_permitted_for_relation(i32 nounde
   br label %25
 
 25:                                               ; preds = %.sink.split, %20, %22, %18, %7, %11
-  %.0 = phi i1 [ false, %18 ], [ true, %7 ], [ true, %11 ], [ false, %22 ], [ false, %20 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %18 ], [ true, %7 ], [ true, %11 ], [ false, %20 ], [ false, %22 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2008,7 +2008,7 @@ define dso_local ptr @vacuum_open_relation(i32 noundef %0, ptr noundef readonly 
   br label %27
 
 27:                                               ; preds = %21, %17, %.sink.split, %12, %19, %.thread, %9
-  %.059 = phi ptr [ null, %.thread ], [ %10, %9 ], [ null, %12 ], [ null, %.sink.split ], [ null, %17 ], [ null, %19 ], [ null, %21 ]
+  %.059 = phi ptr [ null, %.thread ], [ %10, %9 ], [ null, %12 ], [ null, %19 ], [ null, %.sink.split ], [ null, %21 ], [ null, %17 ]
   ret ptr %.059
 }
 

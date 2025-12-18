@@ -699,7 +699,7 @@ mmbit_isset.exit.i.thread14:                      ; preds = %mmbit_isset.exit.i
   br i1 %.not11.i.i, label %roseSuffixIsExhausted.exit, label %mmbit_isset.exit.i
 
 roseSuffixIsExhausted.exit:                       ; preds = %mmbit_isset.exit.i.thread14, %mmbit_isset.exit.i, %mmbit_isset.exit.i.thread14.loopexit.us, %36, %20, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %11 ], [ 0, %20 ], [ 0, %mmbit_isset.exit.i.thread14.loopexit.us ], [ 1, %36 ], [ 0, %mmbit_isset.exit.i.thread14 ], [ 1, %mmbit_isset.exit.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %11 ], [ 0, %mmbit_isset.exit.i.thread14.loopexit.us ], [ 0, %20 ], [ 1, %36 ], [ 0, %mmbit_isset.exit.i.thread14 ], [ 1, %mmbit_isset.exit.i ]
   ret i32 %.0
 }
 
@@ -1043,7 +1043,7 @@ get_lowhi_masks.exit:                             ; preds = %190, %131
   br label %get_lowhi_masks.exit
 
 mmbit_iterate_bounded.exit:                       ; preds = %.thread162, %58, %.thread147, %127
-  %.013.i = phi i32 [ %60, %58 ], [ %84, %.thread147 ], [ %130, %127 ], [ %180, %.thread162 ]
+  %.013.i = phi i32 [ %180, %.thread162 ], [ %130, %127 ], [ %84, %.thread147 ], [ %60, %58 ]
   %192 = icmp ult i32 %.013.i, %19
   br i1 %192, label %.lr.ph295, label %._crit_edge296
 
@@ -1790,7 +1790,7 @@ get_lowhi_masks.exit132:                          ; preds = %641, %586
   br label %get_lowhi_masks.exit132
 
 mmbit_iterate_bounded.exit49:                     ; preds = %.thread208, %530, %.thread192, %582
-  %.013.i48 = phi i32 [ %532, %530 ], [ %555, %.thread192 ], [ %585, %582 ], [ %631, %.thread208 ]
+  %.013.i48 = phi i32 [ %631, %.thread208 ], [ %585, %582 ], [ %555, %.thread192 ], [ %532, %530 ]
   %643 = icmp ult i32 %.013.i48, %505
   br i1 %643, label %243, label %._crit_edge296
 
@@ -2004,7 +2004,7 @@ rvermUnalign.exit:                                ; preds = %112, %116
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %82, %rvermSearchAligned.exit, %.thread, %rvermUnalign.exit
-  %.0.i75 = phi ptr [ %98, %.thread ], [ %124, %rvermUnalign.exit ], [ %111, %rvermSearchAligned.exit ], [ %.046.i, %82 ], [ %.046.i, %.preheader ]
+  %.0.i75 = phi ptr [ %98, %.thread ], [ %111, %rvermSearchAligned.exit ], [ %124, %rvermUnalign.exit ], [ %.046.i, %82 ], [ %.046.i, %.preheader ]
   %125 = ptrtoint ptr %.0.i75 to i64
   %126 = sub i64 %72, %80
   %127 = add i64 %126, %125
@@ -2123,7 +2123,7 @@ rvermUnalignNocase.exit:                          ; preds = %174, %179
   br label %rvermicelliExec.exit90
 
 rvermicelliExec.exit90:                           ; preds = %.preheader236, %141, %rvermSearchAlignedNocase.exit, %.thread160, %rvermUnalignNocase.exit
-  %.0.i82 = phi ptr [ %159, %.thread160 ], [ %187, %rvermUnalignNocase.exit ], [ %173, %rvermSearchAlignedNocase.exit ], [ %.046.i88, %141 ], [ %.046.i88, %.preheader236 ]
+  %.0.i82 = phi ptr [ %159, %.thread160 ], [ %173, %rvermSearchAlignedNocase.exit ], [ %187, %rvermUnalignNocase.exit ], [ %.046.i88, %141 ], [ %.046.i88, %.preheader236 ]
   %188 = ptrtoint ptr %.0.i82 to i64
   %189 = sub i64 %131, %139
   %190 = add i64 %189, %188
@@ -5438,7 +5438,7 @@ canSkipCatchUpMPV.exit.thread315:                 ; preds = %1529, %canSkipCatch
   br label %buildSufPQ.exit
 
 buildSufPQ.exit:                                  ; preds = %1358, %887, %726, %214, %canSkipCatchUpMPV.exit.thread315, %1538, %1535, %canSkipCatchUpMPV.exit165.thread222, %mmbit_iterate_bounded.exit.i.thread
-  %.0 = phi i64 [ 0, %canSkipCatchUpMPV.exit165.thread222 ], [ 0, %mmbit_iterate_bounded.exit.i.thread ], [ 0, %1535 ], [ 0, %214 ], [ %1542, %canSkipCatchUpMPV.exit.thread315 ], [ -1, %1538 ], [ 0, %726 ], [ 0, %887 ], [ 0, %1358 ]
+  %.0 = phi i64 [ 0, %1535 ], [ 0, %mmbit_iterate_bounded.exit.i.thread ], [ 0, %canSkipCatchUpMPV.exit165.thread222 ], [ 0, %214 ], [ %1542, %canSkipCatchUpMPV.exit.thread315 ], [ -1, %1538 ], [ 0, %726 ], [ 0, %887 ], [ 0, %1358 ]
   ret i64 %.0
 }
 
@@ -9426,7 +9426,7 @@ mmbit_isset.exit.i.thread18:                      ; preds = %mmbit_isset.exit.i
   br i1 %.not11.i.i, label %roseSuffixIsExhausted.exit, label %mmbit_isset.exit.i
 
 roseSuffixIsExhausted.exit:                       ; preds = %mmbit_isset.exit.i.thread18, %mmbit_isset.exit.i, %mmbit_isset.exit.i.thread18.loopexit.us, %43, %27, %15, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %15 ], [ 0, %27 ], [ 0, %mmbit_isset.exit.i.thread18.loopexit.us ], [ 1, %43 ], [ 0, %mmbit_isset.exit.i.thread18 ], [ 1, %mmbit_isset.exit.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %15 ], [ 0, %mmbit_isset.exit.i.thread18.loopexit.us ], [ 0, %27 ], [ 1, %43 ], [ 0, %mmbit_isset.exit.i.thread18 ], [ 1, %mmbit_isset.exit.i ]
   ret i32 %.0
 }
 

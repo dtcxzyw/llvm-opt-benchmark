@@ -2592,8 +2592,8 @@ tailrecurse:                                      ; preds = %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %2, %.critedge, %21, %63
-  %ret.known.tr50 = phi i1 [ %ret.known.tr62, %63 ], [ %ret.known.tr62, %21 ], [ %ret.known.tr62, %.critedge ], [ false, %2 ], [ true, %tailrecurse ]
-  %.0 = phi i1 [ %64, %63 ], [ false, %21 ], [ %45, %.critedge ], [ false, %2 ], [ false, %tailrecurse ]
+  %ret.known.tr50 = phi i1 [ %ret.known.tr62, %63 ], [ %ret.known.tr62, %.critedge ], [ %ret.known.tr62, %21 ], [ false, %2 ], [ true, %tailrecurse ]
+  %.0 = phi i1 [ %64, %63 ], [ %45, %.critedge ], [ false, %21 ], [ false, %2 ], [ false, %tailrecurse ]
   %not.ret.known.tr50 = xor i1 %ret.known.tr50, true
   %current.ret.tr45 = select i1 %not.ret.known.tr50, i1 %.0, i1 false
   ret i1 %current.ret.tr45
@@ -4873,8 +4873,8 @@ search_indexed_tlist_for_sortgroupref.exit:       ; preds = %124
   %.pre = load ptr, ptr %99, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph.i55, %112
-  %135 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %100, %.lr.ph.i55 ], [ %100, %112 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %112, %.lr.ph.i55
+  %135 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %100, %112 ], [ %100, %.lr.ph.i55 ]
   %136 = load double, ptr %81, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
@@ -5865,7 +5865,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph10.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %2, %65, %16, %19, %112, %69, %23
-  %.0 = phi ptr [ %66, %65 ], [ %25, %23 ], [ %70, %69 ], [ %8, %16 ], [ %8, %19 ], [ %114, %112 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %66, %65 ], [ %114, %112 ], [ %25, %23 ], [ %70, %69 ], [ %8, %16 ], [ %8, %19 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -6407,7 +6407,7 @@ define internal fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %3, %.lr.ph, %51
-  %55 = phi ptr [ %52, %51 ], [ null, %.lr.ph ], [ null, %3 ], [ null, %50 ]
+  %55 = phi ptr [ %52, %51 ], [ null, %3 ], [ null, %.lr.ph ], [ null, %50 ]
   ret ptr %55
 }
 

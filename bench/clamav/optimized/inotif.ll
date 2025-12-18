@@ -452,7 +452,7 @@ sub_0326:                                         ; preds = %110
   br label %110
 
 .loopexit337:                                     ; preds = %.outer, %.backedge, %.preheader336, %.loopexit339
-  %.0227 = phi ptr [ null, %.loopexit339 ], [ %103, %.preheader336 ], [ %103, %.backedge ], [ %103, %.outer ]
+  %.0227 = phi ptr [ null, %.loopexit339 ], [ %103, %.backedge ], [ %103, %.preheader336 ], [ %103, %.outer ]
   %143 = load ptr, ptr %49, align 1, !tbaa !23
   %144 = call ptr @optget(ptr noundef %143, ptr noundef nonnull @.str.20) #16
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
@@ -1581,7 +1581,7 @@ onas_ddd_grow_wdlt.exit:                          ; preds = %.onas_ddd_grow_wdlt
   br i1 %.not64, label %.thread, label %61
 
 .thread:                                          ; preds = %87, %50, %85, %70, %47, %20, %9
-  %.1 = phi i32 [ 3, %9 ], [ 3, %20 ], [ 3, %47 ], [ 3, %85 ], [ 20, %70 ], [ 0, %50 ], [ 0, %87 ]
+  %.1 = phi i32 [ 3, %9 ], [ 3, %20 ], [ 3, %47 ], [ 20, %70 ], [ 3, %85 ], [ 0, %50 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }

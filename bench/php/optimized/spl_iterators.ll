@@ -1043,7 +1043,7 @@ define hidden void @zim_RecursiveIteratorIterator_valid(ptr noundef readonly cap
   br label %spl_recursive_it_valid_ex.exit
 
 spl_recursive_it_valid_ex.exit:                   ; preds = %.lr.ph.i, %37, %9
-  %39 = phi i32 [ 2, %9 ], [ 2, %37 ], [ 3, %.lr.ph.i ]
+  %39 = phi i32 [ 2, %37 ], [ 2, %9 ], [ 3, %.lr.ph.i ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8, !tbaa !11
   br label %41
@@ -3710,7 +3710,7 @@ zend_fcc_addref.exit:                             ; preds = %164, %167
   %174 = icmp eq i32 %173, -1
   br i1 %174, label %200, label %.thread
 
-.thread7:                                         ; preds = %instanceof_function.exit, %instanceof_function.exit103, %72
+.thread7:                                         ; preds = %instanceof_function.exit103, %instanceof_function.exit, %72
   %.175.ph = phi ptr [ %76, %instanceof_function.exit ], [ %.377, %instanceof_function.exit103 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
@@ -5992,7 +5992,7 @@ spl_dual_it_valid.exit:                           ; preds = %.lr.ph
   br i1 %73, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %spl_dual_it_valid.exit, %66, %spl_dual_it_rewind.exit.thread, %spl_dual_it_rewind.exit
-  %.ph = phi ptr [ %58, %spl_dual_it_rewind.exit ], [ %20, %spl_dual_it_rewind.exit.thread ], [ %58, %66 ], [ %58, %spl_dual_it_valid.exit ]
+  %.ph = phi ptr [ %20, %spl_dual_it_rewind.exit.thread ], [ %58, %spl_dual_it_rewind.exit ], [ %58, %66 ], [ %58, %spl_dual_it_valid.exit ]
   %.val39.pr = load ptr, ptr %.ph, align 8, !tbaa !115
   %.not.i43 = icmp eq ptr %.val39.pr, null
   br i1 %.not.i43, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit45

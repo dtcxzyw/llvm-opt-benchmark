@@ -1446,7 +1446,7 @@ define hidden noundef i32 @_ZN7datalog16relation_manager28get_requested_predicat
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_decliE4findEPS0_Ri.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %36, %33
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !275
 
 .loopexit:                                        ; preds = %17, %28
@@ -1535,7 +1535,7 @@ define hidden noundef nonnull align 8 dereferenceable(28) ptr @_ZN7datalog16rela
   br i1 %.not27.old.i.i.i.i, label %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %39, %36
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !277
 
 _ZNK7datalog16relation_manager16try_get_relationEP9func_decl.exit: ; preds = %20, %31
@@ -1671,7 +1671,7 @@ _ZN7datalog16relation_manager14from_predicateEP9func_declRNS_18relation_signatur
   br i1 %.not27.old.i.i.i.i26, label %_ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl.exit, label %.lr.ph38.i.i.i.i22.backedge
 
 .lr.ph38.i.i.i.i22.backedge:                      ; preds = %95, %92
-  %.137.i.i.i.i23.be = phi ptr [ %.old.i.i.i.i25, %95 ], [ %94, %92 ]
+  %.137.i.i.i.i23.be = phi ptr [ %94, %92 ], [ %.old.i.i.i.i25, %95 ]
   br label %.lr.ph38.i.i.i.i22, !llvm.loop !275
 
 .loopexit.i29:                                    ; preds = %76, %87
@@ -1837,7 +1837,7 @@ define hidden noundef ptr @_ZNK7datalog16relation_manager16try_get_relationEP9fu
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declPN7datalog13relation_baseEE4findEPS0_RS3_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %36, %33
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !277
 
 .loopexit:                                        ; preds = %17, %28
@@ -2415,7 +2415,7 @@ _ZN6vectorIP9func_declLb0EjE3endEv.exit:          ; preds = %._crit_edge
   br i1 %.not27.old.i.i, label %.loopexit45, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %58, %55
-  %.137.i.i.be = phi ptr [ %.old.i.i, %58 ], [ %57, %55 ]
+  %.137.i.i.be = phi ptr [ %57, %55 ], [ %.old.i.i, %58 ]
   br label %.lr.ph38.i.i, !llvm.loop !304
 
 .loopexit45:                                      ; preds = %44, %58, %55, %.preheader.i.i
@@ -2457,7 +2457,7 @@ _ZN6vectorIP9func_declLb0EjE6insertERKS1_.exit:   ; preds = %60, %.noexc
   br label %141
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %39, %50, %_ZN6vectorIP9func_declLb0EjE6insertERKS1_.exit
-  %75 = phi ptr [ %67, %_ZN6vectorIP9func_declLb0EjE6insertERKS1_.exit ], [ %26, %50 ], [ %26, %39 ]
+  %75 = phi ptr [ %26, %50 ], [ %67, %_ZN6vectorIP9func_declLb0EjE6insertERKS1_.exit ], [ %26, %39 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.039.051, i64 16
   %.not1.i.i = icmp eq ptr %76, %10
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declPN7datalog13relation_baseEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, label %.lr.ph.i.i32
@@ -2749,7 +2749,7 @@ _ZNK6vectorIP9func_declLb0EjE5emptyEv.exit.preheader: ; preds = %._crit_edge
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %50, %47
-  %.137.i.i.be = phi ptr [ %.old.i.i, %50 ], [ %49, %47 ]
+  %.137.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i, %50 ]
   br label %.lr.ph38.i.i, !llvm.loop !304
 
 .loopexit:                                        ; preds = %36, %50, %47, %.preheader.i.i
@@ -2791,7 +2791,7 @@ _ZN6vectorIP9func_declLb0EjE9push_backERKS1_.exit: ; preds = %52, %.noexc
   br label %89
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %31, %42, %_ZN6vectorIP9func_declLb0EjE9push_backERKS1_.exit
-  %67 = phi ptr [ %59, %_ZN6vectorIP9func_declLb0EjE9push_backERKS1_.exit ], [ %18, %42 ], [ %18, %31 ]
+  %67 = phi ptr [ %18, %42 ], [ %59, %_ZN6vectorIP9func_declLb0EjE9push_backERKS1_.exit ], [ %18, %31 ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.018.028, i64 8
   %.not1.i.i = icmp eq ptr %68, %8
   br i1 %.not1.i.i, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, label %.lr.ph.i.i14
@@ -3066,7 +3066,7 @@ _ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i: ;
   br label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit
 
 _ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit: ; preds = %104, %106, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i
-  %112 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i ], [ %107, %106 ], [ null, %104 ]
+  %112 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i ], [ null, %104 ], [ %107, %106 ]
   %113 = getelementptr inbounds nuw i8, ptr %84, i64 40
   store ptr %112, ptr %113, align 8, !tbaa !35
   %114 = getelementptr inbounds nuw i8, ptr %84, i64 48
@@ -3165,7 +3165,7 @@ _ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18:
   br label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19
 
 _ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19: ; preds = %153, %155, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18
-  %161 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18 ], [ %156, %155 ], [ null, %153 ]
+  %161 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18 ], [ null, %153 ], [ %156, %155 ]
   %162 = getelementptr inbounds nuw i8, ptr %133, i64 40
   store ptr %161, ptr %162, align 8, !tbaa !35
   %163 = getelementptr inbounds nuw i8, ptr %133, i64 48
@@ -4218,7 +4218,7 @@ define hidden noundef ptr @_ZN7datalog16relation_manager17mk_empty_relationERKNS
   br i1 %.not27.old.i.i.i.i, label %_ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %37, %34
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !275
 
 .loopexit.i:                                      ; preds = %18, %29
@@ -4527,7 +4527,7 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN6vectorImLb0EjE6resizeEj.exit
 
 _ZN6vectorImLb0EjE6resizeEj.exit:                 ; preds = %15, %22, %.lr.ph.preheader.i
-  %.0.i15 = phi i32 [ %.0.i1824, %15 ], [ %7, %22 ], [ %7, %.lr.ph.preheader.i ]
+  %.0.i15 = phi i32 [ %7, %.lr.ph.preheader.i ], [ %.0.i1824, %15 ], [ %7, %22 ]
   %.not25 = icmp eq i32 %.0.i15, 0
   br i1 %.not25, label %.critedge, label %.lr.ph
 
@@ -4737,7 +4737,7 @@ define hidden noundef ptr @_ZN7datalog16relation_manager16mk_full_relationERKNS_
   br i1 %.not27.old.i.i.i.i, label %_ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %37, %34
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !275
 
 .loopexit.i:                                      ; preds = %18, %29
@@ -4977,7 +4977,7 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN6vectorImLb0EjE6resizeEj.exit
 
 _ZN6vectorImLb0EjE6resizeEj.exit:                 ; preds = %17, %24, %.lr.ph.preheader.i
-  %.0.i.i13 = phi i32 [ %.0.i.i1622, %17 ], [ %9, %24 ], [ %9, %.lr.ph.preheader.i ]
+  %.0.i.i13 = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.0.i.i1622, %17 ], [ %9, %24 ]
   %.not = icmp eq i32 %.0.i.i13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -6203,7 +6203,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %.not27.old.i.i.i.i, label %_ZNK7datalog16relation_manager16try_get_relationEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %50, %47
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %50 ], [ %49, %47 ]
+  %.137.i.i.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i.i.i, %50 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !277
 
 _ZNK7datalog16relation_manager16try_get_relationEP9func_decl.exit: ; preds = %31, %42
@@ -6780,7 +6780,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i:      ; preds = %.noexc.i, %34
   resume { ptr, i32 } %49
 
 _ZN7datalog16relation_manager32default_relation_join_project_fnC2EPNS_17tr_infrastructureINS_15relation_traitsEE7join_fnEjPKj.exit: ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i, %9, %26, %.thread, %20
-  %.1 = phi ptr [ %24, %20 ], [ null, %.thread ], [ %27, %26 ], [ %15, %9 ], [ %27, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i ]
+  %.1 = phi ptr [ %24, %20 ], [ %15, %9 ], [ null, %.thread ], [ %27, %26 ], [ %27, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i ]
   ret ptr %.1
 }
 
@@ -7938,7 +7938,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i:      ; preds = %.noexc.i, %35
   resume { ptr, i32 } %50
 
 _ZN7datalog16relation_manager29default_table_join_project_fnC2EPNS_17tr_infrastructureINS_12table_traitsEE7join_fnERKNS_10table_baseES9_jPKjSB_jSB_.exit: ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i, %8, %25, %.thread, %19
-  %.1 = phi ptr [ %23, %19 ], [ null, %.thread ], [ %26, %25 ], [ %14, %8 ], [ %26, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i ]
+  %.1 = phi ptr [ %23, %19 ], [ %14, %8 ], [ null, %.thread ], [ %26, %25 ], [ %26, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i ]
   ret ptr %.1
 }
 
@@ -20988,7 +20988,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declPN7data
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !664
 
 .loopexit38:                                      ; preds = %17, %28
@@ -21217,7 +21217,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI9func_decl
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !666
 
 .loopexit38:                                      ; preds = %17, %28

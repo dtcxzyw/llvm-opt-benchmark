@@ -2669,7 +2669,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit: ; preds = %1, %._cri
   br i1 %12, label %13, label %.critedge268
 
 .critedge268:                                     ; preds = %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit, %._crit_edge
-  %.0.lcssa = phi i1 [ %.2, %._crit_edge ], [ %.0398, %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit ]
+  %.0.lcssa = phi i1 [ %.0398, %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit ], [ %.2, %._crit_edge ]
   br i1 %.0.lcssa, label %43, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.exit
 
 13:                                               ; preds = %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit
@@ -2911,7 +2911,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit83: ; preds = %43, %.l
   br i1 %.not27.old.i.i, label %.loopexit279, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %103, %100
-  %.137.i.i.be = phi ptr [ %.old.i.i, %103 ], [ %102, %100 ]
+  %.137.i.i.be = phi ptr [ %102, %100 ], [ %.old.i.i, %103 ]
   br label %.lr.ph38.i.i, !llvm.loop !431
 
 .loopexit279:                                     ; preds = %89, %103, %100, %.preheader.i.i
@@ -3266,7 +3266,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br i1 %.not27.old.i.i120, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit127, label %.lr.ph38.i.i116.backedge
 
 .lr.ph38.i.i116.backedge:                         ; preds = %229, %226
-  %.137.i.i117.be = phi ptr [ %.old.i.i119, %229 ], [ %228, %226 ]
+  %.137.i.i117.be = phi ptr [ %228, %226 ], [ %.old.i.i119, %229 ]
   br label %.lr.ph38.i.i116, !llvm.loop !431
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit126: ; preds = %210, %221
@@ -3489,11 +3489,11 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br i1 %.not644, label %196, label %._crit_edge409, !llvm.loop !450
 
 .critedge:                                        ; preds = %84, %95, %.preheader, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit, %._crit_edge409, %.noexc168, %292, %289, %277, %274
-  %.sroa.0220.3 = phi ptr [ %.sroa.0220.13, %289 ], [ %.sroa.0220.13, %292 ], [ %.sroa.0220.13, %.noexc168 ], [ %.sroa.0220.13, %274 ], [ %.sroa.0220.13, %277 ], [ %.sroa.0220.2424, %95 ], [ %.sroa.0220.5416, %.preheader ], [ %.sroa.0220.7, %._crit_edge409 ], [ %.sroa.0220.5416, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.0220.2424, %84 ]
-  %.sroa.20.3 = phi i32 [ %.sroa.20.9, %289 ], [ %.sroa.20.9, %292 ], [ %.sroa.20.9, %.noexc168 ], [ %.sroa.20.9, %274 ], [ %.sroa.20.9, %277 ], [ %.sroa.20.2425, %95 ], [ %.sroa.20.4417, %.preheader ], [ %.sroa.20.5, %._crit_edge409 ], [ %.sroa.20.4417, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.20.2425, %84 ]
-  %.sroa.35.3 = phi i32 [ %.sroa.35.5, %289 ], [ %294, %292 ], [ %.sroa.35.5, %.noexc168 ], [ %.sroa.35.5, %274 ], [ %279, %277 ], [ %.sroa.35.2426, %95 ], [ %.sroa.35.4418, %.preheader ], [ %.sroa.35.5, %._crit_edge409 ], [ %.sroa.35.4418, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.35.2426, %84 ]
-  %.sroa.46.3 = phi i32 [ %.sroa.46.12, %289 ], [ %spec.select264, %292 ], [ %.sroa.46.12, %.noexc168 ], [ %.sroa.46.12, %274 ], [ %spec.select262, %277 ], [ %.sroa.46.2427, %95 ], [ %.sroa.46.4419, %.preheader ], [ %.sroa.46.5, %._crit_edge409 ], [ %.sroa.46.4419, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.46.2427, %84 ]
-  %.265 = phi i1 [ true, %289 ], [ true, %292 ], [ true, %.noexc168 ], [ true, %274 ], [ true, %277 ], [ %.164428, %95 ], [ %.366420, %.preheader ], [ %.467, %._crit_edge409 ], [ %.366420, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.164428, %84 ]
+  %.sroa.0220.3 = phi ptr [ %.sroa.0220.13, %289 ], [ %.sroa.0220.2424, %95 ], [ %.sroa.0220.13, %292 ], [ %.sroa.0220.13, %.noexc168 ], [ %.sroa.0220.5416, %.preheader ], [ %.sroa.0220.13, %274 ], [ %.sroa.0220.13, %277 ], [ %.sroa.0220.7, %._crit_edge409 ], [ %.sroa.0220.5416, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.0220.2424, %84 ]
+  %.sroa.20.3 = phi i32 [ %.sroa.20.9, %289 ], [ %.sroa.20.2425, %95 ], [ %.sroa.20.9, %292 ], [ %.sroa.20.9, %.noexc168 ], [ %.sroa.20.4417, %.preheader ], [ %.sroa.20.9, %274 ], [ %.sroa.20.9, %277 ], [ %.sroa.20.5, %._crit_edge409 ], [ %.sroa.20.4417, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.20.2425, %84 ]
+  %.sroa.35.3 = phi i32 [ %.sroa.35.5, %289 ], [ %.sroa.35.2426, %95 ], [ %294, %292 ], [ %.sroa.35.5, %.noexc168 ], [ %.sroa.35.4418, %.preheader ], [ %.sroa.35.5, %274 ], [ %279, %277 ], [ %.sroa.35.5, %._crit_edge409 ], [ %.sroa.35.4418, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.35.2426, %84 ]
+  %.sroa.46.3 = phi i32 [ %.sroa.46.12, %289 ], [ %.sroa.46.2427, %95 ], [ %spec.select264, %292 ], [ %.sroa.46.12, %.noexc168 ], [ %.sroa.46.4419, %.preheader ], [ %.sroa.46.12, %274 ], [ %spec.select262, %277 ], [ %.sroa.46.5, %._crit_edge409 ], [ %.sroa.46.4419, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.sroa.46.2427, %84 ]
+  %.265 = phi i1 [ true, %289 ], [ %.164428, %95 ], [ true, %292 ], [ true, %.noexc168 ], [ %.366420, %.preheader ], [ true, %274 ], [ true, %277 ], [ %.467, %._crit_edge409 ], [ %.366420, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit ], [ %.164428, %84 ]
   %297 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0423, i64 8
   %.not1.i.i128 = icmp eq ptr %297, %68
   br i1 %.not1.i.i128, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit131, label %.lr.ph.i.i129

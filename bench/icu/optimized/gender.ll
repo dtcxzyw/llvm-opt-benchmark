@@ -1202,7 +1202,7 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
   br i1 %.not30, label %20, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %16, %.lr.ph45, %20, %.preheader, %.preheader36, %.critedge.loopexit, %10, %7, %4, %8
-  %.027 = phi i32 [ 2, %7 ], [ 2, %4 ], [ %9, %8 ], [ 2, %10 ], [ %19, %.critedge.loopexit ], [ 1, %.preheader36 ], [ 1, %.preheader ], [ 0, %.lr.ph45 ], [ 1, %20 ], [ 2, %16 ], [ %14, %.lr.ph ], [ 2, %15 ]
+  %.027 = phi i32 [ 2, %7 ], [ 2, %4 ], [ %9, %8 ], [ 2, %10 ], [ %19, %.critedge.loopexit ], [ 0, %.lr.ph45 ], [ 1, %.preheader36 ], [ 1, %.preheader ], [ 1, %20 ], [ 2, %16 ], [ %14, %.lr.ph ], [ 2, %15 ]
   ret i32 %.027
 }
 
@@ -1337,7 +1337,7 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not30.i, label %20, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit
 
 _ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit: ; preds = %.lr.ph.i, %15, %16, %20, %.lr.ph45.i, %4, %7, %8, %10, %.preheader36.i, %.preheader.i, %.critedge.loopexit.i
-  %.027.i = phi i32 [ 2, %7 ], [ 2, %4 ], [ %9, %8 ], [ 2, %10 ], [ %19, %.critedge.loopexit.i ], [ 1, %.preheader36.i ], [ 1, %.preheader.i ], [ 0, %.lr.ph45.i ], [ 1, %20 ], [ 2, %16 ], [ %14, %.lr.ph.i ], [ 2, %15 ]
+  %.027.i = phi i32 [ 2, %7 ], [ 2, %4 ], [ %9, %8 ], [ 2, %10 ], [ %19, %.critedge.loopexit.i ], [ 0, %.lr.ph45.i ], [ 1, %.preheader36.i ], [ 1, %.preheader.i ], [ 1, %20 ], [ 2, %16 ], [ %14, %.lr.ph.i ], [ 2, %15 ]
   ret i32 %.027.i
 }
 

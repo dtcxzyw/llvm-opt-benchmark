@@ -1094,8 +1094,8 @@ _ZN6vectorI6symbolLb0EjE6appendERKS1_.exit:       ; preds = %_ZNK6vectorI6symbol
   br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i107.preheader
 
 _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i107.preheader: ; preds = %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i99, %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit, %_ZN6vectorI6symbolLb0EjE7reverseEv.exit
-  %.ph329 = phi ptr [ %323, %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit ], [ null, %_ZN6vectorI6symbolLb0EjE7reverseEv.exit ], [ null, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i99 ]
-  %.ph330 = phi ptr [ %322, %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit ], [ %306, %_ZN6vectorI6symbolLb0EjE7reverseEv.exit ], [ %334, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i99 ]
+  %.ph329 = phi ptr [ null, %_ZN6vectorI6symbolLb0EjE7reverseEv.exit ], [ %323, %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit ], [ null, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i99 ]
+  %.ph330 = phi ptr [ %306, %_ZN6vectorI6symbolLb0EjE7reverseEv.exit ], [ %322, %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit ], [ %334, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i99 ]
   br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i107
 
 _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i107:       ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i107.preheader, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i109
@@ -1266,8 +1266,8 @@ _ZN6vectorIP4sortLb0EjE6appendERKS2_.exit:        ; preds = %_ZNK6vectorIP4sortL
   br label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i134.preheader
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i134.preheader: ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i126, %_ZN6vectorIP4sortLb0EjE6appendERKS2_.exit, %_ZN6vectorIP4sortLb0EjE7reverseEv.exit
-  %.ph = phi ptr [ %388, %_ZN6vectorIP4sortLb0EjE6appendERKS2_.exit ], [ null, %_ZN6vectorIP4sortLb0EjE7reverseEv.exit ], [ null, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i126 ]
-  %.ph322 = phi ptr [ %387, %_ZN6vectorIP4sortLb0EjE6appendERKS2_.exit ], [ %370, %_ZN6vectorIP4sortLb0EjE7reverseEv.exit ], [ %399, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i126 ]
+  %.ph = phi ptr [ null, %_ZN6vectorIP4sortLb0EjE7reverseEv.exit ], [ %388, %_ZN6vectorIP4sortLb0EjE6appendERKS2_.exit ], [ null, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i126 ]
+  %.ph322 = phi ptr [ %370, %_ZN6vectorIP4sortLb0EjE7reverseEv.exit ], [ %387, %_ZN6vectorIP4sortLb0EjE6appendERKS2_.exit ], [ %399, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i126 ]
   br label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i134
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i134:        ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i134.preheader, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i136

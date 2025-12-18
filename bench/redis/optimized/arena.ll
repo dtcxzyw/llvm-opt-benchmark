@@ -4404,7 +4404,7 @@ sz_s2u_compute.exit65:                            ; preds = %64, %66
   br label %sz_s2u.exit
 
 sz_s2u.exit:                                      ; preds = %.thread79, %sz_s2u.exit25.i, %17, %27
-  %82 = phi i64 [ %24, %17 ], [ %34, %27 ], [ %.0.i24.i, %sz_s2u.exit25.i ], [ %..0.i, %.thread79 ]
+  %82 = phi i64 [ %..0.i, %.thread79 ], [ %24, %17 ], [ %34, %27 ], [ %.0.i24.i, %sz_s2u.exit25.i ]
   %83 = icmp eq i64 %82, 0
   %84 = icmp samesign ugt i64 %4, 8070450532247928832
   %85 = or i1 %84, %83
@@ -4719,7 +4719,7 @@ sz_s2u_compute.exit35.i:                          ; preds = %231
   br label %sz_sa2u.exit.i
 
 sz_sa2u.exit.i:                                   ; preds = %.thread49.i, %sz_s2u.exit25.i.i
-  %.018.i.i = phi i64 [ %.0.i24.i.i, %sz_s2u.exit25.i.i ], [ %..0.i.i, %.thread49.i ]
+  %.018.i.i = phi i64 [ %..0.i.i, %.thread49.i ], [ %.0.i24.i.i, %sz_s2u.exit25.i.i ]
   %248 = add nsw i64 %.018.i.i, -8070450532247928833
   %249 = icmp ult i64 %248, -8070450532247928832
   br i1 %249, label %arena_sdalloc.exit, label %ipallocztm.exit.i, !prof !204
@@ -4729,7 +4729,7 @@ ipallocztm.exit.i:                                ; preds = %sz_sa2u.exit.i
   br label %arena_ralloc_move_helper.exit
 
 arena_ralloc_move_helper.exit:                    ; preds = %.thread.i, %158, %sz_s2u_compute.exit.i, %199, %203, %ipallocztm.exit.i
-  %.0.i75 = phi ptr [ %250, %ipallocztm.exit.i ], [ %204, %203 ], [ %.0.i21.ph.i, %.thread.i ], [ %.131.i.i, %158 ], [ %194, %sz_s2u_compute.exit.i ], [ %169, %199 ]
+  %.0.i75 = phi ptr [ %169, %199 ], [ %250, %ipallocztm.exit.i ], [ %204, %203 ], [ %.0.i21.ph.i, %.thread.i ], [ %.131.i.i, %158 ], [ %194, %sz_s2u_compute.exit.i ]
   %251 = icmp eq ptr %.0.i75, null
   br i1 %251, label %arena_sdalloc.exit, label %isdalloct.exit
 

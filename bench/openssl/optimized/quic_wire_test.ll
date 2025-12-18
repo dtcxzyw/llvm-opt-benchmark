@@ -396,7 +396,7 @@ PACKET_buf_init.exit35:                           ; preds = %47, %49
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !20
 
 .loopexit:                                        ; preds = %54, %.thread, %41, %36, %PACKET_buf_init.exit, %20, %17, %13
-  %.022.ph = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %20 ], [ 0, %PACKET_buf_init.exit ], [ 0, %36 ], [ 0, %41 ], [ 0, %.thread ], [ 1, %54 ]
+  %.022.ph = phi i32 [ 0, %.thread ], [ 0, %13 ], [ 0, %17 ], [ 0, %20 ], [ 0, %PACKET_buf_init.exit ], [ 0, %36 ], [ 0, %41 ], [ 1, %54 ]
   %56 = call i32 @WPACKET_finish(ptr noundef nonnull %2) #5
   br label %57
 

@@ -387,7 +387,7 @@ skip_prefix.exit28.preheader:                     ; preds = %skip_prefix.exit, %
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %skip_prefix.exit28, %13, %29, %15, %17, %4
-  %.017 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 0, %29 ], [ -1, %15 ], [ %19, %17 ], [ 0, %skip_prefix.exit28 ], [ 0, %20 ]
+  %.017 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 0, %29 ], [ 0, %skip_prefix.exit28 ], [ -1, %15 ], [ %19, %17 ], [ 0, %20 ]
   ret i32 %.017
 }
 

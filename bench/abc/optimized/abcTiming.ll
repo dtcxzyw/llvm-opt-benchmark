@@ -2507,10 +2507,10 @@ Vec_IntGrow.exit.i:                               ; preds = %28, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %.val2648 = phi ptr [ %33, %Vec_IntGrow.exit.i ], [ null, %Vec_IntAlloc.exit.thread ], [ %33, %.lr.ph.i ]
-  %37 = phi ptr [ %32, %Vec_IntGrow.exit.i ], [ %.val2029, %Vec_IntAlloc.exit.thread ], [ %32, %.lr.ph.i ]
-  %38 = phi ptr [ %34, %Vec_IntGrow.exit.i ], [ %14, %Vec_IntAlloc.exit.thread ], [ %34, %.lr.ph.i ]
-  %.val20.val3239 = phi i32 [ %.val20.val32, %Vec_IntGrow.exit.i ], [ %.val20.val30, %Vec_IntAlloc.exit.thread ], [ %.val20.val32, %.lr.ph.i ]
+  %.val2648 = phi ptr [ null, %Vec_IntAlloc.exit.thread ], [ %33, %Vec_IntGrow.exit.i ], [ %33, %.lr.ph.i ]
+  %37 = phi ptr [ %.val2029, %Vec_IntAlloc.exit.thread ], [ %32, %Vec_IntGrow.exit.i ], [ %32, %.lr.ph.i ]
+  %38 = phi ptr [ %14, %Vec_IntAlloc.exit.thread ], [ %34, %Vec_IntGrow.exit.i ], [ %34, %.lr.ph.i ]
+  %.val20.val3239 = phi i32 [ %.val20.val30, %Vec_IntAlloc.exit.thread ], [ %.val20.val32, %Vec_IntGrow.exit.i ], [ %.val20.val32, %.lr.ph.i ]
   store i32 %.val20.val3239, ptr %8, align 4, !tbaa !91
   %39 = getelementptr i8, ptr %37, i64 4
   %.val42 = load i32, ptr %39, align 4, !tbaa !45

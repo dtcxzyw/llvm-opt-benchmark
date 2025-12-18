@@ -3804,7 +3804,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %382, %380, %366, %3
   br label %389
 
 389:                                              ; preds = %.sink.split, %3, %3, %171, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %171 ], [ false, %3 ], [ false, %3 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %3 ], [ false, %4 ], [ false, %3 ], [ false, %171 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

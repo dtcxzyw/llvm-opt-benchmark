@@ -28739,7 +28739,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hd79e6f8ef3d48
           to label %25 unwind label %23, !noalias !2116
 
 .critedge.i:                                      ; preds = %29, %23
-  %.pn.i = phi { ptr, i32 } [ %30, %29 ], [ %24, %23 ]
+  %.pn.i = phi { ptr, i32 } [ %24, %23 ], [ %30, %29 ]
   %22 = load i64, ptr %11, align 8, !range !3, !alias.scope !2114, !noalias !2111, !noundef !4
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %.thread12, label %46
@@ -30506,7 +30506,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %188
 
 .loopexit.split-lp90.i.i:                         ; preds = %249, %248, %155, %._crit_edge.i.i
-  %.sroa.06.4.ph.i.i = phi i1 [ true, %155 ], [ true, %._crit_edge.i.i ], [ false, %248 ], [ false, %249 ]
+  %.sroa.06.4.ph.i.i = phi i1 [ true, %._crit_edge.i.i ], [ false, %248 ], [ false, %249 ], [ true, %155 ]
   %lpad.loopexit.split-lp92.i.i = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -30804,7 +30804,7 @@ _ZN11polars_core13chunked_array7builder4list16ListBuilderTrait17append_opt_serie
   br label %.body30.i.i
 
 .loopexit.split-lp95.i.i:                         ; preds = %314, %313, %285
-  %.sroa.06.7.ph.i.i = phi i1 [ true, %285 ], [ false, %313 ], [ false, %314 ]
+  %.sroa.06.7.ph.i.i = phi i1 [ false, %313 ], [ false, %314 ], [ true, %285 ]
   %lpad.loopexit.split-lp97.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body30.i.i

@@ -958,13 +958,13 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread2328
 
 .thread2328:                                      ; preds = %.lr.ph2422, %312, %.thread2327, %.thread2325, %._crit_edge2416, %441, %413
-  %442 = phi i1 [ true, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %312 ], [ false, %.lr.ph2422 ]
-  %.01953 = phi double [ %394, %413 ], [ %394, %441 ], [ %394, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %312 ], [ 0.000000e+00, %.lr.ph2422 ]
-  %.01952 = phi i32 [ %52, %413 ], [ 1, %441 ], [ 0, %._crit_edge2416 ], [ %52, %.thread2325 ], [ %52, %.thread2327 ], [ %52, %312 ], [ %52, %.lr.ph2422 ]
-  %.01951 = phi i32 [ %58, %413 ], [ %52, %441 ], [ %52, %._crit_edge2416 ], [ %58, %.thread2325 ], [ %58, %.thread2327 ], [ %58, %312 ], [ %58, %.lr.ph2422 ]
-  %.01929 = phi double [ %418, %413 ], [ %418, %441 ], [ %418, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %312 ], [ 0.000000e+00, %.lr.ph2422 ]
-  %.01926.shrunk = phi i1 [ false, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %312 ], [ false, %.lr.ph2422 ]
-  %.01925.shrunk = phi i1 [ %64, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ %64, %.thread2327 ], [ %64, %312 ], [ %64, %.lr.ph2422 ]
+  %442 = phi i1 [ false, %312 ], [ true, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %.lr.ph2422 ]
+  %.01953 = phi double [ 0.000000e+00, %312 ], [ %394, %413 ], [ %394, %441 ], [ %394, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %.lr.ph2422 ]
+  %.01952 = phi i32 [ %52, %312 ], [ %52, %413 ], [ 1, %441 ], [ 0, %._crit_edge2416 ], [ %52, %.thread2325 ], [ %52, %.thread2327 ], [ %52, %.lr.ph2422 ]
+  %.01951 = phi i32 [ %58, %312 ], [ %58, %413 ], [ %52, %441 ], [ %52, %._crit_edge2416 ], [ %58, %.thread2325 ], [ %58, %.thread2327 ], [ %58, %.lr.ph2422 ]
+  %.01929 = phi double [ 0.000000e+00, %312 ], [ %418, %413 ], [ %418, %441 ], [ %418, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %.lr.ph2422 ]
+  %.01926.shrunk = phi i1 [ false, %312 ], [ false, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %.lr.ph2422 ]
+  %.01925.shrunk = phi i1 [ %64, %312 ], [ %64, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ %64, %.thread2327 ], [ %64, %.lr.ph2422 ]
   %443 = call double @sqrt(double noundef %180) #7, !tbaa !3
   %444 = load i32, ptr %7, align 4, !tbaa !3
   %445 = sitofp i32 %444 to double
@@ -1336,10 +1336,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.loopexit2360.sink.split3492
 
 .loopexit2360.sink.split3492:                     ; preds = %626, %636, %.lr.ph2458.split.us, %616, %.lr.ph2458.split, %569, %560, %..loopexit2361_crit_edge2462
-  %.lcssa3422.sink.sink = phi double [ %.us-phi2473, %..loopexit2361_crit_edge2462 ], [ %589, %.lr.ph2458.split.us ], [ %554, %569 ], [ %610, %616 ], [ %554, %560 ], [ %610, %.lr.ph2458.split ], [ %632, %636 ], [ %632, %626 ]
-  %storemerge2146.lcssa.sink.ph = phi i32 [ %.us-phi2474, %..loopexit2361_crit_edge2462 ], [ %578, %.lr.ph2458.split.us ], [ %narrow3351, %569 ], [ %599, %616 ], [ %562, %560 ], [ %599, %.lr.ph2458.split ], [ %628, %626 ], [ %narrow3348, %636 ]
-  %.ph3493 = phi i32 [ %573, %..loopexit2361_crit_edge2462 ], [ %573, %.lr.ph2458.split.us ], [ %552, %569 ], [ %573, %616 ], [ %552, %560 ], [ %573, %.lr.ph2458.split ], [ %573, %636 ], [ %573, %626 ]
-  %.ph3494 = phi i32 [ %638, %..loopexit2361_crit_edge2462 ], [ %577, %.lr.ph2458.split.us ], [ %570, %569 ], [ %598, %616 ], [ %561, %560 ], [ %598, %.lr.ph2458.split ], [ %627, %626 ], [ %637, %636 ]
+  %.lcssa3422.sink.sink = phi double [ %554, %569 ], [ %589, %.lr.ph2458.split.us ], [ %.us-phi2473, %..loopexit2361_crit_edge2462 ], [ %610, %616 ], [ %554, %560 ], [ %610, %.lr.ph2458.split ], [ %632, %636 ], [ %632, %626 ]
+  %storemerge2146.lcssa.sink.ph = phi i32 [ %narrow3351, %569 ], [ %578, %.lr.ph2458.split.us ], [ %.us-phi2474, %..loopexit2361_crit_edge2462 ], [ %599, %616 ], [ %562, %560 ], [ %599, %.lr.ph2458.split ], [ %628, %626 ], [ %narrow3348, %636 ]
+  %.ph3493 = phi i32 [ %552, %569 ], [ %573, %.lr.ph2458.split.us ], [ %573, %..loopexit2361_crit_edge2462 ], [ %573, %616 ], [ %552, %560 ], [ %573, %.lr.ph2458.split ], [ %573, %636 ], [ %573, %626 ]
+  %.ph3494 = phi i32 [ %570, %569 ], [ %577, %.lr.ph2458.split.us ], [ %638, %..loopexit2361_crit_edge2462 ], [ %598, %616 ], [ %561, %560 ], [ %598, %.lr.ph2458.split ], [ %627, %626 ], [ %637, %636 ]
   store double %.lcssa3422.sink.sink, ptr %22, align 8, !tbaa !7
   br label %.loopexit2360
 
@@ -4837,9 +4837,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not2265.not, label %.lr.ph2812, label %.loopexit2347, !llvm.loop !82
 
 .loopexit2347:                                    ; preds = %.lr.ph2812, %2517, %916, %919, %1065, %._crit_edge2563, %2516, %._crit_edge2578, %1201
-  %.01949 = phi double [ %.11950, %2516 ], [ -1.000000e+00, %1201 ], [ -1.000000e+00, %._crit_edge2578 ], [ -1.000000e+00, %1065 ], [ -1.000000e+00, %._crit_edge2563 ], [ -1.000000e+00, %919 ], [ -1.000000e+00, %916 ], [ %.11950, %2517 ], [ %.11950, %.lr.ph2812 ]
-  %.01946 = phi double [ %.21948, %2516 ], [ -1.000000e+00, %1201 ], [ -1.000000e+00, %._crit_edge2578 ], [ -1.000000e+00, %1065 ], [ -1.000000e+00, %._crit_edge2563 ], [ -1.000000e+00, %919 ], [ -1.000000e+00, %916 ], [ %.21948, %2517 ], [ %.21948, %.lr.ph2812 ]
-  %.0.in = phi double [ %.3.in, %2516 ], [ %1140, %1201 ], [ %1140, %._crit_edge2578 ], [ %.1.in, %1065 ], [ %.1.in, %._crit_edge2563 ], [ %922, %919 ], [ %918, %916 ], [ %.3.in, %2517 ], [ %.3.in, %.lr.ph2812 ]
+  %.01949 = phi double [ -1.000000e+00, %916 ], [ %.11950, %2516 ], [ -1.000000e+00, %1201 ], [ -1.000000e+00, %._crit_edge2578 ], [ -1.000000e+00, %1065 ], [ -1.000000e+00, %._crit_edge2563 ], [ -1.000000e+00, %919 ], [ %.11950, %2517 ], [ %.11950, %.lr.ph2812 ]
+  %.01946 = phi double [ -1.000000e+00, %916 ], [ %.21948, %2516 ], [ -1.000000e+00, %1201 ], [ -1.000000e+00, %._crit_edge2578 ], [ -1.000000e+00, %1065 ], [ -1.000000e+00, %._crit_edge2563 ], [ -1.000000e+00, %919 ], [ %.21948, %2517 ], [ %.21948, %.lr.ph2812 ]
+  %.0.in = phi double [ %918, %916 ], [ %.3.in, %2516 ], [ %1140, %1201 ], [ %1140, %._crit_edge2578 ], [ %.1.in, %1065 ], [ %.1.in, %._crit_edge2563 ], [ %922, %919 ], [ %.3.in, %2517 ], [ %.3.in, %.lr.ph2812 ]
   %.0 = fptosi double %.0.in to i32
   %2530 = load double, ptr %30, align 8, !tbaa !7
   %2531 = load double, ptr %10, align 8, !tbaa !7

@@ -611,7 +611,7 @@ _ZL29_iup_contour_bound_forced_set10hb_array_tIK15contour_point_tES_IKiES4_R8hb_
   %255 = call i32 @llvm.abs.i32(i32 %.078.i.i, i1 true)
   %256 = uitofp nneg i32 %255 to double
   %257 = fcmp olt double %4, %256
-  br i1 %254, label %258, label %264
+  br i1 %254, label %258, label %270
 
 258:                                              ; preds = %253
   br i1 %257, label %259, label %.critedge.i.i
@@ -621,37 +621,37 @@ _ZL29_iup_contour_bound_forced_set10hb_array_tIK15contour_point_tES_IKiES4_R8hb_
   %261 = call i32 @llvm.abs.i32(i32 %260, i1 true)
   %262 = uitofp nneg i32 %261 to double
   %263 = fcmp olt double %4, %262
-  br i1 %263, label %276, label %.critedge.i.i
+  br i1 %263, label %264, label %.critedge.i.i
 
-264:                                              ; preds = %253
-  br i1 %257, label %265, label %.critedge.i.i
-
-265:                                              ; preds = %264
-  %266 = sub nsw i32 %.078.i.i, %.077..076.i.i
-  %267 = call i32 @llvm.abs.i32(i32 %266, i1 true)
-  %268 = uitofp nneg i32 %267 to double
-  %269 = fcmp olt double %4, %268
-  br i1 %269, label %270, label %.critedge.i.i
-
-270:                                              ; preds = %265
-  %271 = sitofp i32 %.077..076.i.i to double
-  %272 = sitofp i32 %.078.i.i to double
-  %273 = fadd double %4, %272
-  %274 = fcmp ogt double %273, %271
-  %275 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
-  %not..not91.i.i = xor i1 %275, %274
-  br i1 %not..not91.i.i, label %.critedge96.i.i, label %.critedge.i.i
-
-276:                                              ; preds = %259
-  %277 = sitofp i32 %.078.i.i to double
-  %278 = fsub double %277, %4
-  %279 = sitofp i32 %.076..077.i.i to double
-  %280 = fcmp olt double %278, %279
-  %281 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
-  %not..not92.i.i = xor i1 %281, %280
+264:                                              ; preds = %259
+  %265 = sitofp i32 %.078.i.i to double
+  %266 = fsub double %265, %4
+  %267 = sitofp i32 %.076..077.i.i to double
+  %268 = fcmp olt double %266, %267
+  %269 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
+  %not..not92.i.i = xor i1 %269, %268
   br i1 %not..not92.i.i, label %.critedge96.i.i, label %.critedge.i.i
 
-.critedge96.i.i:                                  ; preds = %276, %270, %248, %243, %236
+270:                                              ; preds = %253
+  br i1 %257, label %271, label %.critedge.i.i
+
+271:                                              ; preds = %270
+  %272 = sub nsw i32 %.078.i.i, %.077..076.i.i
+  %273 = call i32 @llvm.abs.i32(i32 %272, i1 true)
+  %274 = uitofp nneg i32 %273 to double
+  %275 = fcmp olt double %4, %274
+  br i1 %275, label %276, label %.critedge.i.i
+
+276:                                              ; preds = %271
+  %277 = sitofp i32 %.077..076.i.i to double
+  %278 = sitofp i32 %.078.i.i to double
+  %279 = fadd double %4, %278
+  %280 = fcmp ogt double %279, %277
+  %281 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
+  %not..not91.i.i = xor i1 %281, %280
+  br i1 %not..not91.i.i, label %.critedge96.i.i, label %.critedge.i.i
+
+.critedge96.i.i:                                  ; preds = %276, %264, %248, %243, %236
   %282 = load i8, ptr %128, align 8, !tbaa !49, !range !28, !noundef !29
   %283 = trunc nuw i8 %282 to i1
   br i1 %283, label %284, label %285, !prof !14
@@ -664,7 +664,7 @@ _ZL29_iup_contour_bound_forced_set10hb_array_tIK15contour_point_tES_IKiES4_R8hb_
   call void @_ZN12hb_bit_set_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %122, i32 noundef %220)
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit.i.i
 
-.critedge.i.i:                                    ; preds = %276, %270, %265, %264, %259, %258, %252, %248, %236, %231
+.critedge.i.i:                                    ; preds = %276, %271, %270, %264, %259, %258, %252, %248, %236, %231
   br i1 %228, label %227, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit.i.i, !llvm.loop !51
 
 _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit.i.i: ; preds = %.critedge.i.i, %285, %284
@@ -1452,8 +1452,8 @@ _ZN11hb_vector_tIiLb0EED2Ev.exit203.i:            ; preds = %_ZN11hb_vector_tIiL
   br label %548
 
 548:                                              ; preds = %546, %543
-  %.226.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %544, %543 ], [ %.0242.i.i.i.i.i.i.i.i.i.i.i, %546 ]
-  %.223.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.0213.i.i.i.i.i.i.i.i.i.i.i, %543 ], [ %547, %546 ]
+  %.226.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.0242.i.i.i.i.i.i.i.i.i.i.i, %546 ], [ %544, %543 ]
+  %.223.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %547, %546 ], [ %.0213.i.i.i.i.i.i.i.i.i.i.i, %543 ]
   %.not.not.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %.223.i.i.i.i.i.i.i.i.i.i.i, %.226.i.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !127
 
@@ -2027,8 +2027,8 @@ _ZN11hb_vector_tIiLb0EE5allocEjb.exit.i:          ; preds = %38
   br label %95
 
 95:                                               ; preds = %93, %90
-  %.226.i.i.i.i.i.i.i.i.i.i = phi i32 [ %91, %90 ], [ %.0242.i.i.i.i.i.i.i.i.i.i, %93 ]
-  %.223.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.0213.i.i.i.i.i.i.i.i.i.i, %90 ], [ %94, %93 ]
+  %.226.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.0242.i.i.i.i.i.i.i.i.i.i, %93 ], [ %91, %90 ]
+  %.223.i.i.i.i.i.i.i.i.i.i = phi i32 [ %94, %93 ], [ %.0213.i.i.i.i.i.i.i.i.i.i, %90 ]
   %.not.not.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %.223.i.i.i.i.i.i.i.i.i.i, %.226.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !127
 
@@ -2395,8 +2395,8 @@ _ZL19_can_iup_in_between10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiid.ex
   br label %245
 
 245:                                              ; preds = %243, %240
-  %.226.i.i.i.i.i.i.i.i.i.i117 = phi i32 [ %241, %240 ], [ %.0242.i.i.i.i.i.i.i.i.i.i115, %243 ]
-  %.223.i.i.i.i.i.i.i.i.i.i118 = phi i32 [ %.0213.i.i.i.i.i.i.i.i.i.i114, %240 ], [ %244, %243 ]
+  %.226.i.i.i.i.i.i.i.i.i.i117 = phi i32 [ %.0242.i.i.i.i.i.i.i.i.i.i115, %243 ], [ %241, %240 ]
+  %.223.i.i.i.i.i.i.i.i.i.i118 = phi i32 [ %244, %243 ], [ %.0213.i.i.i.i.i.i.i.i.i.i114, %240 ]
   %.not.not.i.i.i.i.i.i.i.i.i.i119 = icmp sgt i32 %.223.i.i.i.i.i.i.i.i.i.i118, %.226.i.i.i.i.i.i.i.i.i.i117
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i119, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126, label %.lr.ph.i.i.i.i.i.i.i.i.i.i113, !llvm.loop !127
 
@@ -2444,7 +2444,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126: ; preds = %245, %
   br i1 %.not79.not.old, label %.lr.ph.backedge, label %.loopexit
 
 .lr.ph.backedge:                                  ; preds = %.critedge81, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126
-  %.076161.be = phi i32 [ -1, %.critedge81 ], [ %265, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126 ]
+  %.076161.be = phi i32 [ %265, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126 ], [ -1, %.critedge81 ]
   br label %.lr.ph, !llvm.loop !145
 
 .loopexit:                                        ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126, %.critedge81, %115, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit
@@ -2460,7 +2460,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126: ; preds = %245, %
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.thread.sink.split, %47, %28, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %28 ], [ true, %47 ], [ false, %.thread.sink.split ], [ true, %.loopexit ]
+  %.0 = phi i1 [ false, %.thread.sink.split ], [ false, %28 ], [ false, %8 ], [ true, %47 ], [ true, %.loopexit ]
   ret i1 %.0
 }
 
@@ -2893,8 +2893,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr
   br label %35
 
 35:                                               ; preds = %33, %30
-  %.226.i.i.i.i = phi i32 [ %31, %30 ], [ %.0242.i.i.i.i, %33 ]
-  %.223.i.i.i.i = phi i32 [ %.0213.i.i.i.i, %30 ], [ %34, %33 ]
+  %.226.i.i.i.i = phi i32 [ %.0242.i.i.i.i, %33 ], [ %31, %30 ]
+  %.223.i.i.i.i = phi i32 [ %34, %33 ], [ %.0213.i.i.i.i, %30 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %.lr.ph.i.i.i.i, !llvm.loop !170
 
@@ -3219,8 +3219,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12hb_bit_set_t8previousEPj
   br label %27
 
 27:                                               ; preds = %25, %22
-  %.226.i.i.i.i = phi i32 [ %23, %22 ], [ %.0242.i.i.i.i, %25 ]
-  %.223.i.i.i.i = phi i32 [ %.0213.i.i.i.i, %22 ], [ %26, %25 ]
+  %.226.i.i.i.i = phi i32 [ %.0242.i.i.i.i, %25 ], [ %23, %22 ]
+  %.223.i.i.i.i = phi i32 [ %26, %25 ], [ %.0213.i.i.i.i, %22 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %.lr.ph.i.i.i.i, !llvm.loop !127
 
@@ -3772,8 +3772,8 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull 
   br label %31
 
 31:                                               ; preds = %29, %26
-  %.226.i.i.i.i.i = phi i32 [ %27, %26 ], [ %.0242.i.i.i.i.i, %29 ]
-  %.223.i.i.i.i.i = phi i32 [ %.0213.i.i.i.i.i, %26 ], [ %30, %29 ]
+  %.226.i.i.i.i.i = phi i32 [ %.0242.i.i.i.i.i, %29 ], [ %27, %26 ]
+  %.223.i.i.i.i.i = phi i32 [ %30, %29 ], [ %.0213.i.i.i.i.i, %26 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.223.i.i.i.i.i, %.226.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !127
 
@@ -3878,8 +3878,8 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t3addEj(ptr noundef nonnull 
   br label %35
 
 35:                                               ; preds = %33, %30
-  %.226.i.i.i.i.i = phi i32 [ %31, %30 ], [ %.0242.i.i.i.i.i, %33 ]
-  %.223.i.i.i.i.i = phi i32 [ %.0213.i.i.i.i.i, %30 ], [ %34, %33 ]
+  %.226.i.i.i.i.i = phi i32 [ %.0242.i.i.i.i.i, %33 ], [ %31, %30 ]
+  %.223.i.i.i.i.i = phi i32 [ %34, %33 ], [ %.0213.i.i.i.i.i, %30 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.223.i.i.i.i.i, %.226.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !127
 

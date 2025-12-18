@@ -9186,10 +9186,10 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br label %.thread21
 
 .thread21:                                        ; preds = %93, %.lr.ph, %470, %.thread21.sink.split, %.lr.ph.preheader, %4
-  %478 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %39, %.thread21.sink.split ], [ %465, %470 ], [ %465, %.lr.ph ], [ %39, %93 ]
-  %479 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %40, %.thread21.sink.split ], [ %466, %470 ], [ %466, %.lr.ph ], [ %40, %93 ]
-  %480 = phi i1 [ false, %4 ], [ false, %.lr.ph.preheader ], [ true, %.thread21.sink.split ], [ true, %470 ], [ true, %.lr.ph ], [ true, %93 ]
-  %481 = phi i32 [ %10, %4 ], [ %10, %.lr.ph.preheader ], [ %50, %.thread21.sink.split ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
+  %478 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %.thread21.sink.split ], [ 0, %4 ], [ %39, %93 ], [ %465, %.lr.ph ], [ %465, %470 ]
+  %479 = phi i32 [ 0, %.lr.ph.preheader ], [ %40, %.thread21.sink.split ], [ 0, %4 ], [ %40, %93 ], [ %466, %.lr.ph ], [ %466, %470 ]
+  %480 = phi i1 [ false, %.lr.ph.preheader ], [ true, %.thread21.sink.split ], [ false, %4 ], [ true, %470 ], [ true, %.lr.ph ], [ true, %93 ]
+  %481 = phi i32 [ %10, %.lr.ph.preheader ], [ %50, %.thread21.sink.split ], [ %10, %4 ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
   store i32 %481, ptr %9, align 4
   %482 = load volatile i32, ptr %9, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !105
@@ -9671,7 +9671,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
   br label %173
 
 173:                                              ; preds = %171, %167
-  %174 = phi i32 [ 0, %171 ], [ %96, %167 ]
+  %174 = phi i32 [ %96, %167 ], [ 0, %171 ]
   %175 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %176 = load i8, ptr %175, align 4
   %177 = and i8 %176, 1
@@ -9993,7 +9993,7 @@ define internal void @e1000_alloc_rx_buffers(ptr noundef captures(none) %0, ptr 
   br label %.thread8
 
 .thread8:                                         ; preds = %139, %.thread8.sink.split, %3
-  %147 = phi i32 [ %10, %3 ], [ %25, %.thread8.sink.split ], [ %140, %139 ]
+  %147 = phi i32 [ %25, %.thread8.sink.split ], [ %10, %3 ], [ %140, %139 ]
   %148 = load i32, ptr %9, align 8
   %149 = icmp eq i32 %148, %147
   br i1 %149, label %162, label %150, !prof !44

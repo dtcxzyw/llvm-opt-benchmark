@@ -1537,10 +1537,10 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %154
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.thread:       ; preds = %.lr.ph178, %.lr.ph185, %121, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNK4ncnn6CpuSet10is_enabledEi.exit
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0180, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.sroa.10.0180, %121 ], [ %.sroa.10.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.10.0180, %.lr.ph185 ], [ %.sroa.10.0180, %.lr.ph178 ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0181, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.sroa.14.0181, %121 ], [ %.sroa.14.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.14.0181, %.lr.ph185 ], [ %.sroa.14.0181, %.lr.ph178 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0182, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.sroa.0.0182, %121 ], [ %.sroa.0.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.0.0182, %.lr.ph185 ], [ %.sroa.0.0182, %.lr.ph178 ]
-  %.1 = phi i32 [ %.068183, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.068183, %121 ], [ %149, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.068183, %.lr.ph185 ], [ %.068183, %.lr.ph178 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0180, %.lr.ph185 ], [ %.sroa.10.0180, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.sroa.10.0180, %121 ], [ %.sroa.10.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.10.0180, %.lr.ph178 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0181, %.lr.ph185 ], [ %.sroa.14.0181, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.sroa.14.0181, %121 ], [ %.sroa.14.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.14.0181, %.lr.ph178 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0182, %.lr.ph185 ], [ %.sroa.0.0182, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.sroa.0.0182, %121 ], [ %.sroa.0.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.sroa.0.0182, %.lr.ph178 ]
+  %.1 = phi i32 [ %.068183, %.lr.ph185 ], [ %.068183, %_ZNK4ncnn6CpuSet10is_enabledEi.exit ], [ %.068183, %121 ], [ %149, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.068183, %.lr.ph178 ]
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %150 = load i32, ptr @_ZL10g_cpucount, align 4, !tbaa !10
   %151 = sext i32 %150 to i64

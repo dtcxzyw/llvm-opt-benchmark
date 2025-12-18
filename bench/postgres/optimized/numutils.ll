@@ -305,9 +305,9 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br i1 %.not124, label %.loopexit142, label %109
 
 .loopexit:                                        ; preds = %103, %85, %62, %118
-  %.0107 = phi ptr [ %74, %85 ], [ %.3, %118 ], [ %46, %62 ], [ %92, %103 ]
-  %.3100 = phi i16 [ %.4101.ph, %85 ], [ %.8105.ph, %118 ], [ %.198.ph, %62 ], [ %.6103.ph, %103 ]
-  %.6 = phi ptr [ %.7, %85 ], [ %.11, %118 ], [ %.4, %62 ], [ %.9, %103 ]
+  %.0107 = phi ptr [ %.3, %118 ], [ %46, %62 ], [ %74, %85 ], [ %92, %103 ]
+  %.3100 = phi i16 [ %.8105.ph, %118 ], [ %.198.ph, %62 ], [ %.4101.ph, %85 ], [ %.6103.ph, %103 ]
+  %.6 = phi ptr [ %.11, %118 ], [ %.4, %62 ], [ %.7, %85 ], [ %.9, %103 ]
   %131 = icmp eq ptr %.6, %.0107
   br i1 %131, label %.loopexit142, label %.preheader, !prof !5
 
@@ -666,9 +666,9 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not120, label %.loopexit138, label %112
 
 .loopexit:                                        ; preds = %106, %88, %65, %122
-  %.0107 = phi ptr [ %77, %88 ], [ %.3, %122 ], [ %49, %65 ], [ %95, %106 ]
-  %.3100 = phi i32 [ %.4101.ph, %88 ], [ %.8105.ph, %122 ], [ %.198.ph, %65 ], [ %.6103.ph, %106 ]
-  %.6 = phi ptr [ %.7, %88 ], [ %.11, %122 ], [ %.4, %65 ], [ %.9, %106 ]
+  %.0107 = phi ptr [ %.3, %122 ], [ %49, %65 ], [ %77, %88 ], [ %95, %106 ]
+  %.3100 = phi i32 [ %.8105.ph, %122 ], [ %.198.ph, %65 ], [ %.4101.ph, %88 ], [ %.6103.ph, %106 ]
+  %.6 = phi ptr [ %.11, %122 ], [ %.4, %65 ], [ %.7, %88 ], [ %.9, %106 ]
   %135 = icmp eq ptr %.6, %.0107
   br i1 %135, label %.loopexit138, label %.preheader, !prof !5
 
@@ -1019,9 +1019,9 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not118, label %.loopexit136, label %113
 
 .loopexit:                                        ; preds = %107, %89, %66, %123
-  %.0107 = phi ptr [ %78, %89 ], [ %.3, %123 ], [ %50, %66 ], [ %96, %107 ]
-  %.3100 = phi i64 [ %.4101.ph, %89 ], [ %.8105.ph, %123 ], [ %.198.ph, %66 ], [ %.6103.ph, %107 ]
-  %.6 = phi ptr [ %.7, %89 ], [ %.11, %123 ], [ %.4, %66 ], [ %.9, %107 ]
+  %.0107 = phi ptr [ %.3, %123 ], [ %50, %66 ], [ %78, %89 ], [ %96, %107 ]
+  %.3100 = phi i64 [ %.8105.ph, %123 ], [ %.198.ph, %66 ], [ %.4101.ph, %89 ], [ %.6103.ph, %107 ]
+  %.6 = phi ptr [ %.11, %123 ], [ %.4, %66 ], [ %.7, %89 ], [ %.9, %107 ]
   %136 = icmp eq ptr %.6, %.0107
   br i1 %136, label %.loopexit136, label %.preheader, !prof !5
 

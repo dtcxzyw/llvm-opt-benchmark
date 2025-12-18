@@ -1277,7 +1277,7 @@ demux_video.exit:                                 ; preds = %489, %486, %483, %c
   br i1 %497, label %.outer.split.preheader, label %get_chunk.exit.thread, !llvm.loop !80
 
 get_chunk.exit.thread:                            ; preds = %demux_video.exit, %100, %96, %83, %35, %parse_chunk_headers.exit.i, %32, %26, %tailrecurse.i, %2
-  %.027 = phi i32 [ -541478725, %2 ], [ -541478725, %32 ], [ -541478725, %83 ], [ -541478725, %tailrecurse.i ], [ -541478725, %26 ], [ -541478725, %parse_chunk_headers.exit.i ], [ -541478725, %35 ], [ 0, %demux_video.exit ], [ -1094995529, %96 ], [ -541478725, %100 ]
+  %.027 = phi i32 [ -541478725, %83 ], [ -541478725, %2 ], [ -541478725, %32 ], [ -541478725, %tailrecurse.i ], [ -541478725, %26 ], [ -541478725, %parse_chunk_headers.exit.i ], [ -541478725, %35 ], [ 0, %demux_video.exit ], [ -1094995529, %96 ], [ -541478725, %100 ]
   ret i32 %.027
 }
 

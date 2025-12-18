@@ -2160,7 +2160,7 @@ Inta_ManEnqueue.exit80:                           ; preds = %136
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %Inta_ManEnqueue.exit, %Inta_ManCancelUntil.exit, %Inta_ManEnqueue.exit80, %._crit_edge, %160, %155, %120
-  %.062 = phi i32 [ 1, %Inta_ManCancelUntil.exit ], [ 1, %120 ], [ 0, %155 ], [ 1, %160 ], [ 0, %._crit_edge ], [ 0, %Inta_ManEnqueue.exit80 ], [ 0, %Inta_ManEnqueue.exit ], [ 1, %23 ]
+  %.062 = phi i32 [ 1, %Inta_ManCancelUntil.exit ], [ 0, %Inta_ManEnqueue.exit ], [ 0, %Inta_ManEnqueue.exit80 ], [ 1, %120 ], [ 0, %155 ], [ 1, %160 ], [ 0, %._crit_edge ], [ 1, %23 ]
   ret i32 %.062
 }
 

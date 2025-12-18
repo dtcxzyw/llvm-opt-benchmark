@@ -581,7 +581,7 @@ iso_string.exit170:                               ; preds = %iso_string.exit167,
   br i1 %.not154, label %332, label %74
 
 332:                                              ; preds = %321, %319, %331
-  %.0 = phi i32 [ %320, %319 ], [ %spec.select155, %331 ], [ %330, %321 ]
+  %.0 = phi i32 [ %330, %321 ], [ %spec.select155, %331 ], [ %320, %319 ]
   %.0.fr = freeze i32 %.0
   %333 = icmp eq i32 %.0.fr, 22
   %spec.select173 = select i1 %333, i32 0, i32 %.0.fr

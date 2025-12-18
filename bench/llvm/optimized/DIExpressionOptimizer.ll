@@ -858,7 +858,7 @@ _ZL22tryFoldCommutativeMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmR
   store i64 %.sink.i70, ptr %19, align 8, !tbaa !8
   br label %468, !llvm.loop !23
 
-402:                                              ; preds = %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.i, %356, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit67
+402:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit67, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.i, %356
   %403 = load ptr, ptr %21, align 8
   %404 = load ptr, ptr %164, align 8, !tbaa !18
   %405 = icmp eq ptr %403, %404

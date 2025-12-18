@@ -1123,7 +1123,7 @@ find_megaco_messageBody_names.exit:               ; preds = %204, %.split.loop.e
   br i1 %exitcond.not.i.i, label %megaco_tvb_find_token.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 megaco_tvb_find_token.exit:                       ; preds = %209, %.lr.ph.i.i, %232, %221, %223
-  %.013.i = phi i32 [ -1, %221 ], [ %224, %223 ], [ %225, %232 ], [ %.08.i.i, %.lr.ph.i.i ], [ -1, %209 ]
+  %.013.i = phi i32 [ -1, %221 ], [ %225, %232 ], [ %224, %223 ], [ %.08.i.i, %.lr.ph.i.i ], [ -1, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %.017.i, label %412 [
     i32 1, label %234
@@ -3039,7 +3039,7 @@ define internal fastcc i32 @megaco_tvb_find_token(ptr noundef %0, i32 noundef %1
   br i1 %exitcond.not.i, label %megaco_tvb_skip_wsp.exit, label %24, !llvm.loop !8
 
 megaco_tvb_skip_wsp.exit:                         ; preds = %5, %30, %24, %19, %17
-  %.013 = phi i32 [ -1, %17 ], [ %20, %19 ], [ %21, %30 ], [ %.08.i, %24 ], [ -1, %5 ]
+  %.013 = phi i32 [ -1, %17 ], [ %21, %30 ], [ %20, %19 ], [ %.08.i, %24 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -4318,7 +4318,7 @@ megaco_tvb_skip_wsp.exit237.i:                    ; preds = %481, %.lr.ph.i233.i
   br label %dissect_megaco_auditdescriptor.exit
 
 dissect_megaco_auditdescriptor.exit:              ; preds = %megaco_tvb_skip_wsp.exit237.i, %296, %470, %303, %196, %194, %489, %488, %484, %298, %190, %189, %188, %dissect_megaco_servicechangedescriptor.exit, %113, %megaco_tvb_skip_wsp.exit194, %96, %91
-  %spec.select180235 = phi i32 [ %spec.select180236, %489 ], [ %spec.select180, %488 ], [ %spec.select180, %484 ], [ %spec.select180, %298 ], [ %spec.select180, %91 ], [ %spec.select180, %190 ], [ %spec.select180, %189 ], [ %spec.select180, %188 ], [ %spec.select180, %dissect_megaco_servicechangedescriptor.exit ], [ %spec.select180, %113 ], [ %spec.select180, %megaco_tvb_skip_wsp.exit194 ], [ %spec.select180, %96 ], [ %spec.select180, %194 ], [ %spec.select180, %196 ], [ %spec.select180, %303 ], [ %spec.select180, %470 ], [ %spec.select180, %296 ], [ %spec.select180, %megaco_tvb_skip_wsp.exit237.i ]
+  %spec.select180235 = phi i32 [ %spec.select180236, %489 ], [ %spec.select180, %488 ], [ %spec.select180, %484 ], [ %spec.select180, %296 ], [ %spec.select180, %298 ], [ %spec.select180, %91 ], [ %spec.select180, %190 ], [ %spec.select180, %189 ], [ %spec.select180, %188 ], [ %spec.select180, %dissect_megaco_servicechangedescriptor.exit ], [ %spec.select180, %113 ], [ %spec.select180, %megaco_tvb_skip_wsp.exit194 ], [ %spec.select180, %96 ], [ %spec.select180, %194 ], [ %spec.select180, %196 ], [ %spec.select180, %303 ], [ %spec.select180, %470 ], [ %spec.select180, %megaco_tvb_skip_wsp.exit237.i ]
   %492 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %spec.select180235, i32 noundef %11, i8 noundef zeroext 44)
   %493 = icmp eq i32 %492, -1
   %494 = call i32 @llvm.smin.i32(i32 %4, i32 %492)

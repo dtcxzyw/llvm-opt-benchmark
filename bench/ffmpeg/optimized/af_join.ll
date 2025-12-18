@@ -354,7 +354,7 @@ define internal range(i32 -2147483648, 1) i32 @join_query_formats(ptr noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %3, %10
-  %.015 = phi i32 [ %14, %10 ], [ %., %._crit_edge ], [ %8, %3 ], [ %26, %.lr.ph ]
+  %.015 = phi i32 [ %8, %3 ], [ %14, %10 ], [ %., %._crit_edge ], [ %26, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
@@ -740,7 +740,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %exitcond195.not.i, label %.preheader134.i, label %186, !llvm.loop !79
 
 .preheader134.i:                                  ; preds = %180, %177, %123
-  %.093.lcssa224228.i = phi i32 [ %..093.i, %177 ], [ 2147483647, %123 ], [ %..093.i, %180 ]
+  %.093.lcssa224228.i = phi i32 [ 2147483647, %123 ], [ %..093.i, %177 ], [ %..093.i, %180 ]
   %181 = getelementptr inbounds nuw i8, ptr %114, i64 256
   %182 = load i32, ptr %181, align 8, !tbaa !77
   %183 = icmp sgt i32 %182, 0
@@ -863,7 +863,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %250, label %.lr.ph170.i, label %try_push_frame.exit, !llvm.loop !92
 
 .loopexit135.i:                                   ; preds = %130, %186, %196, %._crit_edge166.i, %176, %119
-  %.0101.i = phi i32 [ -12, %119 ], [ %214, %._crit_edge166.i ], [ -12, %176 ], [ -12, %186 ], [ -12, %196 ], [ -22, %130 ]
+  %.0101.i = phi i32 [ -12, %196 ], [ -12, %119 ], [ -12, %186 ], [ %214, %._crit_edge166.i ], [ -12, %176 ], [ -22, %130 ]
   call void @av_frame_free(ptr noundef nonnull %2) #11
   br label %try_push_frame.exit
 
@@ -906,12 +906,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %268, label %.lr.ph172.splitthread-pre-split.i, label %try_push_frame.exit, !llvm.loop !93
 
 try_push_frame.exit:                              ; preds = %265, %.lr.ph170.i, %.preheader.i, %._crit_edge.thread217.i, %235, %.loopexit135.i, %262
-  %.0.i = phi i32 [ -12, %._crit_edge.thread217.i ], [ %.0101.i, %.loopexit135.i ], [ 0, %262 ], [ %244, %235 ], [ 0, %.preheader.i ], [ %244, %.lr.ph170.i ], [ 0, %265 ]
+  %.0.i = phi i32 [ -12, %._crit_edge.thread217.i ], [ %.0101.i, %.loopexit135.i ], [ %244, %.lr.ph170.i ], [ 0, %262 ], [ %244, %235 ], [ 0, %.preheader.i ], [ 0, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %72, %.preheader, %24, %try_push_frame.exit, %.split.us, %52
-  %.1 = phi i32 [ %28, %24 ], [ 0, %.split.us ], [ %.0.i, %try_push_frame.exit ], [ 0, %52 ], [ 0, %.preheader ], [ %76, %72 ], [ 0, %14 ]
+  %.1 = phi i32 [ %28, %24 ], [ 0, %.split.us ], [ %.0.i, %try_push_frame.exit ], [ 0, %.preheader ], [ 0, %52 ], [ %76, %72 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
@@ -1385,7 +1385,7 @@ guess_map_any.exit.thread263:                     ; preds = %155, %guess_map_any
   br i1 %236, label %220, label %channel_list_pop_ch.exit, !llvm.loop !112
 
 channel_list_pop_ch.exit:                         ; preds = %19, %233, %guess_map_any.exit.thread263, %65, %74
-  %.2113.ph = phi i32 [ -22, %74 ], [ -22, %65 ], [ -22, %guess_map_any.exit.thread263 ], [ 0, %233 ], [ -12, %19 ]
+  %.2113.ph = phi i32 [ 0, %233 ], [ -22, %65 ], [ -22, %74 ], [ -22, %guess_map_any.exit.thread263 ], [ -12, %19 ]
   %.pr265 = load i32, ptr %8, align 8, !tbaa !51
   %.not204 = icmp eq i32 %.pr265, 0
   br i1 %.not204, label %._crit_edge201, label %.lr.ph200
@@ -1401,7 +1401,7 @@ channel_list_pop_ch.exit:                         ; preds = %19, %233, %guess_ma
   br i1 %240, label %.lr.ph200, label %._crit_edge201, !llvm.loop !113
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %._crit_edge195, %channel_list_pop_ch.exit
-  %.2113268 = phi i32 [ %.2113.ph, %channel_list_pop_ch.exit ], [ 0, %._crit_edge195 ], [ %.2113.ph, %.lr.ph200 ]
+  %.2113268 = phi i32 [ 0, %._crit_edge195 ], [ %.2113.ph, %channel_list_pop_ch.exit ], [ %.2113.ph, %.lr.ph200 ]
   call void @av_freep(ptr noundef nonnull %2) #11
   br label %241
 

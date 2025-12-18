@@ -520,7 +520,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %39, %86, %85, %.thread172, %113, %124, %.thread165, %32
-  %.0116 = phi i32 [ 2, %32 ], [ 2, %.thread165 ], [ %.3119.ph, %.thread172 ], [ 0, %124 ], [ 0, %113 ], [ 2, %85 ], [ 1, %86 ], [ 1, %39 ]
+  %.0116 = phi i32 [ 2, %32 ], [ 2, %.thread165 ], [ %.3119.ph, %.thread172 ], [ 1, %86 ], [ 0, %124 ], [ 0, %113 ], [ 2, %85 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0116
@@ -673,7 +673,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
   br label %74
 
 74:                                               ; preds = %48, %55, %60, %.critedge
-  %.167 = phi i64 [ %.06689, %60 ], [ %.06689, %55 ], [ %69, %.critedge ], [ %.06689, %48 ]
+  %.167 = phi i64 [ %.06689, %48 ], [ %69, %.critedge ], [ %.06689, %55 ], [ %.06689, %60 ]
   %75 = icmp ult i64 %.167, %1
   br i1 %75, label %19, label %.thread, !llvm.loop !22
 
@@ -904,7 +904,7 @@ shm_mq_get_sender.exit137:                        ; preds = %33, %35
   br i1 %113, label %._crit_edge, label %65, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %112, %109, %.thread, %56
-  %114 = phi i64 [ 0, %56 ], [ %107, %109 ], [ %82, %.thread ], [ %107, %112 ]
+  %114 = phi i64 [ 0, %56 ], [ %82, %.thread ], [ %107, %109 ], [ %107, %112 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %116 = load i64, ptr %115, align 8
   %117 = icmp ugt i64 %116, 1073741823
@@ -1029,7 +1029,7 @@ shm_mq_get_sender.exit137:                        ; preds = %33, %35
   br label %.thread140
 
 .thread140:                                       ; preds = %65, %171, %83, %126, %shm_mq_get_sender.exit, %176, %130, %39
-  %.2 = phi i32 [ 2, %39 ], [ 0, %83 ], [ 0, %130 ], [ %127, %126 ], [ 0, %176 ], [ %.0.i, %shm_mq_get_sender.exit ], [ %173, %171 ], [ %68, %65 ]
+  %.2 = phi i32 [ 2, %39 ], [ 0, %83 ], [ %173, %171 ], [ 0, %130 ], [ %127, %126 ], [ 0, %176 ], [ %.0.i, %shm_mq_get_sender.exit ], [ %68, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
@@ -1276,7 +1276,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
   br i1 %or.cond, label %.lr.ph.split, label %._crit_edge
 
 select.unfold:                                    ; preds = %53, %.lr.ph56, %._crit_edge57, %26, %._crit_edge
-  %.1.ph = phi i32 [ 0, %._crit_edge ], [ 1, %._crit_edge57 ], [ 1, %26 ], [ 2, %.lr.ph56 ], [ 2, %53 ]
+  %.1.ph = phi i32 [ 0, %._crit_edge ], [ 2, %.lr.ph56 ], [ 1, %._crit_edge57 ], [ 1, %26 ], [ 2, %53 ]
   ret i32 %.1.ph
 }
 

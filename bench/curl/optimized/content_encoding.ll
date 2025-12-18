@@ -484,7 +484,7 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   br label %.thread154
 
 .thread154:                                       ; preds = %141, %73, %108, %145, %125, %64, %63, %57, %52, %121, %120, %114, %109
-  %.2.ph = phi i32 [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ %144, %145 ], [ 0, %108 ], [ 61, %73 ], [ %126, %141 ]
+  %.2.ph = phi i32 [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ 61, %73 ], [ %144, %145 ], [ 0, %108 ], [ %126, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -869,8 +869,8 @@ process_zlib_error.exit88:                        ; preds = %48, %49
   store i32 0, ptr %9, align 4, !tbaa !101
   br label %exit_zlib.exit77.thread
 
-exit_zlib.exit77.thread:                          ; preds = %30, %51, %process_zlib_error.exit88, %process_zlib_error.exit, %31, %45, %27, %process_zlib_error.exit.i
-  %.1 = phi i32 [ %26, %process_zlib_error.exit.i ], [ %26, %27 ], [ 61, %51 ], [ 61, %process_zlib_error.exit88 ], [ 61, %process_zlib_error.exit ], [ %32, %31 ], [ 61, %45 ], [ 0, %30 ]
+exit_zlib.exit77.thread:                          ; preds = %30, %process_zlib_error.exit, %process_zlib_error.exit88, %31, %45, %51, %27, %process_zlib_error.exit.i
+  %.1 = phi i32 [ %26, %27 ], [ %26, %process_zlib_error.exit.i ], [ 61, %process_zlib_error.exit ], [ 61, %process_zlib_error.exit88 ], [ %32, %31 ], [ 61, %51 ], [ 61, %45 ], [ 0, %30 ]
   %.not72 = icmp eq i32 %7, 0
   br i1 %.not72, label %exit_zlib.exit, label %53
 

@@ -136,7 +136,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_renegotiate(ptr noundef %0, ptr n
   br label %44
 
 44:                                               ; preds = %.sink.split, %42, %31, %16, %22
-  %.0 = phi i32 [ 1, %31 ], [ 2, %16 ], [ 2, %22 ], [ 1, %42 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %31 ], [ 1, %42 ], [ 2, %16 ], [ 2, %22 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -366,7 +366,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_ec_pt_formats(ptr noundef %0, ptr
   br label %25
 
 25:                                               ; preds = %.sink.split, %23, %11
-  %.0 = phi i32 [ 2, %11 ], [ 1, %23 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %23 ], [ 2, %11 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -581,8 +581,8 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   br label %56
 
 56:                                               ; preds = %.lr.ph, %44, %49
-  %.244 = phi i64 [ %spec.select, %49 ], [ %.04258, %44 ], [ %.04258, %.lr.ph ]
-  %.241 = phi i64 [ %55, %49 ], [ %.03959, %44 ], [ %.03959, %.lr.ph ]
+  %.244 = phi i64 [ %.04258, %.lr.ph ], [ %spec.select, %49 ], [ %.04258, %44 ]
+  %.241 = phi i64 [ %.03959, %.lr.ph ], [ %55, %49 ], [ %.03959, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %57 = add nuw i64 %.03860, 1
   %58 = load i64, ptr %7, align 8, !tbaa !82
@@ -756,7 +756,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
   br label %56
 
 56:                                               ; preds = %.sink.split, %50, %44, %5
-  %.027 = phi i32 [ 2, %5 ], [ 2, %44 ], [ 1, %50 ], [ 0, %.sink.split ]
+  %.027 = phi i32 [ 1, %50 ], [ 2, %5 ], [ 2, %44 ], [ 0, %.sink.split ]
   ret i32 %.027
 }
 
@@ -1168,14 +1168,14 @@ define range(i32 0, 3) i32 @tls_construct_ctos_use_srtp(ptr noundef %0, ptr noun
   br i1 %.not30, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %.lr.ph, %21, %._crit_edge, %26, %28, %8, %10, %12
-  %.sink = phi i32 [ 480, %8 ], [ 480, %12 ], [ 480, %10 ], [ 498, %28 ], [ 498, %26 ], [ 498, %._crit_edge ], [ 490, %21 ], [ 490, %.lr.ph ]
+  %.sink = phi i32 [ 480, %8 ], [ 498, %._crit_edge ], [ 480, %12 ], [ 480, %10 ], [ 498, %26 ], [ 498, %28 ], [ 490, %21 ], [ 490, %.lr.ph ]
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_ctos_use_srtp) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
   br label %30
 
 30:                                               ; preds = %.sink.split, %28, %5
-  %.0 = phi i32 [ 2, %5 ], [ 1, %28 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %28 ], [ 2, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1333,15 +1333,15 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_versions(ptr noundef %0
   br i1 %.not23, label %.sink.split, label %29
 
 .sink.split:                                      ; preds = %.lr.ph, %._crit_edge, %27, %12, %14, %16, %5
-  %.sink30 = phi i32 [ 582, %12 ], [ 568, %5 ], [ 582, %16 ], [ 582, %14 ], [ 593, %27 ], [ 593, %._crit_edge ], [ 588, %.lr.ph ]
-  %.sink = phi i32 [ 786691, %12 ], [ %8, %5 ], [ 786691, %16 ], [ 786691, %14 ], [ 786691, %27 ], [ 786691, %._crit_edge ], [ 786691, %.lr.ph ]
+  %.sink30 = phi i32 [ 593, %._crit_edge ], [ 582, %12 ], [ 568, %5 ], [ 582, %16 ], [ 582, %14 ], [ 593, %27 ], [ 588, %.lr.ph ]
+  %.sink = phi i32 [ 786691, %._crit_edge ], [ 786691, %12 ], [ %8, %5 ], [ 786691, %16 ], [ 786691, %14 ], [ 786691, %27 ], [ 786691, %.lr.ph ]
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink30, ptr noundef nonnull @__func__.tls_construct_ctos_supported_versions) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #10
   br label %29
 
 29:                                               ; preds = %.sink.split, %27, %9
-  %.0 = phi i32 [ 2, %9 ], [ 1, %27 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %27 ], [ 2, %9 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1587,7 +1587,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
   br label %.loopexit49
 
 .loopexit49:                                      ; preds = %47, %70, %78, %27, %80, %.split.us, %23, %13
-  %.035 = phi i32 [ 0, %23 ], [ 0, %80 ], [ 0, %13 ], [ 0, %.split.us ], [ 0, %27 ], [ 1, %78 ], [ 0, %70 ], [ 0, %47 ]
+  %.035 = phi i32 [ 0, %23 ], [ 1, %78 ], [ 0, %80 ], [ 0, %13 ], [ 0, %.split.us ], [ 0, %27 ], [ 0, %70 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.035

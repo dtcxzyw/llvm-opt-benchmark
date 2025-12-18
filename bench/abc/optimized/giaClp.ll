@@ -381,7 +381,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %55, %.preheader53, %.preheader, %._crit_edge, %63, %54
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 1, %54 ], [ %66, %63 ], [ 0, %.preheader ], [ 0, %.preheader53 ], [ %58, %55 ], [ %62, %59 ]
+  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 1, %54 ], [ %66, %63 ], [ %58, %55 ], [ 0, %.preheader ], [ 0, %.preheader53 ], [ %62, %59 ]
   %67 = sext i32 %.1 to i64
   tail call void @Dsd_NodeSetMark(ptr noundef %1, i64 noundef %67) #14
   ret i32 %.1
@@ -1233,7 +1233,7 @@ Gia_ObjCollapseDeref.exit155..critedge4_crit_edge: ; preds = %Gia_ObjCollapseDer
   br i1 %exitcond181.not, label %.critedge6, label %154, !llvm.loop !66
 
 .critedge6:                                       ; preds = %154, %157, %.critedge2, %.critedge4
-  %.val194 = phi i32 [ %.val, %.critedge4 ], [ %.val105163, %.critedge2 ], [ %.val, %157 ], [ %.val, %154 ]
+  %.val194 = phi i32 [ %.val105163, %.critedge2 ], [ %.val, %.critedge4 ], [ %.val, %157 ], [ %.val, %154 ]
   store i32 %.val194, ptr %13, align 4, !tbaa !56
   br label %162
 

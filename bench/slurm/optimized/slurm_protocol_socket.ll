@@ -683,7 +683,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   br i1 %exitcond129.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %130, %125, %103, %109, %106, %84, %31, %33, %33, %98
-  %.1 = phi i32 [ %.0108, %33 ], [ %.0108, %33 ], [ %.0108, %106 ], [ %.0108, %109 ], [ %.0108, %31 ], [ %.0108, %98 ], [ %112, %125 ], [ %.0108, %84 ], [ %.0108, %103 ], [ %112, %130 ]
+  %.1 = phi i32 [ %.0108, %33 ], [ %.0108, %33 ], [ %.0108, %106 ], [ %.0108, %109 ], [ %.0108, %103 ], [ %.0108, %31 ], [ %.0108, %98 ], [ %112, %125 ], [ %.0108, %84 ], [ %112, %130 ]
   %132 = call i32 @timeval_tot_wait(ptr noundef nonnull %6) #12
   %133 = sub nsw i32 %3, %132
   %134 = icmp slt i32 %133, 1
@@ -1177,7 +1177,7 @@ _slurm_connect.exit.thread:                       ; preds = %107, %110, %106
   br label %131
 
 _slurm_connect.exit:                              ; preds = %64, %.thread39.i, %105
-  %.0.i = phi i32 [ %.3.i, %105 ], [ %76, %.thread39.i ], [ %66, %64 ]
+  %.0.i = phi i32 [ %.3.i, %105 ], [ %66, %64 ], [ %76, %.thread39.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not46 = icmp eq i32 %.0.i, 0
   br i1 %.not46, label %.loopexit, label %112
@@ -1248,7 +1248,7 @@ _slurm_connect.exit:                              ; preds = %64, %.thread39.i, %
   br label %150
 
 .loopexit60:                                      ; preds = %131, %117, %120
-  %.0.i5559 = phi i32 [ 113, %117 ], [ 113, %120 ], [ %.0.i5558, %131 ]
+  %.0.i5559 = phi i32 [ 113, %120 ], [ 113, %117 ], [ %.0.i5558, %131 ]
   %143 = call i32 @get_log_level() #12
   %144 = icmp sgt i32 %143, 5
   br i1 %144, label %145, label %147

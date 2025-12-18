@@ -58053,8 +58053,8 @@ lean_alloc_ctor.exit1139:                         ; preds = %lean_dec.exit844
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %7) #6
   br label %lean_dec.exit846
 
-lean_dec.exit838:                                 ; preds = %lean_dec.exit812, %lean_dec.exit816, %lean_dec.exit827, %lean_dec.exit823, %lean_dec.exit835, %lean_dec.exit837, %lean_alloc_ctor.exit1141
-  %.0678 = phi ptr [ %415, %lean_dec.exit837 ], [ %.0710, %lean_dec.exit823 ], [ %394, %lean_alloc_ctor.exit1141 ], [ %440, %lean_dec.exit835 ], [ %513, %lean_dec.exit827 ], [ %659, %lean_dec.exit812 ], [ %668, %lean_dec.exit816 ]
+lean_dec.exit838:                                 ; preds = %lean_dec.exit816, %lean_dec.exit812, %lean_dec.exit827, %lean_dec.exit823, %lean_dec.exit835, %lean_dec.exit837, %lean_alloc_ctor.exit1141
+  %.0678 = phi ptr [ %415, %lean_dec.exit837 ], [ %513, %lean_dec.exit827 ], [ %394, %lean_alloc_ctor.exit1141 ], [ %440, %lean_dec.exit835 ], [ %.0710, %lean_dec.exit823 ], [ %668, %lean_dec.exit816 ], [ %659, %lean_dec.exit812 ]
   %307 = getelementptr i8, ptr %177, i64 8
   %.val1086 = load i64, ptr %307, align 8, !tbaa !4
   %308 = tail call ptr @l_Array_mapMUnsafe_map___at_Lake_LeanConfig_mkDeclFields___spec__1(i64 noundef %.val1086, i64 noundef 0, ptr noundef %177)
@@ -58257,9 +58257,9 @@ lean_alloc_ctor.exit1141:                         ; preds = %lean_dec.exit839
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %177) #6
   br label %lean_dec.exit838.thread
 
-lean_dec.exit815.thread1221:                      ; preds = %lean_dec.exit825, %564, %563, %561, %616, %615, %613, %lean_dec.exit821, %lean_dec.exit810, %768, %770, %771, %716, %718, %719, %lean_dec.exit814
-  %.06981229 = phi ptr [ %668, %lean_dec.exit814 ], [ %659, %lean_dec.exit810 ], [ %659, %768 ], [ %659, %770 ], [ %659, %771 ], [ %668, %716 ], [ %668, %718 ], [ %668, %719 ], [ %513, %lean_dec.exit825 ], [ %513, %564 ], [ %513, %563 ], [ %513, %561 ], [ %.0710, %616 ], [ %.0710, %615 ], [ %.0710, %613 ], [ %.0710, %lean_dec.exit821 ]
-  %.07041228.in.in = phi i64 [ %698, %lean_dec.exit814 ], [ %750, %lean_dec.exit810 ], [ %750, %768 ], [ %750, %770 ], [ %750, %771 ], [ %698, %716 ], [ %698, %718 ], [ %698, %719 ], [ %543, %lean_dec.exit825 ], [ %543, %564 ], [ %543, %563 ], [ %543, %561 ], [ %595, %616 ], [ %595, %615 ], [ %595, %613 ], [ %595, %lean_dec.exit821 ]
+lean_dec.exit815.thread1221:                      ; preds = %lean_dec.exit825, %564, %563, %561, %616, %615, %613, %lean_dec.exit821, %718, %719, %716, %771, %770, %768, %lean_dec.exit814, %lean_dec.exit810
+  %.06981229 = phi ptr [ %659, %lean_dec.exit810 ], [ %668, %718 ], [ %668, %719 ], [ %668, %716 ], [ %659, %771 ], [ %659, %770 ], [ %659, %768 ], [ %668, %lean_dec.exit814 ], [ %513, %lean_dec.exit825 ], [ %513, %564 ], [ %513, %563 ], [ %513, %561 ], [ %.0710, %616 ], [ %.0710, %615 ], [ %.0710, %613 ], [ %.0710, %lean_dec.exit821 ]
+  %.07041228.in.in = phi i64 [ %750, %lean_dec.exit810 ], [ %698, %718 ], [ %698, %719 ], [ %698, %716 ], [ %750, %771 ], [ %750, %770 ], [ %750, %768 ], [ %698, %lean_dec.exit814 ], [ %543, %lean_dec.exit825 ], [ %543, %564 ], [ %543, %563 ], [ %543, %561 ], [ %595, %616 ], [ %595, %615 ], [ %595, %613 ], [ %595, %lean_dec.exit821 ]
   %404 = and i64 %.07041228.in.in, 510
   %405 = icmp eq i64 %404, 0
   %406 = load ptr, ptr @l_Lake_LeanConfig_mkDeclFields___closed__6, align 8, !tbaa !12
@@ -66874,8 +66874,8 @@ lean_dec.exit1261:                                ; preds = %382, %381, %379, %3
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #6
   br label %lean_dec.exit1260
 
-lean_dec.exit1255:                                ; preds = %lean_dec.exit1227, %lean_dec.exit1231, %lean_dec.exit1242, %lean_dec.exit1238, %lean_dec.exit1252, %lean_dec.exit1254, %lean_alloc_ctor.exit1731
-  %.01015 = phi ptr [ %506, %lean_dec.exit1254 ], [ %.01047, %lean_dec.exit1238 ], [ %485, %lean_alloc_ctor.exit1731 ], [ %531, %lean_dec.exit1252 ], [ %614, %lean_dec.exit1242 ], [ %760, %lean_dec.exit1227 ], [ %769, %lean_dec.exit1231 ]
+lean_dec.exit1255:                                ; preds = %lean_dec.exit1231, %lean_dec.exit1227, %lean_dec.exit1242, %lean_dec.exit1238, %lean_dec.exit1252, %lean_dec.exit1254, %lean_alloc_ctor.exit1731
+  %.01015 = phi ptr [ %506, %lean_dec.exit1254 ], [ %614, %lean_dec.exit1242 ], [ %485, %lean_alloc_ctor.exit1731 ], [ %531, %lean_dec.exit1252 ], [ %.01047, %lean_dec.exit1238 ], [ %769, %lean_dec.exit1231 ], [ %760, %lean_dec.exit1227 ]
   %398 = getelementptr i8, ptr %357, i64 8
   %.val1634 = load i64, ptr %398, align 8, !tbaa !4
   %399 = tail call ptr @l_Array_mapMUnsafe_map___at_Lake_LeanConfig_mkDeclFields___spec__1(i64 noundef %.val1634, i64 noundef 0, ptr noundef %357)
@@ -67078,9 +67078,9 @@ lean_alloc_ctor.exit1731:                         ; preds = %lean_dec.exit1256
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %357) #6
   br label %lean_dec.exit1255.thread
 
-lean_dec.exit1230.thread1825:                     ; preds = %lean_dec.exit1240, %665, %664, %662, %717, %716, %714, %lean_dec.exit1236, %lean_dec.exit1225, %869, %871, %872, %817, %819, %820, %lean_dec.exit1229
-  %.010351833 = phi ptr [ %769, %lean_dec.exit1229 ], [ %760, %lean_dec.exit1225 ], [ %760, %869 ], [ %760, %871 ], [ %760, %872 ], [ %769, %817 ], [ %769, %819 ], [ %769, %820 ], [ %614, %lean_dec.exit1240 ], [ %614, %665 ], [ %614, %664 ], [ %614, %662 ], [ %.01047, %717 ], [ %.01047, %716 ], [ %.01047, %714 ], [ %.01047, %lean_dec.exit1236 ]
-  %.010411832.in.in = phi i64 [ %799, %lean_dec.exit1229 ], [ %851, %lean_dec.exit1225 ], [ %851, %869 ], [ %851, %871 ], [ %851, %872 ], [ %799, %817 ], [ %799, %819 ], [ %799, %820 ], [ %644, %lean_dec.exit1240 ], [ %644, %665 ], [ %644, %664 ], [ %644, %662 ], [ %696, %717 ], [ %696, %716 ], [ %696, %714 ], [ %696, %lean_dec.exit1236 ]
+lean_dec.exit1230.thread1825:                     ; preds = %lean_dec.exit1240, %665, %664, %662, %717, %716, %714, %lean_dec.exit1236, %819, %820, %817, %872, %871, %869, %lean_dec.exit1229, %lean_dec.exit1225
+  %.010351833 = phi ptr [ %760, %lean_dec.exit1225 ], [ %769, %819 ], [ %769, %820 ], [ %769, %817 ], [ %760, %872 ], [ %760, %871 ], [ %760, %869 ], [ %769, %lean_dec.exit1229 ], [ %614, %lean_dec.exit1240 ], [ %614, %665 ], [ %614, %664 ], [ %614, %662 ], [ %.01047, %717 ], [ %.01047, %716 ], [ %.01047, %714 ], [ %.01047, %lean_dec.exit1236 ]
+  %.010411832.in.in = phi i64 [ %851, %lean_dec.exit1225 ], [ %799, %819 ], [ %799, %820 ], [ %799, %817 ], [ %851, %872 ], [ %851, %871 ], [ %851, %869 ], [ %799, %lean_dec.exit1229 ], [ %644, %lean_dec.exit1240 ], [ %644, %665 ], [ %644, %664 ], [ %644, %662 ], [ %696, %717 ], [ %696, %716 ], [ %696, %714 ], [ %696, %lean_dec.exit1236 ]
   %495 = and i64 %.010411832.in.in, 510
   %496 = icmp eq i64 %495, 0
   %497 = load ptr, ptr @l_Lake_LeanConfig_mkDeclFields___closed__6, align 8, !tbaa !12
@@ -76141,8 +76141,8 @@ lean_dec.exit1138:                                ; preds = %370, %369, %367, %3
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %53) #6
   br label %lean_dec.exit1137
 
-lean_dec.exit1132:                                ; preds = %lean_dec.exit1104, %lean_dec.exit1108, %lean_dec.exit1119, %lean_dec.exit1115, %lean_dec.exit1129, %lean_dec.exit1131, %lean_alloc_ctor.exit1543
-  %.0913 = phi ptr [ %487, %lean_dec.exit1131 ], [ %.0945, %lean_dec.exit1115 ], [ %466, %lean_alloc_ctor.exit1543 ], [ %512, %lean_dec.exit1129 ], [ %599, %lean_dec.exit1119 ], [ %745, %lean_dec.exit1104 ], [ %754, %lean_dec.exit1108 ]
+lean_dec.exit1132:                                ; preds = %lean_dec.exit1108, %lean_dec.exit1104, %lean_dec.exit1119, %lean_dec.exit1115, %lean_dec.exit1129, %lean_dec.exit1131, %lean_alloc_ctor.exit1543
+  %.0913 = phi ptr [ %487, %lean_dec.exit1131 ], [ %599, %lean_dec.exit1119 ], [ %466, %lean_alloc_ctor.exit1543 ], [ %512, %lean_dec.exit1129 ], [ %.0945, %lean_dec.exit1115 ], [ %754, %lean_dec.exit1108 ], [ %745, %lean_dec.exit1104 ]
   %379 = getelementptr i8, ptr %304, i64 8
   %.val1464 = load i64, ptr %379, align 8, !tbaa !4
   %380 = tail call ptr @l_Array_mapMUnsafe_map___at_Lake_LeanConfig_mkDeclFields___spec__1(i64 noundef %.val1464, i64 noundef 0, ptr noundef %304)
@@ -76345,9 +76345,9 @@ lean_alloc_ctor.exit1543:                         ; preds = %lean_dec.exit1133
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %304) #6
   br label %lean_dec.exit1132.thread
 
-lean_dec.exit1107.thread1655:                     ; preds = %lean_dec.exit1117, %650, %649, %647, %702, %701, %699, %lean_dec.exit1113, %lean_dec.exit1102, %854, %856, %857, %802, %804, %805, %lean_dec.exit1106
-  %.09331663 = phi ptr [ %754, %lean_dec.exit1106 ], [ %745, %lean_dec.exit1102 ], [ %745, %854 ], [ %745, %856 ], [ %745, %857 ], [ %754, %802 ], [ %754, %804 ], [ %754, %805 ], [ %599, %lean_dec.exit1117 ], [ %599, %650 ], [ %599, %649 ], [ %599, %647 ], [ %.0945, %702 ], [ %.0945, %701 ], [ %.0945, %699 ], [ %.0945, %lean_dec.exit1113 ]
-  %.09391662.in.in = phi i64 [ %784, %lean_dec.exit1106 ], [ %836, %lean_dec.exit1102 ], [ %836, %854 ], [ %836, %856 ], [ %836, %857 ], [ %784, %802 ], [ %784, %804 ], [ %784, %805 ], [ %629, %lean_dec.exit1117 ], [ %629, %650 ], [ %629, %649 ], [ %629, %647 ], [ %681, %702 ], [ %681, %701 ], [ %681, %699 ], [ %681, %lean_dec.exit1113 ]
+lean_dec.exit1107.thread1655:                     ; preds = %lean_dec.exit1117, %650, %649, %647, %702, %701, %699, %lean_dec.exit1113, %804, %805, %802, %857, %856, %854, %lean_dec.exit1106, %lean_dec.exit1102
+  %.09331663 = phi ptr [ %745, %lean_dec.exit1102 ], [ %754, %804 ], [ %754, %805 ], [ %754, %802 ], [ %745, %857 ], [ %745, %856 ], [ %745, %854 ], [ %754, %lean_dec.exit1106 ], [ %599, %lean_dec.exit1117 ], [ %599, %650 ], [ %599, %649 ], [ %599, %647 ], [ %.0945, %702 ], [ %.0945, %701 ], [ %.0945, %699 ], [ %.0945, %lean_dec.exit1113 ]
+  %.09391662.in.in = phi i64 [ %836, %lean_dec.exit1102 ], [ %784, %804 ], [ %784, %805 ], [ %784, %802 ], [ %836, %857 ], [ %836, %856 ], [ %836, %854 ], [ %784, %lean_dec.exit1106 ], [ %629, %lean_dec.exit1117 ], [ %629, %650 ], [ %629, %649 ], [ %629, %647 ], [ %681, %702 ], [ %681, %701 ], [ %681, %699 ], [ %681, %lean_dec.exit1113 ]
   %476 = and i64 %.09391662.in.in, 510
   %477 = icmp eq i64 %476, 0
   %478 = load ptr, ptr @l_Lake_LeanConfig_mkDeclFields___closed__6, align 8, !tbaa !12
@@ -90017,8 +90017,8 @@ lean_dec.exit2052:                                ; preds = %759, %758, %756, %l
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %3551, label %3509
 
-lean_dec.exit2047:                                ; preds = %lean_dec.exit2021, %lean_dec.exit2025, %lean_dec.exit2036, %lean_dec.exit2032, %lean_dec.exit2044, %lean_dec.exit2046, %lean_alloc_ctor.exit2869
-  %.01629 = phi ptr [ %869, %lean_dec.exit2046 ], [ %.01661, %lean_dec.exit2032 ], [ %848, %lean_alloc_ctor.exit2869 ], [ %894, %lean_dec.exit2044 ], [ %967, %lean_dec.exit2036 ], [ %1113, %lean_dec.exit2021 ], [ %1122, %lean_dec.exit2025 ]
+lean_dec.exit2047:                                ; preds = %lean_dec.exit2025, %lean_dec.exit2021, %lean_dec.exit2036, %lean_dec.exit2032, %lean_dec.exit2044, %lean_dec.exit2046, %lean_alloc_ctor.exit2869
+  %.01629 = phi ptr [ %869, %lean_dec.exit2046 ], [ %967, %lean_dec.exit2036 ], [ %848, %lean_alloc_ctor.exit2869 ], [ %894, %lean_dec.exit2044 ], [ %.01661, %lean_dec.exit2032 ], [ %1122, %lean_dec.exit2025 ], [ %1113, %lean_dec.exit2021 ]
   %761 = getelementptr i8, ptr %744, i64 8
   %.val2672 = load i64, ptr %761, align 8, !tbaa !4
   %762 = tail call ptr @l_Array_mapMUnsafe_map___at_Lake_LeanConfig_mkDeclFields___spec__1(i64 noundef %.val2672, i64 noundef 0, ptr noundef %744)
@@ -90221,9 +90221,9 @@ lean_alloc_ctor.exit2869:                         ; preds = %lean_dec.exit2048
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %744) #6
   br label %lean_dec.exit2047.thread
 
-lean_dec.exit2024.thread3075:                     ; preds = %lean_dec.exit2034, %1018, %1017, %1015, %1070, %1069, %1067, %lean_dec.exit2030, %lean_dec.exit2019, %1222, %1224, %1225, %1170, %1172, %1173, %lean_dec.exit2023
-  %.016493083 = phi ptr [ %1122, %lean_dec.exit2023 ], [ %1113, %lean_dec.exit2019 ], [ %1113, %1222 ], [ %1113, %1224 ], [ %1113, %1225 ], [ %1122, %1170 ], [ %1122, %1172 ], [ %1122, %1173 ], [ %967, %lean_dec.exit2034 ], [ %967, %1018 ], [ %967, %1017 ], [ %967, %1015 ], [ %.01661, %1070 ], [ %.01661, %1069 ], [ %.01661, %1067 ], [ %.01661, %lean_dec.exit2030 ]
-  %.016553082.in.in = phi i64 [ %1152, %lean_dec.exit2023 ], [ %1204, %lean_dec.exit2019 ], [ %1204, %1222 ], [ %1204, %1224 ], [ %1204, %1225 ], [ %1152, %1170 ], [ %1152, %1172 ], [ %1152, %1173 ], [ %997, %lean_dec.exit2034 ], [ %997, %1018 ], [ %997, %1017 ], [ %997, %1015 ], [ %1049, %1070 ], [ %1049, %1069 ], [ %1049, %1067 ], [ %1049, %lean_dec.exit2030 ]
+lean_dec.exit2024.thread3075:                     ; preds = %lean_dec.exit2034, %1018, %1017, %1015, %1070, %1069, %1067, %lean_dec.exit2030, %1172, %1173, %1170, %1225, %1224, %1222, %lean_dec.exit2023, %lean_dec.exit2019
+  %.016493083 = phi ptr [ %1113, %lean_dec.exit2019 ], [ %1122, %1172 ], [ %1122, %1173 ], [ %1122, %1170 ], [ %1113, %1225 ], [ %1113, %1224 ], [ %1113, %1222 ], [ %1122, %lean_dec.exit2023 ], [ %967, %lean_dec.exit2034 ], [ %967, %1018 ], [ %967, %1017 ], [ %967, %1015 ], [ %.01661, %1070 ], [ %.01661, %1069 ], [ %.01661, %1067 ], [ %.01661, %lean_dec.exit2030 ]
+  %.016553082.in.in = phi i64 [ %1204, %lean_dec.exit2019 ], [ %1152, %1172 ], [ %1152, %1173 ], [ %1152, %1170 ], [ %1204, %1225 ], [ %1204, %1224 ], [ %1204, %1222 ], [ %1152, %lean_dec.exit2023 ], [ %997, %lean_dec.exit2034 ], [ %997, %1018 ], [ %997, %1017 ], [ %997, %1015 ], [ %1049, %1070 ], [ %1049, %1069 ], [ %1049, %1067 ], [ %1049, %lean_dec.exit2030 ]
   %858 = and i64 %.016553082.in.in, 510
   %859 = icmp eq i64 %858, 0
   %860 = load ptr, ptr @l_Lake_LeanConfig_mkDeclFields___closed__6, align 8, !tbaa !12
@@ -94631,8 +94631,8 @@ lean_dec.exit1897:                                ; preds = %2762, %2766, %2768,
   %.01724 = phi ptr [ %2720, %2737 ], [ %2761, %lean_dec.exit1896 ], [ %2736, %lean_dec.exit1898 ], [ %2720, %2744 ], [ %2720, %2743 ], [ %2720, %2741 ], [ %.01727, %2769 ], [ %.01727, %2768 ], [ %.01727, %2766 ], [ %.01727, %2762 ]
   br i1 %.not3343, label %2593, label %lean_dec.exit1909
 
-lean_dec.exit1879:                                ; preds = %lean_dec.exit1857, %lean_dec.exit1859, %lean_dec.exit1865, %lean_dec.exit1867, %lean_dec.exit1872, %lean_dec.exit1874, %lean_dec.exit1852, %lean_dec.exit1880, %lean_dec.exit1878, %lean_dec.exit1850
-  %.01731 = phi ptr [ %.017713264, %lean_dec.exit1850 ], [ %3306, %lean_dec.exit1852 ], [ %3092, %lean_dec.exit1874 ], [ %3163, %lean_dec.exit1867 ], [ %3013, %lean_dec.exit1878 ], [ %3029, %lean_dec.exit1880 ], [ %3068, %lean_dec.exit1872 ], [ %3131, %lean_dec.exit1865 ], [ %3202, %lean_dec.exit1857 ], [ %3242, %lean_dec.exit1859 ]
+lean_dec.exit1879:                                ; preds = %lean_dec.exit1859, %lean_dec.exit1857, %lean_dec.exit1867, %lean_dec.exit1865, %lean_dec.exit1874, %lean_dec.exit1872, %lean_dec.exit1852, %lean_dec.exit1880, %lean_dec.exit1878, %lean_dec.exit1850
+  %.01731 = phi ptr [ %.017713264, %lean_dec.exit1850 ], [ %3306, %lean_dec.exit1852 ], [ %3068, %lean_dec.exit1872 ], [ %3131, %lean_dec.exit1865 ], [ %3029, %lean_dec.exit1880 ], [ %3013, %lean_dec.exit1878 ], [ %3092, %lean_dec.exit1874 ], [ %3163, %lean_dec.exit1867 ], [ %3242, %lean_dec.exit1859 ], [ %3202, %lean_dec.exit1857 ]
   %2770 = tail call ptr @l_Lean_Syntax_mkStrLit(ptr noundef %234, ptr noundef nonnull inttoptr (i64 5 to ptr)) #6
   br i1 %.not3291, label %2771, label %lean_dec.exit1894
 

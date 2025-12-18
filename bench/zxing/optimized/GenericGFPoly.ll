@@ -98,7 +98,7 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr noundef nonnull 
   br i1 %44, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_1EET0_RKT_S4_T1_.exit", label %25, !llvm.loop !17
 
 "_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_1EET0_RKT_S4_T1_.exit": ; preds = %.lr.ph.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i", %16, %8, %3
-  %.0 = phi i32 [ %7, %3 ], [ 0, %8 ], [ 0, %16 ], [ %.0.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ], [ %13, %.lr.ph.i.i.i ]
+  %.0 = phi i32 [ %7, %3 ], [ %.0.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ], [ 0, %8 ], [ 0, %16 ], [ %13, %.lr.ph.i.i.i ]
   ret i32 %.0
 }
 

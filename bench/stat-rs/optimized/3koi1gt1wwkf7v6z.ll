@@ -790,7 +790,7 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
   br label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4
 
 _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4: ; preds = %.lr.ph.split.us.i, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit, %4, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit"
-  %storemerge = phi i64 [ 21, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit" ], [ 0, %4 ], [ 0, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit ], [ 0, %.lr.ph.split.us.i ]
+  %storemerge = phi i64 [ 21, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit" ], [ 0, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit ], [ 0, %4 ], [ 0, %.lr.ph.split.us.i ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

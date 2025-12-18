@@ -188,16 +188,16 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   br label %.loopexit105
 
 .loopexit:                                        ; preds = %51, %55, %74
-  %.380 = phi ptr [ %.178, %55 ], [ %.178, %74 ], [ null, %51 ]
-  %.3 = phi i32 [ %.276, %55 ], [ %.276, %74 ], [ %.074125, %51 ]
-  %.1 = phi i32 [ %.0126, %55 ], [ %.2, %74 ], [ %.0126, %51 ]
+  %.380 = phi ptr [ %.178, %74 ], [ %.178, %55 ], [ null, %51 ]
+  %.3 = phi i32 [ %.276, %74 ], [ %.276, %55 ], [ %.074125, %51 ]
+  %.1 = phi i32 [ %.2, %74 ], [ %.0126, %55 ], [ %.0126, %51 ]
   %80 = call ptr @BIO_ADDRINFO_next(ptr noundef nonnull %.081123) #9
   %.not91 = icmp eq ptr %80, null
   br i1 %.not91, label %.loopexit105, label %33, !llvm.loop !16
 
 .loopexit105:                                     ; preds = %.loopexit, %28, %.thread, %77
-  %.081116 = phi ptr [ %.081123, %.thread ], [ %.081123, %77 ], [ null, %28 ], [ null, %.loopexit ]
-  %.175.ph = phi i32 [ %.276, %.thread ], [ %.276, %77 ], [ 0, %28 ], [ %.3, %.loopexit ]
+  %.081116 = phi ptr [ %.081123, %77 ], [ %.081123, %.thread ], [ null, %28 ], [ null, %.loopexit ]
+  %.175.ph = phi i32 [ %.276, %77 ], [ %.276, %.thread ], [ 0, %28 ], [ %.3, %.loopexit ]
   %.pr = load i32, ptr %0, align 4, !tbaa !12
   %81 = icmp eq i32 %.pr, -1
   br i1 %81, label %82, label %108
@@ -751,7 +751,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %.thread153
 
 .split164.us:                                     ; preds = %.lr.ph, %.critedge5.us, %.split
-  %.us-phi = phi i32 [ %134, %.split ], [ %108, %.critedge5.us ], [ %143, %.lr.ph ]
+  %.us-phi = phi i32 [ %108, %.critedge5.us ], [ %134, %.split ], [ %143, %.lr.ph ]
   %141 = call i32 @BIO_closesocket(i32 noundef %.0114191) #9
   br label %.thread153
 

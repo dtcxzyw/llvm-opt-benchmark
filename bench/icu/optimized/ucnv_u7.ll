@@ -388,13 +388,13 @@ switch.early.test:                                ; preds = %.lr.ph268
   br label %.loopexit207
 
 .loopexit207:                                     ; preds = %131, %.loopexit207.sink.split, %56, %.loopexit
-  %.4183 = phi ptr [ %.1180217, %.loopexit ], [ %.2181, %56 ], [ %.4183.ph, %.loopexit207.sink.split ], [ %.10, %131 ]
-  %.2175 = phi i8 [ %.0173, %.loopexit ], [ %.1174, %56 ], [ %.2175.ph, %.loopexit207.sink.split ], [ %.4177, %131 ]
-  %.3167 = phi ptr [ %.1165214, %.loopexit ], [ %.2166, %56 ], [ %.3167.ph, %.loopexit207.sink.split ], [ %.6170, %131 ]
-  %.2161 = phi i16 [ %.0159, %.loopexit ], [ %.1160, %56 ], [ %.2161.ph, %.loopexit207.sink.split ], [ %.4163, %131 ]
-  %.2156 = phi i8 [ %.0154, %.loopexit ], [ %.1155, %56 ], [ %.2156.ph, %.loopexit207.sink.split ], [ %.4158, %131 ]
-  %.2153 = phi i32 [ 16777216, %.loopexit ], [ 0, %56 ], [ %.2153.ph, %.loopexit207.sink.split ], [ 0, %131 ]
-  %.4 = phi ptr [ %.2, %.loopexit ], [ %.3, %56 ], [ %.4.ph, %.loopexit207.sink.split ], [ %scevgep, %131 ]
+  %.4183 = phi ptr [ %.4183.ph, %.loopexit207.sink.split ], [ %.2181, %56 ], [ %.1180217, %.loopexit ], [ %.10, %131 ]
+  %.2175 = phi i8 [ %.2175.ph, %.loopexit207.sink.split ], [ %.1174, %56 ], [ %.0173, %.loopexit ], [ %.4177, %131 ]
+  %.3167 = phi ptr [ %.3167.ph, %.loopexit207.sink.split ], [ %.2166, %56 ], [ %.1165214, %.loopexit ], [ %.6170, %131 ]
+  %.2161 = phi i16 [ %.2161.ph, %.loopexit207.sink.split ], [ %.1160, %56 ], [ %.0159, %.loopexit ], [ %.4163, %131 ]
+  %.2156 = phi i8 [ %.2156.ph, %.loopexit207.sink.split ], [ %.1155, %56 ], [ %.0154, %.loopexit ], [ %.4158, %131 ]
+  %.2153 = phi i32 [ %.2153.ph, %.loopexit207.sink.split ], [ 0, %56 ], [ 16777216, %.loopexit ], [ 0, %131 ]
+  %.4 = phi ptr [ %.4.ph, %.loopexit207.sink.split ], [ %.3, %56 ], [ %.2, %.loopexit ], [ %scevgep, %131 ]
   %132 = load i32, ptr %1, align 4, !tbaa !15
   %133 = icmp sgt i32 %132, 0
   br i1 %133, label %140, label %134
@@ -964,26 +964,26 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %258, label %84, label %.loopexit322, !llvm.loop !45
 
 .loopexit322.sink.split:                          ; preds = %84, %.loopexit, %114
-  %.8254.ph = phi ptr [ %.2248, %.loopexit ], [ %.10256, %114 ], [ %.9255356, %84 ]
-  %.7238.ph = phi i32 [ %.2233, %.loopexit ], [ %.8239357, %114 ], [ %.8239357, %84 ]
-  %.4229.ph = phi ptr [ %.2227, %.loopexit ], [ %.6, %114 ], [ %.5230358, %84 ]
-  %.2222.ph = phi i8 [ %.0220.ph, %.loopexit ], [ %.3223359, %114 ], [ %.3223359, %84 ]
-  %.2217.ph = phi i8 [ %.0215.ph, %.loopexit ], [ %.3218360, %114 ], [ %.3218360, %84 ]
-  %.not303.ph = phi i1 [ false, %.loopexit ], [ false, %114 ], [ true, %84 ]
-  %.2214.ph = phi i32 [ 16777216, %.loopexit ], [ 16777216, %114 ], [ 0, %84 ]
-  %.4.ph = phi ptr [ %.2, %.loopexit ], [ %.5361, %114 ], [ %.5361, %84 ]
+  %.8254.ph = phi ptr [ %.10256, %114 ], [ %.2248, %.loopexit ], [ %.9255356, %84 ]
+  %.7238.ph = phi i32 [ %.8239357, %114 ], [ %.2233, %.loopexit ], [ %.8239357, %84 ]
+  %.4229.ph = phi ptr [ %.6, %114 ], [ %.2227, %.loopexit ], [ %.5230358, %84 ]
+  %.2222.ph = phi i8 [ %.3223359, %114 ], [ %.0220.ph, %.loopexit ], [ %.3223359, %84 ]
+  %.2217.ph = phi i8 [ %.3218360, %114 ], [ %.0215.ph, %.loopexit ], [ %.3218360, %84 ]
+  %.not303.ph = phi i1 [ false, %114 ], [ false, %.loopexit ], [ true, %84 ]
+  %.2214.ph = phi i32 [ 16777216, %114 ], [ 16777216, %.loopexit ], [ 0, %84 ]
+  %.4.ph = phi ptr [ %.5361, %114 ], [ %.2, %.loopexit ], [ %.5361, %84 ]
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %.loopexit322
 
 .loopexit322:                                     ; preds = %257, %.loopexit322.sink.split, %79, %.loopexit
-  %.8254 = phi ptr [ %.2248, %.loopexit ], [ %.7253, %79 ], [ %.8254.ph, %.loopexit322.sink.split ], [ %.20, %257 ]
-  %.7238 = phi i32 [ %.2233, %.loopexit ], [ %.6237, %79 ], [ %.7238.ph, %.loopexit322.sink.split ], [ %.17, %257 ]
-  %.4229 = phi ptr [ %.2227, %.loopexit ], [ %.3228, %79 ], [ %.4229.ph, %.loopexit322.sink.split ], [ %.11, %257 ]
-  %.2222 = phi i8 [ %.0220.ph, %.loopexit ], [ %.1221, %79 ], [ %.2222.ph, %.loopexit322.sink.split ], [ %.4224, %257 ]
-  %.2217 = phi i8 [ %.0215.ph, %.loopexit ], [ %.1216, %79 ], [ %.2217.ph, %.loopexit322.sink.split ], [ %.4219, %257 ]
-  %.not303 = phi i1 [ false, %.loopexit ], [ true, %79 ], [ %.not303.ph, %.loopexit322.sink.split ], [ true, %257 ]
-  %.2214 = phi i32 [ 16777216, %.loopexit ], [ 0, %79 ], [ %.2214.ph, %.loopexit322.sink.split ], [ 0, %257 ]
-  %.4 = phi ptr [ %.2, %.loopexit ], [ %.3, %79 ], [ %.4.ph, %.loopexit322.sink.split ], [ %87, %257 ]
+  %.8254 = phi ptr [ %.8254.ph, %.loopexit322.sink.split ], [ %.7253, %79 ], [ %.2248, %.loopexit ], [ %.20, %257 ]
+  %.7238 = phi i32 [ %.7238.ph, %.loopexit322.sink.split ], [ %.6237, %79 ], [ %.2233, %.loopexit ], [ %.17, %257 ]
+  %.4229 = phi ptr [ %.4229.ph, %.loopexit322.sink.split ], [ %.3228, %79 ], [ %.2227, %.loopexit ], [ %.11, %257 ]
+  %.2222 = phi i8 [ %.2222.ph, %.loopexit322.sink.split ], [ %.1221, %79 ], [ %.0220.ph, %.loopexit ], [ %.4224, %257 ]
+  %.2217 = phi i8 [ %.2217.ph, %.loopexit322.sink.split ], [ %.1216, %79 ], [ %.0215.ph, %.loopexit ], [ %.4219, %257 ]
+  %.not303 = phi i1 [ %.not303.ph, %.loopexit322.sink.split ], [ true, %79 ], [ false, %.loopexit ], [ true, %257 ]
+  %.2214 = phi i32 [ %.2214.ph, %.loopexit322.sink.split ], [ 0, %79 ], [ 16777216, %.loopexit ], [ 0, %257 ]
+  %.4 = phi ptr [ %.4.ph, %.loopexit322.sink.split ], [ %.3, %79 ], [ %.2, %.loopexit ], [ %87, %257 ]
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %260 = load i8, ptr %259, align 2, !tbaa !46
   %.not301 = icmp eq i8 %260, 0
@@ -1463,13 +1463,13 @@ define internal void @_ZL25_IMAPToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br label %.thread233.sink.split
 
 .thread233.sink.split:                            ; preds = %113, %98, %83, %58, %146, %148, %.thread232, %136, %133, %134, %.loopexit
-  %.sink = phi i32 [ 12, %.thread232 ], [ 12, %133 ], [ 15, %.loopexit ], [ 12, %134 ], [ 12, %136 ], [ 11, %148 ], [ 11, %146 ], [ 12, %58 ], [ 12, %83 ], [ 12, %98 ], [ 12, %113 ]
-  %.5248.ph = phi ptr [ %59, %.thread232 ], [ %59, %133 ], [ %.2, %.loopexit ], [ %59, %134 ], [ %59, %136 ], [ %.4270, %148 ], [ %.4270, %146 ], [ %59, %58 ], [ %59, %83 ], [ %59, %98 ], [ %59, %113 ]
-  %.4171247.ph = phi ptr [ %.3170350, %.thread232 ], [ %.3170350, %133 ], [ %.1168256, %.loopexit ], [ %.3170350, %134 ], [ %.3170350, %136 ], [ %.3170285, %148 ], [ %.3170285, %146 ], [ %.3170350, %58 ], [ %.3170350, %83 ], [ %.3170350, %98 ], [ %.3170350, %113 ]
-  %.3181246.ph = phi i8 [ %.2180349, %.thread232 ], [ %.2180349, %133 ], [ %.0178, %.loopexit ], [ %.2180349, %134 ], [ %.2180349, %136 ], [ %.2180294, %148 ], [ %.2180294, %146 ], [ 7, %113 ], [ 5, %98 ], [ 2, %83 ], [ %.2180349, %58 ]
-  %.3186245.ph = phi i16 [ %.2185348, %.thread232 ], [ %.2185348, %133 ], [ %.0183, %.loopexit ], [ %.2185348, %134 ], [ %.2185348, %136 ], [ %.2185303, %148 ], [ %.2185303, %146 ], [ %.2185348, %58 ], [ %.2185348, %83 ], [ %.2185348, %98 ], [ %.2185348, %113 ]
-  %.5193244.ph = phi ptr [ %.4192347, %.thread232 ], [ %.4192347, %133 ], [ %.1189259, %.loopexit ], [ %.4192347, %134 ], [ %.4192347, %136 ], [ %.4192312, %148 ], [ %.4192312, %146 ], [ %.4192347, %58 ], [ %.4192347, %83 ], [ %.4192347, %98 ], [ %.4192347, %113 ]
-  %.6205.ph = phi i8 [ %61, %.thread232 ], [ %61, %133 ], [ %.0199, %.loopexit ], [ %61, %134 ], [ 2, %136 ], [ 1, %148 ], [ 0, %146 ], [ %61, %58 ], [ %61, %83 ], [ %61, %98 ], [ %61, %113 ]
+  %.sink = phi i32 [ 12, %.thread232 ], [ 12, %133 ], [ 11, %146 ], [ 11, %148 ], [ 12, %136 ], [ 12, %134 ], [ 15, %.loopexit ], [ 12, %58 ], [ 12, %83 ], [ 12, %98 ], [ 12, %113 ]
+  %.5248.ph = phi ptr [ %59, %.thread232 ], [ %59, %133 ], [ %.4270, %146 ], [ %.4270, %148 ], [ %59, %136 ], [ %59, %134 ], [ %.2, %.loopexit ], [ %59, %58 ], [ %59, %83 ], [ %59, %98 ], [ %59, %113 ]
+  %.4171247.ph = phi ptr [ %.3170350, %.thread232 ], [ %.3170350, %133 ], [ %.3170285, %146 ], [ %.3170285, %148 ], [ %.3170350, %136 ], [ %.3170350, %134 ], [ %.1168256, %.loopexit ], [ %.3170350, %58 ], [ %.3170350, %83 ], [ %.3170350, %98 ], [ %.3170350, %113 ]
+  %.3181246.ph = phi i8 [ %.2180349, %.thread232 ], [ %.2180349, %133 ], [ %.2180294, %146 ], [ %.2180294, %148 ], [ %.2180349, %136 ], [ %.2180349, %134 ], [ %.0178, %.loopexit ], [ 7, %113 ], [ 5, %98 ], [ 2, %83 ], [ %.2180349, %58 ]
+  %.3186245.ph = phi i16 [ %.2185348, %.thread232 ], [ %.2185348, %133 ], [ %.2185303, %146 ], [ %.2185303, %148 ], [ %.2185348, %136 ], [ %.2185348, %134 ], [ %.0183, %.loopexit ], [ %.2185348, %58 ], [ %.2185348, %83 ], [ %.2185348, %98 ], [ %.2185348, %113 ]
+  %.5193244.ph = phi ptr [ %.4192347, %.thread232 ], [ %.4192347, %133 ], [ %.4192312, %146 ], [ %.4192312, %148 ], [ %.4192347, %136 ], [ %.4192347, %134 ], [ %.1189259, %.loopexit ], [ %.4192347, %58 ], [ %.4192347, %83 ], [ %.4192347, %98 ], [ %.4192347, %113 ]
+  %.6205.ph = phi i8 [ %61, %.thread232 ], [ %61, %133 ], [ 0, %146 ], [ 1, %148 ], [ 2, %136 ], [ %61, %134 ], [ %.0199, %.loopexit ], [ %61, %58 ], [ %61, %83 ], [ %61, %98 ], [ %61, %113 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !15
   br label %.thread233
 
@@ -2157,26 +2157,26 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %307, label %79, label %.loopexit379, !llvm.loop !50
 
 .loopexit379.sink.split:                          ; preds = %79, %.loopexit, %107
-  %.8293.ph = phi ptr [ %.2287, %.loopexit ], [ %.10295361, %107 ], [ %.9294403, %79 ]
-  %.4273.ph = phi ptr [ %.2271, %.loopexit ], [ %.6275363, %107 ], [ %.5274404, %79 ]
-  %.7.ph = phi i32 [ %.2265, %.loopexit ], [ %.8405, %107 ], [ %.8405, %79 ]
-  %.2260.ph = phi i8 [ %.0258.ph, %.loopexit ], [ %.3261406, %107 ], [ %.3261406, %79 ]
-  %.2255.ph = phi i8 [ %.0253.ph, %.loopexit ], [ %.3256407, %107 ], [ %.3256407, %79 ]
-  %.not350.ph = phi i1 [ false, %.loopexit ], [ false, %107 ], [ true, %79 ]
-  %.2252.ph = phi i32 [ 16777216, %.loopexit ], [ 16777216, %107 ], [ 0, %79 ]
-  %.4.ph = phi ptr [ %.2, %.loopexit ], [ %.5408, %107 ], [ %.5408, %79 ]
+  %.8293.ph = phi ptr [ %.10295361, %107 ], [ %.2287, %.loopexit ], [ %.9294403, %79 ]
+  %.4273.ph = phi ptr [ %.6275363, %107 ], [ %.2271, %.loopexit ], [ %.5274404, %79 ]
+  %.7.ph = phi i32 [ %.8405, %107 ], [ %.2265, %.loopexit ], [ %.8405, %79 ]
+  %.2260.ph = phi i8 [ %.3261406, %107 ], [ %.0258.ph, %.loopexit ], [ %.3261406, %79 ]
+  %.2255.ph = phi i8 [ %.3256407, %107 ], [ %.0253.ph, %.loopexit ], [ %.3256407, %79 ]
+  %.not350.ph = phi i1 [ false, %107 ], [ false, %.loopexit ], [ true, %79 ]
+  %.2252.ph = phi i32 [ 16777216, %107 ], [ 16777216, %.loopexit ], [ 0, %79 ]
+  %.4.ph = phi ptr [ %.5408, %107 ], [ %.2, %.loopexit ], [ %.5408, %79 ]
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %.loopexit379
 
 .loopexit379:                                     ; preds = %306, %.loopexit379.sink.split, %74, %.loopexit
-  %.8293 = phi ptr [ %.2287, %.loopexit ], [ %.7292, %74 ], [ %.8293.ph, %.loopexit379.sink.split ], [ %.20, %306 ]
-  %.4273 = phi ptr [ %.2271, %.loopexit ], [ %.3272, %74 ], [ %.4273.ph, %.loopexit379.sink.split ], [ %.10279, %306 ]
-  %.7 = phi i32 [ %.2265, %.loopexit ], [ %.6, %74 ], [ %.7.ph, %.loopexit379.sink.split ], [ %.17, %306 ]
-  %.2260 = phi i8 [ %.0258.ph, %.loopexit ], [ %.1259, %74 ], [ %.2260.ph, %.loopexit379.sink.split ], [ %.4262, %306 ]
-  %.2255 = phi i8 [ %.0253.ph, %.loopexit ], [ %.1254, %74 ], [ %.2255.ph, %.loopexit379.sink.split ], [ %.4257, %306 ]
-  %.not350 = phi i1 [ false, %.loopexit ], [ true, %74 ], [ %.not350.ph, %.loopexit379.sink.split ], [ true, %306 ]
-  %.2252 = phi i32 [ 16777216, %.loopexit ], [ 0, %74 ], [ %.2252.ph, %.loopexit379.sink.split ], [ 0, %306 ]
-  %.4 = phi ptr [ %.2, %.loopexit ], [ %.3, %74 ], [ %.4.ph, %.loopexit379.sink.split ], [ %82, %306 ]
+  %.8293 = phi ptr [ %.8293.ph, %.loopexit379.sink.split ], [ %.7292, %74 ], [ %.2287, %.loopexit ], [ %.20, %306 ]
+  %.4273 = phi ptr [ %.4273.ph, %.loopexit379.sink.split ], [ %.3272, %74 ], [ %.2271, %.loopexit ], [ %.10279, %306 ]
+  %.7 = phi i32 [ %.7.ph, %.loopexit379.sink.split ], [ %.6, %74 ], [ %.2265, %.loopexit ], [ %.17, %306 ]
+  %.2260 = phi i8 [ %.2260.ph, %.loopexit379.sink.split ], [ %.1259, %74 ], [ %.0258.ph, %.loopexit ], [ %.4262, %306 ]
+  %.2255 = phi i8 [ %.2255.ph, %.loopexit379.sink.split ], [ %.1254, %74 ], [ %.0253.ph, %.loopexit ], [ %.4257, %306 ]
+  %.not350 = phi i1 [ %.not350.ph, %.loopexit379.sink.split ], [ true, %74 ], [ false, %.loopexit ], [ true, %306 ]
+  %.2252 = phi i32 [ %.2252.ph, %.loopexit379.sink.split ], [ 0, %74 ], [ 16777216, %.loopexit ], [ 0, %306 ]
+  %.4 = phi ptr [ %.4.ph, %.loopexit379.sink.split ], [ %.3, %74 ], [ %.2, %.loopexit ], [ %82, %306 ]
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %309 = load i8, ptr %308, align 2, !tbaa !46
   %.not348 = icmp eq i8 %309, 0

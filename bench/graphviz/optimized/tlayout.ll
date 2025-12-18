@@ -494,10 +494,10 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br i1 %.not182.i, label %._crit_edge212.i, label %.lr.ph211.i.backedge
 
 .lr.ph211.i.backedge:                             ; preds = %217, %.thread
-  %.0209.i.be = phi ptr [ %218, %217 ], [ %224, %.thread ]
-  %.0156208.i.be = phi i32 [ %.1.i, %217 ], [ 1, %.thread ]
-  %.sroa.8.2207.i.be = phi double [ %.sroa.8.3.i, %217 ], [ %223, %.thread ]
-  %.sroa.0.2206.i.be = phi double [ %.sroa.0.3.i, %217 ], [ %221, %.thread ]
+  %.0209.i.be = phi ptr [ %224, %.thread ], [ %218, %217 ]
+  %.0156208.i.be = phi i32 [ 1, %.thread ], [ %.1.i, %217 ]
+  %.sroa.8.2207.i.be = phi double [ %223, %.thread ], [ %.sroa.8.3.i, %217 ]
+  %.sroa.0.2206.i.be = phi double [ %221, %.thread ], [ %.sroa.0.3.i, %217 ]
   br label %.lr.ph211.i, !llvm.loop !95
 
 .thread:                                          ; preds = %203

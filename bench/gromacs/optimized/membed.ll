@@ -3262,9 +3262,9 @@ _ZNK3gmx17RangePartitioning5blockEi.exit217.i:    ; preds = %.lr.ph329.i, %.preh
   br i1 %exitcond419.not.i, label %.loopexit287.i, label %1217, !llvm.loop !279
 
 .loopexit287.i:                                   ; preds = %1242, %.critedge385.i, %._crit_edge.i336, %1162
-  %.4189.i = phi i32 [ %.1186339.i, %._crit_edge.i336 ], [ %.1186339.i, %1162 ], [ %.1186339.i, %.critedge385.i ], [ %.3188.i, %1242 ]
-  %.4161.i = phi i32 [ %.1158340.i, %._crit_edge.i336 ], [ %.1158340.i, %1162 ], [ %.1158340.i, %.critedge385.i ], [ %.3160.i, %1242 ]
-  %.2156.i = phi i32 [ %.1155341.i, %._crit_edge.i336 ], [ %.1155341.i, %1162 ], [ %1209, %.critedge385.i ], [ %1209, %1242 ]
+  %.4189.i = phi i32 [ %.1186339.i, %1162 ], [ %.1186339.i, %._crit_edge.i336 ], [ %.1186339.i, %.critedge385.i ], [ %.3188.i, %1242 ]
+  %.4161.i = phi i32 [ %.1158340.i, %1162 ], [ %.1158340.i, %._crit_edge.i336 ], [ %.1158340.i, %.critedge385.i ], [ %.3160.i, %1242 ]
+  %.2156.i = phi i32 [ %.1155341.i, %1162 ], [ %.1155341.i, %._crit_edge.i336 ], [ %1209, %.critedge385.i ], [ %1209, %1242 ]
   %indvars.iv.next421.i = add nuw nsw i64 %indvars.iv420.i, 1
   %1243 = load i32, ptr %636, align 8, !tbaa !181
   %1244 = sext i32 %1243 to i64
@@ -4917,7 +4917,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit44.i:      ; preds = %_ZNSt10filesystem7_
   br label %.loopexit.i384
 
 .loopexit.i384:                                   ; preds = %.lr.ph53.i, %.loopexit.sink.split.i, %.preheader.i389, %1930
-  %.2.i385 = phi i32 [ 2, %.preheader.i389 ], [ %.02955.i, %1930 ], [ %.2.ph.i, %.loopexit.sink.split.i ], [ 2, %.lr.ph53.i ]
+  %.2.i385 = phi i32 [ %.2.ph.i, %.loopexit.sink.split.i ], [ 2, %.preheader.i389 ], [ %.02955.i, %1930 ], [ 2, %.lr.ph53.i ]
   %1952 = call ptr @fgets(ptr noundef nonnull %10, i32 noundef 4096, ptr noundef %1864)
   %.not.i386 = icmp eq ptr %1952, null
   br i1 %.not.i386, label %._crit_edge.i387, label %.lr.ph56.i, !llvm.loop !357

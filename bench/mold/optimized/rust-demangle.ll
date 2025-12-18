@@ -756,8 +756,8 @@ print_str.exit106.i.i:                            ; preds = %283, %277
   br i1 %292, label %.critedge92.i.i, label %.lr.ph155.i.i
 
 .critedge92.i.i:                                  ; preds = %289, %.critedge._crit_edge.i.i, %.tail125.i.i, %.tail121.i.i, %.tail117.i.i, %.tail113.i.i, %.tail.i.i, %sub_0.i.i, %138, %.lr.ph.i16.i, %287, %110
-  %.lcssa.sink.i.i = phi i64 [ 0, %110 ], [ %112, %287 ], [ %112, %.lr.ph.i16.i ], [ 0, %289 ], [ %112, %138 ], [ %112, %.critedge._crit_edge.i.i ], [ %112, %.tail.i.i ], [ %112, %sub_0.i.i ], [ %112, %.tail113.i.i ], [ %112, %.tail117.i.i ], [ %112, %.tail121.i.i ], [ %112, %.tail125.i.i ]
-  %.lcssa152.sink.i.i = phi ptr [ %.promoted151.i.i, %110 ], [ %113, %287 ], [ %113, %.lr.ph.i16.i ], [ %290, %289 ], [ %113, %138 ], [ %113, %.critedge._crit_edge.i.i ], [ %113, %.tail.i.i ], [ %113, %sub_0.i.i ], [ %113, %.tail113.i.i ], [ %113, %.tail117.i.i ], [ %113, %.tail121.i.i ], [ %113, %.tail125.i.i ]
+  %.lcssa.sink.i.i = phi i64 [ %112, %.lr.ph.i16.i ], [ %112, %287 ], [ 0, %110 ], [ 0, %289 ], [ %112, %138 ], [ %112, %.critedge._crit_edge.i.i ], [ %112, %.tail.i.i ], [ %112, %sub_0.i.i ], [ %112, %.tail113.i.i ], [ %112, %.tail117.i.i ], [ %112, %.tail121.i.i ], [ %112, %.tail125.i.i ]
+  %.lcssa152.sink.i.i = phi ptr [ %113, %.lr.ph.i16.i ], [ %113, %287 ], [ %.promoted151.i.i, %110 ], [ %290, %289 ], [ %113, %138 ], [ %113, %.critedge._crit_edge.i.i ], [ %113, %.tail.i.i ], [ %113, %sub_0.i.i ], [ %113, %.tail113.i.i ], [ %113, %.tail117.i.i ], [ %113, %.tail121.i.i ], [ %113, %.tail125.i.i ]
   %293 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %294 = trunc nuw i8 %293 to i1
   br i1 %294, label %print_legacy_ident.exit.thread.i, label %295
@@ -869,7 +869,7 @@ demangle_legacy_path.exit:                        ; preds = %eat.exit13.thread.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %325, %demangle_legacy_path.exit, %315, %._crit_edge, %333, %38, %.tail83.thread
-  %.023 = phi i1 [ false, %38 ], [ false, %.tail83.thread ], [ false, %demangle_legacy_path.exit ], [ %338, %333 ], [ true, %._crit_edge ], [ true, %315 ], [ false, %325 ], [ false, %.lr.ph ]
+  %.023 = phi i1 [ false, %325 ], [ false, %demangle_legacy_path.exit ], [ false, %38 ], [ false, %.tail83.thread ], [ %338, %333 ], [ true, %._crit_edge ], [ true, %315 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.023
 }
@@ -4789,7 +4789,7 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %452 = trunc nuw i8 %451 to i1
   br i1 %452, label %common.ret421, label %453
 
-common.ret421:                                    ; preds = %462, %458, %455, %print_str.exit198.thread, %print_str.exit206.thread, %print_str.exit191, %print_str.exit218.thread, %print_str.exit226.thread, %print_str.exit185, %print_str.exit226, %print_str.exit218, %print_str.exit206, %print_str.exit198, %117, %113, %print_str.exit181, %75, %.thread, %22, %18, %parse_hex_nibbles_for_const_uint.exit180.thread, %70, %next.exit212.thread, %next.exit.thread, %.critedge, %27, %print_str.exit152, %153, %parse_integer_62.exit, %454, %7, %453
+common.ret421:                                    ; preds = %462, %458, %455, %print_str.exit218.thread, %print_str.exit206.thread, %print_str.exit198.thread, %print_str.exit185, %print_str.exit191, %print_str.exit226.thread, %print_str.exit226, %print_str.exit218, %print_str.exit206, %print_str.exit198, %117, %113, %print_str.exit181, %75, %.thread, %22, %18, %parse_hex_nibbles_for_const_uint.exit180.thread, %70, %next.exit212.thread, %next.exit.thread, %.critedge, %27, %print_str.exit152, %153, %parse_integer_62.exit, %454, %7, %453
   ret void
 
 453:                                              ; preds = %parse_integer_62.exit
@@ -4805,7 +4805,7 @@ next.exit.thread:                                 ; preds = %peek.exit.i, %8, %n
 454:                                              ; preds = %next.exit212
   br i1 %1, label %common.ret421, label %455
 
-455:                                              ; preds = %print_str.exit185.thread, %print_str.exit198.thread, %print_str.exit206.thread, %print_str.exit191, %print_str.exit218.thread, %print_str.exit226.thread, %print_str.exit185, %454
+455:                                              ; preds = %print_str.exit185.thread, %print_str.exit218.thread, %print_str.exit206.thread, %print_str.exit198.thread, %print_str.exit185, %print_str.exit191, %print_str.exit226.thread, %454
   %456 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %457 = trunc nuw i8 %456 to i1
   br i1 %457, label %common.ret421, label %458
@@ -5116,7 +5116,7 @@ print_str.exit.thread:                            ; preds = %36, %print_str.exit
   br label %print_str.exit21
 
 ._crit_edge:                                      ; preds = %31, %.lr.ph, %.preheader.i
-  %.019.lcssa = phi i64 [ 0, %.preheader.i ], [ %71, %.lr.ph ], [ 0, %31 ]
+  %.019.lcssa = phi i64 [ %71, %.lr.ph ], [ 0, %.preheader.i ], [ 0, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %.019.lcssa) #13
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12

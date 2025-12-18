@@ -2082,9 +2082,9 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph131, %181, %114, %188, %161, %84
-  %.168 = phi ptr [ %86, %84 ], [ %115, %114 ], [ %167, %188 ], [ %.067134, %161 ], [ %167, %181 ], [ %185, %.lr.ph131 ]
-  %.163 = phi ptr [ %85, %84 ], [ %101, %114 ], [ %101, %188 ], [ %101, %161 ], [ %101, %181 ], [ %184, %.lr.ph131 ]
-  %.2 = phi i32 [ %.1136, %84 ], [ %.1136, %114 ], [ %.1136, %188 ], [ %.1136, %161 ], [ %89, %181 ], [ %89, %.lr.ph131 ]
+  %.168 = phi ptr [ %86, %84 ], [ %115, %114 ], [ %.067134, %161 ], [ %167, %188 ], [ %167, %181 ], [ %185, %.lr.ph131 ]
+  %.163 = phi ptr [ %85, %84 ], [ %101, %114 ], [ %101, %161 ], [ %101, %188 ], [ %101, %181 ], [ %184, %.lr.ph131 ]
+  %.2 = phi i32 [ %.1136, %84 ], [ %.1136, %114 ], [ %.1136, %161 ], [ %.1136, %188 ], [ %89, %181 ], [ %89, %.lr.ph131 ]
   %.not = icmp eq ptr %.163, %64
   br i1 %.not, label %._crit_edge138, label %66
 
@@ -3750,9 +3750,9 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit, %.loopexit.loopexit175, %.loopexit.loopexit, %.preheader137, %.preheader135
-  %.pr = phi i32 [ %280, %.loopexit.loopexit175 ], [ %222, %.preheader135 ], [ %222, %.preheader137 ], [ %248, %.loopexit.loopexit ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
-  %.2112 = phi i32 [ %.4, %.loopexit.loopexit175 ], [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %.1111, %.loopexit.loopexit ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
-  %.1105 = phi i32 [ %284, %.loopexit.loopexit175 ], [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %283, %.loopexit.loopexit ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
+  %.pr = phi i32 [ %280, %.loopexit.loopexit175 ], [ %248, %.loopexit.loopexit ], [ %222, %.preheader135 ], [ %222, %.preheader137 ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
+  %.2112 = phi i32 [ %.4, %.loopexit.loopexit175 ], [ %.1111, %.loopexit.loopexit ], [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
+  %.1105 = phi i32 [ %284, %.loopexit.loopexit175 ], [ %283, %.loopexit.loopexit ], [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
   %285 = sext i32 %.pr to i64
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %287 = load i64, ptr %286, align 8, !tbaa !168
@@ -5817,23 +5817,23 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %142, %169, %217
+  br label %.outer, !llvm.loop !195
+
 169:                                              ; preds = %142
   %170 = load double, ptr %36, align 8, !tbaa !77
-  %171 = load double, ptr %37, align 8, !tbaa !195
+  %171 = load double, ptr %37, align 8, !tbaa !196
   %172 = fmul double %170, %171
-  store double %172, ptr %37, align 8, !tbaa !195
+  store double %172, ptr %37, align 8, !tbaa !196
   %173 = fptosi double %172 to i32
   store i32 %173, ptr %35, align 8, !tbaa !194
   %174 = load double, ptr %38, align 8, !tbaa !75
-  %175 = load double, ptr %17, align 8, !tbaa !196
+  %175 = load double, ptr %17, align 8, !tbaa !197
   %176 = fmul double %174, %175
-  store double %176, ptr %17, align 8, !tbaa !196
-  %177 = load i32, ptr %39, align 8, !tbaa !197
+  store double %176, ptr %17, align 8, !tbaa !197
+  %177 = load i32, ptr %39, align 8, !tbaa !198
   %178 = icmp sgt i32 %177, 0
   br i1 %178, label %179, label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %169, %217, %142
-  br label %.outer, !llvm.loop !198
 
 179:                                              ; preds = %169
   %180 = load i64, ptr %11, align 8, !tbaa !193
@@ -6004,7 +6004,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %235
   %276 = load i32, ptr %16, align 8, !tbaa !101
   %277 = sub nsw i32 %275, %276
   %278 = sitofp i32 %277 to double
-  %279 = load double, ptr %17, align 8, !tbaa !196
+  %279 = load double, ptr %17, align 8, !tbaa !197
   %280 = fcmp ugt double %279, %278
   br i1 %280, label %282, label %281
 
@@ -6221,7 +6221,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %235
   %390 = sext i32 %388 to i64
   %391 = getelementptr inbounds %"struct.Minisat::Lit", ptr %387, i64 %390
   store i32 %.sroa.090.3, ptr %391, align 4, !tbaa !65
-  br label %.outer.split, !llvm.loop !198
+  br label %.outer.split, !llvm.loop !195
 
 .loopexit127:                                     ; preds = %.loopexit128, %.loopexit.split-lp129, %.loopexit.split-lp, %.loopexit127.loopexit.split, %.loopexit127.loopexit.split.us, %.loopexit127.loopexit.split-lp, %324, %326
   %.pn47 = phi { ptr, i32 } [ %327, %326 ], [ %lpad.loopexit135.us, %.loopexit127.loopexit.split.us ], [ %325, %324 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp136, %.loopexit127.loopexit.split-lp ], [ %lpad.loopexit135, %.loopexit127.loopexit.split ], [ %lpad.loopexit130, %.loopexit128 ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp129 ]
@@ -6392,7 +6392,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   %35 = load double, ptr %34, align 8, !tbaa !74
   %36 = fmul double %35, %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  store double %36, ptr %37, align 8, !tbaa !196
+  store double %36, ptr %37, align 8, !tbaa !197
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load i32, ptr %38, align 8, !tbaa !71
   %40 = sitofp i32 %39 to double
@@ -6400,7 +6400,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %26
-  store double %40, ptr %37, align 8, !tbaa !196
+  store double %40, ptr %37, align 8, !tbaa !197
   br label %43
 
 43:                                               ; preds = %42, %26
@@ -6408,12 +6408,12 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   %45 = load i32, ptr %44, align 8, !tbaa !76
   %46 = sitofp i32 %45 to double
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  store double %46, ptr %47, align 8, !tbaa !195
+  store double %46, ptr %47, align 8, !tbaa !196
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store i32 %45, ptr %48, align 8, !tbaa !194
   %49 = load i8, ptr @_ZN7MinisatL7l_UndefE, align 1, !tbaa !124
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %51 = load i32, ptr %50, align 8, !tbaa !197
+  %51 = load i32, ptr %50, align 8, !tbaa !198
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %54
 
@@ -6539,7 +6539,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread27: ; preds = %106
 
 .thread:                                          ; preds = %71, %106, %97, %_ZNK7Minisat6Solver12withinBudgetEv.exit.thread27, %54
   %.sroa.0.2 = phi i8 [ %49, %54 ], [ %103, %_ZNK7Minisat6Solver12withinBudgetEv.exit.thread27 ], [ %103, %97 ], [ %103, %106 ], [ %103, %71 ]
-  %115 = load i32, ptr %50, align 8, !tbaa !197
+  %115 = load i32, ptr %50, align 8, !tbaa !198
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %117, label %118
 
@@ -6894,7 +6894,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %90, %._ZN7Minisat3v
   br i1 %117, label %90, label %.loopexit, !llvm.loop !211
 
 .loopexit:                                        ; preds = %38, %_ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit, %._crit_edge, %_ZN7Minisat3vecINS_3LitEiE5clearEb.exit
-  %.3 = phi i1 [ true, %_ZN7Minisat3vecINS_3LitEiE5clearEb.exit ], [ false, %._crit_edge ], [ true, %_ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit ], [ false, %38 ]
+  %.3 = phi i1 [ true, %_ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit ], [ false, %._crit_edge ], [ true, %_ZN7Minisat3vecINS_3LitEiE5clearEb.exit ], [ false, %38 ]
   tail call void @_ZN7Minisat6Solver11cancelUntilEi(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef 0)
   ret i1 %.3
 }
@@ -7345,9 +7345,9 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit: ; preds = %_ZL6mapV
   br label %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67
 
 _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67: ; preds = %76, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit, %.loopexit
-  %155 = phi i32 [ %60, %.loopexit ], [ %.pre143, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit ], [ %60, %76 ]
-  %156 = phi ptr [ %61, %.loopexit ], [ %150, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit ], [ %61, %76 ]
-  %.lcssa103 = phi i32 [ %.lcssa104107, %.loopexit ], [ %151, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit ], [ %.lcssa104107, %76 ]
+  %155 = phi i32 [ %.pre143, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit ], [ %60, %.loopexit ], [ %60, %76 ]
+  %156 = phi ptr [ %150, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit ], [ %61, %.loopexit ], [ %61, %76 ]
+  %.lcssa103 = phi i32 [ %151, %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67.loopexit ], [ %.lcssa104107, %.loopexit ], [ %.lcssa104107, %76 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %157 = sext i32 %155 to i64
   %158 = icmp slt i64 %indvars.iv.next135, %157
@@ -7427,7 +7427,7 @@ _ZL6mapVariRN7Minisat3vecIiiEERi.exit74:          ; preds = %._ZL6mapVariRN7Mini
 
 ._crit_edge120:                                   ; preds = %200, %.preheader
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %189 = load i32, ptr %188, align 8, !tbaa !197
+  %189 = load i32, ptr %188, align 8, !tbaa !198
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %204, label %207
 
@@ -8141,7 +8141,7 @@ define void @_ZN7Minisat6Solver14garbageCollectEv(ptr noundef nonnull align 8 ca
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !197
+  %12 = load i32, ptr %11, align 8, !tbaa !198
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %25
 
@@ -8377,7 +8377,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat12DoubleOption5parseEPKc(ptr 
   br label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
 
 _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+  %.0 = phi i1 [ %21, %50 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i15 ]
   ret i1 %.0
 }
 
@@ -8560,7 +8560,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat9IntOption5parseEPKc(ptr noun
   br label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
 
 _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
-  %.0 = phi i1 [ %22, %41 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i7 ]
+  %.0 = phi i1 [ %22, %41 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i7 ]
   ret i1 %.0
 }
 
@@ -9798,9 +9798,9 @@ _ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108: ; preds = %76, %_ZN11reduceD
   br label %_ZN11reduceDB_ltclEjj.exit39.preheader
 
 _ZN11reduceDB_ltclEjj.exit39.preheader:           ; preds = %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit, %.lr.ph.split, %50
-  %.lcssa50 = phi i64 [ %52, %50 ], [ %52, %.lr.ph.split ], [ %indvars.iv.next95, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %indvars.iv.next, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
-  %.lcssa46 = phi i32 [ %51, %50 ], [ %51, %.lr.ph.split ], [ %89, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %90, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
-  %.lcssa44 = phi i32 [ %54, %50 ], [ %54, %.lr.ph.split ], [ %63, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %84, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
+  %.lcssa50 = phi i64 [ %52, %50 ], [ %indvars.iv.next95, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %52, %.lr.ph.split ], [ %indvars.iv.next, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
+  %.lcssa46 = phi i32 [ %51, %50 ], [ %89, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %51, %.lr.ph.split ], [ %90, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
+  %.lcssa44 = phi i32 [ %54, %50 ], [ %63, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit ], [ %54, %.lr.ph.split ], [ %84, %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit108 ]
   %91 = getelementptr inbounds i32, ptr %.tr76, i64 %.lcssa50
   %92 = icmp ugt i32 %.pre, 95
   %93 = add nsw i32 %.032, -1
@@ -10197,10 +10197,10 @@ attributes #38 = { nounwind willreturn memory(read) }
 !192 = !{!13, !27, i64 184}
 !193 = !{!13, !27, i64 216}
 !194 = !{!13, !17, i64 832}
-!195 = !{!13, !10, i64 824}
-!196 = !{!13, !10, i64 816}
-!197 = !{!13, !17, i64 64}
-!198 = distinct !{!198, !118}
+!195 = distinct !{!195, !118}
+!196 = !{!13, !10, i64 824}
+!197 = !{!13, !10, i64 816}
+!198 = !{!13, !17, i64 64}
 !199 = !{!13, !27, i64 232}
 !200 = !{!13, !27, i64 240}
 !201 = distinct !{!201, !118}

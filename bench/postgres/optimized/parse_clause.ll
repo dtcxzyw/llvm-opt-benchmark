@@ -267,7 +267,7 @@ getNSItemForSpecialRelationTypes.exit.thread:     ; preds = %18, %28
   br label %33
 
 getNSItemForSpecialRelationTypes.exit:            ; preds = %25, %31
-  %.0.i = phi ptr [ %27, %25 ], [ %32, %31 ]
+  %.0.i = phi ptr [ %32, %31 ], [ %27, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not406 = icmp eq ptr %.0.i, null
   br i1 %.not406, label %33, label %40
@@ -2748,7 +2748,7 @@ tailrecurse:                                      ; preds = %9
   br i1 %.not, label %51, label %.critedge66, !llvm.loop !16
 
 .critedge66:                                      ; preds = %tailrecurse, %.lr.ph, %9, %63, %.critedge, %3, %.preheader, %.critedge._crit_edge, %19
-  %.0 = phi ptr [ %.054.lcssa, %.critedge ], [ %50, %.critedge._crit_edge ], [ null, %19 ], [ null, %.preheader ], [ null, %3 ], [ %.153, %63 ], [ null, %tailrecurse ], [ %.tr77, %.lr.ph ], [ %.tr77, %9 ]
+  %.0 = phi ptr [ %.054.lcssa, %.critedge ], [ null, %19 ], [ %50, %.critedge._crit_edge ], [ %.153, %63 ], [ null, %.preheader ], [ null, %3 ], [ %.tr77, %.lr.ph ], [ null, %tailrecurse ], [ %.tr77, %9 ]
   ret ptr %.0
 }
 
@@ -3172,7 +3172,7 @@ define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly c
   br i1 %31, label %.lr.ph37, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph37, %.lr.ph42, %.lr.ph.split.us.split, %.lr.ph.split.split, %5
-  %.020.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ %17, %.lr.ph42 ], [ %28, %.lr.ph37 ]
+  %.020.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %17, %.lr.ph42 ], [ %28, %.lr.ph37 ]
   ret ptr %.020.lcssa
 }
 
@@ -3834,7 +3834,7 @@ findWindowClause.exit.thread.thread:              ; preds = %16
   br i1 %exitcond.not.i136, label %.thread150, label %48
 
 .thread150:                                       ; preds = %findWindowClause.exit.thread.thread, %.lr.ph.i130, %42, %56
-  %57 = phi ptr [ %38, %56 ], [ %40, %findWindowClause.exit.thread.thread ], [ %38, %42 ], [ %38, %.lr.ph.i130 ]
+  %57 = phi ptr [ %38, %56 ], [ %38, %42 ], [ %38, %.lr.ph.i130 ], [ %40, %findWindowClause.exit.thread.thread ]
   %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %59 = call i32 @errcode(i32 noundef 67137668) #8
   %60 = load ptr, ptr %57, align 8
@@ -5020,7 +5020,7 @@ define dso_local noundef zeroext i1 @targetIsInSortList(ptr noundef readonly cap
   br i1 %34, label %.lr.ph52, label %.thread30
 
 .thread30:                                        ; preds = %.critedge, %29, %25, %.critedge.us, %.preheader, %.lr.ph.split.split, %.lr.ph.split.us.split, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %.lr.ph.split.us.split ], [ false, %.lr.ph.split.split ], [ false, %.preheader ], [ %17, %.critedge.us ], [ true, %25 ], [ true, %29 ], [ false, %.critedge ]
+  %.0 = phi i1 [ false, %3 ], [ false, %.lr.ph.split.us.split ], [ %17, %.critedge.us ], [ false, %.lr.ph.split.split ], [ false, %.preheader ], [ true, %29 ], [ false, %.critedge ], [ true, %25 ]
   ret i1 %.0
 }
 

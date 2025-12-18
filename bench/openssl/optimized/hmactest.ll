@@ -797,8 +797,8 @@ pt.exit:                                          ; preds = %.lr.ph.i, %46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %28, %57, %pt.exit, %._crit_edge, %12, %9, %1
-  %.022 = phi ptr [ null, %1 ], [ %10, %57 ], [ %10, %pt.exit ], [ %10, %._crit_edge ], [ %10, %12 ], [ %10, %9 ], [ %10, %28 ], [ %10, %34 ]
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %57 ], [ 0, %pt.exit ], [ 0, %._crit_edge ], [ 0, %12 ], [ 0, %9 ], [ 0, %28 ], [ 0, %34 ]
+  %.022 = phi ptr [ %10, %9 ], [ %10, %12 ], [ null, %1 ], [ %10, %57 ], [ %10, %pt.exit ], [ %10, %._crit_edge ], [ %10, %28 ], [ %10, %34 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %1 ], [ %spec.select, %57 ], [ 0, %pt.exit ], [ 0, %._crit_edge ], [ 0, %28 ], [ 0, %34 ]
   call void @HMAC_CTX_free(ptr noundef %.022) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

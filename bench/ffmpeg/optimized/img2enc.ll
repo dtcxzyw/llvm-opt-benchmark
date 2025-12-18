@@ -480,7 +480,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   br i1 %exitcond171.not, label %.loopexit, label %189, !llvm.loop !70
 
 .loopexit:                                        ; preds = %181, %194, %37, %._crit_edge, %64, %48
-  %.2 = phi i32 [ -22, %48 ], [ -22, %64 ], [ 0, %._crit_edge ], [ -22, %37 ], [ %.0117, %194 ], [ %184, %181 ]
+  %.2 = phi i32 [ -22, %48 ], [ -22, %64 ], [ %.0117, %194 ], [ 0, %._crit_edge ], [ -22, %37 ], [ %184, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -283,10 +283,10 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
   br label %.split60.us
 
 .split60.us:                                      ; preds = %.split.split.us, %.split.us, %.split60.us.loopexit88
-  %.us-phi = phi double [ %66, %.split60.us.loopexit88 ], [ 1.000000e+00, %.split.us ], [ 1.000000e+00, %.split.split.us ]
-  %.us-phi61 = phi i32 [ %.041, %.split60.us.loopexit88 ], [ %.041.us, %.split.us ], [ %.041.us65, %.split.split.us ]
-  %.us-phi62 = phi i32 [ %.040, %.split60.us.loopexit88 ], [ %.040.us, %.split.us ], [ %.040.us66, %.split.split.us ]
-  %.us-phi63 = phi i32 [ %.037, %.split60.us.loopexit88 ], [ %.037.us, %.split.us ], [ %.037.us67, %.split.split.us ]
+  %.us-phi = phi double [ 1.000000e+00, %.split.us ], [ %66, %.split60.us.loopexit88 ], [ 1.000000e+00, %.split.split.us ]
+  %.us-phi61 = phi i32 [ %.041.us, %.split.us ], [ %.041, %.split60.us.loopexit88 ], [ %.041.us65, %.split.split.us ]
+  %.us-phi62 = phi i32 [ %.040.us, %.split.us ], [ %.040, %.split60.us.loopexit88 ], [ %.040.us66, %.split.split.us ]
+  %.us-phi63 = phi i32 [ %.037.us, %.split.us ], [ %.037, %.split60.us.loopexit88 ], [ %.037.us67, %.split.split.us ]
   %67 = icmp slt i32 %.us-phi63, 11
   %68 = icmp eq i32 %.us-phi61, 0
   %or.cond = and i1 %68, %67

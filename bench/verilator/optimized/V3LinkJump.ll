@@ -6102,7 +6102,7 @@ _ZN7AstNode11privateCastI10AstDoWhilePS_EEPT_S2_.exit: ; preds = %_ZN7AstNode9pr
   unreachable
 
 93:                                               ; preds = %87, %_ZN7AstNode9privateAsI12AstNodeFTaskPS_EEPT_S2_.exit, %82, %78, %_ZN7AstNode9privateAsI12AstNodeBlockPS_EEPT_S2_.exit
-  %.070.in = phi ptr [ %74, %_ZN7AstNode9privateAsI12AstNodeBlockPS_EEPT_S2_.exit ], [ %76, %_ZN7AstNode9privateAsI12AstNodeFTaskPS_EEPT_S2_.exit ], [ %80, %78 ], [ %84, %82 ], [ %88, %87 ]
+  %.070.in = phi ptr [ %74, %_ZN7AstNode9privateAsI12AstNodeBlockPS_EEPT_S2_.exit ], [ %76, %_ZN7AstNode9privateAsI12AstNodeFTaskPS_EEPT_S2_.exit ], [ %80, %78 ], [ %88, %87 ], [ %84, %82 ]
   %.070 = load ptr, ptr %.070.in, align 8, !tbaa !101
   %.not78152 = icmp eq ptr %.070, null
   br i1 %.not78152, label %.critedge85, label %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit.preheader

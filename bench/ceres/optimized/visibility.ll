@@ -1168,8 +1168,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit: ; preds = %.lr.ph.i.i.i, %252, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334, %231
-  %.sroa.0256.2 = phi ptr [ %.sroa.0256.0339, %231 ], [ %238, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ %storemerge.i.i.i, %252 ], [ %.sroa.0256.0339, %.lr.ph.i.i.i ]
-  %.sroa.11.2 = phi i32 [ %232, %231 ], [ %256, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ 0, %252 ], [ %232, %.lr.ph.i.i.i ]
+  %.sroa.0256.2 = phi ptr [ %storemerge.i.i.i, %252 ], [ %.sroa.0256.0339, %231 ], [ %238, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ %.sroa.0256.0339, %.lr.ph.i.i.i ]
+  %.sroa.11.2 = phi i32 [ 0, %252 ], [ %232, %231 ], [ %256, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ %232, %.lr.ph.i.i.i ]
   %257 = icmp ne ptr %.sroa.0256.2, %72
   %258 = icmp ne i32 %.sroa.11.2, %75
   %.not3.i = select i1 %257, i1 true, i1 %258
@@ -1276,8 +1276,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123: ; preds = %.lr.ph.i.i.i117, %298, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347, %277
-  %.sroa.16.2 = phi i32 [ %278, %277 ], [ %302, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ 0, %298 ], [ %278, %.lr.ph.i.i.i117 ]
-  %.sroa.0214.2 = phi ptr [ %.sroa.0238.0365, %277 ], [ %284, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ %storemerge.i.i.i121, %298 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i117 ]
+  %.sroa.16.2 = phi i32 [ 0, %298 ], [ %278, %277 ], [ %302, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ %278, %.lr.ph.i.i.i117 ]
+  %.sroa.0214.2 = phi ptr [ %storemerge.i.i.i121, %298 ], [ %.sroa.0238.0365, %277 ], [ %284, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i117 ]
   %303 = zext i8 %273 to i32
   %304 = icmp ne ptr %.sroa.0214.2, %274
   %305 = icmp ne i32 %.sroa.16.2, %303
@@ -1445,8 +1445,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145: ; preds = %.lr.ph.i.i.i139, %397, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351, %376
-  %.sroa.16.4 = phi i32 [ %377, %376 ], [ %401, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ 0, %397 ], [ %377, %.lr.ph.i.i.i139 ]
-  %.sroa.0214.4 = phi ptr [ %.sroa.0214.0357, %376 ], [ %383, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ %storemerge.i.i.i143, %397 ], [ %.sroa.0214.0357, %.lr.ph.i.i.i139 ]
+  %.sroa.16.4 = phi i32 [ 0, %397 ], [ %377, %376 ], [ %401, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ %377, %.lr.ph.i.i.i139 ]
+  %.sroa.0214.4 = phi ptr [ %storemerge.i.i.i143, %397 ], [ %.sroa.0214.0357, %376 ], [ %383, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ %.sroa.0214.0357, %.lr.ph.i.i.i139 ]
   %402 = load ptr, ptr %266, align 8, !tbaa !19
   %403 = getelementptr i8, ptr %402, i64 10
   %404 = load i8, ptr %403, align 1, !tbaa !40
@@ -1518,8 +1518,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158: ; preds = %.lr.ph.i.i.i152, %434, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360, %413
-  %.sroa.0238.2 = phi ptr [ %.sroa.0238.0365, %413 ], [ %420, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ %storemerge.i.i.i156, %434 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i152 ]
-  %.sroa.12.2 = phi i32 [ %414, %413 ], [ %438, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ 0, %434 ], [ %414, %.lr.ph.i.i.i152 ]
+  %.sroa.0238.2 = phi ptr [ %storemerge.i.i.i156, %434 ], [ %.sroa.0238.0365, %413 ], [ %420, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i152 ]
+  %.sroa.12.2 = phi i32 [ 0, %434 ], [ %414, %413 ], [ %438, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ %414, %.lr.ph.i.i.i152 ]
   %439 = zext i8 %410 to i32
   %440 = icmp ne ptr %.sroa.0238.2, %411
   %441 = icmp ne i32 %.sroa.12.2, %439

@@ -2428,8 +2428,8 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %.body.i43.i
 
 .body27.i.i:                                      ; preds = %766, %763, %517
-  %770 = phi i1 [ false, %517 ], [ false, %763 ], [ true, %766 ]
-  %.pn.pn.i.i = phi { ptr, i32 } [ %518, %517 ], [ %764, %763 ], [ %.pn.i48.i, %766 ]
+  %770 = phi i1 [ false, %763 ], [ false, %517 ], [ true, %766 ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %764, %763 ], [ %518, %517 ], [ %.pn.i48.i, %766 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #21, !noalias !32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #21, !noalias !32
   br i1 %770, label %.body.i43.i, label %.preheader.preheader.i.i
@@ -2445,7 +2445,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %.body.i43.i
 
 .body.i43.i:                                      ; preds = %771, %.preheader.preheader.i.i, %.body27.i.i, %.body27.thread.i.i, %759, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__8HdDriverESaIS2_EED2Ev.exit50.i.i.i
-  %.pn23.i.i = phi { ptr, i32 } [ %772, %771 ], [ %.pn.pn.i.i, %.body27.i.i ], [ %760, %759 ], [ %.pn21.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__8HdDriverESaIS2_EED2Ev.exit50.i.i.i ], [ %.pn.pn.pn.ph.i.i, %.body27.thread.i.i ], [ %.pn.pn.i.i, %.preheader.preheader.i.i ]
+  %.pn23.i.i = phi { ptr, i32 } [ %772, %771 ], [ %.pn.pn.i.i, %.body27.i.i ], [ %.pn.pn.pn.ph.i.i, %.body27.thread.i.i ], [ %760, %759 ], [ %.pn21.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__8HdDriverESaIS2_EED2Ev.exit50.i.i.i ], [ %.pn.pn.i.i, %.preheader.preheader.i.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #21, !noalias !32
   %.not.i.i.i.i66.i = icmp eq ptr %.sroa.2.0.i, null
   br i1 %.not.i.i.i.i66.i, label %.body40.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i67.i

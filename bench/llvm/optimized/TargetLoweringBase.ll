@@ -1321,7 +1321,7 @@ _ZNK4llvm3EVTeqES0_.exit16.fold.split41:          ; preds = %7
   br label %_ZNK4llvm3EVTeqES0_.exit16
 
 _ZNK4llvm3EVTeqES0_.exit16:                       ; preds = %7, %_ZNK4llvm3EVTeqES0_.exit16.fold.split41, %_ZNK4llvm3EVTeqES0_.exit16.fold.split40, %_ZNK4llvm3EVTeqES0_.exit16.fold.split39, %_ZNK4llvm3EVTeqES0_.exit16.fold.split, %8
-  %9 = phi i32 [ %2, %7 ], [ %6, %8 ], [ %3, %_ZNK4llvm3EVTeqES0_.exit16.fold.split ], [ %4, %_ZNK4llvm3EVTeqES0_.exit16.fold.split39 ], [ %5, %_ZNK4llvm3EVTeqES0_.exit16.fold.split40 ], [ 717, %_ZNK4llvm3EVTeqES0_.exit16.fold.split41 ]
+  %9 = phi i32 [ %3, %_ZNK4llvm3EVTeqES0_.exit16.fold.split ], [ %5, %_ZNK4llvm3EVTeqES0_.exit16.fold.split40 ], [ %2, %7 ], [ %4, %_ZNK4llvm3EVTeqES0_.exit16.fold.split39 ], [ %6, %8 ], [ 717, %_ZNK4llvm3EVTeqES0_.exit16.fold.split41 ]
   ret i32 %9
 }
 
@@ -1375,7 +1375,7 @@ switch.lookup131:                                 ; preds = %7
   br label %_ZNK4llvm3EVTeqES0_.exit12
 
 _ZNK4llvm3EVTeqES0_.exit12:                       ; preds = %7, %5, %switch.lookup131, %switch.lookup, %11, %10, %9, %4
-  %.0 = phi i32 [ 717, %5 ], [ %switch.load, %switch.lookup ], [ %spec.select127, %11 ], [ 717, %4 ], [ %switch.load133, %switch.lookup131 ], [ %spec.select, %10 ], [ %switch.select129, %9 ], [ 717, %7 ]
+  %.0 = phi i32 [ %spec.select, %10 ], [ %spec.select127, %11 ], [ %switch.load, %switch.lookup ], [ %switch.load133, %switch.lookup131 ], [ 717, %5 ], [ 717, %4 ], [ %switch.select129, %9 ], [ 717, %7 ]
   ret i32 %.0
 }
 
@@ -1435,7 +1435,7 @@ switch.lookup190:                                 ; preds = %12
   br label %_ZNK4llvm3EVTeqES0_.exit15
 
 _ZNK4llvm3EVTeqES0_.exit15:                       ; preds = %12, %10, %7, %5, %switch.lookup190, %switch.lookup186, %switch.lookup182, %switch.lookup, %14, %4
-  %.0 = phi i32 [ 717, %7 ], [ %switch.offset, %switch.lookup ], [ %spec.select, %14 ], [ 717, %10 ], [ %switch.offset184, %switch.lookup182 ], [ 717, %4 ], [ %switch.offset188, %switch.lookup186 ], [ 717, %5 ], [ %switch.offset192, %switch.lookup190 ], [ 717, %12 ]
+  %.0 = phi i32 [ 717, %4 ], [ 717, %7 ], [ %switch.offset, %switch.lookup ], [ 717, %5 ], [ %spec.select, %14 ], [ 717, %10 ], [ %switch.offset188, %switch.lookup186 ], [ %switch.offset192, %switch.lookup190 ], [ %switch.offset184, %switch.lookup182 ], [ 717, %12 ]
   ret i32 %.0
 }
 
@@ -1493,7 +1493,7 @@ define dso_local noundef range(i32 354, 718) i32 @_ZN4llvm5RTLIB11getFPTOSINTENS
   br label %_ZNK4llvm3EVTeqES0_.exit9
 
 _ZNK4llvm3EVTeqES0_.exit9:                        ; preds = %16, %14, %12, %9, %7, %5, %4
-  %.0.shrunk = phi i16 [ %spec.select222, %9 ], [ %spec.select, %5 ], [ %spec.select223, %12 ], [ 717, %4 ], [ %spec.select225, %16 ], [ %spec.select224, %14 ], [ %spec.select221, %7 ]
+  %.0.shrunk = phi i16 [ %spec.select223, %12 ], [ %spec.select224, %14 ], [ %spec.select, %5 ], [ 717, %4 ], [ %spec.select221, %7 ], [ %spec.select222, %9 ], [ %spec.select225, %16 ]
   %.0 = zext i16 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1552,7 +1552,7 @@ define dso_local noundef range(i32 372, 718) i32 @_ZN4llvm5RTLIB11getFPTOUINTENS
   br label %_ZNK4llvm3EVTeqES0_.exit9
 
 _ZNK4llvm3EVTeqES0_.exit9:                        ; preds = %17, %14, %12, %10, %8, %5, %4
-  %.0.shrunk = phi i16 [ %spec.select221, %10 ], [ %spec.select, %5 ], [ %spec.select222, %12 ], [ 717, %4 ], [ %spec.select224, %17 ], [ %spec.select223, %14 ], [ %spec.select220, %8 ]
+  %.0.shrunk = phi i16 [ %spec.select222, %12 ], [ %spec.select223, %14 ], [ %spec.select, %5 ], [ 717, %4 ], [ %spec.select220, %8 ], [ %spec.select221, %10 ], [ %spec.select224, %17 ]
   %.0 = zext i16 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1587,7 +1587,7 @@ define dso_local noundef range(i32 390, 718) i32 @_ZN4llvm5RTLIB11getSINTTOFPENS
   br label %_ZNK4llvm3EVTeqES0_.exit18
 
 _ZNK4llvm3EVTeqES0_.exit18:                       ; preds = %9, %7, %5, %4
-  %.0.shrunk = phi i16 [ %spec.select, %5 ], [ %spec.select186, %7 ], [ 717, %4 ], [ %spec.select187, %9 ]
+  %.0.shrunk = phi i16 [ 717, %4 ], [ %spec.select186, %7 ], [ %spec.select187, %9 ], [ %spec.select, %5 ]
   %.0 = zext i16 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1622,7 +1622,7 @@ define dso_local noundef range(i32 408, 718) i32 @_ZN4llvm5RTLIB11getUINTTOFPENS
   br label %_ZNK4llvm3EVTeqES0_.exit18
 
 _ZNK4llvm3EVTeqES0_.exit18:                       ; preds = %10, %8, %5, %4
-  %.0.shrunk = phi i16 [ %spec.select, %5 ], [ %spec.select185, %8 ], [ 717, %4 ], [ %spec.select186, %10 ]
+  %.0.shrunk = phi i16 [ 717, %4 ], [ %spec.select185, %8 ], [ %spec.select186, %10 ], [ %spec.select, %5 ]
   %.0 = zext i16 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -5002,7 +5002,7 @@ _ZN4llvm9BitVector13setBitsInMaskEPKjj.exit:      ; preds = %99, %100
   br i1 %.not.i, label %._crit_edge, label %85, !llvm.loop !385
 
 ._crit_edge78:                                    ; preds = %65, %144, %_ZNK4llvm18TargetLoweringBase9isLegalRCERKNS_18TargetRegisterInfoERKNS_19TargetRegisterClassE.exit, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit, %161, %._crit_edge, %_ZNK4llvm9BitVector8set_bitsEv.exit
-  %.0.lcssa = phi ptr [ %8, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ %8, %._crit_edge ], [ %.1, %144 ], [ %.1, %161 ], [ %.1, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ %.1, %_ZNK4llvm18TargetLoweringBase9isLegalRCERKNS_18TargetRegisterInfoERKNS_19TargetRegisterClassE.exit ], [ %8, %65 ]
+  %.0.lcssa = phi ptr [ %8, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ %.1, %161 ], [ %.1, %144 ], [ %8, %._crit_edge ], [ %.1, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ %.1, %_ZNK4llvm18TargetLoweringBase9isLegalRCERKNS_18TargetRegisterInfoERKNS_19TargetRegisterClassE.exit ], [ %8, %65 ]
   %104 = icmp eq ptr %.pre87.pre.pre, %22
   br i1 %104, label %_ZN4llvm9BitVectorD2Ev.exit, label %105
 

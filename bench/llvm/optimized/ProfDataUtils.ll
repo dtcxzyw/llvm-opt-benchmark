@@ -1791,7 +1791,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit38:            ; preds = %.thread54, %99
   br label %_ZN4llvmeqENS_9StringRefES0_.exit32.thread51
 
 _ZN4llvmeqENS_9StringRefES0_.exit32.thread51:     ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread47, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread, %_ZNK4llvm6MDNode10getOperandEj.exit38, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35, %_ZN4llvmeqENS_9StringRefES0_.exit32, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit38 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit32 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread47 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit38 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread47 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit32 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ]
   ret i1 %.0
 }
 

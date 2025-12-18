@@ -3758,7 +3758,7 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
   br label %update_supported_actions.exit
 
 update_supported_actions.exit:                    ; preds = %91, %136, %128, %.preheader.i, %88, %dl_symbol.exit106.i, %49, %43, %33, %27, %21, %13, %dl_symbol.exit, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %dl_symbol.exit ], [ 1, %13 ], [ 1, %21 ], [ 1, %27 ], [ 1, %33 ], [ 1, %43 ], [ 1, %49 ], [ 1, %dl_symbol.exit106.i ], [ 1, %88 ], [ 1, %.preheader.i ], [ 1, %128 ], [ 1, %136 ], [ 1, %91 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %dl_symbol.exit ], [ 1, %13 ], [ 1, %21 ], [ 1, %27 ], [ 1, %33 ], [ 1, %43 ], [ 1, %49 ], [ 1, %dl_symbol.exit106.i ], [ 1, %88 ], [ 1, %.preheader.i ], [ 1, %136 ], [ 1, %128 ], [ 1, %91 ]
   ret i32 %.0
 }
 

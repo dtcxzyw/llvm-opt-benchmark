@@ -1990,9 +1990,9 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit: ; preds = 
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399: ; preds = %._crit_edge605, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
-  %195 = phi i32 [ %.pr, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %.pre738, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ %182, %._crit_edge605 ]
-  %.sroa.15507.2573 = phi ptr [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ null, %._crit_edge605 ]
-  %.sroa.15485.1 = phi ptr [ null, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %192, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ null, %._crit_edge605 ]
+  %195 = phi i32 [ %.pre738, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ %.pr, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %182, %._crit_edge605 ]
+  %.sroa.15507.2573 = phi ptr [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ null, %._crit_edge605 ]
+  %.sroa.15485.1 = phi ptr [ %192, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ null, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ null, %._crit_edge605 ]
   %.not659 = icmp eq i32 %195, 0
   br i1 %.not659, label %.preheader596, label %.lr.ph607
 

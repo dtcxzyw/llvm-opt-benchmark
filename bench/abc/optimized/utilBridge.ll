@@ -2101,7 +2101,7 @@ define range(i32 0, 2) i32 @Gia_ManFromBridgeReadPackage(ptr noundef captures(no
   br label %25
 
 25:                                               ; preds = %.sink.split, %8, %20
-  %.0 = phi i32 [ 1, %20 ], [ 1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %20 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

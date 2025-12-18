@@ -274,8 +274,8 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br label %98
 
 98:                                               ; preds = %.thread, %94, %96
-  %.144111 = phi ptr [ %.144112, %94 ], [ %.144112, %96 ], [ %.144113, %.thread ]
-  %.040 = phi i16 [ 1, %94 ], [ 1, %96 ], [ 0, %.thread ]
+  %.144111 = phi ptr [ %.144113, %.thread ], [ %.144112, %96 ], [ %.144112, %94 ]
+  %.040 = phi i16 [ 0, %.thread ], [ 1, %96 ], [ 1, %94 ]
   %.not62 = icmp eq ptr %.144111, null
   br i1 %.not62, label %.thread66, label %.thread72
 

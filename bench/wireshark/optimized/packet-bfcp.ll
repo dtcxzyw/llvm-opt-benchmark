@@ -970,7 +970,7 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   br i1 %203, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.outer, %13, %5, %33
-  %.1236 = phi i32 [ %27, %33 ], [ %3, %5 ], [ %.0235.ph282, %13 ], [ %.2237, %.outer ]
+  %.1236 = phi i32 [ %27, %33 ], [ %.0235.ph282, %13 ], [ %3, %5 ], [ %.2237, %.outer ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   ret i32 %.1236
 }

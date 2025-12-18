@@ -3450,7 +3450,7 @@ dissect_openflow_portmod_prop_v6.exit.thread.i:   ; preds = %574, %559
   br label %dissect_openflow_hello_v6.exit
 
 dissect_openflow_portmod_prop_v6.exit.i:          ; preds = %577, %562, %533, %495
-  %.0.i.i155 = phi i32 [ %581, %577 ], [ %532, %495 ], [ %558, %533 ], [ %573, %562 ]
+  %.0.i.i155 = phi i32 [ %573, %562 ], [ %581, %577 ], [ %532, %495 ], [ %558, %533 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4003,7 +4003,7 @@ dissect_openflow_async_config_prop_v6.exit.thread.i: ; preds = %946, %931
   br label %dissect_openflow_hello_v6.exit
 
 dissect_openflow_async_config_prop_v6.exit.i:     ; preds = %949, %934, %921, %911, %899, %881, %869, %851
-  %.0.i.i160 = phi i32 [ %953, %949 ], [ %868, %851 ], [ %880, %869 ], [ %898, %881 ], [ %910, %899 ], [ %920, %911 ], [ %930, %921 ], [ %945, %934 ]
+  %.0.i.i160 = phi i32 [ %945, %934 ], [ %953, %949 ], [ %868, %851 ], [ %880, %869 ], [ %898, %881 ], [ %910, %899 ], [ %920, %911 ], [ %930, %921 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5305,7 +5305,7 @@ dissect_openflow_queue_desc_v6.exit:              ; preds = %dissect_openflow_qu
   br label %dissect_openflow_flow_update_v6.exit
 
 dissect_openflow_flow_update_v6.exit:             ; preds = %.lr.ph.i169, %792, %796, %824, %828, %832
-  %.0.i = phi i32 [ %789, %792 ], [ %836, %832 ], [ %827, %824 ], [ %831, %828 ], [ %820, %796 ], [ %822, %.lr.ph.i169 ]
+  %.0.i = phi i32 [ %789, %792 ], [ %836, %832 ], [ %831, %828 ], [ %827, %824 ], [ %820, %796 ], [ %822, %.lr.ph.i169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6761,7 +6761,7 @@ dissect_openflow_instruction_header_v6.exit:      ; preds = %4, %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph77, %51, %44, %70, %66, %34, %27
-  %.0 = phi i32 [ %26, %70 ], [ %33, %27 ], [ %43, %34 ], [ %69, %66 ], [ %47, %44 ], [ %62, %51 ], [ %49, %.lr.ph77 ], [ %64, %.lr.ph ]
+  %.0 = phi i32 [ %26, %70 ], [ %33, %27 ], [ %43, %34 ], [ %69, %66 ], [ %49, %.lr.ph77 ], [ %47, %44 ], [ %62, %51 ], [ %64, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -7241,7 +7241,7 @@ dissect_openflow_oxm_header_v6.exit:              ; preds = %124, %128, %131
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph115.i, %dissect_openflow_oxm_header_v6.exit, %dissect_openflow_action_header_v6.exit.i, %.lr.ph124.i, %dissect_openflow_instruction_header_v6.exit.i, %163, %154, %116, %96, %91, %71, %.preheader.i, %.preheader111.i
-  %.1.i = phi i32 [ %.pre-phi.i, %163 ], [ %.pre-phi.i, %154 ], [ %62, %71 ], [ %62, %91 ], [ %62, %96 ], [ %62, %116 ], [ %62, %.preheader.i ], [ %62, %.preheader111.i ], [ %.pre-phi.i, %.lr.ph115.i ], [ %.0.i.i, %dissect_openflow_instruction_header_v6.exit.i ], [ %.pre-phi.i, %.lr.ph124.i ], [ %.0.i106.i, %dissect_openflow_action_header_v6.exit.i ], [ %139, %dissect_openflow_oxm_header_v6.exit ], [ %149, %.lr.ph.i ]
+  %.1.i = phi i32 [ %.pre-phi.i, %163 ], [ %.pre-phi.i, %154 ], [ %.0.i.i, %dissect_openflow_instruction_header_v6.exit.i ], [ %.pre-phi.i, %.lr.ph124.i ], [ %.0.i106.i, %dissect_openflow_action_header_v6.exit.i ], [ %139, %dissect_openflow_oxm_header_v6.exit ], [ %.pre-phi.i, %.lr.ph115.i ], [ %62, %71 ], [ %62, %91 ], [ %62, %96 ], [ %62, %116 ], [ %62, %.preheader.i ], [ %62, %.preheader111.i ], [ %149, %.lr.ph.i ]
   %166 = load i32, ptr %14, align 4
   %167 = add i32 %166, 7
   %168 = and i32 %167, 65528

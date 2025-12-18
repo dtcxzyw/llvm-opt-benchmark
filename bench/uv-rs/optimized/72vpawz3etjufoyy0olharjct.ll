@@ -155,7 +155,7 @@ define internal fastcc range(i32 0, -65535) i32 @"_ZN4core3num21_$LT$impl$u20$u1
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader50, %34, %.preheader
-  %.sroa.015.1 = phi i16 [ 0, %.preheader ], [ %39, %34 ], [ %.sroa.015.0, %.preheader50 ]
+  %.sroa.015.1 = phi i16 [ %39, %34 ], [ 0, %.preheader ], [ %.sroa.015.0, %.preheader50 ]
   %12 = zext i16 %.sroa.015.1 to i32
   %13 = shl nuw i32 %12, 16
   br label %.loopexit49

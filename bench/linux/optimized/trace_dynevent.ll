@@ -464,7 +464,7 @@ define dso_local i32 @dyn_events_release_all(ptr noundef readnone captures(addre
   br i1 %49, label %.thread, label %.split9, !llvm.loop !23
 
 .thread:                                          ; preds = %19, %.split.us, %43, %48, %36, %.split9.us, %1, %.split8.us
-  %50 = phi i32 [ 0, %.split8.us ], [ 0, %1 ], [ -16, %.split.us ], [ 0, %36 ], [ %46, %43 ], [ %34, %.split9.us ], [ 0, %48 ], [ -16, %19 ]
+  %50 = phi i32 [ 0, %.split8.us ], [ %46, %43 ], [ 0, %1 ], [ 0, %36 ], [ -16, %.split.us ], [ %34, %.split9.us ], [ 0, %48 ], [ -16, %19 ]
   tail call void @tracing_reset_all_online_cpus() #9
   tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #9
   ret i32 %50
@@ -717,7 +717,7 @@ define internal i32 @dyn_event_open(ptr readnone captures(none) %0, ptr noundef 
   br i1 %38, label %.thread, label %.preheader, !llvm.loop !23
 
 .thread:                                          ; preds = %.preheader7, %37, %.preheader, %15, %27
-  %39 = phi i32 [ 0, %27 ], [ 0, %15 ], [ 0, %37 ], [ %35, %.preheader ], [ -16, %.preheader7 ]
+  %39 = phi i32 [ 0, %27 ], [ 0, %37 ], [ 0, %15 ], [ %35, %.preheader ], [ -16, %.preheader7 ]
   tail call void @tracing_reset_all_online_cpus() #9
   tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #9
   %40 = icmp slt i32 %39, 0

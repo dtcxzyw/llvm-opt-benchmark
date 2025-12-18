@@ -919,7 +919,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_7Array2dEEE
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit: ; preds = %27, %.lr.ph.i._crit_edge.i.i
-  %.in = phi ptr [ %29, %27 ], [ %47, %.lr.ph.i._crit_edge.i.i ]
+  %.in = phi ptr [ %47, %.lr.ph.i._crit_edge.i.i ], [ %29, %27 ]
   %48 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %_ZN4pkpy3anyD2Ev.exit
@@ -4447,7 +4447,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit:          ; preds = %.noexc
   %81 = load ptr, ptr %80, align 8
   br label %.loopexit
 
-_ZN4pkpy12try_cast_intEPNS_8PyObjectEPl.exit.thread: ; preds = %43, %_ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.i48
+_ZN4pkpy12try_cast_intEPNS_8PyObjectEPl.exit.thread: ; preds = %_ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.i48, %43
   %82 = icmp eq i64 %34, 2
   br i1 %82, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit
 
@@ -4886,7 +4886,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit:          ; preds = %.noexc
   store ptr %4, ptr %84, align 8
   br label %.loopexit
 
-_ZN4pkpy12try_cast_intEPNS_8PyObjectEPl.exit.thread: ; preds = %47, %_ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.i74
+_ZN4pkpy12try_cast_intEPNS_8PyObjectEPl.exit.thread: ; preds = %_ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.i74, %47
   %85 = icmp eq i64 %38, 2
   br i1 %85, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit
 
@@ -7092,7 +7092,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_11Array2dIt
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit: ; preds = %27, %.lr.ph.i._crit_edge.i.i
-  %.in = phi ptr [ %29, %27 ], [ %47, %.lr.ph.i._crit_edge.i.i ]
+  %.in = phi ptr [ %47, %.lr.ph.i._crit_edge.i.i ], [ %29, %27 ]
   %48 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread, label %_ZN4pkpy3anyD2Ev.exit

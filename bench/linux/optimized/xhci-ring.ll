@@ -7394,7 +7394,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
   br label %242
 
 242:                                              ; preds = %238, %219
-  %.in = phi ptr [ %241, %238 ], [ %220, %219 ]
+  %.in = phi ptr [ %220, %219 ], [ %241, %238 ]
   %243 = load ptr, ptr %.in, align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %.thread39, label %247

@@ -1304,7 +1304,7 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
   unreachable
 
 .loopexit:                                        ; preds = %76, %78, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit", %._crit_edge, %2, %100
-  %.0 = phi i1 [ true, %2 ], [ %57, %._crit_edge ], [ true, %100 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit" ], [ true, %78 ], [ true, %76 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %100 ], [ %57, %._crit_edge ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit" ], [ true, %78 ], [ true, %76 ]
   ret i1 %.0
 }
 

@@ -7098,8 +7098,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %71
   %109 = icmp samesign ult i8 %108, 10
   br i1 %109, label %.lr.ph312, label %._crit_edge313
 
-_ZN6flate22gz11read_to_nul17h61d89b54b0f40680E.exit.thread: ; preds = %.backedge, %269, %171, %144, %100, %233, %.thread38.i216, %204, %.thread38.i, %257, %57, %62, %69
-  %.0 = phi ptr [ inttoptr (i64 158913789955 to ptr), %.thread38.i216 ], [ %70, %69 ], [ %63, %62 ], [ %58, %57 ], [ inttoptr (i64 158913789955 to ptr), %.thread38.i ], [ %258, %257 ], [ %205, %204 ], [ %234, %233 ], [ inttoptr (i64 158913789955 to ptr), %269 ], [ inttoptr (i64 158913789955 to ptr), %100 ], [ inttoptr (i64 158913789955 to ptr), %144 ], [ inttoptr (i64 158913789955 to ptr), %171 ], [ null, %.backedge ]
+_ZN6flate22gz11read_to_nul17h61d89b54b0f40680E.exit.thread: ; preds = %.backedge, %269, %171, %144, %100, %.thread38.i216, %233, %.thread38.i, %204, %257, %57, %62, %69
+  %.0 = phi ptr [ %234, %233 ], [ %70, %69 ], [ %63, %62 ], [ %58, %57 ], [ inttoptr (i64 158913789955 to ptr), %144 ], [ inttoptr (i64 158913789955 to ptr), %269 ], [ inttoptr (i64 158913789955 to ptr), %171 ], [ %205, %204 ], [ inttoptr (i64 158913789955 to ptr), %100 ], [ %258, %257 ], [ inttoptr (i64 158913789955 to ptr), %.thread38.i ], [ inttoptr (i64 158913789955 to ptr), %.thread38.i216 ], [ null, %.backedge ]
   ret ptr %.0
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9afb4726e439a053E.exit190": ; preds = %29

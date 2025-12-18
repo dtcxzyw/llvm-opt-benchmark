@@ -2794,7 +2794,7 @@ switch.lookup:                                    ; preds = %_ZL25getELFKindForN
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit
 
 _ZL19getEntrySizeForKindN4llvm11SectionKindE.exit: ; preds = %_ZL25getELFKindForNamedSectionN4llvm9StringRefENS_11SectionKindE.exit, %switch.lookup
-  %.0.i103 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_ZL25getELFKindForNamedSectionN4llvm9StringRefENS_11SectionKindE.exit ]
+  %.0.i103 = phi i32 [ 0, %_ZL25getELFKindForNamedSectionN4llvm9StringRefENS_11SectionKindE.exit ], [ %switch.load, %switch.lookup ]
   br i1 %7, label %122, label %125
 
 122:                                              ; preds = %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit
@@ -3107,7 +3107,7 @@ switch.lookup462:                                 ; preds = %259
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit126
 
 _ZL19getEntrySizeForKindN4llvm11SectionKindE.exit126: ; preds = %259, %switch.lookup462
-  %.0.i121 = phi i32 [ %switch.load464, %switch.lookup462 ], [ 0, %259 ]
+  %.0.i121 = phi i32 [ 0, %259 ], [ %switch.load464, %switch.lookup462 ]
   %.not100 = icmp eq i32 %261, %.0.i121
   br i1 %.not100, label %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
@@ -3282,7 +3282,7 @@ switch.lookup466:                                 ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit165
 
 _ZL19getEntrySizeForKindN4llvm11SectionKindE.exit165: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit157, %switch.lookup466
-  %.0.i160 = phi ptr [ %318, %switch.lookup466 ], [ null, %_ZN4llvmplERKNS_5TwineES2_.exit157 ]
+  %.0.i160 = phi ptr [ null, %_ZN4llvmplERKNS_5TwineES2_.exit157 ], [ %318, %switch.lookup466 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
   call void @llvm.experimental.noalias.scope.decl(metadata !489)
   %cond = icmp eq i8 %.sink455, 0
@@ -3766,7 +3766,7 @@ switch.lookup:                                    ; preds = %10
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit
 
 _ZL19getEntrySizeForKindN4llvm11SectionKindE.exit: ; preds = %10, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %10 ]
+  %.0.i = phi i32 [ 0, %10 ], [ %switch.load, %switch.lookup ]
   br i1 %5, label %20, label %27
 
 20:                                               ; preds = %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit
@@ -6554,7 +6554,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit70.thread103:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvmeqENS_9StringRefES0_.exit74
 
 _ZN4llvmeqENS_9StringRefES0_.exit74:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit70.thread103, %33, %35
-  %38 = phi i32 [ %37, %35 ], [ %2, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread103 ], [ 0, %33 ]
+  %38 = phi i32 [ 0, %33 ], [ %2, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread103 ], [ %37, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %40 = icmp eq ptr %30, %39
   br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -6674,7 +6674,7 @@ switch.hole_check:                                ; preds = %70
   br i1 %switch.lobit, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %72
 
 _ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit: ; preds = %switch.hole_check, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %66, %68, %69, %72, %.fold.split.i
-  %.0.i84 = phi i32 [ %spec.select.i, %72 ], [ 33554432, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %67, %66 ], [ -1073741696, %68 ], [ -1073741760, %69 ], [ 33556480, %.fold.split.i ], [ 1073741888, %switch.hole_check ]
+  %.0.i84 = phi i32 [ %spec.select.i, %72 ], [ 33554432, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %67, %66 ], [ 33556480, %.fold.split.i ], [ -1073741696, %68 ], [ -1073741760, %69 ], [ 1073741888, %switch.hole_check ]
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !524
   %.not = icmp eq ptr %75, null
@@ -6972,7 +6972,7 @@ switch.hole_check:                                ; preds = %37
   br i1 %switch.lobit, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %39
 
 _ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit: ; preds = %switch.hole_check, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit, %33, %35, %36, %39, %.fold.split.i
-  %.0.i = phi i32 [ %spec.select.i47, %39 ], [ 33554432, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit ], [ %34, %33 ], [ -1073741696, %35 ], [ -1073741760, %36 ], [ 33556480, %.fold.split.i ], [ 1073741888, %switch.hole_check ]
+  %.0.i = phi i32 [ %spec.select.i47, %39 ], [ 33554432, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit ], [ %34, %33 ], [ 33556480, %.fold.split.i ], [ -1073741696, %35 ], [ -1073741760, %36 ], [ 1073741888, %switch.hole_check ]
   %41 = or disjoint i32 %.0.i, 4096
   %42 = call noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #26
   %.not.i = icmp eq ptr %42, null

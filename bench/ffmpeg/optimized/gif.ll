@@ -349,8 +349,8 @@ is_image_translucent.exit.i:                      ; preds = %71
   br label %.thread107.i.i
 
 .thread107.i.i:                                   ; preds = %._crit_edge.us.i.i, %.thread107.loopexit144.i.i, %.thread107.loopexit.i.i, %.thread.i.i, %79
-  %.2.i = phi i32 [ %indvars155.le.i, %.thread107.loopexit144.i.i ], [ %indvars155.le.i, %.thread107.loopexit.i.i ], [ 0, %79 ], [ %indvars155.le.i, %.thread.i.i ], [ %81, %._crit_edge.us.i.i ]
-  %.083124.i.i = phi i32 [ %100, %.thread107.loopexit144.i.i ], [ %99, %.thread107.loopexit.i.i ], [ %81, %79 ], [ %81, %.thread.i.i ], [ %81, %._crit_edge.us.i.i ]
+  %.2.i = phi i32 [ %indvars155.le.i, %.thread.i.i ], [ %indvars155.le.i, %.thread107.loopexit144.i.i ], [ %indvars155.le.i, %.thread107.loopexit.i.i ], [ 0, %79 ], [ %81, %._crit_edge.us.i.i ]
+  %.083124.i.i = phi i32 [ %81, %.thread.i.i ], [ %100, %.thread107.loopexit144.i.i ], [ %99, %.thread107.loopexit.i.i ], [ %81, %79 ], [ %81, %._crit_edge.us.i.i ]
   %.not85.i = icmp eq i32 %53, 1
   br i1 %.not85.i, label %.thread112.i.i, label %.lr.ph131.preheader.i.i
 
@@ -521,9 +521,9 @@ is_image_translucent.exit.thread.i:               ; preds = %..critedge_crit_edg
   br label %._crit_edge112.i.i
 
 ._crit_edge112.i.i:                               ; preds = %.lr.ph.i, %149, %._crit_edge112.loopexit.split.loop.exit.i.i, %._crit_edge.i225.i, %124
-  %.6.i = phi i32 [ %.442.lcssa.i, %._crit_edge112.loopexit.split.loop.exit.i.i ], [ %.442.lcssa.i, %._crit_edge.i225.i ], [ 0, %124 ], [ %.442.lcssa.i, %149 ], [ %129, %.lr.ph.i ]
-  %.lcssa106171.i.i = phi i32 [ %139, %._crit_edge112.loopexit.split.loop.exit.i.i ], [ %139, %._crit_edge.i225.i ], [ 0, %124 ], [ %139, %149 ], [ %129, %.lr.ph.i ]
-  %.079.lcssa.i.i = phi i32 [ %151, %._crit_edge112.loopexit.split.loop.exit.i.i ], [ %129, %._crit_edge.i225.i ], [ %129, %124 ], [ %139, %149 ], [ %129, %.lr.ph.i ]
+  %.6.i = phi i32 [ %.442.lcssa.i, %149 ], [ 0, %124 ], [ %.442.lcssa.i, %._crit_edge112.loopexit.split.loop.exit.i.i ], [ %.442.lcssa.i, %._crit_edge.i225.i ], [ %129, %.lr.ph.i ]
+  %.lcssa106171.i.i = phi i32 [ %139, %149 ], [ 0, %124 ], [ %139, %._crit_edge112.loopexit.split.loop.exit.i.i ], [ %139, %._crit_edge.i225.i ], [ %129, %.lr.ph.i ]
+  %.079.lcssa.i.i = phi i32 [ %139, %149 ], [ %129, %124 ], [ %151, %._crit_edge112.loopexit.split.loop.exit.i.i ], [ %129, %._crit_edge.i225.i ], [ %129, %.lr.ph.i ]
   %reass.sub.i.i = sub i32 %.079.lcssa.i.i, %.lcssa106171.i.i
   %152 = add i32 %reass.sub.i.i, 1
   %153 = icmp sgt i32 %128, 0
@@ -612,8 +612,8 @@ is_image_translucent.exit.thread.i:               ; preds = %..critedge_crit_edg
   br label %.thread97.i.i
 
 .thread97.i.i:                                    ; preds = %._crit_edge120.i.loopexit.i, %._crit_edge127.i.i, %.thread97.loopexit133.i.i, %.thread.i226.i, %.lr.ph122.preheader.i.i, %._crit_edge112.i.i
-  %.649.i = phi i32 [ 0, %._crit_edge112.i.i ], [ %128, %.lr.ph122.preheader.i.i ], [ %indvars153.le.i, %.thread97.loopexit133.i.i ], [ %indvars153.le.i, %.thread.i226.i ], [ %indvars153.le.i, %._crit_edge127.i.i ], [ %128, %._crit_edge120.i.loopexit.i ]
-  %.080105.i.i = phi i32 [ %128, %._crit_edge112.i.i ], [ %128, %.lr.ph122.preheader.i.i ], [ %172, %.thread97.loopexit133.i.i ], [ %128, %.thread.i226.i ], [ %indvars153.le.i, %._crit_edge127.i.i ], [ %128, %._crit_edge120.i.loopexit.i ]
+  %.649.i = phi i32 [ 0, %._crit_edge112.i.i ], [ %indvars153.le.i, %.thread.i226.i ], [ %128, %.lr.ph122.preheader.i.i ], [ %indvars153.le.i, %.thread97.loopexit133.i.i ], [ %indvars153.le.i, %._crit_edge127.i.i ], [ %128, %._crit_edge120.i.loopexit.i ]
+  %.080105.i.i = phi i32 [ %128, %._crit_edge112.i.i ], [ %128, %.thread.i226.i ], [ %128, %.lr.ph122.preheader.i.i ], [ %172, %.thread97.loopexit133.i.i ], [ %indvars153.le.i, %._crit_edge127.i.i ], [ %128, %._crit_edge120.i.loopexit.i ]
   %reass.sub.i = sub i32 %.080105.i.i, %.649.i
   %173 = add i32 %reass.sub.i, 1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.22, i32 noundef %173, i32 noundef %152, i32 noundef %.649.i, i32 noundef %.6.i, i32 noundef %53, i32 noundef %52) #9
@@ -1180,7 +1180,7 @@ remap_frame_to_palette.exit.i:                    ; preds = %remap_frame_to_pale
   br i1 %exitcond172.not.i, label %.loopexit.i, label %417, !llvm.loop !73
 
 .loopexit.i:                                      ; preds = %417, %._crit_edge.i, %383, %.preheader.i51
-  %.1178.i = phi i32 [ 0, %383 ], [ 0, %.preheader.i51 ], [ %413, %._crit_edge.i ], [ %420, %417 ]
+  %.1178.i = phi i32 [ %413, %._crit_edge.i ], [ 0, %383 ], [ 0, %.preheader.i51 ], [ %420, %417 ]
   %423 = load ptr, ptr %348, align 8, !tbaa !33
   %424 = tail call i32 @ff_lzw_encode_flush(ptr noundef %423) #9
   %425 = add nsw i32 %424, %.1178.i
@@ -1221,7 +1221,7 @@ remap_frame_to_palette.exit.i:                    ; preds = %remap_frame_to_pale
   br label %gif_image_write_image.exit
 
 gif_image_write_image.exit:                       ; preds = %429, %362, %._crit_edge130.i
-  %.6 = phi ptr [ %441, %._crit_edge130.i ], [ %347, %362 ], [ %432, %429 ]
+  %.6 = phi ptr [ %347, %362 ], [ %441, %._crit_edge130.i ], [ %432, %429 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %442 = getelementptr inbounds nuw i8, ptr %9, i64 40

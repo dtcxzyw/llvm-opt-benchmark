@@ -181,7 +181,7 @@ _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thr
   br label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit
 
 _ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit: ; preds = %.lr.ph.i, %.lr.ph21.i, %27, %42, %.thread, %29
-  %.017 = phi i1 [ true, %42 ], [ true, %.thread ], [ true, %29 ], [ false, %27 ], [ true, %.lr.ph21.i ], [ false, %.lr.ph.i ]
+  %.017 = phi i1 [ true, %42 ], [ true, %.thread ], [ false, %27 ], [ true, %29 ], [ true, %.lr.ph21.i ], [ false, %.lr.ph.i ]
   ret i1 %.017
 }
 

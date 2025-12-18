@@ -3409,13 +3409,13 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   br i1 %.not135142, label %.outer._crit_edge, label %.lr.ph143, !llvm.loop !36
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge140, %177
-  %.sroa.0.2.ph.lcssa = phi i64 [ %.sroa.0.0174, %177 ], [ %.sroa.0.2.ph159, %.backedge140 ], [ %.sroa.0.2., %.outer ]
-  %.sroa.8.2.ph.lcssa = phi i64 [ %.sroa.8.0175, %177 ], [ %.sroa.8.2.ph160, %.backedge140 ], [ %202, %.outer ]
-  %.sroa.12.2.ph.lcssa = phi i64 [ %.sroa.12.0176, %177 ], [ %.sroa.12.2.ph161, %.backedge140 ], [ %205, %.outer ]
-  %.sroa.16.2.ph.lcssa = phi i64 [ %.sroa.16.0177, %177 ], [ %.sroa.16.2.ph162, %.backedge140 ], [ %211, %.outer ]
-  %.sroa.20.2.ph.lcssa = phi i64 [ %.sroa.20.0178, %177 ], [ %.sroa.20.2.ph163, %.backedge140 ], [ %214, %.outer ]
-  %.sroa.2447.2.ph.lcssa = phi i64 [ %.sroa.2447.0179, %177 ], [ %.sroa.2447.2.ph164, %.backedge140 ], [ %208, %.outer ]
-  %.sroa.28.2.ph.lcssa = phi i64 [ %.sroa.28.0180, %177 ], [ %.sroa.28.2.ph165, %.backedge140 ], [ %219, %.outer ]
+  %.sroa.0.2.ph.lcssa = phi i64 [ %.sroa.0.2.ph159, %.backedge140 ], [ %.sroa.0.0174, %177 ], [ %.sroa.0.2., %.outer ]
+  %.sroa.8.2.ph.lcssa = phi i64 [ %.sroa.8.2.ph160, %.backedge140 ], [ %.sroa.8.0175, %177 ], [ %202, %.outer ]
+  %.sroa.12.2.ph.lcssa = phi i64 [ %.sroa.12.2.ph161, %.backedge140 ], [ %.sroa.12.0176, %177 ], [ %205, %.outer ]
+  %.sroa.16.2.ph.lcssa = phi i64 [ %.sroa.16.2.ph162, %.backedge140 ], [ %.sroa.16.0177, %177 ], [ %211, %.outer ]
+  %.sroa.20.2.ph.lcssa = phi i64 [ %.sroa.20.2.ph163, %.backedge140 ], [ %.sroa.20.0178, %177 ], [ %214, %.outer ]
+  %.sroa.2447.2.ph.lcssa = phi i64 [ %.sroa.2447.2.ph164, %.backedge140 ], [ %.sroa.2447.0179, %177 ], [ %208, %.outer ]
+  %.sroa.28.2.ph.lcssa = phi i64 [ %.sroa.28.2.ph165, %.backedge140 ], [ %.sroa.28.0180, %177 ], [ %219, %.outer ]
   call void @list_iterator_destroy(ptr noundef %180) #9
   br label %221
 

@@ -121,7 +121,7 @@ define range(i32 0, 2) i32 @engine_add_dynamic_id(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %28, %25, %._crit_edge, %32
-  %.021 = phi i32 [ 0, %._crit_edge ], [ 0, %25 ], [ 1, %32 ], [ 0, %27 ], [ 0, %28 ], [ 0, %.lr.ph ]
+  %.021 = phi i32 [ 0, %28 ], [ 0, %._crit_edge ], [ 0, %25 ], [ 1, %32 ], [ 0, %27 ], [ 0, %.lr.ph ]
   br i1 %.not, label %38, label %35
 
 35:                                               ; preds = %.loopexit
@@ -693,7 +693,7 @@ define ptr @ENGINE_by_id(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge47
 
 .critedge47:                                      ; preds = %23, %24
-  %.131 = phi ptr [ %.03053, %24 ], [ %21, %23 ]
+  %.131 = phi ptr [ %21, %23 ], [ %.03053, %24 ]
   %27 = load ptr, ptr @global_engine_lock, align 8, !tbaa !21
   %28 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %27) #4
   br label %51

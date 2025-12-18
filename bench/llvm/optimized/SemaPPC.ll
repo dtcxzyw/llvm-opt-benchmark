@@ -563,7 +563,7 @@ _ZN5clanglsIPKNS_11ParmVarDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES7_RKT_.e
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5clang4Decl7getAttrINS_11AlignedAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_11AlignedAttrEEEPT_v.exit.thread: ; preds = %74, %63, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %59, %_ZNK5clang4Decl7getAttrINS_11AlignedAttrEEEPT_v.exit, %_ZN5clanglsIPKNS_11ParmVarDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES7_RKT_.exit
+_ZNK5clang4Decl7getAttrINS_11AlignedAttrEEEPT_v.exit.thread: ; preds = %74, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %63, %59, %_ZNK5clang4Decl7getAttrINS_11AlignedAttrEEEPT_v.exit, %_ZN5clanglsIPKNS_11ParmVarDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES7_RKT_.exit
   %242 = getelementptr inbounds nuw i8, ptr %.sroa.055.071, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %242, align 8
   %243 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -4430,7 +4430,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit56: ; preds = %_ZN
   br i1 %.not32, label %._crit_edge, label %.lr.ph170, !llvm.loop !467
 
 ._crit_edge:                                      ; preds = %.lr.ph170, %.loopexit.loopexit, %4, %.loopexit
-  %.4.lcssa = phi i32 [ %479, %.loopexit ], [ %477, %.loopexit.loopexit ], [ 0, %4 ], [ %482, %.lr.ph170 ]
+  %.4.lcssa = phi i32 [ %479, %.loopexit ], [ 0, %4 ], [ %477, %.loopexit.loopexit ], [ %482, %.lr.ph170 ]
   %485 = load ptr, ptr %0, align 8, !tbaa !95
   %486 = call noundef zeroext i1 @_ZN5clang4Sema13checkArgCountEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %485, ptr noundef nonnull %1, i32 noundef %.4.lcssa) #14
   br label %.thread

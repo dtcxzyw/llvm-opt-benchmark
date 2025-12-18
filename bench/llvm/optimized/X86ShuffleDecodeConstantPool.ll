@@ -596,7 +596,7 @@ _ZN4llvm5APIntD2Ev.exit86:                        ; preds = %195, %198, %201
   br i1 %.not73, label %_ZN4llvm5APInt7setBitsEjj.exit, label %153, !llvm.loop !36
 
 _ZN4llvm5APInt7setBitsEjj.exit:                   ; preds = %121, %127, %107, %112, %_ZN4llvm5APIntD2Ev.exit86, %.lr.ph.split.us, %.lr.ph.split, %.critedge.preheader
-  %.not71104 = phi i1 [ true, %.critedge.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %107 ], [ true, %_ZN4llvm5APIntD2Ev.exit86 ], [ false, %112 ], [ false, %127 ], [ false, %121 ]
+  %.not71104 = phi i1 [ true, %.critedge.preheader ], [ true, %_ZN4llvm5APIntD2Ev.exit86 ], [ false, %107 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %112 ], [ false, %127 ], [ false, %121 ]
   %202 = load i32, ptr %99, align 8, !tbaa !3
   %203 = icmp ugt i32 %202, 64
   br i1 %203, label %204, label %_ZN4llvm5APIntD2Ev.exit87

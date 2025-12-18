@@ -6563,8 +6563,8 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
   br label %.lr.ph97
 
 ._crit_edge98:                                    ; preds = %119, %53, %._crit_edge.._crit_edge98_crit_edge
-  %63 = phi ptr [ %.pre, %._crit_edge.._crit_edge98_crit_edge ], [ %24, %53 ], [ %24, %119 ]
-  %64 = phi i32 [ 0, %._crit_edge.._crit_edge98_crit_edge ], [ %54, %53 ], [ %120, %119 ]
+  %63 = phi ptr [ %24, %53 ], [ %.pre, %._crit_edge.._crit_edge98_crit_edge ], [ %24, %119 ]
+  %64 = phi i32 [ %54, %53 ], [ 0, %._crit_edge.._crit_edge98_crit_edge ], [ %120, %119 ]
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %65
   %67 = load double, ptr %66, align 8, !tbaa !92

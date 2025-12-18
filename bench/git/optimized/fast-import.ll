@@ -2577,7 +2577,7 @@ read_next_command.exit:                           ; preds = %855
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %read_next_command.exit, %826, %.loopexit.i.sink.split, %convert_num_notes_to_fanout.exit.i
-  %.1228.i = phi i8 [ %.0.i92.i, %convert_num_notes_to_fanout.exit.i ], [ %.1228.i.ph, %.loopexit.i.sink.split ], [ %.2229.i, %826 ], [ %.2229.i, %read_next_command.exit ]
+  %.1228.i = phi i8 [ %.0.i92.i, %convert_num_notes_to_fanout.exit.i ], [ %.2229.i, %826 ], [ %.1228.i.ph, %.loopexit.i.sink.split ], [ %.2229.i, %read_next_command.exit ]
   %860 = load i64, ptr %358, align 8, !tbaa !91
   br label %861
 
@@ -9863,13 +9863,13 @@ oidclr.exit63:                                    ; preds = %83, %.split.loop.ex
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %65, %91, %.split.loop.exit9.i.i68, %.split.loop.exit9.i.i
-  %.2.i.i67.sink = phi i32 [ %67, %.split.loop.exit9.i.i ], [ %93, %.split.loop.exit9.i.i68 ], [ 0, %91 ], [ 0, %65 ]
+  %.2.i.i67.sink = phi i32 [ 0, %91 ], [ %67, %.split.loop.exit9.i.i ], [ %93, %.split.loop.exit9.i.i68 ], [ 0, %65 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %.2.i.i67.sink, ptr %94, align 4, !tbaa !58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %.loopexit.sink.split, %16, %45, %37
-  %.046 = phi i32 [ 1, %37 ], [ 0, %45 ], [ 0, %16 ], [ 1, %.loopexit.sink.split ], [ 0, %68 ]
+  %.046 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %16 ], [ 1, %37 ], [ 0, %45 ], [ 0, %68 ]
   ret i32 %.046
 }
 
@@ -10378,13 +10378,13 @@ new_tree_content.exit121:                         ; preds = %188, %192, %.crited
   br label %.sink.split
 
 .sink.split:                                      ; preds = %110, %74, %214, %.split.loop.exit9.i.i126, %.split.loop.exit9.i.i96, %.split.loop.exit9.i.i
-  %.2.i.i125.sink = phi i32 [ %76, %.split.loop.exit9.i.i ], [ %112, %.split.loop.exit9.i.i96 ], [ %216, %.split.loop.exit9.i.i126 ], [ 0, %74 ], [ 0, %214 ], [ 0, %110 ]
+  %.2.i.i125.sink = phi i32 [ 0, %214 ], [ 0, %74 ], [ %76, %.split.loop.exit9.i.i ], [ %112, %.split.loop.exit9.i.i96 ], [ %216, %.split.loop.exit9.i.i126 ], [ 0, %110 ]
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %.2.i.i125.sink, ptr %217, align 4, !tbaa !58
   br label %218
 
 218:                                              ; preds = %.sink.split, %100, %50
-  %.0 = phi i32 [ 0, %50 ], [ 0, %100 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %100 ], [ 0, %50 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

@@ -772,8 +772,8 @@ bytestream2_get_le32.exit.i:                      ; preds = %370, %369
   br i1 %exitcond.not.i12, label %.thread.i, label %373, !llvm.loop !45
 
 .thread.i:                                        ; preds = %373, %360, %335, %.lr.ph255.i, %.lr.ph259.i, %bytestream2_get_byte.exit163.i, %316, %294, %289, %288
-  %.pn.i = phi i32 [ %270, %294 ], [ %270, %288 ], [ %270, %289 ], [ %311, %316 ], [ %311, %bytestream2_get_byte.exit163.i ], [ %311, %360 ], [ %270, %.lr.ph259.i ], [ %270, %.lr.ph255.i ], [ %311, %335 ], [ %311, %373 ]
-  %.4.i = phi ptr [ %273, %294 ], [ %.0128.ph188264.i, %288 ], [ %273, %289 ], [ %.0128.ph188264.i, %316 ], [ %326, %bytestream2_get_byte.exit163.i ], [ %363, %360 ], [ %303, %.lr.ph259.i ], [ %308, %.lr.ph255.i ], [ %336, %335 ], [ %374, %373 ]
+  %.pn.i = phi i32 [ %270, %294 ], [ %270, %288 ], [ %270, %.lr.ph259.i ], [ %270, %.lr.ph255.i ], [ %270, %289 ], [ %311, %316 ], [ %311, %bytestream2_get_byte.exit163.i ], [ %311, %335 ], [ %311, %360 ], [ %311, %373 ]
+  %.4.i = phi ptr [ %273, %294 ], [ %.0128.ph188264.i, %288 ], [ %303, %.lr.ph259.i ], [ %308, %.lr.ph255.i ], [ %273, %289 ], [ %.0128.ph188264.i, %316 ], [ %326, %bytestream2_get_byte.exit163.i ], [ %336, %335 ], [ %363, %360 ], [ %374, %373 ]
   %.1137.i = add nsw i32 %.pn.i, %.0136.ph186263.i
   %376 = load ptr, ptr %174, align 8, !tbaa !28
   %377 = ptrtoint ptr %376 to i64
@@ -793,7 +793,7 @@ bytestream2_get_le32.exit.i:                      ; preds = %370, %369
   br label %msrle_decode_pal4.exit
 
 msrle_decode_pal4.exit:                           ; preds = %bytestream2_get_byte.exit.i13, %bytestream2_get_byte.exit.i, %.outer185._crit_edge.i, %287, %259, %219, %bytestream2_get_be16.exit.i, %167, %.critedge.i, %132, %95, %25, %382
-  %.0 = phi i32 [ -1, %382 ], [ -1094995529, %25 ], [ -1094995529, %95 ], [ -1094995529, %132 ], [ -1094995529, %167 ], [ 0, %.critedge.i ], [ 0, %.outer185._crit_edge.i ], [ -1094995529, %219 ], [ 0, %bytestream2_get_be16.exit.i ], [ -1, %259 ], [ -1094995529, %287 ], [ 0, %bytestream2_get_byte.exit.i ], [ 0, %bytestream2_get_byte.exit.i13 ]
+  %.0 = phi i32 [ -1, %382 ], [ 0, %bytestream2_get_byte.exit.i ], [ -1094995529, %25 ], [ 0, %.critedge.i ], [ -1094995529, %95 ], [ -1094995529, %132 ], [ -1094995529, %167 ], [ 0, %.outer185._crit_edge.i ], [ -1094995529, %219 ], [ 0, %bytestream2_get_be16.exit.i ], [ -1, %259 ], [ -1094995529, %287 ], [ 0, %bytestream2_get_byte.exit.i13 ]
   ret i32 %.0
 }
 

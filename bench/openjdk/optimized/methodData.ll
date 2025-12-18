@@ -5182,7 +5182,7 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %95
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph74, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph74, %142, %135, %130
-  %.157 = phi i32 [ %.056, %135 ], [ %.056, %130 ], [ %146, %142 ], [ %146, %.lr.ph74 ]
+  %.157 = phi i32 [ %.056, %130 ], [ %.056, %135 ], [ %146, %142 ], [ %146, %.lr.ph74 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %160, align 4
   call void @_ZN10MethodData15post_initializeEP14BytecodeStream(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull %2)
@@ -5817,7 +5817,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %.split.split, %42, 
   br label %.split.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %33, %.split.split, %.split.us, %.split24.us, %.split22.us
-  %.0 = phi ptr [ %21, %.split24.us ], [ null, %.split22.us ], [ null, %.split.us ], [ null, %.split.split ], [ %25, %33 ]
+  %.0 = phi ptr [ %21, %.split24.us ], [ null, %.split22.us ], [ null, %.split.us ], [ %25, %33 ], [ null, %.split.split ]
   ret ptr %.0
 }
 
@@ -6590,8 +6590,8 @@ _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit: ; preds 
   br label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit
 
 _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit: ; preds = %.lr.ph.i19, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit, %32, %_ZN10MethodData10next_extraEP10DataLayout.exit
-  %.pr = phi i8 [ %.pr.pre52, %32 ], [ %25, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.pr.pre, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %54, %.lr.ph.i19 ]
-  %.1.ph = phi i32 [ 0, %32 ], [ %31, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.01839, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %.01839, %.lr.ph.i19 ]
+  %.pr = phi i8 [ %.pr.pre, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %.pr.pre52, %32 ], [ %25, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %54, %.lr.ph.i19 ]
+  %.1.ph = phi i32 [ %.01839, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ 0, %32 ], [ %31, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.01839, %.lr.ph.i19 ]
   switch i8 %.pr, label %73 [
     i8 1, label %_ZN10MethodData10next_extraEP10DataLayout.exit25
     i8 0, label %_ZN10MethodData10next_extraEP10DataLayout.exit25

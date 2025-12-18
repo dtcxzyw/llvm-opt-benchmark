@@ -440,7 +440,7 @@ define dso_local range(i32 -2, 1) i32 @nf_nat_helper_try_module_get(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %48, %3, %58, %56
-  %64 = phi i32 [ %63, %58 ], [ -2, %56 ], [ -2, %3 ], [ -2, %48 ], [ -2, %.loopexit ]
+  %64 = phi i32 [ %63, %58 ], [ -2, %48 ], [ -2, %56 ], [ -2, %3 ], [ -2, %.loopexit ]
   call void @__rcu_read_unlock() #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %64
@@ -1273,7 +1273,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helpers_register(pt
   br i1 %29, label %nf_conntrack_helpers_unregister.exit, label %.preheader, !llvm.loop !41
 
 nf_conntrack_helpers_unregister.exit:             ; preds = %11, %26, %14, %2
-  %30 = phi i32 [ %9, %14 ], [ 0, %2 ], [ %9, %26 ], [ 0, %11 ]
+  %30 = phi i32 [ %9, %26 ], [ %9, %14 ], [ 0, %2 ], [ 0, %11 ]
   ret i32 %30
 }
 

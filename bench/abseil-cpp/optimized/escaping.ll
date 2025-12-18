@@ -387,7 +387,7 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   unreachable
 
 127:                                              ; preds = %93, %71, %66, %50, %97, %.loopexit
-  %.299 = phi ptr [ %.097, %.loopexit ], [ %125, %97 ], [ %63, %50 ], [ %68, %66 ], [ %94, %93 ], [ %90, %71 ]
+  %.299 = phi ptr [ %.097, %.loopexit ], [ %125, %97 ], [ %68, %66 ], [ %63, %50 ], [ %90, %71 ], [ %94, %93 ]
   %128 = ptrtoint ptr %.299 to i64
   %129 = ptrtoint ptr %2 to i64
   %130 = sub i64 %128, %129

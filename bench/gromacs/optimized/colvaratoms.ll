@@ -3449,7 +3449,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %21, %2
-  %.011 = phi i32 [ 1, %2 ], [ 0, %21 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ 0, %.lr.ph ]
+  %.011 = phi i32 [ 1, %2 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ 0, %21 ], [ 0, %.lr.ph ]
   ret i32 %.011
 }
 
@@ -10683,7 +10683,7 @@ _ZNSt6vectorIN12colvarmodule4atomESaIS1_EE7reserveEm.exit: ; preds = %162, %_ZNS
   br label %200
 
 .loopexit:                                        ; preds = %188, %.lr.ph67, %_ZNSt6vectorIN12colvarmodule4atomESaIS1_EE7reserveEm.exit, %.preheader, %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
-  %.031 = phi i32 [ 4, %37 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ 0, %.preheader ], [ 0, %_ZNSt6vectorIN12colvarmodule4atomESaIS1_EE7reserveEm.exit ], [ %135, %.lr.ph67 ], [ %189, %188 ]
+  %.031 = phi i32 [ 4, %37 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %135, %.lr.ph67 ], [ 0, %.preheader ], [ 0, %_ZNSt6vectorIN12colvarmodule4atomESaIS1_EE7reserveEm.exit ], [ %189, %188 ]
   ret i32 %.031
 
 200:                                              ; preds = %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50

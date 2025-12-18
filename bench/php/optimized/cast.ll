@@ -55,8 +55,8 @@ define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef read
   br label %11
 
 11:                                               ; preds = %7, %.fold.split, %10
-  %.128 = phi i32 [ 1, %10 ], [ %.02733, %7 ], [ %.02733, %.fold.split ]
-  %.126 = phi i32 [ %.02534, %10 ], [ 1, %7 ], [ %.02534, %.fold.split ]
+  %.128 = phi i32 [ %.02733, %7 ], [ 1, %10 ], [ %.02733, %.fold.split ]
+  %.126 = phi i32 [ 1, %7 ], [ %.02534, %10 ], [ %.02534, %.fold.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.critedge, label %7
@@ -214,8 +214,8 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noun
   br label %57
 
 57:                                               ; preds = %.fold.split.i, %56, %53
-  %.128.i = phi i32 [ 1, %56 ], [ %.02733.i, %53 ], [ %.02733.i, %.fold.split.i ]
-  %.126.i = phi i32 [ %.02534.i, %56 ], [ 1, %53 ], [ %.02534.i, %.fold.split.i ]
+  %.128.i = phi i32 [ %.02733.i, %53 ], [ 1, %56 ], [ %.02733.i, %.fold.split.i ]
+  %.126.i = phi i32 [ 1, %53 ], [ %.02534.i, %56 ], [ %.02534.i, %.fold.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %.critedge.i, label %53

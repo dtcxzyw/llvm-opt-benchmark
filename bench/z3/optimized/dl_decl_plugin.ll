@@ -603,8 +603,8 @@ _ZNK8rational9is_uint64Ev.exit:                   ; preds = %.critedge.thread
   br label %128
 
 _ZNK8rational9is_uint64Ev.exit.thread:            ; preds = %39, %88, %.critedge, %_ZNK8rational9is_uint64Ev.exit
-  %.sroa.756.0 = phi i64 [ 0, %.critedge ], [ 0, %_ZNK8rational9is_uint64Ev.exit ], [ %90, %88 ], [ 0, %39 ]
-  %.sroa.0.0 = phi i32 [ 1, %.critedge ], [ 1, %_ZNK8rational9is_uint64Ev.exit ], [ 0, %88 ], [ 1, %39 ]
+  %.sroa.756.0 = phi i64 [ 0, %.critedge ], [ %90, %88 ], [ 0, %_ZNK8rational9is_uint64Ev.exit ], [ 0, %39 ]
+  %.sroa.0.0 = phi i32 [ 1, %.critedge ], [ 0, %88 ], [ 1, %_ZNK8rational9is_uint64Ev.exit ], [ 1, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load i32, ptr %95, align 8, !tbaa !10

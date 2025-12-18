@@ -386,7 +386,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %17
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %61, %58
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %61 ], [ %60, %58 ]
+  %.137.i.i.i.be = phi ptr [ %60, %58 ], [ %.old.i.i.i, %61 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !95
 
 _ZNK7obj_mapI4exprN2bv6solver16internalize_modeEE4findEPS0_RS3_.exit: ; preds = %42, %53
@@ -1686,7 +1686,7 @@ _ZNK8rational7get_bitEj.exit48._crit_edge:        ; preds = %51, %_ZNK8rational7
   br i1 %.not27.old.i.i.i, label %.loopexit131, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %91, %88
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %91 ], [ %90, %88 ]
+  %.137.i.i.i.be = phi ptr [ %90, %88 ], [ %.old.i.i.i, %91 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !208
 
 _ZNK7obj_mapI3appPN2bv8lazy_mulEE4findEPS0_RS3_.exit: ; preds = %72, %83
@@ -3245,7 +3245,7 @@ define hidden void @_ZN2bv6solver21set_delay_internalizeEP4exprNS0_16internalize
   br i1 %.not27.old.i.i.i, label %.noexc, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !95
 
 .noexc:                                           ; preds = %23, %34, %37, %.preheader.i.i.i
@@ -4403,8 +4403,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   call void @__clang_call_terminate(ptr %235) #21
   unreachable
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %100, %.preheader, %111, %107, %.loopexit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i
-  %.033124 = phi i1 [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ false, %.loopexit ], [ false, %.preheader ], [ true, %111 ], [ true, %107 ], [ false, %100 ]
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %100, %.preheader, %107, %111, %.loopexit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i
+  %.033124 = phi i1 [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ false, %.loopexit ], [ true, %111 ], [ false, %.preheader ], [ true, %107 ], [ false, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %236 = load ptr, ptr %50, align 8, !tbaa !100
   %237 = icmp eq ptr %236, null
@@ -5927,7 +5927,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3appPN2bv8lazy_mu
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !326
 
 .loopexit38:                                      ; preds = %17, %28
@@ -6194,7 +6194,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN2bv6solver1
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !335
 
 .loopexit38:                                      ; preds = %17, %28

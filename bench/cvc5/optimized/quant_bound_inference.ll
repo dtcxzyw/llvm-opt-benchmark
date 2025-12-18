@@ -183,7 +183,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers25Quantif
   br label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %..loopexit_crit_edge21.i.i.i.i, %15
-  %43 = phi ptr [ %.pre, %15 ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %9, %10 ], [ %.pre, %.lr.ph.i.i.i.i ]
+  %43 = phi ptr [ %9, %10 ], [ %.pre, %15 ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %.lr.ph.i.i.i.i ]
   store ptr %43, ptr %3, align 8, !tbaa !26
   %44 = load i64, ptr %43, align 8
   %45 = lshr i64 %44, 40
@@ -256,7 +256,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %61, %65, %71
   resume { ptr, i32 } %78
 
 _ZNSt13unordered_mapIN4cvc58internal8TypeNodeEbSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_bEEE4findERS8_.exit: ; preds = %32, %11, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %38, %32 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %24, %23 ], [ %38, %32 ]
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %80 = load i8, ptr %79, align 8, !tbaa !38, !range !40, !noundef !41
   %81 = trunc nuw i8 %80 to i1

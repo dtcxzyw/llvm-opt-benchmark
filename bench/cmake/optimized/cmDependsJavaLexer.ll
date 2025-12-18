@@ -305,6 +305,12 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.not248 = icmp eq i16 %128, 414
   br i1 %.not248, label %.preheader.outer, label %87, !llvm.loop !43
 
+.preheader.outer.backedge:                        ; preds = %._crit_edge.i287, %_ZL18yy_get_next_bufferPv.exit.thread292, %_ZL16yy_try_NUL_transiPv.exit
+  %.1235.ph.be = phi ptr [ %297, %_ZL16yy_try_NUL_transiPv.exit ], [ %543, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %543, %._crit_edge.i287 ]
+  %.2226.ph.be = phi ptr [ %300, %_ZL16yy_try_NUL_transiPv.exit ], [ %545, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %545, %._crit_edge.i287 ]
+  %.3.ph.be = phi i32 [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %546, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %587, %._crit_edge.i287 ]
+  br label %.preheader.outer
+
 .preheader.outer:                                 ; preds = %._crit_edge, %.preheader.outer.backedge
   %.1235.ph = phi ptr [ %.1235.ph.be, %.preheader.outer.backedge ], [ %.0234, %._crit_edge ]
   %.2226.ph = phi ptr [ %.2226.ph.be, %.preheader.outer.backedge ], [ %125, %._crit_edge ]
@@ -1081,9 +1087,9 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i254, %348
   br label %.loopexit297.backedge
 
 .loopexit297.backedge:                            ; preds = %._crit_edge.i272, %369, %492
-  %.0234.be = phi ptr [ %491, %492 ], [ %297, %369 ], [ %491, %._crit_edge.i272 ]
-  %.0224.be = phi ptr [ %499, %492 ], [ %371, %369 ], [ %499, %._crit_edge.i272 ]
-  %.0219.be = phi i32 [ %500, %492 ], [ %370, %369 ], [ %541, %._crit_edge.i272 ]
+  %.0234.be = phi ptr [ %297, %369 ], [ %491, %492 ], [ %491, %._crit_edge.i272 ]
+  %.0224.be = phi ptr [ %371, %369 ], [ %499, %492 ], [ %499, %._crit_edge.i272 ]
+  %.0219.be = phi i32 [ %370, %369 ], [ %500, %492 ], [ %541, %._crit_edge.i272 ]
   br label %.loopexit297
 
 372:                                              ; preds = %284
@@ -1431,12 +1437,6 @@ _ZL18yy_get_next_bufferPv.exit.thread292:         ; preds = %383, %_ZL18yy_get_n
   %546 = load i32, ptr %74, align 4, !tbaa !17
   %547 = icmp ult ptr %543, %545
   br i1 %547, label %.lr.ph32.i277, label %.preheader.outer.backedge
-
-.preheader.outer.backedge:                        ; preds = %._crit_edge.i287, %_ZL18yy_get_next_bufferPv.exit.thread292, %_ZL16yy_try_NUL_transiPv.exit
-  %.1235.ph.be = phi ptr [ %543, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %297, %_ZL16yy_try_NUL_transiPv.exit ], [ %543, %._crit_edge.i287 ]
-  %.2226.ph.be = phi ptr [ %545, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %300, %_ZL16yy_try_NUL_transiPv.exit ], [ %545, %._crit_edge.i287 ]
-  %.3.ph.be = phi i32 [ %546, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %587, %._crit_edge.i287 ]
-  br label %.preheader.outer
 
 .lr.ph32.i277:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread292, %._crit_edge.i287
   %.02130.i278 = phi i32 [ %587, %._crit_edge.i287 ], [ %546, %_ZL18yy_get_next_bufferPv.exit.thread292 ]

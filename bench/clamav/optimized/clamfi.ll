@@ -570,7 +570,7 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
   br label %.thread
 
 .thread:                                          ; preds = %44, %.preheader, %.thread106, %92, %21, %18, %93, %.thread102, %4
-  %.073 = phi i32 [ %43, %.thread102 ], [ 0, %4 ], [ %95, %93 ], [ %20, %18 ], [ %22, %21 ], [ 0, %92 ], [ 0, %.thread106 ], [ 0, %.preheader ], [ 0, %44 ]
+  %.073 = phi i32 [ 0, %.thread106 ], [ %43, %.thread102 ], [ 0, %4 ], [ %95, %93 ], [ %20, %18 ], [ %22, %21 ], [ 0, %92 ], [ 0, %.preheader ], [ 0, %44 ]
   ret i32 %.073
 }
 
@@ -1459,7 +1459,7 @@ define dso_local range(i32 0, 4) i32 @clamfi_connect(ptr noundef readnone captur
   br label %12
 
 12:                                               ; preds = %.sink.split, %4, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 3, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 3, %.sink.split ]
   ret i32 %.0
 }
 

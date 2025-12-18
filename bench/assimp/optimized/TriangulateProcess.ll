@@ -4644,7 +4644,7 @@ _ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread: ; preds = 
   br i1 %.not68, label %.critedge2, label %.lr.ph94, !llvm.loop !54
 
 .critedge2:                                       ; preds = %138, %.lr.ph94, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread, %183, %.critedge, %2
-  %.065 = phi i1 [ false, %2 ], [ true, %.critedge ], [ false, %183 ], [ true, %.lr.ph94 ], [ true, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread ], [ false, %138 ]
+  %.065 = phi i1 [ false, %2 ], [ false, %183 ], [ true, %.critedge ], [ true, %.lr.ph94 ], [ true, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread ], [ false, %138 ]
   ret i1 %.065
 }
 
@@ -5986,7 +5986,7 @@ _ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33: ; pred
   br label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread
 
 _ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread: ; preds = %20, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33, %161, %168, %176, %8, %3
-  %197 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %168 ], [ true, %161 ], [ %196, %176 ], [ false, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33 ], [ false, %20 ]
+  %197 = phi i1 [ false, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33 ], [ false, %8 ], [ false, %3 ], [ true, %168 ], [ true, %161 ], [ %196, %176 ], [ false, %20 ]
   ret i1 %197
 }
 

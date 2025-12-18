@@ -641,7 +641,7 @@ define internal noundef zeroext i1 @dma_fence_chain_signaled(ptr noundef %0) #0 
   br i1 %46, label %.critedge10, label %13, !llvm.loop !19
 
 .critedge10:                                      ; preds = %.critedge, %41, %43, %1, %44
-  %47 = phi i1 [ true, %1 ], [ false, %44 ], [ false, %43 ], [ false, %41 ], [ true, %.critedge ]
+  %47 = phi i1 [ true, %1 ], [ false, %41 ], [ false, %44 ], [ false, %43 ], [ true, %.critedge ]
   ret i1 %47
 }
 

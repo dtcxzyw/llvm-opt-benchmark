@@ -2357,7 +2357,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
   br label %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit
 
 _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit:  ; preds = %.critedge.i, %45
-  %.040 = phi double [ %63, %.critedge.i ], [ %47, %45 ]
+  %.040 = phi double [ %47, %45 ], [ %63, %.critedge.i ]
   %64 = load ptr, ptr %16, align 8, !tbaa !75
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !54
@@ -2400,7 +2400,7 @@ _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit:  ; preds = %.critedge.i, %45
   br label %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22
 
 _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22: ; preds = %.critedge.i21, %68
-  %.041 = phi double [ %86, %.critedge.i21 ], [ %70, %68 ]
+  %.041 = phi double [ %70, %68 ], [ %86, %.critedge.i21 ]
   %87 = load ptr, ptr %27, align 8, !tbaa !76
   %.not12 = icmp eq ptr %87, null
   br i1 %.not12, label %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32, label %88
@@ -2444,7 +2444,7 @@ _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22: ; preds = %.critedge.i21, %68
   br label %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32
 
 _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32: ; preds = %.critedge.i31, %91, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22
-  %.042 = phi double [ 1.000000e+00, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22 ], [ %108, %.critedge.i31 ], [ %93, %91 ]
+  %.042 = phi double [ 1.000000e+00, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22 ], [ %93, %91 ], [ %108, %.critedge.i31 ]
   %109 = tail call double @llvm.fabs.f64(double %.040)
   %or.cond.i = fcmp ugt double %109, 3.276700e+04
   br i1 %or.cond.i, label %116, label %110
@@ -2519,8 +2519,8 @@ _ZN4Luau7Compile12getTripCountEddd.exit:          ; preds = %138
   %147 = sext i32 %146 to i64
   br label %_ZN4Luau7Compile12getTripCountEddd.exit.thread
 
-_ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %135, %138, %94, %96, %100, %71, %74, %78, %48, %51, %55, %124, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
-  %148 = phi i64 [ 3, %94 ], [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %124 ], [ 3, %55 ], [ 3, %51 ], [ 3, %48 ], [ 3, %78 ], [ 3, %74 ], [ 3, %71 ], [ 3, %100 ], [ 3, %96 ], [ 0, %138 ], [ 0, %135 ]
+_ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %138, %135, %100, %96, %94, %78, %74, %71, %55, %51, %48, %124, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
+  %148 = phi i64 [ 3, %100 ], [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %124 ], [ 3, %48 ], [ 3, %51 ], [ 3, %55 ], [ 3, %71 ], [ 3, %74 ], [ 3, %78 ], [ 3, %94 ], [ 3, %96 ], [ 0, %135 ], [ 0, %138 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 64
   %149 = load ptr, ptr %.in, align 8, !tbaa !86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -3493,8 +3493,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   br i1 %.not91, label %.loopexit, label %.lr.ph184
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %161, %.lr.ph184, %.thread, %50, %.preheader, %260, %257, %138, %103, %184, %217, %226, %198, %117
-  %.sroa.0149.3 = phi i64 [ 10, %138 ], [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %94, %.lr.ph.split ], [ %274, %.lr.ph184 ], [ %177, %161 ], [ %76, %.lr.ph.split.us ]
-  %.sroa.29.3 = phi i64 [ 0, %138 ], [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph184 ], [ 0, %161 ], [ 0, %.lr.ph.split.us ]
+  %.sroa.0149.3 = phi i64 [ 10, %138 ], [ 0, %257 ], [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %62, %.thread ], [ %177, %161 ], [ %137, %117 ], [ %113, %103 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %94, %.lr.ph.split ], [ %274, %.lr.ph184 ], [ %76, %.lr.ph.split.us ]
+  %.sroa.29.3 = phi i64 [ 0, %138 ], [ 0, %257 ], [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %.thread ], [ 0, %161 ], [ 0, %117 ], [ 0, %103 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph184 ], [ 0, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %276
 

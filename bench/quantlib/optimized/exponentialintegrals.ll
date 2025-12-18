@@ -1350,8 +1350,8 @@ ehcleanup313:                                     ; preds = %ehcleanup122, %ehcl
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit", %entry, %for.cond.cleanup143, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, %if.else
-  %retval.sroa.0.0 = phi double [ 0xFFF0000000000000, %entry ], [ %sub.r.i.i, %for.cond.cleanup143 ], [ %add.r.i.i379, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %add.r.i.i379, %if.else ], [ %add.r.i.i121, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit" ]
-  %retval.sroa.7.0 = phi double [ 0.000000e+00, %entry ], [ %sub.i.i.i, %for.cond.cleanup143 ], [ %add.i.i.i380, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %98, %if.else ], [ %add.i.i.i122, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit" ]
+  %retval.sroa.0.0 = phi double [ 0xFFF0000000000000, %entry ], [ %add.r.i.i379, %if.else ], [ %sub.r.i.i, %for.cond.cleanup143 ], [ %add.r.i.i379, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %add.r.i.i121, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit" ]
+  %retval.sroa.7.0 = phi double [ 0.000000e+00, %entry ], [ %98, %if.else ], [ %sub.i.i.i, %for.cond.cleanup143 ], [ %add.i.i.i380, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %add.i.i.i122, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit" ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.7.0, 1
   ret { double, double } %.fca.1.insert

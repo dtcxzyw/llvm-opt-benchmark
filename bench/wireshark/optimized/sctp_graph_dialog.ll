@@ -8406,8 +8406,8 @@ _ZN7QStringD2Ev.exit166:                          ; preds = %_ZN7QStringD2Ev.exi
   br label %424
 
 .loopexit.sink.split:                             ; preds = %_ZNK5QListIdE5valueEx.exit, %_ZNK5QListIdE5valueEx.exit95, %_ZNK5QListIdE5valueEx.exit116, %_ZNK5QListIdE5valueEx.exit137, %_ZNK5QListIdE5valueEx.exit158
-  %.sink = phi i64 [ 344, %_ZNK5QListIdE5valueEx.exit95 ], [ 344, %_ZNK5QListIdE5valueEx.exit158 ], [ 416, %_ZNK5QListIdE5valueEx.exit137 ], [ 392, %_ZNK5QListIdE5valueEx.exit116 ], [ 320, %_ZNK5QListIdE5valueEx.exit ]
-  %.lcssa328.sink = phi i64 [ %133, %_ZNK5QListIdE5valueEx.exit95 ], [ %298, %_ZNK5QListIdE5valueEx.exit158 ], [ %243, %_ZNK5QListIdE5valueEx.exit137 ], [ %188, %_ZNK5QListIdE5valueEx.exit116 ], [ %78, %_ZNK5QListIdE5valueEx.exit ]
+  %.sink = phi i64 [ 344, %_ZNK5QListIdE5valueEx.exit158 ], [ 392, %_ZNK5QListIdE5valueEx.exit116 ], [ 416, %_ZNK5QListIdE5valueEx.exit137 ], [ 344, %_ZNK5QListIdE5valueEx.exit95 ], [ 320, %_ZNK5QListIdE5valueEx.exit ]
+  %.lcssa328.sink = phi i64 [ %298, %_ZNK5QListIdE5valueEx.exit158 ], [ %188, %_ZNK5QListIdE5valueEx.exit116 ], [ %243, %_ZNK5QListIdE5valueEx.exit137 ], [ %133, %_ZNK5QListIdE5valueEx.exit95 ], [ %78, %_ZNK5QListIdE5valueEx.exit ]
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr i32, ptr %319, i64 %.lcssa328.sink
@@ -9391,7 +9391,7 @@ _ZN7QStringD2Ev.exit118:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %171 unwind label %159
 
 171:                                              ; preds = %169, %164, %157
-  %.0.shrunk = phi i1 [ %170, %169 ], [ %158, %157 ], [ %165, %164 ]
+  %.0.shrunk = phi i1 [ %165, %164 ], [ %170, %169 ], [ %158, %157 ]
   br i1 %.0.shrunk, label %172, label %.critedge
 
 172:                                              ; preds = %_ZN7QStringD2Ev.exit78, %171

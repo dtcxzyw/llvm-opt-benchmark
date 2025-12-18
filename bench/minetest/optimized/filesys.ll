@@ -5687,7 +5687,7 @@ for.cond.backedge:                                ; preds = %cleanup58.thread, %
   br label %for.cond, !llvm.loop !142
 
 cleanup66:                                        ; preds = %if.end29, %while.end26, %lor.end8, %lor.end.lor.end8_crit_edge, %lor.end.thread.lor.end8_crit_edge, %do.body, %while.body24
-  %retval.4.ph = phi i1 [ true, %while.body24 ], [ false, %do.body ], [ false, %lor.end.lor.end8_crit_edge ], [ false, %if.end29 ], [ true, %while.end26 ], [ false, %lor.end8 ], [ false, %lor.end.thread.lor.end8_crit_edge ]
+  %retval.4.ph = phi i1 [ true, %while.body24 ], [ false, %do.body ], [ false, %if.end29 ], [ true, %while.end26 ], [ false, %lor.end8 ], [ false, %lor.end.thread.lor.end8_crit_edge ], [ false, %lor.end.lor.end8_crit_edge ]
   ret i1 %retval.4.ph
 }
 

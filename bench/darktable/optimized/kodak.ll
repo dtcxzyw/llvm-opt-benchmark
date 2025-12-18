@@ -217,7 +217,7 @@ define noundef signext range(i16 0, 2) i16 @_ZN6LibRaw16KodakIllumMatrixEjPf(ptr
   br i1 %exitcond60.not, label %.loopexit, label %.preheader38, !llvm.loop !21
 
 .loopexit:                                        ; preds = %36, %.preheader, %15, %3
-  %.035 = phi i16 [ 0, %3 ], [ 0, %15 ], [ 1, %.preheader ], [ 1, %36 ]
+  %.035 = phi i16 [ 1, %.preheader ], [ 0, %15 ], [ 0, %3 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i16 %.035

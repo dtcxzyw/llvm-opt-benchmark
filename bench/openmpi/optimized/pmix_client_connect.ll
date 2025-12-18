@@ -1361,7 +1361,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %116
   br i1 %.not.i73, label %.backedge, label %.lr.ph.i71, !llvm.loop !58
 
 .backedge:                                        ; preds = %.lr.ph.i71, %212, %204, %150
-  %.2.be = phi i32 [ %.390, %150 ], [ %217, %212 ], [ -20, %204 ], [ %.390, %.lr.ph.i71 ]
+  %.2.be = phi i32 [ %.390, %150 ], [ -20, %204 ], [ %217, %212 ], [ %.390, %.lr.ph.i71 ]
   br label %111, !llvm.loop !112
 
 158:                                              ; preds = %.thread116

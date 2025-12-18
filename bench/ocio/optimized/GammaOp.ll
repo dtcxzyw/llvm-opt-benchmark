@@ -2821,8 +2821,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20: ; preds = %92, %90
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val8) #17
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %7, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20, %95
-  %.032 = phi i1 [ %25, %95 ], [ %25, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit ], [ %25, %80 ], [ %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20 ], [ false, %7 ], [ false, %2 ]
+_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %7, %2, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20, %95
+  %.032 = phi i1 [ %25, %95 ], [ %25, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit ], [ %25, %80 ], [ %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20 ], [ false, %2 ], [ false, %7 ]
   ret i1 %.032
 }
 

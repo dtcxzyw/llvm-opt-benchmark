@@ -3299,7 +3299,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !185
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i
@@ -10559,7 +10559,7 @@ _ZNK11ast_manager8is_labelEPK4expr.exit.fold.split: ; preds = %2
   br label %_ZNK11ast_manager8is_labelEPK4expr.exit
 
 _ZNK11ast_manager8is_labelEPK4expr.exit:          ; preds = %2, %_ZNK11ast_manager8is_labelEPK4expr.exit.fold.split, %10, %5
-  %17 = phi i1 [ true, %2 ], [ false, %5 ], [ %16, %10 ], [ false, %_ZNK11ast_manager8is_labelEPK4expr.exit.fold.split ]
+  %17 = phi i1 [ true, %2 ], [ %16, %10 ], [ false, %5 ], [ false, %_ZNK11ast_manager8is_labelEPK4expr.exit.fold.split ]
   ret i1 %17
 }
 

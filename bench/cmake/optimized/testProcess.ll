@@ -226,7 +226,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br i1 %.not80.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %67, %.lr.ph.split.us.i, %.lr.ph.split.us.i.us, %.preheader.i, %39
-  %.0.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ %8, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.us ], [ %.296.i, %67 ]
+  %.0.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ 0, %.lr.ph.split.us.i.us ], [ %8, %.lr.ph.split.us.i ], [ %.296.i, %67 ]
   br i1 %.not79.i, label %70, label %69
 
 69:                                               ; preds = %.loopexit.i

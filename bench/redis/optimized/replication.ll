@@ -5579,8 +5579,8 @@ define dso_local void @readSyncBulkPayload(ptr noundef %0) #0 {
   br label %useDisklessLoad.exit
 
 useDisklessLoad.exit:                             ; preds = %1, %7, %11, %14, %17, %19, %.thread4.sink.split.i
-  %22 = phi i1 [ true, %17 ], [ true, %14 ], [ false, %7 ], [ false, %11 ], [ false, %19 ], [ false, %1 ], [ false, %.thread4.sink.split.i ]
-  %.not121 = phi ptr [ @.str.121, %17 ], [ @.str.121, %14 ], [ @.str.122, %7 ], [ @.str.122, %11 ], [ @.str.122, %19 ], [ @.str.122, %1 ], [ @.str.122, %.thread4.sink.split.i ]
+  %22 = phi i1 [ true, %17 ], [ false, %1 ], [ true, %14 ], [ false, %7 ], [ false, %11 ], [ false, %19 ], [ false, %.thread4.sink.split.i ]
+  %.not121 = phi ptr [ @.str.121, %17 ], [ @.str.122, %1 ], [ @.str.121, %14 ], [ @.str.122, %7 ], [ @.str.122, %11 ], [ @.str.122, %19 ], [ @.str.122, %.thread4.sink.split.i ]
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7352), align 8, !tbaa !204
   %24 = icmp eq ptr %0, %23
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7496), align 8, !tbaa !205
@@ -6853,7 +6853,7 @@ define internal fastcc range(i32 0, 2) i32 @useDisklessLoad() unnamed_addr #0 {
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread4.sink.split, %0, %14, %6, %12, %9, %2
-  %.0.shrunk = phi i32 [ 1, %12 ], [ 1, %9 ], [ 0, %2 ], [ 0, %6 ], [ 0, %14 ], [ 0, %0 ], [ 0, %.thread4.sink.split ]
+  %.0.shrunk = phi i32 [ 1, %12 ], [ 0, %0 ], [ 1, %9 ], [ 0, %2 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.thread4.sink.split ]
   ret i32 %.0.shrunk
 }
 
@@ -9267,7 +9267,7 @@ rdbChannelHandleFullresyncReply.exit:             ; preds = %235
   tail call void @abort() #24
   unreachable
 
-.thread51:                                        ; preds = %rdbChannelHandleFullresyncReply.exit, %rdbChannelHandleReplconfReply.exit, %130, %96, %196, %199
+.thread51:                                        ; preds = %rdbChannelHandleReplconfReply.exit, %rdbChannelHandleFullresyncReply.exit, %130, %96, %196, %199
   %.154 = phi ptr [ %191, %199 ], [ %191, %196 ], [ %117, %130 ], [ %191, %rdbChannelHandleFullresyncReply.exit ], [ null, %rdbChannelHandleReplconfReply.exit ], [ null, %96 ]
   call void @sdsfree(ptr noundef %.154) #21
   br label %266

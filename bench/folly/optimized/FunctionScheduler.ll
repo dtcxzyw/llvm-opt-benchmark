@@ -5418,7 +5418,7 @@ _ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10R
   br label %118
 
 "_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %90, %.critedge.i._crit_edge.split, %49, %.critedge.i._crit_edge.split.us.us, %.noexc23, %.noexc20.thread, %_ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10RepeatFuncE.exit, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %_ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10RepeatFuncE.exit ], [ false, %.noexc20.thread ], [ false, %49 ], [ true, %.noexc23 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %.critedge.i._crit_edge.split ], [ false, %90 ]
+  %.0 = phi i1 [ false, %49 ], [ true, %14 ], [ true, %_ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10RepeatFuncE.exit ], [ false, %.noexc20.thread ], [ true, %.noexc23 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %.critedge.i._crit_edge.split ], [ false, %90 ]
   %112 = load i8, ptr %9, align 8, !tbaa !200, !range !58, !noundef !59
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %_ZNSt11unique_lockISt5mutexED2Ev.exit

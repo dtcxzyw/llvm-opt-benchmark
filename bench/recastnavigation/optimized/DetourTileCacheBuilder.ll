@@ -1510,9 +1510,9 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   br i1 %exitcond.not.i.us, label %.thread.i.us, label %98, !llvm.loop !26
 
 .thread.i.us:                                     ; preds = %304, %303, %277, %253
-  %.sroa.9.3.ph157.us = phi i32 [ %.sroa.9.3.ph.us, %277 ], [ %.sroa.9.3.ph.us, %253 ], [ %.sroa.9.3.ph.us, %303 ], [ 0, %304 ]
-  %.0167.lcssa.i.us = phi i16 [ 0, %277 ], [ 0, %253 ], [ %.1168.i.us, %303 ], [ 0, %304 ]
-  %.0153.lcssa.i.us = phi i16 [ 0, %277 ], [ 0, %253 ], [ %.1154.i.us, %303 ], [ 0, %304 ]
+  %.sroa.9.3.ph157.us = phi i32 [ %.sroa.9.3.ph.us, %277 ], [ %.sroa.9.3.ph.us, %303 ], [ %.sroa.9.3.ph.us, %253 ], [ 0, %304 ]
+  %.0167.lcssa.i.us = phi i16 [ 0, %277 ], [ %.1168.i.us, %303 ], [ 0, %253 ], [ 0, %304 ]
+  %.0153.lcssa.i.us = phi i16 [ 0, %277 ], [ %.1154.i.us, %303 ], [ 0, %253 ], [ 0, %304 ]
   store i16 %.0153.lcssa.i.us, ptr %48, align 2
   store i16 %.0167.lcssa.i.us, ptr %54, align 2
   br label %.lr.ph216.i.us
@@ -1923,7 +1923,7 @@ default.unreachable:                              ; preds = %167
   unreachable
 
 _ZL11walkContourR16dtTileCacheLayeriiR13dtTempContour.exit: ; preds = %._crit_edge.us, %433, %205, %.preheader165.lr.ph, %.preheader167, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit
-  %.2 = phi i32 [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit ], [ 1073741824, %.preheader167 ], [ 1073741824, %.preheader165.lr.ph ], [ -2147483644, %433 ], [ -2147483632, %205 ], [ 1073741824, %._crit_edge.us ]
+  %.2 = phi i32 [ -2147483644, %433 ], [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit ], [ 1073741824, %.preheader165.lr.ph ], [ -2147483632, %205 ], [ 1073741824, %.preheader167 ], [ 1073741824, %._crit_edge.us ]
   %510 = load ptr, ptr %0, align 8
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 32
   %512 = load ptr, ptr %511, align 8
@@ -4540,7 +4540,7 @@ _ZL10mergePolysPtS_ii.exit:                       ; preds = %442, %.preheader.i
   br i1 %.not275, label %456, label %.loopexit
 
 .loopexit:                                        ; preds = %43, %172, %157, %459, %457, %456, %221, %.preheader, %._crit_edge435, %._crit_edge430, %._crit_edge415
-  %.0214 = phi i32 [ -2147483632, %._crit_edge430 ], [ 1073741824, %._crit_edge415 ], [ 1073741824, %._crit_edge435 ], [ 1073741824, %.preheader ], [ 1073741824, %221 ], [ -2147483632, %172 ], [ 1073741824, %456 ], [ 1073741824, %457 ], [ -2147483632, %459 ], [ -2147483632, %157 ], [ -2147483632, %43 ]
+  %.0214 = phi i32 [ -2147483632, %._crit_edge430 ], [ 1073741824, %.preheader ], [ 1073741824, %._crit_edge415 ], [ 1073741824, %456 ], [ 1073741824, %._crit_edge435 ], [ 1073741824, %221 ], [ -2147483632, %172 ], [ 1073741824, %457 ], [ -2147483632, %459 ], [ -2147483632, %157 ], [ -2147483632, %43 ]
   ret i32 %.0214
 }
 
@@ -6182,31 +6182,31 @@ _ZL13intersectPropPKhS0_S0_S0_.exit.i.i:          ; preds = %160
   br i1 %173, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit.thread13.i.i
 
 174:                                              ; preds = %_ZL6vequalPKhS0_.exit51.thread.i
-  br i1 %.not.i.i.i, label %176, label %175
+  br i1 %.not.i.i.i, label %178, label %175
 
 175:                                              ; preds = %174
   %.not31.i.i.i = icmp ugt i8 %39, %120
   %.not32.i.i.i = icmp ugt i8 %120, %60
   %or.cond.i.i.i = or i1 %.not31.i.i.i, %.not32.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZL7betweenPKhS0_S0_.exit.i.i, label %_ZL10diagonalieiiiPKhPKt.exit
+  br i1 %or.cond.i.i.i, label %176, label %_ZL10diagonalieiiiPKhPKt.exit
 
-176:                                              ; preds = %174
+176:                                              ; preds = %175
+  %.not33.i.i.i = icmp uge i8 %39, %120
+  %177 = icmp uge i8 %120, %60
+  %spec.select.i.i.i = and i1 %.not33.i.i.i, %177
+  br i1 %spec.select.i.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread
+
+178:                                              ; preds = %174
   %.not28.i.i.i = icmp ugt i8 %56, %.val48.i
   %.not29.i.i.i = icmp ugt i8 %.val48.i, %.val46.pre.i
   %or.cond9.i.i.i = or i1 %.not28.i.i.i, %.not29.i.i.i
-  br i1 %or.cond9.i.i.i, label %177, label %_ZL10diagonalieiiiPKhPKt.exit
+  br i1 %or.cond9.i.i.i, label %_ZL7betweenPKhS0_S0_.exit.i.i, label %_ZL10diagonalieiiiPKhPKt.exit
 
-177:                                              ; preds = %176
+_ZL7betweenPKhS0_S0_.exit.i.i:                    ; preds = %178
   %.not30.i.i.i = icmp uge i8 %56, %.val48.i
-  %178 = icmp uge i8 %.val48.i, %.val46.pre.i
-  %spec.select10.i.i.i = and i1 %.not30.i.i.i, %178
+  %179 = icmp uge i8 %.val48.i, %.val46.pre.i
+  %spec.select10.i.i.i = and i1 %.not30.i.i.i, %179
   br i1 %spec.select10.i.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread28
-
-_ZL7betweenPKhS0_S0_.exit.i.i:                    ; preds = %175
-  %.not33.i.i.i = icmp uge i8 %39, %120
-  %179 = icmp uge i8 %120, %60
-  %spec.select.i.i.i = and i1 %.not33.i.i.i, %179
-  br i1 %spec.select.i.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread
 
 _ZL7betweenPKhS0_S0_.exit.thread13.i.i:           ; preds = %_ZL13intersectPropPKhS0_S0_S0_.exit.i.i, %160, %156, %152, %144
   %180 = getelementptr i8, ptr %119, i64 2
@@ -6220,7 +6220,7 @@ _ZL7betweenPKhS0_S0_.exit.thread13.i.i:           ; preds = %_ZL13intersectPropP
   %185 = icmp eq i32 %.neg8.i.i.i54.i.i, %.neg3.i.i52.i.i
   br i1 %185, label %198, label %_ZL7betweenPKhS0_S0_.exit67.thread16.i.i
 
-_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread28:  ; preds = %177
+_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread28:  ; preds = %_ZL7betweenPKhS0_S0_.exit.i.i
   %186 = getelementptr i8, ptr %119, i64 2
   %.val33.i.i29 = load i8, ptr %186, align 1
   %187 = zext i8 %.val33.i.i29 to i32
@@ -6232,7 +6232,7 @@ _ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread28:  ; preds = %177
   %191 = icmp eq i32 %.neg8.i.i.i54.i.i31, %.neg3.i.i52.i.i30
   br i1 %191, label %.thread32, label %_ZL7betweenPKhS0_S0_.exit67.thread16.i.i
 
-_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread:    ; preds = %_ZL7betweenPKhS0_S0_.exit.i.i
+_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread:    ; preds = %176
   %192 = getelementptr i8, ptr %119, i64 2
   %.val33.i.i21 = load i8, ptr %192, align 1
   %193 = zext i8 %.val33.i.i21 to i32
@@ -6358,8 +6358,8 @@ _ZL9intersectPKhS0_S0_S0_.exit.thread53.i:        ; preds = %_ZL9intersectPKhS0_
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %94
   br i1 %exitcond.not.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %98, !llvm.loop !97
 
-_ZL10diagonalieiiiPKhPKt.exit:                    ; preds = %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i, %_ZL9intersectPKhS0_S0_S0_.exit.i, %224, %222, %221, %_ZL7betweenPKhS0_S0_.exit84.i.i, %215, %213, %212, %_ZL7betweenPKhS0_S0_.exit67.i.i, %.thread32, %201, %.thread, %_ZL7betweenPKhS0_S0_.exit.i.i, %177, %176, %175, %_ZL13intersectPropPKhS0_S0_S0_.exit.i.i, %63, %_ZL6inConeiiiPKhPKt.exit.thread, %71, %_ZL6inConeiiiPKhPKt.exit
-  %226 = phi i1 [ false, %_ZL6inConeiiiPKhPKt.exit ], [ false, %71 ], [ false, %63 ], [ true, %_ZL6inConeiiiPKhPKt.exit.thread ], [ true, %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i ], [ false, %222 ], [ false, %_ZL7betweenPKhS0_S0_.exit.i.i ], [ false, %_ZL13intersectPropPKhS0_S0_S0_.exit.i.i ], [ false, %213 ], [ false, %_ZL7betweenPKhS0_S0_.exit84.i.i ], [ false, %_ZL7betweenPKhS0_S0_.exit67.i.i ], [ false, %224 ], [ false, %177 ], [ false, %176 ], [ false, %201 ], [ false, %.thread32 ], [ false, %221 ], [ false, %175 ], [ false, %.thread ], [ false, %212 ], [ false, %215 ], [ false, %_ZL9intersectPKhS0_S0_S0_.exit.i ]
+_ZL10diagonalieiiiPKhPKt.exit:                    ; preds = %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i, %_ZL9intersectPKhS0_S0_S0_.exit.i, %224, %222, %221, %_ZL7betweenPKhS0_S0_.exit84.i.i, %215, %213, %212, %_ZL7betweenPKhS0_S0_.exit67.i.i, %.thread32, %201, %.thread, %_ZL7betweenPKhS0_S0_.exit.i.i, %178, %176, %175, %_ZL13intersectPropPKhS0_S0_S0_.exit.i.i, %63, %_ZL6inConeiiiPKhPKt.exit.thread, %71, %_ZL6inConeiiiPKhPKt.exit
+  %226 = phi i1 [ false, %_ZL6inConeiiiPKhPKt.exit ], [ false, %71 ], [ false, %63 ], [ true, %_ZL6inConeiiiPKhPKt.exit.thread ], [ true, %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i ], [ false, %222 ], [ false, %_ZL7betweenPKhS0_S0_.exit.i.i ], [ false, %_ZL13intersectPropPKhS0_S0_S0_.exit.i.i ], [ false, %213 ], [ false, %_ZL7betweenPKhS0_S0_.exit84.i.i ], [ false, %_ZL7betweenPKhS0_S0_.exit67.i.i ], [ false, %224 ], [ false, %176 ], [ false, %178 ], [ false, %201 ], [ false, %.thread32 ], [ false, %221 ], [ false, %175 ], [ false, %.thread ], [ false, %212 ], [ false, %215 ], [ false, %_ZL9intersectPKhS0_S0_S0_.exit.i ]
   ret i1 %226
 }
 

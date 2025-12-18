@@ -15068,8 +15068,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.loopexit, %25, %41, %60, %71, %82, %218, %232
-  %.098.be = phi ptr [ %234, %232 ], [ %26, %25 ], [ %42, %41 ], [ %61, %60 ], [ %72, %71 ], [ %83, %82 ], [ %.199, %218 ], [ %28, %.backedge.loopexit ]
-  %.0.be = phi ptr [ %233, %232 ], [ %27, %25 ], [ %43, %41 ], [ %62, %60 ], [ %73, %71 ], [ %84, %82 ], [ %219, %218 ], [ %.6, %.backedge.loopexit ]
+  %.098.be = phi ptr [ %234, %232 ], [ %.199, %218 ], [ %26, %25 ], [ %42, %41 ], [ %61, %60 ], [ %72, %71 ], [ %83, %82 ], [ %28, %.backedge.loopexit ]
+  %.0.be = phi ptr [ %233, %232 ], [ %219, %218 ], [ %27, %25 ], [ %43, %41 ], [ %62, %60 ], [ %73, %71 ], [ %84, %82 ], [ %.6, %.backedge.loopexit ]
   br label %.backedge, !llvm.loop !345
 
 29:                                               ; preds = %14
@@ -19982,8 +19982,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.loopexit, %25, %41, %60, %71, %82, %218, %232
-  %.098.be = phi ptr [ %234, %232 ], [ %26, %25 ], [ %42, %41 ], [ %61, %60 ], [ %72, %71 ], [ %83, %82 ], [ %.199, %218 ], [ %28, %.backedge.loopexit ]
-  %.0.be = phi ptr [ %233, %232 ], [ %27, %25 ], [ %43, %41 ], [ %62, %60 ], [ %73, %71 ], [ %84, %82 ], [ %219, %218 ], [ %.6, %.backedge.loopexit ]
+  %.098.be = phi ptr [ %234, %232 ], [ %.199, %218 ], [ %26, %25 ], [ %42, %41 ], [ %61, %60 ], [ %72, %71 ], [ %83, %82 ], [ %28, %.backedge.loopexit ]
+  %.0.be = phi ptr [ %233, %232 ], [ %219, %218 ], [ %27, %25 ], [ %43, %41 ], [ %62, %60 ], [ %73, %71 ], [ %84, %82 ], [ %.6, %.backedge.loopexit ]
   br label %.backedge, !llvm.loop !380
 
 29:                                               ; preds = %14

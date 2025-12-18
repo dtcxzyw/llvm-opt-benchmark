@@ -489,8 +489,8 @@ Min_CubeIsContained.exit.i.i:                     ; preds = %210, %202
   br i1 %exitcond.not.i287.i, label %Min_CoverContainsCube.exit.i, label %199, !llvm.loop !30
 
 Min_CoverContainsCube.exit.i:                     ; preds = %._crit_edge.i285.i, %203, %209
-  %216 = phi i1 [ true, %203 ], [ true, %209 ], [ false, %._crit_edge.i285.i ]
-  %.not458.i = phi i1 [ false, %203 ], [ false, %209 ], [ true, %._crit_edge.i285.i ]
+  %216 = phi i1 [ true, %209 ], [ true, %203 ], [ false, %._crit_edge.i285.i ]
+  %.not458.i = phi i1 [ false, %209 ], [ false, %203 ], [ true, %._crit_edge.i285.i ]
   store i32 %167, ptr %166, align 4, !tbaa !21
   %217 = shl nuw i32 3, %176
   %218 = load i32, ptr %174, align 4, !tbaa !21
@@ -1234,9 +1234,9 @@ Min_CubesDistOne.exit:                            ; preds = %51, %52
   %.not78 = icmp eq ptr %.274, null
   br i1 %.not78, label %._crit_edge168, label %.lr.ph.i99, !llvm.loop !39
 
-.loopexit131:                                     ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
-  %.069152 = phi ptr [ %.069165, %._crit_edge.i ], [ %.069153, %._crit_edge.thread.i ], [ %.069165, %.thread.i ]
-  %.274147 = phi ptr [ %.274166, %._crit_edge.i ], [ %.274148, %._crit_edge.thread.i ], [ %.274166, %.thread.i ]
+.loopexit131:                                     ; preds = %.thread.i, %._crit_edge.i, %._crit_edge.thread.i
+  %.069152 = phi ptr [ %.069153, %._crit_edge.thread.i ], [ %.069165, %._crit_edge.i ], [ %.069165, %.thread.i ]
+  %.274147 = phi ptr [ %.274148, %._crit_edge.thread.i ], [ %.274166, %._crit_edge.i ], [ %.274166, %.thread.i ]
   %61 = load ptr, ptr %.274147, align 8, !tbaa !15
   store ptr %61, ptr %.069152, align 8, !tbaa !14
   %62 = load i32, ptr %5, align 8
@@ -1675,7 +1675,7 @@ define void @Min_SopDist1Merge(ptr noundef captures(none) %0) local_unnamed_addr
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
+.loopexit:                                        ; preds = %.thread.i, %._crit_edge.i, %._crit_edge.thread.i
   %37 = load ptr, ptr %5, align 8, !tbaa !31
   %38 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %37) #10
   store ptr null, ptr %38, align 8, !tbaa !15

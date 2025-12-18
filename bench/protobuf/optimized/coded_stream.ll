@@ -1677,8 +1677,8 @@ for.body.i142:                                    ; preds = %for.body.i142, %if.
   br i1 %exitcond.not.i153, label %if.end, label %for.body.i142, !llvm.loop !16
 
 if.end:                                           ; preds = %for.body.i142, %for.body.i126, %for.body.i110, %for.body.i94, %for.body.i78, %for.body.i62, %for.body.i48, %for.body.i, %if.then.i
-  %.sink = phi i64 [ 2, %if.then.i ], [ 9, %for.body.i126 ], [ 3, %for.body.i ], [ 4, %for.body.i48 ], [ 5, %for.body.i62 ], [ 6, %for.body.i78 ], [ 7, %for.body.i94 ], [ 8, %for.body.i110 ], [ 10, %for.body.i142 ]
-  %temp.1.ph = phi i64 [ %add.i, %if.then.i ], [ %add.i134, %for.body.i126 ], [ %add.i43, %for.body.i ], [ %add.i56, %for.body.i48 ], [ %add.i70, %for.body.i62 ], [ %add.i86, %for.body.i78 ], [ %add.i102, %for.body.i94 ], [ %add.i118, %for.body.i110 ], [ %add.i150, %for.body.i142 ]
+  %.sink = phi i64 [ 2, %if.then.i ], [ 5, %for.body.i62 ], [ 6, %for.body.i78 ], [ 7, %for.body.i94 ], [ 8, %for.body.i110 ], [ 9, %for.body.i126 ], [ 3, %for.body.i ], [ 4, %for.body.i48 ], [ 10, %for.body.i142 ]
+  %temp.1.ph = phi i64 [ %add.i, %if.then.i ], [ %add.i70, %for.body.i62 ], [ %add.i86, %for.body.i78 ], [ %add.i102, %for.body.i94 ], [ %add.i118, %for.body.i110 ], [ %add.i134, %for.body.i126 ], [ %add.i43, %for.body.i ], [ %add.i56, %for.body.i48 ], [ %add.i150, %for.body.i142 ]
   %add.ptr.i36 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   store ptr %add.ptr.i36, ptr %this, align 8
   br label %return
@@ -1713,8 +1713,8 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %tobool.not.i, label %return, label %do.body.i, !llvm.loop !18
 
 return:                                           ; preds = %while.end.i, %do.body.i, %while.body.i, %if.else43.i, %if.end
-  %retval.sroa.0.0 = phi i64 [ %temp.1.ph, %if.end ], [ 0, %if.else43.i ], [ 0, %while.body.i ], [ %or.i, %while.end.i ], [ 0, %do.body.i ]
-  %retval.sroa.4.0 = phi i8 [ 1, %if.end ], [ 0, %if.else43.i ], [ 0, %while.body.i ], [ 1, %while.end.i ], [ 0, %do.body.i ]
+  %retval.sroa.0.0 = phi i64 [ %temp.1.ph, %if.end ], [ 0, %while.body.i ], [ 0, %if.else43.i ], [ 0, %do.body.i ], [ %or.i, %while.end.i ]
+  %retval.sroa.4.0 = phi i8 [ 1, %if.end ], [ 0, %while.body.i ], [ 0, %if.else43.i ], [ 0, %do.body.i ], [ 1, %while.end.i ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -2078,8 +2078,8 @@ for.body.i136:                                    ; preds = %for.body.i136, %if.
   br i1 %exitcond.not.i147, label %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit, label %for.body.i136, !llvm.loop !16
 
 _ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit: ; preds = %for.body.i136, %for.body.i120, %for.body.i104, %for.body.i88, %for.body.i72, %for.body.i56, %for.body.i42, %for.body.i, %if.then.i
-  %.sink = phi i64 [ 2, %if.then.i ], [ 9, %for.body.i120 ], [ 3, %for.body.i ], [ 4, %for.body.i42 ], [ 5, %for.body.i56 ], [ 6, %for.body.i72 ], [ 7, %for.body.i88 ], [ 8, %for.body.i104 ], [ 10, %for.body.i136 ]
-  %temp.0 = phi i64 [ %add.i, %if.then.i ], [ %add.i128, %for.body.i120 ], [ %add.i37, %for.body.i ], [ %add.i50, %for.body.i42 ], [ %add.i64, %for.body.i56 ], [ %add.i80, %for.body.i72 ], [ %add.i96, %for.body.i88 ], [ %add.i112, %for.body.i104 ], [ %add.i144, %for.body.i136 ]
+  %.sink = phi i64 [ 2, %if.then.i ], [ 6, %for.body.i72 ], [ 8, %for.body.i104 ], [ 3, %for.body.i ], [ 5, %for.body.i56 ], [ 4, %for.body.i42 ], [ 9, %for.body.i120 ], [ 7, %for.body.i88 ], [ 10, %for.body.i136 ]
+  %temp.0 = phi i64 [ %add.i, %if.then.i ], [ %add.i80, %for.body.i72 ], [ %add.i112, %for.body.i104 ], [ %add.i37, %for.body.i ], [ %add.i64, %for.body.i56 ], [ %add.i50, %for.body.i42 ], [ %add.i128, %for.body.i120 ], [ %add.i96, %for.body.i88 ], [ %add.i144, %for.body.i136 ]
   %cmp8 = icmp ult i64 %temp.0, 2147483648
   br i1 %cmp8, label %if.end, label %return
 
@@ -2269,8 +2269,8 @@ for.body.i:                                       ; preds = %if.end25.i, %for.co
   br i1 %tobool38.i.not, label %if.end10, label %for.cond.i
 
 if.end10:                                         ; preds = %for.body.i, %if.end25.i, %if.end, %if.end.i, %if.end16.i
-  %tag.0.ph = phi i32 [ %add21.i, %if.end16.i ], [ %add12.i, %if.end.i ], [ %add.i, %if.end ], [ %add30.i, %if.end25.i ], [ %add30.i, %for.body.i ]
-  %ptr.i.0.pn.ph = phi ptr [ %incdec.ptr18.i, %if.end16.i ], [ %incdec.ptr9.i, %if.end.i ], [ %incdec.ptr7.i, %if.end ], [ %incdec.ptr27.i, %if.end25.i ], [ %incdec.ptr35.i, %for.body.i ]
+  %tag.0.ph = phi i32 [ %add30.i, %if.end25.i ], [ %add21.i, %if.end16.i ], [ %add12.i, %if.end.i ], [ %add.i, %if.end ], [ %add30.i, %for.body.i ]
+  %ptr.i.0.pn.ph = phi ptr [ %incdec.ptr27.i, %if.end25.i ], [ %incdec.ptr18.i, %if.end16.i ], [ %incdec.ptr9.i, %if.end.i ], [ %incdec.ptr7.i, %if.end ], [ %incdec.ptr35.i, %for.body.i ]
   store ptr %ptr.i.0.pn.ph, ptr %this, align 8
   br label %return
 

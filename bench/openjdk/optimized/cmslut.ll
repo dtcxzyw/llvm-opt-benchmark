@@ -202,7 +202,7 @@ cmsPipelineStageCount.exit:                       ; preds = %.lr.ph.i, %2
   br i1 %exitcond36.not, label %.sink.split, label %32, !llvm.loop !9
 
 .sink.split:                                      ; preds = %22, %47, %6
-  %.0.ph = phi i32 [ 1, %6 ], [ 1, %47 ], [ 0, %22 ]
+  %.0.ph = phi i32 [ 1, %47 ], [ 1, %6 ], [ 0, %22 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %50
 
@@ -354,7 +354,7 @@ _cmsStageAllocPlaceholder.exit.thread.sink.split: ; preds = %_cmsStageAllocPlace
   br label %_cmsStageAllocPlaceholder.exit.thread
 
 _cmsStageAllocPlaceholder.exit.thread:            ; preds = %34, %31, %_cmsStageAllocPlaceholder.exit.thread.sink.split, %.preheader, %3
-  %.0 = phi ptr [ null, %3 ], [ %4, %.preheader ], [ null, %_cmsStageAllocPlaceholder.exit.thread.sink.split ], [ %4, %31 ], [ %4, %34 ]
+  %.0 = phi ptr [ null, %3 ], [ %4, %31 ], [ null, %_cmsStageAllocPlaceholder.exit.thread.sink.split ], [ %4, %.preheader ], [ %4, %34 ]
   ret ptr %.0
 }
 
@@ -938,7 +938,7 @@ CubeSize.exit.thread:                             ; preds = %34, %.lr.ph.i
   br label %43
 
 CubeSize.exit:                                    ; preds = %26, %._crit_edge.i
-  %.0.i = phi i32 [ %37, %._crit_edge.i ], [ %3, %26 ]
+  %.0.i = phi i32 [ %3, %26 ], [ %37, %._crit_edge.i ]
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %.0.i, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -1354,7 +1354,7 @@ CubeSize.exit.thread:                             ; preds = %34, %.lr.ph.i
   br label %43
 
 CubeSize.exit:                                    ; preds = %26, %._crit_edge.i
-  %.0.i = phi i32 [ %37, %._crit_edge.i ], [ %3, %26 ]
+  %.0.i = phi i32 [ %3, %26 ], [ %37, %._crit_edge.i ]
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %.0.i, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -1797,8 +1797,8 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   %exitcond135.not = icmp eq i32 %109, %32
   br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !29
 
-CubeSize.exit.thread:                             ; preds = %.lr.ph.i, %31, %..loopexit68_crit_edge.us113, %104, %.preheader69, %108, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 1, %104 ], [ 0, %.loopexit68.us95 ], [ 0, %.loopexit68.us ], [ 1, %108 ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 0, %31 ], [ 0, %.lr.ph.i ]
+CubeSize.exit.thread:                             ; preds = %31, %.lr.ph.i, %..loopexit68_crit_edge.us113, %104, %.preheader69, %108, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
+  %.0 = phi i32 [ 0, %..loopexit68_crit_edge.us113 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 1, %108 ], [ 0, %.loopexit68.us95 ], [ 0, %.loopexit68.us ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 1, %104 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -2146,8 +2146,8 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   %exitcond135.not = icmp eq i32 %112, %32
   br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !34
 
-CubeSize.exit.thread:                             ; preds = %.lr.ph.i, %31, %..loopexit68_crit_edge.us113, %107, %.preheader69, %111, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 1, %107 ], [ 0, %.loopexit68.us95 ], [ 0, %.loopexit68.us ], [ 1, %111 ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 0, %31 ], [ 0, %.lr.ph.i ]
+CubeSize.exit.thread:                             ; preds = %31, %.lr.ph.i, %..loopexit68_crit_edge.us113, %107, %.preheader69, %111, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
+  %.0 = phi i32 [ 0, %..loopexit68_crit_edge.us113 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 1, %111 ], [ 0, %.loopexit68.us95 ], [ 0, %.loopexit68.us ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 1, %107 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -2253,7 +2253,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %34, %32, %19
   br label %CubeSize.exit.thread
 
 CubeSize.exit.thread:                             ; preds = %.lr.ph.i, %15, %43, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.us ], [ 1, %43 ], [ 0, %15 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %._crit_edge.us ], [ 0, %4 ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.i ], [ 1, %43 ], [ 0, %15 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -2362,7 +2362,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %34, %32, %19
   br label %CubeSize.exit.thread
 
 CubeSize.exit.thread:                             ; preds = %.lr.ph.i, %15, %46, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.us ], [ 1, %46 ], [ 0, %15 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %._crit_edge.us ], [ 0, %4 ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.i ], [ 1, %46 ], [ 0, %15 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -3454,7 +3454,7 @@ cmsPipelineAlloc.exit.thread.sink.split:          ; preds = %.lr.ph.i.i, %cmsPip
   br label %cmsPipelineAlloc.exit.thread
 
 cmsPipelineAlloc.exit.thread:                     ; preds = %117, %cmsPipelineAlloc.exit.thread.sink.split, %cmsPipelineGetPtrToLastStage.exit.i, %103, %11, %3, %1
-  %.039 = phi ptr [ null, %1 ], [ %12, %cmsPipelineGetPtrToLastStage.exit.i ], [ null, %11 ], [ null, %3 ], [ %12, %103 ], [ null, %cmsPipelineAlloc.exit.thread.sink.split ], [ %12, %117 ]
+  %.039 = phi ptr [ null, %cmsPipelineAlloc.exit.thread.sink.split ], [ null, %1 ], [ %12, %103 ], [ %12, %cmsPipelineGetPtrToLastStage.exit.i ], [ null, %11 ], [ null, %3 ], [ %12, %117 ]
   ret ptr %.039
 }
 
@@ -3870,7 +3870,7 @@ cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   br i1 %.not21.i, label %cmsPipelineInsertStage.exit, label %.lr.ph.i, !llvm.loop !44
 
 cmsPipelineInsertStage.exit:                      ; preds = %17, %.lr.ph.i.i, %88, %.lr.ph.i, %cmsStageFree.exit.i, %cmsPipelineGetPtrToLastStage.exit.i, %._crit_edge
-  %.012 = phi i32 [ 1, %._crit_edge ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 0, %cmsStageFree.exit.i ], [ 0, %.lr.ph.i.i ], [ 1, %88 ], [ 0, %.lr.ph.i ], [ 0, %17 ]
+  %.012 = phi i32 [ 0, %.lr.ph.i.i ], [ 1, %88 ], [ 1, %._crit_edge ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 0, %cmsStageFree.exit.i ], [ 0, %.lr.ph.i ], [ 0, %17 ]
   ret i32 %.012
 }
 

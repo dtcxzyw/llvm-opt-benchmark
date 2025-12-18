@@ -4013,7 +4013,7 @@ define internal i64 @snd_seq_read(ptr noundef readonly captures(none) %0, ptr no
   br i1 %94, label %.thread20.thread, label %95
 
 .thread20.thread:                                 ; preds = %82, %35, %92
-  %.ph21 = phi i64 [ 0, %35 ], [ %44, %92 ], [ %87, %82 ]
+  %.ph21 = phi i64 [ %44, %92 ], [ 0, %35 ], [ %87, %82 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %36, ptr nonnull elementtype(i32) %36) #19, !srcloc !16
   br label %97
 

@@ -299,9 +299,9 @@ newpass_p12.exit:                                 ; preds = %122, %118
   store ptr %111, ptr %134, align 8, !tbaa !21
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %99, %101, %41, %46, %24, %27, %newpass_bags.exit.i, %129, %128
-  %.05075.i.ph = phi ptr [ null, %24 ], [ null, %27 ], [ %28, %newpass_bags.exit.i ], [ %28, %129 ], [ %28, %128 ], [ %28, %46 ], [ %28, %41 ], [ %28, %101 ], [ %28, %99 ], [ %28, %37 ]
-  %.05273.i.ph = phi ptr [ null, %24 ], [ null, %27 ], [ %.3.i, %newpass_bags.exit.i ], [ null, %129 ], [ null, %128 ], [ null, %37 ], [ %.3.i, %99 ], [ %.3.i, %101 ], [ %42, %41 ], [ %42, %46 ]
+.critedge:                                        ; preds = %37, %99, %101, %41, %46, %newpass_bags.exit.i, %27, %24, %129, %128
+  %.05075.i.ph = phi ptr [ %28, %128 ], [ %28, %129 ], [ null, %24 ], [ null, %27 ], [ %28, %newpass_bags.exit.i ], [ %28, %46 ], [ %28, %41 ], [ %28, %101 ], [ %28, %99 ], [ %28, %37 ]
+  %.05273.i.ph = phi ptr [ null, %128 ], [ null, %129 ], [ null, %24 ], [ null, %27 ], [ %.3.i, %newpass_bags.exit.i ], [ null, %37 ], [ %.3.i, %99 ], [ %.3.i, %101 ], [ %42, %41 ], [ %42, %46 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %.05273.i.ph, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %25, ptr noundef nonnull @PKCS7_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %.05075.i.ph, ptr noundef nonnull @PKCS7_free) #3

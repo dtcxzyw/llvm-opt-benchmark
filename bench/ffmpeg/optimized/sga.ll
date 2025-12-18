@@ -1039,7 +1039,7 @@ bytestream2_get_byte.exit:                        ; preds = %81, %82
   br i1 %125, label %.lr.ph65, label %.thread, !llvm.loop !82
 
 .thread:                                          ; preds = %.loopexit4, %98, %95, %5, %.loopexit4.loopexit, %.preheader3
-  %.2 = phi i32 [ %116, %.loopexit4.loopexit ], [ %.15513, %.preheader3 ], [ -1094995529, %5 ], [ -1094995529, %98 ], [ -1094995529, %95 ], [ -1094995529, %.loopexit4 ]
+  %.2 = phi i32 [ %.15513, %.preheader3 ], [ %116, %.loopexit4.loopexit ], [ -1094995529, %5 ], [ -1094995529, %98 ], [ -1094995529, %95 ], [ -1094995529, %.loopexit4 ]
   ret i32 %.2
 }
 
@@ -1288,7 +1288,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_palmapdata(ptr capt
   br i1 %63, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph6, %24, %0
-  %.024 = phi i32 [ -1094995529, %0 ], [ 0, %24 ], [ 0, %.lr.ph6 ], [ 0, %._crit_edge ]
+  %.024 = phi i32 [ -1094995529, %0 ], [ 0, %.lr.ph6 ], [ 0, %24 ], [ 0, %._crit_edge ]
   ret i32 %.024
 }
 
@@ -1605,7 +1605,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_index_tilemap(ptr n
   br i1 %exitcond133.not, label %93, label %97, !llvm.loop !104
 
 .loopexit93:                                      ; preds = %._crit_edge, %.preheader91.lr.ph, %.preheader92, %2
-  %.078 = phi i32 [ -1094995529, %2 ], [ 0, %.preheader92 ], [ 0, %.preheader91.lr.ph ], [ 0, %._crit_edge ]
+  %.078 = phi i32 [ -1094995529, %2 ], [ 0, %.preheader91.lr.ph ], [ 0, %.preheader92 ], [ 0, %._crit_edge ]
   ret i32 %.078
 }
 

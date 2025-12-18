@@ -4278,8 +4278,8 @@ _ZSt16set_intersectionIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_St
   br label %869
 
 .loopexit.split-lp:                               ; preds = %783, %_ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit222, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, %759
-  %.sroa.0.0.ph = phi ptr [ null, %_ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit222 ], [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit ], [ %.sroa.0.2, %759 ], [ %.sroa.0.4, %783 ]
-  %.sroa.11.0.ph = phi ptr [ null, %_ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit222 ], [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit ], [ %.sroa.6.0, %759 ], [ %.sroa.11.4, %783 ]
+  %.sroa.0.0.ph = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit ], [ null, %_ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit222 ], [ %.sroa.0.2, %759 ], [ %.sroa.0.4, %783 ]
+  %.sroa.11.0.ph = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit ], [ null, %_ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit222 ], [ %.sroa.6.0, %759 ], [ %.sroa.11.4, %783 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %869

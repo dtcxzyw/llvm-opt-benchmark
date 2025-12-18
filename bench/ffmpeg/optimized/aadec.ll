@@ -421,7 +421,7 @@ select.unfold:                                    ; preds = %60, %select.unfold.
   br label %.thread195
 
 .thread195:                                       ; preds = %142, %.thread184, %69, %select.unfold, %._crit_edge, %1, %.critedge, %61, %58
-  %.0 = phi i32 [ -1094995529, %1 ], [ -22, %58 ], [ -22, %61 ], [ -1094995529, %.thread184 ], [ 0, %.critedge ], [ -12, %select.unfold ], [ -1094995529, %._crit_edge ], [ -12, %69 ], [ -12, %142 ]
+  %.0 = phi i32 [ -12, %69 ], [ -1094995529, %1 ], [ -22, %58 ], [ -22, %61 ], [ -1094995529, %.thread184 ], [ 0, %.critedge ], [ -12, %select.unfold ], [ -1094995529, %._crit_edge ], [ -12, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -147,7 +147,7 @@ define hidden i32 @hwloc_encode_to_base64(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %88, %55, %89
-  %.042 = phi i32 [ %91, %89 ], [ -1, %55 ], [ -1, %88 ], [ -1, %.lr.ph ]
+  %.042 = phi i32 [ %91, %89 ], [ -1, %88 ], [ -1, %55 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.042
 }
@@ -391,7 +391,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %17, %57, %43, %29, %76, %.lr.ph124, %.preheader, %98, %94, %80, %68, %68, %99
-  %.0 = phi i32 [ %.058.ph.ph, %99 ], [ -1, %68 ], [ -1, %80 ], [ -1, %94 ], [ -1, %68 ], [ -1, %98 ], [ -1, %.preheader ], [ -1, %76 ], [ -1, %.lr.ph124 ], [ -1, %29 ], [ -1, %43 ], [ -1, %57 ], [ -1, %17 ], [ -1, %22 ]
+  %.0 = phi i32 [ %.058.ph.ph, %99 ], [ -1, %.lr.ph124 ], [ -1, %68 ], [ -1, %80 ], [ -1, %98 ], [ -1, %94 ], [ -1, %.preheader ], [ -1, %68 ], [ -1, %76 ], [ -1, %29 ], [ -1, %43 ], [ -1, %57 ], [ -1, %17 ], [ -1, %22 ]
   ret i32 %.0
 }
 

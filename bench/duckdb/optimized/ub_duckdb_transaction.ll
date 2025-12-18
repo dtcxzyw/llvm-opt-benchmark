@@ -2340,7 +2340,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151
 
 ._crit_edge.thread:                               ; preds = %148, %._crit_edge, %297
-  %.238 = phi i32 [ 0, %._crit_edge ], [ 1, %297 ], [ 0, %148 ]
+  %.238 = phi i32 [ 1, %297 ], [ 0, %._crit_edge ], [ 0, %148 ]
   %311 = load ptr, ptr %18, align 8, !tbaa !35
   %312 = icmp eq ptr %311, %149
   br i1 %312, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i158
@@ -7374,7 +7374,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb20SequenceCatalogEntryEES0_IN
   resume { ptr, i32 } %.pn
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb20SequenceCatalogEntryEES0_INS1_13SequenceValueEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %35, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %41, %35 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %41, %35 ]
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !543
   %82 = load i64, ptr %2, align 8, !tbaa !538
@@ -9304,7 +9304,7 @@ _ZNSt10unique_ptrIN6duckdb15DuckTransaction15ActiveTableLockESt14default_deleteI
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit52
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb13DataTableInfoEENS1_10unique_ptrINS1_15DuckTransaction15ActiveTableLockESt14default_deleteIS6_ELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S9_EEE4findERSF_.exit: ; preds = %37, %16, %28, %_ZNSt10unique_ptrIN6duckdb15DuckTransaction15ActiveTableLockESt14default_deleteIS2_EED2Ev.exit
-  %.sroa.061.0 = phi ptr [ %.fca.0.extract.i.i.i, %_ZNSt10unique_ptrIN6duckdb15DuckTransaction15ActiveTableLockESt14default_deleteIS2_EED2Ev.exit ], [ %29, %28 ], [ %.sroa.06.0.i.i, %16 ], [ %43, %37 ]
+  %.sroa.061.0 = phi ptr [ %.fca.0.extract.i.i.i, %_ZNSt10unique_ptrIN6duckdb15DuckTransaction15ActiveTableLockESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.06.0.i.i, %16 ], [ %29, %28 ], [ %43, %37 ]
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.061.0, i64 16
   %92 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb10unique_ptrINS_15DuckTransaction15ActiveTableLockESt14default_deleteIS2_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %91)
           to label %93 unwind label %137
@@ -10185,7 +10185,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_1
   br label %100
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %34, %13, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %13 ], [ %40, %34 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %13 ], [ %26, %25 ], [ %40, %34 ]
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %97 = load ptr, ptr %96, align 8, !tbaa !696
   br label %98
@@ -10282,13 +10282,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   br label %.loopexit, !llvm.loop !685
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %33, %11, %24
-  %.sroa.06.1.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i, %11 ], [ %39, %33 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %25, %24 ], [ %39, %33 ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !696
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit
-  %.sroa.010.0 = phi ptr [ %45, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %15 ], [ null, %10 ], [ null, %.lr.ph.i.i.i.i ]
+  %.sroa.010.0 = phi ptr [ %45, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %10 ], [ null, %15 ], [ null, %.lr.ph.i.i.i.i ]
   %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #33
   ret ptr %.sroa.010.0
 }
@@ -10928,7 +10928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %69
   br label %119
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %52, %32, %43
-  %.sroa.06.1.i.i = phi ptr [ %44, %43 ], [ %.sroa.06.0.i.i, %32 ], [ %58, %52 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %32 ], [ %44, %43 ], [ %58, %52 ]
   %75 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb16AttachedDatabase21GetTransactionManagerEv(ptr noundef nonnull align 8 dereferenceable(274) %30)
           to label %76 unwind label %108
 
@@ -11132,7 +11132,7 @@ define void @_ZN6duckdb15MetaTransaction8RollbackEv(ptr noundef nonnull align 8 
   br i1 %46, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !685
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader, %23
-  %.sroa.06.1.i.i = phi ptr [ %30, %23 ], [ %.sroa.06.0.i.i, %.preheader ], [ %38, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %.preheader ], [ %30, %23 ], [ %38, %.lr.ph.i.i.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !696
   %49 = load ptr, ptr %18, align 8, !tbaa !8
@@ -12872,7 +12872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19
   br i1 %75, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !685
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %.preheader.i, %52
-  %.sroa.06.1.i.i.i = phi ptr [ %59, %52 ], [ %.sroa.06.0.i.i.i, %.preheader.i ], [ %67, %.lr.ph.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %.preheader.i ], [ %59, %52 ], [ %67, %.lr.ph.i.i.i.i.i ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !696
   %78 = load ptr, ptr %47, align 8, !tbaa !8
@@ -22035,7 +22035,7 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb20SequenceCatalogEntryEESt4pairI
   resume { ptr, i32 } %51
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb20SequenceCatalogEntryEESt4pairIKS3_S0_INS1_13SequenceValueEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %37, %19, %28
-  %.sroa.043.0.ph = phi ptr [ %29, %28 ], [ %.sroa.035.0, %19 ], [ %43, %37 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %19 ], [ %29, %28 ], [ %43, %37 ]
   tail call void @_ZdlPv(ptr noundef nonnull %4) #35
   br label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb20SequenceCatalogEntryEESt4pairIKS3_S0_INS1_13SequenceValueEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -22352,7 +22352,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17reference_wrapperIN6duckd
   resume { ptr, i32 } %59
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb18RowGroupCollectionEESt4pairIKS3_NS1_10shared_ptrIS2_Lb1EEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %44, %26, %35
-  %.sroa.036.0.ph = phi ptr [ %36, %35 ], [ %.sroa.032.0, %26 ], [ %50, %44 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %26 ], [ %36, %35 ], [ %50, %44 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17reference_wrapperIN6duckdb18RowGroupCollectionEENS4_10shared_ptrIS5_Lb1EEEELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %60
 
@@ -22843,7 +22843,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17reference_wrapperIN6duckd
   resume { ptr, i32 } %57
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb13DataTableInfoEESt4pairIKS3_NS1_10unique_ptrINS1_15DuckTransaction15ActiveTableLockESt14default_deleteIS8_ELb1EEEESaISC_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %42, %24, %33
-  %.sroa.036.0.ph = phi ptr [ %34, %33 ], [ %.sroa.032.0, %24 ], [ %48, %42 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %24 ], [ %34, %33 ], [ %48, %42 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17reference_wrapperIN6duckdb13DataTableInfoEENS4_10unique_ptrINS4_15DuckTransaction15ActiveTableLockESt14default_deleteISA_ELb1EEEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i, label %58
 
@@ -23317,7 +23317,7 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_
   resume { ptr, i32 } %53
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_S0_INS1_11TransactionEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %39, %21, %30
-  %.sroa.042.0.ph = phi ptr [ %31, %30 ], [ %.sroa.034.0, %21 ], [ %45, %39 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %21 ], [ %31, %30 ], [ %45, %39 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #35
   br label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_S0_INS1_11TransactionEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

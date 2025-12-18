@@ -6640,7 +6640,7 @@ while.body.i.i.i5303:                             ; preds = %for.end26.i.i5299, 
   br i1 %cmp.i25.i.i5310, label %while.body.i.i.i5303, label %if.end28.i.i5285, !llvm.loop !84
 
 if.end28.i.i5285:                                 ; preds = %for.inc.i.i5295, %if.end.i.i5288, %while.body.i.i.i5303, %for.end26.i.i5299, %for.cond.preheader.i.i5284
-  %curr.1.i.i5286 = phi i64 [ %curr.2.lcssa.i.i5300, %for.end26.i.i5299 ], [ %add.i.i5276, %for.cond.preheader.i.i5284 ], [ %curr.2.lcssa.i.i5300, %while.body.i.i.i5303 ], [ %curr.028.i.i5289, %if.end.i.i5288 ], [ %sub14.i.i5382, %for.inc.i.i5295 ]
+  %curr.1.i.i5286 = phi i64 [ %curr.2.lcssa.i.i5300, %while.body.i.i.i5303 ], [ %curr.2.lcssa.i.i5300, %for.end26.i.i5299 ], [ %add.i.i5276, %for.cond.preheader.i.i5284 ], [ %curr.028.i.i5289, %if.end.i.i5288 ], [ %sub14.i.i5382, %for.inc.i.i5295 ]
   %sub29.i.i5287 = sub nsw i64 %curr.1.i.i5286, %len.i.3
   br label %_ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i5226
 
@@ -6928,7 +6928,7 @@ while.body.i.i.i5203:                             ; preds = %for.end26.i.i5199, 
   br i1 %cmp.i25.i.i5210, label %while.body.i.i.i5203, label %if.end28.i.i5185, !llvm.loop !84
 
 if.end28.i.i5185:                                 ; preds = %for.inc.i.i5195, %if.end.i.i5188, %while.body.i.i.i5203, %for.end26.i.i5199, %for.cond.preheader.i.i5184
-  %curr.1.i.i5186 = phi i64 [ %curr.2.lcssa.i.i5200, %for.end26.i.i5199 ], [ %add.i.i5176, %for.cond.preheader.i.i5184 ], [ %curr.2.lcssa.i.i5200, %while.body.i.i.i5203 ], [ %curr.028.i.i5189, %if.end.i.i5188 ], [ %sub14.i.i5382, %for.inc.i.i5195 ]
+  %curr.1.i.i5186 = phi i64 [ %curr.2.lcssa.i.i5200, %while.body.i.i.i5203 ], [ %curr.2.lcssa.i.i5200, %for.end26.i.i5199 ], [ %add.i.i5176, %for.cond.preheader.i.i5184 ], [ %curr.028.i.i5189, %if.end.i.i5188 ], [ %sub14.i.i5382, %for.inc.i.i5195 ]
   %sub29.i.i5187 = sub nsw i64 %curr.1.i.i5186, %add.i5236
   br label %_ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i5126
 
@@ -7197,7 +7197,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i.i.l
   br i1 %or.cond.i28.i, label %for.cond.i2214.backedge, label %while.end.sink.split.i.i
 
 for.cond.i2214.backedge:                          ; preds = %if.else66.i.i, %land.lhs.true.i.i, %_ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEvT_PKNS0_12tim_sort_runElPT0_T1_.exit
-  %stack_curr.i.0.be = phi i64 [ 2, %land.lhs.true.i.i ], [ 1, %_ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEvT_PKNS0_12tim_sort_runElPT0_T1_.exit ], [ %stack_curr.addr.063.i32.i, %if.else66.i.i ]
+  %stack_curr.i.0.be = phi i64 [ 1, %_ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEvT_PKNS0_12tim_sort_runElPT0_T1_.exit ], [ 2, %land.lhs.true.i.i ], [ %stack_curr.addr.063.i32.i, %if.else66.i.i ]
   br label %for.cond.i2214, !llvm.loop !88
 
 if.end29.i.i:                                     ; preds = %if.then.i.i2217, %if.end79.i.i
@@ -7899,7 +7899,7 @@ while.body.i.i.i4827:                             ; preds = %for.end26.i.i, %whi
   br i1 %cmp.i25.i.i, label %while.body.i.i.i4827, label %if.end28.i.i, !llvm.loop !84
 
 if.end28.i.i:                                     ; preds = %for.inc.i.i4823, %if.end.i.i4821, %while.body.i.i.i4827, %for.end26.i.i, %for.cond.preheader.i.i4820
-  %curr.1.i.i = phi i64 [ %curr.2.lcssa.i.i, %for.end26.i.i ], [ %add.i.i4817, %for.cond.preheader.i.i4820 ], [ %curr.2.lcssa.i.i, %while.body.i.i.i4827 ], [ %curr.028.i.i, %if.end.i.i4821 ], [ %sub14.i.i5382, %for.inc.i.i4823 ]
+  %curr.1.i.i = phi i64 [ %curr.2.lcssa.i.i, %while.body.i.i.i4827 ], [ %curr.2.lcssa.i.i, %for.end26.i.i ], [ %add.i.i4817, %for.cond.preheader.i.i4820 ], [ %curr.028.i.i, %if.end.i.i4821 ], [ %sub14.i.i5382, %for.inc.i.i4823 ]
   %sub29.i.i = sub nsw i64 %curr.1.i.i, %curr.i.0.ph
   br label %_ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i
 
@@ -12881,7 +12881,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4173: ; preds = %lpad4.loopexit.sp
   br i1 %cmp.not.i.i.i4175, label %eh.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4173, !llvm.loop !293
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4173, %lpad4.loopexit.split-lp.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4170, %lpad1360, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4166, %lpad1356, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4162, %lpad1352, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4158, %lpad1348, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4077, %lpad1327, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3106, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2462, %ehcleanup742, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1881, %invoke.cont.i1879, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1388, %ehcleanup398, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1192, %ehcleanup364, %ehcleanup1322, %ehcleanup1287, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit3833, %ehcleanup1232, %lpad1039
-  %.pn136.pn.pn = phi { ptr, i32 } [ %.pn133, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1388 ], [ %.pn136, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1192 ], [ %.pn133, %ehcleanup398 ], [ %.pn130, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1881 ], [ %.pn123.pn, %ehcleanup1232 ], [ %.pn120.pn, %ehcleanup1287 ], [ %.pn117, %ehcleanup1322 ], [ %.pn6764, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3106 ], [ %1143, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4170 ], [ %1141, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4166 ], [ %1139, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4162 ], [ %1137, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4158 ], [ %lpad.phi, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4077 ], [ %1063, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit3833 ], [ %771, %lpad1039 ], [ %.pn126, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2462 ], [ %.pn136, %ehcleanup364 ], [ %.pn130, %invoke.cont.i1879 ], [ %.pn126, %ehcleanup742 ], [ %lpad.phi, %lpad1327 ], [ %1137, %lpad1348 ], [ %1139, %lpad1352 ], [ %1141, %lpad1356 ], [ %1143, %lpad1360 ], [ %lpad.loopexit.split-lp.i, %lpad4.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4173 ]
+  %.pn136.pn.pn = phi { ptr, i32 } [ %.pn133, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1388 ], [ %.pn136, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1192 ], [ %.pn133, %ehcleanup398 ], [ %.pn130, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1881 ], [ %.pn123.pn, %ehcleanup1232 ], [ %.pn120.pn, %ehcleanup1287 ], [ %.pn117, %ehcleanup1322 ], [ %.pn6764, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3106 ], [ %1143, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4170 ], [ %1141, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4166 ], [ %1139, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4162 ], [ %1137, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4158 ], [ %lpad.phi, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4077 ], [ %1063, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit3833 ], [ %771, %lpad1039 ], [ %.pn126, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2462 ], [ %.pn136, %ehcleanup364 ], [ %.pn130, %invoke.cont.i1879 ], [ %.pn126, %ehcleanup742 ], [ %lpad.loopexit.split-lp.i, %lpad4.loopexit.split-lp.i ], [ %lpad.phi, %lpad1327 ], [ %1137, %lpad1348 ], [ %1139, %lpad1352 ], [ %1141, %lpad1356 ], [ %1143, %lpad1360 ], [ %lpad.loopexit.split-lp.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4173 ]
   resume { ptr, i32 } %.pn136.pn.pn
 }
 
@@ -15074,7 +15074,7 @@ for.body3.i:                                      ; preds = %if.end.i.i20, %if.t
   br label %for.cond1.i, !llvm.loop !358
 
 for.end.i18:                                      ; preds = %if.end.i.i20, %if.then.i.i16, %for.body3.us.i, %for.body3.us.us.i, %if.end.i.us.i24.preheader, %if.end.i.us.us.i26.preheader
-  %.us-phi.i19 = phi ptr [ %current.014.i, %if.end.i.us.us.i26.preheader ], [ %current.014.i, %if.end.i.us.i24.preheader ], [ %incdec.ptr5.us.i83, %for.body3.us.i ], [ %incdec.ptr5.us.us.i88, %for.body3.us.us.i ], [ %end.0.i, %if.then.i.i16 ], [ %end.0.i, %if.end.i.i20 ]
+  %.us-phi.i19 = phi ptr [ %incdec.ptr5.us.i83, %for.body3.us.i ], [ %incdec.ptr5.us.us.i88, %for.body3.us.us.i ], [ %current.014.i, %if.end.i.us.us.i26.preheader ], [ %current.014.i, %if.end.i.us.i24.preheader ], [ %end.0.i, %if.then.i.i16 ], [ %end.0.i, %if.end.i.i20 ]
   store float %.fr17.i, ptr %.us-phi.i19, align 4
   %incdec.ptr9.i = getelementptr inbounds nuw i8, ptr %current.014.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr9.i, %last
@@ -16580,7 +16580,7 @@ while.body.i.i:                                   ; preds = %for.end26.i, %while
   br i1 %cmp.i25.i, label %while.body.i.i, label %if.end28.i, !llvm.loop !383
 
 if.end28.i:                                       ; preds = %for.inc.i, %if.end.i, %while.body.i.i, %for.end26.i, %for.cond.preheader.i
-  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %for.end26.i ], [ %add.i, %for.cond.preheader.i ], [ %curr.2.lcssa.i, %while.body.i.i ], [ %sub14.i, %for.inc.i ], [ %curr.028.i, %if.end.i ]
+  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %while.body.i.i ], [ %curr.2.lcssa.i, %for.end26.i ], [ %add.i, %for.cond.preheader.i ], [ %curr.028.i, %if.end.i ], [ %sub14.i, %for.inc.i ]
   %sub29.i = sub nsw i64 %curr.1.i, %0
   br label %_ZN5eastl8Internal18tim_sort_count_runIPlNS_4lessIlEEEElT_llT0_.exit
 
@@ -16770,7 +16770,7 @@ while.end.sink.split:                             ; preds = %land.lhs.true
   br label %while.end
 
 while.end:                                        ; preds = %if.else66, %land.lhs.true, %while.end.sink.split, %entry
-  %stack_curr.addr.1 = phi i64 [ 2, %land.lhs.true ], [ %stack_curr, %entry ], [ 1, %while.end.sink.split ], [ %stack_curr.addr.06369, %if.else66 ]
+  %stack_curr.addr.1 = phi i64 [ 1, %while.end.sink.split ], [ %stack_curr, %entry ], [ 2, %land.lhs.true ], [ %stack_curr.addr.06369, %if.else66 ]
   ret i64 %stack_curr.addr.1
 }
 
@@ -18124,7 +18124,7 @@ _ZN10TestObjectaSERKS_.exit.i.i.i.i47:            ; preds = %if.then.i.i.i.i.i40
   br i1 %cmp.i.i.i.i51, label %for.body.i.i.i.i34, label %return, !llvm.loop !63
 
 return:                                           ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i47, %_ZN10TestObjectaSERKS_.exit.i.i.i.i, %if.else9, %if.then7
-  %retval.0 = phi ptr [ %result.addr.0.lcssa, %if.then7 ], [ %result.addr.0.lcssa, %if.else9 ], [ %incdec.ptr1.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %incdec.ptr1.i.i.i.i50, %_ZN10TestObjectaSERKS_.exit.i.i.i.i47 ]
+  %retval.0 = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %result.addr.0.lcssa, %if.then7 ], [ %result.addr.0.lcssa, %if.else9 ], [ %incdec.ptr1.i.i.i.i50, %_ZN10TestObjectaSERKS_.exit.i.i.i.i47 ]
   ret ptr %retval.0
 }
 
@@ -19122,7 +19122,7 @@ while.end.sink.split:                             ; preds = %land.lhs.true
   br label %while.end
 
 while.end:                                        ; preds = %if.else66, %land.lhs.true, %while.end.sink.split, %entry
-  %stack_curr.addr.1 = phi i64 [ 2, %land.lhs.true ], [ %stack_curr, %entry ], [ 1, %while.end.sink.split ], [ %stack_curr.addr.06369, %if.else66 ]
+  %stack_curr.addr.1 = phi i64 [ 1, %while.end.sink.split ], [ %stack_curr, %entry ], [ 2, %land.lhs.true ], [ %stack_curr.addr.06369, %if.else66 ]
   ret i64 %stack_curr.addr.1
 }
 
@@ -19257,7 +19257,7 @@ _ZN5eastl4swapI10TestObjectEEvRT_S3_.exit.i:      ; preds = %if.then.i18.i.i, %w
   br i1 %cmp.i, label %while.body.i, label %if.end28, !llvm.loop !407
 
 if.end28:                                         ; preds = %if.end, %for.inc, %_ZN5eastl4swapI10TestObjectEEvRT_S3_.exit.i, %for.cond.preheader, %for.end26
-  %curr.1 = phi i64 [ %curr.2.lcssa, %for.end26 ], [ %add, %for.cond.preheader ], [ %curr.2.lcssa, %_ZN5eastl4swapI10TestObjectEEvRT_S3_.exit.i ], [ %curr.027, %if.end ], [ %sub14, %for.inc ]
+  %curr.1 = phi i64 [ %curr.2.lcssa, %_ZN5eastl4swapI10TestObjectEEvRT_S3_.exit.i ], [ %curr.2.lcssa, %for.end26 ], [ %add, %for.cond.preheader ], [ %curr.027, %if.end ], [ %sub14, %for.inc ]
   %sub29 = sub nsw i64 %curr.1, %start
   br label %return
 
@@ -25793,7 +25793,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i361: ; preds = %if.then
   br i1 %cmp.i.i.i.i52.i366, label %for.body.i.i.i.i36.i350, label %return, !llvm.loop !327
 
 return:                                           ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i361, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i387, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i263, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i289, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i131, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i69.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i, %if.else8.i337, %if.then7.i370, %if.else8.i239, %if.then7.i272, %if.else8.i, %if.then7.i, %if.else13.i, %if.then10.i
-  %retval.0 = phi i32 [ 1, %if.then10.i ], [ 1, %if.else13.i ], [ 0, %if.then7.i ], [ 0, %if.else8.i ], [ 0, %if.then7.i272 ], [ 0, %if.else8.i239 ], [ 0, %if.then7.i370 ], [ 0, %if.else8.i337 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i387 ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i69.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i131 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i289 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i263 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i361 ]
+  %retval.0 = phi i32 [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i131 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i263 ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i ], [ 1, %if.then10.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i289 ], [ 1, %if.else13.i ], [ 0, %if.then7.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i387 ], [ 0, %if.else8.i ], [ 0, %if.then7.i272 ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i69.i ], [ 0, %if.else8.i239 ], [ 0, %if.then7.i370 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i ], [ 0, %if.else8.i337 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i361 ]
   ret i32 %retval.0
 }
 
@@ -26938,7 +26938,7 @@ while.end.sink.split:                             ; preds = %land.lhs.true11, %l
   br label %while.end
 
 while.end:                                        ; preds = %if.else66, %while.end.sink.split, %entry, %land.lhs.true11
-  %stack_curr.addr.1 = phi i64 [ 2, %land.lhs.true11 ], [ %stack_curr, %entry ], [ 1, %while.end.sink.split ], [ %stack_curr.addr.08797, %if.else66 ]
+  %stack_curr.addr.1 = phi i64 [ 1, %while.end.sink.split ], [ %stack_curr, %entry ], [ 2, %land.lhs.true11 ], [ %stack_curr.addr.08797, %if.else66 ]
   ret i64 %stack_curr.addr.1
 }
 
@@ -27221,7 +27221,7 @@ _ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit32.i: ; preds = %if.else.i.i13.i, 
   br i1 %cmp.i244, label %while.body.i, label %if.end35, !llvm.loop !841
 
 if.end35:                                         ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEmiEl.exit, %for.inc, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit32.i, %for.cond.preheader, %for.end33
-  %curr.1 = phi i64 [ %curr.2.lcssa, %for.end33 ], [ %add, %for.cond.preheader ], [ %curr.2.lcssa, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit32.i ], [ %curr.0251, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEmiEl.exit ], [ %sub18, %for.inc ]
+  %curr.1 = phi i64 [ %curr.2.lcssa, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit32.i ], [ %curr.2.lcssa, %for.end33 ], [ %add, %for.cond.preheader ], [ %curr.0251, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEmiEl.exit ], [ %sub18, %for.inc ]
   %sub36 = sub nsw i64 %curr.1, %start
   br label %return
 
@@ -29231,7 +29231,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i358: ; preds = %if.then
   br i1 %cmp.i.i.i.i52.i363, label %for.body.i.i.i.i36.i347, label %return, !llvm.loop !327
 
 return:                                           ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i358, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i384, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i260, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i286, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i128, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i69.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i, %if.else8.i334, %if.then7.i367, %if.else8.i236, %if.then7.i269, %if.else8.i, %if.then7.i, %if.else13.i, %if.then10.i
-  %retval.0 = phi i32 [ 1, %if.then10.i ], [ 1, %if.else13.i ], [ 0, %if.then7.i ], [ 0, %if.else8.i ], [ 0, %if.then7.i269 ], [ 0, %if.else8.i236 ], [ 0, %if.then7.i367 ], [ 0, %if.else8.i334 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i384 ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i69.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i128 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i286 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i260 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i358 ]
+  %retval.0 = phi i32 [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i128 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i260 ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i ], [ 1, %if.then10.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i286 ], [ 1, %if.else13.i ], [ 0, %if.then7.i ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i384 ], [ 0, %if.else8.i ], [ 0, %if.then7.i269 ], [ 1, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i69.i ], [ 0, %if.else8.i236 ], [ 0, %if.then7.i367 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i ], [ 0, %if.else8.i334 ], [ 0, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i47.i358 ]
   ret i32 %retval.0
 }
 
@@ -30470,7 +30470,7 @@ if.end.i:                                         ; preds = %while.end6.i
   br label %for.cond.i, !llvm.loop !1024
 
 _ZN5eastl18get_partition_implIPfRKfNS_8Internal16SafeFloatCompareEEET_S6_S6_OT0_T1_.exit: ; preds = %while.end6.i, %while.end6.i.loopexit1.us106, %while.end6.i.loopexit1.us51, %while.end6.i.loopexit.us
-  %.us-phi27 = phi ptr [ %first.addr.1.us31.i.us74, %while.end6.i.loopexit1.us106 ], [ %.us-phi.i.us158, %while.end6.i.loopexit.us ], [ %.us-phi.i.us32, %while.end6.i.loopexit1.us51 ], [ %first.addr.1.i, %while.end6.i ]
+  %.us-phi27 = phi ptr [ %.us-phi.i.us32, %while.end6.i.loopexit1.us51 ], [ %first.addr.1.us31.i.us74, %while.end6.i.loopexit1.us106 ], [ %.us-phi.i.us158, %while.end6.i.loopexit.us ], [ %first.addr.1.i, %while.end6.i ]
   ret ptr %.us-phi27
 }
 

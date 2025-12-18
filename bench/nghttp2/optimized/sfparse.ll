@@ -605,7 +605,7 @@ parser_skip_params.exit.sink.split:               ; preds = %24, %parser_discard
   br label %parser_skip_params.exit
 
 parser_skip_params.exit:                          ; preds = %.preheader, %.lr.ph.i33.preheader, %parser_skip_params.exit.sink.split, %24, %14, %parser_skip_params.exit.thread, %parser_discard_sp.exit
-  %.0 = phi i32 [ -1, %parser_skip_params.exit.thread ], [ -1, %14 ], [ -1, %parser_discard_sp.exit ], [ -1, %24 ], [ %.0.ph, %parser_skip_params.exit.sink.split ], [ -1, %.lr.ph.i33.preheader ], [ %12, %.preheader ]
+  %.0 = phi i32 [ -1, %parser_skip_params.exit.thread ], [ %.0.ph, %parser_skip_params.exit.sink.split ], [ -1, %14 ], [ -1, %.lr.ph.i33.preheader ], [ -1, %parser_discard_sp.exit ], [ -1, %24 ], [ %12, %.preheader ]
   ret i32 %.0
 }
 
@@ -790,7 +790,7 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   br label %parser_skip_inner_list.exit
 
 parser_skip_inner_list.exit:                      ; preds = %23, %.preheader, %parser_skip_inner_list.exit.thread, %17, %19, %14, %parser_discard_ows.exit.i, %12, %.sink.split.i, %47, %37, %27, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -1, %27 ], [ -2, %parser_discard_sp.exit ], [ 0, %.sink.split.i ], [ -1, %37 ], [ -1, %47 ], [ -1, %14 ], [ -2, %parser_discard_ows.exit.i ], [ -1, %12 ], [ -2, %19 ], [ %6, %.preheader ], [ -1, %17 ], [ %7, %parser_skip_inner_list.exit.thread ], [ -2, %23 ]
+  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -1, %27 ], [ -1, %17 ], [ -2, %parser_discard_sp.exit ], [ 0, %.sink.split.i ], [ -2, %19 ], [ -1, %12 ], [ -1, %47 ], [ -1, %37 ], [ -1, %14 ], [ -2, %parser_discard_ows.exit.i ], [ %7, %parser_skip_inner_list.exit.thread ], [ %6, %.preheader ], [ -2, %23 ]
   ret i32 %.0
 }
 
@@ -946,7 +946,7 @@ parser_skip_inner_list.exit.sink.split:           ; preds = %34, %32
   br label %parser_skip_inner_list.exit
 
 parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser_skip_inner_list.exit.thread, %16, %parser_skip_inner_list.exit.sink.split, %13, %parser_discard_ows.exit.i, %11, %34, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -1, %34 ], [ -2, %parser_discard_sp.exit ], [ -1, %13 ], [ -2, %parser_discard_ows.exit.i ], [ -1, %11 ], [ 0, %parser_skip_inner_list.exit.sink.split ], [ %6, %parser_skip_inner_list.exit.thread ], [ -1, %16 ], [ %5, %.preheader ]
+  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -1, %34 ], [ 0, %parser_skip_inner_list.exit.sink.split ], [ -1, %16 ], [ -2, %parser_discard_sp.exit ], [ -2, %parser_discard_ows.exit.i ], [ %6, %parser_skip_inner_list.exit.thread ], [ -1, %11 ], [ -1, %13 ], [ %5, %.preheader ]
   ret i32 %.0
 }
 
@@ -1067,7 +1067,7 @@ parser_discard_sp.exit43.loopexit:                ; preds = %16, %.lr.ph.i40
   br label %parser_skip_inner_list.exit
 
 parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser_skip_inner_list.exit.thread, %parser_skip_params.exit.thread, %parser_discard_sp.exit43.loopexit, %29, %parser_discard_sp.exit, %31, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %31 ], [ -1, %parser_discard_sp.exit ], [ -1, %29 ], [ -2, %parser_skip_params.exit.thread ], [ %19, %parser_discard_sp.exit43.loopexit ], [ %12, %parser_skip_inner_list.exit.thread ], [ %11, %.preheader ]
+  %.0 = phi i32 [ %12, %parser_skip_inner_list.exit.thread ], [ 0, %27 ], [ -2, %parser_skip_params.exit.thread ], [ 0, %31 ], [ -1, %parser_discard_sp.exit ], [ -1, %29 ], [ %19, %parser_discard_sp.exit43.loopexit ], [ %11, %.preheader ]
   ret i32 %.0
 }
 
@@ -1772,7 +1772,7 @@ switch.lookup:                                    ; preds = %42
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %31, %.loopexit.sink.split, %42, %._crit_edge, %39, %26, %.thread72, %20, %6
-  %.048 = phi i32 [ -1, %6 ], [ -1, %20 ], [ 0, %.thread72 ], [ -1, %._crit_edge ], [ -1, %26 ], [ -1, %39 ], [ -1, %31 ], [ 0, %42 ], [ 0, %.loopexit.sink.split ], [ -1, %12 ]
+  %.048 = phi i32 [ -1, %6 ], [ 0, %42 ], [ -1, %20 ], [ 0, %.thread72 ], [ 0, %.loopexit.sink.split ], [ -1, %._crit_edge ], [ -1, %26 ], [ -1, %31 ], [ -1, %39 ], [ -1, %12 ]
   ret i32 %.048
 }
 
@@ -1994,7 +1994,7 @@ default.unreachable52:                            ; preds = %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %7, %19, %16, %17, %12, %10, %10, %30
-  %.0 = phi i32 [ -1, %19 ], [ -1, %10 ], [ -1, %12 ], [ 0, %30 ], [ -1, %16 ], [ -1, %10 ], [ -1, %17 ], [ -1, %7 ], [ -1, %22 ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %17 ], [ -1, %10 ], [ -1, %12 ], [ 0, %30 ], [ -1, %16 ], [ -1, %10 ], [ -1, %7 ], [ -1, %22 ], [ -1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2380,7 +2380,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
   br i1 %.not42, label %pctdecode.exit.thread, label %.lr.ph, !llvm.loop !34
 
 pctdecode.exit.thread:                            ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %15, %30, %54, %56, %19, %26, %12, %43, %7, %10, %51
-  %.0 = phi i32 [ -1, %43 ], [ -1, %7 ], [ 0, %51 ], [ -1, %10 ], [ -1, %12 ], [ -1, %26 ], [ -1, %19 ], [ -1, %56 ], [ -1, %54 ], [ -1, %30 ], [ -1, %15 ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %43 ], [ -1, %7 ], [ 0, %51 ], [ -1, %12 ], [ -1, %26 ], [ -1, %19 ], [ -1, %56 ], [ -1, %54 ], [ -1, %30 ], [ -1, %15 ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ]
   ret i32 %.0
 }
 

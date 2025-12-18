@@ -836,8 +836,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br label %201
 
 201:                                              ; preds = %.loopexit.i, %181, %177, %173
-  %.sroa.8228.1.ph.i = phi i8 [ %168, %173 ], [ %161, %177 ], [ %154, %181 ], [ %147, %.loopexit.i ]
-  %.sroa.13230.1.ph.i = phi i64 [ %176, %173 ], [ %180, %177 ], [ %184, %181 ], [ %200, %.loopexit.i ]
+  %.sroa.8228.1.ph.i = phi i8 [ %154, %181 ], [ %168, %173 ], [ %161, %177 ], [ %147, %.loopexit.i ]
+  %.sroa.13230.1.ph.i = phi i64 [ %184, %181 ], [ %176, %173 ], [ %180, %177 ], [ %200, %.loopexit.i ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %202, align 8, !alias.scope !53, !noalias !77
   %.sroa.4268.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -953,8 +953,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br label %285
 
 285:                                              ; preds = %.loopexit385.i, %134, %131, %128, %125, %122, %119, %116
-  %.sroa.21200.1.ph.i = phi i64 [ %118, %116 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %130, %128 ], [ %133, %131 ], [ %136, %134 ], [ %284, %.loopexit385.i ]
-  %.sroa.12.1.ph.i = phi i8 [ %111, %116 ], [ %104, %119 ], [ %97, %122 ], [ %90, %125 ], [ %83, %128 ], [ %76, %131 ], [ %69, %134 ], [ %62, %.loopexit385.i ]
+  %.sroa.21200.1.ph.i = phi i64 [ %136, %134 ], [ %118, %116 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %130, %128 ], [ %133, %131 ], [ %284, %.loopexit385.i ]
+  %.sroa.12.1.ph.i = phi i8 [ %69, %134 ], [ %111, %116 ], [ %104, %119 ], [ %97, %122 ], [ %90, %125 ], [ %83, %128 ], [ %76, %131 ], [ %62, %.loopexit385.i ]
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %286, align 8, !alias.scope !53, !noalias !77
   %.sroa.4236.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9

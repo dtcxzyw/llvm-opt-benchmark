@@ -18792,9 +18792,9 @@ define hidden void @_ZN14polars_compute6filter7boolean26filter_boolean_kernel_pe
   ]
 
 .outer64._crit_edge:                              ; preds = %.outer64, %77, %15
-  %.sroa.08.0.ph.lcssa = phi i64 [ 0, %15 ], [ %.sroa.08.0.ph82, %77 ], [ %90, %.outer64 ]
-  %.sroa.036.0.lcssa = phi i64 [ 0, %15 ], [ %.sroa.036.3, %77 ], [ %89, %.outer64 ]
-  %.sroa.0.0.lcssa = phi ptr [ %2, %15 ], [ %.sroa.0.3, %77 ], [ %87, %.outer64 ]
+  %.sroa.08.0.ph.lcssa = phi i64 [ %.sroa.08.0.ph82, %77 ], [ 0, %15 ], [ %90, %.outer64 ]
+  %.sroa.036.0.lcssa = phi i64 [ %.sroa.036.3, %77 ], [ 0, %15 ], [ %89, %.outer64 ]
+  %.sroa.0.0.lcssa = phi ptr [ %.sroa.0.3, %77 ], [ %2, %15 ], [ %87, %.outer64 ]
   %48 = call { i64, i64 } @_ZN12polars_arrow6bitmap8iterator17FastU56BitmapIter9remainder17h65068b29e686b73bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
   %49 = call { i64, i64 } @_ZN12polars_arrow6bitmap8iterator17FastU56BitmapIter9remainder17h65068b29e686b73bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
   %50 = extractvalue { i64, i64 } %49, 0

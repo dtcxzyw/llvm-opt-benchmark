@@ -1831,7 +1831,7 @@ define noundef zeroext i1 @_ZN16uv_configuration17dependency_groups21DependencyG
   br i1 %26, label %_ZN16uv_configuration17dependency_groups13IncludeGroups8contains17h122939388f7d6369E.exit, label %22
 
 _ZN16uv_configuration17dependency_groups13IncludeGroups8contains17h122939388f7d6369E.exit: ; preds = %10, %24, %22, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd6aaf47c3f69c3adE.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd6aaf47c3f69c3adE.exit" ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %24 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ false, %10 ]
+  %.sroa.0.0 = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %24 ], [ true, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd6aaf47c3f69c3adE.exit" ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ false, %10 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2517,7 +2517,7 @@ define noundef zeroext i1 @_ZN16uv_configuration17dependency_groups28DependencyG
   br i1 %53, label %_ZN16uv_configuration17dependency_groups21DependencyGroupsInner8contains17h14b6ed32658b8c28E.exit, label %49
 
 _ZN16uv_configuration17dependency_groups21DependencyGroupsInner8contains17h14b6ed32658b8c28E.exit: ; preds = %11, %23, %37, %51, %49, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd6aaf47c3f69c3adE.exit.i3"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd6aaf47c3f69c3adE.exit.i3" ], [ false, %23 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %51 ], [ true, %37 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %49 ], [ false, %11 ]
+  %.sroa.0.0 = phi i1 [ true, %37 ], [ false, %23 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %51 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd6aaf47c3f69c3adE.exit.i3" ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %49 ], [ false, %11 ]
   ret i1 %.sroa.0.0
 }
 

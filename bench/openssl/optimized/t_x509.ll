@@ -527,7 +527,7 @@ define range(i32 -1, 1) i32 @ossl_serial_number_print(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %._crit_edge, %22, %17, %7, %49
-  %.024 = phi i32 [ %., %7 ], [ -1, %22 ], [ 0, %49 ], [ -1, %17 ], [ -1, %._crit_edge ], [ -1, %29 ]
+  %.024 = phi i32 [ %., %7 ], [ -1, %._crit_edge ], [ -1, %22 ], [ 0, %49 ], [ -1, %17 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }
@@ -938,8 +938,8 @@ define range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef %1) lo
   br label %.sink.split
 
 .loopexit:                                        ; preds = %.preheader46, %.preheader, %40, %37, %34, %26, %18, %14, %10, %7
-  %.035 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ %16, %18 ], [ null, %34 ], [ null, %37 ], [ null, %40 ], [ %16, %26 ], [ null, %.preheader ], [ %16, %.preheader46 ]
-  %.0 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ null, %18 ], [ %24, %34 ], [ %24, %37 ], [ %24, %40 ], [ %24, %26 ], [ %24, %.preheader ], [ %24, %.preheader46 ]
+  %.035 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ %16, %18 ], [ null, %.preheader ], [ null, %34 ], [ null, %37 ], [ %16, %26 ], [ null, %40 ], [ %16, %.preheader46 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ null, %18 ], [ %24, %.preheader ], [ %24, %34 ], [ %24, %37 ], [ %24, %26 ], [ %24, %40 ], [ %24, %.preheader46 ]
   call void @CRYPTO_free(ptr noundef %.035, ptr noundef nonnull @.str, i32 noundef 259) #4
   br label %.sink.split
 

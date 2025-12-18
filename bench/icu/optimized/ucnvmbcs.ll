@@ -415,7 +415,7 @@ default.unreachable245:                           ; preds = %81
   br label %.loopexit192
 
 .loopexit192:                                     ; preds = %173, %155, %137, %124, %111, %99, %179
-  %.13 = phi i32 [ %180, %179 ], [ %158, %155 ], [ %101, %99 ], [ %114, %111 ], [ %127, %124 ], [ %140, %137 ], [ %176, %173 ]
+  %.13 = phi i32 [ %180, %179 ], [ %114, %111 ], [ %127, %124 ], [ %140, %137 ], [ %158, %155 ], [ %101, %99 ], [ %176, %173 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit203, label %66, !llvm.loop !37
@@ -953,9 +953,9 @@ _ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCo
   br label %63
 
 .loopexit171.split.i:                             ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i, %.loopexit173.i, %.outer.backedge.i, %.outer.split.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.thread.i, %.loopexit170..loopexit171.split.loopexit216_crit_edge.i
-  %306 = phi ptr [ %.pre241.pre.i, %.loopexit170..loopexit171.split.loopexit216_crit_edge.i ], [ %284, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.thread.i ], [ %.promoted202.i, %.outer.backedge.i ], [ %249, %.outer.split.i ], [ %.promoted202.i462, %.loopexit173.i ], [ %.pre570, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
-  %.4146.i = phi i32 [ %.5.i, %.loopexit170..loopexit171.split.loopexit216_crit_edge.i ], [ %289, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.thread.i ], [ %.1143.i, %.outer.backedge.i ], [ %.1143.i, %.outer.split.i ], [ %.1143.i, %.loopexit173.i ], [ %295, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
-  %.3.i = phi ptr [ %.1.i, %.loopexit170..loopexit171.split.loopexit216_crit_edge.i ], [ %252, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.thread.i ], [ %.1.i, %.outer.backedge.i ], [ %.1.i, %.outer.split.i ], [ %.1.i, %.loopexit173.i ], [ %252, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
+  %306 = phi ptr [ %249, %.outer.split.i ], [ %.promoted202.i, %.outer.backedge.i ], [ %.pre241.pre.i, %.loopexit170..loopexit171.split.loopexit216_crit_edge.i ], [ %284, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.thread.i ], [ %.promoted202.i462, %.loopexit173.i ], [ %.pre570, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
+  %.4146.i = phi i32 [ %.1143.i, %.outer.split.i ], [ %.1143.i, %.outer.backedge.i ], [ %.5.i, %.loopexit170..loopexit171.split.loopexit216_crit_edge.i ], [ %289, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.thread.i ], [ %.1143.i, %.loopexit173.i ], [ %295, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
+  %.3.i = phi ptr [ %.1.i, %.outer.split.i ], [ %.1.i, %.outer.backedge.i ], [ %.1.i, %.loopexit170..loopexit171.split.loopexit216_crit_edge.i ], [ %252, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.thread.i ], [ %.1.i, %.loopexit173.i ], [ %252, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
   %307 = load i32, ptr %1, align 4, !tbaa !35
   %308 = icmp slt i32 %307, 1
   %309 = icmp ult ptr %306, %40
@@ -1872,12 +1872,12 @@ _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit: ; preds = %._crit_edge.i
   br label %.backedge
 
 _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split: ; preds = %731, %732, %705, %626
-  %.9.ph = phi i8 [ %.8, %732 ], [ %611, %705 ], [ %611, %626 ], [ %611, %731 ]
+  %.9.ph = phi i8 [ %611, %705 ], [ %611, %626 ], [ %.8, %732 ], [ %611, %731 ]
   store i32 12, ptr %1, align 4, !tbaa !35
   br label %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread
 
 _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread: ; preds = %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split, %628, %._crit_edge.i, %731, %705, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit
-  %.9 = phi i8 [ %611, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit ], [ %611, %731 ], [ %611, %628 ], [ %611, %705 ], [ %611, %._crit_edge.i ], [ %.9.ph, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split ]
+  %.9 = phi i8 [ %611, %628 ], [ %611, %705 ], [ %611, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit ], [ %611, %._crit_edge.i ], [ %611, %731 ], [ %.9.ph, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split ]
   %743 = icmp eq i8 %.3227, 0
   br i1 %743, label %.backedge, label %744
 
@@ -2049,10 +2049,10 @@ _ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCo
   br i1 %840, label %.backedge, label %.critedge316
 
 .critedge316:                                     ; preds = %.backedge, %.loopexit, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit, %771, %780, %784, %458, %747, %728, %692, %580, %468
-  %841 = phi ptr [ %.promoted445, %468 ], [ %597, %728 ], [ %578, %580 ], [ %597, %747 ], [ %597, %692 ], [ %431, %458 ], [ %783, %780 ], [ %791, %784 ], [ %597, %771 ], [ %578, %.loopexit ], [ %605, %.backedge ], [ %832, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
-  %.1225 = phi i8 [ %.0224448, %468 ], [ 0, %728 ], [ %.2226, %580 ], [ %.3227, %747 ], [ 0, %692 ], [ %448, %458 ], [ %772, %780 ], [ %772, %784 ], [ %.3227, %771 ], [ %.2226, %.loopexit ], [ %.0224.be, %.backedge ], [ %.041.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
-  %.2218 = phi i8 [ %.1217449, %468 ], [ %611, %728 ], [ %.5221, %580 ], [ %.9, %747 ], [ %611, %692 ], [ %.0216, %458 ], [ %.9, %780 ], [ %.9, %784 ], [ %.9, %771 ], [ %.5221, %.loopexit ], [ %.1217.be, %.backedge ], [ %.9, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
-  %.1 = phi i32 [ %.0214450, %468 ], [ 0, %728 ], [ %.4, %580 ], [ 0, %747 ], [ 0, %692 ], [ %446, %458 ], [ 0, %780 ], [ 0, %784 ], [ 0, %771 ], [ %.4, %.loopexit ], [ %.0214.be, %.backedge ], [ 0, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
+  %841 = phi ptr [ %.promoted445, %468 ], [ %597, %728 ], [ %578, %580 ], [ %597, %771 ], [ %597, %747 ], [ %431, %458 ], [ %597, %692 ], [ %783, %780 ], [ %791, %784 ], [ %578, %.loopexit ], [ %605, %.backedge ], [ %832, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
+  %.1225 = phi i8 [ %.0224448, %468 ], [ 0, %728 ], [ %.2226, %580 ], [ %.3227, %771 ], [ %.3227, %747 ], [ %448, %458 ], [ 0, %692 ], [ %772, %780 ], [ %772, %784 ], [ %.2226, %.loopexit ], [ %.0224.be, %.backedge ], [ %.041.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
+  %.2218 = phi i8 [ %.1217449, %468 ], [ %611, %728 ], [ %.5221, %580 ], [ %.9, %771 ], [ %.9, %747 ], [ %.0216, %458 ], [ %611, %692 ], [ %.9, %780 ], [ %.9, %784 ], [ %.5221, %.loopexit ], [ %.1217.be, %.backedge ], [ %.9, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
+  %.1 = phi i32 [ %.0214450, %468 ], [ 0, %728 ], [ %.4, %580 ], [ 0, %771 ], [ 0, %747 ], [ %446, %458 ], [ 0, %692 ], [ 0, %780 ], [ 0, %784 ], [ %.4, %.loopexit ], [ %.0214.be, %.backedge ], [ 0, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ]
   store i32 %.1, ptr %445, align 8, !tbaa !74
   %842 = zext i8 %.2218 to i32
   store i32 %842, ptr %450, align 4, !tbaa !75
@@ -2272,7 +2272,7 @@ define i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef readonly captures(none) %
   br label %.thread
 
 .thread:                                          ; preds = %24, %86, %84, %89, %83, %30, %73, %4
-  %.0 = phi i32 [ 65535, %73 ], [ 65535, %4 ], [ 65535, %30 ], [ 65535, %83 ], [ %90, %89 ], [ %.060, %84 ], [ 65534, %86 ], [ 65535, %24 ]
+  %.0 = phi i32 [ 65535, %73 ], [ 65535, %4 ], [ 65535, %30 ], [ 65535, %83 ], [ %90, %89 ], [ 65534, %86 ], [ %.060, %84 ], [ 65535, %24 ]
   ret i32 %.0
 }
 
@@ -2576,10 +2576,10 @@ define void @ucnv_MBCSFromUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) 
   br label %.loopexit131.i
 
 .loopexit131.i:                                   ; preds = %.loopexit131.loopexit.i, %.loopexit132.i, %133, %132, %129, %.thread.i, %.preheader.i
-  %176 = phi ptr [ %157, %.loopexit132.i ], [ %110, %133 ], [ %117, %.thread.i ], [ %117, %132 ], [ %117, %129 ], [ %.191.ph.i, %.preheader.i ], [ %.pre.i, %.loopexit131.loopexit.i ]
-  %.2102.i = phi i32 [ %156, %.loopexit132.i ], [ %81, %133 ], [ %.0100.i, %.thread.i ], [ %.0100.i, %132 ], [ %.0100.i, %129 ], [ %.1101.ph.i, %.preheader.i ], [ 0, %.loopexit131.loopexit.i ]
-  %.298.i = phi i32 [ %163, %.loopexit132.i ], [ %.197.ph.i, %133 ], [ %.096.i, %.thread.i ], [ %.096.i, %132 ], [ %.096.i, %129 ], [ %.197.ph.i, %.preheader.i ], [ %.197.ph.i, %.loopexit131.loopexit.i ]
-  %.2.i = phi ptr [ %157, %.loopexit132.i ], [ %.191.ph.i, %133 ], [ %.090.i, %.thread.i ], [ %.090.i, %132 ], [ %.090.i, %129 ], [ %.191.ph.i, %.preheader.i ], [ %.191.ph.i, %.loopexit131.loopexit.i ]
+  %176 = phi ptr [ %157, %.loopexit132.i ], [ %110, %133 ], [ %117, %129 ], [ %117, %.thread.i ], [ %117, %132 ], [ %.191.ph.i, %.preheader.i ], [ %.pre.i, %.loopexit131.loopexit.i ]
+  %.2102.i = phi i32 [ %156, %.loopexit132.i ], [ %81, %133 ], [ %.0100.i, %129 ], [ %.0100.i, %.thread.i ], [ %.0100.i, %132 ], [ %.1101.ph.i, %.preheader.i ], [ 0, %.loopexit131.loopexit.i ]
+  %.298.i = phi i32 [ %163, %.loopexit132.i ], [ %.197.ph.i, %133 ], [ %.096.i, %129 ], [ %.096.i, %.thread.i ], [ %.096.i, %132 ], [ %.197.ph.i, %.preheader.i ], [ %.197.ph.i, %.loopexit131.loopexit.i ]
+  %.2.i = phi ptr [ %157, %.loopexit132.i ], [ %.191.ph.i, %133 ], [ %.090.i, %129 ], [ %.090.i, %.thread.i ], [ %.090.i, %132 ], [ %.191.ph.i, %.preheader.i ], [ %.191.ph.i, %.loopexit131.loopexit.i ]
   %177 = load i32, ptr %1, align 4, !tbaa !35
   %178 = icmp slt i32 %177, 1
   %179 = icmp ult ptr %176, %44
@@ -3207,8 +3207,8 @@ select.unfold.i:                                  ; preds = %406
   br label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
 _ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit: ; preds = %377, %.preheader.i459, %403, %.thread144.i, %417, %450, %503, %.lr.ph.i460._crit_edge
-  %509 = phi ptr [ %.pre188.i, %450 ], [ %381, %417 ], [ %.lcssa529, %.lr.ph.i460._crit_edge ], [ %.pre187.i, %503 ], [ %404, %.thread144.i ], [ %404, %403 ], [ %355, %.preheader.i459 ], [ %378, %377 ]
-  %.2103.i = phi i32 [ %459, %450 ], [ %363, %417 ], [ %.1102166.i.lcssa, %.lr.ph.i460._crit_edge ], [ 0, %503 ], [ %.0101.i, %.thread144.i ], [ %.0101.i, %403 ], [ %.1102.ph.i, %.preheader.i459 ], [ 0, %377 ]
+  %509 = phi ptr [ %.pre188.i, %450 ], [ %381, %417 ], [ %.lcssa529, %.lr.ph.i460._crit_edge ], [ %404, %403 ], [ %.pre187.i, %503 ], [ %404, %.thread144.i ], [ %355, %.preheader.i459 ], [ %378, %377 ]
+  %.2103.i = phi i32 [ %459, %450 ], [ %363, %417 ], [ %.1102166.i.lcssa, %.lr.ph.i460._crit_edge ], [ %.0101.i, %403 ], [ 0, %503 ], [ %.0101.i, %.thread144.i ], [ %.1102.ph.i, %.preheader.i459 ], [ 0, %377 ]
   store i32 %.2103.i, ptr %350, align 4, !tbaa !102
   store ptr %509, ptr %327, align 8, !tbaa !94
   %510 = load ptr, ptr %4, align 8, !tbaa !61
@@ -4216,10 +4216,10 @@ default.unreachable675:                           ; preds = %1026
   br label %.loopexit
 
 .loopexit:                                        ; preds = %583, %.loopexit.sink.split, %.preheader, %928, %739
-  %.2362 = phi i32 [ %.4364, %928 ], [ %.0360, %739 ], [ %.1361.ph, %.preheader ], [ %.2362.ph, %.loopexit.sink.split ], [ %.3363, %583 ]
-  %.2341 = phi i32 [ %937, %928 ], [ %.0339, %739 ], [ %.1340.ph, %.preheader ], [ %.2341.ph, %.loopexit.sink.split ], [ 0, %583 ]
-  %.3319 = phi i32 [ %939, %928 ], [ %.1317, %739 ], [ %.2318.ph, %.preheader ], [ %.3319.ph, %.loopexit.sink.split ], [ %.2318.ph, %583 ]
-  %.2 = phi i32 [ %.3, %928 ], [ %.0312, %739 ], [ %.1313.ph, %.preheader ], [ %.2.ph, %.loopexit.sink.split ], [ %585, %583 ]
+  %.2362 = phi i32 [ %.4364, %928 ], [ %.1361.ph, %.preheader ], [ %.2362.ph, %.loopexit.sink.split ], [ %.0360, %739 ], [ %.3363, %583 ]
+  %.2341 = phi i32 [ %937, %928 ], [ %.1340.ph, %.preheader ], [ %.2341.ph, %.loopexit.sink.split ], [ %.0339, %739 ], [ 0, %583 ]
+  %.3319 = phi i32 [ %939, %928 ], [ %.2318.ph, %.preheader ], [ %.3319.ph, %.loopexit.sink.split ], [ %.1317, %739 ], [ %.2318.ph, %583 ]
+  %.2 = phi i32 [ %.3, %928 ], [ %.1313.ph, %.preheader ], [ %.2.ph, %.loopexit.sink.split ], [ %.0312, %739 ], [ %585, %583 ]
   %1054 = load i32, ptr %1, align 4, !tbaa !35
   %1055 = icmp slt i32 %1054, 1
   %or.cond9 = and i1 %542, %1055
@@ -5968,7 +5968,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   br label %.thread
 
 .loopexit178:                                     ; preds = %159, %122, %160, %152
-  %.3133.ph = phi i32 [ %.0130257, %160 ], [ %131, %152 ], [ 65534, %122 ], [ %.0130257, %159 ]
+  %.3133.ph = phi i32 [ 65534, %122 ], [ %.0130257, %160 ], [ %131, %152 ], [ %.0130257, %159 ]
   %.pr = load i32, ptr %1, align 4, !tbaa !35
   %165 = icmp slt i32 %.pr, 1
   br i1 %165, label %166, label %.loopexit
@@ -7187,9 +7187,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %200
   br i1 %220, label %.lr.ph.split.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !184
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
-  %.us-phi = phi i8 [ %.2230330.us351, %.lr.ph.split.split.us ], [ %.2230330.us, %.lr.ph.split.us ], [ %.2230330, %.lr.ph.split.split ]
-  %.us-phi339 = phi i32 [ %.5237329.us352, %.lr.ph.split.split.us ], [ %.5237329.us, %.lr.ph.split.us ], [ %.5237329, %.lr.ph.split.split ]
-  %.us-phi341 = phi ptr [ %.6331.us350, %.lr.ph.split.split.us ], [ %.6331.us, %.lr.ph.split.us ], [ %.6331, %.lr.ph.split.split ]
+  %.us-phi = phi i8 [ %.2230330.us, %.lr.ph.split.us ], [ %.2230330.us351, %.lr.ph.split.split.us ], [ %.2230330, %.lr.ph.split.split ]
+  %.us-phi339 = phi i32 [ %.5237329.us, %.lr.ph.split.us ], [ %.5237329.us352, %.lr.ph.split.split.us ], [ %.5237329, %.lr.ph.split.split ]
+  %.us-phi341 = phi ptr [ %.6331.us, %.lr.ph.split.us ], [ %.6331.us350, %.lr.ph.split.split.us ], [ %.6331, %.lr.ph.split.split ]
   %221 = zext nneg i8 %.us-phi to i64
   %222 = zext nneg i8 %.1240.fr to i32
   %223 = zext nneg i8 %.1225 to i64
@@ -7364,7 +7364,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %214, %170,
   br label %336
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %.thread275
-  %.2.ph = phi ptr [ %.1.ph, %.preheader ], [ %.3, %.thread275 ], [ %.1.be, %.backedge ]
+  %.2.ph = phi ptr [ %.3, %.thread275 ], [ %.1.ph, %.preheader ], [ %.1.be, %.backedge ]
   %.pr = load i32, ptr %2, align 4, !tbaa !35
   %302 = icmp sgt i32 %.pr, 0
   br i1 %302, label %336, label %303
@@ -7812,9 +7812,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %206
   br i1 %226, label %.lr.ph.split.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !189
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
-  %.us-phi = phi i8 [ %.2239309.us330, %.lr.ph.split.split.us ], [ %.2239309.us, %.lr.ph.split.us ], [ %.2239309, %.lr.ph.split.split ]
-  %.us-phi318 = phi i32 [ %.4245308.us331, %.lr.ph.split.split.us ], [ %.4245308.us, %.lr.ph.split.us ], [ %.4245308, %.lr.ph.split.split ]
-  %.us-phi320 = phi ptr [ %.7310.us329, %.lr.ph.split.split.us ], [ %.7310.us, %.lr.ph.split.us ], [ %.7310, %.lr.ph.split.split ]
+  %.us-phi = phi i8 [ %.2239309.us, %.lr.ph.split.us ], [ %.2239309.us330, %.lr.ph.split.split.us ], [ %.2239309, %.lr.ph.split.split ]
+  %.us-phi318 = phi i32 [ %.4245308.us, %.lr.ph.split.us ], [ %.4245308.us331, %.lr.ph.split.split.us ], [ %.4245308, %.lr.ph.split.split ]
+  %.us-phi320 = phi ptr [ %.7310.us, %.lr.ph.split.us ], [ %.7310.us329, %.lr.ph.split.split.us ], [ %.7310, %.lr.ph.split.split ]
   %227 = zext nneg i8 %.us-phi to i64
   %228 = zext nneg i8 %.1248.fr to i32
   %229 = zext nneg i8 %.1233 to i64
@@ -8048,7 +8048,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %220, %176,
   br label %.loopexit.thread
 
 .loopexit:                                        ; preds = %92, %.preheader, %.thread284
-  %.2.ph = phi ptr [ %.1.ph, %.preheader ], [ %.3, %.thread284 ], [ %84, %92 ]
+  %.2.ph = phi ptr [ %.3, %.thread284 ], [ %.1.ph, %.preheader ], [ %84, %92 ]
   %.pr = load i32, ptr %2, align 4, !tbaa !35
   %335 = icmp sgt i32 %.pr, 0
   br i1 %335, label %.loopexit.thread, label %336
@@ -8200,7 +8200,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailByte
   br i1 %exitcond40.not, label %.loopexit, label %.preheader, !llvm.loop !194
 
 .loopexit:                                        ; preds = %.preheader31, %26, %22, %9, %2
-  %.021 = phi i8 [ 1, %9 ], [ 1, %2 ], [ 1, %22 ], [ 0, %26 ], [ 1, %.preheader31 ]
+  %.021 = phi i8 [ 1, %9 ], [ 1, %22 ], [ 1, %2 ], [ 0, %26 ], [ 1, %.preheader31 ]
   ret i8 %.021
 }
 

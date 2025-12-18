@@ -1627,7 +1627,7 @@ inspect_tcpi_options.exit.i:                      ; preds = %510, %507
   br label %inspect_int.exit.thread313
 
 inspect_int.exit:                                 ; preds = %310, %315, %312, %377, %374, %358, %287, %284, %281, %278, %145, %142
-  %.0 = phi i32 [ %144, %142 ], [ %147, %145 ], [ %280, %278 ], [ %283, %281 ], [ %286, %284 ], [ %289, %287 ], [ %314, %312 ], [ %317, %315 ], [ %360, %358 ], [ %376, %374 ], [ %379, %377 ], [ %311, %310 ]
+  %.0 = phi i32 [ %379, %377 ], [ %376, %374 ], [ %360, %358 ], [ %144, %142 ], [ %147, %145 ], [ %317, %315 ], [ %314, %312 ], [ %289, %287 ], [ %286, %284 ], [ %283, %281 ], [ %280, %278 ], [ %311, %310 ]
   %.not171 = icmp eq i32 %.0, 0
   br i1 %.not171, label %inspect_int.exit.thread, label %inspect_int.exit.thread313
 
@@ -1638,7 +1638,7 @@ inspect_int.exit.thread:                          ; preds = %64, %67, %420, %393
   %562 = call i64 @rb_str_append(i64 noundef %42, i64 noundef %561) #6
   br label %inspect_int.exit.thread313
 
-inspect_int.exit.thread313:                       ; preds = %inspect_tcpi_options.exit.i, %555, %RSTRING_PTR.exit.i297, %RSTRING_PTR.exit.i291, %RSTRING_PTR.exit.i285, %RSTRING_PTR.exit.i280, %RSTRING_PTR.exit.i274, %RSTRING_PTR.exit.i268, %RSTRING_PTR.exit.i262, %309, %RSTRING_PTR.exit.i251, %RSTRING_PTR.exit.i245, %RSTRING_PTR.exit.i239, %RSTRING_PTR.exit.i233, %RSTRING_PTR.exit.i227, %RSTRING_PTR.exit.i221, %RSTRING_PTR.exit.i215, %RSTRING_PTR.exit.i209, %RSTRING_PTR.exit.i203, %RSTRING_PTR.exit.i197, %RSTRING_PTR.exit.i, %inspect_int.exit.thread, %inspect_int.exit
+inspect_int.exit.thread313:                       ; preds = %RSTRING_PTR.exit.i, %RSTRING_PTR.exit.i197, %RSTRING_PTR.exit.i203, %RSTRING_PTR.exit.i209, %RSTRING_PTR.exit.i215, %RSTRING_PTR.exit.i221, %RSTRING_PTR.exit.i227, %RSTRING_PTR.exit.i233, %RSTRING_PTR.exit.i239, %RSTRING_PTR.exit.i245, %RSTRING_PTR.exit.i251, %309, %RSTRING_PTR.exit.i262, %RSTRING_PTR.exit.i268, %RSTRING_PTR.exit.i274, %RSTRING_PTR.exit.i280, %RSTRING_PTR.exit.i285, %RSTRING_PTR.exit.i291, %RSTRING_PTR.exit.i297, %555, %inspect_tcpi_options.exit.i, %inspect_int.exit.thread, %inspect_int.exit
   %563 = call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.26, i64 noundef 1) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %42

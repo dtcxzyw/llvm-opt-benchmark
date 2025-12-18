@@ -726,15 +726,15 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader: ; preds = %_ZNK6vectorIP4e
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader
-  %218 = phi ptr [ %178, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %.pre.i.i143503 = phi ptr [ %.pre.i.i143508, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %219 = phi ptr [ %180, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %220 = phi ptr [ %181, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %.pre.i.i166492 = phi ptr [ %.pre.i.i166499, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %221 = phi ptr [ %182, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %222 = phi ptr [ %183, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %223 = phi ptr [ %.pre.i.i112484, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %224 = phi ptr [ %.ph736, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be749, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %218 = phi ptr [ %178, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %.pre.i.i143503 = phi ptr [ %.pre.i.i143508, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %219 = phi ptr [ %180, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %220 = phi ptr [ %181, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %.pre.i.i166492 = phi ptr [ %.pre.i.i166499, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %221 = phi ptr [ %182, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %222 = phi ptr [ %183, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %223 = phi ptr [ %.pre.i.i112484, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %224 = phi ptr [ %.ph736, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be748, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge ]
   %225 = icmp eq ptr %224, null
   br i1 %225, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i
 
@@ -761,7 +761,7 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIP4
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.backedge: ; preds = %.noexc258, %.noexc259
-  %.be749 = phi ptr [ %273, %.noexc259 ], [ %233, %.noexc258 ]
+  %.be748 = phi ptr [ %233, %.noexc258 ], [ %273, %.noexc259 ]
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i, !llvm.loop !68
 
 234:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i
@@ -1341,10 +1341,10 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader: ; preds = %_ZNK6vectorI
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147:    ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader
-  %474 = phi ptr [ %178, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be724, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
-  %.pre.i.i143513 = phi ptr [ %.pre.i.i143508, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be724, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
-  %475 = phi ptr [ %180, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be724, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
-  %476 = phi ptr [ %.ph716, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be724, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
+  %474 = phi ptr [ %178, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be723, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
+  %.pre.i.i143513 = phi ptr [ %.pre.i.i143508, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be723, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
+  %475 = phi ptr [ %180, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be723, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
+  %476 = phi ptr [ %.ph716, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.preheader ], [ %.be723, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge ]
   %477 = icmp eq ptr %476, null
   br i1 %477, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i152, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i149
 
@@ -1371,7 +1371,7 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i152: ; preds = %_ZNK6vector
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147.backedge: ; preds = %.noexc300, %.noexc303
-  %.be724 = phi ptr [ %525, %.noexc303 ], [ %485, %.noexc300 ]
+  %.be723 = phi ptr [ %485, %.noexc300 ], [ %525, %.noexc303 ]
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i147, !llvm.loop !68
 
 486:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i152
@@ -1616,12 +1616,12 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader: ; preds = %_ZNK6vectorI
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170:    ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader
-  %573 = phi ptr [ %178, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be735, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
-  %.pre.i.i143506 = phi ptr [ %.pre.i.i143508, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be735, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
-  %574 = phi ptr [ %180, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be735, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
-  %575 = phi ptr [ %181, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be735, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
-  %576 = phi ptr [ %.pre.i.i166499, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be735, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
-  %577 = phi ptr [ %.ph725, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be735, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
+  %573 = phi ptr [ %178, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be734, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
+  %.pre.i.i143506 = phi ptr [ %.pre.i.i143508, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be734, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
+  %574 = phi ptr [ %180, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be734, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
+  %575 = phi ptr [ %181, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be734, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
+  %576 = phi ptr [ %.pre.i.i166499, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be734, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
+  %577 = phi ptr [ %.ph725, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.preheader ], [ %.be734, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge ]
   %578 = icmp eq ptr %577, null
   br i1 %578, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i175, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i172
 
@@ -1648,7 +1648,7 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i175: ; preds = %_ZNK6vector
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170.backedge: ; preds = %.noexc315, %.noexc318
-  %.be735 = phi ptr [ %626, %.noexc318 ], [ %586, %.noexc315 ]
+  %.be734 = phi ptr [ %586, %.noexc315 ], [ %626, %.noexc318 ]
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i170, !llvm.loop !68
 
 587:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i175
@@ -2309,7 +2309,7 @@ _ZNK8uint_set8containsEj.exit.thread.i12.i:       ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %846, label %_ZN8uint_set8iteratorppEv.exit, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i11.i, !llvm.loop !106
 
 _ZN8uint_set8iteratorppEv.exit:                   ; preds = %809, %844, %_ZNK8uint_set8containsEj.exit.thread.i12.i, %_ZNK8uint_set8containsEj.exit.i15.i, %831, %_ZNK8uint_set8containsEj.exit.thread.us.i18.i, %.thread44.i, %825, %_ZN8uint_set8iterator9scan_wordEv.exit.i, %_ZNK8uint_set8iterator8containsEv.exit.thread.i, %_ZNK8uint_set8iterator8containsEv.exit.i
-  %.sroa.5.11 = phi i64 [ %.sroa.5.4, %_ZNK8uint_set8iterator8containsEv.exit.thread.i ], [ %.sroa.5.6, %_ZN8uint_set8iterator9scan_wordEv.exit.i ], [ %.sroa.5.8.insert.insert376, %.thread44.i ], [ %.sroa.5.3, %_ZNK8uint_set8iterator8containsEv.exit.i ], [ %.sroa.5.8.insert.insert368, %825 ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.thread.i12.i ], [ %.sroa.5.9, %_ZNK8uint_set8containsEj.exit.thread.us.i18.i ], [ %.sroa.5.8.insert.insert380, %831 ], [ %.sroa.5.8.insert.insert372, %844 ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.i15.i ], [ %.sroa.5.8.insert.insert384, %809 ]
+  %.sroa.5.11 = phi i64 [ %.sroa.5.4, %_ZNK8uint_set8iterator8containsEv.exit.thread.i ], [ %.sroa.5.9, %_ZNK8uint_set8containsEj.exit.thread.us.i18.i ], [ %.sroa.5.6, %_ZN8uint_set8iterator9scan_wordEv.exit.i ], [ %.sroa.5.8.insert.insert376, %.thread44.i ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.thread.i12.i ], [ %.sroa.5.3, %_ZNK8uint_set8iterator8containsEv.exit.i ], [ %.sroa.5.8.insert.insert368, %825 ], [ %.sroa.5.8.insert.insert380, %831 ], [ %.sroa.5.8.insert.insert372, %844 ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.i15.i ], [ %.sroa.5.8.insert.insert384, %809 ]
   %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.11 to i32
   %.not425 = icmp eq i32 %.sroa.5.8.extract.trunc, %.sroa.4.8.extract.trunc
   br i1 %.not425, label %._crit_edge458, label %.lr.ph457
@@ -4091,7 +4091,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7obj_mapI4expr8uint_setE4find
   br i1 %.not27.old.i.i, label %_ZN8uint_setaSERKS_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %36, %33
-  %.137.i.i.be = phi ptr [ %.old.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i, %36 ]
   br label %.lr.ph38.i.i, !llvm.loop !143
 
 _ZNK7obj_mapI4expr8uint_setE9find_coreEPS0_.exit: ; preds = %17, %28

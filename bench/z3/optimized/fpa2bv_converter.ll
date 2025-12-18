@@ -4882,7 +4882,7 @@ define hidden void @_ZN16fpa2bv_converter8mk_constEP9func_declR7obj_refI4expr11a
   br i1 %.not27.old.i.i.i, label %.loopexit68, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %49, %46
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %49 ], [ %48, %46 ]
+  %.137.i.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i.i, %49 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !250
 
 .loopexit:                                        ; preds = %30, %41
@@ -7568,7 +7568,7 @@ define hidden noundef ptr @_ZN16fpa2bv_converter8mk_bv_ufEP9func_declPKP4sortS3_
   br i1 %.not27.old.i.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %40, %37
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !327
 
 _ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit:   ; preds = %21, %32
@@ -7722,7 +7722,7 @@ define hidden void @_ZN16fpa2bv_converter11mk_rm_constEP9func_declR7obj_refI4exp
   br i1 %.not27.old.i.i.i, label %.loopexit40, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %42, %39
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !250
 
 .loopexit:                                        ; preds = %23, %34
@@ -40271,7 +40271,7 @@ define hidden void @_ZN16fpa2bv_converter22mk_min_max_unspecifiedEP9func_declP4e
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %57, %54
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %57 ], [ %56, %54 ]
+  %.137.i.i.i.be = phi ptr [ %56, %54 ], [ %.old.i.i.i, %57 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !365
 
 _ZNK7obj_mapI9func_declSt4pairIP3appS3_EE4findEPS0_RS4_.exit: ; preds = %38, %49
@@ -90090,7 +90090,7 @@ define hidden void @_ZN24fpa2bv_converter_wrapped8mk_constEP9func_declR7obj_refI
   br i1 %.not27.old.i.i.i, label %.loopexit51, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %46, %43
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %46 ], [ %45, %43 ]
+  %.137.i.i.i.be = phi ptr [ %45, %43 ], [ %.old.i.i.i, %46 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !250
 
 .loopexit:                                        ; preds = %27, %38
@@ -91256,7 +91256,7 @@ define hidden void @_ZN24fpa2bv_converter_wrapped11mk_rm_constEP9func_declR7obj_
   br i1 %.not27.old.i.i.i, label %.loopexit33, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %41, %38
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %41 ], [ %40, %38 ]
+  %.137.i.i.i.be = phi ptr [ %40, %38 ], [ %.old.i.i.i, %41 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !250
 
 .loopexit:                                        ; preds = %22, %33

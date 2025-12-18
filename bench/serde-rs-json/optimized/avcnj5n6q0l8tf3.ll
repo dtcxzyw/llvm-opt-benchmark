@@ -124,7 +124,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i.thre
   br i1 %25, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he785904be89a5c65E.exit", label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he785904be89a5c65E.exit.sink.split"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he785904be89a5c65E.exit.sink.split": ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i, %23, %2, %10
-  %.lcssa.sink = phi ptr [ %11, %10 ], [ %6, %2 ], [ %24, %23 ], [ %18, %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i ]
+  %.lcssa.sink = phi ptr [ %11, %10 ], [ %24, %23 ], [ %6, %2 ], [ %18, %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i ]
   %26 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.lcssa.sink)
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he785904be89a5c65E.exit"
 
@@ -253,7 +253,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha474
   br i1 %52, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h3ed4c93e07d2020cE.exit", label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h3ed4c93e07d2020cE.exit.sink.split"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h3ed4c93e07d2020cE.exit.sink.split": ; preds = %21, %28, %47, %36, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$9end_array17h81558da4e5a5d67fE.exit.i8", %2, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$9end_array17h81558da4e5a5d67fE.exit.i"
-  %.0.i3.i11.ph.sink = phi ptr [ %13, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$9end_array17h81558da4e5a5d67fE.exit.i" ], [ %10, %2 ], [ %51, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$9end_array17h81558da4e5a5d67fE.exit.i8" ], [ %39, %36 ], [ %30, %28 ], [ %49, %47 ], [ %phi.call.i.i, %21 ]
+  %.0.i3.i11.ph.sink = phi ptr [ %13, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$9end_array17h81558da4e5a5d67fE.exit.i" ], [ %49, %47 ], [ %30, %28 ], [ %10, %2 ], [ %51, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$9end_array17h81558da4e5a5d67fE.exit.i8" ], [ %39, %36 ], [ %phi.call.i.i, %21 ]
   %53 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.0.i3.i11.ph.sink), !noalias !4
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h3ed4c93e07d2020cE.exit"
 
@@ -567,7 +567,7 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i: ; preds = 
   br i1 %38, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %22, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i, %34, %26, %12
-  %.0.i3.i.i.sink = phi ptr [ %phi.call.i, %12 ], [ %37, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i ], [ %35, %34 ], [ %32, %26 ], [ %24, %22 ]
+  %.0.i3.i.i.sink = phi ptr [ %32, %26 ], [ %phi.call.i, %12 ], [ %37, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i ], [ %35, %34 ], [ %24, %22 ]
   %39 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.0.i3.i.i.sink)
   br label %40
 

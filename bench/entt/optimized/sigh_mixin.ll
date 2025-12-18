@@ -107195,7 +107195,7 @@ _ZN4entt13basic_storageINS_6entityES1_N4test18throwing_allocatorIS1_EEvE11try_em
   br i1 %.not.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ES5_E7publishES7_S2_.exit, label %.lr.ph.i, !llvm.loop !1768
 
 _ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ES5_E7publishES7_S2_.exit: ; preds = %.lr.ph.i, %_ZNK4entt16basic_sparse_setINS_6entityEN4test18throwing_allocatorIS1_EEE8containsES1_.exit.i.i, %4, %18, %_ZN4entt13basic_storageINS_6entityES1_N4test18throwing_allocatorIS1_EEvE11try_emplaceES1_bPKv.exit
-  %.pn = phi i64 [ %28, %_ZN4entt13basic_storageINS_6entityES1_N4test18throwing_allocatorIS1_EEvE11try_emplaceES1_bPKv.exit ], [ 0, %18 ], [ 0, %4 ], [ 0, %_ZNK4entt16basic_sparse_setINS_6entityEN4test18throwing_allocatorIS1_EEE8containsES1_.exit.i.i ], [ %28, %.lr.ph.i ]
+  %.pn = phi i64 [ %28, %_ZN4entt13basic_storageINS_6entityES1_N4test18throwing_allocatorIS1_EEvE11try_emplaceES1_bPKv.exit ], [ 0, %_ZNK4entt16basic_sparse_setINS_6entityEN4test18throwing_allocatorIS1_EEE8containsES1_.exit.i.i ], [ 0, %18 ], [ 0, %4 ], [ %28, %.lr.ph.i ]
   %.pn6.i.i9.pn = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.fca.0.insert.i.i.pn.i.i10.pn = insertvalue { ptr, i64 } poison, ptr %.pn6.i.i9.pn, 0
   %.pn.i.i13 = insertvalue { ptr, i64 } %.fca.0.insert.i.i.pn.i.i10.pn, i64 %.pn, 1

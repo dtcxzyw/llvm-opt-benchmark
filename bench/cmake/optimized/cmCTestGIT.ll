@@ -4030,7 +4030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196: ; preds = %41
   br i1 %418, label %.thread, label %410
 
 .thread:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193, %399
-  %.pn57.pn.pn273 = phi { ptr, i32 } [ %400, %399 ], [ %316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %401, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196 ]
+  %.pn57.pn.pn273 = phi { ptr, i32 } [ %316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %400, %399 ], [ %401, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %441
 
@@ -8222,7 +8222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214: ; preds = %45
   br i1 %465, label %.thread, label %457
 
 .thread:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211, %446
-  %.pn.pn.pn.pn255 = phi { ptr, i32 } [ %447, %446 ], [ %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211 ], [ %448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214 ]
+  %.pn.pn.pn.pn255 = phi { ptr, i32 } [ %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211 ], [ %447, %446 ], [ %448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %531
 
@@ -8273,7 +8273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220: ; preds = %47
   br i1 %485, label %.thread257, label %477
 
 .thread257:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217, %466
-  %.pn63.pn.pn.pn.pn.pn.pn.pn262 = phi { ptr, i32 } [ %467, %466 ], [ %212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217 ], [ %468, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220 ]
+  %.pn63.pn.pn.pn.pn.pn.pn.pn262 = phi { ptr, i32 } [ %212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217 ], [ %467, %466 ], [ %468, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %530
 
@@ -10548,7 +10548,7 @@ _ZNSt16allocator_traitsISaIN15cmCTestGlobalVC6ChangeEEE9constructIS1_JRKS1_EEEvR
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %40, %45, %50, %55, %60, %65, %70, %177, %_ZNSt16allocator_traitsISaIN15cmCTestGlobalVC6ChangeEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i92, %148, %_ZNSt16allocator_traitsISaIN15cmCTestGlobalVC6ChangeEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i87, %_ZN10cmCTestGIT10DiffParser12ConsumeFieldEPKc.exit71.thread130, %_ZN10cmCTestGIT10DiffParser12ConsumeFieldEPKc.exit71, %30, %27, %_ZN15cmCTestGlobalVC6ChangeD2Ev.exit84, %83
-  %storemerge.sink = phi i32 [ 0, %27 ], [ 0, %148 ], [ 3, %83 ], [ 3, %_ZN15cmCTestGlobalVC6ChangeD2Ev.exit84 ], [ 2, %_ZN10cmCTestGIT10DiffParser12ConsumeFieldEPKc.exit71.thread130 ], [ 0, %_ZN10cmCTestGIT10DiffParser12ConsumeFieldEPKc.exit71 ], [ 0, %30 ], [ 0, %_ZNSt16allocator_traitsISaIN15cmCTestGlobalVC6ChangeEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i87 ], [ 0, %_ZNSt16allocator_traitsISaIN15cmCTestGlobalVC6ChangeEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i92 ], [ 0, %177 ], [ 0, %40 ], [ 0, %70 ], [ 0, %65 ], [ 0, %60 ], [ 0, %55 ], [ 0, %50 ], [ 0, %45 ], [ 0, %35 ]
+  %storemerge.sink = phi i32 [ 0, %27 ], [ 0, %148 ], [ 3, %83 ], [ 0, %55 ], [ 3, %_ZN15cmCTestGlobalVC6ChangeD2Ev.exit84 ], [ 2, %_ZN10cmCTestGIT10DiffParser12ConsumeFieldEPKc.exit71.thread130 ], [ 0, %_ZN10cmCTestGIT10DiffParser12ConsumeFieldEPKc.exit71 ], [ 0, %177 ], [ 0, %50 ], [ 0, %30 ], [ 0, %60 ], [ 0, %40 ], [ 0, %70 ], [ 0, %65 ], [ 0, %45 ], [ 0, %_ZNSt16allocator_traitsISaIN15cmCTestGlobalVC6ChangeEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i87 ], [ 0, %_ZNSt16allocator_traitsISaIN15cmCTestGlobalVC6ChangeEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i92 ], [ 0, %35 ]
   store i32 %storemerge.sink, ptr %25, align 8, !tbaa !135
   br label %179
 

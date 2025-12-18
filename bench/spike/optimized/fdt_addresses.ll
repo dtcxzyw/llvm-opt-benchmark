@@ -30,7 +30,7 @@ fdt_cells.exit.thread:                            ; preds = %6, %7
   br label %12
 
 fdt_cells.exit:                                   ; preds = %7, %2
-  %.0.i = phi i32 [ %rev.i.i, %7 ], [ %5, %2 ]
+  %.0.i = phi i32 [ %5, %2 ], [ %rev.i.i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.0.i, label %11 [
     i32 0, label %12
@@ -118,7 +118,7 @@ fdt_cells.exit.thread.i:                          ; preds = %13, %12
   br label %fdt_address_cells.exit.thread
 
 fdt_cells.exit.i:                                 ; preds = %13, %6
-  %.0.i.i = phi i32 [ %rev.i.i.i, %13 ], [ %11, %6 ]
+  %.0.i.i = phi i32 [ %11, %6 ], [ %rev.i.i.i, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %.0.i.i, label %fdt_address_cells.exit [
     i32 0, label %fdt_address_cells.exit.thread

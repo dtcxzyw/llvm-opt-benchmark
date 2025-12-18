@@ -120,8 +120,8 @@ Vec_PtrGrow.exit.i:                               ; preds = %25, %Vec_PtrAlloc.e
   br i1 %exitcond.not.i, label %Vec_PtrFill.exit, label %30, !llvm.loop !22
 
 Vec_PtrFill.exit:                                 ; preds = %30, %Vec_PtrAlloc.exit.thread, %Vec_PtrGrow.exit.i
-  %33 = phi i1 [ false, %Vec_PtrGrow.exit.i ], [ false, %Vec_PtrAlloc.exit.thread ], [ true, %30 ]
-  %.not.i.i116123 = phi i1 [ %.not.i.i116, %Vec_PtrGrow.exit.i ], [ false, %Vec_PtrAlloc.exit.thread ], [ %.not.i.i116, %30 ]
+  %33 = phi i1 [ false, %Vec_PtrAlloc.exit.thread ], [ false, %Vec_PtrGrow.exit.i ], [ true, %30 ]
+  %.not.i.i116123 = phi i1 [ false, %Vec_PtrAlloc.exit.thread ], [ %.not.i.i116, %Vec_PtrGrow.exit.i ], [ %.not.i.i116, %30 ]
   store i32 %3, ptr %6, align 4, !tbaa !24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %35 = load i32, ptr %34, align 4, !tbaa !25

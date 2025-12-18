@@ -250,7 +250,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %53
   br i1 %exitcond243.not, label %.lr.ph218, label %.lr.ph210, !llvm.loop !51
 
 .loopexit195:                                     ; preds = %._crit_edge205, %87, %pmix_obj_run_constructors.exit
-  %.0133 = phi i8 [ %.2, %87 ], [ %.2, %._crit_edge205 ], [ 0, %pmix_obj_run_constructors.exit ]
+  %.0133 = phi i8 [ 0, %pmix_obj_run_constructors.exit ], [ %.2, %87 ], [ %.2, %._crit_edge205 ]
   %.not242 = icmp eq i64 %2, 0
   br i1 %.not242, label %._crit_edge219, label %.lr.ph218
 

@@ -321,8 +321,8 @@ bits_read_nz_be.exit232:                          ; preds = %bits_read_bit_be.ex
   br label %154
 
 154:                                              ; preds = %149, %148
-  %155 = phi i32 [ %.pre, %149 ], [ %93, %148 ]
-  %.1186 = phi i32 [ %153, %149 ], [ %.0185263, %148 ]
+  %155 = phi i32 [ %93, %148 ], [ %.pre, %149 ]
+  %.1186 = phi i32 [ %.0185263, %148 ], [ %153, %149 ]
   %156 = add i8 %.0188262, 1
   %.not204 = icmp slt i32 %.1186, %155
   br i1 %.not204, label %92, label %.critedge212, !llvm.loop !59
@@ -625,7 +625,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   br i1 %exitcond292.not, label %.thread239, label %.preheader258.split, !llvm.loop !64
 
 .thread239:                                       ; preds = %._crit_edge, %.critedge, %.preheader258, %28
-  %328 = phi i32 [ %39, %28 ], [ %178, %.preheader258 ], [ %66, %.critedge ], [ %327, %._crit_edge ]
+  %328 = phi i32 [ %39, %28 ], [ %66, %.critedge ], [ %178, %.preheader258 ], [ %327, %._crit_edge ]
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -697,7 +697,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   br i1 %exitcond300.not, label %334, label %336, !llvm.loop !68
 
 .thread:                                          ; preds = %92, %.lr.ph269.split, %.lr.ph269.split.us, %bits_read_vlc_be.exit.us, %67, %68, %169, %.critedge212, %173, %25, %24, %18, %12, %4, %334
-  %.0166 = phi i32 [ -1094995529, %12 ], [ -1094995529, %4 ], [ %335, %334 ], [ -542398533, %67 ], [ -1094995529, %68 ], [ -1094995529, %18 ], [ -542398533, %24 ], [ %26, %25 ], [ %171, %169 ], [ -1094995529, %.critedge212 ], [ %174, %173 ], [ -1094995529, %.lr.ph269.split ], [ -1094995529, %bits_read_vlc_be.exit.us ], [ -1094995529, %.lr.ph269.split.us ], [ -1094995529, %92 ]
+  %.0166 = phi i32 [ -1094995529, %12 ], [ -1094995529, %4 ], [ %335, %334 ], [ -542398533, %67 ], [ -1094995529, %68 ], [ -1094995529, %18 ], [ -542398533, %24 ], [ %26, %25 ], [ -1094995529, %.lr.ph269.split.us ], [ %171, %169 ], [ -1094995529, %.critedge212 ], [ %174, %173 ], [ -1094995529, %.lr.ph269.split ], [ -1094995529, %bits_read_vlc_be.exit.us ], [ -1094995529, %92 ]
   ret i32 %.0166
 }
 

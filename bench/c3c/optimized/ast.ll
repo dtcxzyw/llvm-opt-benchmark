@@ -1189,7 +1189,7 @@ define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %3, %37, %15, %16, %32, %22
-  %.024 = phi i32 [ %25, %22 ], [ %36, %32 ], [ -1, %16 ], [ -1, %15 ], [ -1, %37 ], [ -1, %3 ]
+  %.024 = phi i32 [ -1, %16 ], [ %25, %22 ], [ %36, %32 ], [ -1, %37 ], [ -1, %15 ], [ -1, %3 ]
   ret i32 %.024
 }
 

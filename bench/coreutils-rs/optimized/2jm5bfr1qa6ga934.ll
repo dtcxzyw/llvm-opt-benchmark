@@ -204,7 +204,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   br label %6
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0750f362525b4ecE.llvm.2483930142459039815.exit": ; preds = %.sink.split.i.i, %14, %.sink.split.i7.i
-  %.0.i = phi ptr [ null, %14 ], [ %.0.ph.i9.i, %.sink.split.i7.i ], [ %.sink.i16.i, %.sink.split.i.i ]
+  %.0.i = phi ptr [ %.0.ph.i9.i, %.sink.split.i7.i ], [ null, %14 ], [ %.sink.i16.i, %.sink.split.i.i ]
   ret ptr %.0.i
 }
 
@@ -240,7 +240,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %6
   br i1 %or.cond.i, label %14, label %22
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h73a49a44a5abfa52E.exit: ; preds = %.sink.split.i, %.sink.split.i7, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i16, %.sink.split.i ]
+  %.0 = phi ptr [ %.0.ph.i9, %.sink.split.i7 ], [ null, %14 ], [ %.sink.i16, %.sink.split.i ]
   ret ptr %.0
 
 14:                                               ; preds = %select.unfold
@@ -2019,7 +2019,7 @@ _ZN5uu_cp8platform5linux33handle_reflink_never_sparse_never17h238c543cedfd8f64E.
   br label %60
 
 .thread242:                                       ; preds = %.thread369, %306, %271, %225, %178, %144, %95, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit"
-  %.052237256.ph = phi ptr [ %309, %306 ], [ %.052, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ %274, %271 ], [ %228, %225 ], [ %181, %178 ], [ %147, %144 ], [ %98, %95 ], [ %235, %.thread369 ]
+  %.052237256.ph = phi ptr [ %309, %306 ], [ %.052, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ %274, %271 ], [ %98, %95 ], [ %147, %144 ], [ %181, %178 ], [ %228, %225 ], [ %235, %.thread369 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !539
   store ptr %.052237256.ph, ptr %11, align 8, !noalias !539
   %323 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf858b3c32d37360fE"(i64 noundef %8, i1 noundef zeroext false)

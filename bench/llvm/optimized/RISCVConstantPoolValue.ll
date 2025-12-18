@@ -226,7 +226,7 @@ _ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.lo
   br label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25
 
 _ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25: ; preds = %.thread.us42, %.thread.us42.us, %.thread.us, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit, %.lr.ph, %3
-  %spec.select = phi i32 [ -1, %3 ], [ -1, %.lr.ph ], [ %62, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit ], [ %63, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit ], [ %64, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit ], [ -1, %.thread.us42.us ], [ -1, %.thread.us ], [ -1, %.thread.us42 ]
+  %spec.select = phi i32 [ -1, %3 ], [ -1, %.thread.us42.us ], [ -1, %.lr.ph ], [ -1, %.thread.us ], [ %62, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit ], [ %63, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit ], [ %64, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit ], [ -1, %.thread.us42 ]
   ret i32 %spec.select
 }
 

@@ -943,7 +943,7 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %12, %7, %14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %_ZN6Assimp9IsLineEndIcEEbT_.exit, %.loopexit.loopexit, %1
-  %.1.ph = phi i1 [ false, %1 ], [ true, %.loopexit.loopexit ], [ false, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ false, %17 ]
+  %.1.ph = phi i1 [ true, %.loopexit.loopexit ], [ false, %1 ], [ false, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ false, %17 ]
   ret i1 %.1.ph
 }
 
@@ -2040,10 +2040,10 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread: ; preds = %.backedge, %_ZN6
   store i32 %84, ptr %9, align 8
   br label %_ZN6Assimp9IsLineEndIcEEbT_.exit
 
-_ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %57, %55, %79, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread, %82
-  %.146 = phi i32 [ %.0.ph, %82 ], [ %.0.ph, %79 ], [ %.0.ph, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread ], [ %58, %57 ], [ %56, %55 ]
-  %85 = phi ptr [ %78, %82 ], [ %78, %79 ], [ %78, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread ], [ %10, %57 ], [ %10, %55 ]
-  %storemerge = phi i8 [ 1, %82 ], [ 0, %79 ], [ 0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread ], [ 0, %57 ], [ 0, %55 ]
+_ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %55, %57, %79, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread, %82
+  %.146 = phi i32 [ %.0.ph, %82 ], [ %.0.ph, %79 ], [ %.0.ph, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread ], [ %56, %55 ], [ %58, %57 ]
+  %85 = phi ptr [ %78, %82 ], [ %78, %79 ], [ %78, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread ], [ %10, %55 ], [ %10, %57 ]
+  %storemerge = phi i8 [ 1, %82 ], [ 0, %79 ], [ 0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit28.thread ], [ 0, %55 ], [ 0, %57 ]
   store i8 %storemerge, ptr %8, align 4
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   store ptr %86, ptr %0, align 8
@@ -2964,7 +2964,7 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit.i37:             ; preds = %57, %55, %50
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %36, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %60, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37, %120, %124, %123, %94, %100, %104, %103, %97, %44, %47, %20, %23, %68, %75, %84, %110, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit82, %141, %_ZN6Assimp9IsLineEndIcEEbT_.exit
-  %.0.be = phi i32 [ %.0, %141 ], [ %.0, %20 ], [ %.0, %68 ], [ %.0, %75 ], [ %.0, %84 ], [ %.0, %44 ], [ %.1128, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.0, %110 ], [ %.0, %94 ], [ %.0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit82 ], [ %.0, %23 ], [ %.0, %47 ], [ %.0, %97 ], [ %.0, %103 ], [ %.0, %104 ], [ %.0, %100 ], [ %.0, %123 ], [ %.0, %124 ], [ %.0, %120 ], [ %.0, %60 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %36 ]
+  %.0.be = phi i32 [ %.0, %141 ], [ %.0, %20 ], [ %.0, %68 ], [ %.0, %75 ], [ %.0, %84 ], [ %.0, %44 ], [ %.1128, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.0, %110 ], [ %.0, %94 ], [ %.0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit82 ], [ %.0, %60 ], [ %.0, %103 ], [ %.0, %97 ], [ %.0, %47 ], [ %.0, %104 ], [ %.0, %23 ], [ %.0, %120 ], [ %.0, %124 ], [ %.0, %123 ], [ %.0, %100 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i37 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %36 ]
   br label %.backedge, !llvm.loop !39
 
 121:                                              ; preds = %117
@@ -3135,9 +3135,9 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread: ; preds = %_ZN6Assimp10Toke
   br label %_ZN6Assimp9IsLineEndIcEEbT_.exit
 
 _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %145, %143, %167, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread, %170
-  %.1128 = phi i32 [ %.0, %170 ], [ %.0, %167 ], [ %.0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread ], [ %146, %145 ], [ %144, %143 ]
-  %173 = phi ptr [ %166, %170 ], [ %166, %167 ], [ %166, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread ], [ %12, %145 ], [ %12, %143 ]
-  %storemerge126 = phi i8 [ 1, %170 ], [ 0, %167 ], [ 0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread ], [ 0, %145 ], [ 0, %143 ]
+  %.1128 = phi i32 [ %.0, %170 ], [ %.0, %167 ], [ %.0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread ], [ %144, %143 ], [ %146, %145 ]
+  %173 = phi ptr [ %166, %170 ], [ %166, %167 ], [ %166, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread ], [ %12, %143 ], [ %12, %145 ]
+  %storemerge126 = phi i8 [ 1, %170 ], [ 0, %167 ], [ 0, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit61.thread ], [ 0, %143 ], [ 0, %145 ]
   store i8 %storemerge126, ptr %5, align 4
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 1
   store ptr %174, ptr %0, align 8
@@ -4971,9 +4971,9 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit.i:               ; preds = %64, %62, %57
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %67, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %138, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95, %102, %116, %123, %109, %125, %51, %54, %75, %82, %89, %146, %155, %163, %172, %179, %186, %193, %200, %204, %207, %213, %279, %_ZN6Assimp9IsLineEndIcEEbT_.exit
-  %.be = phi i32 [ %281, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %40, %75 ], [ %40, %82 ], [ %40, %89 ], [ %40, %51 ], [ %40, %146 ], [ %40, %155 ], [ %40, %163 ], [ %40, %172 ], [ %40, %179 ], [ %40, %186 ], [ %40, %193 ], [ %40, %200 ], [ %40, %204 ], [ %40, %207 ], [ %40, %213 ], [ %263, %279 ], [ %40, %54 ], [ %40, %125 ], [ %40, %109 ], [ %40, %123 ], [ %40, %116 ], [ %40, %102 ], [ %40, %138 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %67 ]
-  %.be211 = phi i32 [ %282, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %41, %75 ], [ %41, %82 ], [ %41, %89 ], [ %41, %51 ], [ %41, %146 ], [ %41, %155 ], [ %41, %163 ], [ %41, %172 ], [ %41, %179 ], [ %41, %186 ], [ %41, %193 ], [ %41, %200 ], [ %41, %204 ], [ %41, %207 ], [ %41, %213 ], [ %263, %279 ], [ %41, %54 ], [ %41, %125 ], [ %41, %109 ], [ %41, %123 ], [ %41, %116 ], [ %41, %102 ], [ %41, %138 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %67 ]
-  %.0.be = phi i32 [ %.1177180, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.0, %75 ], [ %.0, %82 ], [ %.0, %89 ], [ %.0, %51 ], [ %.0, %146 ], [ %.0, %155 ], [ %.0, %163 ], [ %.0, %172 ], [ %.0, %179 ], [ %.0, %186 ], [ %.0, %193 ], [ %.0, %200 ], [ %.0, %204 ], [ %.0, %207 ], [ %.0, %213 ], [ %.0, %279 ], [ %.0, %54 ], [ %.0, %125 ], [ %.0, %109 ], [ %.0, %123 ], [ %.0, %116 ], [ %.0, %102 ], [ %.0, %138 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %67 ]
+  %.be = phi i32 [ %281, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %40, %75 ], [ %40, %82 ], [ %40, %89 ], [ %40, %51 ], [ %40, %146 ], [ %40, %155 ], [ %40, %163 ], [ %40, %172 ], [ %40, %179 ], [ %40, %186 ], [ %40, %193 ], [ %40, %200 ], [ %40, %204 ], [ %40, %207 ], [ %40, %213 ], [ %263, %279 ], [ %40, %138 ], [ %40, %125 ], [ %40, %109 ], [ %40, %123 ], [ %40, %116 ], [ %40, %54 ], [ %40, %102 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %40, %67 ]
+  %.be211 = phi i32 [ %282, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %41, %75 ], [ %41, %82 ], [ %41, %89 ], [ %41, %51 ], [ %41, %146 ], [ %41, %155 ], [ %41, %163 ], [ %41, %172 ], [ %41, %179 ], [ %41, %186 ], [ %41, %193 ], [ %41, %200 ], [ %41, %204 ], [ %41, %207 ], [ %41, %213 ], [ %263, %279 ], [ %41, %138 ], [ %41, %125 ], [ %41, %109 ], [ %41, %123 ], [ %41, %116 ], [ %41, %54 ], [ %41, %102 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %41, %67 ]
+  %.0.be = phi i32 [ %.1177180, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.0, %75 ], [ %.0, %82 ], [ %.0, %89 ], [ %.0, %51 ], [ %.0, %146 ], [ %.0, %155 ], [ %.0, %163 ], [ %.0, %172 ], [ %.0, %179 ], [ %.0, %186 ], [ %.0, %193 ], [ %.0, %200 ], [ %.0, %204 ], [ %.0, %207 ], [ %.0, %213 ], [ %.0, %279 ], [ %.0, %138 ], [ %.0, %125 ], [ %.0, %109 ], [ %.0, %123 ], [ %.0, %116 ], [ %.0, %54 ], [ %.0, %102 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i95 ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i ], [ %.0, %67 ]
   br label %.backedge, !llvm.loop !69
 
 104:                                              ; preds = %96, %99
@@ -14207,8 +14207,8 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.critedge
   br i1 %.not.i, label %202, label %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.thread.preheader
 
 _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.thread.preheader: ; preds = %.critedge.i.i182, %202, %200
-  %.ph = phi i8 [ 42, %202 ], [ 42, %200 ], [ %406, %.critedge.i.i182 ]
-  %.ph376 = phi ptr [ %197, %202 ], [ %197, %200 ], [ %.0.lcssa.i.i183, %.critedge.i.i182 ]
+  %.ph = phi i8 [ 42, %200 ], [ 42, %202 ], [ %406, %.critedge.i.i182 ]
+  %.ph376 = phi ptr [ %197, %200 ], [ %197, %202 ], [ %.0.lcssa.i.i183, %.critedge.i.i182 ]
   br label %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.thread
 
 202:                                              ; preds = %200

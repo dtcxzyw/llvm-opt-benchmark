@@ -1950,7 +1950,7 @@ define internal fastcc i32 @i915_request_await_external(ptr noundef %0, ptr noun
   br label %.thread9
 
 .thread9:                                         ; preds = %54, %60, %62, %63, %8
-  %64 = phi i32 [ %18, %8 ], [ %.ph6, %63 ], [ %.ph6, %62 ], [ %.ph6, %60 ], [ 0, %54 ]
+  %64 = phi i32 [ %18, %8 ], [ %.ph6, %63 ], [ %.ph6, %60 ], [ %.ph6, %62 ], [ 0, %54 ]
   ret i32 %64
 }
 

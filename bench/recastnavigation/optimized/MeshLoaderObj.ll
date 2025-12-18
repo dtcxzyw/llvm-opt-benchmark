@@ -588,8 +588,8 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZL8parseRowPcS_S_i.exit, %148, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit, %switch.early.test, %switch.early.test, %.lr.ph, %_ZL9parseFacePcPiii.exit
-  %.1119159 = phi i32 [ %.0118.ph, %_ZL9parseFacePcPiii.exit ], [ %.0118.ph, %.lr.ph ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %switch.early.test ], [ %.2120, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0118.ph, %148 ], [ %.0118.ph, %_ZL8parseRowPcS_S_i.exit ]
-  %.1 = phi i32 [ %.0117.ph, %_ZL9parseFacePcPiii.exit ], [ %.0117.ph, %.lr.ph ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.3, %148 ], [ %.0117.ph, %_ZL8parseRowPcS_S_i.exit ]
+  %.1119159 = phi i32 [ %.0118.ph, %148 ], [ %.0118.ph, %_ZL9parseFacePcPiii.exit ], [ %.2120, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0118.ph, %.lr.ph ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %_ZL8parseRowPcS_S_i.exit ]
+  %.1 = phi i32 [ %.3, %148 ], [ %.0117.ph, %_ZL9parseFacePcPiii.exit ], [ %.0117.ph, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0117.ph, %.lr.ph ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %_ZL8parseRowPcS_S_i.exit ]
   br label %.outer, !llvm.loop !11
 
 149:                                              ; preds = %36

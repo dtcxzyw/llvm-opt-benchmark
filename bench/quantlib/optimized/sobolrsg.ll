@@ -40133,7 +40133,7 @@ for.inc529:                                       ; preds = %while.body511, %whi
   br i1 %exitcond764.not, label %sw.epilog, label %while.cond504.preheader, !llvm.loop !69
 
 sw.epilog:                                        ; preds = %for.inc529, %for.inc494, %for.inc459, %for.inc424, %for.inc389, %for.inc354, %for.inc319, %for.inc284, %for.inc249, %for.end192
-  %maxTabulated.0 = phi i64 [ 0, %for.end192 ], [ 3947, %for.inc494 ], [ 32, %for.inc249 ], [ 40, %for.inc284 ], [ 360, %for.inc319 ], [ 2000, %for.inc354 ], [ 21201, %for.inc389 ], [ 1900, %for.inc424 ], [ 4926, %for.inc459 ], [ 4587, %for.inc529 ]
+  %maxTabulated.0 = phi i64 [ 0, %for.end192 ], [ 40, %for.inc284 ], [ 360, %for.inc319 ], [ 2000, %for.inc354 ], [ 21201, %for.inc389 ], [ 1900, %for.inc424 ], [ 4926, %for.inc459 ], [ 3947, %for.inc494 ], [ 32, %for.inc249 ], [ 4587, %for.inc529 ]
   %cmp533 = icmp ugt i64 %46, %maxTabulated.0
   br i1 %cmp533, label %if.then534, label %if.end585
 
@@ -40346,8 +40346,8 @@ for.body595:                                      ; preds = %for.body595.prehead
   %exitcond809.not = icmp eq i64 %179, 32
   br i1 %exitcond809.not, label %for.cond.cleanup594, label %for.body595, !llvm.loop !76
 
-for.end639:                                       ; preds = %for.cond.cleanup594, %for.cond498.preheader, %for.cond428.preheader, %for.cond393.preheader, %for.cond358.preheader, %for.cond323.preheader, %for.cond288.preheader, %for.cond253.preheader, %for.cond220.preheader, %for.cond463.preheader, %for.cond194.preheader, %if.end585
-  %180 = phi i64 [ %164, %if.end585 ], [ %46, %for.cond194.preheader ], [ %46, %for.cond463.preheader ], [ %46, %for.cond220.preheader ], [ %46, %for.cond253.preheader ], [ %46, %for.cond288.preheader ], [ %46, %for.cond323.preheader ], [ %46, %for.cond358.preheader ], [ %46, %for.cond393.preheader ], [ %46, %for.cond428.preheader ], [ %46, %for.cond498.preheader ], [ %164, %for.cond.cleanup594 ]
+for.end639:                                       ; preds = %for.cond.cleanup594, %for.cond498.preheader, %for.cond358.preheader, %for.cond323.preheader, %for.cond288.preheader, %for.cond253.preheader, %for.cond220.preheader, %for.cond463.preheader, %for.cond393.preheader, %for.cond428.preheader, %for.cond194.preheader, %if.end585
+  %180 = phi i64 [ %46, %for.cond498.preheader ], [ %164, %if.end585 ], [ %46, %for.cond194.preheader ], [ %46, %for.cond428.preheader ], [ %46, %for.cond393.preheader ], [ %46, %for.cond463.preheader ], [ %46, %for.cond220.preheader ], [ %46, %for.cond253.preheader ], [ %46, %for.cond288.preheader ], [ %46, %for.cond323.preheader ], [ %46, %for.cond358.preheader ], [ %164, %for.cond.cleanup594 ]
   %181 = load i8, ptr %useGrayCode_, align 8, !tbaa !39, !range !78, !noundef !79
   %loadedv641 = trunc nuw i8 %181 to i1
   %cmp645746 = icmp ne i64 %180, 0

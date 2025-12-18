@@ -1018,7 +1018,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__25Pcp_IsValidRel
   br label %19
 
 19:                                               ; preds = %.sink.split, %16, %10, %8, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ true, %8 ], [ true, %16 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %16 ], [ false, %6 ], [ true, %8 ], [ false, %10 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1477,17 +1477,17 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt3mapIN3
   %.not.i.i.i.i.i = icmp eq i64 %11, 0
   %12 = and i64 %.0.copyload.i6.i.i.i.i.i, 4294967295
   %.not11.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, label %13
+  br i1 %.not.i.i.i.i.i, label %14, label %13
 
 13:                                               ; preds = %10
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %14
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i
 
-14:                                               ; preds = %13
+14:                                               ; preds = %10
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %16
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %13
   %15 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %15, label %16, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %10
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %16
 
 16:                                               ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %14
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
@@ -1516,17 +1516,17 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairI
   %.not.i.i = icmp eq i64 %23, 0
   %24 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not = icmp eq i64 %24, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %25
+  br i1 %.not.i.i, label %26, label %25
 
 25:                                               ; preds = %22
-  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %26
+  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-26:                                               ; preds = %25
+26:                                               ; preds = %22
+  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %.critedge
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %25
   %27 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %20)
   br i1 %27, label %.critedge, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %22
-  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %2, %26, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   %.08.lcssa.i.i.i10 = phi ptr [ %.19.i.i.i, %26 ], [ %.19.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit ], [ %.19.i.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit ], [ %7, %2 ]
@@ -2415,12 +2415,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
           cleanup
   br label %.body.i19.i.i
 
-.loopexit.split-lp.i.loopexit.i.loopexit.i:       ; preds = %939
+.loopexit.split-lp.i.loopexit.i.loopexit.i:       ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i
   %lpad.loopexit167.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i19.i.i
 
-.loopexit.split-lp.i.loopexit.i.loopexit.split-lp.i: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %967, %954, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i18.i.i, %254
+.loopexit.split-lp.i.loopexit.i.loopexit.split-lp.i: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %967, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i18.i.i, %254
   %lpad.loopexit.split-lp168.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i19.i.i
@@ -3987,35 +3987,35 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit73.i.i.i.i: ; preds = %927
   %.not.i.i.i118.i = icmp eq i64 %936, 0
   %937 = and i64 %.0.copyload.i6.i.i.i.i, 4294967295
   %.not32.i.i = icmp eq i64 %937, 0
-  br i1 %.not.i.i.i118.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i, label %938
+  br i1 %.not.i.i.i118.i, label %939, label %938
 
 938:                                              ; preds = %935
-  br i1 %.not32.i.i, label %.thread.i, label %939
+  br i1 %.not32.i.i, label %.thread.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i
 
-939:                                              ; preds = %938
+939:                                              ; preds = %935
+  br i1 %.not32.i.i, label %.thread.i, label %941
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i: ; preds = %938
   %940 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(8) %933)
           to label %.noexc123.i unwind label %.loopexit.split-lp.i.loopexit.i.loopexit.i
 
-.noexc123.i:                                      ; preds = %939
+.noexc123.i:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i
   br i1 %940, label %941, label %.thread.i
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i: ; preds = %935
-  br i1 %.not32.i.i, label %.thread.i, label %941
-
-941:                                              ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i, %.noexc123.i
+941:                                              ; preds = %.noexc123.i, %939
   %942 = getelementptr inbounds nuw i8, ptr %.02636.i.i, i64 16
   %.026.i.i = load ptr, ptr %942, align 8
   %.not.i119.i = icmp eq ptr %.026.i.i, null
   br i1 %.not.i119.i, label %._crit_edge.thread.i.i, label %.lr.ph.i116.i.backedge
 
-.thread.i:                                        ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i, %.noexc123.i, %938, %.lr.ph.i116.i
+.thread.i:                                        ; preds = %.noexc123.i, %939, %938, %.lr.ph.i116.i
   %943 = getelementptr inbounds nuw i8, ptr %.02636.i.i, i64 24
   %.026.i151.i = load ptr, ptr %943, align 8
   %.not.i119152.i = icmp eq ptr %.026.i151.i, null
   br i1 %.not.i119152.i, label %._crit_edge.i120.thread.i, label %.lr.ph.i116.i.backedge
 
 .lr.ph.i116.i.backedge:                           ; preds = %.thread.i, %941
-  %.02636.i.i.be = phi ptr [ %.026.i.i, %941 ], [ %.026.i151.i, %.thread.i ]
+  %.02636.i.i.be = phi ptr [ %.026.i151.i, %.thread.i ], [ %.026.i.i, %941 ]
   br label %.lr.ph.i116.i, !llvm.loop !44
 
 ._crit_edge.thread.i.i:                           ; preds = %941, %.loopexit17.i.i.i
@@ -4042,23 +4042,23 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i: ;
   %.not.i.i7.i.i = icmp eq i64 %951, 0
   %952 = and i64 %.0.copyload.i6.i.i6.i.i, 4294967295
   %.not33.i.i = icmp eq i64 %952, 0
-  br i1 %.not.i.i7.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i, label %953
+  br i1 %.not.i.i7.i.i, label %954, label %953
 
 953:                                              ; preds = %950
-  br i1 %.not33.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i, label %954
+  br i1 %.not33.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i
 
-954:                                              ; preds = %953
+954:                                              ; preds = %950
+  br i1 %.not33.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i, label %956
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i: ; preds = %953
   %955 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %948, ptr noundef nonnull align 4 dereferenceable(8) %36)
           to label %.noexc124.i unwind label %.loopexit.split-lp.i.loopexit.i.loopexit.split-lp.i
 
-.noexc124.i:                                      ; preds = %954
+.noexc124.i:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i
   br i1 %955, label %956, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i: ; preds = %950
-  br i1 %.not33.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i, label %956
-
-956:                                              ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i, %.noexc124.i, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.025.lcssa40.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i ], [ %.025.lcssa40.i.i, %.noexc124.i ], [ %.025.lcssa41.i.i, %._crit_edge.thread.i.i ]
+956:                                              ; preds = %.noexc124.i, %954, %._crit_edge.thread.i.i
+  %.sroa.4.0.i.ph.i = phi ptr [ %.025.lcssa40.i.i, %.noexc124.i ], [ %.025.lcssa40.i.i, %954 ], [ %.025.lcssa41.i.i, %._crit_edge.thread.i.i ]
   %957 = icmp eq ptr %.sroa.4.0.i.ph.i, %59
   br i1 %957, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, label %958
 
@@ -4122,7 +4122,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ES
   store i64 %987, ptr %63, align 8
   br label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i
 
-_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i: ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.i.i, %.noexc124.i, %953, %._crit_edge.i120.thread.i, %267
+_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit.i.i.i: ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, %.noexc124.i, %954, %953, %._crit_edge.i120.thread.i, %267
   %988 = load ptr, ptr %98, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef %988)
           to label %992 unwind label %989
@@ -4815,7 +4815,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_1
           to label %.thread.i.i unwind label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i.i.i
 
 .loopexit.i.i:                                    ; preds = %1228, %1251, %1245
-  %.sroa.045.0.ph.i.i.i.i.i = phi ptr [ %1246, %1245 ], [ %1255, %1251 ], [ %.sroa.041.0.i13.i.i.i.i, %1228 ]
+  %.sroa.045.0.ph.i.i.i.i.i = phi ptr [ %1255, %1251 ], [ %1246, %1245 ], [ %.sroa.041.0.i13.i.i.i.i, %1228 ]
   call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEELb1EEEEE18_M_deallocate_nodeEPSA_(ptr noundef nonnull %1183)
   %1260 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.ph.i.i.i.i.i, i64 8
   %1261 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.ph.i.i.i.i.i, i64 16
@@ -5152,17 +5152,17 @@ define linkonce_odr { ptr, i8 } @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7S
   %.not.i.i.i.i.i = icmp eq i64 %10, 0
   %11 = and i64 %.0.copyload.i6.i.i.i.i.i, 4294967295
   %.not11.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, label %12
+  br i1 %.not.i.i.i.i.i, label %13, label %12
 
 12:                                               ; preds = %9
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %13
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i
 
-13:                                               ; preds = %12
+13:                                               ; preds = %9
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %15
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %12
   %14 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %14, label %15, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %9
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %15
 
 15:                                               ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %13
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
@@ -5191,17 +5191,17 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairI
   %.not.i.i = icmp eq i64 %22, 0
   %23 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not = icmp eq i64 %23, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %24
+  br i1 %.not.i.i, label %25, label %24
 
 24:                                               ; preds = %21
-  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %25
+  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-25:                                               ; preds = %24
+25:                                               ; preds = %21
+  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %.critedge
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %24
   %26 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %19)
   br i1 %26, label %.critedge, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %21
-  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %3, %25, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   %.08.lcssa.i.i.i19 = phi ptr [ %.19.i.i.i, %25 ], [ %.19.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit ], [ %.19.i.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit ], [ %6, %3 ]
@@ -10652,27 +10652,27 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_FilterRelo
   %.not.i.i.i.i.i = icmp eq i64 %27, 0
   %28 = and i64 %.0.copyload.i6.i.i.i.i.i, 4294967295
   %.not11.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, label %29
+  br i1 %.not.i.i.i.i.i, label %30, label %29
 
 29:                                               ; preds = %26
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %30
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i
 
-30:                                               ; preds = %29
+30:                                               ; preds = %26
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %32
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %29
   %31 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc:                                           ; preds = %30
+.noexc:                                           ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i
   br i1 %31, label %32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %26
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %32
-
-32:                                               ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %.noexc
+32:                                               ; preds = %.noexc, %30
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i: ; preds = %32, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %.noexc, %29, %.lr.ph.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %32 ], [ 16, %29 ], [ 16, %.lr.ph.i.i.i ], [ 16, %.noexc ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.0813.i.i.i, %32 ], [ %.014.i.i.i, %29 ], [ %.014.i.i.i, %.lr.ph.i.i.i ], [ %.014.i.i.i, %.noexc ], [ %.014.i.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i ]
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i: ; preds = %32, %.noexc, %30, %29, %.lr.ph.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %32 ], [ 16, %29 ], [ 16, %.lr.ph.i.i.i ], [ 16, %30 ], [ 16, %.noexc ]
+  %.19.i.i.i = phi ptr [ %.0813.i.i.i, %32 ], [ %.014.i.i.i, %29 ], [ %.014.i.i.i, %.lr.ph.i.i.i ], [ %.014.i.i.i, %30 ], [ %.014.i.i.i, %.noexc ]
   %33 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -10716,7 +10716,7 @@ _ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_4HashESt8eq
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %54
+.loopexit.split-lp.loopexit:                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i32
   %lpad.loopexit65 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -10726,7 +10726,7 @@ _ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_4HashESt8eq
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %30
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i
   %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -10754,52 +10754,52 @@ _ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_4HashESt8eq
   %.not12.i.i.i24 = icmp eq ptr %46, null
   br i1 %.not12.i.i.i24, label %.critedge2, label %.lr.ph.i.i.i25
 
-.lr.ph.i.i.i25:                                   ; preds = %.critedge, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32
-  %.014.i.i.i26 = phi ptr [ %.1.i.i.i35, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32 ], [ %46, %.critedge ]
-  %.0813.i.i.i27 = phi ptr [ %.19.i.i.i34, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32 ], [ %47, %.critedge ]
+.lr.ph.i.i.i25:                                   ; preds = %.critedge, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33
+  %.014.i.i.i26 = phi ptr [ %.1.i.i.i36, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33 ], [ %46, %.critedge ]
+  %.0813.i.i.i27 = phi ptr [ %.19.i.i.i35, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33 ], [ %47, %.critedge ]
   %48 = getelementptr inbounds nuw i8, ptr %.014.i.i.i26, i64 32
   %.0.copyload.i.i.i.i.i.i28 = load i64, ptr %48, align 4
   %.0.copyload.i6.i.i.i.i.i29 = load i64, ptr %2, align 4
   %49 = icmp eq i64 %.0.copyload.i.i.i.i.i.i28, %.0.copyload.i6.i.i.i.i.i29
-  br i1 %49, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32, label %50
+  br i1 %49, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33, label %50
 
 50:                                               ; preds = %.lr.ph.i.i.i25
   %51 = and i64 %.0.copyload.i.i.i.i.i.i28, 4294967295
   %.not.i.i.i.i.i30 = icmp eq i64 %51, 0
   %52 = and i64 %.0.copyload.i6.i.i.i.i.i29, 4294967295
   %.not11.i.i.i31 = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i.i.i30, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i38, label %53
+  br i1 %.not.i.i.i.i.i30, label %54, label %53
 
 53:                                               ; preds = %50
-  br i1 %.not11.i.i.i31, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32, label %54
+  br i1 %.not11.i.i.i31, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i32
 
-54:                                               ; preds = %53
+54:                                               ; preds = %50
+  br i1 %.not11.i.i.i31, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33, label %56
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i32: ; preds = %53
   %55 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %48, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %.noexc39 unwind label %.loopexit.split-lp.loopexit
 
-.noexc39:                                         ; preds = %54
-  br i1 %55, label %56, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32
+.noexc39:                                         ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i32
+  br i1 %55, label %56, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i38: ; preds = %50
-  br i1 %.not11.i.i.i31, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32, label %56
+56:                                               ; preds = %.noexc39, %54
+  br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33
 
-56:                                               ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i38, %.noexc39
-  br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33: ; preds = %56, %.noexc39, %54, %53, %.lr.ph.i.i.i25
+  %.sink.i.i.i34 = phi i64 [ 24, %56 ], [ 16, %53 ], [ 16, %.lr.ph.i.i.i25 ], [ 16, %54 ], [ 16, %.noexc39 ]
+  %.19.i.i.i35 = phi ptr [ %.0813.i.i.i27, %56 ], [ %.014.i.i.i26, %53 ], [ %.014.i.i.i26, %.lr.ph.i.i.i25 ], [ %.014.i.i.i26, %54 ], [ %.014.i.i.i26, %.noexc39 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.014.i.i.i26, i64 %.sink.i.i.i34
+  %.1.i.i.i36 = load ptr, ptr %57, align 8
+  %.not.i.i.i37 = icmp eq ptr %.1.i.i.i36, null
+  br i1 %.not.i.i.i37, label %_ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit40, label %.lr.ph.i.i.i25, !llvm.loop !72
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32: ; preds = %56, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i38, %.noexc39, %53, %.lr.ph.i.i.i25
-  %.sink.i.i.i33 = phi i64 [ 24, %56 ], [ 16, %53 ], [ 16, %.lr.ph.i.i.i25 ], [ 16, %.noexc39 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i38 ]
-  %.19.i.i.i34 = phi ptr [ %.0813.i.i.i27, %56 ], [ %.014.i.i.i26, %53 ], [ %.014.i.i.i26, %.lr.ph.i.i.i25 ], [ %.014.i.i.i26, %.noexc39 ], [ %.014.i.i.i26, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i38 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.014.i.i.i26, i64 %.sink.i.i.i33
-  %.1.i.i.i35 = load ptr, ptr %57, align 8
-  %.not.i.i.i36 = icmp eq ptr %.1.i.i.i35, null
-  br i1 %.not.i.i.i36, label %_ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit40, label %.lr.ph.i.i.i25, !llvm.loop !72
-
-_ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit40: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i32
-  %.not6477 = icmp eq ptr %.19.i.i.i34, %47
+_ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit40: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i33
+  %.not6477 = icmp eq ptr %.19.i.i.i35, %47
   br i1 %.not6477, label %.critedge2, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %_ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit40, %.critedge4
-  %.sroa.051.078 = phi ptr [ %70, %.critedge4 ], [ %.19.i.i.i34, %_ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit40 ]
+  %.sroa.051.078 = phi ptr [ %70, %.critedge4 ], [ %.19.i.i.i35, %_ZNKSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit40 ]
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.051.078, i64 32
   %59 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %58, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %60 unwind label %.loopexit
@@ -18625,8 +18625,8 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_PS2_IS
   br label %179
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_PS2_IS3_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.i.i.i: ; preds = %63, %87, %81
-  %.val.i.i37.in.i.i.i = phi i64 [ %.val32.i.i.i, %81 ], [ %.val32.i.i.i, %87 ], [ %.val19.i.i.i, %63 ]
-  %.sroa.047.0.ph.i.i.i = phi ptr [ %82, %81 ], [ %91, %87 ], [ %.sroa.043.0.i12.i.i, %63 ]
+  %.val.i.i37.in.i.i.i = phi i64 [ %.val32.i.i.i, %87 ], [ %.val32.i.i.i, %81 ], [ %.val19.i.i.i, %63 ]
+  %.sroa.047.0.ph.i.i.i = phi ptr [ %91, %87 ], [ %82, %81 ], [ %.sroa.043.0.i12.i.i, %63 ]
   %.val.i.i37.i.i.i = trunc i64 %.val.i.i37.in.i.i.i to i32
   %.not.i.i.i.i.i.i.i38.i.i.i = icmp eq i32 %.val.i.i37.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i.i38.i.i.i, label %172, label %156
@@ -18800,7 +18800,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_PS2_I
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit.thread, !llvm.loop !22
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %219, %196, %213
-  %.sroa.017.1.i.i = phi ptr [ %214, %213 ], [ %.sroa.017.0.i.i, %196 ], [ %223, %219 ]
+  %.sroa.017.1.i.i = phi ptr [ %.sroa.017.0.i.i, %196 ], [ %214, %213 ], [ %223, %219 ]
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i, i64 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace30_LogInvalidConflictingRelocateERKSt4pairIKNS_7SdfPathENS1_21ProcessedRelocateInfoEES8_NS_36PcpErrorInvalidConflictingRelocation14ConflictReasonE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %227, i32 noundef 0)
           to label %228 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -18935,7 +18935,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit88.thread, !llvm.loop !22
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit88: ; preds = %277, %255, %271
-  %.sroa.017.1.i.i80 = phi ptr [ %272, %271 ], [ %.sroa.017.0.i.i85, %255 ], [ %281, %277 ]
+  %.sroa.017.1.i.i80 = phi ptr [ %.sroa.017.0.i.i85, %255 ], [ %272, %271 ], [ %281, %277 ]
   %285 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i80, i64 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace30_LogInvalidConflictingRelocateERKSt4pairIKNS_7SdfPathENS1_21ProcessedRelocateInfoEES8_NS_36PcpErrorInvalidConflictingRelocation14ConflictReasonE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %285, i32 noundef 2)
           to label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit88.thread unwind label %250
@@ -19147,7 +19147,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %246, %233, %2
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit119.thread, !llvm.loop !22
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit119: ; preds = %373, %351, %367
-  %.sroa.017.1.i.i111 = phi ptr [ %368, %367 ], [ %.sroa.017.0.i.i116, %351 ], [ %377, %373 ]
+  %.sroa.017.1.i.i111 = phi ptr [ %.sroa.017.0.i.i116, %351 ], [ %368, %367 ], [ %377, %373 ]
   %381 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i111, i64 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace30_LogInvalidConflictingRelocateERKSt4pairIKNS_7SdfPathENS1_21ProcessedRelocateInfoEES8_NS_36PcpErrorInvalidConflictingRelocation14ConflictReasonE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %381, i32 noundef 3)
           to label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit119.thread unwind label %346
@@ -19880,7 +19880,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE5eraseERS9_.exit
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE5eraseERS9_.exit: ; preds = %.lr.ph.i.i.i.i139, %.lr.ph.i.i.i, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb1EEE.exit.i.i.i, %..loopexit_crit_edge10.i.i.i.i144, %656, %647
-  %.val29.i.i.i132419 = phi i64 [ 0, %647 ], [ %709, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb1EEE.exit.i.i.i ], [ %.val29.i.i.i132, %..loopexit_crit_edge10.i.i.i.i144 ], [ %.val29.i.i.i132, %656 ], [ 0, %.lr.ph.i.i.i ], [ %.val29.i.i.i132, %.lr.ph.i.i.i.i139 ]
+  %.val29.i.i.i132419 = phi i64 [ 0, %.lr.ph.i.i.i ], [ 0, %647 ], [ %709, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb1EEE.exit.i.i.i ], [ %.val29.i.i.i132, %..loopexit_crit_edge10.i.i.i.i144 ], [ %.val29.i.i.i132, %656 ], [ %.val29.i.i.i132, %.lr.ph.i.i.i.i139 ]
   %710 = getelementptr inbounds nuw i8, ptr %.sroa.0265.0365, i64 32
   %.not305 = icmp eq ptr %710, %646
   br i1 %.not305, label %._crit_edge367.loopexit, label %.lr.ph366
@@ -20258,7 +20258,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE5eraseERS9_.exit231
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE5eraseERS9_.exit231: ; preds = %.lr.ph.i.i.i.i175, %.lr.ph.i.i.i218, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb1EEE.exit.i.i.i193, %..loopexit_crit_edge10.i.i.i.i180, %800, %791
-  %854 = phi ptr [ %789, %791 ], [ %.pre422, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb1EEE.exit.i.i.i193 ], [ %789, %..loopexit_crit_edge10.i.i.i.i180 ], [ %789, %800 ], [ %789, %.lr.ph.i.i.i218 ], [ %789, %.lr.ph.i.i.i.i175 ]
+  %854 = phi ptr [ %789, %.lr.ph.i.i.i218 ], [ %789, %791 ], [ %.pre422, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace21ProcessedRelocateInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb1EEE.exit.i.i.i193 ], [ %789, %..loopexit_crit_edge10.i.i.i.i180 ], [ %789, %800 ], [ %789, %.lr.ph.i.i.i.i175 ]
   store ptr %854, ptr %10, align 8
   %855 = getelementptr inbounds nuw i8, ptr %.sroa.0261.0374, i64 8
   %856 = load ptr, ptr %855, align 8
@@ -23061,17 +23061,17 @@ define linkonce_odr { ptr, i8 } @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7S
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
   %13 = and i64 %.0.copyload.i6.i.i.i.i.i, 4294967295
   %.not11.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, label %14
+  br i1 %.not.i.i.i.i.i, label %15, label %14
 
 14:                                               ; preds = %11
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %15
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i
 
-15:                                               ; preds = %14
+15:                                               ; preds = %11
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %17
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %14
   %16 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %16, label %17, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %11
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %17
 
 17:                                               ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %15
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
@@ -23100,17 +23100,17 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10shared_ptrINS0_36PcpEr
   %.not.i.i = icmp eq i64 %24, 0
   %25 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not = icmp eq i64 %25, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %26
+  br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %23
-  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %27
+  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-27:                                               ; preds = %26
+27:                                               ; preds = %23
+  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %.critedge
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %26
   %28 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %21)
   br i1 %28, label %.critedge, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %23
-  br i1 %.not, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %3, %27, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10shared_ptrINS0_36PcpErrorInvalidSameTargetRelocationsEESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   %.08.lcssa.i.i.i13 = phi ptr [ %.19.i.i.i, %27 ], [ %.19.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt10shared_ptrINS0_36PcpErrorInvalidSameTargetRelocationsEESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit ], [ %.19.i.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit ], [ %8, %3 ]
@@ -23345,21 +23345,21 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %.not.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not67 = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %17
+  br i1 %.not.i.i, label %18, label %17
 
 17:                                               ; preds = %14
-  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %18
+  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-18:                                               ; preds = %17
+18:                                               ; preds = %14
+  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %17
   %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  br i1 %19, label %._crit_edge, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
+  br i1 %19, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
 
-._crit_edge:                                      ; preds = %18
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   %.pre = load ptr, ptr %10, align 8
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %14
-  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread: ; preds = %17, %9, %18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, %6
   %20 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St10shared_ptrINS0_36PcpErrorInvalidSameTargetRelocationsEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
@@ -23379,22 +23379,22 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
   %.not.i.i12 = icmp eq i64 %27, 0
   %28 = and i64 %.0.copyload.i6.i.i11, 4294967295
   %.not63 = icmp eq i64 %28, 0
-  br i1 %.not.i.i12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15, label %29
+  br i1 %.not.i.i12, label %30, label %29
 
 29:                                               ; preds = %26
-  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %30
+  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
 
-30:                                               ; preds = %29
+30:                                               ; preds = %26
+  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %32
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15: ; preds = %29
   %31 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %24)
-  br i1 %31, label %32, label %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge
+  br i1 %31, label %32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge
 
-._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge: ; preds = %30
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
   %.0.copyload.i.i.i22.pre = load i64, ptr %24, align 4
   %.0.copyload.i6.i.i23.pre = load i64, ptr %2, align 4
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15: ; preds = %26
-  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %32
 
 32:                                               ; preds = %30, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -23415,17 +23415,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15: ; p
   %.not.i.i18 = icmp eq i64 %41, 0
   %42 = and i64 %.0.copyload.i6.i.i17, 4294967295
   %.not64 = icmp eq i64 %42, 0
-  br i1 %.not.i.i18, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21, label %43
+  br i1 %.not.i.i18, label %44, label %43
 
 43:                                               ; preds = %40
-  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %44
+  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21
 
-44:                                               ; preds = %43
+44:                                               ; preds = %40
+  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %46
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21: ; preds = %43
   %45 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br i1 %45, label %46, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21: ; preds = %40
-  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %46
 
 46:                                               ; preds = %44, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -23441,9 +23441,9 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thre
   %52 = extractvalue { ptr, ptr } %50, 1
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread: ; preds = %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge, %29, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
-  %.0.copyload.i6.i.i23 = phi i64 [ %.0.copyload.i6.i.i23.pre, %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i.i.i10, %29 ], [ %.0.copyload.i.i.i10, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15 ]
-  %.0.copyload.i.i.i22 = phi i64 [ %.0.copyload.i.i.i22.pre, %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i6.i.i11, %29 ], [ %.0.copyload.i6.i.i11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15 ]
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge, %29, %30
+  %.0.copyload.i6.i.i23 = phi i64 [ %.0.copyload.i6.i.i23.pre, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i.i.i10, %29 ], [ %.0.copyload.i.i.i10, %30 ]
+  %.0.copyload.i.i.i22 = phi i64 [ %.0.copyload.i.i.i22.pre, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i6.i.i11, %29 ], [ %.0.copyload.i6.i.i11, %30 ]
   %53 = icmp eq i64 %.0.copyload.i.i.i22, %.0.copyload.i6.i.i23
   br i1 %53, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %54
 
@@ -23452,17 +23452,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thre
   %.not.i.i24 = icmp eq i64 %55, 0
   %56 = and i64 %.0.copyload.i6.i.i23, 4294967295
   %.not65 = icmp eq i64 %56, 0
-  br i1 %.not.i.i24, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27, label %57
+  br i1 %.not.i.i24, label %58, label %57
 
 57:                                               ; preds = %54
-  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %58
+  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27
 
-58:                                               ; preds = %57
+58:                                               ; preds = %54
+  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %60
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27: ; preds = %57
   %59 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br i1 %59, label %60, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27: ; preds = %54
-  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %60
 
 60:                                               ; preds = %58, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -23483,17 +23483,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27: ; p
   %.not.i.i30 = icmp eq i64 %69, 0
   %70 = and i64 %.0.copyload.i6.i.i29, 4294967295
   %.not66 = icmp eq i64 %70, 0
-  br i1 %.not.i.i30, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33, label %71
+  br i1 %.not.i.i30, label %72, label %71
 
 71:                                               ; preds = %68
-  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %72
+  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33
 
-72:                                               ; preds = %71
+72:                                               ; preds = %68
+  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %74
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33: ; preds = %71
   %73 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %66)
   br i1 %73, label %74, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33: ; preds = %68
-  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %74
 
 74:                                               ; preds = %72, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -23509,9 +23509,9 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thre
   %80 = extractvalue { ptr, ptr } %78, 1
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread: ; preds = %23, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, %._crit_edge, %74, %46, %57, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27, %58, %60, %32, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-  %.sroa.054.0 = phi ptr [ %21, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ %1, %57 ], [ %51, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select61, %74 ], [ null, %60 ], [ %spec.select, %46 ], [ %79, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ %1, %58 ], [ null, %._crit_edge ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit ], [ %1, %23 ]
-  %.sroa.12.0 = phi ptr [ %22, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ null, %57 ], [ %52, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select62, %74 ], [ %62, %60 ], [ %spec.select60, %46 ], [ %80, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ null, %58 ], [ %.pre, %._crit_edge ], [ %11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit ], [ null, %23 ]
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread: ; preds = %23, %18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge, %74, %46, %57, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27, %58, %60, %32, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
+  %.sroa.054.0 = phi ptr [ %21, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ %1, %57 ], [ %51, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select61, %74 ], [ null, %60 ], [ %spec.select, %46 ], [ %79, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ %1, %58 ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge ], [ null, %18 ], [ %1, %23 ]
+  %.sroa.12.0 = phi ptr [ %22, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ null, %57 ], [ %52, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select62, %74 ], [ %62, %60 ], [ %spec.select60, %46 ], [ %80, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ null, %58 ], [ %.pre, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge ], [ %11, %18 ], [ null, %23 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.054.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -23555,17 +23555,17 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %.not.i.i = icmp eq i64 %8, 0
   %9 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not32 = icmp eq i64 %9, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %10
+  br i1 %.not.i.i, label %11, label %10
 
 10:                                               ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %11
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-11:                                               ; preds = %10
+11:                                               ; preds = %7
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %10
   %12 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %5)
   br i1 %12, label %13, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread: ; preds = %10, %.lr.ph, %11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   br label %13
@@ -23606,17 +23606,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
   %.not.i.i7 = icmp eq i64 %24, 0
   %25 = and i64 %.0.copyload.i6.i.i6, 4294967295
   %.not33 = icmp eq i64 %25, 0
-  br i1 %.not.i.i7, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10, label %26
+  br i1 %.not.i.i7, label %27, label %26
 
 26:                                               ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %27
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
 
-27:                                               ; preds = %26
+27:                                               ; preds = %23
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %26
   %28 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %28, label %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread: ; preds = %26, %20, %27, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
   br label %29
@@ -24317,28 +24317,28 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserv
   %.not.i.i.i.i.i = icmp eq i64 %122, 0
   %123 = and i64 %.0.copyload.i6.i.i.i.i.i, 4294967295
   %.not.i.i = icmp eq i64 %123, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i, label %124
+  br i1 %.not.i.i.i.i.i, label %125, label %124
 
 124:                                              ; preds = %121
-  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i, label %125
+  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i
 
-125:                                              ; preds = %124
+125:                                              ; preds = %121
+  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i, label %127
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i: ; preds = %124
   %126 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %118)
-  br i1 %126, label %._crit_edge.i.i, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i
+  br i1 %126, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i
 
-._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i: ; preds = %125
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i
   %.0.copyload.i.i.i.i38.pre.i.i = load i64, ptr %19, align 4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i
 
-._crit_edge.i.i:                                  ; preds = %125
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i
   %.0.copyload.i.i.i.i26.pre.i.i = load i64, ptr %118, align 4
   br label %127
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i: ; preds = %121
-  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i, label %127
-
-127:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i, %._crit_edge.i.i
-  %.0.copyload.i.i.i.i26.i.i = phi i64 [ %.0.copyload.i.i.i.i26.pre.i.i, %._crit_edge.i.i ], [ %.0.copyload.i6.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i ]
+127:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i.i, %125
+  %.0.copyload.i.i.i.i26.i.i = phi i64 [ %.0.copyload.i.i.i.i26.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i.i ], [ %.0.copyload.i6.i.i.i.i.i, %125 ]
   %.0.copyload.i6.i.i.i27.i.i = load i64, ptr %119, align 4
   %128 = icmp eq i64 %.0.copyload.i.i.i.i26.i.i, %.0.copyload.i6.i.i.i27.i.i
   br i1 %128, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i, label %129
@@ -24348,21 +24348,21 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %.not.i.i.i28.i.i = icmp eq i64 %130, 0
   %131 = and i64 %.0.copyload.i6.i.i.i27.i.i, 4294967295
   %.not55.i.i = icmp eq i64 %131, 0
-  br i1 %.not.i.i.i28.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i, label %132
+  br i1 %.not.i.i.i28.i.i, label %133, label %132
 
 132:                                              ; preds = %129
-  br i1 %.not55.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i, label %133
+  br i1 %.not55.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i
 
-133:                                              ; preds = %132
+133:                                              ; preds = %129
+  br i1 %.not55.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i, label %135
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i: ; preds = %132
   %134 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %119)
-  br i1 %134, label %135, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i
+  br i1 %134, label %135, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i
 
-._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i: ; preds = %133
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i
   %.0.copyload.i6.i.i.i33.pre.i.i = load i64, ptr %119, align 4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i: ; preds = %129
-  br i1 %.not55.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i, label %135
 
 135:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i, %133
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -24389,8 +24389,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i, %132, %127
-  %.0.copyload.i6.i.i.i33.i.i = phi i64 [ %.0.copyload.i6.i.i.i33.pre.i.i, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i ], [ %.0.copyload.i6.i.i.i27.i.i, %132 ], [ %.0.copyload.i.i.i.i26.i.i, %127 ], [ %.0.copyload.i6.i.i.i27.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i, %133, %132, %127
+  %.0.copyload.i6.i.i.i33.i.i = phi i64 [ %.0.copyload.i6.i.i.i33.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit31.thread_crit_edge.i.i ], [ %.0.copyload.i6.i.i.i27.i.i, %132 ], [ %.0.copyload.i.i.i.i26.i.i, %127 ], [ %.0.copyload.i6.i.i.i27.i.i, %133 ]
   %.0.copyload.i.i.i.i32.i.i = load i64, ptr %19, align 4
   %144 = icmp eq i64 %.0.copyload.i.i.i.i32.i.i, %.0.copyload.i6.i.i.i33.i.i
   br i1 %144, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.thread.i.i, label %145
@@ -24400,17 +24400,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %.not.i.i.i34.i.i = icmp eq i64 %146, 0
   %147 = and i64 %.0.copyload.i6.i.i.i33.i.i, 4294967295
   %.not56.i.i = icmp eq i64 %147, 0
-  br i1 %.not.i.i.i34.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.i.i, label %148
+  br i1 %.not.i.i.i34.i.i, label %149, label %148
 
 148:                                              ; preds = %145
-  br i1 %.not56.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.thread.i.i, label %149
+  br i1 %.not56.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.i.i
 
-149:                                              ; preds = %148
+149:                                              ; preds = %145
+  br i1 %.not56.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.thread.i.i, label %151
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.i.i: ; preds = %148
   %150 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %119)
   br i1 %150, label %151, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.thread.i.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.i.i: ; preds = %145
-  br i1 %.not56.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.thread.i.i, label %151
 
 151:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit37.i.i, %149
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -24462,8 +24462,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i, %124, %.lr.ph134
-  %.0.copyload.i.i.i.i38.i.i = phi i64 [ %.0.copyload.i.i.i.i38.pre.i.i, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i ], [ %.0.copyload.i.i.i.i.i.i, %124 ], [ %.0.copyload.i.i.i.i.i.i, %.lr.ph134 ], [ %.0.copyload.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i, %125, %124, %.lr.ph134
+  %.0.copyload.i.i.i.i38.i.i = phi i64 [ %.0.copyload.i.i.i.i38.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread_crit_edge.i.i ], [ %.0.copyload.i.i.i.i.i.i, %124 ], [ %.0.copyload.i.i.i.i.i.i, %.lr.ph134 ], [ %.0.copyload.i.i.i.i.i.i, %125 ]
   %.0.copyload.i6.i.i.i39.i.i = load i64, ptr %119, align 4
   %168 = icmp eq i64 %.0.copyload.i.i.i.i38.i.i, %.0.copyload.i6.i.i.i39.i.i
   br i1 %168, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i, label %169
@@ -24473,21 +24473,21 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %.not.i.i.i40.i.i = icmp eq i64 %170, 0
   %171 = and i64 %.0.copyload.i6.i.i.i39.i.i, 4294967295
   %.not57.i.i = icmp eq i64 %171, 0
-  br i1 %.not.i.i.i40.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i, label %172
+  br i1 %.not.i.i.i40.i.i, label %173, label %172
 
 172:                                              ; preds = %169
-  br i1 %.not57.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i, label %173
+  br i1 %.not57.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i
 
-173:                                              ; preds = %172
+173:                                              ; preds = %169
+  br i1 %.not57.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i, label %175
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i: ; preds = %172
   %174 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %119)
-  br i1 %174, label %175, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i
+  br i1 %174, label %175, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i
 
-._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i: ; preds = %173
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i
   %.0.copyload.i6.i.i.i45.pre.i.i = load i64, ptr %119, align 4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i: ; preds = %169
-  br i1 %.not57.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i, label %175
 
 175:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i, %173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -24514,8 +24514,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i, %172, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i
-  %.0.copyload.i6.i.i.i45.i.i = phi i64 [ %.0.copyload.i6.i.i.i45.pre.i.i, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i ], [ %.0.copyload.i6.i.i.i39.i.i, %172 ], [ %.0.copyload.i.i.i.i38.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i ], [ %.0.copyload.i6.i.i.i39.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i, %173, %172, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i
+  %.0.copyload.i6.i.i.i45.i.i = phi i64 [ %.0.copyload.i6.i.i.i45.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit43.thread_crit_edge.i.i ], [ %.0.copyload.i6.i.i.i39.i.i, %172 ], [ %.0.copyload.i.i.i.i38.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i.i ], [ %.0.copyload.i6.i.i.i39.i.i, %173 ]
   %.0.copyload.i.i.i.i44.i.i = load i64, ptr %118, align 4
   %184 = icmp eq i64 %.0.copyload.i.i.i.i44.i.i, %.0.copyload.i6.i.i.i45.i.i
   br i1 %184, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.thread.i.i, label %185
@@ -24525,17 +24525,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %.not.i.i.i46.i.i = icmp eq i64 %186, 0
   %187 = and i64 %.0.copyload.i6.i.i.i45.i.i, 4294967295
   %.not58.i.i = icmp eq i64 %187, 0
-  br i1 %.not.i.i.i46.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.i.i, label %188
+  br i1 %.not.i.i.i46.i.i, label %189, label %188
 
 188:                                              ; preds = %185
-  br i1 %.not58.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.thread.i.i, label %189
+  br i1 %.not58.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.i.i
 
-189:                                              ; preds = %188
+189:                                              ; preds = %185
+  br i1 %.not58.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.thread.i.i, label %191
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.i.i: ; preds = %188
   %190 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %119)
   br i1 %190, label %191, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.thread.i.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.i.i: ; preds = %185
-  br i1 %.not58.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.thread.i.i, label %191
 
 191:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit49.i.i, %189
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -24596,77 +24596,77 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
   %.0.copyload.i.i.i.i22.i.i = load i64, ptr %.sroa.016.0.i.i, align 4
   %.0.copyload.i6.i.i.i23.i.i = load i64, ptr %0, align 4
   %208 = icmp eq i64 %.0.copyload.i.i.i.i22.i.i, %.0.copyload.i6.i.i.i23.i.i
-  br i1 %208, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i, label %.lr.ph.i.i
+  br i1 %208, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i, %._crit_edge.i16.i
-  %.0.copyload.i6.i.i.i44.i.i = phi i64 [ %.0.copyload.i6.i.i.i.i17.i, %._crit_edge.i16.i ], [ %.0.copyload.i6.i.i.i23.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ]
-  %.0.copyload.i.i.i.i25.i.i = phi i64 [ %.0.copyload.i.i.i.i.i18.i, %._crit_edge.i16.i ], [ %.0.copyload.i.i.i.i22.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ]
-  %.sroa.016.124.i.i = phi ptr [ %214, %._crit_edge.i16.i ], [ %.sroa.016.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ]
+.lr.ph.i.i:                                       ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i
+  %.0.copyload.i6.i.i.i44.i.i = phi i64 [ %.0.copyload.i6.i.i.i.i18.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i ], [ %.0.copyload.i6.i.i.i23.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ]
+  %.0.copyload.i.i.i.i25.i.i = phi i64 [ %.0.copyload.i.i.i.i.i19.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i ], [ %.0.copyload.i.i.i.i22.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ]
+  %.sroa.016.124.i.i = phi ptr [ %214, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i ], [ %.sroa.016.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ]
   %209 = and i64 %.0.copyload.i.i.i.i25.i.i, 4294967295
   %.not.i.i.i.i13.i = icmp eq i64 %209, 0
   %210 = and i64 %.0.copyload.i6.i.i.i44.i.i, 4294967295
   %.not.i14.i = icmp eq i64 %210, 0
-  br i1 %.not.i.i.i.i13.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i19.i, label %211
+  br i1 %.not.i.i.i.i13.i, label %212, label %211
 
 211:                                              ; preds = %.lr.ph.i.i
-  br i1 %.not.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i, label %212
+  br i1 %.not.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i15.i
 
-212:                                              ; preds = %211
+212:                                              ; preds = %.lr.ph.i.i
+  br i1 %.not.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i15.i: ; preds = %211
   %213 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016.124.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %.0.copyload.i.i.i.i832.pre.pre.i.i = load i64, ptr %0, align 4
-  br i1 %213, label %._crit_edge.i16.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i
+  br i1 %213, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i19.i: ; preds = %.lr.ph.i.i
-  br i1 %.not.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i, label %._crit_edge.i16.i
-
-._crit_edge.i16.i:                                ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i19.i, %212
-  %.0.copyload.i6.i.i.i.i17.i = phi i64 [ %.0.copyload.i6.i.i.i44.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i19.i ], [ %.0.copyload.i.i.i.i832.pre.pre.i.i, %212 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i15.i, %212
+  %.0.copyload.i6.i.i.i.i18.i = phi i64 [ %.0.copyload.i6.i.i.i44.i.i, %212 ], [ %.0.copyload.i.i.i.i832.pre.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i15.i ]
   %214 = getelementptr inbounds nuw i8, ptr %.sroa.016.124.i.i, i64 32
-  %.0.copyload.i.i.i.i.i18.i = load i64, ptr %214, align 4
-  %215 = icmp eq i64 %.0.copyload.i.i.i.i.i18.i, %.0.copyload.i6.i.i.i.i17.i
-  br i1 %215, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i, label %.lr.ph.i.i, !llvm.loop !235
+  %.0.copyload.i.i.i.i.i19.i = load i64, ptr %214, align 4
+  %215 = icmp eq i64 %.0.copyload.i.i.i.i.i19.i, %.0.copyload.i6.i.i.i.i18.i
+  br i1 %215, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i, label %.lr.ph.i.i, !llvm.loop !235
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i: ; preds = %._crit_edge.i16.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i19.i, %212, %211, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i
-  %.0.copyload.i.i.i.i832.i.i = phi i64 [ %.0.copyload.i.i.i.i22.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ], [ %.0.copyload.i6.i.i.i44.i.i, %211 ], [ %.0.copyload.i6.i.i.i.i17.i, %._crit_edge.i16.i ], [ %.0.copyload.i.i.i.i832.pre.pre.i.i, %212 ], [ %.0.copyload.i6.i.i.i44.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i19.i ]
-  %.sroa.016.1.lcssa.i.i = phi ptr [ %.sroa.016.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ], [ %.sroa.016.124.i.i, %211 ], [ %214, %._crit_edge.i16.i ], [ %.sroa.016.124.i.i, %212 ], [ %.sroa.016.124.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i19.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i15.i, %212, %211, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i
+  %.0.copyload.i.i.i.i832.i.i = phi i64 [ %.0.copyload.i.i.i.i22.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ], [ %.0.copyload.i6.i.i.i44.i.i, %211 ], [ %.0.copyload.i6.i.i.i.i18.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i ], [ %.0.copyload.i6.i.i.i44.i.i, %212 ], [ %.0.copyload.i.i.i.i832.pre.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i15.i ]
+  %.sroa.016.1.lcssa.i.i = phi ptr [ %.sroa.016.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEEvSE_SE_SE_SE_SH_.exit.i ], [ %.sroa.016.124.i.i, %211 ], [ %214, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge.i17.i ], [ %.sroa.016.124.i.i, %212 ], [ %.sroa.016.124.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.i15.i ]
   %.sroa.0.131.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 -32
   %.0.copyload.i6.i.i.i933.i.i = load i64, ptr %.sroa.0.131.i.i, align 4
   %216 = icmp eq i64 %.0.copyload.i.i.i.i832.i.i, %.0.copyload.i6.i.i.i933.i.i
   br i1 %216, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i, label %.lr.ph36.i.i
 
-.lr.ph36.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i, %222
-  %.0.copyload.i.i.i.i848.i.i = phi i64 [ %.0.copyload.i.i.i.i8.i.i, %222 ], [ %.0.copyload.i.i.i.i832.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i ]
-  %.in43.i.i = phi i64 [ %.0.copyload.i6.i.i.i9.i.i, %222 ], [ %.0.copyload.i6.i.i.i933.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i ]
-  %.sroa.0.134.i.i = phi ptr [ %.sroa.0.1.i.i, %222 ], [ %.sroa.0.131.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i ]
-  %217 = and i64 %.0.copyload.i.i.i.i848.i.i, 4294967295
+.lr.ph36.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i, %222
+  %.0.copyload.i.i.i.i847.i.i = phi i64 [ %.0.copyload.i.i.i.i8.i.i, %222 ], [ %.0.copyload.i.i.i.i832.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i ]
+  %.in43.i.i = phi i64 [ %.0.copyload.i6.i.i.i9.i.i, %222 ], [ %.0.copyload.i6.i.i.i933.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i ]
+  %.sroa.0.134.i.i = phi ptr [ %.sroa.0.1.i.i, %222 ], [ %.sroa.0.131.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i ]
+  %217 = and i64 %.0.copyload.i.i.i.i847.i.i, 4294967295
   %.not.i.i.i10.i.i = icmp eq i64 %217, 0
   %218 = and i64 %.in43.i.i, 4294967295
   %.not21.i.i = icmp eq i64 %218, 0
-  br i1 %.not.i.i.i10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i, label %219
+  br i1 %.not.i.i.i10.i.i, label %220, label %219
 
 219:                                              ; preds = %.lr.ph36.i.i
-  br i1 %.not21.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i, label %220
+  br i1 %.not21.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i
 
-220:                                              ; preds = %219
+220:                                              ; preds = %.lr.ph36.i.i
+  br i1 %.not21.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i, label %222
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i: ; preds = %219
   %221 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.134.i.i)
-  br i1 %221, label %._crit_edge47.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i
+  br i1 %221, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13._crit_edge.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i
 
-._crit_edge47.i.i:                                ; preds = %220
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13._crit_edge.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i
   %.0.copyload.i.i.i.i8.pre.i.i = load i64, ptr %0, align 4
   br label %222
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i: ; preds = %.lr.ph36.i.i
-  br i1 %.not21.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i, label %222
-
-222:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i, %._crit_edge47.i.i
-  %.0.copyload.i.i.i.i8.i.i = phi i64 [ %.0.copyload.i.i.i.i8.pre.i.i, %._crit_edge47.i.i ], [ %.0.copyload.i.i.i.i848.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i ]
+222:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13._crit_edge.i.i, %220
+  %.0.copyload.i.i.i.i8.i.i = phi i64 [ %.0.copyload.i.i.i.i8.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13._crit_edge.i.i ], [ %.0.copyload.i.i.i.i847.i.i, %220 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.134.i.i, i64 -32
   %.0.copyload.i6.i.i.i9.i.i = load i64, ptr %.sroa.0.1.i.i, align 4
   %223 = icmp eq i64 %.0.copyload.i.i.i.i8.i.i, %.0.copyload.i6.i.i.i9.i.i
   br i1 %223, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i, label %.lr.ph36.i.i, !llvm.loop !236
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i: ; preds = %222, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i, %220, %219, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i
-  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.131.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i15.i ], [ %.sroa.0.134.i.i, %219 ], [ %.sroa.0.1.i.i, %222 ], [ %.sroa.0.134.i.i, %220 ], [ %.sroa.0.134.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.thread.i.i: ; preds = %222, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i, %220, %219, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i
+  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.131.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread.i16.i ], [ %.sroa.0.134.i.i, %219 ], [ %.sroa.0.1.i.i, %222 ], [ %.sroa.0.134.i.i, %220 ], [ %.sroa.0.134.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit13.i.i ]
   %224 = icmp ult ptr %.sroa.016.1.lcssa.i.i, %.sroa.0.1.lcssa.i.i
   br i1 %224, label %225, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EEESE_SE_SE_SH_.exit
 
@@ -24900,8 +24900,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread
-  %.036 = phi i64 [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread ], [ %1, %4 ]
-  %9 = shl i64 %.036, 1
+  %.037 = phi i64 [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread ], [ %1, %4 ]
+  %9 = shl i64 %.037, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpErrorInvalidSameTargetRelocations::RelocationSource", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -24917,17 +24917,17 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.not.i.i.i = icmp eq i64 %16, 0
   %17 = and i64 %.0.copyload.i6.i.i.i.fr, 4294967295
   %.not = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit, label %18
+  br i1 %.not.i.i.i, label %19, label %18
 
 18:                                               ; preds = %15
-  br i1 %.not, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %19
+  br i1 %.not, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit
 
-19:                                               ; preds = %18
+19:                                               ; preds = %15
+  br i1 %.not, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %21
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit: ; preds = %18
   %20 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
   br i1 %20, label %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit: ; preds = %15
-  br i1 %.not, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %21
 
 21:                                               ; preds = %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread
@@ -24935,7 +24935,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread: ; preds = %18, %.lr.ph, %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit, %21
   %22 = phi i64 [ %12, %21 ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit ], [ %10, %19 ], [ %10, %.lr.ph ], [ %10, %18 ]
   %23 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpErrorInvalidSameTargetRelocations::RelocationSource", ptr %0, i64 %22
-  %24 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpErrorInvalidSameTargetRelocations::RelocationSource", ptr %0, i64 %.036
+  %24 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpErrorInvalidSameTargetRelocations::RelocationSource", ptr %0, i64 %.037
   %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   %26 = icmp slt i64 %22, %7
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !238
@@ -25007,35 +25007,35 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %.not.i.i.i.i = icmp eq i64 %60, 0
   %61 = and i64 %.0.copyload.i6.i.i.i.i, 4294967295
   %.not.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i, label %62
+  br i1 %.not.i.i.i.i, label %63, label %62
 
 62:                                               ; preds = %59
-  br i1 %.not.i, label %.loopexit, label %63
+  br i1 %.not.i, label %.loopexit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i
 
-63:                                               ; preds = %62
+63:                                               ; preds = %59
+  br i1 %.not.i, label %.loopexit, label %65
+
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i: ; preds = %62
   %64 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc unwind label %71
 
-.noexc:                                           ; preds = %63
+.noexc:                                           ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i
   br i1 %64, label %65, label %.loopexit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i: ; preds = %59
-  br i1 %.not.i, label %.loopexit, label %65
-
-65:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i, %.noexc
+65:                                               ; preds = %.noexc, %63
   %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpErrorInvalidSameTargetRelocations::RelocationSource", ptr %0, i64 %.010.i
   %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %57) #22
   %68 = icmp sgt i64 %.0911.i, %1
   br i1 %68, label %.lr.ph.i, label %.loopexit, !llvm.loop !239
 
-.loopexit:                                        ; preds = %65, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i, %.noexc, %62, %.lr.ph.i, %39
-  %.0.lcssa.i = phi i64 [ %.1, %39 ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i ], [ %.0911.i, %65 ], [ %.010.i, %.noexc ], [ %.010.i, %.lr.ph.i ], [ %.010.i, %62 ]
+.loopexit:                                        ; preds = %65, %.noexc, %63, %62, %.lr.ph.i, %39
+  %.0.lcssa.i = phi i64 [ %.1, %39 ], [ %.010.i, %.noexc ], [ %.0911.i, %65 ], [ %.010.i, %63 ], [ %.010.i, %.lr.ph.i ], [ %.010.i, %62 ]
   %69 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpErrorInvalidSameTargetRelocations::RelocationSource", ptr %0, i64 %.0.lcssa.i
   %70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
 
-71:                                               ; preds = %63
+71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESG_EEbS5_RS8_.exit.i
   %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
@@ -25192,24 +25192,24 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %.not.i.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i6.i.i.i, 4294967295
   %.not17 = icmp eq i64 %16, 0
-  br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit, label %17
+  br i1 %.not.i.i.i, label %18, label %17
 
 17:                                               ; preds = %14
-  br i1 %.not17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %18
+  br i1 %.not17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit
 
-18:                                               ; preds = %17
+18:                                               ; preds = %14
+  br i1 %.not17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %20
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit: ; preds = %17
   %19 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.022, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br i1 %19, label %._crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread
+  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread
 
-._crit_edge:                                      ; preds = %18
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit
   %.pre = load i32, ptr %.sroa.0.022, align 4
   br label %20
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit: ; preds = %14
-  br i1 %.not17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit.thread, label %20
-
-20:                                               ; preds = %._crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit
-  %21 = phi i32 [ %.pre, %._crit_edge ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit ]
+20:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge, %18
+  %21 = phi i32 [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPNS2_36PcpErrorInvalidSameTargetRelocations16RelocationSourceESt6vectorISG_SaISG_EEEESL_EEbS5_S8_.exit._crit_edge ], [ %13, %18 ]
   store i32 %21, ptr %3, align 8
   store i32 0, ptr %.sroa.0.022, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.pn21, i64 36
@@ -25516,9 +25516,9 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   br i1 %48, label %._crit_edge, label %.lr.ph158, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %47, %.lr.ph
-  %.lcssa154 = phi i64 [ %21, %.lr.ph ], [ %419, %47 ]
-  %.lcssa = phi i64 [ %20, %.lr.ph ], [ %418, %47 ]
-  %storemerge55.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.047.1.i.i, %47 ]
+  %.lcssa154 = phi i64 [ %21, %.lr.ph ], [ %417, %47 ]
+  %.lcssa = phi i64 [ %20, %.lr.ph ], [ %416, %47 ]
+  %storemerge55.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.048.1.i.i, %47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %49 = add nsw i64 %.lcssa154, -2
@@ -25976,9 +25976,9 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v
   br i1 %254, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit, !llvm.loop !243
 
 .lr.ph158:                                        ; preds = %.lr.ph, %47
-  %storemerge55157 = phi ptr [ %.sroa.047.1.i.i, %47 ], [ %1, %.lr.ph ]
+  %storemerge55157 = phi ptr [ %.sroa.048.1.i.i, %47 ], [ %1, %.lr.ph ]
   %.056156 = phi i64 [ %256, %47 ], [ %2, %.lr.ph ]
-  %255 = phi i64 [ %419, %47 ], [ %21, %.lr.ph ]
+  %255 = phi i64 [ %417, %47 ], [ %21, %.lr.ph ]
   %256 = add nsw i64 %.056156, -1
   %257 = lshr i64 %255, 1
   %258 = getelementptr inbounds nuw %"class.std::shared_ptr.341", ptr %0, i64 %257
@@ -26155,14 +26155,14 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32p
   store ptr %.sink126, ptr %36, align 8
   br label %328
 
-328:                                              ; preds = %409, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
-  %.sroa.047.0.i.i = phi ptr [ %23, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %416, %409 ]
-  %.sroa.0.0.i.i = phi ptr [ %storemerge55157, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %.sroa.0.1.i.i, %409 ]
+328:                                              ; preds = %407, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i
+  %.sroa.048.0.i.i = phi ptr [ %23, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %414, %407 ]
+  %.sroa.0.0.i.i = phi ptr [ %storemerge55157, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SF_SI_.exit.i ], [ %.sroa.0.1.i.i, %407 ]
   br label %329
 
-329:                                              ; preds = %368, %328
-  %.sroa.047.1.i.i = phi ptr [ %.sroa.047.0.i.i, %328 ], [ %369, %368 ]
-  %.val.i.i13.i = load ptr, ptr %.sroa.047.1.i.i, align 8
+329:                                              ; preds = %367, %328
+  %.sroa.048.1.i.i = phi ptr [ %.sroa.048.0.i.i, %328 ], [ %368, %367 ]
+  %.val.i.i13.i = load ptr, ptr %.sroa.048.1.i.i, align 8
   %.val1.i.i14.i = load ptr, ptr %0, align 8
   %330 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 104
   %331 = getelementptr inbounds nuw i8, ptr %.val.i.i13.i, i64 184
@@ -26180,26 +26180,26 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32p
   %.not.i.i.i.i = icmp eq i64 %338, 0
   %339 = and i64 %.0.copyload.i6.i.i.i.i, 4294967295
   %.not.i.i.i16 = icmp eq i64 %339, 0
-  br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, label %340
+  br i1 %.not.i.i.i.i, label %341, label %340
 
 340:                                              ; preds = %337
-  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %341
+  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i
 
-341:                                              ; preds = %340
+341:                                              ; preds = %337
+  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %367
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i: ; preds = %340
   %342 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %330, ptr noundef nonnull align 4 dereferenceable(8) %333)
-  br i1 %342, label %368, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i
+  br i1 %342, label %367, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i: ; preds = %341
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i
   %.0.copyload.i.i6.pre.i.i.i = load i64, ptr %333, align 4
   %.0.copyload.i6.i7.pre.i.i.i = load i64, ptr %330, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i: ; preds = %337
-  br i1 %.not.i.i.i16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, label %368
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i, %340
-  %.0.copyload.i6.i7.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i.i.i.i.i, %340 ], [ %.0.copyload.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ]
-  %.0.copyload.i.i6.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i6.i.i.i.i, %340 ], [ %.0.copyload.i6.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i, %341, %340
+  %.0.copyload.i6.i7.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i.i.i.i.i, %340 ], [ %.0.copyload.i.i.i.i.i, %341 ]
+  %.0.copyload.i.i6.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i ], [ %.0.copyload.i6.i.i.i.i, %340 ], [ %.0.copyload.i6.i.i.i.i, %341 ]
   %343 = icmp eq i64 %.0.copyload.i.i6.i.i.i, %.0.copyload.i6.i7.i.i.i
   br i1 %343, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %344
 
@@ -26208,23 +26208,23 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i: ; pred
   %.not.i8.i.i.i = icmp eq i64 %345, 0
   %346 = and i64 %.0.copyload.i6.i7.i.i.i, 4294967295
   %.not14.i.i.i = icmp eq i64 %346, 0
-  br i1 %.not.i8.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, label %347
+  br i1 %.not.i8.i.i.i, label %348, label %347
 
 347:                                              ; preds = %344
-  br i1 %.not14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %348
+  br i1 %.not14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i
 
-348:                                              ; preds = %347
+348:                                              ; preds = %344
+  br i1 %.not14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i: ; preds = %347
   %349 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %333, ptr noundef nonnull align 4 dereferenceable(8) %330)
   br i1 %349, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i: ; preds = %344
-  br i1 %.not14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %348, %347, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i, %329
   %350 = load i32, ptr %331, align 4
   %351 = load i32, ptr %334, align 4
   %352 = icmp slt i32 %350, %351
-  br i1 %352, label %368, label %353
+  br i1 %352, label %367, label %353
 
 353:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i
   %354 = icmp slt i32 %351, %350
@@ -26241,26 +26241,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i: ; pr
   %.not.i.i.i.i.i.i17 = icmp eq i64 %358, 0
   %359 = and i64 %.0.copyload.i6.i.i.i.i.i.i, 4294967295
   %.not.i.i.i.i.i = icmp eq i64 %359, 0
-  br i1 %.not.i.i.i.i.i.i17, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, label %360
+  br i1 %.not.i.i.i.i.i.i17, label %361, label %360
 
 360:                                              ; preds = %357
-  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %361
+  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i
 
-361:                                              ; preds = %360
+361:                                              ; preds = %357
+  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %367
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i: ; preds = %360
   %362 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %332, ptr noundef nonnull align 4 dereferenceable(8) %335)
-  br i1 %362, label %368, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
+  br i1 %362, label %367, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i: ; preds = %361
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i
   %.0.copyload.i.i6.pre.i.i.i.i.i = load i64, ptr %335, align 4
   %.0.copyload.i6.i7.pre.i.i.i.i.i = load i64, ptr %332, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i: ; preds = %357
-  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i, label %368
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, %360, %355, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
-  %.0.copyload.i6.i7.i.i.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i.i, %355 ], [ %.0.copyload.i.i.i.i.i.i.i, %360 ], [ %.0.copyload.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i ]
-  %.0.copyload.i.i6.i.i.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i.i, %360 ], [ %.0.copyload.i.i.i.i.i.i.i, %355 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i: ; preds = %361, %360, %355, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i
+  %.0.copyload.i6.i7.i.i.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i.i, %355 ], [ %.0.copyload.i.i.i.i.i.i.i, %360 ], [ %.0.copyload.i.i.i.i.i.i.i, %361 ]
+  %.0.copyload.i.i6.i.i.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i.i, %361 ], [ %.0.copyload.i6.i.i.i.i.i.i, %360 ], [ %.0.copyload.i.i.i.i.i.i.i, %355 ]
   %363 = icmp eq i64 %.0.copyload.i.i6.i.i.i.i.i, %.0.copyload.i6.i7.i.i.i.i.i
   %364 = and i64 %.0.copyload.i.i6.i.i.i.i.i, 4294967295
   %.not.i8.i.i.i.i.i = icmp eq i64 %364, 0
@@ -26268,17 +26268,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i: ; 
   %365 = and i64 %.0.copyload.i6.i7.i.i.i.i.i, 4294967295
   %.not7.i9.i.i.i.i.i = icmp eq i64 %365, 0
   %or.cond14.i.i.i.i.i = or i1 %.not7.i9.i.i.i.i.i, %or.cond.i.i.i.i.i
-  br i1 %or.cond14.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %366
+  br i1 %or.cond14.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i.i
 
-_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader: ; preds = %353, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %348, %366, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
+_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader: ; preds = %353, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %348, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
 
-366:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
-  %367 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %335, ptr noundef nonnull align 4 dereferenceable(8) %332)
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i.i
+  %366 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %335, ptr noundef nonnull align 4 dereferenceable(8) %332)
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader
 
-368:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, %361, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %341
-  %369 = getelementptr inbounds nuw i8, ptr %.sroa.047.1.i.i, i64 16
+367:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i.i, %361, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %341
+  %368 = getelementptr inbounds nuw i8, ptr %.sroa.048.1.i.i, i64 16
   br label %329, !llvm.loop !274
 
 _ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.preheader
@@ -26286,144 +26286,144 @@ _ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERN
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   %.val.i8.i.i = load ptr, ptr %0, align 8
   %.val1.i9.i.i = load ptr, ptr %.sroa.0.1.i.i, align 8
-  %370 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 104
-  %371 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 184
-  %372 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 144
-  %373 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 104
-  %374 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 184
-  %375 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 144
-  %.0.copyload.i.i.i10.i.i = load i64, ptr %370, align 4
-  %.0.copyload.i6.i.i11.i.i = load i64, ptr %373, align 4
-  %376 = icmp eq i64 %.0.copyload.i.i.i10.i.i, %.0.copyload.i6.i.i11.i.i
-  br i1 %376, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %377
+  %369 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 104
+  %370 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 184
+  %371 = getelementptr inbounds nuw i8, ptr %.val.i8.i.i, i64 144
+  %372 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 104
+  %373 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 184
+  %374 = getelementptr inbounds nuw i8, ptr %.val1.i9.i.i, i64 144
+  %.0.copyload.i.i.i10.i.i = load i64, ptr %369, align 4
+  %.0.copyload.i6.i.i11.i.i = load i64, ptr %372, align 4
+  %375 = icmp eq i64 %.0.copyload.i.i.i10.i.i, %.0.copyload.i6.i.i11.i.i
+  br i1 %375, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i, label %376
 
-377:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
-  %378 = and i64 %.0.copyload.i.i.i10.i.i, 4294967295
-  %.not.i.i12.i.i = icmp eq i64 %378, 0
-  %379 = and i64 %.0.copyload.i6.i.i11.i.i, 4294967295
-  %.not.i13.i.i = icmp eq i64 %379, 0
-  br i1 %.not.i.i12.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, label %380
+376:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
+  %377 = and i64 %.0.copyload.i.i.i10.i.i, 4294967295
+  %.not.i.i12.i.i = icmp eq i64 %377, 0
+  %378 = and i64 %.0.copyload.i6.i.i11.i.i, 4294967295
+  %.not.i13.i.i = icmp eq i64 %378, 0
+  br i1 %.not.i.i12.i.i, label %380, label %379
 
-380:                                              ; preds = %377
-  br i1 %.not.i13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, label %381
+379:                                              ; preds = %376
+  br i1 %.not.i13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i20.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i14.i.i
 
-381:                                              ; preds = %380
-  %382 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %370, ptr noundef nonnull align 4 dereferenceable(8) %373)
-  br i1 %382, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i
+380:                                              ; preds = %376
+  br i1 %.not.i13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i20.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i: ; preds = %381
-  %.0.copyload.i.i6.pre.i17.i.i = load i64, ptr %373, align 4
-  %.0.copyload.i6.i7.pre.i18.i.i = load i64, ptr %370, align 4
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i14.i.i: ; preds = %379
+  %381 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %369, ptr noundef nonnull align 4 dereferenceable(8) %372)
+  br i1 %381, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i15.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i: ; preds = %377
-  br i1 %.not.i13.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i15.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i14.i.i
+  %.0.copyload.i.i6.pre.i18.i.i = load i64, ptr %372, align 4
+  %.0.copyload.i6.i7.pre.i19.i.i = load i64, ptr %369, align 4
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i20.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i, %380
-  %.0.copyload.i6.i7.i20.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i18.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i ], [ %.0.copyload.i.i.i10.i.i, %380 ], [ %.0.copyload.i.i.i10.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i ]
-  %.0.copyload.i.i6.i21.i.i = phi i64 [ %.0.copyload.i.i6.pre.i17.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i14.i.i ], [ %.0.copyload.i6.i.i11.i.i, %380 ], [ %.0.copyload.i6.i.i11.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i ]
-  %383 = icmp eq i64 %.0.copyload.i.i6.i21.i.i, %.0.copyload.i6.i7.i20.i.i
-  br i1 %383, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %384
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i20.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i15.i.i, %380, %379
+  %.0.copyload.i6.i7.i21.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i19.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i15.i.i ], [ %.0.copyload.i.i.i10.i.i, %379 ], [ %.0.copyload.i.i.i10.i.i, %380 ]
+  %.0.copyload.i.i6.i22.i.i = phi i64 [ %.0.copyload.i.i6.pre.i18.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i15.i.i ], [ %.0.copyload.i6.i.i11.i.i, %379 ], [ %.0.copyload.i6.i.i11.i.i, %380 ]
+  %382 = icmp eq i64 %.0.copyload.i.i6.i22.i.i, %.0.copyload.i6.i7.i21.i.i
+  br i1 %382, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i, label %383
 
-384:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i
-  %385 = and i64 %.0.copyload.i.i6.i21.i.i, 4294967295
-  %.not.i8.i22.i.i = icmp eq i64 %385, 0
-  %386 = and i64 %.0.copyload.i6.i7.i20.i.i, 4294967295
-  %.not14.i23.i.i = icmp eq i64 %386, 0
-  br i1 %.not.i8.i22.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, label %387
+383:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i20.i.i
+  %384 = and i64 %.0.copyload.i.i6.i22.i.i, 4294967295
+  %.not.i8.i23.i.i = icmp eq i64 %384, 0
+  %385 = and i64 %.0.copyload.i6.i7.i21.i.i, 4294967295
+  %.not14.i24.i.i = icmp eq i64 %385, 0
+  br i1 %.not.i8.i23.i.i, label %387, label %386
 
-387:                                              ; preds = %384
-  br i1 %.not14.i23.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %388
+386:                                              ; preds = %383
+  br i1 %.not14.i24.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i25.i.i
 
-388:                                              ; preds = %387
-  %389 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %373, ptr noundef nonnull align 4 dereferenceable(8) %370)
-  br i1 %389, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i
+387:                                              ; preds = %383
+  br i1 %.not14.i24.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i: ; preds = %384
-  br i1 %.not14.i23.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i25.i.i: ; preds = %386
+  %388 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %372, ptr noundef nonnull align 4 dereferenceable(8) %369)
+  br i1 %388, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, %388, %387, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i19.i.i, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
-  %390 = load i32, ptr %371, align 4
-  %391 = load i32, ptr %374, align 4
-  %392 = icmp slt i32 %390, %391
-  br i1 %392, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %393
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i25.i.i, %387, %386, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i20.i.i, %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i
+  %389 = load i32, ptr %370, align 4
+  %390 = load i32, ptr %373, align 4
+  %391 = icmp slt i32 %389, %390
+  br i1 %391, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %392
 
-393:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i
-  %394 = icmp slt i32 %391, %390
-  br i1 %394, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %395
+392:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i
+  %393 = icmp slt i32 %390, %389
+  br i1 %393, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i, label %394
 
-395:                                              ; preds = %393
-  %.0.copyload.i.i.i.i.i25.i.i = load i64, ptr %372, align 4
-  %.0.copyload.i6.i.i.i.i26.i.i = load i64, ptr %375, align 4
-  %396 = icmp eq i64 %.0.copyload.i.i.i.i.i25.i.i, %.0.copyload.i6.i.i.i.i26.i.i
-  br i1 %396, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %397
+394:                                              ; preds = %392
+  %.0.copyload.i.i.i.i.i27.i.i = load i64, ptr %371, align 4
+  %.0.copyload.i6.i.i.i.i28.i.i = load i64, ptr %374, align 4
+  %395 = icmp eq i64 %.0.copyload.i.i.i.i.i27.i.i, %.0.copyload.i6.i.i.i.i28.i.i
+  br i1 %395, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i37.i.i, label %396
 
-397:                                              ; preds = %395
-  %398 = and i64 %.0.copyload.i.i.i.i.i25.i.i, 4294967295
-  %.not.i.i.i.i27.i.i = icmp eq i64 %398, 0
-  %399 = and i64 %.0.copyload.i6.i.i.i.i26.i.i, 4294967295
-  %.not.i.i.i28.i.i = icmp eq i64 %399, 0
-  br i1 %.not.i.i.i.i27.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, label %400
+396:                                              ; preds = %394
+  %397 = and i64 %.0.copyload.i.i.i.i.i27.i.i, 4294967295
+  %.not.i.i.i.i29.i.i = icmp eq i64 %397, 0
+  %398 = and i64 %.0.copyload.i6.i.i.i.i28.i.i, 4294967295
+  %.not.i.i.i30.i.i = icmp eq i64 %398, 0
+  br i1 %.not.i.i.i.i29.i.i, label %400, label %399
 
-400:                                              ; preds = %397
-  br i1 %.not.i.i.i28.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %401
+399:                                              ; preds = %396
+  br i1 %.not.i.i.i30.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i37.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i31.i.i
 
-401:                                              ; preds = %400
-  %402 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %372, ptr noundef nonnull align 4 dereferenceable(8) %375)
-  br i1 %402, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i
+400:                                              ; preds = %396
+  br i1 %.not.i.i.i30.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i37.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i: ; preds = %401
-  %.0.copyload.i.i6.pre.i.i.i32.i.i = load i64, ptr %375, align 4
-  %.0.copyload.i6.i7.pre.i.i.i33.i.i = load i64, ptr %372, align 4
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i31.i.i: ; preds = %399
+  %401 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %371, ptr noundef nonnull align 4 dereferenceable(8) %374)
+  br i1 %401, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i32.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i: ; preds = %397
-  br i1 %.not.i.i.i28.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge
-
-_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, %401, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i24.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i43.i.i, %381
+_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i.backedge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i31.i.i, %400, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i26.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i14.i.i, %380
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit.i.i, !llvm.loop !275
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i, %400, %395, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i
-  %.0.copyload.i6.i7.i.i.i35.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i33.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i ], [ %.0.copyload.i.i.i.i.i25.i.i, %395 ], [ %.0.copyload.i.i.i.i.i25.i.i, %400 ], [ %.0.copyload.i.i.i.i.i25.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i ]
-  %.0.copyload.i.i6.i.i.i36.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i32.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i29.i.i ], [ %.0.copyload.i6.i.i.i.i26.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i41.i.i ], [ %.0.copyload.i6.i.i.i.i26.i.i, %400 ], [ %.0.copyload.i.i.i.i.i25.i.i, %395 ]
-  %403 = icmp eq i64 %.0.copyload.i.i6.i.i.i36.i.i, %.0.copyload.i6.i7.i.i.i35.i.i
-  %404 = and i64 %.0.copyload.i.i6.i.i.i36.i.i, 4294967295
-  %.not.i8.i.i.i37.i.i = icmp eq i64 %404, 0
-  %or.cond.i.i.i38.i.i = or i1 %403, %.not.i8.i.i.i37.i.i
-  %405 = and i64 %.0.copyload.i6.i7.i.i.i35.i.i, 4294967295
-  %.not7.i9.i.i.i39.i.i = icmp eq i64 %405, 0
-  %or.cond14.i.i.i40.i.i = or i1 %.not7.i9.i.i.i39.i.i, %or.cond.i.i.i38.i.i
-  br i1 %or.cond14.i.i.i40.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i, label %406
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i32.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i31.i.i
+  %.0.copyload.i.i6.pre.i.i.i35.i.i = load i64, ptr %374, align 4
+  %.0.copyload.i6.i7.pre.i.i.i36.i.i = load i64, ptr %371, align 4
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i37.i.i
 
-406:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
-  %407 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %375, ptr noundef nonnull align 4 dereferenceable(8) %372)
-  br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i37.i.i: ; preds = %400, %399, %394, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i32.i.i
+  %.0.copyload.i6.i7.i.i.i38.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i36.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i32.i.i ], [ %.0.copyload.i.i.i.i.i27.i.i, %394 ], [ %.0.copyload.i.i.i.i.i27.i.i, %399 ], [ %.0.copyload.i.i.i.i.i27.i.i, %400 ]
+  %.0.copyload.i.i6.i.i.i39.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i35.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i32.i.i ], [ %.0.copyload.i6.i.i.i.i28.i.i, %400 ], [ %.0.copyload.i6.i.i.i.i28.i.i, %399 ], [ %.0.copyload.i.i.i.i.i27.i.i, %394 ]
+  %402 = icmp eq i64 %.0.copyload.i.i6.i.i.i39.i.i, %.0.copyload.i6.i7.i.i.i38.i.i
+  %403 = and i64 %.0.copyload.i.i6.i.i.i39.i.i, 4294967295
+  %.not.i8.i.i.i40.i.i = icmp eq i64 %403, 0
+  %or.cond.i.i.i41.i.i = or i1 %402, %.not.i8.i.i.i40.i.i
+  %404 = and i64 %.0.copyload.i6.i7.i.i.i38.i.i, 4294967295
+  %.not7.i9.i.i.i42.i.i = icmp eq i64 %404, 0
+  %or.cond14.i.i.i43.i.i = or i1 %.not7.i9.i.i.i42.i.i, %or.cond.i.i.i41.i.i
+  br i1 %or.cond14.i.i.i43.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i44.i.i
 
-_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i: ; preds = %393, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i42.i.i, %388, %406, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i34.i.i
-  %408 = icmp ult ptr %.sroa.047.1.i.i, %.sroa.0.1.i.i
-  br i1 %408, label %409, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i44.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i37.i.i
+  %405 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %374, ptr noundef nonnull align 4 dereferenceable(8) %371)
+  br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i
 
-409:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
-  %410 = load ptr, ptr %.sroa.047.1.i.i, align 8
-  %411 = load ptr, ptr %.sroa.0.1.i.i, align 8
-  store ptr %411, ptr %.sroa.047.1.i.i, align 8
-  store ptr %410, ptr %.sroa.0.1.i.i, align 8
-  %412 = getelementptr inbounds nuw i8, ptr %.sroa.047.1.i.i, i64 8
-  %413 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %414 = load ptr, ptr %413, align 8
-  %415 = load ptr, ptr %412, align 8
-  store ptr %415, ptr %413, align 8
-  store ptr %414, ptr %412, align 8
-  %416 = getelementptr inbounds nuw i8, ptr %.sroa.047.1.i.i, i64 16
+_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i: ; preds = %392, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i25.i.i, %387, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i44.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i37.i.i
+  %406 = icmp ult ptr %.sroa.048.1.i.i, %.sroa.0.1.i.i
+  br i1 %406, label %407, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit
+
+407:                                              ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i
+  %408 = load ptr, ptr %.sroa.048.1.i.i, align 8
+  %409 = load ptr, ptr %.sroa.0.1.i.i, align 8
+  store ptr %409, ptr %.sroa.048.1.i.i, align 8
+  store ptr %408, ptr %.sroa.0.1.i.i, align 8
+  %410 = getelementptr inbounds nuw i8, ptr %.sroa.048.1.i.i, i64 8
+  %411 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %412 = load ptr, ptr %411, align 8
+  %413 = load ptr, ptr %410, align 8
+  store ptr %413, ptr %411, align 8
+  store ptr %412, ptr %410, align 8
+  %414 = getelementptr inbounds nuw i8, ptr %.sroa.048.1.i.i, i64 16
   br label %328, !llvm.loop !276
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit44.i.i
-  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SI_T1_(ptr nonnull %.sroa.047.1.i.i, ptr %storemerge55157, i64 noundef %256)
-  %417 = ptrtoint ptr %.sroa.047.1.i.i to i64
-  %418 = sub i64 %417, %18
-  %419 = ashr exact i64 %418, 4
-  %420 = icmp sgt i64 %419, 16
-  br i1 %420, label %47, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit, !llvm.loop !242
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm0ELm3EE6__lessERKS7_SA_.exit45.i.i
+  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SI_T1_(ptr nonnull %.sroa.048.1.i.i, ptr %storemerge55157, i64 noundef %256)
+  %415 = ptrtoint ptr %.sroa.048.1.i.i to i64
+  %416 = sub i64 %415, %18
+  %417 = ashr exact i64 %416, 4
+  %418 = icmp sgt i64 %417, 16
+  br i1 %418, label %47, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit, !llvm.loop !242
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_SI_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEESF_SF_SF_SI_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_SF_RSI_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_144Pcp_ComputeRelocationsForLayerStackWorkspace38_ValidateAndRemoveConflictingRelocatesEvEUlRKT_RKT0_E0_EEEvSF_SF_RSI_.exit.i.i
   ret void
@@ -26980,30 +26980,30 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRN32pxr
   %.not.i = icmp eq i64 %9, 0
   %10 = and i64 %.0.copyload.i6.i, 4294967295
   %.not = icmp eq i64 %10, 0
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit, label %11
+  br i1 %.not.i, label %12, label %11
 
 11:                                               ; preds = %8
-  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread, label %12
+  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit
 
-12:                                               ; preds = %11
+12:                                               ; preds = %8
+  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit: ; preds = %11
   %13 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  br i1 %13, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge
+  br i1 %13, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge: ; preds = %12
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit
   %.pre = load ptr, ptr %5, align 8
   %.pre15 = load ptr, ptr %3, align 8
   %.0.copyload.i.i6.pre = load i64, ptr %.pre, align 4
   %.0.copyload.i6.i7.pre = load i64, ptr %.pre15, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit: ; preds = %8
-  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread: ; preds = %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge, %11, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit
-  %.0.copyload.i6.i7 = phi i64 [ %.0.copyload.i6.i7.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %.0.copyload.i.i, %11 ], [ %.0.copyload.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit ]
-  %.0.copyload.i.i6 = phi i64 [ %.0.copyload.i.i6.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %.0.copyload.i6.i, %11 ], [ %.0.copyload.i6.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit ]
-  %14 = phi ptr [ %.pre15, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %4, %11 ], [ %4, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit ]
-  %15 = phi ptr [ %.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %6, %11 ], [ %6, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit ]
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge, %11, %12
+  %.0.copyload.i6.i7 = phi i64 [ %.0.copyload.i6.i7.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %.0.copyload.i.i, %11 ], [ %.0.copyload.i.i, %12 ]
+  %.0.copyload.i.i6 = phi i64 [ %.0.copyload.i.i6.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %.0.copyload.i6.i, %11 ], [ %.0.copyload.i6.i, %12 ]
+  %14 = phi ptr [ %.pre15, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %4, %11 ], [ %4, %12 ]
+  %15 = phi ptr [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge ], [ %6, %11 ], [ %6, %12 ]
   %16 = icmp eq i64 %.0.copyload.i.i6, %.0.copyload.i6.i7
   br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread, label %17
 
@@ -27012,17 +27012,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread: ; preds = %.
   %.not.i8 = icmp eq i64 %18, 0
   %19 = and i64 %.0.copyload.i6.i7, 4294967295
   %.not14 = icmp eq i64 %19, 0
-  br i1 %.not.i8, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11, label %20
+  br i1 %.not.i8, label %21, label %20
 
 20:                                               ; preds = %17
-  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread, label %21
+  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11
 
-21:                                               ; preds = %20
+21:                                               ; preds = %17
+  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11: ; preds = %20
   %22 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %14)
   br i1 %22, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11: ; preds = %17
-  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread: ; preds = %2, %20, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread, %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27051,30 +27051,30 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread: ; preds = 
   %.not.i.i.i = icmp eq i64 %37, 0
   %38 = and i64 %.0.copyload.i6.i.i.i, 4294967295
   %.not.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i, label %39
+  br i1 %.not.i.i.i, label %40, label %39
 
 39:                                               ; preds = %36
-  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i, label %40
+  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i
 
-40:                                               ; preds = %39
+40:                                               ; preds = %36
+  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i: ; preds = %39
   %41 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %33, ptr noundef nonnull align 4 dereferenceable(8) %34)
-  br i1 %41, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i
+  br i1 %41, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i: ; preds = %40
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i
   %.pre.i.i = load ptr, ptr %1, align 8
   %.pre15.i.i = load ptr, ptr %0, align 8
   %.0.copyload.i.i6.pre.i.i = load i64, ptr %.pre.i.i, align 4
   %.0.copyload.i6.i7.pre.i.i = load i64, ptr %.pre15.i.i, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i: ; preds = %36
-  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i, %39, %32
-  %.0.copyload.i6.i7.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %.0.copyload.i.i.i.i, %39 ], [ %.0.copyload.i.i.i.i, %32 ], [ %.0.copyload.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i ]
-  %.0.copyload.i.i6.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %.0.copyload.i6.i.i.i, %39 ], [ %.0.copyload.i.i.i.i, %32 ], [ %.0.copyload.i6.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i ]
-  %42 = phi ptr [ %.pre15.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %33, %39 ], [ %33, %32 ], [ %33, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i ]
-  %43 = phi ptr [ %.pre.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %34, %39 ], [ %34, %32 ], [ %34, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i, %40, %39, %32
+  %.0.copyload.i6.i7.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %.0.copyload.i.i.i.i, %39 ], [ %.0.copyload.i.i.i.i, %32 ], [ %.0.copyload.i.i.i.i, %40 ]
+  %.0.copyload.i.i6.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %.0.copyload.i6.i.i.i, %39 ], [ %.0.copyload.i.i.i.i, %32 ], [ %.0.copyload.i6.i.i.i, %40 ]
+  %42 = phi ptr [ %.pre15.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %33, %39 ], [ %33, %32 ], [ %33, %40 ]
+  %43 = phi ptr [ %.pre.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i ], [ %34, %39 ], [ %34, %32 ], [ %34, %40 ]
   %44 = icmp eq i64 %.0.copyload.i.i6.i.i, %.0.copyload.i6.i7.i.i
   %45 = and i64 %.0.copyload.i.i6.i.i, 4294967295
   %.not.i8.i.i = icmp eq i64 %45, 0
@@ -27082,15 +27082,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i: ; preds 
   %46 = and i64 %.0.copyload.i6.i7.i.i, 4294967295
   %.not7.i9.i.i = icmp eq i64 %46, 0
   %or.cond14.i.i = or i1 %.not7.i9.i.i, %or.cond.i.i
-  br i1 %or.cond14.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit, label %47
+  br i1 %or.cond14.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i
-  %48 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %43, ptr noundef nonnull align 4 dereferenceable(8) %42)
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i
+  %47 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %43, ptr noundef nonnull align 4 dereferenceable(8) %42)
   br label %_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit
 
-_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit: ; preds = %47, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i, %40, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread, %21, %12, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit
-  %49 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11 ], [ false, %21 ], [ true, %12 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread ], [ false, %30 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i ], [ false, %47 ], [ true, %40 ]
-  ret i1 %49
+_ZNSt15__tuple_compareISt5tupleIJRN32pxrInternal_v0_24__pxrReserved__7SdfPathERNS1_36PcpErrorInvalidConflictingRelocation14ConflictReasonES3_EES7_Lm1ELm3EE6__lessERKS7_SA_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i, %40, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread, %21, %12, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit
+  %48 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11 ], [ false, %21 ], [ true, %12 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread ], [ false, %30 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i ], [ true, %40 ]
+  ret i1 %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -32003,8 +32003,8 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__px
   resume { ptr, i32 } %72
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_4HashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %14, %44, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit, %36
-  %.sroa.023.0 = phi ptr [ %37, %36 ], [ %70, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ %49, %44 ], [ %.sroa.020.0, %14 ]
-  %.sroa.4.0 = phi i8 [ 0, %36 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ 0, %44 ], [ 0, %14 ]
+  %.sroa.023.0 = phi ptr [ %49, %44 ], [ %70, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ %37, %36 ], [ %.sroa.020.0, %14 ]
+  %.sroa.4.0 = phi i8 [ 0, %44 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ 0, %36 ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -37007,7 +37007,7 @@ _ZSt4swapIN32pxrInternal_v0_24__pxrReserved__16Pcp_SublayerInfoEENSt9enable_ifIX
   br label %26, !llvm.loop !414
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__16Pcp_SublayerInfoESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge78, %.lr.ph.i, %7, %3
-  %.sroa.012.0 = phi ptr [ %2, %3 ], [ %0, %7 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge78 ], [ %23, %._crit_edge ]
+  %.sroa.012.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %7 ], [ %23, %._crit_edge78 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.012.0
 }
 
@@ -39520,21 +39520,21 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %.not.i.i = icmp eq i64 %15, 0
   %16 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not67 = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %17
+  br i1 %.not.i.i, label %18, label %17
 
 17:                                               ; preds = %14
-  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %18
+  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-18:                                               ; preds = %17
+18:                                               ; preds = %14
+  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %17
   %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  br i1 %19, label %._crit_edge, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
+  br i1 %19, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
 
-._crit_edge:                                      ; preds = %18
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   %.pre = load ptr, ptr %10, align 8
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %14
-  br i1 %.not67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread: ; preds = %17, %9, %18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, %6
   %20 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
@@ -39554,22 +39554,22 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
   %.not.i.i12 = icmp eq i64 %27, 0
   %28 = and i64 %.0.copyload.i6.i.i11, 4294967295
   %.not63 = icmp eq i64 %28, 0
-  br i1 %.not.i.i12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15, label %29
+  br i1 %.not.i.i12, label %30, label %29
 
 29:                                               ; preds = %26
-  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %30
+  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
 
-30:                                               ; preds = %29
+30:                                               ; preds = %26
+  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %32
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15: ; preds = %29
   %31 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %24)
-  br i1 %31, label %32, label %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge
+  br i1 %31, label %32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge
 
-._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge: ; preds = %30
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
   %.0.copyload.i.i.i22.pre = load i64, ptr %24, align 4
   %.0.copyload.i6.i.i23.pre = load i64, ptr %2, align 4
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15: ; preds = %26
-  br i1 %.not63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, label %32
 
 32:                                               ; preds = %30, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -39590,17 +39590,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15: ; p
   %.not.i.i18 = icmp eq i64 %41, 0
   %42 = and i64 %.0.copyload.i6.i.i17, 4294967295
   %.not64 = icmp eq i64 %42, 0
-  br i1 %.not.i.i18, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21, label %43
+  br i1 %.not.i.i18, label %44, label %43
 
 43:                                               ; preds = %40
-  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %44
+  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21
 
-44:                                               ; preds = %43
+44:                                               ; preds = %40
+  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %46
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21: ; preds = %43
   %45 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br i1 %45, label %46, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21: ; preds = %40
-  br i1 %.not64, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, label %46
 
 46:                                               ; preds = %44, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -39616,9 +39616,9 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thre
   %52 = extractvalue { ptr, ptr } %50, 1
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread: ; preds = %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge, %29, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15
-  %.0.copyload.i6.i.i23 = phi i64 [ %.0.copyload.i6.i.i23.pre, %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i.i.i10, %29 ], [ %.0.copyload.i.i.i10, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15 ]
-  %.0.copyload.i.i.i22 = phi i64 [ %.0.copyload.i.i.i22.pre, %._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i6.i.i11, %29 ], [ %.0.copyload.i6.i.i11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15 ]
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge, %29, %30
+  %.0.copyload.i6.i.i23 = phi i64 [ %.0.copyload.i6.i.i23.pre, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i.i.i10, %29 ], [ %.0.copyload.i.i.i10, %30 ]
+  %.0.copyload.i.i.i22 = phi i64 [ %.0.copyload.i.i.i22.pre, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15._ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread_crit_edge ], [ %.0.copyload.i6.i.i11, %29 ], [ %.0.copyload.i6.i.i11, %30 ]
   %53 = icmp eq i64 %.0.copyload.i.i.i22, %.0.copyload.i6.i.i23
   br i1 %53, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %54
 
@@ -39627,17 +39627,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thre
   %.not.i.i24 = icmp eq i64 %55, 0
   %56 = and i64 %.0.copyload.i6.i.i23, 4294967295
   %.not65 = icmp eq i64 %56, 0
-  br i1 %.not.i.i24, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27, label %57
+  br i1 %.not.i.i24, label %58, label %57
 
 57:                                               ; preds = %54
-  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %58
+  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27
 
-58:                                               ; preds = %57
+58:                                               ; preds = %54
+  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %60
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27: ; preds = %57
   %59 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br i1 %59, label %60, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27: ; preds = %54
-  br i1 %.not65, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread, label %60
 
 60:                                               ; preds = %58, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -39658,17 +39658,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27: ; p
   %.not.i.i30 = icmp eq i64 %69, 0
   %70 = and i64 %.0.copyload.i6.i.i29, 4294967295
   %.not66 = icmp eq i64 %70, 0
-  br i1 %.not.i.i30, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33, label %71
+  br i1 %.not.i.i30, label %72, label %71
 
 71:                                               ; preds = %68
-  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %72
+  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33
 
-72:                                               ; preds = %71
+72:                                               ; preds = %68
+  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %74
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33: ; preds = %71
   %73 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %66)
   br i1 %73, label %74, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33: ; preds = %68
-  br i1 %.not66, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, label %74
 
 74:                                               ; preds = %72, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -39684,9 +39684,9 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thre
   %80 = extractvalue { ptr, ptr } %78, 1
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread: ; preds = %23, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, %._crit_edge, %74, %46, %57, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27, %58, %60, %32, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-  %.sroa.054.0 = phi ptr [ %21, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ %1, %57 ], [ %51, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select61, %74 ], [ null, %60 ], [ %spec.select, %46 ], [ %79, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ %1, %58 ], [ null, %._crit_edge ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit ], [ %1, %23 ]
-  %.sroa.12.0 = phi ptr [ %22, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ null, %57 ], [ %52, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select62, %74 ], [ %62, %60 ], [ %spec.select60, %46 ], [ %80, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ null, %58 ], [ %.pre, %._crit_edge ], [ %11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit ], [ null, %23 ]
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27.thread: ; preds = %23, %18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge, %74, %46, %57, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27, %58, %60, %32, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
+  %.sroa.054.0 = phi ptr [ %21, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ %1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ %1, %57 ], [ %51, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select61, %74 ], [ null, %60 ], [ %spec.select, %46 ], [ %79, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ %1, %58 ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge ], [ null, %18 ], [ %1, %23 ]
+  %.sroa.12.0 = phi ptr [ %22, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit27 ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit15.thread ], [ %34, %32 ], [ null, %57 ], [ %52, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit21.thread ], [ %spec.select62, %74 ], [ %62, %60 ], [ %spec.select60, %46 ], [ %80, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit33.thread ], [ null, %58 ], [ %.pre, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit._crit_edge ], [ %11, %18 ], [ null, %23 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.054.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -39713,17 +39713,17 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %.not.i.i = icmp eq i64 %8, 0
   %9 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not32 = icmp eq i64 %9, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %10
+  br i1 %.not.i.i, label %11, label %10
 
 10:                                               ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %11
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-11:                                               ; preds = %10
+11:                                               ; preds = %7
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %10
   %12 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %5)
   br i1 %12, label %13, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread: ; preds = %10, %.lr.ph, %11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   br label %13
@@ -39764,17 +39764,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
   %.not.i.i7 = icmp eq i64 %24, 0
   %25 = and i64 %.0.copyload.i6.i.i6, 4294967295
   %.not33 = icmp eq i64 %25, 0
-  br i1 %.not.i.i7, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10, label %26
+  br i1 %.not.i.i7, label %27, label %26
 
 26:                                               ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %27
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
 
-27:                                               ; preds = %26
+27:                                               ; preds = %23
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %26
   %28 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %28, label %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread: ; preds = %26, %20, %27, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
   br label %29
@@ -40981,8 +40981,8 @@ _ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__px
   br label %_ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_ET0_T_S8_S7_.exit36
 
 _ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_ET0_T_S8_S7_.exit36: ; preds = %_ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_ET0_T_S8_S7_.exit36.loopexit, %.preheader7.i.i, %_ZSt7advanceISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEmEvRT_T0_.exit
-  %180 = phi ptr [ %69, %_ZSt7advanceISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEmEvRT_T0_.exit ], [ %69, %.preheader7.i.i ], [ %.pre, %_ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_ET0_T_S8_S7_.exit36.loopexit ]
-  %.sroa.0.047 = phi ptr [ %.sroa.0.0, %_ZSt7advanceISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEmEvRT_T0_.exit ], [ %1, %.preheader7.i.i ], [ %.sroa.0.0, %_ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_ET0_T_S8_S7_.exit36.loopexit ]
+  %180 = phi ptr [ %69, %.preheader7.i.i ], [ %69, %_ZSt7advanceISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEmEvRT_T0_.exit ], [ %.pre, %_ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_ET0_T_S8_S7_.exit36.loopexit ]
+  %.sroa.0.047 = phi ptr [ %1, %.preheader7.i.i ], [ %.sroa.0.0, %_ZSt7advanceISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEmEvRT_T0_.exit ], [ %.sroa.0.0, %_ZSt4copyISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_ET0_T_S8_S7_.exit36.loopexit ]
   %.not10.i.i.i.i = icmp eq ptr %.sroa.0.047, %2
   br i1 %.not10.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit, label %.lr.ph.i.i.i.i37
 
@@ -45737,8 +45737,8 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEEEclERK
   br i1 %.not, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit, label %6, !llvm.loop !522
 
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit: ; preds = %65, %63, %2, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit
-  %.sroa.048.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %63 ], [ %.123, %65 ]
-  %.sroa.3.0 = phi ptr [ %.02255, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.19.i41, %63 ], [ %.123, %65 ]
+  %.sroa.048.0 = phi ptr [ %.08.lcssa.i, %63 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.123, %65 ]
+  %.sroa.3.0 = phi ptr [ %.19.i41, %63 ], [ %.02255, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.123, %65 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.048.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

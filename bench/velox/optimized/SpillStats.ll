@@ -10076,7 +10076,7 @@ while.body.backedge.us.i.i:                       ; preds = %if.end16.us.i.i, %_
   br i1 %cmp.us.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %if.end.us.i.i, !llvm.loop !250
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit: ; preds = %if.end.i54, %while.body.backedge.us.i.i, %for.end19.i
-  %9 = phi i32 [ %3, %for.end19.i ], [ %8, %while.body.backedge.us.i.i ], [ %2, %if.end.i54 ]
+  %9 = phi i32 [ %8, %while.body.backedge.us.i.i ], [ %3, %for.end19.i ], [ %2, %if.end.i54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %usage.i)
   br label %seqcst_fail50.i.i
 
@@ -11498,7 +11498,7 @@ if.end30:                                         ; preds = %invoke.cont26
   br i1 %cmp33, label %return, label %while.cond, !llvm.loop !273
 
 return:                                           ; preds = %if.end34.i, %if.end17.i, %if.end30, %sw.epilog, %if.end11.i, %if.end.i, %if.then28
-  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %sw.epilog ], [ true, %if.end.i ], [ true, %if.end11.i ], [ true, %if.end30 ], [ %cmp.i.i.i.not.i, %if.end17.i ], [ %cmp.i.i.i.not.i, %if.end34.i ]
+  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %if.end11.i ], [ true, %if.end30 ], [ true, %sw.epilog ], [ true, %if.end.i ], [ %cmp.i.i.i.not.i, %if.end17.i ], [ %cmp.i.i.i.not.i, %if.end34.i ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %if.end.i10, %while.cond

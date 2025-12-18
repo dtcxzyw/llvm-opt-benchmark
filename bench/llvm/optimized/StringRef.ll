@@ -361,7 +361,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %37
   br label %.thread102
 
 .thread102:                                       ; preds = %34, %.thread102.loopexit113, %41, %._crit_edge, %46
-  %.8 = phi i32 [ 0, %._crit_edge ], [ %48, %46 ], [ %43, %41 ], [ %..le, %.thread102.loopexit113 ], [ %.4, %34 ]
+  %.8 = phi i32 [ 0, %._crit_edge ], [ %48, %46 ], [ %..le, %.thread102.loopexit113 ], [ %43, %41 ], [ %.4, %34 ]
   ret i32 %.8
 }
 
@@ -702,7 +702,7 @@ _ZN4llvm11SmallVectorIjLj64EEC2Em.exit.i:         ; preds = %.lr.ph.preheader.i.
   br label %.thread.i
 
 .thread.i:                                        ; preds = %124, %._crit_edge.split.us.i, %76, %._crit_edge.split.us.us.us.i, %.preheader.i..thread.i_crit_edge, %.thread.i.loopexit21, %.lr.ph101.split.us.split.us.i.preheader, %.preheader.thread.i
-  %148 = phi ptr [ %.pre, %.preheader.i..thread.i_crit_edge ], [ %19, %.preheader.thread.i ], [ %34, %.thread.i.loopexit21 ], [ %34, %.lr.ph101.split.us.split.us.i.preheader ], [ %.pre134.i, %._crit_edge.split.us.i ], [ %.pre134.i, %._crit_edge.split.us.us.us.i ], [ %.pre134.i, %76 ], [ %.pre134.i, %124 ]
+  %148 = phi ptr [ %.pre, %.preheader.i..thread.i_crit_edge ], [ %.pre134.i, %._crit_edge.split.us.i ], [ %.pre134.i, %76 ], [ %.pre134.i, %._crit_edge.split.us.us.us.i ], [ %19, %.preheader.thread.i ], [ %34, %.thread.i.loopexit21 ], [ %34, %.lr.ph101.split.us.split.us.i.preheader ], [ %.pre134.i, %124 ]
   %149 = getelementptr inbounds nuw i32, ptr %148, i64 %.fr.i
   %150 = load i32, ptr %149, align 4, !tbaa !22
   br label %.loopexit.i
@@ -712,8 +712,8 @@ _ZN4llvm11SmallVectorIjLj64EEC2Em.exit.i:         ; preds = %.lr.ph.preheader.i.
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.split.i, %._crit_edge.split.us.us.i, %.loopexit.i.loopexit20, %.thread.i
-  %151 = phi ptr [ %148, %.thread.i ], [ %34, %.loopexit.i.loopexit20 ], [ %.pre134.i, %._crit_edge.split.us.us.i ], [ %.pre134.i, %._crit_edge.split.i ]
-  %.6.i = phi i32 [ %150, %.thread.i ], [ %33, %.loopexit.i.loopexit20 ], [ %41, %._crit_edge.split.us.us.i ], [ %41, %._crit_edge.split.i ]
+  %151 = phi ptr [ %148, %.thread.i ], [ %.pre134.i, %._crit_edge.split.us.us.i ], [ %34, %.loopexit.i.loopexit20 ], [ %.pre134.i, %._crit_edge.split.i ]
+  %.6.i = phi i32 [ %150, %.thread.i ], [ %41, %._crit_edge.split.us.us.i ], [ %33, %.loopexit.i.loopexit20 ], [ %41, %._crit_edge.split.i ]
   %152 = icmp eq ptr %151, %19
   br i1 %152, label %_ZN4llvm11SmallVectorIjLj64EED2Ev.exit.i, label %153
 
@@ -1060,7 +1060,7 @@ _ZNK4llvm9StringRef23starts_with_insensitiveES0_.exit: ; preds = %.lr.ph.i.i
   br i1 %.not, label %_ZNK4llvm9StringRef23starts_with_insensitiveES0_.exit.thread, label %.lr.ph.i.i.preheader, !llvm.loop !38
 
 _ZNK4llvm9StringRef23starts_with_insensitiveES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef23starts_with_insensitiveES0_.exit, %10, %4, %.lr.ph
-  %.0 = phi i64 [ -1, %4 ], [ %3, %.lr.ph ], [ %.0516, %10 ], [ -1, %_ZNK4llvm9StringRef23starts_with_insensitiveES0_.exit ]
+  %.0 = phi i64 [ %3, %.lr.ph ], [ %.0516, %10 ], [ -1, %4 ], [ -1, %_ZNK4llvm9StringRef23starts_with_insensitiveES0_.exit ]
   ret i64 %.0
 }
 
@@ -1185,7 +1185,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %.not, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread, label %.lr.ph.split, !llvm.loop !41
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit, %13, %.lr.ph, %7, %3
-  %.0 = phi i64 [ -1, %3 ], [ -1, %7 ], [ %reass.sub, %.lr.ph ], [ %10, %13 ], [ -1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ]
+  %.0 = phi i64 [ -1, %3 ], [ %10, %13 ], [ -1, %7 ], [ %reass.sub, %.lr.ph ], [ -1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ]
   ret i64 %.0
 }
 
@@ -3700,7 +3700,7 @@ _ZN4llvm11SmallVectorIjLj64EEC2Em.exit:           ; preds = %_ZN4llvm15SmallVect
   br i1 %exitcond, label %._crit_edge.split, label %111, !llvm.loop !142
 
 .thread:                                          ; preds = %105, %._crit_edge.split.us, %62, %._crit_edge.split.us.us.us, %.preheader.thread, %..thread_crit_edge.split.us, %.preheader
-  %.pre.pre153157 = phi ptr [ %17, %.preheader.thread ], [ %.pre.pre.pre, %.preheader ], [ %.pre.pre.pre, %..thread_crit_edge.split.us ], [ %.pre.pre153156161, %._crit_edge.split.us ], [ %.pre.pre153156161, %._crit_edge.split.us.us.us ], [ %.pre.pre153156161, %62 ], [ %.pre.pre153156161, %105 ]
+  %.pre.pre153157 = phi ptr [ %17, %.preheader.thread ], [ %.pre.pre153156161, %._crit_edge.split.us ], [ %.pre.pre153156161, %62 ], [ %.pre.pre153156161, %._crit_edge.split.us.us.us ], [ %.pre.pre.pre, %.preheader ], [ %.pre.pre.pre, %..thread_crit_edge.split.us ], [ %.pre.pre153156161, %105 ]
   %127 = getelementptr inbounds nuw i32, ptr %.pre.pre153157, i64 %3
   %128 = load i32, ptr %127, align 4, !tbaa !22
   br label %.loopexit

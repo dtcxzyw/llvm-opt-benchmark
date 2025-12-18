@@ -4187,7 +4187,7 @@ thread-pre-split:                                 ; preds = %157
   br label %.thread279
 
 .thread279:                                       ; preds = %.thread279.sink.split, %.thread, %allocset.exit, %157
-  %.not86277 = phi i1 [ false, %157 ], [ %156, %.thread ], [ true, %allocset.exit ], [ %156, %.thread279.sink.split ]
+  %.not86277 = phi i1 [ false, %157 ], [ true, %allocset.exit ], [ %156, %.thread ], [ %156, %.thread279.sink.split ]
   %169 = load ptr, ptr %2, align 8, !tbaa !18
   %170 = load ptr, ptr %0, align 8, !tbaa !17
   %171 = ptrtoint ptr %169 to i64
@@ -5402,8 +5402,8 @@ nch.exit.thread.thread:                           ; preds = %nch.exit
   br label %freezeset.exit
 
 freezeset.exit:                                   ; preds = %716, %723, %nch.exit.thread.thread, %nch.exit.thread, %._crit_edge.i.i, %743
-  %747 = phi ptr [ %.pre.i144, %._crit_edge.i.i ], [ %.pre.i144, %743 ], [ %.val97, %nch.exit.thread ], [ %.val97, %nch.exit.thread.thread ], [ %.val97, %723 ], [ %.val97, %716 ]
-  %.0.i141 = phi ptr [ %.us-phi62.i, %._crit_edge.i.i ], [ %.us-phi62.i, %743 ], [ %138, %nch.exit.thread ], [ %138, %nch.exit.thread.thread ], [ %138, %723 ], [ %138, %716 ]
+  %747 = phi ptr [ %.pre.i144, %743 ], [ %.pre.i144, %._crit_edge.i.i ], [ %.val97, %nch.exit.thread.thread ], [ %.val97, %nch.exit.thread ], [ %.val97, %723 ], [ %.val97, %716 ]
+  %.0.i141 = phi ptr [ %.us-phi62.i, %743 ], [ %.us-phi62.i, %._crit_edge.i.i ], [ %138, %nch.exit.thread.thread ], [ %138, %nch.exit.thread ], [ %138, %723 ], [ %138, %716 ]
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 8
   %749 = load ptr, ptr %748, align 8, !tbaa !48
   %750 = ptrtoint ptr %.0.i141 to i64

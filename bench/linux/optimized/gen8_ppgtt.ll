@@ -253,7 +253,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br label %.thread39
 
 .thread39:                                        ; preds = %82, %130, %..thread39_crit_edge, %91
-  %157 = phi i8 [ %.pre, %..thread39_crit_edge ], [ 0, %91 ], [ %140, %130 ], [ %85, %82 ]
+  %157 = phi i8 [ %.pre, %..thread39_crit_edge ], [ %140, %130 ], [ 0, %91 ], [ %85, %82 ]
   %158 = zext i8 %157 to i64
   %159 = mul nuw nsw i64 %158, 9
   %160 = add nuw nsw i64 %159, 12

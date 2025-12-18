@@ -893,7 +893,7 @@ define range(i32 0, 2) i32 @ff_test_fmt(ptr noundef readonly captures(none) %0, 
   br label %sws_test_format.exit
 
 sws_test_format.exit:                             ; preds = %14, %20
-  %.shrunk.i.in = phi i8 [ %18, %14 ], [ %23, %20 ]
+  %.shrunk.i.in = phi i8 [ %23, %20 ], [ %18, %14 ]
   %.shrunk.i = and i8 %.shrunk.i.in, 1
   %.not = icmp eq i8 %.shrunk.i, 0
   br i1 %.not, label %sws_test_format.exit.thread, label %24
@@ -1515,7 +1515,7 @@ ff_q_equal.exit.thread17.i44.i.i.i.i:             ; preds = %185, %182, %ff_cie_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread19
 
-ff_fmt_equal.exit.thread15:                       ; preds = %199, %196, %ff_q_equal.exit.thread17.i44.i.i.i.i
+ff_fmt_equal.exit.thread15:                       ; preds = %199, %ff_q_equal.exit.thread17.i44.i.i.i.i, %196
   %.not11.not = icmp ne i32 %47, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

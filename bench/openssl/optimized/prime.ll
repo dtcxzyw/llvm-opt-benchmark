@@ -345,7 +345,7 @@ check_num.exit:                                   ; preds = %switch.early.test.i
   br i1 %.not53, label %.thread, label %.preheader33.i.preheader, !llvm.loop !17
 
 .thread:                                          ; preds = %18, %107, %48, %.preheader, %.critedge, %.split.us, %57, %68, %79, %63, %82, %9, %.loopexit
-  %.036 = phi i32 [ 1, %.loopexit ], [ 0, %9 ], [ 1, %57 ], [ 0, %82 ], [ 1, %63 ], [ 1, %79 ], [ 1, %68 ], [ 1, %.split.us ], [ 1, %.critedge ], [ 0, %.preheader ], [ 0, %107 ], [ 0, %48 ], [ 1, %18 ]
+  %.036 = phi i32 [ 1, %.loopexit ], [ 0, %9 ], [ 0, %.preheader ], [ 1, %57 ], [ 1, %.critedge ], [ 0, %82 ], [ 1, %63 ], [ 1, %79 ], [ 1, %68 ], [ 1, %.split.us ], [ 0, %48 ], [ 0, %107 ], [ 1, %18 ]
   %115 = load ptr, ptr %3, align 8, !tbaa !4
   call void @BN_free(ptr noundef %115) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

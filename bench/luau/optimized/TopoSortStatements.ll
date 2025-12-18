@@ -3590,8 +3590,8 @@ _ZN4Luau6detail14DenseHashTableIPNS0_4NodeES3_S3_NS0_16ItemInterfaceSetIS3_EENS_
   br i1 %exitcond.not.i, label %._crit_edge32.i, label %74, !llvm.loop !145
 
 _ZN4Luau6detail14DenseHashTableIPNS0_4NodeES3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i: ; preds = %59, %._crit_edge32.i, %73, %.lr.ph
-  %.sroa.14.2 = phi i64 [ %.sroa.14.1340, %.lr.ph ], [ %spec.select.i, %73 ], [ %spec.select.i, %._crit_edge32.i ], [ %.sroa.14.1340, %59 ]
-  %.sroa.0252.2 = phi ptr [ %.sroa.0252.1342, %.lr.ph ], [ %.sroa.0.0.i, %73 ], [ %.sroa.0.0.i, %._crit_edge32.i ], [ %.sroa.0252.1342, %59 ]
+  %.sroa.14.2 = phi i64 [ %.sroa.14.1340, %.lr.ph ], [ %spec.select.i, %._crit_edge32.i ], [ %spec.select.i, %73 ], [ %.sroa.14.1340, %59 ]
+  %.sroa.0252.2 = phi ptr [ %.sroa.0252.1342, %.lr.ph ], [ %.sroa.0.0.i, %._crit_edge32.i ], [ %.sroa.0.0.i, %73 ], [ %.sroa.0252.1342, %59 ]
   %99 = add i64 %.sroa.14.2, -1
   %100 = ptrtoint ptr %47 to i64
   %101 = lshr i64 %100, 4

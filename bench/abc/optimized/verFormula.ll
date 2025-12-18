@@ -446,8 +446,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.not143267 = icmp eq i32 %.val152266, 0
   br i1 %.not143267, label %.loopexit, label %.lr.ph269
 
-.preheader.sink.split:                            ; preds = %73, %75, %74, %76
-  %.sink = phi i32 [ 2, %76 ], [ 4, %74 ], [ 5, %75 ], [ 6, %73 ]
+.preheader.sink.split:                            ; preds = %73, %75, %76, %74
+  %.sink = phi i32 [ 4, %74 ], [ 2, %76 ], [ 5, %75 ], [ 6, %73 ]
   tail call fastcc void @Vec_IntPush(ptr noundef %4, i32 noundef %.sink)
   br label %.preheader
 
@@ -706,8 +706,8 @@ Vec_IntPush.exit209.sink.split:                   ; preds = %Vec_IntPush.exit202
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit181, %.loopexit.sink.split, %160, %.preheader227, %42, %42, %42, %42
-  %.2116 = phi i32 [ 1, %160 ], [ %.0114, %42 ], [ 2, %.preheader227 ], [ %.0114, %42 ], [ %.0114, %42 ], [ %.0114, %42 ], [ %.2116.ph, %.loopexit.sink.split ], [ 2, %Vec_PtrPush.exit181 ]
-  %.3 = phi ptr [ %.2, %160 ], [ %.2, %42 ], [ %.4351, %.preheader227 ], [ %.2, %42 ], [ %.2, %42 ], [ %.2, %42 ], [ %.3.ph, %.loopexit.sink.split ], [ %.4351, %Vec_PtrPush.exit181 ]
+  %.2116 = phi i32 [ 1, %160 ], [ %.0114, %42 ], [ %.0114, %42 ], [ 2, %.preheader227 ], [ %.2116.ph, %.loopexit.sink.split ], [ %.0114, %42 ], [ %.0114, %42 ], [ 2, %Vec_PtrPush.exit181 ]
+  %.3 = phi ptr [ %.2, %160 ], [ %.2, %42 ], [ %.2, %42 ], [ %.4351, %.preheader227 ], [ %.3.ph, %.loopexit.sink.split ], [ %.2, %42 ], [ %.2, %42 ], [ %.4351, %Vec_PtrPush.exit181 ]
   %282 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %42, !llvm.loop !28
 
@@ -742,7 +742,7 @@ Vec_IntPush.exit209.sink.split:                   ; preds = %Vec_IntPush.exit202
   br label %.thread220
 
 .thread220:                                       ; preds = %.thread, %79, %115, %72, %46, %289, %290, %291, %287, %223, %119, %114, %34, %24, %15
-  %.0 = phi ptr [ null, %34 ], [ null, %119 ], [ %288, %287 ], [ %19, %15 ], [ null, %223 ], [ null, %114 ], [ %.val149, %24 ], [ null, %291 ], [ null, %290 ], [ null, %289 ], [ null, %.thread ], [ null, %46 ], [ null, %72 ], [ null, %115 ], [ null, %79 ]
+  %.0 = phi ptr [ null, %34 ], [ null, %119 ], [ %288, %287 ], [ %19, %15 ], [ null, %223 ], [ null, %114 ], [ %.val149, %24 ], [ null, %291 ], [ null, %290 ], [ null, %289 ], [ null, %79 ], [ null, %.thread ], [ null, %46 ], [ null, %72 ], [ null, %115 ]
   ret ptr %.0
 }
 

@@ -5311,7 +5311,7 @@ define internal void @blend_softdifference_9bit(ptr noundef readonly captures(no
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 511)
@@ -7656,7 +7656,7 @@ define internal void @blend_softdifference_10bit(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 1023)
@@ -10001,7 +10001,7 @@ define internal void @blend_softdifference_12bit(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 4095)
@@ -12346,7 +12346,7 @@ define internal void @blend_softdifference_14bit(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 16383)

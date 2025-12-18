@@ -1103,7 +1103,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6Shader8fragmentE3vecILi3E
   br label %.preheader.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZNK3vecILi3EEixEi.exit.us21.i.i, %_ZNK3vecILi3EEixEi.exit.us.i.i, %_ZNK3vecILi3EEixEi.exit.i.i
-  %.us-phi.i.i = phi double [ %30, %_ZNK3vecILi3EEixEi.exit.us.i.i ], [ %46, %_ZNK3vecILi3EEixEi.exit.i.i ], [ %38, %_ZNK3vecILi3EEixEi.exit.us21.i.i ]
+  %.us-phi.i.i = phi double [ %46, %_ZNK3vecILi3EEixEi.exit.i.i ], [ %30, %_ZNK3vecILi3EEixEi.exit.us.i.i ], [ %38, %_ZNK3vecILi3EEixEi.exit.us21.i.i ]
   store double %.us-phi.i.i, ptr %23, align 8, !tbaa !38, !alias.scope !122, !noalias !119
   %20 = add nsw i32 %21, -1
   br i1 %.not.i.i.i, label %_ZmlILi3ELi3EE3vecIXT0_EERKS0_IXT_EERK3matIXT_EXT0_EE.exit, label %.preheader.i.i, !llvm.loop !125

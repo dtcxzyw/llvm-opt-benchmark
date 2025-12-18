@@ -1580,8 +1580,8 @@ while.body.i33:                                   ; preds = %if.then18, %while.b
   br i1 %59, label %while.body.i33, label %if.end20, !llvm.loop !8
 
 if.end20:                                         ; preds = %while.body.i33, %while.body.i23, %if.then18, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27, %if.then15
-  %60 = phi i8 [ %53, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ %44, %if.then15 ], [ %54, %if.then18 ], [ %47, %while.body.i23 ], [ %57, %while.body.i33 ]
-  %is_float.1 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ 1, %if.then15 ], [ 1, %if.then18 ], [ 1, %while.body.i23 ], [ 1, %while.body.i33 ]
+  %60 = phi i8 [ %47, %while.body.i23 ], [ %53, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ %44, %if.then15 ], [ %54, %if.then18 ], [ %57, %while.body.i33 ]
+  %is_float.1 = phi i8 [ 1, %while.body.i23 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ 1, %if.then15 ], [ 1, %if.then18 ], [ 1, %while.body.i33 ]
   %current_char_.i35 = getelementptr inbounds nuw i8, ptr %this, i64 128
   switch i8 %60, label %if.end27 [
     i8 101, label %if.then24
@@ -1694,7 +1694,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread: ; preds = %land.lh
   br label %if.end36
 
 if.end36:                                         ; preds = %while.body.i21, %land.lhs.true29, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread, %invoke.cont12, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit, %if.end27, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit
-  %is_float.0 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit ], [ %is_float.2, %if.end27 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %is_float.2, %land.lhs.true29 ], [ 0, %invoke.cont12 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread ], [ 0, %while.body.i21 ]
+  %is_float.0 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit ], [ %is_float.2, %if.end27 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %is_float.2, %land.lhs.true29 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread ], [ 0, %invoke.cont12 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread ], [ 0, %while.body.i21 ]
   %79 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %this.val12 = load i8, ptr %79, align 8
   %80 = and i8 %this.val12, -33
@@ -3271,7 +3271,7 @@ while.end105:                                     ; preds = %while.cond.backedge
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit27, %while.end105, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit86
-  %retval.0 = phi i1 [ false, %while.end105 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit86 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit27 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit ], [ true, %if.end ]
+  %retval.0 = phi i1 [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit27 ], [ false, %while.end105 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit86 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit ], [ true, %if.end ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad92, %ehcleanup
@@ -4686,7 +4686,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exi
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont40, %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit, %if.end79, %land.lhs.true, %if.then34, %invoke.cont16, %invoke.cont12
-  %retval.0 = phi i1 [ %call36, %if.then34 ], [ false, %invoke.cont12 ], [ true, %invoke.cont16 ], [ true, %land.lhs.true ], [ true, %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit ], [ false, %if.end79 ], [ true, %invoke.cont40 ]
+  %retval.0 = phi i1 [ %call36, %if.then34 ], [ false, %if.end79 ], [ false, %invoke.cont12 ], [ true, %invoke.cont16 ], [ true, %land.lhs.true ], [ true, %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit ], [ true, %invoke.cont40 ]
   %163 = load ptr, ptr %next_leading_comments_.i, align 8
   %cmp.not.i288 = icmp ne ptr %163, null
   %has_comment_.i289 = getelementptr inbounds nuw i8, ptr %collector, i64 61
@@ -4901,7 +4901,7 @@ if.end40:                                         ; preds = %while.cond, %for.en
   br label %return
 
 return:                                           ; preds = %while.body, %if.end30, %for.body, %for.end, %if.end40
-  %retval.0 = phi i1 [ true, %if.end40 ], [ false, %for.end ], [ false, %if.end30 ], [ false, %for.body ], [ false, %while.body ]
+  %retval.0 = phi i1 [ true, %if.end40 ], [ false, %if.end30 ], [ false, %for.end ], [ false, %for.body ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -5284,8 +5284,8 @@ if.else5.i.thread:                                ; preds = %land.lhs.true.i, %l
   br label %if.then7.i
 
 _ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit: ; preds = %for.body.i15.i, %if.end.i, %land.lhs.true10.i, %if.then12.i
-  %unicode.1 = phi i32 [ %add.i.i, %if.end.i ], [ %add.i29.i, %if.then12.i ], [ %add.i.i, %land.lhs.true10.i ], [ %add.i.i, %for.body.i15.i ]
-  %retval.0.i.idx = phi i64 [ %incdec.ptr.i.add, %if.end.i ], [ %add.ptr.i.i.add, %if.then12.i ], [ %incdec.ptr.i.add, %land.lhs.true10.i ], [ %incdec.ptr.i.add, %for.body.i15.i ]
+  %unicode.1 = phi i32 [ %add.i29.i, %if.then12.i ], [ %add.i.i, %if.end.i ], [ %add.i.i, %land.lhs.true10.i ], [ %add.i.i, %for.body.i15.i ]
+  %retval.0.i.idx = phi i64 [ %add.ptr.i.i.add, %if.then12.i ], [ %incdec.ptr.i.add, %if.end.i ], [ %incdec.ptr.i.add, %land.lhs.true10.i ], [ %incdec.ptr.i.add, %for.body.i15.i ]
   %retval.0.i.ptr = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %retval.0.i.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %cmp.i63 = icmp ult i32 %unicode.1, 128

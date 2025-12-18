@@ -678,7 +678,7 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
   br label %22
 
 22:                                               ; preds = %.sink.split, %15, %17
-  %.0 = phi i32 [ %.1, %17 ], [ %.1, %15 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %.1, %15 ], [ %.1, %17 ], [ 0, %.sink.split ]
   %23 = icmp eq ptr %1, null
   br i1 %23, label %35, label %24
 

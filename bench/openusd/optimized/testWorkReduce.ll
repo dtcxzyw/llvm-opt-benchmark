@@ -357,8 +357,8 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   br label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit21
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %80, %.lr.ph.split.split.us, %23, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, %10
-  %.sroa.15.0.ph.ph = phi ptr [ null, %10 ], [ %.sroa.15.3, %23 ], [ %.sroa.15.5, %.lr.ph.split.split.us ], [ %.sroa.15.5, %80 ], [ %.sroa.15.5, %.invoke ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
-  %.sroa.041.0.ph.ph = phi ptr [ null, %10 ], [ %.sroa.041.3, %23 ], [ %.sroa.041.5, %.lr.ph.split.split.us ], [ %.sroa.041.5, %80 ], [ %.sroa.041.5, %.invoke ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
+  %.sroa.15.0.ph.ph = phi ptr [ %.sroa.15.3, %23 ], [ %.sroa.15.5, %.lr.ph.split.split.us ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ], [ %.sroa.15.5, %80 ], [ %.sroa.15.5, %.invoke ], [ null, %10 ]
+  %.sroa.041.0.ph.ph = phi ptr [ %.sroa.041.3, %23 ], [ %.sroa.041.5, %.lr.ph.split.split.us ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ], [ %.sroa.041.5, %80 ], [ %.sroa.041.5, %.invoke ], [ null, %10 ]
   %lpad.loopexit.split-lp53 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit21

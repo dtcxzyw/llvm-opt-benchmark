@@ -4434,8 +4434,8 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 .loopexit:                                        ; preds = %39, %39, %170, %.preheader
-  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %39 ], [ %.sroa.055.1, %39 ], [ %.sroa.055.2, %170 ]
-  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %39 ], [ %.sroa.25.0, %39 ], [ %.sroa.25.1, %170 ]
+  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %39 ], [ %.sroa.055.2, %170 ], [ %.sroa.055.1, %39 ]
+  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %39 ], [ %.sroa.25.1, %170 ], [ %.sroa.25.0, %39 ]
   store i64 %.sroa.055.3, ptr %33, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %.sroa.25.2, ptr %.sroa.22.0..sroa_idx, align 4
@@ -4897,8 +4897,8 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 .loopexit:                                        ; preds = %36, %36, %167, %.preheader
-  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %36 ], [ %.sroa.055.1, %36 ], [ %.sroa.055.2, %167 ]
-  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %36 ], [ %.sroa.25.0, %36 ], [ %.sroa.25.1, %167 ]
+  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %36 ], [ %.sroa.055.2, %167 ], [ %.sroa.055.1, %36 ]
+  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %36 ], [ %.sroa.25.1, %167 ], [ %.sroa.25.0, %36 ]
   store i64 %.sroa.055.3, ptr %30, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %.sroa.25.2, ptr %.sroa.22.0..sroa_idx, align 4

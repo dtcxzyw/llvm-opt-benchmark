@@ -2002,9 +2002,9 @@ tailrecurse.outer.backedge:                       ; preds = %32, %48
   br label %tailrecurse.outer.backedge
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer.backedge, %tailrecurse, %3
-  %.tr33.ph.lcssa54 = phi ptr [ %1, %3 ], [ %.tr33.ph60, %tailrecurse ], [ %.tr33.ph.be, %tailrecurse.outer.backedge ]
-  %.tr34.ph.lcssa52 = phi i64 [ %2, %3 ], [ %.tr34.ph61, %tailrecurse ], [ %.tr34.ph.be, %tailrecurse.outer.backedge ]
-  %.lcssa37 = phi ptr [ %7, %3 ], [ %26, %tailrecurse ], [ %44, %tailrecurse.outer.backedge ]
+  %.tr33.ph.lcssa54 = phi ptr [ %.tr33.ph60, %tailrecurse ], [ %1, %3 ], [ %.tr33.ph.be, %tailrecurse.outer.backedge ]
+  %.tr34.ph.lcssa52 = phi i64 [ %.tr34.ph61, %tailrecurse ], [ %2, %3 ], [ %.tr34.ph.be, %tailrecurse.outer.backedge ]
+  %.lcssa37 = phi ptr [ %26, %tailrecurse ], [ %7, %3 ], [ %44, %tailrecurse.outer.backedge ]
   switch i64 %.tr34.ph.lcssa52, label %75 [
     i64 4, label %58
     i64 3, label %62
@@ -2767,9 +2767,9 @@ _ZN4llvm11raw_ostream14copy_to_bufferEPKcm.exit:  ; preds = %106, %121, %124
   br label %tailrecurse.outer.backedge.i
 
 tailrecurse.outer._crit_edge.i:                   ; preds = %tailrecurse.outer.backedge.i, %tailrecurse.i, %.preheader.i.i
-  %.tr33.ph.lcssa54.i = phi ptr [ @_ZZL13write_paddingILc32EERN4llvm11raw_ostreamES2_jE5Chars, %.preheader.i.i ], [ %.tr33.ph60.i, %tailrecurse.i ], [ %.tr33.ph.be.i, %tailrecurse.outer.backedge.i ]
-  %.tr34.ph.lcssa52.i = phi i64 [ %64, %.preheader.i.i ], [ %.tr34.ph61.i, %tailrecurse.i ], [ %.tr34.ph.be.i, %tailrecurse.outer.backedge.i ]
-  %.lcssa37.i = phi ptr [ %66, %.preheader.i.i ], [ %83, %tailrecurse.i ], [ %102, %tailrecurse.outer.backedge.i ]
+  %.tr33.ph.lcssa54.i = phi ptr [ %.tr33.ph60.i, %tailrecurse.i ], [ @_ZZL13write_paddingILc32EERN4llvm11raw_ostreamES2_jE5Chars, %.preheader.i.i ], [ %.tr33.ph.be.i, %tailrecurse.outer.backedge.i ]
+  %.tr34.ph.lcssa52.i = phi i64 [ %.tr34.ph61.i, %tailrecurse.i ], [ %64, %.preheader.i.i ], [ %.tr34.ph.be.i, %tailrecurse.outer.backedge.i ]
+  %.lcssa37.i = phi ptr [ %83, %tailrecurse.i ], [ %66, %.preheader.i.i ], [ %102, %tailrecurse.outer.backedge.i ]
   switch i64 %.tr34.ph.lcssa52.i, label %152 [
     i64 4, label %135
     i64 3, label %139
@@ -3072,9 +3072,9 @@ _ZN4llvm11raw_ostream14copy_to_bufferEPKcm.exit136: ; preds = %245, %260, %263
   br label %tailrecurse.outer.backedge.i129
 
 tailrecurse.outer._crit_edge.i111:                ; preds = %tailrecurse.outer.backedge.i129, %tailrecurse.i134, %.preheader.i.i58
-  %.tr33.ph.lcssa54.i112 = phi ptr [ @_ZZL13write_paddingILc32EERN4llvm11raw_ostreamES2_jE5Chars, %.preheader.i.i58 ], [ %.tr33.ph60.i122, %tailrecurse.i134 ], [ %.tr33.ph.be.i133, %tailrecurse.outer.backedge.i129 ]
-  %.tr34.ph.lcssa52.i113 = phi i64 [ %203, %.preheader.i.i58 ], [ %.tr34.ph61.i121, %tailrecurse.i134 ], [ %.tr34.ph.be.i132, %tailrecurse.outer.backedge.i129 ]
-  %.lcssa37.i114 = phi ptr [ %205, %.preheader.i.i58 ], [ %222, %tailrecurse.i134 ], [ %241, %tailrecurse.outer.backedge.i129 ]
+  %.tr33.ph.lcssa54.i112 = phi ptr [ %.tr33.ph60.i122, %tailrecurse.i134 ], [ @_ZZL13write_paddingILc32EERN4llvm11raw_ostreamES2_jE5Chars, %.preheader.i.i58 ], [ %.tr33.ph.be.i133, %tailrecurse.outer.backedge.i129 ]
+  %.tr34.ph.lcssa52.i113 = phi i64 [ %.tr34.ph61.i121, %tailrecurse.i134 ], [ %203, %.preheader.i.i58 ], [ %.tr34.ph.be.i132, %tailrecurse.outer.backedge.i129 ]
+  %.lcssa37.i114 = phi ptr [ %222, %tailrecurse.i134 ], [ %205, %.preheader.i.i58 ], [ %241, %tailrecurse.outer.backedge.i129 ]
   switch i64 %.tr34.ph.lcssa52.i113, label %291 [
     i64 4, label %274
     i64 3, label %278

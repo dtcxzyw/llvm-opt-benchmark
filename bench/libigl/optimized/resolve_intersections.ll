@@ -15106,7 +15106,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %454
 
 454:                                              ; preds = %.sink.split, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242
-  %.2 = phi i64 [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %.sink289, %.sink.split ]
+  %.2 = phi i64 [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %.sink289, %.sink.split ]
   %.not138 = icmp eq i64 %.2, 0
   br i1 %.not138, label %.thread, label %.critedge.outer.backedge
 
@@ -28643,8 +28643,8 @@ _ZN4CGAL7Point_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   ret void
 
 .body:                                            ; preds = %.preheader.i.i.i.i.i7, %.preheader.i.i.i.i.i15, %.preheader.i.i.i.i.i23, %22, %38, %30
-  %.0.lpad-body = phi ptr [ %.ptr34, %22 ], [ %.ptr40, %30 ], [ %.ptr46, %38 ], [ %.ptr40, %.preheader.i.i.i.i.i15 ], [ %.ptr46, %.preheader.i.i.i.i.i23 ], [ %.ptr34, %.preheader.i.i.i.i.i7 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %31, %30 ], [ %39, %38 ], [ %31, %.preheader.i.i.i.i.i15 ], [ %39, %.preheader.i.i.i.i.i23 ], [ %23, %.preheader.i.i.i.i.i7 ]
+  %.0.lpad-body = phi ptr [ %.ptr46, %38 ], [ %.ptr40, %.preheader.i.i.i.i.i15 ], [ %.ptr34, %22 ], [ %.ptr46, %.preheader.i.i.i.i.i23 ], [ %.ptr40, %30 ], [ %.ptr34, %.preheader.i.i.i.i.i7 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %31, %.preheader.i.i.i.i.i15 ], [ %23, %22 ], [ %39, %.preheader.i.i.i.i.i23 ], [ %31, %30 ], [ %23, %.preheader.i.i.i.i.i7 ]
   br label %41
 
 41:                                               ; preds = %.body, %41
@@ -28655,7 +28655,7 @@ _ZN4CGAL7Point_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   br i1 %44, label %.body.thread, label %41
 
 .body.thread:                                     ; preds = %.preheader.i.i.i.i.i, %41, %12
-  %eh.lpad-body31 = phi { ptr, i32 } [ %13, %12 ], [ %eh.lpad-body, %41 ], [ %13, %.preheader.i.i.i.i.i ]
+  %eh.lpad-body31 = phi { ptr, i32 } [ %eh.lpad-body, %41 ], [ %13, %12 ], [ %13, %.preheader.i.i.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body31
 }
 
@@ -33484,7 +33484,7 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body.thread.i.i
 
 .body.thread.i.i:                                 ; preds = %.preheader.i.i.i.i.i.i.i, %.body.i.i, %11
-  %eh.lpad-body14.i.i = phi { ptr, i32 } [ %12, %11 ], [ %21, %.body.i.i ], [ %12, %.preheader.i.i.i.i.i.i.i ]
+  %eh.lpad-body14.i.i = phi { ptr, i32 } [ %21, %.body.i.i ], [ %12, %11 ], [ %12, %.preheader.i.i.i.i.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body14.i.i
 
 _ZNK4CGAL20CommonKernelFunctors19Construct_segment_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclENS_15Return_base_tagERKNS_7Point_2ISG_EESM_.exit: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2ERKSB_.exit.i.i.i.i.i8.i.i, %_ZN4CGAL7Point_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEC2EOSG_.exit.i.i
@@ -36156,7 +36156,7 @@ _ZN4CGAL17lazy_reset_memberIJNS_15Return_base_tagENS_7Point_2INS_5EpeckEEES4_EEE
   ret void
 
 .body:                                            ; preds = %.preheader.i.i.i.i.i.i.i, %22, %.body.i.i, %43, %32
-  %.pn = phi { ptr, i32 } [ %53, %.body.i.i ], [ %23, %22 ], [ %33, %32 ], [ %44, %43 ], [ %44, %.preheader.i.i.i.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %23, %22 ], [ %33, %32 ], [ %53, %.body.i.i ], [ %44, %.preheader.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 320) #37

@@ -4086,12 +4086,12 @@ _ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.lo
   br label %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit
 
 _ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit: ; preds = %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit, %118
-  %196 = phi ptr [ %123, %118 ], [ %.pre313, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ]
-  %197 = phi ptr [ %122, %118 ], [ %.pre312, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ]
-  %.sroa.0211.1253 = phi i32 [ %.sroa.0211.1268, %118 ], [ %194, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ]
-  %.sroa.9218.1249 = phi i32 [ %.sroa.9218.1269, %118 ], [ %.sroa.0211.1268, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ]
-  %.sroa.068.1 = phi i64 [ %.sroa.0.0.insert.insert.i129, %118 ], [ %.sroa.068.0273, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ]
-  %.sroa.369.1 = phi i64 [ %.sroa.3.8.insert.insert.i134, %118 ], [ %.sroa.369.0274, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ]
+  %196 = phi ptr [ %.pre313, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ], [ %123, %118 ]
+  %197 = phi ptr [ %.pre312, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ], [ %122, %118 ]
+  %.sroa.0211.1253 = phi i32 [ %194, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ], [ %.sroa.0211.1268, %118 ]
+  %.sroa.9218.1249 = phi i32 [ %.sroa.0211.1268, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ], [ %.sroa.9218.1269, %118 ]
+  %.sroa.068.1 = phi i64 [ %.sroa.068.0273, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ], [ %.sroa.0.0.insert.insert.i129, %118 ]
+  %.sroa.369.1 = phi i64 [ %.sroa.369.0274, %_ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.loopexit ], [ %.sroa.3.8.insert.insert.i134, %118 ]
   %198 = icmp eq ptr %197, %196
   br i1 %198, label %._crit_edge, label %71, !llvm.loop !21
 
@@ -4561,7 +4561,7 @@ _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread: ; pre
   br i1 %183, label %172, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %179, %.preheader, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i81, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i57, %4, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread, %51, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit89, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit65
-  %.0 = phi i1 [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit89 ], [ true, %51 ], [ true, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit65 ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i81 ], [ false, %4 ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i57 ], [ true, %.preheader ], [ %181, %179 ]
+  %.0 = phi i1 [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit89 ], [ true, %51 ], [ true, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit65 ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i57 ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i81 ], [ false, %4 ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i ], [ true, %.preheader ], [ %181, %179 ]
   ret i1 %.0
 }
 
@@ -4978,7 +4978,7 @@ _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit.thread: ; preds 
   br i1 %exitcond.not, label %.loopexit, label %76, !llvm.loop !26
 
 .loopexit89:                                      ; preds = %.loopexit, %106, %_ZN10open_spiel8quoridor13QuoridorState11SearchState4PushEiNS0_4MoveE.exit
-  %126 = phi i1 [ false, %_ZN10open_spiel8quoridor13QuoridorState11SearchState4PushEiNS0_4MoveE.exit ], [ true, %106 ], [ false, %.loopexit ]
+  %126 = phi i1 [ true, %106 ], [ false, %_ZN10open_spiel8quoridor13QuoridorState11SearchState4PushEiNS0_4MoveE.exit ], [ false, %.loopexit ]
   ret i1 %126
 }
 

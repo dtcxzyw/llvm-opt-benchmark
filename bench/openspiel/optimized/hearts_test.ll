@@ -410,7 +410,7 @@ define internal void @__cxx_global_var_init.1() #3 section ".text.startup" comda
   br i1 %45, label %.loopexit, label %41
 
 .loopexit:                                        ; preds = %33, %41, %.thread
-  %.pn = phi { ptr, i32 } [ %13, %.thread ], [ %39, %41 ], [ %32, %33 ]
+  %.pn = phi { ptr, i32 } [ %39, %41 ], [ %13, %.thread ], [ %32, %33 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVN10open_spiel6hearts12pass_dir_strB5cxx11E) #21
   resume { ptr, i32 } %.pn
 }
@@ -2629,12 +2629,12 @@ _ZNSt5arrayIN10open_spiel6hearts5TrickELm13EEC2Ev.exit.i.i: ; preds = %_ZN10open
   br label %.loopexit.split-lp362.i.i
 
 .loopexit.split-lp362.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %841, %803, %773
-  %.sroa.13300.1463.i.i = phi ptr [ %.sroa.13300.2.i.i, %841 ], [ %.sroa.13300.2.i.i, %803 ], [ %.sroa.7296.0468.i.i, %773 ]
-  %.sroa.0291.1452.i.i = phi ptr [ %.sroa.0291.2.i.i, %841 ], [ %.sroa.0291.2.i.i, %803 ], [ %.sroa.0291.1469.i.i, %773 ]
-  %.sroa.10.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.6277.0480.i.i, %841 ], [ null, %803 ], [ null, %773 ]
-  %.sroa.0273.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.0273.3481.i.i, %841 ], [ null, %803 ], [ null, %773 ]
-  %.sroa.13.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.13.4.i.i, %841 ], [ %.sroa.7.0472.i.i, %803 ], [ null, %773 ]
-  %.sroa.0281.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.0281.4.i.i, %841 ], [ %.sroa.0281.3473.i.i, %803 ], [ null, %773 ]
+  %.sroa.13300.1463.i.i = phi ptr [ %.sroa.13300.2.i.i, %841 ], [ %.sroa.7296.0468.i.i, %773 ], [ %.sroa.13300.2.i.i, %803 ]
+  %.sroa.0291.1452.i.i = phi ptr [ %.sroa.0291.2.i.i, %841 ], [ %.sroa.0291.1469.i.i, %773 ], [ %.sroa.0291.2.i.i, %803 ]
+  %.sroa.10.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.6277.0480.i.i, %841 ], [ null, %773 ], [ null, %803 ]
+  %.sroa.0273.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.0273.3481.i.i, %841 ], [ null, %773 ], [ null, %803 ]
+  %.sroa.13.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.13.4.i.i, %841 ], [ null, %773 ], [ %.sroa.7.0472.i.i, %803 ]
+  %.sroa.0281.1.ph.ph.ph.ph.ph.i.i = phi ptr [ %.sroa.0281.4.i.i, %841 ], [ null, %773 ], [ %.sroa.0281.3473.i.i, %803 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp362.i.i
@@ -3855,7 +3855,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit202.i.i:             ; preds = %1129, %_ZNSt6vector
   br i1 %1140, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit205.i.i, label %1137
 
 _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit205.i.i: ; preds = %1137, %967, %941
-  %.pn111.pn.i.i = phi { ptr, i32 } [ %968, %967 ], [ %942, %941 ], [ %.pn111.i.i, %1137 ]
+  %.pn111.pn.i.i = phi { ptr, i32 } [ %942, %941 ], [ %968, %967 ], [ %.pn111.i.i, %1137 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #21
   br label %.loopexit.split-lp362.i.i
 
@@ -4114,7 +4114,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit49.i:                ; preds = %1226, %1223, %1222,
   br label %.body43.i
 
 .body43.i:                                        ; preds = %_ZN10open_spiel6hearts5TrickD2Ev.exit.i.i.i, %_ZNSt6vectorIlSaIlEED2Ev.exit49.i, %1161, %_ZNSt6vectorIiSaIiEED2Ev.exit212.i.i, %738
-  %.pn26.pn.i8 = phi { ptr, i32 } [ %.pn26.i9, %_ZNSt6vectorIlSaIlEED2Ev.exit49.i ], [ %.pn114.i.i, %1161 ], [ %.pn114.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit212.i.i ], [ %739, %738 ], [ %739, %_ZN10open_spiel6hearts5TrickD2Ev.exit.i.i.i ]
+  %.pn26.pn.i8 = phi { ptr, i32 } [ %.pn26.i9, %_ZNSt6vectorIlSaIlEED2Ev.exit49.i ], [ %739, %738 ], [ %.pn114.i.i, %1161 ], [ %.pn114.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit212.i.i ], [ %739, %_ZN10open_spiel6hearts5TrickD2Ev.exit.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #21
   br label %1231
 

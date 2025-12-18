@@ -792,7 +792,7 @@ Ssc_GiaResetPiPattern.exit:                       ; preds = %Vec_WrdGrow.exit.i.
   br i1 %exitcond80.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !51
 
 .sink.split:                                      ; preds = %._crit_edge.us, %.lr.ph67, %Ssc_GiaResetPiPattern.exit, %Ssc_GiaGetCareMask.exit.thread, %Ssc_SimCountBits.exit
-  %.0.ph = phi i32 [ 0, %Ssc_GiaGetCareMask.exit.thread ], [ 0, %Ssc_SimCountBits.exit ], [ %56, %Ssc_GiaResetPiPattern.exit ], [ %56, %.lr.ph67 ], [ %56, %._crit_edge.us ]
+  %.0.ph = phi i32 [ 0, %Ssc_GiaGetCareMask.exit.thread ], [ 0, %Ssc_SimCountBits.exit ], [ %56, %.lr.ph67 ], [ %56, %Ssc_GiaResetPiPattern.exit ], [ %56, %._crit_edge.us ]
   tail call void @free(ptr noundef nonnull %14) #14
   br label %130
 
@@ -1565,7 +1565,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %119, label %75, label %.critedge, !llvm.loop !64
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %75, %64, %Ssc_SimFindBit.exit, %.thread38, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %.thread38 ], [ null, %Ssc_SimFindBit.exit ], [ %65, %64 ], [ %65, %75 ], [ %65, %Vec_IntPush.exit ]
+  %.0 = phi ptr [ null, %37 ], [ null, %Ssc_SimFindBit.exit ], [ null, %.thread38 ], [ %65, %64 ], [ %65, %75 ], [ %65, %Vec_IntPush.exit ]
   ret ptr %.0
 }
 

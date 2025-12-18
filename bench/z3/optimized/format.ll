@@ -461,7 +461,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %59, %56
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %59 ], [ %58, %56 ]
+  %.137.i.i.i.i.be = phi ptr [ %58, %56 ], [ %.old.i.i.i.i, %59 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !105
 
 _ZNK12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE9is_cachedEP4expr.exit: ; preds = %40, %51
@@ -2301,7 +2301,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12recurse_exprIP3appN9format_n
   br i1 %.not27.old.i.i.i.i.i, label %.loopexit.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %45, %42
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %45 ], [ %44, %42 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %44, %42 ], [ %.old.i.i.i.i.i, %45 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !105
 
 .loopexit.i:                                      ; preds = %31, %45, %42, %.preheader.i.i.i.i.i
@@ -2414,7 +2414,7 @@ _ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit: 
   br i1 %.not27.old.i.i.i.i.i21, label %.loopexit.i24, label %.lr.ph38.i.i.i.i.i17.backedge
 
 .lr.ph38.i.i.i.i.i17.backedge:                    ; preds = %96, %93
-  %.137.i.i.i.i.i18.be = phi ptr [ %.old.i.i.i.i.i20, %96 ], [ %95, %93 ]
+  %.137.i.i.i.i.i18.be = phi ptr [ %95, %93 ], [ %.old.i.i.i.i.i20, %96 ]
   br label %.lr.ph38.i.i.i.i.i17, !llvm.loop !105
 
 .loopexit.i24:                                    ; preds = %82, %96, %93, %.preheader.i.i.i.i.i15
@@ -2450,7 +2450,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25: ; preds = %106, %100
   br label %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit31
 
 _ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit31: ; preds = %77, %88, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit, %5, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25, %2
-  %.1 = phi i1 [ true, %2 ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25 ], [ true, %5 ], [ true, %88 ], [ %.2, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ], [ true, %77 ]
+  %.1 = phi i1 [ true, %2 ], [ %.2, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25 ], [ true, %88 ], [ true, %5 ], [ true, %77 ]
   ret i1 %.1
 }
 

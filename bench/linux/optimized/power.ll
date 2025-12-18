@@ -246,7 +246,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   br i1 %89, label %.thread, label %.preheader, !llvm.loop !5
 
 .thread:                                          ; preds = %.critedge15, %.preheader, %3, %.thread16
-  %90 = phi i32 [ 0, %3 ], [ %.us-phi, %.thread16 ], [ %.us-phi, %.preheader ], [ 0, %.critedge15 ]
+  %90 = phi i32 [ 0, %3 ], [ %.us-phi, %.preheader ], [ %.us-phi, %.thread16 ], [ 0, %.critedge15 ]
   ret i32 %90
 }
 
@@ -1769,7 +1769,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %13, %17, %20, %30, %1
-  %33 = phi i32 [ -19, %30 ], [ 0, %1 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %.preheader ]
+  %33 = phi i32 [ -19, %30 ], [ 0, %1 ], [ 0, %13 ], [ 0, %20 ], [ 0, %17 ], [ 0, %.preheader ]
   tail call void @mutex_unlock(ptr noundef nonnull %2) #10
   ret i32 %33
 }

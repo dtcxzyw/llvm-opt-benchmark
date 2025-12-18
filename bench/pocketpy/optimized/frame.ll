@@ -172,7 +172,7 @@ define noundef ptr @_ZN4pkpy10FastLocals12try_get_nameENS_7StrNameE(ptr noundef 
   br label %_ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit: ; preds = %14, %.lr.ph.i._crit_edge.i
-  %.in = phi ptr [ %16, %14 ], [ %34, %.lr.ph.i._crit_edge.i ]
+  %.in = phi ptr [ %34, %.lr.ph.i._crit_edge.i ], [ %16, %14 ]
   %35 = load i32, ptr %.in, align 4
   %.fr = freeze i32 %35
   %36 = icmp eq i32 %.fr, -1
@@ -472,7 +472,7 @@ define noundef ptr @_ZN4pkpy5Frame17f_closure_try_getENS_7StrNameE(ptr noundef n
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit: ; preds = %.lr.ph.i, %14, %.lr.ph.i._crit_edge.i, %23, %19, %6, %2
-  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ %22, %19 ], [ %41, %.lr.ph.i._crit_edge.i ], [ null, %23 ], [ null, %14 ], [ null, %.lr.ph.i ]
+  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %14 ], [ %22, %19 ], [ %41, %.lr.ph.i._crit_edge.i ], [ null, %23 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

@@ -172,7 +172,7 @@ handle_luainit.exit.thread:                       ; preds = %9, %20
   store i32 0, ptr %28, align 8, !tbaa !19
   br label %32
 
-handle_luainit.exit.thread63:                     ; preds = %.thread.i.i, %24
+handle_luainit.exit.thread63:                     ; preds = %24, %.thread.i.i
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %29, align 8, !tbaa !19
   br label %163

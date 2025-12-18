@@ -4159,7 +4159,7 @@ define hidden i32 @_ZN3sat3bcd12find_blockedERNS_8use_listERKNS_6clauseE(ptr nou
   br label %23
 
 ._crit_edge47:                                    ; preds = %23, %3, %._crit_edge
-  %.sroa.029.152 = phi i32 [ %.sroa.029.1.ph, %._crit_edge ], [ -2, %3 ], [ %.sroa.029.1.ph, %23 ]
+  %.sroa.029.152 = phi i32 [ -2, %3 ], [ %.sroa.029.1.ph, %._crit_edge ], [ %.sroa.029.1.ph, %23 ]
   ret i32 %.sroa.029.152
 
 23:                                               ; preds = %.lr.ph46, %23

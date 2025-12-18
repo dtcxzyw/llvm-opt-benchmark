@@ -4523,8 +4523,8 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit: ; preds = %31, %18, %_ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit.thread, %26
-  %.sroa.028.0 = phi ptr [ %27, %26 ], [ %42, %_ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit.thread ], [ %.sroa.025.0, %18 ], [ %33, %31 ]
-  %.sroa.4.0 = phi i8 [ 0, %26 ], [ 1, %_ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit.thread ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.028.0 = phi ptr [ %.sroa.025.0, %18 ], [ %42, %_ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit.thread ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.4.0 = phi i8 [ 0, %18 ], [ 1, %_ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit.thread ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.028.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5391,9 +5391,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %191, %194
   ret void
 
 .body38:                                          ; preds = %170, %189
-  %.sroa.11.2 = phi ptr [ %.sroa.11.0, %189 ], [ %.sroa.11.1, %170 ]
-  %.sroa.067.2 = phi ptr [ %.sroa.067.0, %189 ], [ %.sroa.067.1, %170 ]
-  %.pn12 = phi { ptr, i32 } [ %190, %189 ], [ %171, %170 ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.1, %170 ], [ %.sroa.11.0, %189 ]
+  %.sroa.067.2 = phi ptr [ %.sroa.067.1, %170 ], [ %.sroa.067.0, %189 ]
+  %.pn12 = phi { ptr, i32 } [ %171, %170 ], [ %190, %189 ]
   %.not.i.i.i53 = icmp eq ptr %.sroa.067.2, null
   br i1 %.not.i.i.i53, label %.body, label %.body38.thread
 

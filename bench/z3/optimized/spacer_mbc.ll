@@ -7851,7 +7851,7 @@ define internal fastcc noundef zeroext i1 @_ZN6spacer12_GLOBAL__N_116mbc_rewrite
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %47, %44
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %47 ], [ %46, %44 ]
+  %.137.i.i.i.be = phi ptr [ %46, %44 ], [ %.old.i.i.i, %47 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !230
 
 .loopexit9:                                       ; preds = %28, %39
@@ -7939,7 +7939,7 @@ define internal fastcc noundef zeroext i1 @_ZN6spacer12_GLOBAL__N_116mbc_rewrite
   br i1 %.not27.old.i.i.i26, label %.loopexit6, label %.lr.ph38.i.i.i22.backedge
 
 .lr.ph38.i.i.i22.backedge:                        ; preds = %87, %84
-  %.137.i.i.i23.be = phi ptr [ %.old.i.i.i25, %87 ], [ %86, %84 ]
+  %.137.i.i.i23.be = phi ptr [ %86, %84 ], [ %.old.i.i.i25, %87 ]
   br label %.lr.ph38.i.i.i22, !llvm.loop !237
 
 .loopexit:                                        ; preds = %68, %79

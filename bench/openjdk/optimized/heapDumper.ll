@@ -10221,7 +10221,7 @@ _ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit: ; preds = %146
   br label %.thread49
 
 .thread49:                                        ; preds = %142, %146, %133, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit, %144, %159
-  %.0 = phi i1 [ false, %159 ], [ %138, %144 ], [ %138, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit ], [ %138, %133 ], [ %138, %146 ], [ %138, %142 ]
+  %.0 = phi i1 [ false, %159 ], [ %138, %144 ], [ %138, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit ], [ %138, %146 ], [ %138, %133 ], [ %138, %142 ]
   %173 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #20
   %174 = call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %121) #20
   call void @_ZN12ThreadDumperC2ENS_10ThreadTypeEP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %173, i32 noundef 0, ptr noundef nonnull %121, ptr noundef %174)

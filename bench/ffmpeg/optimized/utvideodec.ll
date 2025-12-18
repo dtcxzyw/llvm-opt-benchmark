@@ -845,8 +845,8 @@ bytestream2_get_le32.exit516.us:                  ; preds = %88, %83
   br label %.loopexit589
 
 .loopexit589:                                     ; preds = %._crit_edge.us651, %bytestream2_get_le32.exit512.thread, %.preheader587.lr.ph, %._crit_edge, %190
-  %193 = phi i32 [ %191, %190 ], [ %118, %._crit_edge ], [ 512, %.preheader587.lr.ph ], [ 512, %bytestream2_get_le32.exit512.thread ], [ 512, %._crit_edge.us651 ]
-  %.0451 = phi i32 [ %.3454.lcssa, %190 ], [ %.1452.lcssa, %._crit_edge ], [ 0, %.preheader587.lr.ph ], [ 0, %bytestream2_get_le32.exit512.thread ], [ 0, %._crit_edge.us651 ]
+  %193 = phi i32 [ %191, %190 ], [ %118, %._crit_edge ], [ 512, %bytestream2_get_le32.exit512.thread ], [ 512, %.preheader587.lr.ph ], [ 512, %._crit_edge.us651 ]
+  %.0451 = phi i32 [ %.3454.lcssa, %190 ], [ %.1452.lcssa, %._crit_edge ], [ 0, %bytestream2_get_le32.exit512.thread ], [ 0, %.preheader587.lr.ph ], [ 0, %._crit_edge.us651 ]
   %194 = getelementptr inbounds nuw i8, ptr %11, i64 88
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.13, i32 noundef %193) #7
   %195 = load i32, ptr %194, align 8, !tbaa !54
@@ -1391,7 +1391,7 @@ bytestream2_get_le32.exit516.us:                  ; preds = %88, %83
   br label %.critedge
 
 .critedge:                                        ; preds = %bytestream2_get_le32.exit514.us, %bytestream2_get_le32.exit516.us, %500, %477, %438, %395, %346, %307, %239, %21, %bytestream2_get_byte.exit, %bytestream2_get_le32.exit, %bytestream2_get_le32.exit512, %4, %527, %210, %189, %174, %163, %146, %135, %115
-  %.0440 = phi i32 [ -1094995529, %189 ], [ %9, %527 ], [ %12, %4 ], [ -12, %210 ], [ -1094995529, %115 ], [ -1094995529, %135 ], [ -1094995529, %146 ], [ -1094995529, %163 ], [ -1094995529, %174 ], [ -1094995529, %bytestream2_get_le32.exit512 ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %bytestream2_get_byte.exit ], [ -1094995529, %21 ], [ -1094995529, %bytestream2_get_le32.exit516.us ], [ %253, %239 ], [ %324, %307 ], [ %365, %346 ], [ %412, %395 ], [ %452, %438 ], [ %498, %477 ], [ %520, %500 ], [ -1094995529, %bytestream2_get_le32.exit514.us ]
+  %.0440 = phi i32 [ -1094995529, %189 ], [ %9, %527 ], [ %12, %4 ], [ -1094995529, %21 ], [ -1094995529, %bytestream2_get_le32.exit516.us ], [ %253, %239 ], [ %324, %307 ], [ %365, %346 ], [ %412, %395 ], [ -12, %210 ], [ %452, %438 ], [ -1094995529, %115 ], [ -1094995529, %135 ], [ -1094995529, %146 ], [ -1094995529, %163 ], [ -1094995529, %174 ], [ %498, %477 ], [ %520, %500 ], [ -1094995529, %bytestream2_get_le32.exit512 ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %bytestream2_get_byte.exit ], [ -1094995529, %bytestream2_get_le32.exit514.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0440
 }
@@ -2233,7 +2233,7 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %.thread291
 
 .thread291:                                       ; preds = %._crit_edge, %53, %36, %44, %91, %.loopexit.us, %.loopexit.us.us, %.lr.ph391, %.preheader318, %.preheader313, %.loopexit314, %._crit_edge376, %134
-  %.6 = phi i32 [ -1094995529, %.loopexit314 ], [ 0, %._crit_edge376 ], [ -1094995529, %134 ], [ 0, %.preheader313 ], [ 0, %.lr.ph391 ], [ 0, %.preheader318 ], [ 0, %.loopexit.us ], [ -1094995529, %91 ], [ 0, %.loopexit.us.us ], [ 0, %._crit_edge ], [ -1094995529, %53 ], [ -1094995529, %36 ], [ -1094995529, %44 ]
+  %.6 = phi i32 [ -1094995529, %.loopexit314 ], [ 0, %._crit_edge376 ], [ -1094995529, %134 ], [ -1094995529, %91 ], [ 0, %.preheader313 ], [ 0, %.lr.ph391 ], [ 0, %.preheader318 ], [ 0, %.loopexit.us.us ], [ 0, %.loopexit.us ], [ -1094995529, %53 ], [ -1094995529, %36 ], [ 0, %._crit_edge ], [ -1094995529, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3690,7 +3690,7 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %.loopexit156
 
 .loopexit156:                                     ; preds = %.loopexit.us, %.loopexit.us.us, %.lr.ph206, %.preheader155, %.loopexit157, %._crit_edge191, %14
-  %.0 = phi i32 [ %12, %14 ], [ 0, %._crit_edge191 ], [ -1094995529, %.loopexit157 ], [ 0, %.preheader155 ], [ 0, %.lr.ph206 ], [ 0, %.loopexit.us.us ], [ 0, %.loopexit.us ]
+  %.0 = phi i32 [ %12, %14 ], [ 0, %._crit_edge191 ], [ -1094995529, %.loopexit157 ], [ 0, %.lr.ph206 ], [ 0, %.preheader155 ], [ 0, %.loopexit.us.us ], [ 0, %.loopexit.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

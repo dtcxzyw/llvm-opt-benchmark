@@ -1555,8 +1555,8 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   br i1 %92, label %.lr.ph93.i, label %._crit_edge94.i, !llvm.loop !58
 
 ._crit_edge94.i:                                  ; preds = %89, %._crit_edge.i6, %.preheader82.i
-  %.pre122.i = phi i32 [ %75, %._crit_edge.i6 ], [ %.pre124.i, %.preheader82.i ], [ %90, %89 ]
-  %93 = phi i32 [ %75, %._crit_edge.i6 ], [ 0, %.preheader82.i ], [ %90, %89 ]
+  %.pre122.i = phi i32 [ %.pre124.i, %.preheader82.i ], [ %75, %._crit_edge.i6 ], [ %90, %89 ]
+  %93 = phi i32 [ 0, %.preheader82.i ], [ %75, %._crit_edge.i6 ], [ %90, %89 ]
   %94 = add nuw nsw i32 %.06895.i, 1
   %exitcond.not.i7 = icmp eq i32 %94, 4
   br i1 %exitcond.not.i7, label %95, label %.preheader82.i, !llvm.loop !59
@@ -1588,7 +1588,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   br label %fill_mem_blocks_st.exit
 
 fill_mem_blocks_st.exit:                          ; preds = %.split.us.i, %.sink.split.i, %99, %.preheader13.lr.ph.i, %5
-  %100 = phi i32 [ 1, %5 ], [ 1, %.preheader13.lr.ph.i ], [ 0, %99 ], [ %.066.ph.i, %.sink.split.i ], [ 1, %.split.us.i ]
+  %100 = phi i32 [ %.066.ph.i, %.sink.split.i ], [ 1, %5 ], [ 1, %.preheader13.lr.ph.i ], [ 0, %99 ], [ 1, %.split.us.i ]
   ret i32 %100
 }
 

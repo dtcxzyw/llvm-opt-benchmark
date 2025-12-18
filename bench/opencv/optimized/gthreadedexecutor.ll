@@ -1031,7 +1031,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS
   br label %.body9
 
 .loopexit:                                        ; preds = %64, %.noexc8, %59
-  %.pn.i.i = phi ptr [ %60, %59 ], [ %75, %.noexc8 ], [ %66, %64 ]
+  %.pn.i.i = phi ptr [ %75, %.noexc8 ], [ %60, %59 ], [ %66, %64 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %2, ptr %.1.i.i, align 4, !tbaa !65
   %77 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #26
@@ -1194,7 +1194,7 @@ define hidden void @_ZN2cv5gimpl17GThreadedExecutor6Output4metaERKNS_4util7varia
   unreachable
 
 _ZNSt13unordered_mapIPKviSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE2atERS7_.exit: ; preds = %29, %11, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %11 ], [ %31, %29 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %11 ], [ %25, %24 ], [ %31, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %38 = load i32, ptr %37, align 4, !tbaa !65
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12890,7 +12890,7 @@ _ZN2cv4util3getIPNS_3MatEJPNS_4UMatES3_PNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFram
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv4RMatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE2atERS7_.exit.i: ; preds = %610, %594, %605
-  %.sroa.06.1.i.i.i.i201 = phi ptr [ %606, %605 ], [ %.sroa.06.0.i.i.i.i207, %594 ], [ %612, %610 ]
+  %.sroa.06.1.i.i.i.i201 = phi ptr [ %.sroa.06.0.i.i.i.i207, %594 ], [ %606, %605 ], [ %612, %610 ]
   %618 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i201, i64 16
   %619 = load ptr, ptr %618, align 8, !tbaa !177
   %.not.i27.i = icmp eq ptr %619, null

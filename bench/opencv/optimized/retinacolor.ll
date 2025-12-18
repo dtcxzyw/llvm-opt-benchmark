@@ -1856,7 +1856,7 @@ common.resume:                                    ; preds = %380, %293
   br i1 %exitcond241.not, label %.loopexit, label %346, !llvm.loop !169
 
 .loopexit:                                        ; preds = %139, %346, %.preheader, %.preheader169, %._crit_edge201
-  %.pre-phi = phi i32 [ 0, %._crit_edge201 ], [ 0, %.preheader169 ], [ 0, %.preheader ], [ %325, %346 ], [ %58, %139 ]
+  %.pre-phi = phi i32 [ 0, %.preheader ], [ 0, %._crit_edge201 ], [ %325, %346 ], [ 0, %.preheader169 ], [ %58, %139 ]
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %374 = load ptr, ptr %373, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

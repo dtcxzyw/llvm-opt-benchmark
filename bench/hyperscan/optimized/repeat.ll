@@ -699,8 +699,8 @@ mmbit_iterate_bounded.exit88:                     ; preds = %343
   %.not82 = icmp eq i32 %359, -1
   br i1 %.not82, label %mmbit_iterate_bounded.exit88.thread, label %mmbit_iterate_bounded.exit88.thread297
 
-mmbit_iterate_bounded.exit88.thread297:           ; preds = %296, %.thread201, %mmbit_iterate_bounded.exit88.thread233, %mmbit_iterate_bounded.exit88
-  %.013.i87236 = phi i32 [ %243, %mmbit_iterate_bounded.exit88.thread233 ], [ %359, %mmbit_iterate_bounded.exit88 ], [ %299, %296 ], [ %258, %.thread201 ]
+mmbit_iterate_bounded.exit88.thread297:           ; preds = %.thread201, %296, %mmbit_iterate_bounded.exit88.thread233, %mmbit_iterate_bounded.exit88
+  %.013.i87236 = phi i32 [ %243, %mmbit_iterate_bounded.exit88.thread233 ], [ %359, %mmbit_iterate_bounded.exit88 ], [ %258, %.thread201 ], [ %299, %296 ]
   %360 = trunc i64 %spec.select to i32
   %361 = add i32 %6, %360
   %362 = sub i32 %361, %.065
@@ -1784,7 +1784,7 @@ mmbit_unset_range.exit72.thread:                  ; preds = %._crit_edge295, %mm
   br i1 %.not.i164, label %mmbit_set_i.exit, label %504
 
 mmbit_set_i.exit:                                 ; preds = %.thread239, %.lr.ph307, %522, %mmbit_unset_range.exit72.thread
-  %.0396 = phi i32 [ %.0397, %mmbit_unset_range.exit72.thread ], [ %.0, %522 ], [ %.0, %.lr.ph307 ], [ %.0, %.thread239 ]
+  %.0396 = phi i32 [ %.0, %.lr.ph307 ], [ %.0397, %mmbit_unset_range.exit72.thread ], [ %.0, %522 ], [ %.0, %.thread239 ]
   %545 = trunc i32 %.0396 to i16
   %546 = add i16 %545, 1
   %547 = zext i16 %546 to i32
@@ -2761,11 +2761,11 @@ ringHasMatch.exit:                                ; preds = %get_flat_masks.exit
   %.0.i43.in.fr = freeze i1 %.0.i43.in
   br i1 %.0.i43.in.fr, label %ringHasMatch.exit.thread48, label %ringHasMatch.exit.thread
 
-ringHasMatch.exit.thread:                         ; preds = %376, %52, %mmbit_get_flat_block.exit.i, %.thread56.i, %mmbit_get_flat_block.exit92.i, %35, %._crit_edge94.i, %243, %mmbit_iterate_bounded.exit49.thread.i, %ringHasMatch.exit
+ringHasMatch.exit.thread:                         ; preds = %376, %52, %35, %mmbit_get_flat_block.exit92.i, %mmbit_get_flat_block.exit.i, %.thread56.i, %._crit_edge94.i, %243, %mmbit_iterate_bounded.exit49.thread.i, %ringHasMatch.exit
   br label %ringHasMatch.exit.thread48
 
-ringHasMatch.exit.thread48:                       ; preds = %get_flat_masks.exit105.i, %71, %mmbit_get_flat_block.exit.i, %.thread56.i, %mmbit_get_flat_block.exit92.i, %35, %ringHasMatch.exit.thread, %ringHasMatch.exit, %25, %13, %4
-  %.0 = phi i32 [ 2, %13 ], [ 0, %4 ], [ 0, %25 ], [ 0, %ringHasMatch.exit.thread ], [ 1, %ringHasMatch.exit ], [ 1, %mmbit_get_flat_block.exit.i ], [ 1, %35 ], [ 1, %mmbit_get_flat_block.exit92.i ], [ 1, %.thread56.i ], [ 1, %71 ], [ 1, %get_flat_masks.exit105.i ]
+ringHasMatch.exit.thread48:                       ; preds = %get_flat_masks.exit105.i, %71, %35, %mmbit_get_flat_block.exit92.i, %mmbit_get_flat_block.exit.i, %.thread56.i, %ringHasMatch.exit.thread, %ringHasMatch.exit, %25, %13, %4
+  %.0 = phi i32 [ 2, %13 ], [ 0, %4 ], [ 0, %25 ], [ 0, %ringHasMatch.exit.thread ], [ 1, %ringHasMatch.exit ], [ 1, %35 ], [ 1, %71 ], [ 1, %.thread56.i ], [ 1, %mmbit_get_flat_block.exit.i ], [ 1, %mmbit_get_flat_block.exit92.i ], [ 1, %get_flat_masks.exit105.i ]
   ret i32 %.0
 }
 
@@ -4669,8 +4669,8 @@ mmbit_iterate_bounded.exit186:                    ; preds = %202, %.thread387
   %.not160589 = icmp eq i32 %218, -1
   br i1 %.not160589, label %.thread458, label %.lr.ph594
 
-.lr.ph594:                                        ; preds = %154, %86, %mmbit_iterate_bounded.exit186
-  %.013.i185683 = phi i32 [ %218, %mmbit_iterate_bounded.exit186 ], [ %157, %154 ], [ %88, %86 ]
+.lr.ph594:                                        ; preds = %86, %154, %mmbit_iterate_bounded.exit186
+  %.013.i185683 = phi i32 [ %218, %mmbit_iterate_bounded.exit186 ], [ %88, %86 ], [ %157, %154 ]
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %220 = ptrtoint ptr %219 to i64
   %221 = add i64 %220, 7
@@ -5100,7 +5100,7 @@ get_lowhi_masks.exit368:                          ; preds = %459, %406
   br label %get_lowhi_masks.exit368
 
 mmbit_iterate_bounded.exit181:                    ; preds = %.thread444, %359, %.thread428, %402
-  %.013.i180 = phi i32 [ %361, %359 ], [ %381, %.thread428 ], [ %405, %402 ], [ %449, %.thread444 ]
+  %.013.i180 = phi i32 [ %449, %.thread444 ], [ %405, %402 ], [ %381, %.thread428 ], [ %361, %359 ]
   %.not160 = icmp eq i32 %.013.i180, -1
   br i1 %.not160, label %.thread458, label %270
 
@@ -5380,8 +5380,8 @@ mmbit_iterate_bounded.exit176:                    ; preds = %606
   %.not166604 = icmp eq i32 %622, -1
   br i1 %.not166604, label %.thread536, label %.lr.ph608
 
-.lr.ph608:                                        ; preds = %558, %.thread468, %503, %mmbit_iterate_bounded.exit176
-  %.013.i175699 = phi i32 [ %622, %mmbit_iterate_bounded.exit176 ], [ %561, %558 ], [ %520, %.thread468 ], [ %505, %503 ]
+.lr.ph608:                                        ; preds = %503, %.thread468, %558, %mmbit_iterate_bounded.exit176
+  %.013.i175699 = phi i32 [ %622, %mmbit_iterate_bounded.exit176 ], [ %505, %503 ], [ %520, %.thread468 ], [ %561, %558 ]
   %623 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %624 = ptrtoint ptr %623 to i64
   %625 = add i64 %624, 7
@@ -5804,7 +5804,7 @@ get_lowhi_masks.exit:                             ; preds = %862, %809
   br label %get_lowhi_masks.exit
 
 mmbit_iterate_bounded.exit:                       ; preds = %.thread522, %762, %.thread506, %805
-  %.013.i = phi i32 [ %764, %762 ], [ %784, %.thread506 ], [ %808, %805 ], [ %852, %.thread522 ]
+  %.013.i = phi i32 [ %852, %.thread522 ], [ %808, %805 ], [ %784, %.thread506 ], [ %764, %762 ]
   %.not166 = icmp eq i32 %.013.i, -1
   br i1 %.not166, label %.thread536, label %675
 
@@ -5823,7 +5823,7 @@ mmbit_iterate_bounded.exit:                       ; preds = %.thread522, %762, %
   br label %.thread536
 
 .thread536:                                       ; preds = %613, %get_flat_masks.exit331, %mmbit_get_flat_block.exit, %._crit_edge603, %partial_load_u64a.exit188.thread.thread, %mmbit_iterate_bounded.exit, %855, %mmbit_get_flat_block.exit306, %mmbit_get_flat_block.exit302, %._crit_edge598, %mmbit_iterate_bounded.exit176, %.thread458, %864, %461, %29, %17
-  %.0 = phi i64 [ 0, %17 ], [ 0, %29 ], [ %., %461 ], [ %.171, %864 ], [ 0, %.thread458 ], [ 0, %mmbit_iterate_bounded.exit176 ], [ 0, %._crit_edge598 ], [ 0, %mmbit_get_flat_block.exit302 ], [ 0, %mmbit_get_flat_block.exit306 ], [ 0, %get_flat_masks.exit331 ], [ 0, %855 ], [ 0, %mmbit_iterate_bounded.exit ], [ 0, %partial_load_u64a.exit188.thread.thread ], [ 0, %._crit_edge603 ], [ 0, %mmbit_get_flat_block.exit ], [ 0, %613 ]
+  %.0 = phi i64 [ 0, %17 ], [ 0, %29 ], [ %., %461 ], [ %.171, %864 ], [ 0, %.thread458 ], [ 0, %mmbit_iterate_bounded.exit176 ], [ 0, %mmbit_get_flat_block.exit306 ], [ 0, %855 ], [ 0, %get_flat_masks.exit331 ], [ 0, %._crit_edge598 ], [ 0, %mmbit_get_flat_block.exit302 ], [ 0, %mmbit_iterate_bounded.exit ], [ 0, %partial_load_u64a.exit188.thread.thread ], [ 0, %._crit_edge603 ], [ 0, %mmbit_get_flat_block.exit ], [ 0, %613 ]
   ret i64 %.0
 }
 
@@ -7666,7 +7666,7 @@ mmbit_unset_big.exit:                             ; preds = %.lr.ph946, %1052, %
   br i1 %1095, label %partial_load_u64a.exit.sink.split, label %994
 
 partial_load_u64a.exit.sink.split:                ; preds = %mmbit_unset_big.exit366, %.thread437, %418, %467, %mmbit_unset_big.exit, %.thread505, %994, %1043, %mmbit_unset_range.exit121, %._crit_edge654, %mmbit_get_flat_block.exit.i155, %962, %963, %971, %976, %981, %983, %988, %991, %mmbit_unset_range.exit125, %._crit_edge636, %mmbit_get_flat_block.exit.i129, %386, %387, %395, %400, %405, %407, %412, %415
-  %.2.sink = phi i32 [ %105, %mmbit_unset_range.exit125 ], [ %319, %415 ], [ %319, %._crit_edge636 ], [ %319, %mmbit_get_flat_block.exit.i129 ], [ %319, %386 ], [ %319, %387 ], [ %319, %395 ], [ %319, %400 ], [ %319, %405 ], [ %319, %407 ], [ %319, %412 ], [ %681, %mmbit_unset_range.exit121 ], [ %895, %991 ], [ %895, %._crit_edge654 ], [ %895, %mmbit_get_flat_block.exit.i155 ], [ %895, %962 ], [ %895, %963 ], [ %895, %971 ], [ %895, %976 ], [ %895, %981 ], [ %895, %983 ], [ %895, %988 ], [ %319, %467 ], [ %895, %1043 ], [ %895, %mmbit_unset_big.exit ], [ %895, %994 ], [ %895, %.thread505 ], [ %319, %418 ], [ %319, %.thread437 ], [ %319, %mmbit_unset_big.exit366 ]
+  %.2.sink = phi i32 [ %319, %467 ], [ %105, %mmbit_unset_range.exit125 ], [ %895, %mmbit_unset_big.exit ], [ %319, %412 ], [ %319, %415 ], [ %319, %._crit_edge636 ], [ %319, %mmbit_get_flat_block.exit.i129 ], [ %319, %386 ], [ %319, %387 ], [ %319, %395 ], [ %319, %400 ], [ %319, %405 ], [ %319, %407 ], [ %895, %983 ], [ %895, %981 ], [ %681, %mmbit_unset_range.exit121 ], [ %895, %1043 ], [ %895, %988 ], [ %895, %991 ], [ %895, %._crit_edge654 ], [ %895, %mmbit_get_flat_block.exit.i155 ], [ %895, %962 ], [ %895, %963 ], [ %895, %971 ], [ %895, %976 ], [ %895, %994 ], [ %895, %.thread505 ], [ %319, %418 ], [ %319, %.thread437 ], [ %319, %mmbit_unset_big.exit366 ]
   %1096 = trunc i32 %.2.sink to i16
   %1097 = add i16 %1096, 1
   %1098 = zext i16 %1097 to i32

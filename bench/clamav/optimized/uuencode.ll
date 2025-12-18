@@ -44,7 +44,7 @@ define range(i32 0, 27) i32 @cli_uuencode(ptr noundef %0, ptr noundef %1) local_
   br label %16
 
 16:                                               ; preds = %.sink.split, %13, %10, %2
-  %.0 = phi i32 [ 0, %2 ], [ 20, %10 ], [ 0, %13 ], [ 26, %.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 20, %10 ], [ 26, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

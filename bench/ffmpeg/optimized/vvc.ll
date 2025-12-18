@@ -1479,7 +1479,7 @@ get_ue_golomb_long.exit229.i.i:                   ; preds = %748, %744, %702
   br i1 %exitcond317.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.split.us.split.i.i, !llvm.loop !51
 
 ._crit_edge.i.i:                                  ; preds = %828, %844, %.critedge296.i.i, %get_ue_golomb_long.exit229.i.i
-  %.sroa.46.0.copyload.i.i234.i.i = phi i32 [ %766, %get_ue_golomb_long.exit229.i.i ], [ %848, %844 ], [ %942, %.critedge296.i.i ], [ %832, %828 ]
+  %.sroa.46.0.copyload.i.i234.i.i = phi i32 [ %848, %844 ], [ %766, %get_ue_golomb_long.exit229.i.i ], [ %942, %.critedge296.i.i ], [ %832, %828 ]
   %850 = lshr i32 %.sroa.46.0.copyload.i.i234.i.i, 3
   %851 = zext nneg i32 %850 to i64
   %852 = getelementptr inbounds nuw i8, ptr %380, i64 %851
@@ -2330,7 +2330,7 @@ put_bits.exit192.i:                               ; preds = %1245, %1239, %1234
   br i1 %exitcond301.not.i, label %vvcc_write.exit, label %1295, !llvm.loop !73
 
 vvcc_write.exit:                                  ; preds = %1022, %.loopexit.i, %.thread, %1135, %1106
-  %.2 = phi i32 [ -1094995529, %1106 ], [ -1094995529, %1135 ], [ %.0.i.ph, %.thread ], [ 0, %.loopexit.i ], [ %.0.i.fr, %1022 ]
+  %.2 = phi i32 [ %.0.i.ph, %.thread ], [ -1094995529, %1135 ], [ -1094995529, %1106 ], [ 0, %.loopexit.i ], [ %.0.i.fr, %1022 ]
   br label %1332
 
 1332:                                             ; preds = %1332, %vvcc_write.exit

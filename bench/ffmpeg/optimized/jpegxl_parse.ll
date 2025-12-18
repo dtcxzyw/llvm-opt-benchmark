@@ -2038,7 +2038,7 @@ jxl_enum.exit256:                                 ; preds = %998, %1022
   br label %jpegxl_read_extra_channel_info.exit.thread320
 
 jpegxl_read_extra_channel_info.exit.thread320:    ; preds = %765, %jxl_enum.exit.i, %721, %jxl_u32.exit244, %.thread324, %1145, %1046, %jxl_enum.exit256, %jxl_enum.exit253, %jxl_enum.exit250, %jxl_enum.exit247, %jxl_enum.exit, %jxl_u32.exit235, %521, %518, %55, %49, %4
-  %.0 = phi i32 [ -1094995529, %1145 ], [ -1094995529, %4 ], [ -1094995529, %49 ], [ %56, %55 ], [ %1047, %1046 ], [ -1397118274, %518 ], [ -1094995529, %521 ], [ -1094995529, %jxl_enum.exit256 ], [ -1094995529, %jxl_u32.exit235 ], [ -1094995529, %jxl_enum.exit ], [ -1094995529, %jxl_enum.exit247 ], [ -1094995529, %jxl_enum.exit253 ], [ -1094995529, %jxl_enum.exit250 ], [ %spec.select, %.thread324 ], [ -1397118274, %jxl_u32.exit244 ], [ -1397118274, %765 ], [ -1397118274, %721 ], [ -1094995529, %jxl_enum.exit.i ]
+  %.0 = phi i32 [ -1094995529, %1145 ], [ -1094995529, %4 ], [ -1094995529, %49 ], [ %56, %55 ], [ %1047, %1046 ], [ %spec.select, %.thread324 ], [ -1397118274, %jxl_u32.exit244 ], [ -1397118274, %518 ], [ -1094995529, %521 ], [ -1094995529, %jxl_enum.exit256 ], [ -1094995529, %jxl_u32.exit235 ], [ -1094995529, %jxl_enum.exit ], [ -1094995529, %jxl_enum.exit247 ], [ -1094995529, %jxl_enum.exit253 ], [ -1094995529, %jxl_enum.exit250 ], [ -1397118274, %721 ], [ -1094995529, %jxl_enum.exit.i ], [ -1397118274, %765 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   ret i32 %.0
 }
@@ -2916,7 +2916,7 @@ bytestream2_get_be32.exit70.thread:               ; preds = %bytestream2_get_be3
   %.not62 = icmp slt i32 %91, %3
   br i1 %.not62, label %11, label %92
 
-92:                                               ; preds = %85, %90
+92:                                               ; preds = %90, %85
   %93 = tail call i64 @llvm.smin.i64(i64 %.244, i64 2147483647)
   %94 = trunc i64 %93 to i32
   br label %.thread131
@@ -3110,7 +3110,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 .loopexit:                                        ; preds = %68, %40, %1, %86, %28, %16
-  %.0 = phi i64 [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ 0, %1 ], [ %50, %40 ], [ %74, %68 ]
+  %.0 = phi i64 [ 0, %1 ], [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ %50, %40 ], [ %74, %68 ]
   ret i64 %.0
 }
 

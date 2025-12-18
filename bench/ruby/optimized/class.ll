@@ -3555,7 +3555,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %80
   br label %84
 
 84:                                               ; preds = %.sink.split, %rbimpl_RB_TYPE_P_fastpath.exit121, %73, %rbimpl_RB_TYPE_P_fastpath.exit, %70, %.thread142
-  %.2102 = phi i32 [ %.0100179, %.thread142 ], [ %.0100179, %70 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 1, %73 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit121 ], [ 1, %.sink.split ]
+  %.2102 = phi i32 [ %.0100179, %.thread142 ], [ %.0100179, %70 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit121 ], [ 1, %73 ], [ 1, %.sink.split ]
   %85 = call i64 @rb_include_class_new(i64 noundef %.086181, i64 noundef %64)
   %86 = call fastcc i64 @RCLASS_SET_SUPER(i64 noundef %.085184, i64 noundef %85)
   %87 = inttoptr i64 %85 to ptr
@@ -3759,7 +3759,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %rb_module_add_to_su
   br i1 %.not, label %module_in_super_chain.exit, label %29, !llvm.loop !74
 
 module_in_super_chain.exit:                       ; preds = %.preheader.i, %171, %module_in_super_chain.exit.thread
-  %.0 = phi i32 [ 0, %module_in_super_chain.exit.thread ], [ %.1101, %171 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ %.1101, %171 ], [ 0, %module_in_super_chain.exit.thread ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -5554,7 +5554,7 @@ define dso_local i32 @rb_get_kwargs(i64 noundef %0, ptr noundef nonnull readonly
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.thread87, %.thread87.us106, %.thread87.us
-  %.0.lcssa = phi i64 [ %.1.us107, %.thread87.us106 ], [ %.2.us, %.thread87.us ], [ %.1, %.thread87 ]
+  %.0.lcssa = phi i64 [ %.2.us, %.thread87.us ], [ %.1.us107, %.thread87.us106 ], [ %.1, %.thread87 ]
   %39 = icmp eq i64 %.0.lcssa, 4
   br i1 %39, label %._crit_edge.thread, label %40
 
@@ -5877,38 +5877,38 @@ define internal fastcc i32 @rb_scan_args_assign(ptr noundef nonnull readonly cap
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load i64, ptr %26, align 8, !tbaa !29
   switch i32 %23, label %rb_scan_args_keyword_p.exit.thread [
-    i32 0, label %28
+    i32 0, label %rb_scan_args_keyword_p.exit
     i32 1, label %rb_scan_args_keyword_p.exit.thread111
-    i32 3, label %30
+    i32 3, label %28
   ]
 
 28:                                               ; preds = %22
-  %29 = tail call i32 @rb_keyword_given_p() #19
-  %.not113 = icmp eq i32 %29, 0
+  %29 = icmp eq i64 %27, 0
+  %30 = and i64 %27, 7
+  %31 = icmp ne i64 %30, 0
+  %32 = or i1 %29, %31
+  br i1 %32, label %rb_scan_args_keyword_p.exit.thread, label %33
+
+33:                                               ; preds = %28
+  %34 = inttoptr i64 %27 to ptr
+  %35 = load i64, ptr %34, align 8, !tbaa !35
+  %36 = and i64 %35, 31
+  %37 = icmp eq i64 %36, 8
+  br i1 %37, label %rb_scan_args_keyword_p.exit.thread111, label %rb_scan_args_keyword_p.exit.thread
+
+rb_scan_args_keyword_p.exit:                      ; preds = %22
+  %38 = tail call i32 @rb_keyword_given_p() #19
+  %.not113 = icmp eq i32 %38, 0
   br i1 %.not113, label %rb_scan_args_keyword_p.exit.thread, label %rb_scan_args_keyword_p.exit.thread111
 
-30:                                               ; preds = %22
-  %31 = icmp eq i64 %27, 0
-  %32 = and i64 %27, 7
-  %33 = icmp ne i64 %32, 0
-  %34 = or i1 %31, %33
-  br i1 %34, label %rb_scan_args_keyword_p.exit.thread, label %rb_scan_args_keyword_p.exit
-
-rb_scan_args_keyword_p.exit:                      ; preds = %30
-  %35 = inttoptr i64 %27 to ptr
-  %36 = load i64, ptr %35, align 8, !tbaa !35
-  %37 = and i64 %36, 31
-  %38 = icmp eq i64 %37, 8
-  br i1 %38, label %rb_scan_args_keyword_p.exit.thread111, label %rb_scan_args_keyword_p.exit.thread
-
-rb_scan_args_keyword_p.exit.thread111:            ; preds = %22, %28, %rb_scan_args_keyword_p.exit
+rb_scan_args_keyword_p.exit.thread111:            ; preds = %22, %33, %rb_scan_args_keyword_p.exit
   %39 = tail call i64 @rb_hash_dup(i64 noundef %27) #19
   %40 = add nsw i32 %1, -1
   br label %rb_scan_args_keyword_p.exit.thread
 
-rb_scan_args_keyword_p.exit.thread:               ; preds = %22, %30, %28, %rb_scan_args_keyword_p.exit, %rb_scan_args_keyword_p.exit.thread111, %4
-  %.086 = phi i64 [ 4, %4 ], [ %39, %rb_scan_args_keyword_p.exit.thread111 ], [ 4, %rb_scan_args_keyword_p.exit ], [ 4, %28 ], [ 4, %30 ], [ 4, %22 ]
-  %.080 = phi i32 [ %1, %4 ], [ %40, %rb_scan_args_keyword_p.exit.thread111 ], [ %1, %rb_scan_args_keyword_p.exit ], [ %1, %28 ], [ %1, %30 ], [ %1, %22 ]
+rb_scan_args_keyword_p.exit.thread:               ; preds = %22, %28, %33, %rb_scan_args_keyword_p.exit, %rb_scan_args_keyword_p.exit.thread111, %4
+  %.086 = phi i64 [ 4, %4 ], [ %39, %rb_scan_args_keyword_p.exit.thread111 ], [ 4, %rb_scan_args_keyword_p.exit ], [ 4, %33 ], [ 4, %28 ], [ 4, %22 ]
+  %.080 = phi i32 [ %1, %4 ], [ %40, %rb_scan_args_keyword_p.exit.thread111 ], [ %1, %rb_scan_args_keyword_p.exit ], [ %1, %33 ], [ %1, %28 ], [ %1, %22 ]
   %41 = icmp slt i32 %.080, %11
   br i1 %41, label %187, label %.preheader115
 

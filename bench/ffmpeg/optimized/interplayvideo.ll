@@ -2524,7 +2524,7 @@ bytestream2_get_le64.exit:                        ; preds = %101, %102
   br i1 %148, label %.preheader, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %49, %89, %122, %141, %13
-  %.069 = phi i32 [ -1094995529, %13 ], [ 0, %89 ], [ 0, %141 ], [ 0, %122 ], [ 0, %49 ]
+  %.069 = phi i32 [ -1094995529, %13 ], [ 0, %141 ], [ 0, %89 ], [ 0, %122 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.069
 }
@@ -2806,7 +2806,7 @@ bytestream2_get_le64.exit54:                      ; preds = %132, %131, %116
   br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !107
 
 .loopexit:                                        ; preds = %49, %bytestream2_get_le64.exit54, %bytestream2_get_le64.exit54.us, %13
-  %.039 = phi i32 [ -1094995529, %13 ], [ 0, %bytestream2_get_le64.exit54 ], [ 0, %bytestream2_get_le64.exit54.us ], [ 0, %49 ]
+  %.039 = phi i32 [ -1094995529, %13 ], [ 0, %bytestream2_get_le64.exit54.us ], [ 0, %bytestream2_get_le64.exit54 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.039
 }

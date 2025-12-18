@@ -2008,9 +2008,9 @@ _ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53: ; preds = %.lr.ph.i.i
   %97 = extractvalue { ptr, i64 } %95, 1
   br label %.critedge39
 
-.critedge39:                                      ; preds = %29, %66, %48, %83, %12, %14, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %18, %51, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50, %55, %93, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53
-  %.sroa.061.1 = phi ptr [ %.val40, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ %96, %93 ], [ %.val42, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ @.str.7, %55 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ @.str.7, %51 ], [ @.str.7, %18 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ @.str.7, %14 ], [ @.str.7, %12 ], [ @.str.7, %83 ], [ @.str.7, %48 ], [ @.str.7, %66 ], [ @.str.7, %29 ]
-  %.sroa.5.1 = phi i64 [ %45, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ %97, %93 ], [ %82, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ 5, %55 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ 5, %51 ], [ 5, %18 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5, %14 ], [ 5, %12 ], [ 5, %83 ], [ 5, %48 ], [ 5, %66 ], [ 5, %29 ]
+.critedge39:                                      ; preds = %29, %66, %48, %83, %12, %14, %18, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %51, %55, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50, %93, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53
+  %.sroa.061.1 = phi ptr [ %.val42, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ %96, %93 ], [ %.val40, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ @.str.7, %48 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ @.str.7, %55 ], [ @.str.7, %51 ], [ @.str.7, %66 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ @.str.7, %18 ], [ @.str.7, %14 ], [ @.str.7, %12 ], [ @.str.7, %83 ], [ @.str.7, %29 ]
+  %.sroa.5.1 = phi i64 [ %82, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ %97, %93 ], [ %45, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ 5, %48 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ 5, %55 ], [ 5, %51 ], [ 5, %66 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5, %18 ], [ 5, %14 ], [ 5, %12 ], [ 5, %83 ], [ 5, %29 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.061.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.1, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2378,7 +2378,7 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %104, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit, %tailrecurse.backedge.us, %3, %113, %115, %.split135.us, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit, %.split129.us, %.split126.us, %.split123.us, %.split120.us, %.split117.us, %.split114.us, %.split111.us, %.split108.us, %.split105.us, %.split102.us, %.split99.us, %.split96.us
-  %.0 = phi ptr [ %116, %115 ], [ %114, %113 ], [ %57, %.split96.us ], [ %58, %.split99.us ], [ %59, %.split102.us ], [ %60, %.split105.us ], [ %61, %.split108.us ], [ %62, %.split111.us ], [ %63, %.split114.us ], [ %64, %.split117.us ], [ %65, %.split120.us ], [ %66, %.split123.us ], [ %67, %.split126.us ], [ %68, %.split129.us ], [ %111, %.split135.us ], [ %.0.i.i.i.i.i, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit ], [ null, %3 ], [ null, %tailrecurse.backedge.us ], [ null, %tailrecurse.backedge ], [ %54, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit ]
+  %.0 = phi ptr [ %116, %115 ], [ %114, %113 ], [ %57, %.split96.us ], [ %58, %.split99.us ], [ %59, %.split102.us ], [ %60, %.split105.us ], [ %61, %.split108.us ], [ %62, %.split111.us ], [ %63, %.split114.us ], [ %64, %.split117.us ], [ %65, %.split120.us ], [ %66, %.split123.us ], [ %67, %.split126.us ], [ %68, %.split129.us ], [ %111, %.split135.us ], [ %.0.i.i.i.i.i, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit ], [ null, %tailrecurse.backedge.us ], [ null, %3 ], [ %54, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -3136,7 +3136,7 @@ _ZNK5clang4Decl7getAttrINS_16LockReturnedAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %154
 
-_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %37, %4, %13, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit, %_ZN5clangneENS_22specific_attr_iteratorINS_16LockReturnedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %26
+_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %37, %4, %13, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit, %26, %_ZN5clangneENS_22specific_attr_iteratorINS_16LockReturnedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %88 = load i32, ptr %1, align 8
   %89 = lshr i32 %88, 24
   %90 = zext nneg i32 %89 to i64

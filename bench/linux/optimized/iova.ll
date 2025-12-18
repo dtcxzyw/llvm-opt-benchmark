@@ -376,7 +376,7 @@ define dso_local ptr @alloc_iova(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   br i1 %93, label %.split.backedge, label %.lr.ph
 
 .split.backedge:                                  ; preds = %.loopexit12, %.preheader11, %.preheader13, %82
-  %.be = phi ptr [ %87, %.preheader13 ], [ %37, %82 ], [ %95, %.preheader11 ], [ %99, %.loopexit12 ]
+  %.be = phi ptr [ %95, %.preheader11 ], [ %87, %.preheader13 ], [ %37, %82 ], [ %99, %.loopexit12 ]
   br label %.split
 
 .lr.ph:                                           ; preds = %.preheader13, %.loopexit12
@@ -1363,7 +1363,7 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   br i1 %60, label %62, label %.thread9
 
 .thread9:                                         ; preds = %.preheader10, %50, %.thread7, %57
-  %61 = phi i32 [ %59, %57 ], [ -12, %.thread7 ], [ -12, %50 ], [ -12, %.preheader10 ]
+  %61 = phi i32 [ %59, %57 ], [ -12, %50 ], [ -12, %.thread7 ], [ -12, %.preheader10 ]
   tail call fastcc void @free_iova_rcaches(ptr noundef %0)
   br label %62
 

@@ -10080,8 +10080,8 @@ _ZNSt6vectorIN2cv2ml9SvmParamsESaIS2_EE9push_backERKS2_.exit.us429.us.us.us: ; p
   br label %.critedge15.us.us712
 
 ._crit_edge490.split.us.split.us722:              ; preds = %._crit_edge426.split.split.us493.us, %.critedge15.us.us531.us723, %.critedge15.lr.ph.split.us.split.split.us.split.split.us.us
-  %storemerge = phi double [ %598, %.critedge15.lr.ph.split.us.split.split.us.split.split.us.us ], [ %680, %.critedge15.us.us531.us723 ], [ %629, %._crit_edge426.split.split.us493.us ]
-  %.us-phi533.us = phi double [ %593, %.critedge15.lr.ph.split.us.split.split.us.split.split.us.us ], [ %593, %.critedge15.us.us531.us723 ], [ %625, %._crit_edge426.split.split.us493.us ]
+  %storemerge = phi double [ %680, %.critedge15.us.us531.us723 ], [ %598, %.critedge15.lr.ph.split.us.split.split.us.split.split.us.us ], [ %629, %._crit_edge426.split.split.us493.us ]
+  %.us-phi533.us = phi double [ %593, %.critedge15.us.us531.us723 ], [ %593, %.critedge15.lr.ph.split.us.split.split.us.split.split.us.us ], [ %625, %._crit_edge426.split.split.us493.us ]
   store double %storemerge, ptr %566, align 8, !tbaa !160
   store double %.us-phi533.us, ptr %572, align 8
   br label %._crit_edge490.us
@@ -12947,8 +12947,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324: ; preds = %24
   br label %.body
 
 .loopexit.split-lp529:                            ; preds = %256, %317, %320, %_ZN2cv2mlL14setRangeVectorERSt6vectorIiSaIiEEi.exit.i, %.noexc337, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i, %379, %333, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
-  %.sroa.0468.2.ph = phi ptr [ null, %317 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ], [ null, %333 ], [ %335, %_ZN2cv2mlL14setRangeVectorERSt6vectorIiSaIiEEi.exit.i ], [ %335, %.noexc337 ], [ %.sroa.0468.3804814, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %.sroa.0468.3804814, %379 ], [ null, %256 ], [ null, %320 ]
-  %.sroa.0441.1.ph = phi ptr [ null, %317 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ], [ null, %333 ], [ null, %_ZN2cv2mlL14setRangeVectorERSt6vectorIiSaIiEEi.exit.i ], [ null, %.noexc337 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %.sroa.0441.3, %379 ], [ null, %256 ], [ null, %320 ]
+  %.sroa.0468.2.ph = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ], [ null, %333 ], [ %335, %_ZN2cv2mlL14setRangeVectorERSt6vectorIiSaIiEEi.exit.i ], [ %335, %.noexc337 ], [ %.sroa.0468.3804814, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i ], [ null, %317 ], [ %.sroa.0468.3804814, %379 ], [ null, %256 ], [ null, %320 ]
+  %.sroa.0441.1.ph = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ], [ null, %333 ], [ null, %_ZN2cv2mlL14setRangeVectorERSt6vectorIiSaIiEEi.exit.i ], [ null, %.noexc337 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i ], [ null, %317 ], [ %.sroa.0441.3, %379 ], [ null, %256 ], [ null, %320 ]
   %lpad.loopexit.split-lp531 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -14432,8 +14432,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %87
   br i1 %exitcond701.not, label %.critedge302, label %.lr.ph611, !llvm.loop !323
 
 .critedge302:                                     ; preds = %723, %716, %882, %._crit_edge608, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %434
-  %.sroa.0480.2 = phi ptr [ null, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ null, %434 ], [ %.sroa.0480.3.lcssa, %._crit_edge608 ], [ %.sroa.0480.3.lcssa, %882 ], [ %.sroa.0480.6, %716 ], [ %.sroa.0480.6, %723 ]
-  %.3238 = phi i1 [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ false, %434 ], [ true, %._crit_edge608 ], [ true, %882 ], [ false, %716 ], [ false, %723 ]
+  %.sroa.0480.2 = phi ptr [ %.sroa.0480.3.lcssa, %._crit_edge608 ], [ null, %434 ], [ null, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.sroa.0480.3.lcssa, %882 ], [ %.sroa.0480.6, %716 ], [ %.sroa.0480.6, %723 ]
+  %.3238 = phi i1 [ true, %._crit_edge608 ], [ false, %434 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %882 ], [ false, %716 ], [ false, %723 ]
   %884 = load ptr, ptr %23, align 8, !tbaa !313
   %.not.i.i.i384 = icmp eq ptr %884, null
   br i1 %.not.i.i.i384, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %885

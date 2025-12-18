@@ -415,7 +415,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %.thread.us.sink.split.i, %173, %166, %165, %156, %150, %149, %138, %136, %135, %121, %119, %109, %101
-  %.1.us.i = phi i32 [ %.0138.us.i, %101 ], [ 1, %121 ], [ 1, %173 ], [ 1, %166 ], [ 1, %156 ], [ 1, %150 ], [ 1, %138 ], [ 1, %109 ], [ 1, %135 ], [ 1, %165 ], [ 1, %149 ], [ 1, %136 ], [ 1, %119 ], [ 1, %.thread.us.sink.split.i ]
+  %.1.us.i = phi i32 [ %.0138.us.i, %101 ], [ 1, %121 ], [ 1, %173 ], [ 1, %166 ], [ 1, %156 ], [ 1, %150 ], [ 1, %138 ], [ 1, %119 ], [ 1, %136 ], [ 1, %149 ], [ 1, %165 ], [ 1, %135 ], [ 1, %109 ], [ 1, %.thread.us.sink.split.i ]
   store i32 0, ptr %99, align 4, !tbaa !30
   br label %176
 
@@ -696,7 +696,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.sink.split, %46, %40, %39, %30, %22
-  %.1.us = phi i32 [ %.074.us, %22 ], [ 1, %40 ], [ 1, %46 ], [ 1, %30 ], [ 1, %39 ], [ 1, %.thread.us.sink.split ]
+  %.1.us = phi i32 [ %.074.us, %22 ], [ 1, %40 ], [ 1, %46 ], [ 1, %39 ], [ 1, %30 ], [ 1, %.thread.us.sink.split ]
   store i32 0, ptr %20, align 4, !tbaa !30
   br label %49
 

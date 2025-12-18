@@ -1153,8 +1153,8 @@ jv_copy.exit28.preheader:                         ; preds = %.preheader
   br label %30
 
 .split.us:                                        ; preds = %jv_array_append.exit, %jv_array_append.exit.us.us, %.preheader, %.preheader.us
-  %.us-phi49 = phi i64 [ %0, %.preheader.us ], [ %0, %.preheader ], [ %23, %jv_array_append.exit.us.us ], [ %46, %jv_array_append.exit ]
-  %.us-phi50 = phi ptr [ %1, %.preheader.us ], [ %1, %.preheader ], [ %24, %jv_array_append.exit.us.us ], [ %47, %jv_array_append.exit ]
+  %.us-phi49 = phi i64 [ %23, %jv_array_append.exit.us.us ], [ %0, %.preheader.us ], [ %0, %.preheader ], [ %46, %jv_array_append.exit ]
+  %.us-phi50 = phi ptr [ %24, %jv_array_append.exit.us.us ], [ %1, %.preheader.us ], [ %1, %.preheader ], [ %47, %jv_array_append.exit ]
   tail call void @jv_free(i64 %2, ptr %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.us-phi49, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.us-phi50, 1
@@ -3680,8 +3680,8 @@ jv_object_iter.exit:                              ; preds = %8
   br i1 %.not4143, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %7, %jv_object_iter_next.exit, %34, %jv_object_iter.exit
-  %.sroa.024.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %32, %jv_object_iter_next.exit ], [ %32, %34 ], [ %0, %7 ]
-  %.sroa.425.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %33, %jv_object_iter_next.exit ], [ %33, %34 ], [ %1, %7 ]
+  %.sroa.024.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %32, %34 ], [ %32, %jv_object_iter_next.exit ], [ %0, %7 ]
+  %.sroa.425.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %33, %34 ], [ %33, %jv_object_iter_next.exit ], [ %1, %7 ]
   tail call void @jv_free(i64 %2, ptr %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.024.1.lcssa, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.425.1.lcssa, 1
@@ -3891,8 +3891,8 @@ jv_object_iter.exit:                              ; preds = %8
   br i1 %.not99113, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %7, %jv_object_iter_next.exit, %140, %jv_object_iter.exit
-  %.sroa.044.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %.sroa.044.2, %jv_object_iter_next.exit ], [ %.sroa.044.2, %140 ], [ %0, %7 ]
-  %.sroa.747.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %.sroa.747.2, %jv_object_iter_next.exit ], [ %.sroa.747.2, %140 ], [ %1, %7 ]
+  %.sroa.044.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %.sroa.044.2, %140 ], [ %.sroa.044.2, %jv_object_iter_next.exit ], [ %0, %7 ]
+  %.sroa.747.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %.sroa.747.2, %140 ], [ %.sroa.747.2, %jv_object_iter_next.exit ], [ %1, %7 ]
   tail call void @jv_free(i64 %2, ptr %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.044.1.lcssa, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.747.1.lcssa, 1
@@ -4798,7 +4798,7 @@ jv_copy.exit114:                                  ; preds = %jv_copy.exit110, %2
   br label %jvp_object_contains.exit
 
 jvp_object_contains.exit:                         ; preds = %211, %.loopexit, %jv_object_iter_next.exit, %jv_object_get.exit, %.preheader, %.split.thread, %.split.us.us.us.thread, %.preheader205, %jv_object_iter.exit, %.preheader205.us, %jv_copy.exit105, %jv_copy.exit, %4, %jv_copy.exit114
-  %.0 = phi i32 [ %242, %jv_copy.exit114 ], [ 1, %jv_copy.exit ], [ 0, %4 ], [ %232, %jv_copy.exit105 ], [ 1, %jv_object_iter.exit ], [ 1, %.preheader205 ], [ 0, %.split.us.us.us.thread ], [ 1, %.preheader205.us ], [ 0, %.split.thread ], [ 1, %.loopexit ], [ 1, %.preheader ], [ 1, %jv_object_iter_next.exit ], [ 0, %jv_object_get.exit ], [ 1, %211 ]
+  %.0 = phi i32 [ %242, %jv_copy.exit114 ], [ 1, %jv_copy.exit ], [ 1, %jv_object_iter.exit ], [ 0, %4 ], [ %232, %jv_copy.exit105 ], [ 1, %.preheader205 ], [ 0, %.split.us.us.us.thread ], [ 1, %.preheader205.us ], [ 1, %.preheader ], [ 0, %.split.thread ], [ 1, %jv_object_iter_next.exit ], [ 1, %.loopexit ], [ 0, %jv_object_get.exit ], [ 1, %211 ]
   tail call void @jv_free(i64 %.fr, ptr %1)
   tail call void @jv_free(i64 %2, ptr %3)
   ret i32 %.0

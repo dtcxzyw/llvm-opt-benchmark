@@ -521,7 +521,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge.loopexit_crit_edge, %1, %2
-  %.011 = phi ptr [ null, %2 ], [ null, %1 ], [ %7, %..critedge.loopexit_crit_edge ]
+  %.011 = phi ptr [ null, %1 ], [ null, %2 ], [ %7, %..critedge.loopexit_crit_edge ]
   ret ptr %.011
 }
 
@@ -1213,7 +1213,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %70
 
 68:                                               ; preds = %58, %66
-  %.076 = phi ptr [ %67, %66 ], [ %59, %58 ]
+  %.076 = phi ptr [ %59, %58 ], [ %67, %66 ]
   tail call void @Abc_NtkDelete(ptr noundef nonnull %.175) #16
   %69 = icmp eq ptr %.076, null
   br i1 %69, label %136, label %70
@@ -2656,9 +2656,9 @@ Vec_IntGrow.exit.i:                               ; preds = %94, %92
   br i1 %.not, label %.outer._crit_edge, label %14, !llvm.loop !76
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.pre.i.i51 = phi ptr [ %6, %.preheader ], [ %.val8.pre.i87, %.backedge ], [ %15, %.outer ]
-  %.039.ph.lcssa64 = phi i32 [ -1, %.preheader ], [ %.039.ph71, %.backedge ], [ %34, %.outer ]
-  %.038.ph.lcssa63 = phi i32 [ -1, %.preheader ], [ %.038.ph72, %.backedge ], [ %37, %.outer ]
+  %.pre.i.i51 = phi ptr [ %.val8.pre.i87, %.backedge ], [ %6, %.preheader ], [ %15, %.outer ]
+  %.039.ph.lcssa64 = phi i32 [ %.039.ph71, %.backedge ], [ -1, %.preheader ], [ %34, %.outer ]
+  %.038.ph.lcssa63 = phi i32 [ %.038.ph72, %.backedge ], [ -1, %.preheader ], [ %37, %.outer ]
   %116 = call i32 @fclose(ptr noundef nonnull %8)
   %.val48 = load i32, ptr %5, align 4, !tbaa !65
   %.not44 = icmp eq i32 %.038.ph.lcssa63, %.val48

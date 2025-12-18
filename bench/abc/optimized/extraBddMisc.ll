@@ -786,8 +786,8 @@ Extra_bddSuppSize.exit:                           ; preds = %.lr.ph.i, %.critedg
   br label %52
 
 .outer._crit_edge:                                ; preds = %.outer, %14, %4
-  %.0.ph.lcssa61 = phi i32 [ 0, %4 ], [ %.0.ph71, %14 ], [ %21, %.outer ]
-  %.029.lcssa = phi ptr [ %2, %4 ], [ %18, %14 ], [ %.130, %.outer ]
+  %.0.ph.lcssa61 = phi i32 [ %.0.ph71, %14 ], [ 0, %4 ], [ %21, %.outer ]
+  %.029.lcssa = phi ptr [ %18, %14 ], [ %2, %4 ], [ %.130, %.outer ]
   %44 = load i32, ptr %.029.lcssa, align 8, !tbaa !35
   %.not40 = icmp eq i32 %44, 2147483647
   br i1 %.not40, label %52, label %45
@@ -1374,7 +1374,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %5
-  %.0.lcssa = phi ptr [ %7, %5 ], [ %41, %.lr.ph.split.split.us ], [ %20, %.lr.ph.split.us.split.us ], [ %29, %.lr.ph.split.us.split ], [ %52, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %7, %5 ], [ %41, %.lr.ph.split.split.us ], [ %29, %.lr.ph.split.us.split ], [ %20, %.lr.ph.split.us.split.us ], [ %52, %.lr.ph.split.split ]
   tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #19
   ret ptr %.0.lcssa
 }
@@ -2938,8 +2938,8 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %69, %63, %48, %._crit_edge.loopexit135.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %.thread._crit_edge, %6
-  %.062.lcssa = phi i32 [ %.us-phi, %.thread._crit_edge ], [ 0, %6 ], [ %73, %._crit_edge.loopexit.split.loop.exit ], [ %74, %._crit_edge.loopexit135.split.loop.exit ], [ %2, %69 ], [ %2, %48 ], [ %2, %63 ], [ %2, %72 ]
-  %.060.lcssa = phi i32 [ %.us-phi90, %.thread._crit_edge ], [ 0, %6 ], [ %.06072.us.us, %._crit_edge.loopexit.split.loop.exit ], [ %.06072.us, %._crit_edge.loopexit135.split.loop.exit ], [ %.1.us89, %69 ], [ %.1.us.us, %48 ], [ %.1.us, %63 ], [ 0, %72 ]
+  %.062.lcssa = phi i32 [ %.us-phi, %.thread._crit_edge ], [ 0, %6 ], [ %2, %48 ], [ %2, %63 ], [ %2, %69 ], [ %73, %._crit_edge.loopexit.split.loop.exit ], [ %74, %._crit_edge.loopexit135.split.loop.exit ], [ %2, %72 ]
+  %.060.lcssa = phi i32 [ %.us-phi90, %.thread._crit_edge ], [ 0, %6 ], [ %.1.us.us, %48 ], [ %.1.us, %63 ], [ %.1.us89, %69 ], [ %.06072.us.us, %._crit_edge.loopexit.split.loop.exit ], [ %.06072.us, %._crit_edge.loopexit135.split.loop.exit ], [ 0, %72 ]
   store i32 %11, ptr %10, align 4, !tbaa !76
   tail call void @st__free_table(ptr noundef %9) #19
   %75 = icmp eq i32 %.062.lcssa, %2

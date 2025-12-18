@@ -975,9 +975,9 @@ interpol.exit.thread.i:                           ; preds = %270, %255, %287, %2
   br label %.thread474.thread.i
 
 .thread474.i:                                     ; preds = %511, %482, %458
-  %.2392.i = phi nsz double [ %512, %511 ], [ %488, %482 ], [ %459, %458 ]
-  %.2386.i = phi nsz double [ %513, %511 ], [ %451, %482 ], [ %451, %458 ]
-  %.1383.i = phi i32 [ %521, %511 ], [ %510, %482 ], [ %481, %458 ]
+  %.2392.i = phi nsz double [ %488, %482 ], [ %512, %511 ], [ %459, %458 ]
+  %.2386.i = phi nsz double [ %451, %482 ], [ %513, %511 ], [ %451, %458 ]
+  %.1383.i = phi i32 [ %510, %482 ], [ %521, %511 ], [ %481, %458 ]
   %.not419.i = icmp eq i32 %.1383.i, 0
   br i1 %.not419.i, label %.thread474.thread.i, label %.critedge.i
 
@@ -1001,9 +1001,9 @@ interpol.exit.thread.i:                           ; preds = %270, %255, %287, %2
   br label %.thread474.thread.i
 
 .thread474.thread.i:                              ; preds = %523, %.thread474.thread.loopexit.split.loop.exit682.i, %.thread474.thread.loopexit.split.loop.exit678.i, %.thread474.thread.loopexit.split.loop.exit674.i, %.thread474.thread.loopexit.split.loop.exit.i, %.thread474.i, %.thread474.loopexit.i, %455, %.preheader486.i, %315
-  %.2386653.i = phi double [ %.2386.i, %.thread474.i ], [ %451, %455 ], [ %451, %.thread474.loopexit.i ], [ %.0384.i, %315 ], [ %427, %.preheader486.i ], [ %337, %.thread474.thread.loopexit.split.loop.exit682.i ], [ %427, %.thread474.thread.loopexit.split.loop.exit.i ], [ %397, %.thread474.thread.loopexit.split.loop.exit674.i ], [ %367, %.thread474.thread.loopexit.split.loop.exit678.i ], [ %427, %523 ]
-  %.2392652.i = phi double [ %.2392.i, %.thread474.i ], [ %449, %455 ], [ %449, %.thread474.loopexit.i ], [ %.0390.i, %315 ], [ %425, %.preheader486.i ], [ %335, %.thread474.thread.loopexit.split.loop.exit682.i ], [ %425, %.thread474.thread.loopexit.split.loop.exit.i ], [ %395, %.thread474.thread.loopexit.split.loop.exit674.i ], [ %365, %.thread474.thread.loopexit.split.loop.exit678.i ], [ %425, %523 ]
-  %.1397651.i = phi i32 [ %456, %.thread474.i ], [ %456, %455 ], [ %525, %.thread474.loopexit.i ], [ 0, %315 ], [ %indvars590.le697.i, %.preheader486.i ], [ %529, %.thread474.thread.loopexit.split.loop.exit682.i ], [ %526, %.thread474.thread.loopexit.split.loop.exit.i ], [ %527, %.thread474.thread.loopexit.split.loop.exit674.i ], [ %528, %.thread474.thread.loopexit.split.loop.exit678.i ], [ %indvars589.i, %523 ]
+  %.2386653.i = phi double [ %.2386.i, %.thread474.i ], [ %451, %455 ], [ %.0384.i, %315 ], [ %427, %.preheader486.i ], [ %451, %.thread474.loopexit.i ], [ %337, %.thread474.thread.loopexit.split.loop.exit682.i ], [ %427, %.thread474.thread.loopexit.split.loop.exit.i ], [ %397, %.thread474.thread.loopexit.split.loop.exit674.i ], [ %367, %.thread474.thread.loopexit.split.loop.exit678.i ], [ %427, %523 ]
+  %.2392652.i = phi double [ %.2392.i, %.thread474.i ], [ %449, %455 ], [ %.0390.i, %315 ], [ %425, %.preheader486.i ], [ %449, %.thread474.loopexit.i ], [ %335, %.thread474.thread.loopexit.split.loop.exit682.i ], [ %425, %.thread474.thread.loopexit.split.loop.exit.i ], [ %395, %.thread474.thread.loopexit.split.loop.exit674.i ], [ %365, %.thread474.thread.loopexit.split.loop.exit678.i ], [ %425, %523 ]
+  %.1397651.i = phi i32 [ %456, %.thread474.i ], [ %456, %455 ], [ 0, %315 ], [ %indvars590.le697.i, %.preheader486.i ], [ %525, %.thread474.loopexit.i ], [ %529, %.thread474.thread.loopexit.split.loop.exit682.i ], [ %526, %.thread474.thread.loopexit.split.loop.exit.i ], [ %527, %.thread474.thread.loopexit.split.loop.exit674.i ], [ %528, %.thread474.thread.loopexit.split.loop.exit678.i ], [ %indvars589.i, %523 ]
   %530 = load i32, ptr %71, align 4, !tbaa !68
   switch i32 %530, label %.critedge.i [
     i32 1, label %.preheader.i

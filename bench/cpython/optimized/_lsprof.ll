@@ -2111,7 +2111,7 @@ PyObject_TypeCheck.exit77.thread.i.i:             ; preds = %PyObject_TypeCheck.
   br label %Py_DECREF.exit62.i.i
 
 _Py_NewRef.exit75.i.i:                            ; preds = %PyObject_TypeCheck.exit77.thread.i.i, %36, %33
-  %.041.i.i = phi ptr [ %40, %PyObject_TypeCheck.exit77.thread.i.i ], [ %28, %33 ], [ %28, %36 ]
+  %.041.i.i = phi ptr [ %28, %36 ], [ %28, %33 ], [ %40, %PyObject_TypeCheck.exit77.thread.i.i ]
   %43 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef nonnull %.041.i.i, ptr noundef nonnull @.str.20) #5
   %.not58.i.i = icmp eq i32 %43, 0
   br i1 %.not58.i.i, label %44, label %54

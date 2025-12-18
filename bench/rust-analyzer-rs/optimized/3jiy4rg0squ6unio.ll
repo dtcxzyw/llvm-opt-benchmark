@@ -37598,7 +37598,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$14build_internal17h07
   br label %32
 
 .loopexit.split-lp:                               ; preds = %33, %54, %64, %70, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h85c03938ae915916E.llvm.1686074433831124249.exit.i"
-  %.0.ph = phi i1 [ false, %70 ], [ false, %64 ], [ true, %54 ], [ true, %33 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h85c03938ae915916E.llvm.1686074433831124249.exit.i" ]
+  %.0.ph = phi i1 [ false, %64 ], [ false, %70 ], [ true, %54 ], [ true, %33 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h85c03938ae915916E.llvm.1686074433831124249.exit.i" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %32

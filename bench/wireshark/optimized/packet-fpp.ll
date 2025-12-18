@@ -998,7 +998,7 @@ dissect_express.exit.thread49:                    ; preds = %396
   br label %dissect_express.exit.thread
 
 dissect_express.exit:                             ; preds = %240, %59, %4
-  %.0 = phi ptr [ %0, %4 ], [ %60, %59 ], [ %244, %240 ]
+  %.0 = phi ptr [ %0, %4 ], [ %244, %240 ], [ %60, %59 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %dissect_express.exit.thread, label %445
 

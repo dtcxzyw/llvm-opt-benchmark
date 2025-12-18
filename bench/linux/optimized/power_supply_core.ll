@@ -285,7 +285,7 @@ define internal i32 @__power_supply_am_i_supplied(ptr noundef readonly captures(
   br label %.loopexit8
 
 .loopexit8:                                       ; preds = %22, %40, %.loopexit, %36, %32, %18, %14, %10
-  %60 = phi i32 [ %59, %.loopexit ], [ 0, %18 ], [ 0, %36 ], [ 0, %32 ], [ 0, %14 ], [ 0, %10 ], [ 0, %40 ], [ 0, %22 ]
+  %60 = phi i32 [ 0, %40 ], [ %59, %.loopexit ], [ 0, %18 ], [ 0, %36 ], [ 0, %32 ], [ 0, %14 ], [ 0, %10 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %60
 }
@@ -2150,7 +2150,7 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
   br label %144
 
 144:                                              ; preds = %93, %99, %142, %112, %109, %74
-  %145 = phi i32 [ %76, %74 ], [ %143, %142 ], [ %111, %109 ], [ %114, %112 ], [ -12, %93 ], [ %101, %99 ]
+  %145 = phi i32 [ %76, %74 ], [ %143, %142 ], [ %111, %109 ], [ %114, %112 ], [ %101, %99 ], [ -12, %93 ]
   tail call void @put_device(ptr noundef nonnull %44) #18
   %146 = sext i32 %145 to i64
   %147 = inttoptr i64 %146 to ptr

@@ -852,7 +852,7 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit659
 
-.thread505:                                       ; preds = %462, %451, %450
+.thread505:                                       ; preds = %462, %450, %451
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %469
 
@@ -942,10 +942,10 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   br i1 %.not476, label %.thread535, label %.lr.ph962, !llvm.loop !49
 
 .thread535:                                       ; preds = %474, %.lr.ph962, %227, %223, %216, %203, %.loopexit, %.loopexit659
-  %.1328561 = phi i32 [ -1, %.loopexit659 ], [ -1, %.loopexit ], [ -1, %223 ], [ -1, %216 ], [ -1, %203 ], [ 0, %227 ], [ -1, %.lr.ph962 ], [ 0, %474 ]
-  %.0352560 = phi ptr [ %.4356.ph, %.loopexit659 ], [ %.4356.ph, %.loopexit ], [ %.1353, %223 ], [ null, %216 ], [ null, %203 ], [ %.1353, %227 ], [ %.4356.ph, %.lr.ph962 ], [ %.5357, %474 ]
-  %.0372559 = phi ptr [ %.3375.ph, %.loopexit659 ], [ %.3375.ph, %.loopexit ], [ null, %223 ], [ null, %216 ], [ null, %203 ], [ null, %227 ], [ %.3375.ph, %.lr.ph962 ], [ %.4376, %474 ]
-  %.0384557 = phi i8 [ %spec.select, %.loopexit659 ], [ %spec.select, %.loopexit ], [ 0, %223 ], [ 0, %216 ], [ 0, %203 ], [ %spec.select, %227 ], [ %spec.select, %.lr.ph962 ], [ %spec.select, %474 ]
+  %.1328561 = phi i32 [ -1, %.loopexit659 ], [ -1, %.loopexit ], [ -1, %203 ], [ -1, %223 ], [ -1, %216 ], [ -1, %.lr.ph962 ], [ 0, %227 ], [ 0, %474 ]
+  %.0352560 = phi ptr [ %.4356.ph, %.loopexit659 ], [ %.4356.ph, %.loopexit ], [ null, %203 ], [ %.1353, %223 ], [ null, %216 ], [ %.4356.ph, %.lr.ph962 ], [ %.1353, %227 ], [ %.5357, %474 ]
+  %.0372559 = phi ptr [ %.3375.ph, %.loopexit659 ], [ %.3375.ph, %.loopexit ], [ null, %203 ], [ null, %223 ], [ null, %216 ], [ %.3375.ph, %.lr.ph962 ], [ null, %227 ], [ %.4376, %474 ]
+  %.0384557 = phi i8 [ %spec.select, %.loopexit659 ], [ %spec.select, %.loopexit ], [ 0, %203 ], [ 0, %223 ], [ 0, %216 ], [ %spec.select, %.lr.ph962 ], [ %spec.select, %227 ], [ %spec.select, %474 ]
   %495 = icmp sgt i64 %.1419, -1
   br i1 %495, label %496, label %.thread535.thread
 
@@ -972,15 +972,15 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   %.not477 = icmp eq ptr %.1424, null
   br i1 %.not477, label %509, label %.thread535.thread.thread613
 
-.thread535.thread.thread613:                      ; preds = %184, %171, %153, %143, %.thread535.thread
-  %.1328561571630 = phi i32 [ %.1328561, %.thread535.thread ], [ -1, %143 ], [ -1, %153 ], [ -1, %171 ], [ -1, %184 ]
-  %.0352560573629 = phi ptr [ %.0352560, %.thread535.thread ], [ null, %143 ], [ null, %153 ], [ null, %171 ], [ null, %184 ]
-  %.0372559575628 = phi ptr [ %.0372559, %.thread535.thread ], [ null, %143 ], [ null, %153 ], [ null, %171 ], [ null, %184 ]
-  %.0382558577627 = phi i8 [ %.1383, %.thread535.thread ], [ 0, %143 ], [ 0, %153 ], [ 0, %171 ], [ 0, %184 ]
-  %.0384557579626 = phi i8 [ %.0384557, %.thread535.thread ], [ 0, %143 ], [ 0, %153 ], [ 0, %171 ], [ 0, %184 ]
-  %.0415556581625 = phi i64 [ %.1416, %.thread535.thread ], [ -1, %143 ], [ -1, %153 ], [ -1, %171 ], [ -1, %184 ]
-  %.0421554583624 = phi ptr [ %.1422, %.thread535.thread ], [ null, %143 ], [ null, %153 ], [ %151, %171 ], [ %151, %184 ]
-  %.0423553584623 = phi ptr [ %.1424, %.thread535.thread ], [ %123, %143 ], [ %123, %153 ], [ %123, %171 ], [ %123, %184 ]
+.thread535.thread.thread613:                      ; preds = %143, %153, %171, %184, %.thread535.thread
+  %.1328561571630 = phi i32 [ %.1328561, %.thread535.thread ], [ -1, %184 ], [ -1, %171 ], [ -1, %153 ], [ -1, %143 ]
+  %.0352560573629 = phi ptr [ %.0352560, %.thread535.thread ], [ null, %184 ], [ null, %171 ], [ null, %153 ], [ null, %143 ]
+  %.0372559575628 = phi ptr [ %.0372559, %.thread535.thread ], [ null, %184 ], [ null, %171 ], [ null, %153 ], [ null, %143 ]
+  %.0382558577627 = phi i8 [ %.1383, %.thread535.thread ], [ 0, %184 ], [ 0, %171 ], [ 0, %153 ], [ 0, %143 ]
+  %.0384557579626 = phi i8 [ %.0384557, %.thread535.thread ], [ 0, %184 ], [ 0, %171 ], [ 0, %153 ], [ 0, %143 ]
+  %.0415556581625 = phi i64 [ %.1416, %.thread535.thread ], [ -1, %184 ], [ -1, %171 ], [ -1, %153 ], [ -1, %143 ]
+  %.0421554583624 = phi ptr [ %.1422, %.thread535.thread ], [ %151, %184 ], [ %151, %171 ], [ null, %153 ], [ null, %143 ]
+  %.0423553584623 = phi ptr [ %.1424, %.thread535.thread ], [ %123, %184 ], [ %123, %171 ], [ %123, %153 ], [ %123, %143 ]
   %503 = call i32 @H5T_close(ptr noundef nonnull %.0423553584623) #6
   %504 = icmp slt i32 %503, 0
   br i1 %504, label %505, label %509
@@ -1213,7 +1213,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %31, %.preheader32, %.preheader, %2, %18, %9, %9, %9, %9, %9, %9, %9, %9, %9, %75, %27, %48, %71
-  %.028 = phi i32 [ -1, %75 ], [ -1, %27 ], [ 0, %18 ], [ 0, %2 ], [ 0, %9 ], [ -1, %48 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ -1, %71 ], [ 0, %.preheader ], [ 0, %.preheader32 ], [ 0, %31 ], [ 0, %52 ]
+  %.028 = phi i32 [ -1, %75 ], [ -1, %27 ], [ 0, %18 ], [ 0, %2 ], [ 0, %9 ], [ 0, %.preheader ], [ -1, %48 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ -1, %71 ], [ 0, %.preheader32 ], [ 0, %31 ], [ 0, %52 ]
   ret i32 %.028
 }
 

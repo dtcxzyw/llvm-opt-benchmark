@@ -1809,13 +1809,13 @@ define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull c
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %55, %.split.loop.exit9.i.i56, %.split.loop.exit9.i.i
-  %.2.i.i55.sink = phi i32 [ %31, %.split.loop.exit9.i.i ], [ %57, %.split.loop.exit9.i.i56 ], [ 0, %55 ], [ 0, %29 ]
+  %.2.i.i55.sink = phi i32 [ 0, %55 ], [ %31, %.split.loop.exit9.i.i ], [ %57, %.split.loop.exit9.i.i56 ], [ 0, %29 ]
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %.2.i.i55.sink, ptr %58, align 4, !tbaa !58
   br label %59
 
 59:                                               ; preds = %.sink.split, %48, %43, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %43 ], [ 1, %48 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %20 ], [ 1, %48 ], [ 0, %43 ], [ 0, %.sink.split ]
   call void @strbuf_release(ptr noundef nonnull %7) #11
   br label %68
 

@@ -1754,8 +1754,8 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !43
 
 _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc22, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.sroa.029.0 = phi ptr [ %5, %.noexc22 ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %5, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %6, %.noexc22 ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.029.0 = phi ptr [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %5, %.noexc22 ], [ %5, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %6, %.noexc22 ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %12 = invoke i64 @EC_get_builtin_curves(ptr noundef %.sroa.029.0, i64 noundef %2)
           to label %.preheader unwind label %13
 

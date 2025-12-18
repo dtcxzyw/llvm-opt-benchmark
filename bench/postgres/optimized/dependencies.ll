@@ -1318,7 +1318,7 @@ select.unfold:                                    ; preds = %227
   br label %.thread278.thread
 
 .thread278.thread:                                ; preds = %.lr.ph343.split, %227, %217, %210, %209, %238
-  %.1204 = phi i32 [ %239, %238 ], [ %.0203348, %217 ], [ %.0203348, %209 ], [ %.0203348, %210 ], [ %.0203348, %227 ], [ %.0203348, %.lr.ph343.split ]
+  %.1204 = phi i32 [ %.0203348, %217 ], [ %239, %238 ], [ %.0203348, %209 ], [ %.0203348, %210 ], [ %.0203348, %227 ], [ %.0203348, %.lr.ph343.split ]
   %240 = add nuw i32 %.3213347, 1
   %241 = load i32, ptr %184, align 8
   %242 = icmp ult i32 %240, %241
@@ -2252,7 +2252,7 @@ is_notclause.exit.thread:                         ; preds = %is_opclause.exit, %
   br label %.critedge
 
 .critedge:                                        ; preds = %83, %71, %.loopexit, %64, %.lr.ph, %94, %.lr.ph176, %45, %19, %.split, %.critedge117, %is_opclause.exit.thread.thread, %50, %list_length.exit129, %list_length.exit, %31, %7, %11, %38, %55
-  %.2 = phi i1 [ false, %is_opclause.exit.thread.thread ], [ false, %45 ], [ false, %38 ], [ false, %55 ], [ false, %list_length.exit ], [ false, %19 ], [ false, %7 ], [ false, %50 ], [ false, %94 ], [ false, %11 ], [ false, %31 ], [ false, %list_length.exit129 ], [ false, %.critedge117 ], [ true, %.split ], [ false, %.lr.ph176 ], [ true, %.lr.ph ], [ true, %64 ], [ false, %.loopexit ], [ %85, %71 ], [ %85, %83 ]
+  %.2 = phi i1 [ false, %is_opclause.exit.thread.thread ], [ false, %45 ], [ false, %38 ], [ false, %55 ], [ false, %list_length.exit ], [ false, %19 ], [ false, %7 ], [ false, %50 ], [ true, %.split ], [ false, %11 ], [ false, %31 ], [ false, %list_length.exit129 ], [ false, %.critedge117 ], [ false, %94 ], [ true, %64 ], [ false, %.lr.ph176 ], [ true, %.lr.ph ], [ false, %.loopexit ], [ %85, %71 ], [ %85, %83 ]
   ret i1 %.2
 }
 

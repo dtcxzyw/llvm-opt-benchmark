@@ -3954,7 +3954,7 @@ _ZN4llvm9BitVector6resizeEjb.exit.i94.i:          ; preds = %1472, %_ZN4llvm15Sm
   br i1 %.not.i99.i, label %_ZNK4llvm9BitVector4testERKS0_.exit.i, label %1486, !llvm.loop !306
 
 _ZNK4llvm9BitVector4testERKS0_.exit.i:            ; preds = %1340, %1486, %_ZN4llvm9BitVector6resizeEjb.exit.i94.i, %.preheader.i.i
-  %.2.i149 = phi i1 [ %.1187.i, %.preheader.i.i ], [ true, %_ZN4llvm9BitVector6resizeEjb.exit.i94.i ], [ true, %1486 ], [ %.1187.i, %1340 ]
+  %.2.i149 = phi i1 [ true, %1486 ], [ %.1187.i, %.preheader.i.i ], [ true, %_ZN4llvm9BitVector6resizeEjb.exit.i94.i ], [ %.1187.i, %1340 ]
   %1492 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i135, i64 224
   %1493 = load i32, ptr %1192, align 8, !tbaa !26
   %1494 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i135, i64 232
@@ -4125,7 +4125,7 @@ _ZN4llvm9BitVector6resizeEjb.exit.i136.i:         ; preds = %1550, %_ZN4llvm15Sm
   br i1 %.not.i141.i, label %_ZNK4llvm9BitVector4testERKS0_.exit135.i, label %1564, !llvm.loop !306
 
 _ZNK4llvm9BitVector4testERKS0_.exit135.i:         ; preds = %1508, %1564, %_ZN4llvm9BitVector6resizeEjb.exit.i136.i, %.preheader.i129.i
-  %.3.i = phi i1 [ %.2.i149, %.preheader.i129.i ], [ true, %_ZN4llvm9BitVector6resizeEjb.exit.i136.i ], [ true, %1564 ], [ %.2.i149, %1508 ]
+  %.3.i = phi i1 [ true, %1564 ], [ %.2.i149, %.preheader.i129.i ], [ true, %_ZN4llvm9BitVector6resizeEjb.exit.i136.i ], [ %.2.i149, %1508 ]
   %1570 = getelementptr inbounds nuw i8, ptr %.026186.i, i64 8
   %.not.i151 = icmp eq ptr %1570, %1201
   br i1 %.not.i151, label %.loopexit181.i, label %.lr.ph189.i
@@ -6188,13 +6188,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMap
   br i1 %2538, label %.loopexit.i291, label %2390, !llvm.loop !462
 
 .loopexit.i291:                                   ; preds = %.lr.ph.i.i.i281, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i, %.lr.ph.i.i.i.i.i286, %2386, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i, %2360
-  %2539 = phi i32 [ %2361, %2386 ], [ %2361, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2361, %2360 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2391, %.lr.ph.i.i.i.i.i286 ], [ %2361, %.lr.ph.i.i.i281 ]
-  %2540 = phi i32 [ %2362, %2386 ], [ %2362, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2362, %2360 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2392, %.lr.ph.i.i.i.i.i286 ], [ %2362, %.lr.ph.i.i.i281 ]
-  %.pre646.i = phi ptr [ %2363, %2386 ], [ %2363, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2363, %2360 ], [ %2536, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2393, %.lr.ph.i.i.i.i.i286 ], [ %2363, %.lr.ph.i.i.i281 ]
-  %2541 = phi ptr [ %2364, %2386 ], [ %2364, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2364, %2360 ], [ %2536, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2394, %.lr.ph.i.i.i.i.i286 ], [ %2364, %.lr.ph.i.i.i281 ]
-  %2542 = phi i32 [ 0, %2386 ], [ %2365, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2365, %2360 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2395, %.lr.ph.i.i.i.i.i286 ], [ %2365, %.lr.ph.i.i.i281 ]
-  %2543 = phi i32 [ 0, %2386 ], [ %2366, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ 0, %2360 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2395, %.lr.ph.i.i.i.i.i286 ], [ %2366, %.lr.ph.i.i.i281 ]
-  %2544 = phi ptr [ %2367, %2386 ], [ %2367, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2367, %2360 ], [ %2536, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2394, %.lr.ph.i.i.i.i.i286 ], [ %2367, %.lr.ph.i.i.i281 ]
+  %2539 = phi i32 [ %2391, %.lr.ph.i.i.i.i.i286 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2361, %2386 ], [ %2361, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2361, %2360 ], [ %2361, %.lr.ph.i.i.i281 ]
+  %2540 = phi i32 [ %2392, %.lr.ph.i.i.i.i.i286 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2362, %2386 ], [ %2362, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2362, %2360 ], [ %2362, %.lr.ph.i.i.i281 ]
+  %.pre646.i = phi ptr [ %2393, %.lr.ph.i.i.i.i.i286 ], [ %2536, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2363, %2386 ], [ %2363, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2363, %2360 ], [ %2363, %.lr.ph.i.i.i281 ]
+  %2541 = phi ptr [ %2394, %.lr.ph.i.i.i.i.i286 ], [ %2536, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2364, %2386 ], [ %2364, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2364, %2360 ], [ %2364, %.lr.ph.i.i.i281 ]
+  %2542 = phi i32 [ %2395, %.lr.ph.i.i.i.i.i286 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ 0, %2386 ], [ %2365, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2365, %2360 ], [ %2365, %.lr.ph.i.i.i281 ]
+  %2543 = phi i32 [ %2395, %.lr.ph.i.i.i.i.i286 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ 0, %2386 ], [ %2366, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ 0, %2360 ], [ %2366, %.lr.ph.i.i.i281 ]
+  %2544 = phi ptr [ %2394, %.lr.ph.i.i.i.i.i286 ], [ %2536, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_EixEOi.exit.i ], [ %2367, %2386 ], [ %2367, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i ], [ %2367, %2360 ], [ %2367, %.lr.ph.i.i.i281 ]
   %2545 = add nuw i32 %.035.i, 1
   %exitcond.not.i292 = icmp eq i32 %2545, %225
   br i1 %exitcond.not.i292, label %_ZN12_GLOBAL__N_113StackColoring14expungeSlotMapERN4llvm8DenseMapIiiNS1_12DenseMapInfoIivEENS1_6detail12DenseMapPairIiiEEEEj.exit, label %2360, !llvm.loop !463
@@ -7256,7 +7256,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10AllocaInstENS_5ValueEEEDaPT0_.exit.thread.i: ; p
   br i1 %.not205.not.i, label %.thread.i, label %.lr.ph570.i
 
 .thread.i:                                        ; preds = %_ZN4llvm16dyn_cast_or_nullINS_10AllocaInstENS_5ValueEEEDaPT0_.exit.thread.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_10AllocaInstEE5countES3_.exit.i, %.lr.ph.i.i310.i
-  %.not205.not533.i = phi i1 [ false, %.lr.ph.i.i310.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_10AllocaInstEE5countES3_.exit.i ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_10AllocaInstENS_5ValueEEEDaPT0_.exit.thread.i ]
+  %.not205.not533.i = phi i1 [ false, %.lr.ph.i.i310.i ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_10AllocaInstENS_5ValueEEEDaPT0_.exit.thread.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_10AllocaInstEE5countES3_.exit.i ]
   %3015 = load ptr, ptr %8, align 8, !tbaa !25
   %3016 = icmp eq ptr %3015, %2636
   br i1 %3016, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit.i, label %3017
@@ -7354,7 +7354,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit311.i: ; preds = %3019, %.critedg
   br label %.critedge616.i
 
 .critedge616.i:                                   ; preds = %3049, %._crit_edge577.i
-  %3053 = phi ptr [ %.pre650.i, %3049 ], [ %.pre651.i, %._crit_edge577.i ]
+  %3053 = phi ptr [ %.pre651.i, %._crit_edge577.i ], [ %.pre650.i, %3049 ]
   %3054 = icmp eq ptr %3053, %2633
   br i1 %3054, label %_ZN4llvm11SmallVectorIPNS_17MachineMemOperandELj2EED2Ev.exit.i, label %3055
 
@@ -9411,7 +9411,7 @@ _ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread: ; preds 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %54, %._crit_edge, %12, %8, %49, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit
-  %.1 = phi i1 [ false, %8 ], [ false, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit ], [ false, %49 ], [ false, %._crit_edge ], [ false, %12 ], [ false, %54 ], [ true, %.thread.sink.split ]
+  %.1 = phi i1 [ false, %54 ], [ false, %12 ], [ false, %8 ], [ false, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit ], [ false, %49 ], [ false, %._crit_edge ], [ true, %.thread.sink.split ]
   ret i1 %.1
 }
 
@@ -11228,7 +11228,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !592
 
 _ZSt11swap_rangesIPiS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

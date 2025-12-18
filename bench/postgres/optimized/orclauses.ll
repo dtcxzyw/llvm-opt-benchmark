@@ -285,7 +285,7 @@ is_orclause.exit.thread:                          ; preds = %66, %68, %is_orclau
   br label %79
 
 79:                                               ; preds = %is_orclause.exit.thread, %74
-  %.246 = phi ptr [ %77, %74 ], [ %78, %is_orclause.exit.thread ]
+  %.246 = phi ptr [ %78, %is_orclause.exit.thread ], [ %77, %74 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103116, 1
   %80 = load i32, ptr %7, align 4
   %81 = sext i32 %80 to i64

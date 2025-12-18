@@ -685,7 +685,7 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
   br label %.critedge603
 
 .critedge603:                                     ; preds = %119, %311, %307, %.thread605, %.critedge, %244, %239, %368
-  %.5 = phi ptr [ %130, %.critedge ], [ %130, %368 ], [ %130, %239 ], [ %130, %244 ], [ %130, %.thread605 ], [ %130, %307 ], [ %130, %311 ], [ %.1639, %119 ]
+  %.5 = phi ptr [ %130, %.critedge ], [ %130, %368 ], [ %130, %311 ], [ %130, %239 ], [ %130, %244 ], [ %130, %.thread605 ], [ %130, %307 ], [ %.1639, %119 ]
   %369 = getelementptr inbounds nuw i8, ptr %.5, i64 8
   %370 = load ptr, ptr %369, align 8, !tbaa !67
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -966,7 +966,7 @@ define range(i32 -1, 1) i32 @H5C__iter_tagged_entries(ptr noundef readonly captu
   br label %25
 
 25:                                               ; preds = %.sink.split, %19, %15, %5
-  %.0 = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %5 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %19 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1128,7 +1128,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %99, %109, %22, %19, %4, %114
-  %.0202 = phi i32 [ 0, %4 ], [ -1, %114 ], [ 0, %19 ], [ 0, %22 ], [ 0, %109 ], [ 0, %99 ]
+  %.0202 = phi i32 [ 0, %4 ], [ 0, %109 ], [ -1, %114 ], [ 0, %19 ], [ 0, %22 ], [ 0, %99 ]
   ret i32 %.0202
 }
 
@@ -1398,7 +1398,7 @@ define range(i32 -1, 1) i32 @H5C_flush_tagged_entries(ptr noundef %0, i64 nounde
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 651, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.3) #12
   br label %62
 
-45:                                               ; preds = %35, %22
+45:                                               ; preds = %22, %35
   %46 = tail call i32 @H5C_flush_cache(ptr noundef nonnull %0, i32 noundef 64) #12
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %52

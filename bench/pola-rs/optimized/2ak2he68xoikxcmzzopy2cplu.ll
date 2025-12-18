@@ -117846,7 +117846,7 @@ _ZN9hashbrown3map9make_hash17ha616e91614b5c818E.exit.i: ; preds = %114, %112
           to label %219 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 200:                                              ; preds = %191, %187
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.113.i.i.i, %187 ], [ %197, %191 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %197, %191 ], [ %.sroa.4.113.i.i.i, %187 ]
   %201 = load ptr, ptr %30, align 8, !alias.scope !19618, !noalias !19621, !nonnull !6
   call void @llvm.experimental.noalias.scope.decl(metadata !19632)
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 %.sroa.3.0.i.i.ph.i
@@ -158637,7 +158637,7 @@ _ZN4core3str7pattern13simd_contains17h595ea723b18cce37E.exit.i: ; preds = %.preh
   br label %300
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h7b089a83c7579921E.exit.i": ; preds = %212, %.sink.split.i.i, %.preheader49.i, %300, %.preheader.i.us, %.preheader.i, %279, %222, %214, %.preheader.i25.i
-  %.sroa.0.0.i = phi i8 [ 0, %222 ], [ 0, %.preheader.i25.i ], [ 0, %279 ], [ %spec.select.i, %214 ], [ 1, %.preheader.i ], [ 0, %.sink.split.i.i ], [ 1, %.preheader.i.us ], [ 0, %300 ], [ 1, %.preheader49.i ], [ 1, %212 ]
+  %.sroa.0.0.i = phi i8 [ 0, %222 ], [ 0, %.sink.split.i.i ], [ 0, %.preheader.i25.i ], [ 0, %279 ], [ %spec.select.i, %214 ], [ 1, %.preheader49.i ], [ 1, %.preheader.i.us ], [ 0, %300 ], [ 1, %.preheader.i ], [ 1, %212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !24430
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h94b95ee688b59965E.exit"
 
@@ -169031,8 +169031,8 @@ define internal fastcc void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer
   %124 = icmp eq i8 %123, 0
   br i1 %124, label %307, label %310, !prof !65
 
-125:                                              ; preds = %67, %69
-  %.sroa.0.0.i.ph = phi ptr [ %70, %69 ], [ %68, %67 ]
+125:                                              ; preds = %69, %67
+  %.sroa.0.0.i.ph = phi ptr [ %68, %67 ], [ %70, %69 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %126, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -169052,8 +169052,8 @@ define internal fastcc void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.66)
   br label %128
 
-130:                                              ; preds = %83, %85
-  %.sroa.0.0.i72.ph = phi ptr [ %86, %85 ], [ %84, %83 ]
+130:                                              ; preds = %85, %83
+  %.sroa.0.0.i72.ph = phi ptr [ %84, %83 ], [ %86, %85 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i72.ph, ptr %131, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -169066,8 +169066,8 @@ define internal fastcc void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.66)
   br label %128
 
-133:                                              ; preds = %99, %101
-  %.sroa.0.0.i78.ph = phi ptr [ %102, %101 ], [ %100, %99 ]
+133:                                              ; preds = %101, %99
+  %.sroa.0.0.i78.ph = phi ptr [ %100, %99 ], [ %102, %101 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i78.ph, ptr %134, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -213291,6 +213291,11 @@ define void @_ZN10polars_ops6series3ops16is_last_distinct16is_last_distinct17h90
 208:                                              ; preds = %204
   br i1 %.sroa.064.3.i.ph, label %.split.us.i.i.i.outer.backedge, label %209
 
+.split.us.i.i.i.outer.backedge:                   ; preds = %208, %.sink.split.i.i.i.us.i.i.i
+  %.sroa.064.3.i.ph.be = phi i1 [ %.sroa.064.4.i, %.sink.split.i.i.i.us.i.i.i ], [ true, %208 ]
+  %.sroa.060.3.i.ph.be = phi i1 [ %.sroa.060.4.i, %.sink.split.i.i.i.us.i.i.i ], [ %.sroa.060.3.i, %208 ]
+  br label %.split.us.i.i.i.outer
+
 .split.us.i.i.i.outer:                            ; preds = %182, %.split.us.i.i.i.outer.backedge
   %.sroa.064.3.i.ph = phi i1 [ %.sroa.064.3.i.ph.be, %.split.us.i.i.i.outer.backedge ], [ false, %182 ]
   %.sroa.060.3.i.ph = phi i1 [ %.sroa.060.3.i.ph.be, %.split.us.i.i.i.outer.backedge ], [ false, %182 ]
@@ -213325,11 +213330,6 @@ define void @_ZN10polars_ops6series3ops16is_last_distinct16is_last_distinct17h90
   %223 = or i8 %219, %222
   store i8 %223, ptr %218, align 1, !noalias !29604
   br label %.split.us.i.i.i.outer.backedge
-
-.split.us.i.i.i.outer.backedge:                   ; preds = %.sink.split.i.i.i.us.i.i.i, %208
-  %.sroa.064.3.i.ph.be = phi i1 [ true, %208 ], [ %.sroa.064.4.i, %.sink.split.i.i.i.us.i.i.i ]
-  %.sroa.060.3.i.ph.be = phi i1 [ %.sroa.060.3.i, %208 ], [ %.sroa.060.4.i, %.sink.split.i.i.i.us.i.i.i ]
-  br label %.split.us.i.i.i.outer
 
 .split.i.i.i:                                     ; preds = %.split.i.i.i.outer130, %.thread.i.i.i
   %.sroa.0.0.i = phi i1 [ true, %.thread.i.i.i ], [ %.sroa.0.0.i.ph132, %.split.i.i.i.outer130 ]

@@ -63,7 +63,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
-  %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
+  %.068.ph.lcssa109 = phi ptr [ %.068.ph114, %.loopexit ], [ null, %2 ], [ %.068.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
   br label %73
@@ -288,7 +288,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
-  %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
+  %.068.ph.lcssa109 = phi ptr [ %.068.ph114, %.loopexit ], [ null, %2 ], [ %.068.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
   br label %74
@@ -514,7 +514,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
-  %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
+  %.068.ph.lcssa109 = phi ptr [ %.068.ph114, %.loopexit ], [ null, %2 ], [ %.068.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
   br label %74

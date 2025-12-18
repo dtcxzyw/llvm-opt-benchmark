@@ -1270,7 +1270,7 @@ _ZN3std4path4Path11starts_with17h31fe337a33c5c17eE.exit: ; preds = %218
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %302, %.thread430, %482
-  %.sroa.0121.1.ph.be = phi i64 [ %.sroa.0121.6, %482 ], [ %.sroa.0121.2, %.thread430 ], [ %.sroa.0121.2, %302 ]
+  %.sroa.0121.1.ph.be = phi i64 [ %.sroa.0121.2, %.thread430 ], [ %.sroa.0121.6, %482 ], [ %.sroa.0121.2, %302 ]
   br label %.outer
 
 269:                                              ; preds = %.thread892, %249
@@ -3103,8 +3103,8 @@ _ZN3std4path4Path4join17hd71a9d74afd607e5E.exit:  ; preds = %80
   br i1 %161, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0614a77174bea95eE.exit.thread", label %162
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0614a77174bea95eE.exit.thread": ; preds = %.outer, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0614a77174bea95eE.exit", %263, %124
-  %.sroa.068.0.ph.lcssa = phi i64 [ 0, %124 ], [ %.sroa.068.0.ph498, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0614a77174bea95eE.exit" ], [ %.sroa.068.0.ph498, %263 ], [ %.sroa.068.1, %.outer ]
-  %.sroa.070.0.lcssa = phi i64 [ 0, %124 ], [ %.sroa.070.0491, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0614a77174bea95eE.exit" ], [ %227, %263 ], [ %.sroa.070.0491, %.outer ]
+  %.sroa.068.0.ph.lcssa = phi i64 [ %.sroa.068.0.ph498, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0614a77174bea95eE.exit" ], [ 0, %124 ], [ %.sroa.068.0.ph498, %263 ], [ %.sroa.068.1, %.outer ]
+  %.sroa.070.0.lcssa = phi i64 [ %.sroa.070.0491, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0614a77174bea95eE.exit" ], [ 0, %124 ], [ %227, %263 ], [ %.sroa.070.0491, %.outer ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef1ac1dcc5a39ae6E.llvm.1596346608044946416"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43)
           to label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h8e5384081018c125E.exit232" unwind label %91

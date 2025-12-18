@@ -39936,7 +39936,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit42
   br label %.thread
 
 .thread:                                          ; preds = %41, %.preheader45, %132, %134
-  %.0 = phi i32 [ 2147483647, %132 ], [ %135, %134 ], [ 0, %.preheader45 ], [ %.134, %41 ]
+  %.0 = phi i32 [ %135, %134 ], [ 2147483647, %132 ], [ 0, %.preheader45 ], [ %.134, %41 ]
   ret i32 %.0
 }
 

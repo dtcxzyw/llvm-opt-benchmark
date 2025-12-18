@@ -2171,8 +2171,8 @@ append_db_pattern_cte.exit59:                     ; preds = %._crit_edge.i57, %.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %109, %.thread
-  %.063.be = phi i32 [ %110, %109 ], [ %111, %.thread ]
-  %.04562.be = phi i1 [ %.2, %109 ], [ false, %.thread ]
+  %.063.be = phi i32 [ %111, %.thread ], [ %110, %109 ]
+  %.04562.be = phi i1 [ false, %.thread ], [ %.2, %109 ]
   br label %.lr.ph, !llvm.loop !14
 
 .thread:                                          ; preds = %92

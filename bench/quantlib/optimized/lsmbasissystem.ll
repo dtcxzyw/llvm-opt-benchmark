@@ -2186,7 +2186,7 @@ cond.end.i.thread.i:                              ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp.not.i5567.i, label %if.end12.i.i, label %while.body.i.i.backedge
 
 while.body.i.i.backedge:                          ; preds = %cond.end.i.thread.i, %cond.end.i.i
-  %__x.054.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i66.i, %cond.end.i.thread.i ]
+  %__x.054.i.i.be = phi ptr [ %__x.0.i66.i, %cond.end.i.thread.i ], [ %__x.0.i.i, %cond.end.i.i ]
   br label %while.body.i.i, !llvm.loop !74
 
 if.then.i59.i:                                    ; preds = %cond.end.i.i, %if.end69.i.i

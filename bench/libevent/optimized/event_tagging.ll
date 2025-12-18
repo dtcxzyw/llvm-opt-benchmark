@@ -1127,7 +1127,7 @@ decode_tag_internal.exit:                         ; preds = %13
   br label %decode_tag_internal.exit.thread
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %34, %29, %23, %20, %decode_tag_internal.exit, %2, %48
-  %.0 = phi i32 [ 0, %48 ], [ -1, %34 ], [ -1, %2 ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %23 ], [ -1, %29 ], [ -1, %11 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ 0, %48 ], [ -1, %34 ], [ -1, %29 ], [ -1, %2 ], [ -1, %23 ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -1225,7 +1225,7 @@ decode_int_internal.exit:                         ; preds = %.preheader.i8
   br label %decode_tag_internal.exit.thread
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %2, %decode_int_internal.exit, %decode_tag_internal.exit, %19, %22, %28, %33
-  %.0 = phi i32 [ -1, %33 ], [ 0, %decode_int_internal.exit ], [ -1, %decode_tag_internal.exit ], [ -1, %19 ], [ -1, %22 ], [ -1, %28 ], [ -1, %2 ], [ -1, %11 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %33 ], [ 0, %decode_int_internal.exit ], [ -1, %decode_tag_internal.exit ], [ -1, %19 ], [ -1, %22 ], [ -1, %28 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -1293,7 +1293,7 @@ decode_tag_internal.exit:                         ; preds = %.thread49.i, %21
   br label %decode_tag_internal.exit.thread
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %12, %2, %24, %decode_tag_internal.exit
-  %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ %., %24 ], [ -1, %2 ], [ -1, %12 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ -1, %2 ], [ %., %24 ], [ -1, %12 ], [ -1, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

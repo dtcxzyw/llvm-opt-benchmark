@@ -379,7 +379,7 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
   br i1 %92, label %.preheader29, label %.thread21, !llvm.loop !15
 
 .thread21:                                        ; preds = %.preheader31, %89, %63, %75
-  %93 = phi i64 [ %71, %75 ], [ %71, %89 ], [ %53, %63 ], [ %53, %.preheader31 ]
+  %93 = phi i64 [ %71, %89 ], [ %71, %75 ], [ %53, %63 ], [ %53, %.preheader31 ]
   %94 = sub i64 %17, %93
   %95 = add i64 %40, %94
   %96 = icmp ugt i64 %47, %94
@@ -461,7 +461,7 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
   br i1 %145, label %135, label %.thread23, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader26, %135, %113, %.loopexit28
-  %146 = phi i64 [ 0, %.loopexit28 ], [ 0, %135 ], [ %100, %113 ], [ %100, %.preheader26 ]
+  %146 = phi i64 [ 0, %.loopexit28 ], [ %100, %113 ], [ 0, %135 ], [ %100, %.preheader26 ]
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %37, label %.thread23, !prof !20
 

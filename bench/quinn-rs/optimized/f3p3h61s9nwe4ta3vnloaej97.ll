@@ -2307,7 +2307,7 @@ _ZN11quinn_proto6shared12ConnectionId3new17h8fbb595c9982a2a6E.exit.i: ; preds = 
   br label %_ZN11quinn_proto20transport_parameters16PreferredAddress4read17hd3bd928aa3079f1dE.exit.thread
 
 _ZN11quinn_proto20transport_parameters16PreferredAddress4read17hd3bd928aa3079f1dE.exit.thread: ; preds = %216, %185, %193, %199, %207, %213, %.loopexit
-  %.sroa.12.sroa.0.1.ph = phi i8 [ %.sroa.12.sroa.0.0, %.loopexit ], [ %215, %213 ], [ %209, %207 ], [ %201, %199 ], [ %195, %193 ], [ %187, %185 ], [ 1, %216 ]
+  %.sroa.12.sroa.0.1.ph = phi i8 [ %187, %185 ], [ %.sroa.12.sroa.0.0, %.loopexit ], [ %215, %213 ], [ %209, %207 ], [ %201, %199 ], [ %195, %193 ], [ 1, %216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.12.sroa.0.1.ph, ptr %233, align 8

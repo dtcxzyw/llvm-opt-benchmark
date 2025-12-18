@@ -1692,7 +1692,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %144
   br label %153
 
 153:                                              ; preds = %.sink.split, %31, %144
-  %.3 = phi i64 [ %145, %144 ], [ %.084, %31 ], [ %42, %.sink.split ]
+  %.3 = phi i64 [ %.084, %31 ], [ %145, %144 ], [ %42, %.sink.split ]
   %154 = add i64 %.3, 1
   %.not = icmp eq i64 %154, %2
   br i1 %.not, label %.critedge35, label %31, !llvm.loop !152
@@ -2314,7 +2314,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobPattern14SubGlobPattern5matc
   br i1 %.not6367, label %.outer47._crit_edge, label %.lr.ph.lr.ph, !llvm.loop !170
 
 .outer47._crit_edge:                              ; preds = %.outer, %.outer41, %.outer47.us, %.outer47, %.backedge.us, %.backedge, %3
-  %.034.lcssa = phi ptr [ %6, %3 ], [ %.037.ph89.fr, %.outer41 ], [ %72, %.backedge ], [ %43, %.backedge.us ], [ %65, %.outer47 ], [ %37, %.outer47.us ], [ %48, %.outer ]
+  %.034.lcssa = phi ptr [ %.037.ph89.fr, %.outer41 ], [ %43, %.backedge.us ], [ %65, %.outer47 ], [ %6, %3 ], [ %72, %.backedge ], [ %37, %.outer47.us ], [ %48, %.outer ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 8

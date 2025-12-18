@@ -614,7 +614,7 @@ read_cb_data.exit:                                ; preds = %72, %64
   br i1 %exitcond256.not, label %._crit_edge186, label %.preheader164.us, !llvm.loop !70
 
 ._crit_edge186:                                   ; preds = %._crit_edge.us189, %.preheader165.lr.ph, %read_cb_data.exit
-  %.sroa.20.5.lcssa = phi i32 [ %.sroa.20.17, %.preheader165.lr.ph ], [ %.sroa.20.17, %read_cb_data.exit ], [ %spec.select.i.us, %._crit_edge.us189 ]
+  %.sroa.20.5.lcssa = phi i32 [ %.sroa.20.17, %read_cb_data.exit ], [ %.sroa.20.17, %.preheader165.lr.ph ], [ %spec.select.i.us, %._crit_edge.us189 ]
   %161 = load i32, ptr %55, align 4, !tbaa !59
   %162 = icmp eq i32 %161, 2
   br i1 %162, label %.preheader166, label %.preheader168

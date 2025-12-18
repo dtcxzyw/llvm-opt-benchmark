@@ -654,7 +654,7 @@ memtest_compare.exit.thread15:                    ; preds = %.lr.ph, %memtest_co
   unreachable
 
 ._crit_edge:                                      ; preds = %memtest_compare.exit.thread15, %memtest_compare.exit.us, %.lr.ph.split.us.split, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ 0, %.lr.ph.split.us.split ], [ %17, %memtest_compare.exit.us ], [ %20, %memtest_compare.exit.thread15 ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %17, %memtest_compare.exit.us ], [ 0, %.lr.ph.split.us.split ], [ %20, %memtest_compare.exit.thread15 ]
   ret i32 %.0.lcssa
 }
 

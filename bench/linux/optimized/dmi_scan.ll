@@ -486,7 +486,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
   br label %.thread6
 
 .thread6:                                         ; preds = %43, %45, %53, %56, %.split, %.thread5, %40, %.thread5.us, %20, %17, %9, %.split.us, %.thread6.loopexit30
-  %61 = phi i1 [ true, %.split.us ], [ false, %40 ], [ false, %.thread6.loopexit30 ], [ false, %20 ], [ true, %.thread5.us ], [ false, %17 ], [ false, %9 ], [ true, %.thread5 ], [ true, %.split ], [ false, %53 ], [ false, %45 ], [ false, %43 ], [ false, %56 ]
+  %61 = phi i1 [ false, %40 ], [ true, %.split.us ], [ false, %.thread6.loopexit30 ], [ true, %.thread5.us ], [ false, %17 ], [ false, %9 ], [ false, %20 ], [ true, %.split ], [ false, %53 ], [ false, %45 ], [ false, %43 ], [ true, %.thread5 ], [ false, %56 ]
   ret i1 %61
 }
 

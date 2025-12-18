@@ -507,7 +507,7 @@ arraydestroy.body31:                              ; preds = %arraydestroy.body31
   br i1 %arraydestroy.done34, label %ehcleanup, label %arraydestroy.body31
 
 ehcleanup:                                        ; preds = %arraydestroy.body, %arraydestroy.body31, %lpad.thread
-  %.pn = phi { ptr, i32 } [ %2, %lpad.thread ], [ %6, %arraydestroy.body31 ], [ %5, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %6, %arraydestroy.body31 ], [ %2, %lpad.thread ], [ %5, %arraydestroy.body ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox6common23stringToCompressionKindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26stringToCompressionKindMapB5cxx11) #17
   resume { ptr, i32 } %.pn
 }

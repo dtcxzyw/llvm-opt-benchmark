@@ -513,7 +513,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %38, %56, %44, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %44 ], [ 0, %38 ], [ 0, %56 ], [ 1, %45 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %44 ], [ 0, %56 ], [ 0, %38 ], [ 1, %45 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 

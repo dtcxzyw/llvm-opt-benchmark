@@ -4293,7 +4293,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnu
   br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %71, %48, %.preheader.split, %31, %.preheader.split.us, %51
-  %.3 = phi i32 [ %.035, %51 ], [ %.2, %48 ], [ %.151.us, %.preheader.split.us ], [ %.2.us, %31 ], [ %.151, %.preheader.split ], [ %.5, %71 ]
+  %.3 = phi i32 [ %.151.us, %.preheader.split.us ], [ %.035, %51 ], [ %.2, %48 ], [ %.2.us, %31 ], [ %.151, %.preheader.split ], [ %.5, %71 ]
   ret i32 %.3
 }
 

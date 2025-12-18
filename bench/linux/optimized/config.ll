@@ -1741,7 +1741,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
   br i1 %880, label %.loopexit132, label %847, !llvm.loop !31
 
 .thread99:                                        ; preds = %248, %378, %839, %799, %split
-  %.ph101 = phi i32 [ -22, %split ], [ %840, %839 ], [ %801, %799 ], [ -12, %378 ], [ -12, %248 ]
+  %.ph101 = phi i32 [ -22, %split ], [ %801, %799 ], [ %840, %839 ], [ -12, %378 ], [ -12, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %881 = trunc i64 %35 to i32

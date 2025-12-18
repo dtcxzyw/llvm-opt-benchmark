@@ -1008,7 +1008,7 @@ hw_device_setup_for_decode.exit:                  ; preds = %.thread.i
   br label %clone_side_data.exit
 
 clone_side_data.exit:                             ; preds = %46, %.lr.ph.i145, %209, %.loopexit, %219, %180, %51, %.critedge, %4, %199, %178, %172, %63
-  %.0 = phi i32 [ %61, %63 ], [ %.060.i150, %172 ], [ %176, %178 ], [ -12, %51 ], [ %197, %199 ], [ %182, %180 ], [ %228, %219 ], [ -12, %.critedge ], [ -12, %4 ], [ 0, %209 ], [ 0, %.loopexit ], [ %262, %.lr.ph.i145 ], [ -12, %46 ]
+  %.0 = phi i32 [ %61, %63 ], [ %.060.i150, %172 ], [ %176, %178 ], [ -12, %51 ], [ %197, %199 ], [ %182, %180 ], [ %228, %219 ], [ %262, %.lr.ph.i145 ], [ -12, %.critedge ], [ -12, %4 ], [ 0, %209 ], [ 0, %.loopexit ], [ -12, %46 ]
   ret i32 %.0
 }
 
@@ -2553,7 +2553,7 @@ av_ts_make_string.exit69.i.i:                     ; preds = %579, %578
   br label %packet_decode.exit
 
 packet_decode.exit:                               ; preds = %select.unfold.i, %374, %384, %614, %transcode_subtitles.exit.i, %321, %.critedge.i, %340, %341, %345, %370, %390, %601, %624
-  %.0.i91 = phi i32 [ %.0.i.i, %transcode_subtitles.exit.i ], [ -12, %.critedge.i ], [ -558323010, %340 ], [ %335, %345 ], [ -541478725, %341 ], [ 0, %321 ], [ -12, %390 ], [ 0, %370 ], [ %.2.i.ph.i, %601 ], [ %626, %624 ], [ %616, %614 ], [ -1094995529, %384 ], [ %368, %select.unfold.i ], [ %368, %374 ]
+  %.0.i91 = phi i32 [ %.0.i.i, %transcode_subtitles.exit.i ], [ -12, %.critedge.i ], [ -558323010, %340 ], [ %335, %345 ], [ -541478725, %341 ], [ 0, %321 ], [ -12, %390 ], [ 0, %370 ], [ %.2.i.ph.i, %601 ], [ %626, %624 ], [ %616, %614 ], [ %368, %select.unfold.i ], [ %368, %374 ], [ -1094995529, %384 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %627 = load ptr, ptr %28, align 8, !tbaa !181
@@ -2694,7 +2694,7 @@ packet_decode.exit:                               ; preds = %select.unfold.i, %3
   br label %.thread122
 
 .thread122:                                       ; preds = %dec_standalone_open.exit, %.thread127, %.thread130, %dec_standalone_open.exit.thread, %110, %dec_thread_init.exit.thread, %672, %689, %690, %684
-  %.062 = phi i32 [ -12, %dec_thread_init.exit.thread ], [ %.2, %.thread127 ], [ %669, %672 ], [ -1145393733, %684 ], [ 0, %690 ], [ 0, %689 ], [ %.0.i90.ph, %dec_standalone_open.exit.thread ], [ %86, %110 ], [ 0, %.thread130 ], [ %139, %dec_standalone_open.exit ]
+  %.062 = phi i32 [ -12, %dec_thread_init.exit.thread ], [ 0, %.thread130 ], [ %.2, %.thread127 ], [ %669, %672 ], [ -1145393733, %684 ], [ 0, %690 ], [ 0, %689 ], [ %.0.i90.ph, %dec_standalone_open.exit.thread ], [ %86, %110 ], [ %139, %dec_standalone_open.exit ]
   %692 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @av_packet_free(ptr noundef nonnull %692) #13
   call void @av_frame_free(ptr noundef nonnull %21) #13
@@ -3245,7 +3245,7 @@ select.unfold177.sink.split.i:                    ; preds = %.thread173.i, %.thr
   br label %select.unfold177.i
 
 select.unfold177.i:                               ; preds = %139, %select.unfold177.sink.split.i, %131, %.thread171.i, %.thread165.i, %99, %83
-  %.3.ph.i = phi i32 [ %.0107206.i, %99 ], [ %.0107206.i, %.thread165.i ], [ %.0107206.i, %83 ], [ %.0107206.i, %.thread171.i ], [ %134, %131 ], [ %.3.ph.ph.i, %select.unfold177.sink.split.i ], [ %134, %139 ]
+  %.3.ph.i = phi i32 [ %.0107206.i, %99 ], [ %.0107206.i, %.thread165.i ], [ %.0107206.i, %83 ], [ %.0107206.i, %.thread171.i ], [ %.3.ph.ph.i, %select.unfold177.sink.split.i ], [ %134, %131 ], [ %134, %139 ]
   %indvars.iv.next222.i = add nuw nsw i64 %indvars.iv221.i, 1
   %147 = load i32, ptr %11, align 8, !tbaa !29
   %148 = sext i32 %147 to i64
@@ -3320,7 +3320,7 @@ multiview_setup.exit.thread99:                    ; preds = %2, %18
   br label %.preheader46
 
 multiview_setup.exit:                             ; preds = %99, %.thread165.i, %.thread171.i, %171, %.thread.i, %58, %66, %._crit_edge.thread.i, %150, %154, %168
-  %.2117.i = phi i32 [ %156, %154 ], [ %156, %168 ], [ -12, %150 ], [ -12, %66 ], [ -22, %._crit_edge.thread.i ], [ %.0115.ph.i, %.thread.i ], [ -12, %58 ], [ %spec.select, %171 ], [ -22, %.thread171.i ], [ -22, %.thread165.i ], [ -22, %99 ]
+  %.2117.i = phi i32 [ %156, %154 ], [ %156, %168 ], [ %spec.select, %171 ], [ -12, %150 ], [ -12, %66 ], [ -22, %._crit_edge.thread.i ], [ %.0115.ph.i, %.thread.i ], [ -12, %58 ], [ -22, %.thread171.i ], [ -22, %.thread165.i ], [ -22, %99 ]
   call void @av_freep(ptr noundef nonnull %4) #13
   call void @av_freep(ptr noundef nonnull %5) #13
   call void @av_freep(ptr noundef nonnull %6) #13

@@ -8373,7 +8373,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   br label %.loopexit273
 
 .loopexit273:                                     ; preds = %.preheader272.preheader, %.thread241, %.thread, %.loopexit351
-  %.pn.pn.pn.pn.pn240 = phi { ptr, i32 } [ %337, %.thread ], [ %.pn.pn, %.loopexit351 ], [ %338, %.thread241 ], [ %.pn.pn.pn340, %.preheader272.preheader ]
+  %.pn.pn.pn.pn.pn240 = phi { ptr, i32 } [ %337, %.thread ], [ %338, %.thread241 ], [ %.pn.pn, %.loopexit351 ], [ %.pn.pn.pn340, %.preheader272.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #30
@@ -8448,7 +8448,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   br label %.loopexit270
 
 .loopexit270:                                     ; preds = %.preheader269.preheader, %.thread252, %.thread246, %.loopexit350
-  %.pn74.pn.pn.pn.pn251 = phi { ptr, i32 } [ %354, %.thread246 ], [ %.pn74.pn, %.loopexit350 ], [ %355, %.thread252 ], [ %.pn74.pn.pn344, %.preheader269.preheader ]
+  %.pn74.pn.pn.pn.pn251 = phi { ptr, i32 } [ %354, %.thread246 ], [ %355, %.thread252 ], [ %.pn74.pn, %.loopexit350 ], [ %.pn74.pn.pn344, %.preheader269.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #30
@@ -8527,7 +8527,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.thread263, %.thread257, %.loopexit349
-  %.pn81.pn.pn.pn.pn262 = phi { ptr, i32 } [ %372, %.thread257 ], [ %.pn81.pn, %.loopexit349 ], [ %373, %.thread263 ], [ %.pn81.pn.pn348, %.preheader.preheader ]
+  %.pn81.pn.pn.pn.pn262 = phi { ptr, i32 } [ %372, %.thread257 ], [ %373, %.thread263 ], [ %.pn81.pn, %.loopexit349 ], [ %.pn81.pn.pn348, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #30
@@ -20226,7 +20226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit793: ; preds = %19
   br label %.loopexit1024
 
 .loopexit1024:                                    ; preds = %.preheader.preheader, %.thread1017, %.thread, %.loopexit1312
-  %.pn271.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1016 = phi { ptr, i32 } [ %1874, %.thread ], [ %.pn271.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit1312 ], [ %1875, %.thread1017 ], [ %.pn271.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1311, %.preheader.preheader ]
+  %.pn271.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1016 = phi { ptr, i32 } [ %1874, %.thread ], [ %1875, %.thread1017 ], [ %.pn271.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit1312 ], [ %.pn271.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1311, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #30
@@ -25005,7 +25005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %11
   br label %.loopexit630
 
 .loopexit630:                                     ; preds = %.preheader629.preheader, %.thread582, %.thread, %.loopexit814
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn581 = phi { ptr, i32 } [ %1083, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn, %.loopexit814 ], [ %1084, %.thread582 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn803, %.preheader629.preheader ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn581 = phi { ptr, i32 } [ %1083, %.thread ], [ %1084, %.thread582 ], [ %.pn.pn.pn.pn.pn.pn.pn, %.loopexit814 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn803, %.preheader629.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #30
@@ -25184,7 +25184,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483: ; preds = %11
   br label %.loopexit624
 
 .loopexit624:                                     ; preds = %.preheader623.preheader, %.thread598, %.thread592, %.loopexit813
-  %.pn152.pn.pn.pn.pn.pn.pn.pn.pn.pn597 = phi { ptr, i32 } [ %1131, %.thread592 ], [ %.pn152.pn.pn.pn.pn.pn.pn, %.loopexit813 ], [ %1132, %.thread598 ], [ %.pn152.pn.pn.pn.pn.pn.pn.pn807, %.preheader623.preheader ]
+  %.pn152.pn.pn.pn.pn.pn.pn.pn.pn.pn597 = phi { ptr, i32 } [ %1131, %.thread592 ], [ %1132, %.thread598 ], [ %.pn152.pn.pn.pn.pn.pn.pn, %.loopexit813 ], [ %.pn152.pn.pn.pn.pn.pn.pn.pn807, %.preheader623.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #30
@@ -25367,7 +25367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit489: ; preds = %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.thread614, %.thread608, %.loopexit812
-  %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn613 = phi { ptr, i32 } [ %1180, %.thread608 ], [ %.pn168.pn.pn.pn.pn.pn.pn, %.loopexit812 ], [ %1181, %.thread614 ], [ %.pn168.pn.pn.pn.pn.pn.pn.pn811, %.preheader.preheader ]
+  %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn613 = phi { ptr, i32 } [ %1180, %.thread608 ], [ %1181, %.thread614 ], [ %.pn168.pn.pn.pn.pn.pn.pn, %.loopexit812 ], [ %.pn168.pn.pn.pn.pn.pn.pn.pn811, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #30

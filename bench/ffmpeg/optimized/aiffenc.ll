@@ -500,7 +500,7 @@ define internal range(i32 -2147483648, 1) i32 @aiff_write_trailer(ptr noundef %0
   call void @avio_w8(ptr noundef nonnull %20, i32 noundef 0) #5
   br label %put_id3v2_tags.exit.thread
 
-put_id3v2_tags.exit.thread:                       ; preds = %32, %56, %._crit_edge.i
+put_id3v2_tags.exit.thread:                       ; preds = %32, %._crit_edge.i, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %57
 

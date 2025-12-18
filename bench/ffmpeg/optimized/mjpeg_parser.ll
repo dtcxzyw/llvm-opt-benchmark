@@ -179,8 +179,8 @@ thread-pre-split127.i:                            ; preds = %71, %69, %52
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %83, %78
-  %.282.be.i = phi i32 [ %80, %78 ], [ %84, %83 ]
-  %.3.be.i = phi i32 [ 0, %78 ], [ %.4.i, %83 ]
+  %.282.be.i = phi i32 [ %84, %83 ], [ %80, %78 ]
+  %.3.be.i = phi i32 [ %.4.i, %83 ], [ 0, %78 ]
   %82 = icmp slt i32 %.282.be.i, %5
   br i1 %82, label %52, label %.loopexit.i, !llvm.loop !24
 

@@ -1194,291 +1194,291 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %306
   switch i32 %.pr.i26, label %.thread121.i.loopexit136 [
     i32 12, label %.thread.i33
     i32 9, label %.thread121.i
-    i32 10, label %568
-    i32 6, label %569
-    i32 33, label %592
-    i32 2, label %602
-    i32 3, label %605
-    i32 4, label %624
-    i32 5, label %648
+    i32 10, label %570
+    i32 6, label %571
+    i32 33, label %594
+    i32 2, label %604
+    i32 3, label %607
+    i32 4, label %626
+    i32 5, label %650
   ]
 
-568:                                              ; preds = %567
+.thread.i33:                                      ; preds = %567, %.backedge.i
+  %568 = load i32, ptr %545, align 8
+  %569 = icmp slt i32 %568, 1
+  br i1 %569, label %.thread121.i, label %X11_MessageBoxDraw.exit.i.thread
+
+570:                                              ; preds = %567
   store i32 -1, ptr %536, align 8
   store i32 -1, ptr %537, align 4
   br label %.thread121.i
 
-569:                                              ; preds = %567
-  br i1 %.062135.i, label %570, label %.thread121.i
+571:                                              ; preds = %567
+  br i1 %.062135.i, label %572, label %.thread121.i
 
-570:                                              ; preds = %569
-  %571 = load i32, ptr %537, align 4
-  %572 = load i32, ptr %539, align 8
-  %573 = load i32, ptr %540, align 4
-  %574 = load i32, ptr %173, align 8
-  %575 = icmp sgt i32 %574, 0
-  br i1 %575, label %.lr.ph.preheader.i.i, label %GetHitButtonIndex.exit.i
+572:                                              ; preds = %571
+  %573 = load i32, ptr %537, align 4
+  %574 = load i32, ptr %539, align 8
+  %575 = load i32, ptr %540, align 4
+  %576 = load i32, ptr %173, align 8
+  %577 = icmp sgt i32 %576, 0
+  br i1 %577, label %.lr.ph.preheader.i.i, label %.loopexit.i
 
-.lr.ph.preheader.i.i:                             ; preds = %570
-  %wide.trip.count.i.i = zext nneg i32 %574 to i64
+.lr.ph.preheader.i.i:                             ; preds = %572
+  %wide.trip.count.i.i = zext nneg i32 %576 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %590, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %590 ]
-  %576 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i.i
-  %577 = getelementptr inbounds nuw i8, ptr %576, i64 160
-  %578 = load i32, ptr %577, align 8
-  %.not.i.i32 = icmp slt i32 %572, %578
-  br i1 %.not.i.i32, label %590, label %579
+.lr.ph.i.i:                                       ; preds = %592, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %592 ]
+  %578 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i.i
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 160
+  %580 = load i32, ptr %579, align 8
+  %.not.i.i32 = icmp slt i32 %574, %580
+  br i1 %.not.i.i32, label %592, label %581
 
-579:                                              ; preds = %.lr.ph.i.i
-  %580 = getelementptr inbounds nuw i8, ptr %576, i64 168
-  %581 = load i32, ptr %580, align 8
-  %582 = add nsw i32 %581, %578
-  %.not25.i.i = icmp sgt i32 %572, %582
-  br i1 %.not25.i.i, label %590, label %583
+581:                                              ; preds = %.lr.ph.i.i
+  %582 = getelementptr inbounds nuw i8, ptr %578, i64 168
+  %583 = load i32, ptr %582, align 8
+  %584 = add nsw i32 %583, %580
+  %.not25.i.i = icmp sgt i32 %574, %584
+  br i1 %.not25.i.i, label %592, label %585
 
-583:                                              ; preds = %579
-  %584 = getelementptr inbounds nuw i8, ptr %576, i64 164
-  %585 = load i32, ptr %584, align 4
-  %.not26.i.i = icmp slt i32 %573, %585
-  br i1 %.not26.i.i, label %590, label %586
+585:                                              ; preds = %581
+  %586 = getelementptr inbounds nuw i8, ptr %578, i64 164
+  %587 = load i32, ptr %586, align 4
+  %.not26.i.i = icmp slt i32 %575, %587
+  br i1 %.not26.i.i, label %592, label %588
 
-586:                                              ; preds = %583
-  %587 = getelementptr inbounds nuw i8, ptr %576, i64 172
-  %588 = load i32, ptr %587, align 4
-  %589 = add nsw i32 %588, %585
-  %.not27.i.i = icmp sgt i32 %573, %589
-  br i1 %.not27.i.i, label %590, label %._crit_edge.loopexit.split.loop.exit.i.i
+588:                                              ; preds = %585
+  %589 = getelementptr inbounds nuw i8, ptr %578, i64 172
+  %590 = load i32, ptr %589, align 4
+  %591 = add nsw i32 %590, %587
+  %.not27.i.i = icmp sgt i32 %575, %591
+  br i1 %.not27.i.i, label %592, label %._crit_edge.loopexit.split.loop.exit.i.i
 
-590:                                              ; preds = %586, %583, %579, %.lr.ph.i.i
+592:                                              ; preds = %588, %585, %581, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %GetHitButtonIndex.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !12
 
-._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %586
-  %591 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  br label %GetHitButtonIndex.exit.i
+._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %588
+  %593 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  br label %.loopexit.i
 
-GetHitButtonIndex.exit.i:                         ; preds = %590, %._crit_edge.loopexit.split.loop.exit.i.i, %570
-  %.2.i.i = phi i32 [ -1, %570 ], [ %591, %._crit_edge.loopexit.split.loop.exit.i.i ], [ -1, %590 ]
-  store i32 %.2.i.i, ptr %537, align 4
-  %.not129.i = icmp eq i32 %.2.i.i, %571
-  br i1 %.not129.i, label %X11_MessageBoxDraw.exit.i.thread, label %.thread121.i
+594:                                              ; preds = %567
+  %595 = load i64, ptr %542, align 8
+  %596 = load i64, ptr %543, align 8
+  %597 = icmp eq i64 %595, %596
+  %598 = load i32, ptr %544, align 8
+  %599 = icmp eq i32 %598, 32
+  %or.cond.i = select i1 %597, i1 %599, i1 false
+  br i1 %or.cond.i, label %600, label %.thread121.i
 
-592:                                              ; preds = %567
-  %593 = load i64, ptr %542, align 8
-  %594 = load i64, ptr %543, align 8
-  %595 = icmp eq i64 %593, %594
-  %596 = load i32, ptr %544, align 8
-  %597 = icmp eq i32 %596, 32
-  %or.cond.i = select i1 %595, i1 %597, i1 false
-  br i1 %or.cond.i, label %598, label %.thread121.i
-
-598:                                              ; preds = %592
-  %599 = load i64, ptr %545, align 8
-  %600 = load i64, ptr %546, align 8
-  %601 = icmp eq i64 %599, %600
+600:                                              ; preds = %594
+  %601 = load i64, ptr %545, align 8
+  %602 = load i64, ptr %546, align 8
+  %603 = icmp eq i64 %601, %602
   br label %.thread121.i
 
-602:                                              ; preds = %567
-  %603 = load ptr, ptr @X11_XLookupKeysym, align 8
-  %604 = call i64 %603(ptr noundef nonnull %5, i32 noundef 0) #11
+604:                                              ; preds = %567
+  %605 = load ptr, ptr @X11_XLookupKeysym, align 8
+  %606 = call i64 %605(ptr noundef nonnull %5, i32 noundef 0) #11
   br label %.thread121.i
 
-605:                                              ; preds = %567
-  %606 = load ptr, ptr @X11_XLookupKeysym, align 8
-  %607 = call i64 %606(ptr noundef nonnull %5, i32 noundef 0) #11
-  %.not79.i = icmp eq i64 %607, %.066134.i.ph
-  br i1 %.not79.i, label %608, label %.thread121.i
+607:                                              ; preds = %567
+  %608 = load ptr, ptr @X11_XLookupKeysym, align 8
+  %609 = call i64 %608(ptr noundef nonnull %5, i32 noundef 0) #11
+  %.not79.i = icmp eq i64 %609, %.066134.i.ph
+  br i1 %.not79.i, label %610, label %.thread121.i
 
-608:                                              ; preds = %605
-  %609 = icmp eq i64 %.066134.i.ph, 65307
-  br i1 %609, label %.preheader.i, label %610
+610:                                              ; preds = %607
+  %611 = icmp eq i64 %.066134.i.ph, 65307
+  br i1 %611, label %.preheader.i, label %612
 
-610:                                              ; preds = %608
-  %611 = and i64 %.066134.i.ph, -129
-  %or.cond4.not.i = icmp eq i64 %611, 65293
+612:                                              ; preds = %610
+  %613 = and i64 %.066134.i.ph, -129
+  %or.cond4.not.i = icmp eq i64 %613, 65293
   br i1 %or.cond4.not.i, label %.preheader.i, label %.thread121.i
 
-.preheader.i:                                     ; preds = %610, %608
-  %.069115.ph.i = phi i32 [ 2, %608 ], [ 1, %610 ]
-  %612 = load i32, ptr %173, align 8
-  %613 = icmp sgt i32 %612, 0
-  br i1 %613, label %.lr.ph.preheader.i, label %.thread121.i
+.preheader.i:                                     ; preds = %612, %610
+  %.069115.ph.i = phi i32 [ 2, %610 ], [ 1, %612 ]
+  %614 = load i32, ptr %173, align 8
+  %615 = icmp sgt i32 %614, 0
+  br i1 %615, label %.lr.ph.preheader.i, label %.thread121.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i27 = zext nneg i32 %612 to i64
+  %wide.trip.count.i27 = zext nneg i32 %614 to i64
   br label %.lr.ph.i28
 
-614:                                              ; preds = %.lr.ph.i28
+616:                                              ; preds = %.lr.ph.i28
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i27
   br i1 %exitcond.not.i31, label %.thread121.i, label %.lr.ph.i28, !llvm.loop !13
 
-.lr.ph.i28:                                       ; preds = %614, %.lr.ph.preheader.i
-  %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i30, %614 ]
-  %615 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i29
-  %616 = getelementptr inbounds nuw i8, ptr %615, i64 176
-  %617 = load ptr, ptr %616, align 8
-  %618 = load i32, ptr %617, align 8
-  %619 = and i32 %618, %.069115.ph.i
-  %.not81.i = icmp eq i32 %619, 0
-  br i1 %.not81.i, label %614, label %620
+.lr.ph.i28:                                       ; preds = %616, %.lr.ph.preheader.i
+  %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i30, %616 ]
+  %617 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i29
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 176
+  %619 = load ptr, ptr %618, align 8
+  %620 = load i32, ptr %619, align 8
+  %621 = and i32 %620, %.069115.ph.i
+  %.not81.i = icmp eq i32 %621, 0
+  br i1 %.not81.i, label %616, label %622
 
-620:                                              ; preds = %.lr.ph.i28
-  %621 = getelementptr inbounds nuw i8, ptr %617, i64 4
-  %622 = load i32, ptr %621, align 4
-  %623 = load ptr, ptr %541, align 8
-  store i32 %622, ptr %623, align 4
+622:                                              ; preds = %.lr.ph.i28
+  %623 = getelementptr inbounds nuw i8, ptr %619, i64 4
+  %624 = load i32, ptr %623, align 4
+  %625 = load ptr, ptr %541, align 8
+  store i32 %624, ptr %625, align 4
   br label %.thread121.i
 
-624:                                              ; preds = %567
+626:                                              ; preds = %567
   store i32 -1, ptr %536, align 8
-  %625 = load i32, ptr %538, align 4
-  %626 = icmp eq i32 %625, 1
-  br i1 %626, label %627, label %.thread121.i
+  %627 = load i32, ptr %538, align 4
+  %628 = icmp eq i32 %627, 1
+  br i1 %628, label %629, label %.thread121.i
 
-627:                                              ; preds = %624
-  %628 = load i32, ptr %539, align 8
-  %629 = load i32, ptr %540, align 4
-  %630 = load i32, ptr %173, align 8
-  %631 = icmp sgt i32 %630, 0
-  br i1 %631, label %.lr.ph.preheader.i86.i, label %GetHitButtonIndex.exit97.i
+629:                                              ; preds = %626
+  %630 = load i32, ptr %539, align 8
+  %631 = load i32, ptr %540, align 4
+  %632 = load i32, ptr %173, align 8
+  %633 = icmp sgt i32 %632, 0
+  br i1 %633, label %.lr.ph.preheader.i86.i, label %GetHitButtonIndex.exit97.i
 
-.lr.ph.preheader.i86.i:                           ; preds = %627
-  %wide.trip.count.i87.i = zext nneg i32 %630 to i64
+.lr.ph.preheader.i86.i:                           ; preds = %629
+  %wide.trip.count.i87.i = zext nneg i32 %632 to i64
   br label %.lr.ph.i88.i
 
-.lr.ph.i88.i:                                     ; preds = %646, %.lr.ph.preheader.i86.i
-  %indvars.iv.i89.i = phi i64 [ 0, %.lr.ph.preheader.i86.i ], [ %indvars.iv.next.i95.i, %646 ]
-  %632 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i89.i
-  %633 = getelementptr inbounds nuw i8, ptr %632, i64 160
-  %634 = load i32, ptr %633, align 8
-  %.not.i90.i = icmp slt i32 %628, %634
-  br i1 %.not.i90.i, label %646, label %635
+.lr.ph.i88.i:                                     ; preds = %648, %.lr.ph.preheader.i86.i
+  %indvars.iv.i89.i = phi i64 [ 0, %.lr.ph.preheader.i86.i ], [ %indvars.iv.next.i95.i, %648 ]
+  %634 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i89.i
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 160
+  %636 = load i32, ptr %635, align 8
+  %.not.i90.i = icmp slt i32 %630, %636
+  br i1 %.not.i90.i, label %648, label %637
 
-635:                                              ; preds = %.lr.ph.i88.i
-  %636 = getelementptr inbounds nuw i8, ptr %632, i64 168
-  %637 = load i32, ptr %636, align 8
-  %638 = add nsw i32 %637, %634
-  %.not25.i91.i = icmp sgt i32 %628, %638
-  br i1 %.not25.i91.i, label %646, label %639
+637:                                              ; preds = %.lr.ph.i88.i
+  %638 = getelementptr inbounds nuw i8, ptr %634, i64 168
+  %639 = load i32, ptr %638, align 8
+  %640 = add nsw i32 %639, %636
+  %.not25.i91.i = icmp sgt i32 %630, %640
+  br i1 %.not25.i91.i, label %648, label %641
 
-639:                                              ; preds = %635
-  %640 = getelementptr inbounds nuw i8, ptr %632, i64 164
-  %641 = load i32, ptr %640, align 4
-  %.not26.i92.i = icmp slt i32 %629, %641
-  br i1 %.not26.i92.i, label %646, label %642
+641:                                              ; preds = %637
+  %642 = getelementptr inbounds nuw i8, ptr %634, i64 164
+  %643 = load i32, ptr %642, align 4
+  %.not26.i92.i = icmp slt i32 %631, %643
+  br i1 %.not26.i92.i, label %648, label %644
 
-642:                                              ; preds = %639
-  %643 = getelementptr inbounds nuw i8, ptr %632, i64 172
-  %644 = load i32, ptr %643, align 4
-  %645 = add nsw i32 %644, %641
-  %.not27.i93.i = icmp sgt i32 %629, %645
-  br i1 %.not27.i93.i, label %646, label %._crit_edge.loopexit.split.loop.exit.i94.i
+644:                                              ; preds = %641
+  %645 = getelementptr inbounds nuw i8, ptr %634, i64 172
+  %646 = load i32, ptr %645, align 4
+  %647 = add nsw i32 %646, %643
+  %.not27.i93.i = icmp sgt i32 %631, %647
+  br i1 %.not27.i93.i, label %648, label %._crit_edge.loopexit.split.loop.exit.i94.i
 
-646:                                              ; preds = %642, %639, %635, %.lr.ph.i88.i
+648:                                              ; preds = %644, %641, %637, %.lr.ph.i88.i
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i89.i, 1
   %exitcond.not.i96.i = icmp eq i64 %indvars.iv.next.i95.i, %wide.trip.count.i87.i
   br i1 %exitcond.not.i96.i, label %GetHitButtonIndex.exit97.i, label %.lr.ph.i88.i, !llvm.loop !12
 
-._crit_edge.loopexit.split.loop.exit.i94.i:       ; preds = %642
-  %647 = trunc nuw nsw i64 %indvars.iv.i89.i to i32
+._crit_edge.loopexit.split.loop.exit.i94.i:       ; preds = %644
+  %649 = trunc nuw nsw i64 %indvars.iv.i89.i to i32
   br label %GetHitButtonIndex.exit97.i
 
-GetHitButtonIndex.exit97.i:                       ; preds = %646, %._crit_edge.loopexit.split.loop.exit.i94.i, %627
-  %.2.i85.i = phi i32 [ -1, %627 ], [ %647, %._crit_edge.loopexit.split.loop.exit.i94.i ], [ -1, %646 ]
+GetHitButtonIndex.exit97.i:                       ; preds = %648, %._crit_edge.loopexit.split.loop.exit.i94.i, %629
+  %.2.i85.i = phi i32 [ -1, %629 ], [ %649, %._crit_edge.loopexit.split.loop.exit.i94.i ], [ -1, %648 ]
   store i32 %.2.i85.i, ptr %536, align 8
   br label %.thread121.i
 
-648:                                              ; preds = %567
-  %649 = load i32, ptr %538, align 4
-  %650 = icmp eq i32 %649, 1
-  br i1 %650, label %651, label %GetHitButtonIndex.exit110.thread.i
+650:                                              ; preds = %567
+  %651 = load i32, ptr %538, align 4
+  %652 = icmp eq i32 %651, 1
+  br i1 %652, label %653, label %GetHitButtonIndex.exit110.thread.i
 
-651:                                              ; preds = %648
-  %652 = load i32, ptr %536, align 8
-  %653 = icmp sgt i32 %652, -1
-  br i1 %653, label %654, label %GetHitButtonIndex.exit110.thread.i
+653:                                              ; preds = %650
+  %654 = load i32, ptr %536, align 8
+  %655 = icmp sgt i32 %654, -1
+  br i1 %655, label %656, label %GetHitButtonIndex.exit110.thread.i
 
-654:                                              ; preds = %651
-  %655 = load i32, ptr %539, align 8
-  %656 = load i32, ptr %540, align 4
-  %657 = load i32, ptr %173, align 8
-  %658 = icmp sgt i32 %657, 0
-  br i1 %658, label %.lr.ph.preheader.i99.i, label %GetHitButtonIndex.exit110.thread.i
+656:                                              ; preds = %653
+  %657 = load i32, ptr %539, align 8
+  %658 = load i32, ptr %540, align 4
+  %659 = load i32, ptr %173, align 8
+  %660 = icmp sgt i32 %659, 0
+  br i1 %660, label %.lr.ph.preheader.i99.i, label %GetHitButtonIndex.exit110.thread.i
 
-.lr.ph.preheader.i99.i:                           ; preds = %654
-  %wide.trip.count.i100.i = zext nneg i32 %657 to i64
+.lr.ph.preheader.i99.i:                           ; preds = %656
+  %wide.trip.count.i100.i = zext nneg i32 %659 to i64
   br label %.lr.ph.i101.i
 
-.lr.ph.i101.i:                                    ; preds = %673, %.lr.ph.preheader.i99.i
-  %indvars.iv.i102.i = phi i64 [ 0, %.lr.ph.preheader.i99.i ], [ %indvars.iv.next.i108.i, %673 ]
-  %659 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i102.i
-  %660 = getelementptr inbounds nuw i8, ptr %659, i64 160
-  %661 = load i32, ptr %660, align 8
-  %.not.i103.i = icmp slt i32 %655, %661
-  br i1 %.not.i103.i, label %673, label %662
+.lr.ph.i101.i:                                    ; preds = %675, %.lr.ph.preheader.i99.i
+  %indvars.iv.i102.i = phi i64 [ 0, %.lr.ph.preheader.i99.i ], [ %indvars.iv.next.i108.i, %675 ]
+  %661 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i102.i
+  %662 = getelementptr inbounds nuw i8, ptr %661, i64 160
+  %663 = load i32, ptr %662, align 8
+  %.not.i103.i = icmp slt i32 %657, %663
+  br i1 %.not.i103.i, label %675, label %664
 
-662:                                              ; preds = %.lr.ph.i101.i
-  %663 = getelementptr inbounds nuw i8, ptr %659, i64 168
-  %664 = load i32, ptr %663, align 8
-  %665 = add nsw i32 %664, %661
-  %.not25.i104.i = icmp sgt i32 %655, %665
-  br i1 %.not25.i104.i, label %673, label %666
+664:                                              ; preds = %.lr.ph.i101.i
+  %665 = getelementptr inbounds nuw i8, ptr %661, i64 168
+  %666 = load i32, ptr %665, align 8
+  %667 = add nsw i32 %666, %663
+  %.not25.i104.i = icmp sgt i32 %657, %667
+  br i1 %.not25.i104.i, label %675, label %668
 
-666:                                              ; preds = %662
-  %667 = getelementptr inbounds nuw i8, ptr %659, i64 164
-  %668 = load i32, ptr %667, align 4
-  %.not26.i105.i = icmp slt i32 %656, %668
-  br i1 %.not26.i105.i, label %673, label %669
+668:                                              ; preds = %664
+  %669 = getelementptr inbounds nuw i8, ptr %661, i64 164
+  %670 = load i32, ptr %669, align 4
+  %.not26.i105.i = icmp slt i32 %658, %670
+  br i1 %.not26.i105.i, label %675, label %671
 
-669:                                              ; preds = %666
-  %670 = getelementptr inbounds nuw i8, ptr %659, i64 172
-  %671 = load i32, ptr %670, align 4
-  %672 = add nsw i32 %671, %668
-  %.not27.i106.i = icmp sgt i32 %656, %672
-  br i1 %.not27.i106.i, label %673, label %GetHitButtonIndex.exit110.i
+671:                                              ; preds = %668
+  %672 = getelementptr inbounds nuw i8, ptr %661, i64 172
+  %673 = load i32, ptr %672, align 4
+  %674 = add nsw i32 %673, %670
+  %.not27.i106.i = icmp sgt i32 %658, %674
+  br i1 %.not27.i106.i, label %675, label %GetHitButtonIndex.exit110.i
 
-673:                                              ; preds = %669, %666, %662, %.lr.ph.i101.i
+675:                                              ; preds = %671, %668, %664, %.lr.ph.i101.i
   %indvars.iv.next.i108.i = add nuw nsw i64 %indvars.iv.i102.i, 1
   %exitcond.not.i109.i = icmp eq i64 %indvars.iv.next.i108.i, %wide.trip.count.i100.i
   br i1 %exitcond.not.i109.i, label %GetHitButtonIndex.exit110.thread.i, label %.lr.ph.i101.i, !llvm.loop !12
 
-GetHitButtonIndex.exit110.i:                      ; preds = %669
-  %674 = trunc nuw nsw i64 %indvars.iv.i102.i to i32
-  %675 = icmp eq i32 %652, %674
-  br i1 %675, label %676, label %GetHitButtonIndex.exit110.thread.i
+GetHitButtonIndex.exit110.i:                      ; preds = %671
+  %676 = trunc nuw nsw i64 %indvars.iv.i102.i to i32
+  %677 = icmp eq i32 %654, %676
+  br i1 %677, label %678, label %GetHitButtonIndex.exit110.thread.i
 
-676:                                              ; preds = %GetHitButtonIndex.exit110.i
-  %677 = zext nneg i32 %652 to i64
-  %678 = getelementptr %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %677
-  %679 = getelementptr i8, ptr %678, i64 176
-  %680 = load ptr, ptr %679, align 8
-  %681 = getelementptr inbounds nuw i8, ptr %680, i64 4
-  %682 = load i32, ptr %681, align 4
-  %683 = load ptr, ptr %541, align 8
-  store i32 %682, ptr %683, align 4
+678:                                              ; preds = %GetHitButtonIndex.exit110.i
+  %679 = zext nneg i32 %654 to i64
+  %680 = getelementptr %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %679
+  %681 = getelementptr i8, ptr %680, i64 176
+  %682 = load ptr, ptr %681, align 8
+  %683 = getelementptr inbounds nuw i8, ptr %682, i64 4
+  %684 = load i32, ptr %683, align 4
+  %685 = load ptr, ptr %541, align 8
+  store i32 %684, ptr %685, align 4
   br label %GetHitButtonIndex.exit110.thread.i
 
-GetHitButtonIndex.exit110.thread.i:               ; preds = %673, %676, %GetHitButtonIndex.exit110.i, %654, %651, %648
-  %.8.i = phi i1 [ false, %648 ], [ false, %651 ], [ true, %676 ], [ false, %GetHitButtonIndex.exit110.i ], [ false, %654 ], [ false, %673 ]
+GetHitButtonIndex.exit110.thread.i:               ; preds = %675, %678, %GetHitButtonIndex.exit110.i, %656, %653, %650
+  %.8.i = phi i1 [ false, %650 ], [ false, %653 ], [ true, %678 ], [ false, %GetHitButtonIndex.exit110.i ], [ false, %656 ], [ false, %675 ]
   store i32 -1, ptr %536, align 8
   br label %.thread121.i
 
-.thread.i33:                                      ; preds = %567, %.backedge.i
-  %684 = load i32, ptr %545, align 8
-  %685 = icmp slt i32 %684, 1
-  br i1 %685, label %.thread121.i, label %X11_MessageBoxDraw.exit.i.thread
+.loopexit.i:                                      ; preds = %592, %._crit_edge.loopexit.split.loop.exit.i.i, %572
+  %.2.i.i = phi i32 [ -1, %572 ], [ %593, %._crit_edge.loopexit.split.loop.exit.i.i ], [ -1, %592 ]
+  store i32 %.2.i.i, ptr %537, align 4
+  %.not129.i = icmp eq i32 %.2.i.i, %573
+  br i1 %.not129.i, label %X11_MessageBoxDraw.exit.i.thread, label %.thread121.i
 
 .thread121.i.loopexit136:                         ; preds = %567
   br label %.thread121.i
 
-.thread121.i:                                     ; preds = %.thread.i33, %GetHitButtonIndex.exit.i, %569, %614, %567, %.thread121.i.loopexit136, %GetHitButtonIndex.exit110.thread.i, %GetHitButtonIndex.exit97.i, %624, %620, %.preheader.i, %610, %605, %602, %598, %592, %568
-  %.2128.i = phi i1 [ false, %610 ], [ false, %605 ], [ false, %624 ], [ false, %GetHitButtonIndex.exit97.i ], [ %601, %598 ], [ false, %602 ], [ false, %592 ], [ true, %620 ], [ false, %568 ], [ false, %614 ], [ %.8.i, %GetHitButtonIndex.exit110.thread.i ], [ false, %.preheader.i ], [ false, %567 ], [ false, %569 ], [ false, %GetHitButtonIndex.exit.i ], [ false, %.thread.i33 ], [ false, %.thread121.i.loopexit136 ]
-  %.264127.i = phi i1 [ %.062135.i, %610 ], [ %.062135.i, %605 ], [ %.062135.i, %624 ], [ %.062135.i, %GetHitButtonIndex.exit97.i ], [ %.062135.i, %598 ], [ %.062135.i, %602 ], [ %.062135.i, %592 ], [ %.062135.i, %620 ], [ false, %568 ], [ %.062135.i, %614 ], [ %.062135.i, %GetHitButtonIndex.exit110.thread.i ], [ %.062135.i, %.preheader.i ], [ true, %567 ], [ false, %569 ], [ %.062135.i, %.thread.i33 ], [ true, %GetHitButtonIndex.exit.i ], [ %.062135.i, %.thread121.i.loopexit136 ]
-  %.268126.i = phi i64 [ %.066134.i.ph, %610 ], [ %.066134.i.ph, %605 ], [ %.066134.i.ph, %624 ], [ %.066134.i.ph, %GetHitButtonIndex.exit97.i ], [ %.066134.i.ph, %598 ], [ %604, %602 ], [ %.066134.i.ph, %592 ], [ %.066134.i.ph, %620 ], [ %.066134.i.ph, %568 ], [ %.066134.i.ph, %614 ], [ %.066134.i.ph, %GetHitButtonIndex.exit110.thread.i ], [ %.066134.i.ph, %.preheader.i ], [ %.066134.i.ph, %567 ], [ %.066134.i.ph, %569 ], [ %.066134.i.ph, %GetHitButtonIndex.exit.i ], [ %.066134.i.ph, %.thread.i33 ], [ %.066134.i.ph, %.thread121.i.loopexit136 ]
+.thread121.i:                                     ; preds = %.loopexit.i, %571, %.thread.i33, %616, %567, %.thread121.i.loopexit136, %GetHitButtonIndex.exit110.thread.i, %GetHitButtonIndex.exit97.i, %626, %622, %.preheader.i, %612, %607, %604, %600, %594, %570
+  %.2128.i = phi i1 [ false, %567 ], [ false, %.preheader.i ], [ false, %612 ], [ false, %607 ], [ false, %626 ], [ false, %GetHitButtonIndex.exit97.i ], [ %603, %600 ], [ false, %604 ], [ false, %594 ], [ true, %622 ], [ %.8.i, %GetHitButtonIndex.exit110.thread.i ], [ false, %570 ], [ false, %616 ], [ false, %.thread.i33 ], [ false, %571 ], [ false, %.loopexit.i ], [ false, %.thread121.i.loopexit136 ]
+  %.264127.i = phi i1 [ true, %567 ], [ %.062135.i, %.preheader.i ], [ %.062135.i, %612 ], [ %.062135.i, %607 ], [ %.062135.i, %626 ], [ %.062135.i, %GetHitButtonIndex.exit97.i ], [ %.062135.i, %600 ], [ %.062135.i, %604 ], [ %.062135.i, %594 ], [ %.062135.i, %622 ], [ %.062135.i, %GetHitButtonIndex.exit110.thread.i ], [ false, %570 ], [ %.062135.i, %616 ], [ false, %571 ], [ true, %.loopexit.i ], [ %.062135.i, %.thread.i33 ], [ %.062135.i, %.thread121.i.loopexit136 ]
+  %.268126.i = phi i64 [ %.066134.i.ph, %567 ], [ %.066134.i.ph, %.preheader.i ], [ %.066134.i.ph, %612 ], [ %.066134.i.ph, %607 ], [ %.066134.i.ph, %626 ], [ %.066134.i.ph, %GetHitButtonIndex.exit97.i ], [ %.066134.i.ph, %600 ], [ %606, %604 ], [ %.066134.i.ph, %594 ], [ %.066134.i.ph, %622 ], [ %.066134.i.ph, %GetHitButtonIndex.exit110.thread.i ], [ %.066134.i.ph, %570 ], [ %.066134.i.ph, %616 ], [ %.066134.i.ph, %.thread.i33 ], [ %.066134.i.ph, %571 ], [ %.066134.i.ph, %.loopexit.i ], [ %.066134.i.ph, %.thread121.i.loopexit136 ]
   %686 = load i64, ptr %322, align 8
   %687 = load ptr, ptr %29, align 8
   %688 = load i32, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -1679,8 +1679,8 @@ GetHitButtonIndex.exit110.thread.i:               ; preds = %673, %676, %GetHitB
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.2128.i, label %833, label %.backedge.i.outer.backedge
 
-X11_MessageBoxDraw.exit.i.thread:                 ; preds = %564, %GetHitButtonIndex.exit.i, %.thread.i33
-  %.163.i.ph = phi i1 [ %.062135.i, %.thread.i33 ], [ true, %GetHitButtonIndex.exit.i ], [ %.062135.i, %564 ]
+X11_MessageBoxDraw.exit.i.thread:                 ; preds = %564, %.thread.i33, %.loopexit.i
+  %.163.i.ph = phi i1 [ true, %.loopexit.i ], [ %.062135.i, %.thread.i33 ], [ %.062135.i, %564 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge.i
 

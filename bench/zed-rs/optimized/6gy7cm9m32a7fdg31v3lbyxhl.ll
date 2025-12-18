@@ -10875,8 +10875,8 @@ default.unreachable73:                            ; preds = %2
   br label %69
 
 69:                                               ; preds = %48, %.fold.split, %.noexc26
-  %70 = phi i64 [ 1, %.noexc26 ], [ 1, %48 ], [ %49, %.fold.split ]
-  %.sroa.5.034.i52 = phi ptr [ %21, %.noexc26 ], [ %50, %48 ], [ %50, %.fold.split ]
+  %70 = phi i64 [ 1, %48 ], [ 1, %.noexc26 ], [ %49, %.fold.split ]
+  %.sroa.5.034.i52 = phi ptr [ %50, %48 ], [ %21, %.noexc26 ], [ %50, %.fold.split ]
   %71 = icmp ne ptr %.sroa.5.034.i52, null
   call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -11351,8 +11351,8 @@ default.unreachable118:                           ; preds = %2
   br label %.thread
 
 .thread:                                          ; preds = %55, %.thread.fold.split, %.noexc45
-  %65 = phi i64 [ 1, %.noexc45 ], [ 1, %55 ], [ %56, %.thread.fold.split ]
-  %.sroa.5.034.i93 = phi ptr [ %28, %.noexc45 ], [ %57, %55 ], [ %57, %.thread.fold.split ]
+  %65 = phi i64 [ 1, %55 ], [ 1, %.noexc45 ], [ %56, %.thread.fold.split ]
+  %.sroa.5.034.i93 = phi ptr [ %57, %55 ], [ %28, %.noexc45 ], [ %57, %.thread.fold.split ]
   %66 = icmp ne ptr %.sroa.5.034.i93, null
   call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 104

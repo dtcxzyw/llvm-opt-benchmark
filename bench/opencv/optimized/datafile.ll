@@ -8680,7 +8680,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cv5utilsL14isSubDirectoryERKNSt7_
   br label %_ZN2cv5utilsL15isSubDirectory_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 _ZN2cv5utilsL15isSubDirectory_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %21, %22, %2, %8, %.critedge.i, %26
-  %.0.i = phi i1 [ false, %2 ], [ false, %8 ], [ %switch.selectcmp.i, %26 ], [ true, %.critedge.i ], [ false, %22 ], [ false, %21 ]
+  %.0.i = phi i1 [ true, %.critedge.i ], [ false, %2 ], [ false, %8 ], [ %switch.selectcmp.i, %26 ], [ false, %22 ], [ false, %21 ]
   %29 = tail call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %34, label %30

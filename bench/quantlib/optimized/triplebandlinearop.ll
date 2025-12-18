@@ -3346,7 +3346,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end3.i.i.i.i, %w
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i, !llvm.loop !101
 
 _ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %add.ptr6.i.i.i, %if.end.i.i.i ], [ %add.ptr6.i.i.i, %lor.lhs.false.i.i.i.i ], [ %add.ptr6.i.i.i, %if.end3.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %add.ptr6.i.i.i, %if.end3.i.i.i.i ], [ %add.ptr6.i.i.i, %if.end.i.i.i ], [ %add.ptr6.i.i.i, %lor.lhs.false.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %cmp14.i.i.i = icmp eq ptr %retval.0.i.i.i.i, %add.ptr11.i.i.i
   br i1 %cmp14.i.i.i, label %if.end.i.i.i7, label %lor.lhs.false.i.i.i
 
@@ -3421,9 +3421,9 @@ while.body.i.i.i.i.i.i38:                         ; preds = %if.end3.i.i.i.i34, 
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i38, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i19, !llvm.loop !101
 
 _ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i19: ; preds = %while.body.i.i.i.i.i.i38, %if.end3.i.i.i.i34, %lor.lhs.false.i.i.i.i17, %if.end.i.i.i7
-  %add5567 = phi double [ %add55, %if.end.i.i.i7 ], [ %add5566, %lor.lhs.false.i.i.i.i17 ], [ %add5566, %if.end3.i.i.i.i34 ], [ %add5566, %while.body.i.i.i.i.i.i38 ]
-  %d_3.i5465 = phi ptr [ %d_3.i54, %if.end.i.i.i7 ], [ %d_3.i5464, %lor.lhs.false.i.i.i.i17 ], [ %d_3.i5464, %if.end3.i.i.i.i34 ], [ %d_3.i5464, %while.body.i.i.i.i.i.i38 ]
-  %retval.0.i.i.i.i20 = phi ptr [ %add.ptr6.i.i.i, %if.end.i.i.i7 ], [ %add.ptr6.i.i.i, %lor.lhs.false.i.i.i.i17 ], [ %add.ptr6.i.i.i, %if.end3.i.i.i.i34 ], [ %__first.addr.1.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i38 ]
+  %add5567 = phi double [ %add5566, %if.end3.i.i.i.i34 ], [ %add55, %if.end.i.i.i7 ], [ %add5566, %lor.lhs.false.i.i.i.i17 ], [ %add5566, %while.body.i.i.i.i.i.i38 ]
+  %d_3.i5465 = phi ptr [ %d_3.i5464, %if.end3.i.i.i.i34 ], [ %d_3.i54, %if.end.i.i.i7 ], [ %d_3.i5464, %lor.lhs.false.i.i.i.i17 ], [ %d_3.i5464, %while.body.i.i.i.i.i.i38 ]
+  %retval.0.i.i.i.i20 = phi ptr [ %add.ptr6.i.i.i, %if.end3.i.i.i.i34 ], [ %add.ptr6.i.i.i, %if.end.i.i.i7 ], [ %add.ptr6.i.i.i, %lor.lhs.false.i.i.i.i17 ], [ %__first.addr.1.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i38 ]
   %cmp14.i.i.i21 = icmp eq ptr %retval.0.i.i.i.i20, %add.ptr11.i.i.i
   br i1 %cmp14.i.i.i21, label %if.then.i6, label %lor.lhs.false.i.i.i22
 

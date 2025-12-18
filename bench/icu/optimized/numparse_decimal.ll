@@ -1060,10 +1060,6 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %254)
           to label %.outer.backedge unwind label %.loopexit369
 
-.outer.backedge:                                  ; preds = %248, %255
-  %.0192.ph.be = phi i32 [ 2, %255 ], [ 1, %248 ]
-  br label %.outer
-
 255:                                              ; preds = %247
   %256 = load i16, ptr %18, align 8, !tbaa !6
   %257 = icmp slt i16 %256, 0
@@ -1073,6 +1069,10 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   %261 = select i1 %257, i32 %260, i32 %259
   invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %261)
           to label %.outer.backedge unwind label %.loopexit369
+
+.outer.backedge:                                  ; preds = %255, %248
+  %.0192.ph.be = phi i32 [ 1, %248 ], [ 2, %255 ]
+  br label %.outer
 
 .thread330:                                       ; preds = %38, %241, %209, %240, %237
   %.1207 = phi i32 [ %.0206, %237 ], [ %.0206, %240 ], [ %.0206, %38 ], [ 0, %241 ], [ %.0206, %209 ]

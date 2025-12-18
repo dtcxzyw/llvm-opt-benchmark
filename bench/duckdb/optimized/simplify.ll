@@ -1110,7 +1110,7 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit129:        ; preds = %._ZN10duckdb_re26Re
   br i1 %165, label %.lr.ph149, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %.lr.ph139, %162, %_ZN10duckdb_re26Regexp8AllocSubEi.exit127, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129, %._crit_edge, %.loopexit132, %51, %58, %28, %10
-  %.095 = phi ptr [ %11, %10 ], [ %30, %51 ], [ %29, %28 ], [ %30, %._crit_edge ], [ %30, %58 ], [ %89, %.loopexit132 ], [ %124, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129 ], [ %90, %_ZN10duckdb_re26Regexp8AllocSubEi.exit127 ], [ %124, %162 ], [ %90, %.lr.ph139 ]
+  %.095 = phi ptr [ %11, %10 ], [ %30, %51 ], [ %29, %28 ], [ %30, %._crit_edge ], [ %30, %58 ], [ %124, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129 ], [ %89, %.loopexit132 ], [ %124, %162 ], [ %90, %_ZN10duckdb_re26Regexp8AllocSubEi.exit127 ], [ %90, %.lr.ph139 ]
   ret ptr %.095
 
 166:                                              ; preds = %106, %150, %46

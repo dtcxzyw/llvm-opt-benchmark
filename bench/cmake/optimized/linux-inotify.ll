@@ -82,7 +82,7 @@ watcher_root_RB_MINMAX.exit.preheader:            ; preds = %10
   br i1 %28, label %22, label %watcher_root_RB_NEXT.exit, !llvm.loop !32
 
 watcher_root_RB_NEXT.exit:                        ; preds = %.preheader.i, %22, %25, %19
-  %.1.i = phi ptr [ %18, %19 ], [ null, %22 ], [ %24, %25 ], [ %.0.i69, %.preheader.i ]
+  %.1.i = phi ptr [ null, %22 ], [ %18, %19 ], [ %24, %25 ], [ %.0.i69, %.preheader.i ]
   %29 = getelementptr inbounds nuw i8, ptr %.05774, i64 48
   store i32 1, ptr %29, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %.05774, i64 32
@@ -1105,7 +1105,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %.not.i54, label %58, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %56, %.thread
-  %.02636.i.be = phi ptr [ %.026.i62, %.thread ], [ %.026.i, %56 ]
+  %.02636.i.be = phi ptr [ %.026.i, %56 ], [ %.026.i62, %.thread ]
   br label %.lr.ph.i, !llvm.loop !55
 
 .thread:                                          ; preds = %55
@@ -1419,7 +1419,7 @@ watcher_root_RB_INSERT_COLOR.exit.i:              ; preds = %.backedge.i.i, %.lr
   br label %find_watcher.exit
 
 find_watcher.exit:                                ; preds = %35, %55, %watcher_root_RB_INSERT_COLOR.exit.i
-  %.045 = phi ptr [ %41, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %41, %55 ], [ %.093.i.i, %35 ]
+  %.045 = phi ptr [ %41, %55 ], [ %41, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %.093.i.i, %35 ]
   %181 = load i32, ptr %5, align 8, !tbaa !36
   %182 = and i32 %181, 4
   %.not52 = icmp eq i32 %182, 0

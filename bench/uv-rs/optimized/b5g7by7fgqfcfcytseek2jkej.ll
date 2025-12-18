@@ -8569,7 +8569,7 @@ _ZN9uv_pep50810parse_name17h4004f84dd2d8ac2bE.exit: ; preds = %260, %322, %324
   br label %.body61.i
 
 .loopexit.split-lp.i205:                          ; preds = %.noexc71.i, %711, %663, %632, %627
-  %.sroa.029.0.ph.i = phi i1 [ false, %711 ], [ true, %663 ], [ false, %.noexc71.i ], [ true, %627 ], [ true, %632 ]
+  %.sroa.029.0.ph.i = phi i1 [ false, %.noexc71.i ], [ true, %663 ], [ true, %627 ], [ false, %711 ], [ true, %632 ]
   %lpad.loopexit.split-lp.i206 = landingpad { ptr, i32 }
           cleanup
   br label %.body61.i
@@ -8968,7 +8968,7 @@ _ZN9uv_pep50810parse_name17h4004f84dd2d8ac2bE.exit: ; preds = %260, %322, %324
   br label %.body.i234
 
 .loopexit.split-lp.i235:                          ; preds = %.noexc60.i, %806, %782, %740
-  %.sroa.026.0.ph.i = phi i1 [ false, %806 ], [ true, %740 ], [ true, %782 ], [ false, %.noexc60.i ]
+  %.sroa.026.0.ph.i = phi i1 [ true, %782 ], [ true, %740 ], [ false, %806 ], [ false, %.noexc60.i ]
   %lpad.loopexit.split-lp.i236 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i234
@@ -9777,7 +9777,7 @@ _ZN4core3ops8function6FnOnce9call_once17h18d8a28aa3505115E.exit.thread.i: ; pred
   store i64 8, ptr %0, align 8
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$uv_pep508..VersionOrUrl$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h01321e3b7307a5f1E.exit"
 
-_ZN9uv_pep50818looks_like_archive17hde702ebb73ca8a4dE.exit.thread650: ; preds = %959, %962, %965, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit44.i", %1017, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit40.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit36.thread.i", %.noexc289, %991, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit56.i", %_ZN9uv_pep50818looks_like_archive17hde702ebb73ca8a4dE.exit
+_ZN9uv_pep50818looks_like_archive17hde702ebb73ca8a4dE.exit.thread650: ; preds = %959, %962, %965, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit44.i", %1017, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit36.thread.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit40.i", %.noexc289, %991, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit56.i", %_ZN9uv_pep50818looks_like_archive17hde702ebb73ca8a4dE.exit
   invoke void @_ZN9uv_pep5086cursor6Cursor14eat_whitespace17h7c5b9a69cb105225E(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
           to label %1035 unwind label %972
 

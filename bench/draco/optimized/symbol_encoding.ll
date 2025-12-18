@@ -2863,7 +2863,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !92
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !81
   %.not56 = icmp ult i32 %96, %97
@@ -3526,7 +3526,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -8688,7 +8688,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !229
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !220
   %.not56 = icmp ult i32 %96, %97
@@ -10661,7 +10661,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !251
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !242
   %.not56 = icmp ult i32 %96, %97
@@ -12634,7 +12634,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !273
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !264
   %.not56 = icmp ult i32 %96, %97
@@ -14607,7 +14607,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !295
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !286
   %.not56 = icmp ult i32 %96, %97
@@ -16580,7 +16580,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !317
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !308
   %.not56 = icmp ult i32 %96, %97
@@ -18553,7 +18553,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !339
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !330
   %.not56 = icmp ult i32 %96, %97
@@ -20526,7 +20526,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !361
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !352
   %.not56 = icmp ult i32 %96, %97
@@ -22500,7 +22500,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !383
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !374
   %.not56 = icmp ult i32 %96, %97
@@ -24474,7 +24474,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !405
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !396
   %.not56 = icmp ult i32 %96, %97
@@ -26448,7 +26448,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !427
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !418
   %.not56 = icmp ult i32 %96, %97
@@ -28422,7 +28422,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !449
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !440
   %.not56 = icmp ult i32 %96, %97
@@ -30396,7 +30396,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !471
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !462
   %.not56 = icmp ult i32 %96, %97
@@ -32370,7 +32370,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !493
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !484
   %.not56 = icmp ult i32 %96, %97
@@ -34344,7 +34344,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !515
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !506
   %.not56 = icmp ult i32 %96, %97
@@ -36318,7 +36318,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !537
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !528
   %.not56 = icmp ult i32 %96, %97
@@ -38292,7 +38292,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !559
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !550
   %.not56 = icmp ult i32 %96, %97
@@ -40266,7 +40266,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !581
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !572
   %.not56 = icmp ult i32 %96, %97

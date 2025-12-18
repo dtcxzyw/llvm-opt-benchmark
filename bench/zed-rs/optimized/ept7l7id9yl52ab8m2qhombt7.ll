@@ -1487,9 +1487,9 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit"
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit": ; preds = %93, %80, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split", %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit"
-  %.sroa.8.0 = phi i64 [ %.sroa.1079.0.copyload, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit" ], [ %.sroa.8.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split" ], [ %.sroa.1079.0.copyload81, %80 ], [ %.sroa.1079.0.copyload, %93 ]
-  %.sroa.7.0 = phi ptr [ %.sroa.876.0.copyload, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit" ], [ %.sroa.7.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split" ], [ %.sroa.876.0.copyload78, %80 ], [ %.sroa.876.0.copyload, %93 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.074.0.copyload, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit" ], [ %.sroa.0.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split" ], [ %.sroa.074.0.copyload75, %80 ], [ %.sroa.074.0.copyload, %93 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.8.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split" ], [ %.sroa.1079.0.copyload, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit" ], [ %.sroa.1079.0.copyload81, %80 ], [ %.sroa.1079.0.copyload, %93 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.7.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split" ], [ %.sroa.876.0.copyload, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit" ], [ %.sroa.876.0.copyload78, %80 ], [ %.sroa.876.0.copyload, %93 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split" ], [ %.sroa.074.0.copyload, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit" ], [ %.sroa.074.0.copyload75, %80 ], [ %.sroa.074.0.copyload, %93 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1532,7 +1532,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)

@@ -1301,7 +1301,7 @@ define dso_local noundef zeroext i1 @_ZN24MissingDependencyScanner17PathExistsBe
   br label %.loopexit61, !llvm.loop !116
 
 _ZNSt13unordered_mapIP4EdgeS_IS1_bSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEES3_S5_SaIS6_IS7_SA_EEE4findERS7_.exit: ; preds = %30, %13, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %13 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %13 ], [ %26, %25 ], [ %32, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 40
   %39 = load i64, ptr %38, align 8, !tbaa !117
   %.not.not.i.i26 = icmp eq i64 %39, 0
@@ -1364,7 +1364,7 @@ _ZNSt13unordered_mapIP4EdgeS_IS1_bSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEE
   br label %.loopexit, !llvm.loop !122
 
 .thread:                                          ; preds = %61, %43, %56
-  %.sroa.06.1.i.i33 = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i35, %43 ], [ %63, %61 ]
+  %.sroa.06.1.i.i33 = phi ptr [ %.sroa.06.0.i.i35, %43 ], [ %57, %56 ], [ %63, %61 ]
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i33, i64 16
   %70 = load i8, ptr %69, align 8, !tbaa !123, !range !125, !noundef !126
   br label %130
@@ -1472,7 +1472,7 @@ _ZNSt13unordered_mapIP4EdgebSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEED2Ev.
   resume { ptr, i32 } %104
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i28, %42, %47, %..loopexit_crit_edge21.i.i.i.i32, %_ZNSt13unordered_mapIP4EdgebSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEED2Ev.exit
-  %.sroa.043.0 = phi ptr [ %.fca.0.extract7, %_ZNSt13unordered_mapIP4EdgebSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEED2Ev.exit ], [ %.sroa.06.1.i.i, %..loopexit_crit_edge21.i.i.i.i32 ], [ %.sroa.06.1.i.i, %47 ], [ %.sroa.06.1.i.i, %42 ], [ %.sroa.06.1.i.i, %.lr.ph.i.i.i.i28 ]
+  %.sroa.043.0 = phi ptr [ %.fca.0.extract7, %_ZNSt13unordered_mapIP4EdgebSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEED2Ev.exit ], [ %.sroa.06.1.i.i, %..loopexit_crit_edge21.i.i.i.i32 ], [ %.sroa.06.1.i.i, %42 ], [ %.sroa.06.1.i.i, %47 ], [ %.sroa.06.1.i.i, %.lr.ph.i.i.i.i28 ]
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %107 = load ptr, ptr %106, align 8, !tbaa !139
@@ -2135,7 +2135,7 @@ _ZNSt10_HashtableIP4EdgeSt4pairIKS1_St13unordered_mapIS1_bSt4hashIS1_ESt8equal_t
   resume { ptr, i32 } %74
 
 _ZNKSt10_HashtableIP4EdgeSt4pairIKS1_St13unordered_mapIS1_bSt4hashIS1_ESt8equal_toIS1_ESaIS2_IS3_bEEEESaISC_ENSt8__detail10_Select1stES8_S6_NSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %62, %48, %57
-  %.sroa.037.0.ph = phi ptr [ %58, %57 ], [ %.sroa.033.0, %48 ], [ %64, %62 ]
+  %.sroa.037.0.ph = phi ptr [ %.sroa.033.0, %48 ], [ %58, %57 ], [ %64, %62 ]
   %75 = load ptr, ptr %13, align 8, !tbaa !137
   %.not5.i.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
   br i1 %.not5.i.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIP4EdgeSt4pairIKS1_bESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -2517,7 +2517,7 @@ _ZNSt10_HashtableIP4EdgeSt4pairIKS1_bESaIS4_ENSt8__detail10_Select1stESt8equal_t
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIP4EdgeSt4pairIKS1_bESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %35, %21, %30
-  %.sroa.042.0.ph = phi ptr [ %31, %30 ], [ %.sroa.034.0, %21 ], [ %37, %35 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #28
   br label %_ZNSt10_HashtableIP4EdgeSt4pairIKS1_bESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

@@ -539,7 +539,7 @@ define void @Scl_LibertyWipeOutComments(ptr noundef captures(address) %0, ptr no
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %37, %27, %25, %.lr.ph43.preheader, %.preheader35, %.preheader33, %.preheader, %.lr.ph50, %29
-  %.3 = phi ptr [ %.03049, %29 ], [ %.03049, %.lr.ph50 ], [ %.241, %.preheader35 ], [ %.13144, %.preheader ], [ %.03049, %.preheader33 ], [ %.241, %.lr.ph43.preheader ], [ %scevgep62, %27 ], [ %.13144, %25 ], [ %scevgep59, %37 ]
+  %.3 = phi ptr [ %.03049, %.lr.ph50 ], [ %.241, %.preheader35 ], [ %.13144, %.preheader ], [ %scevgep62, %27 ], [ %.03049, %29 ], [ %.241, %.lr.ph43.preheader ], [ %.03049, %.preheader33 ], [ %.13144, %25 ], [ %scevgep59, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %40 = icmp ult ptr %39, %4
   br i1 %40, label %.lr.ph50, label %._crit_edge, !llvm.loop !29
@@ -809,7 +809,7 @@ Scl_LibertySkipSpaces.exit:                       ; preds = %14, %Scl_LibertyCha
   br i1 %exitcond.not.i, label %Scl_LibertySkipEntry.exit, label %.lr.ph.i177, !llvm.loop !41
 
 Scl_LibertySkipEntry.exit:                        ; preds = %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %.lr.ph.i177, %31, %.preheader.i, %.preheader26.i, %28
-  %.1.i = phi ptr [ %29, %28 ], [ %.0.lcssa.i, %.preheader26.i ], [ %.0.i, %.preheader.i ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %scevgep.i, %31 ]
+  %.1.i = phi ptr [ %29, %28 ], [ %.0.i, %.preheader.i ], [ %.0.lcssa.i, %.preheader26.i ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %.230.i, %.lr.ph.i177 ], [ %scevgep.i, %31 ], [ %.230.i, %.lr.ph.i177 ]
   store ptr %.1.i, ptr %1, align 8, !tbaa !37
   %.not188 = icmp eq ptr %.1.i, %2
   br i1 %.not188, label %.loopexit194.split.loop.exit, label %33
@@ -1159,8 +1159,8 @@ Scl_LibertySkipSpaces.exit187:                    ; preds = %42, %Scl_LibertyCha
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %70, %68, %.critedge, %.loopexit194.split.loop.exit, %.loopexit194.split.loop.exit211, %.loopexit194.split.loop.exit215, %176, %165, %137, %74, %61, %54, %47
-  %210 = phi i64 [ %102, %176 ], [ %49, %47 ], [ %49, %54 ], [ %49, %61 ], [ %49, %74 ], [ %102, %137 ], [ %102, %165 ], [ %203, %.loopexit194.split.loop.exit211 ], [ %201, %.loopexit194.split.loop.exit ], [ %207, %.loopexit194.split.loop.exit215 ], [ %49, %.critedge ], [ %49, %68 ], [ %49, %70 ], [ %49, %.preheader ]
-  %.sroa.844.0 = phi i64 [ %104, %176 ], [ %51, %47 ], [ %51, %54 ], [ %51, %61 ], [ %51, %74 ], [ %104, %137 ], [ %104, %165 ], [ %205, %.loopexit194.split.loop.exit211 ], [ 0, %.loopexit194.split.loop.exit ], [ %209, %.loopexit194.split.loop.exit215 ], [ %51, %.critedge ], [ %51, %68 ], [ %51, %70 ], [ %51, %.preheader ]
+  %210 = phi i64 [ %102, %137 ], [ %49, %74 ], [ %49, %47 ], [ %49, %54 ], [ %49, %61 ], [ %207, %.loopexit194.split.loop.exit215 ], [ %102, %176 ], [ %102, %165 ], [ %201, %.loopexit194.split.loop.exit ], [ %203, %.loopexit194.split.loop.exit211 ], [ %49, %.critedge ], [ %49, %68 ], [ %49, %70 ], [ %49, %.preheader ]
+  %.sroa.844.0 = phi i64 [ %104, %137 ], [ %51, %74 ], [ %51, %47 ], [ %51, %54 ], [ %51, %61 ], [ %209, %.loopexit194.split.loop.exit215 ], [ %104, %176 ], [ %104, %165 ], [ 0, %.loopexit194.split.loop.exit ], [ %205, %.loopexit194.split.loop.exit211 ], [ %51, %.critedge ], [ %51, %68 ], [ %51, %70 ], [ %51, %.preheader ]
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %212 = load ptr, ptr %211, align 8, !tbaa !46
   %213 = icmp eq ptr %212, null
@@ -1176,7 +1176,7 @@ Scl_LibertySkipSpaces.exit187:                    ; preds = %42, %Scl_LibertyCha
   br label %.loopexit193
 
 .loopexit193:                                     ; preds = %Scl_LibertySkipSpaces.exit, %.loopexit, %214, %193, %169, %115, %95
-  %.0 = phi i64 [ -1, %.loopexit ], [ %99, %95 ], [ %133, %115 ], [ %173, %169 ], [ %197, %193 ], [ -1, %214 ], [ -2, %Scl_LibertySkipSpaces.exit ]
+  %.0 = phi i64 [ -1, %.loopexit ], [ -1, %214 ], [ %99, %95 ], [ %133, %115 ], [ %173, %169 ], [ %197, %193 ], [ -2, %Scl_LibertySkipSpaces.exit ]
   ret i64 %.0
 }
 
@@ -1308,7 +1308,7 @@ define internal fastcc range(i64 0, 2) i64 @Scl_LibertySkipEntry(ptr noundef cap
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.preheader, %.preheader26, %14
-  %.1 = phi ptr [ %15, %14 ], [ %4, %.preheader26 ], [ %.0, %.preheader ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
+  %.1 = phi ptr [ %15, %14 ], [ %.0, %.preheader ], [ %4, %.preheader26 ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
   store ptr %.1, ptr %0, align 8, !tbaa !37
   %19 = icmp eq ptr %.1, %1
   %20 = zext i1 %19 to i64
@@ -1980,7 +1980,7 @@ define noundef ptr @Scl_LibertyParse(ptr noundef captures(address_is_null) %0, i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %48, %38, %36, %.lr.ph43.preheader.i, %.preheader35.i, %40, %.preheader.i, %.preheader33.i, %.lr.ph50.i
-  %.3.i = phi ptr [ %.03049.i, %40 ], [ %.03049.i, %.lr.ph50.i ], [ %.241.i, %.preheader35.i ], [ %.13144.i, %.preheader.i ], [ %.03049.i, %.preheader33.i ], [ %.241.i, %.lr.ph43.preheader.i ], [ %scevgep62.i, %38 ], [ %.13144.i, %36 ], [ %scevgep59.i, %48 ]
+  %.3.i = phi ptr [ %.03049.i, %.lr.ph50.i ], [ %.241.i, %.preheader35.i ], [ %.13144.i, %.preheader.i ], [ %scevgep62.i, %38 ], [ %.03049.i, %40 ], [ %.241.i, %.lr.ph43.preheader.i ], [ %.03049.i, %.preheader33.i ], [ %.13144.i, %36 ], [ %scevgep59.i, %48 ]
   %50 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %51 = icmp ult ptr %50, %15
   br i1 %51, label %.lr.ph50.i, label %Scl_LibertyWipeOutComments.exit.loopexit, !llvm.loop !29
@@ -2232,7 +2232,7 @@ Scl_LibertyItem.exit22:                           ; preds = %Scl_LibertyCompare.
   br i1 %.not, label %.loopexit, label %.lr.ph31.split, !llvm.loop !64
 
 .loopexit:                                        ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit22, %.lr.ph31.split, %Scl_LibertyItem.exit22.us, %.lr.ph31.split.us, %..critedge_crit_edge.us, %28, %4, %Scl_LibertyItem.exit
-  %.1 = phi i32 [ 0, %4 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %..critedge_crit_edge.us ], [ 1, %28 ], [ 0, %Scl_LibertyItem.exit22.us ], [ 1, %.lr.ph31.split.us ], [ 1, %.lr.ph31.split ], [ 0, %Scl_LibertyCompare.exit.thread ], [ 0, %Scl_LibertyItem.exit22 ]
+  %.1 = phi i32 [ 0, %4 ], [ 1, %28 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %..critedge_crit_edge.us ], [ 0, %Scl_LibertyItem.exit22.us ], [ 1, %.lr.ph31.split.us ], [ 1, %.lr.ph31.split ], [ 0, %Scl_LibertyItem.exit22 ], [ 0, %Scl_LibertyCompare.exit.thread ]
   ret i32 %.1
 }
 
@@ -2466,7 +2466,7 @@ Scl_LibertyItem.exit65:                           ; preds = %Scl_LibertyCompare.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Scl_LibertyCompare.exit54.thread, %Scl_LibertyItem.exit65, %.loopexit.sink.split, %2, %Scl_LibertyItem.exit52
-  %.038 = phi ptr [ null, %Scl_LibertyItem.exit52 ], [ null, %2 ], [ %78, %.loopexit.sink.split ], [ null, %Scl_LibertyItem.exit65 ], [ null, %Scl_LibertyCompare.exit54.thread ]
+  %.038 = phi ptr [ null, %2 ], [ %78, %.loopexit.sink.split ], [ null, %Scl_LibertyItem.exit52 ], [ null, %Scl_LibertyItem.exit65 ], [ null, %Scl_LibertyCompare.exit54.thread ]
   ret ptr %.038
 }
 
@@ -2617,7 +2617,7 @@ Scl_LibertyItem.exit24:                           ; preds = %Scl_LibertyCompare.
   br i1 %.not, label %.loopexit, label %11, !llvm.loop !72
 
 .loopexit:                                        ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit24, %.lr.ph, %2, %Scl_LibertyItem.exit
-  %.015 = phi i32 [ 0, %Scl_LibertyItem.exit ], [ 0, %2 ], [ 1, %.lr.ph ], [ 0, %Scl_LibertyItem.exit24 ], [ 0, %Scl_LibertyCompare.exit.thread ]
+  %.015 = phi i32 [ 0, %Scl_LibertyItem.exit ], [ 1, %.lr.ph ], [ 0, %2 ], [ 0, %Scl_LibertyItem.exit24 ], [ 0, %Scl_LibertyCompare.exit.thread ]
   ret i32 %.015
 }
 
@@ -5606,7 +5606,7 @@ Scl_LibertyItem.exit11.i97:                       ; preds = %Scl_LibertyItem.exi
   br i1 %186, label %Scl_LibertyItemNum.exit104, label %Scl_LibertyItem.exit11.i97, !llvm.loop !36
 
 Scl_LibertyItemNum.exit104:                       ; preds = %Scl_LibertyItem.exit11.i97, %._crit_edge, %34, %._crit_edge141, %Scl_LibertyItem.exit.i89
-  %.0.lcssa.i99 = phi i32 [ 0, %Scl_LibertyItem.exit.i89 ], [ 0, %._crit_edge141 ], [ 0, %34 ], [ 0, %._crit_edge ], [ %183, %Scl_LibertyItem.exit11.i97 ]
+  %.0.lcssa.i99 = phi i32 [ 0, %Scl_LibertyItem.exit.i89 ], [ 0, %._crit_edge141 ], [ 0, %._crit_edge ], [ 0, %34 ], [ %183, %Scl_LibertyItem.exit11.i97 ]
   tail call fastcc void @Vec_StrPutI_(ptr noundef %1, i32 noundef %.0.lcssa.i99)
   %187 = load i64, ptr %40, align 8, !tbaa !20
   %188 = icmp slt i64 %187, 0
@@ -6771,7 +6771,7 @@ Scl_LibertyItem.exit30:                           ; preds = %Scl_LibertyCompare.
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !95
 
 .loopexit:                                        ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit30, %33, %3, %Scl_LibertyItem.exit
-  %.01938 = phi ptr [ null, %Scl_LibertyItem.exit ], [ null, %3 ], [ %.01942, %33 ], [ null, %Scl_LibertyItem.exit30 ], [ null, %Scl_LibertyCompare.exit.thread ]
+  %.01938 = phi ptr [ %.01942, %33 ], [ null, %Scl_LibertyItem.exit ], [ null, %3 ], [ null, %Scl_LibertyItem.exit30 ], [ null, %Scl_LibertyCompare.exit.thread ]
   ret ptr %.01938
 }
 
@@ -7024,8 +7024,8 @@ Scl_LibertyItem.exit29:                           ; preds = %Scl_LibertyCompare.
   br i1 %.not22, label %Scl_LibertyCompare.exit.thread, label %.lr.ph, !llvm.loop !101
 
 Scl_LibertyCompare.exit.thread:                   ; preds = %Scl_LibertyCompare.exit28.thread, %Scl_LibertyItem.exit29, %27, %Scl_LibertyItem.exit26, %17
-  %125 = phi i32 [ %18, %Scl_LibertyItem.exit26 ], [ %18, %17 ], [ %18, %27 ], [ %118, %Scl_LibertyItem.exit29 ], [ %118, %Scl_LibertyCompare.exit28.thread ]
-  %126 = phi i32 [ %19, %Scl_LibertyItem.exit26 ], [ %19, %17 ], [ %19, %27 ], [ %119, %Scl_LibertyItem.exit29 ], [ %119, %Scl_LibertyCompare.exit28.thread ]
+  %125 = phi i32 [ %18, %27 ], [ %18, %Scl_LibertyItem.exit26 ], [ %18, %17 ], [ %118, %Scl_LibertyItem.exit29 ], [ %118, %Scl_LibertyCompare.exit28.thread ]
+  %126 = phi i32 [ %19, %27 ], [ %19, %Scl_LibertyItem.exit26 ], [ %19, %17 ], [ %119, %Scl_LibertyItem.exit29 ], [ %119, %Scl_LibertyCompare.exit28.thread ]
   %127 = getelementptr inbounds nuw i8, ptr %.02039, i64 64
   %128 = load i64, ptr %127, align 8, !tbaa !22
   %129 = icmp slt i64 %128, 0
@@ -7175,7 +7175,7 @@ Scl_LibertyItem.exit20:                           ; preds = %Scl_LibertyCompare.
   br i1 %.not, label %.thread, label %11, !llvm.loop !103
 
 .thread:                                          ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit20, %2, %Scl_LibertyItem.exit, %26, %19
-  %.1 = phi i32 [ %spec.select, %26 ], [ 1, %19 ], [ 3, %Scl_LibertyItem.exit ], [ 3, %2 ], [ 3, %Scl_LibertyItem.exit20 ], [ 3, %Scl_LibertyCompare.exit.thread ]
+  %.1 = phi i32 [ 1, %19 ], [ %spec.select, %26 ], [ 3, %Scl_LibertyItem.exit ], [ 3, %2 ], [ 3, %Scl_LibertyItem.exit20 ], [ 3, %Scl_LibertyCompare.exit.thread ]
   ret i32 %.1
 }
 
@@ -8335,7 +8335,7 @@ Vec_FltFreeP.exit224:                             ; preds = %Vec_FltFreeP.exit, 
   br label %Vec_FltFreeP.exit227
 
 Vec_FltFreeP.exit227:                             ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit158, %5, %Scl_LibertyItem.exit, %177, %448, %Vec_FltFreeP.exit224, %Vec_PtrPush.exit180, %Scl_LibertyItem.exit181, %191, %._crit_edge, %Scl_LibertyCompare.exit183.thread, %._crit_edge305.thread
-  %.0 = phi i32 [ 0, %Scl_LibertyCompare.exit183.thread ], [ 0, %._crit_edge305.thread ], [ 1, %Vec_PtrPush.exit180 ], [ 0, %._crit_edge ], [ 1, %448 ], [ 1, %191 ], [ 1, %Scl_LibertyItem.exit181 ], [ 1, %Vec_FltFreeP.exit224 ], [ 1, %177 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %5 ], [ 0, %Scl_LibertyItem.exit158 ], [ 0, %Scl_LibertyCompare.exit.thread ]
+  %.0 = phi i32 [ 0, %Scl_LibertyCompare.exit183.thread ], [ 0, %._crit_edge305.thread ], [ 1, %Vec_PtrPush.exit180 ], [ 0, %._crit_edge ], [ 1, %177 ], [ 1, %448 ], [ 1, %191 ], [ 1, %Scl_LibertyItem.exit181 ], [ 1, %Vec_FltFreeP.exit224 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %5 ], [ 0, %Scl_LibertyItem.exit158 ], [ 0, %Scl_LibertyCompare.exit.thread ]
   ret i32 %.0
 }
 
@@ -9143,9 +9143,9 @@ Scl_LibertyItem.exit281:                          ; preds = %Scl_LibertyCompare.
   br i1 %222, label %.critedge19, label %.critedge7, !llvm.loop !145
 
 .critedge7:                                       ; preds = %.critedge19, %.critedge13, %.critedge5, %.critedge19.preheader, %.critedge13.preheader, %.critedge5.preheader
-  %.2320 = phi ptr [ %.3321.lcssa, %.critedge13.preheader ], [ %.1319, %.critedge5.preheader ], [ %.3321.lcssa, %.critedge19.preheader ], [ %.3321.lcssa, %.critedge13 ], [ %.1319, %.critedge5 ], [ %.3321.lcssa, %.critedge19 ]
-  %.2315 = phi ptr [ %.3316.lcssa, %.critedge13.preheader ], [ %.1314, %.critedge5.preheader ], [ %.3316.lcssa, %.critedge19.preheader ], [ %.3316.lcssa, %.critedge13 ], [ %.1314, %.critedge5 ], [ %.3316.lcssa, %.critedge19 ]
-  %.2310 = phi ptr [ %.3311.lcssa, %.critedge13.preheader ], [ %.1309, %.critedge5.preheader ], [ %.3311.lcssa, %.critedge19.preheader ], [ %.3311.lcssa, %.critedge13 ], [ %.1309, %.critedge5 ], [ %.3311.lcssa, %.critedge19 ]
+  %.2320 = phi ptr [ %.1319, %.critedge5.preheader ], [ %.3321.lcssa, %.critedge13.preheader ], [ %.3321.lcssa, %.critedge19.preheader ], [ %.3321.lcssa, %.critedge13 ], [ %.1319, %.critedge5 ], [ %.3321.lcssa, %.critedge19 ]
+  %.2315 = phi ptr [ %.1314, %.critedge5.preheader ], [ %.3316.lcssa, %.critedge13.preheader ], [ %.3316.lcssa, %.critedge19.preheader ], [ %.3316.lcssa, %.critedge13 ], [ %.1314, %.critedge5 ], [ %.3316.lcssa, %.critedge19 ]
+  %.2310 = phi ptr [ %.1309, %.critedge5.preheader ], [ %.3311.lcssa, %.critedge13.preheader ], [ %.3311.lcssa, %.critedge19.preheader ], [ %.3311.lcssa, %.critedge13 ], [ %.1309, %.critedge5 ], [ %.3311.lcssa, %.critedge19 ]
   br label %223
 
 223:                                              ; preds = %.critedge7, %223
@@ -9220,7 +9220,7 @@ Vec_FltFreeP.exit285:                             ; preds = %237, %Vec_FltFreeP.
   br label %Vec_FltFreeP.exit288
 
 Vec_FltFreeP.exit288:                             ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit265, %5, %Scl_LibertyItem.exit, %240, %._crit_edge, %._crit_edge388.thread
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge388.thread ], [ 1, %240 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %5 ], [ 0, %Scl_LibertyItem.exit265 ], [ 0, %Scl_LibertyCompare.exit.thread ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge388.thread ], [ 1, %240 ], [ 0, %5 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %Scl_LibertyItem.exit265 ], [ 0, %Scl_LibertyCompare.exit.thread ]
   ret i32 %.0
 }
 
@@ -11087,9 +11087,9 @@ Scl_LibertyCompare.exit.thread.i529:              ; preds = %Scl_LibertyItem.exi
   br i1 %413, label %Scl_LibertyReadPinCap.exit535, label %Scl_LibertyItem.exit13.i530, !llvm.loop !93
 
 Scl_LibertyReadPinCap.exit535:                    ; preds = %Scl_LibertyCompare.exit.thread.i529, %Scl_LibertyItem.exit.i502, %Vec_PtrPush.exit, %Scl_LibertyReadPinCap.exit, %Scl_LibertyItem.exit.i510, %Scl_LibertyReadPinCap.exit522, %Scl_LibertyItem.exit.i523, %403
-  %.011.i519677 = phi float [ %.011.i519.ph.ph, %403 ], [ %.011.i519.ph.ph, %Scl_LibertyItem.exit.i523 ], [ %.011.i519.ph.ph, %Scl_LibertyReadPinCap.exit522 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i510 ], [ 0.000000e+00, %Scl_LibertyReadPinCap.exit ], [ 0.000000e+00, %Vec_PtrPush.exit ], [ 0.000000e+00, %Scl_LibertyItem.exit.i502 ], [ %.011.i519.ph.ph, %Scl_LibertyCompare.exit.thread.i529 ]
-  %.011.i665676 = phi float [ %.011.i.ph, %403 ], [ %.011.i.ph, %Scl_LibertyItem.exit.i523 ], [ %.011.i.ph, %Scl_LibertyReadPinCap.exit522 ], [ %.011.i.ph, %Scl_LibertyItem.exit.i510 ], [ %.011.i.ph, %Scl_LibertyReadPinCap.exit ], [ 0.000000e+00, %Vec_PtrPush.exit ], [ 0.000000e+00, %Scl_LibertyItem.exit.i502 ], [ %.011.i.ph, %Scl_LibertyCompare.exit.thread.i529 ]
-  %.011.i532 = phi float [ %410, %403 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i523 ], [ 0.000000e+00, %Scl_LibertyReadPinCap.exit522 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i510 ], [ 0.000000e+00, %Scl_LibertyReadPinCap.exit ], [ 0.000000e+00, %Vec_PtrPush.exit ], [ 0.000000e+00, %Scl_LibertyItem.exit.i502 ], [ 0.000000e+00, %Scl_LibertyCompare.exit.thread.i529 ]
+  %.011.i519677 = phi float [ %.011.i519.ph.ph, %403 ], [ %.011.i519.ph.ph, %Scl_LibertyItem.exit.i523 ], [ %.011.i519.ph.ph, %Scl_LibertyReadPinCap.exit522 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i510 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i502 ], [ 0.000000e+00, %Scl_LibertyReadPinCap.exit ], [ 0.000000e+00, %Vec_PtrPush.exit ], [ %.011.i519.ph.ph, %Scl_LibertyCompare.exit.thread.i529 ]
+  %.011.i665676 = phi float [ %.011.i.ph, %403 ], [ %.011.i.ph, %Scl_LibertyItem.exit.i523 ], [ %.011.i.ph, %Scl_LibertyReadPinCap.exit522 ], [ %.011.i.ph, %Scl_LibertyItem.exit.i510 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i502 ], [ %.011.i.ph, %Scl_LibertyReadPinCap.exit ], [ 0.000000e+00, %Vec_PtrPush.exit ], [ %.011.i.ph, %Scl_LibertyCompare.exit.thread.i529 ]
+  %.011.i532 = phi float [ %410, %403 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i523 ], [ 0.000000e+00, %Scl_LibertyReadPinCap.exit522 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i510 ], [ 0.000000e+00, %Scl_LibertyItem.exit.i502 ], [ 0.000000e+00, %Scl_LibertyReadPinCap.exit ], [ 0.000000e+00, %Vec_PtrPush.exit ], [ 0.000000e+00, %Scl_LibertyCompare.exit.thread.i529 ]
   %414 = fcmp oeq float %.011.i519677, 0.000000e+00
   %.0324 = select i1 %414, float %.011.i665676, float %.011.i519677
   %415 = fcmp oeq float %.011.i532, 0.000000e+00
@@ -12058,9 +12058,9 @@ Vec_FltFree.exit609:                              ; preds = %Vec_FltFree.exit607
   br i1 %792, label %.lr.ph774, label %.critedge, !llvm.loop !169
 
 .critedge:                                        ; preds = %Scl_LibertyCompare.exit.thread.i548, %.loopexit, %Vec_WrdFree.exit, %434, %Scl_LibertyItem.exit.i540, %.lr.ph777, %454, %Scl_LibertyReadPinFormula.exit552
-  %.val392835 = phi i32 [ %.val392834, %Scl_LibertyReadPinFormula.exit552 ], [ %.val392833, %Vec_WrdFree.exit ], [ %.val392834, %434 ], [ %.val392834, %Scl_LibertyItem.exit.i540 ], [ %.val392834, %.lr.ph777 ], [ %.val392834, %454 ], [ %.val392, %.loopexit ], [ %.val392834, %Scl_LibertyCompare.exit.thread.i548 ]
-  %.val392772830 = phi i32 [ %.val392772832, %Scl_LibertyReadPinFormula.exit552 ], [ %.val392772, %Vec_WrdFree.exit ], [ %.val392772832, %434 ], [ %.val392772832, %Scl_LibertyItem.exit.i540 ], [ %.val392772832, %.lr.ph777 ], [ %.val392772832, %454 ], [ %.val392, %.loopexit ], [ %.val392772832, %Scl_LibertyCompare.exit.thread.i548 ]
-  %.val395827 = phi i32 [ %.val393764, %Scl_LibertyReadPinFormula.exit552 ], [ %.val392772, %Vec_WrdFree.exit ], [ %.val393764, %434 ], [ %.val393764, %Scl_LibertyItem.exit.i540 ], [ %.val393764, %.lr.ph777 ], [ %.val393764, %454 ], [ %.val392, %.loopexit ], [ %.val393764, %Scl_LibertyCompare.exit.thread.i548 ]
+  %.val392835 = phi i32 [ %.val392, %.loopexit ], [ %.val392834, %Scl_LibertyReadPinFormula.exit552 ], [ %.val392833, %Vec_WrdFree.exit ], [ %.val392834, %434 ], [ %.val392834, %Scl_LibertyItem.exit.i540 ], [ %.val392834, %.lr.ph777 ], [ %.val392834, %454 ], [ %.val392834, %Scl_LibertyCompare.exit.thread.i548 ]
+  %.val392772830 = phi i32 [ %.val392, %.loopexit ], [ %.val392772832, %Scl_LibertyReadPinFormula.exit552 ], [ %.val392772, %Vec_WrdFree.exit ], [ %.val392772832, %434 ], [ %.val392772832, %Scl_LibertyItem.exit.i540 ], [ %.val392772832, %.lr.ph777 ], [ %.val392772832, %454 ], [ %.val392772832, %Scl_LibertyCompare.exit.thread.i548 ]
+  %.val395827 = phi i32 [ %.val392, %.loopexit ], [ %.val393764, %Scl_LibertyReadPinFormula.exit552 ], [ %.val392772, %Vec_WrdFree.exit ], [ %.val393764, %434 ], [ %.val393764, %Scl_LibertyItem.exit.i540 ], [ %.val393764, %.lr.ph777 ], [ %.val393764, %454 ], [ %.val393764, %Scl_LibertyCompare.exit.thread.i548 ]
   %793 = getelementptr inbounds nuw i8, ptr %.1337776, i64 64
   %794 = load i64, ptr %793, align 8, !tbaa !22
   %795 = icmp slt i64 %794, 0
@@ -12073,7 +12073,7 @@ Scl_LibertyItem.exit610:                          ; preds = %.critedge
   br i1 %.not357, label %._crit_edge778, label %.lr.ph777, !llvm.loop !170
 
 ._crit_edge778:                                   ; preds = %.critedge, %Scl_LibertyItem.exit610, %._crit_edge, %Scl_LibertyItem.exit537
-  %.val15.i.i = phi i32 [ %.val395829936, %Scl_LibertyItem.exit537 ], [ %417, %._crit_edge ], [ %.val392835, %Scl_LibertyItem.exit610 ], [ %.val392835, %.critedge ]
+  %.val15.i.i = phi i32 [ %417, %._crit_edge ], [ %.val395829936, %Scl_LibertyItem.exit537 ], [ %.val392835, %Scl_LibertyItem.exit610 ], [ %.val392835, %.critedge ]
   %798 = icmp sgt i32 %.val15.i.i, 0
   %.pre839 = load ptr, ptr %284, align 8, !tbaa !99
   br i1 %798, label %.lr.ph.i.i.preheader, label %Vec_PtrFreeData.exit.i
@@ -12234,7 +12234,7 @@ Abc_Clock.exit:                                   ; preds = %826, %839
   br label %.loopexit732
 
 .loopexit732:                                     ; preds = %Scl_LibertyReadPinFormula.exit591, %.thread, %825, %Abc_Clock.exit
-  %.4 = phi ptr [ null, %.thread ], [ %11, %Abc_Clock.exit ], [ %11, %825 ], [ null, %Scl_LibertyReadPinFormula.exit591 ]
+  %.4 = phi ptr [ %11, %825 ], [ null, %.thread ], [ %11, %Abc_Clock.exit ], [ null, %Scl_LibertyReadPinFormula.exit591 ]
   ret ptr %.4
 }
 

@@ -27987,7 +27987,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE11_M_allocateEm.exit.i.i.i.i.i: ; p
   br label %88
 
 78:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i15, %.noexc.i.i17, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i8, %.noexc.i.i10
-  %.04.ph = phi ptr [ %43, %.noexc.i.i17 ], [ %22, %.noexc.i.i10 ], [ %22, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i8 ], [ %43, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i15 ]
+  %.04.ph = phi ptr [ %22, %.noexc.i.i10 ], [ %43, %.noexc.i.i17 ], [ %22, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i8 ], [ %43, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i15 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %79

@@ -138,7 +138,7 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.thread: ; preds = %12, %20
   br label %32
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %17, %23
-  %.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ %24, %23 ], [ 9223372036854775807, %17 ]
+  %.0.i.i = phi i64 [ 9223372036854775807, %17 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ %24, %23 ]
   store i64 %8, ptr %0, align 8, !tbaa !3
   %.not7 = icmp sgt i64 %.0.i.i, %8
   br i1 %.not7, label %25, label %32

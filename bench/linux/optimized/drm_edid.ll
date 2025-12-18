@@ -3725,16 +3725,16 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   br label %.split18.us, !llvm.loop !52
 
 .split18.us:                                      ; preds = %.thread9, %.thread9.us23, %.thread9.us23.us40, %.thread9.us23.us36, %.thread9.us23.us32, %.thread9.us23.us, %.thread9.us, %72, %.split.split.split.us.split.split.split.split.us, %..split18.us.loopexit194_crit_edge, %..split18.split.us_crit_edge, %..split18.split.split_crit_edge, %..split18.split.split.us.split.us_crit_edge, %..split18.split.split.us.split.split.split.us_crit_edge, %..split18.split.split.us.split.split.split.split_crit_edge, %..split18.split.split.us.split.split.us_crit_edge, %..split18.us_crit_edge
-  %176 = phi ptr [ %60, %..split18.us_crit_edge ], [ %69, %..split18.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %69, %..split18.split.split_crit_edge ], [ %69, %.split.split.split.us.split.split.split.split.us ], [ %69, %..split18.us.loopexit194_crit_edge ], [ %69, %.thread9.us23 ], [ %60, %72 ], [ %69, %.thread9.us ], [ %69, %.thread9.us23.us ], [ %69, %.thread9.us23.us32 ], [ %69, %.thread9.us23.us36 ], [ %69, %.thread9.us23.us40 ], [ %69, %.thread9 ]
-  %177 = phi ptr [ %59, %..split18.us_crit_edge ], [ %68, %..split18.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %68, %..split18.split.split_crit_edge ], [ %68, %.split.split.split.us.split.split.split.split.us ], [ %68, %..split18.us.loopexit194_crit_edge ], [ %68, %.thread9.us23 ], [ %59, %72 ], [ %68, %.thread9.us ], [ %68, %.thread9.us23.us ], [ %68, %.thread9.us23.us32 ], [ %68, %.thread9.us23.us36 ], [ %68, %.thread9.us23.us40 ], [ %68, %.thread9 ]
-  %178 = phi ptr [ %58, %..split18.us_crit_edge ], [ %67, %..split18.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %67, %..split18.split.split_crit_edge ], [ %67, %.split.split.split.us.split.split.split.split.us ], [ %67, %..split18.us.loopexit194_crit_edge ], [ %67, %.thread9.us23 ], [ %58, %72 ], [ %67, %.thread9.us ], [ %67, %.thread9.us23.us ], [ %67, %.thread9.us23.us32 ], [ %67, %.thread9.us23.us36 ], [ %67, %.thread9.us23.us40 ], [ %67, %.thread9 ]
-  %179 = phi ptr [ %57, %..split18.us_crit_edge ], [ %66, %..split18.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %66, %..split18.split.split_crit_edge ], [ %66, %.split.split.split.us.split.split.split.split.us ], [ %66, %..split18.us.loopexit194_crit_edge ], [ %66, %.thread9.us23 ], [ %57, %72 ], [ %66, %.thread9.us ], [ %66, %.thread9.us23.us ], [ %66, %.thread9.us23.us32 ], [ %66, %.thread9.us23.us36 ], [ %66, %.thread9.us23.us40 ], [ %66, %.thread9 ]
-  %180 = phi ptr [ %56, %..split18.us_crit_edge ], [ %65, %..split18.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %65, %..split18.split.split_crit_edge ], [ %65, %.split.split.split.us.split.split.split.split.us ], [ %65, %..split18.us.loopexit194_crit_edge ], [ %65, %.thread9.us23 ], [ %56, %72 ], [ %65, %.thread9.us ], [ %65, %.thread9.us23.us ], [ %65, %.thread9.us23.us32 ], [ %65, %.thread9.us23.us36 ], [ %65, %.thread9.us23.us40 ], [ %65, %.thread9 ]
-  %181 = phi ptr [ %55, %..split18.us_crit_edge ], [ %64, %..split18.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %64, %..split18.split.split_crit_edge ], [ %64, %.split.split.split.us.split.split.split.split.us ], [ %64, %..split18.us.loopexit194_crit_edge ], [ %64, %.thread9.us23 ], [ %55, %72 ], [ %64, %.thread9.us ], [ %64, %.thread9.us23.us ], [ %64, %.thread9.us23.us32 ], [ %64, %.thread9.us23.us36 ], [ %64, %.thread9.us23.us40 ], [ %64, %.thread9 ]
-  %182 = phi i1 [ %54, %..split18.us_crit_edge ], [ true, %..split18.split.us_crit_edge ], [ false, %..split18.split.split.us.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.split.split_crit_edge ], [ false, %..split18.split.split_crit_edge ], [ false, %.split.split.split.us.split.split.split.split.us ], [ false, %..split18.us.loopexit194_crit_edge ], [ false, %.thread9.us23 ], [ %54, %72 ], [ true, %.thread9.us ], [ false, %.thread9.us23.us ], [ false, %.thread9.us23.us32 ], [ false, %.thread9.us23.us36 ], [ false, %.thread9.us23.us40 ], [ false, %.thread9 ]
-  %183 = phi i32 [ 0, %..split18.us_crit_edge ], [ %50, %..split18.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %50, %..split18.split.split_crit_edge ], [ %50, %.split.split.split.us.split.split.split.split.us ], [ %50, %..split18.us.loopexit194_crit_edge ], [ %50, %.thread9.us23 ], [ 0, %72 ], [ %50, %.thread9.us ], [ %50, %.thread9.us23.us ], [ %50, %.thread9.us23.us32 ], [ %50, %.thread9.us23.us36 ], [ %50, %.thread9.us23.us40 ], [ %50, %.thread9 ]
-  %.us-phi = phi i64 [ %74, %..split18.us_crit_edge ], [ %85, %..split18.split.us_crit_edge ], [ %100, %..split18.split.split.us.split.us_crit_edge ], [ %113, %..split18.split.split.us.split.split.us_crit_edge ], [ %129, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %159, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %170, %..split18.split.split_crit_edge ], [ %70, %.split.split.split.us.split.split.split.split.us ], [ %148, %..split18.us.loopexit194_crit_edge ], [ %156, %.thread9.us23 ], [ -1, %72 ], [ %82, %.thread9.us ], [ %97, %.thread9.us23.us ], [ %110, %.thread9.us23.us32 ], [ %126, %.thread9.us23.us36 ], [ %149, %.thread9.us23.us40 ], [ %167, %.thread9 ]
-  %.us-phi19 = phi ptr [ %76, %..split18.us_crit_edge ], [ %87, %..split18.split.us_crit_edge ], [ %102, %..split18.split.split.us.split.us_crit_edge ], [ %115, %..split18.split.split.us.split.split.us_crit_edge ], [ %131, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %161, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %172, %..split18.split.split_crit_edge ], [ null, %.split.split.split.us.split.split.split.split.us ], [ %150, %..split18.us.loopexit194_crit_edge ], [ %161, %.thread9.us23 ], [ %76, %72 ], [ %87, %.thread9.us ], [ %102, %.thread9.us23.us ], [ %115, %.thread9.us23.us32 ], [ %131, %.thread9.us23.us36 ], [ %150, %.thread9.us23.us40 ], [ %172, %.thread9 ]
+  %176 = phi ptr [ %69, %.thread9.us23 ], [ %60, %..split18.us_crit_edge ], [ %69, %.thread9.us23.us36 ], [ %60, %72 ], [ %69, %..split18.split.us_crit_edge ], [ %69, %.thread9.us ], [ %69, %.thread9.us23.us40 ], [ %69, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %69, %..split18.split.split.us.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %69, %.thread9.us23.us ], [ %69, %..split18.split.split.us.split.split.us_crit_edge ], [ %69, %..split18.split.split_crit_edge ], [ %69, %.split.split.split.us.split.split.split.split.us ], [ %69, %.thread9.us23.us32 ], [ %69, %..split18.us.loopexit194_crit_edge ], [ %69, %.thread9 ]
+  %177 = phi ptr [ %68, %.thread9.us23 ], [ %59, %..split18.us_crit_edge ], [ %68, %.thread9.us23.us36 ], [ %59, %72 ], [ %68, %..split18.split.us_crit_edge ], [ %68, %.thread9.us ], [ %68, %.thread9.us23.us40 ], [ %68, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %68, %..split18.split.split.us.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %68, %.thread9.us23.us ], [ %68, %..split18.split.split.us.split.split.us_crit_edge ], [ %68, %..split18.split.split_crit_edge ], [ %68, %.split.split.split.us.split.split.split.split.us ], [ %68, %.thread9.us23.us32 ], [ %68, %..split18.us.loopexit194_crit_edge ], [ %68, %.thread9 ]
+  %178 = phi ptr [ %67, %.thread9.us23 ], [ %58, %..split18.us_crit_edge ], [ %67, %.thread9.us23.us36 ], [ %58, %72 ], [ %67, %..split18.split.us_crit_edge ], [ %67, %.thread9.us ], [ %67, %.thread9.us23.us40 ], [ %67, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %67, %..split18.split.split.us.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %67, %.thread9.us23.us ], [ %67, %..split18.split.split.us.split.split.us_crit_edge ], [ %67, %..split18.split.split_crit_edge ], [ %67, %.split.split.split.us.split.split.split.split.us ], [ %67, %.thread9.us23.us32 ], [ %67, %..split18.us.loopexit194_crit_edge ], [ %67, %.thread9 ]
+  %179 = phi ptr [ %66, %.thread9.us23 ], [ %57, %..split18.us_crit_edge ], [ %66, %.thread9.us23.us36 ], [ %57, %72 ], [ %66, %..split18.split.us_crit_edge ], [ %66, %.thread9.us ], [ %66, %.thread9.us23.us40 ], [ %66, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %66, %..split18.split.split.us.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %66, %.thread9.us23.us ], [ %66, %..split18.split.split.us.split.split.us_crit_edge ], [ %66, %..split18.split.split_crit_edge ], [ %66, %.split.split.split.us.split.split.split.split.us ], [ %66, %.thread9.us23.us32 ], [ %66, %..split18.us.loopexit194_crit_edge ], [ %66, %.thread9 ]
+  %180 = phi ptr [ %65, %.thread9.us23 ], [ %56, %..split18.us_crit_edge ], [ %65, %.thread9.us23.us36 ], [ %56, %72 ], [ %65, %..split18.split.us_crit_edge ], [ %65, %.thread9.us ], [ %65, %.thread9.us23.us40 ], [ %65, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %65, %..split18.split.split.us.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %65, %.thread9.us23.us ], [ %65, %..split18.split.split.us.split.split.us_crit_edge ], [ %65, %..split18.split.split_crit_edge ], [ %65, %.split.split.split.us.split.split.split.split.us ], [ %65, %.thread9.us23.us32 ], [ %65, %..split18.us.loopexit194_crit_edge ], [ %65, %.thread9 ]
+  %181 = phi ptr [ %64, %.thread9.us23 ], [ %55, %..split18.us_crit_edge ], [ %64, %.thread9.us23.us36 ], [ %55, %72 ], [ %64, %..split18.split.us_crit_edge ], [ %64, %.thread9.us ], [ %64, %.thread9.us23.us40 ], [ %64, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %64, %..split18.split.split.us.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %64, %.thread9.us23.us ], [ %64, %..split18.split.split.us.split.split.us_crit_edge ], [ %64, %..split18.split.split_crit_edge ], [ %64, %.split.split.split.us.split.split.split.split.us ], [ %64, %.thread9.us23.us32 ], [ %64, %..split18.us.loopexit194_crit_edge ], [ %64, %.thread9 ]
+  %182 = phi i1 [ false, %.thread9.us23 ], [ %54, %..split18.us_crit_edge ], [ false, %.thread9.us23.us36 ], [ %54, %72 ], [ true, %..split18.split.us_crit_edge ], [ true, %.thread9.us ], [ false, %.thread9.us23.us40 ], [ false, %..split18.split.split.us.split.split.split.split_crit_edge ], [ false, %..split18.split.split.us.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.split.us_crit_edge ], [ false, %.thread9.us23.us ], [ false, %..split18.split.split.us.split.split.us_crit_edge ], [ false, %..split18.split.split_crit_edge ], [ false, %.split.split.split.us.split.split.split.split.us ], [ false, %.thread9.us23.us32 ], [ false, %..split18.us.loopexit194_crit_edge ], [ false, %.thread9 ]
+  %183 = phi i32 [ %50, %.thread9.us23 ], [ 0, %..split18.us_crit_edge ], [ %50, %.thread9.us23.us36 ], [ 0, %72 ], [ %50, %..split18.split.us_crit_edge ], [ %50, %.thread9.us ], [ %50, %.thread9.us23.us40 ], [ %50, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %50, %..split18.split.split.us.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %50, %.thread9.us23.us ], [ %50, %..split18.split.split.us.split.split.us_crit_edge ], [ %50, %..split18.split.split_crit_edge ], [ %50, %.split.split.split.us.split.split.split.split.us ], [ %50, %.thread9.us23.us32 ], [ %50, %..split18.us.loopexit194_crit_edge ], [ %50, %.thread9 ]
+  %.us-phi = phi i64 [ %156, %.thread9.us23 ], [ %74, %..split18.us_crit_edge ], [ %126, %.thread9.us23.us36 ], [ -1, %72 ], [ %85, %..split18.split.us_crit_edge ], [ %82, %.thread9.us ], [ %149, %.thread9.us23.us40 ], [ %159, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %100, %..split18.split.split.us.split.us_crit_edge ], [ %129, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %97, %.thread9.us23.us ], [ %113, %..split18.split.split.us.split.split.us_crit_edge ], [ %170, %..split18.split.split_crit_edge ], [ %70, %.split.split.split.us.split.split.split.split.us ], [ %110, %.thread9.us23.us32 ], [ %148, %..split18.us.loopexit194_crit_edge ], [ %167, %.thread9 ]
+  %.us-phi19 = phi ptr [ %161, %.thread9.us23 ], [ %76, %..split18.us_crit_edge ], [ %131, %.thread9.us23.us36 ], [ %76, %72 ], [ %87, %..split18.split.us_crit_edge ], [ %87, %.thread9.us ], [ %150, %.thread9.us23.us40 ], [ %161, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %102, %..split18.split.split.us.split.us_crit_edge ], [ %131, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %102, %.thread9.us23.us ], [ %115, %..split18.split.split.us.split.split.us_crit_edge ], [ %172, %..split18.split.split_crit_edge ], [ null, %.split.split.split.us.split.split.split.split.us ], [ %115, %.thread9.us23.us32 ], [ %150, %..split18.us.loopexit194_crit_edge ], [ %172, %.thread9 ]
   %184 = trunc nsw i64 %.us-phi to i32
   br i1 %13, label %.split18.us.thread, label %185
 
@@ -4827,7 +4827,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   br label %112
 
 .loopexit72:                                      ; preds = %.thread, %79, %.thread.us.us, %41, %27, %26, %.thread69
-  %.ph = phi ptr [ null, %.thread69 ], [ %3, %.thread.us.us ], [ %3, %27 ], [ %3, %26 ], [ %3, %41 ], [ %3, %79 ], [ %3, %.thread ]
+  %.ph = phi ptr [ %3, %27 ], [ null, %.thread69 ], [ %3, %.thread.us.us ], [ %3, %26 ], [ %3, %41 ], [ %3, %79 ], [ %3, %.thread ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %89, i8 0, i64 56, i1 false)
   store ptr %.ph, ptr %2, align 8
@@ -6414,7 +6414,7 @@ switch.lookup212:                                 ; preds = %702
   br label %.thread84
 
 .thread84:                                        ; preds = %.thread81, %930, %861, %869, %940, %897, %894, %.thread79.thread, %883, %878, %873, %857, %847, %799, %.thread80, %794, %765, %738, %602, %592, %563, %493
-  %941 = phi i64 [ %443, %738 ], [ %443, %765 ], [ %443, %940 ], [ %443, %493 ], [ %443, %563 ], [ %443, %592 ], [ %443, %602 ], [ 0, %794 ], [ %796, %.thread80 ], [ %443, %799 ], [ %443, %847 ], [ %443, %857 ], [ %443, %873 ], [ %443, %878 ], [ %443, %883 ], [ %443, %894 ], [ %443, %897 ], [ %443, %.thread79.thread ], [ %443, %869 ], [ %443, %861 ], [ %443, %930 ], [ %443, %.thread81 ]
+  %941 = phi i64 [ %443, %738 ], [ %443, %765 ], [ %443, %940 ], [ %443, %493 ], [ %443, %563 ], [ %443, %592 ], [ %443, %602 ], [ 0, %794 ], [ %796, %.thread80 ], [ %443, %799 ], [ %443, %847 ], [ %443, %857 ], [ %443, %873 ], [ %443, %878 ], [ %443, %883 ], [ %443, %894 ], [ %443, %897 ], [ %443, %.thread79.thread ], [ %443, %861 ], [ %443, %930 ], [ %443, %869 ], [ %443, %.thread81 ]
   %942 = call fastcc ptr @__cea_db_iter_next(ptr noundef nonnull %6)
   %943 = icmp eq ptr %942, null
   br i1 %943, label %.loopexit93, label %441, !llvm.loop !76
@@ -7238,7 +7238,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
   br i1 %86, label %do_standard_modes.exit77, label %77, !llvm.loop !81
 
 do_standard_modes.exit77:                         ; preds = %84, %.preheader137, %67, %71
-  %.sroa.1282.15 = phi i32 [ %.sroa.1282.1, %71 ], [ %.sroa.1282.1, %67 ], [ %.sroa.1282.1, %.preheader137 ], [ %.sroa.1282.14, %84 ]
+  %.sroa.1282.15 = phi i32 [ %.sroa.1282.1, %.preheader137 ], [ %.sroa.1282.1, %71 ], [ %.sroa.1282.1, %67 ], [ %.sroa.1282.14, %84 ]
   %87 = add nuw nsw i64 %61, 1
   %88 = icmp eq i64 %87, 4
   br i1 %88, label %.preheader.i, label %.preheader137, !llvm.loop !55
@@ -7388,7 +7388,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader137,
   br i1 %177, label %do_standard_modes.exit75, label %168, !llvm.loop !81
 
 do_standard_modes.exit75:                         ; preds = %175, %152, %158, %162
-  %.sroa.1282.12 = phi i32 [ %.sroa.1282.5, %162 ], [ %.sroa.1282.5, %158 ], [ %.sroa.1282.5, %152 ], [ %.sroa.1282.11, %175 ]
+  %.sroa.1282.12 = phi i32 [ %.sroa.1282.5, %152 ], [ %.sroa.1282.5, %162 ], [ %.sroa.1282.5, %158 ], [ %.sroa.1282.11, %175 ]
   %178 = add nuw nsw i64 %153, 1
   %179 = icmp eq i64 %178, %151
   br i1 %179, label %.loopexit.i, label %152, !llvm.loop !56
@@ -7454,7 +7454,7 @@ do_standard_modes.exit75:                         ; preds = %175, %152, %158, %1
   br i1 %217, label %do_standard_modes.exit, label %208, !llvm.loop !81
 
 do_standard_modes.exit:                           ; preds = %215, %192, %198, %202
-  %.sroa.1282.9 = phi i32 [ %.sroa.1282.4, %202 ], [ %.sroa.1282.4, %198 ], [ %.sroa.1282.4, %192 ], [ %.sroa.1282.8, %215 ]
+  %.sroa.1282.9 = phi i32 [ %.sroa.1282.4, %192 ], [ %.sroa.1282.4, %202 ], [ %.sroa.1282.4, %198 ], [ %.sroa.1282.8, %215 ]
   %218 = add nuw nsw i64 %193, 1
   %219 = icmp eq i64 %218, %191
   br i1 %219, label %.loopexit.i, label %192, !llvm.loop !57
@@ -8515,9 +8515,9 @@ drm_match_hdmi_mode.exit:                         ; preds = %856
   br label %879
 
 879:                                              ; preds = %875, %871, %861, %812, %808, %.thread111
-  %880 = phi i32 [ %801, %.thread111 ], [ %801, %808 ], [ %801, %812 ], [ %864, %861 ], [ %864, %871 ], [ %864, %875 ]
-  %881 = phi i32 [ %801, %.thread111 ], [ %811, %808 ], [ %815, %812 ], [ %864, %861 ], [ %874, %871 ], [ %878, %875 ]
-  %882 = phi ptr [ %800, %.thread111 ], [ %800, %808 ], [ %800, %812 ], [ %863, %861 ], [ %863, %871 ], [ %863, %875 ]
+  %880 = phi i32 [ %864, %875 ], [ %801, %.thread111 ], [ %801, %808 ], [ %801, %812 ], [ %864, %861 ], [ %864, %871 ]
+  %881 = phi i32 [ %878, %875 ], [ %801, %.thread111 ], [ %811, %808 ], [ %815, %812 ], [ %864, %861 ], [ %874, %871 ]
+  %882 = phi ptr [ %863, %875 ], [ %800, %.thread111 ], [ %800, %808 ], [ %800, %812 ], [ %863, %861 ], [ %863, %871 ]
   %883 = icmp eq ptr %882, null
   %884 = icmp eq i32 %880, %881
   %or.cond270 = select i1 %883, i1 true, i1 %884
@@ -9331,7 +9331,7 @@ drm_match_hdmi_mode.exit16:                       ; preds = %88, %.loopexit.spli
   br label %157
 
 157:                                              ; preds = %154, %drm_match_hdmi_mode.exit16
-  %158 = phi i32 [ %129, %drm_match_hdmi_mode.exit16 ], [ %156, %154 ]
+  %158 = phi i32 [ %156, %154 ], [ %129, %drm_match_hdmi_mode.exit16 ]
   %159 = icmp ugt i32 %158, 2
   br i1 %159, label %160, label %.thread17
 
@@ -10298,7 +10298,7 @@ define internal fastcc noundef ptr @__cea_db_iter_next(ptr noundef %0) unnamed_a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %130, %.loopexit.sink.split, %29
-  %133 = phi ptr [ %30, %29 ], [ null, %.loopexit.sink.split ], [ %131, %130 ]
+  %133 = phi ptr [ null, %.loopexit.sink.split ], [ %30, %29 ], [ %131, %130 ]
   ret ptr %133
 }
 
@@ -12087,7 +12087,7 @@ drm_for_each_detailed_block.exit21:               ; preds = %316
   br label %.critedge
 
 .critedge:                                        ; preds = %225, %drm_for_each_detailed_block.exit, %168, %501, %499, %497, %.thread39, %494, %450, %238, %235, %172
-  %503 = phi ptr [ %236, %238 ], [ null, %172 ], [ null, %235 ], [ %451, %450 ], [ %495, %494 ], [ null, %.thread39 ], [ %500, %499 ], [ %498, %497 ], [ %502, %501 ], [ null, %168 ], [ null, %drm_for_each_detailed_block.exit ], [ null, %225 ]
+  %503 = phi ptr [ %236, %238 ], [ null, %172 ], [ null, %235 ], [ %451, %450 ], [ %495, %494 ], [ null, %.thread39 ], [ %500, %499 ], [ %498, %497 ], [ %502, %501 ], [ null, %drm_for_each_detailed_block.exit ], [ null, %168 ], [ null, %225 ]
   ret ptr %503
 }
 

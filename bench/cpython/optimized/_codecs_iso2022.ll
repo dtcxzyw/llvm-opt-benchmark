@@ -812,10 +812,10 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   %.not = icmp eq i8 %123, 0
   br i1 %.not, label %.thread184, label %.lr.ph.split, !llvm.loop !60
 
-.split.us:                                        ; preds = %118, %.lr.ph.split, %.lr.ph.split.us, %PyUnicode_READ.exit163.us
-  %.us-phi = phi ptr [ %.0137192.us, %.lr.ph.split.us ], [ %.0137192.us, %PyUnicode_READ.exit163.us ], [ %.0137192, %.lr.ph.split ], [ %.0137192, %118 ]
-  %.us-phi194 = phi i16 [ %75, %.lr.ph.split.us ], [ %94, %PyUnicode_READ.exit163.us ], [ %120, %118 ], [ %100, %.lr.ph.split ]
-  %.us-phi195 = phi i64 [ 1, %.lr.ph.split.us ], [ %95, %PyUnicode_READ.exit163.us ], [ %121, %118 ], [ 1, %.lr.ph.split ]
+.split.us:                                        ; preds = %.lr.ph.split, %118, %.lr.ph.split.us, %PyUnicode_READ.exit163.us
+  %.us-phi = phi ptr [ %.0137192.us, %.lr.ph.split.us ], [ %.0137192.us, %PyUnicode_READ.exit163.us ], [ %.0137192, %118 ], [ %.0137192, %.lr.ph.split ]
+  %.us-phi194 = phi i16 [ %75, %.lr.ph.split.us ], [ %94, %PyUnicode_READ.exit163.us ], [ %100, %.lr.ph.split ], [ %120, %118 ]
+  %.us-phi195 = phi i64 [ 1, %.lr.ph.split.us ], [ %95, %PyUnicode_READ.exit163.us ], [ 1, %.lr.ph.split ], [ %121, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pr = load i8, ptr %.us-phi, align 8, !tbaa !51
@@ -1069,7 +1069,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %256, label %19, label %.thread184
 
 .thread184:                                       ; preds = %254, %58, %35, %49, %221, %.split.us, %130, %124, %234, %146, %162, %176, %202, %198, %239, %68, %select.unfold, %select.unfold.us, %9, %.split197.us
-  %.5 = phi i64 [ 0, %9 ], [ -2, %.split197.us ], [ 1, %select.unfold ], [ 1, %select.unfold.us ], [ 1, %68 ], [ -1, %58 ], [ -1, %35 ], [ -1, %49 ], [ -1, %221 ], [ 1, %.split.us ], [ -1, %130 ], [ -3, %124 ], [ -1, %234 ], [ -1, %146 ], [ -1, %162 ], [ -1, %176 ], [ -1, %202 ], [ -1, %198 ], [ 0, %254 ], [ -1, %239 ]
+  %.5 = phi i64 [ 0, %9 ], [ -2, %.split197.us ], [ 1, %select.unfold.us ], [ 1, %select.unfold ], [ -1, %239 ], [ -1, %58 ], [ -1, %35 ], [ -1, %49 ], [ -1, %221 ], [ 1, %.split.us ], [ -1, %130 ], [ -3, %124 ], [ -1, %234 ], [ -1, %146 ], [ -1, %162 ], [ -1, %176 ], [ -1, %202 ], [ -1, %198 ], [ 0, %254 ], [ 1, %68 ]
   ret i64 %.5
 }
 
@@ -1613,7 +1613,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %240 = getelementptr inbounds nuw i8, ptr %.3106, i64 2
   %241 = load i8, ptr %240, align 2, !tbaa !62
   %242 = zext i8 %241 to i64
-  %243 = icmp slt i64 %.0142167, %242
+  %243 = icmp samesign ult i64 %.0142167, %242
   br i1 %243, label %.thread159, label %244
 
 244:                                              ; preds = %.loopexit
@@ -1742,8 +1742,8 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   br label %307
 
 307:                                              ; preds = %iso2022processesc.exit, %193, %202, %211, %225, %301, %183, %iso2022processesc.exit.thread150, %iso2022processg2.exit, %30, %25
-  %.1143 = phi i64 [ %28, %30 ], [ %28, %25 ], [ %228, %225 ], [ %306, %301 ], [ %179, %iso2022processg2.exit ], [ %188, %183 ], [ %197, %193 ], [ %206, %202 ], [ %214, %211 ], [ %107, %iso2022processesc.exit.thread150 ], [ %.0142167, %iso2022processesc.exit ]
-  %.1104 = phi ptr [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %183 ], [ %.0103168, %193 ], [ %.0103168, %202 ], [ %.0103168, %211 ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %iso2022processesc.exit ]
+  %.1143 = phi i64 [ %28, %30 ], [ %107, %iso2022processesc.exit.thread150 ], [ %214, %211 ], [ %206, %202 ], [ %197, %193 ], [ %188, %183 ], [ %179, %iso2022processg2.exit ], [ %306, %301 ], [ %228, %225 ], [ %28, %25 ], [ %.0142167, %iso2022processesc.exit ]
+  %.1104 = phi ptr [ %.0103168, %30 ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %211 ], [ %.0103168, %202 ], [ %.0103168, %193 ], [ %.0103168, %183 ], [ %.0103168, %iso2022processg2.exit ], [ %.3106, %301 ], [ %.0103168, %225 ], [ %.0103168, %25 ], [ %.0103168, %iso2022processesc.exit ]
   %308 = icmp sgt i64 %.1143, 0
   br i1 %308, label %15, label %.thread159
 
@@ -2136,7 +2136,7 @@ define internal range(i32 0, 65536) i32 @jisx0201_r_decoder(ptr readnone capture
   br label %11
 
 11:                                               ; preds = %10, %2, %6, %8
-  %.08 = phi i32 [ %switch.select11, %10 ], [ %4, %2 ], [ 165, %6 ], [ %4, %8 ]
+  %.08 = phi i32 [ %4, %8 ], [ %switch.select11, %10 ], [ %4, %2 ], [ 165, %6 ]
   ret i32 %.08
 }
 
@@ -2165,7 +2165,7 @@ switch.early.test:                                ; preds = %3
   br label %9
 
 9:                                                ; preds = %8, %6
-  %.07 = phi i16 [ %7, %6 ], [ %switch.select13, %8 ]
+  %.07 = phi i16 [ %switch.select13, %8 ], [ %7, %6 ]
   ret i16 %.07
 }
 

@@ -2843,7 +2843,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br label %39
 
 39:                                               ; preds = %36, %33
-  %.3 = phi i32 [ %32, %36 ], [ %.14967, %33 ]
+  %.3 = phi i32 [ %.14967, %33 ], [ %32, %36 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 16
   %40 = icmp slt i64 %indvars.iv.next, %22
   br i1 %40, label %.lr.ph, label %.thread.split.loop.exit, !llvm.loop !14

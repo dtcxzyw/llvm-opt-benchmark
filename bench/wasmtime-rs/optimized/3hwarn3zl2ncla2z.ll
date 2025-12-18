@@ -10008,7 +10008,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.1
   br label %40
 
 .loopexit.split-lp:                               ; preds = %38, %61, %73
-  %.2.ph = phi i8 [ 0, %61 ], [ 0, %73 ], [ 1, %38 ]
+  %.2.ph = phi i8 [ 0, %73 ], [ 1, %38 ], [ 0, %61 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -10261,7 +10261,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.1
   br label %40
 
 .loopexit.split-lp:                               ; preds = %38, %61, %73
-  %.2.ph = phi i8 [ 0, %61 ], [ 0, %73 ], [ 1, %38 ]
+  %.2.ph = phi i8 [ 0, %73 ], [ 1, %38 ], [ 0, %61 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %40

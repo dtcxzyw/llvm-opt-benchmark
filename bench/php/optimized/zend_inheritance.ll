@@ -939,7 +939,7 @@ lookup_class_ex.exit:                             ; preds = %zend_hash_find_ptr.
   br label %.loopexit
 
 lookup_class_ex.exit.thread:                      ; preds = %216, %238, %232, %244, %lookup_class_ex.exit
-  %.142.i = phi i8 [ 1, %lookup_class_ex.exit ], [ %.041.i, %244 ], [ 1, %232 ], [ 1, %238 ], [ 1, %216 ]
+  %.142.i = phi i8 [ %.041.i, %244 ], [ 1, %lookup_class_ex.exit ], [ 1, %232 ], [ 1, %238 ], [ 1, %216 ]
   %247 = getelementptr inbounds nuw i8, ptr %.140.i, i64 16
   %248 = icmp ult ptr %247, %.038.i
   br i1 %248, label %144, label %249
@@ -4950,7 +4950,7 @@ check_unrecoverable_load_failure.exit437:         ; preds = %102, %104
   br label %125
 
 125:                                              ; preds = %113, %121
-  %.7365 = phi i32 [ %124, %121 ], [ %.6364609, %113 ]
+  %.7365 = phi i32 [ %.6364609, %113 ], [ %124, %121 ]
   %indvars.iv.next743 = add nuw nsw i64 %indvars.iv742, 1
   %126 = load i32, ptr %92, align 8, !tbaa !148
   %127 = zext i32 %126 to i64
@@ -7296,7 +7296,7 @@ zend_string_release_ex.exit.i:                    ; preds = %1274, %1269, %zend_
   br i1 %1277, label %1249, label %._crit_edge115.i
 
 ._crit_edge115.i:                                 ; preds = %zend_string_release_ex.exit.i, %.preheader92.i, %._crit_edge112.thread.i
-  %.073.lcssa161164.i = phi i32 [ %.1.i, %.preheader92.i ], [ %1180, %._crit_edge112.thread.i ], [ %.1.i, %zend_string_release_ex.exit.i ]
+  %.073.lcssa161164.i = phi i32 [ %1180, %._crit_edge112.thread.i ], [ %.1.i, %.preheader92.i ], [ %.1.i, %zend_string_release_ex.exit.i ]
   %1278 = getelementptr inbounds nuw i8, ptr %.0351, i64 440
   %1279 = load ptr, ptr %1278, align 8, !tbaa !21
   call void @_efree(ptr noundef %1279) #17
@@ -8991,7 +8991,7 @@ do_inheritance_check_on_method.exit.i:            ; preds = %118
   br label %.fold.split.i
 
 .fold.split.i:                                    ; preds = %123, %do_inheritance_check_on_method.exit.i, %112, %90, %85, %81
-  %.1100.ph.i = phi i32 [ %.099218.i, %81 ], [ 1, %123 ], [ %.099218.i, %85 ], [ %.099218.i, %112 ], [ %.099218.i, %90 ], [ %.099218.i, %do_inheritance_check_on_method.exit.i ]
+  %.1100.ph.i = phi i32 [ %.099218.i, %81 ], [ 1, %123 ], [ %.099218.i, %85 ], [ %.099218.i, %90 ], [ %.099218.i, %112 ], [ %.099218.i, %do_inheritance_check_on_method.exit.i ]
   %124 = getelementptr inbounds nuw i8, ptr %.0106217.i, i64 32
   %.not129.i = icmp eq ptr %124, %79
   br i1 %.not129.i, label %._crit_edge.i, label %81
@@ -9165,12 +9165,12 @@ do_inheritance_check_on_method.exit.i:            ; preds = %118
   br i1 %.not140.i, label %zend_can_early_bind.exit.thread, label %176
 
 zend_can_early_bind.exit.thread:                  ; preds = %107, %102, %118, %100, %.thread195.i, %._crit_edge224.i
-  %.6.i.ph = phi i32 [ %.099.lcssa.i, %._crit_edge224.i ], [ %.099.lcssa.i, %.thread195.i ], [ 0, %100 ], [ 0, %118 ], [ 0, %102 ], [ 0, %107 ]
+  %.6.i.ph = phi i32 [ %.099.lcssa.i, %.thread195.i ], [ %.099.lcssa.i, %._crit_edge224.i ], [ 0, %100 ], [ 0, %118 ], [ 0, %102 ], [ 0, %107 ]
   store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 560), align 8, !tbaa !163
   br label %213
 
 zend_can_early_bind.exit:                         ; preds = %do_inheritance_check_on_method.exit.i, %166, %198
-  %.6.i = phi i32 [ %.fr.i, %166 ], [ %.fr210.i, %198 ], [ %122, %do_inheritance_check_on_method.exit.i ]
+  %.6.i = phi i32 [ %.fr210.i, %198 ], [ %.fr.i, %166 ], [ %122, %do_inheritance_check_on_method.exit.i ]
   store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 560), align 8, !tbaa !163
   %.not94 = icmp eq i32 %.6.i, -1
   br i1 %.not94, label %zend_observer_class_linked_notify.exit, label %213, !prof !221

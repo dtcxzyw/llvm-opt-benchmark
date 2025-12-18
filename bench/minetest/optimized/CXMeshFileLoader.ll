@@ -12018,7 +12018,7 @@ if.end27.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit, !llvm.loop !227
 
 _ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit: ; preds = %if.end27.i, %land.lhs.true.i, %if.end10.i.i, %while.cond.preheader.i
-  %18 = phi ptr [ %P.promoted.i, %while.cond.preheader.i ], [ %11, %if.end10.i.i ], [ %incdec.ptr.i32.i, %if.end27.i ], [ %incdec.ptr.i3134.i, %land.lhs.true.i ]
+  %18 = phi ptr [ %P.promoted.i, %while.cond.preheader.i ], [ %11, %if.end10.i.i ], [ %incdec.ptr.i3134.i, %land.lhs.true.i ], [ %incdec.ptr.i32.i, %if.end27.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ftmp)
   %call23 = call noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %ftmp)
   store ptr %call23, ptr %P.i31, align 8, !tbaa !203

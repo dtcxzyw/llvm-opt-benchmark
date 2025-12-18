@@ -5867,11 +5867,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %1138, label %403, label %._crit_edge2908, !llvm.loop !315
 
 1139:                                             ; preds = %1056, %1060, %1112
-  %.sroa.0624.4 = phi ptr [ %.sroa.0624.5, %1112 ], [ %.sroa.0624.22892, %1056 ], [ %.sroa.0624.7, %1060 ]
-  %.sroa.12628.4 = phi ptr [ %.sroa.12628.5, %1112 ], [ %.sroa.12628.228932934, %1056 ], [ %.sroa.12628.7, %1060 ]
-  %.sroa.0611.3 = phi ptr [ %.sroa.0611.4, %1112 ], [ %.sroa.0611.22895, %1056 ], [ %.sroa.0611.22895, %1060 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.4, %1112 ], [ %.sroa.12.22896, %1056 ], [ %.sroa.12.228962954, %1060 ]
-  %.pn242.pn.pn = phi { ptr, i32 } [ %.pn232.pn.pn, %1112 ], [ %.pn240, %1056 ], [ %.pn242, %1060 ]
+  %.sroa.0624.4 = phi ptr [ %.sroa.0624.5, %1112 ], [ %.sroa.0624.7, %1060 ], [ %.sroa.0624.22892, %1056 ]
+  %.sroa.12628.4 = phi ptr [ %.sroa.12628.5, %1112 ], [ %.sroa.12628.7, %1060 ], [ %.sroa.12628.228932934, %1056 ]
+  %.sroa.0611.3 = phi ptr [ %.sroa.0611.4, %1112 ], [ %.sroa.0611.22895, %1060 ], [ %.sroa.0611.22895, %1056 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.4, %1112 ], [ %.sroa.12.228962954, %1060 ], [ %.sroa.12.22896, %1056 ]
+  %.pn242.pn.pn = phi { ptr, i32 } [ %.pn232.pn.pn, %1112 ], [ %.pn242, %1060 ], [ %.pn240, %1056 ]
   %.not4.i.i.i.i491 = icmp eq ptr %.sroa.0611.3, %.sroa.12.3
   br i1 %.not4.i.i.i.i491, label %_ZSt8_DestroyIPN6duckdb5ValueES1_EvT_S3_RSaIT0_E.exit.i497, label %.lr.ph.i.i.i.i492
 
@@ -15600,7 +15600,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45, %
   br i1 %59, label %.loopexit, label %56
 
 .loopexit:                                        ; preds = %50, %56, %.thread
-  %.pn.pn = phi { ptr, i32 } [ %11, %.thread ], [ %.pn, %56 ], [ %49, %50 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %56 ], [ %11, %.thread ], [ %49, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = load ptr, ptr %2, align 8, !tbaa !9
   %61 = icmp eq ptr %60, %5

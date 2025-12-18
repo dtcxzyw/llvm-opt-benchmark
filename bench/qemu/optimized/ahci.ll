@@ -861,7 +861,7 @@ get_cmd_header.exit64:                            ; preds = %67, %69
   br i1 %81, label %.lr.ph, label %is_ncq.exit.thread, !llvm.loop !15
 
 is_ncq.exit.thread:                               ; preds = %15, %66, %78, %29, %get_cmd_header.exit, %is_ncq.exit, %21, %2, %get_cmd_header.exit.thread, %14, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %get_cmd_header.exit.thread ], [ -1, %14 ], [ 0, %2 ], [ -1, %29 ], [ -1, %21 ], [ -1, %is_ncq.exit ], [ -1, %get_cmd_header.exit ], [ -1, %66 ], [ -1, %15 ], [ 0, %78 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %14 ], [ -1, %get_cmd_header.exit.thread ], [ 0, %2 ], [ -1, %29 ], [ -1, %21 ], [ -1, %is_ncq.exit ], [ -1, %get_cmd_header.exit ], [ -1, %66 ], [ -1, %15 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -4167,7 +4167,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %exitcond144.not, label %.critedge, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %162, %141, %140, %134, %128, %126, %.thread, %108, %102, %96, %94, %90
-  %.091 = phi i32 [ -1, %108 ], [ -1, %90 ], [ -1, %94 ], [ -1, %96 ], [ -1, %102 ], [ -1, %.thread ], [ -1, %126 ], [ -1, %128 ], [ -1, %134 ], [ -1, %140 ], [ 0, %141 ], [ 0, %162 ], [ 0, %.lr.ph ]
+  %.091 = phi i32 [ -1, %140 ], [ -1, %108 ], [ -1, %134 ], [ -1, %90 ], [ -1, %94 ], [ -1, %96 ], [ -1, %102 ], [ -1, %.thread ], [ -1, %126 ], [ -1, %128 ], [ 0, %141 ], [ 0, %162 ], [ 0, %.lr.ph ]
   %171 = load ptr, ptr %21, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 600
   %173 = load ptr, ptr %172, align 8

@@ -4495,7 +4495,7 @@ define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h
   br i1 %36, label %common.resume, label %.lr.ph12.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr68drop_in_place$LT$regex_automata..util..determinize..state..State$GT$17h6cb99f99a5c3fc03E.exit8.i", %.thread70, %253, %.body39.thread, %275, %272, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %266, %.thread70 ], [ %eh.lpad-body4085, %.body39.thread ], [ %lpad.thr_comm, %272 ], [ %lpad.thr_comm, %275 ], [ %eh.lpad-body4085, %253 ], [ %28, %"_ZN4core3ptr68drop_in_place$LT$regex_automata..util..determinize..state..State$GT$17h6cb99f99a5c3fc03E.exit8.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %eh.lpad-body4085, %253 ], [ %266, %.thread70 ], [ %eh.lpad-body4085, %.body39.thread ], [ %lpad.thr_comm, %272 ], [ %lpad.thr_comm, %275 ], [ %28, %"_ZN4core3ptr68drop_in_place$LT$regex_automata..util..determinize..state..State$GT$17h6cb99f99a5c3fc03E.exit8.i" ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %35

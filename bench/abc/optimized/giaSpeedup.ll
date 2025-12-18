@@ -497,7 +497,7 @@ define float @Gia_ObjComputeArrival(ptr noundef readonly captures(none) %0, i32 
   br i1 %exitcond156.not, label %.critedge.thread, label %157, !llvm.loop !47
 
 .critedge:                                        ; preds = %101, %.preheader129, %61, %.preheader
-  %168 = phi i32 [ %41, %.preheader ], [ %94, %101 ], [ %94, %.preheader129 ], [ %68, %61 ]
+  %168 = phi i32 [ %41, %.preheader ], [ %68, %61 ], [ %94, %.preheader129 ], [ %94, %101 ]
   %.fr = freeze i32 %168
   %169 = icmp eq i32 %.fr, 0
   br i1 %169, label %170, label %.critedge.thread
@@ -506,7 +506,7 @@ define float @Gia_ObjComputeArrival(ptr noundef readonly captures(none) %0, i32 
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %143, %157, %77, %46, %170, %.critedge, %23, %12
-  %.096 = phi float [ %18, %12 ], [ %32, %23 ], [ 0.000000e+00, %170 ], [ -1.000000e+09, %.critedge ], [ %.8, %157 ], [ %.1, %46 ], [ %.4, %77 ], [ %.6, %143 ]
+  %.096 = phi float [ %18, %12 ], [ %32, %23 ], [ 0.000000e+00, %170 ], [ -1.000000e+09, %.critedge ], [ %.1, %46 ], [ %.8, %157 ], [ %.4, %77 ], [ %.6, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.096
@@ -809,7 +809,7 @@ define float @Gia_ObjPropagateRequired(ptr noundef readonly captures(none) %0, i
   br i1 %exitcond142.not, label %.critedge, label %149, !llvm.loop !51
 
 .critedge:                                        ; preds = %148, %163, %75, %38, %85, %.preheader, %53, %9
-  %.0 = phi float [ %17, %9 ], [ %62, %53 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %85 ], [ %155, %163 ], [ %17, %38 ], [ %62, %75 ], [ %135, %148 ]
+  %.0 = phi float [ 0.000000e+00, %85 ], [ %62, %53 ], [ %17, %9 ], [ %62, %75 ], [ %17, %38 ], [ 0.000000e+00, %.preheader ], [ %155, %163 ], [ %135, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0
@@ -1079,7 +1079,7 @@ Gia_ManTimeStart.exit:                            ; preds = %22, %Vec_FltFill.ex
   br i1 %exitcond228.not, label %.critedge4, label %103, !llvm.loop !62
 
 .critedge4:                                       ; preds = %103, %.critedge2.thread, %.lr.ph215, %100
-  %.1114.lcssa257 = phi float [ %.1114.lcssa, %.lr.ph215 ], [ %.1114.lcssa258, %100 ], [ -1.000000e+09, %.critedge2.thread ], [ %.1114.lcssa, %103 ]
+  %.1114.lcssa257 = phi float [ -1.000000e+09, %.critedge2.thread ], [ %.1114.lcssa258, %100 ], [ %.1114.lcssa, %.lr.ph215 ], [ %.1114.lcssa, %103 ]
   %110 = tail call ptr @Gia_ManOrderReverse(ptr noundef nonnull %0) #15
   %111 = getelementptr i8, ptr %110, i64 4
   %.val173217 = load i32, ptr %111, align 4, !tbaa !60
@@ -1695,7 +1695,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr noundef readonly captures(none) %0, i32
   br i1 %exitcond94.not, label %.critedge, label %122, !llvm.loop !69
 
 .critedge:                                        ; preds = %122, %60, %28, %73, %45, %.preheader
-  %.263 = phi i32 [ 0, %.preheader ], [ 0, %45 ], [ 0, %73 ], [ %.4, %60 ], [ %.162, %28 ], [ %.6, %122 ]
+  %.263 = phi i32 [ %.4, %60 ], [ 0, %73 ], [ 0, %.preheader ], [ 0, %45 ], [ %.162, %28 ], [ %.6, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.263
@@ -1939,7 +1939,7 @@ Vec_IntFree.exit:                                 ; preds = %29, %31
   br i1 %exitcond.not, label %.critedge2, label %38, !llvm.loop !76
 
 .critedge2:                                       ; preds = %38, %.lr.ph146, %.preheader
-  %.4 = phi ptr [ %.2159, %.preheader ], [ null, %.lr.ph146 ], [ %42, %38 ]
+  %.4 = phi ptr [ null, %.lr.ph146 ], [ %.2159, %.preheader ], [ %42, %38 ]
   %.val127 = load i32, ptr %33, align 4, !tbaa !60
   %45 = icmp sgt i32 %.val127, 0
   br i1 %45, label %.lr.ph150, label %.critedge4
@@ -1971,7 +1971,7 @@ Vec_IntFree.exit:                                 ; preds = %29, %31
   br i1 %exitcond182.not, label %.critedge4, label %47, !llvm.loop !77
 
 .critedge4:                                       ; preds = %47, %.lr.ph150, %.critedge2
-  %.6 = phi ptr [ %.4, %.critedge2 ], [ null, %.lr.ph150 ], [ %51, %47 ]
+  %.6 = phi ptr [ null, %.lr.ph150 ], [ %.4, %.critedge2 ], [ %51, %47 ]
   %.val126154 = load i32, ptr %25, align 4, !tbaa !60
   %56 = icmp sgt i32 %.val126154, 0
   br i1 %56, label %.lr.ph156, label %.critedge4..critedge6_crit_edge
@@ -2916,7 +2916,7 @@ Vec_IntPushUnique.exit376:                        ; preds = %319, %Vec_IntPush.e
   br i1 %356, label %.lr.ph425, label %.critedge11, !llvm.loop !93
 
 .critedge11:                                      ; preds = %Vec_IntPushUnique.exit376, %281, %.preheader, %Vec_IntPush.exit.i351
-  %.val289 = phi ptr [ %.val289.pre, %Vec_IntPush.exit.i351 ], [ %.val289513, %.preheader ], [ %.val289513, %281 ], [ %.val289511, %Vec_IntPushUnique.exit376 ]
+  %.val289 = phi ptr [ %.val289513, %281 ], [ %.val289.pre, %Vec_IntPush.exit.i351 ], [ %.val289513, %.preheader ], [ %.val289511, %Vec_IntPushUnique.exit376 ]
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %357 = getelementptr i8, ptr %.val289, i64 8
   %.val289.val = load ptr, ptr %357, align 8, !tbaa !28

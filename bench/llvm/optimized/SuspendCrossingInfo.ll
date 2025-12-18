@@ -1729,7 +1729,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit51:                ; preds = %_ZN4llvm9BitVectorC
   br label %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit
 
 ._crit_edge:                                      ; preds = %127, %_ZN4llvm9BitVectoroRERKS0_.exit128, %343, %_ZN4llvm9BitVectorC2ERKS0_.exit51
-  %135 = phi i32 [ %111, %_ZN4llvm9BitVectorC2ERKS0_.exit51 ], [ %335, %_ZN4llvm9BitVectoroRERKS0_.exit128 ], [ %335, %343 ], [ %111, %127 ]
+  %135 = phi i32 [ %335, %343 ], [ %111, %_ZN4llvm9BitVectorC2ERKS0_.exit51 ], [ %335, %_ZN4llvm9BitVectoroRERKS0_.exit128 ], [ %111, %127 ]
   %136 = getelementptr inbounds nuw i8, ptr %40, i64 144
   %137 = load i8, ptr %136, align 8, !tbaa !45, !range !25, !noundef !26
   %138 = trunc nuw i8 %137 to i1

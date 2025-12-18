@@ -1580,8 +1580,8 @@ Vec_PtrPush.exit154:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %229, label %.lr.ph204, label %.critedge8, !llvm.loop !78
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge4.preheader, %.critedge.thread, %.critedge6.preheader, %.critedge
-  %230 = phi i32 [ %210, %.critedge6.preheader ], [ %118, %.critedge ], [ 1000, %.critedge.thread ], [ %129, %.critedge4.preheader ], [ %210, %.critedge6 ]
-  %.val126 = phi i32 [ %211, %.critedge6.preheader ], [ %119, %.critedge ], [ 0, %.critedge.thread ], [ 0, %.critedge4.preheader ], [ %211, %.critedge6 ]
+  %230 = phi i32 [ %129, %.critedge4.preheader ], [ %210, %.critedge6.preheader ], [ %118, %.critedge ], [ 1000, %.critedge.thread ], [ %210, %.critedge6 ]
+  %.val126 = phi i32 [ 0, %.critedge4.preheader ], [ %211, %.critedge6.preheader ], [ %119, %.critedge ], [ 0, %.critedge.thread ], [ %211, %.critedge6 ]
   %231 = sext i32 %.val126 to i64
   %232 = shl nsw i64 %231, 3
   %233 = call noalias ptr @malloc(i64 noundef %232) #23
@@ -2000,7 +2000,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %57, %60, %.lr.ph.sp
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !81
 
 .critedge:                                        ; preds = %Saig_ObjIsLo.exit.thread, %Saig_ObjIsLo.exit.thread.us, %Saig_ObjIsLo.exit.thread.us.us, %3
-  %66 = phi i32 [ 0, %3 ], [ %52, %Saig_ObjIsLo.exit.thread.us ], [ %30, %Saig_ObjIsLo.exit.thread.us.us ], [ %65, %Saig_ObjIsLo.exit.thread ]
+  %66 = phi i32 [ %52, %Saig_ObjIsLo.exit.thread.us ], [ %30, %Saig_ObjIsLo.exit.thread.us.us ], [ 0, %3 ], [ %65, %Saig_ObjIsLo.exit.thread ]
   %67 = sext i32 %66 to i64
   %68 = shl nsw i64 %67, 3
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #23
@@ -3394,7 +3394,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge
 
 .critedge:                                        ; preds = %75, %2, %.preheader, %.critedge2, %81, %._crit_edge, %118
-  %.053 = phi i32 [ 1, %81 ], [ 0, %._crit_edge ], [ %120, %118 ], [ 1, %.critedge2 ], [ 1, %.preheader ], [ 0, %2 ], [ 1, %75 ]
+  %.053 = phi i32 [ 1, %81 ], [ 0, %._crit_edge ], [ 1, %.critedge2 ], [ %120, %118 ], [ 1, %.preheader ], [ 0, %2 ], [ 1, %75 ]
   ret i32 %.053
 }
 

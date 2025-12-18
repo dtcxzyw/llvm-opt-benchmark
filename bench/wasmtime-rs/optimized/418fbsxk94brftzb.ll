@@ -1443,7 +1443,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   br label %.loopexit148
 
 .loopexit.split-lp149.loopexit:                   ; preds = %301, %302
-  %.1.i.ph.ph.ph = phi i1 [ true, %302 ], [ false, %301 ]
+  %.1.i.ph.ph.ph = phi i1 [ false, %301 ], [ true, %302 ]
   %lpad.loopexit166 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit148

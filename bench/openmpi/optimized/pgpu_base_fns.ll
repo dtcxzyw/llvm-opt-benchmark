@@ -513,7 +513,7 @@ define range(i32 -27, 1) i32 @pmix_pgpu_base_setup_fork(ptr noundef %0, ptr noun
   br i1 %.not25, label %.thread, label %.lr.ph36, !llvm.loop !83
 
 .thread:                                          ; preds = %19, %.lr.ph36, %.preheader, %22, %21, %11
-  %.020 = phi i32 [ -27, %11 ], [ 0, %21 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.lr.ph36 ], [ 0, %19 ]
+  %.020 = phi i32 [ -27, %11 ], [ 0, %22 ], [ 0, %21 ], [ 0, %.preheader ], [ 0, %.lr.ph36 ], [ 0, %19 ]
   ret i32 %.020
 }
 

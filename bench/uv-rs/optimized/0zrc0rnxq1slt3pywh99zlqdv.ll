@@ -941,7 +941,7 @@ _ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit: ; p
   %.not = icmp eq i32 %bcmp.i.i4.i.i.i, 0
   br i1 %.not, label %_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit.thread17, label %_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit.thread17: ; preds = %48, %39, %_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit
+_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit.thread17: ; preds = %39, %48, %_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.12183228291158203711"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %"_ZN4core3ptr115drop_in_place$LT$$LP$uv_pypi_types..conflicts..ConflictItem$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17hf31c8e3486069154E.llvm.7989422476702131114.exit" unwind label %59
 
@@ -2716,7 +2716,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.not = icmp eq i32 %bcmp.i.i4.i.i.i.i, 0
   br i1 %.not, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit.thread13", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit.thread13": ; preds = %31, %40, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit"
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit.thread13": ; preds = %40, %31, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit"
   %51 = tail call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fb406f763e2f117E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %0), !noalias !682
   %52 = extractvalue { ptr, ptr } %51, 0
   %53 = icmp eq ptr %52, null

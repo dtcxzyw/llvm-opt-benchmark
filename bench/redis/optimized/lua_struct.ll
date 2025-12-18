@@ -108,7 +108,7 @@ gettoalign.exit:                                  ; preds = %13
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %35, %13, %gettoalign.exit
-  %39 = phi i64 [ %28, %gettoalign.exit ], [ %.03958, %13 ], [ %28, %35 ]
+  %39 = phi i64 [ %.03958, %13 ], [ %28, %gettoalign.exit ], [ %28, %35 ]
   switch i8 %14, label %105 [
     i8 98, label %40
     i8 66, label %40
@@ -455,7 +455,7 @@ gettoalign.exit:                                  ; preds = %.lr.ph, %23
   br i1 %57, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph33.i, %.preheader.i, %.preheader27.i
-  %.125.i = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader27.i ], [ %51, %.lr.ph33.i ], [ %56, %.lr.ph.i ]
+  %.125.i = phi i64 [ %51, %.lr.ph33.i ], [ 0, %.preheader.i ], [ 0, %.preheader27.i ], [ %56, %.lr.ph.i ]
   %.not.i = icmp eq i16 %42, 0
   br i1 %.not.i, label %58, label %60
 

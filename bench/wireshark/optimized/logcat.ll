@@ -275,7 +275,7 @@ get_priority.exit.thread:                         ; preds = %55, %64, %70, %67
   br label %77
 
 77:                                               ; preds = %6, %.split81.us, %18, %8, %.split85.us, %.split83.us
-  %.0 = phi i32 [ 0, %8 ], [ %.us-phi, %.split83.us ], [ %.65, %.split81.us ], [ %switch.select69, %6 ], [ 0, %.split85.us ], [ %., %18 ]
+  %.0 = phi i32 [ %., %18 ], [ 0, %8 ], [ %.us-phi, %.split83.us ], [ %.65, %.split81.us ], [ %switch.select69, %6 ], [ 0, %.split85.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

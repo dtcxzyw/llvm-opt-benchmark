@@ -737,8 +737,8 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br i1 %exitcond.not.i.i, label %208, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %361, %379, %.loopexit104.i.i, %208, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i, %392, %395
-  %.be = phi i64 [ %203, %.loopexit104.i.i ], [ %203, %208 ], [ %348, %395 ], [ %348, %392 ], [ %203, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ %348, %379 ], [ %348, %361 ]
-  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %.loopexit104.i.i ], [ 0, %208 ], [ 0, %395 ], [ 0, %392 ], [ 0, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ 0, %379 ], [ 0, %361 ]
+  %.be = phi i64 [ %203, %.loopexit104.i.i ], [ %348, %379 ], [ %203, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ %203, %208 ], [ %348, %395 ], [ %348, %392 ], [ %348, %361 ]
+  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %.loopexit104.i.i ], [ 0, %379 ], [ 0, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ 0, %208 ], [ 0, %395 ], [ 0, %392 ], [ 0, %361 ]
   br label %.preheader.i.i, !llvm.loop !29
 
 208:                                              ; preds = %.loopexit104.i.i

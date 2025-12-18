@@ -369,7 +369,7 @@ av_samples_get_buffer_size.exit:                  ; preds = %25
   br i1 %exitcond.not, label %av_samples_get_buffer_size.exit.thread, label %.lr.ph.split, !llvm.loop !19
 
 av_samples_get_buffer_size.exit.thread:           ; preds = %.lr.ph.split, %51, %7, %22, %25, %17, %av_sample_fmt_is_planar.exit.i, %46, %av_samples_get_buffer_size.exit
-  %.0.i2936 = phi i32 [ %42, %av_samples_get_buffer_size.exit ], [ %42, %46 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %17 ], [ -22, %25 ], [ -22, %22 ], [ -22, %7 ], [ %42, %51 ], [ %42, %.lr.ph.split ]
+  %.0.i2936 = phi i32 [ %42, %av_samples_get_buffer_size.exit ], [ -22, %7 ], [ %42, %46 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %17 ], [ -22, %25 ], [ -22, %22 ], [ %42, %51 ], [ %42, %.lr.ph.split ]
   ret i32 %.0.i2936
 }
 
@@ -552,7 +552,7 @@ av_get_bytes_per_sample.exit.i:                   ; preds = %.lr.ph.split.i, %73
   br i1 %exitcond.not.i32, label %av_samples_set_silence.exit, label %91, !llvm.loop !20
 
 av_samples_set_silence.exit:                      ; preds = %91, %6, %21, %24, %16, %av_sample_fmt_is_planar.exit.i, %43, %av_samples_get_buffer_size.exit, %83
-  %.0 = phi i32 [ %41, %av_samples_get_buffer_size.exit ], [ %.0.i2936.i.ph, %83 ], [ -12, %43 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %16 ], [ -22, %24 ], [ -22, %21 ], [ -22, %6 ], [ %69, %91 ]
+  %.0 = phi i32 [ %41, %av_samples_get_buffer_size.exit ], [ %.0.i2936.i.ph, %83 ], [ -22, %6 ], [ -12, %43 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %16 ], [ -22, %24 ], [ -22, %21 ], [ %69, %91 ]
   ret i32 %.0
 }
 

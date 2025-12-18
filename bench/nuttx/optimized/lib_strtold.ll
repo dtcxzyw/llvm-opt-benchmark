@@ -162,11 +162,11 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   br i1 %58, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %52, %.lr.ph.i, %53
-  %.0158.i = phi ptr [ %54, %53 ], [ %56, %.lr.ph.i ], [ %storemerge129.i, %52 ]
-  %.1112.in.i = phi i8 [ %.2113.in171.i, %53 ], [ %.2113.in.i, %.lr.ph.i ], [ %.0111.in.i, %52 ]
-  %.0105.i = phi i32 [ 1, %53 ], [ 1, %.lr.ph.i ], [ 0, %52 ]
-  %.1101.i = phi i32 [ %.0100.i, %53 ], [ 1, %.lr.ph.i ], [ %.0100.i, %52 ]
-  %.082.i = phi i64 [ 0, %53 ], [ %57, %.lr.ph.i ], [ 0, %52 ]
+  %.0158.i = phi ptr [ %56, %.lr.ph.i ], [ %54, %53 ], [ %storemerge129.i, %52 ]
+  %.1112.in.i = phi i8 [ %.2113.in.i, %.lr.ph.i ], [ %.2113.in171.i, %53 ], [ %.0111.in.i, %52 ]
+  %.0105.i = phi i32 [ 1, %.lr.ph.i ], [ 1, %53 ], [ 0, %52 ]
+  %.1101.i = phi i32 [ 1, %.lr.ph.i ], [ %.0100.i, %53 ], [ %.0100.i, %52 ]
+  %.082.i = phi i64 [ %57, %.lr.ph.i ], [ 0, %53 ], [ 0, %52 ]
   %.3114177.i = sext i8 %.1112.in.i to i32
   %59 = tail call i32 @isxdigit(i32 noundef %.3114177.i) #6
   %60 = icmp ne i32 %59, 0
@@ -868,7 +868,7 @@ ifallzero.exit79.i:                               ; preds = %243
   br label %285
 
 hexfloat.exit:                                    ; preds = %.lr.ph.split.i.i75, %.lr.ph.split.us.i.i83, %.lr.ph.split.i140.i, %.lr.ph.split.us.i.i, %271, %255, %232, %227, %226, %169, %139, %132, %126, %94, %93
-  %.056 = phi x86_fp80 [ 0xK7FFF8000000000000000, %132 ], [ 0xK00000000000000000000, %139 ], [ 0xK00000000000000000000, %126 ], [ 0xK00000000000000000000, %94 ], [ 0xK00000000000000000000, %93 ], [ %165, %169 ], [ 0xK00000000000000000000, %232 ], [ 0xK00000000000000000000, %227 ], [ %256, %255 ], [ 0xK00000000000000000000, %226 ], [ %.240.i, %271 ], [ %.1.us.i.i88, %.lr.ph.split.us.i.i83 ], [ %.1.us.i.i, %.lr.ph.split.us.i.i ], [ %spec.select23.i145.i, %.lr.ph.split.i140.i ], [ %spec.select23.i.i79, %.lr.ph.split.i.i75 ]
+  %.056 = phi x86_fp80 [ %.1.us.i.i, %.lr.ph.split.us.i.i ], [ 0xK7FFF8000000000000000, %132 ], [ 0xK00000000000000000000, %139 ], [ 0xK00000000000000000000, %126 ], [ 0xK00000000000000000000, %94 ], [ 0xK00000000000000000000, %93 ], [ %165, %169 ], [ %.1.us.i.i88, %.lr.ph.split.us.i.i83 ], [ 0xK00000000000000000000, %232 ], [ 0xK00000000000000000000, %227 ], [ %256, %255 ], [ 0xK00000000000000000000, %226 ], [ %.240.i, %271 ], [ %spec.select23.i145.i, %.lr.ph.split.i140.i ], [ %spec.select23.i.i79, %.lr.ph.split.i.i75 ]
   %283 = fneg x86_fp80 %.056
   %284 = select i1 %.158, x86_fp80 %283, x86_fp80 %.056
   br label %285

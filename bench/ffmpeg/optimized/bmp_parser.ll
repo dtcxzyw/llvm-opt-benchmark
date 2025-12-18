@@ -125,9 +125,9 @@ define internal i32 @bmp_parse(ptr noundef readonly captures(none) %0, ptr readn
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph113, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %41, %52
-  %.184 = phi i32 [ %5, %52 ], [ %.057.lcssa, %.preheader ], [ %42, %41 ]
-  %.263 = phi i64 [ %28, %52 ], [ %.061.ph, %.preheader ], [ 0, %41 ]
-  %.260 = phi i32 [ -100, %52 ], [ -100, %.preheader ], [ %44, %41 ]
+  %.184 = phi i32 [ %5, %52 ], [ %42, %41 ], [ %.057.lcssa, %.preheader ]
+  %.263 = phi i64 [ %28, %52 ], [ 0, %41 ], [ %.061.ph, %.preheader ]
+  %.260 = phi i32 [ -100, %52 ], [ %44, %41 ], [ -100, %.preheader ]
   store i64 %.263, ptr %10, align 8, !tbaa !15
   br label %.loopexit78
 

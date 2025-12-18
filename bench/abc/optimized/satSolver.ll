@@ -1445,16 +1445,16 @@ sat_solver_enqueue.exit136:                       ; preds = %212
   br i1 %232, label %.lr.ph177, label %.thread, !llvm.loop !64
 
 .thread:                                          ; preds = %.lr.ph165, %.lr.ph177, %78, %227, %sat_solver_enqueue.exit.thread, %sat_solver_enqueue.exit, %sat_solver_enqueue.exit136.thread, %veci_push.exit, %sat_solver_enqueue.exit136, %118
-  %.9110 = phi ptr [ %181, %sat_solver_enqueue.exit136.thread ], [ %120, %118 ], [ %.0101156, %veci_push.exit ], [ %181, %sat_solver_enqueue.exit136 ], [ %53, %sat_solver_enqueue.exit.thread ], [ %53, %sat_solver_enqueue.exit ], [ %181, %227 ], [ %53, %78 ], [ %231, %.lr.ph177 ], [ %87, %.lr.ph165 ]
-  %.9 = phi ptr [ %.090157, %sat_solver_enqueue.exit136.thread ], [ %.090157, %118 ], [ %.090157, %veci_push.exit ], [ %.090157, %sat_solver_enqueue.exit136 ], [ %.090157, %sat_solver_enqueue.exit.thread ], [ %.090157, %sat_solver_enqueue.exit ], [ %.797173, %227 ], [ %.393161, %78 ], [ %.797, %.lr.ph177 ], [ %.393, %.lr.ph165 ]
-  %.8 = phi i32 [ %.1.ph182, %sat_solver_enqueue.exit136.thread ], [ %.1.ph182, %118 ], [ %.1.ph182, %veci_push.exit ], [ %.1.ph182, %sat_solver_enqueue.exit136 ], [ %.1.ph182, %sat_solver_enqueue.exit.thread ], [ %.1.ph182, %sat_solver_enqueue.exit ], [ %228, %227 ], [ %79, %78 ], [ %228, %.lr.ph177 ], [ %79, %.lr.ph165 ]
+  %.9110 = phi ptr [ %181, %sat_solver_enqueue.exit136.thread ], [ %120, %118 ], [ %.0101156, %veci_push.exit ], [ %181, %sat_solver_enqueue.exit136 ], [ %53, %sat_solver_enqueue.exit ], [ %53, %sat_solver_enqueue.exit.thread ], [ %231, %.lr.ph177 ], [ %181, %227 ], [ %53, %78 ], [ %87, %.lr.ph165 ]
+  %.9 = phi ptr [ %.090157, %sat_solver_enqueue.exit136.thread ], [ %.090157, %118 ], [ %.090157, %veci_push.exit ], [ %.090157, %sat_solver_enqueue.exit136 ], [ %.090157, %sat_solver_enqueue.exit ], [ %.090157, %sat_solver_enqueue.exit.thread ], [ %.797, %.lr.ph177 ], [ %.797173, %227 ], [ %.393161, %78 ], [ %.393, %.lr.ph165 ]
+  %.8 = phi i32 [ %.1.ph182, %sat_solver_enqueue.exit136.thread ], [ %.1.ph182, %118 ], [ %.1.ph182, %veci_push.exit ], [ %.1.ph182, %sat_solver_enqueue.exit136 ], [ %.1.ph182, %sat_solver_enqueue.exit ], [ %.1.ph182, %sat_solver_enqueue.exit.thread ], [ %228, %.lr.ph177 ], [ %228, %227 ], [ %79, %78 ], [ %79, %.lr.ph165 ]
   %233 = getelementptr inbounds nuw i8, ptr %.9, i64 4
   %234 = icmp ult ptr %233, %33
   br i1 %234, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !65
 
 .outer._crit_edge:                                ; preds = %.thread, %89, %22
-  %.1.ph.lcssa = phi i32 [ 0, %22 ], [ %.1.ph182, %89 ], [ %.8, %.thread ]
-  %.0101.lcssa = phi ptr [ %.val122, %22 ], [ %91, %89 ], [ %.9110, %.thread ]
+  %.1.ph.lcssa = phi i32 [ %.1.ph182, %89 ], [ 0, %22 ], [ %.8, %.thread ]
+  %.0101.lcssa = phi ptr [ %91, %89 ], [ %.val122, %22 ], [ %.9110, %.thread ]
   %.val123 = load ptr, ptr %30, align 8, !tbaa !31
   %235 = ptrtoint ptr %.0101.lcssa to i64
   %236 = ptrtoint ptr %.val123 to i64
@@ -4760,7 +4760,7 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
   br label %sat_solver_enqueue.exit
 
 sat_solver_enqueue.exit:                          ; preds = %79, %83, %76, %123, %118, %._crit_edge109, %139
-  %.0 = phi i32 [ 1, %139 ], [ 0, %._crit_edge109 ], [ %122, %118 ], [ 1, %123 ], [ 0, %76 ], [ 1, %83 ], [ 1, %79 ]
+  %.0 = phi i32 [ 1, %139 ], [ 1, %123 ], [ 0, %._crit_edge109 ], [ %122, %118 ], [ 0, %76 ], [ 1, %83 ], [ 1, %79 ]
   ret i32 %.0
 }
 
@@ -6307,10 +6307,10 @@ veci_push.exit158.i.i:                            ; preds = %739, %724
   br i1 %756, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !158
 
 .loopexit.i.i:                                    ; preds = %753, %act_clause_bump.exit.i.i, %veci_push.exit147.i.i, %577, %535, %528
-  %.sroa.30.8.i = phi ptr [ %.sroa.30.7.i, %act_clause_bump.exit.i.i ], [ %.sroa.30.7.i, %577 ], [ %.sroa.30.9.i, %veci_push.exit147.i.i ], [ %.sroa.30.7.i, %535 ], [ %.sroa.30.7.i, %528 ], [ %.sroa.30.11.i, %753 ]
-  %.sroa.12.1.i = phi i32 [ %.sroa.12.0.i, %act_clause_bump.exit.i.i ], [ %.sroa.12.0.i, %577 ], [ %604, %veci_push.exit147.i.i ], [ %.sroa.12.0.i, %535 ], [ %.sroa.12.0.i, %528 ], [ %.sroa.12.3.i, %753 ]
-  %.sroa.0.6.i = phi i32 [ %.sroa.0.5.i, %act_clause_bump.exit.i.i ], [ %.sroa.0.5.i, %577 ], [ %.sroa.0.7.i, %veci_push.exit147.i.i ], [ %.sroa.0.5.i, %535 ], [ %.sroa.0.5.i, %528 ], [ %.sroa.0.9.i, %753 ]
-  %.2.i.i = phi i32 [ %.0108.i.i, %act_clause_bump.exit.i.i ], [ %578, %577 ], [ %.0108.i.i, %veci_push.exit147.i.i ], [ %.0108.i.i, %535 ], [ %.0108.i.i, %528 ], [ %.4.i.i, %753 ]
+  %.sroa.30.8.i = phi ptr [ %.sroa.30.7.i, %528 ], [ %.sroa.30.7.i, %act_clause_bump.exit.i.i ], [ %.sroa.30.7.i, %577 ], [ %.sroa.30.9.i, %veci_push.exit147.i.i ], [ %.sroa.30.7.i, %535 ], [ %.sroa.30.11.i, %753 ]
+  %.sroa.12.1.i = phi i32 [ %.sroa.12.0.i, %528 ], [ %.sroa.12.0.i, %act_clause_bump.exit.i.i ], [ %.sroa.12.0.i, %577 ], [ %604, %veci_push.exit147.i.i ], [ %.sroa.12.0.i, %535 ], [ %.sroa.12.3.i, %753 ]
+  %.sroa.0.6.i = phi i32 [ %.sroa.0.5.i, %528 ], [ %.sroa.0.5.i, %act_clause_bump.exit.i.i ], [ %.sroa.0.5.i, %577 ], [ %.sroa.0.7.i, %veci_push.exit147.i.i ], [ %.sroa.0.5.i, %535 ], [ %.sroa.0.9.i, %753 ]
+  %.2.i.i = phi i32 [ %.0108.i.i, %528 ], [ %.0108.i.i, %act_clause_bump.exit.i.i ], [ %578, %577 ], [ %.0108.i.i, %veci_push.exit147.i.i ], [ %.0108.i.i, %535 ], [ %.4.i.i, %753 ]
   %.val142.i.i = load ptr, ptr %40, align 8, !tbaa !78
   %757 = sext i32 %.0111.i.i to i64
   br label %758

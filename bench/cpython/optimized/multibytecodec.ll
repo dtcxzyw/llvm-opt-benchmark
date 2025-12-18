@@ -2089,7 +2089,7 @@ Py_DECREF.exit123:                                ; preds = %226, %228, %231
   br label %Py_DECREF.exit
 
 237:                                              ; preds = %181, %.thread161, %203, %184
-  %.095 = phi ptr [ null, %181 ], [ %.1, %203 ], [ %.1, %.thread161 ], [ null, %184 ]
+  %.095 = phi ptr [ null, %184 ], [ %.1, %.thread161 ], [ %.1, %203 ], [ null, %181 ]
   %238 = load i32, ptr %155, align 8, !tbaa !15
   %.not.i.i148 = icmp sgt i32 %238, -1
   br i1 %.not.i.i148, label %239, label %Py_XDECREF.exit
@@ -4935,7 +4935,7 @@ Py_XDECREF.exit:                                  ; preds = %130
   br label %Py_XDECREF.exit85
 
 .thread114:                                       ; preds = %86, %48, %81, %103, %111, %114, %117, %46, %33
-  %.165.ph117 = phi ptr [ %.064, %33 ], [ %.064, %46 ], [ %.2, %117 ], [ %.2, %114 ], [ %.2, %111 ], [ %.2, %103 ], [ %.2, %81 ], [ %.2, %86 ], [ %.064, %48 ]
+  %.165.ph117 = phi ptr [ %.2, %81 ], [ %.064, %33 ], [ %.064, %46 ], [ %.2, %117 ], [ %.2, %114 ], [ %.2, %111 ], [ %.2, %103 ], [ %.2, %86 ], [ %.064, %48 ]
   %140 = load i32, ptr %.165.ph117, align 8, !tbaa !15
   %.not.i.i87 = icmp sgt i32 %140, -1
   br i1 %.not.i.i87, label %141, label %Py_XDECREF.exit88

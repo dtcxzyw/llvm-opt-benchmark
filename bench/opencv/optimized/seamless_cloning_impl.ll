@@ -1209,7 +1209,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit123:              ; preds = %189
   br i1 %242, label %.loopexit130, label %239
 
 .loopexit130:                                     ; preds = %239, %.loopexit130.loopexit144, %.thread127
-  %.pn104.pn.pn.pn = phi { ptr, i32 } [ %218, %.thread127 ], [ %.pn94, %.loopexit130.loopexit144 ], [ %.pn104.pn.pn, %239 ]
+  %.pn104.pn.pn.pn = phi { ptr, i32 } [ %.pn94, %.loopexit130.loopexit144 ], [ %218, %.thread127 ], [ %.pn104.pn.pn, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %243
 
@@ -1228,7 +1228,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit123:              ; preds = %189
   br i1 %248, label %.loopexit, label %245
 
 .loopexit:                                        ; preds = %245, %.loopexit.loopexit146, %.thread
-  %.pn104.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %149, %.thread ], [ %.pn84, %.loopexit.loopexit146 ], [ %.pn104.pn.pn.pn.pn, %245 ]
+  %.pn104.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn84, %.loopexit.loopexit146 ], [ %149, %.thread ], [ %.pn104.pn.pn.pn.pn, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %249
 

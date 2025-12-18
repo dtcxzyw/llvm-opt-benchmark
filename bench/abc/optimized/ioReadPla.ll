@@ -833,8 +833,8 @@ Abc_TtImply.exit83.us:                            ; preds = %.lr.ph.i78.us
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %Io_ReadPlaConsensus.exit.thread.us.us, %.lr.ph120.split.us, %66, %62, %Abc_TtImply.exit83.us
-  %.3.us = phi i32 [ %.091116.us, %.lr.ph120.split.us ], [ %.5.us.us149154, %Abc_TtImply.exit83.us ], [ %.5.us.us149154, %66 ], [ %.5.us.us149154, %62 ], [ %.2.us.us, %Io_ReadPlaConsensus.exit.thread.us.us ]
-  %.1.us = phi i32 [ %.058117.us, %.lr.ph120.split.us ], [ %.058117.us, %Abc_TtImply.exit83.us ], [ %70, %66 ], [ %64, %62 ], [ %.058117.us, %Io_ReadPlaConsensus.exit.thread.us.us ]
+  %.3.us = phi i32 [ %.091116.us, %.lr.ph120.split.us ], [ %.5.us.us149154, %Abc_TtImply.exit83.us ], [ %.5.us.us149154, %62 ], [ %.5.us.us149154, %66 ], [ %.2.us.us, %Io_ReadPlaConsensus.exit.thread.us.us ]
+  %.1.us = phi i32 [ %.058117.us, %.lr.ph120.split.us ], [ %.058117.us, %Abc_TtImply.exit83.us ], [ %64, %62 ], [ %70, %66 ], [ %.058117.us, %Io_ReadPlaConsensus.exit.thread.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond139.not = icmp eq i64 %45, %wide.trip.count138
   br i1 %exitcond139.not, label %._crit_edge, label %.lr.ph120.split.us, !llvm.loop !30
@@ -2845,9 +2845,9 @@ Vec_StrPrintStr.exit366.i:                        ; preds = %Vec_StrPush.exit.i3
   br i1 %.not447.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %Extra_ProgressBarUpdate.exit.tail.i, %10
-  %.0221.ph.lcssa.i = phi ptr [ null, %10 ], [ %.0221.ph486.i, %.backedge.i ], [ %.0221.ph486.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.1222.i, %.outer.i ]
-  %.0215.ph.lcssa.i = phi i32 [ -1, %10 ], [ %.0215.ph490.i, %.backedge.i ], [ %.0215.ph490.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.1216.i, %.outer.i ]
-  %.0.ph.lcssa.i = phi i32 [ 0, %10 ], [ %.0.ph491.i, %.backedge.i ], [ %.0.ph491.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.1.i, %.outer.i ]
+  %.0221.ph.lcssa.i = phi ptr [ %.0221.ph486.i, %.backedge.i ], [ null, %10 ], [ %.0221.ph486.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.1222.i, %.outer.i ]
+  %.0215.ph.lcssa.i = phi i32 [ %.0215.ph490.i, %.backedge.i ], [ -1, %10 ], [ %.0215.ph490.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.1216.i, %.outer.i ]
+  %.0.ph.lcssa.i = phi i32 [ %.0.ph491.i, %.backedge.i ], [ 0, %10 ], [ %.0.ph491.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.1.i, %.outer.i ]
   call void @Extra_ProgressBarStop(ptr noundef %15) #17
   %.not246.i = icmp eq i32 %.0215.ph.lcssa.i, -1
   %.not247.i = icmp eq i32 %.0.ph.lcssa.i, %.0215.ph.lcssa.i

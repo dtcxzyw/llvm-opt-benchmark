@@ -1805,7 +1805,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %235, %130
   br label %265
 
 .critedge:                                        ; preds = %115, %.thread143, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit
-  %239 = phi i32 [ %105, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ %storemerge, %.thread143 ], [ %.pr145.pre, %115 ]
+  %239 = phi i32 [ %storemerge, %.thread143 ], [ %105, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ %.pr145.pre, %115 ]
   %240 = icmp eq i32 %239, 7
   br i1 %240, label %241, label %242
 

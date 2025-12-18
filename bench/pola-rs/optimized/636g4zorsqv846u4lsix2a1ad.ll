@@ -2679,8 +2679,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.thread9.i11.i.i.
   br i1 %109, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha38db79e22e544ccE.exit", label %114
 
 .thread31.i:                                      ; preds = %96, %.noexc16.i
-  %.sroa.3.0.i3.i.i.i.ph.i = phi i64 [ undef, %.noexc16.i ], [ %97, %96 ]
-  %.sroa.0.0.i4.i.i.i.ph.i = phi i64 [ 0, %.noexc16.i ], [ 1, %96 ]
+  %.sroa.3.0.i3.i.i.i.ph.i = phi i64 [ %97, %96 ], [ undef, %.noexc16.i ]
+  %.sroa.0.0.i4.i.i.i.ph.i = phi i64 [ 1, %96 ], [ 0, %.noexc16.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !349
   br label %.thread.i
 
@@ -2691,8 +2691,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.thread9.i11.i.i.
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.noexc12.i, %110, %.thread31.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i, %50
-  %.sroa.0.0.i.i.i24.i = phi i64 [ %.sroa.0.0.i4.i.i.i.ph.i, %.thread31.i ], [ %spec.select1.i.i.i16.i.i.i.i, %110 ], [ 1, %50 ], [ %spec.select1.i.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i ], [ 0, %.noexc12.i ]
-  %.sroa.3.0.i3.pn.i.i.i23.i = phi i64 [ %.sroa.3.0.i3.i.i.i.ph.i, %.thread31.i ], [ %111, %110 ], [ %51, %50 ], [ %54, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i ], [ undef, %.noexc12.i ]
+  %.sroa.0.0.i.i.i24.i = phi i64 [ %.sroa.0.0.i4.i.i.i.ph.i, %.thread31.i ], [ %spec.select1.i.i.i16.i.i.i.i, %110 ], [ %spec.select1.i.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i ], [ 1, %50 ], [ 0, %.noexc12.i ]
+  %.sroa.3.0.i3.pn.i.i.i23.i = phi i64 [ %.sroa.3.0.i3.i.i.i.ph.i, %.thread31.i ], [ %111, %110 ], [ %54, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i ], [ %51, %50 ], [ undef, %.noexc12.i ]
   %112 = load ptr, ptr %5, align 8, !noalias !323, !noundef !12
   %113 = load ptr, ptr %13, align 8, !noalias !323
   store ptr %112, ptr %0, align 8, !alias.scope !318, !noalias !321
@@ -36678,7 +36678,7 @@ _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread16.i.i: ; preds = %.
   br i1 %.not12.i.i, label %43, label %41
 
 _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.i.i: ; preds = %.preheader.i.i.i, %30, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i.i
-  %40 = phi i64 [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i.i ], [ %16, %30 ], [ %16, %.preheader.i.i.i ]
+  %40 = phi i64 [ %16, %30 ], [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i.i ], [ %16, %.preheader.i.i.i ]
   store i64 %40, ptr %8, align 8, !alias.scope !5209, !noalias !5212
   br label %.loopexit.i
 
@@ -47363,7 +47363,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %158, label %162, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h896eda5c23537d3eE.exit.thread.i.i.i", !prof !8506
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h896eda5c23537d3eE.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h896eda5c23537d3eE.exit.i.i.i", %148, %142, %135, %102
-  %spec.select6.sink.i12.i.i.i = phi i64 [ %159, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h896eda5c23537d3eE.exit.i.i.i" ], [ %140, %135 ], [ %147, %142 ], [ %154, %148 ], [ %105, %102 ]
+  %spec.select6.sink.i12.i.i.i = phi i64 [ %159, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h896eda5c23537d3eE.exit.i.i.i" ], [ %105, %102 ], [ %140, %135 ], [ %147, %142 ], [ %154, %148 ]
   %160 = icmp ugt i64 %spec.select6.sink.i12.i.i.i, %80
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc8a345c61d1fc5b5E.exit.i.i", !prof !8539
 

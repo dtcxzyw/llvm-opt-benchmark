@@ -334,14 +334,14 @@ sub_0178:                                         ; preds = %74
   br label %.loopexit.thread
 
 100:                                              ; preds = %._crit_edge, %84
-  %.0111.ph = phi i32 [ 7, %84 ], [ 31, %._crit_edge ]
+  %.0111.ph = phi i32 [ 31, %._crit_edge ], [ 7, %84 ]
   %101 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not171 = icmp eq ptr %101, null
   br i1 %.not171, label %.thread153, label %.thread153.sink.split
 
-102:                                              ; preds = %81, %.tail
-  %.not131.ph.ph = phi i1 [ false, %.tail ], [ true, %81 ]
-  %.0111.ph.ph = phi i32 [ 29, %.tail ], [ 5, %81 ]
+102:                                              ; preds = %.tail, %81
+  %.not131.ph.ph = phi i1 [ true, %81 ], [ false, %.tail ]
+  %.0111.ph.ph = phi i32 [ 5, %81 ], [ 29, %.tail ]
   %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not170 = icmp eq ptr %103, null
   br i1 %.not170, label %.thread153, label %.thread153.sink.split
@@ -354,9 +354,9 @@ sub_0178:                                         ; preds = %74
   br label %.thread153
 
 .thread153:                                       ; preds = %.thread153.sink.split, %sub_0178, %sub_1, %sub_0, %90, %87, %84, %81, %.tail, %74, %.tail177, %100, %102
-  %.not127159 = phi i1 [ false, %100 ], [ false, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ true, %sub_0 ], [ true, %sub_0178 ], [ false, %.thread153.sink.split ]
-  %.0111.ph158 = phi i32 [ %.0111.ph, %100 ], [ %.0111.ph.ph, %102 ], [ 9, %.tail177 ], [ 9, %74 ], [ 9, %.tail ], [ 9, %81 ], [ 9, %84 ], [ 9, %87 ], [ 9, %90 ], [ 9, %sub_1 ], [ 9, %sub_0 ], [ 9, %sub_0178 ], [ %.0111.ph158.ph, %.thread153.sink.split ]
-  %.not131.ph157 = phi i1 [ %73, %100 ], [ %.not131.ph.ph, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ true, %sub_0 ], [ true, %sub_0178 ], [ %.not131.ph157.ph, %.thread153.sink.split ]
+  %.not127159 = phi i1 [ true, %sub_0178 ], [ false, %100 ], [ true, %sub_0 ], [ false, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ false, %.thread153.sink.split ]
+  %.0111.ph158 = phi i32 [ 9, %sub_0178 ], [ %.0111.ph, %100 ], [ 9, %sub_0 ], [ %.0111.ph.ph, %102 ], [ 9, %.tail177 ], [ 9, %74 ], [ 9, %.tail ], [ 9, %81 ], [ 9, %84 ], [ 9, %87 ], [ 9, %90 ], [ 9, %sub_1 ], [ %.0111.ph158.ph, %.thread153.sink.split ]
+  %.not131.ph157 = phi i1 [ true, %sub_0178 ], [ %73, %100 ], [ true, %sub_0 ], [ %.not131.ph.ph, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ %.not131.ph157.ph, %.thread153.sink.split ]
   %104 = load i32, ptr @_ZN10JvmtiTrace19_max_function_indexE, align 4
   %.not129184 = icmp slt i32 %104, 0
   br i1 %.not129184, label %.loopexit181, label %.lr.ph188
@@ -514,7 +514,7 @@ sub_0178:                                         ; preds = %74
   br i1 %.not132.not, label %144, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.critedge140, %141, %.loopexit181
-  %.0111151231 = phi i32 [ %.0111.ph158, %.loopexit181 ], [ %.0111151237245, %141 ], [ %.0111151237245, %.critedge140 ]
+  %.0111151231 = phi i32 [ %.0111151237245, %141 ], [ %.0111.ph158, %.loopexit181 ], [ %.0111151237245, %.critedge140 ]
   %166 = load i8, ptr @_ZN10JvmtiTrace3_onE, align 1
   %167 = trunc i8 %166 to i1
   %168 = and i32 %.0111151231, 9
@@ -531,7 +531,7 @@ sub_0178:                                         ; preds = %74
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.19)
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %97, %99, %171, %169, %.loopexit
+.loopexit.thread:                                 ; preds = %99, %97, %171, %169, %.loopexit
   %172 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   %173 = icmp ult ptr %172, %34
   br i1 %173, label %.lr.ph199, label %._crit_edge200, !llvm.loop !10

@@ -5631,7 +5631,7 @@ define void @_ZN9elfshaker4repo10repository10Repository18update_remote_pack17h90
   br label %179
 
 .loopexit.split-lp:                               ; preds = %186, %193, %199, %238
-  %.sroa.016.8.ph = phi i1 [ true, %186 ], [ true, %193 ], [ true, %199 ], [ false, %238 ]
+  %.sroa.016.8.ph = phi i1 [ true, %193 ], [ true, %186 ], [ true, %199 ], [ false, %238 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %179

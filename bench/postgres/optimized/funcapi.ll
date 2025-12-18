@@ -1177,8 +1177,8 @@ list_length.exit.split.split:                     ; preds = %list_length.exit, %
   br label %get_type_func_class.exit.thread
 
 get_type_func_class.exit:                         ; preds = %94, %96
-  %.0107 = phi i32 [ %89, %94 ], [ %97, %96 ]
-  %.0.i = phi i32 [ 1, %94 ], [ %..i, %96 ]
+  %.0107 = phi i32 [ %97, %96 ], [ %89, %94 ]
+  %.0.i = phi i32 [ %..i, %96 ], [ 1, %94 ]
   %103 = icmp ne i32 %.0.i, 0
   %or.cond5 = and i1 %92, %103
   br i1 %or.cond5, label %104, label %get_type_func_class.exit.thread
@@ -1491,7 +1491,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br label %74
 
 74:                                               ; preds = %63, %63, %72
-  %.1151 = phi i32 [ %73, %72 ], [ %.0150222, %63 ], [ %.0150222, %63 ]
+  %.1151 = phi i32 [ %.0150222, %63 ], [ %.0150222, %63 ], [ %73, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %75, label %14, !llvm.loop !11
@@ -2313,8 +2313,8 @@ define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, p
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %76, %46, %._crit_edge.loopexit, %43, %3
-  %.sink72 = phi ptr [ null, %43 ], [ null, %3 ], [ %49, %._crit_edge.loopexit ], [ %49, %46 ], [ %49, %76 ]
-  %.0 = phi i32 [ 0, %43 ], [ 0, %3 ], [ %80, %._crit_edge.loopexit ], [ 0, %46 ], [ %.1, %76 ]
+  %.sink72 = phi ptr [ null, %43 ], [ null, %3 ], [ %49, %46 ], [ %49, %._crit_edge.loopexit ], [ %49, %76 ]
+  %.0 = phi i32 [ 0, %43 ], [ 0, %3 ], [ 0, %46 ], [ %80, %._crit_edge.loopexit ], [ %.1, %76 ]
   store ptr %.sink72, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3071,10 +3071,10 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %70, %103, %44, %._crit_edge
-  %105 = phi i32 [ %43, %._crit_edge ], [ %48, %44 ], [ %48, %103 ], [ %48, %70 ]
-  %106 = phi ptr [ %.pre85, %._crit_edge ], [ %50, %44 ], [ %50, %103 ], [ %50, %70 ]
-  %107 = phi ptr [ %.pre, %._crit_edge ], [ %52, %44 ], [ %52, %103 ], [ %52, %70 ]
-  %.164 = phi ptr [ %36, %._crit_edge ], [ %54, %44 ], [ %54, %103 ], [ %54, %70 ]
+  %105 = phi i32 [ %43, %._crit_edge ], [ %48, %103 ], [ %48, %44 ], [ %48, %70 ]
+  %106 = phi ptr [ %.pre85, %._crit_edge ], [ %50, %103 ], [ %50, %44 ], [ %50, %70 ]
+  %107 = phi ptr [ %.pre, %._crit_edge ], [ %52, %103 ], [ %52, %44 ], [ %52, %70 ]
+  %.164 = phi ptr [ %36, %._crit_edge ], [ %54, %103 ], [ %54, %44 ], [ %54, %70 ]
   store ptr %107, ptr %3, align 8
   store ptr %106, ptr %5, align 8
   store ptr %.164, ptr %4, align 8

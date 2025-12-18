@@ -437,8 +437,8 @@ HeapTupleHeaderGetXmin.exit.us.us98..thread.split.us.split.us100_crit_edge: ; pr
   br i1 %.not71, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer.us129, %.outer.us, %141, %.outer.us.us, %92, %.outer.us.us.us, %55, %20
-  %.057.ph.lcssa = phi ptr [ %21, %20 ], [ %.158.us130, %.outer.us129 ], [ %.057.ph84.us.us.us, %55 ], [ %.158.us.us.us, %.outer.us.us.us ], [ %.057.ph84.us.us, %92 ], [ %.158.us.us, %.outer.us.us ], [ %.057.ph84.us, %141 ], [ %.158.us, %.outer.us ], [ %.158, %.outer ]
-  %.054.ph.lcssa = phi i32 [ 0, %20 ], [ %160, %.outer.us129 ], [ %.054.ph89.us.us.us, %55 ], [ %31, %.outer.us.us.us ], [ %.054.ph89.us.us, %92 ], [ %68, %.outer.us.us ], [ %.054.ph89.us, %141 ], [ %105, %.outer.us ], [ %181, %.outer ]
+  %.057.ph.lcssa = phi ptr [ %.158.us130, %.outer.us129 ], [ %21, %20 ], [ %.057.ph84.us, %141 ], [ %.057.ph84.us.us, %92 ], [ %.057.ph84.us.us.us, %55 ], [ %.158.us, %.outer.us ], [ %.158.us.us.us, %.outer.us.us.us ], [ %.158.us.us, %.outer.us.us ], [ %.158, %.outer ]
+  %.054.ph.lcssa = phi i32 [ %160, %.outer.us129 ], [ 0, %20 ], [ %.054.ph89.us, %141 ], [ %.054.ph89.us.us, %92 ], [ %.054.ph89.us.us.us, %55 ], [ %105, %.outer.us ], [ %31, %.outer.us.us.us ], [ %68, %.outer.us.us ], [ %181, %.outer ]
   call void @systable_endscan(ptr noundef %23) #4
   call void @table_close(ptr noundef %22, i32 noundef 1) #4
   %185 = icmp sgt i32 %.054.ph.lcssa, 1
@@ -853,9 +853,9 @@ has_subclass.exit:                                ; preds = %9
   br i1 %55, label %.lr.ph91, label %.critedge
 
 .critedge:                                        ; preds = %52, %23, %.lr.ph76, %.thread.thread
-  %.139 = phi ptr [ %.34172, %.thread.thread ], [ null, %23 ], [ %25, %.lr.ph76 ], [ %.240.ph, %52 ]
-  %.136 = phi ptr [ %36, %.thread.thread ], [ null, %23 ], [ null, %.lr.ph76 ], [ %.237.ph, %52 ]
-  %.1 = phi i1 [ true, %.thread.thread ], [ false, %23 ], [ false, %.lr.ph76 ], [ false, %52 ]
+  %.139 = phi ptr [ %.34172, %.thread.thread ], [ %25, %.lr.ph76 ], [ null, %23 ], [ %.240.ph, %52 ]
+  %.136 = phi ptr [ %36, %.thread.thread ], [ null, %.lr.ph76 ], [ null, %23 ], [ %.237.ph, %52 ]
+  %.1 = phi i1 [ true, %.thread.thread ], [ false, %.lr.ph76 ], [ false, %23 ], [ false, %52 ]
   call void @table_close(ptr noundef %26, i32 noundef 1) #4
   call void @list_free(ptr noundef %.136) #4
   call void @list_free(ptr noundef %.139) #4
@@ -1053,7 +1053,7 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %77, %49, %31, %19, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ %.1.us42, %49 ], [ true, %19 ], [ true, %31 ], [ %.1, %77 ]
+  %.0.lcssa = phi i1 [ false, %4 ], [ %.1.us42, %49 ], [ true, %31 ], [ true, %19 ], [ %.1, %77 ]
   call void @systable_endscan(ptr noundef %8) #4
   call void @table_close(ptr noundef %6, i32 noundef 3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

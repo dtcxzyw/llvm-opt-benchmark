@@ -212,7 +212,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.loopexit563
 
 .loopexit563:                                     ; preds = %68, %.loopexit562.loopexit, %.loopexit563.loopexit, %93
-  %.1495 = phi i32 [ %95, %93 ], [ %96, %.loopexit563.loopexit ], [ %.pre, %.loopexit562.loopexit ], [ %62, %68 ]
+  %.1495 = phi i32 [ %96, %.loopexit563.loopexit ], [ %95, %93 ], [ %.pre, %.loopexit562.loopexit ], [ %62, %68 ]
   %97 = add nsw i32 %.1495, 1
   %98 = icmp eq i32 %.1495, %.0489604
   br i1 %98, label %.backedge, label %100
@@ -752,7 +752,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.outer560
 
 .loopexit556:                                     ; preds = %392, %304, %256, %179, %315, %183
-  %.2 = phi i32 [ %.1, %256 ], [ %58, %183 ], [ %58, %315 ], [ %.1, %179 ], [ %.3, %304 ], [ %.3, %392 ]
+  %.2 = phi i32 [ %58, %183 ], [ %58, %315 ], [ %.1, %256 ], [ %.1, %179 ], [ %.3, %304 ], [ %.3, %392 ]
   %brmerge = or i1 %110, %115
   br i1 %brmerge, label %.sink.split765, label %393
 

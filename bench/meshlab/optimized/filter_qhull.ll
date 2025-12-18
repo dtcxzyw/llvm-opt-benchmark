@@ -1415,7 +1415,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !12
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -5818,7 +5818,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP8C
   br label %.body331
 
 .loopexit.split-lp505.loopexit.split-lp:          ; preds = %._crit_edge810, %159, %1113
-  %.sroa.0452.0.ph.ph = phi ptr [ %.sroa.0452.8, %159 ], [ %.sroa.0452.2.lcssa, %1113 ], [ %.sroa.0452.2.lcssa, %._crit_edge810 ]
+  %.sroa.0452.0.ph.ph = phi ptr [ %.sroa.0452.8, %159 ], [ %.sroa.0452.2.lcssa, %._crit_edge810 ], [ %.sroa.0452.2.lcssa, %1113 ]
   %lpad.loopexit.split-lp516 = landingpad { ptr, i32 }
           cleanup
   br label %.body331
@@ -6679,7 +6679,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %.noexc242, %370, %2
   br label %.loopexit482, !llvm.loop !43
 
 .loopexit483:                                     ; preds = %611, %595, %606
-  %.sroa.06.1.i.i = phi ptr [ %607, %606 ], [ %.sroa.06.0.i.i, %595 ], [ %613, %611 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %595 ], [ %607, %606 ], [ %613, %611 ]
   %619 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %620 = load i32, ptr %619, align 8
   %621 = sext i32 %620 to i64
@@ -6808,7 +6808,7 @@ _ZNSt10_HashtableIP8CVertexOSt4pairIKS1_S2_IicEESaIS5_ENSt8__detail10_Select1stE
   br label %.body245
 
 .loopexit:                                        ; preds = %680, %.noexc257, %675
-  %.0.i.pn.i.i = phi ptr [ %676, %675 ], [ %692, %.noexc257 ], [ %682, %680 ]
+  %.0.i.pn.i.i = phi ptr [ %692, %.noexc257 ], [ %676, %675 ], [ %682, %680 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store i32 %.sroa.0391.0.extract.trunc, ptr %.0.i.i, align 4
   %694 = trunc nuw nsw i64 %indvars.iv940 to i8
@@ -7218,13 +7218,13 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8
   br label %.thread
 
 .loopexit490:                                     ; preds = %_ZNSt16allocator_traitsISaIP8CVertexOEE8allocateERS2_m.exit.i.i.i.i.i.i.i, %907, %_ZNKSt6vectorISt4pairIP8CVertexOfESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIP8CVertexOSaIS1_EE12_M_check_lenEmPKc.exit.i
-  %.sroa.0375.3.ph.ph = phi ptr [ %.sroa.0375.7, %_ZNKSt6vectorISt4pairIP8CVertexOfESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0375.7, %907 ], [ %.sroa.0375.7, %_ZNSt16allocator_traitsISaIP8CVertexOEE8allocateERS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.0375.6, %_ZNKSt6vectorIP8CVertexOSaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.0375.3.ph.ph = phi ptr [ %.sroa.0375.6, %_ZNKSt6vectorIP8CVertexOSaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %.sroa.0375.7, %_ZNKSt6vectorISt4pairIP8CVertexOfESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0375.7, %907 ], [ %.sroa.0375.7, %_ZNSt16allocator_traitsISaIP8CVertexOEE8allocateERS2_m.exit.i.i.i.i.i.i.i ]
   %lpad.loopexit493 = landingpad { ptr, i32 }
           cleanup
   br label %880
 
 .loopexit.split-lp491:                            ; preds = %.noexc.i.i.i.i.i, %914, %799
-  %.sroa.0375.3.ph.ph492 = phi ptr [ %.sroa.0375.7, %914 ], [ %.sroa.0375.6, %799 ], [ %.sroa.0375.7, %.noexc.i.i.i.i.i ]
+  %.sroa.0375.3.ph.ph492 = phi ptr [ %.sroa.0375.7, %914 ], [ %.sroa.0375.7, %.noexc.i.i.i.i.i ], [ %.sroa.0375.6, %799 ]
   %lpad.loopexit.split-lp494 = landingpad { ptr, i32 }
           cleanup
   br label %880
@@ -15802,7 +15802,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66: ; p
   br i1 %.not123, label %.loopexit, label %188, !llvm.loop !175
 
 .loopexit:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, %._crit_edge145, %.loopexit130, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, %11
-  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %.loopexit130 ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
+  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %.loopexit130 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
   ret ptr %.sroa.0106.0
 }
 

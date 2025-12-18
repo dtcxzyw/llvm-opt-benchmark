@@ -1849,7 +1849,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %thread-pre-split, %
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %18, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %1, %thread-pre-split
-  %21 = phi ptr [ %.pr.pre, %thread-pre-split ], [ %14, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %3, %1 ], [ %.pr.pre, %18 ]
+  %21 = phi ptr [ %3, %1 ], [ %.pr.pre, %thread-pre-split ], [ %14, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %.pr.pre, %18 ]
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %22
 

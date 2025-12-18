@@ -2762,8 +2762,8 @@ do.body10.i.i:                                    ; preds = %do.body10.i.i, %do.
   br i1 %cmp21.not.i.i, label %_ZNK8facebook5velox14SequenceVectorIiE14checkLoadRangeEmm.exit, label %do.body10.i.i, !llvm.loop !6
 
 _ZNK8facebook5velox14SequenceVectorIiE14checkLoadRangeEmm.exit: ; preds = %do.body10.i.i, %do.body.i.i, %if.else.i.i
-  %12 = phi i32 [ %0, %if.else.i.i ], [ %sub.i.i, %do.body.i.i ], [ %9, %do.body10.i.i ]
-  %13 = phi i32 [ %6, %if.else.i.i ], [ %3, %do.body.i.i ], [ %add.i.i, %do.body10.i.i ]
+  %12 = phi i32 [ %sub.i.i, %do.body.i.i ], [ %0, %if.else.i.i ], [ %9, %do.body10.i.i ]
+  %13 = phi i32 [ %3, %do.body.i.i ], [ %6, %if.else.i.i ], [ %add.i.i, %do.body10.i.i ]
   %add.i = add nuw nsw i64 %div6, 8
   %conv2.i = sext i32 %13 to i64
   %cmp.i.not = icmp ugt i64 %add.i, %conv2.i
@@ -2987,7 +2987,7 @@ do.body10.i:                                      ; preds = %do.body10.i, %do.bo
   br i1 %cmp21.not.i, label %_ZNK8facebook5velox14SequenceVectorIiE13offsetOfIndexEi.exit, label %do.body10.i, !llvm.loop !6
 
 _ZNK8facebook5velox14SequenceVectorIiE13offsetOfIndexEi.exit: ; preds = %do.body10.i, %do.body.i, %if.else.i
-  %12 = phi i32 [ %6, %if.else.i ], [ %3, %do.body.i ], [ %add.i, %do.body10.i ]
+  %12 = phi i32 [ %3, %do.body.i ], [ %6, %if.else.i ], [ %add.i, %do.body10.i ]
   %add = add i64 %count, %index
   %conv2 = sext i32 %12 to i64
   %cmp = icmp ule i64 %add, %conv2
@@ -22293,7 +22293,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

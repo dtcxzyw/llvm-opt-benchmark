@@ -2469,8 +2469,8 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit: ; preds = %14
   br label %.body.i.i
 
 .loopexit.split-lp154.i.i:                        ; preds = %417, %416, %298, %293, %274, %272, %269, %.invoke216.i.i, %262
-  %.sroa.038.7.ph.i.i = phi i8 [ 0, %416 ], [ 1, %269 ], [ 0, %298 ], [ 1, %272 ], [ 1, %274 ], [ 1, %262 ], [ 1, %.invoke216.i.i ], [ 0, %293 ], [ 0, %417 ]
-  %.sroa.040.4.ph.i.i = phi i8 [ 0, %416 ], [ 1, %269 ], [ 1, %298 ], [ 1, %272 ], [ 1, %274 ], [ 1, %262 ], [ 1, %.invoke216.i.i ], [ 1, %293 ], [ 0, %417 ]
+  %.sroa.038.7.ph.i.i = phi i8 [ 1, %269 ], [ 1, %.invoke216.i.i ], [ 1, %272 ], [ 1, %274 ], [ 1, %262 ], [ 0, %416 ], [ 0, %293 ], [ 0, %417 ], [ 0, %298 ]
+  %.sroa.040.4.ph.i.i = phi i8 [ 1, %269 ], [ 1, %.invoke216.i.i ], [ 1, %272 ], [ 1, %274 ], [ 1, %262 ], [ 0, %416 ], [ 1, %293 ], [ 0, %417 ], [ 1, %298 ]
   %lpad.loopexit.split-lp156.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -2585,8 +2585,8 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit: ; preds = %14
   br i1 %311, label %312, label %314
 
 .body91.i.i:                                      ; preds = %342, %504, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i.i.i", %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
-  %.sroa.040.7.i.i = phi i8 [ 1, %504 ], [ 0, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i.i.i" ], [ 1, %.loopexit.i.i ], [ 1, %.loopexit.split-lp.loopexit.i.i ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %.sroa.040.6.ph.ph.ph.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ], [ 1, %342 ]
-  %.pn.i.i = phi { ptr, i32 } [ %505, %504 ], [ %360, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i.i.i" ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit148.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit151.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ], [ %345, %342 ]
+  %.sroa.040.7.i.i = phi i8 [ 1, %504 ], [ 0, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i.i.i" ], [ %.sroa.040.6.ph.ph.ph.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ], [ 1, %.loopexit.i.i ], [ 1, %.loopexit.split-lp.loopexit.i.i ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ 1, %342 ]
+  %.pn.i.i = phi { ptr, i32 } [ %505, %504 ], [ %360, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i.i.i" ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit148.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit151.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %345, %342 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$num_bigint_dig..bigint..BigInt$GT$17hc30c27c08a01c24dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %82) #16
           to label %.body.i.i unwind label %205, !noalias !521
 
@@ -2606,7 +2606,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit: ; preds = %14
   br label %.body91.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %489, %411, %369, %368, %353, %"_ZN4core3ptr61drop_in_place$LT$$u5b$num_bigint_dig..bigint..BigInt$u5d$$GT$17hcd34e65c5e8931f9E.exit.i.i"
-  %.sroa.040.6.ph.ph.ph.i.i = phi i8 [ 0, %368 ], [ 1, %489 ], [ 1, %"_ZN4core3ptr61drop_in_place$LT$$u5b$num_bigint_dig..bigint..BigInt$u5d$$GT$17hcd34e65c5e8931f9E.exit.i.i" ], [ 1, %353 ], [ 0, %369 ], [ 0, %411 ]
+  %.sroa.040.6.ph.ph.ph.i.i = phi i8 [ 1, %489 ], [ 0, %368 ], [ 0, %411 ], [ 1, %"_ZN4core3ptr61drop_in_place$LT$$u5b$num_bigint_dig..bigint..BigInt$u5d$$GT$17hcd34e65c5e8931f9E.exit.i.i" ], [ 1, %353 ], [ 0, %369 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body91.i.i

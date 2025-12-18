@@ -147,7 +147,7 @@ define ptr @ff_dv_frame_profile(ptr noundef readonly captures(address_is_null) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %53, %49, %.thread, %17, %32, %4, %57
-  %.0 = phi ptr [ %1, %49 ], [ null, %4 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %17 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %.thread ], [ %59, %57 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %32 ], [ null, %53 ], [ %40, %43 ]
+  %.0 = phi ptr [ %1, %49 ], [ null, %4 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %17 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %.thread ], [ null, %53 ], [ %59, %57 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %32 ], [ %40, %43 ]
   ret ptr %.0
 }
 
@@ -230,7 +230,7 @@ define ptr @av_dv_frame_profile(ptr noundef readonly captures(address_is_null, r
   br label %ff_dv_frame_profile.exit
 
 ff_dv_frame_profile.exit:                         ; preds = %28, %3, %16, %20, %34, %38, %42
-  %.0.i = phi ptr [ %0, %34 ], [ null, %3 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %16 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %20 ], [ %44, %42 ], [ null, %38 ], [ %25, %28 ]
+  %.0.i = phi ptr [ %0, %34 ], [ null, %3 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %16 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %20 ], [ null, %38 ], [ %44, %42 ], [ %25, %28 ]
   ret ptr %.0.i
 }
 

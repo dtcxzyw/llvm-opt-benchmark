@@ -2736,7 +2736,7 @@ define range(i32 0, -1) i32 @Cec5_ManSimHashKey(ptr noundef readonly captures(no
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph26, !llvm.loop !135
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph26, %.preheader20, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
+  %.1 = phi i32 [ %22, %.lr.ph26 ], [ 0, %.preheader ], [ 0, %.preheader20 ], [ %15, %.lr.ph ]
   %23 = urem i32 %.1, %2
   ret i32 %23
 }
@@ -3058,7 +3058,7 @@ define void @Cec5_RefineOneClass(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %exitcond36.not.i, label %Cec5_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !135
 
 Cec5_ManSimHashKey.exit:                          ; preds = %.lr.ph.i, %.lr.ph26.i, %.preheader20.i, %.preheader.i
-  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader20.i ], [ %46, %.lr.ph26.i ], [ %39, %.lr.ph.i ]
+  %.1.i = phi i32 [ %46, %.lr.ph26.i ], [ 0, %.preheader.i ], [ 0, %.preheader20.i ], [ %39, %.lr.ph.i ]
   %47 = urem i32 %.1.i, %27
   %48 = load ptr, ptr %13, align 8, !tbaa !116
   %49 = sext i32 %47 to i64
@@ -4770,7 +4770,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Cec5_ObjSimEqual.exit.thread
 
 Cec5_ObjSimEqual.exit.thread:                     ; preds = %153, %148, %.preheader.i, %.preheader1.i, %Vec_IntPush.exit, %129, %Cec5_ObjSimXor.exit, %35
-  %192 = phi i32 [ %34, %35 ], [ %34, %.preheader.i ], [ %34, %.preheader1.i ], [ %.pre, %Vec_IntPush.exit ], [ %34, %129 ], [ %34, %Cec5_ObjSimXor.exit ], [ %34, %148 ], [ %34, %153 ]
+  %192 = phi i32 [ %34, %148 ], [ %34, %35 ], [ %34, %.preheader.i ], [ %34, %.preheader1.i ], [ %.pre, %Vec_IntPush.exit ], [ %34, %129 ], [ %34, %Cec5_ObjSimXor.exit ], [ %34, %153 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %193 = sext i32 %192 to i64
   %194 = icmp slt i64 %indvars.iv.next, %193
@@ -6165,7 +6165,7 @@ define range(i32 0, 2) i32 @Cec5_ManPackAddPatternTry(ptr noundef readonly captu
   br i1 %62, label %46, label %.critedge2, !llvm.loop !197
 
 .critedge2:                                       ; preds = %37, %.critedge, %3
-  %.2 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 0, %37 ]
+  %.2 = phi i32 [ 1, %.critedge ], [ 1, %3 ], [ 0, %37 ]
   ret i32 %.2
 }
 
@@ -7973,7 +7973,7 @@ Vec_IntPush.exit105:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not126, label %.thread122, label %Cec5_ManCandIterNext.exit.thread
 
 Cec5_ManCandIterNext.exit.thread:                 ; preds = %47, %269, %Cec5_ManGeneratePatternOne.exit.thread, %Cec5_ManGeneratePatternOne.exit92, %Cec5_ManCandIterNext.exit
-  %.5 = phi i32 [ %270, %269 ], [ %.055130, %Cec5_ManCandIterNext.exit ], [ %.055130, %Cec5_ManGeneratePatternOne.exit.thread ], [ %.055130, %Cec5_ManGeneratePatternOne.exit92 ], [ %.055130, %47 ]
+  %.5 = phi i32 [ %270, %269 ], [ %.055130, %Cec5_ManCandIterNext.exit ], [ %.055130, %Cec5_ManGeneratePatternOne.exit92 ], [ %.055130, %Cec5_ManGeneratePatternOne.exit.thread ], [ %.055130, %47 ]
   %272 = add nuw nsw i32 %.053131, 1
   %exitcond.not = icmp eq i32 %272, %smax
   br i1 %exitcond.not, label %.thread122, label %43, !llvm.loop !206
@@ -8412,8 +8412,8 @@ Abc_Clock.exit157:                                ; preds = %Cec5_ManLoadInstanc
   br label %.thread.sink.split
 
 178:                                              ; preds = %164, %Abc_Clock.exit157
-  %.sroa.0.0 = phi i32 [ %163, %164 ], [ 0, %Abc_Clock.exit157 ]
-  %.sroa.8.0 = phi i32 [ %146, %164 ], [ 0, %Abc_Clock.exit157 ]
+  %.sroa.0.0 = phi i32 [ 0, %Abc_Clock.exit157 ], [ %163, %164 ]
+  %.sroa.8.0 = phi i32 [ 0, %Abc_Clock.exit157 ], [ %146, %164 ]
   %179 = icmp eq i32 %140, -1
   %180 = icmp sgt i32 %spec.select148, 0
   %or.cond = and i1 %180, %179
@@ -8596,8 +8596,8 @@ Cec5_ObjSimSetInputBit.exit:                      ; preds = %.lr.ph53, %42
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer._crit_edge.loopexit, %1
-  %53 = phi i32 [ %6, %1 ], [ %.pre31, %.outer._crit_edge.loopexit ], [ %50, %.outer ]
-  %.013.ph.lcssa = phi i32 [ 0, %1 ], [ %.013.ph22, %.outer._crit_edge.loopexit ], [ %51, %.outer ]
+  %53 = phi i32 [ %.pre31, %.outer._crit_edge.loopexit ], [ %6, %1 ], [ %50, %.outer ]
+  %.013.ph.lcssa = phi i32 [ %.013.ph22, %.outer._crit_edge.loopexit ], [ 0, %1 ], [ %51, %.outer ]
   %54 = add nsw i32 %.013.ph.lcssa, 1
   %55 = add nsw i32 %54, %53
   store i32 %55, ptr %4, align 4, !tbaa !160
@@ -8860,8 +8860,8 @@ Cec5_ObjSimSetInputBit.exit.i:                    ; preds = %71, %55
   br label %Cec5_FlushCache2Pattern.exit
 
 Cec5_FlushCache2Pattern.exit:                     ; preds = %.outer.i, %Abc_Clock.exit, %.outer._crit_edge.loopexit.i
-  %83 = phi i32 [ %32, %Abc_Clock.exit ], [ %82, %.outer._crit_edge.loopexit.i ], [ %77, %.outer.i ]
-  %.013.ph.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ %80, %.outer.i ]
+  %83 = phi i32 [ %82, %.outer._crit_edge.loopexit.i ], [ %32, %Abc_Clock.exit ], [ %77, %.outer.i ]
+  %.013.ph.lcssa.i = phi i32 [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ 0, %Abc_Clock.exit ], [ %80, %.outer.i ]
   %84 = add i32 %83, %.013.ph.lcssa.i
   store i32 %84, ptr %31, align 4, !tbaa !160
   store i32 0, ptr %36, align 4, !tbaa !16
@@ -9874,8 +9874,8 @@ Cec5_ObjSimSetInputBit.exit.i:                    ; preds = %462, %446
   br label %Cec5_FlushCache2Pattern.exit
 
 Cec5_FlushCache2Pattern.exit:                     ; preds = %.outer.i, %424, %.outer._crit_edge.loopexit.i
-  %474 = phi i32 [ %417, %424 ], [ %473, %.outer._crit_edge.loopexit.i ], [ %468, %.outer.i ]
-  %.013.ph.lcssa.i = phi i32 [ 0, %424 ], [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ %471, %.outer.i ]
+  %474 = phi i32 [ %473, %.outer._crit_edge.loopexit.i ], [ %417, %424 ], [ %468, %.outer.i ]
+  %.013.ph.lcssa.i = phi i32 [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ 0, %424 ], [ %471, %.outer.i ]
   %475 = add i32 %474, %.013.ph.lcssa.i
   store i32 %475, ptr %416, align 4, !tbaa !160
   store i32 0, ptr %427, align 4, !tbaa !16
@@ -10329,8 +10329,8 @@ Abc_Clock.exit106:                                ; preds = %.loopexit, %146
   br label %178
 
 Cec5_ObjSimEqual.exit104:                         ; preds = %.lr.ph.i91, %.lr.ph8.i99, %103
-  %.val76140 = phi ptr [ %.val76139, %103 ], [ %.val76, %.lr.ph8.i99 ], [ %.val76, %.lr.ph.i91 ]
-  %.val75137 = phi i32 [ %.val75136, %103 ], [ %.val75, %.lr.ph8.i99 ], [ %.val75, %.lr.ph.i91 ]
+  %.val76140 = phi ptr [ %.val76, %.lr.ph8.i99 ], [ %.val76139, %103 ], [ %.val76, %.lr.ph.i91 ]
+  %.val75137 = phi i32 [ %.val75, %.lr.ph8.i99 ], [ %.val75136, %103 ], [ %.val75, %.lr.ph.i91 ]
   %.val73 = load ptr, ptr %97, align 8, !tbaa !136
   %159 = getelementptr inbounds nuw i32, ptr %.val73, i64 %104
   %.060 = load i32, ptr %159, align 4, !tbaa !20
@@ -11813,8 +11813,8 @@ Cec5_ObjSimSetInputBit.exit.i:                    ; preds = %615, %599
   br label %Cec5_FlushCache2Pattern.exit
 
 Cec5_FlushCache2Pattern.exit:                     ; preds = %.outer.i, %Abc_Clock.exit, %.outer._crit_edge.loopexit.i
-  %627 = phi i32 [ %577, %Abc_Clock.exit ], [ %626, %.outer._crit_edge.loopexit.i ], [ %621, %.outer.i ]
-  %.013.ph.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ %624, %.outer.i ]
+  %627 = phi i32 [ %626, %.outer._crit_edge.loopexit.i ], [ %577, %Abc_Clock.exit ], [ %621, %.outer.i ]
+  %.013.ph.lcssa.i = phi i32 [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ 0, %Abc_Clock.exit ], [ %624, %.outer.i ]
   %628 = add i32 %627, %.013.ph.lcssa.i
   store i32 %628, ptr %576, align 4, !tbaa !160
   store i32 0, ptr %580, align 4, !tbaa !16
@@ -12053,7 +12053,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %131, %180, %750, %753, %._crit_edge, %94, %57
-  %.0307.ph = phi ptr [ null, %94 ], [ %.1308, %750 ], [ %.1308, %753 ], [ null, %._crit_edge ], [ null, %57 ], [ null, %180 ], [ null, %131 ]
+  %.0307.ph = phi ptr [ null, %94 ], [ null, %57 ], [ %.1308, %750 ], [ %.1308, %753 ], [ null, %._crit_edge ], [ null, %180 ], [ null, %131 ]
   %.pr = load i32, ptr %23, align 4, !tbaa !98
   %.not378 = icmp eq i32 %.pr, 0
   br i1 %.not378, label %.thread482, label %754
@@ -12654,8 +12654,8 @@ Cec5_ObjSimSetInputBit.exit.i:                    ; preds = %269, %253
   br label %Cec5_FlushCache2Pattern.exit
 
 Cec5_FlushCache2Pattern.exit:                     ; preds = %.outer.i, %231, %.outer._crit_edge.loopexit.i
-  %281 = phi i32 [ %224, %231 ], [ %280, %.outer._crit_edge.loopexit.i ], [ %275, %.outer.i ]
-  %.013.ph.lcssa.i = phi i32 [ 0, %231 ], [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ %278, %.outer.i ]
+  %281 = phi i32 [ %280, %.outer._crit_edge.loopexit.i ], [ %224, %231 ], [ %275, %.outer.i ]
+  %.013.ph.lcssa.i = phi i32 [ %.013.ph22.i, %.outer._crit_edge.loopexit.i ], [ 0, %231 ], [ %278, %.outer.i ]
   %282 = add i32 %281, %.013.ph.lcssa.i
   store i32 %282, ptr %223, align 4, !tbaa !160
   store i32 0, ptr %234, align 4, !tbaa !16

@@ -847,7 +847,7 @@ define dso_local i64 @_ZN4llvm16DeadLaneDetector28determineInitialDefinedLanesEj
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %22, %16
-  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %16 ], [ %21, %22 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %21, %22 ], [ %.0.i.i.i.i, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !50
   %.not.i.i.i.i.i.i.i = icmp eq ptr %26, null
@@ -1032,7 +1032,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %86
   br i1 %.not.i.i.i.i.i.i62, label %.critedge, label %.lr.ph.i.i.i.preheader.i.i57
 
 .lr.ph.i.i.i.preheader.i.i57:                     ; preds = %117, %111
-  %.sroa.0.0.i.i.i58 = phi ptr [ %.0.i.i.i.i54, %111 ], [ %116, %117 ]
+  %.sroa.0.0.i.i.i58 = phi ptr [ %116, %117 ], [ %.0.i.i.i.i54, %111 ]
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i58, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !50
   %.not.i.i.i.i.i.i.i59 = icmp eq ptr %121, null
@@ -1107,7 +1107,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread93: ; preds = %_ZNK4llvm19Machin
   br label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread
 
 _ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread: ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93, %68, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit, %19, %2, %22, %144, %_ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit, %148
-  %.sroa.089.0 = phi i64 [ -1, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit ], [ 0, %_ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit ], [ %149, %148 ], [ 0, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit ], [ 0, %144 ], [ -1, %22 ], [ -1, %2 ], [ -1, %19 ], [ 0, %68 ], [ %.sroa.089.2, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93 ]
+  %.sroa.089.0 = phi i64 [ -1, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit ], [ 0, %_ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit ], [ -1, %19 ], [ %149, %148 ], [ 0, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit ], [ 0, %144 ], [ -1, %22 ], [ -1, %2 ], [ 0, %68 ], [ %.sroa.089.2, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93 ]
   ret i64 %.sroa.089.0
 }
 
@@ -1198,7 +1198,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread: ; preds = %1
   br i1 %.not, label %.thread, label %58
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %29, %33
-  %.038.in.in = phi ptr [ %32, %29 ], [ %40, %33 ]
+  %.038.in.in = phi ptr [ %40, %33 ], [ %32, %29 ]
   %.038.in = load i64, ptr %.038.in.in, align 8, !tbaa !50
   %.038 = trunc i64 %.038.in to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1395,7 +1395,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread53: ; preds = %40, %_ZN4llvm19Ma
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2.i.i.i.i, %.critedge2.i.i, %2, %61
-  %64 = phi i64 [ %63, %61 ], [ 0, %2 ], [ %.sroa.051.2.ph, %.critedge2.i.i ], [ 0, %.critedge2.i.i.i.i ]
+  %64 = phi i64 [ %63, %61 ], [ %.sroa.051.2.ph, %.critedge2.i.i ], [ 0, %2 ], [ 0, %.critedge2.i.i.i.i ]
   ret i64 %64
 }
 
@@ -2712,7 +2712,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.i.i: ; preds 
   br i1 %.not.i.i, label %.thread.i.i, label %234
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i: ; preds = %211, %208
-  %.038.in.in.i.i = phi ptr [ %210, %208 ], [ %217, %211 ]
+  %.038.in.in.i.i = phi ptr [ %217, %211 ], [ %210, %208 ]
   %.038.in.i.i = load i64, ptr %.038.in.in.i.i, align 8, !tbaa !50
   %.038.i.i = trunc i64 %.038.in.i.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

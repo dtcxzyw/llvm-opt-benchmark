@@ -595,9 +595,9 @@ _ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thre
   br i1 %59, label %.lr.ph, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, !llvm.loop !386
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread, %.preheader, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %30
-  %.sroa.11.1 = phi ptr [ %50, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.11.041, %30 ], [ %.sroa.11.041, %.preheader ], [ %.sroa.11.041, %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread ]
-  %.sroa.7.1 = phi ptr [ %48, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %31, %30 ], [ %.sroa.7.042, %.preheader ], [ %.sroa.7.042, %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread ]
-  %.sroa.028.1 = phi ptr [ %44, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.028.043, %30 ], [ %.sroa.028.043, %.preheader ], [ %.sroa.028.043, %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.041, %30 ], [ %50, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.11.041, %.preheader ], [ %.sroa.11.041, %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread ]
+  %.sroa.7.1 = phi ptr [ %31, %30 ], [ %48, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.7.042, %.preheader ], [ %.sroa.7.042, %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread ]
+  %.sroa.028.1 = phi ptr [ %.sroa.028.043, %30 ], [ %44, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.028.043, %.preheader ], [ %.sroa.028.043, %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread ]
   %60 = add i32 %storemerge44, 1
   %61 = zext i32 %60 to i64
   %62 = load ptr, ptr %3, align 8, !tbaa !381

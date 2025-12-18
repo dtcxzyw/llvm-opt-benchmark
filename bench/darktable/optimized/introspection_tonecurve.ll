@@ -6287,8 +6287,8 @@ define internal range(i32 0, 2) i32 @dt_iop_tonecurve_key_press(ptr noundef %0, 
   br label %24
 
 24:                                               ; preds = %22, %23, %21, %18, %18
-  %.022 = phi nsz float [ 0.000000e+00, %21 ], [ 0x3F50624DE0000000, %22 ], [ 0xBF50624DE0000000, %23 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %18 ]
-  %.0 = phi nsz float [ 0xBF50624DE0000000, %21 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %23 ], [ 0x3F50624DE0000000, %18 ], [ 0x3F50624DE0000000, %18 ]
+  %.022 = phi nsz float [ 0.000000e+00, %18 ], [ 0.000000e+00, %21 ], [ 0x3F50624DE0000000, %22 ], [ 0xBF50624DE0000000, %23 ], [ 0.000000e+00, %18 ]
+  %.0 = phi nsz float [ 0x3F50624DE0000000, %18 ], [ 0xBF50624DE0000000, %21 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %23 ], [ 0x3F50624DE0000000, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !236
   tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.022, float noundef %.0, i32 noundef %26)

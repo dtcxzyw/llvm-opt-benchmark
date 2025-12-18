@@ -1650,7 +1650,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i506:         ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %75, label %_ZN4llvm12StringSwitchINS_3ARM7FPUKindES2_E4CaseENS_13StringLiteralES2_.exit757, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i514
 
 _ZN4llvm12StringSwitchINS_3ARM7FPUKindES2_E4CaseENS_13StringLiteralES2_.exit589.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i490, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i482
-  %.sroa.194.61.ph = phi i64 [ %.sroa.194.5925004268, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i482 ], [ %.sroa.194.59214425132517, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i490 ]
+  %.sroa.194.61.ph = phi i64 [ %.sroa.194.59214425132517, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i490 ], [ %.sroa.194.5925004268, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i482 ]
   %76 = and i64 %.sroa.194.61.ph, 4294967296
   br label %_ZN4llvm12StringSwitchINS_3ARM7FPUKindES2_E4CaseENS_13StringLiteralES2_.exit605
 
@@ -1894,7 +1894,7 @@ _ZN4llvm12StringSwitchINS_3ARM7FPUKindES2_E4CaseENS_13StringLiteralES2_.exit749.
   br label %_ZN4llvm12StringSwitchINS_3ARM7FPUKindES2_E4CaseENS_13StringLiteralES2_.exit757
 
 _ZN4llvm12StringSwitchINS_3ARM7FPUKindES2_E4CaseENS_13StringLiteralES2_.exit741.thread7063: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i682, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i690, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i722, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i714, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i658
-  %.sroa.194.92.ph = phi i64 [ %.sroa.194.76695470367041, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i658 ], [ %.sroa.194.88309546054683, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i722 ], [ %.sroa.194.86, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i714 ], [ %.sroa.194.76, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i682 ], [ %.sroa.194.8519914576, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i690 ]
+  %.sroa.194.92.ph = phi i64 [ %.sroa.194.76695470367041, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i658 ], [ %.sroa.194.88309546054683, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i722 ], [ %.sroa.194.86, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i714 ], [ %.sroa.194.8519914576, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i690 ], [ %.sroa.194.76, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i682 ]
   %110 = and i64 %.sroa.194.92.ph, 4294967296
   %.not67527065 = icmp eq i64 %110, 0
   br label %_ZN4llvm12StringSwitchINS_3ARM7FPUKindES2_E4CaseENS_13StringLiteralES2_.exit749
@@ -3531,7 +3531,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit86.thread118:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread
 
 _ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us.i, %165, %.thread123, %110, %144, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread125, %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit86.thread118
-  %.0 = phi i1 [ %174, %_ZN4llvmeqENS_9StringRefES0_.exit86.thread118 ], [ false, %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit ], [ true, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread125 ], [ false, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit ], [ true, %110 ], [ true, %144 ], [ false, %.thread123 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us.i ], [ false, %165 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
+  %.0 = phi i1 [ %174, %_ZN4llvmeqENS_9StringRefES0_.exit86.thread118 ], [ false, %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit ], [ true, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread125 ], [ false, %165 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us.i ], [ false, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit ], [ true, %110 ], [ true, %144 ], [ false, %.thread123 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
   ret i1 %.0
 }
 
@@ -3667,8 +3667,8 @@ _ZN4llvm3ARM9parseArchENS_9StringRefE.exit:       ; preds = %_ZNK4llvm9StringRef
   br i1 %.not, label %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit.thread, label %.preheader
 
 _ZN4llvm3ARM9parseArchENS_9StringRefE.exit.thread: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread22.i, %29, %.critedge, %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %.critedge ], [ null, %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit ], [ @.str.69, %29 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread22.i ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload, %.critedge ], [ 0, %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit ], [ 7, %29 ], [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread22.i ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %.critedge ], [ @.str.69, %29 ], [ null, %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread22.i ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload, %.critedge ], [ 7, %29 ], [ 0, %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit ], [ 0, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread22.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert

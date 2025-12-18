@@ -517,7 +517,7 @@ get_line.exit:                                    ; preds = %4
   %20 = icmp slt i32 %8, 0
   br i1 %20, label %get_line.exit.thread, label %.preheader117
 
-.preheader117:                                    ; preds = %.lr.ph.i.i, %av_isspace.exit.thread.i.i, %14, %12, %get_line.exit
+.preheader117:                                    ; preds = %.lr.ph.i.i, %av_isspace.exit.thread.i.i, %12, %14, %get_line.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %22
 
@@ -570,7 +570,7 @@ av_isspace.exit.thread.i.i57:                     ; preds = %.lr.ph.i.i55, %.lr.
   br i1 %36, label %.lr.ph.i.i55, label %get_line.exit58, !llvm.loop !31
 
 get_line.exit58:                                  ; preds = %.lr.ph.i.i55, %av_isspace.exit.thread.i.i57, %24, %29, %31
-  %.0.i50 = phi i32 [ %26, %24 ], [ 0, %29 ], [ 0, %31 ], [ 0, %av_isspace.exit.thread.i.i57 ], [ 0, %.lr.ph.i.i55 ]
+  %.0.i50 = phi i32 [ 0, %31 ], [ %26, %24 ], [ 0, %29 ], [ 0, %av_isspace.exit.thread.i.i57 ], [ 0, %.lr.ph.i.i55 ]
   %37 = icmp slt i32 %.0.i50, 0
   br i1 %37, label %get_line.exit.thread, label %22, !llvm.loop !59
 
@@ -820,7 +820,7 @@ parse_content_length.exit:                        ; preds = %88, %92
   br label %split_tag_value.exit
 
 split_tag_value.exit:                             ; preds = %parse_content_length.exit, %96, %83, %79
-  %.2 = phi i32 [ 1, %79 ], [ %.029130, %83 ], [ %.029130, %96 ], [ %.029130, %parse_content_length.exit ]
+  %.2 = phi i32 [ %.029130, %96 ], [ %.029130, %83 ], [ %.029130, %parse_content_length.exit ], [ 1, %79 ]
   %97 = load i32, ptr %21, align 8, !tbaa !30
   %.not43 = icmp eq i32 %97, 0
   br i1 %.not43, label %45, label %split_tag_value.exit.thread108

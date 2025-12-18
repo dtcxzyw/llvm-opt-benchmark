@@ -2932,7 +2932,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d
   br label %"_ZN76_$LT$proto..UpdateParticipantLocation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h84c838b8f174aebbE.llvm.12582631992428692812.exit"
 
 "_ZN76_$LT$proto..UpdateParticipantLocation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h84c838b8f174aebbE.llvm.12582631992428692812.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i", %10, %6, %4, %2
-  %.sroa.02.0 = phi i64 [ %1, %2 ], [ 2, %4 ], [ %17, %10 ], [ 4, %6 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i" ]
+  %.sroa.02.0 = phi i64 [ %1, %2 ], [ 2, %4 ], [ 4, %6 ], [ %17, %10 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i" ]
   ret i64 %.sroa.02.0
 }
 
@@ -9434,7 +9434,7 @@ define hidden noundef range(i64 2, 20) i64 @_ZN5prost8encoding7message11encoded_
   br label %"_ZN70_$LT$proto..ParticipantLocation$u20$as$u20$prost..message..Message$GT$11encoded_len17h4a4f22d27ea1de0eE.llvm.12582631992428692812.exit"
 
 "_ZN70_$LT$proto..ParticipantLocation$u20$as$u20$prost..message..Message$GT$11encoded_len17h4a4f22d27ea1de0eE.llvm.12582631992428692812.exit": ; preds = %2, %4, %8, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i"
-  %.sroa.02.0.i.i = phi i64 [ 0, %2 ], [ %15, %8 ], [ 2, %4 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i" ]
+  %.sroa.02.0.i.i = phi i64 [ 0, %2 ], [ 2, %4 ], [ %15, %8 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i" ]
   %16 = shl i32 %0, 3
   %17 = or disjoint i32 %16, 1
   %18 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %17, i1 true)
@@ -46750,8 +46750,8 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   br i1 %92, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit, %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %"_ZN56_$LT$proto..Shell$u20$as$u20$prost..message..Message$GT$11encoded_len17h7ebc504d4f29099dE.llvm.12582631992428692812.exit"
-  %93 = phi i64 [ %33, %"_ZN56_$LT$proto..Shell$u20$as$u20$prost..message..Message$GT$11encoded_len17h7ebc504d4f29099dE.llvm.12582631992428692812.exit" ], [ %33, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ %33, %36 ], [ %90, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
-  %.sroa.0.0.lcssa = phi i64 [ %78, %"_ZN56_$LT$proto..Shell$u20$as$u20$prost..message..Message$GT$11encoded_len17h7ebc504d4f29099dE.llvm.12582631992428692812.exit" ], [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ 2, %36 ], [ %91, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
+  %93 = phi i64 [ %33, %"_ZN56_$LT$proto..Shell$u20$as$u20$prost..message..Message$GT$11encoded_len17h7ebc504d4f29099dE.llvm.12582631992428692812.exit" ], [ %33, %36 ], [ %33, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ %90, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
+  %.sroa.0.0.lcssa = phi i64 [ %78, %"_ZN56_$LT$proto..Shell$u20$as$u20$prost..message..Message$GT$11encoded_len17h7ebc504d4f29099dE.llvm.12582631992428692812.exit" ], [ 2, %36 ], [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ %91, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
   %94 = trunc nuw nsw i64 %.sroa.0.0.lcssa to i8
   %95 = load i64, ptr %2, align 8, !alias.scope !8299, !noalias !8310, !noundef !8
   %96 = icmp eq i64 %95, %93
@@ -53661,8 +53661,8 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   br i1 %72, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit, %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %"_ZN71_$LT$proto..ContextMessageStatus$u20$as$u20$prost..message..Message$GT$11encoded_len17h75e32849bf30230cE.llvm.12582631992428692812.exit"
-  %73 = phi i64 [ %33, %"_ZN71_$LT$proto..ContextMessageStatus$u20$as$u20$prost..message..Message$GT$11encoded_len17h75e32849bf30230cE.llvm.12582631992428692812.exit" ], [ %33, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ %33, %36 ], [ %70, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
-  %.sroa.0.0.lcssa = phi i64 [ %58, %"_ZN71_$LT$proto..ContextMessageStatus$u20$as$u20$prost..message..Message$GT$11encoded_len17h75e32849bf30230cE.llvm.12582631992428692812.exit" ], [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ 2, %36 ], [ %71, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
+  %73 = phi i64 [ %33, %"_ZN71_$LT$proto..ContextMessageStatus$u20$as$u20$prost..message..Message$GT$11encoded_len17h75e32849bf30230cE.llvm.12582631992428692812.exit" ], [ %33, %36 ], [ %33, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ %70, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
+  %.sroa.0.0.lcssa = phi i64 [ %58, %"_ZN71_$LT$proto..ContextMessageStatus$u20$as$u20$prost..message..Message$GT$11encoded_len17h75e32849bf30230cE.llvm.12582631992428692812.exit" ], [ 2, %36 ], [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ %71, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit ]
   %74 = trunc nuw nsw i64 %.sroa.0.0.lcssa to i8
   %75 = load i64, ptr %2, align 8, !alias.scope !10863, !noalias !10874, !noundef !8
   %76 = icmp eq i64 %75, %73
@@ -63521,7 +63521,7 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exi
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i", %39, %35, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit
-  %.sroa.02.0.i.i = phi i8 [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ %47, %39 ], [ 2, %35 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i" ]
+  %.sroa.02.0.i.i = phi i8 [ 0, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ], [ 2, %35 ], [ %47, %39 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i" ]
   %48 = load i64, ptr %2, align 8, !alias.scope !14876, !noalias !14887, !noundef !8
   %49 = icmp eq i64 %48, %33
   br i1 %49, label %50, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
@@ -89377,7 +89377,7 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exi
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit.fold.split.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i.i", %51, %47, %45
-  %.sroa.02.0.i.i = phi i64 [ 0, %45 ], [ %58, %51 ], [ 4, %47 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i.i" ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit.fold.split.i" ]
+  %.sroa.02.0.i.i = phi i64 [ 0, %45 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i.i" ], [ 4, %47 ], [ %58, %51 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit.fold.split.i" ]
   %59 = add nuw nsw i64 %.sroa.02.0.i.i, %.sroa.0.0.i
   %60 = trunc nuw nsw i64 %59 to i8
   %61 = load i64, ptr %2, align 8, !alias.scope !25066, !noalias !25077, !noundef !8
@@ -101815,7 +101815,7 @@ define hidden noundef i64 @"_ZN62_$LT$proto..Participant$u20$as$u20$prost..messa
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he7eb6dbc54ba17d5E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he7eb6dbc54ba17d5E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9bcd2f3972d80644E.exit", %47, %49, %51, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i"
-  %.sroa.02.0.i16 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9bcd2f3972d80644E.exit" ], [ 2, %47 ], [ %58, %51 ], [ 4, %49 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i" ]
+  %.sroa.02.0.i16 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9bcd2f3972d80644E.exit" ], [ 2, %47 ], [ 4, %49 ], [ %58, %51 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i" ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %60 = load i32, ptr %59, align 4, !noundef !8
   %61 = icmp eq i32 %60, 0
@@ -114325,7 +114325,7 @@ define hidden noundef range(i64 0, 14) i64 @"_ZN70_$LT$proto..ParticipantLocatio
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split", %3, %7
-  %.sroa.02.0.i = phi i64 [ 0, %1 ], [ %14, %7 ], [ 2, %3 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split" ]
+  %.sroa.02.0.i = phi i64 [ 0, %1 ], [ 2, %3 ], [ %14, %7 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split" ]
   ret i64 %.sroa.02.0.i
 }
 
@@ -119695,7 +119695,7 @@ define hidden noundef range(i64 0, 27) i64 @"_ZN76_$LT$proto..UpdateParticipantL
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit": ; preds = %13, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit.fold.split", %15, %19, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i"
-  %.sroa.02.0.i = phi i64 [ 0, %13 ], [ %26, %19 ], [ 4, %15 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i" ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit.fold.split" ]
+  %.sroa.02.0.i = phi i64 [ 0, %13 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i.i.i" ], [ 4, %15 ], [ %26, %19 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6f93a89d6d397d4fE.llvm.12582631992428692812.exit.fold.split" ]
   %27 = add nuw nsw i64 %.sroa.02.0.i, %.sroa.0.0
   ret i64 %27
 }
@@ -119728,7 +119728,7 @@ define hidden noundef range(i64 2, 16) i64 @"_ZN76_$LT$proto..UpdateParticipantL
   br label %_ZN5prost8encoding7message11encoded_len17h5d9e6fa099b1a841E.llvm.12582631992428692812.exit
 
 _ZN5prost8encoding7message11encoded_len17h5d9e6fa099b1a841E.llvm.12582631992428692812.exit: ; preds = %1, %3, %7, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i"
-  %.sroa.02.0.i.i.i = phi i64 [ 2, %1 ], [ %14, %7 ], [ 4, %3 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i" ]
+  %.sroa.02.0.i.i.i = phi i64 [ 2, %1 ], [ 4, %3 ], [ %14, %7 ], [ 4, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8926127cb290588E.llvm.12582631992428692812.exit.fold.split.i.i" ]
   ret i64 %.sroa.02.0.i.i.i
 }
 

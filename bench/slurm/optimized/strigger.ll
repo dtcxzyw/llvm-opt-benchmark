@@ -427,7 +427,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %_set_trigger.exit
 
 _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_edge.i, %219
-  %.0.i = phi i32 [ 0, %219 ], [ 0, %._crit_edge.i ], [ 1, %.lr.ph.i ]
+  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %219 ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %629

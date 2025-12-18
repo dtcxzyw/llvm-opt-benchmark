@@ -352,9 +352,9 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   br label %106
 
 .outer31._crit_edge:                              ; preds = %.outer31, %102, %281, %62, %72
-  %.056.ph.lcssa83 = phi i64 [ %.056.ph176, %102 ], [ %.us-phi182, %72 ], [ %21, %62 ], [ %.us-phi189, %281 ], [ %.359, %.outer31 ]
-  %.052.ph.lcssa78 = phi i64 [ %.052.ph178, %102 ], [ %.us-phi184, %72 ], [ %24, %62 ], [ %.us-phi191, %281 ], [ %.355, %.outer31 ]
-  %.0.ph.lcssa73 = phi i8 [ %.0.ph179, %102 ], [ %.us-phi185, %72 ], [ 0, %62 ], [ %.us-phi192, %281 ], [ %.6, %.outer31 ]
+  %.056.ph.lcssa83 = phi i64 [ %.us-phi182, %72 ], [ %.us-phi189, %281 ], [ %.056.ph176, %102 ], [ %21, %62 ], [ %.359, %.outer31 ]
+  %.052.ph.lcssa78 = phi i64 [ %.us-phi184, %72 ], [ %.us-phi191, %281 ], [ %.052.ph178, %102 ], [ %24, %62 ], [ %.355, %.outer31 ]
+  %.0.ph.lcssa73 = phi i8 [ %.us-phi185, %72 ], [ %.us-phi192, %281 ], [ %.0.ph179, %102 ], [ 0, %62 ], [ %.6, %.outer31 ]
   %105 = icmp ugt i64 %8, 3
   br i1 %105, label %114, label %112
 
@@ -707,7 +707,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hed395236ffcf51ee
   br i1 %or.cond1, label %281, label %263
 
 .split.us:                                        ; preds = %.lr.ph.split.split.us, %106, %.lr.ph.split.split.us.us, %67
-  %.us-phi = phi i64 [ %110, %106 ], [ %70, %67 ], [ %39, %.lr.ph.split.split.us.us ], [ %79, %.lr.ph.split.split.us ]
+  %.us-phi = phi i64 [ %70, %67 ], [ %39, %.lr.ph.split.split.us.us ], [ %110, %106 ], [ %79, %.lr.ph.split.split.us ]
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.us-phi, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.21) #16
   unreachable
 
@@ -3308,7 +3308,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %73, label %.loopexit, label %81
 
 .loopexit:                                        ; preds = %.preheader, %133, %.split85.us, %106, %119, %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109"
-  %.1 = phi i8 [ %.0.lcssa, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109" ], [ %.0.lcssa, %81 ], [ %.2111, %119 ], [ %.2111, %106 ], [ %.2111, %.preheader ], [ %.3, %133 ], [ %.2111, %.split85.us ]
+  %.1 = phi i8 [ %.0.lcssa, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109" ], [ %.0.lcssa, %81 ], [ %.2111, %119 ], [ %.2111, %106 ], [ %.3, %133 ], [ %.2111, %.preheader ], [ %.2111, %.split85.us ]
   %74 = and i16 %54, 15
   %75 = zext nneg i16 %74 to i64
   %76 = getelementptr inbounds nuw i32, ptr %65, i64 %75
@@ -3796,8 +3796,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %89, label %.loopexit, label %93
 
 .loopexit:                                        ; preds = %159, %.split100.us, %130, %145, %105, %88, %93
-  %.pre-phi191 = phi i32 [ %94, %93 ], [ 0, %88 ], [ %94, %130 ], [ %94, %105 ], [ %94, %145 ], [ %94, %.split100.us ], [ %94, %159 ]
-  %.1 = phi i8 [ %.0.lcssa, %93 ], [ %.0.lcssa, %88 ], [ %.2130, %130 ], [ %.2130, %105 ], [ %.2130, %145 ], [ %.3, %159 ], [ %.2130, %.split100.us ]
+  %.pre-phi191 = phi i32 [ %94, %93 ], [ %94, %130 ], [ %94, %145 ], [ %94, %105 ], [ 0, %88 ], [ %94, %.split100.us ], [ %94, %159 ]
+  %.1 = phi i8 [ %.0.lcssa, %93 ], [ %.2130, %130 ], [ %.2130, %145 ], [ %.2130, %105 ], [ %.0.lcssa, %88 ], [ %.2130, %.split100.us ], [ %.3, %159 ]
   %90 = and i32 %83, %.pre-phi191
   %91 = zext nneg i32 %90 to i64
   %92 = icmp ugt i32 %75, %90
@@ -4297,9 +4297,9 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %79, label %.loopexit, label %83
 
 .loopexit:                                        ; preds = %.split105.us, %121, %136, %96, %..loopexit.loopexit147_crit_edge, %78, %83
-  %.pre-phi209 = phi i32 [ %84, %83 ], [ 0, %78 ], [ %84, %..loopexit.loopexit147_crit_edge ], [ %84, %121 ], [ %84, %96 ], [ %84, %136 ], [ %84, %.split105.us ]
-  %.val101 = phi i32 [ %.val102, %83 ], [ %.val102, %78 ], [ %.val101.pre.pre, %..loopexit.loopexit147_crit_edge ], [ %.val, %121 ], [ %.val, %96 ], [ %.val, %136 ], [ %.val, %.split105.us ]
-  %.1 = phi i8 [ %.0.lcssa, %83 ], [ %.0.lcssa, %78 ], [ %.3, %..loopexit.loopexit147_crit_edge ], [ %.2140, %121 ], [ %.2140, %96 ], [ %.2140, %136 ], [ %.2140, %.split105.us ]
+  %.pre-phi209 = phi i32 [ %84, %83 ], [ %84, %121 ], [ %84, %136 ], [ %84, %..loopexit.loopexit147_crit_edge ], [ 0, %78 ], [ %84, %96 ], [ %84, %.split105.us ]
+  %.val101 = phi i32 [ %.val102, %83 ], [ %.val, %121 ], [ %.val, %136 ], [ %.val101.pre.pre, %..loopexit.loopexit147_crit_edge ], [ %.val102, %78 ], [ %.val, %96 ], [ %.val, %.split105.us ]
+  %.1 = phi i8 [ %.0.lcssa, %83 ], [ %.2140, %121 ], [ %.2140, %136 ], [ %.3, %..loopexit.loopexit147_crit_edge ], [ %.0.lcssa, %78 ], [ %.2140, %96 ], [ %.2140, %.split105.us ]
   %80 = and i32 %.val101, %.pre-phi209
   %81 = zext nneg i32 %80 to i64
   %82 = icmp ugt i32 %67, %80
@@ -4810,7 +4810,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %73, label %.loopexit, label %81
 
 .loopexit:                                        ; preds = %.preheader, %133, %.split85.us, %106, %119, %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109"
-  %.1 = phi i8 [ %.0.lcssa, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109" ], [ %.0.lcssa, %81 ], [ %.2111, %119 ], [ %.2111, %106 ], [ %.2111, %.preheader ], [ %.3, %133 ], [ %.2111, %.split85.us ]
+  %.1 = phi i8 [ %.0.lcssa, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109" ], [ %.0.lcssa, %81 ], [ %.2111, %119 ], [ %.2111, %106 ], [ %.3, %133 ], [ %.2111, %.preheader ], [ %.2111, %.split85.us ]
   %74 = and i16 %54, 63
   %75 = zext nneg i16 %74 to i64
   %76 = getelementptr inbounds nuw i32, ptr %65, i64 %75

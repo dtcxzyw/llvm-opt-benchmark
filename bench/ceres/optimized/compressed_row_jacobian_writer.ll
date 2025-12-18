@@ -1309,11 +1309,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184: ; preds = %32
   br label %375
 
 _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.thread: ; preds = %.preheader.i.i, %.lr.ph353, %._crit_edge330
-  %.not.i.i470 = phi i1 [ true, %._crit_edge330 ], [ true, %.lr.ph353 ], [ false, %.preheader.i.i ]
-  %.0116.lcssa469 = phi i32 [ %.1117, %._crit_edge330 ], [ 0, %.lr.ph353 ], [ %.1117, %.preheader.i.i ]
-  %.sroa.0202.1.lcssa468 = phi ptr [ %.sroa.0202.3, %._crit_edge330 ], [ null, %.lr.ph353 ], [ %.sroa.0202.3, %.preheader.i.i ]
-  %.sroa.11.1.lcssa467 = phi ptr [ %.sroa.11.2, %._crit_edge330 ], [ null, %.lr.ph353 ], [ %.sroa.11.2, %.preheader.i.i ]
-  %.sroa.18.1.lcssa466 = phi ptr [ %.sroa.18.3, %._crit_edge330 ], [ null, %.lr.ph353 ], [ %.sroa.18.3, %.preheader.i.i ]
+  %.not.i.i470 = phi i1 [ true, %.lr.ph353 ], [ true, %._crit_edge330 ], [ false, %.preheader.i.i ]
+  %.0116.lcssa469 = phi i32 [ 0, %.lr.ph353 ], [ %.1117, %._crit_edge330 ], [ %.1117, %.preheader.i.i ]
+  %.sroa.0202.1.lcssa468 = phi ptr [ null, %.lr.ph353 ], [ %.sroa.0202.3, %._crit_edge330 ], [ %.sroa.0202.3, %.preheader.i.i ]
+  %.sroa.11.1.lcssa467 = phi ptr [ null, %.lr.ph353 ], [ %.sroa.11.2, %._crit_edge330 ], [ %.sroa.11.2, %.preheader.i.i ]
+  %.sroa.18.1.lcssa466 = phi ptr [ null, %.lr.ph353 ], [ %.sroa.18.3, %._crit_edge330 ], [ %.sroa.18.3, %.preheader.i.i ]
   %325 = load ptr, ptr %96, align 8, !tbaa !48
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %327 = load i32, ptr %326, align 8, !tbaa !58
@@ -1449,9 +1449,9 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit186: ; preds = %354, %351
   br label %375
 
 375:                                              ; preds = %.loopexit263, %.loopexit.split-lp264, %371, %373, %206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184, %235
-  %.sroa.18.4 = phi ptr [ %.sroa.18.1.lcssa466, %371 ], [ %.sroa.18.2, %206 ], [ %.sroa.18.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.18.3, %235 ], [ %.sroa.18.1.lcssa466, %373 ], [ %.sroa.11.1324, %.loopexit263 ], [ %.sroa.11.1324, %.loopexit.split-lp264 ]
-  %.sroa.0202.4 = phi ptr [ %.sroa.0202.1.lcssa468, %371 ], [ %.sroa.0202.2, %206 ], [ %.sroa.0202.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.0202.3, %235 ], [ %.sroa.0202.1.lcssa468, %373 ], [ %.sroa.0202.1325, %.loopexit263 ], [ %.sroa.0202.1325, %.loopexit.split-lp264 ]
-  %.pn136.pn = phi { ptr, i32 } [ %372, %371 ], [ %207, %206 ], [ %.pn132.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %236, %235 ], [ %374, %373 ], [ %lpad.loopexit265, %.loopexit263 ], [ %lpad.loopexit.split-lp266, %.loopexit.split-lp264 ]
+  %.sroa.18.4 = phi ptr [ %.sroa.18.1.lcssa466, %373 ], [ %.sroa.18.2, %206 ], [ %.sroa.18.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.18.1.lcssa466, %371 ], [ %.sroa.18.3, %235 ], [ %.sroa.11.1324, %.loopexit263 ], [ %.sroa.11.1324, %.loopexit.split-lp264 ]
+  %.sroa.0202.4 = phi ptr [ %.sroa.0202.1.lcssa468, %373 ], [ %.sroa.0202.2, %206 ], [ %.sroa.0202.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.0202.1.lcssa468, %371 ], [ %.sroa.0202.3, %235 ], [ %.sroa.0202.1325, %.loopexit263 ], [ %.sroa.0202.1325, %.loopexit.split-lp264 ]
+  %.pn136.pn = phi { ptr, i32 } [ %374, %373 ], [ %207, %206 ], [ %.pn132.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %372, %371 ], [ %236, %235 ], [ %lpad.loopexit265, %.loopexit263 ], [ %lpad.loopexit.split-lp266, %.loopexit.split-lp264 ]
   %.not.i.i.i187 = icmp eq ptr %.sroa.0202.4, null
   br i1 %.not.i.i.i187, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit191, label %.thread244
 

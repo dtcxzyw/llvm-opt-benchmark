@@ -937,7 +937,7 @@ tgq_decode_mb.exit:                               ; preds = %copy_block8.exit.i
   br label %tgq_decode_mb.exit.thread65
 
 tgq_decode_mb.exit.thread65:                      ; preds = %tgq_idct_put_mb_dconly.exit.i, %301, %tgq_decode_mb.exit
-  %.sroa.0.868 = phi ptr [ %.sroa.0.6, %tgq_decode_mb.exit ], [ %.sroa.0.3, %tgq_idct_put_mb_dconly.exit.i ], [ %303, %301 ]
+  %.sroa.0.868 = phi ptr [ %.sroa.0.6, %tgq_decode_mb.exit ], [ %303, %301 ], [ %.sroa.0.3, %tgq_idct_put_mb_dconly.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %529 = load i32, ptr %87, align 8, !tbaa !40
   %530 = add nsw i32 %529, 15

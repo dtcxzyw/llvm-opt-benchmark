@@ -11795,7 +11795,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.e
   br label %.loopexit239
 
 .loopexit239:                                     ; preds = %.body89, %.body86, %668
-  %.pn48.pn = phi { ptr, i32 } [ %.pn, %.body86 ], [ %669, %668 ], [ %.pn48, %.body89 ]
+  %.pn48.pn = phi { ptr, i32 } [ %669, %668 ], [ %.pn, %.body86 ], [ %.pn48, %.body89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   br label %.body82
 
@@ -11933,7 +11933,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body150, %.body142, %708
-  %.pn64.pn = phi { ptr, i32 } [ %.pn62, %.body142 ], [ %709, %708 ], [ %.pn64, %.body150 ]
+  %.pn64.pn = phi { ptr, i32 } [ %709, %708 ], [ %.pn62, %.body142 ], [ %.pn64, %.body150 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #21
   br label %.body136
 

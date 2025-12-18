@@ -2902,7 +2902,7 @@ define range(i32 0, 2) i32 @If_DsdManCheckNonDec_rec(ptr noundef readonly captur
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %11, %.lr.ph, %.preheader, %2, %2, %.critedge.fold.split
-  %.0 = phi i32 [ 1, %.critedge.fold.split ], [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %11 ], [ 1, %14 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.critedge.fold.split ], [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader ], [ 1, %14 ], [ 0, %11 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3303,7 +3303,7 @@ Abc_TtHasVar.exit.thread13.i.us:                  ; preds = %62, %50
   br i1 %exitcond58.not.i.i.us, label %Abc_TtHasVar.exit.thread.i.us, label %62, !llvm.loop !140
 
 Abc_TtHasVar.exit.thread.i.us:                    ; preds = %._crit_edge.us.i.i.us, %69, %Abc_TtHasVar.exit.thread13.i.us, %.preheader.lr.ph.i.i.us
-  %70 = phi i32 [ %68, %Abc_TtHasVar.exit.thread13.i.us ], [ %.024.i.us, %.preheader.lr.ph.i.i.us ], [ %.024.i.us, %69 ], [ %.024.i.us, %._crit_edge.us.i.i.us ]
+  %70 = phi i32 [ %68, %Abc_TtHasVar.exit.thread13.i.us ], [ %.024.i.us, %69 ], [ %.024.i.us, %.preheader.lr.ph.i.i.us ], [ %.024.i.us, %._crit_edge.us.i.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %Abc_TtSupportSize.exit.us, label %.lr.ph.split.split.split.i.us, !llvm.loop !141
@@ -3334,7 +3334,7 @@ Abc_TtHasVar.exit.us.i.us:                        ; preds = %Abc_TtHasVar.exit.u
   br i1 %exitcond57.not.i.us, label %Abc_TtSupportSize.exit.us, label %Abc_TtHasVar.exit.us.i.us, !llvm.loop !141
 
 Abc_TtSupportSize.exit.us:                        ; preds = %Abc_TtHasVar.exit.thread.i.us, %Abc_TtHasVar.exit.us.i.us, %.lr.ph.split.i.us
-  %.0.lcssa.i.us = phi i32 [ 0, %.lr.ph.split.i.us ], [ %spec.select.i.us, %Abc_TtHasVar.exit.us.i.us ], [ %70, %Abc_TtHasVar.exit.thread.i.us ]
+  %.0.lcssa.i.us = phi i32 [ %spec.select.i.us, %Abc_TtHasVar.exit.us.i.us ], [ 0, %.lr.ph.split.i.us ], [ %70, %Abc_TtHasVar.exit.thread.i.us ]
   %81 = sext i32 %.0.lcssa.i.us to i64
   %82 = getelementptr inbounds i32, ptr %3, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !40
@@ -3478,13 +3478,13 @@ Abc_TtHasVar.exit.thread13.i111:                  ; preds = %125, %139
   br label %Abc_TtHasVar.exit.thread.i112
 
 Abc_TtHasVar.exit.thread.i112:                    ; preds = %._crit_edge.us.i.i117, %124, %Abc_TtHasVar.exit.thread13.i111, %.preheader.lr.ph.i.i101
-  %146 = phi i32 [ %145, %Abc_TtHasVar.exit.thread13.i111 ], [ %.024.i100, %.preheader.lr.ph.i.i101 ], [ %.024.i100, %124 ], [ %.024.i100, %._crit_edge.us.i.i117 ]
+  %146 = phi i32 [ %145, %Abc_TtHasVar.exit.thread13.i111 ], [ %.024.i100, %124 ], [ %.024.i100, %.preheader.lr.ph.i.i101 ], [ %.024.i100, %._crit_edge.us.i.i117 ]
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i
   br i1 %exitcond.not.i114, label %Abc_TtSupportSize.exit135, label %.lr.ph.split.split.split.i98, !llvm.loop !141
 
 Abc_TtSupportSize.exit135:                        ; preds = %Abc_TtHasVar.exit.thread.i112, %Abc_TtHasVar.exit.us.i126, %.lr.ph.split.i94
-  %.0.lcssa.i89 = phi i32 [ 0, %.lr.ph.split.i94 ], [ %spec.select.i132, %Abc_TtHasVar.exit.us.i126 ], [ %146, %Abc_TtHasVar.exit.thread.i112 ]
+  %.0.lcssa.i89 = phi i32 [ %spec.select.i132, %Abc_TtHasVar.exit.us.i126 ], [ 0, %.lr.ph.split.i94 ], [ %146, %Abc_TtHasVar.exit.thread.i112 ]
   %147 = sext i32 %.0.lcssa.i89 to i64
   %148 = getelementptr inbounds i32, ptr %4, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !40
@@ -7803,8 +7803,8 @@ define void @If_DsdManFilter_rec(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph58, !llvm.loop !190
 
 .critedge2:                                       ; preds = %.lr.ph58, %28, %11, %.critedge
-  %.lcssa74 = phi i32 [ 0, %.critedge ], [ 0, %11 ], [ %.lcssa, %28 ], [ %.lcssa, %.lr.ph58 ]
-  %.val45.lcssa73 = phi i32 [ %.val45.lcssa, %.critedge ], [ %.val4550, %11 ], [ %.val45.lcssa, %28 ], [ %.val45.lcssa, %.lr.ph58 ]
+  %.lcssa74 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %.lcssa, %28 ], [ %.lcssa, %.lr.ph58 ]
+  %.val45.lcssa73 = phi i32 [ %.val4550, %11 ], [ %.val45.lcssa, %.critedge ], [ %.val45.lcssa, %28 ], [ %.val45.lcssa, %.lr.ph58 ]
   %37 = and i32 %.val45.lcssa73, 7
   %38 = icmp eq i32 %37, 6
   br i1 %38, label %.split, label %.critedge2.split
@@ -8744,7 +8744,7 @@ tailrecurse:                                      ; preds = %21, %2
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %12, %.lr.ph, %17, %tailrecurse, %.critedge.loopexit61, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 1, %.critedge.loopexit61 ], [ 0, %17 ], [ 0, %tailrecurse ], [ 0, %.lr.ph ], [ 1, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %.critedge.loopexit61 ], [ 0, %17 ], [ 0, %.preheader ], [ 0, %tailrecurse ], [ 0, %.lr.ph ], [ 0, %12 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -9605,8 +9605,8 @@ Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %If_DsdManPushInv.exit264, %.preheader279, %.lr.ph351.preheader, %194, %.preheader, %112, %Abc_TtStretch6.exit
-  %.2226 = phi i32 [ 0, %112 ], [ %219, %Abc_TtStretch6.exit ], [ %.1225, %.preheader ], [ %.3227, %194 ], [ %.1225, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %.3227, %If_DsdManPushInv.exit264 ]
-  %.3 = phi i32 [ 0, %112 ], [ %.5.lcssa495, %Abc_TtStretch6.exit ], [ %.2207, %.preheader ], [ 0, %194 ], [ %.2207, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %3, %If_DsdManPushInv.exit264 ]
+  %.2226 = phi i32 [ %.1225, %.preheader ], [ 0, %112 ], [ %219, %Abc_TtStretch6.exit ], [ %.3227, %194 ], [ %.1225, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %.3227, %If_DsdManPushInv.exit264 ]
+  %.3 = phi i32 [ %.2207, %.preheader ], [ 0, %112 ], [ %.5.lcssa495, %Abc_TtStretch6.exit ], [ 0, %194 ], [ %.2207, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %3, %If_DsdManPushInv.exit264 ]
   %291 = call i32 @If_DsdObjFindOrAdd(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, i32 noundef %.3, ptr noundef %5)
   %292 = shl nsw i32 %291, 1
   %293 = add nuw nsw i32 %292, %.2226
@@ -9693,7 +9693,7 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %40
 
 40:                                               ; preds = %29, %.fold.split, %37, %39, %38
-  %.074 = phi i32 [ 4, %37 ], [ 5, %38 ], [ 6, %39 ], [ 3, %29 ], [ 0, %.fold.split ]
+  %.074 = phi i32 [ 3, %29 ], [ 4, %37 ], [ 5, %38 ], [ 6, %39 ], [ 0, %.fold.split ]
   %storemerge7992 = getelementptr inbounds nuw i8, ptr %.pn8091, i64 1
   store ptr %storemerge7992, ptr %1, align 8, !tbaa !212
   %41 = icmp ult ptr %storemerge7992, %36
@@ -10892,7 +10892,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %257, %255
   br i1 %exitcond289.not, label %.loopexit, label %244, !llvm.loop !228
 
 .loopexit164:                                     ; preds = %If_DsdManComputeFirst.exit, %47, %If_DsdManComputeFirst.exit146, %122, %.loopexit166, %If_DsdManComputeFirst.exit159, %.loopexit166.us, %217, %._crit_edge, %If_DsdManGetSuppSizes.exit, %._crit_edge189
-  %.0 = phi i32 [ 0, %._crit_edge189 ], [ 0, %._crit_edge ], [ 0, %If_DsdManGetSuppSizes.exit ], [ -1, %47 ], [ -1, %217 ], [ 0, %.loopexit166.us ], [ %306, %If_DsdManComputeFirst.exit159 ], [ 0, %.loopexit166 ], [ -1, %122 ], [ %195, %If_DsdManComputeFirst.exit146 ], [ %104, %If_DsdManComputeFirst.exit ]
+  %.0 = phi i32 [ 0, %If_DsdManGetSuppSizes.exit ], [ 0, %._crit_edge189 ], [ -1, %47 ], [ -1, %122 ], [ 0, %._crit_edge ], [ %195, %If_DsdManComputeFirst.exit146 ], [ 0, %.loopexit166.us ], [ %306, %If_DsdManComputeFirst.exit159 ], [ 0, %.loopexit166 ], [ -1, %217 ], [ %104, %If_DsdManComputeFirst.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.0
@@ -11479,7 +11479,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %114, %._crit_edge.t
   br i1 %160, label %.lr.ph112.split, label %.critedge, !llvm.loop !230
 
 .critedge:                                        ; preds = %._crit_edge107, %158, %86, %._crit_edge.us.us, %83, %.lr.ph112.split.us, %If_DsdManGetSuppSizes.exit
-  %.2 = phi i32 [ -1, %.lr.ph112.split.us ], [ 0, %If_DsdManGetSuppSizes.exit ], [ -1, %83 ], [ 0, %86 ], [ -1, %._crit_edge.us.us ], [ %.070.lcssa, %._crit_edge107 ], [ 0, %158 ]
+  %.2 = phi i32 [ -1, %.lr.ph112.split.us ], [ 0, %86 ], [ 0, %If_DsdManGetSuppSizes.exit ], [ -1, %83 ], [ -1, %._crit_edge.us.us ], [ %.070.lcssa, %._crit_edge107 ], [ 0, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.2
@@ -11953,7 +11953,7 @@ Abc_TtPrintBinary.exit177:                        ; preds = %193
   br label %.critedge132
 
 .critedge132:                                     ; preds = %.critedge129, %.critedge132.sink.split, %228, %191, %149, %16, %.critedge6
-  %.0 = phi i32 [ 0, %.critedge6 ], [ -1, %16 ], [ %148, %149 ], [ %190, %191 ], [ %227, %228 ], [ %.0.ph, %.critedge132.sink.split ], [ %112, %.critedge129 ]
+  %.0 = phi i32 [ %.0.ph, %.critedge132.sink.split ], [ 0, %.critedge6 ], [ -1, %16 ], [ %148, %149 ], [ %190, %191 ], [ %227, %228 ], [ %112, %.critedge129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -12702,7 +12702,7 @@ If_CutPinDelayMax.exit.loopexit.us.i128:          ; preds = %269
   br i1 %270, label %.lr.ph.preheader.i.us.i118, label %If_LogPinDelaysMulti.exit, !llvm.loop !244
 
 If_LogPinDelaysMulti.exit:                        ; preds = %If_CutPinDelayMax.exit.loopexit.us.i128, %137, %.critedge4, %If_CutPinDelayMax.exit.preheader.i
-  %.075.lcssa195 = phi i32 [ %.075.lcssa, %If_CutPinDelayMax.exit.preheader.i ], [ %.075.lcssa, %.critedge4 ], [ 0, %137 ], [ %.075.lcssa, %If_CutPinDelayMax.exit.loopexit.us.i128 ]
+  %.075.lcssa195 = phi i32 [ 0, %137 ], [ %.075.lcssa, %If_CutPinDelayMax.exit.preheader.i ], [ %.075.lcssa, %.critedge4 ], [ %.075.lcssa, %If_CutPinDelayMax.exit.loopexit.us.i128 ]
   %271 = load i64, ptr %12, align 16, !tbaa !50
   store i64 %271, ptr %3, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -13206,7 +13206,7 @@ If_DsdObjTruthId.exit:                            ; preds = %82, %89
   br i1 %172, label %.lr.ph.split.us.i, label %.loopexit.i, !llvm.loop !267
 
 .loopexit.i:                                      ; preds = %.lr.ph.split.us.i, %164, %163
-  %.2.i = phi i32 [ %.181.i, %163 ], [ %166, %164 ], [ %166, %.lr.ph.split.us.i ]
+  %.2.i = phi i32 [ %166, %164 ], [ %.181.i, %163 ], [ %166, %.lr.ph.split.us.i ]
   %173 = icmp samesign ugt i32 %.07180.i, 1
   br i1 %173, label %.preheader.i, label %If_LogCounterAddAig.exit, !llvm.loop !268
 
@@ -13297,7 +13297,7 @@ If_LogCreateAndXorMulti.exit:                     ; preds = %If_LogCreateAndXor.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph205, %If_LogCreateAndXorMulti.exit, %209
-  %.3 = phi i32 [ %.0111.lcssa, %209 ], [ %.0111.lcssa, %If_LogCreateAndXorMulti.exit ], [ -1, %.lr.ph205 ]
+  %.3 = phi i32 [ %.0111.lcssa, %If_LogCreateAndXorMulti.exit ], [ %.0111.lcssa, %209 ], [ -1, %.lr.ph205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -16015,7 +16015,7 @@ Abc_TtNegVar.exit.thread25.i:                     ; preds = %197, %176, %226, %2
   br label %Abc_TtIsUnate.exit
 
 Abc_TtIsUnate.exit:                               ; preds = %233, %230
-  %.0 = phi i32 [ %231, %230 ], [ %234, %233 ]
+  %.0 = phi i32 [ %234, %233 ], [ %231, %230 ]
   %.not67 = icmp eq i32 %.0, 0
   br i1 %.not67, label %Abc_TtIsUnate.exit.thread, label %Abc_TtIsUnate.exit.thread95
 

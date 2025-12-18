@@ -844,7 +844,7 @@ FindHostApi.exit:                                 ; preds = %7
   br label %FindHostApi.exit.thread
 
 FindHostApi.exit.thread:                          ; preds = %12, %.preheader.i, %1, %FindHostApi.exit
-  %.0 = phi ptr [ %21, %FindHostApi.exit ], [ null, %1 ], [ null, %.preheader.i ], [ null, %12 ]
+  %.0 = phi ptr [ %21, %FindHostApi.exit ], [ null, %.preheader.i ], [ null, %1 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -1006,8 +1006,8 @@ Pa_HostApiTypeIdToHostApiIndex.exit:              ; preds = %26
   br label %Pa_HostApiTypeIdToHostApiIndex.exit.thread
 
 Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge, %Pa_HostApiTypeIdToHostApiIndex.exit, %.preheader.i
-  %34 = phi ptr [ %.pre162, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ %.pre162, %.preheader.i ], [ %.pre, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ %.pre162, %32 ]
-  %.06.i132 = phi i32 [ %33, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ -9979, %.preheader.i ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ -9979, %32 ]
+  %34 = phi ptr [ %.pre162, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ %.pre, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ %.pre162, %.preheader.i ], [ %.pre162, %32 ]
+  %.06.i132 = phi i32 [ %33, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ -9979, %.preheader.i ], [ -9979, %32 ]
   store i32 -2, ptr %7, align 4, !tbaa !12
   %35 = sext i32 %.06.i132 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
@@ -1158,8 +1158,8 @@ Pa_HostApiTypeIdToHostApiIndex.exit114:           ; preds = %87
   br label %Pa_HostApiTypeIdToHostApiIndex.exit114.thread
 
 Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %93, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge, %Pa_HostApiTypeIdToHostApiIndex.exit114, %.preheader.i106
-  %95 = phi ptr [ %.pre164, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ %.pre164, %.preheader.i106 ], [ %.pre163, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ %.pre164, %93 ]
-  %.06.i107138 = phi i32 [ %94, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ -9979, %.preheader.i106 ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ -9979, %93 ]
+  %95 = phi ptr [ %.pre164, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ %.pre163, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ %.pre164, %.preheader.i106 ], [ %.pre164, %93 ]
+  %.06.i107138 = phi i32 [ %94, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ -9979, %.preheader.i106 ], [ -9979, %93 ]
   store i32 -2, ptr %8, align 4, !tbaa !12
   %96 = sext i32 %.06.i107138 to i64
   %97 = getelementptr inbounds ptr, ptr %95, i64 %96
@@ -1285,7 +1285,7 @@ SampleFormatIsValid.exit129:                      ; preds = %.split.i128, %.spli
   br label %FindHostApi.exit.thread
 
 FindHostApi.exit.thread:                          ; preds = %51, %112, %.split.i128, %121, %.preheader.i117, %102, %.split.i, %60, %.preheader.i99, %41, %143, %139, %136, %135, %130, %FindHostApi.exit126, %99, %78, %69, %FindHostApi.exit, %38, %17, %9, %146
-  %.064 = phi i32 [ -9998, %FindHostApi.exit ], [ -9984, %130 ], [ -9993, %135 ], [ -9997, %136 ], [ -9995, %143 ], [ 0, %146 ], [ -9995, %139 ], [ -9984, %69 ], [ -9986, %.preheader.i117 ], [ -9996, %78 ], [ -9996, %99 ], [ -9994, %121 ], [ -9998, %FindHostApi.exit126 ], [ -9996, %9 ], [ -9986, %102 ], [ -9996, %17 ], [ -9996, %38 ], [ -9994, %.split.i128 ], [ -9994, %.split.i ], [ -9986, %41 ], [ -9986, %.preheader.i99 ], [ -9994, %60 ], [ -9986, %112 ], [ -9986, %51 ]
+  %.064 = phi i32 [ -9998, %FindHostApi.exit ], [ -9984, %130 ], [ -9993, %135 ], [ -9997, %136 ], [ -9995, %143 ], [ -9986, %112 ], [ 0, %146 ], [ -9995, %139 ], [ -9984, %69 ], [ -9986, %.preheader.i117 ], [ -9996, %78 ], [ -9996, %99 ], [ -9994, %121 ], [ -9994, %60 ], [ -9998, %FindHostApi.exit126 ], [ -9996, %9 ], [ -9986, %102 ], [ -9996, %17 ], [ -9996, %38 ], [ -9994, %.split.i128 ], [ -9994, %.split.i ], [ -9986, %41 ], [ -9986, %.preheader.i99 ], [ -9986, %51 ]
   ret i32 %.064
 }
 

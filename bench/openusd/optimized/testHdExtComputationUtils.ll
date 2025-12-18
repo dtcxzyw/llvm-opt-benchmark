@@ -1520,7 +1520,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__13HdRenderIndexESt14default
   ret void
 
 .loopexit99:                                      ; preds = %150, %166, %164
-  %.pn = phi { ptr, i32 } [ %167, %166 ], [ %165, %164 ], [ %eh.lpad-body, %150 ]
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %167, %166 ], [ %eh.lpad-body, %150 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %5) #23
   br label %435
 
@@ -3331,7 +3331,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33: ; preds = %_ZN32pxrInt
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, %.preheader39, %.preheader, %41, %39
-  %.025 = phi i64 [ 0, %39 ], [ 0, %41 ], [ %.sroa.speculated, %.preheader ], [ %.sroa.speculated, %.preheader39 ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33 ]
+  %.025 = phi i64 [ %.sroa.speculated, %.preheader ], [ 0, %41 ], [ 0, %39 ], [ %.sroa.speculated, %.preheader39 ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33 ]
   ret i64 %.025
 }
 
@@ -7875,7 +7875,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   unreachable
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdTimeSampleArrayINS0_7VtValueELj4EEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE2atERS9_.exit: ; preds = %351, %325, %340
-  %.sroa.06.1.i.i.i = phi ptr [ %341, %340 ], [ %.sroa.06.0.i.i.i, %325 ], [ %359, %351 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %325 ], [ %341, %340 ], [ %359, %351 ]
   %364 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %365 = load i64, ptr %364, align 8
   %.not1519 = icmp eq i64 %365, 0
@@ -8534,7 +8534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %591, %.lr
   br label %.loopexit.i.i148.invoke, !llvm.loop !7
 
 .loopexit802:                                     ; preds = %636, %610, %625
-  %.sroa.06.1.i.i.i120 = phi ptr [ %626, %625 ], [ %.sroa.06.0.i.i.i122, %610 ], [ %644, %636 ]
+  %.sroa.06.1.i.i.i120 = phi ptr [ %.sroa.06.0.i.i.i122, %610 ], [ %626, %625 ], [ %644, %636 ]
   %649 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i120, i64 24
   %650 = load i64, ptr %649, align 8, !noalias !88
   %651 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i120, i64 32
@@ -9291,7 +9291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i138: ; preds = %904, %
   unreachable
 
 .loopexit799:                                     ; preds = %947, %921, %936
-  %.sroa.06.1.i.i.i149 = phi ptr [ %937, %936 ], [ %.sroa.06.0.i.i.i151, %921 ], [ %955, %947 ]
+  %.sroa.06.1.i.i.i149 = phi ptr [ %.sroa.06.0.i.i.i151, %921 ], [ %937, %936 ], [ %955, %947 ]
   %960 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i149, i64 24
   %961 = load i64, ptr %960, align 8, !noalias !95
   %962 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i149, i64 32

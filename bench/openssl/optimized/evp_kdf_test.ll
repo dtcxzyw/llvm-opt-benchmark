@@ -3008,7 +3008,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %62, %59, %48, %51, %55, %45, %._crit_edge, %23, %0, %20
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %62 ], [ 0, %59 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %._crit_edge ], [ 0, %23 ], [ 0, %20 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %0 ], [ %spec.select, %62 ], [ 0, %59 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %._crit_edge ], [ 0, %23 ], [ 0, %31 ]
   call void @EVP_MD_free(ptr noundef null) #6
   call void @EVP_KDF_CTX_free(ptr noundef %18) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3094,7 +3094,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
   br i1 %.not18, label %.loopexit, label %21
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %21, %12, %.preheader, %0, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %0 ], [ 1, %.preheader ], [ 1, %12 ], [ 1, %21 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %9 ], [ 0, %0 ], [ 1, %21 ], [ 1, %12 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph ]
   call void @EVP_KDF_CTX_free(ptr noundef %7) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

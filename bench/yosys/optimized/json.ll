@@ -10300,8 +10300,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZNSt7__cxx1112basi
   br i1 %.not98132.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %.thread.i, %108
-  %.037101.i.be = phi i32 [ %.138.i, %108 ], [ 2, %.thread.i ]
-  %.sroa.095.0100.i.be = phi ptr [ %109, %108 ], [ %110, %.thread.i ]
+  %.037101.i.be = phi i32 [ 2, %.thread.i ], [ %.138.i, %108 ]
+  %.sroa.095.0100.i.be = phi ptr [ %110, %.thread.i ], [ %109, %108 ]
   br label %.lr.ph.i
 
 111:                                              ; preds = %._crit_edge.i

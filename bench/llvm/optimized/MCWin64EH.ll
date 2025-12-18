@@ -4537,7 +4537,7 @@ _ZL12parseRegMaskjRbS_RjRi.exit.i:                ; preds = %287, %279, %269, %2
   %spec.select394.i = select i1 %.not371.i, i32 %spec.select382.i, i32 %425
   br label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit
 
-_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread387: ; preds = %408, %397, %375, %395, %359, %369, %365, %355, %353, %352, %350, %349, %338, %398, %368, %406, %334, %334, %334, %334, %334, %334, %334, %334, %334, %334, %304, %309, %319, %412, %415, %.thread477.i
+_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread387: ; preds = %408, %397, %375, %395, %359, %369, %365, %355, %353, %352, %350, %349, %338, %398, %368, %406, %334, %334, %334, %334, %334, %334, %334, %334, %334, %334, %.thread477.i, %304, %309, %319, %412, %415
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread
 
@@ -6814,7 +6814,7 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit:        ; preds = %26
   br i1 %.not.i, label %_ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit, label %.lr.ph.i
 
 _ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit: ; preds = %16, %26, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit, %.lr.ph.i, %36, %0
-  %.018 = phi i32 [ -1, %0 ], [ 0, %36 ], [ %44, %.lr.ph.i ], [ -1, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit ], [ -1, %26 ], [ -1, %16 ]
+  %.018 = phi i32 [ %44, %.lr.ph.i ], [ -1, %0 ], [ 0, %36 ], [ -1, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit ], [ -1, %26 ], [ -1, %16 ]
   ret i32 %.018
 }
 
@@ -7235,7 +7235,7 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread: ; preds = %.lr.ph, %91, %_ZNK4
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread, %.preheader, %80, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us, %.critedge.sink.split, %.lr.ph24.split.us, %1
-  %103 = phi ptr [ null, %1 ], [ null, %.lr.ph24.split.us ], [ %102, %.critedge.sink.split ], [ %49, %80 ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us ], [ %49, %.preheader ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread ]
+  %103 = phi ptr [ %49, %80 ], [ %102, %.critedge.sink.split ], [ null, %1 ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us ], [ null, %.lr.ph24.split.us ], [ %49, %.preheader ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread ]
   ret ptr %103
 }
 

@@ -1164,7 +1164,7 @@ _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit51:       ; preds = %.preheader, %168
   br label %.critedge28
 
 .critedge28:                                      ; preds = %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit, %77, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit32, %93, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit51, %83, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit31.thread, %.loopexit
-  %.0 = phi i1 [ false, %83 ], [ %172, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit51 ], [ false, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit31.thread ], [ false, %.loopexit ], [ false, %77 ], [ false, %93 ], [ false, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit32 ], [ false, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit ]
+  %.0 = phi i1 [ false, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit32 ], [ false, %77 ], [ false, %83 ], [ false, %93 ], [ %172, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit51 ], [ false, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit31.thread ], [ false, %.loopexit ], [ false, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit ]
   ret i1 %.0
 }
 

@@ -4253,8 +4253,8 @@ select.unfold:                                    ; preds = %.thread345, %.prehe
   br label %fragment_items_removed.exit.thread
 
 fragment_items_removed.exit.thread:               ; preds = %127, %.thread339, %.thread348, %186, %fragment_items_removed.exit, %157, %162, %160, %select.unfold
-  %.2236 = phi ptr [ %171, %.thread348 ], [ %191, %select.unfold ], [ %.1235, %160 ], [ %.1235, %162 ], [ %.1235, %157 ], [ %.1235, %fragment_items_removed.exit ], [ %171, %186 ], [ %.1235, %.thread339 ], [ %.1235, %127 ]
-  %.1222 = phi i32 [ %.2373, %.thread348 ], [ 1, %select.unfold ], [ 0, %160 ], [ 0, %162 ], [ 0, %157 ], [ 0, %fragment_items_removed.exit ], [ %.2373, %186 ], [ 0, %.thread339 ], [ 0, %127 ]
+  %.2236 = phi ptr [ %171, %.thread348 ], [ %191, %select.unfold ], [ %171, %186 ], [ %.1235, %160 ], [ %.1235, %162 ], [ %.1235, %157 ], [ %.1235, %fragment_items_removed.exit ], [ %.1235, %.thread339 ], [ %.1235, %127 ]
+  %.1222 = phi i32 [ %.2373, %.thread348 ], [ 1, %select.unfold ], [ %.2373, %186 ], [ 0, %160 ], [ 0, %162 ], [ 0, %157 ], [ 0, %fragment_items_removed.exit ], [ 0, %.thread339 ], [ 0, %127 ]
   br i1 %8, label %.preheader357, label %310
 
 .preheader357:                                    ; preds = %fragment_items_removed.exit.thread, %199
@@ -4370,7 +4370,7 @@ fragment_items_removed.exit319.thread:            ; preds = %.split244, %234, %2
   br label %.preheader
 
 fragment_items_removed.exit319:                   ; preds = %.split242.fragment_items_removed.exit319_crit_edge, %._crit_edge.i.i.i315, %205
-  %.3386 = phi ptr [ %.3386.pre, %.split242.fragment_items_removed.exit319_crit_edge ], [ %.3386.pre412, %._crit_edge.i.i.i315 ], [ %.3386.pre412, %205 ]
+  %.3386 = phi ptr [ %.3386.pre, %.split242.fragment_items_removed.exit319_crit_edge ], [ %.3386.pre412, %205 ], [ %.3386.pre412, %._crit_edge.i.i.i315 ]
   %237 = getelementptr inbounds nuw i8, ptr %.2236, i64 24
   store i32 0, ptr %237, align 8
   %.not276387 = icmp eq ptr %.3386, null
@@ -6190,10 +6190,10 @@ lookup_fd_head.exit.i:                            ; preds = %162, %153
   br i1 %200, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %194, %183, %187, %34, %39, %.thread
-  %.0243410 = phi ptr [ %.2245323, %.thread ], [ null, %34 ], [ null, %39 ], [ %.0243421, %187 ], [ %.0243421, %183 ], [ %.0243421, %194 ]
-  %.0246.lcssa = phi i1 [ false, %.thread ], [ false, %34 ], [ false, %39 ], [ %.not303.not.not, %187 ], [ %.not303.not.not, %183 ], [ false, %194 ]
-  %.0235.lcssa = phi i32 [ %3, %.thread ], [ %3, %34 ], [ %3, %39 ], [ %170, %187 ], [ %170, %183 ], [ %3, %194 ]
-  %.0234.lcssa = phi i32 [ %2, %.thread ], [ %2, %34 ], [ %2, %39 ], [ %169, %187 ], [ %169, %183 ], [ %2, %194 ]
+  %.0243410 = phi ptr [ %.2245323, %.thread ], [ null, %34 ], [ null, %39 ], [ %.0243421, %183 ], [ %.0243421, %187 ], [ %.0243421, %194 ]
+  %.0246.lcssa = phi i1 [ false, %.thread ], [ false, %34 ], [ false, %39 ], [ %.not303.not.not, %183 ], [ %.not303.not.not, %187 ], [ false, %194 ]
+  %.0235.lcssa = phi i32 [ %3, %.thread ], [ %3, %34 ], [ %3, %39 ], [ %170, %183 ], [ %170, %187 ], [ %3, %194 ]
+  %.0234.lcssa = phi i32 [ %2, %.thread ], [ %2, %34 ], [ %2, %39 ], [ %169, %183 ], [ %169, %187 ], [ %2, %194 ]
   %201 = icmp slt i32 %.0235.lcssa, 1
   %or.cond5 = or i1 %201, %.0246.lcssa
   br i1 %or.cond5, label %239, label %202

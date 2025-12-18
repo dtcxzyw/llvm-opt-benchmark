@@ -4475,7 +4475,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK10open_spiel11matrix_game10MatrixGam
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i7, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !48
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i7, %72, %.loopexit, %34, %18, %2
-  %78 = phi i1 [ false, %18 ], [ false, %2 ], [ false, %34 ], [ false, %.loopexit ], [ true, %72 ], [ %75, %.lr.ph.i.i.i.i.i7 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %78 = phi i1 [ %75, %.lr.ph.i.i.i.i.i7 ], [ false, %18 ], [ false, %2 ], [ false, %34 ], [ false, %.loopexit ], [ true, %72 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %78
 }
 

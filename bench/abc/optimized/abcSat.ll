@@ -1828,7 +1828,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %26, %25, %.preheader49, %76, %106, %Vec_PtrPush.exit
-  %.033 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %110, %106 ], [ -1, %76 ], [ 0, %.preheader49 ], [ 0, %25 ], [ -1, %26 ], [ 1, %21 ]
+  %.033 = phi i32 [ 0, %Vec_PtrPush.exit ], [ 0, %25 ], [ %110, %106 ], [ -1, %76 ], [ 0, %.preheader49 ], [ -1, %26 ], [ 1, %21 ]
   ret i32 %.033
 }
 
@@ -3380,12 +3380,12 @@ Vec_IntPush.exit132:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not73, label %.loopexit.sink.split, label %188
 
 .loopexit.sink.split:                             ; preds = %Vec_IntPush.exit111, %Vec_IntPush.exit132, %Vec_IntPush.exit
-  %str.1.sink = phi ptr [ @str.7, %Vec_IntPush.exit ], [ @str.7, %Vec_IntPush.exit132 ], [ @str.7, %Vec_IntPush.exit111 ]
+  %str.1.sink = phi ptr [ @str.7, %Vec_IntPush.exit132 ], [ @str.7, %Vec_IntPush.exit ], [ @str.7, %Vec_IntPush.exit111 ]
   %puts74 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %188, %.loopexit.sink.split, %.preheader, %Vec_IntPush.exit
-  %.0 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %188 ]
+  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.preheader ], [ 1, %Vec_IntPush.exit ], [ 1, %188 ]
   ret i32 %.0
 }
 

@@ -5041,7 +5041,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14Al
   br i1 %.not.i27.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit, label %.lr.ph.i21.i, !llvm.loop !328
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit: ; preds = %157, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i, %._crit_edge112.thread, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i, %148, %._crit_edge112
-  %158 = phi ptr [ %126, %._crit_edge112.thread ], [ %127, %._crit_edge112 ], [ %127, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i ], [ %127, %148 ], [ %127, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i ], [ %127, %157 ]
+  %158 = phi ptr [ %126, %._crit_edge112.thread ], [ %127, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i ], [ %127, %._crit_edge112 ], [ %127, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i ], [ %127, %148 ], [ %127, %157 ]
   %159 = load ptr, ptr %158, align 8, !tbaa !309
   %160 = load ptr, ptr %10, align 8, !tbaa !267
   %161 = ptrtoint ptr %159 to i64
@@ -6221,8 +6221,8 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   br label %81
 
 ._crit_edge:                                      ; preds = %81, %19, %.loopexit
-  %.079131 = phi i64 [ %.079, %.loopexit ], [ 0, %19 ], [ %.079, %81 ]
-  %.0.lcssa126130 = phi i16 [ 0, %.loopexit ], [ 0, %19 ], [ %63, %81 ]
+  %.079131 = phi i64 [ 0, %19 ], [ %.079, %.loopexit ], [ %.079, %81 ]
+  %.0.lcssa126130 = phi i16 [ 0, %19 ], [ 0, %.loopexit ], [ %63, %81 ]
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %.0.lcssa126130, ptr %79, align 2, !tbaa !159
   %.not111 = icmp eq i64 %3, 0
@@ -7873,8 +7873,8 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   br label %82
 
 ._crit_edge:                                      ; preds = %82, %20, %.loopexit
-  %.091152 = phi i64 [ %.091, %.loopexit ], [ 0, %20 ], [ %.091, %82 ]
-  %.0.lcssa147151 = phi i16 [ 0, %.loopexit ], [ 0, %20 ], [ %64, %82 ]
+  %.091152 = phi i64 [ 0, %20 ], [ %.091, %.loopexit ], [ %.091, %82 ]
+  %.0.lcssa147151 = phi i16 [ 0, %20 ], [ 0, %.loopexit ], [ %64, %82 ]
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %.0.lcssa147151, ptr %80, align 2, !tbaa !432
   %.not128 = icmp eq i64 %3, 0
@@ -10728,7 +10728,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14Al
   br i1 %.not.i27.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit, label %.lr.ph.i21.i, !llvm.loop !328
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit: ; preds = %156, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i, %._crit_edge112.thread, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i, %147, %._crit_edge112
-  %157 = phi ptr [ %125, %._crit_edge112.thread ], [ %126, %._crit_edge112 ], [ %126, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i ], [ %126, %147 ], [ %126, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i ], [ %126, %156 ]
+  %157 = phi ptr [ %125, %._crit_edge112.thread ], [ %126, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i ], [ %126, %._crit_edge112 ], [ %126, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i ], [ %126, %147 ], [ %126, %156 ]
   %158 = load ptr, ptr %157, align 8, !tbaa !309
   %159 = load ptr, ptr %10, align 8, !tbaa !267
   %160 = ptrtoint ptr %158 to i64
@@ -11230,8 +11230,8 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   br label %80
 
 ._crit_edge:                                      ; preds = %80, %19, %.loopexit
-  %.079131 = phi i64 [ %.079, %.loopexit ], [ 0, %19 ], [ %.079, %80 ]
-  %.0.lcssa126130 = phi i16 [ 0, %.loopexit ], [ 0, %19 ], [ %62, %80 ]
+  %.079131 = phi i64 [ 0, %19 ], [ %.079, %.loopexit ], [ %.079, %80 ]
+  %.0.lcssa126130 = phi i16 [ 0, %19 ], [ 0, %.loopexit ], [ %62, %80 ]
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %.0.lcssa126130, ptr %78, align 2, !tbaa !243
   %.not111 = icmp eq i64 %3, 0
@@ -12326,8 +12326,8 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   br label %81
 
 ._crit_edge:                                      ; preds = %81, %20, %.loopexit
-  %.091152 = phi i64 [ %.091, %.loopexit ], [ 0, %20 ], [ %.091, %81 ]
-  %.0.lcssa147151 = phi i16 [ 0, %.loopexit ], [ 0, %20 ], [ %63, %81 ]
+  %.091152 = phi i64 [ 0, %20 ], [ %.091, %.loopexit ], [ %.091, %81 ]
+  %.0.lcssa147151 = phi i16 [ 0, %20 ], [ 0, %.loopexit ], [ %63, %81 ]
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %.0.lcssa147151, ptr %79, align 2, !tbaa !506
   %.not128 = icmp eq i64 %3, 0

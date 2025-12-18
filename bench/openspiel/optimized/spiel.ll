@@ -1975,8 +1975,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br label %.loopexit
 
 .body:                                            ; preds = %.body17, %10, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %11, %10 ], [ %14, %.body17 ]
-  %33 = phi i1 [ false, %28 ], [ false, %10 ], [ true, %.body17 ]
+  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %29, %28 ], [ %14, %.body17 ]
+  %33 = phi i1 [ false, %10 ], [ false, %28 ], [ true, %.body17 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #29
   br i1 %33, label %.loopexit, label %.preheader.preheader
@@ -7045,8 +7045,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br i1 %85, label %.body57, label %82
 
 .body57:                                          ; preds = %82, %80, %33
-  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %34, %33 ], [ %eh.lpad-body80138, %82 ]
-  %86 = phi i1 [ false, %80 ], [ false, %33 ], [ true, %82 ]
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %81, %80 ], [ %eh.lpad-body80138, %82 ]
+  %86 = phi i1 [ false, %33 ], [ false, %80 ], [ true, %82 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #29
   br label %.body
 

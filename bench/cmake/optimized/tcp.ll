@@ -44,7 +44,7 @@ define dso_local i32 @uv_tcp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %16, %11
-  %.0.i = phi i32 [ %12, %11 ], [ %15, %16 ]
+  %.0.i = phi i32 [ %15, %16 ], [ %12, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -176,7 +176,7 @@ define dso_local i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %19, %14, %.critedge, %56, %45, %7, %47, %36, %25
-  %.0 = phi i32 [ -22, %45 ], [ -22, %7 ], [ %28, %25 ], [ %39, %36 ], [ 0, %.critedge ], [ %48, %47 ], [ 0, %56 ], [ %15, %14 ], [ %18, %19 ]
+  %.0 = phi i32 [ -22, %45 ], [ -22, %7 ], [ %28, %25 ], [ %39, %36 ], [ 0, %.critedge ], [ %48, %47 ], [ 0, %56 ], [ %18, %19 ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -510,7 +510,7 @@ define dso_local i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %31, %26, %3, %40, %36
-  %.0 = phi i32 [ 0, %40 ], [ %5, %3 ], [ %39, %36 ], [ %27, %26 ], [ %30, %31 ]
+  %.0 = phi i32 [ 0, %40 ], [ %5, %3 ], [ %39, %36 ], [ %30, %31 ], [ %27, %26 ]
   ret i32 %.0
 }
 

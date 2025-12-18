@@ -351,7 +351,7 @@ parse_msg_id.exit:                                ; preds = %3
   unreachable
 
 parse_msg_type.exit:                              ; preds = %8, %12, %10, %parse_msg_id.exit
-  %.0 = phi i32 [ 1, %12 ], [ 1, %parse_msg_id.exit ], [ 1, %10 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %10 ], [ 1, %parse_msg_id.exit ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -3134,19 +3134,19 @@ skip_prefix.exit.i.i:                             ; preds = %179, %186
   br i1 %.not.i.i.i, label %verify_ordered.exit.i, label %name_stack_pop.exit.i.i
 
 verify_ordered.exit.i:                            ; preds = %skip_prefix.exit.i.i, %name_stack_pop.exit.i.i, %name_stack_push.exit63.i.i, %.preheader78.i.i, %170, %name_stack_push.exit.i.i
-  %.sroa.17.5.i = phi i64 [ %.sroa.17.0310.i, %170 ], [ %.sroa.17.0310.i, %.preheader78.i.i ], [ %.sroa.17.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.17.4.i, %name_stack_push.exit.i.i ], [ %.sroa.17.0310.i, %name_stack_pop.exit.i.i ], [ %.sroa.17.0310.i, %skip_prefix.exit.i.i ]
-  %.sroa.10.4.i = phi i64 [ %.sroa.10.0311.i, %170 ], [ 0, %.preheader78.i.i ], [ %174, %name_stack_push.exit63.i.i ], [ %160, %name_stack_push.exit.i.i ], [ 0, %skip_prefix.exit.i.i ], [ %175, %name_stack_pop.exit.i.i ]
-  %.sroa.0.5.i = phi ptr [ %.sroa.0.0312.i, %170 ], [ %.sroa.0.0312.i, %.preheader78.i.i ], [ %.sroa.0.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.0.4.i, %name_stack_push.exit.i.i ], [ %.sroa.0.0312.i, %name_stack_pop.exit.i.i ], [ %.sroa.0.0312.i, %skip_prefix.exit.i.i ]
+  %.sroa.17.5.i = phi i64 [ %.sroa.17.0310.i, %170 ], [ %.sroa.17.0310.i, %.preheader78.i.i ], [ %.sroa.17.4.i, %name_stack_push.exit.i.i ], [ %.sroa.17.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.17.0310.i, %name_stack_pop.exit.i.i ], [ %.sroa.17.0310.i, %skip_prefix.exit.i.i ]
+  %.sroa.10.4.i = phi i64 [ %.sroa.10.0311.i, %170 ], [ 0, %.preheader78.i.i ], [ %160, %name_stack_push.exit.i.i ], [ %174, %name_stack_push.exit63.i.i ], [ 0, %skip_prefix.exit.i.i ], [ %175, %name_stack_pop.exit.i.i ]
+  %.sroa.0.5.i = phi ptr [ %.sroa.0.0312.i, %170 ], [ %.sroa.0.0312.i, %.preheader78.i.i ], [ %.sroa.0.4.i, %name_stack_push.exit.i.i ], [ %.sroa.0.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.0.0312.i, %name_stack_pop.exit.i.i ], [ %.sroa.0.0312.i, %skip_prefix.exit.i.i ]
   %.not223.i = icmp ult i8 %.038.i.i, %.039.i.i
   %spec.select.i = select i1 %.not223.i, i32 %.0104323.i, i32 1
   br label %verify_ordered.exit.thread200.i
 
 verify_ordered.exit.thread200.i:                  ; preds = %184, %verify_ordered.exit.i, %145, %144, %135, %134
-  %.sroa.17.3.i = phi i64 [ %.sroa.17.0310.i, %134 ], [ %.sroa.17.5.i, %verify_ordered.exit.i ], [ %.sroa.17.0310.i, %145 ], [ %.sroa.17.0310.i, %135 ], [ %.sroa.17.0310.i, %144 ], [ %.sroa.17.0310.i, %184 ]
-  %.sroa.10.3.i = phi i64 [ %.sroa.10.0311.i, %134 ], [ %.sroa.10.4.i, %verify_ordered.exit.i ], [ %.sroa.10.0311.i, %145 ], [ %.sroa.10.0311.i, %135 ], [ %.sroa.10.0311.i, %144 ], [ %175, %184 ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.0312.i, %134 ], [ %.sroa.0.5.i, %verify_ordered.exit.i ], [ %.sroa.0.0312.i, %145 ], [ %.sroa.0.0312.i, %135 ], [ %.sroa.0.0312.i, %144 ], [ %.sroa.0.0312.i, %184 ]
-  %.3109.i = phi i32 [ %.0106322.i, %134 ], [ %.0106322.i, %verify_ordered.exit.i ], [ 1, %145 ], [ %.0106322.i, %135 ], [ %.0106322.i, %144 ], [ 1, %184 ]
-  %.3.i = phi i32 [ %.0104323.i, %134 ], [ %spec.select.i, %verify_ordered.exit.i ], [ %.0104323.i, %145 ], [ %.0104323.i, %135 ], [ 1, %144 ], [ %.0104323.i, %184 ]
+  %.sroa.17.3.i = phi i64 [ %.sroa.17.0310.i, %134 ], [ %.sroa.17.5.i, %verify_ordered.exit.i ], [ %.sroa.17.0310.i, %144 ], [ %.sroa.17.0310.i, %145 ], [ %.sroa.17.0310.i, %135 ], [ %.sroa.17.0310.i, %184 ]
+  %.sroa.10.3.i = phi i64 [ %.sroa.10.0311.i, %134 ], [ %.sroa.10.4.i, %verify_ordered.exit.i ], [ %.sroa.10.0311.i, %144 ], [ %.sroa.10.0311.i, %145 ], [ %.sroa.10.0311.i, %135 ], [ %175, %184 ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.0312.i, %134 ], [ %.sroa.0.5.i, %verify_ordered.exit.i ], [ %.sroa.0.0312.i, %144 ], [ %.sroa.0.0312.i, %145 ], [ %.sroa.0.0312.i, %135 ], [ %.sroa.0.0312.i, %184 ]
+  %.3109.i = phi i32 [ %.0106322.i, %134 ], [ %.0106322.i, %verify_ordered.exit.i ], [ %.0106322.i, %144 ], [ 1, %145 ], [ %.0106322.i, %135 ], [ 1, %184 ]
+  %.3.i = phi i32 [ %.0104323.i, %134 ], [ %spec.select.i, %verify_ordered.exit.i ], [ 1, %144 ], [ %.0104323.i, %145 ], [ %.0104323.i, %135 ], [ %.0104323.i, %184 ]
   %198 = load i32, ptr %17, align 8, !tbaa !103
   %.not136.i = icmp eq i32 %198, 0
   br i1 %.not136.i, label %.loopexit229.i, label %sub_0225.i
@@ -3429,7 +3429,7 @@ skip_prefix.exit.i:                               ; preds = %260, %verify_header
   br i1 %289, label %.preheader92.i, label %.critedge.i, !llvm.loop !110
 
 .critedge.i:                                      ; preds = %288, %276, %273
-  %storemerge110.i = phi ptr [ %storemerge108.i, %273 ], [ %storemerge109.i, %276 ], [ %storemerge.i, %288 ]
+  %storemerge110.i = phi ptr [ %storemerge109.i, %276 ], [ %storemerge108.i, %273 ], [ %storemerge.i, %288 ]
   store ptr %storemerge110.i, ptr %8, align 8, !tbaa !98
   br label %290
 
@@ -3530,7 +3530,7 @@ skip_prefix.exit85.i:                             ; preds = %306, %.thread.i28
   br label %fsck_commit.exit
 
 fsck_commit.exit:                                 ; preds = %286, %298, %verify_headers.exit.i, %skip_prefix.exit.i, %271, %305, %skip_prefix.exit85.i, %312, %316, %318
-  %.0.i27 = phi i32 [ 0, %318 ], [ %265, %skip_prefix.exit.i ], [ -1, %verify_headers.exit.i ], [ %272, %271 ], [ %311, %skip_prefix.exit85.i ], [ %.4.i30, %305 ], [ %313, %312 ], [ %317, %316 ], [ %300, %298 ], [ %287, %286 ]
+  %.0.i27 = phi i32 [ 0, %318 ], [ %265, %skip_prefix.exit.i ], [ -1, %verify_headers.exit.i ], [ %272, %271 ], [ %300, %298 ], [ %317, %316 ], [ %311, %skip_prefix.exit85.i ], [ %.4.i30, %305 ], [ %313, %312 ], [ %287, %286 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3852,7 +3852,7 @@ oidset_iter_next.exit:                            ; preds = %14
   br i1 %.not16.i, label %oidset_iter_next.exit.thread, label %.lr.ph.i
 
 oidset_iter_next.exit.thread:                     ; preds = %oidset_iter_next.exit, %50, %24, %6
-  %.035 = phi i32 [ 0, %6 ], [ %.038, %24 ], [ %.038, %oidset_iter_next.exit ], [ %.1, %50 ]
+  %.035 = phi i32 [ %.038, %24 ], [ 0, %6 ], [ %.038, %oidset_iter_next.exit ], [ %.1, %50 ]
   call void @oidset_clear(ptr noundef nonnull %0) #16
   call void @oidset_clear(ptr noundef %1) #16
   ret i32 %.035

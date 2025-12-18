@@ -1435,13 +1435,6 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i: ; p
   %409 = add nsw i64 %408, -1
   br label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer
 
-_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer492.backedge: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i, %.thread352.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i
-  %.sroa.0246.0.i.i.ph493.be = phi i64 [ %.sroa.0246.4359451456.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.sroa.0248.0.i.i.ph, %.thread352.i.i ], [ %.sroa.0246.4359451456.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
-  %.sroa.0259.0.i.i.ph496.be = phi i64 [ %.sroa.0259.3361449460.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.sroa.0259.3361.i.i, %.thread352.i.i ], [ %.sroa.0259.3361449460.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
-  %.sroa.0295.1.i.i.ph497.be = phi ptr [ %.sroa.0247.5360450458.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.sroa.0247.5360.i.i, %.thread352.i.i ], [ %.sroa.0247.5360450458.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
-  %.053.i.i.ph498.be = phi i1 [ %.457362448462.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.457362.i.i, %.thread352.i.i ], [ %.457362448462.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
-  br label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer492
-
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer.backedge, %391
   %.sroa.0246.0.i.i.ph = phi i64 [ 0, %391 ], [ %.sroa.0246.2346.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer.backedge ]
   %.sroa.0247.0.i.i.ph = phi ptr [ null, %391 ], [ %.sroa.0247.3347.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer.backedge ]
@@ -2053,6 +2046,13 @@ _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS
   %.not379394.i.i = icmp eq ptr %.sroa.0256.0.i.i, %.sroa.0247.5360450458.i.i
   br i1 %.not379394.i.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer492.backedge, label %.lr.ph396.i.i
 
+_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer492.backedge: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i, %.thread352.i.i
+  %.sroa.0246.0.i.i.ph493.be = phi i64 [ %.sroa.0246.4359451456.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.sroa.0248.0.i.i.ph, %.thread352.i.i ], [ %.sroa.0246.4359451456.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
+  %.sroa.0259.0.i.i.ph496.be = phi i64 [ %.sroa.0259.3361449460.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.sroa.0259.3361.i.i, %.thread352.i.i ], [ %.sroa.0259.3361449460.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
+  %.sroa.0295.1.i.i.ph497.be = phi ptr [ %.sroa.0247.5360450458.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.sroa.0247.5360.i.i, %.thread352.i.i ], [ %.sroa.0247.5360450458.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
+  %.053.i.i.ph498.be = phi i1 [ %.457362448462.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ], [ %.457362.i.i, %.thread352.i.i ], [ %.457362448462.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ]
+  br label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer492
+
 .lr.ph396.i.i:                                    ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i
   %.sroa.0256.3395.i.i = phi ptr [ %.sroa.0256.5.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i ], [ %.sroa.0256.0.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit173.i.i ]
   %690 = call noundef zeroext i1 @_ZNK5clang9FieldDecl20isZeroLengthBitFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0256.3395.i.i) #21
@@ -2186,7 +2186,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit195.i.i: 
   br i1 %.not1.i.i197.i.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer.backedge, label %.lr.ph.i.i198.i.i
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer.backedge: ; preds = %.lr.ph.i.i198.i.i, %740, %.thread335.i.i
-  %.sroa.0295.1.i.i.ph491.be = phi ptr [ %734, %.thread335.i.i ], [ %743, %740 ], [ %.sroa.0295.5.i.i, %.lr.ph.i.i198.i.i ]
+  %.sroa.0295.1.i.i.ph491.be = phi ptr [ %734, %.thread335.i.i ], [ %.sroa.0295.5.i.i, %.lr.ph.i.i198.i.i ], [ %743, %740 ]
   br label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit201.i.i.outer
 
 .lr.ph.i.i198.i.i:                                ; preds = %.thread335.i.i, %740
@@ -2396,7 +2396,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS
   br i1 %.not.i.i17.i, label %_ZN12_GLOBAL__N_116CGRecordLowering19accumulateBitFieldsEbN5clang11DeclContext22specific_decl_iteratorINS1_9FieldDeclEEES5_.exit.i, label %.lr.ph.i.i15.i, !llvm.loop !554
 
 _ZN12_GLOBAL__N_116CGRecordLowering19accumulateBitFieldsEbN5clang11DeclContext22specific_decl_iteratorINS1_9FieldDeclEEES5_.exit.i: ; preds = %439, %.lr.ph402.i.i, %825, %.lr.ph.i.i15.i, %755, %.lr.ph.i.i6.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit.i, %746
-  %.sroa.031.1.i = phi ptr [ %819, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit.i ], [ %749, %746 ], [ %.sroa.0295.0399.i.i, %.lr.ph402.i.i ], [ %758, %755 ], [ %.sroa.031.4.i, %.lr.ph.i.i15.i ], [ %.sroa.031.2.i, %.lr.ph.i.i6.i ], [ %828, %825 ], [ %.sroa.0295.1.i.i.ph497, %439 ]
+  %.sroa.031.1.i = phi ptr [ %819, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit.i ], [ %828, %825 ], [ %758, %755 ], [ %.sroa.0295.0399.i.i, %.lr.ph402.i.i ], [ %749, %746 ], [ %.sroa.031.2.i, %.lr.ph.i.i6.i ], [ %.sroa.031.4.i, %.lr.ph.i.i15.i ], [ %.sroa.0295.1.i.i.ph497, %439 ]
   %.not.i21 = icmp eq ptr %.sroa.031.1.i, null
   br i1 %.not.i21, label %_ZN12_GLOBAL__N_116CGRecordLowering16accumulateFieldsEb.exit, label %275, !llvm.loop !644
 

@@ -1118,7 +1118,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   br i1 %19, label %.lr.ph173, label %._crit_edge
 
 .thread67:                                        ; preds = %.outer.backedge, %81, %2
-  %.sroa.0.051.ph.lcssa99 = phi ptr [ null, %2 ], [ %.sroa.0.051.ph103, %81 ], [ %.sroa.0.051.ph.be, %.outer.backedge ]
+  %.sroa.0.051.ph.lcssa99 = phi ptr [ %.sroa.0.051.ph103, %81 ], [ null, %2 ], [ %.sroa.0.051.ph.be, %.outer.backedge ]
   %20 = load ptr, ptr %5, align 8, !nonnull !11, !noundef !11
   br label %92
 
@@ -7340,7 +7340,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %34
 
 select.unfold:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1a577024f90f1b7eE.llvm.8900334472148293471.exit.loopexit", %.lr.ph.split, %._crit_edge.i.i.i.i, %2, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7e2196610feccabE.llvm.8900334472148293471.exit.us", %.lr.ph.split.us
-  %56 = phi i1 [ false, %2 ], [ true, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7e2196610feccabE.llvm.8900334472148293471.exit.us" ], [ false, %.lr.ph.split.us ], [ true, %._crit_edge.i.i.i.i ], [ false, %.lr.ph.split ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1a577024f90f1b7eE.llvm.8900334472148293471.exit.loopexit" ]
+  %56 = phi i1 [ true, %._crit_edge.i.i.i.i ], [ false, %2 ], [ true, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7e2196610feccabE.llvm.8900334472148293471.exit.us" ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1a577024f90f1b7eE.llvm.8900334472148293471.exit.loopexit" ]
   ret i1 %56
 }
 
@@ -20987,7 +20987,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8900334472148293471.exit.
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr226drop_in_place$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$17hdf867a9bb4253d03E.exit8.i.i.i", %426, %.loopexit.split-lp.i198, %459, %323, %350, %374, %399, %.body.i, %85, %.thread215.i, %262
-  %common.resume.op = phi { ptr, i32 } [ %400, %399 ], [ %.pn214.i, %262 ], [ %.pn214.i, %.thread215.i ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %85 ], [ %324, %323 ], [ %375, %374 ], [ %351, %350 ], [ %427, %426 ], [ %lpad.phi.i, %.loopexit.split-lp.i198 ], [ %lpad.phi.i, %459 ], [ %427, %"_ZN4core3ptr226drop_in_place$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$17hdf867a9bb4253d03E.exit8.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %400, %399 ], [ %.pn214.i, %262 ], [ %.pn214.i, %.thread215.i ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %85 ], [ %324, %323 ], [ %375, %374 ], [ %351, %350 ], [ %427, %426 ], [ %lpad.phi.i, %459 ], [ %lpad.phi.i, %.loopexit.split-lp.i198 ], [ %427, %"_ZN4core3ptr226drop_in_place$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$17hdf867a9bb4253d03E.exit8.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 .thread215.i:                                     ; preds = %.thread218.i.loopexit, %.thread218.i.loopexit.split-lp, %230, %225
@@ -37637,8 +37637,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !9411
   br label %43
 
-41:                                               ; preds = %39, %32
-  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
+41:                                               ; preds = %32, %39
+  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8

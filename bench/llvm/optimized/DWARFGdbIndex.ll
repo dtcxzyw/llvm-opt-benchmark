@@ -1517,7 +1517,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt
   br i1 %exitcond99.not, label %._crit_edge80, label %149, !llvm.loop !185
 
 ._crit_edge88:                                    ; preds = %._crit_edge83, %_ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex13SymTableEntryEE7reserveEm.exit, %._crit_edge80
-  %186 = phi ptr [ %115, %._crit_edge80 ], [ %109, %_ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex13SymTableEntryEE7reserveEm.exit ], [ %115, %._crit_edge83 ]
+  %186 = phi ptr [ %109, %_ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex13SymTableEntryEE7reserveEm.exit ], [ %115, %._crit_edge80 ], [ %115, %._crit_edge83 ]
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !37
   %.sroa.2.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i56, align 8, !tbaa !34

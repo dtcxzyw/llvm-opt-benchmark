@@ -1087,10 +1087,10 @@ _ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i:         ; preds = %_ZN7datalogL20colle
   br label %.preheader154.i
 
 .preheader154.i:                                  ; preds = %._crit_edge.i157, %.preheader154.i.sink.split, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i
-  %.0.i369 = phi i32 [ 1, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ 0, %.preheader154.i.sink.split ], [ %247, %._crit_edge.i157 ]
-  %337 = phi i1 [ false, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ false, %.preheader154.i.sink.split ], [ true, %._crit_edge.i157 ]
-  %338 = phi ptr [ %335, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ null, %.preheader154.i.sink.split ], [ %335, %._crit_edge.i157 ]
-  %339 = phi i1 [ false, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ true, %.preheader154.i.sink.split ], [ false, %._crit_edge.i157 ]
+  %.0.i369 = phi i32 [ 0, %.preheader154.i.sink.split ], [ 1, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ %247, %._crit_edge.i157 ]
+  %337 = phi i1 [ false, %.preheader154.i.sink.split ], [ false, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ true, %._crit_edge.i157 ]
+  %338 = phi ptr [ null, %.preheader154.i.sink.split ], [ %335, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ %335, %._crit_edge.i157 ]
+  %339 = phi i1 [ true, %.preheader154.i.sink.split ], [ false, %_ZN6vectorI7svectorIjjELb1EjEC2Ej.exit.i ], [ false, %._crit_edge.i157 ]
   br i1 %.not60.i, label %.preheader.i160, label %.lr.ph167.i
 
 .lr.ph167.i:                                      ; preds = %.preheader154.i
@@ -4477,7 +4477,7 @@ _ZN7datalogL18get_constant_countEPNS_4ruleE.exit: ; preds = %70, %._crit_edge
   br i1 %.not27.old.i.i.i, label %.loopexit42, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %119, %116
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %119 ], [ %118, %116 ]
+  %.137.i.i.i.be = phi ptr [ %118, %116 ], [ %.old.i.i.i, %119 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !344
 
 .loopexit42:                                      ; preds = %105, %116, %119, %.preheader.i.i.i
@@ -5002,7 +5002,7 @@ _ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i231: ; preds = %158, %155
   br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
 
 _ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250: ; preds = %.loopexit.i241, %.lr.ph.i.i.i, %139, %144, %.thread74.loopexit.split.loop.exit.i224, %.thread74.loopexit79.split.loop.exit.i235
-  %.044.i214 = phi i32 [ %148, %144 ], [ %138, %.lr.ph.i.i.i ], [ %143, %139 ], [ %221, %.thread74.loopexit.split.loop.exit.i224 ], [ %222, %.thread74.loopexit79.split.loop.exit.i235 ], [ %spec.select.i.i242, %.loopexit.i241 ]
+  %.044.i214 = phi i32 [ %148, %144 ], [ %138, %.lr.ph.i.i.i ], [ %143, %139 ], [ %222, %.thread74.loopexit79.split.loop.exit.i235 ], [ %221, %.thread74.loopexit.split.loop.exit.i224 ], [ %spec.select.i.i242, %.loopexit.i241 ]
   %.not.i137 = icmp eq i32 %.044.i214, 0
   br i1 %.not.i137, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread_crit_edge, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160
 
@@ -5107,7 +5107,7 @@ _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160: ; preds = %_ZN7datalogL1
   br i1 %.0.i139, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, !llvm.loop !352
 
 _ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, %80, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184, %77
-  %.sink.i.i = phi ptr [ %11, %77 ], [ %.021.i.ptr.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184 ], [ %.021.i.ptr.i, %80 ], [ %.013.i.i.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread ], [ %.013.i.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157 ], [ %.013.i.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %.021.i.ptr.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181 ]
+  %.sink.i.i = phi ptr [ %11, %77 ], [ %.021.i.ptr.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184 ], [ %.013.i.i.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread ], [ %.013.i.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157 ], [ %.021.i.ptr.i, %80 ], [ %.013.i.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %.021.i.ptr.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181 ]
   store ptr %26, ptr %.sink.i.i, align 8, !tbaa !221
   %.021.i.add.i = add nuw nsw i64 %.021.i.idx.i, 8
   %.not.i.i37 = icmp eq i64 %.021.i.add.i, 128
@@ -5413,7 +5413,7 @@ _ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i: ; preds = %349, %346
   br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
 
 _ZN7datalogL13rough_compareEPNS_4ruleES1_.exit:   ; preds = %.loopexit.i, %.lr.ph.i.i13.i, %330, %335, %.thread74.loopexit.split.loop.exit.i, %.thread74.loopexit79.split.loop.exit.i
-  %.044.i = phi i32 [ %339, %335 ], [ %329, %.lr.ph.i.i13.i ], [ %334, %330 ], [ %412, %.thread74.loopexit.split.loop.exit.i ], [ %413, %.thread74.loopexit79.split.loop.exit.i ], [ %spec.select.i.i, %.loopexit.i ]
+  %.044.i = phi i32 [ %339, %335 ], [ %329, %.lr.ph.i.i13.i ], [ %334, %330 ], [ %413, %.thread74.loopexit79.split.loop.exit.i ], [ %412, %.thread74.loopexit.split.loop.exit.i ], [ %spec.select.i.i, %.loopexit.i ]
   %.not.i89 = icmp eq i32 %.044.i, 0
   br i1 %.not.i89, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread_crit_edge, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112
 
@@ -5518,7 +5518,7 @@ _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112: ; preds = %_ZN7datalogL1
   br i1 %.0.i91, label %.lr.ph.i.i13.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, !llvm.loop !352
 
 _ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, %271, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136
-  %.09.lcssa.i.i.i = phi ptr [ %.08.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136 ], [ %.08.i.i, %271 ], [ %.013.i.i14.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread ], [ %.013.i.i14.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109 ], [ %.013.i.i14.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %.08.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133 ]
+  %.09.lcssa.i.i.i = phi ptr [ %.08.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136 ], [ %.013.i.i14.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread ], [ %.013.i.i14.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109 ], [ %.08.i.i, %271 ], [ %.013.i.i14.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %.08.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133 ]
   store ptr %268, ptr %.09.lcssa.i.i.i, align 8, !tbaa !221
   %458 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %.not.i12.i = icmp eq ptr %458, %17
@@ -5869,7 +5869,7 @@ _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit: ; preds = %.lr.ph.i.i25.i, 
   br i1 %.0.i, label %.lr.ph.i.i25.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, !llvm.loop !352
 
 _ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, %574, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, %520, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64, %511
-  %.sink.i22.i = phi ptr [ %11, %511 ], [ %.021.i19.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64 ], [ %.021.i19.i, %520 ], [ %.013.i.i26.i, %574 ], [ %.013.i.i26.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i ], [ %.013.i.i26.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %.021.i19.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61 ]
+  %.sink.i22.i = phi ptr [ %11, %511 ], [ %.021.i19.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64 ], [ %.013.i.i26.i, %574 ], [ %.013.i.i26.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i ], [ %.021.i19.i, %520 ], [ %.013.i.i26.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %.021.i19.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61 ]
   store ptr %460, ptr %.sink.i22.i, align 8, !tbaa !221
   %.0.i23.i = getelementptr inbounds nuw i8, ptr %.021.i19.i, i64 8
   %.not.i24.i = icmp eq ptr %.0.i23.i, %17
@@ -6280,7 +6280,7 @@ _ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63: ; preds = %29, %32
   br label %.thread74
 
 .thread74:                                        ; preds = %.loopexit, %.thread76, %.thread74.loopexit79.split.loop.exit, %.thread74.loopexit.split.loop.exit, %.thread76.preheader, %14, %8, %2
-  %.044 = phi i32 [ %19, %14 ], [ %7, %2 ], [ %13, %8 ], [ %95, %.thread74.loopexit.split.loop.exit ], [ 0, %.thread76.preheader ], [ %96, %.thread74.loopexit79.split.loop.exit ], [ 0, %.thread76 ], [ %spec.select.i, %.loopexit ]
+  %.044 = phi i32 [ %19, %14 ], [ %7, %2 ], [ %13, %8 ], [ 0, %.thread76 ], [ %95, %.thread74.loopexit.split.loop.exit ], [ 0, %.thread76.preheader ], [ %96, %.thread74.loopexit79.split.loop.exit ], [ %spec.select.i, %.loopexit ]
   ret i32 %.044
 }
 

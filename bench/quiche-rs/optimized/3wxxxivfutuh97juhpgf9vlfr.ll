@@ -3314,8 +3314,8 @@ define { i64, i64 } @_ZN6quiche7testing4Pipe7advance17h57554453be7f547eE(ptr noa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %32, %35, %18, %23
-  %.sroa.6.0 = phi i64 [ %19, %18 ], [ %33, %32 ], [ %25, %23 ], [ %37, %35 ], [ undef, %34 ]
-  %.sroa.0.0 = phi i64 [ %17, %18 ], [ %31, %32 ], [ %13, %23 ], [ %27, %35 ], [ 20, %34 ]
+  %.sroa.6.0 = phi i64 [ %33, %32 ], [ %19, %18 ], [ %25, %23 ], [ %37, %35 ], [ undef, %34 ]
+  %.sroa.0.0 = phi i64 [ %31, %32 ], [ %17, %18 ], [ %13, %23 ], [ %27, %35 ], [ 20, %34 ]
   %38 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %39 = insertvalue { i64, i64 } %38, i64 %.sroa.6.0, 1
   ret { i64, i64 } %39
@@ -5911,7 +5911,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-.loopexit101:                                     ; preds = %59, %31, %35, %73
+.loopexit101:                                     ; preds = %59, %31, %73, %35
   %87 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.046.0125)
   %88 = extractvalue { ptr, i64 } %87, 0
   %89 = extractvalue { ptr, i64 } %87, 1
@@ -6788,8 +6788,8 @@ define { i64, i64 } @_ZN6quiche4path4Path25on_loss_detection_timeout17h14bd45653
   br label %39
 
 39:                                               ; preds = %.sink.split, %50, %53
-  %.sroa.6.0 = phi i32 [ %27, %53 ], [ %27, %50 ], [ %22, %.sink.split ]
-  %.sroa.06.0 = phi i64 [ %30, %53 ], [ %30, %50 ], [ %24, %.sink.split ]
+  %.sroa.6.0 = phi i32 [ %27, %50 ], [ %27, %53 ], [ %22, %.sink.split ]
+  %.sroa.06.0 = phi i64 [ %30, %50 ], [ %30, %53 ], [ %24, %.sink.split ]
   store i64 %.sroa.06.0, ptr %25, align 8
   store i32 %.sroa.6.0, ptr %26, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2528

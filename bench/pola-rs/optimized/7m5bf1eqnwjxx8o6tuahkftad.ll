@@ -1145,7 +1145,7 @@ define hidden { i64, i64 } @_ZN12polars_utils11regex_cache14get_size_limit17h2f5
           to label %62 unwind label %60
 
 .loopexit:                                        ; preds = %39, %37, %28, %.lr.ph.i, %19, %19, %15
-  %.sroa.5.0.ph = phi i8 [ 1, %19 ], [ 0, %15 ], [ 1, %19 ], [ 1, %.lr.ph.i ], [ 2, %39 ], [ 1, %28 ], [ 2, %37 ]
+  %.sroa.5.0.ph = phi i8 [ 1, %19 ], [ 1, %19 ], [ 0, %15 ], [ 1, %.lr.ph.i ], [ 2, %39 ], [ 1, %28 ], [ 2, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !97
   store i8 %.sroa.5.0.ph, ptr %1, align 1, !noalias !97
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.489cc5946abd7dcc38e9b524d6bbd35e.43, i64 noundef 31, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.489cc5946abd7dcc38e9b524d6bbd35e.20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.489cc5946abd7dcc38e9b524d6bbd35e.45) #22

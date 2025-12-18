@@ -700,7 +700,7 @@ _ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_d
   br i1 %42, label %.invoke, label %_ZN3ue25depthC2Ej.exit.fold.split.i.i
 
 _ZN3ue25depthC2Ej.exit.fold.split.i.i:            ; preds = %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit, %40
-  %.sroa.0.0.i.i = phi i32 [ %39, %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit ], [ %41, %40 ]
+  %.sroa.0.0.i.i = phi i32 [ %41, %40 ], [ %39, %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit ]
   store i32 %.sroa.0.0.i.i, ptr %5, align 8
   %43 = load i32, ptr %10, align 4
   %.off139 = add i32 %43, -2147483647
@@ -721,7 +721,7 @@ _ZN3ue25depthC2Ej.exit.fold.split.i.i:            ; preds = %_ZN3ue2L21getMinMax
   unreachable
 
 _ZN3ue25depthC2Ej.exit.fold.split.i.i62:          ; preds = %_ZN3ue25depthC2Ej.exit.fold.split.i.i, %44
-  %.sroa.0.0.i.i63 = phi i32 [ %43, %_ZN3ue25depthC2Ej.exit.fold.split.i.i ], [ %45, %44 ]
+  %.sroa.0.0.i.i63 = phi i32 [ %45, %44 ], [ %43, %_ZN3ue25depthC2Ej.exit.fold.split.i.i ]
   store i32 %.sroa.0.0.i.i63, ptr %10, align 4
   %48 = invoke i64 @_ZN3ue216unionDepthMinMaxERKNS_11DepthMinMaxES2_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %5)
           to label %49 unwind label %54
@@ -857,7 +857,7 @@ _ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_d
   br i1 %96, label %.invoke137, label %_ZN3ue25depthC2Ej.exit.fold.split.i.i86
 
 _ZN3ue25depthC2Ej.exit.fold.split.i.i86:          ; preds = %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit85, %94
-  %.sroa.0.0.i.i87 = phi i32 [ %93, %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit85 ], [ %95, %94 ]
+  %.sroa.0.0.i.i87 = phi i32 [ %95, %94 ], [ %93, %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit85 ]
   store i32 %.sroa.0.0.i.i87, ptr %6, align 8
   %97 = load i32, ptr %59, align 4
   %.off143 = add i32 %97, -2147483647
@@ -878,7 +878,7 @@ _ZN3ue25depthC2Ej.exit.fold.split.i.i86:          ; preds = %_ZN3ue2L21getMinMax
   unreachable
 
 _ZN3ue25depthC2Ej.exit.fold.split.i.i90:          ; preds = %_ZN3ue25depthC2Ej.exit.fold.split.i.i86, %98
-  %.sroa.0.0.i.i91 = phi i32 [ %97, %_ZN3ue25depthC2Ej.exit.fold.split.i.i86 ], [ %99, %98 ]
+  %.sroa.0.0.i.i91 = phi i32 [ %99, %98 ], [ %97, %_ZN3ue25depthC2Ej.exit.fold.split.i.i86 ]
   store i32 %.sroa.0.0.i.i91, ptr %59, align 4
   %102 = invoke i64 @_ZN3ue216unionDepthMinMaxERKNS_11DepthMinMaxES2_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %6)
           to label %103 unwind label %109
@@ -5803,7 +5803,7 @@ _ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_d
   br i1 %69, label %.invoke12, label %_ZN3ue25depthpLEi.exit
 
 _ZN3ue25depthpLEi.exit:                           ; preds = %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit, %67
-  %.sroa.0.0.i.i = phi i32 [ %.sroa.0.0.extract.trunc, %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit ], [ %68, %67 ]
+  %.sroa.0.0.i.i = phi i32 [ %68, %67 ], [ %.sroa.0.0.extract.trunc, %_ZN3ue2L21getMinMaxOffsetAdjustERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit ]
   %.sroa.7.0.extract.trunc.off = add i32 %.sroa.7.0.extract.trunc, -2147483647
   %switch = icmp ult i32 %.sroa.7.0.extract.trunc.off, 2
   br i1 %switch, label %_ZN3ue25depthpLEi.exit63.thread, label %70

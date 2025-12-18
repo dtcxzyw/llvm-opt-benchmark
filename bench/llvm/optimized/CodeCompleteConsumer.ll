@@ -2482,7 +2482,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br label %.critedge50
 
 .critedge50:                                      ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %49, %87, %89, %92, %98, %67, %76, %65, %48, %85
-  %.sroa.066.1 = phi i64 [ 0, %67 ], [ %.sroa.0.0.copyload.i62, %98 ], [ %.sroa.0.0.copyload.i60, %85 ], [ %.sroa.0.0.copyload.i57, %65 ], [ %.sroa.03.0.i.i, %48 ], [ 0, %76 ], [ 0, %92 ], [ 0, %89 ], [ 0, %87 ], [ 0, %49 ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %.sroa.066.1 = phi i64 [ 0, %67 ], [ %.sroa.0.0.copyload.i62, %98 ], [ %.sroa.0.0.copyload.i60, %85 ], [ %.sroa.0.0.copyload.i57, %65 ], [ %.sroa.03.0.i.i, %48 ], [ 0, %87 ], [ 0, %76 ], [ 0, %92 ], [ 0, %89 ], [ 0, %49 ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   ret i64 %.sroa.066.1
 }
 
@@ -2853,7 +2853,7 @@ _ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split: ; preds
   br label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread
 
 _ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread: ; preds = %49, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split, %62, %_ZN4llvm9StringRefC2EPKc.exit31, %38, %31, %29, %_ZN4llvm9StringRefC2EPKc.exit, %20, %14, %41, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit, %7
-  %.0 = phi i1 [ false, %20 ], [ false, %29 ], [ true, %7 ], [ true, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit ], [ false, %38 ], [ true, %41 ], [ true, %14 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit31 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ true, %31 ], [ false, %62 ], [ %65, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split ], [ true, %49 ]
+  %.0 = phi i1 [ false, %62 ], [ false, %20 ], [ false, %29 ], [ true, %7 ], [ true, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit ], [ false, %38 ], [ true, %41 ], [ true, %14 ], [ %65, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ true, %_ZN4llvm9StringRefC2EPKc.exit31 ], [ true, %31 ], [ true, %49 ]
   ret i1 %.0
 }
 
@@ -9147,7 +9147,7 @@ _ZN5clang20CodeCompletionResultaSEOS0_.exit.i.i.i.i.i113: ; preds = %208, %_ZSt8
   br label %_ZSt4moveIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit64
 
 _ZSt4moveIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit64: ; preds = %_ZN5clang20CodeCompletionResultaSEOS0_.exit.i.i.i.i.i62, %_ZN5clang20CodeCompletionResultaSEOS0_.exit.i.i.i.i.i113, %_ZSt4moveIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit98, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit, %113, %9, %216
-  %.0 = phi ptr [ %2, %113 ], [ %217, %216 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit ], [ %2, %_ZSt4moveIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit98 ], [ %188, %_ZN5clang20CodeCompletionResultaSEOS0_.exit.i.i.i.i.i113 ], [ %109, %_ZN5clang20CodeCompletionResultaSEOS0_.exit.i.i.i.i.i62 ]
+  %.0 = phi ptr [ %2, %113 ], [ %217, %216 ], [ %188, %_ZN5clang20CodeCompletionResultaSEOS0_.exit.i.i.i.i.i113 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit ], [ %2, %_ZSt4moveIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit98 ], [ %109, %_ZN5clang20CodeCompletionResultaSEOS0_.exit.i.i.i.i.i62 ]
   ret ptr %.0
 }
 

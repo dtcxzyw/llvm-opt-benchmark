@@ -451,12 +451,12 @@ ossl_property_unlock.exit91.thread:               ; preds = %41, %53, %48
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %ossl_property_write_lock.exit, %16
-  %.sink = phi i32 [ 344, %16 ], [ 351, %ossl_property_write_lock.exit ], [ 207, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 351, %ossl_property_write_lock.exit ], [ 344, %16 ], [ 207, %.sink.split.sink.split ]
   tail call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef %.sink) #7
   br label %104
 
 104:                                              ; preds = %.sink.split, %ossl_property_unlock.exit, %13, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %13 ], [ 1, %ossl_property_unlock.exit ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 1, %ossl_property_unlock.exit ], [ 0, %13 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1059,8 +1059,8 @@ ossl_property_unlock.exit:                        ; preds = %21
   br i1 %.not101, label %ossl_property_unlock.exit107, label %.thread113
 
 .thread113:                                       ; preds = %102, %74, %58, %.lr.ph162.split.us, %._crit_edge
-  %.063120 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %73, %74 ], [ %50, %.lr.ph162.split.us ], [ %57, %58 ], [ %98, %102 ]
-  %.275118 = phi ptr [ %.174110, %._crit_edge ], [ %.174110, %74 ], [ null, %.lr.ph162.split.us ], [ null, %58 ], [ %.174110, %102 ]
+  %.063120 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %73, %74 ], [ %57, %58 ], [ %50, %.lr.ph162.split.us ], [ %98, %102 ]
+  %.275118 = phi ptr [ %.174110, %._crit_edge ], [ %.174110, %74 ], [ null, %58 ], [ null, %.lr.ph162.split.us ], [ %.174110, %102 ]
   %128 = getelementptr inbounds nuw i8, ptr %.063120, i64 16
   %.val = load ptr, ptr %128, align 8, !tbaa !36
   %129 = getelementptr i8, ptr %.063120, i64 24
@@ -1080,8 +1080,8 @@ ossl_property_unlock.exit:                        ; preds = %21
   br label %ossl_property_unlock.exit107
 
 ossl_property_unlock.exit107:                     ; preds = %107, %79, %61, %51, %.thread, %.preheader, %39, %._crit_edge, %.thread113, %133, %131
-  %.275119 = phi ptr [ %.275118, %133 ], [ %.275118, %131 ], [ %.275118, %.thread113 ], [ %.174110, %._crit_edge ], [ null, %39 ], [ null, %.preheader ], [ %.174110, %.thread ], [ %.174110, %79 ], [ null, %51 ], [ null, %61 ], [ %.174110, %107 ]
-  %.3 = phi i32 [ 1, %133 ], [ 1, %131 ], [ 0, %.thread113 ], [ 0, %._crit_edge ], [ 0, %39 ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %79 ], [ 0, %51 ], [ 0, %61 ], [ 0, %107 ]
+  %.275119 = phi ptr [ %.275118, %133 ], [ %.275118, %131 ], [ %.275118, %.thread113 ], [ %.174110, %._crit_edge ], [ null, %39 ], [ null, %.preheader ], [ null, %61 ], [ %.174110, %79 ], [ %.174110, %.thread ], [ null, %51 ], [ %.174110, %107 ]
+  %.3 = phi i32 [ 1, %133 ], [ 1, %131 ], [ 0, %.thread113 ], [ 0, %._crit_edge ], [ 0, %39 ], [ 0, %.preheader ], [ 0, %61 ], [ 0, %79 ], [ 0, %.thread ], [ 0, %51 ], [ 0, %107 ]
   %135 = load ptr, ptr %19, align 8, !tbaa !16
   %136 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %135) #7
   tail call void @ossl_property_free(ptr noundef %.275119) #7

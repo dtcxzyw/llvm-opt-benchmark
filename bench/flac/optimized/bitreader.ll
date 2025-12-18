@@ -557,7 +557,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %90, %95, %49, %82, %59, %115, %104, %14, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %14 ], [ 1, %115 ], [ 1, %49 ], [ 1, %104 ], [ 1, %59 ], [ 1, %82 ], [ 1, %95 ], [ 1, %90 ], [ 0, %33 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %14 ], [ 1, %115 ], [ 1, %90 ], [ 1, %49 ], [ 1, %104 ], [ 1, %59 ], [ 1, %82 ], [ 1, %95 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -907,7 +907,7 @@ FLAC__bitreader_read_raw_uint64.exit.thread:      ; preds = %21, %9, %12
   br label %34
 
 26:                                               ; preds = %23, %14
-  %.09 = phi i64 [ %25, %23 ], [ %20, %14 ]
+  %.09 = phi i64 [ %20, %14 ], [ %25, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = icmp ugt i32 %2, 64
@@ -1140,7 +1140,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_byte_block_aligned_no_cr
   br i1 %.not28, label %.loopexit, label %38
 
 .loopexit:                                        ; preds = %20, %22, %35, %.lr.ph47, %38, %12, %.preheader, %11
-  %.021 = phi i32 [ 0, %11 ], [ 1, %12 ], [ 1, %.preheader ], [ 0, %35 ], [ 1, %38 ], [ 0, %.lr.ph47 ], [ 1, %22 ], [ 0, %20 ]
+  %.021 = phi i32 [ 0, %11 ], [ 0, %35 ], [ 1, %12 ], [ 1, %38 ], [ 1, %.preheader ], [ 0, %.lr.ph47 ], [ 1, %22 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.021
 }
@@ -1298,7 +1298,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
   br i1 %.not51, label %.loopexit, label %.lr.ph77, !llvm.loop !39
 
 .loopexit:                                        ; preds = %21, %23, %66, %.lr.ph77, %70, %13, %.preheader, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %13 ], [ 1, %.preheader ], [ 0, %66 ], [ 1, %70 ], [ 0, %.lr.ph77 ], [ 1, %23 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %66 ], [ 1, %13 ], [ 1, %70 ], [ 1, %.preheader ], [ 0, %.lr.ph77 ], [ 1, %23 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1423,7 +1423,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
   br label %.thread58
 
 .thread58:                                        ; preds = %64, %.thread58.sink.split, %21
-  %.3 = phi i32 [ 1, %21 ], [ 1, %.thread58.sink.split ], [ 0, %64 ]
+  %.3 = phi i32 [ 1, %.thread58.sink.split ], [ 1, %21 ], [ 0, %64 ]
   ret i32 %.3
 }
 
@@ -1679,7 +1679,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit141, %.lr.ph168, %12, %.preheader, %98, %91, %._crit_edge
-  %.0 = phi i32 [ 0, %91 ], [ 0, %98 ], [ 1, %._crit_edge ], [ 1, %.preheader ], [ 1, %12 ], [ 0, %.lr.ph168 ], [ 0, %.loopexit141 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %91 ], [ 0, %98 ], [ 1, %._crit_edge ], [ 1, %12 ], [ 0, %.lr.ph168 ], [ 0, %.loopexit141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1937,7 +1937,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit141, %.lr.ph168, %12, %.preheader, %98, %91, %._crit_edge
-  %.0 = phi i32 [ 0, %91 ], [ 0, %98 ], [ 1, %._crit_edge ], [ 1, %.preheader ], [ 1, %12 ], [ 0, %.lr.ph168 ], [ 0, %.loopexit141 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %91 ], [ 0, %98 ], [ 1, %._crit_edge ], [ 1, %12 ], [ 0, %.lr.ph168 ], [ 0, %.loopexit141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2052,12 +2052,12 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
   br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !48
 
 .loopexit.sink.split:                             ; preds = %50, %42, %36, %33, %14, %28
-  %.117.lcssa.sink = phi i32 [ %.pre, %14 ], [ -1, %28 ], [ -1, %33 ], [ %39, %36 ], [ %53, %50 ], [ -1, %42 ]
+  %.117.lcssa.sink = phi i32 [ %.pre, %14 ], [ -1, %28 ], [ -1, %33 ], [ %39, %36 ], [ -1, %42 ], [ %53, %50 ]
   store i32 %.117.lcssa.sink, ptr %1, align 4, !tbaa !30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.loopexit.sink.split, %4
-  %.018 = phi i32 [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+  %.018 = phi i32 [ 0, %.lr.ph.split.us ], [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.018
 }
@@ -2206,7 +2206,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.loopexit.sink.split, %4
-  %.018 = phi i32 [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+  %.018 = phi i32 [ 0, %.lr.ph.split.us ], [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.018
 }

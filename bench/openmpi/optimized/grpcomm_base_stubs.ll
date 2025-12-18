@@ -727,13 +727,13 @@ pmix_obj_new_tma.exit125:                         ; preds = %.lr.ph.i.i122, %207
   br i1 %228, label %48, label %.loopexit152, !llvm.loop !91
 
 .loopexit152.sink.split:                          ; preds = %188, %184, %pmix_pointer_array_get_item.exit118, %175, %170, %48, %96, %61
-  %.sink207 = phi i32 [ 411, %61 ], [ 426, %96 ], [ 399, %48 ], [ 457, %pmix_pointer_array_get_item.exit118 ], [ 457, %170 ], [ 457, %175 ], [ 462, %184 ], [ 462, %188 ]
+  %.sink207 = phi i32 [ 411, %61 ], [ 426, %96 ], [ 457, %pmix_pointer_array_get_item.exit118 ], [ 462, %188 ], [ 457, %170 ], [ 457, %175 ], [ 462, %184 ], [ 399, %48 ]
   %229 = call ptr @prte_strerror(i32 noundef -13) #14
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %229, ptr noundef nonnull @.str.2, i32 noundef %.sink207) #14
   br label %.loopexit152
 
 .loopexit152:                                     ; preds = %.loopexit150, %.loopexit152.sink.split, %pmix_obj_run_constructors.exit, %61
-  %.081 = phi i32 [ 0, %61 ], [ 0, %pmix_obj_run_constructors.exit ], [ -13, %.loopexit152.sink.split ], [ 0, %.loopexit150 ]
+  %.081 = phi i32 [ -13, %.loopexit152.sink.split ], [ 0, %61 ], [ 0, %pmix_obj_run_constructors.exit ], [ 0, %.loopexit150 ]
   %230 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %231 = load volatile i64, ptr %230, align 8, !tbaa !84
   %.not106 = icmp eq i64 %231, 0
@@ -2035,7 +2035,7 @@ pmix_obj_new_tma.exit210:                         ; preds = %.lr.ph.i.i207, %239
   br label %.loopexit241
 
 .loopexit241:                                     ; preds = %292, %283, %298, %.split253.us, %196, %202, %52, %pmix_obj_run_destructors.exit196, %._crit_edge, %275
-  %.1 = phi ptr [ %218, %275 ], [ %218, %298 ], [ %.0146251, %pmix_obj_run_destructors.exit196 ], [ %.0146251, %._crit_edge ], [ %.0146251, %52 ], [ %.0146251.us, %202 ], [ %.0146251.us, %196 ], [ %.0146251.us, %.split253.us ], [ %218, %283 ], [ %218, %292 ]
+  %.1 = phi ptr [ %218, %275 ], [ %218, %298 ], [ %.0146251.us, %.split253.us ], [ %.0146251, %pmix_obj_run_destructors.exit196 ], [ %.0146251, %._crit_edge ], [ %.0146251, %52 ], [ %.0146251.us, %202 ], [ %.0146251.us, %196 ], [ %218, %283 ], [ %218, %292 ]
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %301 = load ptr, ptr %300, align 8, !tbaa !130
   %.not177 = icmp eq ptr %301, null

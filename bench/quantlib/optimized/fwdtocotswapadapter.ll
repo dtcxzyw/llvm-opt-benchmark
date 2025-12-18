@@ -938,7 +938,7 @@ invoke.cont124.us.loopexit.split.loop.exit314:    ; preds = %if.end.i.i.i.us
   br label %invoke.cont124.us
 
 invoke.cont124.us:                                ; preds = %for.body.i.i.i.us, %invoke.cont124.us.loopexit.split.loop.exit310, %invoke.cont124.us.loopexit.split.loop.exit312, %invoke.cont124.us.loopexit.split.loop.exit314, %sw.bb38.i.i.i.us, %sw.bb31.i.i.i.us, %sw.bb.i.i.i.us
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.us = phi ptr [ %__first.sroa.0.1.i.i.i.us, %sw.bb31.i.i.i.us ], [ %scevgep.i.i.i, %sw.bb.i.i.i.us ], [ %__first.sroa.0.2.i.i.i.us, %sw.bb38.i.i.i.us ], [ %incdec.ptr.i10.i.i.i.us.le, %invoke.cont124.us.loopexit.split.loop.exit312 ], [ %incdec.ptr.i12.i.i.i.us.le, %invoke.cont124.us.loopexit.split.loop.exit310 ], [ %incdec.ptr.i.i.i.i.us.le, %invoke.cont124.us.loopexit.split.loop.exit314 ], [ %__first.sroa.0.051.i.i.i.us, %for.body.i.i.i.us ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.us = phi ptr [ %__first.sroa.0.1.i.i.i.us, %sw.bb31.i.i.i.us ], [ %__first.sroa.0.2.i.i.i.us, %sw.bb38.i.i.i.us ], [ %scevgep.i.i.i, %sw.bb.i.i.i.us ], [ %incdec.ptr.i10.i.i.i.us.le, %invoke.cont124.us.loopexit.split.loop.exit312 ], [ %incdec.ptr.i.i.i.i.us.le, %invoke.cont124.us.loopexit.split.loop.exit314 ], [ %incdec.ptr.i12.i.i.i.us.le, %invoke.cont124.us.loopexit.split.loop.exit310 ], [ %__first.sroa.0.051.i.i.i.us, %for.body.i.i.i.us ]
   %cmp.i.not.us = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.us, %.fr
   br i1 %cmp.i.not.us, label %if.then132, label %for.inc184.us
 
@@ -1003,12 +1003,12 @@ sw.bb38.i.i.i:                                    ; preds = %do.body113, %if.end
   br i1 %cmp.i23.i.i.i, label %invoke.cont124, label %if.then132
 
 invoke.cont124:                                   ; preds = %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %.fr256, %sw.bb.i.i.i ], [ %__first.sroa.0.2.i.i.i, %sw.bb38.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %__first.sroa.0.2.i.i.i, %sw.bb38.i.i.i ], [ %.fr256, %sw.bb.i.i.i ]
   %cmp.i.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %.fr
   br i1 %cmp.i.not, label %if.then132, label %for.inc184
 
 if.then132:                                       ; preds = %invoke.cont124, %do.body113, %sw.bb38.i.i.i, %for.end.loopexit.i.i.i.us, %sw.bb38.i.i.i.us, %invoke.cont124.us
-  %.us-phi = phi i64 [ %i104.0251.us, %for.end.loopexit.i.i.i.us ], [ %i104.0251.us, %invoke.cont124.us ], [ %i104.0251.us, %sw.bb38.i.i.i.us ], [ %i104.0251, %invoke.cont124 ], [ 0, %do.body113 ], [ %i104.0251, %sw.bb38.i.i.i ]
+  %.us-phi = phi i64 [ %i104.0251.us, %for.end.loopexit.i.i.i.us ], [ %i104.0251.us, %invoke.cont124.us ], [ %i104.0251.us, %sw.bb38.i.i.i.us ], [ %i104.0251, %sw.bb38.i.i.i ], [ 0, %do.body113 ], [ %i104.0251, %invoke.cont124 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream133)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream133)
           to label %invoke.cont135 unwind label %lpad134
@@ -3345,8 +3345,8 @@ if.end18.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i, !llvm.loop !101
 
 _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %if.end18.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8, !tbaa !16
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24

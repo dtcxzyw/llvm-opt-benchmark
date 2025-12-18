@@ -2019,7 +2019,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   br i1 %exitcond745.not, label %.loopexit, label %_ZNK21libraw_static_table_tixEj.exit545, !llvm.loop !137
 
 .loopexit:                                        ; preds = %_ZNK21libraw_static_table_tixEj.exit545, %_ZNK21libraw_static_table_tixEj.exit545.us652, %_ZNK21libraw_static_table_tixEj.exit545.us649, %_ZNK21libraw_static_table_tixEj.exit545.us, %_ZNK21libraw_static_table_tixEj.exit541.thread, %_ZNK21libraw_static_table_tixEj.exit541, %_ZNK21libraw_static_table_tixEj.exit
-  %.1461 = phi i32 [ %.0460655, %_ZNK21libraw_static_table_tixEj.exit ], [ %.0460655, %_ZNK21libraw_static_table_tixEj.exit541 ], [ %.0460655, %_ZNK21libraw_static_table_tixEj.exit541.thread ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545.us652 ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545.us ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545.us649 ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545 ]
+  %.1461 = phi i32 [ %.0460655, %_ZNK21libraw_static_table_tixEj.exit ], [ %.0460655, %_ZNK21libraw_static_table_tixEj.exit541 ], [ %.0460655, %_ZNK21libraw_static_table_tixEj.exit541.thread ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545.us649 ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545.us ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545.us652 ], [ 1, %_ZNK21libraw_static_table_tixEj.exit545 ]
   %280 = load ptr, ptr %191, align 8, !tbaa !87
   %281 = load ptr, ptr %280, align 8, !tbaa !88
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 32
@@ -3895,9 +3895,9 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   br label %.thread566
 
 1449:                                             ; preds = %1265, %1268, %1177, %1180, %959, %1005, %860, %866, %869, %863, %1429, %1371, %1313, %1081, %765, %645, %550
-  %.0448 = phi i64 [ %563, %550 ], [ %658, %645 ], [ %778, %765 ], [ %861, %860 ], [ %864, %863 ], [ %867, %866 ], [ %870, %869 ], [ %965, %959 ], [ %1013, %1005 ], [ %1094, %1081 ], [ %1178, %1177 ], [ %1181, %1180 ], [ %1266, %1265 ], [ %1269, %1268 ], [ %1327, %1313 ], [ %1385, %1371 ], [ %1443, %1429 ]
-  %.0447 = phi i64 [ 0, %550 ], [ 0, %645 ], [ 0, %765 ], [ 0, %860 ], [ 0, %863 ], [ 0, %866 ], [ 0, %869 ], [ 0, %959 ], [ 0, %1005 ], [ 0, %1081 ], [ 0, %1177 ], [ 0, %1180 ], [ 0, %1265 ], [ 0, %1268 ], [ %1326, %1313 ], [ %1384, %1371 ], [ %1442, %1429 ]
-  %.0446 = phi i64 [ 0, %550 ], [ 0, %645 ], [ 0, %765 ], [ %862, %860 ], [ %865, %863 ], [ %868, %866 ], [ 0, %869 ], [ %966, %959 ], [ 0, %1005 ], [ %1095, %1081 ], [ %1179, %1177 ], [ %1182, %1180 ], [ %1267, %1265 ], [ %1270, %1268 ], [ %1328, %1313 ], [ %1386, %1371 ], [ %1444, %1429 ]
+  %.0448 = phi i64 [ %1443, %1429 ], [ %563, %550 ], [ %658, %645 ], [ %778, %765 ], [ %861, %860 ], [ %864, %863 ], [ %867, %866 ], [ %870, %869 ], [ %965, %959 ], [ %1013, %1005 ], [ %1385, %1371 ], [ %1094, %1081 ], [ %1178, %1177 ], [ %1181, %1180 ], [ %1327, %1313 ], [ %1266, %1265 ], [ %1269, %1268 ]
+  %.0447 = phi i64 [ %1442, %1429 ], [ 0, %550 ], [ 0, %645 ], [ 0, %765 ], [ 0, %860 ], [ 0, %863 ], [ 0, %866 ], [ 0, %869 ], [ 0, %959 ], [ 0, %1005 ], [ %1384, %1371 ], [ 0, %1081 ], [ 0, %1177 ], [ 0, %1180 ], [ %1326, %1313 ], [ 0, %1265 ], [ 0, %1268 ]
+  %.0446 = phi i64 [ %1444, %1429 ], [ 0, %550 ], [ 0, %645 ], [ 0, %765 ], [ %862, %860 ], [ %865, %863 ], [ %868, %866 ], [ 0, %869 ], [ %966, %959 ], [ 0, %1005 ], [ %1386, %1371 ], [ %1095, %1081 ], [ %1179, %1177 ], [ %1182, %1180 ], [ %1328, %1313 ], [ %1267, %1265 ], [ %1270, %1268 ]
   %.not507 = icmp eq i64 %.0448, 0
   br i1 %.not507, label %1469, label %1450
 

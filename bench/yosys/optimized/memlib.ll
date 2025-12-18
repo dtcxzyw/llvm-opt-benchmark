@@ -8062,7 +8062,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i: ; preds = %.noexc176, %.noexc180, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i
-  %.1.i = phi ptr [ %.sroa.01.042.i, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i ], [ %.043.i, %.noexc180 ], [ %.043.i, %.noexc176 ]
+  %.1.i = phi ptr [ %.043.i, %.noexc180 ], [ %.sroa.01.042.i, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i ], [ %.043.i, %.noexc176 ]
   %854 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i, i64 144
   %.not9.i = icmp eq ptr %854, %.val129
   br i1 %.not9.i, label %_ZN12_GLOBAL__N_16Parser15find_single_capINS_9WidthsDefEEEPKT_RKSt6vectorINS_10CapabilityIS3_EESaIS8_EERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSD_5RTLIL5ConstENSE_8hash_opsISL_EEEESS_PKc.exit, label %.lr.ph.i
@@ -9136,7 +9136,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i225: ; preds = %.noexc346, %.noexc350, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i339
-  %.1.i226 = phi ptr [ %.sroa.01.042.i204, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i339 ], [ %.043.i203, %.noexc350 ], [ %.043.i203, %.noexc346 ]
+  %.1.i226 = phi ptr [ %.043.i203, %.noexc350 ], [ %.sroa.01.042.i204, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i339 ], [ %.043.i203, %.noexc346 ]
   %1347 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i204, i64 152
   %.not9.i227 = icmp eq ptr %1347, %.val131
   br i1 %.not9.i227, label %_ZN12_GLOBAL__N_16Parser15find_single_capINS_11ResourceDefEEEPKT_RKSt6vectorINS_10CapabilityIS3_EESaIS8_EERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSD_5RTLIL5ConstENSE_8hash_opsISL_EEEESS_PKc.exit, label %.lr.ph.i202
@@ -10132,7 +10132,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i392: ; preds = %.noexc513, %.noexc517, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i506
-  %.1.i393 = phi ptr [ %.sroa.01.042.i371, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i506 ], [ %.043.i370, %.noexc517 ], [ %.043.i370, %.noexc513 ]
+  %.1.i393 = phi ptr [ %.043.i370, %.noexc517 ], [ %.sroa.01.042.i371, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i506 ], [ %.043.i370, %.noexc513 ]
   %1805 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i371, i64 120
   %.not9.i394 = icmp eq ptr %1805, %.val135
   br i1 %.not9.i394, label %_ZN12_GLOBAL__N_16Parser15find_single_capIdEEPKT_RKSt6vectorINS_10CapabilityIS2_EESaIS7_EERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSC_5RTLIL5ConstENSD_8hash_opsISK_EEEESR_PKc.exit, label %.lr.ph.i369
@@ -10849,8 +10849,8 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
   br i1 %exitcond.not.i, label %._crit_edge.i.invoke, label %.lr.ph.i557, !llvm.loop !407
 
 ._crit_edge.i.invoke:                             ; preds = %.preheader6.i, %2069, %2116, %2112, %.lr.ph11.i
-  %2117 = phi ptr [ @.str.126, %.lr.ph11.i ], [ @.str.126, %2112 ], [ @.str.127, %2116 ], [ @.str.127, %.preheader6.i ], [ @.str.123, %2069 ]
-  %2118 = phi i32 [ %2070, %.lr.ph11.i ], [ %2070, %2112 ], [ %2070, %2116 ], [ %2070, %.preheader6.i ], [ %2079, %2069 ]
+  %2117 = phi ptr [ @.str.127, %2116 ], [ @.str.126, %2112 ], [ @.str.126, %.lr.ph11.i ], [ @.str.127, %.preheader6.i ], [ @.str.123, %2069 ]
+  %2118 = phi i32 [ %2070, %2116 ], [ %2070, %2112 ], [ %2070, %.lr.ph11.i ], [ %2070, %.preheader6.i ], [ %2079, %2069 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %2117, ptr noundef %2081, i32 noundef %2082, i32 noundef %2118) #29
           to label %._crit_edge.i.cont unwind label %2085
 
@@ -11733,7 +11733,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i587: ; preds = %.noexc709, %.noexc713, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i702
-  %.1.i588 = phi ptr [ %.sroa.01.042.i566, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i702 ], [ %.043.i565, %.noexc713 ], [ %.043.i565, %.noexc709 ]
+  %.1.i588 = phi ptr [ %.043.i565, %.noexc713 ], [ %.sroa.01.042.i566, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i702 ], [ %.043.i565, %.noexc709 ]
   %2552 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i566, i64 120
   %.not9.i589 = icmp eq ptr %2552, %.val141
   br i1 %.not9.i589, label %_ZN12_GLOBAL__N_16Parser15find_single_capIN5Yosys10MemLibrary14MemoryInitKindEEEPKT_RKSt6vectorINS_10CapabilityIS5_EESaISA_EERKNS2_7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_5RTLIL5ConstENSF_8hash_opsISM_EEEEST_PKc.exit, label %.lr.ph.i564
@@ -34975,7 +34975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209: ; preds = %91
   br label %.loopexit.split-lp
 
 .loopexit487:                                     ; preds = %932, %914, %864, %736, %824
-  %.sink479 = phi i8 [ 0, %824 ], [ 0, %914 ], [ 1, %736 ], [ 0, %864 ], [ 1, %932 ]
+  %.sink479 = phi i8 [ 0, %914 ], [ 1, %736 ], [ 0, %864 ], [ 0, %824 ], [ 1, %932 ]
   store i8 %.sink479, ptr %26, align 8, !tbaa !595
   invoke fastcc void @_ZN12_GLOBAL__N_16Parser8get_semiEv(ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %935 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -42771,7 +42771,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit: ; preds = %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread
-  %.1 = phi ptr [ %.sroa.01.042, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29 ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit ]
+  %.1 = phi ptr [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29 ], [ %.sroa.01.042, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit ]
   %430 = getelementptr inbounds nuw i8, ptr %.sroa.01.042, i64 120
   %.not9 = icmp eq ptr %430, %.8.val
   br i1 %.not9, label %._crit_edge, label %15
@@ -43610,7 +43610,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit: ; preds = %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread
-  %.1 = phi ptr [ %.sroa.01.042, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29 ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit ]
+  %.1 = phi ptr [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29 ], [ %.sroa.01.042, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit ]
   %430 = getelementptr inbounds nuw i8, ptr %.sroa.01.042, i64 120
   %.not9 = icmp eq ptr %430, %.8.val
   br i1 %.not9, label %._crit_edge, label %15
@@ -45851,7 +45851,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i: ; preds = %.noexc238, %.noexc242, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i
-  %.1.i = phi ptr [ %.sroa.01.042.i, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i ], [ %.043.i, %.noexc242 ], [ %.043.i, %.noexc238 ]
+  %.1.i = phi ptr [ %.043.i, %.noexc242 ], [ %.sroa.01.042.i, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i ], [ %.043.i, %.noexc238 ]
   %1051 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i, i64 152
   %.not9.i = icmp eq ptr %1051, %.val194
   br i1 %.not9.i, label %_ZN12_GLOBAL__N_16Parser15find_single_capINS_8ClockDefEEEPKT_RKSt6vectorINS_10CapabilityIS3_EESaIS8_EERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSD_5RTLIL5ConstENSE_8hash_opsISL_EEEESS_PKc.exit, label %.lr.ph.i
@@ -47003,7 +47003,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i277: ; preds = %.noexc398, %.noexc402, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i391
-  %.1.i278 = phi ptr [ %.sroa.01.042.i256, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i391 ], [ %.043.i255, %.noexc402 ], [ %.043.i255, %.noexc398 ]
+  %.1.i278 = phi ptr [ %.043.i255, %.noexc402 ], [ %.sroa.01.042.i256, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i391 ], [ %.043.i255, %.noexc398 ]
   %1595 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i256, i64 168
   %.not9.i279 = icmp eq ptr %1595, %.val196
   br i1 %.not9.i279, label %_ZN12_GLOBAL__N_16Parser15find_single_capINS_12PortWidthDefEEEPKT_RKSt6vectorINS_10CapabilityIS3_EESaIS8_EERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSD_5RTLIL5ConstENSE_8hash_opsISL_EEEESS_PKc.exit, label %.lr.ph.i254
@@ -47119,7 +47119,7 @@ _ZN12_GLOBAL__N_16Parser15find_single_capINS_12PortWidthDefEEEPKT_RKSt6vectorINS
 
 .invoke3024:                                      ; preds = %.preheader17.i28.i, %.preheader17.i.i, %1634, %1663, %.invoke3024.sink.split
   %1631 = phi ptr [ @.str.136, %.invoke3024.sink.split ], [ @.str.137, %1634 ], [ @.str.137, %1663 ], [ @.str.137, %.preheader17.i.i ], [ @.str.137, %.preheader17.i28.i ]
-  %1632 = phi i32 [ %1630, %.invoke3024.sink.split ], [ %.pre.i.i, %1634 ], [ %.pre.i29.i, %1663 ], [ %.pre.i29.i, %.preheader17.i28.i ], [ %.pre.i.i, %.preheader17.i.i ]
+  %1632 = phi i32 [ %1630, %.invoke3024.sink.split ], [ %.pre.i.i, %1634 ], [ %.pre.i29.i, %1663 ], [ %.pre.i.i, %.preheader17.i.i ], [ %.pre.i29.i, %.preheader17.i28.i ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %1631, ptr noundef %.val.i, i32 noundef %.val17.i, i32 noundef %1632) #29
           to label %.cont3025 unwind label %.loopexit.split-lp1732.loopexit.split-lp.loopexit.split-lp
 
@@ -48132,7 +48132,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i438: ; preds = %.noexc559, %.noexc563, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i552
-  %.1.i439 = phi ptr [ %.sroa.01.042.i417, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i552 ], [ %.043.i416, %.noexc563 ], [ %.043.i416, %.noexc559 ]
+  %.1.i439 = phi ptr [ %.043.i416, %.noexc563 ], [ %.sroa.01.042.i417, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i552 ], [ %.043.i416, %.noexc559 ]
   %2113 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i417, i64 120
   %.not9.i440 = icmp eq ptr %2113, %.val198
   br i1 %.not9.i440, label %_ZN12_GLOBAL__N_16Parser15find_single_capIN5Yosys10MemLibrary8RdWrKindEEEPKT_RKSt6vectorINS_10CapabilityIS5_EESaISA_EERKNS2_7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_5RTLIL5ConstENSF_8hash_opsISM_EEEEST_PKc.exit, label %.lr.ph.i415
@@ -49064,7 +49064,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit.i589: ; preds = %.noexc710, %.noexc714, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i703
-  %.1.i590 = phi ptr [ %.sroa.01.042.i568, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i703 ], [ %.043.i567, %.noexc714 ], [ %.043.i567, %.noexc710 ]
+  %.1.i590 = phi ptr [ %.043.i567, %.noexc714 ], [ %.sroa.01.042.i568, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread.i703 ], [ %.043.i567, %.noexc710 ]
   %2568 = getelementptr inbounds nuw i8, ptr %.sroa.01.042.i568, i64 128
   %.not9.i591 = icmp eq ptr %2568, %.val204
   br i1 %.not9.i591, label %_ZN12_GLOBAL__N_16Parser15find_single_capINS_7SrstDefEEEPKT_RKSt6vectorINS_10CapabilityIS3_EESaIS8_EERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSD_5RTLIL5ConstENSE_8hash_opsISL_EEEESS_PKc.exit, label %.lr.ph.i566
@@ -51247,7 +51247,7 @@ _ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_E
   br label %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit: ; preds = %.noexc753, %.noexc759, %3581, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %.sroa.6.3 = phi i32 [ %.sroa.6.4, %3581 ], [ %.sroa.6.4, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.6.22104, %.noexc759 ], [ %.sroa.6.22104, %.noexc753 ]
+  %.sroa.6.3 = phi i32 [ %.sroa.6.4, %3581 ], [ %.sroa.6.22104, %.noexc759 ], [ %.sroa.6.4, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.6.22104, %.noexc753 ]
   %3603 = getelementptr inbounds nuw i8, ptr %.sroa.01591.02103, i64 160
   %.not1655 = icmp eq ptr %3603, %.val176
   br i1 %.not1655, label %._crit_edge2107, label %.lr.ph2106
@@ -55121,7 +55121,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   unreachable
 
 _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit: ; preds = %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread
-  %.1 = phi ptr [ %.sroa.01.042, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29 ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit ]
+  %.1 = phi ptr [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit29 ], [ %.sroa.01.042, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit19.thread ], [ %.043, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEE2atERKS7_.exit ]
   %430 = getelementptr inbounds nuw i8, ptr %.sroa.01.042, i64 120
   %.not9 = icmp eq ptr %430, %.8.val
   br i1 %.not9, label %._crit_edge, label %15

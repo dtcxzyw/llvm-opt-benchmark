@@ -543,7 +543,7 @@ Abc_SopStart.exit.us:                             ; preds = %._crit_edge46.us, %
   br label %Abc_SopStart.exit.us
 
 .loopexit:                                        ; preds = %Abc_SopStart.exit.us, %.loopexit.sink.split, %7, %.lr.ph50, %._crit_edge
-  %.037 = phi ptr [ null, %._crit_edge ], [ %22, %.lr.ph50 ], [ null, %7 ], [ %6, %.loopexit.sink.split ], [ %22, %Abc_SopStart.exit.us ]
+  %.037 = phi ptr [ null, %._crit_edge ], [ %6, %.loopexit.sink.split ], [ %22, %.lr.ph50 ], [ null, %7 ], [ %22, %Abc_SopStart.exit.us ]
   ret ptr %.037
 }
 
@@ -835,7 +835,7 @@ Abc_SopCreateFromIsop.exit:                       ; preds = %._crit_edge.us.i, %
   br label %.preheader, !llvm.loop !27
 
 Abc_SopComplement.exit.sink.split:                ; preds = %12, %17, %._crit_edge39, %._crit_edge
-  %.sink = phi i32 [ 667680, %._crit_edge ], [ 667936, %._crit_edge39 ], [ 667936, %17 ], [ 667680, %12 ]
+  %.sink = phi i32 [ 667680, %._crit_edge ], [ 667936, %17 ], [ 667936, %._crit_edge39 ], [ 667680, %12 ]
   %63 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 4) #23
   store i32 %.sink, ptr %63, align 1
   br label %Abc_SopComplement.exit
@@ -1562,7 +1562,7 @@ Abc_SopGetCubeNum.exit:                           ; preds = %.lr.ph.i
   br label %Abc_SopGetCubeNum.exit.thread
 
 Abc_SopGetCubeNum.exit.thread:                    ; preds = %.preheader, %.preheader.i, %1, %13, %Abc_SopGetCubeNum.exit
-  %.06 = phi i32 [ 0, %Abc_SopGetCubeNum.exit ], [ %., %13 ], [ 0, %1 ], [ 0, %.preheader.i ], [ 0, %.preheader ]
+  %.06 = phi i32 [ 0, %.preheader.i ], [ 0, %Abc_SopGetCubeNum.exit ], [ %., %13 ], [ 0, %1 ], [ 0, %.preheader ]
   ret i32 %.06
 }
 
@@ -1758,8 +1758,8 @@ define range(i32 0, 2) i32 @Abc_SopCheck(ptr noundef %0, i32 noundef %1) local_u
   br label %25
 
 25:                                               ; preds = %17, %.fold.split, %20
-  %.124 = phi i32 [ %.02350, %20 ], [ 1, %17 ], [ %.02350, %.fold.split ]
-  %.1 = phi i32 [ 1, %20 ], [ %.051, %17 ], [ %.051, %.fold.split ]
+  %.124 = phi i32 [ 1, %17 ], [ %.02350, %20 ], [ %.02350, %.fold.split ]
+  %.1 = phi i32 [ %.051, %17 ], [ 1, %20 ], [ %.051, %.fold.split ]
   %26 = getelementptr inbounds nuw i8, ptr %.127.lcssa, i64 2
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %.not34 = icmp eq i8 %27, 10

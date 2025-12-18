@@ -354,7 +354,7 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
   br i1 %.not87, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %.lr.ph.split.split.us, %.lr.ph.split.us, %3
-  %.039.lcssa = phi float [ 0.000000e+00, %3 ], [ %48, %.lr.ph.split.split.us ], [ %27, %.lr.ph.split.us ], [ 0.000000e+00, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ]
+  %.039.lcssa = phi float [ 0.000000e+00, %3 ], [ %27, %.lr.ph.split.us ], [ %48, %.lr.ph.split.split.us ], [ 0.000000e+00, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ]
   ret float %.039.lcssa
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -1030,8 +1030,8 @@ _ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ;
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 _ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc16, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.10.0 = phi ptr [ %31, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.019.0 = phi ptr [ %30, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.10.0 = phi ptr [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %31, %.noexc16 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.019.0 = phi ptr [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %30, %.noexc16 ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   invoke void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElementEffiijf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %.sroa.019.0, float noundef 1.000000e+00, float noundef 1.000000e+00, i32 noundef -1, i32 noundef %4, i32 noundef %5, float noundef 1.000000e+00)
           to label %38 unwind label %43
 

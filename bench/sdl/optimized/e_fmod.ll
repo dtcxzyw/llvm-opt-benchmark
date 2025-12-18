@@ -95,7 +95,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %.lr.ph, %.lr.ph196, %37, %.preheader187, %43
-  %.2162 = phi i32 [ %45, %43 ], [ -1043, %.preheader187 ], [ -1022, %37 ], [ %34, %.lr.ph196 ], [ %40, %.lr.ph ]
+  %.2162 = phi i32 [ %45, %43 ], [ %34, %.lr.ph196 ], [ -1043, %.preheader187 ], [ -1022, %37 ], [ %40, %.lr.ph ]
   %46 = icmp samesign ult i32 %7, 1048576
   br i1 %46, label %47, label %59
 
@@ -133,7 +133,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %.lr.ph202, %.preheader185, %59
-  %.2158 = phi i32 [ %61, %59 ], [ -1043, %.preheader185 ], [ %50, %.lr.ph202 ], [ %56, %55 ]
+  %.2158 = phi i32 [ %61, %59 ], [ %50, %.lr.ph202 ], [ -1043, %.preheader185 ], [ %56, %55 ]
   %62 = icmp sgt i32 %.2162, -1023
   br i1 %62, label %63, label %66
 

@@ -1068,11 +1068,11 @@ tailrecurse.outer._crit_edge.loopexit104:         ; preds = %_ZN12_GLOBAL__N_118
   br label %tailrecurse.outer._crit_edge
 
 tailrecurse.outer._crit_edge:                     ; preds = %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit, %tailrecurse.outer._crit_edge.loopexit104, %3
-  %current.ret.tr62 = phi ptr [ null, %3 ], [ %66, %tailrecurse.outer._crit_edge.loopexit104 ], [ %66, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
-  %.tr.ph.lcssa = phi ptr [ %0, %3 ], [ %66, %tailrecurse.outer._crit_edge.loopexit104 ], [ %0, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
-  %.tr59.ph.lcssa = phi i32 [ %1, %3 ], [ %6, %tailrecurse.outer._crit_edge.loopexit104 ], [ %1, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
-  %.lcssa66 = phi ptr [ %4, %3 ], [ %68, %tailrecurse.outer._crit_edge.loopexit104 ], [ %4, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
-  %.val36.lcssa = phi i8 [ %.val367185, %3 ], [ 8, %tailrecurse.outer._crit_edge.loopexit104 ], [ 8, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
+  %current.ret.tr62 = phi ptr [ %66, %tailrecurse.outer._crit_edge.loopexit104 ], [ null, %3 ], [ %66, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
+  %.tr.ph.lcssa = phi ptr [ %66, %tailrecurse.outer._crit_edge.loopexit104 ], [ %0, %3 ], [ %0, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
+  %.tr59.ph.lcssa = phi i32 [ %6, %tailrecurse.outer._crit_edge.loopexit104 ], [ %1, %3 ], [ %1, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
+  %.lcssa66 = phi ptr [ %68, %tailrecurse.outer._crit_edge.loopexit104 ], [ %4, %3 ], [ %4, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
+  %.val36.lcssa = phi i8 [ 8, %tailrecurse.outer._crit_edge.loopexit104 ], [ %.val367185, %3 ], [ 8, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit ]
   %7 = zext i8 %.val36.lcssa to i32
   %.val35 = load i32, ptr %.tr.ph.lcssa, align 4, !tbaa !27
   %8 = icmp eq i32 %.tr59.ph.lcssa, %.val35
@@ -1153,7 +1153,7 @@ _ZN4llvm9RopePieceaSERKS0_.exit:                  ; preds = %_ZN4llvm18Intrusive
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9RopePieceaSERKS0_.exit, %tailrecurse.outer._crit_edge, %.loopexit
-  %.029132 = phi i32 [ %.029, %.loopexit ], [ %7, %tailrecurse.outer._crit_edge ], [ %.029, %_ZN4llvm9RopePieceaSERKS0_.exit ]
+  %.029132 = phi i32 [ %7, %tailrecurse.outer._crit_edge ], [ %.029, %.loopexit ], [ %.029, %_ZN4llvm9RopePieceaSERKS0_.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.tr.ph.lcssa, i64 8
   %41 = zext i32 %.029132 to i64
   %42 = getelementptr inbounds nuw %"struct.llvm::RopePiece", ptr %40, i64 %41

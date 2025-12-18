@@ -774,8 +774,8 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   br label %asn1_string_canon.exit.thread70
 
 asn1_string_canon.exit.thread70:                  ; preds = %64, %78, %53, %._crit_edge.loopexit.i
-  %112 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %54, %53 ], [ %54, %78 ], [ %54, %64 ]
-  %.1.lcssa.i = phi ptr [ %.2.i, %._crit_edge.loopexit.i ], [ %54, %53 ], [ %54, %78 ], [ %54, %64 ]
+  %112 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %54, %78 ], [ %54, %53 ], [ %54, %64 ]
+  %.1.lcssa.i = phi ptr [ %.2.i, %._crit_edge.loopexit.i ], [ %54, %78 ], [ %54, %53 ], [ %54, %64 ]
   %113 = ptrtoint ptr %.1.lcssa.i to i64
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114

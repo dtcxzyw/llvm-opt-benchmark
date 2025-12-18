@@ -522,8 +522,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIP
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %40, %.thread.i.i ]
-  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %38, %.thread.i.i ]
+  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %22 ], [ %10, %29 ], [ %40, %.thread.i.i ]
+  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %22 ], [ %.033.i.i, %29 ], [ %38, %.thread.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV9VLEPseudoEZNS1_12getVLEPseudoEhhhhhE7KeyTypeZNS1_12getVLEPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !56
 
@@ -660,8 +660,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEc
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
-  %56 = phi i64 [ %12, %17 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %49, %.thread.i.i ]
-  %57 = phi ptr [ %.033.i.i, %17 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %47, %.thread.i.i ]
+  %56 = phi i64 [ %12, %17 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %12, %45 ], [ %12, %31 ], [ %12, %24 ], [ %12, %38 ], [ %49, %.thread.i.i ]
+  %57 = phi ptr [ %.033.i.i, %17 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %45 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %38 ], [ %47, %.thread.i.i ]
   %58 = icmp sgt i64 %56, 0
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV11VLSEGPseudoEZNS1_14getVLSEGPseudoEhhhhhhE7KeyTypeZNS1_14getVLSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !58
 
@@ -805,8 +805,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompE
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
-  %56 = phi i64 [ %12, %17 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %49, %.thread.i.i ]
-  %57 = phi ptr [ %.033.i.i, %17 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %47, %.thread.i.i ]
+  %56 = phi i64 [ %12, %17 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %12, %45 ], [ %12, %31 ], [ %12, %24 ], [ %12, %38 ], [ %49, %.thread.i.i ]
+  %57 = phi ptr [ %.033.i.i, %17 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %45 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %38 ], [ %47, %.thread.i.i ]
   %58 = icmp sgt i64 %56, 0
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV12VLXSEGPseudoEZNS1_15getVLXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVLXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !59
 
@@ -938,8 +938,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIP
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %40, %.thread.i.i ]
-  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %38, %.thread.i.i ]
+  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %22 ], [ %10, %29 ], [ %40, %.thread.i.i ]
+  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %22 ], [ %.033.i.i, %29 ], [ %38, %.thread.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVLXPseudoEhhhhhE7KeyTypeZNS1_12getVLXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !60
 
@@ -1159,8 +1159,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEcl
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %40, %.thread.i.i ]
-  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %38, %.thread.i.i ]
+  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %22 ], [ %10, %29 ], [ %40, %.thread.i.i ]
+  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %22 ], [ %.033.i.i, %29 ], [ %38, %.thread.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV11VSSEGPseudoEZNS1_14getVSSEGPseudoEhhhhhE7KeyTypeZNS1_14getVSSEGPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !62
 
@@ -1297,8 +1297,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompE
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
-  %56 = phi i64 [ %12, %17 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %49, %.thread.i.i ]
-  %57 = phi ptr [ %.033.i.i, %17 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %47, %.thread.i.i ]
+  %56 = phi i64 [ %12, %17 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %12, %45 ], [ %12, %31 ], [ %12, %24 ], [ %12, %38 ], [ %49, %.thread.i.i ]
+  %57 = phi ptr [ %.033.i.i, %17 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %45 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %38 ], [ %47, %.thread.i.i ]
   %58 = icmp sgt i64 %56, 0
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV12VSXSEGPseudoEZNS1_15getVSXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVSXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !63
 
@@ -1430,8 +1430,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIP
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %40, %.thread.i.i ]
-  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %38, %.thread.i.i ]
+  %47 = phi i64 [ %10, %15 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %10, %36 ], [ %10, %22 ], [ %10, %29 ], [ %40, %.thread.i.i ]
+  %48 = phi ptr [ %.033.i.i, %15 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %36 ], [ %.033.i.i, %22 ], [ %.033.i.i, %29 ], [ %38, %.thread.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVSXPseudoEhhhhhE7KeyTypeZNS1_12getVSXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !64
 
@@ -8286,7 +8286,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
   br label %1396
 
 1396:                                             ; preds = %1389, %1390, %1391, %1392, %1393, %1394, %1395
-  %.01596 = phi i32 [ 12149, %1392 ], [ %.1758, %1391 ], [ 12140, %1390 ], [ 12143, %1389 ], [ %.1760, %1395 ], [ %.1759, %1394 ], [ 12146, %1393 ]
+  %.01596 = phi i32 [ 12146, %1393 ], [ 12149, %1392 ], [ %.1758, %1391 ], [ 12140, %1390 ], [ 12143, %1389 ], [ %.1760, %1395 ], [ %.1759, %1394 ]
   %1397 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1398 = load ptr, ptr %1397, align 8, !tbaa !65
   store i16 %177, ptr %102, align 8, !tbaa !133
@@ -16203,7 +16203,7 @@ _ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit: ; preds = %33, %37
   br label %_ZN4llvm17RISCVDAGToDAGISel12selectVSplatENS_7SDValueERS1_.exit
 
 _ZN4llvm17RISCVDAGToDAGISel12selectVSplatENS_7SDValueERS1_.exit: ; preds = %12, %_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit, %61, %54, %.loopexit, %44
-  %.0 = phi i1 [ true, %61 ], [ false, %44 ], [ false, %.loopexit ], [ false, %54 ], [ false, %_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit ], [ false, %12 ]
+  %.0 = phi i1 [ false, %54 ], [ false, %.loopexit ], [ true, %61 ], [ false, %44 ], [ false, %_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit ], [ false, %12 ]
   ret i1 %.0
 }
 

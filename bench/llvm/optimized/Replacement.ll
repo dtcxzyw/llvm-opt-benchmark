@@ -1604,8 +1604,8 @@ _ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread: ; preds 
   br i1 %.not.i, label %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit, label %.lr.ph.i
 
 _ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit: ; preds = %31, %18, %20, %26
-  %.02143.i = phi i32 [ %.02147.i, %18 ], [ %.02147.i, %26 ], [ %.02147.i, %20 ], [ %36, %31 ]
-  %.1.i = phi i32 [ %6, %18 ], [ %spec.select.i, %26 ], [ %6, %20 ], [ %6, %31 ]
+  %.02143.i = phi i32 [ %.02147.i, %20 ], [ %.02147.i, %18 ], [ %.02147.i, %26 ], [ %36, %31 ]
+  %.1.i = phi i32 [ %6, %20 ], [ %6, %18 ], [ %spec.select.i, %26 ], [ %6, %31 ]
   %38 = add i32 %.1.i, %.02143.i
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %40 = load i32, ptr %39, align 4, !tbaa !16
@@ -1655,9 +1655,9 @@ _ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit: ; preds = %31, 
   br i1 %.not.i13, label %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit18, label %.lr.ph.i9
 
 _ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit18: ; preds = %60, %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread, %47, %49, %55
-  %67 = phi i32 [ %38, %47 ], [ %38, %55 ], [ %38, %49 ], [ %6, %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread ], [ %38, %60 ]
-  %.02143.i14 = phi i32 [ %.02147.i10, %47 ], [ %.02147.i10, %55 ], [ %.02147.i10, %49 ], [ 0, %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread ], [ %65, %60 ]
-  %.1.i15 = phi i32 [ %41, %47 ], [ %spec.select.i17, %55 ], [ %41, %49 ], [ %12, %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread ], [ %41, %60 ]
+  %67 = phi i32 [ %38, %49 ], [ %38, %47 ], [ %38, %55 ], [ %6, %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread ], [ %38, %60 ]
+  %.02143.i14 = phi i32 [ %.02147.i10, %49 ], [ %.02147.i10, %47 ], [ %.02147.i10, %55 ], [ 0, %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread ], [ %65, %60 ]
+  %.1.i15 = phi i32 [ %41, %49 ], [ %41, %47 ], [ %spec.select.i17, %55 ], [ %12, %_ZNK5clang7tooling12Replacements22getShiftedCodePositionEj.exit.thread ], [ %41, %60 ]
   %68 = load ptr, ptr %2, align 8, !tbaa !18
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !9
@@ -1725,8 +1725,8 @@ define dso_local noundef i32 @_ZNK5clang7tooling12Replacements22getShiftedCodePo
   br i1 %.not, label %.critedge.thread, label %.lr.ph
 
 .critedge.thread:                                 ; preds = %24, %2, %13, %19, %11
-  %.02143 = phi i32 [ %.02147, %11 ], [ %.02147, %19 ], [ %.02147, %13 ], [ 0, %2 ], [ %29, %24 ]
-  %.1 = phi i32 [ %1, %11 ], [ %spec.select, %19 ], [ %1, %13 ], [ %1, %2 ], [ %1, %24 ]
+  %.02143 = phi i32 [ %.02147, %13 ], [ %.02147, %11 ], [ %.02147, %19 ], [ 0, %2 ], [ %29, %24 ]
+  %.1 = phi i32 [ %1, %13 ], [ %1, %11 ], [ %spec.select, %19 ], [ %1, %2 ], [ %1, %24 ]
   %31 = add i32 %.1, %.02143
   ret i32 %31
 }

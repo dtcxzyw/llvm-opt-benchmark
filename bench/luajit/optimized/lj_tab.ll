@@ -1326,7 +1326,7 @@ lj_tab_getstr.exit.thread:                        ; preds = %109, %65, %27, %lj_
   br label %.thread47
 
 .thread47:                                        ; preds = %106, %59, %21, %lj_tab_getinth.exit, %lj_tab_getstr.exit.thread
-  %.1 = phi ptr [ %116, %lj_tab_getstr.exit.thread ], [ %73, %lj_tab_getinth.exit ], [ %.0.i40, %59 ], [ %.0.i, %21 ], [ %.0, %106 ]
+  %.1 = phi ptr [ %116, %lj_tab_getstr.exit.thread ], [ %.0.i40, %59 ], [ %.0.i, %21 ], [ %73, %lj_tab_getinth.exit ], [ %.0, %106 ]
   ret ptr %.1
 }
 

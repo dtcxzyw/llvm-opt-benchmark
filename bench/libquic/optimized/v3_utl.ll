@@ -2575,7 +2575,7 @@ equal_nocase.exit76.i:                            ; preds = %138, %equal_nocase.
   br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i28, !llvm.loop !76
 
 equal_nocase.exit:                                ; preds = %117, %.lr.ph.i.i27, %133, %.lr.ph.i65.i, %167, %163, %98, %93, %.lr.ph.i24, %159, %156, %150, %145, %102, %.preheader.i, %skip_prefix.exit.i
-  %.021 = phi i32 [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %102 ], [ 0, %145 ], [ 0, %150 ], [ 1, %156 ], [ 1, %159 ], [ 0, %133 ], [ 0, %93 ], [ 0, %163 ], [ 1, %98 ], [ 0, %.lr.ph.i24 ], [ 1, %167 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i27 ], [ 0, %117 ]
+  %.021 = phi i32 [ 0, %93 ], [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %163 ], [ 1, %159 ], [ 0, %102 ], [ 0, %133 ], [ 0, %145 ], [ 0, %150 ], [ 1, %156 ], [ 1, %98 ], [ 0, %.lr.ph.i24 ], [ 1, %167 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i27 ], [ 0, %117 ]
   ret i32 %.021
 }
 
@@ -2635,8 +2635,8 @@ skip_prefix.exit:                                 ; preds = %5, %.critedge.i
   br i1 %.not, label %skip_prefix.exit.thread, label %23
 
 skip_prefix.exit.thread:                          ; preds = %17, %12, %.critedge.i, %skip_prefix.exit
-  %.0915 = phi i64 [ %1, %skip_prefix.exit ], [ %3, %.critedge.i ], [ %3, %12 ], [ %3, %17 ]
-  %.01014 = phi ptr [ %0, %skip_prefix.exit ], [ %.015.lcssa.i, %.critedge.i ], [ %scevgep16.i, %12 ], [ %scevgep16.i, %17 ]
+  %.0915 = phi i64 [ %1, %skip_prefix.exit ], [ %3, %12 ], [ %3, %.critedge.i ], [ %3, %17 ]
+  %.01014 = phi ptr [ %0, %skip_prefix.exit ], [ %scevgep16.i, %12 ], [ %.015.lcssa.i, %.critedge.i ], [ %scevgep16.i, %17 ]
   %bcmp = tail call i32 @bcmp(ptr %.01014, ptr %2, i64 %.0915)
   %.not6 = icmp eq i32 %bcmp, 0
   %22 = zext i1 %.not6 to i32

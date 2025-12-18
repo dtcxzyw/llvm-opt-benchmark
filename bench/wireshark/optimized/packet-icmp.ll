@@ -2898,7 +2898,7 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph76, %.thread.critedge, %.preheader, %21, %46, %47, %42
-  %.2 = phi i32 [ %51, %47 ], [ %20, %46 ], [ %.pre, %.thread.critedge ], [ %45, %42 ], [ %31, %21 ], [ %20, %.preheader ], [ %36, %.lr.ph76 ], [ %40, %.lr.ph ]
+  %.2 = phi i32 [ %51, %47 ], [ %20, %46 ], [ %.pre, %.thread.critedge ], [ %45, %42 ], [ %36, %.lr.ph76 ], [ %31, %21 ], [ %20, %.preheader ], [ %40, %.lr.ph ]
   %58 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph79, label %.loopexit, !llvm.loop !16

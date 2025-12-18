@@ -6259,7 +6259,7 @@ common.resume:                                    ; preds = %434, %388, %347, %9
   br label %_ZN12regex_syntax7unicode10ClassQuery12canonicalize17h58ccff790773959eE.exit
 
 _ZN12regex_syntax7unicode15property_values17h55347afd8fff71b7E.exit.thread: ; preds = %125, %155, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i", %223, %215, %213, %205
-  %.sink.sink.i = phi i8 [ %222, %215 ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i" ], [ 1, %213 ], [ 1, %223 ], [ %212, %205 ], [ 1, %155 ], [ 0, %125 ]
+  %.sink.sink.i = phi i8 [ 1, %155 ], [ %222, %215 ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i" ], [ 1, %213 ], [ 1, %223 ], [ %212, %205 ], [ 0, %125 ]
   %232 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 %.sink.sink.i, ptr %232, align 8, !alias.scope !128, !noalias !131
   store i64 4, ptr %31, align 8, !alias.scope !128, !noalias !131
@@ -7856,9 +7856,9 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   br label %.outer.i
 
 .invoke:                                          ; preds = %50, %52, %35, %34
-  %62 = phi i64 [ 2, %35 ], [ 1, %34 ], [ %.0.ph38.i, %52 ], [ %.0.ph38.i, %50 ]
-  %63 = phi i64 [ 2, %35 ], [ 1, %34 ], [ %2, %52 ], [ %2, %50 ]
-  %64 = phi ptr [ @anon.ee024262027212e939cdd9996d089225.4539, %35 ], [ @anon.ee024262027212e939cdd9996d089225.4538, %34 ], [ @anon.ee024262027212e939cdd9996d089225.4543, %50 ], [ @anon.ee024262027212e939cdd9996d089225.4542, %52 ]
+  %62 = phi i64 [ 1, %34 ], [ 2, %35 ], [ %.0.ph38.i, %52 ], [ %.0.ph38.i, %50 ]
+  %63 = phi i64 [ 1, %34 ], [ 2, %35 ], [ %2, %52 ], [ %2, %50 ]
+  %64 = phi ptr [ @anon.ee024262027212e939cdd9996d089225.4538, %34 ], [ @anon.ee024262027212e939cdd9996d089225.4539, %35 ], [ @anon.ee024262027212e939cdd9996d089225.4543, %50 ], [ @anon.ee024262027212e939cdd9996d089225.4542, %52 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %62, i64 noundef %63, ptr noalias noundef readonly align 8 dereferenceable(24) %64) #23
           to label %.cont unwind label %87
 

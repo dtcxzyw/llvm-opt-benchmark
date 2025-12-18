@@ -1328,7 +1328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %2
   br i1 %278, label %273, label %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN15initSrcAndJointERKN2cv11_InputArrayES4_.exit.i, !llvm.loop !79
 
 _ZN12_GLOBAL__N_123AdaptiveManifoldFilterN15initSrcAndJointERKN2cv11_InputArrayES4_.exit.i: ; preds = %273, %147, %269, %258, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i, %123
-  %279 = phi i32 [ %246, %269 ], [ %.pre.i, %123 ], [ %143, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i ], [ %246, %258 ], [ %153, %147 ], [ %276, %273 ]
+  %279 = phi i32 [ %153, %147 ], [ %246, %269 ], [ %.pre.i, %123 ], [ %143, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i ], [ %246, %258 ], [ %276, %273 ]
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %282 = sext i32 %279 to i64

@@ -765,8 +765,8 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   resume { ptr, i32 } %50
 
 _ZNKSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIiEEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %49, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %49, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1319,9 +1319,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %76, %_ZNSt6vectorIi
   br i1 %131, label %106, label %._crit_edge112, !llvm.loop !82
 
 ._crit_edge112:                                   ; preds = %.loopexit, %106, %_ZNSt6vectorIiSaIiEE5clearEv.exit, %._crit_edge
-  %.sroa.19.1.lcssa172187 = phi ptr [ %.sroa.19.2, %._crit_edge ], [ %spec.select, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.19.2, %106 ], [ %.sroa.19.2, %.loopexit ]
-  %.sroa.26.1.lcssa174186 = phi ptr [ %.sroa.26.2, %._crit_edge ], [ %.sroa.26.0115, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.26.2, %106 ], [ %.sroa.26.2, %.loopexit ]
-  %.sroa.0.1.lcssa176185 = phi ptr [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.0116, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.0.2, %106 ], [ %.sroa.0.2, %.loopexit ]
+  %.sroa.19.1.lcssa172187 = phi ptr [ %spec.select, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.19.2, %._crit_edge ], [ %.sroa.19.2, %106 ], [ %.sroa.19.2, %.loopexit ]
+  %.sroa.26.1.lcssa174186 = phi ptr [ %.sroa.26.0115, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.26.2, %._crit_edge ], [ %.sroa.26.2, %106 ], [ %.sroa.26.2, %.loopexit ]
+  %.sroa.0.1.lcssa176185 = phi ptr [ %.sroa.0.0116, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.2, %106 ], [ %.sroa.0.2, %.loopexit ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge118, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !83

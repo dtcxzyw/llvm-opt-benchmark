@@ -557,7 +557,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit82
 
 .loopexit198:                                     ; preds = %166, %.noexc78, %160
-  %.pn.i.i = phi ptr [ %161, %160 ], [ %178, %.noexc78 ], [ %169, %166 ]
+  %.pn.i.i = phi ptr [ %178, %.noexc78 ], [ %161, %160 ], [ %169, %166 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   store i32 %150, ptr %.1.i.i, align 4, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1111,7 +1111,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body117
 
 .loopexit:                                        ; preds = %353, %.noexc116, %348
-  %.pn.i.i114 = phi ptr [ %349, %348 ], [ %364, %.noexc116 ], [ %355, %353 ]
+  %.pn.i.i114 = phi ptr [ %364, %.noexc116 ], [ %349, %348 ], [ %355, %353 ]
   %.1.i.i115 = getelementptr inbounds nuw i8, ptr %.pn.i.i114, i64 12
   %366 = load i32, ptr %.1.i.i115, align 4, !tbaa !5, !noalias !80
   %367 = load i32, ptr %14, align 4, !tbaa !5, !noalias !80

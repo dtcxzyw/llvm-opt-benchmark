@@ -117,7 +117,7 @@ _ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not144186, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tailrecurse.backedge.i.i, %41, %.lr.ph, %_ZN25AnsiColorSequenceIterator12NextSequenceEv.exit, %tailrecurse.backedge.i.i60, %70, %23, %_ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0.lcssa = phi i64 [ %24, %_ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %24, %23 ], [ %24, %41 ], [ %56, %70 ], [ %56, %tailrecurse.backedge.i.i60 ], [ %56, %.lr.ph ], [ %56, %_ZN25AnsiColorSequenceIterator12NextSequenceEv.exit ], [ %24, %tailrecurse.backedge.i.i ]
+  %.0.lcssa = phi i64 [ %24, %_ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %56, %.lr.ph ], [ %56, %70 ], [ %24, %23 ], [ %56, %tailrecurse.backedge.i.i60 ], [ %24, %41 ], [ %56, %_ZN25AnsiColorSequenceIterator12NextSequenceEv.exit ], [ %24, %tailrecurse.backedge.i.i ]
   %.not51 = icmp ugt i64 %.0.lcssa, %1
   br i1 %.not51, label %84, label %266
 
@@ -270,8 +270,8 @@ tailrecurse.backedge.i.i.i:                       ; preds = %113, %.lr.ph.i.i.i
   br label %_ZN25VisibleInputCharsIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN25VisibleInputCharsIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %tailrecurse.backedge.i.i.i, %109, %91, %120
-  %.sroa.23.2 = phi i64 [ 0, %91 ], [ %123, %120 ], [ 0, %109 ], [ 0, %tailrecurse.backedge.i.i.i ]
-  %.sroa.31.2 = phi i64 [ 0, %91 ], [ %125, %120 ], [ 0, %109 ], [ 0, %tailrecurse.backedge.i.i.i ]
+  %.sroa.23.2 = phi i64 [ 0, %91 ], [ 0, %109 ], [ %123, %120 ], [ 0, %tailrecurse.backedge.i.i.i ]
+  %.sroa.31.2 = phi i64 [ 0, %91 ], [ 0, %109 ], [ %125, %120 ], [ 0, %tailrecurse.backedge.i.i.i ]
   %126 = icmp eq i64 %92, 0
   %127 = icmp eq i64 %87, 0
   %or.cond190 = or i1 %126, %127
@@ -369,8 +369,8 @@ _ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i: ; preds = %15
   br label %_ZN25VisibleInputCharsIterator8NextCharEv.exit
 
 _ZN25VisibleInputCharsIterator8NextCharEv.exit:   ; preds = %tailrecurse.backedge.i.i.i74, %149, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i, %135, %.lr.ph195
-  %.sroa.23.4 = phi i64 [ %.sroa.23.0191, %.lr.ph195 ], [ %162, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i ], [ 0, %135 ], [ 0, %149 ], [ 0, %tailrecurse.backedge.i.i.i74 ]
-  %.sroa.31.3 = phi i64 [ %.sroa.31.0193, %.lr.ph195 ], [ %164, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i ], [ 0, %135 ], [ 0, %149 ], [ 0, %tailrecurse.backedge.i.i.i74 ]
+  %.sroa.23.4 = phi i64 [ %.sroa.23.0191, %.lr.ph195 ], [ %162, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i ], [ 0, %149 ], [ 0, %135 ], [ 0, %tailrecurse.backedge.i.i.i74 ]
+  %.sroa.31.3 = phi i64 [ %.sroa.31.0193, %.lr.ph195 ], [ %164, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i ], [ 0, %149 ], [ 0, %135 ], [ 0, %tailrecurse.backedge.i.i.i74 ]
   %165 = icmp uge i64 %133, %92
   %166 = icmp eq i64 %132, %87
   %or.cond = select i1 %165, i1 true, i1 %166
@@ -533,8 +533,8 @@ _ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i101: ; preds = 
   br label %_ZN25VisibleInputCharsIterator8NextCharEv.exit102
 
 _ZN25VisibleInputCharsIterator8NextCharEv.exit102: ; preds = %tailrecurse.backedge.i.i.i90, %216, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i101, %202, %197
-  %.sroa.23.6 = phi i64 [ %.sroa.23.1202, %197 ], [ %229, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i101 ], [ 0, %202 ], [ 0, %216 ], [ 0, %tailrecurse.backedge.i.i.i90 ]
-  %.sroa.31.4 = phi i64 [ %.sroa.31.1204, %197 ], [ %231, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i101 ], [ 0, %202 ], [ 0, %216 ], [ 0, %tailrecurse.backedge.i.i.i90 ]
+  %.sroa.23.6 = phi i64 [ %.sroa.23.1202, %197 ], [ %229, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i101 ], [ 0, %216 ], [ 0, %202 ], [ 0, %tailrecurse.backedge.i.i.i90 ]
+  %.sroa.31.4 = phi i64 [ %.sroa.31.1204, %197 ], [ %231, %_ZN25AnsiColorSequenceIterator20FindNextSequenceFromEPKc.exit.i.i101 ], [ 0, %216 ], [ 0, %202 ], [ 0, %tailrecurse.backedge.i.i.i90 ]
   %232 = icmp uge i64 %200, %92
   %233 = icmp eq i64 %199, %88
   %or.cond143 = select i1 %232, i1 true, i1 %233

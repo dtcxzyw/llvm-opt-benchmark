@@ -6445,7 +6445,7 @@ luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.ex
   unreachable
 
 lessequal.exit:                                   ; preds = %.fold.split.i31.i, %1084, %callTMres.exit401, %callTMres.exit397, %940, %.fold.split.i.i, %770, %l_strcmp.exit.i
-  %.0.i27.shrunk = phi i1 [ true, %callTMres.exit401 ], [ %773, %770 ], [ %798, %l_strcmp.exit.i ], [ true, %.fold.split.i.i ], [ false, %.fold.split.i31.i ], [ %.not150, %1084 ], [ false, %callTMres.exit397 ], [ %942, %940 ]
+  %.0.i27.shrunk = phi i1 [ false, %.fold.split.i31.i ], [ %773, %770 ], [ %798, %l_strcmp.exit.i ], [ false, %callTMres.exit397 ], [ true, %callTMres.exit401 ], [ %.not150, %1084 ], [ true, %.fold.split.i.i ], [ %942, %940 ]
   %.0.i27 = zext i1 %.0.i27.shrunk to i32
   %1089 = icmp eq i32 %67, %.0.i27
   br i1 %1089, label %1090, label %1096
@@ -7692,8 +7692,8 @@ luaD_growstack.exit:                              ; preds = %luaD_growstack.exit
   br i1 %1714, label %.lr.ph, label %.critedge.i.backedge
 
 .critedge.i.backedge:                             ; preds = %1727, %1504, %96, %1713, %1445, %158, %157, %luaC_step.exit72, %1506, %1423, %1400, %luaV_tonumber.exit58.thread, %1262, %1260, %1258, %1205, %1159, %1140, %1116, %1096, %735, %711, %524, %luaC_step.exit23, %469, %456, %451, %442, %430, %426, %417, %412, %390, %382, %360, %355, %333, %328, %306, %301, %279, %274, %239, %luaC_step.exit19, %164, %149, %144, %132, %126, %116, %110, %99, %87, %79, %71, %.critedge.i
-  %.0707.i.be = phi ptr [ %64, %71 ], [ %64, %79 ], [ %spec.select.i, %87 ], [ %64, %1258 ], [ %64, %99 ], [ %64, %110 ], [ %64, %116 ], [ %64, %126 ], [ %64, %164 ], [ %64, %luaC_step.exit19 ], [ %64, %239 ], [ %64, %132 ], [ %64, %274 ], [ %64, %301 ], [ %64, %328 ], [ %64, %355 ], [ %64, %382 ], [ %64, %412 ], [ %64, %442 ], [ %64, %426 ], [ %64, %luaC_step.exit23 ], [ %528, %524 ], [ %713, %711 ], [ %737, %735 ], [ %1098, %1096 ], [ %1117, %1116 ], [ %1141, %1140 ], [ %64, %451 ], [ %1360, %luaV_tonumber.exit58.thread ], [ %1401, %1400 ], [ %64, %158 ], [ %64, %1506 ], [ %.12719.i.lcssa, %luaC_step.exit72 ], [ %64, %.critedge.i ], [ %64, %149 ], [ %64, %144 ], [ %64, %279 ], [ %64, %306 ], [ %64, %333 ], [ %64, %360 ], [ %64, %390 ], [ %64, %417 ], [ %64, %430 ], [ %64, %469 ], [ %64, %456 ], [ %64, %1159 ], [ %64, %1205 ], [ %1266, %1262 ], [ %64, %1260 ], [ %.11718.i, %1423 ], [ %64, %157 ], [ %.11718.i, %1445 ], [ %64, %1713 ], [ %.11718.i, %1504 ], [ %64, %96 ], [ %64, %1727 ]
-  %.0703.i.be = phi ptr [ %.0703.i, %71 ], [ %.0703.i, %79 ], [ %.0703.i, %87 ], [ %.0703.i, %1258 ], [ %.0703.i, %99 ], [ %115, %110 ], [ %125, %116 ], [ %131, %126 ], [ %177, %164 ], [ %238, %luaC_step.exit19 ], [ %253, %239 ], [ %.0703.i, %132 ], [ %.0703.i, %274 ], [ %.0703.i, %301 ], [ %.0703.i, %328 ], [ %.0703.i, %355 ], [ %.0703.i, %382 ], [ %.0703.i, %412 ], [ %.0703.i, %442 ], [ %.0703.i, %426 ], [ %516, %luaC_step.exit23 ], [ %.0703.i, %524 ], [ %712, %711 ], [ %736, %735 ], [ %1097, %1096 ], [ %.0703.i, %1116 ], [ %.0703.i, %1140 ], [ %.0703.i, %451 ], [ %.0703.i, %luaV_tonumber.exit58.thread ], [ %1382, %1400 ], [ %.0703.i, %158 ], [ %.0703.i, %1506 ], [ %1678, %luaC_step.exit72 ], [ %.0703.i, %.critedge.i ], [ %.0703.i, %149 ], [ %.0703.i, %144 ], [ %280, %279 ], [ %307, %306 ], [ %334, %333 ], [ %361, %360 ], [ %391, %390 ], [ %418, %417 ], [ %431, %430 ], [ %470, %469 ], [ %.0703.i, %456 ], [ %1160, %1159 ], [ %1206, %1205 ], [ %.0703.i, %1262 ], [ %.0703.i, %1260 ], [ %.0703.i, %1423 ], [ %.0703.i, %157 ], [ %.0703.i, %1445 ], [ %.12.i, %1713 ], [ %.0703.i, %1504 ], [ %.0703.i, %96 ], [ %.12.i, %1727 ]
+  %.0707.i.be = phi ptr [ %64, %1713 ], [ %64, %71 ], [ %64, %79 ], [ %spec.select.i, %87 ], [ %64, %1258 ], [ %64, %99 ], [ %64, %110 ], [ %64, %116 ], [ %64, %126 ], [ %64, %1260 ], [ %64, %164 ], [ %64, %luaC_step.exit19 ], [ %64, %239 ], [ %64, %132 ], [ %64, %274 ], [ %64, %301 ], [ %64, %328 ], [ %64, %355 ], [ %64, %382 ], [ %64, %412 ], [ %64, %442 ], [ %64, %426 ], [ %64, %luaC_step.exit23 ], [ %528, %524 ], [ %713, %711 ], [ %737, %735 ], [ %1098, %1096 ], [ %1117, %1116 ], [ %1141, %1140 ], [ %64, %451 ], [ %.11718.i, %1445 ], [ %64, %157 ], [ %64, %96 ], [ %1360, %luaV_tonumber.exit58.thread ], [ %1401, %1400 ], [ %64, %158 ], [ %64, %1506 ], [ %.12719.i.lcssa, %luaC_step.exit72 ], [ %64, %.critedge.i ], [ %64, %149 ], [ %64, %144 ], [ %64, %279 ], [ %64, %306 ], [ %64, %333 ], [ %64, %360 ], [ %64, %390 ], [ %64, %417 ], [ %64, %430 ], [ %64, %469 ], [ %64, %456 ], [ %64, %1159 ], [ %1266, %1262 ], [ %64, %1205 ], [ %.11718.i, %1504 ], [ %.11718.i, %1423 ], [ %64, %1727 ]
+  %.0703.i.be = phi ptr [ %.12.i, %1713 ], [ %.0703.i, %71 ], [ %.0703.i, %79 ], [ %.0703.i, %87 ], [ %.0703.i, %1258 ], [ %.0703.i, %99 ], [ %115, %110 ], [ %125, %116 ], [ %131, %126 ], [ %.0703.i, %1260 ], [ %177, %164 ], [ %238, %luaC_step.exit19 ], [ %253, %239 ], [ %.0703.i, %132 ], [ %.0703.i, %274 ], [ %.0703.i, %301 ], [ %.0703.i, %328 ], [ %.0703.i, %355 ], [ %.0703.i, %382 ], [ %.0703.i, %412 ], [ %.0703.i, %442 ], [ %.0703.i, %426 ], [ %516, %luaC_step.exit23 ], [ %.0703.i, %524 ], [ %712, %711 ], [ %736, %735 ], [ %1097, %1096 ], [ %.0703.i, %1116 ], [ %.0703.i, %1140 ], [ %.0703.i, %451 ], [ %.0703.i, %1445 ], [ %.0703.i, %157 ], [ %.0703.i, %96 ], [ %.0703.i, %luaV_tonumber.exit58.thread ], [ %1382, %1400 ], [ %.0703.i, %158 ], [ %.0703.i, %1506 ], [ %1678, %luaC_step.exit72 ], [ %.0703.i, %.critedge.i ], [ %.0703.i, %149 ], [ %.0703.i, %144 ], [ %280, %279 ], [ %307, %306 ], [ %334, %333 ], [ %361, %360 ], [ %391, %390 ], [ %418, %417 ], [ %431, %430 ], [ %470, %469 ], [ %.0703.i, %456 ], [ %1160, %1159 ], [ %.0703.i, %1262 ], [ %1206, %1205 ], [ %.0703.i, %1504 ], [ %.0703.i, %1423 ], [ %.12.i, %1727 ]
   br label %.critedge.i
 
 .lr.ph:                                           ; preds = %1713
@@ -9457,7 +9457,7 @@ luaH_getnum.exit45.i:                             ; preds = %122, %118, %100
   br i1 %129, label %.lr.ph.i, label %unbound_search.exit, !llvm.loop !202
 
 unbound_search.exit:                              ; preds = %.lr.ph, %luaH_getnum.exit35.i, %luaH_getnum.exit45.i, %.preheader, %.preheader.i, %23
-  %.0 = phi i32 [ %3, %23 ], [ %.020.i, %.preheader.i ], [ 0, %.preheader ], [ %66, %luaH_getnum.exit35.i ], [ %.2..i, %luaH_getnum.exit45.i ], [ %.017., %.lr.ph ]
+  %.0 = phi i32 [ %3, %23 ], [ %.2..i, %luaH_getnum.exit45.i ], [ %66, %luaH_getnum.exit35.i ], [ %.020.i, %.preheader.i ], [ 0, %.preheader ], [ %.017., %.lr.ph ]
   ret i32 %.0
 }
 
@@ -9823,7 +9823,7 @@ luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.ex
   unreachable
 
 luaG_ordererror.exit:                             ; preds = %.fold.split.i, %198, %callTMres.exit, %l_strcmp.exit, %23
-  %.0 = phi i32 [ %197, %callTMres.exit ], [ %27, %23 ], [ %.lobit, %l_strcmp.exit ], [ 1, %.fold.split.i ], [ %201, %198 ]
+  %.0 = phi i32 [ 1, %.fold.split.i ], [ %27, %23 ], [ %.lobit, %l_strcmp.exit ], [ %197, %callTMres.exit ], [ %201, %198 ]
   ret i32 %.0
 }
 
@@ -10578,7 +10578,7 @@ mainposition.exit67:                              ; preds = %195, %.preheader.i.
   br label %luaH_set.exit
 
 luaH_set.exit:                                    ; preds = %mainposition.exit, %251, %248
-  %.044 = phi ptr [ %79, %251 ], [ %.0.i, %248 ], [ %.0.i, %mainposition.exit ]
+  %.044 = phi ptr [ %.0.i, %248 ], [ %79, %251 ], [ %.0.i, %mainposition.exit ]
   %255 = getelementptr inbounds nuw i8, ptr %.044, i64 16
   %256 = load i64, ptr %2, align 8, !tbaa !46
   store i64 %256, ptr %255, align 8, !tbaa !46
@@ -12214,7 +12214,7 @@ traversetable.exit.thread:                        ; preds = %58, %traversetable.
   br i1 %216, label %205, label %traverseclosure.exit, !llvm.loop !233
 
 traverseclosure.exit:                             ; preds = %190, %213, %.preheader.i, %201
-  %217 = phi i8 [ 0, %201 ], [ 0, %.preheader.i ], [ %214, %213 ], [ %191, %190 ]
+  %217 = phi i8 [ %214, %213 ], [ 0, %201 ], [ 0, %.preheader.i ], [ %191, %190 ]
   %218 = load i8, ptr %173, align 2, !tbaa !46
   %.not = icmp eq i8 %218, 0
   %219 = zext i8 %217 to i64
@@ -18911,7 +18911,7 @@ define internal fastcc void @luaL_typerror(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not.i.i, label %lua_typename.exit, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %37, %35, %25, %21, %15, %5
-  %.1.i.i = phi ptr [ %19, %15 ], [ %50, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ], [ %10, %5 ]
+  %.1.i.i = phi ptr [ %36, %35 ], [ %19, %15 ], [ %50, %37 ], [ %24, %21 ], [ %31, %25 ], [ %10, %5 ]
   %51 = icmp eq ptr %.1.i.i, @luaO_nilobject_
   br i1 %51, label %lua_typename.exit, label %lua_type.exit
 
@@ -24648,7 +24648,7 @@ luaZ_fill.exit194:                                ; preds = %691, %702
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %26, %599, %check_next.exit188, %724, %727, %630, %288, %245, %202, %159, %129, %130, %740, %677, %637, %read_string.exit, %302, %259, %216, %173
-  %.0 = phi i32 [ 284, %677 ], [ %27, %740 ], [ 46, %630 ], [ 278, %599 ], [ 280, %173 ], [ 61, %159 ], [ 282, %216 ], [ 60, %202 ], [ 281, %259 ], [ 62, %245 ], [ 283, %302 ], [ 286, %read_string.exit ], [ 285, %727 ], [ 126, %288 ], [ 284, %637 ], [ 91, %130 ], [ 286, %129 ], [ %726, %724 ], [ 279, %check_next.exit188 ], [ 287, %26 ], [ 45, %56 ]
+  %.0 = phi i32 [ 284, %677 ], [ 279, %check_next.exit188 ], [ %27, %740 ], [ 46, %630 ], [ 287, %26 ], [ 278, %599 ], [ 280, %173 ], [ 61, %159 ], [ 282, %216 ], [ 60, %202 ], [ 281, %259 ], [ 62, %245 ], [ 283, %302 ], [ 286, %read_string.exit ], [ 285, %727 ], [ 126, %288 ], [ 284, %637 ], [ 91, %130 ], [ 286, %129 ], [ %726, %724 ], [ 45, %56 ]
   ret i32 %.0
 }
 
@@ -39029,7 +39029,7 @@ read_number.exit:                                 ; preds = %133, %138
   unreachable
 
 145:                                              ; preds = %143, %141, %read_number.exit, %test_eof.exit, %119
-  %.4 = phi i32 [ %120, %119 ], [ %118, %test_eof.exit ], [ %.0.i, %read_number.exit ], [ %142, %141 ], [ 1, %143 ]
+  %.4 = phi i32 [ %120, %119 ], [ %118, %test_eof.exit ], [ 1, %143 ], [ %.0.i, %read_number.exit ], [ %142, %141 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = add nsw i32 %56, -1
   %147 = icmp ne i32 %56, 0
@@ -44243,7 +44243,7 @@ matchbracketclass.exit:                           ; preds = %145, %155, %157, %1
   br i1 %186, label %.lr.ph.i105, label %matchbracketclass.exit111, !llvm.loop !415
 
 matchbracketclass.exit111:                        ; preds = %171, %180, %182, %184
-  %.022.in.i102 = phi i1 [ %110, %184 ], [ %not..i, %180 ], [ %not..i, %182 ], [ %not..i, %171 ]
+  %.022.in.i102 = phi i1 [ %not..i, %171 ], [ %110, %184 ], [ %not..i, %180 ], [ %not..i, %182 ]
   br i1 %.022.in.i102, label %9, label %start_capture.exit
 
 187:                                              ; preds = %72
@@ -44823,7 +44823,7 @@ singlematch.exit184.thread:                       ; preds = %matchbracketclass.e
   br label %.outer.outer.backedge
 
 start_capture.exit:                               ; preds = %307, %448, %215, %check_capture.exit.i, %88, %86, %135, %matchbracketclass.exit, %matchbracketclass.exit111, %9, %100, %singlematch.exit184.thread, %singlematch.exit184, %407, %445, %414, %matchbracketclass.exit.i173.loopexit, %401, %403, %350, %352, %.preheader215, %356, %71, %capture_to_close.exit, %43, %36, %29, %21, %227
-  %.1 = phi ptr [ null, %matchbracketclass.exit111 ], [ %302, %.preheader215 ], [ null, %29 ], [ null, %43 ], [ %354, %352 ], [ %230, %227 ], [ null, %356 ], [ %27, %21 ], [ %41, %36 ], [ %69, %capture_to_close.exit ], [ null, %71 ], [ null, %matchbracketclass.exit.i173.loopexit ], [ null, %401 ], [ null, %100 ], [ null, %350 ], [ %405, %403 ], [ null, %414 ], [ null, %445 ], [ null, %407 ], [ null, %singlematch.exit184 ], [ %447, %singlematch.exit184.thread ], [ null, %matchbracketclass.exit ], [ %.075.ph.ph, %9 ], [ null, %135 ], [ %309, %307 ], [ null, %448 ], [ null, %215 ], [ null, %check_capture.exit.i ], [ null, %88 ], [ null, %86 ]
+  %.1 = phi ptr [ null, %100 ], [ null, %401 ], [ null, %29 ], [ null, %43 ], [ null, %matchbracketclass.exit111 ], [ %230, %227 ], [ %302, %.preheader215 ], [ null, %356 ], [ %27, %21 ], [ %41, %36 ], [ %69, %capture_to_close.exit ], [ null, %71 ], [ null, %matchbracketclass.exit.i173.loopexit ], [ %354, %352 ], [ null, %350 ], [ %405, %403 ], [ null, %414 ], [ null, %445 ], [ null, %407 ], [ null, %singlematch.exit184 ], [ %447, %singlematch.exit184.thread ], [ null, %matchbracketclass.exit ], [ %.075.ph.ph, %9 ], [ null, %135 ], [ %309, %307 ], [ null, %448 ], [ null, %215 ], [ null, %check_capture.exit.i ], [ null, %88 ], [ null, %86 ]
   ret ptr %.1
 }
 

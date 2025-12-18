@@ -450,8 +450,8 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
   br label %.critedge4
 
 .critedge4:                                       ; preds = %33, %.lr.ph158, %.critedge, %.preheader, %.critedge88, %_ZSt4findIPKccET_S2_S2_RKT0_.exit
-  %.278 = phi i32 [ %spec.select, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ 0, %.critedge88 ], [ 0, %.preheader ], [ 0, %.critedge ], [ %.177155, %.lr.ph158 ], [ %indvars.iv, %33 ]
-  %.275 = phi ptr [ %.073.lcssa, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ %.073.lcssa, %.critedge88 ], [ %24, %.preheader ], [ %2, %.critedge ], [ %.174157, %.lr.ph158 ], [ %scevgep208, %33 ]
+  %.278 = phi i32 [ 0, %.critedge88 ], [ %spec.select, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ 0, %.preheader ], [ 0, %.critedge ], [ %.177155, %.lr.ph158 ], [ %indvars.iv, %33 ]
+  %.275 = phi ptr [ %.073.lcssa, %.critedge88 ], [ %.073.lcssa, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ %24, %.preheader ], [ %2, %.critedge ], [ %.174157, %.lr.ph158 ], [ %scevgep208, %33 ]
   %77 = icmp ne ptr %.0.lcssa, %.275
   %78 = icmp sgt i32 %3, 0
   %79 = and i1 %77, %78
@@ -2751,8 +2751,8 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
   br label %.critedge4
 
 .critedge4:                                       ; preds = %33, %.lr.ph158, %.critedge, %.preheader, %.critedge88, %_ZSt4findIPKccET_S2_S2_RKT0_.exit
-  %.278 = phi i32 [ %spec.select, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ 0, %.critedge88 ], [ 0, %.preheader ], [ 0, %.critedge ], [ %.177155, %.lr.ph158 ], [ %indvars.iv, %33 ]
-  %.275 = phi ptr [ %.073.lcssa, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ %.073.lcssa, %.critedge88 ], [ %24, %.preheader ], [ %2, %.critedge ], [ %.174157, %.lr.ph158 ], [ %scevgep208, %33 ]
+  %.278 = phi i32 [ 0, %.critedge88 ], [ %spec.select, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ 0, %.preheader ], [ 0, %.critedge ], [ %.177155, %.lr.ph158 ], [ %indvars.iv, %33 ]
+  %.275 = phi ptr [ %.073.lcssa, %.critedge88 ], [ %.073.lcssa, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ %24, %.preheader ], [ %2, %.critedge ], [ %.174157, %.lr.ph158 ], [ %scevgep208, %33 ]
   %77 = icmp ne ptr %.0.lcssa, %.275
   %78 = icmp sgt i32 %3, 0
   %79 = and i1 %77, %78

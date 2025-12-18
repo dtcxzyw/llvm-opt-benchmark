@@ -2010,12 +2010,12 @@ define internal fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef nonnu
   br label %43
 
 43:                                               ; preds = %41, %39, %35, %18, %16, %14, %12
-  %44 = phi i32 [ %42, %41 ], [ %40, %39 ], [ %36, %35 ], [ %13, %12 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %44 = phi i32 [ %42, %41 ], [ %40, %39 ], [ %17, %16 ], [ %36, %35 ], [ %15, %14 ], [ %13, %12 ], [ %19, %18 ]
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.thread, label %.thread5, !prof !50
 
-.thread5:                                         ; preds = %2, %30, %43
-  %46 = phi i32 [ %44, %43 ], [ -95, %2 ], [ %21, %30 ]
+.thread5:                                         ; preds = %30, %2, %43
+  %46 = phi i32 [ %44, %43 ], [ %21, %30 ], [ -95, %2 ]
   %47 = getelementptr i8, ptr %0, i64 -1248
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null

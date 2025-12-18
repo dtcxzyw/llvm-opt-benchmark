@@ -477,7 +477,7 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
   br label %57
 
 53:                                               ; preds = %17, %21, %23
-  %.0 = phi i32 [ 102, %17 ], [ 115, %21 ], [ 226, %23 ]
+  %.0 = phi i32 [ 226, %23 ], [ 102, %17 ], [ 115, %21 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @__func__.d2i_ASN1_UINTEGER) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.0, ptr noundef null) #6

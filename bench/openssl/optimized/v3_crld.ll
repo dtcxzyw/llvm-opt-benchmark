@@ -263,8 +263,8 @@ crldp_from_section.exit:                          ; preds = %16, %27, %34, %41
   br i1 %exitcond.not, label %.loopexit67, label %.lr.ph, !llvm.loop !23
 
 .split44:                                         ; preds = %51, %12, %69, %64, %57, %60, %crldp_from_section.exit, %.split
-  %.242.ph.sink = phi ptr [ null, %.split ], [ null, %69 ], [ null, %64 ], [ %52, %57 ], [ %52, %60 ], [ null, %crldp_from_section.exit ], [ null, %12 ], [ null, %51 ]
-  %.2.ph.sink = phi ptr [ null, %.split ], [ %55, %69 ], [ %55, %64 ], [ null, %57 ], [ %55, %60 ], [ null, %crldp_from_section.exit ], [ null, %12 ], [ null, %51 ]
+  %.242.ph.sink = phi ptr [ null, %.split ], [ null, %crldp_from_section.exit ], [ null, %69 ], [ null, %64 ], [ %52, %57 ], [ %52, %60 ], [ null, %12 ], [ null, %51 ]
+  %.2.ph.sink = phi ptr [ null, %.split ], [ null, %crldp_from_section.exit ], [ %55, %69 ], [ %55, %64 ], [ null, %57 ], [ %55, %60 ], [ null, %12 ], [ null, %51 ]
   tail call void @GENERAL_NAME_free(ptr noundef %.242.ph.sink) #5
   tail call void @GENERAL_NAMES_free(ptr noundef %.2.ph.sink) #5
   tail call void @OPENSSL_sk_pop_free(ptr noundef %5, ptr noundef nonnull @DIST_POINT_free) #5
@@ -1449,7 +1449,7 @@ define internal fastcc range(i32 0, 2) i32 @set_reasons(ptr noundef nonnull capt
   br i1 %.not24, label %.thread, label %23, !llvm.loop !59
 
 .thread:                                          ; preds = %18, %28, %9, %31, %.preheader, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %.preheader ], [ 0, %31 ], [ 0, %18 ], [ 0, %28 ], [ 1, %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %31 ], [ 1, %.preheader ], [ 0, %18 ], [ 0, %28 ], [ 1, %9 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %3, ptr noundef nonnull @X509V3_conf_free) #5
   br label %35
 

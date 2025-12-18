@@ -5308,7 +5308,7 @@ Vec_IntGrow.exit.i.i109:                          ; preds = %1086, %1084
   br label %.backedge
 
 .thread:                                          ; preds = %39, %.critedge.i98, %975
-  %.2.ph = phi i8 [ 0, %975 ], [ 1, %.critedge.i98 ], [ -1, %39 ]
+  %.2.ph = phi i8 [ 1, %.critedge.i98 ], [ 0, %975 ], [ -1, %39 ]
   ret i8 %.2.ph
 }
 

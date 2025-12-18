@@ -1743,7 +1743,7 @@ _ZL11IS_CHEMBONDi.exit949:                        ; preds = %_ZL13gmx_snew_implI
   br i1 %exitcond1796.not, label %_ZL11IS_CHEMBONDi.exit949.thread, label %.preheader1459, !llvm.loop !90
 
 _ZL11IS_CHEMBONDi.exit949.thread:                 ; preds = %._crit_edge1555.thread, %632, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit948.preheader, %_ZL11IS_CHEMBONDi.exit949
-  %.4709 = phi i32 [ %.17061562, %_ZL11IS_CHEMBONDi.exit949 ], [ %.17061562, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit948.preheader ], [ %.17061562, %632 ], [ %.3708, %._crit_edge1555.thread ]
+  %.4709 = phi i32 [ %.17061562, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit948.preheader ], [ %.17061562, %_ZL11IS_CHEMBONDi.exit949 ], [ %.17061562, %632 ], [ %.3708, %._crit_edge1555.thread ]
   %indvars.iv.next1798 = add nuw nsw i64 %indvars.iv1797, 1
   %exitcond1800.not = icmp eq i64 %indvars.iv.next1798, 95
   br i1 %exitcond1800.not, label %669, label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit948.preheader, !llvm.loop !91
@@ -2645,11 +2645,11 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972:      ; preds = %.lr.ph1593
   br i1 %exitcond1850.not, label %.loopexit1422, label %.lr.ph1593, !llvm.loop !109
 
 .loopexit1422:                                    ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge, %._crit_edge1589
-  %.01398 = phi ptr [ %1005, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ null, %._crit_edge1589 ], [ %1005, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %1005, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
-  %.01395 = phi ptr [ null, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ null, %._crit_edge1589 ], [ %1012, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %1012, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
-  %.0766 = phi float [ %.1767, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ 0.000000e+00, %._crit_edge1589 ], [ %.1767, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %.1767, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
-  %.0765 = phi float [ %1003, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ 0.000000e+00, %._crit_edge1589 ], [ %1003, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %1003, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
-  %.0763 = phi i32 [ %.1764, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ 0, %._crit_edge1589 ], [ %.1764, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %.1764, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
+  %.01398 = phi ptr [ null, %._crit_edge1589 ], [ %1005, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ %1005, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %1005, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
+  %.01395 = phi ptr [ null, %._crit_edge1589 ], [ null, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ %1012, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %1012, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
+  %.0766 = phi float [ 0.000000e+00, %._crit_edge1589 ], [ %.1767, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ %.1767, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %.1767, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
+  %.0765 = phi float [ 0.000000e+00, %._crit_edge1589 ], [ %1003, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ %1003, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %1003, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
+  %.0763 = phi i32 [ 0, %._crit_edge1589 ], [ %.1764, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit968._crit_edge ], [ %.1764, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972.preheader ], [ %.1764, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit972 ]
   %1016 = load i8, ptr @_ZZ7gmx_rmsiPPcE7bFitAll, align 1, !tbaa !30, !range !34, !noundef !35
   %1017 = trunc nuw i8 %1016 to i1
   br i1 %1017, label %1018, label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit976

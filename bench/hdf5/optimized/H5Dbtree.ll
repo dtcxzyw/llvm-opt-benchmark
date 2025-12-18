@@ -571,7 +571,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr noundef r
   br label %22
 
 22:                                               ; preds = %.sink.split, %14, %2
-  %.0 = phi i32 [ 0, %14 ], [ 0, %2 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %14 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1247,7 +1247,7 @@ H5VM_vector_cmp_u.exit33.thread:                  ; preds = %52, %H5VM_vector_cm
   br label %H5VM_vector_cmp_u.exit33
 
 H5VM_vector_cmp_u.exit33:                         ; preds = %40, %.lr.ph.i27, %H5VM_vector_cmp_u.exit.thread35, %35, %31, %H5VM_vector_cmp_u.exit33.thread, %28, %23, %17, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %17 ], [ 1, %23 ], [ %spec.select, %28 ], [ 0, %H5VM_vector_cmp_u.exit33.thread ], [ -1, %H5VM_vector_cmp_u.exit.thread35 ], [ 1, %31 ], [ 1, %35 ], [ -1, %.lr.ph.i27 ], [ 1, %40 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %17 ], [ 1, %23 ], [ -1, %.lr.ph.i27 ], [ %spec.select, %28 ], [ 0, %H5VM_vector_cmp_u.exit33.thread ], [ 1, %35 ], [ -1, %H5VM_vector_cmp_u.exit.thread35 ], [ 1, %31 ], [ 1, %40 ]
   ret i32 %.0
 }
 
@@ -1423,7 +1423,7 @@ H5D__btree_cmp3.exit.thread50:                    ; preds = %.lr.ph.i27.i, %H5VM
   %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 533, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.25) #15
   br label %113
 
-H5D__btree_cmp3.exit.thread:                      ; preds = %43, %55, %H5VM_vector_cmp_u.exit.i, %H5VM_vector_cmp_u.exit.thread35.i, %38, %34, %29, %23, %H5D__btree_cmp3.exit
+H5D__btree_cmp3.exit.thread:                      ; preds = %43, %55, %H5VM_vector_cmp_u.exit.i, %H5VM_vector_cmp_u.exit.thread35.i, %34, %38, %29, %23, %H5D__btree_cmp3.exit
   %not..i = xor i1 %11, true
   %.not18.i = select i1 %not..i, i1 %13, i1 false
   %65 = icmp eq ptr %22, %2

@@ -3458,7 +3458,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   br i1 %129, label %.lr.ph98, label %.critedge4, !llvm.loop !76
 
 .critedge4:                                       ; preds = %126, %84, %.preheader79, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader79 ], [ %.1, %84 ], [ %spec.select63, %126 ]
+  %.2 = phi i32 [ %.1, %84 ], [ 0, %.preheader ], [ 0, %.preheader79 ], [ %spec.select63, %126 ]
   ret i32 %.2
 }
 
@@ -12691,7 +12691,7 @@ Abc_ObjFanin0Ntk.exit78:                          ; preds = %83, %97
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge42, %.loopexit.sink.split, %.critedge42.preheader
-  %.3 = phi i32 [ 1, %.critedge42.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %.critedge42 ]
+  %.3 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.critedge42.preheader ], [ 1, %.critedge42 ]
   ret i32 %.3
 }
 

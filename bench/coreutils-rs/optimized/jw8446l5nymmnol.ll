@@ -528,9 +528,9 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br label %.invoke
 
 .invoke:                                          ; preds = %142, %139, %190, %.preheader.i, %161, %209
-  %211 = phi i64 [ %umax.i.i, %209 ], [ %173, %.preheader.i ], [ %umax.i16.i, %161 ], [ %192, %190 ], [ %143, %142 ], [ %140, %139 ]
-  %212 = phi i64 [ %106, %209 ], [ %110, %.preheader.i ], [ %106, %161 ], [ %106, %190 ], [ %106, %142 ], [ %110, %139 ]
-  %213 = phi ptr [ @anon.1418e07ae873e8734a21399b9290cd0e.12, %209 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.9, %.preheader.i ], [ @anon.1418e07ae873e8734a21399b9290cd0e.12, %161 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.10, %190 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.10, %142 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.9, %139 ]
+  %211 = phi i64 [ %umax.i.i, %209 ], [ %173, %.preheader.i ], [ %192, %190 ], [ %umax.i16.i, %161 ], [ %140, %139 ], [ %143, %142 ]
+  %212 = phi i64 [ %106, %209 ], [ %110, %.preheader.i ], [ %106, %190 ], [ %106, %161 ], [ %110, %139 ], [ %106, %142 ]
+  %213 = phi ptr [ @anon.1418e07ae873e8734a21399b9290cd0e.12, %209 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.9, %.preheader.i ], [ @anon.1418e07ae873e8734a21399b9290cd0e.10, %190 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.12, %161 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.9, %139 ], [ @anon.1418e07ae873e8734a21399b9290cd0e.10, %142 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %211, i64 noundef %212, ptr noalias noundef readonly align 8 dereferenceable(24) %213) #12
           to label %.cont unwind label %226
 
@@ -574,7 +574,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br label %229
 
 .loopexit:                                        ; preds = %_ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i, %.preheader4.i, %.preheader.i.us, %.preheader.i, %.thread.i.i.i
-  %.sroa.6.3.i = phi i64 [ %89, %.thread.i.i.i ], [ %175, %.preheader.i ], [ %122, %.preheader4.i ], [ %175, %.preheader.i.us ], [ %40, %_ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i ]
+  %.sroa.6.3.i = phi i64 [ %175, %.preheader.i ], [ %89, %.thread.i.i.i ], [ %122, %.preheader4.i ], [ %175, %.preheader.i.us ], [ %40, %_ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !36
   %228 = icmp ult i64 %.sroa.6.3.i, 2
   br i1 %228, label %285, label %229

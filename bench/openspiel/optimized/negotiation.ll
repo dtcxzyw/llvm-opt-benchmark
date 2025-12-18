@@ -15083,7 +15083,7 @@ _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %.preheader51, %214, %216
-  %.0 = phi i32 [ %217, %216 ], [ 2147483647, %214 ], [ 0, %.preheader51 ], [ %.1, %146 ]
+  %.0 = phi i32 [ 2147483647, %214 ], [ %217, %216 ], [ 0, %.preheader51 ], [ %.1, %146 ]
   ret i32 %.0
 }
 

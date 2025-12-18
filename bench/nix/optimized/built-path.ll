@@ -3938,7 +3938,7 @@ define linkonce_odr i8 @_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_
   %10 = load i8, ptr %9, align 8
   switch i8 %10, label %30 [
     i8 0, label %11
-    i8 1, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit
+    i8 1, label %28
     i8 -1, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit.thread17
   ]
 
@@ -3946,7 +3946,7 @@ define linkonce_odr i8 @_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i, label %28
+  br i1 %14, label %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit
 
 _ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3978,8 +3978,10 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11ch
   %27 = icmp slt i32 %22, 0
   br i1 %27, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit.thread, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit.thread17
 
-28:                                               ; preds = %11
-  %29 = icmp eq i8 %13, -1
+28:                                               ; preds = %3
+  call void @_ZZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_ENUlOT_T0_E_clIRKS2_St17integral_constantImLm1EEEEDaSA_SB_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.pre.i = load i8, ptr %6, align 1
+  %29 = trunc i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %29, label %57, label %32
@@ -3997,10 +3999,8 @@ _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %32
 
-_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit: ; preds = %3
-  call void @_ZZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_ENUlOT_T0_E_clIRKS2_St17integral_constantImLm1EEEEDaSA_SB_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(81) %2)
-  %.pre.i = load i8, ptr %6, align 1
-  %31 = trunc i8 %.pre.i to i1
+_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit: ; preds = %11
+  %31 = icmp eq i8 %13, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %31, label %57, label %32
@@ -4016,7 +4016,7 @@ _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT
   %35 = load i8, ptr %34, align 8
   switch i8 %35, label %54 [
     i8 0, label %36
-    i8 1, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15
+    i8 1, label %52
     i8 -1, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15.thread20
   ]
 
@@ -4024,7 +4024,7 @@ _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT
   %37 = load i8, ptr %9, align 8
   %.fr = freeze i8 %37
   %38 = icmp eq i8 %.fr, 0
-  br i1 %38, label %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i7, label %52
+  br i1 %38, label %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i7, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15
 
 _ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i7: ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4056,8 +4056,11 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i11: ; preds = %_ZNSt11
   %51 = icmp slt i32 %46, 0
   br i1 %51, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15.thread, label %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15.thread20
 
-52:                                               ; preds = %36
-  %53 = icmp eq i8 %.fr, -1
+52:                                               ; preds = %32
+  call void @_ZZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_ENUlOT_T0_E_clIRKS2_St17integral_constantImLm1EEEEDaSA_SB_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(81) %1)
+  %.pre.i6 = load i8, ptr %4, align 1
+  %.pre.i6.fr = freeze i8 %.pre.i6
+  %53 = trunc i8 %.pre.i6.fr to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %53, label %56, label %57
@@ -4075,11 +4078,8 @@ _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
-_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15: ; preds = %32
-  call void @_ZZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_ENUlOT_T0_E_clIRKS2_St17integral_constantImLm1EEEEDaSA_SB_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(81) %1)
-  %.pre.i6 = load i8, ptr %4, align 1
-  %.pre.i6.fr = freeze i8 %.pre.i6
-  %55 = trunc i8 %.pre.i6.fr to i1
+_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15: ; preds = %36
+  %55 = icmp eq i8 %.fr, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %55, label %56, label %57
@@ -7333,8 +7333,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.threa
   br label %131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %.backedge
-  %.083.lcssa = phi i64 [ %.083.be, %.backedge ], [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
-  %.lcssa = phi i64 [ %64, %.backedge ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.083.lcssa = phi i64 [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083.be, %.backedge ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.lcssa = phi i64 [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %64, %.backedge ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
   %125 = icmp eq i64 %indvars.iv, 0
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %127 = load ptr, ptr %0, align 8
@@ -7962,7 +7962,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %18 ], [ -1, %20 ], [ -1, %49 ], [ -1, %13 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -8410,7 +8410,7 @@ _ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__
   br i1 %59, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !141
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %.outer, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %37, %4, %29
-  %.131 = phi i32 [ %30, %29 ], [ 0, %4 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
+  %.131 = phi i32 [ %30, %29 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ 0, %4 ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
   ret i32 %.131
 }
 

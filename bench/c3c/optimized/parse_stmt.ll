@@ -5361,7 +5361,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph169, !llvm.loop !19
 
 .loopexit:                                        ; preds = %145, %76, %137, %._crit_edge
-  %.0112.lcssa195 = phi ptr [ %133, %._crit_edge ], [ %133, %137 ], [ %79, %76 ], [ %133, %145 ]
+  %.0112.lcssa195 = phi ptr [ %79, %76 ], [ %133, %._crit_edge ], [ %133, %137 ], [ %133, %145 ]
   store ptr %.0112.lcssa195, ptr %14, align 8
   store i8 16, ptr %6, align 4
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 56

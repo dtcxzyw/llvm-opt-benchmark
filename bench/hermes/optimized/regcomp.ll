@@ -4969,8 +4969,8 @@ p_b_term.exit.loopexit:                           ; preds = %for.body.i155
   br label %p_b_term.exit
 
 p_b_term.exit:                                    ; preds = %p_b_term.exit.loopexit, %cond.true66.i, %cond.true130.i
-  %132 = phi ptr [ %.pre375, %p_b_term.exit.loopexit ], [ %94, %cond.true66.i ], [ %116, %cond.true130.i ]
-  %133 = phi ptr [ %.pre, %p_b_term.exit.loopexit ], [ %add.ptr68.i, %cond.true66.i ], [ %add.ptr132.i, %cond.true130.i ]
+  %132 = phi ptr [ %.pre375, %p_b_term.exit.loopexit ], [ %116, %cond.true130.i ], [ %94, %cond.true66.i ]
+  %133 = phi ptr [ %.pre, %p_b_term.exit.loopexit ], [ %add.ptr132.i, %cond.true130.i ], [ %add.ptr68.i, %cond.true66.i ]
   %cmp79 = icmp ult ptr %133, %132
   br i1 %cmp79, label %land.lhs.true81, label %if.end133, !llvm.loop !28
 
@@ -5539,8 +5539,8 @@ for.inc45.us38.i:                                 ; preds = %for.body.us32.i
   br i1 %cmp.us40.i, label %for.body.us32.i, label %freezeset.exit, !llvm.loop !35
 
 if.then49.i:                                      ; preds = %for.end.us.i, %for.inc.us.i, %for.body.us32.i
-  %arrayidx.i264441444 = phi ptr [ %arrayidx.i264439, %for.inc.us.i ], [ %arrayidx.i264, %for.body.us32.i ], [ %arrayidx.i264439, %for.end.us.i ]
-  %.us-phi.i = phi ptr [ %cs2.031.us.i, %for.inc.us.i ], [ %cs2.031.us33.i, %for.body.us32.i ], [ %cs2.031.us.i, %for.end.us.i ]
+  %arrayidx.i264441444 = phi ptr [ %arrayidx.i264, %for.body.us32.i ], [ %arrayidx.i264439, %for.inc.us.i ], [ %arrayidx.i264439, %for.end.us.i ]
+  %.us-phi.i = phi ptr [ %cs2.031.us33.i, %for.body.us32.i ], [ %cs2.031.us.i, %for.inc.us.i ], [ %cs2.031.us.i, %for.end.us.i ]
   br i1 %cmp1.not.i195, label %for.end.i.i, label %for.body.i.i268
 
 for.body.i.i268:                                  ; preds = %if.then49.i, %for.body.i.i268
@@ -5580,8 +5580,8 @@ if.then.i.i271:                                   ; preds = %for.end.i.i
   br label %freezeset.exit
 
 freezeset.exit:                                   ; preds = %for.inc45.us.i, %for.inc45.us38.i, %if.else275.thread, %if.else275, %for.end.i.i, %if.then.i.i271
-  %238 = phi ptr [ %.pre50.i, %for.end.i.i ], [ %.pre.i272, %if.then.i.i271 ], [ %p.val, %if.else275 ], [ %p.val, %if.else275.thread ], [ %p.val, %for.inc45.us38.i ], [ %p.val, %for.inc45.us.i ]
-  %cs.addr.0.i = phi ptr [ %.us-phi.i, %for.end.i.i ], [ %.us-phi.i, %if.then.i.i271 ], [ %arrayidx53.i, %if.else275 ], [ %arrayidx53.i, %if.else275.thread ], [ %arrayidx53.i, %for.inc45.us38.i ], [ %arrayidx53.i, %for.inc45.us.i ]
+  %238 = phi ptr [ %.pre.i272, %if.then.i.i271 ], [ %.pre50.i, %for.end.i.i ], [ %p.val, %if.else275.thread ], [ %p.val, %if.else275 ], [ %p.val, %for.inc45.us38.i ], [ %p.val, %for.inc45.us.i ]
+  %cs.addr.0.i = phi ptr [ %.us-phi.i, %if.then.i.i271 ], [ %.us-phi.i, %for.end.i.i ], [ %arrayidx53.i, %if.else275.thread ], [ %arrayidx53.i, %if.else275 ], [ %arrayidx53.i, %for.inc45.us38.i ], [ %arrayidx53.i, %for.inc45.us.i ]
   %sets52.i = getelementptr inbounds nuw i8, ptr %238, i64 24
   %239 = load ptr, ptr %sets52.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cs.addr.0.i to i64

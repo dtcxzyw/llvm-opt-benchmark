@@ -1432,8 +1432,8 @@ _ZN4llvm11SmallVectorIcLj1024EED2Ev.exit:         ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not, label %_ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit, label %36, !llvm.loop !124
 
 _ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit: ; preds = %.critedge, %21, %17, %9
-  %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload.i, %17 ], [ 0, %9 ], [ 0, %21 ], [ %.sroa.4.2, %.critedge ]
-  %.sroa.056.0 = phi ptr [ %.sroa.06.0.copyload.i, %17 ], [ null, %9 ], [ null, %21 ], [ %.sroa.056.2, %.critedge ]
+  %.sroa.4.0 = phi i64 [ 0, %9 ], [ %.sroa.4.0.copyload.i, %17 ], [ 0, %21 ], [ %.sroa.4.2, %.critedge ]
+  %.sroa.056.0 = phi ptr [ null, %9 ], [ %.sroa.06.0.copyload.i, %17 ], [ null, %21 ], [ %.sroa.056.2, %.critedge ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.056.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert

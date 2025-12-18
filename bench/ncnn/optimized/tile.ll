@@ -1157,7 +1157,7 @@ define internal void @_ZNK4ncnn4Tile7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   br i1 %97, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !59
 
 .noexc147:                                        ; preds = %._crit_edge332, %.preheader323, %.preheader322
-  %98 = phi i32 [ %45, %.preheader322 ], [ %33, %.preheader323 ], [ %157, %._crit_edge332 ]
+  %98 = phi i32 [ %33, %.preheader323 ], [ %45, %.preheader322 ], [ %157, %._crit_edge332 ]
   %99 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !60
   %100 = load i64, ptr %30, align 8, !tbaa !17, !noalias !60
   %101 = mul i64 %100, %indvars.iv350

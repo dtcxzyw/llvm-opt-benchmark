@@ -522,7 +522,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %321, %336, %300, %221, %343
-  %344 = phi double [ %storemerge, %343 ], [ %205, %221 ], [ %storemerge, %300 ], [ %storemerge, %336 ], [ %storemerge, %321 ]
+  %344 = phi double [ %storemerge, %300 ], [ %storemerge, %343 ], [ %205, %221 ], [ %storemerge, %336 ], [ %storemerge, %321 ]
   br i1 %188, label %347, label %345
 
 345:                                              ; preds = %.loopexit

@@ -156,7 +156,7 @@ encode_string_as_pointer.exit:                    ; preds = %38
   br i1 %.not, label %cJSONUtils_strdup.exit, label %.lr.ph
 
 cJSONUtils_strdup.exit:                           ; preds = %49, %11, %16, %encode_string_as_pointer.exit, %48, %10, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ %8, %10 ], [ null, %7 ], [ null, %48 ], [ %36, %encode_string_as_pointer.exit ], [ %19, %16 ], [ null, %11 ], [ null, %49 ]
+  %.0 = phi ptr [ null, %2 ], [ %19, %16 ], [ %8, %10 ], [ null, %7 ], [ null, %48 ], [ %36, %encode_string_as_pointer.exit ], [ null, %11 ], [ null, %49 ]
   ret ptr %.0
 }
 
@@ -396,7 +396,7 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br i1 %.not32, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %31, %.backedge, %.critedge.i41.thr_comm, %.critedge.i41, %.critedge.i41, %38
-  %.2 = phi ptr [ null, %38 ], [ %.355, %.critedge.i41 ], [ %.355, %.critedge.i41.thr_comm ], [ null, %.backedge ], [ %.355, %.critedge.i41 ], [ %.0.i, %31 ]
+  %.2 = phi ptr [ %.355, %.critedge.i41 ], [ null, %38 ], [ %.355, %.critedge.i41.thr_comm ], [ null, %.backedge ], [ %.355, %.critedge.i41 ], [ %.0.i, %31 ]
   br label %75
 
 75:                                               ; preds = %77, %.critedge
@@ -1948,7 +1948,7 @@ compare_strings.exit.thread:                      ; preds = %104, %compare_strin
   br label %.thread
 
 .thread:                                          ; preds = %compare_strings.exit.thread, %compare_strings.exit, %97, %compare_strings.exit.thread.us, %59, %.preheader.i.us, %81, %47, %22, %13, %.split, %.split85.us, %49, %34, %17, %3, %6
-  %.049.shrunk = phi i1 [ false, %6 ], [ %not.or.cond5, %.split85.us ], [ false, %3 ], [ true, %13 ], [ %.not61, %34 ], [ false, %17 ], [ %not.or.cond3, %49 ], [ %33, %22 ], [ true, %.split ], [ false, %compare_strings.exit.thread.us ], [ false, %47 ], [ false, %81 ], [ false, %.preheader.i.us ], [ false, %59 ], [ false, %97 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
+  %.049.shrunk = phi i1 [ false, %6 ], [ %not.or.cond5, %.split85.us ], [ false, %3 ], [ true, %13 ], [ %.not61, %34 ], [ false, %17 ], [ false, %compare_strings.exit.thread.us ], [ %not.or.cond3, %49 ], [ %33, %22 ], [ true, %.split ], [ false, %47 ], [ false, %81 ], [ false, %.preheader.i.us ], [ false, %59 ], [ false, %97 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
   %.049 = zext i1 %.049.shrunk to i32
   ret i32 %.049
 }
@@ -2471,7 +2471,7 @@ compare_strings.exit94:                           ; preds = %84, %._crit_edge.i8
   br label %compare_strings.exit94.thread
 
 compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compare_strings.exit94, %.lr.ph
-  %102 = phi ptr [ %spec.select, %compare_strings.exit94 ], [ %.170108, %.lr.ph ], [ %.170108, %.lr.ph.i91 ]
+  %102 = phi ptr [ %.170108, %.lr.ph ], [ %spec.select, %compare_strings.exit94 ], [ %.170108, %.lr.ph.i91 ]
   %103 = icmp eq ptr %.065111, null
   br i1 %103, label %106, label %104
 

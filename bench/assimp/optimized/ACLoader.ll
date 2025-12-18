@@ -2734,7 +2734,7 @@ _ZNSt6vectorIN6Assimp12AC3DImporter7SurfaceESaIS2_EE12emplace_backIJEEERS2_DpOT_
   br i1 %or.cond.i15.i, label %_ZN6Assimp16strtoul_cppstyleEPKcPS1_.exit, label %.lr.ph.i11.i, !llvm.loop !8
 
 _ZN6Assimp16strtoul_cppstyleEPKcPS1_.exit:        ; preds = %.lr.ph.i11.i, %.lr.ph.i.i, %742, %760, %751
-  %.0.i395 = phi i32 [ 0, %751 ], [ 0, %760 ], [ %756, %.lr.ph.i.i ], [ %.0.i.i398, %742 ], [ %765, %.lr.ph.i11.i ]
+  %.0.i395 = phi i32 [ %.0.i.i398, %742 ], [ %756, %.lr.ph.i.i ], [ 0, %751 ], [ 0, %760 ], [ %765, %.lr.ph.i11.i ]
   %769 = getelementptr inbounds i8, ptr %717, i64 -28
   store i32 %.0.i395, ptr %769, align 4
   %770 = trunc nuw i8 %.167 to i1
@@ -3416,7 +3416,7 @@ _ZN6Assimp12AC3DImporter11GetNextLineEv.exit:     ; preds = %.critedge.i.i3.i, %
   resume { ptr, i32 } %.pn
 
 _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.thread: ; preds = %260, %11, %2, %_ZN6Assimp12AC3DImporter11GetNextLineEv.exit, %264, %.critedge.i.i3.i110
-  %.0 = phi i1 [ false, %_ZN6Assimp12AC3DImporter11GetNextLineEv.exit ], [ true, %.critedge.i.i3.i110 ], [ true, %264 ], [ false, %2 ], [ false, %11 ], [ true, %260 ]
+  %.0 = phi i1 [ false, %_ZN6Assimp12AC3DImporter11GetNextLineEv.exit ], [ true, %.critedge.i.i3.i110 ], [ false, %11 ], [ true, %264 ], [ false, %2 ], [ true, %260 ]
   ret i1 %.0
 }
 
@@ -5809,10 +5809,10 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backEOS1_.exit426: ; preds = %_ZNSt6vect
   br i1 %exitcond.not, label %.loopexit580, label %705, !llvm.loop !58
 
 .loopexit580:                                     ; preds = %681, %540, %753, %.preheader, %493, %691, %478, %.lr.ph687
-  %.14343 = phi ptr [ %.1330682, %.lr.ph687 ], [ %.1330682, %478 ], [ %.1330682, %691 ], [ %.1330682, %493 ], [ %.1330682, %.preheader ], [ %.4333, %540 ], [ %.13342, %753 ], [ %.10339, %681 ]
-  %.6328 = phi i32 [ %.0322683, %.lr.ph687 ], [ %.0322683, %478 ], [ %.0322683, %691 ], [ %.0322683, %493 ], [ %.0322683, %.preheader ], [ %500, %540 ], [ %711, %753 ], [ %559, %681 ]
-  %.7321 = phi ptr [ %.0314684, %.lr.ph687 ], [ %.0314684, %478 ], [ %.0314684, %691 ], [ %.0314684, %493 ], [ %.0314684, %.preheader ], [ %541, %540 ], [ %745, %753 ], [ %673, %681 ]
-  %.4313 = phi ptr [ %.0309685, %.lr.ph687 ], [ %479, %478 ], [ %.0309685, %691 ], [ %479, %493 ], [ %.0309685, %.preheader ], [ %479, %540 ], [ %706, %753 ], [ %551, %681 ]
+  %.14343 = phi ptr [ %.1330682, %.lr.ph687 ], [ %.13342, %753 ], [ %.4333, %540 ], [ %.1330682, %478 ], [ %.1330682, %691 ], [ %.1330682, %493 ], [ %.1330682, %.preheader ], [ %.10339, %681 ]
+  %.6328 = phi i32 [ %.0322683, %.lr.ph687 ], [ %711, %753 ], [ %500, %540 ], [ %.0322683, %478 ], [ %.0322683, %691 ], [ %.0322683, %493 ], [ %.0322683, %.preheader ], [ %559, %681 ]
+  %.7321 = phi ptr [ %.0314684, %.lr.ph687 ], [ %745, %753 ], [ %541, %540 ], [ %.0314684, %478 ], [ %.0314684, %691 ], [ %.0314684, %493 ], [ %.0314684, %.preheader ], [ %673, %681 ]
+  %.4313 = phi ptr [ %.0309685, %.lr.ph687 ], [ %706, %753 ], [ %479, %540 ], [ %479, %478 ], [ %.0309685, %691 ], [ %479, %493 ], [ %.0309685, %.preheader ], [ %551, %681 ]
   %755 = getelementptr inbounds nuw i8, ptr %.sroa.0515.1681, i64 32
   %.not576 = icmp eq ptr %755, %17
   br i1 %.not576, label %.loopexit589, label %.lr.ph687, !llvm.loop !59

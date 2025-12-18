@@ -2002,7 +2002,7 @@ _ZN12StringConcat11add_controlEP4Node.exit128:    ; preds = %307, %311
   br i1 %.not.not.i.not.i.i133, label %.backedge.sink.split, label %334, !llvm.loop !21
 
 .backedge.sink.split:                             ; preds = %334, %357, %278, %255
-  %.sink211.ph = phi i32 [ 0, %357 ], [ 1, %255 ], [ 2, %278 ], [ 1, %334 ]
+  %.sink211.ph = phi i32 [ 1, %255 ], [ 2, %278 ], [ 0, %357 ], [ 1, %334 ]
   %.pre12.i.i.i135 = load i32, ptr %22, align 8
   br label %.backedge
 
@@ -2058,7 +2058,7 @@ _ZN12StringConcat11add_controlEP4Node.exit128:    ; preds = %307, %311
   br i1 %.not.not.i.not.i.i144, label %.backedge.sink.split, label %357, !llvm.loop !21
 
 .loopexit:                                        ; preds = %208, %191, %229, %_ZN12StringConcat11add_controlEP4Node.exit116, %203, %198, %195, %150, %60, %98, %42, %52, %47, %44, %188, %126, %104, %9, %190
-  %.0 = phi ptr [ %16, %188 ], [ null, %9 ], [ null, %126 ], [ null, %190 ], [ null, %104 ], [ null, %42 ], [ null, %44 ], [ null, %47 ], [ null, %52 ], [ null, %98 ], [ null, %60 ], [ null, %150 ], [ null, %195 ], [ null, %198 ], [ null, %203 ], [ null, %_ZN12StringConcat11add_controlEP4Node.exit116 ], [ null, %229 ], [ null, %191 ], [ null, %208 ]
+  %.0 = phi ptr [ %16, %188 ], [ null, %9 ], [ null, %126 ], [ null, %190 ], [ null, %104 ], [ null, %60 ], [ null, %98 ], [ null, %52 ], [ null, %47 ], [ null, %44 ], [ null, %42 ], [ null, %150 ], [ null, %195 ], [ null, %198 ], [ null, %203 ], [ null, %_ZN12StringConcat11add_controlEP4Node.exit116 ], [ null, %229 ], [ null, %191 ], [ null, %208 ]
   ret ptr %.0
 }
 
@@ -3114,10 +3114,10 @@ _ZN9Node_List4pushEP4Node.exit191:                ; preds = %_ZN7Compile15record
   br label %.backedge.sink.split
 
 .outer250:                                        ; preds = %436, %_ZN16Unique_Node_List6memberEP4Node.exit, %413, %._crit_edge288.loopexit, %250
-  %.sink = phi ptr [ %256, %250 ], [ %.pre340, %._crit_edge288.loopexit ], [ %408, %413 ], [ %.0110276, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.0110276, %436 ]
-  %.pre341346 = phi ptr [ %.pre341343, %250 ], [ %.pre341.pre, %._crit_edge288.loopexit ], [ %.pre341343, %413 ], [ %.pre341343, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre341343, %436 ]
-  %523 = phi ptr [ %219, %250 ], [ %.pre341.pre, %._crit_edge288.loopexit ], [ %.pre341343, %413 ], [ %219, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %219, %436 ]
-  %.2 = phi i8 [ %.0112.ph293, %250 ], [ %.3.ph, %._crit_edge288.loopexit ], [ %.0112.ph293, %413 ], [ 1, %436 ], [ %.0112.ph293, %_ZN16Unique_Node_List6memberEP4Node.exit ]
+  %.sink = phi ptr [ %256, %250 ], [ %408, %413 ], [ %.pre340, %._crit_edge288.loopexit ], [ %.0110276, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.0110276, %436 ]
+  %.pre341346 = phi ptr [ %.pre341343, %250 ], [ %.pre341343, %413 ], [ %.pre341.pre, %._crit_edge288.loopexit ], [ %.pre341343, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre341343, %436 ]
+  %523 = phi ptr [ %219, %250 ], [ %.pre341343, %413 ], [ %.pre341.pre, %._crit_edge288.loopexit ], [ %219, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %219, %436 ]
+  %.2 = phi i8 [ %.0112.ph293, %250 ], [ %.0112.ph293, %413 ], [ %.3.ph, %._crit_edge288.loopexit ], [ 1, %436 ], [ %.0112.ph293, %_ZN16Unique_Node_List6memberEP4Node.exit ]
   %524 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %.1111.in = load ptr, ptr %524, align 8
   %.1111 = load ptr, ptr %.1111.in, align 8
@@ -3627,7 +3627,7 @@ _ZNK9Node_List8containsEPK4Node.exit:             ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %exitcond75.not, label %_ZNK9Node_List8containsEPK4Node.exit36, label %17, !llvm.loop !33
 
 _ZNK9Node_List8containsEPK4Node.exit36:           ; preds = %50, %._crit_edge, %_ZNK9Node_List8containsEPK4Node.exit, %58, %42, %1
-  %62 = phi i1 [ true, %1 ], [ false, %42 ], [ false, %58 ], [ false, %50 ], [ false, %._crit_edge ], [ true, %_ZNK9Node_List8containsEPK4Node.exit ]
+  %62 = phi i1 [ false, %58 ], [ false, %42 ], [ true, %1 ], [ false, %50 ], [ false, %._crit_edge ], [ true, %_ZNK9Node_List8containsEPK4Node.exit ]
   ret i1 %62
 }
 

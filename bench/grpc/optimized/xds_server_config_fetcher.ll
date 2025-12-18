@@ -13615,9 +13615,9 @@ _ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev.exit142: ; 
   br label %1284
 
 .body88:                                          ; preds = %.loopexit, %.loopexit.split-lp, %432, %440, %434, %1173, %1171
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0.lcssa396, %1171 ], [ %.sroa.19.3, %1173 ], [ %.sroa.19.0281, %432 ], [ %.sroa.19.0281, %434 ], [ %.sroa.19.0281, %440 ], [ %.sroa.19.0281.lcssa287, %.loopexit ], [ %.sroa.12.0282, %.loopexit.split-lp ]
-  %.sroa.0177.1 = phi ptr [ %.sroa.0177.0.lcssa397, %1171 ], [ %.sroa.0177.3, %1173 ], [ %.sroa.0177.0283, %432 ], [ %.sroa.0177.0283, %434 ], [ %.sroa.0177.0283, %440 ], [ %.sroa.0177.0283, %.loopexit ], [ %.sroa.0177.0283, %.loopexit.split-lp ]
-  %.pn49.pn.pn = phi { ptr, i32 } [ %1172, %1171 ], [ %1174, %1173 ], [ %433, %432 ], [ %435, %434 ], [ %441, %440 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0281, %432 ], [ %.sroa.19.0.lcssa396, %1171 ], [ %.sroa.19.3, %1173 ], [ %.sroa.19.0281, %440 ], [ %.sroa.19.0281, %434 ], [ %.sroa.19.0281.lcssa287, %.loopexit ], [ %.sroa.12.0282, %.loopexit.split-lp ]
+  %.sroa.0177.1 = phi ptr [ %.sroa.0177.0283, %432 ], [ %.sroa.0177.0.lcssa397, %1171 ], [ %.sroa.0177.3, %1173 ], [ %.sroa.0177.0283, %440 ], [ %.sroa.0177.0283, %434 ], [ %.sroa.0177.0283, %.loopexit ], [ %.sroa.0177.0283, %.loopexit.split-lp ]
+  %.pn49.pn.pn = phi { ptr, i32 } [ %433, %432 ], [ %1172, %1171 ], [ %1174, %1173 ], [ %441, %440 ], [ %435, %434 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i143 = icmp eq ptr %.sroa.0177.1, null
   br i1 %.not.i.i.i143, label %_ZN9grpc_core13RefCountedPtrINS_23XdsChannelStackModifierEED2Ev.exit148, label %1271
 
@@ -14117,7 +14117,7 @@ _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEbRKSt6vectorI
   br label %_ZSteqIN9grpc_core22XdsRouteConfigResource5RouteESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit
 
 _ZSteqIN9grpc_core22XdsRouteConfigResource5RouteESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i4, %2, %54, %.loopexit, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit
-  %61 = phi i1 [ %60, %54 ], [ false, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit ], [ false, %.loopexit ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i.i4 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i ]
+  %61 = phi i1 [ false, %.lr.ph.i.i.i.i.i4 ], [ %60, %54 ], [ false, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit ], [ false, %.loopexit ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i ]
   ret i1 %61
 }
 
@@ -14236,7 +14236,7 @@ _ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActi
   br label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
 
 _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %46, %4, %2, %60, %54, %50, %48, %44, %31, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit, %_ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit
-  %67 = phi i1 [ false, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit ], [ false, %_ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit ], [ false, %50 ], [ %66, %60 ], [ false, %31 ], [ false, %44 ], [ false, %48 ], [ false, %54 ], [ false, %2 ], [ false, %4 ], [ false, %46 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %67 = phi i1 [ false, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit ], [ false, %_ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit ], [ false, %50 ], [ %66, %60 ], [ false, %31 ], [ false, %46 ], [ false, %44 ], [ false, %48 ], [ false, %54 ], [ false, %2 ], [ false, %4 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %67
 }
 
@@ -14423,7 +14423,7 @@ _ZSteqIN9grpc_core8DurationES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7
   br label %_ZSteqIN9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicyESaIS4_EEbRKSt6vectorIT_T0_ESB_.exit.thread
 
 _ZSteqIN9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicyESaIS4_EEbRKSt6vectorIT_T0_ESB_.exit.thread: ; preds = %_ZNK9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicyeqERKS3_.exit.i.i.i.i.i, %23, %46, %52, %2, %81, %58, %86, %_ZSteqIN9grpc_core8DurationES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit, %68, %_ZSteqIN9grpc_core22XdsRouteConfigResource11RetryPolicyES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit
-  %92 = phi i1 [ false, %_ZSteqIN9grpc_core8DurationES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit ], [ false, %68 ], [ false, %_ZSteqIN9grpc_core22XdsRouteConfigResource11RetryPolicyES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit ], [ false, %81 ], [ %91, %86 ], [ false, %58 ], [ false, %2 ], [ false, %52 ], [ false, %46 ], [ false, %23 ], [ false, %_ZNK9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicyeqERKS3_.exit.i.i.i.i.i ]
+  %92 = phi i1 [ false, %_ZSteqIN9grpc_core8DurationES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit ], [ false, %68 ], [ false, %_ZSteqIN9grpc_core22XdsRouteConfigResource11RetryPolicyES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit ], [ false, %81 ], [ %91, %86 ], [ false, %46 ], [ false, %58 ], [ false, %2 ], [ false, %52 ], [ false, %23 ], [ false, %_ZNK9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicyeqERKS3_.exit.i.i.i.i.i ]
   ret i1 %92
 }
 
@@ -19610,8 +19610,8 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %.not.i.i.i.i157, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i156, !llvm.loop !645
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %_ZN4absl12lts_202407228StatusOrIN9grpc_core10XdsRouting34GeneratePerHttpFilterConfigsResultEEptEv.exit100, %._crit_edge
-  %.sroa.022.3.lcssa342 = phi ptr [ %.sroa.022.4350, %._crit_edge ], [ %.sroa.15.2, %_ZN4absl12lts_202407228StatusOrIN9grpc_core10XdsRouting34GeneratePerHttpFilterConfigsResultEEptEv.exit100 ], [ %.sroa.022.4350, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %.sroa.27.3.lcssa340 = phi ptr [ %.sroa.27.4348, %._crit_edge ], [ %.sroa.27.2, %_ZN4absl12lts_202407228StatusOrIN9grpc_core10XdsRouting34GeneratePerHttpFilterConfigsResultEEptEv.exit100 ], [ %.sroa.27.4348, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %.sroa.022.3.lcssa342 = phi ptr [ %.sroa.15.2, %_ZN4absl12lts_202407228StatusOrIN9grpc_core10XdsRouting34GeneratePerHttpFilterConfigsResultEEptEv.exit100 ], [ %.sroa.022.4350, %._crit_edge ], [ %.sroa.022.4350, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %.sroa.27.3.lcssa340 = phi ptr [ %.sroa.27.2, %_ZN4absl12lts_202407228StatusOrIN9grpc_core10XdsRouting34GeneratePerHttpFilterConfigsResultEEptEv.exit100 ], [ %.sroa.27.4348, %._crit_edge ], [ %.sroa.27.4348, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i158 = icmp eq ptr %.sroa.022.3.lcssa342, null
   br i1 %.not.i.i.i158, label %_ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorEEEEC2IRKNS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES9_T_EE5valueEiE4typeELi0EEEOSG_.exit, label %399
 
@@ -23375,7 +23375,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNK9grpc_core16CommonTlsContexteqERKS0_.exit
 
 _ZNK9grpc_core16CommonTlsContexteqERKS0_.exit:    ; preds = %128, %130
-  %134 = phi i1 [ true, %128 ], [ %133, %130 ]
+  %134 = phi i1 [ %133, %130 ], [ true, %128 ]
   %135 = getelementptr inbounds nuw i8, ptr %52, i64 160
   %136 = load i8, ptr %135, align 8, !range !27
   %137 = getelementptr inbounds nuw i8, ptr %53, i64 160
@@ -23409,7 +23409,7 @@ _ZNK9grpc_core19XdsListenerResource14FilterChainMap8SourceIpeqERKS2_.exit: ; pre
   br i1 %.not, label %_ZSteqIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit, label %.lr.ph, !llvm.loop !701
 
 _ZSteqIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit: ; preds = %.loopexit, %.lr.ph, %32, %24, %_ZSteqIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit.i, %60, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i, %_ZSt3getILm1EJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS6_28CertificateValidationContext15SystemRootCertsEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_JRKSA_IJS4_S7_S9_EEEEDcOSI_DpOT1_.exit.thread17, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS6_28CertificateValidationContext15SystemRootCertsEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_JRKSA_IJS4_S7_S9_EEEEDcOSI_DpOT1_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i, %_ZNK9grpc_core16CommonTlsContext28CertificateValidationContexteqERKS1_.exit.i, %_ZSteqIKtN9grpc_core19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrEEbRKSt4pairIT_T0_ESA_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %_ZNK9grpc_core16CommonTlsContexteqERKS0_.exit, %58, %81, %85, %.lr.ph.i.i.i.i.i.i.i9, %3
-  %.not26 = phi i1 [ true, %3 ], [ false, %.lr.ph.i.i.i.i.i.i.i9 ], [ false, %60 ], [ false, %32 ], [ false, %85 ], [ false, %81 ], [ false, %58 ], [ false, %_ZNK9grpc_core16CommonTlsContexteqERKS0_.exit ], [ false, %.lr.ph.i.i.i.i.i.i.i ], [ false, %_ZSteqIKtN9grpc_core19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrEEbRKSt4pairIT_T0_ESA_.exit.i.i.i.i.i.i.i ], [ false, %_ZNK9grpc_core16CommonTlsContext28CertificateValidationContexteqERKS1_.exit.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i ], [ false, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS6_28CertificateValidationContext15SystemRootCertsEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_JRKSA_IJS4_S7_S9_EEEEDcOSI_DpOT1_.exit ], [ false, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS6_28CertificateValidationContext15SystemRootCertsEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_JRKSA_IJS4_S7_S9_EEEEDcOSI_DpOT1_.exit.thread17 ], [ false, %_ZSt3getILm1EJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i ], [ false, %_ZSteqIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit.i ], [ false, %24 ], [ %16, %.lr.ph ], [ %16, %.loopexit ]
+  %.not26 = phi i1 [ false, %.lr.ph.i.i.i.i.i.i.i9 ], [ false, %32 ], [ true, %3 ], [ false, %60 ], [ false, %85 ], [ false, %81 ], [ false, %58 ], [ false, %_ZNK9grpc_core16CommonTlsContexteqERKS0_.exit ], [ false, %.lr.ph.i.i.i.i.i.i.i ], [ false, %_ZSteqIKtN9grpc_core19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrEEbRKSt4pairIT_T0_ESA_.exit.i.i.i.i.i.i.i ], [ false, %_ZNK9grpc_core16CommonTlsContext28CertificateValidationContexteqERKS1_.exit.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i ], [ false, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS6_28CertificateValidationContext15SystemRootCertsEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_JRKSA_IJS4_S7_S9_EEEEDcOSI_DpOT1_.exit ], [ false, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS6_28CertificateValidationContext15SystemRootCertsEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_JRKSA_IJS4_S7_S9_EEEEDcOSI_DpOT1_.exit.thread17 ], [ false, %_ZSt3getILm1EJSt9monostateN9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i ], [ false, %_ZSteqIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit.i ], [ false, %24 ], [ %16, %.lr.ph ], [ %16, %.loopexit ]
   ret i1 %.not26
 }
 
@@ -23442,13 +23442,13 @@ _ZSt17holds_alternativeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_
   %spec.select.i.i = phi i64 [ 2, %11 ], [ %.1.i.i, %13 ]
   %14 = zext i8 %6 to i64
   %15 = icmp eq i64 %spec.select.i.i, %14
-  br i1 %15, label %16, label %35
+  br i1 %15, label %16, label %36
 
 16:                                               ; preds = %_ZSt17holds_alternativeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT0_EE.exit
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i8, ptr %17, align 8, !tbaa !186
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %29
+  br i1 %19, label %20, label %32
 
 20:                                               ; preds = %16
   %21 = icmp eq i8 %6, 0
@@ -23464,184 +23464,184 @@ _ZSt3getILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptr
 
 27:                                               ; preds = %_ZSt3getILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i
   %28 = icmp eq i64 %23, 0
-  br i1 %28, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit
+  br i1 %28, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, label %29
 
-29:                                               ; preds = %16
-  %30 = icmp eq i8 %6, 1
-  br i1 %30, label %_ZSt3getILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
-
-_ZSt3getILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i: ; preds = %29
-  %31 = load ptr, ptr %0, align 8, !tbaa !188
-  %32 = load ptr, ptr %1, align 8, !tbaa !188
-  %.not18 = icmp eq ptr %31, %32
-  br i1 %.not18, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
-
-_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit: ; preds = %27
-  %33 = load ptr, ptr %1, align 8, !tbaa !68
-  %34 = load ptr, ptr %0, align 8, !tbaa !68
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %34, ptr %33, i64 %23)
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %1, align 8, !tbaa !68
+  %31 = load ptr, ptr %0, align 8, !tbaa !68
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %31, ptr %30, i64 %23)
   %.not19 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not19, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-35:                                               ; preds = %_ZSt17holds_alternativeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT0_EE.exit
-  %.not.i.i11 = icmp eq i8 %6, 1
-  br i1 %.not.i.i11, label %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit, label %36
+32:                                               ; preds = %16
+  %33 = icmp eq i8 %6, 1
+  br i1 %33, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-36:                                               ; preds = %35
-  %37 = tail call ptr @__cxa_allocate_exception(i64 16) #39
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %37, align 8, !tbaa !7
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr @.str.28, ptr %38, align 8, !tbaa !473
-  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #45
+_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit: ; preds = %32
+  %34 = load ptr, ptr %0, align 8, !tbaa !188
+  %35 = load ptr, ptr %1, align 8, !tbaa !188
+  %.not18 = icmp eq ptr %34, %35
+  br i1 %.not18, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+
+36:                                               ; preds = %_ZSt17holds_alternativeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT0_EE.exit
+  %.not.i.i11 = icmp eq i8 %6, 1
+  br i1 %.not.i.i11, label %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit, label %37
+
+37:                                               ; preds = %36
+  %38 = tail call ptr @__cxa_allocate_exception(i64 16) #39
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %38, align 8, !tbaa !7
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr @.str.28, ptr %39, align 8, !tbaa !473
+  tail call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #45
   unreachable
 
-_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %40 = load i8, ptr %39, align 8, !tbaa !186
-  %.not = icmp eq i8 %40, 1
-  br i1 %.not, label %41, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %41 = load i8, ptr %40, align 8, !tbaa !186
+  %.not = icmp eq i8 %41, 1
+  br i1 %.not, label %42, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-41:                                               ; preds = %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit
-  %42 = load ptr, ptr %0, align 8, !tbaa !188
-  %43 = load ptr, ptr %1, align 8, !tbaa !188
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+42:                                               ; preds = %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit
+  %43 = load ptr, ptr %0, align 8, !tbaa !188
+  %44 = load ptr, ptr %1, align 8, !tbaa !188
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !703
-  %48 = load ptr, ptr %44, align 8, !tbaa !705
-  %49 = ptrtoint ptr %47 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %48 = load ptr, ptr %47, align 8, !tbaa !703
+  %49 = load ptr, ptr %45, align 8, !tbaa !705
   %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !703
-  %54 = load ptr, ptr %45, align 8, !tbaa !705
-  %55 = ptrtoint ptr %53 to i64
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !703
+  %55 = load ptr, ptr %46, align 8, !tbaa !705
   %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = icmp eq i64 %51, %57
-  br i1 %58, label %59, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = icmp eq i64 %52, %58
+  br i1 %59, label %60, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-59:                                               ; preds = %41
-  %.not9.i.i.i.i.i.i = icmp eq ptr %48, %47
+60:                                               ; preds = %42
+  %.not9.i.i.i.i.i.i = icmp eq ptr %49, %48
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %59, %61
-  %.011.i.i.i.i.i.i = phi ptr [ %63, %61 ], [ %54, %59 ]
-  %.0810.i.i.i.i.i.i = phi ptr [ %62, %61 ], [ %48, %59 ]
-  %60 = tail call noundef zeroext i1 @_ZNK9grpc_core22XdsRouteConfigResource11VirtualHosteqERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %.0810.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.011.i.i.i.i.i.i)
-  br i1 %60, label %61, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+.lr.ph.i.i.i.i.i.i:                               ; preds = %60, %62
+  %.011.i.i.i.i.i.i = phi ptr [ %64, %62 ], [ %55, %60 ]
+  %.0810.i.i.i.i.i.i = phi ptr [ %63, %62 ], [ %49, %60 ]
+  %61 = tail call noundef zeroext i1 @_ZNK9grpc_core22XdsRouteConfigResource11VirtualHosteqERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %.0810.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.011.i.i.i.i.i.i)
+  br i1 %61, label %62, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-61:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %62 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 96
-  %63 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i.i = icmp eq ptr %62, %47
+62:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i.i = icmp eq ptr %63, %48
   br i1 %.not.i.i.i.i.i.i, label %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !706
 
-_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit: ; preds = %61, %59
-  %64 = getelementptr inbounds nuw i8, ptr %42, i64 32
+_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit: ; preds = %62, %60
   %65 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %66 = tail call noundef zeroext i1 @_ZSteqRKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EESG_(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %65)
-  br i1 %66, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+  %66 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %67 = tail call noundef zeroext i1 @_ZSteqRKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EESG_(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 8 dereferenceable(48) %66)
+  br i1 %67, label %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15: ; preds = %27, %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit, %_ZSt3getILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload = load i64, ptr %68, align 8, !tbaa !86
-  %69 = load i64, ptr %67, align 8, !tbaa !491
-  %70 = icmp eq i64 %69, %.sroa.0.0.copyload
-  br i1 %70, label %71, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15: ; preds = %27, %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit, %29, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload = load i64, ptr %69, align 8, !tbaa !86
+  %70 = load i64, ptr %68, align 8, !tbaa !491
+  %71 = icmp eq i64 %70, %.sroa.0.0.copyload
+  br i1 %71, label %72, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-71:                                               ; preds = %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !194
-  %76 = load ptr, ptr %72, align 8, !tbaa !191
-  %77 = ptrtoint ptr %75 to i64
+72:                                               ; preds = %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %76 = load ptr, ptr %75, align 8, !tbaa !194
+  %77 = load ptr, ptr %73, align 8, !tbaa !191
   %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %81 = load ptr, ptr %80, align 8, !tbaa !194
-  %82 = load ptr, ptr %73, align 8, !tbaa !191
-  %83 = ptrtoint ptr %81 to i64
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %82 = load ptr, ptr %81, align 8, !tbaa !194
+  %83 = load ptr, ptr %74, align 8, !tbaa !191
   %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = icmp eq i64 %79, %85
-  br i1 %86, label %87, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+  %85 = ptrtoint ptr %83 to i64
+  %86 = sub i64 %84, %85
+  %87 = icmp eq i64 %80, %86
+  br i1 %87, label %88, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-87:                                               ; preds = %71
-  %.not9.i.i.i.i.i = icmp eq ptr %76, %75
+88:                                               ; preds = %72
+  %.not9.i.i.i.i.i = icmp eq ptr %77, %76
   br i1 %.not9.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %87
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %89
+.lr.ph.i.i.i.i.i:                                 ; preds = %88
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %90
 
-89:                                               ; preds = %110, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i ], [ %112, %110 ]
-  %.0810.i.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i.i ], [ %111, %110 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !46
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
-  %93 = load i64, ptr %92, align 8, !tbaa !46
-  %94 = icmp eq i64 %91, %93
-  br i1 %94, label %95, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+90:                                               ; preds = %111, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i ], [ %113, %111 ]
+  %.0810.i.i.i.i.i = phi ptr [ %77, %.lr.ph.i.i.i.i.i ], [ %112, %111 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
+  %92 = load i64, ptr %91, align 8, !tbaa !46
+  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
+  %94 = load i64, ptr %93, align 8, !tbaa !46
+  %95 = icmp eq i64 %92, %94
+  br i1 %95, label %96, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-95:                                               ; preds = %89
-  %96 = icmp eq i64 %91, 0
-  br i1 %96, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i
+96:                                               ; preds = %90
+  %97 = icmp eq i64 %92, 0
+  br i1 %97, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i: ; preds = %95
-  %97 = load ptr, ptr %.011.i.i.i.i.i, align 8, !tbaa !68
-  %98 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !68
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %98, ptr %97, i64 %91)
-  %99 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %99, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i: ; preds = %96
+  %98 = load ptr, ptr %.011.i.i.i.i.i, align 8, !tbaa !68
+  %99 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !68
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %99, ptr %98, i64 %92)
+  %100 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  br i1 %100, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i, %95
-  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 32
-  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 32
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %100, align 8, !tbaa !86
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i, %96
+  %101 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 32
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %101, align 8, !tbaa !86
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 40
   %.sroa.22.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !109
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %101, align 8, !tbaa !86
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %102, align 8, !tbaa !86
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 40
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !109
-  %102 = icmp eq i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i
-  br i1 %102, label %103, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+  %103 = icmp eq i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i
+  br i1 %103, label %104, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-103:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i
-  %104 = icmp eq i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i, 0
-  br i1 %104, label %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
+104:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i
+  %105 = icmp eq i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i, 0
+  br i1 %105, label %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %103
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %104
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i.i.i.i.i.i, ptr %.sroa.2.0.copyload.i.i.i.i.i.i.i, i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i)
-  %105 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %105, label %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+  %106 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
+  br i1 %106, label %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %103
-  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 48
-  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 48
+_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %104
+  %107 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !228
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !492
-  store ptr %106, ptr %88, align 8, !tbaa !530
-  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEbRKSt7variantIJDpT_EESV_EUlOT_T0_E_JRKSQ_IJS4_bS8_SE_SM_SP_EEEEDcOSY_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(56) %107)
+  store ptr %107, ptr %89, align 8, !tbaa !530
+  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEbRKSt7variantIJDpT_EESV_EUlOT_T0_E_JRKSQ_IJS4_bS8_SE_SM_SP_EEEEDcOSY_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(56) %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %108 = load i8, ptr %3, align 1, !tbaa !228, !range !27, !noundef !28
-  %109 = trunc nuw i8 %108 to i1
+  %109 = load i8, ptr %3, align 1, !tbaa !228, !range !27, !noundef !28
+  %110 = trunc nuw i8 %109 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %109, label %110, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
+  br i1 %110, label %111, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
-110:                                              ; preds = %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i
-  %111 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 104
-  %112 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 104
-  %.not.i.i.i.i.i = icmp eq ptr %111, %75
-  br i1 %.not.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit, label %89, !llvm.loop !707
+111:                                              ; preds = %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i
+  %112 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 104
+  %113 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 104
+  %.not.i.i.i.i.i = icmp eq ptr %112, %76
+  br i1 %.not.i.i.i.i.i, label %_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit, label %90, !llvm.loop !707
 
-_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %110, %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i, %89, %41, %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit, %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit, %29, %_ZSt3getILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i, %20, %87, %71, %_ZSt3getILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit
-  %.0 = phi i1 [ false, %29 ], [ false, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit ], [ false, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15 ], [ false, %_ZSt3getILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i ], [ false, %20 ], [ false, %71 ], [ true, %87 ], [ false, %_ZSt3getILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i ], [ false, %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit ], [ false, %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit ], [ false, %41 ], [ false, %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i ], [ true, %110 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i ], [ false, %89 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+_ZSteqIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %111, %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i, %90, %42, %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit, %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit, %32, %_ZSt3getILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i, %20, %88, %72, %29, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit
+  %.0 = phi i1 [ false, %32 ], [ false, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit ], [ false, %_ZStneIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEbRKSt7variantIJDpT_EESG_.exit.thread15 ], [ false, %29 ], [ false, %20 ], [ false, %72 ], [ true, %88 ], [ false, %_ZSt3getILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSF_.exit.i.i.i.i.i.i.i ], [ false, %_ZSt3getISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EERKT_RKSt7variantIJDpT0_EE.exit ], [ false, %_ZNK9grpc_core22XdsRouteConfigResourceeqERKS0_.exit ], [ false, %42 ], [ false, %_ZNK9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFiltereqERKS2_.exit.i.i.i.i.i ], [ true, %111 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i.i ], [ false, %90 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %.0
 }
 

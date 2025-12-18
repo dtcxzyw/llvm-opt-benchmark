@@ -926,7 +926,7 @@ encode_simple_internal.exit.i:                    ; preds = %104, %98
   br i1 %105, label %encode_simple_receive_packet.exit, label %.preheader, !llvm.loop !94
 
 encode_simple_receive_packet.exit.thread41:       ; preds = %.preheader, %54, %48, %50
-  %.0.ph = phi i32 [ %45, %48 ], [ %45, %50 ], [ 0, %54 ], [ 0, %.preheader ]
+  %.0.ph = phi i32 [ %45, %50 ], [ %45, %48 ], [ 0, %54 ], [ 0, %.preheader ]
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %107 = load i32, ptr %106, align 8, !tbaa !96
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -936,7 +936,7 @@ encode_simple_receive_packet.exit.thread41:       ; preds = %.preheader, %54, %4
   br label %113
 
 encode_simple_receive_packet.exit:                ; preds = %encode_simple_internal.exit.i, %47, %encode_simple_internal.exit.thread.i
-  %.039 = phi i32 [ %45, %47 ], [ %.029.i.ph.i, %encode_simple_internal.exit.thread.i ], [ %.0.i.i, %encode_simple_internal.exit.i ]
+  %.039 = phi i32 [ %.029.i.ph.i, %encode_simple_internal.exit.thread.i ], [ %45, %47 ], [ %.0.i.i, %encode_simple_internal.exit.i ]
   %111 = icmp eq i32 %.039, -541478725
   br i1 %111, label %112, label %113
 
@@ -1256,7 +1256,7 @@ define range(i32 -2147483648, 1) i32 @ff_encode_preinit(ptr noundef %0) local_un
   br label %encode_preinit_video.exit
 
 encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %50, %._crit_edge.thread.i, %103, %104, %113, %118, %._crit_edge81.i
-  %.0.i = phi i32 [ -22, %48 ], [ %51, %50 ], [ -22, %103 ], [ 0, %104 ], [ 0, %._crit_edge81.i ], [ -22, %118 ], [ -22, %113 ], [ -22, %._crit_edge.thread.i ], [ -22, %.lr.ph75.i ]
+  %.0.i = phi i32 [ -22, %48 ], [ %51, %50 ], [ -22, %103 ], [ -22, %113 ], [ 0, %104 ], [ 0, %._crit_edge81.i ], [ -22, %118 ], [ -22, %._crit_edge.thread.i ], [ -22, %.lr.ph75.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %249
@@ -1552,7 +1552,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
   br label %encode_preinit_audio.exit
 
 encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.ph111.i, %129, %135, %136, %172, %183, %._crit_edge.thread.i82, %206, %._crit_edge122.i, %238, %241, %245
-  %.071.i = phi i32 [ -22, %135 ], [ -22, %129 ], [ %137, %136 ], [ %184, %183 ], [ -22, %._crit_edge122.i ], [ %207, %206 ], [ 0, %245 ], [ 0, %241 ], [ 0, %238 ], [ -22, %._crit_edge.thread.i82 ], [ -22, %172 ], [ -22, %.lr.ph111.i ], [ -22, %.lr.ph100.i ]
+  %.071.i = phi i32 [ -22, %135 ], [ -22, %129 ], [ %137, %136 ], [ -22, %._crit_edge.thread.i82 ], [ %184, %183 ], [ 0, %238 ], [ -22, %._crit_edge122.i ], [ %207, %206 ], [ 0, %245 ], [ 0, %241 ], [ -22, %172 ], [ -22, %.lr.ph111.i ], [ -22, %.lr.ph100.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

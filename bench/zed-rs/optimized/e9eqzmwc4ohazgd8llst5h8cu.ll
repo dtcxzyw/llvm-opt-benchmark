@@ -946,7 +946,7 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i", %157, %49, %.split125
-  %.sroa.069.1.ph.ph74 = phi ptr [ %.sroa.069.3, %157 ], [ %.sroa.069.0.ph177, %49 ], [ %.sroa.069.0.ph177, %.split125 ], [ %.sroa.069.4, %.invoke ], [ %.sroa.069.3, %"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i" ]
+  %.sroa.069.1.ph.ph74 = phi ptr [ %.sroa.069.0.ph177, %.split125 ], [ %.sroa.069.0.ph177, %49 ], [ %.sroa.069.3, %"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i" ], [ %.sroa.069.3, %157 ], [ %.sroa.069.4, %.invoke ]
   %lpad.loopexit.split-lp76 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1000,8 +1000,8 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
   br label %.loopexit78
 
 .loopexit78:                                      ; preds = %39, %._crit_edge, %95, %51
-  %.sroa.069.3 = phi ptr [ %.sroa.069.0.ph177, %51 ], [ null, %95 ], [ %.sroa.069.0.ph, %39 ], [ %.sroa.069.4, %._crit_edge ]
-  %.sroa.025.1 = phi i64 [ %.sroa.025.0.ph, %51 ], [ %.sroa.025.0.ph, %95 ], [ %.sroa.025.0.ph, %39 ], [ %75, %._crit_edge ]
+  %.sroa.069.3 = phi ptr [ %.sroa.069.0.ph177, %51 ], [ null, %95 ], [ %.sroa.069.4, %._crit_edge ], [ %.sroa.069.0.ph, %39 ]
+  %.sroa.025.1 = phi i64 [ %.sroa.025.0.ph, %51 ], [ %.sroa.025.0.ph, %95 ], [ %75, %._crit_edge ], [ %.sroa.025.0.ph, %39 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = load i64, ptr %52, align 8, !noundef !4
   %54 = icmp ult i64 %53, %.sroa.025.1
@@ -1016,8 +1016,8 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
           to label %"_ZN4core6option15Option$LT$T$GT$6insert17hb74b722fc5f029c2E.exit" unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp
 
 "_ZN4core6option15Option$LT$T$GT$6insert17hb74b722fc5f029c2E.exit": ; preds = %108, %39, %.noexc50, %56
-  %.sroa.014.190 = phi i64 [ %.sroa.014.1.us, %.noexc50 ], [ %.sroa.014.1.us, %56 ], [ %40, %39 ], [ %.sroa.014.1.us, %108 ]
-  %.sroa.069.4 = phi ptr [ %114, %.noexc50 ], [ %114, %56 ], [ %.sroa.069.0.ph, %39 ], [ %102, %108 ]
+  %.sroa.014.190 = phi i64 [ %40, %39 ], [ %.sroa.014.1.us, %.noexc50 ], [ %.sroa.014.1.us, %56 ], [ %.sroa.014.1.us, %108 ]
+  %.sroa.069.4 = phi ptr [ %.sroa.069.0.ph, %39 ], [ %114, %.noexc50 ], [ %114, %56 ], [ %102, %108 ]
   %58 = icmp ugt i64 %.sroa.014.190, 1048576
   br i1 %21, label %61, label %59
 
@@ -11234,8 +11234,8 @@ switch.lookup:                                    ; preds = %64
   br label %.thread363
 
 .thread363:                                       ; preds = %64, %switch.lookup, %73, %.thread363.fold.split379, %51, %.thread363.fold.split369, %137, %110, %.thread363.fold.split, %.thread358, %68, %48, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %155, %142, %124, %121, %120, %119, %118, %117, %116, %115, %114, %96, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74
-  %.sroa.0244.0 = phi i16 [ 9, %73 ], [ %.334, %155 ], [ %switch.load, %switch.lookup ], [ 24, %158 ], [ 22, %159 ], [ 22, %160 ], [ 22, %161 ], [ 22, %162 ], [ 22, %163 ], [ 22, %164 ], [ 22, %165 ], [ 22, %166 ], [ 23, %167 ], [ 23, %168 ], [ 23, %169 ], [ 23, %170 ], [ 23, %171 ], [ 23, %172 ], [ 23, %173 ], [ 23, %174 ], [ 25, %.thread358 ], [ %., %142 ], [ %spec.select365, %137 ], [ 23, %114 ], [ 23, %115 ], [ 23, %116 ], [ 23, %117 ], [ 23, %118 ], [ 23, %119 ], [ 23, %120 ], [ 23, %121 ], [ %.sroa.0244.3, %124 ], [ 4, %68 ], [ 10, %74 ], [ 11, %75 ], [ 12, %76 ], [ 13, %77 ], [ 14, %78 ], [ 15, %79 ], [ 16, %80 ], [ 17, %81 ], [ 18, %82 ], [ 19, %83 ], [ 20, %84 ], [ 21, %85 ], [ 22, %86 ], [ 22, %87 ], [ 22, %88 ], [ 22, %89 ], [ 22, %90 ], [ 22, %91 ], [ 22, %92 ], [ 22, %93 ], [ %.sroa.0244.1, %96 ], [ 25, %48 ], [ 25, %.thread363.fold.split379 ], [ %spec.select, %110 ], [ 23, %.thread363.fold.split ], [ 22, %.thread363.fold.split369 ], [ 4, %64 ], [ %52, %51 ]
-  %.sroa.72.1 = phi i32 [ undef, %73 ], [ %.sroa.72.0.335, %155 ], [ undef, %switch.lookup ], [ 3, %158 ], [ 524288, %159 ], [ 589824, %160 ], [ 655360, %161 ], [ 720896, %162 ], [ 786432, %163 ], [ 851968, %164 ], [ 917504, %165 ], [ 983040, %166 ], [ 524288, %167 ], [ 589824, %168 ], [ 655360, %169 ], [ 720896, %170 ], [ 786432, %171 ], [ 851968, %172 ], [ 917504, %173 ], [ 983040, %174 ], [ %.sroa.72.0, %.thread358 ], [ %.sroa.72.0., %142 ], [ %spec.select366, %137 ], [ 0, %114 ], [ 65536, %115 ], [ 131072, %116 ], [ 196608, %117 ], [ 262144, %118 ], [ 327680, %119 ], [ 393216, %120 ], [ 458752, %121 ], [ %.sroa.72.4, %124 ], [ undef, %68 ], [ undef, %74 ], [ undef, %75 ], [ undef, %76 ], [ undef, %77 ], [ undef, %78 ], [ undef, %79 ], [ undef, %80 ], [ undef, %81 ], [ undef, %82 ], [ undef, %83 ], [ undef, %84 ], [ undef, %85 ], [ 0, %86 ], [ 65536, %87 ], [ 131072, %88 ], [ 196608, %89 ], [ 262144, %90 ], [ 327680, %91 ], [ 393216, %92 ], [ 458752, %93 ], [ %.sroa.72.2, %96 ], [ %.sroa.72.0, %48 ], [ %.sroa.72.0, %.thread363.fold.split379 ], [ %spec.select364, %110 ], [ 16842752, %.thread363.fold.split ], [ 16777216, %.thread363.fold.split369 ], [ undef, %64 ], [ undef, %51 ]
+  %.sroa.0244.0 = phi i16 [ 25, %.thread358 ], [ 9, %73 ], [ %spec.select, %110 ], [ %.334, %155 ], [ %switch.load, %switch.lookup ], [ 24, %158 ], [ 22, %159 ], [ 22, %160 ], [ 22, %161 ], [ 22, %162 ], [ 22, %163 ], [ 22, %164 ], [ 22, %165 ], [ 22, %166 ], [ 23, %167 ], [ 23, %168 ], [ 23, %169 ], [ 23, %170 ], [ 23, %171 ], [ 23, %172 ], [ 23, %173 ], [ 23, %174 ], [ 25, %.thread363.fold.split379 ], [ %., %142 ], [ %spec.select365, %137 ], [ 23, %114 ], [ 23, %115 ], [ 23, %116 ], [ 23, %117 ], [ 23, %118 ], [ 23, %119 ], [ 23, %120 ], [ 23, %121 ], [ %.sroa.0244.3, %124 ], [ 4, %68 ], [ 10, %74 ], [ 11, %75 ], [ 12, %76 ], [ 13, %77 ], [ 14, %78 ], [ 15, %79 ], [ 16, %80 ], [ 17, %81 ], [ 18, %82 ], [ 19, %83 ], [ 20, %84 ], [ 21, %85 ], [ 22, %86 ], [ 22, %87 ], [ 22, %88 ], [ 22, %89 ], [ 22, %90 ], [ 22, %91 ], [ 22, %92 ], [ 22, %93 ], [ %.sroa.0244.1, %96 ], [ 4, %64 ], [ 23, %.thread363.fold.split ], [ 22, %.thread363.fold.split369 ], [ %52, %51 ], [ 25, %48 ]
+  %.sroa.72.1 = phi i32 [ %.sroa.72.0, %.thread358 ], [ undef, %73 ], [ %spec.select364, %110 ], [ %.sroa.72.0.335, %155 ], [ undef, %switch.lookup ], [ 3, %158 ], [ 524288, %159 ], [ 589824, %160 ], [ 655360, %161 ], [ 720896, %162 ], [ 786432, %163 ], [ 851968, %164 ], [ 917504, %165 ], [ 983040, %166 ], [ 524288, %167 ], [ 589824, %168 ], [ 655360, %169 ], [ 720896, %170 ], [ 786432, %171 ], [ 851968, %172 ], [ 917504, %173 ], [ 983040, %174 ], [ %.sroa.72.0, %.thread363.fold.split379 ], [ %.sroa.72.0., %142 ], [ %spec.select366, %137 ], [ 0, %114 ], [ 65536, %115 ], [ 131072, %116 ], [ 196608, %117 ], [ 262144, %118 ], [ 327680, %119 ], [ 393216, %120 ], [ 458752, %121 ], [ %.sroa.72.4, %124 ], [ undef, %68 ], [ undef, %74 ], [ undef, %75 ], [ undef, %76 ], [ undef, %77 ], [ undef, %78 ], [ undef, %79 ], [ undef, %80 ], [ undef, %81 ], [ undef, %82 ], [ undef, %83 ], [ undef, %84 ], [ undef, %85 ], [ 0, %86 ], [ 65536, %87 ], [ 131072, %88 ], [ 196608, %89 ], [ 262144, %90 ], [ 327680, %91 ], [ 393216, %92 ], [ 458752, %93 ], [ %.sroa.72.2, %96 ], [ undef, %64 ], [ 16842752, %.thread363.fold.split ], [ 16777216, %.thread363.fold.split369 ], [ undef, %51 ], [ %.sroa.72.0, %48 ]
   %.sroa.0328.0.insert.ext = zext nneg i16 %.sroa.0244.0 to i48
   %.sroa.0328.2.insert.ext = zext i32 %.sroa.72.1 to i48
   %.sroa.0328.2.insert.shift = shl nuw i48 %.sroa.0328.2.insert.ext, 16
@@ -12402,8 +12402,8 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit.thre
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit: ; preds = %6, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0259ea3a885ca391E.exit.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit.thread
-  %.sroa.3.0 = phi i16 [ %14, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0259ea3a885ca391E.exit.i" ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit.thread ], [ undef, %6 ]
-  %.sroa.0.0 = phi i16 [ 1, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0259ea3a885ca391E.exit.i" ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit.thread ], [ 0, %6 ]
+  %.sroa.3.0 = phi i16 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit.thread ], [ %14, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0259ea3a885ca391E.exit.i" ], [ undef, %6 ]
+  %.sroa.0.0 = phi i16 [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hea0c8d014cf6ec8eE.exit.thread ], [ 1, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0259ea3a885ca391E.exit.i" ], [ 0, %6 ]
   %15 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %16 = insertvalue { i16, i16 } %15, i16 %.sroa.3.0, 1
   ret { i16, i16 } %16
@@ -12455,8 +12455,8 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit.thre
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit: ; preds = %6, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f2dc21d64f5296fE.exit.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit.thread
-  %.sroa.3.0 = phi i16 [ %14, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f2dc21d64f5296fE.exit.i" ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit.thread ], [ undef, %6 ]
-  %.sroa.0.0 = phi i16 [ 1, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f2dc21d64f5296fE.exit.i" ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit.thread ], [ 0, %6 ]
+  %.sroa.3.0 = phi i16 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit.thread ], [ %14, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f2dc21d64f5296fE.exit.i" ], [ undef, %6 ]
+  %.sroa.0.0 = phi i16 [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5f026d5cbbeecad4E.exit.thread ], [ 1, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f2dc21d64f5296fE.exit.i" ], [ 0, %6 ]
   %15 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %16 = insertvalue { i16, i16 } %15, i16 %.sroa.3.0, 1
   ret { i16, i16 } %16
@@ -12508,8 +12508,8 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit.thre
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit: ; preds = %6, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h328d946e08445c1cE.exit.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit.thread
-  %.sroa.3.0 = phi i16 [ %14, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h328d946e08445c1cE.exit.i" ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit.thread ], [ undef, %6 ]
-  %.sroa.0.0 = phi i16 [ 1, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h328d946e08445c1cE.exit.i" ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit.thread ], [ 0, %6 ]
+  %.sroa.3.0 = phi i16 [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit.thread ], [ %14, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h328d946e08445c1cE.exit.i" ], [ undef, %6 ]
+  %.sroa.0.0 = phi i16 [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8ea4ff95bd3dc07aE.exit.thread ], [ 1, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h328d946e08445c1cE.exit.i" ], [ 0, %6 ]
   %15 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %16 = insertvalue { i16, i16 } %15, i16 %.sroa.3.0, 1
   ret { i16, i16 } %16

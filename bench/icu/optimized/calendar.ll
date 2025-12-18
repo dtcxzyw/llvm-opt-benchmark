@@ -5889,8 +5889,8 @@ define void @_ZN6icu_778Calendar17computeWeekFieldsER10UErrorCode(ptr noundef no
   br label %93
 
 93:                                               ; preds = %81, %79, %88, %54
-  %.256 = phi i32 [ %.0.i.i, %54 ], [ %.054, %79 ], [ %.054, %81 ], [ %spec.select70, %88 ]
-  %.1 = phi i32 [ %47, %54 ], [ %28, %79 ], [ %28, %81 ], [ %spec.select71, %88 ]
+  %.256 = phi i32 [ %.0.i.i, %54 ], [ %spec.select70, %88 ], [ %.054, %79 ], [ %.054, %81 ]
+  %.1 = phi i32 [ %47, %54 ], [ %spec.select71, %88 ], [ %28, %79 ], [ %28, %81 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.256, ptr %94, align 4, !tbaa !12
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -7123,7 +7123,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138: ; preds = %_ZN6ic
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
 _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141: ; preds = %180, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %207, %204, %199, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138
-  %.0.i131 = phi i32 [ 0, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ %224, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136 ], [ 0, %180 ], [ 0, %207 ], [ 0, %204 ], [ 0, %199 ]
+  %.0.i131 = phi i32 [ 0, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ %224, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136 ], [ 0, %199 ], [ 0, %180 ], [ 0, %207 ], [ 0, %204 ]
   %.not83 = icmp eq i32 %.0.i131, %178
   br i1 %.not83, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %225
 
@@ -7580,7 +7580,7 @@ _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit158: ; preds = %_ZN6icu_
   br i1 %81, label %.thread216, label %35
 
 .thread216:                                       ; preds = %79, %75, %.preheader
-  %.pr291 = phi i32 [ %27, %.preheader ], [ %73, %75 ], [ %73, %79 ]
+  %.pr289 = phi i32 [ %27, %.preheader ], [ %73, %75 ], [ %73, %79 ]
   %.0114.lcssa = phi i32 [ 1, %.preheader ], [ %spec.store.select, %79 ], [ %.0114265, %75 ]
   %.0100.lcssa = phi i32 [ 0, %.preheader ], [ %.0114265, %79 ], [ %.0100266, %75 ]
   %82 = fcmp ogt double %.0.i, 0x43846A3EDDF8CD80
@@ -7591,7 +7591,7 @@ _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit158: ; preds = %_ZN6icu_
   br label %87
 
 87:                                               ; preds = %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173, %.thread216
-  %88 = phi i32 [ %.pr291, %.thread216 ], [ %.pr289, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173 ]
+  %88 = phi i32 [ %.pr289, %.thread216 ], [ %.pr290, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173 ]
   %.3117 = phi i32 [ %.0114.lcssa, %.thread216 ], [ %..3117, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173 ]
   %.4104 = phi i32 [ %.0100.lcssa, %.thread216 ], [ %.4104., %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173 ]
   %89 = sub nsw i32 %.3117, %.4104
@@ -7690,12 +7690,12 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168: ; preds = %120
   br i1 %130, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread.i172, label %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173
 
 _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread.i172: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168, %117
-  %.pr290 = phi i32 [ %.pre.i171, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168 ], [ %115, %117 ]
+  %.pr291 = phi i32 [ %.pre.i171, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168 ], [ %115, %117 ]
   %131 = load double, ptr %84, align 8, !tbaa !53
   br label %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173
 
 _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173: ; preds = %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit166, %120, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread.i172
-  %.pr289 = phi i32 [ %.pr290, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread.i172 ], [ %115, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit166 ], [ %.pre.i171, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168 ], [ %124, %120 ]
+  %.pr290 = phi i32 [ %.pr291, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread.i172 ], [ %115, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit166 ], [ %.pre.i171, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168 ], [ %124, %120 ]
   %.0.i167 = phi double [ %131, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread.i172 ], [ 0.000000e+00, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit166 ], [ 0.000000e+00, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i168 ], [ 0.000000e+00, %120 ]
   %132 = fcmp une double %.0.i167, %1
   %133 = fcmp ogt double %.0.i167, %1
@@ -7960,8 +7960,8 @@ _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit203: ; preds = %_ZN6icu_
   br i1 %244, label %196, label %.critedge, !llvm.loop !78
 
 .critedge.thread:                                 ; preds = %196, %87, %134
-  %.pr = phi i32 [ %27, %134 ], [ %88, %87 ], [ %197, %196 ]
-  %.7107.ph = phi i32 [ 0, %134 ], [ %.4104, %87 ], [ %.12112, %196 ]
+  %.pr = phi i32 [ %88, %87 ], [ %27, %134 ], [ %197, %196 ]
+  %.7107.ph = phi i32 [ %.4104, %87 ], [ 0, %134 ], [ %.12112, %196 ]
   %246 = icmp slt i32 %.pr, 1
   br i1 %246, label %247, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211
 
@@ -8032,7 +8032,7 @@ _ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211: ; preds = %200, %91
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit188, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit203, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit158, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173, %189, %78, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211, %4, %8
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %.7107., %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211 ], [ 0, %78 ], [ 0, %189 ], [ %205, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit203 ], [ %95, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173 ], [ %.0114265, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit158 ], [ %.0120259, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit188 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %.7107., %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211 ], [ %205, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit203 ], [ %.0114265, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit158 ], [ 0, %78 ], [ %95, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173 ], [ 0, %189 ], [ %.0120259, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit188 ]
   ret i32 %.0
 }
 

@@ -2140,7 +2140,7 @@ define internal fastcc i32 @__unregister_kprobe_top(ptr noundef captures(address
   br label %__disable_kprobe.exit
 
 __disable_kprobe.exit:                            ; preds = %41, %.loopexit9.i, %.loopexit9.thread.i, %56, %61
-  %65 = phi ptr [ %60, %56 ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %10, %.loopexit9.thread.i ], [ %10, %41 ]
+  %65 = phi ptr [ %60, %56 ], [ %10, %.loopexit9.thread.i ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %10, %41 ]
   %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
   br i1 %66, label %__disable_kprobe.exit.thread, label %70
 
@@ -2931,7 +2931,7 @@ define dso_local i32 @disable_kprobe(ptr noundef captures(address) %0) #0 align 
   br label %__disable_kprobe.exit
 
 __disable_kprobe.exit:                            ; preds = %8, %20, %41, %.loopexit9.i, %.loopexit9.thread.i, %56, %61
-  %65 = phi ptr [ %60, %56 ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %0, %.loopexit9.thread.i ], [ inttoptr (i64 -22 to ptr), %20 ], [ %10, %41 ], [ inttoptr (i64 -22 to ptr), %8 ]
+  %65 = phi ptr [ %60, %56 ], [ %10, %41 ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %0, %.loopexit9.thread.i ], [ inttoptr (i64 -22 to ptr), %20 ], [ inttoptr (i64 -22 to ptr), %8 ]
   %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
   %67 = ptrtoint ptr %65 to i64
   %68 = trunc i64 %67 to i32

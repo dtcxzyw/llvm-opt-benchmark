@@ -4582,7 +4582,7 @@ _ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds =
   br i1 %exitcond72.not.i, label %._crit_edge43.i, label %1617, !llvm.loop !191
 
 ._crit_edge43.i:                                  ; preds = %1617, %.preheader.i323, %.noexc343
-  %1626 = phi i1 [ false, %.preheader.i323 ], [ false, %.noexc343 ], [ true, %1617 ]
+  %1626 = phi i1 [ false, %.noexc343 ], [ false, %.preheader.i323 ], [ true, %1617 ]
   %1627 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 96), align 8, !tbaa !42, !range !76, !noundef !77
   %1628 = trunc nuw i8 %1627 to i1
   br i1 %1628, label %1629, label %.loopexit.i312
@@ -9721,7 +9721,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   br i1 %.not114.i, label %.loopexit2.i, label %.preheader3.i238, !llvm.loop !264
 
 .loopexit2.i:                                     ; preds = %.preheader3.i238, %.preheader1.i, %1438, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit122.i
-  %.0100.i = phi i32 [ %1433, %1438 ], [ %1433, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit122.i ], [ %1436, %.preheader1.i ], [ %1439, %.preheader3.i238 ]
+  %.0100.i = phi i32 [ %1433, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit122.i ], [ %1436, %.preheader1.i ], [ %1433, %1438 ], [ %1439, %.preheader3.i238 ]
   %1440 = icmp sgt i32 %.0100.i, -1
   %1441 = icmp slt i32 %.0100.i, %.fr15.i
   %or.cond116.i = and i1 %1440, %1441
@@ -9766,14 +9766,14 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   br label %common.resume
 
 _ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit: ; preds = %1450, %_ZL16searchCumulativePKdidPi.exit.i, %_ZL16searchCumulativePKdidPi.exit.us.i, %.preheader5.i, %.preheader.i
-  %1458 = phi i64 [ %1083, %.preheader.i ], [ %1083, %.preheader5.i ], [ %1317, %_ZL16searchCumulativePKdidPi.exit.i ], [ %1203, %_ZL16searchCumulativePKdidPi.exit.us.i ], [ %1424, %1450 ]
+  %1458 = phi i64 [ %1317, %_ZL16searchCumulativePKdidPi.exit.i ], [ %1203, %_ZL16searchCumulativePKdidPi.exit.us.i ], [ %1083, %.preheader.i ], [ %1083, %.preheader5.i ], [ %1424, %1450 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %545
   br i1 %exitcond209.not, label %.loopexit, label %909, !llvm.loop !266
 
 .loopexit:                                        ; preds = %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit, %.lr.ph139, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader.i, %894, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit, %574
-  %.1 = phi ptr [ %.0144, %574 ], [ %.0144, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit ], [ %.0144, %894 ], [ %593, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader.i ], [ %593, %.lr.ph139 ], [ %.0144, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit ]
+  %.1 = phi ptr [ %.0144, %574 ], [ %593, %.lr.ph139 ], [ %.0144, %_ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit ], [ %.0144, %894 ], [ %593, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader.i ], [ %.0144, %_ZL22create_synthetic_histoP16t_UmbrellaWindowS0_iP15UmbrellaOptions.exit ]
   %1459 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 176), align 8, !tbaa !56, !range !76, !noundef !77
   %1460 = trunc nuw i8 %1459 to i1
   br i1 %1460, label %1461, label %1634
@@ -12349,7 +12349,7 @@ define internal fastcc void @_ZL12read_pull_xfPKcP16t_UmbrellaHeaderP16t_Umbrell
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph44, !llvm.loop !441
 
 ._crit_edge:                                      ; preds = %.lr.ph44, %.preheader24, %.preheader22, %.loopexit23
-  %.0271.lcssa = phi i32 [ 1, %.loopexit23 ], [ 1, %.preheader22 ], [ 1, %.preheader24 ], [ %77, %.lr.ph44 ]
+  %.0271.lcssa = phi i32 [ 1, %.loopexit23 ], [ 1, %.preheader24 ], [ 1, %.preheader22 ], [ %77, %.lr.ph44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef zeroext 2)
   %78 = invoke noundef i32 @_Z8read_xvgRKNSt10filesystem7__cxx114pathEPPPdPi(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %9, ptr noundef nonnull %10)
@@ -12798,8 +12798,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br label %306
 
 306:                                              ; preds = %282, %.fold.split, %303, %302
-  %.1269 = phi i32 [ %.2270, %302 ], [ %.2270, %303 ], [ %.026875, %282 ], [ %.026875, %.fold.split ]
-  %.1 = phi double [ %.024777, %302 ], [ %.024777, %303 ], [ %291, %282 ], [ %.024777, %.fold.split ]
+  %.1269 = phi i32 [ %.026875, %282 ], [ %.2270, %302 ], [ %.2270, %303 ], [ %.026875, %.fold.split ]
+  %.1 = phi double [ %291, %282 ], [ %.024777, %302 ], [ %.024777, %303 ], [ %.024777, %.fold.split ]
   %307 = srem i32 %292, %.1269
   %308 = icmp eq i32 %307, 0
   br i1 %308, label %309, label %..critedge_crit_edge
@@ -13091,7 +13091,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br i1 %.not311, label %.loopexit, label %.preheader14, !llvm.loop !449
 
 .loopexit:                                        ; preds = %.preheader14, %.preheader, %445, %433
-  %.0249 = phi i32 [ %438, %445 ], [ %438, %433 ], [ %443, %.preheader ], [ %446, %.preheader14 ]
+  %.0249 = phi i32 [ %438, %433 ], [ %443, %.preheader ], [ %438, %445 ], [ %446, %.preheader14 ]
   %447 = icmp sgt i32 %.0249, -1
   %448 = icmp slt i32 %.0249, %.0248
   %or.cond321 = select i1 %447, i1 %448, i1 false

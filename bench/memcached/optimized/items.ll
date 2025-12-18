@@ -1061,7 +1061,7 @@ do_item_unlink_q.exit182:                         ; preds = %447, %458
   br label %479
 
 .thread191.thread:                                ; preds = %105, %407, %405, %395, %400, %359, %292
-  %.4135206.ph = phi i32 [ %.0131285, %292 ], [ %.0131285, %359 ], [ %397, %400 ], [ %397, %395 ], [ %.0131285, %405 ], [ %.0131285, %407 ], [ %.0131285, %105 ]
+  %.4135206.ph = phi i32 [ %.0131285, %407 ], [ %.0131285, %292 ], [ %.0131285, %359 ], [ %397, %400 ], [ %397, %395 ], [ %.0131285, %405 ], [ %.0131285, %105 ]
   %473 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   br label %485
 
@@ -1081,8 +1081,8 @@ do_item_unlink_q.exit182:                         ; preds = %447, %458
   br label %497
 
 479:                                              ; preds = %do_item_unlink_q.exit173, %do_item_unlink_q.exit182, %263, %274
-  %.4118208 = phi i8 [ 64, %274 ], [ 64, %263 ], [ 64, %do_item_unlink_q.exit182 ], [ -128, %do_item_unlink_q.exit173 ]
-  %.4135206 = phi i32 [ %123, %274 ], [ %123, %263 ], [ %472, %do_item_unlink_q.exit182 ], [ %354, %do_item_unlink_q.exit173 ]
+  %.4118208 = phi i8 [ -128, %do_item_unlink_q.exit173 ], [ 64, %274 ], [ 64, %263 ], [ 64, %do_item_unlink_q.exit182 ]
+  %.4135206 = phi i32 [ %354, %do_item_unlink_q.exit173 ], [ %123, %274 ], [ %123, %263 ], [ %472, %do_item_unlink_q.exit182 ]
   %480 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %481 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %482 = load i8, ptr %481, align 8, !tbaa !30

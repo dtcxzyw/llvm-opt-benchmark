@@ -1068,7 +1068,7 @@ define ptr @__cli_strnstr(ptr noundef readonly captures(ret: address, provenance
   br i1 %.not21, label %.loopexit, label %.backedge
 
 .loopexit:                                        ; preds = %18, %16, %8, %11, %3
-  %.0 = phi ptr [ %0, %3 ], [ %.2, %18 ], [ null, %16 ], [ null, %11 ], [ null, %8 ]
+  %.0 = phi ptr [ %0, %3 ], [ null, %16 ], [ %.2, %18 ], [ null, %11 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1116,7 +1116,7 @@ define i64 @cli_strtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br i1 %exitcond.not, label %.loopexit, label %6
 
 .loopexit:                                        ; preds = %17, %.lr.ph26.preheader, %4, %.preheader
-  %.017 = phi i64 [ %7, %.preheader ], [ 0, %4 ], [ %7, %.lr.ph26.preheader ], [ %2, %17 ]
+  %.017 = phi i64 [ %7, %.preheader ], [ %7, %.lr.ph26.preheader ], [ 0, %4 ], [ %2, %17 ]
   ret i64 %.017
 }
 
@@ -1705,7 +1705,7 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph80
 
 .loopexit:                                        ; preds = %.split.us, %.lr.ph83.preheader, %5, %.preheader
-  %.039 = phi i64 [ %7, %.preheader ], [ 0, %5 ], [ %7, %.lr.ph83.preheader ], [ %2, %.split.us ]
+  %.039 = phi i64 [ %7, %.preheader ], [ %7, %.lr.ph83.preheader ], [ 0, %5 ], [ %2, %.split.us ]
   ret i64 %.039
 }
 

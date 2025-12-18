@@ -7655,7 +7655,7 @@ _ZNK17scoped_ptr_vectorIN3euf9th_solverEE3endEv.exit: ; preds = %86
   br i1 %.not24, label %.thread39, label %.lr.ph
 
 .thread39:                                        ; preds = %48, %.lr.ph, %86, %_ZNK17scoped_ptr_vectorIN3euf9th_solverEE3endEv.exit, %40, %82, %79, %_ZNK3euf6egraph9num_nodesEv.exit36, %.critedge
-  %.4 = phi i32 [ 2, %79 ], [ 1, %.critedge ], [ 1, %_ZNK3euf6egraph9num_nodesEv.exit36 ], [ 2, %82 ], [ 2, %40 ], [ 0, %_ZNK17scoped_ptr_vectorIN3euf9th_solverEE3endEv.exit ], [ 0, %86 ], [ 0, %.lr.ph ], [ 1, %48 ]
+  %.4 = phi i32 [ 2, %79 ], [ 1, %.critedge ], [ 0, %_ZNK17scoped_ptr_vectorIN3euf9th_solverEE3endEv.exit ], [ 1, %_ZNK3euf6egraph9num_nodesEv.exit36 ], [ 2, %82 ], [ 2, %40 ], [ 0, %.lr.ph ], [ 0, %86 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %99
 
@@ -10481,7 +10481,7 @@ _ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.cont: ; preds = %_ZNK6vector
   br i1 %.not27, label %_ZNK3euf6solver9get_enodeEP4expr.exit.thread, label %.lr.ph.splitthread-pre-split, !llvm.loop !882
 
 _ZNK3euf6solver9get_enodeEP4expr.exit.thread:     ; preds = %29, %.critedge, %.lr.ph, %12, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i.i, %2, %_ZNK3euf6solver9get_enodeEP4expr.exit
-  %.0 = phi i1 [ false, %_ZNK3euf6solver9get_enodeEP4expr.exit ], [ false, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i.i ], [ false, %2 ], [ true, %12 ], [ true, %.lr.ph ], [ false, %29 ], [ true, %.critedge ]
+  %.0 = phi i1 [ false, %_ZNK3euf6solver9get_enodeEP4expr.exit ], [ false, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i.i ], [ false, %2 ], [ true, %.lr.ph ], [ true, %12 ], [ false, %29 ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -10683,7 +10683,7 @@ _ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.cont: ; preds = %_ZNK6vector
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %86, %.lr.ph, %.loopexit.sink.split, %69, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %69 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ], [ false, %.critedge ], [ true, %86 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ], [ false, %69 ], [ false, %.critedge ], [ true, %86 ]
   ret i1 %.0
 }
 
@@ -12556,7 +12556,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %.not26, label %.loopexit, label %30
 
 .loopexit:                                        ; preds = %.lr.ph, %59, %._crit_edge, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit
-  %.not30 = phi i1 [ true, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit ], [ true, %._crit_edge ], [ true, %59 ], [ false, %.lr.ph ]
+  %.not30 = phi i1 [ true, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit ], [ true, %59 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.not30
 }
 

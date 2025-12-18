@@ -646,8 +646,8 @@ define linkonce_odr dso_local void @_ZZN3igl32extract_non_manifold_edge_curvesIN
   br label %.critedge, !llvm.loop !83
 
 _ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %34, %17, %29
-  %41 = phi i64 [ %22, %29 ], [ %15, %17 ], [ %22, %34 ]
-  %.sroa.06.1.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.06.0.i.i.i, %17 ], [ %36, %34 ]
+  %41 = phi i64 [ %15, %17 ], [ %22, %29 ], [ %22, %34 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %17 ], [ %30, %29 ], [ %36, %34 ]
   %.sroa.0.016.i.i = load ptr, ptr %.sroa.06.1.i.i.i, align 8, !tbaa !65
   %.not617.i.i = icmp eq ptr %.sroa.0.016.i.i, null
   br i1 %.not617.i.i, label %.critedge, label %.lr.ph.i.i
@@ -731,7 +731,7 @@ _ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5
   br label %.loopexit, !llvm.loop !83
 
 _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %69, %53, %64
-  %.sroa.06.1.i.i.i23 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i25, %53 ], [ %71, %69 ]
+  %.sroa.06.1.i.i.i23 = phi ptr [ %.sroa.06.0.i.i.i25, %53 ], [ %65, %64 ], [ %71, %69 ]
   br label %76
 
 76:                                               ; preds = %77, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i
@@ -906,8 +906,8 @@ define linkonce_odr dso_local void @_ZZN3igl32extract_non_manifold_edge_curvesIN
   br label %.critedge, !llvm.loop !83
 
 _ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %33, %16, %28
-  %40 = phi i64 [ %21, %28 ], [ %14, %16 ], [ %21, %33 ]
-  %.sroa.06.1.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i.i, %16 ], [ %35, %33 ]
+  %40 = phi i64 [ %14, %16 ], [ %21, %28 ], [ %21, %33 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %16 ], [ %29, %28 ], [ %35, %33 ]
   %.sroa.0.016.i.i = load ptr, ptr %.sroa.06.1.i.i.i, align 8, !tbaa !65
   %.not617.i.i = icmp eq ptr %.sroa.0.016.i.i, null
   br i1 %.not617.i.i, label %.critedge, label %.lr.ph.i.i
@@ -991,7 +991,7 @@ _ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5
   br label %.loopexit, !llvm.loop !83
 
 _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %68, %52, %63
-  %.sroa.06.1.i.i.i23 = phi ptr [ %64, %63 ], [ %.sroa.06.0.i.i.i25, %52 ], [ %70, %68 ]
+  %.sroa.06.1.i.i.i23 = phi ptr [ %.sroa.06.0.i.i.i25, %52 ], [ %64, %63 ], [ %70, %68 ]
   br label %75
 
 75:                                               ; preds = %76, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i

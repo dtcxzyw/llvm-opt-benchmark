@@ -2511,9 +2511,9 @@ define ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %exitcond232.not, label %.critedge184, label %.lr.ph212, !llvm.loop !209
 
 .critedge184:                                     ; preds = %29, %48, %23, %9, %31, %3, %18, %15, %13
-  %.0133 = phi ptr [ null, %3 ], [ null, %18 ], [ null, %15 ], [ null, %13 ], [ null, %31 ], [ null, %9 ], [ null, %23 ], [ %32, %48 ], [ null, %29 ]
-  %.0125 = phi ptr [ %1, %3 ], [ %1, %18 ], [ %1, %15 ], [ %1, %13 ], [ %1, %31 ], [ %2, %9 ], [ %1, %23 ], [ %1, %48 ], [ %1, %29 ]
-  %.0123 = phi ptr [ %2, %3 ], [ %2, %18 ], [ %2, %15 ], [ %2, %13 ], [ %2, %31 ], [ %1, %9 ], [ %2, %23 ], [ %32, %48 ], [ %2, %29 ]
+  %.0133 = phi ptr [ %32, %48 ], [ null, %3 ], [ null, %18 ], [ null, %15 ], [ null, %13 ], [ null, %9 ], [ null, %31 ], [ null, %23 ], [ null, %29 ]
+  %.0125 = phi ptr [ %1, %48 ], [ %1, %3 ], [ %1, %18 ], [ %1, %15 ], [ %1, %13 ], [ %2, %9 ], [ %1, %31 ], [ %1, %23 ], [ %1, %29 ]
+  %.0123 = phi ptr [ %32, %48 ], [ %2, %3 ], [ %2, %18 ], [ %2, %15 ], [ %2, %13 ], [ %1, %9 ], [ %2, %31 ], [ %2, %23 ], [ %2, %29 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !133
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 216

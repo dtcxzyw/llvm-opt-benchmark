@@ -2310,7 +2310,7 @@ define ptr @Abc_AigMiter(ptr noundef %0, ptr noundef captures(none) %1, i32 noun
   br i1 %65, label %36, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %20, %36, %.preheader29, %.preheader
-  %66 = phi i32 [ %5, %.preheader ], [ %5, %.preheader29 ], [ %63, %36 ], [ %33, %20 ]
+  %66 = phi i32 [ %63, %36 ], [ %5, %.preheader ], [ %5, %.preheader29 ], [ %33, %20 ]
   %67 = sdiv i32 %66, 2
   store i32 %67, ptr %4, align 4, !tbaa !17
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2705,8 +2705,8 @@ Vec_IntFind.exit.i:                               ; preds = %162
   br label %Vec_IntFind.exit.thread.i
 
 Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.exit.i, %155
-  %.07.i133.i = phi i32 [ %168, %Vec_IntFind.exit.i ], [ -2, %155 ], [ -2, %166 ]
-  %169 = phi i32 [ %spec.select.i, %Vec_IntFind.exit.i ], [ 11, %155 ], [ 11, %166 ]
+  %.07.i133.i = phi i32 [ -2, %155 ], [ %168, %Vec_IntFind.exit.i ], [ -2, %166 ]
+  %169 = phi i32 [ 11, %155 ], [ %spec.select.i, %Vec_IntFind.exit.i ], [ 11, %166 ]
   %170 = lshr i32 %.val89.i, %169
   %171 = and i32 %170, 1
   %172 = zext nneg i32 %171 to i64
@@ -2864,7 +2864,7 @@ Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.e
   br i1 %.not.i92, label %Abc_AigAndLookup.exit.thread, label %.lr.ph.i88, !llvm.loop !79
 
 Abc_AigAndLookup.exit:                            ; preds = %Vec_IntFind.exit.thread.i, %198, %204, %210, %212
-  %.0.i = phi ptr [ %201, %198 ], [ %174, %Vec_IntFind.exit.thread.i ], [ %174, %210 ], [ %188, %204 ], [ %215, %212 ]
+  %.0.i = phi ptr [ %174, %210 ], [ %201, %198 ], [ %174, %Vec_IntFind.exit.thread.i ], [ %215, %212 ], [ %188, %204 ]
   %.not75.i = icmp eq ptr %.0.i, null
   br i1 %.not75.i, label %Abc_AigAndLookup.exit.thread, label %Abc_AigAndLookup.exit.thread95
 

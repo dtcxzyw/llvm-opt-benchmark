@@ -668,7 +668,7 @@ define internal void @__cxx_global_var_init.1() #3 section ".text.startup" comda
   br i1 %45, label %.loopexit, label %41
 
 .loopexit:                                        ; preds = %33, %41, %.thread
-  %.pn = phi { ptr, i32 } [ %13, %.thread ], [ %39, %41 ], [ %32, %33 ]
+  %.pn = phi { ptr, i32 } [ %39, %41 ], [ %13, %.thread ], [ %32, %33 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVN10open_spiel6hearts12pass_dir_strB5cxx11E) #26
   resume { ptr, i32 } %.pn
 }
@@ -3363,7 +3363,7 @@ _ZN10open_spiel6hearts5TrickD2Ev.exit.i:          ; preds = %133, %130
   br i1 %139, label %_ZNSt5arrayIN10open_spiel6hearts5TrickELm13EED2Ev.exit, label %130
 
 _ZNSt5arrayIN10open_spiel6hearts5TrickELm13EED2Ev.exit: ; preds = %_ZN10open_spiel6hearts5TrickD2Ev.exit, %_ZN10open_spiel6hearts5TrickD2Ev.exit.i, %113
-  %.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %.pn, %_ZN10open_spiel6hearts5TrickD2Ev.exit.i ], [ %114, %_ZN10open_spiel6hearts5TrickD2Ev.exit ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN10open_spiel6hearts5TrickD2Ev.exit.i ], [ %114, %113 ], [ %114, %_ZN10open_spiel6hearts5TrickD2Ev.exit ]
   call void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #26
   br label %140
 
@@ -10544,7 +10544,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit143:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %292, label %.lr.ph.split, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit143, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit143.us, %.preheader299
-  %293 = phi ptr [ %157, %.preheader299 ], [ %204, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit143.us ], [ %283, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit143 ]
+  %293 = phi ptr [ %204, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit143.us ], [ %157, %.preheader299 ], [ %283, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit143 ]
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next400, 4
   br i1 %exitcond402.not, label %294, label %.preheader299, !llvm.loop !106
@@ -11241,7 +11241,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %._crit_edge353
   br i1 %615, label %.lr.ph357.split, label %._crit_edge358, !llvm.loop !111
 
 ._crit_edge358:                                   ; preds = %605, %589, %575
-  %616 = phi ptr [ %552, %575 ], [ %590, %589 ], [ %606, %605 ]
+  %616 = phi ptr [ %590, %589 ], [ %552, %575 ], [ %606, %605 ]
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next411, 4
   br i1 %exitcond413.not, label %.loopexit287.loopexit, label %551, !llvm.loop !112

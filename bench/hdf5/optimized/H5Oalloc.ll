@@ -3817,8 +3817,8 @@ H5O__move_cont.exit.thread.i:                     ; preds = %.thread.i
   br i1 %679, label %.preheader.splitthread-pre-split.i, label %.thread389.i
 
 .thread389.i:                                     ; preds = %134, %66, %..thread389.i_crit_edge, %.loopexit.i, %.split739.us.i, %35
-  %680 = phi i64 [ %678, %.loopexit.i ], [ %31, %35 ], [ %.pre, %..thread389.i_crit_edge ], [ %31, %.split739.us.i ], [ %31, %66 ], [ %31, %134 ]
-  %.12288.i = phi i8 [ 0, %.loopexit.i ], [ %.0276748.i, %35 ], [ 1, %..thread389.i_crit_edge ], [ %.0276748.i, %.split739.us.i ], [ %.0276748.i, %66 ], [ %.0276748.i, %134 ]
+  %680 = phi i64 [ %31, %.split739.us.i ], [ %678, %.loopexit.i ], [ %31, %35 ], [ %.pre, %..thread389.i_crit_edge ], [ %31, %66 ], [ %31, %134 ]
+  %.12288.i = phi i8 [ %.0276748.i, %.split739.us.i ], [ 0, %.loopexit.i ], [ %.0276748.i, %35 ], [ 1, %..thread389.i_crit_edge ], [ %.0276748.i, %66 ], [ %.0276748.i, %134 ]
   %681 = add i32 %.0305745.i, 1
   %682 = getelementptr inbounds nuw i8, ptr %.0306744.i, i64 48
   %683 = zext i32 %681 to i64
@@ -3884,7 +3884,7 @@ H5O__move_cont.exit.thread.i:                     ; preds = %.thread.i
   %708 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_msgs_forward, i32 noundef 1912, i64 noundef %706, i64 noundef %707, ptr noundef nonnull @.str.35) #7
   br label %.loopexit49
 
-.loopexit49:                                      ; preds = %21, %705, %702, %701, %455, %91, %.thread463.i
+.loopexit49:                                      ; preds = %21, %705, %702, %701, %.thread463.i, %91, %455
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %709 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !26
@@ -4707,7 +4707,7 @@ H5O__alloc_shrink_chunk.exit.thread.i:            ; preds = %.loopexit287.i, %.t
   br label %.loopexit51
 
 H5O__merge_null.exit:                             ; preds = %.thread129.thread.i, %.thread135.i, %.loopexit.thread, %.preheader.i23
-  %not..not20204 = phi i1 [ %721, %.preheader.i23 ], [ false, %.loopexit.thread ], [ %not..not20210, %.thread135.i ], [ true, %.thread129.thread.i ]
+  %not..not20204 = phi i1 [ %not..not20210, %.thread135.i ], [ %721, %.preheader.i23 ], [ false, %.loopexit.thread ], [ true, %.thread129.thread.i ]
   %1188 = call fastcc i32 @H5O__remove_empty_chunks(ptr noundef %0, ptr noundef %1)
   %1189 = icmp slt i32 %1188, 0
   br i1 %1189, label %1190, label %1194
@@ -5283,7 +5283,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5O__remove_empty_chunks(ptr nounde
   br i1 %299, label %21, label %.loopexit233, !llvm.loop !106
 
 .loopexit233:                                     ; preds = %.loopexit230, %208, %295, %.preheader234, %102, %265, %189, %138, %2
-  %.0159 = phi i32 [ -1, %2 ], [ -1, %102 ], [ -1, %138 ], [ -1, %189 ], [ -1, %265 ], [ 0, %.preheader234 ], [ %.0165274, %295 ], [ 1, %208 ], [ 1, %.loopexit230 ]
+  %.0159 = phi i32 [ -1, %2 ], [ -1, %102 ], [ -1, %138 ], [ -1, %189 ], [ -1, %265 ], [ %.0165274, %295 ], [ 0, %.preheader234 ], [ 1, %208 ], [ 1, %.loopexit230 ]
   ret i32 %.0159
 }
 

@@ -2073,7 +2073,7 @@ get_default_pattern_localtime_fmt.exit:           ; preds = %53, %57
   br i1 %.not45.i.i, label %parse_cc_stream_mapstring.exit.i, label %.lr.ph62.i.i, !llvm.loop !129
 
 parse_cc_stream_mapstring.exit.thread.i:          ; preds = %.lr.ph62.i.i, %144, %139, %126, %118, %111, %79, %75
-  %.0.i.ph.i = phi i32 [ -12, %75 ], [ -12, %79 ], [ -22, %118 ], [ -22, %144 ], [ -22, %139 ], [ -22, %126 ], [ -22, %111 ], [ -22, %.lr.ph62.i.i ]
+  %.0.i.ph.i = phi i32 [ -22, %111 ], [ -12, %75 ], [ -12, %79 ], [ -22, %118 ], [ -22, %144 ], [ -22, %139 ], [ -22, %126 ], [ -22, %.lr.ph62.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -3180,7 +3180,7 @@ strftime_expand.exit:                             ; preds = %565
   br label %sls_flag_check_duration_size.exit.thread
 
 sls_flag_check_duration_size.exit:                ; preds = %615, %602
-  %619 = phi i32 [ %.0.i306, %602 ], [ %.1.i311, %615 ]
+  %619 = phi i32 [ %.1.i311, %615 ], [ %.0.i306, %602 ]
   %620 = icmp slt i32 %619, 0
   br i1 %620, label %sls_flag_check_duration_size.exit.thread, label %621
 
@@ -4777,7 +4777,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hls_append_segment(ptr nou
   br label %sls_flags_filename_process.exit
 
 sls_flags_filename_process.exit:                  ; preds = %91, %74, %58
-  %.5.i = phi i32 [ -22, %74 ], [ -22, %91 ], [ -12, %58 ]
+  %.5.i = phi i32 [ -12, %58 ], [ -22, %91 ], [ -22, %74 ]
   call void @av_freep(ptr noundef nonnull %14) #17
   br label %299
 
@@ -6073,8 +6073,8 @@ get_relative_url.exit262.i:                       ; preds = %396
   br label %415
 
 415:                                              ; preds = %.fold.split.i, %414, %408
-  %.1204.i = phi ptr [ %410, %414 ], [ %.0203318.i, %408 ], [ %.0203318.i, %.fold.split.i ]
-  %.1192.i = phi ptr [ %.0191319.i, %414 ], [ %410, %408 ], [ %.0191319.i, %.fold.split.i ]
+  %.1204.i = phi ptr [ %.0203318.i, %408 ], [ %410, %414 ], [ %.0203318.i, %.fold.split.i ]
+  %.1192.i = phi ptr [ %410, %408 ], [ %.0191319.i, %414 ], [ %.0191319.i, %.fold.split.i ]
   %indvars.iv.next358.i = add nuw nsw i64 %indvars.iv357.i, 1
   %exitcond361.not.i = icmp eq i64 %indvars.iv.next358.i, %wide.trip.count360.i
   br i1 %exitcond361.not.i, label %._crit_edge321.i, label %408, !llvm.loop !249
@@ -7573,7 +7573,7 @@ define internal fastcc i32 @replace_str_data_in_filename(ptr noundef %0, ptr nou
   br label %12
 
 12:                                               ; preds = %7, %.fold.split, %5
-  %.020.ph = phi i32 [ 1, %5 ], [ 2, %7 ], [ 1, %.fold.split ]
+  %.020.ph = phi i32 [ 2, %7 ], [ 1, %5 ], [ 1, %.fold.split ]
   call void @av_bprint_append_data(ptr noundef nonnull %4, ptr noundef nonnull %.021, i32 noundef %.020.ph) #17
   %13 = zext nneg i32 %.020.ph to i64
   %14 = getelementptr inbounds nuw i8, ptr %.021, i64 %13
@@ -7782,7 +7782,7 @@ define internal fastcc range(i32 -22, 1) i32 @validate_name(i32 noundef %0, ptr 
   br label %18
 
 18:                                               ; preds = %.sink.split, %14, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %14 ], [ -22, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %16 ], [ -22, %.sink.split ]
   call void @av_freep(ptr noundef nonnull %3) #17
   br label %19
 

@@ -540,8 +540,8 @@ invoke.cont24.loopexit:                           ; preds = %for.inc.i
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %invoke.cont24.loopexit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPDoFiiEEEET_SF_SF_T0_.exit.i, %for.end.i.i.i
-  %17 = phi ptr [ %5, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPDoFiiEEEET_SF_SF_T0_.exit.i ], [ %5, %for.end.i.i.i ], [ %.pre, %invoke.cont24.loopexit ]
-  %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPDoFiiEEEET_SF_SF_T0_.exit.i ], [ %add.ptr.i, %for.end.i.i.i ], [ %retval.sroa.0.2.i, %invoke.cont24.loopexit ]
+  %17 = phi ptr [ %5, %for.end.i.i.i ], [ %5, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPDoFiiEEEET_SF_SF_T0_.exit.i ], [ %.pre, %invoke.cont24.loopexit ]
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i, %for.end.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPDoFiiEEEET_SF_SF_T0_.exit.i ], [ %retval.sroa.0.2.i, %invoke.cont24.loopexit ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3663,8 +3663,8 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad111
   br label %ehcleanup135
 
 for.inc120:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %if.end56, %invoke.cont21, %if.then37, %for.end, %if.then44, %if.then30
-  %performance.1 = phi i8 [ %performance.0285, %invoke.cont21 ], [ 1, %if.then30 ], [ %performance.0285, %if.then37 ], [ %performance.0285, %if.then44 ], [ %performance.0285, %for.end ], [ %performance.0285, %if.end56 ], [ %performance.0285, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %performance.0285, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90 ]
-  %arg.4 = phi i32 [ %inc, %invoke.cont21 ], [ %arg.0286, %if.then30 ], [ %arg.0286, %if.then37 ], [ %arg.0286, %if.then44 ], [ %arg.2, %for.end ], [ %inc52, %if.end56 ], [ %arg.3275, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %argc, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90 ]
+  %performance.1 = phi i8 [ %performance.0285, %invoke.cont21 ], [ 1, %if.then30 ], [ %performance.0285, %if.then37 ], [ %performance.0285, %if.then44 ], [ %performance.0285, %if.end56 ], [ %performance.0285, %for.end ], [ %performance.0285, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %performance.0285, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90 ]
+  %arg.4 = phi i32 [ %inc, %invoke.cont21 ], [ %arg.0286, %if.then30 ], [ %arg.0286, %if.then37 ], [ %arg.0286, %if.then44 ], [ %inc52, %if.end56 ], [ %arg.2, %for.end ], [ %arg.3275, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %argc, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90 ]
   %inc121 = add nsw i32 %arg.4, 1
   %cmp = icmp slt i32 %inc121, %argc
   br i1 %cmp, label %for.body8, label %for.end122, !llvm.loop !31

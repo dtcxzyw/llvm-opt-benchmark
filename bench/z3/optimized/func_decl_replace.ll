@@ -217,7 +217,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i, label %.loopexit167, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %92, %89
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %92 ], [ %91, %89 ]
+  %.137.i.i.i.be = phi ptr [ %91, %89 ], [ %.old.i.i.i, %92 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !26
 
 _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %73, %84
@@ -364,7 +364,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit._crit_edge:  ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i29, label %.loopexit157, label %.lr.ph38.i.i.i25.backedge
 
 .lr.ph38.i.i.i25.backedge:                        ; preds = %147, %144
-  %.137.i.i.i26.be = phi ptr [ %.old.i.i.i28, %147 ], [ %146, %144 ]
+  %.137.i.i.i26.be = phi ptr [ %146, %144 ], [ %.old.i.i.i28, %147 ]
   br label %.lr.ph38.i.i.i25, !llvm.loop !26
 
 .loopexit:                                        ; preds = %128, %139
@@ -570,7 +570,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %.not27.old.i.i.i63, label %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit.thread, label %.lr.ph38.i.i.i59.backedge
 
 .lr.ph38.i.i.i59.backedge:                        ; preds = %245, %242
-  %.137.i.i.i60.be = phi ptr [ %.old.i.i.i62, %245 ], [ %244, %242 ]
+  %.137.i.i.i60.be = phi ptr [ %244, %242 ], [ %.old.i.i.i62, %245 ]
   br label %.lr.ph38.i.i.i59, !llvm.loop !59
 
 .loopexit164:                                     ; preds = %226, %237
@@ -711,7 +711,7 @@ _ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit.thread: ; preds = %231, %245, %24
   br i1 %.not27.old.i.i.i89, label %.loopexit161, label %.lr.ph38.i.i.i85.backedge
 
 .lr.ph38.i.i.i85.backedge:                        ; preds = %307, %304
-  %.137.i.i.i86.be = phi ptr [ %.old.i.i.i88, %307 ], [ %306, %304 ]
+  %.137.i.i.i86.be = phi ptr [ %306, %304 ], [ %.old.i.i.i88, %307 ]
   br label %.lr.ph38.i.i.i85, !llvm.loop !26
 
 .loopexit160:                                     ; preds = %288, %299

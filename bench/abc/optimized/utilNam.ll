@@ -938,7 +938,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly captures(addres
   br i1 %.not32, label %.loopexit, label %.lr.ph42, !llvm.loop !33
 
 .loopexit:                                        ; preds = %24, %46, %.preheader35, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader35 ], [ %.4, %46 ], [ %.1, %24 ]
+  %.2 = phi i32 [ %.4, %46 ], [ 0, %.preheader ], [ 0, %.preheader35 ], [ %.1, %24 ]
   %51 = urem i32 %.2, %2
   ret i32 %51
 }
@@ -1453,7 +1453,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly capt
   br i1 %.not32.i, label %Abc_NamStrHash.exit, label %.lr.ph42.i, !llvm.loop !33
 
 Abc_NamStrHash.exit:                              ; preds = %28, %50, %.preheader35.i, %.preheader.i
-  %.2.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader35.i ], [ %.4.i, %50 ], [ %.1.i, %28 ]
+  %.2.i = phi i32 [ %.4.i, %50 ], [ 0, %.preheader.i ], [ 0, %.preheader35.i ], [ %.1.i, %28 ]
   %55 = urem i32 %.2.i, %7
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i32, ptr %5, i64 %56
@@ -2567,7 +2567,7 @@ Abc_NamStrFind.exit.thread15:                     ; preds = %Abc_NamStrcmp.exit.
   br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !50
 
 .critedge:                                        ; preds = %Abc_NamStrFind.exit.thread15, %3, %64, %Abc_NamStrFind.exit.thread
-  %.0 = phi ptr [ %69, %64 ], [ null, %Abc_NamStrFind.exit.thread ], [ null, %3 ], [ null, %Abc_NamStrFind.exit.thread15 ]
+  %.0 = phi ptr [ null, %Abc_NamStrFind.exit.thread ], [ %69, %64 ], [ null, %3 ], [ null, %Abc_NamStrFind.exit.thread15 ]
   ret ptr %.0
 }
 

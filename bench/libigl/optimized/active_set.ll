@@ -932,7 +932,7 @@ thread-pre-split.i.i.i.i.i.i.i307:                ; preds = %.noexc315
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %353, %342, %293
-  %.0.i.i = phi double [ 0.000000e+00, %293 ], [ %357, %353 ], [ %343, %342 ], [ %351, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %293 ], [ %343, %342 ], [ %357, %353 ], [ %351, %.lr.ph85.i.i.i.i ]
   %358 = load double, ptr %157, align 8, !tbaa !35
   %359 = fcmp olt double %.0.i.i, %358
   br i1 %359, label %772, label %360
@@ -4016,7 +4016,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEES7_EEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEES7_EEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %368, %357, %308
-  %.0.i.i = phi double [ 0.000000e+00, %308 ], [ %372, %368 ], [ %358, %357 ], [ %366, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %308 ], [ %358, %357 ], [ %372, %368 ], [ %366, %.lr.ph85.i.i.i.i ]
   %373 = load double, ptr %178, align 8, !tbaa !35
   %374 = fcmp olt double %.0.i.i, %373
   br i1 %374, label %781, label %375

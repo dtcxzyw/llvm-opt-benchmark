@@ -1659,7 +1659,7 @@ _ZN3gmxL12rvecs_differEPKfS1_.exit:               ; preds = %24
   br i1 %or.cond, label %.thread, label %21, !llvm.loop !182
 
 .thread:                                          ; preds = %16, %_ZN3gmxL12rvecs_differEPKfS1_.exit, %.preheader20, %1
-  %.013 = phi i1 [ true, %1 ], [ false, %.preheader20 ], [ %29, %_ZN3gmxL12rvecs_differEPKfS1_.exit ], [ true, %16 ]
+  %.013 = phi i1 [ %29, %_ZN3gmxL12rvecs_differEPKfS1_.exit ], [ true, %1 ], [ false, %.preheader20 ], [ true, %16 ]
   ret i1 %.013
 }
 

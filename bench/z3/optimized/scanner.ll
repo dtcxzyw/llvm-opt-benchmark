@@ -895,7 +895,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit47:           ; preds = %219, %225
   br label %_ZN7scanner11unread_charEv.exit
 
 _ZN7scanner11unread_charEv.exit:                  ; preds = %_ZN7scanner9read_charEv.exit43, %.preheader, %_ZN6vectorIcLb1EjE9push_backEOc.exit39, %243, %240, %114, %102
-  %.0 = phi i32 [ %115, %114 ], [ %104, %102 ], [ 4, %243 ], [ %spec.select, %_ZN6vectorIcLb1EjE9push_backEOc.exit39 ], [ 4, %240 ], [ %.pre61, %.preheader ], [ %214, %_ZN7scanner9read_charEv.exit43 ]
+  %.0 = phi i32 [ %115, %114 ], [ 4, %240 ], [ %104, %102 ], [ 4, %243 ], [ %spec.select, %_ZN6vectorIcLb1EjE9push_backEOc.exit39 ], [ %.pre61, %.preheader ], [ %214, %_ZN7scanner9read_charEv.exit43 ]
   ret i32 %.0
 }
 

@@ -2289,7 +2289,7 @@ _ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7
   ret void
 
 ehcleanup393:                                     ; preds = %arraydestroy.body169, %ehcleanup164.thread, %ehcleanup366, %ehcleanup304, %ehcleanup240, %ehcleanup164, %lpad255
-  %.pn32 = phi { ptr, i32 } [ %152, %lpad255 ], [ %.pn29.pn, %ehcleanup304 ], [ %.pn13.pn.pn.pn.pn.pn, %ehcleanup164 ], [ %.pn26.pn, %ehcleanup366 ], [ %.pn21.pn.pn.pn, %ehcleanup240 ], [ %.pn13.pn.pn.pn.pn.pn.pn.ph, %ehcleanup164.thread ], [ %.pn13.pn.pn.pn.pn.pn, %arraydestroy.body169 ]
+  %.pn32 = phi { ptr, i32 } [ %152, %lpad255 ], [ %.pn29.pn, %ehcleanup304 ], [ %.pn13.pn.pn.pn.pn.pn, %ehcleanup164 ], [ %.pn26.pn, %ehcleanup366 ], [ %.pn13.pn.pn.pn.pn.pn.pn.ph, %ehcleanup164.thread ], [ %.pn21.pn.pn.pn, %ehcleanup240 ], [ %.pn13.pn.pn.pn.pn.pn, %arraydestroy.body169 ]
   call void @_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7Printer8WithDefsENS0_4SpanIKNS7_3SubEEEbEUlvE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v2) #28
   br label %ehcleanup394
 
@@ -4554,7 +4554,7 @@ _ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7
   ret void
 
 ehcleanup316:                                     ; preds = %arraydestroy.body124, %arraydestroy.body227, %ehcleanup222.thread, %ehcleanup119.thread, %ehcleanup292, %ehcleanup38, %ehcleanup222, %ehcleanup119, %lpad46
-  %.pn32.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn.pn.pn, %ehcleanup119 ], [ %73, %lpad46 ], [ %.pn27.pn.pn.pn, %ehcleanup292 ], [ %.pn.pn.pn, %ehcleanup38 ], [ %.pn18.pn.pn.pn.pn.pn.pn, %ehcleanup222 ], [ %.pn32.pn.pn.pn.pn.pn.ph, %ehcleanup119.thread ], [ %.pn18.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup222.thread ], [ %.pn18.pn.pn.pn.pn.pn.pn, %arraydestroy.body227 ], [ %.pn32.pn.pn.pn.pn, %arraydestroy.body124 ]
+  %.pn32.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn.pn.pn, %ehcleanup119 ], [ %.pn18.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup222.thread ], [ %73, %lpad46 ], [ %.pn27.pn.pn.pn, %ehcleanup292 ], [ %.pn.pn.pn, %ehcleanup38 ], [ %.pn18.pn.pn.pn.pn.pn.pn, %ehcleanup222 ], [ %.pn18.pn.pn.pn.pn.pn.pn, %arraydestroy.body227 ], [ %.pn32.pn.pn.pn.pn.pn.ph, %ehcleanup119.thread ], [ %.pn32.pn.pn.pn.pn, %arraydestroy.body124 ]
   call void @_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7Printer8WithVarsINS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSC_SaIcEEENS0_18container_internal10StringHashENSI_8StringEqESaISt4pairIKSD_SH_EEEEvvEEDaOT_EUlvE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %v) #28
   br label %eh.resume
 
@@ -5754,8 +5754,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit: ; preds = %land.rhs.i.i.i, %while.cond24.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit703.split.loop.exit725, %land.lhs.true.i.i
-  %__begin4.sroa.0.2 = phi ptr [ %__begin4.sroa.0.0732, %land.lhs.true.i.i ], [ %121, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit703.split.loop.exit725 ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %__begin4.sroa.0.0732, %land.rhs.i.i.i ]
-  %__begin4.sroa.8.2 = phi i32 [ %inc.i.i, %land.lhs.true.i.i ], [ %conv8.i.i.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit703.split.loop.exit725 ], [ 0, %while.cond24.i.i.i ], [ %inc.i.i, %land.rhs.i.i.i ]
+  %__begin4.sroa.0.2 = phi ptr [ %__begin4.sroa.0.0732, %land.lhs.true.i.i ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %121, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit703.split.loop.exit725 ], [ %__begin4.sroa.0.0732, %land.rhs.i.i.i ]
+  %__begin4.sroa.8.2 = phi i32 [ %inc.i.i, %land.lhs.true.i.i ], [ 0, %while.cond24.i.i.i ], [ %conv8.i.i.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit703.split.loop.exit725 ], [ %inc.i.i, %land.rhs.i.i.i ]
   %cmp.i.i = icmp ne ptr %__begin4.sroa.0.2, %108
   %cmp6.i.i = icmp ne i32 %__begin4.sroa.8.2, %conv.i.i
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp6.i.i
@@ -7215,7 +7215,7 @@ _ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7
   ret void
 
 ehcleanup518:                                     ; preds = %arraydestroy.body242, %arraydestroy.body170, %arraydestroy.body511, %lpad31.loopexit, %lpad31.loopexit.split-lp, %ehcleanup506.thread, %ehcleanup237.thread, %ehcleanup165.thread, %ehcleanup102, %ehcleanup506, %ehcleanup237, %ehcleanup165, %ehcleanup436
-  %.pn59 = phi { ptr, i32 } [ %.pn51.pn.pn.pn.pn.pn, %ehcleanup506 ], [ %.pn48, %ehcleanup436 ], [ %.pn29.pn.pn, %ehcleanup165 ], [ %.pn24.pn.pn, %ehcleanup237 ], [ %.pn21.pn, %ehcleanup102 ], [ %.pn29.pn.pn.pn.ph, %ehcleanup165.thread ], [ %.pn24.pn.pn.pn.ph, %ehcleanup237.thread ], [ %.pn51.pn.pn.pn.pn.pn.pn.ph, %ehcleanup506.thread ], [ %lpad.loopexit.split-lp707, %lpad31.loopexit.split-lp ], [ %lpad.loopexit706, %lpad31.loopexit ], [ %.pn29.pn.pn, %arraydestroy.body170 ], [ %.pn51.pn.pn.pn.pn.pn, %arraydestroy.body511 ], [ %.pn24.pn.pn, %arraydestroy.body242 ]
+  %.pn59 = phi { ptr, i32 } [ %.pn29.pn.pn, %arraydestroy.body170 ], [ %.pn51.pn.pn.pn.pn.pn, %ehcleanup506 ], [ %.pn51.pn.pn.pn.pn.pn.pn.ph, %ehcleanup506.thread ], [ %.pn48, %ehcleanup436 ], [ %.pn29.pn.pn, %ehcleanup165 ], [ %lpad.loopexit.split-lp707, %lpad31.loopexit.split-lp ], [ %.pn24.pn.pn, %ehcleanup237 ], [ %.pn51.pn.pn.pn.pn.pn, %arraydestroy.body511 ], [ %.pn21.pn, %ehcleanup102 ], [ %.pn29.pn.pn.pn.ph, %ehcleanup165.thread ], [ %.pn24.pn.pn.pn.ph, %ehcleanup237.thread ], [ %lpad.loopexit706, %lpad31.loopexit ], [ %.pn24.pn.pn, %arraydestroy.body242 ]
   %215 = load ptr, ptr %numbers, align 8
   %tobool.not.i.i.i634 = icmp eq ptr %215, null
   br i1 %tobool.not.i.i.i634, label %ehcleanup519, label %if.then.i.i.i635
@@ -17445,8 +17445,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i, %while.cond24.i.i.i.i.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit22.split.loop.exit23.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
-  %__begin5.sroa.0.2.i.i.i.i = phi ptr [ %__begin5.sroa.0.029.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %25, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit22.split.loop.exit23.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.cond24.i.i.i.i.i.i.i ], [ %__begin5.sroa.0.029.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ]
-  %__begin5.sroa.8.2.i.i.i.i = phi i32 [ %inc.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %conv8.i.i.i.le.i.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit22.split.loop.exit23.i.i.i.i ], [ 0, %while.cond24.i.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ]
+  %__begin5.sroa.0.2.i.i.i.i = phi ptr [ %__begin5.sroa.0.029.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.cond24.i.i.i.i.i.i.i ], [ %25, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit22.split.loop.exit23.i.i.i.i ], [ %__begin5.sroa.0.029.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ]
+  %__begin5.sroa.8.2.i.i.i.i = phi i32 [ %inc.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ 0, %while.cond24.i.i.i.i.i.i.i ], [ %conv8.i.i.i.le.i.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEELi256ELb0EEEEERSF_PSF_EppEv.exit.loopexit22.split.loop.exit23.i.i.i.i ], [ %inc.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp ne ptr %__begin5.sroa.0.2.i.i.i.i, %5
   %cmp6.i.i.i.i.i.i = icmp ne i32 %__begin5.sroa.8.2.i.i.i.i, %conv.i.i.i.i.i.i
   %.not.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i.i.i
@@ -18438,8 +18438,8 @@ arraydestroy.body33.i.i.i.i:                      ; preds = %arraydestroy.body33
   br i1 %arraydestroy.done36.i.i.i.i, label %ehcleanup.i.i.i.i, label %arraydestroy.body33.i.i.i.i
 
 ehcleanup.i.i.i.i:                                ; preds = %arraydestroy.body33.i.i.i.i, %lpad23.i.i.i.i, %lpad.i37.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %34, %lpad23.i.i.i.i ], [ %23, %lpad.i37.i.i.i.i ], [ %35, %arraydestroy.body33.i.i.i.i ]
-  %36 = phi i1 [ false, %lpad23.i.i.i.i ], [ false, %lpad.i37.i.i.i.i ], [ true, %arraydestroy.body33.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %23, %lpad.i37.i.i.i.i ], [ %34, %lpad23.i.i.i.i ], [ %35, %arraydestroy.body33.i.i.i.i ]
+  %36 = phi i1 [ false, %lpad.i37.i.i.i.i ], [ false, %lpad23.i.i.i.i ], [ true, %arraydestroy.body33.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp18.i.i.i.i) #28
   br label %ehcleanup38.i.i.i.i
 

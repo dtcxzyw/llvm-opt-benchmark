@@ -4969,7 +4969,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %44, %._crit_edge.i.i.i.us.i, %43
-  %.sroa.3.0.i.ph.i.us.i = phi i64 [ 1, %43 ], [ %54, %._crit_edge.i.i.i.us.i ], [ 1, %44 ]
+  %.sroa.3.0.i.ph.i.us.i = phi i64 [ %54, %._crit_edge.i.i.i.us.i ], [ 1, %43 ], [ 1, %44 ]
   %55 = load i64, ptr %.val.i.i, align 8, !noalias !980, !noundef !3
   %56 = add i64 %55, %.sroa.3.0.i.ph.i.us.i
   store i64 %56, ptr %.val.i.i, align 8, !noalias !980
@@ -6254,7 +6254,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %46, %._crit_edge.i.i.i.us.i, %45
-  %.sroa.3.0.i.ph.i.us.i = phi i64 [ 1, %45 ], [ %56, %._crit_edge.i.i.i.us.i ], [ 1, %46 ]
+  %.sroa.3.0.i.ph.i.us.i = phi i64 [ %56, %._crit_edge.i.i.i.us.i ], [ 1, %45 ], [ 1, %46 ]
   %57 = load i64, ptr %.val.i.i, align 8, !noalias !1332, !noundef !3
   %58 = add i64 %57, %.sroa.3.0.i.ph.i.us.i
   store i64 %58, ptr %.val.i.i, align 8, !noalias !1332

@@ -1100,8 +1100,8 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br i1 %425, label %.thread56, label %.lr.ph
 
 .thread56:                                        ; preds = %.thread57, %303, %422, %298, %.loopexit83, %336
-  %426 = phi i8 [ 0, %336 ], [ 0, %.loopexit83 ], [ 0, %298 ], [ 0, %422 ], [ %409, %.thread57 ], [ 0, %303 ]
-  %427 = phi ptr [ %272, %336 ], [ %262, %.loopexit83 ], [ %272, %298 ], [ %423, %422 ], [ %410, %.thread57 ], [ %272, %303 ]
+  %426 = phi i8 [ 0, %336 ], [ 0, %.loopexit83 ], [ 0, %298 ], [ 0, %303 ], [ %409, %.thread57 ], [ 0, %422 ]
+  %427 = phi ptr [ %272, %336 ], [ %262, %.loopexit83 ], [ %272, %298 ], [ %272, %303 ], [ %410, %.thread57 ], [ %423, %422 ]
   %428 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %429 = load ptr, ptr %267, align 8
   %430 = icmp eq ptr %429, null
@@ -1214,9 +1214,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br label %500
 
 500:                                              ; preds = %485, %.thread62, %498
-  %501 = phi i8 [ %spec.select, %485 ], [ 1, %498 ], [ %441, %.thread62 ]
-  %502 = phi ptr [ %spec.select70, %485 ], [ %442, %498 ], [ %439, %.thread62 ]
-  %503 = phi ptr [ %438, %485 ], [ %499, %498 ], [ %438, %.thread62 ]
+  %501 = phi i8 [ %441, %.thread62 ], [ %spec.select, %485 ], [ 1, %498 ]
+  %502 = phi ptr [ %439, %.thread62 ], [ %spec.select70, %485 ], [ %442, %498 ]
+  %503 = phi ptr [ %438, %.thread62 ], [ %438, %485 ], [ %499, %498 ]
   %504 = icmp eq ptr %443, %435
   br i1 %504, label %._crit_edge, label %.lr.ph119, !llvm.loop !23
 
@@ -2454,7 +2454,7 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret
   br label %114
 
 114:                                              ; preds = %110, %100
-  %115 = phi ptr [ %113, %110 ], [ %80, %100 ]
+  %115 = phi ptr [ %80, %100 ], [ %113, %110 ]
   %116 = icmp eq i8 %29, %13
   br i1 %116, label %.thread, label %24, !llvm.loop !52
 
@@ -5240,7 +5240,7 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
   br label %168
 
 .loopexit:                                        ; preds = %81, %112, %78, %29, %11
-  %155 = phi i64 [ -12, %11 ], [ -12, %29 ], [ -22, %112 ], [ -22, %78 ], [ -19, %81 ]
+  %155 = phi i64 [ -12, %11 ], [ -12, %29 ], [ -22, %78 ], [ -22, %112 ], [ -19, %81 ]
   %156 = getelementptr inbounds nuw i8, ptr %9, i64 5496
   %157 = getelementptr inbounds nuw i8, ptr %9, i64 5896
   %158 = load ptr, ptr %157, align 8
@@ -5348,7 +5348,7 @@ define internal ptr @execlists_create_parallel(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %39, %41, %42, %.loopexit, %12
-  %43 = phi ptr [ %10, %12 ], [ %10, %42 ], [ %21, %.loopexit ], [ %10, %41 ], [ %10, %39 ], [ %21, %.preheader ]
+  %43 = phi ptr [ %10, %12 ], [ %10, %39 ], [ %10, %42 ], [ %21, %.loopexit ], [ %10, %41 ], [ %21, %.preheader ]
   ret ptr %43
 }
 

@@ -531,7 +531,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_bas
   br i1 %208, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i, !llvm.loop !93
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %186
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.09.022.i.ptr.i.i.i.i, %186 ], [ %.sroa.0161.1.lcssa.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %.sroa.0161.1.lcssa.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.09.022.i.ptr.i.i.i.i, %186 ], [ %.sroa.0.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   store i64 %175, ptr %.sink.i.i.i.i.i, align 4
   %.sroa.09.022.i.add.i.i.i.i = add nuw nsw i64 %.sroa.09.022.i.idx.i.i.i.i, 8
   %.not.i.i.i.i137.i = icmp eq i64 %.sroa.09.022.i.add.i.i.i.i, 128
@@ -679,7 +679,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS
   br i1 %286, label %.lr.ph.i.i32.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i28.i.i.i.i, !llvm.loop !93
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i28.i.i.i.i: ; preds = %.lr.ph.i.i32.i.i.i.i, %.lr.ph.i.i.i.i.i.i37.i.i.i.i, %264, %250
-  %.sink.i29.i.i.i.i = phi ptr [ %.sroa.0161.1.lcssa.i, %250 ], [ %.sroa.09.022.i21.i.i.i.i, %264 ], [ %.sroa.0161.1.lcssa.i, %.lr.ph.i.i.i.i.i.i37.i.i.i.i ], [ %.sroa.0.0.i.i34.i.i.i.i, %.lr.ph.i.i32.i.i.i.i ]
+  %.sink.i29.i.i.i.i = phi ptr [ %.sroa.0161.1.lcssa.i, %250 ], [ %.sroa.0161.1.lcssa.i, %.lr.ph.i.i.i.i.i.i37.i.i.i.i ], [ %.sroa.09.022.i21.i.i.i.i, %264 ], [ %.sroa.0.0.i.i34.i.i.i.i, %.lr.ph.i.i32.i.i.i.i ]
   store i64 %249, ptr %.sink.i29.i.i.i.i, align 4
   %.sroa.09.0.i30.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.09.022.i21.i.i.i.i, i64 8
   %.not.i31.i.i.i.i = icmp eq ptr %.sroa.09.0.i30.i.i.i.i, %.sroa.15.1.lcssa.i

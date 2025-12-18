@@ -271,7 +271,7 @@ switch.early.test.i:                              ; preds = %bytestream2_get_be1
   br label %decode_extradata.exit
 
 .critedge.i:                                      ; preds = %84, %switch.early.test.i, %68, %bytestream2_get_be16.exit.i, %bytestream2_get_byte.exit68.i
-  %.sroa.0.1.lcssa.i = phi ptr [ %50, %bytestream2_get_be16.exit.i ], [ %21, %bytestream2_get_byte.exit68.i ], [ %100, %switch.early.test.i ], [ %70, %68 ], [ %86, %84 ]
+  %.sroa.0.1.lcssa.i = phi ptr [ %50, %bytestream2_get_be16.exit.i ], [ %70, %68 ], [ %21, %bytestream2_get_byte.exit68.i ], [ %100, %switch.early.test.i ], [ %86, %84 ]
   %102 = add nuw nsw i32 %.058124.i, 1
   %exitcond135.not.i = icmp eq i32 %102, %38
   br i1 %exitcond135.not.i, label %decode_extradata.exit, label %.lr.ph125.i, !llvm.loop !40

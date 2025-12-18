@@ -1954,7 +1954,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i84: ; preds = %.noexc89, %2
   br label %.loopexit137
 
 .loopexit137:                                     ; preds = %_ZN6dimacs13stream_bufferppEv.exit.i, %.loopexit108, %.loopexit114, %.loopexit122, %.loopexit128, %.loopexit104, %235
-  %.0 = phi i1 [ false, %235 ], [ true, %.loopexit104 ], [ true, %.loopexit128 ], [ true, %.loopexit122 ], [ true, %.loopexit114 ], [ true, %.loopexit108 ], [ false, %_ZN6dimacs13stream_bufferppEv.exit.i ]
+  %.0 = phi i1 [ true, %.loopexit108 ], [ false, %235 ], [ true, %.loopexit104 ], [ true, %.loopexit128 ], [ true, %.loopexit122 ], [ true, %.loopexit114 ], [ false, %_ZN6dimacs13stream_bufferppEv.exit.i ]
   ret i1 %.0
 
 237:                                              ; preds = %.loopexit.split-lp

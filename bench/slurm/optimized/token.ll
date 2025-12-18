@@ -73,7 +73,7 @@ define dso_local ptr @slurm_fetch_token(ptr noundef %0, i32 noundef %1) local_un
   br label %25
 
 25:                                               ; preds = %.sink.split, %11, %20
-  %.0 = phi ptr [ null, %11 ], [ %23, %20 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %23, %20 ], [ null, %11 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

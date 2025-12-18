@@ -1948,7 +1948,7 @@ thread-pre-split:                                 ; preds = %27
   br i1 %.not19, label %multissl_setup.exit, label %.lr.ph.split, !llvm.loop !187
 
 multissl_setup.exit:                              ; preds = %54, %11, %.preheader, %.loopexit.i, %48, %36, %35, %.loopexit, %14, %18, %17
-  %.013 = phi i32 [ %23, %18 ], [ 0, %14 ], [ 1, %17 ], [ 0, %.loopexit ], [ 0, %35 ], [ 0, %36 ], [ 0, %48 ], [ 0, %.loopexit.i ], [ 1, %.preheader ], [ 1, %11 ], [ 1, %54 ]
+  %.013 = phi i32 [ %23, %18 ], [ 0, %.loopexit.i ], [ 0, %14 ], [ 1, %17 ], [ 0, %.loopexit ], [ 0, %35 ], [ 0, %36 ], [ 0, %48 ], [ 1, %.preheader ], [ 1, %11 ], [ 1, %54 ]
   ret i32 %.013
 }
 
@@ -3260,8 +3260,8 @@ define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1 no
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge56.i, %53, %48, %.backedge.i, %68, %61
-  %.147.i = phi i32 [ 28, %68 ], [ 56, %61 ], [ 0, %._crit_edge56.i ], [ 0, %.backedge.i ], [ 0, %53 ], [ %52, %48 ]
-  %69 = phi i8 [ 2, %68 ], [ 2, %61 ], [ 2, %._crit_edge56.i ], [ 0, %.backedge.i ], [ 2, %53 ], [ 2, %48 ]
+  %.147.i = phi i32 [ 56, %61 ], [ 28, %68 ], [ 0, %._crit_edge56.i ], [ 0, %.backedge.i ], [ 0, %53 ], [ %52, %48 ]
+  %69 = phi i8 [ 2, %61 ], [ 2, %68 ], [ 2, %._crit_edge56.i ], [ 0, %.backedge.i ], [ 2, %53 ], [ 2, %48 ]
   %70 = load ptr, ptr %31, align 8, !tbaa !151
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
   store ptr %.sroa.0.0.copyload.i, ptr %71, align 8, !tbaa !197

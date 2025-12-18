@@ -219,7 +219,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph38.split, %58, %.lr.ph38.split.us, %22
-  %.lcssa31 = phi ptr [ %44, %58 ], [ %13, %22 ], [ %13, %.lr.ph38.split.us ], [ %44, %.lr.ph38.split ]
+  %.lcssa31 = phi ptr [ %13, %.lr.ph38.split.us ], [ %44, %58 ], [ %13, %22 ], [ %44, %.lr.ph38.split ]
   %59 = getelementptr inbounds nuw i8, ptr %.lcssa31, i64 8
   %60 = load ptr, ptr %59, align 8
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.4, ptr noundef %60) #9

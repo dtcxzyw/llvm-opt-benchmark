@@ -1526,7 +1526,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   br i1 %exitcond119.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %48, %BTreeTupleIsPosting.exit.thread
-  %150 = phi i32 [ %.ph, %48 ], [ %45, %BTreeTupleIsPosting.exit.thread ], [ %114, %.lr.ph.split.us.split.us ], [ %131, %.lr.ph.split.us.split ], [ %149, %.lr.ph.split ]
+  %150 = phi i32 [ %114, %.lr.ph.split.us.split.us ], [ %45, %BTreeTupleIsPosting.exit.thread ], [ %131, %.lr.ph.split.us.split ], [ %.ph, %48 ], [ %149, %.lr.ph.split ]
   %151 = add nuw nsw i32 %.0102, 1
   %152 = load i32, ptr %4, align 4
   %153 = icmp slt i32 %151, %152

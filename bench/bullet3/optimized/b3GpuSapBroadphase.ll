@@ -4710,7 +4710,7 @@ _ZN13b3ProfileZoneC2EPKc.exit554:                 ; preds = %_ZN20b3AlignedObjec
   br i1 %778, label %.lr.ph757, label %.preheader, !llvm.loop !145
 
 ._crit_edge760:                                   ; preds = %808, %_ZN13b3ProfileZoneC2EPKc.exit554.preheader, %.preheader
-  %779 = phi ptr [ %772, %.preheader ], [ null, %_ZN13b3ProfileZoneC2EPKc.exit554.preheader ], [ %772, %808 ]
+  %779 = phi ptr [ null, %_ZN13b3ProfileZoneC2EPKc.exit554.preheader ], [ %772, %.preheader ], [ %772, %808 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit609 unwind label %780
 
@@ -5506,7 +5506,7 @@ _ZL20TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread: ; preds = %.lr.ph302
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph302, !llvm.loop !151
 
 ._crit_edge313:                                   ; preds = %._crit_edge309, %_ZN13b3ProfileZoneD2Ev.exit, %.lr.ph312, %._crit_edge305
-  %79 = phi i32 [ %18, %.lr.ph312 ], [ %18, %._crit_edge305 ], [ 0, %_ZN13b3ProfileZoneD2Ev.exit ], [ %90, %._crit_edge309 ]
+  %79 = phi i32 [ 0, %_ZN13b3ProfileZoneD2Ev.exit ], [ %18, %.lr.ph312 ], [ %18, %._crit_edge305 ], [ %90, %._crit_edge309 ]
   %80 = icmp sgt i32 %79, %1
   br i1 %80, label %135, label %138
 

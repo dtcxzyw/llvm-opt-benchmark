@@ -2536,7 +2536,7 @@ for.cond.i.backedge:                              ; preds = %for.end58.i, %if.en
   br label %for.cond.i, !llvm.loop !35
 
 _ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_St26random_access_iterator_tag.exit: ; preds = %for.end.i, %for.end58.i, %for.body.i.i, %entry, %if.else.i
-  %retval.sroa.0.0.i = phi ptr [ %__last.coerce, %entry ], [ %__first.coerce, %if.else.i ], [ %__middle.coerce, %for.body.i.i ], [ %add.ptr.i.i, %for.end58.i ], [ %add.ptr.i.i, %for.end.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__middle.coerce, %for.body.i.i ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else.i ], [ %add.ptr.i.i, %for.end58.i ], [ %add.ptr.i.i, %for.end.i ]
   ret ptr %retval.sroa.0.0.i
 }
 

@@ -14506,7 +14506,7 @@ _ZN4absl12lts_2024011615StrAppendFormatIJEEERNSt7__cxx1112basic_stringIcSt11char
   br label %256
 
 221:                                              ; preds = %208, %210
-  %222 = phi i1 [ %211, %210 ], [ %209, %208 ]
+  %222 = phi i1 [ %209, %208 ], [ %211, %210 ]
   br i1 %222, label %.thread664, label %269
 
 .thread664:                                       ; preds = %221

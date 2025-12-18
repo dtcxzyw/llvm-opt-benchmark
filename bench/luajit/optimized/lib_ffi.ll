@@ -1016,7 +1016,7 @@ define internal noundef i32 @lj_cf_ffi_new(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %32, %41, %44
-  %.0.i61 = phi i32 [ %34, %32 ], [ %43, %41 ], [ %45, %44 ]
+  %.0.i61 = phi i32 [ %34, %32 ], [ %45, %44 ], [ %43, %41 ]
   %46 = load ptr, ptr %10, align 8, !tbaa !51
   br label %47
 
@@ -1279,7 +1279,7 @@ define internal fastcc i32 @ffi_checkctype(ptr noundef %0, ptr noundef %1, ptr n
   br label %42
 
 42:                                               ; preds = %40, %37, %25
-  %.0 = phi i32 [ %27, %25 ], [ %39, %37 ], [ %41, %40 ]
+  %.0 = phi i32 [ %27, %25 ], [ %41, %40 ], [ %39, %37 ]
   ret i32 %.0
 }
 
@@ -1978,7 +1978,7 @@ define internal noundef i32 @lj_cf_ffi_cast(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %30, %39, %42
-  %.0.i27 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i27 = phi i32 [ %32, %30 ], [ %43, %42 ], [ %41, %39 ]
   %44 = load ptr, ptr %8, align 8, !tbaa !51
   br label %45
 
@@ -2311,7 +2311,7 @@ define internal noundef i32 @lj_cf_ffi_istype(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %30, %39, %42
-  %.0.i42 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i42 = phi i32 [ %32, %30 ], [ %43, %42 ], [ %41, %39 ]
   %44 = call ptr @lj_lib_checkany(ptr noundef nonnull %0, i32 noundef 2) #9
   %45 = load i64, ptr %44, align 8, !tbaa !23
   %.mask = and i64 %45, -140737488355328
@@ -2508,8 +2508,8 @@ define internal noundef i32 @lj_cf_ffi_sizeof(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %45 = phi i64 [ %.pre26, %31 ], [ %17, %40 ], [ %17, %43 ]
-  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %45 = phi i64 [ %.pre26, %31 ], [ %17, %43 ], [ %17, %40 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
   %.mask = and i64 %45, -140737488355328
   %46 = icmp eq i64 %.mask, -1548112371908608
   br i1 %46, label %47, label %.critedge
@@ -2674,7 +2674,7 @@ define internal noundef i32 @lj_cf_ffi_alignof(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !43
   %45 = call i32 @lj_ctype_info_raw(ptr noundef nonnull %9, i32 noundef %.0.i, ptr noundef nonnull %3) #9
@@ -2769,7 +2769,7 @@ define internal range(i32 0, 4) i32 @lj_cf_ffi_offsetof(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
   %45 = call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef 2) #9
   %46 = call ptr @lj_ctype_rawref(ptr noundef nonnull %9, i32 noundef %.0.i) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3252,7 +3252,7 @@ define internal noundef i32 @lj_cf_ffi_metatype(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %30, %39, %42
-  %.0.i36 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i36 = phi i32 [ %32, %30 ], [ %43, %42 ], [ %41, %39 ]
   %44 = call ptr @lj_lib_checktab(ptr noundef nonnull %0, i32 noundef 2) #9
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !14

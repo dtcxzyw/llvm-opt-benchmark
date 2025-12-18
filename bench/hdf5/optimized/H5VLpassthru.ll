@@ -708,7 +708,7 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %34, %35, %11
-  %.0 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
+  %.0 = phi i32 [ %25, %34 ], [ -1, %11 ], [ %25, %35 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -791,7 +791,7 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %34, %35, %11
-  %.0 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
+  %.0 = phi i32 [ %25, %34 ], [ -1, %11 ], [ %25, %35 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

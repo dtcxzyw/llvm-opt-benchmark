@@ -9803,7 +9803,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIP16PacketListReco
   br i1 %30, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !107
 
 _ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %25, %14
-  %.sink.i = phi ptr [ %0, %14 ], [ %.sroa.0.022.i, %25 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %0, %14 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.022.i, %25 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
   store ptr %13, ptr %.sink.i, align 8
   %.sroa.0.0.i = getelementptr i8, ptr %.sroa.0.022.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %8
@@ -9892,7 +9892,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cx
   br i1 %60, label %.lr.ph.i.i27, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23, !llvm.loop !107
 
 _ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23: ; preds = %.lr.ph.i.i27, %.lr.ph.i.i.i.i.i.i32, %55, %44
-  %.sink.i24 = phi ptr [ %0, %44 ], [ %.sroa.0.022.i21, %55 ], [ %0, %.lr.ph.i.i.i.i.i.i32 ], [ %.sroa.0.010.i.i28, %.lr.ph.i.i27 ]
+  %.sink.i24 = phi ptr [ %0, %44 ], [ %0, %.lr.ph.i.i.i.i.i.i32 ], [ %.sroa.0.022.i21, %55 ], [ %.sroa.0.010.i.i28, %.lr.ph.i.i27 ]
   store ptr %43, ptr %.sink.i24, align 8
   %.sroa.0.0.i25 = getelementptr i8, ptr %.sroa.0.022.i21, i64 8
   %.not.i26 = icmp eq ptr %.sroa.0.0.i25, %1

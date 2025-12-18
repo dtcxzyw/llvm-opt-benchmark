@@ -6300,7 +6300,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   br label %23
 
 .loopexit.split-lp:                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h854ff7e10b173649E.exit", %13, %32, %33
-  %.1.ph = phi i1 [ false, %33 ], [ true, %13 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h854ff7e10b173649E.exit" ], [ true, %32 ]
+  %.1.ph = phi i1 [ true, %13 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h854ff7e10b173649E.exit" ], [ true, %32 ], [ false, %33 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %23
@@ -6449,7 +6449,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   br label %25
 
 .loopexit.split-lp:                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h1e97f70a7aa0d7beE.exit", %15, %34, %35
-  %.1.ph = phi i1 [ false, %35 ], [ true, %15 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h1e97f70a7aa0d7beE.exit" ], [ true, %34 ]
+  %.1.ph = phi i1 [ true, %15 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h1e97f70a7aa0d7beE.exit" ], [ true, %34 ], [ false, %35 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %25
@@ -7024,7 +7024,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br i1 %.0.ph, label %87, label %86
 
 83:                                               ; preds = %5, %26
-  %.0.ph = phi i1 [ true, %5 ], [ false, %26 ]
+  %.0.ph = phi i1 [ false, %26 ], [ true, %5 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$17hdfe24ea5be47deb7E"(ptr align 8 %2) #22

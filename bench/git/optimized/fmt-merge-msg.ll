@@ -390,9 +390,9 @@ find_merge_parent.exit.thread._crit_edge.i.i:     ; preds = %find_merge_parent.e
   br label %add_merge_parent.exit.i
 
 add_merge_parent.exit.i:                          ; preds = %76, %find_merge_parent.exit.thread._crit_edge.i.i, %65, %62, %59, %52
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %65 ], [ %.sroa.0.2, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.0.0, %62 ], [ %.sroa.0.0, %59 ], [ %.sroa.0.0, %52 ], [ %.sroa.0.0, %76 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %65 ], [ %.pre160, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.5.0, %62 ], [ %.sroa.5.0, %59 ], [ %.sroa.5.0, %52 ], [ %.sroa.5.0, %76 ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.0, %65 ], [ %.sroa.15.3, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.15.0, %62 ], [ %.sroa.15.0, %59 ], [ %.sroa.15.0, %52 ], [ %.sroa.15.0, %76 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %65 ], [ %.sroa.0.0, %52 ], [ %.sroa.0.2, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.0.0, %62 ], [ %.sroa.0.0, %59 ], [ %.sroa.0.0, %76 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %65 ], [ %.sroa.5.0, %52 ], [ %.pre160, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.5.0, %62 ], [ %.sroa.5.0, %59 ], [ %.sroa.5.0, %76 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0, %65 ], [ %.sroa.15.0, %52 ], [ %.sroa.15.3, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.15.0, %62 ], [ %.sroa.15.0, %59 ], [ %.sroa.15.0, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %98 = sext i32 %57 to i64

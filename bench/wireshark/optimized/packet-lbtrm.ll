@@ -834,7 +834,7 @@ define internal i32 @dissect_lbtrm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %lbtrm_transport_unicast_find.exit
 
 lbtrm_transport_unicast_find.exit:                ; preds = %101, %83, %60, %62
-  %.0312 = phi ptr [ %67, %62 ], [ %61, %60 ], [ %84, %83 ], [ %102, %101 ]
+  %.0312 = phi ptr [ %102, %101 ], [ %67, %62 ], [ %84, %83 ], [ %61, %60 ]
   %.not335 = icmp eq ptr %.0312, null
   br i1 %.not335, label %proto_item_set_generated.exit, label %103
 
@@ -2675,7 +2675,7 @@ define internal fastcc ptr @lbtrm_tag_find(ptr noundef readonly captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %61, %.loopexit.sink.split, %4, %1
-  %.0 = phi ptr [ null, %4 ], [ null, %1 ], [ %73, %.loopexit.sink.split ], [ null, %61 ], [ null, %72 ]
+  %.0 = phi ptr [ null, %4 ], [ %73, %.loopexit.sink.split ], [ null, %61 ], [ null, %1 ], [ null, %72 ]
   ret ptr %.0
 }
 
@@ -2881,7 +2881,7 @@ define internal noundef zeroext i1 @lbtrm_tag_mc_address_low_chk_cb(ptr readnone
   br label %17
 
 17:                                               ; preds = %.sink.split, %9, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %9 ], [ true, %14 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -2957,7 +2957,7 @@ define internal noundef zeroext i1 @lbtrm_tag_mc_address_high_chk_cb(ptr readnon
   br label %17
 
 17:                                               ; preds = %.sink.split, %9, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %9 ], [ true, %14 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -3168,7 +3168,7 @@ define internal noundef zeroext i1 @lbtrm_tag_mim_mc_incoming_address_chk_cb(ptr
   br label %17
 
 17:                                               ; preds = %.sink.split, %9, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %9 ], [ true, %14 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -3244,7 +3244,7 @@ define internal noundef zeroext i1 @lbtrm_tag_mim_mc_outgoing_address_chk_cb(ptr
   br label %17
 
 17:                                               ; preds = %.sink.split, %9, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %9 ], [ true, %14 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }

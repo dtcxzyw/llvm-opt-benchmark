@@ -441,7 +441,7 @@ switch.lookup:                                    ; preds = %129
   br label %edge_width.exit.us.us.us.us.us.us.i
 
 edge_width.exit.us.us.us.us.us.us.i:              ; preds = %160, %.lr.ph.i.us.us.us.us.us.us.i, %.lr.ph15.i.us.us.us.us.us.us.i, %._crit_edge16.i.us.us.us.us.us.us.i, %._crit_edge.i.us.us.us.us.us.us.i, %.lr.ph.preheader.i.us.us.us.us.us.us.i
-  %.0.i.us.us.us.us.us.us.i = phi double [ %210, %._crit_edge16.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %._crit_edge.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.preheader.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph15.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %160 ]
+  %.0.i.us.us.us.us.us.us.i = phi double [ %210, %._crit_edge16.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph15.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.preheader.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %._crit_edge.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %160 ]
   %211 = fcmp nsz ogt double %.0.i.us.us.us.us.us.us.i, 1.000000e-03
   %212 = fadd nsz double %.1194276.us.us.us.us.us.us.i, %.0.i.us.us.us.us.us.us.i
   %.2195.us.us.us.us.us.us.i = select nsz i1 %211, double %212, double %.1194276.us.us.us.us.us.us.i

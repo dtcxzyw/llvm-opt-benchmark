@@ -1406,7 +1406,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i73.i.i:       ; preds = %207, %205, %203, %_
   br i1 %exitcond.not.i85.i.i, label %_ZL8ilistcatiP15InteractionListRKS_iii.exit108.i.i, label %.loopexit.us.i80.i.i, !llvm.loop !136
 
 _ZL8ilistcatiP15InteractionListRKS_iii.exit108.i.i: ; preds = %.loopexit.us.i80.i.i, %..loopexit_crit_edge.us.us.us.i104.i.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i73.i.i
-  %236 = phi ptr [ %209, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i73.i.i ], [ %208, %..loopexit_crit_edge.us.us.us.i104.i.i ], [ %208, %.loopexit.us.i80.i.i ]
+  %236 = phi ptr [ %208, %..loopexit_crit_edge.us.us.us.i104.i.i ], [ %209, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i73.i.i ], [ %208, %.loopexit.us.i80.i.i ]
   %237 = add nuw nsw i32 %.068240.i.i, 1
   %238 = load i32, ptr %58, align 4, !tbaa !82
   %239 = icmp slt i32 %237, %238
@@ -5771,7 +5771,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %17
   br i1 %.not21.not, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %.preheader
 
 _Z9PERTURBEDRK6t_atom.exit.thread:                ; preds = %._crit_edge, %11, %17, %_Z9PERTURBEDRK6t_atom.exit, %1
-  %.not2125 = phi i1 [ false, %1 ], [ true, %11 ], [ true, %_Z9PERTURBEDRK6t_atom.exit ], [ true, %17 ], [ false, %._crit_edge ]
+  %.not2125 = phi i1 [ true, %11 ], [ false, %1 ], [ true, %_Z9PERTURBEDRK6t_atom.exit ], [ true, %17 ], [ false, %._crit_edge ]
   ret i1 %.not2125
 }
 
@@ -5817,7 +5817,7 @@ define noundef zeroext i1 @_Z22haveFepPerturbedMassesRK10gmx_mtop_t(ptr noundef 
   br i1 %.not26.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %1
-  %.not2629 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %._crit_edge ]
+  %.not2629 = phi i1 [ true, %11 ], [ false, %1 ], [ false, %._crit_edge ]
   ret i1 %.not2629
 }
 
@@ -5871,7 +5871,7 @@ define noundef zeroext i1 @_Z31haveFepPerturbedMassesInSettlesRK10gmx_mtop_t(ptr
   br i1 %.not31.not, label %.loopexit32, label %.lr.ph41
 
 .loopexit32:                                      ; preds = %.loopexit, %16, %1
-  %.not3135 = phi i1 [ false, %1 ], [ true, %16 ], [ false, %.loopexit ]
+  %.not3135 = phi i1 [ true, %16 ], [ false, %1 ], [ false, %.loopexit ]
   ret i1 %.not3135
 }
 

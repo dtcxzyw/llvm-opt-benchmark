@@ -231,7 +231,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h805a6804df54a429E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hdef6eeed3657dceeE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9de515e2a6761e2E.exit.i": ; preds = %50, %.preheader18.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdf0c66bb54d5afddE.exit.i", %39, %25
-  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %39 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdf0c66bb54d5afddE.exit.i" ], [ %22, %25 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i435053.i, %50 ]
+  %.sroa.0.0.i1417.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %39 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdf0c66bb54d5afddE.exit.i" ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i435053.i, %50 ]
   %45 = shl i64 %.sroa.0.0.i1417.i, 1
   %46 = or disjoint i64 %45, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hdef6eeed3657dceeE.exit
@@ -509,7 +509,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %59
 
 59:                                               ; preds = %48, %52
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.128.i.i, %48 ], [ %58, %52 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %58, %52 ], [ %.sroa.4.128.i.i, %48 ]
   %60 = load ptr, ptr %9, align 8, !alias.scope !39, !noalias !41, !nonnull !3
   %61 = load i64, ptr %7, align 8, !noundef !3
   %62 = icmp ult i64 %61, 384307168202282326
@@ -840,7 +840,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %51
 
 51:                                               ; preds = %40, %44
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.124.i.i, %40 ], [ %50, %44 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.124.i.i, %40 ]
   %52 = load i64, ptr %4, align 8, !noundef !3
   %53 = load i16, ptr %5, align 8, !range !108, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
@@ -979,8 +979,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %52
 
 52:                                               ; preds = %41, %45
-  %53 = phi i8 [ %43, %41 ], [ %.pre, %45 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.124.i.i, %41 ], [ %51, %45 ]
+  %53 = phi i8 [ %.pre, %45 ], [ %43, %41 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.124.i.i, %41 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %54 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %55 = and i8 %53, 1

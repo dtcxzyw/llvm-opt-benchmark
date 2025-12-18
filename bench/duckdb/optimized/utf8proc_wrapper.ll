@@ -348,8 +348,8 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thre
   store i64 %.sink.i61.sink, ptr %3, align 8, !tbaa !12
   br label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread
 
-_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %123, %116, %110, %89, %98, %77, %70, %64, %44, %53, %21, %30, %24, %126
-  %spec.select = phi i32 [ 0, %123 ], [ 0, %116 ], [ 0, %110 ], [ 0, %89 ], [ 0, %98 ], [ 0, %77 ], [ 0, %70 ], [ 0, %64 ], [ 0, %44 ], [ 0, %53 ], [ 0, %21 ], [ 0, %30 ], [ 0, %24 ], [ 0, %126 ], [ 1, %4 ], [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
+_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %89, %110, %116, %123, %98, %44, %64, %70, %77, %53, %30, %21, %24, %126
+  %spec.select = phi i32 [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ 1, %4 ], [ 0, %89 ], [ 0, %110 ], [ 0, %116 ], [ 0, %123 ], [ 0, %98 ], [ 0, %44 ], [ 0, %64 ], [ 0, %70 ], [ 0, %77 ], [ 0, %53 ], [ 0, %30 ], [ 0, %21 ], [ 0, %24 ], [ 0, %126 ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
   ret i32 %spec.select
 }
 
@@ -482,7 +482,7 @@ _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20Unico
   br label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51
 
 _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread: ; preds = %.preheader.i35, %.preheader.i32, %63, %47, %38, %22, %11, %.preheader.i
-  %.14448 = phi i64 [ %14, %.preheader.i ], [ %storemerge70, %11 ], [ %51, %63 ], [ %storemerge70, %47 ], [ %storemerge70, %22 ], [ %26, %38 ], [ %29, %.preheader.i32 ], [ %53, %.preheader.i35 ]
+  %.14448 = phi i64 [ %29, %.preheader.i32 ], [ %14, %.preheader.i ], [ %storemerge70, %11 ], [ %51, %63 ], [ %26, %38 ], [ %storemerge70, %47 ], [ %storemerge70, %22 ], [ %53, %.preheader.i35 ]
   %sext = shl i64 %storemerge70, 32
   %69 = ashr exact i64 %sext, 32
   %.not68 = icmp ugt i64 %69, %.14448
@@ -498,7 +498,7 @@ _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20Unico
   br label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51
 
 _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51: ; preds = %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit, %.lr.ph.preheader, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread, %63, %38, %.preheader.i, %.lr.ph72
-  %.043 = phi i64 [ %storemerge70, %.lr.ph72 ], [ %storemerge70, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit ], [ %26, %38 ], [ %14, %.preheader.i ], [ %51, %63 ], [ %.14448, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread ], [ %.14448, %.lr.ph.preheader ]
+  %.043 = phi i64 [ %storemerge70, %.lr.ph72 ], [ %51, %63 ], [ %storemerge70, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit ], [ %26, %38 ], [ %14, %.preheader.i ], [ %.14448, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread ], [ %.14448, %.lr.ph.preheader ]
   %73 = add i64 %.043, 1
   %74 = icmp ult i64 %73, %1
   br i1 %74, label %.lr.ph72, label %._crit_edge, !llvm.loop !14

@@ -1162,8 +1162,8 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %122
 
 122:                                              ; preds = %119, %118, %115
-  %.0182 = phi ptr [ %117, %115 ], [ %113, %119 ], [ %113, %118 ]
-  %.8 = phi i32 [ 0, %115 ], [ %spec.select203, %119 ], [ 0, %118 ]
+  %.0182 = phi ptr [ %117, %115 ], [ %113, %118 ], [ %113, %119 ]
+  %.8 = phi i32 [ 0, %115 ], [ 0, %118 ], [ %spec.select203, %119 ]
   %123 = icmp eq ptr %.0182, null
   %spec.select204 = select i1 %123, i32 -125, i32 %.8
   %124 = icmp eq i32 %spec.select204, 0
@@ -2031,7 +2031,7 @@ wc_FreeCertList.exit.thread340:                   ; preds = %121, %116, %106, %1
   br i1 %.not.i281, label %wc_FreeCertList.exit282, label %.preheader.i278, !llvm.loop !48
 
 wc_FreeCertList.exit282:                          ; preds = %350, %339, %.thread480, %333, %332, %344, %wc_PKCS12_verify.exit.thread, %49, %wc_PKCS12_verify.exit, %7
-  %.0 = phi i32 [ -173, %49 ], [ -173, %7 ], [ -213, %wc_PKCS12_verify.exit ], [ -213, %wc_PKCS12_verify.exit.thread ], [ %.1195.ph346, %344 ], [ 0, %332 ], [ 0, %333 ], [ 0, %.thread480 ], [ 0, %339 ], [ %.1195.ph346, %350 ]
+  %.0 = phi i32 [ -173, %49 ], [ -173, %7 ], [ -213, %wc_PKCS12_verify.exit ], [ -213, %wc_PKCS12_verify.exit.thread ], [ 0, %339 ], [ %.1195.ph346, %344 ], [ 0, %332 ], [ 0, %333 ], [ 0, %.thread480 ], [ %.1195.ph346, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -2358,7 +2358,7 @@ switch.lookup:                                    ; preds = %111
   br i1 %157, label %.sink.split, label %160
 
 .sink.split:                                      ; preds = %.preheader.i84, %155, %150, %.critedge110.i, %125
-  %.sink = phi ptr [ %123, %125 ], [ %123, %150 ], [ %123, %.critedge110.i ], [ %153, %155 ], [ %123, %.preheader.i84 ]
+  %.sink = phi ptr [ %123, %125 ], [ %123, %150 ], [ %153, %155 ], [ %123, %.critedge110.i ], [ %123, %.preheader.i84 ]
   call void @wolfSSL_Free(ptr noundef nonnull %.sink) #9
   br label %158
 
@@ -2676,7 +2676,7 @@ ForceZero.exit93:                                 ; preds = %.lr.ph29.i84
   br label %ForceZero.exit
 
 ForceZero.exit:                                   ; preds = %.lr.ph29.i67, %.lr.ph29.i, %.thread, %49, %ForceZero.exit93, %14, %6
-  %.046 = phi i32 [ %51, %49 ], [ -173, %6 ], [ %..1, %.thread ], [ -175, %14 ], [ %45, %ForceZero.exit93 ], [ -173, %.lr.ph29.i ], [ -173, %.lr.ph29.i67 ]
+  %.046 = phi i32 [ %51, %49 ], [ -173, %6 ], [ %..1, %.thread ], [ -173, %.lr.ph29.i ], [ -175, %14 ], [ %45, %ForceZero.exit93 ], [ -173, %.lr.ph29.i67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

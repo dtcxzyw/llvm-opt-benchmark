@@ -4238,9 +4238,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split: ; preds = %245, 
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread191: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96, %.lr.ph232, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
-  %253 = phi ptr [ %224, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.sink311.in, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %224, %.lr.ph232 ], [ %224, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
-  %.066.lcssa287294 = phi i32 [ %.066227.lcssa, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.066.lcssa287294.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %.066227.lcssa, %.lr.ph232 ], [ %.066227.lcssa, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
-  %254 = phi i8 [ %227, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %252, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %227, %.lr.ph232 ], [ %227, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
+  %253 = phi ptr [ %.sink311.in, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %224, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %224, %.lr.ph232 ], [ %224, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
+  %.066.lcssa287294 = phi i32 [ %.066.lcssa287294.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %.066227.lcssa, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.066227.lcssa, %.lr.ph232 ], [ %.066227.lcssa, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
+  %254 = phi i8 [ %252, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %227, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %227, %.lr.ph232 ], [ %227, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
   %255 = icmp eq i8 %254, 10
   br i1 %255, label %256, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.thread
 
@@ -8422,7 +8422,7 @@ _ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit.i: ; pred
   br label %_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE.exit
 
 _ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE.exit: ; preds = %.lr.ph, %.lr.ph.i, %67, %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit.i, %4
-  %.09 = phi i1 [ false, %4 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit.i ], [ true, %67 ], [ false, %.lr.ph.i ], [ false, %.lr.ph ]
+  %.09 = phi i1 [ false, %4 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit.i ], [ false, %.lr.ph.i ], [ true, %67 ], [ false, %.lr.ph ]
   ret i1 %.09
 }
 
@@ -9026,7 +9026,7 @@ _ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit: ; preds 
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %.lr.ph, %55, %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit, %3
-  %.023 = phi i1 [ false, %3 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit ], [ true, %55 ], [ false, %.lr.ph ]
+  %.023 = phi i1 [ false, %3 ], [ true, %55 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit ], [ false, %.lr.ph ]
   ret i1 %.023
 }
 
@@ -10216,7 +10216,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer27readRaw
   br label %.preheader, !llvm.loop !782
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %8, %2
-  %.043 = phi i64 [ %., %8 ], [ 1, %2 ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ]
+  %.043 = phi i64 [ 1, %2 ], [ %., %8 ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 6, ptr %26, align 8, !tbaa !699
   %27 = trunc i64 %.043 to i32
@@ -10402,8 +10402,8 @@ _ZNSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8e
   br label %_ZNKSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit
 
 _ZNKSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %28, %_ZNSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %.sroa.028.1 = phi ptr [ %46, %_ZNSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %29, %28 ], [ %.sroa.025.0, %19 ], [ %35, %33 ]
-  %.sroa.4.1 = phi i8 [ 1, %_ZNSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %28 ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.028.1 = phi ptr [ %46, %_ZNSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %.sroa.025.0, %19 ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.4.1 = phi i8 [ 1, %_ZNSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %19 ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.028.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.1, 1
   ret { ptr, i8 } %.fca.1.insert

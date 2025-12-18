@@ -18532,8 +18532,8 @@ define internal void @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace.
           to label %58 unwind label %56
 
 .body50:                                          ; preds = %440, %168, %56, %456
-  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %168 ], [ %.sroa.07.3.ph, %456 ], [ %.sroa.07.0, %56 ], [ %.sroa.07.5, %440 ]
-  %.pn28 = phi { ptr, i32 } [ %169, %168 ], [ %.pn25.pn.ph, %456 ], [ %57, %56 ], [ %.pn25, %440 ]
+  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %168 ], [ %.sroa.07.3.ph, %456 ], [ %.sroa.07.5, %440 ], [ %.sroa.07.0, %56 ]
+  %.pn28 = phi { ptr, i32 } [ %169, %168 ], [ %.pn25.pn.ph, %456 ], [ %.pn25, %440 ], [ %57, %56 ]
   %55 = trunc nuw i8 %.sroa.07.1 to i1
   br i1 %55, label %.body50.thread178, label %"_ZN4core3ptr109drop_in_place$LT$gpui..view..WeakView$LT$markdown_preview..markdown_preview_view..MarkdownPreviewView$GT$$GT$17h1130da00a0f9aeadE.exit114"
 

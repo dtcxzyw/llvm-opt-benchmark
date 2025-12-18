@@ -599,8 +599,8 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   br label %173
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit": ; preds = %72, %.sink.split.i, %.preheader20, %173, %.preheader, %71, %152, %95, %.preheader.i
-  %.sroa.6.1 = phi i64 [ undef, %95 ], [ undef, %.preheader.i ], [ undef, %152 ], [ %15, %71 ], [ undef, %.sink.split.i ], [ %162, %.preheader ], [ undef, %173 ], [ %105, %.preheader20 ], [ %18, %72 ]
-  %not. = phi i64 [ 0, %95 ], [ 0, %.preheader.i ], [ 0, %152 ], [ %spec.select185, %71 ], [ 0, %.sink.split.i ], [ 1, %.preheader ], [ 0, %173 ], [ 1, %.preheader20 ], [ 1, %72 ]
+  %.sroa.6.1 = phi i64 [ undef, %95 ], [ undef, %173 ], [ undef, %.preheader.i ], [ undef, %152 ], [ %15, %71 ], [ %162, %.preheader ], [ %105, %.preheader20 ], [ undef, %.sink.split.i ], [ %18, %72 ]
+  %not. = phi i64 [ 0, %95 ], [ 0, %173 ], [ 0, %.preheader.i ], [ 0, %152 ], [ %spec.select185, %71 ], [ 1, %.preheader ], [ 1, %.preheader20 ], [ 0, %.sink.split.i ], [ 1, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %206 = insertvalue { i64, i64 } poison, i64 %not., 0
   %207 = insertvalue { i64, i64 } %206, i64 %.sroa.6.1, 1
@@ -1337,7 +1337,7 @@ common.resume:                                    ; preds = %.thread, %225, %58
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlez..connection..Connection$GT$$GT$17h3898e595258c1213E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %105, %.thread160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h534b79498da48df3E.exit.thread.i", %137, %189, %192, %321, %324
-  %.sroa.012.1.ph.ph.ph = phi i8 [ 1, %137 ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h534b79498da48df3E.exit.thread.i" ], [ 1, %.thread160 ], [ 1, %105 ], [ 1, %192 ], [ 0, %324 ], [ 1, %189 ], [ 0, %321 ]
+  %.sroa.012.1.ph.ph.ph = phi i8 [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h534b79498da48df3E.exit.thread.i" ], [ 1, %.thread160 ], [ 1, %105 ], [ 1, %137 ], [ 0, %321 ], [ 1, %192 ], [ 0, %324 ], [ 1, %189 ]
   %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlez..connection..Connection$GT$$GT$17h3898e595258c1213E.exit"

@@ -2799,7 +2799,7 @@ getPhaseFuncSymbol.exit241:                       ; preds = %.lr.ph.split, %getP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %getPhaseFuncSymbol.exit241, %getPhaseFuncSymbol.exit241.us, %.lr.ph.split.us, %.lr.ph272.split, %.lr.ph272.split.us, %.preheader254, %.preheader, %147, %262, %259, %83, %80
-  %.4 = phi i32 [ %82, %80 ], [ %85, %83 ], [ %153, %147 ], [ %261, %259 ], [ %264, %262 ], [ %.1, %.preheader ], [ %.11, %.preheader254 ], [ %229, %getPhaseFuncSymbol.exit241.us ], [ %59, %.lr.ph272.split.us ], [ %74, %.lr.ph272.split ], [ %207, %.lr.ph.split.us ], [ %251, %getPhaseFuncSymbol.exit241 ]
+  %.4 = phi i32 [ %74, %.lr.ph272.split ], [ %82, %80 ], [ %85, %83 ], [ %153, %147 ], [ %264, %262 ], [ %261, %259 ], [ %.1, %.preheader ], [ %59, %.lr.ph272.split.us ], [ %.11, %.preheader254 ], [ %207, %.lr.ph.split.us ], [ %229, %getPhaseFuncSymbol.exit241.us ], [ %251, %getPhaseFuncSymbol.exit241 ]
   %265 = icmp sgt i32 %.4, 1023
   br i1 %265, label %266, label %.thread248
 

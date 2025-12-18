@@ -707,7 +707,7 @@ _ZN5clang9FixItHintD2Ev.exit133:                  ; preds = %176, %_ZNKSt7__cxx1
   br label %.thread183
 
 .thread183:                                       ; preds = %.thread183.sink.split, %137, %129, %183, %118, %57, %139, %.thread, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %139 ], [ true, %118 ], [ false, %.thread ], [ false, %57 ], [ true, %183 ], [ false, %137 ], [ false, %129 ], [ true, %.thread183.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %139 ], [ true, %118 ], [ false, %.thread ], [ false, %129 ], [ false, %57 ], [ false, %137 ], [ true, %183 ], [ true, %.thread183.sink.split ]
   ret i1 %.0
 }
 

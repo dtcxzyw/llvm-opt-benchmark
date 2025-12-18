@@ -1173,8 +1173,8 @@ _ZN11duckdb_zstdL16COVER_map_removeEPNS_11COVER_map_sEj.exit.i: ; preds = %127, 
   br i1 %.not68.i, label %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit, label %.lr.ph24.i, !llvm.loop !56
 
 _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit: ; preds = %.lr.ph24.i, %.preheader1.i, %.preheader.i
-  %.065.lcssa49.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
-  %.066.lcssa48.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.lr.ph24.i ]
+  %.065.lcssa49.i = phi i32 [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.preheader.i ], [ %.1.i, %.lr.ph24.i ]
+  %.066.lcssa48.i = phi i32 [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.preheader.i ], [ %.167.i, %.lr.ph24.i ]
   %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.066.lcssa48.i to i64
   %180 = icmp eq i32 %.sroa.12.1.i, 0
   br i1 %180, label %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, label %182

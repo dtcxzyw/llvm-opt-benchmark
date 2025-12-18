@@ -1274,7 +1274,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
           to label %133 unwind label %131
 
 110:                                              ; preds = %103, %99
-  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %.sroa.4.113.i.i.i.i.i.i.i, %99 ], [ %109, %103 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %109, %103 ], [ %.sroa.4.113.i.i.i.i.i.i.i, %99 ]
   %111 = load ptr, ptr %1, align 8, !alias.scope !192, !noalias !193, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !183
@@ -32837,8 +32837,8 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.us: ; preds = 
           to label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit unwind label %.thread184.loopexit.split
 
 ._crit_edge:                                      ; preds = %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit, %184, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.us.us, %.thread278, %97
-  %233 = phi ptr [ %105, %.thread278 ], [ %100, %97 ], [ %121, %184 ], [ %121, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.us.us ], [ %100, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit ]
-  %234 = phi ptr [ %104, %.thread278 ], [ %98, %97 ], [ %119, %184 ], [ %119, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.us.us ], [ %98, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit ]
+  %233 = phi ptr [ %105, %.thread278 ], [ %121, %184 ], [ %121, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.us.us ], [ %100, %97 ], [ %100, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit ]
+  %234 = phi ptr [ %104, %.thread278 ], [ %119, %184 ], [ %119, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.us.us ], [ %98, %97 ], [ %98, %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.sroa.0168.0.copyload = load i64, ptr %28, align 8

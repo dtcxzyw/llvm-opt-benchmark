@@ -2929,7 +2929,7 @@ _ZeqRK7QStringS1_.exit275:                        ; preds = %340
   br label %_ZeqRK7QStringS1_.exit276
 
 _ZeqRK7QStringS1_.exit276:                        ; preds = %351, %356
-  %362 = phi i1 [ false, %351 ], [ %361, %356 ]
+  %362 = phi i1 [ %361, %356 ], [ false, %351 ]
   %363 = load ptr, ptr %36, align 8
   %.not.i.i.i277 = icmp eq ptr %363, null
   br i1 %.not.i.i.i277, label %.critedge155.thread, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i278
@@ -3290,7 +3290,7 @@ _ZN8QVariant9fromValueIjEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_
   br label %467, !llvm.loop !32
 
 .loopexit:                                        ; preds = %472, %_ZN7QStringD2Ev.exit288, %_ZN7QStringD2Ev.exit233, %_ZN7QStringD2Ev.exit187, %44
-  %.087.ph = phi i32 [ 1, %_ZN7QStringD2Ev.exit233 ], [ 1, %_ZN7QStringD2Ev.exit288 ], [ 1, %_ZN7QStringD2Ev.exit187 ], [ 0, %44 ], [ 1, %472 ]
+  %.087.ph = phi i32 [ 0, %44 ], [ 1, %_ZN7QStringD2Ev.exit233 ], [ 1, %_ZN7QStringD2Ev.exit288 ], [ 1, %_ZN7QStringD2Ev.exit187 ], [ 1, %472 ]
   %.pr = load ptr, ptr %23, align 8
   %.not.i.i.i319 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i319, label %_ZN7QStringD2Ev.exit322, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i320

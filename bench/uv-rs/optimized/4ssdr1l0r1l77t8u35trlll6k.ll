@@ -3561,8 +3561,8 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   ret void
 
 81:                                               ; preds = %60, %64
-  %82 = phi i8 [ %62, %60 ], [ %.pre, %64 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.128.i.i, %60 ], [ %70, %64 ]
+  %82 = phi i8 [ %.pre, %64 ], [ %62, %60 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %70, %64 ], [ %.sroa.4.128.i.i, %60 ]
   %83 = load i64, ptr %11, align 8, !noundef !4
   %84 = icmp ult i64 %83, 28120036697727976
   tail call void @llvm.assume(i1 %84)
@@ -7736,7 +7736,7 @@ _ZN12uv_workspace9workspace9Workspace4venv33from_project_environment_variable17h
   br label %100
 
 _ZN12uv_workspace9workspace9Workspace4venv33from_project_environment_variable17haac3a2d83bb8d575E.exit: ; preds = %94, %95
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload166, %94 ], [ %.sroa.0.0.copyload165, %95 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload165, %95 ], [ %.sroa.0.0.copyload166, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1101
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1101
   %99 = icmp eq i64 %.sroa.0.0, -9223372036854775808

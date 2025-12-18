@@ -10845,7 +10845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   br label %77
 
 .critedge89:                                      ; preds = %.preheader, %..critedge87_crit_edge.us, %.lr.ph.us
-  %76 = phi i1 [ true, %..critedge87_crit_edge.us ], [ false, %.lr.ph.us ], [ true, %.preheader ]
+  %76 = phi i1 [ false, %.lr.ph.us ], [ true, %..critedge87_crit_edge.us ], [ true, %.preheader ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #27
@@ -12031,7 +12031,7 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   br i1 %exitcond13.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %64, !llvm.loop !385
 
 _ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %41, %.critedge.i21, %78, %_ZNK2cv11_InputArray6getMatEi.exit12
-  %96 = phi i1 [ true, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ true, %.critedge.i21 ], [ false, %78 ], [ false, %41 ]
+  %96 = phi i1 [ false, %78 ], [ true, %.critedge.i21 ], [ true, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ false, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #27

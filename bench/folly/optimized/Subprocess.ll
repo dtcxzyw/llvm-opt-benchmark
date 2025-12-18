@@ -3857,7 +3857,7 @@ _ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb.exit.loopexit: ; preds = 
   br label %_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb.exit
 
 _ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb.exit: ; preds = %26, %_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb.exit.loopexit, %21
-  %38 = phi ptr [ %23, %21 ], [ %37, %_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb.exit.loopexit ], [ %0, %26 ]
+  %38 = phi ptr [ %37, %_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb.exit.loopexit ], [ %23, %21 ], [ %0, %26 ]
   ret ptr %38
 }
 
@@ -3996,7 +3996,7 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit: ; preds = %tailrecurse.i2.i
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %43, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit, %38
-  %55 = phi ptr [ %40, %38 ], [ %54, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ @.str.23, %43 ]
+  %55 = phi ptr [ %54, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ %40, %38 ], [ @.str.23, %43 ]
   %56 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #47
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5259,7 +5259,7 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit: ; preds = %tailrecurse.i2.i
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %37, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit, %32
-  %49 = phi ptr [ %34, %32 ], [ %48, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ @.str.23, %37 ]
+  %49 = phi ptr [ %48, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ %34, %32 ], [ @.str.23, %37 ]
   %50 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #47
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
   %52 = tail call ptr @__errno_location() #55
@@ -5715,7 +5715,7 @@ _ZNKR5folly8OptionalI9cpu_set_tE5valueEv.exit:    ; preds = %17
   br label %.thread68
 
 .thread68:                                        ; preds = %50, %42, %34, %66, %81, %5, %86, %75, %14
-  %.1 = phi i32 [ %16, %14 ], [ %77, %75 ], [ 0, %86 ], [ %85, %81 ], [ %68, %66 ], [ %6, %5 ], [ %44, %42 ], [ %36, %34 ], [ %52, %50 ]
+  %.1 = phi i32 [ %16, %14 ], [ %77, %75 ], [ 0, %86 ], [ %85, %81 ], [ %68, %66 ], [ %6, %5 ], [ %36, %34 ], [ %44, %42 ], [ %52, %50 ]
   ret i32 %.1
 }
 
@@ -9901,7 +9901,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i: ; preds = %.critedge.i.i17.i,
   resume { ptr, i32 } %70
 
 "_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit": ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i, %62, %20, %45, %65
-  %.0.i = phi i1 [ false, %20 ], [ false, %45 ], [ false, %65 ], [ true, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i ], [ true, %62 ], [ true, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i ]
+  %.0.i = phi i1 [ true, %62 ], [ true, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i ], [ false, %20 ], [ false, %45 ], [ false, %65 ], [ true, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i ]
   ret i1 %.0.i
 }
 

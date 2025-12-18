@@ -1175,7 +1175,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %206, %193
           to label %.critedge130 unwind label %268
 
 .critedge130.sink.split:                          ; preds = %118, %95, %240
-  %.sink = phi i32 [ 1, %240 ], [ 7, %118 ], [ 9, %95 ]
+  %.sink = phi i32 [ 1, %240 ], [ 9, %95 ], [ 7, %118 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !15
   br label %.critedge130
 

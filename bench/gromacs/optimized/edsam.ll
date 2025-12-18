@@ -6447,13 +6447,13 @@ _ZL5checkPKcS0_.exit.i195.i:                      ; preds = %.noexc196.i
   br i1 %exitcond1692.not, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !408
 
 _ZN12_GLOBAL__N_132readEdVecWithReferenceProjectionEP8_IO_FILEiPNS_8t_eigvecEPPfS5_.exit.i.i: ; preds = %.noexc192.i, %._crit_edge.us.i186.i, %.noexc119.i, %._crit_edge.us.i.i, %.noexc106.i, %.noexc52.i
-  %.sroa.214585.1 = phi i32 [ %763, %.noexc52.i ], [ %817, %.noexc106.i ], [ %817, %._crit_edge.us.i186.i ], [ %763, %._crit_edge.us.i.i ], [ %763, %.noexc119.i ], [ %817, %.noexc192.i ]
-  %.sroa.227598.1 = phi ptr [ null, %.noexc52.i ], [ null, %.noexc106.i ], [ %821, %._crit_edge.us.i186.i ], [ %767, %._crit_edge.us.i.i ], [ %767, %.noexc119.i ], [ %821, %.noexc192.i ]
-  %.sroa.232.1 = phi ptr [ null, %.noexc52.i ], [ null, %.noexc106.i ], [ %822, %._crit_edge.us.i186.i ], [ %768, %._crit_edge.us.i.i ], [ %768, %.noexc119.i ], [ %822, %.noexc192.i ]
-  %.sroa.236.1 = phi ptr [ null, %.noexc52.i ], [ null, %.noexc106.i ], [ %823, %._crit_edge.us.i186.i ], [ %771, %._crit_edge.us.i.i ], [ %771, %.noexc119.i ], [ %823, %.noexc192.i ]
-  %.sroa.249613.1 = phi ptr [ null, %.noexc52.i ], [ null, %.noexc106.i ], [ null, %._crit_edge.us.i186.i ], [ %769, %._crit_edge.us.i.i ], [ %769, %.noexc119.i ], [ null, %.noexc192.i ]
-  %.sroa.252.1 = phi ptr [ null, %.noexc52.i ], [ null, %.noexc106.i ], [ null, %._crit_edge.us.i186.i ], [ %770, %._crit_edge.us.i.i ], [ %770, %.noexc119.i ], [ null, %.noexc192.i ]
-  %.0.i.i = phi i1 [ false, %.noexc52.i ], [ false, %.noexc106.i ], [ false, %._crit_edge.us.i186.i ], [ %.1.i.i.i, %._crit_edge.us.i.i ], [ %.1.i.i.i, %.noexc119.i ], [ false, %.noexc192.i ]
+  %.sroa.214585.1 = phi i32 [ %763, %.noexc52.i ], [ %763, %.noexc119.i ], [ %763, %._crit_edge.us.i.i ], [ %817, %._crit_edge.us.i186.i ], [ %817, %.noexc106.i ], [ %817, %.noexc192.i ]
+  %.sroa.227598.1 = phi ptr [ null, %.noexc52.i ], [ %767, %.noexc119.i ], [ %767, %._crit_edge.us.i.i ], [ %821, %._crit_edge.us.i186.i ], [ null, %.noexc106.i ], [ %821, %.noexc192.i ]
+  %.sroa.232.1 = phi ptr [ null, %.noexc52.i ], [ %768, %.noexc119.i ], [ %768, %._crit_edge.us.i.i ], [ %822, %._crit_edge.us.i186.i ], [ null, %.noexc106.i ], [ %822, %.noexc192.i ]
+  %.sroa.236.1 = phi ptr [ null, %.noexc52.i ], [ %771, %.noexc119.i ], [ %771, %._crit_edge.us.i.i ], [ %823, %._crit_edge.us.i186.i ], [ null, %.noexc106.i ], [ %823, %.noexc192.i ]
+  %.sroa.249613.1 = phi ptr [ null, %.noexc52.i ], [ %769, %.noexc119.i ], [ %769, %._crit_edge.us.i.i ], [ null, %._crit_edge.us.i186.i ], [ null, %.noexc106.i ], [ null, %.noexc192.i ]
+  %.sroa.252.1 = phi ptr [ null, %.noexc52.i ], [ %770, %.noexc119.i ], [ %770, %._crit_edge.us.i.i ], [ null, %._crit_edge.us.i186.i ], [ null, %.noexc106.i ], [ null, %.noexc192.i ]
+  %.0.i.i = phi i1 [ false, %.noexc52.i ], [ %.1.i.i.i, %.noexc119.i ], [ %.1.i.i.i, %._crit_edge.us.i.i ], [ false, %._crit_edge.us.i186.i ], [ false, %.noexc106.i ], [ false, %.noexc192.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %183), !noalias !402
   call void @llvm.lifetime.start.p0(ptr nonnull %184), !noalias !402
   %853 = invoke noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %183, i32 noundef 4096, ptr noundef %232)
@@ -11213,9 +11213,9 @@ define void @_Z8do_edsamPK10t_inputreclPK9t_commrecN3gmx8ArrayRefINS5_11BasicVec
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   %.not217241 = icmp eq ptr %21, %23
-  br i1 %.not217241, label %._crit_edge, label %.lr.ph247
+  br i1 %.not217241, label %._crit_edge, label %.lr.ph246
 
-.lr.ph247:                                        ; preds = %15
+.lr.ph246:                                        ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 60
@@ -11257,9 +11257,9 @@ define void @_Z8do_edsamPK10t_inputreclPK9t_commrecN3gmx8ArrayRefINS5_11BasicVec
   store i8 0, ptr %57, align 8, !tbaa !325
   br label %964
 
-58:                                               ; preds = %.lr.ph247, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215
-  %.0125245 = phi float [ -1.000000e+00, %.lr.ph247 ], [ %.1, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215 ]
-  %.sroa.0192.0242 = phi ptr [ %21, %.lr.ph247 ], [ %963, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215 ]
+58:                                               ; preds = %.lr.ph246, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215
+  %.0125245 = phi float [ -1.000000e+00, %.lr.ph246 ], [ %.1, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215 ]
+  %.sroa.0192.0242 = phi ptr [ %21, %.lr.ph246 ], [ %963, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0242, i64 352
   %60 = load i32, ptr %59, align 8, !tbaa !437
   %.not.i = icmp eq i32 %60, 0
@@ -11374,9 +11374,9 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit: ; preds = %89, %.thread, %8
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0242, i64 104
   %128 = load i8, ptr %127, align 8, !tbaa !160, !range !161, !noundef !162
   %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %.thread307, label %131
+  br i1 %129, label %.thread306, label %131
 
-.thread307:                                       ; preds = %115
+.thread306:                                       ; preds = %115
   %130 = getelementptr inbounds nuw i8, ptr %101, i64 56
   store i8 0, ptr %130, align 8, !tbaa !171
   br label %159
@@ -11419,8 +11419,8 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit: ; preds = %89, %.thread, %8
   %spec.select = select i1 %156, ptr %103, ptr %158
   br label %159
 
-159:                                              ; preds = %144, %.thread307
-  %.sink.in = phi ptr [ %spec.select, %144 ], [ %103, %.thread307 ]
+159:                                              ; preds = %144, %.thread306
+  %.sink.in = phi ptr [ %spec.select, %144 ], [ %103, %.thread306 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !172
   call fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %.sink, ptr noundef %12, ptr noundef %11, ptr noundef %.sroa.0192.0242)
   %160 = load ptr, ptr %103, align 8, !tbaa !151
@@ -11541,9 +11541,9 @@ _Z11do_per_stepll.exit:                           ; preds = %159
   br i1 %exitcond.not.i141, label %_Z11do_per_stepll.exit.thread.sink.split, label %215, !llvm.loop !202
 
 _Z11do_per_stepll.exit.thread.sink.split:         ; preds = %215, %183, %205, %176
-  %.sink329 = phi i32 [ %179, %176 ], [ %211, %205 ], [ %179, %183 ], [ %211, %215 ]
+  %.sink328 = phi i32 [ %179, %176 ], [ %211, %205 ], [ %179, %183 ], [ %211, %215 ]
   %.011.lcssa.i.sink = phi float [ 0.000000e+00, %176 ], [ 0.000000e+00, %205 ], [ %204, %183 ], [ %236, %215 ]
-  %237 = sitofp i32 %.sink329 to float
+  %237 = sitofp i32 %.sink328 to float
   %238 = fdiv float %.011.lcssa.i.sink, %237
   %239 = call noundef float @sqrtf(float noundef %238) #25, !tbaa !187
   br label %_Z11do_per_stepll.exit.thread
@@ -11647,8 +11647,8 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit154: ; preds = %265, %258
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit154, %280
-  %.sink330 = phi float [ 0.000000e+00, %280 ], [ %273, %_ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit154 ]
-  store float %.sink330, ptr %101, align 8, !tbaa !487
+  %.sink329 = phi float [ 0.000000e+00, %280 ], [ %273, %_ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit154 ]
+  store float %.sink329, ptr %101, align 8, !tbaa !487
   br label %284
 
 284:                                              ; preds = %.sink.split, %254, %_Z11do_per_stepll.exit145.thread
@@ -12817,8 +12817,8 @@ _ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.threa
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !178
   %902 = fcmp une float %.pre.i, 0.000000e+00
   %or.cond.i190 = select i1 %901, i1 true, i1 %902
-  %.pre268 = load float, ptr %53, align 4, !tbaa !178
-  %903 = fcmp une float %.pre268, 0.000000e+00
+  %.pre267 = load float, ptr %53, align 4, !tbaa !178
+  %903 = fcmp une float %.pre267, 0.000000e+00
   %or.cond = select i1 %or.cond.i190, i1 true, i1 %903
   %904 = load float, ptr %893, align 4, !tbaa !178
   %905 = sitofp i32 %895 to float
@@ -12838,7 +12838,7 @@ _ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.threa
   %916 = load float, ptr %915, align 4, !tbaa !178
   %917 = load float, ptr %54, align 4, !tbaa !178
   %918 = call float @llvm.fmuladd.f32(float %910, float %917, float %916)
-  %919 = call float @llvm.fmuladd.f32(float %913, float %.pre268, float %918)
+  %919 = call float @llvm.fmuladd.f32(float %913, float %.pre267, float %918)
   %920 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %921 = load float, ptr %920, align 4, !tbaa !178
   %922 = load float, ptr %55, align 4, !tbaa !178
@@ -12905,7 +12905,7 @@ _ZL23ed_unshift_single_coordPA3_KfPS_PKiPf.exit:  ; preds = %._crit_edge.i191, %
   br i1 %exitcond.not, label %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215, label %889, !llvm.loop !535
 
 _ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread215: ; preds = %962, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread, %_ZN12_GLOBAL__N_19write_edoERK5edparP8_IO_FILEf.exit, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189, %_ZN12_GLOBAL__N_112bNeedDoEdsamERK5edpar.exit
-  %.1 = phi float [ %.2, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189 ], [ %.0125245, %_ZN12_GLOBAL__N_112bNeedDoEdsamERK5edpar.exit ], [ %.2, %_ZN12_GLOBAL__N_19write_edoERK5edparP8_IO_FILEf.exit ], [ %.2, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread ], [ %.2, %962 ]
+  %.1 = phi float [ %.2, %_ZN12_GLOBAL__N_19write_edoERK5edparP8_IO_FILEf.exit ], [ %.2, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189 ], [ %.0125245, %_ZN12_GLOBAL__N_112bNeedDoEdsamERK5edpar.exit ], [ %.2, %_ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit189.thread ], [ %.2, %962 ]
   %963 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0242, i64 888
   %.not217 = icmp eq ptr %963, %23
   br i1 %.not217, label %._crit_edge, label %58

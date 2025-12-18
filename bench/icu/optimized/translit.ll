@@ -1910,7 +1910,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit94:    ; preds = %215, %212
   br i1 %235, label %.loopexit, label %232
 
 .loopexit:                                        ; preds = %.preheader, %232, %168
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn.pn.pn.pn, %232 ], [ %169, %.preheader ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %232 ], [ %169, %168 ], [ %169, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN6icu_7713MessageFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %16) #21
   br label %236

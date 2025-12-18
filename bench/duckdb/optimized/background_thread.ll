@@ -1430,7 +1430,7 @@ post_reentrancy.exit.i:                           ; preds = %35, %pre_reentrancy
   unreachable
 
 check_background_thread_creation.exit:            ; preds = %37, %39
-  %.134 = phi i32 [ %38, %37 ], [ %.033.ph51, %39 ]
+  %.134 = phi i32 [ %.033.ph51, %39 ], [ %38, %37 ]
   %43 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   tail call fastcc void @malloc_mutex_lock(ptr noundef nonnull %0, ptr noundef nonnull %44)

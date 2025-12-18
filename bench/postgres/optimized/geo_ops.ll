@@ -262,7 +262,7 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %42, %.loopexit43, %72, %68, %69
-  %.0 = phi i1 [ true, %68 ], [ true, %69 ], [ false, %72 ], [ false, %.loopexit43 ], [ false, %42 ]
+  %.0 = phi i1 [ false, %.loopexit43 ], [ true, %68 ], [ true, %69 ], [ false, %72 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -11949,7 +11949,7 @@ point_eq_point.exit.thread.i:                     ; preds = %point_eq_point.exit
   br i1 %exitcond95.not.i, label %plist_same.exit, label %.lr.ph79.i.split, !llvm.loop !49
 
 plist_same.exit:                                  ; preds = %point_eq_point.exit45.thread.i, %point_eq_point.exit54.thread.i, %point_eq_point.exit.thread.i, %120, %160, %point_eq_point.exit.i.us, %44, %point_eq_point.exit.thread.i.us, %14, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %14 ], [ 0, %point_eq_point.exit.thread.i.us ], [ 1, %44 ], [ 1, %point_eq_point.exit.i.us ], [ 1, %160 ], [ 1, %120 ], [ 1, %point_eq_point.exit54.thread.i ], [ 0, %point_eq_point.exit.thread.i ], [ 1, %point_eq_point.exit45.thread.i ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %14 ], [ 1, %120 ], [ 0, %point_eq_point.exit.thread.i.us ], [ 1, %160 ], [ 1, %44 ], [ 1, %point_eq_point.exit.i.us ], [ 1, %point_eq_point.exit45.thread.i ], [ 1, %point_eq_point.exit54.thread.i ], [ 0, %point_eq_point.exit.thread.i ]
   %163 = load i64, ptr %2, align 8
   %164 = inttoptr i64 %163 to ptr
   %.not16 = icmp eq ptr %5, %164
@@ -12124,7 +12124,7 @@ box_ov.exit:                                      ; preds = %18
   br i1 %47, label %65, label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.thread, %.lr.ph34, %..critedge_crit_edge, %._crit_edge35
-  %58 = phi i32 [ %.pre45, %..critedge_crit_edge ], [ %48, %._crit_edge35 ], [ %43, %.lr.ph34 ], [ %.ph54, %._crit_edge.thread ]
+  %58 = phi i32 [ %.pre45, %..critedge_crit_edge ], [ %43, %.lr.ph34 ], [ %48, %._crit_edge35 ], [ %.ph54, %._crit_edge.thread ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %60 = tail call fastcc i32 @point_inside(ptr noundef nonnull %32, i32 noundef %58, ptr noundef nonnull %59)
   %.not = icmp eq i32 %60, 0

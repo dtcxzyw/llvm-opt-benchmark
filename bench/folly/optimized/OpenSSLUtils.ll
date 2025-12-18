@@ -943,7 +943,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86: ; preds = %101
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit"
 
 .loopexit131:                                     ; preds = %56, %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86
-  %.0.ph = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86 ], [ true, %83 ], [ true, %56 ]
+  %.0.ph = phi i1 [ true, %83 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86 ], [ true, %56 ]
   invoke void @OPENSSL_sk_pop_free(ptr noundef nonnull %9, ptr noundef nonnull @GENERAL_NAME_free)
           to label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit" unwind label %108
 
@@ -1083,7 +1083,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5folly3ssl12OpenSSLUt
   br label %.loopexit, !llvm.loop !61
 
 _ZNSt13unordered_mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashItESt8equal_toItESaISt4pairIKtS5_EEE4findERSB_.exit: ; preds = %28, %12, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %12 ], [ %30, %28 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %12 ], [ %24, %23 ], [ %30, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %48
 

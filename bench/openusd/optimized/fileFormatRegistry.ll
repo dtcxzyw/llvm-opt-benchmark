@@ -849,7 +849,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %25, %
   br label %.loopexit, !llvm.loop !8
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS0_22Sdf_FileFormatRegistry5_InfoEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE4findERSA_.exit: ; preds = %67, %38, %56
-  %.sroa.06.1.i.i = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i, %38 ], [ %75, %67 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %38 ], [ %57, %56 ], [ %75, %67 ]
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry14_GetFileFormatERKSt10shared_ptrINS0_5_InfoEE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.45") align 8 %0, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %80)
           to label %81 unwind label %25

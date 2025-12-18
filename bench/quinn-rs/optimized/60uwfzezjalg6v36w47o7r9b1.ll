@@ -1456,8 +1456,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$6ret
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10retain_mut17h0f7c4f6da2bc849dE.exit", label %21
 
 .outer._crit_edge.i:                              ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h97fe17934a82f339E.exit.i", %96, %.loopexit.i
-  %.sroa.0.1.ph.lcssa36.i = phi i64 [ %.sroa.0.038.i, %.loopexit.i ], [ %.sroa.0.1.ph50.i, %96 ], [ %106, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h97fe17934a82f339E.exit.i" ]
-  %.sroa.05.2.lcssa.i = phi i64 [ %.sroa.05.1.i, %.loopexit.i ], [ %97, %96 ], [ %105, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h97fe17934a82f339E.exit.i" ]
+  %.sroa.0.1.ph.lcssa36.i = phi i64 [ %.sroa.0.1.ph50.i, %96 ], [ %.sroa.0.038.i, %.loopexit.i ], [ %106, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h97fe17934a82f339E.exit.i" ]
+  %.sroa.05.2.lcssa.i = phi i64 [ %97, %96 ], [ %.sroa.05.1.i, %.loopexit.i ], [ %105, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h97fe17934a82f339E.exit.i" ]
   %.not20.i = icmp eq i64 %.sroa.05.2.lcssa.i, %.sroa.0.1.ph.lcssa36.i
   br i1 %.not20.i, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10retain_mut17h0f7c4f6da2bc849dE.exit", label %29
 

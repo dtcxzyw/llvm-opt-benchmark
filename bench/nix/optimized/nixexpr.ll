@@ -11663,7 +11663,7 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iter
   br i1 %33, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !187
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %28, %14
-  %.sink.i = phi ptr [ %0, %14 ], [ %.sroa.08.019.i, %28 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.011.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %0, %14 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.08.019.i, %28 ], [ %.sroa.0.011.i.i, %.lr.ph.i.i ]
   store i64 %13, ptr %.sink.i, align 4
   %.sroa.08.0.i = getelementptr inbounds nuw i8, ptr %.sroa.08.019.i, i64 8
   %34 = icmp eq ptr %.sroa.08.0.i, %1
@@ -12018,7 +12018,7 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
   br label %28, !llvm.loop !195
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %._crit_edge, %._crit_edge62, %.lr.ph.i, %5, %3
-  %.sroa.012.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %27, %._crit_edge62 ], [ %27, %._crit_edge ]
+  %.sroa.012.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %27, %._crit_edge62 ], [ %27, %._crit_edge ]
   ret ptr %.sroa.012.0
 }
 
@@ -12434,7 +12434,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt
   br i1 %36, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !187
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %31, %17
-  %.sink.i = phi ptr [ %.sroa.033.040, %17 ], [ %.sroa.08.019.i, %31 ], [ %.sroa.033.040, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.011.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %.sroa.033.040, %17 ], [ %.sroa.033.040, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.08.019.i, %31 ], [ %.sroa.0.011.i.i, %.lr.ph.i.i ]
   store i64 %16, ptr %.sink.i, align 4
   %.sroa.08.0.i = getelementptr inbounds nuw i8, ptr %.sroa.08.019.i, i64 8
   %37 = icmp eq ptr %.sroa.08.0.i, %13
@@ -12513,7 +12513,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt
   br i1 %65, label %.lr.ph.i.i21, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i18, !llvm.loop !187
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i18: ; preds = %.lr.ph.i.i21, %.lr.ph.i.i.i.i.i.i28, %60, %46
-  %.sink.i19 = phi ptr [ %.sroa.033.0.lcssa, %46 ], [ %.sroa.08.019.i13, %60 ], [ %.sroa.033.0.lcssa, %.lr.ph.i.i.i.i.i.i28 ], [ %.sroa.0.011.i.i23, %.lr.ph.i.i21 ]
+  %.sink.i19 = phi ptr [ %.sroa.033.0.lcssa, %46 ], [ %.sroa.033.0.lcssa, %.lr.ph.i.i.i.i.i.i28 ], [ %.sroa.08.019.i13, %60 ], [ %.sroa.0.011.i.i23, %.lr.ph.i.i21 ]
   store i64 %45, ptr %.sink.i19, align 4
   %.sroa.08.0.i20 = getelementptr inbounds nuw i8, ptr %.sroa.08.019.i13, i64 8
   %66 = icmp eq ptr %.sroa.08.0.i20, %1
@@ -15788,8 +15788,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.threa
   br label %131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %.backedge
-  %.083.lcssa = phi i64 [ %.083.be, %.backedge ], [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
-  %.lcssa = phi i64 [ %64, %.backedge ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.083.lcssa = phi i64 [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083.be, %.backedge ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.lcssa = phi i64 [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %64, %.backedge ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
   %125 = icmp eq i64 %indvars.iv, 0
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %127 = load ptr, ptr %0, align 8
@@ -16417,7 +16417,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %18 ], [ -1, %20 ], [ -1, %49 ], [ -1, %13 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -16865,7 +16865,7 @@ _ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__
   br i1 %59, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !214
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %.outer, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %37, %4, %29
-  %.131 = phi i32 [ %30, %29 ], [ 0, %4 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
+  %.131 = phi i32 [ %30, %29 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ 0, %4 ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
   ret i32 %.131
 }
 

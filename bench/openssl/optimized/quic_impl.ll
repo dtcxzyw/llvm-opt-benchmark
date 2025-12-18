@@ -4231,7 +4231,7 @@ quic_mutation_allowed.exit36:                     ; preds = %67
   br label %qctx_maybe_autotick.exit
 
 qctx_maybe_autotick.exit:                         ; preds = %55, %51, %50, %106, %104, %102, %100, %96, %qctx_should_autotick.exit.thread.i, %94, %89, %87, %38, %31, %qctx_lock_for_io.exit, %86, %71
-  %.019 = phi i32 [ 0, %qctx_lock_for_io.exit ], [ 0, %38 ], [ 0, %86 ], [ %., %87 ], [ 0, %106 ], [ 0, %89 ], [ 1, %qctx_should_autotick.exit.thread.i ], [ 1, %94 ], [ 0, %71 ], [ 0, %31 ], [ 0, %96 ], [ 0, %100 ], [ 0, %102 ], [ 0, %104 ], [ 1, %50 ], [ 1, %51 ], [ 1, %55 ]
+  %.019 = phi i32 [ 0, %qctx_lock_for_io.exit ], [ 0, %38 ], [ 0, %86 ], [ %., %87 ], [ 0, %106 ], [ 0, %89 ], [ 1, %qctx_should_autotick.exit.thread.i ], [ 1, %94 ], [ 0, %71 ], [ 0, %31 ], [ 1, %51 ], [ 0, %96 ], [ 0, %100 ], [ 0, %102 ], [ 0, %104 ], [ 1, %50 ], [ 1, %55 ]
   %.val32 = load ptr, ptr %6, align 8, !tbaa !157
   %108 = getelementptr i8, ptr %.val32, i64 88
   %.val32.val = load ptr, ptr %108, align 8, !tbaa !143
@@ -4780,7 +4780,7 @@ define ptr @ossl_quic_get0_listener(ptr noundef readonly captures(address_is_nul
   br label %expect_quic_as.exit
 
 expect_quic_as.exit:                              ; preds = %4, %3, %15, %6, %10, %7
-  %16 = phi ptr [ %14, %10 ], [ null, %3 ], [ %9, %7 ], [ null, %6 ], [ null, %15 ], [ %0, %4 ]
+  %16 = phi ptr [ null, %3 ], [ %14, %10 ], [ %9, %7 ], [ null, %6 ], [ null, %15 ], [ %0, %4 ]
   ret ptr %16
 }
 
@@ -8921,7 +8921,7 @@ wrong_type.exit:                                  ; preds = %23, %switch.lookup
   br label %wrong_type.exit108
 
 wrong_type.exit108:                               ; preds = %31, %33, %34, %.fold.split.i107
-  %.0.i106 = phi i32 [ 524556, %.fold.split.i107 ], [ 356, %33 ], [ 355, %34 ], [ 422, %31 ]
+  %.0.i106 = phi i32 [ 422, %31 ], [ 524556, %.fold.split.i107 ], [ 356, %33 ], [ 355, %34 ]
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 218, ptr noundef nonnull @__func__.wrong_type, i32 noundef %.0.i106, ptr noundef null)
   br label %qctx_lock_for_io.exit123.thread
 
@@ -9058,7 +9058,7 @@ qctx_lock_for_io.exit:                            ; preds = %38, %74, %76, %57
   br label %wrong_type.exit113
 
 wrong_type.exit113:                               ; preds = %86, %88, %89, %.fold.split.i112
-  %.0.i111 = phi i32 [ 421, %88 ], [ 524556, %.fold.split.i112 ], [ 355, %89 ], [ 422, %86 ]
+  %.0.i111 = phi i32 [ 422, %86 ], [ 421, %88 ], [ 524556, %.fold.split.i112 ], [ 355, %89 ]
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 218, ptr noundef nonnull @__func__.wrong_type, i32 noundef %.0.i111, ptr noundef null)
   br label %qctx_lock_for_io.exit123
 
@@ -9090,7 +9090,7 @@ qctx_lock_for_io.exit._crit_edge:                 ; preds = %qctx_lock_for_io.ex
   br label %wrong_type.exit117
 
 wrong_type.exit117:                               ; preds = %93, %95, %96, %.fold.split.i116
-  %.0.i115 = phi i32 [ 421, %95 ], [ 356, %96 ], [ 524556, %.fold.split.i116 ], [ 422, %93 ]
+  %.0.i115 = phi i32 [ 422, %93 ], [ 421, %95 ], [ 356, %96 ], [ 524556, %.fold.split.i116 ]
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef null, ptr nonnull poison, i32 noundef 218, ptr noundef nonnull @__func__.wrong_type, i32 noundef %.0.i115, ptr noundef null)
   br label %qctx_lock_for_io.exit123.thread
 
@@ -9155,9 +9155,9 @@ wrong_type.exit117:                               ; preds = %93, %95, %96, %.fol
   br label %qctx_lock_for_io.exit123.thread
 
 qctx_lock_for_io.exit123:                         ; preds = %105, %76, %74, %quic_mutation_allowed.exit, %wrong_type.exit113, %69
-  %.091 = phi i32 [ 1, %quic_mutation_allowed.exit ], [ %.2126, %wrong_type.exit113 ], [ 1, %74 ], [ 1, %76 ], [ 1, %69 ], [ %.1, %105 ]
-  %or.cond3 = phi i1 [ false, %quic_mutation_allowed.exit ], [ false, %wrong_type.exit113 ], [ false, %74 ], [ false, %76 ], [ false, %69 ], [ %5, %105 ]
-  %.090 = phi i32 [ 0, %quic_mutation_allowed.exit ], [ 0, %wrong_type.exit113 ], [ 0, %74 ], [ 0, %76 ], [ 0, %69 ], [ 1, %105 ]
+  %.091 = phi i32 [ %.1, %105 ], [ 1, %69 ], [ 1, %76 ], [ 1, %74 ], [ %.2126, %wrong_type.exit113 ], [ 1, %quic_mutation_allowed.exit ]
+  %or.cond3 = phi i1 [ %5, %105 ], [ false, %69 ], [ false, %76 ], [ false, %74 ], [ false, %wrong_type.exit113 ], [ false, %quic_mutation_allowed.exit ]
+  %.090 = phi i32 [ 1, %105 ], [ 0, %69 ], [ 0, %76 ], [ 0, %74 ], [ 0, %wrong_type.exit113 ], [ 0, %quic_mutation_allowed.exit ]
   %.not100 = icmp eq i32 %.091, 0
   %brmerge = or i1 %.not100, %or.cond3
   br i1 %brmerge, label %qctx_lock_for_io.exit123.thread, label %121
@@ -9170,8 +9170,8 @@ qctx_lock_for_io.exit123:                         ; preds = %105, %76, %74, %qui
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %123) #12
   br label %qctx_lock_for_io.exit123.thread
 
-qctx_lock_for_io.exit123.thread:                  ; preds = %108, %119, %117, %115, %113, %wrong_type.exit108, %wrong_type.exit117, %wrong_type.exit, %104, %18, %qctx_lock_for_io.exit123, %121
-  %.090134 = phi i32 [ %.090, %121 ], [ %.090, %qctx_lock_for_io.exit123 ], [ 0, %18 ], [ 0, %104 ], [ 0, %wrong_type.exit ], [ 0, %wrong_type.exit117 ], [ 0, %wrong_type.exit108 ], [ 1, %119 ], [ 1, %113 ], [ 1, %115 ], [ 1, %117 ], [ 1, %108 ]
+qctx_lock_for_io.exit123.thread:                  ; preds = %108, %113, %115, %117, %119, %wrong_type.exit108, %wrong_type.exit117, %wrong_type.exit, %104, %18, %qctx_lock_for_io.exit123, %121
+  %.090134 = phi i32 [ %.090, %121 ], [ %.090, %qctx_lock_for_io.exit123 ], [ 0, %18 ], [ 0, %104 ], [ 0, %wrong_type.exit ], [ 0, %wrong_type.exit117 ], [ 0, %wrong_type.exit108 ], [ 1, %119 ], [ 1, %117 ], [ 1, %115 ], [ 1, %113 ], [ 1, %108 ]
   ret i32 %.090134
 }
 

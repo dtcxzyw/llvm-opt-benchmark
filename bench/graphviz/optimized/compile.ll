@@ -1560,7 +1560,7 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %41, %38, %26, %29, %32, %35, %.thread92, %78, %73, %68, %64, %60, %56, %.thread, %17, %16, %11, %8, %4
-  %.0 = phi i32 [ -1, %8 ], [ -1, %4 ], [ -1, %16 ], [ -1, %17 ], [ 0, %78 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ -1, %11 ], [ %.0699194, %.thread92 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %38 ], [ 0, %41 ], [ 0, %.critedge.sink.split ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %4 ], [ -1, %16 ], [ -1, %17 ], [ 0, %78 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %41 ], [ -1, %11 ], [ %.0699194, %.thread92 ], [ 0, %38 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -5048,7 +5048,7 @@ sub_131:                                          ; preds = %sub_0
   br label %41
 
 41:                                               ; preds = %.sink.split, %39, %37, %35, %33, %31, %29, %27, %25, %23, %.tail29.thread, %.tail29, %.tail, %8
-  %.0 = phi i32 [ 11, %37 ], [ 10, %35 ], [ 9, %33 ], [ 8, %31 ], [ 7, %29 ], [ 6, %27 ], [ 5, %25 ], [ 4, %23 ], [ 3, %.tail29.thread ], [ 2, %.tail29 ], [ 1, %.tail ], [ 0, %8 ], [ 12, %39 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 12, %39 ], [ 11, %37 ], [ 10, %35 ], [ 9, %33 ], [ 8, %31 ], [ 7, %29 ], [ 6, %27 ], [ 5, %25 ], [ 4, %23 ], [ 3, %.tail29.thread ], [ 2, %.tail29 ], [ 1, %.tail ], [ 0, %8 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -6361,7 +6361,7 @@ tailrecurse.backedge:                             ; preds = %57, %63, %65, %67, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %5, %91, %104, %105, %95, %82, %agxbfree.exit
-  %.0 = phi ptr [ null, %95 ], [ null, %91 ], [ null, %agxbfree.exit ], [ null, %104 ], [ null, %105 ], [ null, %82 ], [ %3, %5 ], [ %.tr98.be, %tailrecurse.backedge ]
+  %.0 = phi ptr [ null, %95 ], [ null, %91 ], [ null, %agxbfree.exit ], [ null, %82 ], [ null, %104 ], [ null, %105 ], [ %3, %5 ], [ %.tr98.be, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -6546,9 +6546,9 @@ define internal fastcc zeroext i16 @typeChk(i16 noundef zeroext %0, ptr noundef 
   %.not26 = icmp eq i16 %39, 0
   br i1 %.not26, label %.thread, label %.thread36
 
-.thread36:                                        ; preds = %27, %31, %28, %16, %36
-  %.041 = phi i16 [ %41, %36 ], [ 8, %16 ], [ 8, %28 ], [ 8, %31 ], [ 8, %27 ]
-  %.02440 = phi i16 [ %39, %36 ], [ 112, %16 ], [ 112, %28 ], [ 112, %31 ], [ 112, %27 ]
+.thread36:                                        ; preds = %28, %16, %31, %27, %36
+  %.041 = phi i16 [ %41, %36 ], [ 8, %27 ], [ 8, %31 ], [ 8, %16 ], [ 8, %28 ]
+  %.02440 = phi i16 [ %39, %36 ], [ 112, %27 ], [ 112, %31 ], [ 112, %16 ], [ 112, %28 ]
   %.not28 = icmp eq i16 %0, 0
   %spec.store.select = select i1 %.not28, i16 112, i16 %0
   %42 = and i16 %.02440, %spec.store.select

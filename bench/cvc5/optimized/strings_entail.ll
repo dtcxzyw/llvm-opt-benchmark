@@ -12934,10 +12934,10 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %106, %100, %97
   br i1 %.not88, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %.lr.ph
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %142, %87, %140, %132, %138
-  %146 = phi ptr [ %93, %132 ], [ %93, %138 ], [ %93, %140 ], [ %81, %87 ], [ %143, %142 ]
-  %147 = phi ptr [ %93, %132 ], [ %93, %138 ], [ %93, %140 ], [ %82, %87 ], [ %144, %142 ]
-  %.not8897 = phi i1 [ false, %132 ], [ false, %138 ], [ false, %140 ], [ true, %87 ], [ true, %142 ]
-  %.330 = phi i8 [ 1, %132 ], [ 1, %138 ], [ 1, %140 ], [ %.027114, %87 ], [ 1, %142 ]
+  %146 = phi ptr [ %93, %140 ], [ %93, %132 ], [ %93, %138 ], [ %81, %87 ], [ %143, %142 ]
+  %147 = phi ptr [ %93, %140 ], [ %93, %132 ], [ %93, %138 ], [ %82, %87 ], [ %144, %142 ]
+  %.not8897 = phi i1 [ false, %140 ], [ false, %132 ], [ false, %138 ], [ true, %87 ], [ true, %142 ]
+  %.330 = phi i8 [ 1, %140 ], [ 1, %132 ], [ 1, %138 ], [ %.027114, %87 ], [ 1, %142 ]
   %148 = load ptr, ptr %7, align 8, !tbaa !51
   %149 = load ptr, ptr %69, align 8, !tbaa !48
   %.not4.i.i.i.i = icmp eq ptr %148, %149

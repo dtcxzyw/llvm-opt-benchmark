@@ -235,8 +235,8 @@ _ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKN
   %91 = tail call noundef zeroext i1 @_ZN5clang4edit6Commit16replaceWithInnerENS_15CharSourceRangeES2_(ptr noundef nonnull align 8 dereferenceable(600) %2, i64 %88, i8 1, i64 %90, i8 1) #15
   br label %.critedge2
 
-.critedge2:                                       ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i, %40, %28, %15, %7, %11, %3, %.critedge, %85, %75, %79, %_ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKNS_11LangOptionsE.exit
-  %.0 = phi i1 [ false, %79 ], [ false, %_ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKNS_11LangOptionsE.exit ], [ true, %.critedge ], [ false, %85 ], [ false, %75 ], [ false, %3 ], [ false, %11 ], [ false, %7 ], [ false, %15 ], [ false, %28 ], [ false, %40 ], [ false, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i ]
+.critedge2:                                       ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i, %40, %28, %15, %7, %11, %3, %.critedge, %85, %79, %75, %_ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKNS_11LangOptionsE.exit
+  %.0 = phi i1 [ false, %75 ], [ false, %_ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKNS_11LangOptionsE.exit ], [ true, %.critedge ], [ false, %85 ], [ false, %79 ], [ false, %3 ], [ false, %11 ], [ false, %7 ], [ false, %15 ], [ false, %28 ], [ false, %40 ], [ false, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i ]
   ret i1 %.0
 }
 
@@ -1799,7 +1799,7 @@ _ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i.i: ; preds = %47
   br label %_ZNK5clang15ObjCMessageExpr16getClassReceiverEv.exit.i
 
 _ZNK5clang15ObjCMessageExpr16getClassReceiverEv.exit.i: ; preds = %55, %52
-  %.sroa.050.0.i = phi i64 [ %.sroa.0.0.copyload.i.i30.i, %52 ], [ %58, %55 ]
+  %.sroa.050.0.i = phi i64 [ %58, %55 ], [ %.sroa.0.0.copyload.i.i30.i, %52 ]
   %.not.i.i.i = icmp ult i64 %.sroa.050.0.i, 16
   br i1 %.not.i.i.i, label %_ZL40maybeAdjustInterfaceForSubscriptingCheckPKN5clang17ObjCInterfaceDeclEPKNS_4ExprERNS_10ASTContextE.exit, label %59
 
@@ -2391,7 +2391,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68: ; p
   br i1 %.not58, label %.critedge, label %111, !llvm.loop !434
 
 .critedge:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit, %103, %80, %6, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i, %45, %20, %9, %16, %33, %68, %56, %59, %49, %72, %_ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKNS_11LangOptionsE.exit, %65, %4, %3
-  %.0 = phi i1 [ false, %4 ], [ false, %3 ], [ false, %6 ], [ false, %65 ], [ false, %68 ], [ false, %56 ], [ true, %59 ], [ true, %49 ], [ false, %72 ], [ false, %_ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKNS_11LangOptionsE.exit ], [ false, %33 ], [ false, %16 ], [ false, %9 ], [ false, %20 ], [ false, %45 ], [ false, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i ], [ true, %80 ], [ true, %103 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %3 ], [ false, %6 ], [ true, %80 ], [ false, %65 ], [ false, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i ], [ false, %68 ], [ false, %56 ], [ true, %59 ], [ true, %49 ], [ false, %72 ], [ false, %_ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKNS_11LangOptionsE.exit ], [ false, %33 ], [ false, %16 ], [ false, %9 ], [ false, %20 ], [ false, %45 ], [ true, %103 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68 ]
   ret i1 %.0
 }
 

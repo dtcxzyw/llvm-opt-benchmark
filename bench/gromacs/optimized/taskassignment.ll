@@ -1385,9 +1385,9 @@ _ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt
   br label %382
 
 382:                                              ; preds = %82, %126, %.body
-  %.sroa.13.0 = phi ptr [ %.sroa.13.2, %.body ], [ %88, %82 ], [ %88, %126 ]
-  %.sroa.0187.0 = phi ptr [ %.sroa.0187.2, %.body ], [ %84, %82 ], [ %84, %126 ]
-  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %83, %82 ], [ %.pn64.pn.pn.pn, %126 ]
+  %.sroa.13.0 = phi ptr [ %88, %82 ], [ %.sroa.13.2, %.body ], [ %88, %126 ]
+  %.sroa.0187.0 = phi ptr [ %84, %82 ], [ %.sroa.0187.2, %.body ], [ %84, %126 ]
+  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %eh.lpad-body, %.body ], [ %.pn64.pn.pn.pn, %126 ]
   %.not.i.i.i112 = icmp eq ptr %.sroa.0187.0, null
   br i1 %.not.i.i.i112, label %_ZNSt6vectorIiSaIiEED2Ev.exit113, label %383
 

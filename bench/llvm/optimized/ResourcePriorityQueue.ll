@@ -1427,7 +1427,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21ResourcePriorityQueue19isResource
   br i1 %.not46, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit, label %.lr.ph55
 
 _ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %._crit_edge, %.lr.ph, %39, %8, %28, %2, %3
-  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ true, %8 ], [ false, %3 ], [ true, %39 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
+  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ true, %8 ], [ false, %3 ], [ false, %.lr.ph ], [ true, %39 ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -2118,7 +2118,7 @@ define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue16regPressureDeltaE
   br i1 %.not37, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %63, %.lr.ph52, %26, %17, %3, %4, %6
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %4 ], [ 0, %17 ], [ 0, %26 ], [ %24, %.lr.ph52 ], [ %.3, %63 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %4 ], [ %24, %.lr.ph52 ], [ 0, %17 ], [ 0, %26 ], [ %.3, %63 ]
   ret i32 %.0
 }
 
@@ -2198,7 +2198,7 @@ _ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit: ; 
   br label %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit
 
 _ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit: ; preds = %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit, %17, %25, %29
-  %.0.i = phi i32 [ 0, %25 ], [ 0, %17 ], [ 0, %29 ], [ %44, %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit ]
+  %.0.i = phi i32 [ 0, %29 ], [ 0, %25 ], [ 0, %17 ], [ %44, %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit ]
   %45 = add i32 %.0.i, %spec.select36
   br label %62
 
@@ -3225,7 +3225,7 @@ _ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22: ; preds = %66, %37, %_
   br i1 %.not25, label %.loopexit, label %28, !llvm.loop !359
 
 .loopexit:                                        ; preds = %23, %_ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22, %11, %24
-  %.sroa.015.2 = phi ptr [ %8, %24 ], [ %8, %11 ], [ %.sroa.015.4, %_ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22 ], [ %.sroa.015.1, %23 ]
+  %.sroa.015.2 = phi ptr [ %.sroa.015.4, %_ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22 ], [ %8, %24 ], [ %8, %11 ], [ %.sroa.015.1, %23 ]
   %79 = load ptr, ptr %.sroa.015.2, align 8, !tbaa !310
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %81 = load ptr, ptr %80, align 8, !tbaa !332

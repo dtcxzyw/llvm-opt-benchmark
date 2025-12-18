@@ -126,8 +126,8 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %.preheader31, %.preheader29, %.preheader27, %64, %41, %34
-  %65 = phi i64 [ %31, %34 ], [ %37, %41 ], [ %37, %64 ], [ %37, %.preheader29 ], [ %37, %.preheader27 ], [ %37, %.preheader31 ]
-  %66 = phi i64 [ %35, %34 ], [ 0, %41 ], [ 0, %64 ], [ 0, %.preheader29 ], [ 0, %.preheader27 ], [ 0, %.preheader31 ]
+  %65 = phi i64 [ %31, %34 ], [ %37, %41 ], [ %37, %64 ], [ %37, %.preheader27 ], [ %37, %.preheader29 ], [ %37, %.preheader31 ]
+  %66 = phi i64 [ %35, %34 ], [ 0, %41 ], [ 0, %64 ], [ 0, %.preheader27 ], [ 0, %.preheader29 ], [ 0, %.preheader31 ]
   %67 = shl i64 %66, 1
   %68 = add i64 %67, %2
   %69 = add i64 %68, %2

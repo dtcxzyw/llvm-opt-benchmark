@@ -442,7 +442,7 @@ define internal fastcc range(i32 0, 2) i32 @avifFileTypeIsCompatible(ptr noundef
   br i1 %or.cond, label %avifFileTypeHasBrand.exit, label %13, !llvm.loop !6
 
 avifFileTypeHasBrand.exit:                        ; preds = %8, %13, %.loopexit.thread, %.loopexit, %1
-  %.shrunk = phi i1 [ true, %1 ], [ true, %.loopexit ], [ %.not.i319, %.loopexit.thread ], [ %.not11.i10, %13 ], [ true, %8 ]
+  %.shrunk = phi i1 [ %.not.i319, %.loopexit.thread ], [ true, %1 ], [ true, %.loopexit ], [ %.not11.i10, %13 ], [ true, %8 ]
   %16 = zext i1 %.shrunk to i32
   ret i32 %16
 }
@@ -933,7 +933,7 @@ avifSampleTableGetCodecType.exit437._crit_edge.thread: ; preds = %avifSampleTabl
   %187 = getelementptr inbounds nuw i8, ptr %69, i64 8
   br label %.sink.split
 
-.thread844:                                       ; preds = %30, %37, %38
+.thread844:                                       ; preds = %37, %30, %38
   %188 = load ptr, ptr %9, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 68
   %190 = load i32, ptr %189, align 4
@@ -2370,7 +2370,7 @@ avifDecoderItemValidateProperties.exit:           ; preds = %587, %.loopexit.i48
   br label %avifMetaFindAlphaItem.exit
 
 avifMetaFindAlphaItem.exit:                       ; preds = %449, %avifDecoderItemOperatingPoint.exit.i, %468, %avifDecoderItemOperatingPoint.exit.i.i, %407, %avifPropertyArrayFind.exit.i.i475, %.lr.ph649, %710, %702, %693, %692, %794, %.loopexit.i.i, %435, %385, %390, %448, %avifDecoderItemValidateProperties.exit.thread, %301, %255, %.loopexit, %.thread, %318, %211, %142, %136, %121, %avifSampleTableGetCodecType.exit437._crit_edge.thread, %84, %15, %1, %.loopexit525, %194, %.loopexit516, %avifSampleTableGetCodecType.exit._crit_edge.thread
-  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 26, %15 ], [ 26, %avifSampleTableGetCodecType.exit437._crit_edge.thread ], [ 26, %136 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ 18, %385 ], [ 18, %390 ], [ %824, %.loopexit ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ %132, %121 ], [ %86, %84 ], [ 9, %.loopexit516 ], [ 10, %194 ], [ %151, %142 ], [ %214, %211 ], [ 0, %1 ], [ %322, %318 ], [ %328, %.thread ], [ 26, %255 ], [ 10, %.loopexit525 ], [ %300, %301 ], [ 18, %448 ], [ 9, %692 ], [ 18, %.loopexit.i.i ], [ 18, %435 ], [ %797, %794 ], [ 9, %.lr.ph649 ], [ 9, %710 ], [ %706, %702 ], [ %701, %693 ], [ 26, %avifPropertyArrayFind.exit.i.i475 ], [ %414, %407 ], [ %475, %468 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ 10, %449 ]
+  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 26, %15 ], [ 26, %avifSampleTableGetCodecType.exit437._crit_edge.thread ], [ 26, %136 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ %797, %794 ], [ 18, %448 ], [ 18, %.loopexit.i.i ], [ 18, %435 ], [ %824, %.loopexit ], [ 9, %.lr.ph649 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ %132, %121 ], [ %86, %84 ], [ 9, %.loopexit516 ], [ 10, %194 ], [ %151, %142 ], [ %214, %211 ], [ 0, %1 ], [ %322, %318 ], [ %328, %.thread ], [ %300, %301 ], [ 10, %.loopexit525 ], [ 26, %255 ], [ 18, %385 ], [ 18, %390 ], [ 9, %692 ], [ 9, %710 ], [ %706, %702 ], [ %701, %693 ], [ 26, %avifPropertyArrayFind.exit.i.i475 ], [ %414, %407 ], [ %475, %468 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ 10, %449 ]
   ret i32 %.0
 }
 
@@ -2696,7 +2696,7 @@ avifExtentMerge.exit:                             ; preds = %avifExtentMerge.exi
   br i1 %.not37, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader, !llvm.loop !30
 
 avifDecoderItemMaxExtent.exit.thread:             ; preds = %._crit_edge, %67, %62, %53, %avifDecoderItemMaxExtent.exit, %50, %36, %97, %83, %89, %.preheader.lr.ph, %avifDecoderNearestKeyframe.exit, %3
-  %.0 = phi i32 [ 3, %3 ], [ 0, %.preheader.lr.ph ], [ 0, %avifDecoderNearestKeyframe.exit ], [ 16, %36 ], [ 20, %97 ], [ 9, %89 ], [ 9, %83 ], [ 20, %67 ], [ 9, %avifDecoderItemMaxExtent.exit ], [ %52, %50 ], [ 20, %53 ], [ 3, %62 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 3, %3 ], [ 0, %avifDecoderNearestKeyframe.exit ], [ 0, %.preheader.lr.ph ], [ 3, %62 ], [ 20, %97 ], [ 9, %89 ], [ 9, %83 ], [ 20, %67 ], [ 9, %avifDecoderItemMaxExtent.exit ], [ %52, %50 ], [ 20, %53 ], [ 16, %36 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3850,7 +3850,7 @@ avifSampleTableCreate.exit.thread.i.i.i.i.i.i:    ; preds = %369, %389
   br i1 %436, label %415, label %avifParseSampleToChunkBox.exit.i.i.i.i.i.i, !llvm.loop !33
 
 avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i: ; preds = %411, %406, %422, %419, %417, %415, %431, %429
-  %.0.i68.ph.i.i.i.i.i.i = phi i32 [ 9, %431 ], [ 9, %429 ], [ 9, %417 ], [ 9, %422 ], [ 9, %419 ], [ 26, %415 ], [ 9, %406 ], [ 9, %411 ]
+  %.0.i68.ph.i.i.i.i.i.i = phi i32 [ 9, %417 ], [ 9, %429 ], [ 9, %431 ], [ 9, %422 ], [ 9, %419 ], [ 26, %415 ], [ 9, %406 ], [ 9, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -4142,7 +4142,7 @@ avifParseTimeToSampleBox.exit.i.i.i.i.i.i:        ; preds = %485, %.preheader.i8
   br i1 %.not28.i.i.i.i.i.i, label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, label %505
 
 avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i: ; preds = %501, %495, %528, %521, %511, %509, %516
-  %.0.i15.ph.i.i.i.i.i = phi i32 [ 26, %516 ], [ 9, %509 ], [ 26, %511 ], [ %527, %521 ], [ 9, %528 ], [ 9, %495 ], [ 9, %501 ]
+  %.0.i15.ph.i.i.i.i.i = phi i32 [ 9, %509 ], [ 26, %516 ], [ 26, %511 ], [ %527, %521 ], [ 9, %528 ], [ 9, %495 ], [ 9, %501 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -4201,7 +4201,7 @@ avifParseMediaInformationBox.exit.i.i.i.i:        ; preds = %358
   br i1 %.not17.i.i.i.i, label %avifParseMediaBox.exit.thread.i.i.i, label %319, !llvm.loop !40
 
 avifParseMediaBox.exit.thread.i.i.i:              ; preds = %537, %321, %avifParseMediaInformationBox.exit.thread.i.i.i.i, %avifParseMediaHeaderBox.exit.thread.i.i.i.i
-  %.0.i69.ph.i.i.i = phi i32 [ 9, %avifParseMediaHeaderBox.exit.thread.i.i.i.i ], [ %.0.i22.ph.i.i.i.i, %avifParseMediaInformationBox.exit.thread.i.i.i.i ], [ 9, %321 ], [ 9, %537 ]
+  %.0.i69.ph.i.i.i = phi i32 [ %.0.i22.ph.i.i.i.i, %avifParseMediaInformationBox.exit.thread.i.i.i.i ], [ 9, %avifParseMediaHeaderBox.exit.thread.i.i.i.i ], [ 9, %321 ], [ 9, %537 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
@@ -4516,7 +4516,7 @@ avifParseEditBox.exit.i.i.i:                      ; preds = %614
   br label %avifParseTrackBox.exit.i.i
 
 avifParseTrackBox.exit.thread.i.i:                ; preds = %215, %616, %306, %247, %624, %avifParseEditBox.exit.thread.i.i.i, %569, %avifTrackReferenceBox.exit.thread.i.i.i, %avifParseMediaBox.exit.thread.i.i.i, %avifParseTrackHeaderBox.exit.thread.i.i.i, %.loopexit22.i.i
-  %.0.i.ph.i.i = phi i32 [ 9, %avifTrackReferenceBox.exit.thread.i.i.i ], [ 9, %569 ], [ 9, %avifParseEditBox.exit.thread.i.i.i ], [ 9, %624 ], [ 26, %.loopexit22.i.i ], [ 9, %avifParseTrackHeaderBox.exit.thread.i.i.i ], [ %.0.i69.ph.i.i.i, %avifParseMediaBox.exit.thread.i.i.i ], [ %313, %306 ], [ 9, %616 ], [ 9, %247 ], [ 26, %215 ]
+  %.0.i.ph.i.i = phi i32 [ 9, %avifTrackReferenceBox.exit.thread.i.i.i ], [ 9, %569 ], [ 9, %avifParseEditBox.exit.thread.i.i.i ], [ 9, %624 ], [ 26, %.loopexit22.i.i ], [ %313, %306 ], [ 9, %avifParseTrackHeaderBox.exit.thread.i.i.i ], [ %.0.i69.ph.i.i.i, %avifParseMediaBox.exit.thread.i.i.i ], [ 9, %616 ], [ 9, %247 ], [ 26, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
@@ -5515,7 +5515,7 @@ avifGetSampleCountOfChunk.exit92.thread:          ; preds = %avifGetSampleCountO
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %63, %113, %._crit_edge, %148, %.split139.us, %.split119.us, %.split117.us, %avifGetSampleCountOfChunk.exit92.thread, %28, %avifGetSampleCountOfChunk.exit.thread
-  %.0 = phi i32 [ 9, %avifGetSampleCountOfChunk.exit.thread ], [ 9, %28 ], [ 9, %avifGetSampleCountOfChunk.exit92.thread ], [ 9, %.split117.us ], [ 9, %.split119.us ], [ 9, %.split139.us ], [ 0, %148 ], [ 0, %._crit_edge ], [ 26, %113 ], [ 26, %63 ]
+  %.0 = phi i32 [ 9, %avifGetSampleCountOfChunk.exit.thread ], [ 9, %28 ], [ 9, %avifGetSampleCountOfChunk.exit92.thread ], [ 9, %.split117.us ], [ 9, %.split119.us ], [ 9, %.split139.us ], [ 0, %._crit_edge ], [ 0, %148 ], [ 26, %113 ], [ 26, %63 ]
   ret i32 %.0
 }
 
@@ -7027,7 +7027,7 @@ avifDecoderDataCopyTileToImage.exit:              ; preds = %555
   br i1 %603, label %244, label %.loopexit, !llvm.loop !65
 
 avifDecoderDecodeTiles.exit.thread:               ; preds = %413, %475, %avifImageLimitedToFullAlpha.exit.i, %367, %443, %410, %583, %272, %401, %avifDecoderDataCopyTileToImage.exit.thread
-  %.0.i79.ph = phi i32 [ 18, %avifDecoderDataCopyTileToImage.exit.thread ], [ 18, %401 ], [ %277, %272 ], [ 12, %583 ], [ 18, %410 ], [ 18, %443 ], [ %372, %367 ], [ %.0.i.i, %avifImageLimitedToFullAlpha.exit.i ], [ 26, %475 ], [ 18, %413 ]
+  %.0.i79.ph = phi i32 [ 26, %475 ], [ 18, %avifDecoderDataCopyTileToImage.exit.thread ], [ 18, %401 ], [ %277, %272 ], [ 12, %583 ], [ 18, %410 ], [ 18, %443 ], [ %372, %367 ], [ %.0.i.i, %avifImageLimitedToFullAlpha.exit.i ], [ 18, %413 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %avifDecoderCreateCodecs.exit.thread
 
@@ -7070,8 +7070,8 @@ avifDecoderDataFrameFullyDecoded.exit88:          ; preds = %607
 617:                                              ; preds = %614, %.preheader110.preheader
   br label %avifDecoderCreateCodecs.exit.thread
 
-avifDecoderCreateCodecs.exit.thread:              ; preds = %171, %.lr.ph.i, %avifDecoderPrepareTiles.exit, %214, %avifDecoderDataFrameFullyDecoded.exit88, %136, %79, %52, %45, %.critedge.i, %71, %avifDecoderDecodeTiles.exit.thread, %614, %14, %17, %1, %10, %617
-  %.0 = phi i32 [ 3, %1 ], [ %78, %71 ], [ 0, %617 ], [ %.0.i79.ph, %avifDecoderDecodeTiles.exit.thread ], [ 21, %14 ], [ 3, %10 ], [ 21, %17 ], [ %616, %614 ], [ 26, %136 ], [ 26, %79 ], [ 26, %52 ], [ %51, %45 ], [ %135, %.critedge.i ], [ 23, %avifDecoderDataFrameFullyDecoded.exit88 ], [ %228, %avifDecoderPrepareTiles.exit ], [ 16, %214 ], [ %170, %.lr.ph.i ], [ 26, %171 ]
+avifDecoderCreateCodecs.exit.thread:              ; preds = %171, %.lr.ph.i, %avifDecoderPrepareTiles.exit, %214, %avifDecoderDataFrameFullyDecoded.exit88, %79, %52, %136, %45, %.critedge.i, %71, %avifDecoderDecodeTiles.exit.thread, %614, %14, %17, %1, %10, %617
+  %.0 = phi i32 [ 3, %1 ], [ %78, %71 ], [ %228, %avifDecoderPrepareTiles.exit ], [ 16, %214 ], [ 0, %617 ], [ %.0.i79.ph, %avifDecoderDecodeTiles.exit.thread ], [ 21, %14 ], [ 3, %10 ], [ 21, %17 ], [ %616, %614 ], [ %135, %.critedge.i ], [ 23, %avifDecoderDataFrameFullyDecoded.exit88 ], [ 26, %79 ], [ 26, %52 ], [ 26, %136 ], [ %51, %45 ], [ %170, %.lr.ph.i ], [ 26, %171 ]
   ret i32 %.0
 }
 
@@ -7986,7 +7986,7 @@ avifParseHandlerBox.exit.thread.sink.split:       ; preds = %121, %117
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull %.str.37.sink) #13
   br label %avifParseHandlerBox.exit.thread
 
-avifParseHandlerBox.exit.thread:                  ; preds = %119, %115, %110, %.preheader.i, %avifParseHandlerBox.exit.thread.sink.split
+avifParseHandlerBox.exit.thread:                  ; preds = %119, %110, %115, %.preheader.i, %avifParseHandlerBox.exit.thread.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
@@ -8316,7 +8316,7 @@ avifCheckItemID.exit.i:                           ; preds = %176
   br i1 %250, label %.lr.ph86.i, label %avifParseItemLocationBox.exit, !llvm.loop !76
 
 avifParseItemLocationBox.exit.thread:             ; preds = %153, %130, %142, %140, %158, %163, %144, %211, %174, %179, %190, %195, %205, %207, %169, %220, %224, %216, %138, %151, %avifCheckItemID.exit.i, %185, %194, %199, %231, %240
-  %.0.i79.ph = phi i32 [ 9, %240 ], [ 9, %231 ], [ 9, %199 ], [ 9, %194 ], [ 9, %185 ], [ 9, %avifCheckItemID.exit.i ], [ 9, %151 ], [ 9, %138 ], [ 9, %169 ], [ 9, %216 ], [ 9, %220 ], [ 26, %224 ], [ 9, %211 ], [ 9, %174 ], [ %180, %179 ], [ 9, %190 ], [ 9, %195 ], [ 9, %205 ], [ 9, %207 ], [ 9, %144 ], [ 9, %163 ], [ 9, %158 ], [ 9, %140 ], [ 9, %142 ], [ 9, %130 ], [ 9, %153 ]
+  %.0.i79.ph = phi i32 [ 9, %240 ], [ 9, %216 ], [ 9, %231 ], [ 9, %199 ], [ 9, %194 ], [ 9, %185 ], [ 9, %avifCheckItemID.exit.i ], [ 9, %169 ], [ 9, %138 ], [ 9, %151 ], [ 9, %220 ], [ 26, %224 ], [ 9, %211 ], [ 9, %174 ], [ %180, %179 ], [ 9, %190 ], [ 9, %195 ], [ 9, %205 ], [ 9, %207 ], [ 9, %144 ], [ 9, %163 ], [ 9, %158 ], [ 9, %140 ], [ 9, %142 ], [ 9, %130 ], [ 9, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
@@ -8754,7 +8754,7 @@ avifCheckItemID.exit.i.i:                         ; preds = %331
   br i1 %390, label %321, label %avifParseItemPropertyAssociation.exit.i, !llvm.loop !81
 
 avifParseItemPropertyAssociation.exit.thread.i:   ; preds = %311, %307, %344, %336, %329, %324, %.loopexit.i.i, %351, %349, %378, %372, %359, %342, %335, %avifCheckItemID.exit.i.i
-  %.0.i.ph.i = phi i32 [ 9, %372 ], [ 9, %359 ], [ 9, %342 ], [ 9, %avifCheckItemID.exit.i.i ], [ 9, %335 ], [ 9, %378 ], [ 9, %324 ], [ 9, %349 ], [ 26, %.loopexit.i.i ], [ 9, %351 ], [ %337, %336 ], [ 9, %329 ], [ 9, %344 ], [ 9, %307 ], [ 9, %311 ]
+  %.0.i.ph.i = phi i32 [ 9, %372 ], [ 9, %359 ], [ 9, %342 ], [ 9, %349 ], [ 9, %avifCheckItemID.exit.i.i ], [ 9, %335 ], [ 9, %324 ], [ 9, %378 ], [ 26, %.loopexit.i.i ], [ 9, %351 ], [ %337, %336 ], [ 9, %329 ], [ 9, %344 ], [ 9, %307 ], [ 9, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
@@ -8821,7 +8821,7 @@ avifParseItemPropertyAssociation.exit.i:          ; preds = %._crit_edge.i.i, %.
   br label %avifParseItemPropertiesBox.exit.thread
 
 avifParseItemPropertiesBox.exit.thread:           ; preds = %285, %294, %300, %._crit_edge.thread.i, %304, %293, %401, %395, %397, %avifParseItemPropertyAssociation.exit.thread.i
-  %.023.i.ph = phi i32 [ %.0.i.ph.i, %avifParseItemPropertyAssociation.exit.thread.i ], [ 9, %397 ], [ 9, %395 ], [ 9, %293 ], [ 9, %401 ], [ 9, %._crit_edge.thread.i ], [ 9, %304 ], [ 9, %285 ], [ %299, %294 ], [ 9, %300 ]
+  %.023.i.ph = phi i32 [ 9, %293 ], [ 9, %._crit_edge.thread.i ], [ 9, %401 ], [ %.0.i.ph.i, %avifParseItemPropertyAssociation.exit.thread.i ], [ 9, %397 ], [ 9, %395 ], [ 9, %304 ], [ %299, %294 ], [ 9, %300 ], [ 9, %285 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -9061,7 +9061,7 @@ avifParseItemInfoEntry.exit.thread.i:             ; preds = %463, %460, %458, %4
   br i1 %.not19.i, label %avifParseItemInfoBox.exit.thread, label %422
 
 avifParseItemInfoBox.exit.thread:                 ; preds = %411, %416, %404, %467, %.lr.ph.i111, %466, %avifParseItemInfoEntry.exit.thread.i, %418
-  %.0.i113.ph = phi i32 [ 9, %418 ], [ %.0.i.ph.i118, %avifParseItemInfoEntry.exit.thread.i ], [ 9, %466 ], [ 9, %467 ], [ 9, %.lr.ph.i111 ], [ 9, %404 ], [ 9, %416 ], [ 9, %411 ]
+  %.0.i113.ph = phi i32 [ 9, %466 ], [ 9, %467 ], [ %.0.i.ph.i118, %avifParseItemInfoEntry.exit.thread.i ], [ 9, %418 ], [ 9, %.lr.ph.i111 ], [ 9, %404 ], [ 9, %416 ], [ 9, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -9271,8 +9271,8 @@ avifCheckItemID.exit61.thread.i:                  ; preds = %507, %501
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.33, i32 noundef 0) #13
   br label %avifParseItemReferenceBox.exit.thread
 
-avifParseItemReferenceBox.exit.thread:            ; preds = %476, %485, %avifCheckItemID.exit.thread.i, %491, %.lr.ph78.i, %499, %526, %505, %511, %.loopexit.sink.split.i
-  %.0.i127.ph = phi i32 [ 9, %.loopexit.sink.split.i ], [ 9, %485 ], [ %512, %511 ], [ 9, %499 ], [ %528, %526 ], [ 9, %505 ], [ 9, %.lr.ph78.i ], [ 9, %491 ], [ 9, %avifCheckItemID.exit.thread.i ], [ 9, %476 ]
+avifParseItemReferenceBox.exit.thread:            ; preds = %476, %.lr.ph78.i, %491, %485, %avifCheckItemID.exit.thread.i, %499, %526, %505, %511, %.loopexit.sink.split.i
+  %.0.i127.ph = phi i32 [ 9, %.loopexit.sink.split.i ], [ 9, %.lr.ph78.i ], [ %512, %511 ], [ 9, %499 ], [ %528, %526 ], [ 9, %505 ], [ 9, %avifCheckItemID.exit.thread.i ], [ 9, %485 ], [ 9, %491 ], [ 9, %476 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9315,7 +9315,7 @@ avifParseItemReferenceBox.exit:                   ; preds = %483, %._crit_edge.i
   br label %avifParseItemDataBox.exit.thread
 
 avifParseItemDataBox.exit.thread:                 ; preds = %543, %avifParseItemDataBox.exit, %avifParseHandlerBox.exit, %104, %281, %278, %avifParseItemReferenceBox.exit.thread, %uniqueBoxSeen.exit122.thread, %avifParseItemInfoBox.exit.thread, %uniqueBoxSeen.exit106.thread, %avifParseItemPropertiesBox.exit.thread, %uniqueBoxSeen.exit97.thread, %uniqueBoxSeen.exit90.thread, %avifParsePrimaryItemBox.exit.thread, %uniqueBoxSeen.exit83.thread, %avifParseItemLocationBox.exit.thread, %uniqueBoxSeen.exit77.thread, %avifParseHandlerBox.exit.thread, %uniqueBoxSeen.exit.thread, %546, %5, %547, %126
-  %.0 = phi i32 [ 9, %126 ], [ %.0.i127.ph, %avifParseItemReferenceBox.exit.thread ], [ 9, %uniqueBoxSeen.exit.thread ], [ 9, %uniqueBoxSeen.exit122.thread ], [ %.0.i113.ph, %avifParseItemInfoBox.exit.thread ], [ 9, %uniqueBoxSeen.exit106.thread ], [ %.023.i.ph, %avifParseItemPropertiesBox.exit.thread ], [ 9, %uniqueBoxSeen.exit97.thread ], [ 9, %uniqueBoxSeen.exit90.thread ], [ 9, %avifParsePrimaryItemBox.exit.thread ], [ 9, %uniqueBoxSeen.exit83.thread ], [ %.0.i79.ph, %avifParseItemLocationBox.exit.thread ], [ 9, %uniqueBoxSeen.exit77.thread ], [ 9, %5 ], [ 9, %547 ], [ 0, %546 ], [ 9, %avifParseHandlerBox.exit.thread ], [ 9, %278 ], [ 9, %281 ], [ 9, %104 ], [ 9, %avifParseHandlerBox.exit ], [ 9, %avifParseItemDataBox.exit ], [ 9, %543 ]
+  %.0 = phi i32 [ 9, %126 ], [ %.0.i127.ph, %avifParseItemReferenceBox.exit.thread ], [ 9, %uniqueBoxSeen.exit.thread ], [ 9, %281 ], [ 9, %uniqueBoxSeen.exit122.thread ], [ %.0.i113.ph, %avifParseItemInfoBox.exit.thread ], [ 9, %uniqueBoxSeen.exit106.thread ], [ %.023.i.ph, %avifParseItemPropertiesBox.exit.thread ], [ 9, %uniqueBoxSeen.exit97.thread ], [ 9, %278 ], [ 9, %uniqueBoxSeen.exit90.thread ], [ 9, %avifParsePrimaryItemBox.exit.thread ], [ 9, %uniqueBoxSeen.exit83.thread ], [ %.0.i79.ph, %avifParseItemLocationBox.exit.thread ], [ 9, %uniqueBoxSeen.exit77.thread ], [ 9, %avifParseHandlerBox.exit.thread ], [ 9, %5 ], [ 9, %547 ], [ 0, %546 ], [ 9, %104 ], [ 9, %avifParseHandlerBox.exit ], [ 9, %avifParseItemDataBox.exit ], [ 9, %543 ]
   ret i32 %.0
 }
 
@@ -10509,13 +10509,13 @@ define internal fastcc i32 @avifDecoderItemRead(ptr noundef %0, ptr noundef %1, 
   br i1 %.not146, label %.thread148, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %77, %128, %96, %123, %._crit_edge
-  %.0116.lcssa271 = phi i64 [ %55, %._crit_edge ], [ %126, %123 ], [ %148, %128 ], [ %108, %96 ], [ %88, %77 ]
+  %.0116.lcssa271 = phi i64 [ %55, %._crit_edge ], [ %108, %96 ], [ %126, %123 ], [ %148, %128 ], [ %88, %77 ]
   %152 = load i32, ptr %0, align 8
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.171, i32 noundef %152, i64 noundef %.0116.lcssa271) #13
   br label %.loopexit
 
 .thread148:                                       ; preds = %86, %145, %106, %123, %._crit_edge
-  %153 = phi ptr [ %63, %._crit_edge ], [ %110, %123 ], [ %63, %145 ], [ %63, %106 ], [ %67, %86 ]
+  %153 = phi ptr [ %63, %145 ], [ %63, %106 ], [ %110, %123 ], [ %63, %._crit_edge ], [ %67, %86 ]
   %154 = load ptr, ptr %8, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 %3
   store ptr %155, ptr %2, align 8

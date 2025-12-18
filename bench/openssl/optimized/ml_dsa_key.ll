@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_set_prekey(ptr noundef captures(address_
   br label %46
 
 46:                                               ; preds = %41, %39, %43, %7, %9, %12, %16, %24, %21
-  %.030 = phi i32 [ 0, %7 ], [ 0, %21 ], [ 0, %24 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %43 ], [ 1, %41 ], [ 1, %39 ]
+  %.030 = phi i32 [ 0, %7 ], [ 0, %21 ], [ 0, %24 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %43 ], [ 1, %39 ], [ 1, %41 ]
   ret i32 %.030
 }
 
@@ -1104,7 +1104,7 @@ vector_equal.exit.thread36:                       ; preds = %.preheader.i
   br i1 %.not1.i31, label %44, label %vector_equal.exit33
 
 vector_equal.exit33:                              ; preds = %.lr.ph.i, %.lr.ph.i29, %44, %vector_equal.exit.thread36, %29, %vector_equal.exit, %23, %20
-  %.018 = phi i32 [ 0, %20 ], [ 0, %23 ], [ %spec.select, %vector_equal.exit.thread36 ], [ 0, %vector_equal.exit ], [ 0, %29 ], [ 0, %.lr.ph.i29 ], [ 1, %44 ], [ 0, %.lr.ph.i ]
+  %.018 = phi i32 [ 0, %20 ], [ 0, %23 ], [ %spec.select, %vector_equal.exit.thread36 ], [ 0, %vector_equal.exit ], [ 0, %.lr.ph.i29 ], [ 0, %29 ], [ 1, %44 ], [ 0, %.lr.ph.i ]
   tail call void @EVP_MD_CTX_free(ptr noundef %21) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str, i32 noundef 397) #9
   br label %50

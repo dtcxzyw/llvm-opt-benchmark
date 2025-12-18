@@ -3498,7 +3498,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body75
 
 .loopexit210:                                     ; preds = %198, %.noexc74, %193
-  %.pn.i.i = phi ptr [ %194, %193 ], [ %209, %.noexc74 ], [ %200, %198 ]
+  %.pn.i.i = phi ptr [ %209, %.noexc74 ], [ %194, %193 ], [ %200, %198 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %211 = trunc i64 %163 to i32
   store i32 %211, ptr %.1.i.i, align 4, !tbaa !15
@@ -3511,7 +3511,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body75
 
 _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit: ; preds = %181, %165, %176, %.loopexit210
-  %214 = phi i32 [ %.pre258, %.loopexit210 ], [ %164, %176 ], [ %164, %165 ], [ %164, %181 ]
+  %214 = phi i32 [ %164, %165 ], [ %.pre258, %.loopexit210 ], [ %164, %176 ], [ %164, %181 ]
   %215 = sext i32 %214 to i64
   %216 = load i64, ptr %155, align 8, !tbaa !165
   %217 = urem i64 %215, %216
@@ -3569,7 +3569,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body75
 
 .loopexit209:                                     ; preds = %226, %.noexc87, %221
-  %.pn.i.i85 = phi ptr [ %222, %221 ], [ %237, %.noexc87 ], [ %228, %226 ]
+  %.pn.i.i85 = phi ptr [ %237, %.noexc87 ], [ %222, %221 ], [ %228, %226 ]
   %.1.i.i86 = getelementptr inbounds nuw i8, ptr %.pn.i.i85, i64 12
   %239 = load i32, ptr %.1.i.i86, align 4, !tbaa !15
   store i32 %239, ptr %.sroa.0143.0229, align 4, !tbaa !15
@@ -3641,7 +3641,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body103
 
 .loopexit208:                                     ; preds = %254, %249, %.noexc102
-  %.pn.i.i100 = phi ptr [ %250, %249 ], [ %265, %.noexc102 ], [ %256, %254 ]
+  %.pn.i.i100 = phi ptr [ %265, %.noexc102 ], [ %250, %249 ], [ %256, %254 ]
   %.1.i.i101 = getelementptr inbounds nuw i8, ptr %.pn.i.i100, i64 12
   %267 = load i32, ptr %.1.i.i101, align 4, !tbaa !15
   %268 = sext i32 %267 to i64
@@ -3725,8 +3725,8 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body103
 
 .loopexit:                                        ; preds = %288, %.noexc116..loopexit_crit_edge, %283
-  %301 = phi ptr [ %269, %283 ], [ %.pre259, %.noexc116..loopexit_crit_edge ], [ %269, %288 ]
-  %.pn.i.i114 = phi ptr [ %284, %283 ], [ %299, %.noexc116..loopexit_crit_edge ], [ %290, %288 ]
+  %301 = phi ptr [ %.pre259, %.noexc116..loopexit_crit_edge ], [ %269, %283 ], [ %269, %288 ]
+  %.pn.i.i114 = phi ptr [ %299, %.noexc116..loopexit_crit_edge ], [ %284, %283 ], [ %290, %288 ]
   %.1.i.i115 = getelementptr inbounds nuw i8, ptr %.pn.i.i114, i64 12
   %302 = load i32, ptr %.1.i.i115, align 4, !tbaa !15
   %303 = sext i32 %302 to i64

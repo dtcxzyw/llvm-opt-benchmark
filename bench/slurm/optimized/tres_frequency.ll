@@ -116,7 +116,7 @@ _valid_gpu_freq.exit.thread20:                    ; preds = %28, %30, %26
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %.loopexit, %.lr.ph, %14, %.loopexit23.sink.split, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %.loopexit23.sink.split ], [ -1, %.lr.ph ], [ 0, %.loopexit ], [ -1, %14 ]
+  %.0 = phi i32 [ 0, %10 ], [ -1, %.loopexit23.sink.split ], [ -1, %14 ], [ 0, %.loopexit ], [ -1, %.lr.ph ]
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   br label %35
 

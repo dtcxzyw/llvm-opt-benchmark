@@ -3964,7 +3964,7 @@ _ZN5serde2de7Visitor10visit_bool17h4aeb36936403c728E.exit.i: ; preds = %270
   ret void
 
 354:                                              ; preds = %167, %352, %178
-  %.sroa.05.2 = phi i1 [ false, %167 ], [ false, %178 ], [ true, %352 ]
+  %.sroa.05.2 = phi i1 [ true, %352 ], [ false, %167 ], [ false, %178 ]
   %355 = load i64, ptr %1, align 8, !range !18, !noundef !3
   %356 = add nsw i64 %355, -8
   %357 = icmp ugt i64 %356, 3
@@ -4065,9 +4065,9 @@ common.resume:                                    ; preds = %394, %397, %398, %3
           cleanup
   br label %.body.thread47
 
-.body.thread47:                                   ; preds = %345, %156, %171, %162, %.body.thread54
-  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ true, %345 ], [ false, %156 ], [ false, %171 ], [ false, %162 ]
-  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %346, %345 ], [ %157, %156 ], [ %172, %171 ], [ %163, %162 ]
+.body.thread47:                                   ; preds = %171, %162, %156, %345, %.body.thread54
+  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ false, %171 ], [ false, %162 ], [ false, %156 ], [ true, %345 ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %172, %171 ], [ %163, %162 ], [ %157, %156 ], [ %346, %345 ]
   %389 = load i64, ptr %1, align 8, !range !18, !noundef !3
   %390 = add nsw i64 %389, -8
   %391 = icmp ugt i64 %390, 3
@@ -5163,7 +5163,7 @@ _ZN5serde2de7Visitor10visit_bool17h69d82bb8785bc7c3E.exit.i: ; preds = %267
   ret void
 
 351:                                              ; preds = %164, %349, %175
-  %.sroa.05.2 = phi i1 [ false, %164 ], [ false, %175 ], [ true, %349 ]
+  %.sroa.05.2 = phi i1 [ true, %349 ], [ false, %164 ], [ false, %175 ]
   %352 = load i64, ptr %1, align 8, !range !18, !noundef !3
   %353 = add nsw i64 %352, -8
   %354 = icmp ugt i64 %353, 3
@@ -5264,9 +5264,9 @@ common.resume:                                    ; preds = %391, %394, %395, %3
           cleanup
   br label %.body.thread47
 
-.body.thread47:                                   ; preds = %342, %153, %168, %159, %.body.thread54
-  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ true, %342 ], [ false, %153 ], [ false, %168 ], [ false, %159 ]
-  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %343, %342 ], [ %154, %153 ], [ %169, %168 ], [ %160, %159 ]
+.body.thread47:                                   ; preds = %168, %159, %153, %342, %.body.thread54
+  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ false, %168 ], [ false, %159 ], [ false, %153 ], [ true, %342 ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %169, %168 ], [ %160, %159 ], [ %154, %153 ], [ %343, %342 ]
   %386 = load i64, ptr %1, align 8, !range !18, !noundef !3
   %387 = add nsw i64 %386, -8
   %388 = icmp ugt i64 %387, 3
@@ -6362,7 +6362,7 @@ _ZN5serde2de7Visitor10visit_bool17h999dd4ddedddd2c3E.exit.i: ; preds = %270
   ret void
 
 354:                                              ; preds = %167, %352, %178
-  %.sroa.05.2 = phi i1 [ false, %167 ], [ false, %178 ], [ true, %352 ]
+  %.sroa.05.2 = phi i1 [ true, %352 ], [ false, %167 ], [ false, %178 ]
   %355 = load i64, ptr %1, align 8, !range !18, !noundef !3
   %356 = add nsw i64 %355, -8
   %357 = icmp ugt i64 %356, 3
@@ -6463,9 +6463,9 @@ common.resume:                                    ; preds = %394, %397, %398, %3
           cleanup
   br label %.body.thread47
 
-.body.thread47:                                   ; preds = %345, %156, %171, %162, %.body.thread54
-  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ true, %345 ], [ false, %156 ], [ false, %171 ], [ false, %162 ]
-  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %346, %345 ], [ %157, %156 ], [ %172, %171 ], [ %163, %162 ]
+.body.thread47:                                   ; preds = %171, %162, %156, %345, %.body.thread54
+  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ false, %171 ], [ false, %162 ], [ false, %156 ], [ true, %345 ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %172, %171 ], [ %163, %162 ], [ %157, %156 ], [ %346, %345 ]
   %389 = load i64, ptr %1, align 8, !range !18, !noundef !3
   %390 = add nsw i64 %389, -8
   %391 = icmp ugt i64 %390, 3

@@ -23746,7 +23746,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %108, %.lr.ph.split,
   unreachable
 
 .outer.backedge:                                  ; preds = %141, %155, %191
-  %.2123.ph.be = phi ptr [ %195, %191 ], [ %143, %141 ], [ %159, %155 ]
+  %.2123.ph.be = phi ptr [ %195, %191 ], [ %159, %155 ], [ %143, %141 ]
   %.0114.ph.be = add i32 %.us-phi262, %.0114.ph283
   %.not139257 = icmp eq ptr %.2123.ph.be, null
   br i1 %.not139257, label %.loopexit, label %.lr.ph, !llvm.loop !37
@@ -26581,7 +26581,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not71, label %.thread, label %.lr.ph102, !llvm.loop !57
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph91, %.lr.ph94, %.lr.ph102, %5, %._crit_edge, %._crit_edge99, %.preheader, %.preheader78, %.preheader80, %.preheader82, %6, %9, %15, %48, %38, %71
-  %.05177 = phi ptr [ %2, %5 ], [ %2, %48 ], [ null, %38 ], [ null, %71 ], [ %2, %15 ], [ %2, %9 ], [ %2, %6 ], [ %2, %.preheader82 ], [ %2, %.preheader78 ], [ %2, %.preheader ], [ %2, %.preheader80 ], [ null, %._crit_edge ], [ null, %._crit_edge99 ], [ %2, %.lr.ph91 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.lr.ph ]
+  %.05177 = phi ptr [ %2, %5 ], [ %2, %48 ], [ null, %38 ], [ null, %71 ], [ %2, %15 ], [ %2, %9 ], [ %2, %6 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.preheader80 ], [ %2, %.lr.ph91 ], [ %2, %.preheader82 ], [ null, %._crit_edge ], [ null, %._crit_edge99 ], [ %2, %.preheader ], [ %2, %.preheader78 ], [ %2, %.lr.ph ]
   tail call void @g_free(ptr noundef %.05177)
   br label %79
 
@@ -27424,7 +27424,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, 
   br i1 %exitcond.not.i.i92, label %decode_bitfield_varint_value.exit, label %.lr.ph.i85
 
 decode_bitfield_varint_value.exit:                ; preds = %60, %79, %67, %50
-  %.1.i.lcssa.i93.sink110 = phi ptr [ %.1.i8.i, %50 ], [ %.1.i9.i, %67 ], [ %.1.i.i91, %79 ], [ %.1.i.i, %60 ]
+  %.1.i.lcssa.i93.sink110 = phi ptr [ %.1.i.i91, %79 ], [ %.1.i8.i, %50 ], [ %.1.i9.i, %67 ], [ %.1.i.i, %60 ]
   store i8 0, ptr %.1.i.lcssa.i93.sink110, align 1
   %83 = tail call ptr @g_stpcpy(ptr noundef %.1.i.lcssa.i93.sink110, ptr noundef nonnull @.str.284)
   %84 = ptrtoint ptr %83 to i64
@@ -27888,7 +27888,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, 
   br i1 %exitcond.not.i.i92, label %decode_bitfield_varint_value.exit, label %.lr.ph.i85
 
 decode_bitfield_varint_value.exit:                ; preds = %58, %77, %65, %48
-  %.1.i.lcssa.i93.sink112 = phi ptr [ %.1.i8.i, %48 ], [ %.1.i9.i, %65 ], [ %.1.i.i91, %77 ], [ %.1.i.i, %58 ]
+  %.1.i.lcssa.i93.sink112 = phi ptr [ %.1.i.i91, %77 ], [ %.1.i8.i, %48 ], [ %.1.i9.i, %65 ], [ %.1.i.i, %58 ]
   store i8 0, ptr %.1.i.lcssa.i93.sink112, align 1
   %81 = tail call ptr @g_stpcpy(ptr noundef %.1.i.lcssa.i93.sink112, ptr noundef nonnull @.str.284)
   %82 = ptrtoint ptr %81 to i64
@@ -29220,7 +29220,7 @@ proto_is_protocol_enabled.exit:                   ; preds = %.lr.ph.i.us, %.lr.p
   br label %proto_is_protocol_enabled.exit.thread
 
 proto_is_protocol_enabled.exit.thread:            ; preds = %find_protocol_by_id.exit21.us, %tailrecurse.i8.us, %find_protocol_by_id.exit21, %tailrecurse.i8, %proto_is_protocol_enabled.exit, %proto_is_protocol_enabled_by_default.exit
-  %91 = phi i32 [ %spec.select, %proto_is_protocol_enabled.exit ], [ 70, %proto_is_protocol_enabled_by_default.exit ], [ 70, %find_protocol_by_id.exit21 ], [ 70, %tailrecurse.i8 ], [ 70, %tailrecurse.i8.us ], [ 70, %find_protocol_by_id.exit21.us ]
+  %91 = phi i32 [ 70, %proto_is_protocol_enabled_by_default.exit ], [ %spec.select, %proto_is_protocol_enabled.exit ], [ 70, %find_protocol_by_id.exit21 ], [ 70, %tailrecurse.i8 ], [ 70, %tailrecurse.i8.us ], [ 70, %find_protocol_by_id.exit21.us ]
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %93 = load i32, ptr %92, align 8
   %94 = trunc nuw i8 %.fr58 to i1
@@ -30368,7 +30368,7 @@ define zeroext i1 @proto_registrar_dump_field_completions(ptr noundef readonly c
   br label %44
 
 44:                                               ; preds = %.sink.split, %29, %37, %34, %21, %.lr.ph
-  %.1 = phi i1 [ %.041, %.lr.ph ], [ %.041, %21 ], [ %.041, %29 ], [ %.041, %34 ], [ %.041, %37 ], [ true, %.sink.split ]
+  %.1 = phi i1 [ %.041, %.lr.ph ], [ %.041, %21 ], [ %.041, %37 ], [ %.041, %29 ], [ %.041, %34 ], [ true, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
@@ -30601,7 +30601,7 @@ define internal fastcc noundef zeroext i1 @construct_match_selected_string(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %37, %36, %47, %46, %65, %94, %93, %60, %55, %52, %3
-  %.0 = phi i1 [ false, %60 ], [ false, %3 ], [ false, %52 ], [ true, %37 ], [ false, %55 ], [ true, %30 ], [ true, %93 ], [ true, %94 ], [ true, %65 ], [ true, %46 ], [ true, %47 ], [ true, %36 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ false, %60 ], [ false, %3 ], [ false, %52 ], [ true, %37 ], [ false, %55 ], [ true, %30 ], [ true, %93 ], [ true, %94 ], [ true, %65 ], [ true, %36 ], [ true, %46 ], [ true, %47 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -31491,7 +31491,7 @@ ws_sign_ext32.exit:                               ; preds = %187, %183, %181
   unreachable
 
 hf_try_val64_to_str.exit:                         ; preds = %278, %274, %270, %268
-  %.0271 = phi ptr [ %269, %268 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ]
+  %.0271 = phi ptr [ %279, %278 ], [ %275, %274 ], [ %269, %268 ], [ %271, %270 ]
   %283 = icmp eq ptr %.0271, null
   br i1 %283, label %hf_try_val64_to_str.exit.hf_try_val64_to_str.exit.thread_crit_edge, label %288
 
@@ -31661,7 +31661,7 @@ ws_sign_ext64.exit:                               ; preds = %301, %298, %297
   unreachable
 
 hf_try_val64_to_str.exit387:                      ; preds = %349, %345, %341, %339
-  %.0267 = phi ptr [ %340, %339 ], [ %342, %341 ], [ %346, %345 ], [ %350, %349 ]
+  %.0267 = phi ptr [ %350, %349 ], [ %346, %345 ], [ %340, %339 ], [ %342, %341 ]
   %354 = icmp eq ptr %.0267, null
   br i1 %354, label %hf_try_val64_to_str.exit387.hf_try_val64_to_str.exit387.thread_crit_edge, label %359
 

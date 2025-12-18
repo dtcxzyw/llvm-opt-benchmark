@@ -1041,7 +1041,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit.i71: 
   br label %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %184, %183, %231, %232, %65, %45, %241, %224
-  %.1 = phi i32 [ 8, %65 ], [ 2, %231 ], [ 0, %224 ], [ 0, %241 ], [ %47, %45 ], [ 2, %232 ], [ 7, %183 ], [ 7, %184 ]
+  %.1 = phi i32 [ %47, %45 ], [ 2, %231 ], [ 0, %224 ], [ 0, %241 ], [ 8, %65 ], [ 2, %232 ], [ 7, %183 ], [ 7, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %244
 

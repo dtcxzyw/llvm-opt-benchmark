@@ -731,7 +731,7 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   br i1 %77, label %select.unfold261, label %.thread307
 
 select.unfold261:                                 ; preds = %61, %76, %68, %48, %44, %74, %66, %59, %43
-  %.5 = phi i32 [ %.1.fr330, %43 ], [ %.1.fr330, %68 ], [ %spec.select229, %44 ], [ %60, %59 ], [ %spec.select230, %48 ], [ %75, %74 ], [ %67, %66 ], [ %78, %76 ], [ %.1.fr330, %61 ]
+  %.5 = phi i32 [ %.1.fr330, %43 ], [ %.1.fr330, %68 ], [ %78, %76 ], [ %spec.select229, %44 ], [ %67, %66 ], [ %60, %59 ], [ %spec.select230, %48 ], [ %75, %74 ], [ %.1.fr330, %61 ]
   %.not197 = icmp eq i32 %.5, 0
   br i1 %.not197, label %.thread307, label %79
 
@@ -983,8 +983,8 @@ select.unfold299:                                 ; preds = %153, %155, %158, %1
 default.unreachable:                              ; preds = %162
   unreachable
 
-.thread312:                                       ; preds = %40, %38, %176, %177, %181, %172, %179, %174, %90, %88, %87, %42, %.thread291, %116, %.thread301
-  %.4315 = phi i32 [ %.10, %176 ], [ %.1.fr330, %42 ], [ %.9294, %.thread291 ], [ %.10, %.thread301 ], [ %.5, %88 ], [ %.7, %116 ], [ %.5, %90 ], [ %.5, %87 ], [ %.10, %177 ], [ %.10, %181 ], [ %.10, %172 ], [ %.10, %179 ], [ %.10, %174 ], [ %.1.fr330, %38 ], [ %.1.fr330, %40 ]
+.thread312:                                       ; preds = %40, %38, %176, %177, %181, %172, %179, %174, %42, %.thread291, %87, %116, %88, %90, %.thread301
+  %.4315 = phi i32 [ %.10, %176 ], [ %.1.fr330, %42 ], [ %.9294, %.thread291 ], [ %.10, %.thread301 ], [ %.5, %90 ], [ %.7, %116 ], [ %.5, %87 ], [ %.5, %88 ], [ %.10, %177 ], [ %.10, %174 ], [ %.10, %181 ], [ %.10, %172 ], [ %.10, %179 ], [ %.1.fr330, %38 ], [ %.1.fr330, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.1.fr = freeze i32 %.4315
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

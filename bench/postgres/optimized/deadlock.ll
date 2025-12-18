@@ -948,7 +948,7 @@ ExpandConstraints.exit:                           ; preds = %TopoSort.exit.i
   br label %ExpandConstraints.exit.thread
 
 ExpandConstraints.exit.thread:                    ; preds = %.preheader.i.i, %152, %203, %194, %211, %._crit_edge, %1
-  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ %spec.select, %211 ], [ -1, %152 ], [ -1, %203 ], [ -1, %194 ], [ -1, %.preheader.i.i ]
+  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ -1, %152 ], [ -1, %203 ], [ %spec.select, %211 ], [ -1, %194 ], [ -1, %.preheader.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
 }

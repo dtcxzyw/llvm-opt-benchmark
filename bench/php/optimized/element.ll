@@ -2604,7 +2604,7 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %107, %105
   br i1 %180, label %.thread92.thread.i, label %198
 
 .thread92.thread.i:                               ; preds = %154, %.thread92.i, %.thread.i, %145
-  %.4116.i = phi ptr [ %.3.i, %.thread92.i ], [ %144, %145 ], [ %159, %.thread.i ], [ %.097.i, %154 ]
+  %.4116.i = phi ptr [ %.3.i, %.thread92.i ], [ %159, %.thread.i ], [ %144, %145 ], [ %.097.i, %154 ]
   %181 = load ptr, ptr %3, align 8, !tbaa !4
   %182 = call ptr @xmlSetNsProp(ptr noundef %29, ptr noundef %.4116.i, ptr noundef %181, ptr noundef %95) #11
   br label %198

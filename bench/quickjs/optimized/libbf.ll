@@ -2171,10 +2171,10 @@ ceil_log2.exit.thread.i:                          ; preds = %ceil_log2.exit.i, %
   br i1 %142, label %.loopexit.i115, label %119
 
 .loopexit.i115:                                   ; preds = %140, %ceil_log2.exit.i, %138, %131
-  %.138.i = phi i32 [ %.031.i, %138 ], [ %.03747.i, %131 ], [ %.03747.i, %ceil_log2.exit.i ], [ %.03747.i, %140 ]
-  %.136.i = phi i32 [ %.0.i45.i, %138 ], [ %.03548.i, %131 ], [ %.03548.i, %ceil_log2.exit.i ], [ %.03548.i, %140 ]
-  %.133.i = phi i32 [ %139, %138 ], [ %.03251.i, %131 ], [ %.03251.i, %ceil_log2.exit.i ], [ %.03251.i, %140 ]
-  %.1.i = phi i64 [ %136, %138 ], [ %.052.i, %131 ], [ %.052.i, %ceil_log2.exit.i ], [ %.052.i, %140 ]
+  %.138.i = phi i32 [ %.03747.i, %131 ], [ %.031.i, %138 ], [ %.03747.i, %ceil_log2.exit.i ], [ %.03747.i, %140 ]
+  %.136.i = phi i32 [ %.03548.i, %131 ], [ %.0.i45.i, %138 ], [ %.03548.i, %ceil_log2.exit.i ], [ %.03548.i, %140 ]
+  %.133.i = phi i32 [ %.03251.i, %131 ], [ %139, %138 ], [ %.03251.i, %ceil_log2.exit.i ], [ %.03251.i, %140 ]
+  %.1.i = phi i64 [ %.052.i, %131 ], [ %136, %138 ], [ %.052.i, %ceil_log2.exit.i ], [ %.052.i, %140 ]
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i114, 1
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 6
   br i1 %exitcond.not.i117, label %143, label %112, !llvm.loop !63
@@ -2421,7 +2421,7 @@ ntt_free.exit149:                                 ; preds = %ntt_free.exit, %235
   br label %ntt_static_init.exit.sink.split
 
 ntt_free.exit153:                                 ; preds = %.lr.ph.split, %.lr.ph.split.us, %226, %194, %182
-  %.083 = phi ptr [ null, %182 ], [ null, %194 ], [ null, %226 ], [ %195, %.lr.ph.split.us ], [ %183, %.lr.ph.split ]
+  %.083 = phi ptr [ null, %226 ], [ null, %182 ], [ null, %194 ], [ %195, %.lr.ph.split.us ], [ %183, %.lr.ph.split ]
   %.val106 = load ptr, ptr %108, align 8, !tbaa !22
   %.val.i.i151 = load ptr, ptr %.val106, align 8, !tbaa !19
   %240 = getelementptr i8, ptr %.val106, i64 8
@@ -2706,8 +2706,8 @@ mp_neg.exit:                                      ; preds = %mp_neg.exit.loopexi
   br i1 %exitcond.not.i157, label %bf_free.exit163, label %.lr.ph.i156, !llvm.loop !50
 
 bf_free.exit163:                                  ; preds = %.lr.ph.i156, %.lr.ph.i, %.lr.ph.i138, %._crit_edge192
-  %.1115 = phi ptr [ %41, %._crit_edge192 ], [ %14, %.lr.ph.i ], [ %14, %.lr.ph.i138 ], [ %41, %.lr.ph.i156 ]
-  %.1 = phi ptr [ %45, %._crit_edge192 ], [ %11, %.lr.ph.i ], [ %11, %.lr.ph.i138 ], [ %45, %.lr.ph.i156 ]
+  %.1115 = phi ptr [ %14, %.lr.ph.i ], [ %14, %.lr.ph.i138 ], [ %41, %._crit_edge192 ], [ %41, %.lr.ph.i156 ]
+  %.1 = phi ptr [ %11, %.lr.ph.i ], [ %11, %.lr.ph.i138 ], [ %45, %._crit_edge192 ], [ %45, %.lr.ph.i156 ]
   %.val.i = load ptr, ptr %0, align 8, !tbaa !19
   %118 = getelementptr i8, ptr %0, i64 8
   %.val3.i = load ptr, ptr %118, align 8, !tbaa !7
@@ -2844,7 +2844,7 @@ define internal fastcc range(i32 -1, 1) i32 @mp_divnorm(ptr noundef %0, ptr noun
   br i1 %63, label %51, label %mp_div1norm.exit, !llvm.loop !71
 
 mp_div1norm.exit:                                 ; preds = %51, %23, %.preheader.i, %14
-  %.126.i = phi i64 [ 0, %14 ], [ 0, %.preheader.i ], [ %49, %23 ], [ %62, %51 ]
+  %.126.i = phi i64 [ %49, %23 ], [ 0, %14 ], [ 0, %.preheader.i ], [ %62, %51 ]
   store i64 %.126.i, ptr %2, align 8, !tbaa !33
   br label %mp_divnorm_large.exit
 
@@ -3335,7 +3335,7 @@ mp_add.exit:                                      ; preds = %.lr.ph.i120
   br label %.preheader194
 
 mp_sub_mul1.exit.thread:                          ; preds = %294, %260, %mp_sub_mul1.exit
-  %.2 = phi i64 [ %.1, %mp_sub_mul1.exit ], [ %.1, %260 ], [ %293, %294 ]
+  %.2 = phi i64 [ %.1, %260 ], [ %.1, %mp_sub_mul1.exit ], [ %293, %294 ]
   %298 = getelementptr inbounds nuw i64, ptr %1, i64 %.0101209
   store i64 %.2, ptr %298, align 8, !tbaa !33
   %.0101 = add nsw i64 %.0101209, -1
@@ -3343,7 +3343,7 @@ mp_sub_mul1.exit.thread:                          ; preds = %294, %260, %mp_sub_
   br i1 %299, label %224, label %mp_divnorm_large.exit, !llvm.loop !79
 
 mp_divnorm_large.exit:                            ; preds = %mp_sub_mul1.exit.thread, %151, %mp_sub.exit, %bf_free.exit151, %bf_free.exit128, %bf_free.exit128.thread181, %mp_div1norm.exit
-  %.0 = phi i32 [ 0, %mp_div1norm.exit ], [ -1, %bf_free.exit128 ], [ -1, %bf_free.exit128.thread181 ], [ -1, %bf_free.exit151 ], [ 0, %mp_sub.exit ], [ 0, %151 ], [ 0, %mp_sub_mul1.exit.thread ]
+  %.0 = phi i32 [ 0, %mp_div1norm.exit ], [ 0, %mp_sub.exit ], [ -1, %bf_free.exit151 ], [ -1, %bf_free.exit128 ], [ -1, %bf_free.exit128.thread181 ], [ 0, %151 ], [ 0, %mp_sub_mul1.exit.thread ]
   ret i32 %.0
 }
 
@@ -5092,7 +5092,7 @@ mp_add_ui.exit:                                   ; preds = %mp_add.exit
   br i1 %93, label %.lr.ph.i102, label %mp_sub.exit105, !llvm.loop !52
 
 mp_sub.exit105:                                   ; preds = %.lr.ph.i99, %.lr.ph.i102, %78, %mp_add_ui.exit
-  %.082 = phi i64 [ %50, %mp_add_ui.exit ], [ 0, %78 ], [ %90, %.lr.ph.i102 ], [ %50, %.lr.ph.i99 ]
+  %.082 = phi i64 [ %90, %.lr.ph.i102 ], [ %50, %mp_add_ui.exit ], [ 0, %78 ], [ %50, %.lr.ph.i99 ]
   %94 = and i64 %3, 1
   %.not136 = icmp eq i64 %94, 0
   br i1 %.not136, label %mp_sub_ui.exit, label %.lr.ph.i106.preheader
@@ -5192,7 +5192,7 @@ mp_add_ui.exit125:                                ; preds = %mp_sub_ui.exit.thre
   br label %131
 
 131:                                              ; preds = %.sink.split, %.thread, %73, %mp_sub.exit, %11
-  %.083 = phi i32 [ -1, %mp_sub.exit ], [ -1, %11 ], [ -1, %73 ], [ -1, %.thread ], [ 0, %.sink.split ]
+  %.083 = phi i32 [ -1, %.thread ], [ -1, %mp_sub.exit ], [ -1, %11 ], [ -1, %73 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.083
 }
@@ -5793,7 +5793,7 @@ bf_set_nan.exit114:                               ; preds = %150, %152
   br label %bf_set.exit
 
 bf_set.exit:                                      ; preds = %mp_scan_nz.exit104.thread, %148, %48, %36, %27, %.thread, %bf_set_nan.exit83, %bf_set_nan.exit, %bf_set_nan.exit114
-  %.059 = phi i32 [ 32, %bf_set_nan.exit114 ], [ 0, %48 ], [ 1, %bf_set_nan.exit83 ], [ 0, %bf_set_nan.exit ], [ 0, %.thread ], [ 0, %27 ], [ 0, %36 ], [ %149, %148 ], [ 0, %mp_scan_nz.exit104.thread ]
+  %.059 = phi i32 [ 32, %bf_set_nan.exit114 ], [ 0, %48 ], [ 1, %bf_set_nan.exit83 ], [ 0, %bf_set_nan.exit ], [ 0, %.thread ], [ 0, %27 ], [ 0, %36 ], [ 0, %mp_scan_nz.exit104.thread ], [ %149, %148 ]
   ret i32 %.059
 }
 
@@ -8153,7 +8153,7 @@ bf_can_round.exit:                                ; preds = %196, %177, %179, %g
   br label %.preheader.split
 
 bf_can_round.exit.thread:                         ; preds = %175, %bf_can_round.exit, %get_bit.exit38.i, %bf_can_round.exit.us, %145, %149, %bf_can_round.exit.us.us116, %129, %133, %113, %bf_can_round.exit.us.us, %117
-  %209 = phi i32 [ %176, %get_bit.exit38.i ], [ %130, %133 ], [ %114, %117 ], [ %146, %bf_can_round.exit.us ], [ 0, %113 ], [ %114, %bf_can_round.exit.us.us ], [ %130, %bf_can_round.exit.us.us116 ], [ 0, %129 ], [ 0, %145 ], [ %146, %149 ], [ %176, %bf_can_round.exit ], [ 0, %175 ]
+  %209 = phi i32 [ %176, %get_bit.exit38.i ], [ %146, %bf_can_round.exit.us ], [ %114, %117 ], [ %130, %133 ], [ 0, %113 ], [ %114, %bf_can_round.exit.us.us ], [ %130, %bf_can_round.exit.us.us116 ], [ 0, %129 ], [ 0, %145 ], [ %146, %149 ], [ %176, %bf_can_round.exit ], [ 0, %175 ]
   %210 = load i64, ptr %101, align 8, !tbaa !32
   %211 = icmp eq i64 %210, 0
   br i1 %211, label %bf_round.exit96, label %212
@@ -8164,7 +8164,7 @@ bf_can_round.exit.thread:                         ; preds = %175, %bf_can_round.
   br label %bf_round.exit96
 
 bf_round.exit96:                                  ; preds = %173, %ceil_log2.exit.us, %ceil_log2.exit.us.us109, %.preheader.split.us.split.us, %212, %bf_can_round.exit.thread, %157, %162
-  %.069 = phi i32 [ %161, %157 ], [ %164, %162 ], [ %214, %212 ], [ %209, %bf_can_round.exit.thread ], [ %.1.us, %ceil_log2.exit.us ], [ %.1.us.us, %.preheader.split.us.split.us ], [ %.1.us.us112, %ceil_log2.exit.us.us109 ], [ %.1, %173 ]
+  %.069 = phi i32 [ %161, %157 ], [ %164, %162 ], [ %209, %bf_can_round.exit.thread ], [ %214, %212 ], [ %.1.us.us, %.preheader.split.us.split.us ], [ %.1.us.us112, %ceil_log2.exit.us.us109 ], [ %.1.us, %ceil_log2.exit.us ], [ %.1, %173 ]
   %215 = load ptr, ptr %7, align 8, !tbaa !28
   %.not.i97 = icmp eq ptr %215, null
   br i1 %.not.i97, label %bf_set.exit, label %216
@@ -9340,9 +9340,9 @@ bf_delete.exit372:                                ; preds = %372, %374, %377
   %386 = call ptr %.val7.i376(ptr noundef %.val.i375, ptr noundef nonnull %383, i64 noundef 0) #22
   br label %bf_delete.exit377
 
-bf_delete.exit377:                                ; preds = %bf_set_zero.exit, %bf_set_inf.exit359, %384, %382, %380, %325, %332, %bf_set_nan.exit346, %bf_set_nan.exit337, %bf_set_inf.exit, %bf_set_nan.exit287, %bf_set_nan.exit
-  %.1477 = phi ptr [ %.2478, %bf_set_nan.exit346 ], [ %scevgep, %bf_set_nan.exit ], [ %.9730739745, %332 ], [ %.9560, %325 ], [ %.9559570, %384 ], [ %.8511576, %bf_set_nan.exit337 ], [ %.3479, %bf_set_nan.exit287 ], [ %scevgep658, %bf_set_inf.exit ], [ %.9559570, %380 ], [ %.9559570, %382 ], [ %.11620, %bf_set_inf.exit359 ], [ %.11620, %bf_set_zero.exit ]
-  %.0197 = phi i32 [ 0, %bf_set_nan.exit346 ], [ 0, %bf_set_nan.exit ], [ %336, %332 ], [ %327, %325 ], [ %.4201, %384 ], [ 32, %bf_set_nan.exit337 ], [ 0, %bf_set_nan.exit287 ], [ 0, %bf_set_inf.exit ], [ %.4201, %380 ], [ %.4201, %382 ], [ 20, %bf_set_inf.exit359 ], [ 24, %bf_set_zero.exit ]
+bf_delete.exit377:                                ; preds = %bf_set_inf.exit359, %bf_set_zero.exit, %384, %382, %380, %325, %332, %bf_set_nan.exit346, %bf_set_nan.exit337, %bf_set_inf.exit, %bf_set_nan.exit287, %bf_set_nan.exit
+  %.1477 = phi ptr [ %.2478, %bf_set_nan.exit346 ], [ %scevgep, %bf_set_nan.exit ], [ %.9730739745, %332 ], [ %.9560, %325 ], [ %.9559570, %384 ], [ %.8511576, %bf_set_nan.exit337 ], [ %.3479, %bf_set_nan.exit287 ], [ %scevgep658, %bf_set_inf.exit ], [ %.9559570, %380 ], [ %.9559570, %382 ], [ %.11620, %bf_set_zero.exit ], [ %.11620, %bf_set_inf.exit359 ]
+  %.0197 = phi i32 [ 0, %bf_set_nan.exit346 ], [ 0, %bf_set_nan.exit ], [ %336, %332 ], [ %327, %325 ], [ %.4201, %384 ], [ 32, %bf_set_nan.exit337 ], [ 0, %bf_set_nan.exit287 ], [ 0, %bf_set_inf.exit ], [ %.4201, %380 ], [ %.4201, %382 ], [ 24, %bf_set_zero.exit ], [ 20, %bf_set_inf.exit359 ]
   %.not280 = icmp eq ptr %3, null
   br i1 %.not280, label %388, label %387
 
@@ -11772,7 +11772,7 @@ bf_can_round.exit.thread37:                       ; preds = %23, %get_bit.exit38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %bf_can_round.exit.thread, %.preheader, %bf_can_round.exit.thread37, %63
-  %.029 = phi i32 [ %64, %63 ], [ %.030, %bf_can_round.exit.thread37 ], [ %10, %.preheader ], [ %58, %bf_can_round.exit.thread ]
+  %.029 = phi i32 [ %.030, %bf_can_round.exit.thread37 ], [ %64, %63 ], [ %10, %.preheader ], [ %58, %bf_can_round.exit.thread ]
   ret i32 %.029
 }
 
@@ -14397,7 +14397,7 @@ bf_set.exit:                                      ; preds = %28, %bf_set_nan.exi
   br i1 %78, label %.lr.ph, label %bf_set_ui.exit, !llvm.loop !116
 
 bf_set_ui.exit:                                   ; preds = %76, %bf_set.exit, %bf_set_nan.exit.i, %bf_resize.exit18.thread21.i
-  %.023 = phi i32 [ 32, %bf_set_nan.exit.i ], [ 0, %bf_resize.exit18.thread21.i ], [ %.0.i, %bf_set.exit ], [ %.1, %76 ]
+  %.023 = phi i32 [ 0, %bf_resize.exit18.thread21.i ], [ 32, %bf_set_nan.exit.i ], [ %.0.i, %bf_set.exit ], [ %.1, %76 ]
   ret i32 %.023
 }
 
@@ -15232,7 +15232,7 @@ bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i,
   br label %bf_set_ui.exit
 
 bf_set_ui.exit:                                   ; preds = %147, %bf_can_round.exit.thread37.i, %99, %bf_set_nan.exit.i, %bf_resize.exit18.thread21.i, %bf_set_nan.exit28, %bf_set_nan.exit
-  %.021 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit28 ], [ %92, %99 ], [ 0, %bf_set_nan.exit.i ], [ 0, %bf_resize.exit18.thread21.i ], [ %148, %147 ], [ %.030.i, %bf_can_round.exit.thread37.i ]
+  %.021 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit28 ], [ %92, %99 ], [ 0, %bf_set_nan.exit.i ], [ 0, %bf_resize.exit18.thread21.i ], [ %.030.i, %bf_can_round.exit.thread37.i ], [ %148, %147 ]
   ret i32 %.021
 }
 
@@ -15583,7 +15583,7 @@ bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i,
   br label %bf_ziv_rounding.exit
 
 bf_ziv_rounding.exit:                             ; preds = %166, %bf_can_round.exit.thread37.i, %118, %bf_set_zero.exit, %bf_set_nan.exit34, %bf_set_nan.exit
-  %.027 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit34 ], [ 0, %bf_set_zero.exit ], [ %111, %118 ], [ %167, %166 ], [ %.030.i, %bf_can_round.exit.thread37.i ]
+  %.027 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit34 ], [ 0, %bf_set_zero.exit ], [ %111, %118 ], [ %.030.i, %bf_can_round.exit.thread37.i ], [ %167, %166 ]
   ret i32 %.027
 }
 
@@ -18340,7 +18340,7 @@ define dso_local i64 @mp_div1_dec(ptr noundef writeonly captures(none) %0, ptr n
   br i1 %.not140, label %.loopexit, label %119, !llvm.loop !131
 
 .loopexit:                                        ; preds = %119, %76, %29, %.preheader, %._crit_edge
-  %.2105 = phi i64 [ %spec.select108, %._crit_edge ], [ %4, %.preheader ], [ %116, %76 ], [ %64, %29 ], [ %138, %119 ]
+  %.2105 = phi i64 [ %spec.select108, %._crit_edge ], [ %64, %29 ], [ %4, %.preheader ], [ %116, %76 ], [ %138, %119 ]
   ret i64 %.2105
 }
 
@@ -18585,8 +18585,8 @@ mp_add_dec.exit:                                  ; preds = %._crit_edge.thread,
   br i1 %or.cond136, label %mp_add_ui_dec.exit, label %.lr.ph.i98, !llvm.loop !121
 
 mp_add_ui_dec.exit:                               ; preds = %.lr.ph.i98, %99, %mp_add_dec.exit
-  %118 = phi i64 [ %111, %mp_add_dec.exit ], [ %100, %99 ], [ %112, %.lr.ph.i98 ]
-  %.086134 = phi i64 [ 0, %mp_add_dec.exit ], [ 0, %99 ], [ %.086156, %.lr.ph.i98 ]
+  %118 = phi i64 [ %100, %99 ], [ %111, %mp_add_dec.exit ], [ %112, %.lr.ph.i98 ]
+  %.086134 = phi i64 [ 0, %99 ], [ 0, %mp_add_dec.exit ], [ %.086156, %.lr.ph.i98 ]
   %.not93 = icmp eq i64 %118, 0
   br i1 %.not93, label %119, label %mp_sub_dec.exit108
 
@@ -19209,7 +19209,7 @@ mp_shr_dec.exit:                                  ; preds = %.lr.ph.i99, %mp_add
   br label %mp_add_ui_dec.exit.thread
 
 mp_add_ui_dec.exit.thread:                        ; preds = %.lr.ph.i, %bfdec_get_rnd_add.exit.thread158, %mp_shr_dec.exit, %177
-  %.1119122132 = phi i32 [ %.1119122131, %mp_shr_dec.exit ], [ %.1119, %177 ], [ 16, %bfdec_get_rnd_add.exit.thread158 ], [ %.1119122131, %.lr.ph.i ]
+  %.1119122132 = phi i32 [ %.1119, %177 ], [ %.1119122131, %mp_shr_dec.exit ], [ 16, %bfdec_get_rnd_add.exit.thread158 ], [ %.1119122131, %.lr.ph.i ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %210 = load i64, ptr %209, align 8, !tbaa !31
   %211 = icmp slt i64 %210, %12
@@ -22266,7 +22266,7 @@ bfdec_set.exit:                                   ; preds = %29, %bf_set_nan.exi
   br i1 %79, label %.lr.ph, label %bfdec_set_ui.exit, !llvm.loop !141
 
 bfdec_set_ui.exit:                                ; preds = %77, %bfdec_set.exit, %bfdec_set_nan.exit.i, %16
-  %.019 = phi i32 [ 32, %bfdec_set_nan.exit.i ], [ %20, %16 ], [ %.0.i.i, %bfdec_set.exit ], [ %.1, %77 ]
+  %.019 = phi i32 [ %20, %16 ], [ 32, %bfdec_set_nan.exit.i ], [ %.0.i.i, %bfdec_set.exit ], [ %.1, %77 ]
   ret i32 %.019
 }
 
@@ -22347,10 +22347,10 @@ ceil_log2.exit.thread:                            ; preds = %13, %ceil_log2.exit
   br i1 %36, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %ceil_log2.exit, %34, %25, %32
-  %.138 = phi i32 [ %.031, %32 ], [ %.03747, %25 ], [ %.03747, %34 ], [ %.03747, %ceil_log2.exit ]
-  %.136 = phi i32 [ %.0.i45, %32 ], [ %.03548, %25 ], [ %.03548, %34 ], [ %.03548, %ceil_log2.exit ]
-  %.133 = phi i32 [ %33, %32 ], [ %.03251, %25 ], [ %.03251, %34 ], [ %.03251, %ceil_log2.exit ]
-  %.1 = phi i64 [ %30, %32 ], [ %.052, %25 ], [ %.052, %34 ], [ %.052, %ceil_log2.exit ]
+  %.138 = phi i32 [ %.03747, %25 ], [ %.031, %32 ], [ %.03747, %34 ], [ %.03747, %ceil_log2.exit ]
+  %.136 = phi i32 [ %.03548, %25 ], [ %.0.i45, %32 ], [ %.03548, %34 ], [ %.03548, %ceil_log2.exit ]
+  %.133 = phi i32 [ %.03251, %25 ], [ %33, %32 ], [ %.03251, %34 ], [ %.03251, %ceil_log2.exit ]
+  %.1 = phi i64 [ %.052, %25 ], [ %30, %32 ], [ %.052, %34 ], [ %.052, %ceil_log2.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %37, label %6, !llvm.loop !63
@@ -24034,9 +24034,9 @@ get_bits.exit:                                    ; preds = %132, %140
   br i1 %155, label %.lr.ph.i113, label %limb_to_a.exit, !llvm.loop !151
 
 limb_to_a.exit:                                   ; preds = %.lr.ph.i113, %.lr.ph.i108, %.lr.ph33.i, %get_bits.exit, %.preheader.i, %.preheader27.i, %99
-  %.386 = phi i64 [ %.285138, %99 ], [ %102, %.preheader27.i ], [ %102, %.preheader.i ], [ %102, %get_bits.exit ], [ %102, %.lr.ph.i108 ], [ %102, %.lr.ph33.i ], [ %102, %.lr.ph.i113 ]
-  %.179 = phi i32 [ %.078139, %99 ], [ %.2140, %.preheader27.i ], [ %.2140, %.preheader.i ], [ %.2140, %get_bits.exit ], [ %.2140, %.lr.ph.i108 ], [ %.2140, %.lr.ph33.i ], [ %.2140, %.lr.ph.i113 ]
-  %.3 = phi i32 [ %.2140, %99 ], [ 0, %.preheader27.i ], [ 0, %.preheader.i ], [ 0, %get_bits.exit ], [ 0, %.lr.ph.i108 ], [ 0, %.lr.ph33.i ], [ 0, %.lr.ph.i113 ]
+  %.386 = phi i64 [ %.285138, %99 ], [ %102, %.lr.ph.i108 ], [ %102, %.preheader27.i ], [ %102, %.preheader.i ], [ %102, %.lr.ph33.i ], [ %102, %get_bits.exit ], [ %102, %.lr.ph.i113 ]
+  %.179 = phi i32 [ %.078139, %99 ], [ %.2140, %.lr.ph.i108 ], [ %.2140, %.preheader27.i ], [ %.2140, %.preheader.i ], [ %.2140, %.lr.ph33.i ], [ %.2140, %get_bits.exit ], [ %.2140, %.lr.ph.i113 ]
+  %.3 = phi i32 [ %.2140, %99 ], [ 0, %.lr.ph.i108 ], [ 0, %.preheader27.i ], [ 0, %.preheader.i ], [ 0, %.lr.ph33.i ], [ 0, %get_bits.exit ], [ 0, %.lr.ph.i113 ]
   %156 = icmp ult i64 %.072141, %4
   br i1 %156, label %161, label %157
 
@@ -24069,7 +24069,7 @@ limb_to_a.exit:                                   ; preds = %.lr.ph.i113, %.lr.p
   br label %.thread
 
 .thread:                                          ; preds = %161, %.thread.sink.split, %92
-  %.1 = phi ptr [ %.073, %92 ], [ %8, %.thread.sink.split ], [ %.073, %161 ]
+  %.1 = phi ptr [ %8, %.thread.sink.split ], [ %.073, %92 ], [ %.073, %161 ]
   %.not99 = icmp eq ptr %.1, %1
   br i1 %.not99, label %bf_delete.exit, label %173
 
@@ -24560,7 +24560,7 @@ bf_delete.exit100:                                ; preds = %bf_cmpu.exit, %226,
   br label %bf_set.exit
 
 bf_set.exit:                                      ; preds = %bf_rint.exit, %148, %197, %195, %193, %45, %36, %bf_set_nan.exit.i, %12, %233
-  %.0 = phi i32 [ 0, %45 ], [ 0, %233 ], [ 0, %12 ], [ 32, %bf_set_nan.exit.i ], [ 0, %36 ], [ %192, %193 ], [ %192, %195 ], [ %192, %197 ], [ 32, %148 ], [ 32, %bf_rint.exit ]
+  %.0 = phi i32 [ 32, %148 ], [ 0, %45 ], [ %192, %197 ], [ 0, %233 ], [ 0, %12 ], [ 32, %bf_set_nan.exit.i ], [ 0, %36 ], [ %192, %193 ], [ %192, %195 ], [ 32, %bf_rint.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -27167,7 +27167,7 @@ mp_add_dec.exit:                                  ; preds = %.lr.ph.i160
   br label %.preheader
 
 mp_sub_mul1_dec.exit.thread:                      ; preds = %224, %160, %mp_sub_mul1_dec.exit
-  %.2 = phi i64 [ %.1126, %mp_sub_mul1_dec.exit ], [ %.1126, %160 ], [ %223, %224 ]
+  %.2 = phi i64 [ %.1126, %160 ], [ %.1126, %mp_sub_mul1_dec.exit ], [ %223, %224 ]
   %228 = getelementptr inbounds nuw i64, ptr %1, i64 %.1179
   store i64 %.2, ptr %228, align 8, !tbaa !33
   %229 = add nsw i64 %.1179, -1

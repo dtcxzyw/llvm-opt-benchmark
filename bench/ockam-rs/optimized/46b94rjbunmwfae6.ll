@@ -1135,7 +1135,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17hbcee98dda4a2656dE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %60, %58
-  %.1.i = phi double [ %61, %60 ], [ %59, %58 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %59, %58 ], [ %61, %60 ], [ %.01828.i, %.lr.ph.i ]
   %56 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %56
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1626,7 +1626,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17hbcee98dda4a2656dE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %70, %68
-  %.1.i = phi double [ %71, %70 ], [ %69, %68 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %69, %68 ], [ %71, %70 ], [ %.01828.i, %.lr.ph.i ]
   %66 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %66
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1900,8 +1900,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %98
 
-97:                                               ; preds = %78, %71, %62, %55, %46, %39, %121, %114, %106, %98
-  %.0 = phi ptr [ %123, %121 ], [ %99, %98 ], [ %91, %114 ], [ %40, %39 ], [ %56, %55 ], [ %108, %106 ], [ %47, %46 ], [ %63, %62 ], [ %79, %78 ], [ %72, %71 ]
+97:                                               ; preds = %71, %78, %55, %62, %39, %46, %121, %114, %106, %98
+  %.0 = phi ptr [ %123, %121 ], [ %99, %98 ], [ %91, %114 ], [ %47, %46 ], [ %63, %62 ], [ %108, %106 ], [ %40, %39 ], [ %56, %55 ], [ %72, %71 ], [ %79, %78 ]
   ret ptr %.0
 
 98:                                               ; preds = %119, %.thread39, %109, %104, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$serde_json..error..Error$GT$$GT$17h18b91afaaa5f6b0dE.exit27", %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$serde_json..error..Error$GT$$GT$17h18b91afaaa5f6b0dE.exit26", %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$serde_json..error..Error$GT$$GT$17h18b91afaaa5f6b0dE.exit", %94, %92
@@ -2075,7 +2075,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17hbcee98dda4a2656dE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %42, %40
-  %.1.i = phi double [ %43, %42 ], [ %41, %40 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %41, %40 ], [ %43, %42 ], [ %.01828.i, %.lr.ph.i ]
   %38 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %38
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2200,7 +2200,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17hbcee98dda4a2656dE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %38, %36
-  %.1.i = phi double [ %39, %38 ], [ %37, %36 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %37, %36 ], [ %39, %38 ], [ %.01828.i, %.lr.ph.i ]
   %34 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8

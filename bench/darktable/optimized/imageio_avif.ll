@@ -166,7 +166,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_avif(ptr noundef %0, ptr noundef %1,
   br label %dt_image_transformation_to_flip_bits.exit
 
 dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
-  %.0.i = phi i32 [ %switch.select23.i, %55 ], [ %switch.select15.i, %53 ], [ %switch.select19.i, %54 ], [ %switch.select27.i, %56 ]
+  %.0.i = phi i32 [ %switch.select19.i, %54 ], [ %switch.select15.i, %53 ], [ %switch.select27.i, %56 ], [ %switch.select23.i, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.0.i, ptr %57, align 4, !tbaa !79
   call void @avifRGBImageSetDefaults(ptr noundef nonnull %4, ptr noundef nonnull %5) #6

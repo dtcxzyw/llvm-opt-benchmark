@@ -882,7 +882,7 @@ define internal i32 @selfsigned_verify_cb(i32 noundef %0, ptr noundef %1) #0 {
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %.lr.ph, %41, %38, %35, %.loopexit
-  %.1 = phi i32 [ %.035, %.loopexit ], [ %42, %41 ], [ %0, %38 ], [ %0, %35 ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ %0, %35 ], [ %.035, %.loopexit ], [ %42, %41 ], [ %0, %38 ], [ 0, %.lr.ph ]
   ret i32 %.1
 }
 

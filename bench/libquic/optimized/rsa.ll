@@ -1153,7 +1153,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %122
 
 ._crit_edge:                                      ; preds = %58, %53, %56
-  %.not93100 = phi i1 [ true, %56 ], [ true, %53 ], [ false, %58 ]
+  %.not93100 = phi i1 [ true, %53 ], [ true, %56 ], [ false, %58 ]
   %73 = call i32 @BN_div(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %33) #10
   %.not71 = icmp eq i32 %73, 0
   br i1 %.not71, label %80, label %74

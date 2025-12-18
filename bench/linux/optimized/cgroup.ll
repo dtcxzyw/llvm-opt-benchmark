@@ -1986,7 +1986,7 @@ define dso_local ptr @cgroup_get_e_css(ptr noundef %0, ptr noundef readonly capt
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph.us, %.split10.us, %90, %92
-  %.ph = phi ptr [ %.us-phi11, %.split10.us ], [ %80, %92 ], [ %80, %90 ], [ %5, %.lr.ph.us ], [ %43, %.lr.ph ]
+  %.ph = phi ptr [ %5, %.lr.ph.us ], [ %80, %90 ], [ %.us-phi11, %.split10.us ], [ %80, %92 ], [ %43, %.lr.ph ]
   tail call void @__rcu_read_unlock() #31
   br label %.loopexit
 
@@ -4636,7 +4636,7 @@ define dso_local i32 @cgroup_setup_root(ptr noundef %0, i16 noundef zeroext %1) 
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %.preheader16, %.loopexit21, %17, %109
-  %114 = phi i32 [ %110, %109 ], [ -12, %17 ], [ %34, %.loopexit21 ], [ -12, %.preheader16 ]
+  %114 = phi i32 [ %110, %109 ], [ %34, %.loopexit21 ], [ -12, %17 ], [ -12, %.preheader16 ]
   call void @percpu_ref_exit(ptr noundef nonnull %6) #31
   br label %115
 
@@ -5716,7 +5716,7 @@ define dso_local range(i32 -95, 1) i32 @cgroup_migrate_vet_dst(ptr noundef reado
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %29, %21, %._crit_edge, %._crit_edge5, %44, %._crit_edge12, %5, %1
-  %52 = phi i32 [ 0, %1 ], [ 0, %44 ], [ %51, %._crit_edge5 ], [ -95, %5 ], [ 0, %._crit_edge12 ], [ -95, %._crit_edge ], [ -95, %21 ], [ -95, %29 ], [ -95, %20 ]
+  %52 = phi i32 [ 0, %1 ], [ 0, %._crit_edge12 ], [ 0, %44 ], [ %51, %._crit_edge5 ], [ -95, %5 ], [ -95, %._crit_edge ], [ -95, %21 ], [ -95, %29 ], [ -95, %20 ]
   ret i32 %52
 }
 
@@ -13457,7 +13457,7 @@ define internal fastcc i32 @cgroup_addrm_files(ptr noundef %0, ptr noundef %1, p
   br i1 %225, label %.loopexit, label %.split, !llvm.loop !317
 
 .loopexit:                                        ; preds = %.split14.us, %135, %.split.us, %.split, %223, %4
-  %226 = phi i32 [ 0, %4 ], [ %17, %.split.us ], [ %15, %.split ], [ %15, %223 ], [ %136, %135 ], [ %133, %.split14.us ]
+  %226 = phi i32 [ 0, %4 ], [ %15, %.split ], [ %17, %.split.us ], [ %15, %223 ], [ %136, %135 ], [ %133, %.split14.us ]
   ret i32 %226
 }
 
@@ -16023,7 +16023,7 @@ define internal noundef i64 @cgroup_type_write(ptr noundef readonly captures(non
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %48, %57, %49, %._crit_edge, %.loopexit25.sink.split, %65, %.preheader24._crit_edge, %39, %30, %20, %12
-  %195 = phi i32 [ 0, %12 ], [ -95, %30 ], [ -95, %20 ], [ -95, %65 ], [ -95, %39 ], [ -95, %.preheader24._crit_edge ], [ %.sink, %.loopexit25.sink.split ], [ -95, %._crit_edge ], [ -95, %49 ], [ -95, %57 ], [ -95, %48 ]
+  %195 = phi i32 [ %.sink, %.loopexit25.sink.split ], [ 0, %12 ], [ -95, %30 ], [ -95, %20 ], [ -95, %65 ], [ -95, %39 ], [ -95, %.preheader24._crit_edge ], [ -95, %._crit_edge ], [ -95, %49 ], [ -95, %57 ], [ -95, %48 ]
   %196 = load ptr, ptr %0, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 112
   %198 = load i16, ptr %197, align 8
@@ -16416,8 +16416,8 @@ define internal noundef i64 @cgroup_subtree_control_write(ptr noundef readonly c
   br i1 %13, label %.loopexit32.thread, label %18
 
 .loopexit32.thread:                               ; preds = %49, %55, %.loopexit32, %.preheader33
-  %14 = phi i16 [ %11, %.preheader33 ], [ %11, %.loopexit32 ], [ %58, %55 ], [ %54, %49 ]
-  %15 = phi i16 [ %10, %.preheader33 ], [ %10, %.loopexit32 ], [ %60, %55 ], [ %52, %49 ]
+  %14 = phi i16 [ %11, %.preheader33 ], [ %11, %.loopexit32 ], [ %54, %49 ], [ %58, %55 ]
+  %15 = phi i16 [ %10, %.preheader33 ], [ %10, %.loopexit32 ], [ %52, %49 ], [ %60, %55 ]
   %16 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.81) #31
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit35, label %.preheader33, !llvm.loop !349
@@ -16858,7 +16858,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br label %.thread24
 
 .thread24:                                        ; preds = %118, %144, %177, %186, %178, %._crit_edge, %196, %165, %205, %197, %220, %291, %284, %157
-  %294 = phi i32 [ %289, %284 ], [ 0, %291 ], [ 0, %157 ], [ -95, %196 ], [ -95, %165 ], [ -95, %205 ], [ -95, %197 ], [ -16, %220 ], [ -16, %144 ], [ -95, %177 ], [ -95, %._crit_edge ], [ -95, %178 ], [ -95, %186 ], [ -2, %118 ]
+  %294 = phi i32 [ -95, %177 ], [ %289, %284 ], [ 0, %291 ], [ 0, %157 ], [ -16, %144 ], [ -16, %220 ], [ -95, %196 ], [ -95, %165 ], [ -95, %205 ], [ -95, %197 ], [ -95, %._crit_edge ], [ -95, %178 ], [ -95, %186 ], [ -2, %118 ]
   %295 = load ptr, ptr %0, align 8
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 112
   %297 = load i16, ptr %296, align 8
@@ -18371,7 +18371,7 @@ define internal fastcc i32 @cgroup_attach_permissions(ptr noundef readonly captu
   br label %122
 
 122:                                              ; preds = %._crit_edge18, %114, %._crit_edge32, %72
-  %123 = phi i32 [ 0, %72 ], [ 0, %114 ], [ %121, %._crit_edge18 ], [ 0, %._crit_edge32 ]
+  %123 = phi i32 [ 0, %72 ], [ 0, %._crit_edge32 ], [ 0, %114 ], [ %121, %._crit_edge18 ]
   %124 = icmp ne i32 %123, 0
   %125 = or i1 %3, %124
   br i1 %125, label %.thread11, label %126

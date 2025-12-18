@@ -2510,7 +2510,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
   br i1 %100, label %.preheader83, label %._crit_edge108, !llvm.loop !62
 
 ._crit_edge108:                                   ; preds = %.preheader83, %._crit_edge102.us122, %._crit_edge102.us
-  %.us-phi = phi i8 [ %86, %._crit_edge102.us122 ], [ %57, %._crit_edge102.us ], [ %97, %.preheader83 ]
+  %.us-phi = phi i8 [ %57, %._crit_edge102.us ], [ %86, %._crit_edge102.us122 ], [ %97, %.preheader83 ]
   %101 = icmp eq i8 %.us-phi, 48
   %102 = and i1 %101, %34
   br label %103

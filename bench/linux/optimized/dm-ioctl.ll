@@ -1245,7 +1245,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
   br label %176
 
 176:                                              ; preds = %139, %149, %171, %170, %162
-  %177 = phi i32 [ -14, %170 ], [ %155, %162 ], [ %175, %171 ], [ -22, %139 ], [ -22, %149 ]
+  %177 = phi i32 [ -14, %170 ], [ %155, %162 ], [ %175, %171 ], [ -22, %149 ], [ -22, %139 ]
   %178 = and i32 %98, 16
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %181, label %180
@@ -3783,7 +3783,7 @@ define internal fastcc ptr @__find_device_hash_cell(ptr noundef %0) unnamed_addr
   br label %.thread11
 
 .thread11:                                        ; preds = %20, %42, %.preheader16, %.preheader, %52, %66, %86, %84, %51, %35, %26, %._crit_edge
-  %88 = phi ptr [ null, %._crit_edge ], [ null, %35 ], [ null, %26 ], [ null, %51 ], [ %68, %86 ], [ %68, %84 ], [ null, %66 ], [ null, %52 ], [ null, %.preheader ], [ null, %.preheader16 ], [ null, %42 ], [ null, %20 ]
+  %88 = phi ptr [ null, %._crit_edge ], [ null, %35 ], [ null, %26 ], [ null, %.preheader ], [ null, %52 ], [ null, %51 ], [ %68, %86 ], [ %68, %84 ], [ null, %66 ], [ null, %.preheader16 ], [ null, %42 ], [ null, %20 ]
   ret ptr %88
 }
 

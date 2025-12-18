@@ -3404,8 +3404,8 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit181.i: ; preds = %.l
   br i1 %214, label %.lr.ph.i189.i, label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit193.i, !llvm.loop !116
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit193.i: ; preds = %.lr.ph.i189.i, %.preheader.i186.i, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit181.thread.us.preheader.i, %.split.us.i
-  %.sroa.0243.1300.i = phi i32 [ %.us-phi, %.preheader.i186.i ], [ %.sroa.0243.0.i.fr, %.split.us.i ], [ %smin.i, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit181.thread.us.preheader.i ], [ %.us-phi, %.lr.ph.i189.i ]
-  %.024.i187.i = phi i32 [ 1, %.preheader.i186.i ], [ 0, %.split.us.i ], [ 0, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit181.thread.us.preheader.i ], [ %212, %.lr.ph.i189.i ]
+  %.sroa.0243.1300.i = phi i32 [ %smin.i, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit181.thread.us.preheader.i ], [ %.us-phi, %.preheader.i186.i ], [ %.sroa.0243.0.i.fr, %.split.us.i ], [ %.us-phi, %.lr.ph.i189.i ]
+  %.024.i187.i = phi i32 [ 0, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit181.thread.us.preheader.i ], [ 1, %.preheader.i186.i ], [ 0, %.split.us.i ], [ %212, %.lr.ph.i189.i ]
   %215 = icmp eq i32 %.024.i187.i, %.024.i.i
   br i1 %215, label %226, label %216
 

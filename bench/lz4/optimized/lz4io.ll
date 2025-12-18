@@ -5872,7 +5872,7 @@ LZ4IO_skipBlocksData.exit.thread.i:               ; preds = %238, %230, %241
   br label %.thread172.i
 
 LZ4IO_skipBlocksData.exit.i:                      ; preds = %238, %237, %230
-  %.1.i.i = phi i64 [ %.016.i.i, %230 ], [ %233, %237 ], [ %240, %238 ]
+  %.1.i.i = phi i64 [ %240, %238 ], [ %.016.i.i, %230 ], [ %233, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not113.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not113.i, label %.thread172.i, label %246
@@ -6522,7 +6522,7 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   br label %.critedge35
 
 .critedge35:                                      ; preds = %551, %.critedge35.sink.split, %20, %58, %61, %.loopexit152, %495
-  %.3 = phi i32 [ 1, %495 ], [ 1, %.loopexit152 ], [ 1, %61 ], [ 1, %58 ], [ 0, %20 ], [ 1, %.critedge35.sink.split ], [ 0, %551 ]
+  %.3 = phi i32 [ 1, %58 ], [ 1, %495 ], [ 1, %.critedge35.sink.split ], [ 1, %.loopexit152 ], [ 0, %20 ], [ 1, %61 ], [ 0, %551 ]
   ret i32 %.3
 }
 
@@ -7018,7 +7018,7 @@ WR_getBufID.exit:                                 ; preds = %103
   br i1 %exitcond.not.i47, label %.loopexit22.i.preheader, label %145, !llvm.loop !157
 
 .loopexit22.i.preheader:                          ; preds = %154, %153, %WR_getBufID.exit
-  %.1.in.i.ph = phi i64 [ 0, %WR_getBufID.exit ], [ %.033.i, %153 ], [ %143, %154 ]
+  %.1.in.i.ph = phi i64 [ %.033.i, %153 ], [ 0, %WR_getBufID.exit ], [ %143, %154 ]
   br label %.loopexit22.i
 
 .loopexit22.i:                                    ; preds = %.loopexit22.i.preheader, %159
@@ -7881,9 +7881,9 @@ thread-pre-split64.i:                             ; preds = %137, %131
   br i1 %.not52.i, label %.loopexit.sink.split.i, label %.preheader.i.preheader
 
 .loopexit.sink.split.i:                           ; preds = %183, %182, %.lr.ph.i
-  %.04387.ph.i = phi i32 [ 0, %.lr.ph.i ], [ %.548.i, %182 ], [ %.548.i, %183 ]
-  %.084.ph.i = phi i64 [ 0, %.lr.ph.i ], [ %.5.i, %182 ], [ %.5.i, %183 ]
-  %.138.ph.i = phi i64 [ %spec.select.i105, %.lr.ph.i ], [ 0, %182 ], [ %spec.select.i, %183 ]
+  %.04387.ph.i = phi i32 [ %.548.i, %182 ], [ 0, %.lr.ph.i ], [ %.548.i, %183 ]
+  %.084.ph.i = phi i64 [ %.5.i, %182 ], [ 0, %.lr.ph.i ], [ %.5.i, %183 ]
+  %.138.ph.i = phi i64 [ 0, %182 ], [ %spec.select.i105, %.lr.ph.i ], [ %spec.select.i, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.i
 

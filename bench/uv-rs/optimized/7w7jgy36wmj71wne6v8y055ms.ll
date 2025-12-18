@@ -1898,7 +1898,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %32
 
 select.unfold:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he200d2296a187ed6E.llvm.10470488792943524147.exit.loopexit", %.lr.ph.split, %._crit_edge.i.i.i.i, %2, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c25d64613e9fcbdE.llvm.10470488792943524147.exit.us", %.lr.ph.split.us
-  %55 = phi i1 [ false, %2 ], [ true, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c25d64613e9fcbdE.llvm.10470488792943524147.exit.us" ], [ false, %.lr.ph.split.us ], [ true, %._crit_edge.i.i.i.i ], [ false, %.lr.ph.split ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he200d2296a187ed6E.llvm.10470488792943524147.exit.loopexit" ]
+  %55 = phi i1 [ true, %._crit_edge.i.i.i.i ], [ false, %2 ], [ true, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c25d64613e9fcbdE.llvm.10470488792943524147.exit.us" ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he200d2296a187ed6E.llvm.10470488792943524147.exit.loopexit" ]
   ret i1 %55
 }
 
@@ -3169,8 +3169,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %58 = zext nneg i16 %57 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %52, %48
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %48 ], [ %58, %52 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %48, %52
+  %.sroa.3.0.i.ph = phi i64 [ %58, %52 ], [ %.sroa.6.1.i, %48 ]
   %59 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

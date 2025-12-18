@@ -834,7 +834,7 @@ bytestream2_init.exit:                            ; preds = %245
   br label %.thread504
 
 .thread504:                                       ; preds = %.thread504.loopexit, %.preheader
-  %.6523 = phi i32 [ 0, %.preheader ], [ %394, %.thread504.loopexit ]
+  %.6523 = phi i32 [ %394, %.thread504.loopexit ], [ 0, %.preheader ]
   %395 = icmp eq i32 %.6523, %378
   br i1 %395, label %.thread504.thread, label %397
 

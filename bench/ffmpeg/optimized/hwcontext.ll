@@ -1257,7 +1257,7 @@ av_hwdevice_ctx_init.exit:                        ; preds = %40
   br i1 %.not42, label %.thread52, label %.lr.ph75.split, !llvm.loop !107
 
 .thread52:                                        ; preds = %48, %35, %.lr.ph75.split.us, %18, %av_hwdevice_ctx_init.exit, %37, %12, %._crit_edge
-  %.234 = phi i32 [ -12, %37 ], [ -12, %12 ], [ -12, %._crit_edge ], [ %.fr, %av_hwdevice_ctx_init.exit ], [ -38, %18 ], [ -38, %.lr.ph75.split.us ], [ -38, %48 ], [ %36, %35 ]
+  %.234 = phi i32 [ -12, %37 ], [ -12, %12 ], [ -12, %._crit_edge ], [ %.fr, %av_hwdevice_ctx_init.exit ], [ -38, %.lr.ph75.split.us ], [ -38, %18 ], [ %36, %35 ], [ -38, %48 ]
   call void @av_buffer_unref(ptr noundef nonnull %6) #11
   br label %.thread
 

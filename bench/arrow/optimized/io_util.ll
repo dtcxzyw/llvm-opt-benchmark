@@ -8577,7 +8577,7 @@ _ZN5arrow8internalL12pread_compatEiPvll.exit.thread: ; preds = %11
   br i1 %25, label %.lr.ph, label %.thread31
 
 .thread31:                                        ; preds = %21, %9, %5
-  %.02541 = phi i64 [ 0, %5 ], [ %.02542, %9 ], [ %24, %21 ]
+  %.02541 = phi i64 [ %.02542, %9 ], [ 0, %5 ], [ %24, %21 ]
   store ptr null, ptr %0, align 8, !tbaa !89
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.02541, ptr %26, align 8, !tbaa !9

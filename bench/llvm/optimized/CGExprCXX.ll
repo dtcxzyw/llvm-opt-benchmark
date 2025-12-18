@@ -5356,46 +5356,46 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit327: ; pr
   br i1 %.0139, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread, label %771
 
 771:                                              ; preds = %770
-  switch i32 %49, label %786 [
+  switch i32 %49, label %784 [
     i32 0, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread
-    i32 1, label %772
-    i32 3, label %772
-    i32 4, label %772
-    i32 2, label %779
+    i32 1, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit
+    i32 3, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit
+    i32 4, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit
+    i32 2, label %772
   ]
 
-772:                                              ; preds = %771, %771, %771
+772:                                              ; preds = %771
   %773 = load ptr, ptr %55, align 8, !tbaa !40
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 152
   %775 = load ptr, ptr %774, align 8, !tbaa !666
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 8
   %777 = load i64, ptr %776, align 8
   %778 = and i64 %777, 8796093022208
-  %.not638 = icmp eq i64 %778, 0
-  br i1 %.not638, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread, label %791
+  %.not.i332 = icmp eq i64 %778, 0
+  br i1 %.not.i332, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread, label %779
 
-779:                                              ; preds = %771
-  %780 = load ptr, ptr %55, align 8, !tbaa !40
-  %781 = getelementptr inbounds nuw i8, ptr %780, i64 152
-  %782 = load ptr, ptr %781, align 8, !tbaa !666
-  %783 = getelementptr inbounds nuw i8, ptr %782, i64 8
-  %784 = load i64, ptr %783, align 8
-  %785 = and i64 %784, 8796093022208
-  %.not.i332 = icmp eq i64 %785, 0
-  br i1 %.not.i332, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit
-
-786:                                              ; preds = %771
-  unreachable
-
-_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit: ; preds = %779
-  %787 = getelementptr inbounds nuw i8, ptr %780, i64 184
-  %788 = load ptr, ptr %787, align 8, !tbaa !917
-  %789 = load i64, ptr %788, align 8
-  %790 = and i64 %789, 512
-  %.not637 = icmp eq i64 %790, 0
+779:                                              ; preds = %772
+  %780 = getelementptr inbounds nuw i8, ptr %773, i64 184
+  %781 = load ptr, ptr %780, align 8, !tbaa !917
+  %782 = load i64, ptr %781, align 8
+  %783 = and i64 %782, 512
+  %.not637 = icmp eq i64 %783, 0
   br i1 %.not637, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread, label %791
 
-791:                                              ; preds = %772, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit
+784:                                              ; preds = %771
+  unreachable
+
+_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit: ; preds = %771, %771, %771
+  %785 = load ptr, ptr %55, align 8, !tbaa !40
+  %786 = getelementptr inbounds nuw i8, ptr %785, i64 152
+  %787 = load ptr, ptr %786, align 8, !tbaa !666
+  %788 = getelementptr inbounds nuw i8, ptr %787, i64 8
+  %789 = load i64, ptr %788, align 8
+  %790 = and i64 %789, 8796093022208
+  %.not638 = icmp eq i64 %790, 0
+  br i1 %.not638, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread, label %791
+
+791:                                              ; preds = %779, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit
   %792 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %793 = load ptr, ptr %792, align 8, !tbaa !3
   %794 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %793) #16
@@ -5476,7 +5476,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction25DeferredDeac
   store i32 %832, ptr %51, align 8, !tbaa !16
   br label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread
 
-_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread: ; preds = %779, %771, %772, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELb1EE9push_backES4_.exit346, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit, %770
+_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread: ; preds = %772, %771, %779, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELb1EE9push_backES4_.exit346, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit, %770
   %833 = getelementptr inbounds nuw i8, ptr %.5, i64 8
   %.sroa.0.0.copyload.i347 = load i64, ptr %833, align 8, !tbaa !3
   call fastcc void @_ZL23StoreAnyExprIntoOneUnitRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprENS_8QualTypeENS0_7AddressENS0_12AggValueSlot9Overlap_tE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull %.5, i64 %.sroa.0.0.copyload.i347, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %18)
@@ -10631,7 +10631,7 @@ _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i: ; preds = %323
   br label %372
 
 .critedge.i:                                      ; preds = %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i, %323, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.i43, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread.i, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i, %_ZN5clang7CodeGen15CodeGenFunction13EmitTypeCheckENS1_13TypeCheckKindENS_14SourceLocationENS0_7AddressENS_8QualTypeENS_9CharUnitsENS_12SanitizerSetEPN4llvm5ValueE.exit.i
-  %.553.i = phi ptr [ null, %_ZN5clang7CodeGen15CodeGenFunction13EmitTypeCheckENS1_13TypeCheckKindENS_14SourceLocationENS0_7AddressENS_8QualTypeENS_9CharUnitsENS_12SanitizerSetEPN4llvm5ValueE.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread.i ], [ %266, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.i43 ], [ null, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i ], [ %283, %323 ], [ %283, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i ]
+  %.553.i = phi ptr [ null, %_ZN5clang7CodeGen15CodeGenFunction13EmitTypeCheckENS1_13TypeCheckKindENS_14SourceLocationENS0_7AddressENS_8QualTypeENS_9CharUnitsENS_12SanitizerSetEPN4llvm5ValueE.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread.i ], [ %266, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.i43 ], [ %283, %323 ], [ %283, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i ]
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %341 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %342 = load i8, ptr %341, align 8

@@ -1005,7 +1005,7 @@ _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit
   store i32 1, ptr %3, align 4, !tbaa !21
   br label %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread
 
-_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread: ; preds = %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i, %56, %29
+_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread: ; preds = %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i, %29, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %68
 

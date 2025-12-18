@@ -7278,7 +7278,7 @@ switch.lookup:                                    ; preds = %125
   br label %_ZN16markdown_preview21markdown_preview_view19MarkdownPreviewView28get_block_index_under_cursor17he035baaa1a28f7e2E.exit.i.i.i
 
 _ZN16markdown_preview21markdown_preview_view19MarkdownPreviewView28get_block_index_under_cursor17he035baaa1a28f7e2E.exit.i.i.i: ; preds = %138, %144, %136, %127, %113
-  %.sroa.0.0.i.i.i.i = phi i64 [ %137, %136 ], [ %145, %144 ], [ 0, %113 ], [ 0, %127 ], [ %.sroa.8.0.i.i.i.i, %138 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %137, %136 ], [ 0, %127 ], [ %145, %144 ], [ 0, %113 ], [ %.sroa.8.0.i.i.i.i, %138 ]
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i.i, i64 200
   store i64 %.sroa.0.0.i.i.i.i, ptr %146, align 8, !alias.scope !1800, !noalias !1794
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i.i.i, i64 136
@@ -17449,8 +17449,8 @@ define internal void @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace.
           to label %58 unwind label %56
 
 .body55:                                          ; preds = %479, %205, %209, %213, %56, %510
-  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %205 ], [ %.sroa.07.3.ph, %510 ], [ %.sroa.07.0, %56 ], [ %.sroa.07.2, %213 ], [ %.sroa.07.2, %209 ], [ %.sroa.07.5, %479 ]
-  %.pn28 = phi { ptr, i32 } [ %206, %205 ], [ %.pn25.pn.ph, %510 ], [ %57, %56 ], [ %206, %213 ], [ %206, %209 ], [ %.pn25, %479 ]
+  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %205 ], [ %.sroa.07.3.ph, %510 ], [ %.sroa.07.5, %479 ], [ %.sroa.07.0, %56 ], [ %.sroa.07.2, %209 ], [ %.sroa.07.2, %213 ]
+  %.pn28 = phi { ptr, i32 } [ %206, %205 ], [ %.pn25.pn.ph, %510 ], [ %.pn25, %479 ], [ %57, %56 ], [ %206, %209 ], [ %206, %213 ]
   %55 = trunc nuw i8 %.sroa.07.1 to i1
   br i1 %55, label %.body55.thread188, label %"_ZN4core3ptr109drop_in_place$LT$gpui..view..WeakView$LT$markdown_preview..markdown_preview_view..MarkdownPreviewView$GT$$GT$17h233fca92f08f25d3E.exit109"
 

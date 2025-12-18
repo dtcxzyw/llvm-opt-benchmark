@@ -937,13 +937,13 @@ lv_text_is_a_word.exit104.thread110.i:            ; preds = %87, %lv_text_is_a_w
 
 .loopexit.i:                                      ; preds = %77, %87, %lv_text_is_a_word.exit104.thread110.i, %64, %.thread17.i.i, %72
   %.491 = phi i32 [ %.390, %72 ], [ %.7, %.thread17.i.i ], [ %.390, %64 ], [ %.390, %lv_text_is_a_word.exit104.thread110.i ], [ %.390, %87 ], [ %.390, %77 ]
-  %.1 = phi i32 [ %.085, %72 ], [ %.085, %.thread17.i.i ], [ %spec.select87.i, %77 ], [ %spec.select87.i, %87 ], [ %spec.select103, %lv_text_is_a_word.exit104.thread110.i ], [ %.085, %64 ]
-  %101 = phi i32 [ %.us-phi.i, %72 ], [ %55, %.thread17.i.i ], [ %.us-phi.i, %77 ], [ %.us-phi.i, %87 ], [ %97, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi.i, %64 ]
-  %.072127.i = phi i32 [ %.us-phi167.i, %72 ], [ %46, %.thread17.i.i ], [ %.us-phi167.i, %77 ], [ %.us-phi167.i, %87 ], [ %.us-phi164.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi167.i, %64 ]
-  %.174.i = phi i32 [ %.us-phi166.i, %72 ], [ %45, %.thread17.i.i ], [ %.us-phi.i, %77 ], [ %.us-phi.i, %87 ], [ %.us-phi.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi166.i, %64 ]
+  %.1 = phi i32 [ %.085, %72 ], [ %.085, %.thread17.i.i ], [ %spec.select87.i, %87 ], [ %spec.select103, %lv_text_is_a_word.exit104.thread110.i ], [ %.085, %64 ], [ %spec.select87.i, %77 ]
+  %101 = phi i32 [ %.us-phi.i, %72 ], [ %55, %.thread17.i.i ], [ %.us-phi.i, %87 ], [ %97, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi.i, %64 ], [ %.us-phi.i, %77 ]
+  %.072127.i = phi i32 [ %.us-phi167.i, %72 ], [ %46, %.thread17.i.i ], [ %.us-phi167.i, %87 ], [ %.us-phi164.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi167.i, %64 ], [ %.us-phi167.i, %77 ]
+  %.174.i = phi i32 [ %.us-phi166.i, %72 ], [ %45, %.thread17.i.i ], [ %.us-phi.i, %87 ], [ %.us-phi.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi166.i, %64 ], [ %.us-phi.i, %77 ]
   %.171.i = phi i32 [ %.us-phi164.i, %72 ], [ %46, %.thread17.i.i ], [ %.us-phi164.i, %64 ], [ %.us-phi164.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi164.i, %87 ], [ %.us-phi164.i, %77 ]
   %.165.i = phi i32 [ %.us-phi168.i, %72 ], [ %47, %.thread17.i.i ], [ %.us-phi165.i, %64 ], [ %.us-phi165.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi165.i, %87 ], [ %.us-phi165.i, %77 ]
-  %.1.i = phi i32 [ %.2.i, %72 ], [ %.0.ph181.i, %.thread17.i.i ], [ %.2.i, %77 ], [ %.2.i, %87 ], [ %.2.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi166.i, %64 ]
+  %.1.i = phi i32 [ %.2.i, %72 ], [ %.0.ph181.i, %.thread17.i.i ], [ %.2.i, %87 ], [ %.2.i, %lv_text_is_a_word.exit104.thread110.i ], [ %.us-phi166.i, %64 ], [ %.2.i, %77 ]
   %102 = icmp eq i32 %.1.i, -1
   br i1 %102, label %.thread.i, label %109
 

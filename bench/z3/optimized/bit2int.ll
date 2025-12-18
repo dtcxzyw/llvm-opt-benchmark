@@ -4615,7 +4615,7 @@ _ZNK17arith_recognizers5is_ltEPK4expr.exit:       ; preds = %_ZNK17arith_recogni
   br label %153
 
 _ZNK11ast_manager5is_eqEPK4expr.exit:             ; preds = %51, %.thread222, %._crit_edge
-  %106 = phi i1 [ %103, %.thread222 ], [ false, %._crit_edge ], [ false, %51 ]
+  %106 = phi i1 [ false, %._crit_edge ], [ %103, %.thread222 ], [ false, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %107 = load ptr, ptr %0, align 8, !tbaa !61
   store ptr null, ptr %5, align 8, !tbaa !11

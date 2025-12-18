@@ -4619,9 +4619,9 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %2
   br i1 %.not67.us, label %100, label %.critedge
 
 100:                                              ; preds = %98, %96, %._crit_edge.us
-  %.261.us = phi i32 [ %.05975.us, %96 ], [ %.05975.us, %._crit_edge.us ], [ %99, %98 ]
-  %.256.us = phi i32 [ %97, %96 ], [ %.05477.us, %._crit_edge.us ], [ 0, %98 ]
-  %.2.us = phi i32 [ 0, %96 ], [ %108, %._crit_edge.us ], [ 0, %98 ]
+  %.261.us = phi i32 [ %.05975.us, %._crit_edge.us ], [ %.05975.us, %96 ], [ %99, %98 ]
+  %.256.us = phi i32 [ %.05477.us, %._crit_edge.us ], [ %97, %96 ], [ 0, %98 ]
+  %.2.us = phi i32 [ %108, %._crit_edge.us ], [ 0, %96 ], [ 0, %98 ]
   %101 = add nuw i64 %.05876.us, 1
   %102 = icmp ult i64 %101, %.sroa.speculated
   br i1 %102, label %.lr.ph.us, label %.critedge, !llvm.loop !162
@@ -4798,9 +4798,9 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %2
   br i1 %.not67.us, label %107, label %.critedge
 
 107:                                              ; preds = %105, %103, %._crit_edge.us
-  %.261.us = phi i32 [ %.05975.us, %103 ], [ %.05975.us, %._crit_edge.us ], [ %106, %105 ]
-  %.256.us = phi i32 [ %104, %103 ], [ %.05477.us, %._crit_edge.us ], [ 0, %105 ]
-  %.2.us = phi i32 [ 0, %103 ], [ %115, %._crit_edge.us ], [ 0, %105 ]
+  %.261.us = phi i32 [ %.05975.us, %._crit_edge.us ], [ %.05975.us, %103 ], [ %106, %105 ]
+  %.256.us = phi i32 [ %.05477.us, %._crit_edge.us ], [ %104, %103 ], [ 0, %105 ]
+  %.2.us = phi i32 [ %115, %._crit_edge.us ], [ 0, %103 ], [ 0, %105 ]
   %108 = add nuw i64 %.05876.us, 1
   %109 = icmp ult i64 %108, %.sroa.speculated
   br i1 %109, label %.lr.ph.us, label %.critedge, !llvm.loop !164

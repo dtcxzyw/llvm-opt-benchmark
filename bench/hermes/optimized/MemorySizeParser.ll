@@ -116,9 +116,9 @@ sw.bb20:                                          ; preds = %if.end15
   br i1 %cmp21, label %if.end15.backedge, label %if.then8
 
 if.end15.backedge:                                ; preds = %sw.bb20, %sw.bb25, %if.else33
-  %cmp26.be = phi i1 [ true, %sw.bb25 ], [ false, %sw.bb20 ], [ false, %if.else33 ]
-  %cmp21.be = phi i1 [ false, %sw.bb25 ], [ false, %sw.bb20 ], [ true, %if.else33 ]
-  %cmp17.be = phi i1 [ false, %sw.bb25 ], [ true, %sw.bb20 ], [ false, %if.else33 ]
+  %cmp26.be = phi i1 [ false, %sw.bb20 ], [ true, %sw.bb25 ], [ false, %if.else33 ]
+  %cmp21.be = phi i1 [ false, %sw.bb20 ], [ false, %sw.bb25 ], [ true, %if.else33 ]
+  %cmp17.be = phi i1 [ true, %sw.bb20 ], [ false, %sw.bb25 ], [ false, %if.else33 ]
   br label %if.end15, !llvm.loop !16
 
 sw.bb25:                                          ; preds = %if.end15, %if.end15

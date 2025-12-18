@@ -22995,7 +22995,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit89:           ; preds = %_ZN22CompilationRes
   br i1 %.not74, label %.loopexit91, label %72, !llvm.loop !35
 
 .loopexit91:                                      ; preds = %._crit_edge103, %_ZN9XHandlers6appendEP8XHandler.exit, %_ZN22CompilationResourceObjnwEm.exit, %34, %139, %103
-  %.0 = phi ptr [ %.0.i.i.i77, %103 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i77, %139 ], [ %.0.i.i.i, %34 ], [ %.0.i.i.i77, %_ZN9XHandlers6appendEP8XHandler.exit ], [ %.0.i.i.i77, %._crit_edge103 ]
+  %.0 = phi ptr [ %.0.i.i.i77, %103 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i77, %139 ], [ %.0.i.i.i77, %_ZN9XHandlers6appendEP8XHandler.exit ], [ %.0.i.i.i, %34 ], [ %.0.i.i.i77, %._crit_edge103 ]
   ret ptr %.0
 }
 
@@ -23127,7 +23127,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.outer
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.loopexit, %2, %23, %.lr.ph._crit_edge, %._crit_edge, %48, %39
-  %.0 = phi ptr [ %.037.lcssa, %._crit_edge ], [ %.lcssa, %48 ], [ %.lcssa, %.lr.ph._crit_edge ], [ %.lcssa, %23 ], [ %.lcssa, %39 ], [ %1, %2 ], [ %.tr.i.ph, %tailrecurse.loopexit ]
+  %.0 = phi ptr [ %.037.lcssa, %._crit_edge ], [ %.lcssa, %48 ], [ %.lcssa, %39 ], [ %.lcssa, %.lr.ph._crit_edge ], [ %.lcssa, %23 ], [ %1, %2 ], [ %.tr.i.ph, %tailrecurse.loopexit ]
   ret ptr %.0
 }
 

@@ -2487,7 +2487,7 @@ draw_response.exit:                               ; preds = %1012, %299, %._crit
   %wide.trip.count133.i = zext nneg i32 %1026 to i64
   br label %1030
 
-.critedge372:                                     ; preds = %1164, %._crit_edge.i87.i, %.preheader1.i.i, %._crit_edge103.i
+.critedge372:                                     ; preds = %1164, %.preheader1.i.i, %._crit_edge103.i, %._crit_edge.i87.i
   call void @av_free(ptr noundef nonnull %1038) #16
   call void @av_free(ptr noundef nonnull %1043) #16
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
@@ -4113,7 +4113,7 @@ biquad_process.exit:                              ; preds = %.lr.ph.i
   br label %.preheader113.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.us120.i, %.preheader111.i, %.split.us.i
-  %indvars.iv.next144189.i = phi i64 [ %indvars.iv.next144.i, %.split.us.i ], [ 1, %.preheader111.i ], [ %indvars.iv.next144.i, %._crit_edge.us120.i ]
+  %indvars.iv.next144189.i = phi i64 [ 1, %.preheader111.i ], [ %indvars.iv.next144.i, %.split.us.i ], [ %indvars.iv.next144.i, %._crit_edge.us120.i ]
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next144189.i, %62
   br i1 %exitcond170.not.i, label %.preheader109.i, label %.preheader113.i, !llvm.loop !138

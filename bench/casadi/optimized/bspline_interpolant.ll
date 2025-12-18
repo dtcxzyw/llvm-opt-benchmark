@@ -1711,9 +1711,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_Z
   ret void
 
 284:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit165, %.loopexit.split-lp166, %.loopexit171, %.loopexit.split-lp172
-  %285 = phi ptr [ %110, %.loopexit.split-lp172 ], [ %148, %.loopexit.split-lp166 ], [ %110, %.loopexit171 ], [ %148, %.loopexit165 ], [ %190, %.loopexit ], [ %190, %.loopexit.split-lp ]
-  %286 = phi ptr [ %112, %.loopexit.split-lp172 ], [ %150, %.loopexit.split-lp166 ], [ %112, %.loopexit171 ], [ %150, %.loopexit165 ], [ %192, %.loopexit ], [ %192, %.loopexit.split-lp ]
-  %.pn75.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp174, %.loopexit.split-lp172 ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ], [ %lpad.loopexit173, %.loopexit171 ], [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %285 = phi ptr [ %190, %.loopexit.split-lp ], [ %190, %.loopexit ], [ %148, %.loopexit165 ], [ %110, %.loopexit.split-lp172 ], [ %148, %.loopexit.split-lp166 ], [ %110, %.loopexit171 ]
+  %286 = phi ptr [ %192, %.loopexit.split-lp ], [ %192, %.loopexit ], [ %150, %.loopexit165 ], [ %112, %.loopexit.split-lp172 ], [ %150, %.loopexit.split-lp166 ], [ %112, %.loopexit171 ]
+  %.pn75.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit.split-lp174, %.loopexit.split-lp172 ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ], [ %lpad.loopexit173, %.loopexit171 ]
   %.not.i.i.i135 = icmp eq ptr %286, null
   br i1 %.not.i.i.i135, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %287
 
@@ -4395,7 +4395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414: ; preds = %72
   br i1 %734, label %.loopexit, label %731
 
 .loopexit:                                        ; preds = %731, %.loopexit.loopexit594, %.thread
-  %.pn182.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %583, %.thread ], [ %708, %.loopexit.loopexit594 ], [ %.pn182.pn.pn.pn.pn.pn.pn, %731 ]
+  %.pn182.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %708, %.loopexit.loopexit594 ], [ %583, %.thread ], [ %.pn182.pn.pn.pn.pn.pn.pn, %731 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %735 = load ptr, ptr %57, align 8, !tbaa !13
   %736 = icmp eq ptr %735, %579
@@ -7700,9 +7700,9 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc549
   br i1 %exitcond.not.i, label %_ZN6casadi18BSplineInterpolant15greville_pointsERKSt6vectorIdSaIdEEx.exit, label %.lr.ph25.split.i, !llvm.loop !194
 
 _ZN6casadi18BSplineInterpolant15greville_pointsERKSt6vectorIdSaIdEEx.exit: ; preds = %.lr.ph25.split.i, %._crit_edge.us.i, %1018
-  %1035 = phi ptr [ null, %1018 ], [ %1013, %._crit_edge.us.i ], [ %1013, %.lr.ph25.split.i ]
-  %1036 = phi ptr [ null, %1018 ], [ %.0.i.i.i.i.i.ph.i, %._crit_edge.us.i ], [ %.0.i.i.i.i.i.ph.i, %.lr.ph25.split.i ]
-  %1037 = phi ptr [ null, %1018 ], [ %1012, %._crit_edge.us.i ], [ %1012, %.lr.ph25.split.i ]
+  %1035 = phi ptr [ %1013, %._crit_edge.us.i ], [ null, %1018 ], [ %1013, %.lr.ph25.split.i ]
+  %1036 = phi ptr [ %.0.i.i.i.i.i.ph.i, %._crit_edge.us.i ], [ null, %1018 ], [ %.0.i.i.i.i.i.ph.i, %.lr.ph25.split.i ]
+  %1037 = phi ptr [ %1012, %._crit_edge.us.i ], [ null, %1018 ], [ %1012, %.lr.ph25.split.i ]
   %1038 = load ptr, ptr %693, align 8, !tbaa !167
   %1039 = load ptr, ptr %694, align 8, !tbaa !170
   %.not.i.i550 = icmp eq ptr %1038, %1039
@@ -8039,7 +8039,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit589:    ; preds = %_ZNSt6vectorIN6casa
   br i1 %1151, label %.loopexit, label %1148
 
 .loopexit:                                        ; preds = %1148, %.loopexit.loopexit880, %.thread
-  %.pn201.pn = phi { ptr, i32 } [ %1105, %.thread ], [ %1145, %.loopexit.loopexit880 ], [ %.pn201, %1148 ]
+  %.pn201.pn = phi { ptr, i32 } [ %1145, %.loopexit.loopexit880 ], [ %1105, %.thread ], [ %.pn201, %1148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
@@ -11578,9 +11578,9 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc565
   br i1 %exitcond.not.i, label %_ZN6casadi18BSplineInterpolant15greville_pointsERKSt6vectorIdSaIdEEx.exit, label %.lr.ph25.split.i, !llvm.loop !194
 
 _ZN6casadi18BSplineInterpolant15greville_pointsERKSt6vectorIdSaIdEEx.exit: ; preds = %.lr.ph25.split.i, %._crit_edge.us.i, %1092
-  %1109 = phi ptr [ null, %1092 ], [ %1087, %._crit_edge.us.i ], [ %1087, %.lr.ph25.split.i ]
-  %1110 = phi ptr [ null, %1092 ], [ %.0.i.i.i.i.i.ph.i, %._crit_edge.us.i ], [ %.0.i.i.i.i.i.ph.i, %.lr.ph25.split.i ]
-  %1111 = phi ptr [ null, %1092 ], [ %1086, %._crit_edge.us.i ], [ %1086, %.lr.ph25.split.i ]
+  %1109 = phi ptr [ %1087, %._crit_edge.us.i ], [ null, %1092 ], [ %1087, %.lr.ph25.split.i ]
+  %1110 = phi ptr [ %.0.i.i.i.i.i.ph.i, %._crit_edge.us.i ], [ null, %1092 ], [ %.0.i.i.i.i.i.ph.i, %.lr.ph25.split.i ]
+  %1111 = phi ptr [ %1086, %._crit_edge.us.i ], [ null, %1092 ], [ %1086, %.lr.ph25.split.i ]
   %1112 = load ptr, ptr %767, align 8, !tbaa !167
   %1113 = load ptr, ptr %768, align 8, !tbaa !170
   %.not.i.i566 = icmp eq ptr %1112, %1113
@@ -12018,7 +12018,7 @@ _ZN6casadi6MatrixIdED2Ev.exit610:                 ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %1263, label %.loopexit, label %1260
 
 .loopexit:                                        ; preds = %1260, %.loopexit.loopexit937, %.thread
-  %.pn199.pn = phi { ptr, i32 } [ %1179, %.thread ], [ %1257, %.loopexit.loopexit937 ], [ %.pn199, %1260 ]
+  %.pn199.pn = phi { ptr, i32 } [ %1257, %.loopexit.loopexit937 ], [ %1179, %.thread ], [ %.pn199, %1260 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)

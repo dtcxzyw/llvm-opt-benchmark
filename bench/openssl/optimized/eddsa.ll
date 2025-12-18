@@ -439,7 +439,7 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %15, %17, %.critedge, %29, %27, %45
-  %.0 = phi i32 [ 0, %.critedge ], [ %30, %29 ], [ %28, %27 ], [ %48, %45 ], [ 0, %17 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ %48, %45 ], [ %30, %29 ], [ %28, %27 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

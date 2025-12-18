@@ -589,7 +589,7 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %249
   br i1 %263, label %.preheader233, label %._crit_edge288, !llvm.loop !19
 
 ._crit_edge288:                                   ; preds = %._crit_edge278, %23, %.preheader234, %183
-  %.6181.lcssa = phi i32 [ %.5180, %183 ], [ %1, %23 ], [ 0, %.preheader234 ], [ %.9, %._crit_edge278 ]
+  %.6181.lcssa = phi i32 [ %.5180, %183 ], [ 0, %.preheader234 ], [ %1, %23 ], [ %.9, %._crit_edge278 ]
   %264 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.6181.lcssa, ptr noundef nonnull %5)
   br label %265
 

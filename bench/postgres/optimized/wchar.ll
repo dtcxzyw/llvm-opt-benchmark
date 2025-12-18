@@ -1569,7 +1569,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.preheader.i13.i, !llvm.loop !13
 
 ucs_wcwidth.exit:                                 ; preds = %63, %80, %85, %23, %utf8_to_unicode.exit, %47, %49, %52, %69
-  %.0.i1 = phi i32 [ -1, %49 ], [ 0, %utf8_to_unicode.exit ], [ -1, %47 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 2, %80 ], [ 1, %85 ], [ 0, %63 ]
+  %.0.i1 = phi i32 [ -1, %49 ], [ 0, %utf8_to_unicode.exit ], [ -1, %47 ], [ 2, %80 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 1, %85 ], [ 0, %63 ]
   ret i32 %.0.i1
 }
 
@@ -2185,7 +2185,7 @@ pg_mule_mblen.exit.i:                             ; preds = %11, %9, %7
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %pg_mule_mblen.exit.i, %15, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %.01426, %15 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %pg_mule_mblen.exit.i ]
+  %.01424 = phi ptr [ %.01426, %15 ], [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %pg_mule_mblen.exit.i ]
   %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -2498,7 +2498,7 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %11, %7, %15, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %7 ], [ %.01426, %15 ]
+  %.01424 = phi ptr [ %0, %2 ], [ %.01426, %7 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %15 ]
   %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -2614,7 +2614,7 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %11, %7, %15, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %7 ], [ %.01426, %15 ]
+  %.01424 = phi ptr [ %0, %2 ], [ %.01426, %7 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %15 ]
   %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -2730,7 +2730,7 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %11, %7, %15, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %7 ], [ %.01426, %15 ]
+  %.01424 = phi ptr [ %0, %2 ], [ %.01426, %7 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %15 ]
   %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -3057,7 +3057,7 @@ pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
   br i1 %17, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %pg_johab_mblen.exit.i, %9, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %.01426, %9 ], [ %15, %.loopexit ], [ %.01426, %5 ], [ %.01426, %pg_johab_mblen.exit.i ]
+  %.01424 = phi ptr [ %.01426, %9 ], [ %0, %2 ], [ %15, %.loopexit ], [ %.01426, %5 ], [ %.01426, %pg_johab_mblen.exit.i ]
   %18 = ptrtoint ptr %.01424 to i64
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %18, %19

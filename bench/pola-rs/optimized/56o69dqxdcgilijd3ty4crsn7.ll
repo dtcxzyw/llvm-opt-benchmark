@@ -5329,7 +5329,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_full17h
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hdd49b7235350a9e2E.exit"
 
 129:                                              ; preds = %110, %106
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %106 ], [ %116, %110 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %116, %110 ], [ %.sroa.4.19.i.i.i, %106 ]
   %130 = load ptr, ptr %44, align 8, !alias.scope !448, !noalias !451, !nonnull !3
   %131 = load i64, ptr %42, align 8, !alias.scope !442, !noalias !446, !noundef !3
   %132 = icmp ult i64 %131, 88686269585142076
@@ -22813,7 +22813,7 @@ _ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit: ; preds = %5
   br i1 %.not, label %32, label %24
 
 .loopexit:                                        ; preds = %33, %114, %112, %52, %91, %105, %103, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit, %70, %59, %21, %86, %81, %24, %.loopexit90, %._crit_edge104
-  %.sroa.0.0 = phi i1 [ %102, %._crit_edge104 ], [ true, %24 ], [ %22, %21 ], [ true, %.loopexit90 ], [ %60, %59 ], [ %71, %70 ], [ true, %81 ], [ true, %86 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit ], [ true, %114 ], [ true, %105 ], [ true, %91 ], [ true, %52 ], [ true, %103 ], [ true, %112 ], [ true, %33 ]
+  %.sroa.0.0 = phi i1 [ true, %114 ], [ %102, %._crit_edge104 ], [ true, %52 ], [ true, %86 ], [ true, %91 ], [ true, %105 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit ], [ true, %24 ], [ %22, %21 ], [ true, %.loopexit90 ], [ true, %81 ], [ %60, %59 ], [ %71, %70 ], [ true, %103 ], [ true, %112 ], [ true, %33 ]
   ret i1 %.sroa.0.0
 
 24:                                               ; preds = %23
@@ -28827,8 +28827,8 @@ default.unreachable95:                            ; preds = %13
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8cbed57b0fea6fd0E.exit.thread"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8cbed57b0fea6fd0E.exit.thread": ; preds = %166, %170
-  %177 = phi i8 [ %168, %166 ], [ %.pre.i, %170 ]
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %166 ], [ %176, %170 ]
+  %177 = phi i8 [ %.pre.i, %170 ], [ %168, %166 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %176, %170 ], [ %.sroa.4.19.i.i.i, %166 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2466)
   %178 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.sroa.3.0.i.i.ph.i
   %179 = and i8 %177, 1

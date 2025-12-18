@@ -1712,12 +1712,12 @@ select.unfold:                                    ; preds = %14, %_ZN5clang13CXX
   br label %99
 
 46:                                               ; preds = %39, %_ZN5clang13CXXMethodDecl9getParentEv.exit
-  %.pn = phi ptr [ %42, %39 ], [ %.0.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.pn, i64 40
+  %.0.i.i.i.pn = phi ptr [ %.0.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit ], [ %42, %39 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !729
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %48)
-  %51 = getelementptr inbounds nuw i8, ptr %.pn, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn, i64 64
   %52 = load ptr, ptr %51, align 8, !tbaa !702
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %53, align 8, !tbaa !1160
@@ -1728,7 +1728,7 @@ select.unfold:                                    ; preds = %14, %_ZN5clang13CXX
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %57, i32 %1, i32 noundef 3976, i1 noundef zeroext false) #16
-  %58 = getelementptr inbounds i8, ptr %.pn, i64 -24
+  %58 = getelementptr inbounds i8, ptr %.0.i.i.i.pn, i64 -24
   %59 = load i64, ptr %58, align 8, !tbaa !1171
   %60 = and i64 %59, 7
   %61 = icmp ne i64 %60, 0
@@ -1800,7 +1800,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit: 
   br label %99
 
 96:                                               ; preds = %46
-  %.024 = getelementptr inbounds i8, ptr %.pn, i64 -64
+  %.024 = getelementptr inbounds i8, ptr %.0.i.i.i.pn, i64 -64
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %98 = load ptr, ptr %97, align 8, !tbaa !737
   tail call void @_ZN5clang12CXXScopeSpec9MakeSuperERNS_10ASTContextEPNS_13CXXRecordDeclENS_14SourceLocationES5_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(23216) %98, ptr noundef nonnull %.024, i32 %1, i32 %2) #16
@@ -1957,7 +1957,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %21, 
   br label %71
 
 71:                                               ; preds = %36, %.fold.split, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit, %56, %57, %61, %70, %69, %50, %58, %63, %13, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %13 ], [ true, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit ], [ true, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit ], [ true, %36 ], [ true, %63 ], [ true, %58 ], [ true, %50 ], [ false, %69 ], [ false, %70 ], [ false, %61 ], [ false, %57 ], [ false, %56 ], [ false, %.fold.split ]
+  %.0 = phi i1 [ false, %3 ], [ false, %13 ], [ true, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit ], [ true, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit ], [ true, %36 ], [ true, %63 ], [ true, %58 ], [ true, %50 ], [ false, %69 ], [ false, %70 ], [ false, %61 ], [ false, %56 ], [ false, %57 ], [ false, %.fold.split ]
   ret i1 %.0
 }
 

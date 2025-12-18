@@ -498,7 +498,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %or.cond112.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !7
 
 is_power_of_two.exit.thread:                      ; preds = %tailrecurse, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %.lr.ph, %.lr.ph76, %17, %1, %22, %10
-  %.019 = phi i1 [ false, %1 ], [ %11, %10 ], [ true, %17 ], [ true, %22 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ false, %.lr.ph ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ]
+  %.019 = phi i1 [ false, %1 ], [ %11, %10 ], [ true, %17 ], [ true, %22 ], [ %31, %.lr.ph76 ], [ false, %.lr.ph ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ false, %tailrecurse ]
   ret i1 %.019
 }
 

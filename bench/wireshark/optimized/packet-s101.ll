@@ -608,9 +608,9 @@ find_s101_packet_header.exit:                     ; preds = %get_byte.exit90.i, 
   br i1 %235, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %232, %229, %.preheader.i120
-  %.11255 = phi i16 [ %.12, %229 ], [ %.10254, %.preheader.i120 ], [ %234, %232 ]
-  %.5237 = phi i32 [ %217, %229 ], [ %.3235, %.preheader.i120 ], [ %.7239, %232 ]
-  %.1.i121 = phi i32 [ %spec.select.i, %229 ], [ 0, %.preheader.i120 ], [ %.2.i, %232 ]
+  %.11255 = phi i16 [ %.10254, %.preheader.i120 ], [ %.12, %229 ], [ %234, %232 ]
+  %.5237 = phi i32 [ %.3235, %.preheader.i120 ], [ %217, %229 ], [ %.7239, %232 ]
+  %.1.i121 = phi i32 [ 0, %.preheader.i120 ], [ %spec.select.i, %229 ], [ %.2.i, %232 ]
   %236 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %213, i32 noundef %.1.i121, i32 noundef %.1.i121)
   call void @add_new_data_source(ptr noundef %1, ptr noundef %236, ptr noundef nonnull @.str.80)
   br label %decode_s101_escaped_buffer.exit
@@ -789,7 +789,7 @@ new_fragment_info.exit:                           ; preds = %280, %284
   br label %.thread266
 
 327:                                              ; preds = %311, %317, %303, %.thread
-  %.2 = phi ptr [ %301, %303 ], [ %.3265, %.thread ], [ %.0104, %311 ], [ %.0104, %317 ]
+  %.2 = phi ptr [ %.0104, %317 ], [ %301, %303 ], [ %.3265, %.thread ], [ %.0104, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %328 = icmp eq i8 %.1221, 64
   %329 = icmp eq ptr %.2, null

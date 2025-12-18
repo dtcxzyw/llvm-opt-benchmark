@@ -967,8 +967,8 @@ getRGBA.exit100:                                  ; preds = %202, %206
   br i1 %exitcond149.not, label %.loopexit, label %.lr.ph132, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph132, %.critedge4.thread, %.critedge4, %.critedge.thread, %259
-  %.3 = phi ptr [ %.273.mux, %.critedge4 ], [ %.273, %259 ], [ %.273, %.critedge.thread ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
-  %.1 = phi ptr [ %.071134.mux, %.critedge4 ], [ %.071134, %259 ], [ %.071134, %.critedge.thread ], [ %spec.select164, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
+  %.3 = phi ptr [ %.273, %.critedge.thread ], [ %.273.mux, %.critedge4 ], [ %.273, %259 ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
+  %.1 = phi ptr [ %.071134, %.critedge.thread ], [ %.071134.mux, %.critedge4 ], [ %.071134, %259 ], [ %spec.select164, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
   %284 = add nuw nsw i32 %.078133, 1
   %285 = load i32, ptr %0, align 8
   %286 = icmp slt i32 %284, %285

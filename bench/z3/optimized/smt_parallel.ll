@@ -1010,8 +1010,8 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %360
   br label %398
 
 ._crit_edge263:                                   ; preds = %373, %326, %._crit_edge259, %_ZN6vectorISt6threadLb1EjE3endEv.exit
-  %369 = phi ptr [ %334, %_ZN6vectorISt6threadLb1EjE3endEv.exit ], [ null, %._crit_edge259 ], [ null, %326 ], [ %334, %373 ]
-  %370 = phi i1 [ false, %_ZN6vectorISt6threadLb1EjE3endEv.exit ], [ true, %._crit_edge259 ], [ true, %326 ], [ false, %373 ]
+  %369 = phi ptr [ null, %326 ], [ %334, %_ZN6vectorISt6threadLb1EjE3endEv.exit ], [ null, %._crit_edge259 ], [ %334, %373 ]
+  %370 = phi i1 [ true, %326 ], [ false, %_ZN6vectorISt6threadLb1EjE3endEv.exit ], [ true, %._crit_edge259 ], [ false, %373 ]
   %371 = load i8, ptr %17, align 1, !tbaa !561, !range !683, !noundef !684
   %372 = trunc nuw i8 %371 to i1
   br i1 %372, label %388, label %377
@@ -4194,7 +4194,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit50.i.i.i: ; preds = %_ZN11ast_man
   br i1 %.not27.old.i.i.i.i.i, label %.loopexit93.i.i.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %135, %132
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %135 ], [ %134, %132 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %134, %132 ], [ %.old.i.i.i.i.i, %135 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !723
 
 .loopexit93.i.i.i:                                ; preds = %121, %135, %132, %.preheader.i.i.i.i.i
@@ -4612,7 +4612,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %.body.i.i.i
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.i.i.i: ; preds = %116, %127, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i.i.i
-  %286 = phi ptr [ %.pre152.i.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i.i.i ], [ %96, %127 ], [ %96, %116 ]
+  %286 = phi ptr [ %96, %127 ], [ %.pre152.i.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i.i.i ], [ %96, %116 ]
   %.not.i.i59.i.i.i = icmp eq ptr %286, null
   br i1 %.not.i.i59.i.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i.i, label %287
 

@@ -27442,10 +27442,10 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   br i1 %exitcond99.not.i.us, label %_ZN2cv12cpu_baselineL19GEMM_TransposeBlockEPKhmPhmNS_5Size_IiEEm.exit.us, label %.preheader.us.us.i.us, !llvm.loop !538
 
 _ZN2cv12cpu_baselineL19GEMM_TransposeBlockEPKhmPhmNS_5Size_IiEEm.exit.us: ; preds = %..loopexit63_crit_edge.us.i.us, %..loopexit61_crit_edge.us.us.i.us, %..loopexit_crit_edge.us.us.i.us, %.lr.ph77.split.split.us.i.us, %.lr.ph77.split.split.us78.i.us, %.lr.ph77.split.split.i.us, %1014, %1013
-  %.sroa.01105.1.us = phi i32 [ %spec.select1249.us, %1013 ], [ %spec.select1250.us, %.lr.ph77.split.split.i.us ], [ %spec.select1250.us, %.lr.ph77.split.split.us78.i.us ], [ %spec.select1250.us, %.lr.ph77.split.split.us.i.us ], [ %spec.select1250.us, %1014 ], [ %spec.select1250.us, %..loopexit61_crit_edge.us.us.i.us ], [ %spec.select1250.us, %..loopexit_crit_edge.us.us.i.us ], [ %spec.select1250.us, %..loopexit63_crit_edge.us.i.us ]
-  %.sroa.11.1.us = phi i32 [ %spec.select1250.us, %1013 ], [ %spec.select1249.us, %.lr.ph77.split.split.i.us ], [ %spec.select1249.us, %.lr.ph77.split.split.us78.i.us ], [ %spec.select1249.us, %.lr.ph77.split.split.us.i.us ], [ %spec.select1249.us, %1014 ], [ %spec.select1249.us, %..loopexit61_crit_edge.us.us.i.us ], [ %spec.select1249.us, %..loopexit_crit_edge.us.us.i.us ], [ %spec.select1249.us, %..loopexit63_crit_edge.us.i.us ]
-  %.0903.us = phi ptr [ %1000, %1013 ], [ %944, %.lr.ph77.split.split.i.us ], [ %944, %.lr.ph77.split.split.us78.i.us ], [ %944, %.lr.ph77.split.split.us.i.us ], [ %944, %1014 ], [ %spec.select1085, %..loopexit61_crit_edge.us.us.i.us ], [ %spec.select1085, %..loopexit_crit_edge.us.us.i.us ], [ %spec.select1085, %..loopexit63_crit_edge.us.i.us ]
-  %.0902.us = phi i64 [ %1001, %1013 ], [ %1016, %.lr.ph77.split.split.i.us ], [ %1016, %.lr.ph77.split.split.us78.i.us ], [ %1016, %.lr.ph77.split.split.us.i.us ], [ %1016, %1014 ], [ %1016, %..loopexit61_crit_edge.us.us.i.us ], [ %1016, %..loopexit_crit_edge.us.us.i.us ], [ %1016, %..loopexit63_crit_edge.us.i.us ]
+  %.sroa.01105.1.us = phi i32 [ %spec.select1249.us, %1013 ], [ %spec.select1250.us, %..loopexit_crit_edge.us.us.i.us ], [ %spec.select1250.us, %.lr.ph77.split.split.i.us ], [ %spec.select1250.us, %..loopexit61_crit_edge.us.us.i.us ], [ %spec.select1250.us, %.lr.ph77.split.split.us78.i.us ], [ %spec.select1250.us, %1014 ], [ %spec.select1250.us, %.lr.ph77.split.split.us.i.us ], [ %spec.select1250.us, %..loopexit63_crit_edge.us.i.us ]
+  %.sroa.11.1.us = phi i32 [ %spec.select1250.us, %1013 ], [ %spec.select1249.us, %..loopexit_crit_edge.us.us.i.us ], [ %spec.select1249.us, %.lr.ph77.split.split.i.us ], [ %spec.select1249.us, %..loopexit61_crit_edge.us.us.i.us ], [ %spec.select1249.us, %.lr.ph77.split.split.us78.i.us ], [ %spec.select1249.us, %1014 ], [ %spec.select1249.us, %.lr.ph77.split.split.us.i.us ], [ %spec.select1249.us, %..loopexit63_crit_edge.us.i.us ]
+  %.0903.us = phi ptr [ %1000, %1013 ], [ %spec.select1085, %..loopexit_crit_edge.us.us.i.us ], [ %944, %.lr.ph77.split.split.i.us ], [ %spec.select1085, %..loopexit61_crit_edge.us.us.i.us ], [ %944, %.lr.ph77.split.split.us78.i.us ], [ %944, %1014 ], [ %944, %.lr.ph77.split.split.us.i.us ], [ %spec.select1085, %..loopexit63_crit_edge.us.i.us ]
+  %.0902.us = phi i64 [ %1001, %1013 ], [ %1016, %..loopexit_crit_edge.us.us.i.us ], [ %1016, %.lr.ph77.split.split.i.us ], [ %1016, %..loopexit61_crit_edge.us.us.i.us ], [ %1016, %.lr.ph77.split.split.us78.i.us ], [ %1016, %1014 ], [ %1016, %.lr.ph77.split.split.us.i.us ], [ %1016, %..loopexit63_crit_edge.us.i.us ]
   br i1 %993, label %1059, label %_ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us
 
 1059:                                             ; preds = %_ZN2cv12cpu_baselineL19GEMM_TransposeBlockEPKhmPhmNS_5Size_IiEEm.exit.us
@@ -28892,7 +28892,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc.i, %18, %9
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph264.split.i, %.preheader.loopexit.i, %.lr.ph264.split.split.us.preheader.i, %.loopexit.i
-  %.1175.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %160, %.preheader.loopexit.i ], [ %117, %.lr.ph264.split.split.us.preheader.i ], [ %121, %.lr.ph264.split.i ]
+  %.1175.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %117, %.lr.ph264.split.split.us.preheader.i ], [ %160, %.preheader.loopexit.i ], [ %121, %.lr.ph264.split.i ]
   %161 = icmp slt i32 %.1175.lcssa.i, %.sroa.0.0.extract.trunc.i
   br i1 %161, label %.lr.ph281.i, label %._crit_edge282.i
 
@@ -30316,7 +30316,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc.i, %18, %9
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph264.split.i, %.preheader.loopexit.i, %.lr.ph264.split.split.us.preheader.i, %.loopexit.i
-  %.1175.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %172, %.preheader.loopexit.i ], [ %134, %.lr.ph264.split.split.us.preheader.i ], [ %138, %.lr.ph264.split.i ]
+  %.1175.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %134, %.lr.ph264.split.split.us.preheader.i ], [ %172, %.preheader.loopexit.i ], [ %138, %.lr.ph264.split.i ]
   %173 = icmp slt i32 %.1175.lcssa.i, %.sroa.0.0.extract.trunc.i
   br i1 %173, label %.lr.ph281.i, label %._crit_edge282.i
 

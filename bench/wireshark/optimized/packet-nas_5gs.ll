@@ -4954,7 +4954,7 @@ default.unreachable78:                            ; preds = %.lr.ph
   unreachable
 
 .loopexit:                                        ; preds = %.preheader, %19, %36, %24
-  %.2 = phi i32 [ %38, %36 ], [ %29, %24 ], [ %22, %19 ], [ %34, %.preheader ]
+  %.2 = phi i32 [ %38, %36 ], [ %22, %19 ], [ %29, %24 ], [ %34, %.preheader ]
   %39 = load ptr, ptr %8, align 8
   %40 = sub i32 %.2, %.06373
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %40)
@@ -5889,7 +5889,7 @@ de_nas_5gs_cmn_s_nssai.exit:                      ; preds = %114, %114, %.lr.ph,
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %de_nas_5gs_cmn_s_nssai.exit, %.lr.ph139, %de_nas_5gs_cmn_dnn.exit, %91, %69, %47, %.lr.ph148
-  %.3 = phi i32 [ %45, %.lr.ph148 ], [ %50, %47 ], [ %72, %69 ], [ %94, %91 ], [ %86, %.lr.ph139 ], [ %64, %de_nas_5gs_cmn_dnn.exit ], [ %122, %de_nas_5gs_cmn_s_nssai.exit ]
+  %.3 = phi i32 [ %45, %.lr.ph148 ], [ %64, %de_nas_5gs_cmn_dnn.exit ], [ %86, %.lr.ph139 ], [ %50, %47 ], [ %72, %69 ], [ %94, %91 ], [ %122, %de_nas_5gs_cmn_s_nssai.exit ]
   %127 = load ptr, ptr %9, align 8
   %128 = sub i32 %.3, %.1146
   call void @proto_item_set_len(ptr noundef %127, i32 noundef %128)
@@ -6521,7 +6521,7 @@ default.unreachable78:                            ; preds = %.lr.ph
   unreachable
 
 .loopexit:                                        ; preds = %.preheader, %19, %36, %24
-  %.2 = phi i32 [ %38, %36 ], [ %29, %24 ], [ %22, %19 ], [ %34, %.preheader ]
+  %.2 = phi i32 [ %38, %36 ], [ %22, %19 ], [ %29, %24 ], [ %34, %.preheader ]
   %39 = load ptr, ptr %8, align 8
   %40 = sub i32 %.2, %.06373
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %40)

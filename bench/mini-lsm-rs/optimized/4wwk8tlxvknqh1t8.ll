@@ -6409,7 +6409,7 @@ _ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit: ; preds = 
   br i1 %145, label %.lr.ph.i.backedge, label %.critedge
 
 .critedge:                                        ; preds = %106, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i, %3, %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h6ffdfcd40353b1ebE.exit"
-  %.0 = phi i8 [ 2, %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h6ffdfcd40353b1ebE.exit" ], [ 1, %3 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ], [ 1, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ], [ 0, %106 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ]
+  %.0 = phi i8 [ 2, %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h6ffdfcd40353b1ebE.exit" ], [ 1, %3 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ], [ 0, %106 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ 1, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i8 %.0
 }

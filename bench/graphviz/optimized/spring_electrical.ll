@@ -1004,7 +1004,7 @@ ints_append.exit:                                 ; preds = %103, %109, %bitarra
   br label %136
 
 ._crit_edge106:                                   ; preds = %136, %bitarray_set.exit, %._crit_edge
-  %.sroa.0.2.lcssa128137 = phi ptr [ %.sroa.0.3, %._crit_edge ], [ null, %bitarray_set.exit ], [ %.sroa.0.3, %136 ]
+  %.sroa.0.2.lcssa128137 = phi ptr [ null, %bitarray_set.exit ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.3, %136 ]
   tail call void @free(ptr noundef %.sroa.0.2.lcssa128137) #25
   br label %153
 

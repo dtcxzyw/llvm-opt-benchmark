@@ -3113,7 +3113,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i
   br label %_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit
 
 _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %134, %108, %123, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i, %136
-  %storemerge.i = phi i64 [ %142, %136 ], [ %12, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i ], [ %12, %123 ], [ %12, %108 ], [ %12, %134 ]
+  %storemerge.i = phi i64 [ %142, %136 ], [ %12, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i ], [ %12, %108 ], [ %12, %123 ], [ %12, %134 ]
   call void @_ZN5clang7CodeGen13CodeGenModule25SetLLVMFunctionAttributesENS_10GlobalDeclERKNS0_14CGFunctionInfoEPN4llvm8FunctionEb(ptr noundef nonnull align 8 dereferenceable(3608) %120, i64 %storemerge.i, i32 0, ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull %119, i1 noundef zeroext false) #20
   %143 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !863
@@ -3923,7 +3923,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i
   unreachable
 
 _ZNK5clang15VTableComponent13getGlobalDeclEv.exit: ; preds = %70, %57, %59, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i, %72, %79, %82
-  %.sroa.0.0.i = phi i64 [ %83, %82 ], [ %81, %79 ], [ %78, %72 ], [ %.0.v.i.i, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i ], [ %.0.v.i.i, %59 ], [ %.0.v.i.i, %57 ], [ %.0.v.i.i, %70 ]
+  %.sroa.0.0.i = phi i64 [ %83, %82 ], [ %81, %79 ], [ %78, %72 ], [ %.0.v.i.i, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i ], [ %.0.v.i.i, %57 ], [ %.0.v.i.i, %59 ], [ %.0.v.i.i, %70 ]
   %85 = load ptr, ptr %0, align 8, !tbaa !845
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 152
   %87 = load ptr, ptr %86, align 8, !tbaa !877
@@ -6437,7 +6437,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen14CodeGenVTables16isVTable
   br label %24
 
 24:                                               ; preds = %7, %.fold.split, %11, %13, %18, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ %12, %11 ], [ %23, %18 ], [ false, %13 ], [ false, %.fold.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ true, %7 ], [ %12, %11 ], [ %23, %18 ], [ false, %.fold.split ]
   ret i1 %.0
 }
 
@@ -8147,7 +8147,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1419
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

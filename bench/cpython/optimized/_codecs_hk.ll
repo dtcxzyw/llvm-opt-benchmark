@@ -452,8 +452,8 @@ importmap.exit.thread.sink.split:                 ; preds = %32, %27
   tail call void @_Py_Dealloc(ptr noundef nonnull %6) #7
   br label %importmap.exit.thread
 
-importmap.exit.thread:                            ; preds = %importmap.exit.thread.sink.split, %27, %Py_DECREF.exit25.i, %30, %32, %1
-  %35 = phi i32 [ -1, %30 ], [ 0, %Py_DECREF.exit25.i ], [ 0, %27 ], [ -1, %1 ], [ -1, %32 ], [ %.ph, %importmap.exit.thread.sink.split ]
+importmap.exit.thread:                            ; preds = %importmap.exit.thread.sink.split, %Py_DECREF.exit25.i, %27, %30, %32, %1
+  %35 = phi i32 [ -1, %30 ], [ 0, %27 ], [ 0, %Py_DECREF.exit25.i ], [ -1, %1 ], [ -1, %32 ], [ %.ph, %importmap.exit.thread.sink.split ]
   ret i32 %35
 }
 

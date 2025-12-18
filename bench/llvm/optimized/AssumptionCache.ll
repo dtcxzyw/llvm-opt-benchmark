@@ -711,7 +711,7 @@ _ZN4llvm11SmallVectorINS_15AssumptionCache10ResultElemELj16EED2Ev.exit: ; preds 
   br label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit57.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit58.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit59.i.i.i.i.i", %.loopexit.split.loop.exit61.i.i.i.i.i, %.loopexit.split.loop.exit63.i.i.i.i.i, %.loopexit.split.loop.exit65.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit58.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit59.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit57.i.i.i.i.i" ], [ %83, %.loopexit.split.loop.exit63.i.i.i.i.i ], [ %82, %.loopexit.split.loop.exit61.i.i.i.i.i ], [ %84, %.loopexit.split.loop.exit65.i.i.i.i.i ], [ %.02970.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit.i.i.i.i.i" ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit58.i.i.i.i.i" ], [ %84, %.loopexit.split.loop.exit65.i.i.i.i.i ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit59.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit57.i.i.i.i.i" ], [ %83, %.loopexit.split.loop.exit63.i.i.i.i.i ], [ %82, %.loopexit.split.loop.exit61.i.i.i.i.i ], [ %.02970.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit.i.i.i.i.i" ]
   %85 = icmp eq ptr %32, %.028.i.i.i.i.i
   br i1 %85, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit.thread", label %91
 
@@ -1912,7 +1912,7 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit: ; preds = %71, %92, %100, %107, %.loopexit.split.loop.exit37.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i, %.loopexit.split.loop.exit41.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %100 ], [ %.2.i.i.i.i, %107 ], [ %.029.lcssa.i.i.i.i, %92 ], [ %113, %.loopexit.split.loop.exit39.i.i.i.i ], [ %112, %.loopexit.split.loop.exit37.i.i.i.i ], [ %114, %.loopexit.split.loop.exit41.i.i.i.i ], [ %.02946.i.i.i.i, %71 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %100 ], [ %114, %.loopexit.split.loop.exit41.i.i.i.i ], [ %.2.i.i.i.i, %107 ], [ %.029.lcssa.i.i.i.i, %92 ], [ %113, %.loopexit.split.loop.exit39.i.i.i.i ], [ %112, %.loopexit.split.loop.exit37.i.i.i.i ], [ %.02946.i.i.i.i, %71 ]
   %.not21 = icmp eq ptr %.028.i.i.i.i, %66
   br i1 %.not21, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit.thread, label %115
 
@@ -4995,7 +4995,7 @@ define linkonce_odr noundef ptr @_ZSt11__remove_ifIPN4llvm15AssumptionCache10Res
   br label %_ZSt9__find_ifIPN4llvm15AssumptionCache10ResultElemEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_10AssumeInstEEEET_SB_SB_T0_.exit
 
 _ZSt9__find_ifIPN4llvm15AssumptionCache10ResultElemEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_10AssumeInstEEEET_SB_SB_T0_.exit: ; preds = %11, %32, %39, %46, %.loopexit.split.loop.exit37.i.i, %.loopexit.split.loop.exit39.i.i, %.loopexit.split.loop.exit41.i.i
-  %.028.i.i = phi ptr [ %.1.i.i, %39 ], [ %.2.i.i, %46 ], [ %.029.lcssa.i.i, %32 ], [ %52, %.loopexit.split.loop.exit39.i.i ], [ %51, %.loopexit.split.loop.exit37.i.i ], [ %53, %.loopexit.split.loop.exit41.i.i ], [ %.02946.i.i, %11 ]
+  %.028.i.i = phi ptr [ %.1.i.i, %39 ], [ %53, %.loopexit.split.loop.exit41.i.i ], [ %.2.i.i, %46 ], [ %.029.lcssa.i.i, %32 ], [ %52, %.loopexit.split.loop.exit39.i.i ], [ %51, %.loopexit.split.loop.exit37.i.i ], [ %.02946.i.i, %11 ]
   %54 = icmp eq ptr %.028.i.i, %1
   %.01726 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 32
   %.not27 = icmp eq ptr %.01726, %1
@@ -5063,7 +5063,7 @@ _ZN4llvm15AssumptionCache10ResultElemaSEOS1_.exit: ; preds = %59, %_ZN4llvm15Val
   br i1 %.not, label %_ZSt9__find_ifIPN4llvm15AssumptionCache10ResultElemEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_10AssumeInstEEEET_SB_SB_T0_.exit.thread, label %.lr.ph, !llvm.loop !224
 
 _ZSt9__find_ifIPN4llvm15AssumptionCache10ResultElemEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_10AssumeInstEEEET_SB_SB_T0_.exit.thread: ; preds = %73, %46, %._crit_edge.i.i, %_ZSt9__find_ifIPN4llvm15AssumptionCache10ResultElemEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_10AssumeInstEEEET_SB_SB_T0_.exit
-  %.016 = phi ptr [ %.028.i.i, %_ZSt9__find_ifIPN4llvm15AssumptionCache10ResultElemEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_10AssumeInstEEEET_SB_SB_T0_.exit ], [ %1, %._crit_edge.i.i ], [ %1, %46 ], [ %.1, %73 ]
+  %.016 = phi ptr [ %.028.i.i, %_ZSt9__find_ifIPN4llvm15AssumptionCache10ResultElemEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_10AssumeInstEEEET_SB_SB_T0_.exit ], [ %1, %46 ], [ %1, %._crit_edge.i.i ], [ %.1, %73 ]
   ret ptr %.016
 }
 

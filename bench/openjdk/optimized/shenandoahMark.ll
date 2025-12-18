@@ -1683,7 +1683,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit: ; preds = %.lr.ph189.s
   %478 = icmp eq i8 %477, 1
   br i1 %478, label %.loopexit, label %.lr.ph189.split.split
 
-._crit_edge:                                      ; preds = %448, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %448, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %479 = load ptr, ptr %0, align 8
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 16
   %481 = load ptr, ptr %480, align 8
@@ -2935,7 +2935,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit: ; preds = %.lr.ph87.sp
   %193 = icmp eq i8 %192, 1
   br i1 %193, label %.loopexit, label %.lr.ph87.split.split
 
-._crit_edge:                                      ; preds = %163, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %163, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %194 = load ptr, ptr %0, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load ptr, ptr %195, align 8
@@ -14277,7 +14277,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit: ; preds = %.lr.ph190.s
   %479 = icmp eq i8 %478, 1
   br i1 %479, label %.loopexit, label %.lr.ph190.split.split
 
-._crit_edge:                                      ; preds = %449, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %449, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %480 = load ptr, ptr %0, align 8
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 16
   %482 = load ptr, ptr %481, align 8
@@ -15539,7 +15539,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit: ; preds = %.lr.ph88.sp
   %194 = icmp eq i8 %193, 1
   br i1 %194, label %.loopexit, label %.lr.ph88.split.split
 
-._crit_edge:                                      ; preds = %164, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %164, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %195 = load ptr, ptr %0, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load ptr, ptr %196, align 8
@@ -16679,7 +16679,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit: ; preds = %.lr.ph76.sp
   %131 = icmp eq i8 %130, 1
   br i1 %131, label %.loopexit, label %.lr.ph76.split.split
 
-._crit_edge:                                      ; preds = %101, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %101, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
@@ -17221,7 +17221,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit: ; preds = %.lr.ph76.sp
   %131 = icmp eq i8 %130, 1
   br i1 %131, label %.loopexit, label %.lr.ph76.split.split
 
-._crit_edge:                                      ; preds = %101, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %101, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit45.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
@@ -18679,7 +18679,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %.not.us = icmp eq ptr %.1.us, null
   br i1 %.not.us, label %._crit_edge, label %.preheader176.us, !llvm.loop !120
 
-._crit_edge:                                      ; preds = %449, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %449, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %456 = load ptr, ptr %0, align 8
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 16
   %458 = load ptr, ptr %457, align 8
@@ -19822,7 +19822,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %.not.us = icmp eq ptr %.1.us, null
   br i1 %.not.us, label %._crit_edge, label %.preheader76.us, !llvm.loop !125
 
-._crit_edge:                                      ; preds = %164, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %164, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %171 = load ptr, ptr %0, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
@@ -21115,7 +21115,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %.not.us = icmp eq ptr %.1.us, null
   br i1 %.not.us, label %._crit_edge, label %.preheader192.us, !llvm.loop !130
 
-._crit_edge:                                      ; preds = %503, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %503, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %510 = load ptr, ptr %0, align 8
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 16
   %512 = load ptr, ptr %511, align 8
@@ -22434,7 +22434,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %.not.us = icmp eq ptr %.1.us, null
   br i1 %.not.us, label %._crit_edge, label %.preheader90.us, !llvm.loop !135
 
-._crit_edge:                                      ; preds = %218, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %218, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %225 = load ptr, ptr %0, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load ptr, ptr %226, align 8
@@ -23131,7 +23131,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %.not.us = icmp eq ptr %.1.us, null
   br i1 %.not.us, label %._crit_edge, label %.preheader65.us, !llvm.loop !140
 
-._crit_edge:                                      ; preds = %102, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %102, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
@@ -23564,7 +23564,7 @@ _ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahM
   %.not.us = icmp eq ptr %.1.us, null
   br i1 %.not.us, label %._crit_edge, label %.preheader65.us, !llvm.loop !145
 
-._crit_edge:                                      ; preds = %102, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
+._crit_edge:                                      ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit.us, %102, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit43.us, %19, %6, %_ZN25ParallelClaimableQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE10claim_nextEv.exit
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8

@@ -753,7 +753,7 @@ define dso_local ptr @index_file_exists(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not, label %same_name.exit, label %.lr.ph.split.split, !llvm.loop !71
 
 same_name.exit:                                   ; preds = %.loopexit, %26, %46, %.lr.ph.split.split.us, %21, %16, %14, %4
-  %.01723 = phi ptr [ null, %4 ], [ null, %16 ], [ %.01725, %46 ], [ %.01725.us30, %.lr.ph.split.split.us ], [ %.01725.us, %14 ], [ null, %21 ], [ null, %.loopexit ], [ %.01725, %26 ]
+  %.01723 = phi ptr [ null, %16 ], [ null, %4 ], [ %.01725, %46 ], [ %.01725.us30, %.lr.ph.split.split.us ], [ %.01725.us, %14 ], [ null, %21 ], [ null, %.loopexit ], [ %.01725, %26 ]
   ret ptr %.01723
 }
 

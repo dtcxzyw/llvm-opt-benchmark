@@ -1218,7 +1218,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %
   br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3464 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
+  %.0.i.i.i3464 = phi ptr [ null, %104 ], [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ %107, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !91
   %.not.i5.i.i36 = icmp ne ptr %115, null
@@ -1951,7 +1951,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %
   br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3464 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
+  %.0.i.i.i3464 = phi ptr [ null, %104 ], [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ %107, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !91
   %.not.i5.i.i36 = icmp ne ptr %115, null

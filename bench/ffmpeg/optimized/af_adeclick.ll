@@ -1281,8 +1281,8 @@ define internal i32 @detect_clicks(ptr noundef readonly captures(none) %0, ptr r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph82.preheader, %52, %58, %48
-  %68 = phi i32 [ %49, %48 ], [ %49, %58 ], [ %.pre, %.lr.ph82.preheader ], [ %49, %52 ]
-  %.1 = phi i32 [ %.084, %48 ], [ %54, %58 ], [ %54, %.lr.ph82.preheader ], [ %54, %52 ]
+  %68 = phi i32 [ %49, %48 ], [ %49, %52 ], [ %49, %58 ], [ %.pre, %.lr.ph82.preheader ]
+  %.1 = phi i32 [ %.084, %48 ], [ %54, %52 ], [ %54, %58 ], [ %54, %.lr.ph82.preheader ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next107, %69
@@ -2156,7 +2156,7 @@ isfinite_array.exit:                              ; preds = %.lr.ph.i126
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.i.i.i, %factorization.exit.i.i, %135, %150, %._crit_edge
-  %.3 = phi i32 [ 0, %._crit_edge ], [ -12, %factorization.exit.i.i ], [ -12, %135 ], [ -12, %150 ], [ -1, %._crit_edge.i.i.i ]
+  %.3 = phi i32 [ 0, %._crit_edge ], [ -12, %150 ], [ -12, %factorization.exit.i.i ], [ -12, %135 ], [ -1, %._crit_edge.i.i.i ]
   ret i32 %.3
 }
 

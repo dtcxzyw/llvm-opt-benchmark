@@ -327,8 +327,8 @@ define dso_local noundef range(i32 -95, 1) i32 @__blkdev_issue_zeroout(ptr nound
   br i1 %68, label %.lr.ph.i, label %.thread6.i
 
 .thread6.i:                                       ; preds = %.lr.ph.i, %.lr.ph12.i, %.split.split.i, %.split.split.us.i
-  %.us-phi.i = phi i64 [ %2, %.split.split.us.i ], [ %2, %.split.split.i ], [ %59, %.lr.ph12.i ], [ %77, %.lr.ph.i ]
-  %.us-phi10.i = phi ptr [ %52, %.split.split.us.i ], [ %52, %.split.split.i ], [ %62, %.lr.ph12.i ], [ %80, %.lr.ph.i ]
+  %.us-phi.i = phi i64 [ %59, %.lr.ph12.i ], [ %2, %.split.split.us.i ], [ %2, %.split.split.i ], [ %77, %.lr.ph.i ]
+  %.us-phi10.i = phi ptr [ %62, %.lr.ph12.i ], [ %52, %.split.split.us.i ], [ %52, %.split.split.i ], [ %80, %.lr.ph.i ]
   %69 = trunc nuw i64 %.us-phi.i to i32
   %70 = shl i32 %69, 9
   %71 = getelementptr inbounds nuw i8, ptr %.us-phi10.i, i64 40
@@ -725,8 +725,8 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %126, label %.lr.ph, label %.thread12
 
 .thread12:                                        ; preds = %.lr.ph, %.lr.ph22, %.split.split, %.split.split.us
-  %.us-phi = phi i64 [ %2, %.split.split.us ], [ %2, %.split.split ], [ %117, %.lr.ph22 ], [ %135, %.lr.ph ]
-  %.us-phi20 = phi ptr [ %110, %.split.split.us ], [ %110, %.split.split ], [ %120, %.lr.ph22 ], [ %138, %.lr.ph ]
+  %.us-phi = phi i64 [ %117, %.lr.ph22 ], [ %2, %.split.split.us ], [ %2, %.split.split ], [ %135, %.lr.ph ]
+  %.us-phi20 = phi ptr [ %120, %.lr.ph22 ], [ %110, %.split.split.us ], [ %110, %.split.split ], [ %138, %.lr.ph ]
   %127 = trunc nuw i64 %.us-phi to i32
   %128 = shl i32 %127, 9
   %129 = getelementptr inbounds nuw i8, ptr %.us-phi20, i64 40
@@ -803,7 +803,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %.thread13, %.thread13.us.us.thread, %.loopexit14.split.us.split, %.thread13.thread, %161, %.split28, %.thread
-  %166 = phi i32 [ -22, %.thread ], [ %165, %161 ], [ -95, %.split28 ], [ -95, %.thread13.thread ], [ 0, %.loopexit14.split.us.split ], [ %.ph, %.thread13.us.us.thread ], [ %155, %.thread13 ]
+  %166 = phi i32 [ -22, %.thread ], [ %165, %161 ], [ -95, %.split28 ], [ -95, %.thread13.thread ], [ %.ph, %.thread13.us.us.thread ], [ 0, %.loopexit14.split.us.split ], [ %155, %.thread13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %166

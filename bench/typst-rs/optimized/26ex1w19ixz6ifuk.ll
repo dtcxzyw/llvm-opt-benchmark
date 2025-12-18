@@ -30585,7 +30585,7 @@ switch.lookup:                                    ; preds = %234, %263, %187
   br i1 %338, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h5684a8e098916345E.exit, label %331
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h5684a8e098916345E.exit: ; preds = %331, %325, %321
-  %.0.i = phi ptr [ %322, %325 ], [ null, %321 ], [ %.0.sroa.speculated.i.i.i.i, %331 ]
+  %.0.i = phi ptr [ null, %321 ], [ %322, %325 ], [ %.0.sroa.speculated.i.i.i.i, %331 ]
   %339 = icmp eq ptr %.0.i, null
   %anon.d0b53836d7e1f22013aa0a92172aa16d.92. = select i1 %339, ptr @anon.d0b53836d7e1f22013aa0a92172aa16d.92, ptr %.0.i
   %340 = load i64, ptr %anon.d0b53836d7e1f22013aa0a92172aa16d.92., align 8, !noundef !47

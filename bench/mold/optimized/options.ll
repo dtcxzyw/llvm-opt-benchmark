@@ -437,7 +437,7 @@ thread-pre-split:                                 ; preds = %39, %46, %49, %43
   br i1 %82, label %.lr.ph.i.backedge, label %mi_option_set.exit
 
 .lr.ph.i.backedge:                                ; preds = %80, %77
-  %.tr14.i.be = phi i32 [ 31, %77 ], [ 30, %80 ]
+  %.tr14.i.be = phi i32 [ 30, %80 ], [ 31, %77 ]
   br label %.lr.ph.i
 
 83:                                               ; preds = %66
@@ -568,7 +568,7 @@ define hidden void @mi_option_set(i32 noundef %0, i64 noundef %1) local_unnamed_
   br i1 %11, label %.lr.ph.backedge, label %.thread
 
 .lr.ph.backedge:                                  ; preds = %9, %12
-  %.tr14.be = phi i32 [ 31, %9 ], [ 30, %12 ]
+  %.tr14.be = phi i32 [ 30, %12 ], [ 31, %9 ]
   br label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
@@ -659,7 +659,7 @@ define hidden void @mi_option_set_enabled(i32 noundef %0, i1 noundef zeroext %1)
   br i1 %15, label %.lr.ph.i.backedge, label %mi_option_set.exit
 
 .lr.ph.i.backedge:                                ; preds = %13, %10
-  %.tr14.i.be = phi i32 [ 31, %10 ], [ 30, %13 ]
+  %.tr14.i.be = phi i32 [ 30, %13 ], [ 31, %10 ]
   br label %.lr.ph.i
 
 mi_option_set.exit:                               ; preds = %.lr.ph.i, %10, %13, %2
@@ -718,7 +718,7 @@ define hidden void @mi_option_enable(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %13, label %.lr.ph.i.i.backedge, label %mi_option_set_enabled.exit
 
 .lr.ph.i.i.backedge:                              ; preds = %11, %8
-  %.tr14.i.i.be = phi i32 [ 31, %8 ], [ 30, %11 ]
+  %.tr14.i.i.be = phi i32 [ 30, %11 ], [ 31, %8 ]
   br label %.lr.ph.i.i
 
 mi_option_set_enabled.exit:                       ; preds = %.lr.ph.i.i, %8, %11, %1
@@ -755,7 +755,7 @@ define hidden void @mi_option_disable(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %13, label %.lr.ph.i.i.backedge, label %mi_option_set_enabled.exit
 
 .lr.ph.i.i.backedge:                              ; preds = %11, %8
-  %.tr14.i.i.be = phi i32 [ 31, %8 ], [ 30, %11 ]
+  %.tr14.i.i.be = phi i32 [ 30, %11 ], [ 31, %8 ]
   br label %.lr.ph.i.i
 
 mi_option_set_enabled.exit:                       ; preds = %.lr.ph.i.i, %8, %11, %1

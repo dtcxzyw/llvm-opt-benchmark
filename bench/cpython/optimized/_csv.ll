@@ -1902,7 +1902,7 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %107, 
   br label %Py_DECREF.exit48
 
 Py_DECREF.exit48:                                 ; preds = %Py_DECREF.exit, %Py_XDECREF.exit.i, %8, %1, %105, %102, %.split.us, %61, %58, %52, %.loopexit, %31, %35, %45, %43
-  %.0 = phi ptr [ null, %105 ], [ null, %8 ], [ null, %31 ], [ null, %43 ], [ null, %45 ], [ null, %35 ], [ %115, %.loopexit ], [ null, %61 ], [ null, %52 ], [ null, %58 ], [ null, %.split.us ], [ null, %102 ], [ null, %1 ], [ null, %Py_XDECREF.exit.i ], [ null, %Py_DECREF.exit ]
+  %.0 = phi ptr [ null, %Py_XDECREF.exit.i ], [ null, %105 ], [ null, %8 ], [ null, %31 ], [ null, %43 ], [ null, %45 ], [ null, %35 ], [ %115, %.loopexit ], [ null, %61 ], [ null, %52 ], [ null, %58 ], [ null, %.split.us ], [ null, %102 ], [ null, %1 ], [ null, %Py_DECREF.exit ]
   ret ptr %.0
 }
 
@@ -4609,7 +4609,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exitthrea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %32, %Py_DECREF.exit, %45, %47, %17, %12, %7, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %7 ], [ -1, %12 ], [ -1, %17 ], [ -1, %45 ], [ -1, %32 ], [ -1, %Py_DECREF.exit ], [ %., %47 ], [ -1, %.preheader ]
+  %.0 = phi i32 [ %., %47 ], [ -1, %1 ], [ -1, %7 ], [ -1, %12 ], [ -1, %17 ], [ -1, %45 ], [ -1, %32 ], [ -1, %Py_DECREF.exit ], [ -1, %.preheader ]
   ret i32 %.0
 }
 

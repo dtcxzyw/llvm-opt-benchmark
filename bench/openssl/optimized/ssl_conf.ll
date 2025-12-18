@@ -222,7 +222,7 @@ define range(i32 -3, 3) i32 @SSL_CONF_cmd(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not25.i, label %ssl_conf_cmd_lookup.exit, label %ssl_conf_cmd_skip_prefix.exit
 
 ssl_conf_cmd_skip_prefix.exit:                    ; preds = %30, %25, %22
-  %.032 = phi ptr [ %1, %25 ], [ %24, %22 ], [ %31, %30 ]
+  %.032 = phi ptr [ %24, %22 ], [ %1, %25 ], [ %31, %30 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %ssl_conf_cmd_skip_prefix.exit, %ssl_conf_cmd_allowed.exit.thread.i
@@ -398,7 +398,7 @@ ssl_conf_cmd_allowed.exit.thread.i:               ; preds = %55, %52, %50, %ssl_
   br label %ctrl_switch_option.exit
 
 ssl_conf_cmd_lookup.exit:                         ; preds = %ssl_conf_cmd_allowed.exit.thread.i, %30, %28, %16, %9, %20
-  %.03236 = phi ptr [ %1, %20 ], [ %1, %9 ], [ %1, %16 ], [ %1, %28 ], [ %1, %30 ], [ %.032, %ssl_conf_cmd_allowed.exit.thread.i ]
+  %.03236 = phi ptr [ %1, %30 ], [ %1, %20 ], [ %1, %9 ], [ %1, %16 ], [ %1, %28 ], [ %.032, %ssl_conf_cmd_allowed.exit.thread.i ]
   %112 = load i32, ptr %0, align 8, !tbaa !18
   %113 = and i32 %112, 16
   %.not22 = icmp eq i32 %113, 0
@@ -561,7 +561,7 @@ define range(i32 0, 65536) i32 @SSL_CONF_cmd_value_type(ptr noundef readonly cap
   br i1 %.not25.i, label %ssl_conf_cmd_skip_prefix.exit.thread, label %ssl_conf_cmd_skip_prefix.exit
 
 ssl_conf_cmd_skip_prefix.exit:                    ; preds = %28, %23, %20
-  %.0 = phi ptr [ %1, %23 ], [ %22, %20 ], [ %29, %28 ]
+  %.0 = phi ptr [ %22, %20 ], [ %1, %23 ], [ %29, %28 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %ssl_conf_cmd_skip_prefix.exit, %ssl_conf_cmd_allowed.exit.thread.i
@@ -803,7 +803,7 @@ cmd_PrivateKey.exit..critedge_crit_edge:          ; preds = %cmd_PrivateKey.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %cmd_PrivateKey.exit, %.thread57, %63
-  %.2 = phi i32 [ 1, %63 ], [ 1, %.thread57 ], [ 0, %cmd_PrivateKey.exit ]
+  %.2 = phi i32 [ 1, %.thread57 ], [ 1, %63 ], [ 0, %cmd_PrivateKey.exit ]
   ret i32 %.2
 }
 
@@ -2663,7 +2663,7 @@ ssl_match_option.exit:                            ; preds = %.ssl_match_option.e
   br i1 %74, label %.lr.ph.split, label %ssl_match_option.exit.thread, !llvm.loop !148
 
 ssl_match_option.exit.thread:                     ; preds = %ssl_match_option.exit, %ssl_match_option.exit.us, %14, %64, %60, %57, %50, %.split.us, %3
-  %.021 = phi i32 [ 0, %3 ], [ 1, %.split.us ], [ 1, %50 ], [ 1, %57 ], [ 1, %60 ], [ 1, %64 ], [ 0, %14 ], [ 0, %ssl_match_option.exit.us ], [ 0, %ssl_match_option.exit ]
+  %.021 = phi i32 [ 1, %64 ], [ 0, %3 ], [ 1, %.split.us ], [ 1, %50 ], [ 1, %57 ], [ 1, %60 ], [ 0, %14 ], [ 0, %ssl_match_option.exit.us ], [ 0, %ssl_match_option.exit ]
   ret i32 %.021
 }
 

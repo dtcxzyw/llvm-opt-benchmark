@@ -1499,9 +1499,9 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %433, %_ZNSt6vectorI
   ret i32 %.0370
 
 .body:                                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit46.i, %370, %409
-  %.sroa.0193.0 = phi ptr [ %.sroa.0193.4, %409 ], [ %.sroa.0193.4, %370 ], [ %.sroa.0193.1, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ]
-  %.sroa.19203.0 = phi ptr [ %.sroa.19203.4, %409 ], [ %.sroa.19203.4, %370 ], [ %.sroa.19203.1, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ]
-  %.pn85.pn = phi { ptr, i32 } [ %410, %409 ], [ %371, %370 ], [ %lpad.phi.i, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ]
+  %.sroa.0193.0 = phi ptr [ %.sroa.0193.1, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ], [ %.sroa.0193.4, %409 ], [ %.sroa.0193.4, %370 ]
+  %.sroa.19203.0 = phi ptr [ %.sroa.19203.1, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ], [ %.sroa.19203.4, %409 ], [ %.sroa.19203.4, %370 ]
+  %.pn85.pn = phi { ptr, i32 } [ %lpad.phi.i, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ], [ %410, %409 ], [ %371, %370 ]
   %.not.i.i.i162 = icmp eq ptr %.sroa.0193.0, null
   br i1 %.not.i.i.i162, label %_ZN4ncnn3MatD2Ev.exit94thread-pre-split, label %.body.thread254
 

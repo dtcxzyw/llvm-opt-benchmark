@@ -1705,8 +1705,8 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   br i1 %157, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.backedge, %.backedge.us54, %104, %.backedge.us, %67, %.thread4.us
-  %158 = phi i32 [ %116, %.backedge.us54 ], [ %.be.us, %.backedge.us ], [ %68, %67 ], [ %71, %.thread4.us ], [ %114, %104 ], [ %154, %.backedge ]
-  %159 = phi i32 [ %115, %.backedge.us54 ], [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %44, %.thread4.us ], [ %105, %104 ], [ %153, %.backedge ]
+  %158 = phi i32 [ %116, %.backedge.us54 ], [ %71, %.thread4.us ], [ %68, %67 ], [ %.be.us, %.backedge.us ], [ %114, %104 ], [ %154, %.backedge ]
+  %159 = phi i32 [ %115, %.backedge.us54 ], [ %44, %.thread4.us ], [ %44, %67 ], [ %.be12.us, %.backedge.us ], [ %105, %104 ], [ %153, %.backedge ]
   %.fr = freeze i32 %158
   %160 = icmp eq i32 %.fr, 0
   br i1 %160, label %.loopexit.thread109, label %.loopexit.thread
@@ -1715,7 +1715,7 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %129, %144, %98, %82, %.backedge.us34, %40, %61, %.split.us, %.loopexit, %.loopexit.thread109
-  %161 = phi i32 [ 0, %.loopexit.thread109 ], [ %159, %.loopexit ], [ %2, %40 ], [ %151, %.split.us ], [ %100, %98 ], [ %84, %82 ], [ %44, %61 ], [ 0, %.backedge.us34 ], [ %131, %129 ], [ %135, %144 ]
+  %161 = phi i32 [ 0, %.loopexit.thread109 ], [ %159, %.loopexit ], [ 0, %.backedge.us34 ], [ %2, %40 ], [ %151, %.split.us ], [ %100, %98 ], [ %44, %61 ], [ %84, %82 ], [ %135, %144 ], [ %131, %129 ]
   ret i32 %161
 }
 
@@ -3924,9 +3924,9 @@ define internal fastcc void @__inet_del_ifa(ptr noundef readonly captures(none) 
   br i1 %142, label %.thread17, label %.split37.us, !llvm.loop !91
 
 .thread17:                                        ; preds = %.loopexit18.split, %119, %.loopexit18.split.us.us, %139, %34, %29, %24
-  %143 = phi ptr [ null, %24 ], [ null, %29 ], [ null, %34 ], [ %73, %119 ], [ %44, %139 ], [ %42, %.loopexit18.split.us.us ], [ %76, %.loopexit18.split ]
-  %144 = phi ptr [ %1, %24 ], [ %1, %29 ], [ %1, %34 ], [ %72, %119 ], [ %43, %139 ], [ %49, %.loopexit18.split.us.us ], [ %99, %.loopexit18.split ]
-  %145 = phi ptr [ null, %24 ], [ null, %29 ], [ null, %34 ], [ null, %119 ], [ %42, %139 ], [ null, %.loopexit18.split.us.us ], [ null, %.loopexit18.split ]
+  %143 = phi ptr [ null, %24 ], [ null, %29 ], [ null, %34 ], [ %42, %.loopexit18.split.us.us ], [ %44, %139 ], [ %73, %119 ], [ %76, %.loopexit18.split ]
+  %144 = phi ptr [ %1, %24 ], [ %1, %29 ], [ %1, %34 ], [ %49, %.loopexit18.split.us.us ], [ %43, %139 ], [ %72, %119 ], [ %99, %.loopexit18.split ]
+  %145 = phi ptr [ null, %24 ], [ null, %29 ], [ null, %34 ], [ null, %.loopexit18.split.us.us ], [ %42, %139 ], [ null, %119 ], [ null, %.loopexit18.split ]
   %146 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %147 = load ptr, ptr %146, align 8
   store ptr %147, ptr %1, align 8
@@ -5839,7 +5839,7 @@ define internal range(i32 32768, 2) i32 @inetdev_event(ptr readnone captures(non
   br label %devinet_sysctl_register.exit
 
 devinet_sysctl_register.exit:                     ; preds = %101, %150, %152, %241, %232, %228, %225, %218, %173, %171, %112, %111, %110, %109, %95, %83, %43, %42, %41, %39, %35, %31, %26, %19, %15
-  %243 = phi i32 [ %25, %19 ], [ 0, %15 ], [ 0, %42 ], [ 0, %109 ], [ 0, %110 ], [ 0, %111 ], [ 0, %41 ], [ 0, %43 ], [ 0, %83 ], [ 0, %112 ], [ 0, %31 ], [ 0, %26 ], [ 0, %35 ], [ 0, %39 ], [ 0, %95 ], [ 0, %241 ], [ 0, %171 ], [ 0, %173 ], [ 0, %218 ], [ 0, %225 ], [ 0, %228 ], [ 0, %232 ], [ 0, %152 ], [ 0, %150 ], [ 0, %101 ]
+  %243 = phi i32 [ %25, %19 ], [ 0, %15 ], [ 0, %42 ], [ 0, %109 ], [ 0, %110 ], [ 0, %111 ], [ 0, %150 ], [ 0, %41 ], [ 0, %43 ], [ 0, %83 ], [ 0, %112 ], [ 0, %31 ], [ 0, %26 ], [ 0, %35 ], [ 0, %39 ], [ 0, %95 ], [ 0, %241 ], [ 0, %171 ], [ 0, %173 ], [ 0, %218 ], [ 0, %225 ], [ 0, %228 ], [ 0, %232 ], [ 0, %152 ], [ 0, %101 ]
   ret i32 %243
 }
 

@@ -5156,7 +5156,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %39
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit:   ; preds = %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i, %29
-  %.ph.ph = phi ptr [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %25, %29 ]
+  %.ph.ph = phi ptr [ %25, %29 ], [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %lpad.thr_comm.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
@@ -5740,7 +5740,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %39
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit:   ; preds = %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i, %29
-  %.ph.ph = phi ptr [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %25, %29 ]
+  %.ph.ph = phi ptr [ %25, %29 ], [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %lpad.thr_comm.split-lp46 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit

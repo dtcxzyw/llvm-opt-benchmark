@@ -373,7 +373,7 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   br label %dissect_elmi_info_elem.exit
 
 dissect_elmi_info_elem.exit:                      ; preds = %104, %.lr.ph.i, %81, %.lr.ph7.i, %65, %.lr.ph12.i, %40, %44, %51, %58, %71, %87, %110
-  %.0102.i = phi i32 [ %112, %110 ], [ %43, %40 ], [ %50, %44 ], [ %57, %51 ], [ %100, %87 ], [ %82, %81 ], [ %61, %58 ], [ %66, %65 ], [ %77, %71 ], [ %.111.i, %.lr.ph12.i ], [ %.26.i, %.lr.ph7.i ], [ %105, %104 ], [ %.33.i, %.lr.ph.i ]
+  %.0102.i = phi i32 [ %112, %110 ], [ %43, %40 ], [ %50, %44 ], [ %57, %51 ], [ %82, %81 ], [ %100, %87 ], [ %61, %58 ], [ %66, %65 ], [ %77, %71 ], [ %.111.i, %.lr.ph12.i ], [ %.26.i, %.lr.ph7.i ], [ %105, %104 ], [ %.33.i, %.lr.ph.i ]
   %113 = load ptr, ptr %5, align 8
   %114 = sub i32 %.0102.i, %.0
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %114)

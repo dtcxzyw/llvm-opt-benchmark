@@ -2959,7 +2959,7 @@ define hidden noundef zeroext i1 @"_ZN4text12subscription7publish28_$u7b$$u7b$cl
   br label %"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E.exit"
 
 "_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E.exit": ; preds = %9, %2, %66, %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i", %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit13"
-  %67 = phi i1 [ true, %66 ], [ true, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit13" ], [ true, %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i" ], [ false, %2 ], [ false, %9 ]
+  %67 = phi i1 [ true, %66 ], [ true, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit13" ], [ false, %2 ], [ true, %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i" ], [ false, %9 ]
   ret i1 %67
 
 68:                                               ; preds = %28, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit"
@@ -3505,8 +3505,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h7dc6cb2b9ec09
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h48aff0318f57237eE.llvm.12718283123501650770.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hc44f5c7ee90a1f32E.llvm.12718283123501650770.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h48aff0318f57237eE.llvm.12718283123501650770.exit", label %.lr.ph.i2.preheader
 
@@ -11616,7 +11616,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h548377806fa1358dE.exit: ; preds = %.no
   br label %44
 
 .loopexit.split-lp:                               ; preds = %.invoke, %40, %._crit_edge
-  %.sroa.012.2.ph = phi i1 [ true, %.invoke ], [ true, %40 ], [ false, %._crit_edge ]
+  %.sroa.012.2.ph = phi i1 [ true, %40 ], [ true, %.invoke ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -12694,8 +12694,8 @@ define hidden void @_ZN8language6buffer6Buffer4edit17h90c44dddb6c2fc84E.llvm.127
   br label %.body103
 
 .body103:                                         ; preds = %66, %112, %114, %44
-  %.sroa.046.0.lpad-body = phi i1 [ true, %44 ], [ false, %114 ], [ false, %112 ], [ true, %66 ]
-  %eh.lpad-body104 = phi { ptr, i32 } [ %45, %44 ], [ %113, %114 ], [ %113, %112 ], [ %69, %66 ]
+  %.sroa.046.0.lpad-body = phi i1 [ false, %112 ], [ true, %44 ], [ false, %114 ], [ true, %66 ]
+  %eh.lpad-body104 = phi { ptr, i32 } [ %113, %112 ], [ %45, %44 ], [ %113, %114 ], [ %69, %66 ]
   %46 = extractvalue { ptr, i32 } %eh.lpad-body104, 0
   %47 = extractvalue { ptr, i32 } %eh.lpad-body104, 1
   br label %.thread

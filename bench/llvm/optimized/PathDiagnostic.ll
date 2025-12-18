@@ -3538,7 +3538,7 @@ define dso_local i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLoca
   br i1 %.not31, label %.split, label %.loopexit, !llvm.loop !314
 
 .loopexit:                                        ; preds = %33, %20, %24, %26, %8
-  %.sroa.026.0 = phi i32 [ %storemerge, %8 ], [ %.sroa.3.0.extract.trunc.i, %26 ], [ %25, %24 ], [ %21, %20 ], [ %34, %33 ]
+  %.sroa.026.0 = phi i32 [ %storemerge, %8 ], [ %25, %24 ], [ %.sroa.3.0.extract.trunc.i, %26 ], [ %21, %20 ], [ %34, %33 ]
   ret i32 %.sroa.026.0
 }
 
@@ -7786,7 +7786,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagn
   br i1 %.not.i.i7, label %_ZNSt7__cxx1110_List_baseISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EED2Ev.exit, label %.lr.ph.i.i6, !llvm.loop !51
 
 _ZNSt7__cxx1110_List_baseISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i, %4, %31
-  %.sroa.05.021 = phi ptr [ %.sroa.05.0, %31 ], [ %1, %4 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i ]
+  %.sroa.05.021 = phi ptr [ %1, %4 ], [ %.sroa.05.0, %31 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.05.021
 }
@@ -8439,7 +8439,7 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_
   br i1 %176, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i
-  %.0.i.in.i = phi i32 [ %.fr.i.i137.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i ], [ %.fr.i.i116.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i ], [ %.fr.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %.fr.i.i.i44.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i ], [ %.fr.i.i116.i48.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i ], [ %.fr.i.i137.i52.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i ]
+  %.0.i.in.i = phi i32 [ %.fr.i.i116.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i ], [ %.fr.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %.fr.i.i137.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i ], [ %.fr.i.i.i44.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i ], [ %.fr.i.i116.i48.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i ], [ %.fr.i.i137.i52.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i ]
   %.0.i.i = icmp slt i32 %.0.i.in.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0.i.i, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
@@ -8448,7 +8448,7 @@ _ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i: ; preds = %_ZN4llvm9String
   br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 "_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit": ; preds = %7, %12, %.thread.i.i.thread.i.i, %.thread.i.i121.thread.i.i, %.thread.i.i142.thread.i.i, %_ZN4llvmneENS_9StringRefES0_.exit152.thread.i.i, %.thread.i.i, %.thread244.i.i, %147, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i, %._crit_edge.i.i, %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i, %177
-  %178 = phi i32 [ -1, %177 ], [ 1, %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i ], [ 1, %.thread.i.i ], [ 1, %7 ], [ 1, %.thread.i.i142.thread.i.i ], [ 1, %12 ], [ 1, %.thread.i.i121.thread.i.i ], [ 1, %._crit_edge.i.i ], [ 1, %.thread.i.i.thread.i.i ], [ 1, %_ZN4llvmneENS_9StringRefES0_.exit152.thread.i.i ], [ 1, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i ], [ 1, %147 ], [ 1, %.thread244.i.i ]
+  %178 = phi i32 [ -1, %177 ], [ 1, %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i ], [ 1, %.thread.i.i142.thread.i.i ], [ 1, %7 ], [ 1, %.thread.i.i121.thread.i.i ], [ 1, %12 ], [ 1, %.thread.i.i.thread.i.i ], [ 1, %._crit_edge.i.i ], [ 1, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i ], [ 1, %147 ], [ 1, %.thread244.i.i ], [ 1, %.thread.i.i ], [ 1, %_ZN4llvmneENS_9StringRefES0_.exit152.thread.i.i ]
   ret i32 %178
 }
 

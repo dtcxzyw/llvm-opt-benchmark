@@ -1835,7 +1835,7 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge60
-  %.044 = phi i1 [ true, %._crit_edge60 ], [ %62, %61 ]
+  %.044 = phi i1 [ %62, %61 ], [ true, %._crit_edge60 ]
   %64 = load ptr, ptr @X11_XFlush, align 8
   %65 = tail call i32 %64(ptr noundef %8) #12
   %.not49 = icmp eq ptr %27, null

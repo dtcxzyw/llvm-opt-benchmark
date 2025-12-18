@@ -167,8 +167,8 @@ skip_space.exit:                                  ; preds = %.preheader
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph86, %39, %.lr.ph.preheader, %36, %26, %._crit_edge.thread, %51
-  %.027 = phi ptr [ %52, %._crit_edge.thread ], [ null, %51 ], [ null, %26 ], [ null, %36 ], [ null, %.lr.ph.preheader ], [ null, %39 ], [ null, %.lr.ph86 ], [ null, %.lr.ph ]
-  %.2 = phi ptr [ null, %._crit_edge.thread ], [ null, %51 ], [ %15, %26 ], [ %15, %36 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %15, %.lr.ph86 ], [ %15, %39 ]
+  %.027 = phi ptr [ %52, %._crit_edge.thread ], [ null, %51 ], [ null, %36 ], [ null, %26 ], [ null, %.lr.ph.preheader ], [ null, %39 ], [ null, %.lr.ph86 ], [ null, %.lr.ph ]
+  %.2 = phi ptr [ null, %._crit_edge.thread ], [ null, %51 ], [ %15, %36 ], [ %15, %26 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %15, %.lr.ph86 ], [ %15, %39 ]
   tail call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str, i32 noundef 399) #10
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %6, ptr noundef nonnull @pd_free) #10
   br label %53
@@ -806,8 +806,8 @@ parse_hex.exit.parse_hex.exit.thread52_crit_edge: ; preds = %parse_hex.exit
   %.pre = load ptr, ptr %7, align 8, !tbaa !8
   br label %parse_hex.exit.thread52
 
-parse_hex.exit.thread52:                          ; preds = %parse_hex.exit.parse_hex.exit.thread52_crit_edge, %skip_space.exit.i40, %skip_space.exit.i29
-  %187 = phi ptr [ %.pre, %parse_hex.exit.parse_hex.exit.thread52_crit_edge ], [ %.0.i.i27, %skip_space.exit.i29 ], [ %.0.i.i38, %skip_space.exit.i40 ]
+parse_hex.exit.thread52:                          ; preds = %parse_hex.exit.parse_hex.exit.thread52_crit_edge, %skip_space.exit.i29, %skip_space.exit.i40
+  %187 = phi ptr [ %.pre, %parse_hex.exit.parse_hex.exit.thread52_crit_edge ], [ %.0.i.i38, %skip_space.exit.i40 ], [ %.0.i.i27, %skip_space.exit.i29 ]
   store ptr %187, ptr %1, align 8, !tbaa !8
   br label %parse_hex.exit.thread
 
@@ -1074,8 +1074,8 @@ skip_space.exit.i63:                              ; preds = %.preheader.i59
   br label %.loopexit
 
 .loopexit:                                        ; preds = %skip_space.exit.i63, %23, %match_ch.exit46, %61, %.lr.ph.preheader, %._crit_edge.thread, %71
-  %.027 = phi ptr [ null, %71 ], [ %72, %._crit_edge.thread ], [ null, %.lr.ph.preheader ], [ null, %61 ], [ null, %match_ch.exit46 ], [ null, %23 ], [ null, %skip_space.exit.i63 ]
-  %.1 = phi ptr [ null, %71 ], [ null, %._crit_edge.thread ], [ null, %.lr.ph.preheader ], [ null, %skip_space.exit.i63 ], [ %16, %23 ], [ %16, %match_ch.exit46 ], [ %16, %61 ]
+  %.027 = phi ptr [ %72, %._crit_edge.thread ], [ null, %71 ], [ null, %.lr.ph.preheader ], [ null, %61 ], [ null, %match_ch.exit46 ], [ null, %23 ], [ null, %skip_space.exit.i63 ]
+  %.1 = phi ptr [ null, %._crit_edge.thread ], [ null, %71 ], [ null, %.lr.ph.preheader ], [ null, %skip_space.exit.i63 ], [ %16, %23 ], [ %16, %match_ch.exit46 ], [ %16, %61 ]
   tail call void @CRYPTO_free(ptr noundef %.1, ptr noundef nonnull @.str, i32 noundef 462) #10
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %7, ptr noundef nonnull @pd_free) #10
   br label %73
@@ -1243,7 +1243,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %43, %.outer.backedge, %.outer76, %68, %56, %15, %2
-  %.2 = phi i32 [ -1, %56 ], [ 0, %2 ], [ %.061.ph7796, %15 ], [ %.3, %.outer76 ], [ -1, %68 ], [ -1, %43 ], [ %.061.ph.be, %.outer.backedge ]
+  %.2 = phi i32 [ 0, %2 ], [ %.061.ph7796, %15 ], [ -1, %56 ], [ %.3, %.outer76 ], [ -1, %68 ], [ %.061.ph.be, %.outer.backedge ], [ -1, %43 ]
   ret i32 %.2
 }
 

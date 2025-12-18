@@ -2167,7 +2167,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %235
 
 .sink.split:                                      ; preds = %81, %123, %147, %171, %195, %216
-  %.0190.ph = phi i32 [ %124, %123 ], [ %217, %216 ], [ %196, %195 ], [ %172, %171 ], [ %148, %147 ], [ %82, %81 ]
+  %.0190.ph = phi i32 [ %172, %171 ], [ %148, %147 ], [ %124, %123 ], [ %217, %216 ], [ %196, %195 ], [ %82, %81 ]
   call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.51) #17
   br label %231
 

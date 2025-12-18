@@ -273,7 +273,7 @@ define dso_local i32 @rdmacg_try_charge(ptr noundef writeonly captures(none) %0,
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %._crit_edge, %.loopexit14.sink.split, %5
-  %44 = phi ptr [ %11, %5 ], [ %16, %.loopexit14.sink.split ], [ %39, %._crit_edge ]
+  %44 = phi ptr [ %16, %.loopexit14.sink.split ], [ %11, %5 ], [ %39, %._crit_edge ]
   tail call void @__rcu_read_unlock() #8
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
   %45 = icmp eq ptr %44, null

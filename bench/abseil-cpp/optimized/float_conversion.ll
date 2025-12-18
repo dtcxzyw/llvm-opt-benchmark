@@ -339,8 +339,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_112LeadingZerosENS_7uint128E.exit.i.i.
   br i1 %.not.i68.i.i.i, label %.preheader.i69.i.i.i.preheader, label %.lr.ph.i62.i.i.i, !llvm.loop !36
 
 .preheader.i69.i.i.i.preheader:                   ; preds = %.lr.ph.i62.i.i.i, %117, %113
-  %.03.i.i72.i.i.i.ph = phi i64 [ 0, %113 ], [ %.sroa.0.0.extract.trunc.i56.i.i.i, %117 ], [ %129, %.lr.ph.i62.i.i.i ]
-  %.0.i.i73.i.i.i.ph = phi ptr [ %114, %113 ], [ %114, %117 ], [ %132, %.lr.ph.i62.i.i.i ]
+  %.03.i.i72.i.i.i.ph = phi i64 [ %.sroa.0.0.extract.trunc.i56.i.i.i, %117 ], [ 0, %113 ], [ %129, %.lr.ph.i62.i.i.i ]
+  %.0.i.i73.i.i.i.ph = phi ptr [ %114, %117 ], [ %114, %113 ], [ %132, %.lr.ph.i62.i.i.i ]
   br label %.preheader.i69.i.i.i
 
 .preheader.i69.i.i.i:                             ; preds = %.preheader.i69.i.i.i.preheader, %.preheader.i69.i.i.i
@@ -753,35 +753,35 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeINS_7uint128EEEvNS1
   %.sroa.01.0.insert.ext.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i.i.i39.i.i to i128
   %.sroa.01.0.insert.insert.i.i.i.i.i.i = or disjoint i128 %.sroa.2.0.extract.shift.i.i.i40.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i.i
   %.not.i.i41.i.i = icmp eq i128 %.sroa.01.0.insert.insert.i.i.i.i.i.i, %315
-  br i1 %.not.i.i41.i.i, label %318, label %316
+  br i1 %.not.i.i41.i.i, label %316, label %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i
 
 316:                                              ; preds = %305
-  %317 = icmp ult i128 %315, %.sroa.01.0.insert.insert.i.i.i.i.i.i
-  br i1 %317, label %328, label %._crit_edge.i.i.i
+  %317 = icmp eq i64 %303, 32
+  br i1 %317, label %324, label %318
 
-318:                                              ; preds = %305
-  %319 = icmp eq i64 %303, 32
-  br i1 %319, label %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i, label %320
-
-320:                                              ; preds = %318
-  %321 = zext nneg i32 %307 to i128
-  %322 = shl i128 15, %321
-  %323 = trunc i128 %322 to i64
-  %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = and i64 %.sink65.off0, %323
-  %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = and i128 %.sroa.24.0.insert.shift.i.i.i.i.i, %322
+318:                                              ; preds = %316
+  %319 = zext nneg i32 %307 to i128
+  %320 = shl i128 15, %319
+  %321 = trunc i128 %320 to i64
+  %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = and i64 %.sink65.off0, %321
+  %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = and i128 %.sroa.24.0.insert.shift.i.i.i.i.i, %320
   %.sroa.01.0.insert.ext.i.i46.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i to i128
   %.sroa.01.0.insert.insert.i.i47.i.i.i.i = or disjoint i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i46.i.i.i.i
-  %324 = lshr i128 %.sroa.01.0.insert.insert.i.i47.i.i.i.i, %321
-  %325 = trunc i128 %324 to i8
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i
+  %322 = lshr i128 %.sroa.01.0.insert.insert.i.i47.i.i.i.i, %319
+  %323 = trunc i128 %322 to i8
+  br label %324
 
-_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i: ; preds = %320, %318
-  %326 = phi i8 [ %325, %320 ], [ %.0100.i.i, %318 ]
-  %327 = and i8 %326, 1
-  %.not.i44.i.i = icmp eq i8 %327, 0
+324:                                              ; preds = %318, %316
+  %325 = phi i8 [ %323, %318 ], [ %.0100.i.i, %316 ]
+  %326 = and i8 %325, 1
+  %.not.i44.i.i = icmp eq i8 %326, 0
   br i1 %.not.i44.i.i, label %._crit_edge.i.i.i, label %328
 
-328:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i, %316
+_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i: ; preds = %305
+  %327 = icmp ult i128 %315, %.sroa.01.0.insert.insert.i.i.i.i.i.i
+  br i1 %327, label %328, label %._crit_edge.i.i.i
+
+328:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i, %324
   %329 = icmp samesign ugt i64 %303, 31
   %330 = zext nneg i32 %307 to i128
   %331 = shl nuw nsw i128 1, %330
@@ -811,11 +811,11 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEE
   %338 = add nsw i32 %.2.i.i, 4
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %337, %328, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i, %316
-  %.1101.i.i = phi i8 [ %.0100.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ 1, %337 ], [ %.0100.i.i, %316 ], [ %335, %328 ]
-  %.3.i.i = phi i32 [ %.2.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ %338, %337 ], [ %.2.i.i, %316 ], [ %.2.i.i, %328 ]
-  %.sroa.22.0.copyload.i.pre.i.i.i = phi i64 [ %.sink65.off64, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ 0, %337 ], [ %.sink65.off64, %316 ], [ %.narrow.i.i.i.i.i.i, %328 ]
-  %.sroa.01.0.copyload.i.pre.i.i.i = phi i64 [ %.sink65.off0, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ 0, %337 ], [ %.sink65.off0, %316 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i, %328 ]
+._crit_edge.i.i.i:                                ; preds = %337, %328, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i, %324
+  %.1101.i.i = phi i8 [ %.0100.i.i, %324 ], [ 1, %337 ], [ %.0100.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ %335, %328 ]
+  %.3.i.i = phi i32 [ %.2.i.i, %324 ], [ %338, %337 ], [ %.2.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ %.2.i.i, %328 ]
+  %.sroa.22.0.copyload.i.pre.i.i.i = phi i64 [ %.sink65.off64, %324 ], [ 0, %337 ], [ %.sink65.off64, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i, %328 ]
+  %.sroa.01.0.copyload.i.pre.i.i.i = phi i64 [ %.sink65.off0, %324 ], [ 0, %337 ], [ %.sink65.off0, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i, %328 ]
   %.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i128 18446744073709551615, %309
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i to i64
   %339 = xor i64 %312, -1
@@ -1321,7 +1321,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_125PrintFractionalDigitsFastEmPcim.exit.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_125PrintFractionalDigitsFastEmPcim.exit.i.i: ; preds = %.lr.ph.i52.i.i, %146, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.i, %134, %._crit_edge.i.i.i
-  %148 = phi ptr [ %147, %146 ], [ %.0.lcssa.i54.i.i, %134 ], [ %.0.lcssa.i54.i.i, %._crit_edge.i.i.i ], [ %.0.lcssa.i54.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.i ], [ %.024.i.i.i, %.lr.ph.i52.i.i ]
+  %148 = phi ptr [ %147, %146 ], [ %.0.lcssa.i54.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.i ], [ %.0.lcssa.i54.i.i, %._crit_edge.i.i.i ], [ %.0.lcssa.i54.i.i, %134 ], [ %.024.i.i.i, %.lr.ph.i52.i.i ]
   %149 = load i8, ptr %118, align 1, !tbaa !12
   %.not.i.i = icmp eq i8 %149, 48
   %spec.select.i.i = select i1 %.not.i.i, ptr %116, ptr %118
@@ -1628,22 +1628,22 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloat
   %290 = and i64 %289, 4294967292
   %291 = shl i64 8, %290
   %.not.i.i.i77 = icmp eq i64 %288, %291
-  br i1 %.not.i.i.i77, label %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i, label %292
+  br i1 %.not.i.i.i77, label %292, label %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i
 
 292:                                              ; preds = %284
-  %293 = icmp ugt i64 %288, %291
-  br i1 %293, label %301, label %._crit_edge.i.i
+  %293 = icmp eq i64 %282, 16
+  %294 = shl i64 15, %285
+  %295 = and i64 %.2.i, %294
+  %296 = lshr i64 %295, %285
+  %297 = trunc i64 %296 to i8
+  %298 = select i1 %293, i8 %.060.i, i8 %297
+  %299 = and i8 %298, 1
+  %.not.i.i80 = icmp eq i8 %299, 0
+  br i1 %.not.i.i80, label %._crit_edge.i.i, label %301
 
 _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i: ; preds = %284
-  %294 = icmp eq i64 %282, 16
-  %295 = shl i64 15, %285
-  %296 = and i64 %.2.i, %295
-  %297 = lshr i64 %296, %285
-  %298 = trunc i64 %297 to i8
-  %299 = select i1 %294, i8 %.060.i, i8 %298
-  %300 = and i8 %299, 1
-  %.not.i.i80 = icmp eq i8 %300, 0
-  br i1 %.not.i.i80, label %._crit_edge.i.i, label %301
+  %300 = icmp ugt i64 %288, %291
+  br i1 %300, label %301, label %._crit_edge.i.i
 
 301:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i, %292
   %302 = icmp samesign ugt i64 %282, 15
@@ -1659,8 +1659,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %301, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i, %292
-  %.161.i = phi i8 [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %309, %301 ], [ %.060.i, %292 ]
-  %.pre.i37.i = phi i64 [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %305, %301 ], [ %.2.i, %292 ]
+  %.161.i = phi i8 [ %.060.i, %292 ], [ %309, %301 ], [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ]
+  %.pre.i37.i = phi i64 [ %.2.i, %292 ], [ %305, %301 ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ]
   %310 = xor i64 %287, -1
   %311 = and i64 %.pre.i37.i, %310
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i
@@ -2356,8 +2356,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25: ; pr
   store i8 %244, ptr %.026.i.i19, align 1, !tbaa !12
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIoeLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIoeLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit: ; preds = %.lr.ph112.i, %.lr.ph105.i, %34, %80, %.critedge.i.i, %._crit_edge.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %99, %32, %.critedge.i.i24, %._crit_edge.i.i20, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25, %217, %198, %157, %152, %150, %129, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %157 ], [ false, %129 ], [ true, %150 ], [ true, %217 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25 ], [ true, %._crit_edge.i.i20 ], [ true, %.critedge.i.i24 ], [ true, %198 ], [ true, %152 ], [ true, %32 ], [ true, %99 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %80 ], [ true, %34 ], [ true, %.lr.ph105.i ], [ true, %.lr.ph112.i ]
+_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIoeLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit: ; preds = %.lr.ph112.i, %.lr.ph105.i, %34, %.critedge.i.i, %._crit_edge.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %99, %80, %32, %.critedge.i.i24, %._crit_edge.i.i20, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25, %217, %198, %157, %152, %150, %129, %4
+  %.0 = phi i1 [ true, %.lr.ph105.i ], [ false, %4 ], [ false, %157 ], [ false, %129 ], [ true, %150 ], [ true, %198 ], [ true, %217 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25 ], [ true, %._crit_edge.i.i20 ], [ true, %.critedge.i.i24 ], [ true, %152 ], [ true, %32 ], [ true, %80 ], [ true, %99 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %34 ], [ true, %.lr.ph112.i ]
   ret i1 %.0
 }
 
@@ -4675,7 +4675,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split: ; p
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit: ; preds = %.lr.ph57, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split, %33, %._crit_edge
-  %.11743 = phi ptr [ %.117.lcssa, %33 ], [ %.117.lcssa, %._crit_edge ], [ %.117.lcssa, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split ], [ %.11755, %.lr.ph57 ]
+  %.11743 = phi ptr [ %.117.lcssa, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split ], [ %.117.lcssa, %._crit_edge ], [ %.117.lcssa, %33 ], [ %.11755, %.lr.ph57 ]
   ret ptr %.11743
 }
 
@@ -5660,7 +5660,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -6229,8 +6229,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26: ; pr
   store i8 %241, ptr %.026.i.i20, align 1, !tbaa !12
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIodLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIodLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit: ; preds = %.lr.ph104.i, %.lr.ph112.i, %35, %81, %.critedge.i.i, %._crit_edge.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %100, %33, %.critedge.i.i25, %._crit_edge.i.i21, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26, %214, %195, %156, %151, %149, %128, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %156 ], [ false, %128 ], [ true, %149 ], [ true, %214 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26 ], [ true, %._crit_edge.i.i21 ], [ true, %.critedge.i.i25 ], [ true, %195 ], [ true, %151 ], [ true, %33 ], [ true, %100 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %81 ], [ true, %35 ], [ true, %.lr.ph112.i ], [ true, %.lr.ph104.i ]
+_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIodLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit: ; preds = %.lr.ph104.i, %.lr.ph112.i, %35, %.critedge.i.i, %._crit_edge.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %100, %81, %33, %.critedge.i.i25, %._crit_edge.i.i21, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26, %214, %195, %156, %151, %149, %128, %5
+  %.0 = phi i1 [ true, %.lr.ph112.i ], [ false, %5 ], [ false, %156 ], [ false, %128 ], [ true, %149 ], [ true, %195 ], [ true, %214 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26 ], [ true, %._crit_edge.i.i21 ], [ true, %.critedge.i.i25 ], [ true, %151 ], [ true, %33 ], [ true, %81 ], [ true, %100 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %35 ], [ true, %.lr.ph104.i ]
   ret i1 %.0
 }
 

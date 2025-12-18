@@ -1435,7 +1435,7 @@ _ZN3re28PODArrayIhED2Ev.exit:                     ; preds = %if.then.i.i.i.i.i37
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i358, %sw.bb299, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272, %if.then112, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176, %if.else, %if.else232, %_ZN3re28PODArrayIhED2Ev.exit
-  %cmp58.not550 = phi i1 [ true, %_ZN3re28PODArrayIhED2Ev.exit ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329 ], [ false, %if.else232 ], [ false, %if.else ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272 ], [ false, %if.then112 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300 ], [ false, %sw.bb299 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i358 ]
+  %cmp58.not550 = phi i1 [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176 ], [ true, %_ZN3re28PODArrayIhED2Ev.exit ], [ false, %if.else ], [ false, %if.else232 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329 ], [ false, %if.then112 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300 ], [ false, %sw.bb299 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i358 ]
   %123 = load ptr, ptr %20, align 8
   %cmp.not.i.i.i381 = icmp eq ptr %123, null
   br i1 %cmp.not.i.i.i381, label %_ZN3re28PODArrayIiED2Ev.exit.i382, label %if.then.i.i.i

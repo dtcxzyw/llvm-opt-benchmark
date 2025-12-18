@@ -681,7 +681,7 @@ define hidden noundef double @_ZNK2pb3pbc10get_rewardERKNS_16solver_interfaceERN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %23, %3, %._crit_edge, %45
-  %.3 = phi double [ 0.000000e+00, %._crit_edge ], [ %51, %45 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %33 ]
+  %.3 = phi double [ 0.000000e+00, %._crit_edge ], [ %51, %45 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %33 ]
   ret double %.3
 }
 

@@ -1558,9 +1558,9 @@ SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
   br label %.split72.us
 
 .split72.us:                                      ; preds = %SDL_GetIOStatus_REAL.exit, %SDL_GetIOStatus_REAL.exit.us77, %SDL_GetIOStatus_REAL.exit.us.us, %.split72.us.sink.split
-  %.us-phi73 = phi i64 [ %.us-phi73.ph, %.split72.us.sink.split ], [ %.140.ph.lcssa100, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.140.ph.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.140.ph109, %SDL_GetIOStatus_REAL.exit ]
-  %.us-phi74 = phi ptr [ %.us-phi74.ph, %.split72.us.sink.split ], [ %37, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.2.us.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %37, %SDL_GetIOStatus_REAL.exit ]
-  %.us-phi75 = phi ptr [ %.us-phi75.ph, %.split72.us.sink.split ], [ %.lcssa84, %SDL_GetIOStatus_REAL.exit.us77 ], [ %48, %SDL_GetIOStatus_REAL.exit.us.us ], [ %80, %SDL_GetIOStatus_REAL.exit ]
+  %.us-phi73 = phi i64 [ %.140.ph.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.140.ph.lcssa100, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.us-phi73.ph, %.split72.us.sink.split ], [ %.140.ph109, %SDL_GetIOStatus_REAL.exit ]
+  %.us-phi74 = phi ptr [ %.2.us.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %37, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.us-phi74.ph, %.split72.us.sink.split ], [ %37, %SDL_GetIOStatus_REAL.exit ]
+  %.us-phi75 = phi ptr [ %48, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.lcssa84, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.us-phi75.ph, %.split72.us.sink.split ], [ %80, %SDL_GetIOStatus_REAL.exit ]
   store i8 0, ptr %.us-phi75, align 1
   br label %102
 
@@ -1850,7 +1850,7 @@ SDL_WriteIO_REAL.exit:                            ; preds = %21
   br i1 %35, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %SDL_WriteIO_REAL.exit, %SDL_GetIOStatus_REAL.exit.us, %SDL_GetIOStatus_REAL.exit.us.thread, %11, %9
-  %.0 = phi i1 [ true, %9 ], [ true, %11 ], [ false, %SDL_GetIOStatus_REAL.exit.us.thread ], [ false, %SDL_GetIOStatus_REAL.exit.us ], [ true, %SDL_WriteIO_REAL.exit ]
+  %.0 = phi i1 [ true, %9 ], [ true, %11 ], [ false, %SDL_GetIOStatus_REAL.exit.us ], [ false, %SDL_GetIOStatus_REAL.exit.us.thread ], [ true, %SDL_WriteIO_REAL.exit ]
   br i1 %3, label %36, label %45
 
 36:                                               ; preds = %.loopexit

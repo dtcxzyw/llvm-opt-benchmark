@@ -16961,7 +16961,7 @@ common.resume.sink.split:                         ; preds = %394, %385, %371
   br label %common.resume
 
 common.resume:                                    ; preds = %375, %common.resume.sink.split, %394, %385, %371
-  %common.resume.op = phi { ptr, i32 } [ %372, %371 ], [ %395, %394 ], [ %386, %385 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %375 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.ph, %common.resume.sink.split ], [ %386, %385 ], [ %395, %394 ], [ %372, %371 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %375 ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %.noexc325.i

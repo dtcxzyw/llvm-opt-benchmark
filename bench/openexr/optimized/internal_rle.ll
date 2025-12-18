@@ -589,7 +589,7 @@ internal_rle_decompress.exit.thread.sink.split:   ; preds = %62, %5
   br label %internal_rle_decompress.exit.thread
 
 internal_rle_decompress.exit.thread:              ; preds = %28, %16, %32, %23, %internal_rle_decompress.exit.thread.sink.split, %internal_rle_decompress.exit, %8
-  %.0 = phi i32 [ %11, %8 ], [ 23, %internal_rle_decompress.exit ], [ 0, %internal_rle_decompress.exit.thread.sink.split ], [ 23, %23 ], [ 23, %32 ], [ 23, %16 ], [ 23, %28 ]
+  %.0 = phi i32 [ 0, %internal_rle_decompress.exit.thread.sink.split ], [ 23, %internal_rle_decompress.exit ], [ %11, %8 ], [ 23, %23 ], [ 23, %32 ], [ 23, %16 ], [ 23, %28 ]
   ret i32 %.0
 }
 

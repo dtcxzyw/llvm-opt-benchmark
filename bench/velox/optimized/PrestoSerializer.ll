@@ -15189,7 +15189,7 @@ lpad88.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
   br label %lpad88.body
 
 lpad88.body:                                      ; preds = %lpad.i145.body, %lpad.i129.body, %lpad88.loopexit, %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad88.loopexit.split-lp.loopexit, %ehcleanup77.i, %ehcleanup67.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup67.i ], [ %.pn24.pn.pn.pn.i, %ehcleanup77.i ], [ %lpad.loopexit.split-lp, %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad88.loopexit ], [ %lpad.loopexit1035, %lpad88.loopexit.split-lp.loopexit ], [ %lpad.loopexit1040, %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %116, %lpad.i129.body ], [ %337, %lpad.i145.body ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn.pn.pn.i, %ehcleanup67.i ], [ %116, %lpad.i129.body ], [ %.pn24.pn.pn.pn.i, %ehcleanup77.i ], [ %lpad.loopexit, %lpad88.loopexit ], [ %lpad.loopexit1035, %lpad88.loopexit.split-lp.loopexit ], [ %lpad.loopexit1040, %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %337, %lpad.i145.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoding) #20
   br label %common.resume
 
@@ -16700,7 +16700,7 @@ if.then114:                                       ; preds = %if.end15.i.i, %if.e
   unreachable
 
 if.end115:                                        ; preds = %for.cond.i.i.i.i, %for.body.i.i197, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %426, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i197 ], [ %428, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i197 ], [ %426, %if.end.i.i.i.i ], [ %428, %for.cond.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr8.i)
@@ -16960,8 +16960,8 @@ lpad10.loopexit:                                  ; preds = %invoke.cont51, %_ZN
   br label %lpad10
 
 lpad10.loopexit.split-lp:                         ; preds = %if.end20, %invoke.cont27, %invoke.cont32, %if.then59, %invoke.cont60, %call.i163.noexc, %if.then.i170
-  %innerScatter.sroa.0.1.ph = phi ptr [ %innerScatter.sroa.0.2, %invoke.cont27 ], [ %innerScatter.sroa.0.2, %invoke.cont32 ], [ %innerScatter.sroa.0.2, %if.end20 ], [ %innerScatter.sroa.0.0, %if.then59 ], [ %innerScatter.sroa.0.0, %invoke.cont60 ], [ %innerScatter.sroa.0.0, %call.i163.noexc ], [ %innerScatter.sroa.0.0, %if.then.i170 ]
-  %childIncomingNullsVector.sroa.0.1.ph = phi ptr [ %childIncomingNullsVector.sroa.0.5, %invoke.cont27 ], [ %childIncomingNullsVector.sroa.0.5, %invoke.cont32 ], [ %childIncomingNullsVector.sroa.0.2, %if.end20 ], [ %childIncomingNullsVector.sroa.0.0, %if.then59 ], [ %childIncomingNullsVector.sroa.0.0, %invoke.cont60 ], [ %childIncomingNullsVector.sroa.0.0, %call.i163.noexc ], [ %childIncomingNullsVector.sroa.0.0, %if.then.i170 ]
+  %innerScatter.sroa.0.1.ph = phi ptr [ %innerScatter.sroa.0.2, %if.end20 ], [ %innerScatter.sroa.0.0, %if.then59 ], [ %innerScatter.sroa.0.0, %invoke.cont60 ], [ %innerScatter.sroa.0.0, %call.i163.noexc ], [ %innerScatter.sroa.0.0, %if.then.i170 ], [ %innerScatter.sroa.0.2, %invoke.cont32 ], [ %innerScatter.sroa.0.2, %invoke.cont27 ]
+  %childIncomingNullsVector.sroa.0.1.ph = phi ptr [ %childIncomingNullsVector.sroa.0.2, %if.end20 ], [ %childIncomingNullsVector.sroa.0.0, %if.then59 ], [ %childIncomingNullsVector.sroa.0.0, %invoke.cont60 ], [ %childIncomingNullsVector.sroa.0.0, %call.i163.noexc ], [ %childIncomingNullsVector.sroa.0.0, %if.then.i170 ], [ %childIncomingNullsVector.sroa.0.5, %invoke.cont32 ], [ %childIncomingNullsVector.sroa.0.5, %invoke.cont27 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad10
@@ -18452,7 +18452,7 @@ for.inc62.i.i:                                    ; preds = %if.end59.i.i, %do.e
   br i1 %exitcond57.not.i.i, label %for.end64.loopexit.i.i, label %for.body.i.i, !llvm.loop !71
 
 for.end64.loopexit.i.i:                           ; preds = %for.inc62.i.i, %if.then24.i.i, %for.inc62.i.us.i
-  %.us-phi.i = phi ptr [ %result.addr.1.i.us.i, %for.inc62.i.us.i ], [ %result.addr.052.i.i, %if.then24.i.i ], [ %result.addr.1.i.i, %for.inc62.i.i ]
+  %.us-phi.i = phi ptr [ %result.addr.1.i.us.i, %for.inc62.i.us.i ], [ %result.addr.1.i.i, %for.inc62.i.i ], [ %result.addr.052.i.i, %if.then24.i.i ]
   %.pre58.i.i = ptrtoint ptr %.us-phi.i to i64
   br label %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i
 
@@ -18861,7 +18861,7 @@ for.inc62.i.i149:                                 ; preds = %if.end59.i.i144, %d
   br i1 %exitcond57.not.i.i153, label %for.end64.loopexit.i.i154, label %for.body.i.i113, !llvm.loop !71
 
 for.end64.loopexit.i.i154:                        ; preds = %for.inc62.i.i149, %if.then24.i.i168, %for.inc62.i.us.i206
-  %.us-phi.i155 = phi ptr [ %result.addr.1.i.us.i208, %for.inc62.i.us.i206 ], [ %result.addr.052.i.i115, %if.then24.i.i168 ], [ %result.addr.1.i.i151, %for.inc62.i.i149 ]
+  %.us-phi.i155 = phi ptr [ %result.addr.1.i.us.i208, %for.inc62.i.us.i206 ], [ %result.addr.1.i.i151, %for.inc62.i.i149 ], [ %result.addr.052.i.i115, %if.then24.i.i168 ]
   %.pre58.i.i156 = ptrtoint ptr %.us-phi.i155 to i64
   br label %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i92
 
@@ -24247,8 +24247,8 @@ if.end59:                                         ; preds = %if.then45, %for.bod
   br i1 %exitcond.not, label %for.inc62, label %for.body41, !llvm.loop !70
 
 for.inc62:                                        ; preds = %if.end59, %do.end, %if.then13, %if.then3
-  %row.1 = phi i32 [ %add38, %do.end ], [ %add14, %if.then13 ], [ %add, %if.then3 ], [ %add60, %if.end59 ]
-  %result.addr.1 = phi ptr [ %incdec.ptr, %do.end ], [ %result.addr.052, %if.then13 ], [ %result.addr.052, %if.then3 ], [ %result.addr.4, %if.end59 ]
+  %row.1 = phi i32 [ %add38, %do.end ], [ %add, %if.then3 ], [ %add14, %if.then13 ], [ %add60, %if.end59 ]
+  %result.addr.1 = phi ptr [ %incdec.ptr, %do.end ], [ %result.addr.052, %if.then3 ], [ %result.addr.052, %if.then13 ], [ %result.addr.4, %if.end59 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond57.not, label %for.end64.loopexit, label %for.body, !llvm.loop !71
@@ -25114,9 +25114,9 @@ for.inc:                                          ; preds = %if.end.i.i.i, %if.t
   br i1 %exitcond.not, label %if.end44, label %for.body, !llvm.loop !190
 
 if.end44:                                         ; preds = %for.inc, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit, %if.end.i88, %invoke.cont31, %if.else
-  %numInner.0 = phi i32 [ %conv, %if.else ], [ %retval.0.i, %invoke.cont31 ], [ %retval.0.i, %if.end.i88 ], [ %conv, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit ], [ %conv, %for.inc ]
-  %nonNullRows.0 = phi ptr [ %rows.coerce0, %if.else ], [ %call15, %invoke.cont31 ], [ %call15, %if.end.i88 ], [ %rows.coerce0, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit ], [ %rows.coerce0, %for.inc ]
-  %innerRows.0 = phi ptr [ %rows.coerce0, %if.else ], [ %call18, %invoke.cont31 ], [ %call18, %if.end.i88 ], [ %rows.coerce0, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit ], [ %rows.coerce0, %for.inc ]
+  %numInner.0 = phi i32 [ %conv, %if.else ], [ %retval.0.i, %if.end.i88 ], [ %retval.0.i, %invoke.cont31 ], [ %conv, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit ], [ %conv, %for.inc ]
+  %nonNullRows.0 = phi ptr [ %rows.coerce0, %if.else ], [ %call15, %if.end.i88 ], [ %call15, %invoke.cont31 ], [ %rows.coerce0, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit ], [ %rows.coerce0, %for.inc ]
+  %innerRows.0 = phi ptr [ %rows.coerce0, %if.else ], [ %call18, %if.end.i88 ], [ %call18, %invoke.cont31 ], [ %rows.coerce0, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit ], [ %rows.coerce0, %for.inc ]
   %tobool45.not = icmp eq ptr %sizesPtr, null
   br i1 %tobool45.not, label %if.end49, label %if.then46
 
@@ -34167,7 +34167,7 @@ lpad.i340.loopexit:                               ; preds = %for.body11.i362, %_
   br label %lpad.i340
 
 lpad.i340.loopexit.split-lp:                      ; preds = %invoke.cont33.i349, %invoke.cont39.i, %if.then.i.i.i689
-  %childRanges.i334.sroa.0.0.ph.ph = phi ptr [ %childRanges.i334.sroa.0.21037, %if.then.i.i.i689 ], [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont39.i ], [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont33.i349 ]
+  %childRanges.i334.sroa.0.0.ph.ph = phi ptr [ %childRanges.i334.sroa.0.21037, %if.then.i.i.i689 ], [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont33.i349 ], [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont39.i ]
   %lpad.loopexit.split-lp995 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i340
@@ -38744,8 +38744,8 @@ ehcleanup63.thread:                               ; preds = %lpad.i, %lpad
   br label %eh.resume
 
 ehcleanup63:                                      ; preds = %arraydestroy.body57, %lpad.i11, %lpad5
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %lpad5 ], [ %1, %lpad.i11 ], [ %.pn.pn.pn.pn, %arraydestroy.body57 ]
-  %74 = phi i1 [ false, %lpad5 ], [ false, %lpad.i11 ], [ true, %arraydestroy.body57 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1, %lpad.i11 ], [ %70, %lpad5 ], [ %.pn.pn.pn.pn, %arraydestroy.body57 ]
+  %74 = phi i1 [ false, %lpad.i11 ], [ false, %lpad5 ], [ true, %arraydestroy.body57 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
   br i1 %74, label %eh.resume, label %arraydestroy.body68.preheader
@@ -41687,7 +41687,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %_ZN8facebook5velox1
   br i1 %tobool8.not.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_E3$_0EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i", label %while.body.i55.i.i.i.i, !llvm.loop !316
 
 "_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_E3$_0EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i": ; preds = %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENK3$_0clEi.exit68.i.i.i", %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENK3$_0clEi.exit.i.i.i.i", %if.then.i.i.i.i.i, %for.body.i.i.i.i
-  %toClear.10.i = phi i32 [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %toClear.5.i, %for.body.i.i.i.i ], [ %add.i78.i.i.i.i, %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENK3$_0clEi.exit.i.i.i.i" ], [ %add.i47.i.i.i, %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENK3$_0clEi.exit68.i.i.i" ]
+  %toClear.10.i = phi i32 [ %toClear.5.i, %for.body.i.i.i.i ], [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %add.i78.i.i.i.i, %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENK3$_0clEi.exit.i.i.i.i" ], [ %add.i47.i.i.i, %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIbEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENK3$_0clEi.exit68.i.i.i" ]
   %add.i.i.i.i = add nsw i32 %add87.i.i.i.i, 64
   %cmp15.not.i.i.i.i = icmp sgt i32 %add.i.i.i.i, %46
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !317
@@ -42568,7 +42568,7 @@ _ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15Byte
   br i1 %tobool8.not.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !320
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i: ; preds = %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit38.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i.i.i
-  %toClear.10.i = phi i32 [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %toClear.5.i, %for.body.i.i.i.i ], [ %add.i29.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit38.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit.i.i.i.i.i ]
+  %toClear.10.i = phi i32 [ %toClear.5.i, %for.body.i.i.i.i ], [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %add.i29.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit38.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIaEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit.i.i.i.i.i ]
   %add.i.i.i.i = add nsw i32 %add40.i.i.i.i, 64
   %cmp15.not.i.i.i.i = icmp sgt i32 %add.i.i.i.i, %46
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !321
@@ -43409,7 +43409,7 @@ _ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15Byte
   br i1 %tobool8.not.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !324
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i: ; preds = %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit44.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i.i.i
-  %toClear.10.i = phi i32 [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %toClear.5.i, %for.body.i.i.i.i ], [ %add.i29.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit44.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit.i.i.i.i.i ]
+  %toClear.10.i = phi i32 [ %toClear.5.i, %for.body.i.i.i.i ], [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %add.i29.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit44.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesIsEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSA_ENKUliE_clEi.exit.i.i.i.i.i ]
   %add.i.i.i.i = add nsw i32 %add40.i.i.i.i, 64
   %cmp15.not.i.i.i.i = icmp sgt i32 %add.i.i.i.i, %46
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !325
@@ -45445,7 +45445,7 @@ _ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesInEEvPNS0_15Byte
   br i1 %tobool8.not.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesInEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i, label %while.body.i76.i.i.i.i, !llvm.loop !335
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesInEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i: ; preds = %.noexc60, %.noexc61, %if.then.i.i.i.i.i, %for.body.i.i.i.i
-  %toClear.10.i = phi i32 [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %toClear.5.i, %for.body.i.i.i.i ], [ %add.i15.i.i.i.i.i, %.noexc61 ], [ %add.i.i70.i.i.i.i, %.noexc60 ]
+  %toClear.10.i = phi i32 [ %toClear.5.i, %for.body.i.i.i.i ], [ %toClear.5.i, %if.then.i.i.i.i.i ], [ %add.i15.i.i.i.i.i, %.noexc61 ], [ %add.i.i70.i.i.i.i, %.noexc60 ]
   %add.i.i.i.i = add nsw i32 %add115.i.i.i.i, 64
   %cmp15.not.i.i.i.i = icmp sgt i32 %add.i.i.i.i, %46
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !336
@@ -52932,7 +52932,7 @@ _ZN8facebook5velox10serializer6presto12_GLOBAL__N_115readJavaDecimalEPNS0_15Byte
   br i1 %tobool8.not.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSB_E3$_0EEvPKmiibT_ENKUliE_clEi.exit.i.i.i", label %while.body.i84.i.i.i, !llvm.loop !392
 
 "_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSB_E3$_0EEvPKmiibT_ENKUliE_clEi.exit.i.i.i": ; preds = %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_ENK3$_0clEi.exit.i71.i.i.i", %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_115readJavaDecimalEPNS0_15ByteInputStreamE.exit.i.i.i, %if.then.i.i.i.i, %for.body.i.i.i
-  %toClear.10 = phi i32 [ %toClear.5, %if.then.i.i.i.i ], [ %toClear.5, %for.body.i.i.i ], [ %add.i19.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_115readJavaDecimalEPNS0_15ByteInputStreamE.exit.i.i.i ], [ %add.i.i78.i.i.i, %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_ENK3$_0clEi.exit.i71.i.i.i" ]
+  %toClear.10 = phi i32 [ %toClear.5, %for.body.i.i.i ], [ %toClear.5, %if.then.i.i.i.i ], [ %add.i19.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_115readJavaDecimalEPNS0_15ByteInputStreamE.exit.i.i.i ], [ %add.i.i78.i.i.i, %"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_ENK3$_0clEi.exit.i71.i.i.i" ]
   %add.i.i.i = add nsw i32 %add132.i.i.i, 64
   %cmp15.not.i.i.i = icmp sgt i32 %add.i.i.i, %6
   br i1 %cmp15.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !393
@@ -53152,7 +53152,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !395
 
 for.end:                                          ; preds = %for.body, %for.body.us154, %for.body.us, %for.body.us.us, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us.us, %for.body.us.us ], [ %add153.us, %for.body.us ], [ %add153, %for.body ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us, %for.body.us ], [ %add153.us.us, %for.body.us.us ], [ %add153, %for.body ]
   %add4 = or disjoint i64 %i.0.lcssa, 32
   %cmp5.not = icmp ugt i64 %add4, %numBits
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -64601,8 +64601,8 @@ lpad:                                             ; preds = %if.end25
   resume { ptr, i32 } %13
 
 return:                                           ; preds = %for.cond.i.i, %for.body, %if.end25, %if.end.i.i
-  %retval.sroa.0.0 = phi ptr [ %8, %if.end.i.i ], [ %call28, %if.end25 ], [ %__it.sroa.0.0, %for.body ], [ %10, %for.cond.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 0, %if.end.i.i ], [ 1, %if.end25 ], [ 0, %for.body ], [ 0, %for.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %__it.sroa.0.0, %for.body ], [ %call28, %if.end25 ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 0, %for.body ], [ 1, %if.end25 ], [ 0, %if.end.i.i ], [ 0, %for.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -65334,7 +65334,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -75159,8 +75159,8 @@ for.inc:                                          ; preds = %if.end.i.i.i.i, %.n
   br i1 %cmp19, label %for.body, label %if.end42, !llvm.loop !619
 
 if.end42:                                         ; preds = %for.inc, %if.then.i28, %for.end.i
-  %wrapped.0 = phi ptr [ %14, %for.end.i ], [ %14, %if.then.i28 ], [ %call16, %for.inc ]
-  %numInner.0 = phi i32 [ %conv, %for.end.i ], [ %conv, %if.then.i28 ], [ %numInner.3, %for.inc ]
+  %wrapped.0 = phi ptr [ %14, %if.then.i28 ], [ %14, %for.end.i ], [ %call16, %for.inc ]
+  %numInner.0 = phi i32 [ %conv, %if.then.i28 ], [ %conv, %for.end.i ], [ %numInner.3, %for.inc ]
   %cmp43 = icmp sgt i32 %numInner.0, 0
   br i1 %cmp43, label %if.then44, label %if.end49
 
@@ -75599,7 +75599,7 @@ for.inc62.i.i:                                    ; preds = %if.end59.i.i, %do.e
   br i1 %exitcond57.not.i.i, label %for.end64.loopexit.i.i, label %for.body.i.i, !llvm.loop !71
 
 for.end64.loopexit.i.i:                           ; preds = %for.inc62.i.i, %if.then24.i.i, %for.inc62.i.us.i
-  %.us-phi.i = phi ptr [ %result.addr.1.i.us.i, %for.inc62.i.us.i ], [ %result.addr.052.i.i, %if.then24.i.i ], [ %result.addr.1.i.i, %for.inc62.i.i ]
+  %.us-phi.i = phi ptr [ %result.addr.1.i.us.i, %for.inc62.i.us.i ], [ %result.addr.1.i.i, %for.inc62.i.i ], [ %result.addr.052.i.i, %if.then24.i.i ]
   %.pre58.i.i = ptrtoint ptr %.us-phi.i to i64
   %.pre.pre.i = load ptr, ptr %e_.i.i, align 8
   %.pre169.pre.i = load ptr, ptr %4, align 8

@@ -116,7 +116,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
   br label %rhash_alloc_multi.exit
 
 rhash_alloc_multi.exit:                           ; preds = %38, %25, %.loopexit.sink.split.i
-  %.0.i = phi ptr [ null, %25 ], [ null, %.loopexit.sink.split.i ], [ %28, %38 ]
+  %.0.i = phi ptr [ null, %.loopexit.sink.split.i ], [ null, %25 ], [ %28, %38 ]
   ret ptr %.0.i
 }
 

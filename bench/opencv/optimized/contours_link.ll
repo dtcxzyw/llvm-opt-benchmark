@@ -773,8 +773,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %254, label %.lr.ph.preheader.i.i, label %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit.thread.i, !llvm.loop !67
 
 _ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit.i, %154, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit.i
-  %.val97.i = phi ptr [ %.val.i29, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit.i ], [ %.val.i.i.i109.i, %154 ], [ %.val.i.i.i109.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit.i ], [ %.val96.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
-  %storemerge322.i = phi i32 [ %145, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit.i ], [ %storemerge324.i, %154 ], [ %storemerge324.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit.i ], [ %253, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
+  %.val97.i = phi ptr [ %.val.i.i.i109.i, %154 ], [ %.val.i29, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit.i ], [ %.val96.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ], [ %.val.i.i.i109.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit.i ]
+  %storemerge322.i = phi i32 [ %storemerge324.i, %154 ], [ %145, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit.i ], [ %253, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ], [ %storemerge324.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit.i ]
   %255 = sext i32 %145 to i64
   %256 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LinkRunPoint", ptr %.val97.i, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
@@ -1080,11 +1080,11 @@ _ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i: ; 
   br i1 %368, label %.lr.ph.preheader.i149.i, label %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i, !llvm.loop !78
 
 _ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i, %291, %276
-  %.val83.i421.i = phi ptr [ %.val83.i424.i, %276 ], [ %.val83.i423.i, %291 ], [ %.val83.i423.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ], [ %.val87.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ]
-  %.val145.i410.i = phi ptr [ %.val145.i400.i, %276 ], [ %.val145.i412.i, %291 ], [ %.val145.i412.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ], [ %.val87.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ]
-  %.val90.i = phi ptr [ %.val84.i, %276 ], [ %282, %291 ], [ %282, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ], [ %.val88.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ]
-  %.val102.i = phi ptr [ %.val102391.i, %276 ], [ %.val102397.i, %291 ], [ %.val102397.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ], [ %.val87.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ]
-  %.1288301.i = phi i32 [ %.0287332.i, %276 ], [ %.1288327.i, %291 ], [ %.1288327.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ], [ %364, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ]
+  %.val83.i421.i = phi ptr [ %.val83.i423.i, %291 ], [ %.val83.i424.i, %276 ], [ %.val87.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ], [ %.val83.i423.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ]
+  %.val145.i410.i = phi ptr [ %.val145.i412.i, %291 ], [ %.val145.i400.i, %276 ], [ %.val87.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ], [ %.val145.i412.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ]
+  %.val90.i = phi ptr [ %282, %291 ], [ %.val84.i, %276 ], [ %.val88.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ], [ %282, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ]
+  %.val102.i = phi ptr [ %.val102397.i, %291 ], [ %.val102391.i, %276 ], [ %.val87.i, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ], [ %.val102397.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ]
+  %.1288301.i = phi i32 [ %.1288327.i, %291 ], [ %.0287332.i, %276 ], [ %364, %_ZNSt6vectorIN12_GLOBAL__N_112LinkRunPointESaIS1_EE9push_backEOS1_.exit196.i ], [ %.1288327.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.i ]
   %369 = sext i32 %.0287332.i to i64
   %370 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LinkRunPoint", ptr %.val102.i, i64 %369
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 4
@@ -1508,7 +1508,7 @@ default.unreachable:                              ; preds = %.lr.ph.i199.i
   br i1 %580, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i155.i.i
 
 .invoke:                                          ; preds = %232, %204, %163, %344, %299, %515, %427, %575, %121, %_ZN12_GLOBAL__N_110LinkRunnerC2Ev.exit
-  %581 = phi ptr [ @.str.10, %121 ], [ @.str.13, %_ZN12_GLOBAL__N_110LinkRunnerC2Ev.exit ], [ @.str.10, %344 ], [ @.str.10, %575 ], [ @.str.10, %515 ], [ @.str.10, %427 ], [ @.str.10, %299 ], [ @.str.10, %163 ], [ @.str.10, %204 ], [ @.str.10, %232 ]
+  %581 = phi ptr [ @.str.10, %575 ], [ @.str.13, %_ZN12_GLOBAL__N_110LinkRunnerC2Ev.exit ], [ @.str.10, %515 ], [ @.str.10, %121 ], [ @.str.10, %344 ], [ @.str.10, %427 ], [ @.str.10, %299 ], [ @.str.10, %163 ], [ @.str.10, %204 ], [ @.str.10, %232 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %581) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

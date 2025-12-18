@@ -40135,7 +40135,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen10data_value21write_data_value_
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23dfb8bad1aebae7E.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23dfb8bad1aebae7E.exit.thread": ; preds = %36, %34, %11, %3, %43, %18
-  %.0 = phi i1 [ false, %3 ], [ true, %43 ], [ %24, %18 ], [ true, %11 ], [ false, %34 ], [ false, %36 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %43 ], [ true, %11 ], [ %24, %18 ], [ false, %34 ], [ false, %36 ]
   ret i1 %.0
 
 25:                                               ; preds = %11

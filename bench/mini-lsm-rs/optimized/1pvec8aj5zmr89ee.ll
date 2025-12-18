@@ -8911,7 +8911,7 @@ define internal fastcc void @"_ZN4moka6common10concurrent19unsafe_weak_pointer26
           to label %.noexc.backedge unwind label %.loopexit
 
 .noexc.backedge:                                  ; preds = %8, %15
-  %.0.i.be = phi i64 [ %.fca.1.extract.i, %15 ], [ %9, %8 ]
+  %.0.i.be = phi i64 [ %9, %8 ], [ %.fca.1.extract.i, %15 ]
   br label %.noexc
 
 10:                                               ; preds = %6
@@ -12531,7 +12531,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   br i1 %.not, label %"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit", label %48
 
 .body:                                            ; preds = %37, %.thread, %68, %27, %127, %122
-  %.pn13.pn = phi { ptr, i32 } [ %.pn, %127 ], [ %.pn, %122 ], [ %28, %27 ], [ %eh.lpad-body.i, %68 ], [ %123, %.thread ], [ %40, %37 ]
+  %.pn13.pn = phi { ptr, i32 } [ %.pn, %127 ], [ %.pn, %122 ], [ %123, %.thread ], [ %28, %27 ], [ %eh.lpad-body.i, %68 ], [ %40, %37 ]
   %25 = cmpxchg ptr %1, i8 1, i8 0 release monotonic, align 1, !noalias !1750
   %.sroa.18.0.in.i.i.i.i = extractvalue { i8, i1 } %25, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr236drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$17h4b85d64a2a20c00fE.llvm.3998950267652723875.exit", label %26

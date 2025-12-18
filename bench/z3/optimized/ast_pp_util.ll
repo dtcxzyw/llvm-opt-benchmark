@@ -350,7 +350,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %._crit_edge51, %51
   br i1 %.not27.old.i.i, label %.loopexit44, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %92, %89
-  %.137.i.i.be = phi ptr [ %.old.i.i, %92 ], [ %91, %89 ]
+  %.137.i.i.be = phi ptr [ %91, %89 ], [ %.old.i.i, %92 ]
   br label %.lr.ph38.i.i, !llvm.loop !110
 
 .loopexit44:                                      ; preds = %78, %92, %89, %.preheader.i.i
@@ -1340,7 +1340,7 @@ _ZNK14decl_collector13get_num_declsEv.exit:       ; preds = %2
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %58, %55
-  %.137.i.i.be = phi ptr [ %.old.i.i, %58 ], [ %57, %55 ]
+  %.137.i.i.be = phi ptr [ %57, %55 ], [ %.old.i.i, %58 ]
   br label %.lr.ph38.i.i, !llvm.loop !110
 
 .loopexit:                                        ; preds = %44, %58, %55, %.preheader.i.i

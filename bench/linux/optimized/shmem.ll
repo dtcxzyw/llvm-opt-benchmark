@@ -1102,7 +1102,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %.loopexit.sink.split, %._crit_edge
-  %248 = phi i64 [ %179, %._crit_edge ], [ %191, %.loopexit.sink.split ], [ %243, %242 ]
+  %248 = phi i64 [ %191, %.loopexit.sink.split ], [ %179, %._crit_edge ], [ %243, %242 ]
   call void @folio_batch_remove_exceptionals(ptr noundef nonnull %5) #18
   %249 = load i8, ptr %5, align 8
   %250 = icmp eq i8 %249, 0
@@ -6615,7 +6615,7 @@ define internal i32 @shmem_setattr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %191
 
 191:                                              ; preds = %30, %39, %62, %189, %174, %164, %127, %17, %3
-  %192 = phi i32 [ %175, %174 ], [ %6, %3 ], [ -1, %17 ], [ %128, %127 ], [ %165, %164 ], [ 0, %189 ], [ %68, %62 ], [ -1, %30 ], [ -1, %39 ]
+  %192 = phi i32 [ %175, %174 ], [ %6, %3 ], [ -1, %17 ], [ %128, %127 ], [ %165, %164 ], [ 0, %189 ], [ %68, %62 ], [ -1, %39 ], [ -1, %30 ]
   ret i32 %192
 }
 
@@ -8503,7 +8503,7 @@ define internal noundef range(i32 -28, 1) i32 @shmem_initxattrs(ptr noundef %0, 
   br label %.thread14
 
 .thread14:                                        ; preds = %54, %11, %34, %.thread7, %70, %.loopexit
-  %71 = phi i32 [ -12, %70 ], [ -28, %.thread7 ], [ 0, %.loopexit ], [ 0, %34 ], [ 0, %11 ], [ 0, %54 ]
+  %71 = phi i32 [ -12, %70 ], [ -28, %.thread7 ], [ 0, %.loopexit ], [ 0, %11 ], [ 0, %34 ], [ 0, %54 ]
   ret i32 %71
 }
 

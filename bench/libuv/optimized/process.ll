@@ -317,8 +317,8 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
   store i32 %.019.i, ptr %68, align 4
   br label %.loopexit113
 
-uv__process_init_stdio.exit.thread:               ; preds = %42, %47, %65, %36
-  %.018.i.ph = phi i32 [ -22, %65 ], [ %48, %47 ], [ -22, %42 ], [ -22, %36 ]
+uv__process_init_stdio.exit.thread:               ; preds = %42, %65, %47, %36
+  %.018.i.ph = phi i32 [ %48, %47 ], [ -22, %65 ], [ -22, %42 ], [ -22, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -472,7 +472,7 @@ uv__spawn_and_init_child.exit.thread106:          ; preds = %122, %.preheader.i9
   br label %147
 
 uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_child_fork.exit.i, %.critedge2.i
-  %.022.i = phi i32 [ %119, %.critedge2.i ], [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
+  %.022.i = phi i32 [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ], [ %119, %.critedge2.i ]
   %127 = load i32, ptr %6, align 8
   %128 = call i32 @uv__close_nocheckstdio(i32 noundef %127) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

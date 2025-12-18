@@ -120,7 +120,7 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %53, label %.backedge.backedge, label %54
 
 .backedge.backedge:                               ; preds = %51, %54
-  %.090.be = phi i32 [ 0, %51 ], [ %57, %54 ]
+  %.090.be = phi i32 [ %57, %54 ], [ 0, %51 ]
   br label %.backedge
 
 54:                                               ; preds = %51, %50

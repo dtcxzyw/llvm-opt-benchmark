@@ -2613,7 +2613,7 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %7
   br i1 %.not, label %57, label %._crit_edge
 
 next_value_greater_than_reporting_level_upper_bound.exit.thread: ; preds = %57, %7, %next_value_greater_than_reporting_level_upper_bound.exit, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ false, %7 ], [ true, %57 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ false, %7 ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ true, %57 ]
   ret i1 %.0
 }
 
@@ -2772,7 +2772,7 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %7
   br i1 %.not, label %58, label %._crit_edge
 
 next_value_greater_than_reporting_level_upper_bound.exit.thread: ; preds = %58, %7, %next_value_greater_than_reporting_level_upper_bound.exit, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ false, %7 ], [ true, %58 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ false, %7 ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ true, %58 ]
   ret i1 %.0
 }
 

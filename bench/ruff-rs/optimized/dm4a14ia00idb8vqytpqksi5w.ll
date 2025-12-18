@@ -3907,7 +3907,7 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %382
 
 87:                                               ; preds = %278, %277, %181, %180
-  %.sroa.062.1.ph.i = phi i8 [ 0, %181 ], [ 1, %277 ], [ 0, %180 ], [ 1, %278 ]
+  %.sroa.062.1.ph.i = phi i8 [ 0, %180 ], [ 1, %277 ], [ 0, %181 ], [ 1, %278 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %39
@@ -4893,7 +4893,7 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %382
 
 87:                                               ; preds = %278, %277, %181, %180
-  %.sroa.062.1.ph.i = phi i8 [ 0, %181 ], [ 1, %277 ], [ 0, %180 ], [ 1, %278 ]
+  %.sroa.062.1.ph.i = phi i8 [ 0, %180 ], [ 1, %277 ], [ 0, %181 ], [ 1, %278 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %39
@@ -8522,7 +8522,7 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %382
 
 87:                                               ; preds = %278, %277, %181, %180
-  %.sroa.062.1.ph.i = phi i8 [ 0, %181 ], [ 1, %277 ], [ 0, %180 ], [ 1, %278 ]
+  %.sroa.062.1.ph.i = phi i8 [ 0, %180 ], [ 1, %277 ], [ 0, %181 ], [ 1, %278 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %39
@@ -11043,7 +11043,7 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %382
 
 87:                                               ; preds = %278, %277, %181, %180
-  %.sroa.062.1.ph.i = phi i8 [ 0, %181 ], [ 1, %277 ], [ 0, %180 ], [ 1, %278 ]
+  %.sroa.062.1.ph.i = phi i8 [ 0, %180 ], [ 1, %277 ], [ 0, %181 ], [ 1, %278 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %39
@@ -12029,7 +12029,7 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %382
 
 87:                                               ; preds = %278, %277, %181, %180
-  %.sroa.062.1.ph.i = phi i8 [ 0, %181 ], [ 1, %277 ], [ 0, %180 ], [ 1, %278 ]
+  %.sroa.062.1.ph.i = phi i8 [ 0, %180 ], [ 1, %277 ], [ 0, %181 ], [ 1, %278 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %39

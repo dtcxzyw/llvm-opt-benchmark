@@ -67,7 +67,7 @@ define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr
   br i1 %37, label %.loopexit, label %27, !llvm.loop !5
 
 .loopexit:                                        ; preds = %27, %20, %16, %14
-  %38 = phi i64 [ %15, %14 ], [ %17, %16 ], [ 0, %20 ], [ %35, %27 ]
+  %38 = phi i64 [ 0, %20 ], [ %15, %14 ], [ %17, %16 ], [ %35, %27 ]
   %39 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %38) #6
   %40 = icmp eq ptr %39, null
   br i1 %40, label %45, label %41
@@ -432,8 +432,8 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   br i1 %159, label %.preheader, label %.split9.us, !llvm.loop !11
 
 .split9.us:                                       ; preds = %.thread4.i.loopexit, %.thread4.i.loopexit.us, %.thread4.i.us
-  %.us-phi = phi ptr [ %134, %.thread4.i.loopexit.us ], [ %111, %.thread4.i.us ], [ %155, %.thread4.i.loopexit ]
-  %.us-phi10 = phi i32 [ %136, %.thread4.i.loopexit.us ], [ %113, %.thread4.i.us ], [ %157, %.thread4.i.loopexit ]
+  %.us-phi = phi ptr [ %111, %.thread4.i.us ], [ %134, %.thread4.i.loopexit.us ], [ %155, %.thread4.i.loopexit ]
+  %.us-phi10 = phi i32 [ %113, %.thread4.i.us ], [ %136, %.thread4.i.loopexit.us ], [ %157, %.thread4.i.loopexit ]
   %160 = icmp ne i32 %.us-phi10, 0
   %161 = sext i1 %160 to i64
   br label %162
@@ -652,7 +652,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br i1 %48, label %.loopexit.i, label %38, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %38, %31, %27
-  %49 = phi i64 [ %28, %27 ], [ 0, %31 ], [ %46, %38 ]
+  %49 = phi i64 [ 0, %31 ], [ %28, %27 ], [ %46, %38 ]
   %50 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %49) #6
   %51 = icmp eq ptr %50, null
   br i1 %51, label %acpi_ex_convert_to_integer.exit.thread, label %52

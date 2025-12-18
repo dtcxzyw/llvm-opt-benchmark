@@ -687,13 +687,13 @@ switch.lookup:                                    ; preds = %280
   %switch.offset = sub nuw nsw i32 22, %282
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %.loopexit241.i, %switch.lookup, %77, %127, %111
-  %.sink = phi i32 [ 17, %111 ], [ %switch.offset, %switch.lookup ], [ 17, %77 ], [ 20, %127 ], [ 17, %.loopexit241.i ]
+.loopexit.sink.split:                             ; preds = %.loopexit241.i, %switch.lookup, %127, %77, %111
+  %.sink = phi i32 [ 17, %111 ], [ 17, %77 ], [ %switch.offset, %switch.lookup ], [ 20, %127 ], [ 17, %.loopexit241.i ]
   %294 = getelementptr inbounds nuw i8, ptr %8, i64 608
   store i32 %.sink, ptr %294, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph257.i, %.lr.ph260.i, %.lr.ph263.i, %.loopexit.sink.split, %222, %207
+.loopexit:                                        ; preds = %.lr.ph257.i, %.lr.ph260.i, %.lr.ph263.i, %.loopexit.sink.split, %207, %222
   store ptr %8, ptr %2, align 8
   br label %295
 
@@ -2037,7 +2037,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit129, %.loopexit.loopexit, %.preheader115, %.preheader, %81
-  %.198 = phi i32 [ %.097125, %81 ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %95, %.loopexit.loopexit ], [ %96, %.loopexit.loopexit129 ]
+  %.198 = phi i32 [ %.097125, %81 ], [ %95, %.loopexit.loopexit ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %96, %.loopexit.loopexit129 ]
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1784
   %99 = load ptr, ptr %98, align 8
@@ -2234,7 +2234,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit129, %.loopexit.loopexit, %.preheader115, %.preheader, %71
-  %.198 = phi i32 [ %.097125, %71 ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %85, %.loopexit.loopexit ], [ %86, %.loopexit.loopexit129 ]
+  %.198 = phi i32 [ %.097125, %71 ], [ %85, %.loopexit.loopexit ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %86, %.loopexit.loopexit129 ]
   %87 = load ptr, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1784
   %89 = load ptr, ptr %88, align 8

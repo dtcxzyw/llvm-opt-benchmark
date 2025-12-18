@@ -2215,8 +2215,8 @@ Py_XDECREF.exit127.thread199:                     ; preds = %126, %123, %121, %5
   br label %Py_XDECREF.exit127.thread
 
 Py_XDECREF.exit127.thread:                        ; preds = %38, %128, %Py_XDECREF.exit127.thread199, %48, %45, %131
-  %.not99167184197213 = phi i1 [ %.not99167184208, %131 ], [ true, %45 ], [ false, %48 ], [ %.not99167184208, %Py_XDECREF.exit127.thread199 ], [ %.not99167184208, %128 ], [ false, %38 ]
-  %.056168182198211 = phi i32 [ %.056168182209, %131 ], [ 0, %45 ], [ -1, %48 ], [ %.056168182209, %Py_XDECREF.exit127.thread199 ], [ %.056168182209, %128 ], [ -1, %38 ]
+  %.not99167184197213 = phi i1 [ %.not99167184208, %131 ], [ false, %48 ], [ %.not99167184208, %128 ], [ true, %45 ], [ %.not99167184208, %Py_XDECREF.exit127.thread199 ], [ false, %38 ]
+  %.056168182198211 = phi i32 [ %.056168182209, %131 ], [ -1, %48 ], [ %.056168182209, %128 ], [ 0, %45 ], [ %.056168182209, %Py_XDECREF.exit127.thread199 ], [ -1, %38 ]
   %132 = load i32, ptr %.069149, align 8, !tbaa !94
   %.not.i.i132 = icmp sgt i32 %132, -1
   br i1 %.not.i.i132, label %133, label %Py_XDECREF.exit133
@@ -3338,8 +3338,8 @@ Py_DECREF.exit31.i:                               ; preds = %37, %34, %32
   br i1 %41, label %_PySys_AddXOptionWithError.exit, label %_PySys_AddXOptionWithError.exit.thread6
 
 42:                                               ; preds = %_Py_NewRef.exit.i, %26
-  %.020.i = phi ptr [ null, %26 ], [ %.121.i, %_Py_NewRef.exit.i ]
-  %.019.i = phi ptr [ %24, %26 ], [ %.1.i, %_Py_NewRef.exit.i ]
+  %.020.i = phi ptr [ %.121.i, %_Py_NewRef.exit.i ], [ null, %26 ]
+  %.019.i = phi ptr [ %.1.i, %_Py_NewRef.exit.i ], [ %24, %26 ]
   %43 = load i32, ptr %.019.i, align 8, !tbaa !94
   %.not.i.i.i = icmp sgt i32 %43, -1
   br i1 %.not.i.i.i, label %44, label %Py_XDECREF.exit.i
@@ -5831,7 +5831,7 @@ define dso_local void @PySys_SetPath(ptr noundef %0) local_unnamed_addr #0 {
   %37 = add i32 %.027.i, 1
   br label %11
 
-38:                                               ; preds = %._crit_edge.i, %24, %26, %29
+38:                                               ; preds = %._crit_edge.i, %29, %24, %26
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.PySys_SetPath, ptr noundef nonnull @.str.37) #16
   unreachable
 
@@ -6638,7 +6638,7 @@ should_audit.exit.thread3.i:                      ; preds = %should_audit.exit.i
   br label %sys_audit_impl.exit
 
 sys_audit_impl.exit:                              ; preds = %_Py_EnsureFuncTstateNotNULL.exit.i, %should_audit.exit.i, %should_audit.exit.thread3.i
-  %.013 = phi ptr [ %._Py_NoneStruct.i, %should_audit.exit.thread3.i ], [ @_Py_NoneStruct, %should_audit.exit.i ], [ @_Py_NoneStruct, %_Py_EnsureFuncTstateNotNULL.exit.i ]
+  %.013 = phi ptr [ @_Py_NoneStruct, %_Py_EnsureFuncTstateNotNULL.exit.i ], [ @_Py_NoneStruct, %should_audit.exit.i ], [ %._Py_NoneStruct.i, %should_audit.exit.thread3.i ]
   %41 = load i32, ptr %23, align 8, !tbaa !94
   %.not.i.i19 = icmp sgt i32 %41, -1
   br i1 %.not.i.i19, label %42, label %Py_XDECREF.exit
@@ -7728,7 +7728,7 @@ _PyFrame_IsIncomplete.exit.thread2.i:             ; preds = %_PyFrame_IsIncomple
   br label %sys__getframemodulename_impl.exit
 
 sys__getframemodulename_impl.exit:                ; preds = %.critedge2.i, %55, %52, %.critedge.i, %25, %22, %20, %10
-  %.022 = phi ptr [ null, %20 ], [ null, %10 ], [ null, %22 ], [ @_Py_NoneStruct, %.critedge.i ], [ %.0.i, %52 ], [ %.0.i, %55 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %.critedge2.i ]
+  %.022 = phi ptr [ null, %20 ], [ null, %10 ], [ null, %22 ], [ @_Py_NoneStruct, %.critedge.i ], [ %.0.i, %55 ], [ %.0.i, %52 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.022
 }

@@ -1719,7 +1719,7 @@ switch.early.test:                                ; preds = %21
   br label %53
 
 53:                                               ; preds = %switch.early.test, %9, %15, %.thread84.thread117, %33, %38, %44, %49, %2, %.thread105
-  %.0 = phi i64 [ 0, %.thread105 ], [ 1, %2 ], [ 2, %49 ], [ 2, %44 ], [ 2, %38 ], [ 2, %33 ], [ 2, %.thread84.thread117 ], [ 2, %15 ], [ 2, %9 ], [ %27, %switch.early.test ]
+  %.0 = phi i64 [ 0, %.thread105 ], [ 1, %2 ], [ 2, %49 ], [ 2, %44 ], [ 2, %38 ], [ 2, %33 ], [ 2, %.thread84.thread117 ], [ 2, %9 ], [ 2, %15 ], [ %27, %switch.early.test ]
   ret i64 %.0
 }
 

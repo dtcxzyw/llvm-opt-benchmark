@@ -148,7 +148,7 @@ define hidden zeroext i1 @SDL_BlendLines(ptr noundef %0, ptr noundef readonly ca
   br label %SDL_CalculateBlendLineFunc.exit
 
 SDL_CalculateBlendLineFunc.exit:                  ; preds = %21, %30, %31
-  %.0.i = phi ptr [ %SDL_BlendLine_RGB4.SDL_BlendLine_RGBA4.i, %31 ], [ %spec.select, %21 ], [ %SDL_BlendLine_XRGB8888.SDL_BlendLine_ARGB8888.i, %30 ]
+  %.0.i = phi ptr [ %SDL_BlendLine_XRGB8888.SDL_BlendLine_ARGB8888.i, %30 ], [ %SDL_BlendLine_RGB4.SDL_BlendLine_RGBA4.i, %31 ], [ %spec.select, %21 ]
   %32 = icmp sgt i32 %2, 1
   br i1 %32, label %.lr.ph, label %._crit_edge
 

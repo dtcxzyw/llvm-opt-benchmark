@@ -10534,9 +10534,9 @@ _ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502:
   br i1 %exitcond3202.not, label %.loopexit763, label %.lr.ph2178, !llvm.loop !178
 
 .loopexit763:                                     ; preds = %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit, %.preheader765, %.preheader
-  %.sroa.36.5 = phi ptr [ %.sroa.36.9, %.preheader ], [ %.sroa.36.9, %.preheader765 ], [ %.sroa.36.10, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.36.7, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502 ]
-  %.sroa.19.5 = phi ptr [ %.sroa.19.9, %.preheader ], [ %.sroa.19.9, %.preheader765 ], [ %.sroa.19.10, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.19.7, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502 ]
-  %.sroa.0688.5 = phi ptr [ %.sroa.0688.9, %.preheader ], [ %.sroa.0688.9, %.preheader765 ], [ %.sroa.0688.10, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0688.7, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502 ]
+  %.sroa.36.5 = phi ptr [ %.sroa.36.10, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.36.9, %.preheader ], [ %.sroa.36.9, %.preheader765 ], [ %.sroa.36.7, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502 ]
+  %.sroa.19.5 = phi ptr [ %.sroa.19.10, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.19.9, %.preheader ], [ %.sroa.19.9, %.preheader765 ], [ %.sroa.19.7, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502 ]
+  %.sroa.0688.5 = phi ptr [ %.sroa.0688.10, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0688.9, %.preheader ], [ %.sroa.0688.9, %.preheader765 ], [ %.sroa.0688.7, %_ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502 ]
   %1396 = add nuw nsw i32 %1296, %.32194
   %1397 = load i16, ptr %1286, align 2
   %.not315 = icmp eq i16 %1397, 0

@@ -534,7 +534,7 @@ define internal i32 @scd_read_packet(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not56, label %12, label %.thread, !llvm.loop !102
 
 .thread:                                          ; preds = %79, %2, %54, %36, %71
-  %spec.select57 = phi i32 [ %50, %54 ], [ %37, %36 ], [ 0, %71 ], [ -541478725, %2 ], [ -541478725, %79 ]
+  %spec.select57 = phi i32 [ 0, %71 ], [ %50, %54 ], [ %37, %36 ], [ -541478725, %2 ], [ -541478725, %79 ]
   ret i32 %spec.select57
 }
 

@@ -8090,7 +8090,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %20, %Gia_ObjIsMux.e
   br i1 %80, label %.lr.ph.i, label %Gia_ManCleanMark0.exit, !llvm.loop !46
 
 Gia_ManCleanMark0.exit:                           ; preds = %.lr.ph.i, %74, %1, %.critedge
-  %.0.lcssa74 = phi i32 [ 0, %.critedge ], [ 0, %1 ], [ %.0.lcssa.ph, %74 ], [ %.0.lcssa.ph, %.lr.ph.i ]
+  %.0.lcssa74 = phi i32 [ 0, %1 ], [ 0, %.critedge ], [ %.0.lcssa.ph, %74 ], [ %.0.lcssa.ph, %.lr.ph.i ]
   ret i32 %.0.lcssa74
 }
 
@@ -11587,7 +11587,7 @@ Vec_IntGrow.exit.i:                               ; preds = %27, %Vec_IntAlloc.e
   br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %33, !llvm.loop !149
 
 Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %35 = phi ptr [ %31, %Vec_IntGrow.exit.i ], [ %15, %Vec_IntAlloc.exit.thread ], [ %31, %33 ]
+  %35 = phi ptr [ %15, %Vec_IntAlloc.exit.thread ], [ %31, %Vec_IntGrow.exit.i ], [ %31, %33 ]
   store i32 %7, ptr %10, align 4, !tbaa !58
   %36 = getelementptr i8, ptr %0, i64 32
   %.val135 = load ptr, ptr %36, align 8, !tbaa !43
@@ -14544,7 +14544,7 @@ define void @Gia_ComputeTest() local_unnamed_addr #24 {
   br label %7
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.0.ph.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.0.ph15, %.backedge ], [ %19, %.outer ]
+  %.0.ph.lcssa = phi float [ %.0.ph15, %.backedge ], [ 0.000000e+00, %.preheader ], [ %19, %.outer ]
   %21 = fpext float %.0.ph.lcssa to double
   %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, double noundef %21)
   %23 = call i32 @fclose(ptr noundef nonnull %2)
@@ -19815,7 +19815,7 @@ define void @Gia_ManTestProblem() local_unnamed_addr #24 {
   br label %.loopexit116
 
 .loopexit116:                                     ; preds = %.loopexit116.loopexit153, %.loopexit116.loopexit152, %.loopexit116.loopexit, %16
-  %.1103.lcssa = phi i32 [ %.0102128, %16 ], [ %13, %.loopexit116.loopexit ], [ %14, %.loopexit116.loopexit152 ], [ %15, %.loopexit116.loopexit153 ]
+  %.1103.lcssa = phi i32 [ %.0102128, %16 ], [ %14, %.loopexit116.loopexit152 ], [ %13, %.loopexit116.loopexit ], [ %15, %.loopexit116.loopexit153 ]
   %exitcond166.not = icmp eq i32 %17, 7
   br i1 %exitcond166.not, label %48, label %16, !llvm.loop !272
 

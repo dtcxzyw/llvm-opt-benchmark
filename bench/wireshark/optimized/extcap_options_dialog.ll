@@ -2275,7 +2275,7 @@ _ZNK4QMapIi7QStringE4keysEv.exit:                 ; preds = %.noexc.i.i, %194
   br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exitthread-pre-split
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exitthread-pre-split: ; preds = %216, %221, %_ZNK4QMapIi7QStringE4keysEv.exit
-  %.1.i.i.i.ph = phi i1 [ false, %_ZNK4QMapIi7QStringE4keysEv.exit ], [ %225, %221 ], [ false, %216 ]
+  %.1.i.i.i.ph = phi i1 [ %225, %221 ], [ false, %_ZNK4QMapIi7QStringE4keysEv.exit ], [ false, %216 ]
   %.pr594 = load ptr, ptr %19, align 8
   br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
 
@@ -15264,7 +15264,7 @@ _ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit: ; preds = %5
   br i1 %.not, label %34, label %10
 
 10:                                               ; preds = %9
-  switch i32 %1, label %.split [
+  switch i32 %1, label %32 [
     i32 1, label %_ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit
     i32 0, label %_ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit
   ]
@@ -15279,39 +15279,39 @@ _ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit: ; preds = %10
   %17 = sub i64 %16, %15
   %18 = sdiv exact i64 %17, 88
   %.not16 = icmp slt i64 %18, %2
-  br i1 %.not16, label %.split, label %34
-
-.split:                                           ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit, %10
-  %19 = tail call noundef zeroext i1 @_ZN17QArrayDataPointerI11ExtcapValueE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
-  br i1 %19, label %34, label %.critedge
+  br i1 %.not16, label %32, label %34
 
 _ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit: ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = ptrtoint ptr %6 to i64
-  %25 = add i64 %24, 23
-  %26 = and i64 %25, -8
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %27, %26
-  %.neg4.i = sdiv exact i64 %28, -88
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i64, ptr %29, align 8
-  %.neg3.i = sub i64 %21, %30
-  %31 = add i64 %.neg3.i, %.neg4.i
-  %.not17 = icmp slt i64 %31, %2
-  br i1 %.not17, label %32, label %34
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = ptrtoint ptr %6 to i64
+  %24 = add i64 %23, 23
+  %25 = and i64 %24, -8
+  %26 = ptrtoint ptr %22 to i64
+  %27 = sub i64 %26, %25
+  %.neg4.i = sdiv exact i64 %27, -88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load i64, ptr %28, align 8
+  %.neg3.i = sub i64 %20, %29
+  %30 = add i64 %.neg3.i, %.neg4.i
+  %.not17 = icmp slt i64 %30, %2
+  br i1 %.not17, label %.split13, label %34
 
-32:                                               ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit
-  %33 = tail call noundef zeroext i1 @_ZN17QArrayDataPointerI11ExtcapValueE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef 0, i64 noundef %2, ptr noundef %3)
+.split13:                                         ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit
+  %31 = tail call noundef zeroext i1 @_ZN17QArrayDataPointerI11ExtcapValueE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef 0, i64 noundef %2, ptr noundef %3)
+  br i1 %31, label %34, label %.critedge
+
+32:                                               ; preds = %10, %_ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit
+  %33 = tail call noundef zeroext i1 @_ZN17QArrayDataPointerI11ExtcapValueE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
   br i1 %33, label %34, label %.critedge
 
-.critedge:                                        ; preds = %5, %.split, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit, %32
+.critedge:                                        ; preds = %5, %.split13, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit, %32
   tail call void @_ZN17QArrayDataPointerI11ExtcapValueE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %4)
   br label %34
 
-34:                                               ; preds = %.split, %32, %.critedge, %9, %_ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit
+34:                                               ; preds = %.split13, %32, %.critedge, %9, %_ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit
   ret void
 }
 

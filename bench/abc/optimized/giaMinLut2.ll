@@ -520,7 +520,7 @@ Vec_IntPush.exit47:                               ; preds = %.Vec_IntGrow.exit10
   br label %.thread50
 
 .thread50:                                        ; preds = %64, %25, %.thread50.sink.split, %.lr.ph72
-  %.1 = phi i32 [ 1, %.lr.ph72 ], [ 0, %.thread50.sink.split ], [ 1, %25 ], [ 1, %64 ]
+  %.1 = phi i32 [ 1, %25 ], [ 1, %.lr.ph72 ], [ 0, %.thread50.sink.split ], [ 1, %64 ]
   ret i32 %.1
 }
 
@@ -682,7 +682,7 @@ Abc_TtEqual.exit.thread:                          ; preds = %55, %Abc_TtEqual.ex
   br i1 %80, label %64, label %.critedge2, !llvm.loop !32
 
 .critedge2:                                       ; preds = %78, %27, %Abc_TtEqual.exit.thread, %Abc_TtEqual.exit.thread.us, %.preheader, %34
-  %.2 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.4.us, %27 ], [ 0, %Abc_TtEqual.exit.thread.us ], [ %.154, %Abc_TtEqual.exit.thread ], [ %.4, %78 ]
+  %.2 = phi i32 [ %.4.us, %27 ], [ 0, %34 ], [ %.154, %Abc_TtEqual.exit.thread ], [ 0, %.preheader ], [ 0, %Abc_TtEqual.exit.thread.us ], [ %.4, %78 ]
   ret i32 %.2
 }
 
@@ -2380,7 +2380,7 @@ Abc_TtCopy.exit272:                               ; preds = %.lr.ph18.i268
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %32, %107, %.lr.ph18.i254, %.lr.ph18.i225, %.lr.ph.split, %Abc_TtEqual.exit.thread, %119, %.thread295, %28, %.lr.ph.preheader.i189, %.lr.ph.preheader.i170, %Abc_TtCopy.exit272, %142, %.split, %24
-  %.0 = phi ptr [ %.0.i, %24 ], [ %.0.i, %.lr.ph.preheader.i189 ], [ %.0.i, %Abc_TtCopy.exit272 ], [ %.0.i, %.lr.ph.preheader.i170 ], [ null, %.split ], [ %.0.i, %.thread295 ], [ %.0.i, %142 ], [ null, %28 ], [ %.0.i, %119 ], [ %.0.i, %Abc_TtEqual.exit.thread ], [ %110, %.lr.ph.split ], [ %94, %107 ], [ %.0.i, %.lr.ph18.i225 ], [ %.0.i, %.lr.ph18.i254 ], [ null, %32 ]
+  %.0 = phi ptr [ %.0.i, %24 ], [ %.0.i, %.lr.ph.preheader.i189 ], [ %.0.i, %Abc_TtCopy.exit272 ], [ %.0.i, %.lr.ph.preheader.i170 ], [ %.0.i, %.lr.ph18.i225 ], [ %.0.i, %Abc_TtEqual.exit.thread ], [ null, %.split ], [ %.0.i, %.thread295 ], [ %.0.i, %142 ], [ null, %28 ], [ %.0.i, %.lr.ph18.i254 ], [ %94, %107 ], [ %110, %.lr.ph.split ], [ %.0.i, %119 ], [ null, %32 ]
   ret ptr %.0
 }
 
@@ -2511,7 +2511,7 @@ define internal fastcc i64 @Abc_Tt6Min_rec(i64 noundef %0, i64 noundef %1, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.critedge, %64, %68, %62, %8, %7, %4
-  %.063 = phi i64 [ -1, %8 ], [ %.mux.mux, %.critedge ], [ %67, %64 ], [ %67, %68 ], [ %58, %62 ], [ 0, %7 ], [ 1311768467139281697, %4 ], [ %34, %32 ]
+  %.063 = phi i64 [ -1, %8 ], [ 1311768467139281697, %4 ], [ %.mux.mux, %.critedge ], [ %67, %64 ], [ %67, %68 ], [ %58, %62 ], [ 0, %7 ], [ %34, %32 ]
   ret i64 %.063
 }
 
@@ -3517,7 +3517,7 @@ Abc_TtIntersect.exit273:                          ; preds = %.lr.ph.i268
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %.lr.ph.i216, %.lr.ph18.i237, %.lr.ph18.i201, %33, %136, %.thread298, %Abc_TtCopy.exit, %.lr.ph.preheader.i184, %.lr.ph.preheader.i, %212, %213, %29
-  %.0 = phi ptr [ %.0.i, %29 ], [ %.0.i, %212 ], [ %.0.i, %.thread298 ], [ %.0.i, %.lr.ph.preheader.i184 ], [ %.0.i, %.lr.ph.preheader.i ], [ %.0.i, %213 ], [ %.0.i, %Abc_TtCopy.exit ], [ %137, %136 ], [ %.0.i, %33 ], [ %.0.i, %.lr.ph18.i237 ], [ %.0.i, %.lr.ph18.i201 ], [ %.0.i, %.lr.ph.i216 ]
+  %.0 = phi ptr [ %.0.i, %29 ], [ %137, %136 ], [ %.0.i, %212 ], [ %.0.i, %.thread298 ], [ %.0.i, %.lr.ph.preheader.i184 ], [ %.0.i, %.lr.ph.preheader.i ], [ %.0.i, %213 ], [ %.0.i, %.lr.ph18.i237 ], [ %.0.i, %33 ], [ %.0.i, %Abc_TtCopy.exit ], [ %.0.i, %.lr.ph18.i201 ], [ %.0.i, %.lr.ph.i216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
@@ -4916,7 +4916,7 @@ Abc_TtIntersect.exit378:                          ; preds = %.lr.ph.i373
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %37, %.lr.ph.i321, %.lr.ph18.i342, %.lr.ph18.i288, %Abc_TtEqual.exit.thread, %Abc_TtEqual.exit.thread.thread, %.thread407, %.thread401, %33, %.lr.ph.preheader.i252, %.lr.ph.preheader.i233, %216, %217, %.split, %29
-  %.0 = phi ptr [ %.0.i, %29 ], [ %.0.i, %.lr.ph.preheader.i252 ], [ %.0.i, %216 ], [ %.0.i, %.lr.ph.preheader.i233 ], [ null, %.split ], [ %.0.i, %.thread401 ], [ %.0.i, %217 ], [ %133, %.thread407 ], [ null, %33 ], [ %.0.i, %Abc_TtEqual.exit.thread.thread ], [ %.0.i, %Abc_TtEqual.exit.thread ], [ %.0.i, %.lr.ph.i321 ], [ %.0.i, %.lr.ph18.i288 ], [ %.0.i, %.lr.ph18.i342 ], [ null, %37 ]
+  %.0 = phi ptr [ %.0.i, %29 ], [ %.0.i, %.lr.ph.preheader.i252 ], [ %.0.i, %216 ], [ %.0.i, %.lr.ph.preheader.i233 ], [ %.0.i, %.lr.ph18.i288 ], [ %.0.i, %Abc_TtEqual.exit.thread ], [ null, %.split ], [ %.0.i, %.thread401 ], [ %.0.i, %217 ], [ %133, %.thread407 ], [ %.0.i, %.lr.ph.i321 ], [ null, %33 ], [ %.0.i, %.lr.ph18.i342 ], [ %.0.i, %Abc_TtEqual.exit.thread.thread ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
@@ -5942,7 +5942,7 @@ Abc_TtHasVar.exit:                                ; preds = %._crit_edge.us.i, %
   br label %Abc_TtIsConst0.exit.thread
 
 Abc_TtIsConst0.exit.thread:                       ; preds = %13, %16, %12, %66, %.thread, %9
-  %.0 = phi i32 [ %11, %9 ], [ %75, %66 ], [ %53, %.thread ], [ 0, %12 ], [ 1, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ %11, %9 ], [ %75, %66 ], [ 1, %16 ], [ %53, %.thread ], [ 0, %12 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -6274,8 +6274,8 @@ Abc_TtCopy.exit57:                                ; preds = %.lr.ph.split.split,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %Abc_TtCopy.exit57, %Abc_TtCopy.exit57.us81, %.lr.ph18.preheader.i51.us, %.lr.ph18.preheader.i51.us.us, %Abc_TtDup.exit
-  %.042.lcssa = phi i32 [ -1, %Abc_TtDup.exit ], [ %.14362.us83, %Abc_TtCopy.exit57.us81 ], [ %.14363.us.us, %.lr.ph18.preheader.i51.us.us ], [ %.14363.us, %.lr.ph18.preheader.i51.us ], [ %.14362, %Abc_TtCopy.exit57 ]
-  %.0.lcssa = phi i32 [ 1000000000, %Abc_TtDup.exit ], [ %.164.us82, %Abc_TtCopy.exit57.us81 ], [ %.165.us.us, %.lr.ph18.preheader.i51.us.us ], [ %.165.us, %.lr.ph18.preheader.i51.us ], [ %.164, %Abc_TtCopy.exit57 ]
+  %.042.lcssa = phi i32 [ -1, %Abc_TtDup.exit ], [ %.14362.us83, %Abc_TtCopy.exit57.us81 ], [ %.14363.us, %.lr.ph18.preheader.i51.us ], [ %.14363.us.us, %.lr.ph18.preheader.i51.us.us ], [ %.14362, %Abc_TtCopy.exit57 ]
+  %.0.lcssa = phi i32 [ 1000000000, %Abc_TtDup.exit ], [ %.164.us82, %Abc_TtCopy.exit57.us81 ], [ %.165.us, %.lr.ph18.preheader.i51.us ], [ %.165.us.us, %.lr.ph18.preheader.i51.us.us ], [ %.164, %Abc_TtCopy.exit57 ]
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %57, label %55
 
@@ -6533,8 +6533,8 @@ Abc_TtCopy.exit62:                                ; preds = %Abc_TtCopy.exit, %A
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %64, %54, %43, %Abc_TtDup.exit
-  %.045.lcssa = phi i32 [ -1, %Abc_TtDup.exit ], [ %.146.us85, %54 ], [ %.14669.us, %43 ], [ %.146, %64 ]
-  %.0.lcssa = phi i32 [ 1000000000, %Abc_TtDup.exit ], [ %.1.us86, %54 ], [ %.171.us, %43 ], [ %.1, %64 ]
+  %.045.lcssa = phi i32 [ -1, %Abc_TtDup.exit ], [ %.14669.us, %43 ], [ %.146.us85, %54 ], [ %.146, %64 ]
+  %.0.lcssa = phi i32 [ 1000000000, %Abc_TtDup.exit ], [ %.171.us, %43 ], [ %.1.us86, %54 ], [ %.1, %64 ]
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %68, label %66
 
@@ -6862,8 +6862,8 @@ Abc_TtCopy.exit:                                  ; preds = %101, %.lr.ph.split.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %Abc_TtCopy.exit, %Abc_TtCopy.exit.us54, %.lr.ph18.preheader.i.us, %.lr.ph18.preheader.i.us.us, %Abc_TtDup.exit
-  %.033.lcssa = phi i32 [ -1, %Abc_TtDup.exit ], [ %.134.us55, %Abc_TtCopy.exit.us54 ], [ %.134.us.us, %.lr.ph18.preheader.i.us.us ], [ %.134.us, %.lr.ph18.preheader.i.us ], [ %.134, %Abc_TtCopy.exit ]
-  %.0.lcssa = phi i32 [ 1000000000, %Abc_TtDup.exit ], [ %.1.us56, %Abc_TtCopy.exit.us54 ], [ %.1.us.us, %.lr.ph18.preheader.i.us.us ], [ %.1.us, %.lr.ph18.preheader.i.us ], [ %.1, %Abc_TtCopy.exit ]
+  %.033.lcssa = phi i32 [ -1, %Abc_TtDup.exit ], [ %.134.us55, %Abc_TtCopy.exit.us54 ], [ %.134.us, %.lr.ph18.preheader.i.us ], [ %.134.us.us, %.lr.ph18.preheader.i.us.us ], [ %.134, %Abc_TtCopy.exit ]
+  %.0.lcssa = phi i32 [ 1000000000, %Abc_TtDup.exit ], [ %.1.us56, %Abc_TtCopy.exit.us54 ], [ %.1.us, %.lr.ph18.preheader.i.us ], [ %.1.us.us, %.lr.ph18.preheader.i.us.us ], [ %.1, %Abc_TtCopy.exit ]
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %107, label %105
 

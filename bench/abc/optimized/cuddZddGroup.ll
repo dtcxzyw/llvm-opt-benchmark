@@ -231,7 +231,7 @@ define internal fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnu
   br i1 %.not36.i, label %zddFindNodeHiLo.exit, label %.preheader.i, !llvm.loop !39
 
 zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %25
-  %.2 = phi i32 [ %20, %9 ], [ %26, %25 ], [ %spec.select, %.preheader.i ]
+  %.2 = phi i32 [ %26, %25 ], [ %20, %9 ], [ %spec.select, %.preheader.i ]
   %39 = icmp eq i32 %.2, -1
   br i1 %39, label %zddMergeGroups.exit, label %40
 
@@ -677,7 +677,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %or.cond3, label %230, label %zddGroupSifting.exit, !llvm.loop !64
 
 zddGroupSifting.exit:                             ; preds = %230, %50, %227, %226, %224, %._crit_edge121.i, %.thread152.i, %.thread, %40, %46, %48, %56, %58, %228
-  %.0 = phi i32 [ %47, %46 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ], [ 1, %40 ], [ %229, %228 ], [ 1, %224 ], [ 1, %._crit_edge121.i ], [ 0, %227 ], [ 0, %226 ], [ 0, %.thread152.i ], [ 0, %.thread ], [ %52, %50 ], [ %232, %230 ]
+  %.0 = phi i32 [ %52, %50 ], [ %47, %46 ], [ %49, %48 ], [ 0, %.thread ], [ %57, %56 ], [ %59, %58 ], [ 1, %40 ], [ %229, %228 ], [ 1, %224 ], [ 1, %._crit_edge121.i ], [ 0, %227 ], [ 0, %226 ], [ 0, %.thread152.i ], [ %232, %230 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %237 = load ptr, ptr %236, align 8, !tbaa !26
   %.not.i32 = icmp eq ptr %1, %237
@@ -740,7 +740,7 @@ zddGroupSifting.exit:                             ; preds = %230, %50, %227, %22
   br i1 %.not24.i, label %255, label %zddMergeGroups.exit
 
 zddMergeGroups.exit:                              ; preds = %260, %255, %3, %43, %zddFindNodeHiLo.exit
-  %.027 = phi i32 [ 1, %zddFindNodeHiLo.exit ], [ 0, %43 ], [ 1, %3 ], [ %.0, %255 ], [ %.0, %260 ]
+  %.027 = phi i32 [ 1, %zddFindNodeHiLo.exit ], [ 1, %3 ], [ 0, %43 ], [ %.0, %255 ], [ %.0, %260 ]
   ret i32 %.027
 }
 
@@ -1092,7 +1092,7 @@ zddGroupMoveBackward.exit:                        ; preds = %.lr.ph85.i, %._crit
   br i1 %.not31, label %zddGroupMoveBackward.exit.thread, label %9, !llvm.loop !79
 
 zddGroupMoveBackward.exit.thread:                 ; preds = %9, %29, %84, %51, %3
-  %.027 = phi i32 [ 1, %3 ], [ 0, %51 ], [ 0, %29 ], [ 1, %84 ], [ 1, %9 ]
+  %.027 = phi i32 [ 0, %51 ], [ 1, %3 ], [ 1, %9 ], [ 0, %29 ], [ 1, %84 ]
   ret i32 %.027
 }
 

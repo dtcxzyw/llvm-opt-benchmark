@@ -5421,12 +5421,12 @@ Fra_ClausSimInfoClean.exit.._crit_edge_crit_edge: ; preds = %Fra_ClausSimInfoCle
   br i1 %252, label %247, label %.loopexit, !llvm.loop !182
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %121, %6
-  %str.4.sink = phi ptr [ @str.8, %6 ], [ @str.5, %121 ], [ @str.5, %.lr.ph ]
+  %str.4.sink = phi ptr [ @str.5, %121 ], [ @str.8, %6 ], [ @str.5, %.lr.ph ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.4.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %247, %.loopexit.sink.split, %.critedge4
-  %.0152 = phi i32 [ %.0145.lcssa, %.critedge4 ], [ -1, %.loopexit.sink.split ], [ %.0145.lcssa, %247 ]
+  %.0152 = phi i32 [ -1, %.loopexit.sink.split ], [ %.0145.lcssa, %.critedge4 ], [ %.0145.lcssa, %247 ]
   ret i32 %.0152
 }
 

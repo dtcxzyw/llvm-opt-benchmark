@@ -537,26 +537,26 @@ define internal fastcc noundef zeroext i1 @communityid_calc(i8 noundef zeroext %
   store i16 %28, ptr %13, align 2
   switch i8 %0, label %.thread [
     i8 1, label %29
-    i8 58, label %32
+    i8 58, label %31
   ]
 
 29:                                               ; preds = %26
   %rev106 = tail call i16 @llvm.bswap.i16(i16 %27)
   %30 = icmp ult i16 %rev106, 19
-  br i1 %30, label %switch.hole_check, label %31
+  br i1 %30, label %switch.hole_check, label %34
 
-31:                                               ; preds = %switch.hole_check, %29
+31:                                               ; preds = %26
+  %rev = tail call i16 @llvm.bswap.i16(i16 %27)
+  %switch.tableidx = add i16 %rev, -128
+  %32 = icmp ult i16 %switch.tableidx, 18
+  br i1 %32, label %switch.hole_check23, label %33
+
+33:                                               ; preds = %switch.hole_check23, %31
   store i16 %27, ptr %12, align 2
   store i16 %28, ptr %13, align 2
   br label %communityid_tuple_lt.exit.thread
 
-32:                                               ; preds = %26
-  %rev = tail call i16 @llvm.bswap.i16(i16 %27)
-  %switch.tableidx = add i16 %rev, -128
-  %33 = icmp ult i16 %switch.tableidx, 18
-  br i1 %33, label %switch.hole_check23, label %34
-
-34:                                               ; preds = %switch.hole_check23, %32
+34:                                               ; preds = %switch.hole_check, %29
   store i16 %27, ptr %12, align 2
   store i16 %28, ptr %13, align 2
   br label %communityid_tuple_lt.exit.thread
@@ -565,18 +565,18 @@ switch.hole_check:                                ; preds = %29
   %switch.maskindex = zext nneg i16 %rev106 to i32
   %switch.shifted = lshr i32 517889, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %31
+  br i1 %switch.lobit, label %switch.lookup, label %34
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %35 = zext nneg i16 %rev106 to i64
   %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.communityid_calc, i64 %35
   br label %.thread.sink.split
 
-switch.hole_check23:                              ; preds = %32
+switch.hole_check23:                              ; preds = %31
   %switch.maskindex25 = zext nneg i16 %switch.tableidx to i32
   %switch.shifted26 = lshr i32 203247, %switch.maskindex25
   %switch.lobit27 = trunc i32 %switch.shifted26 to i1
-  br i1 %switch.lobit27, label %switch.lookup24, label %34
+  br i1 %switch.lobit27, label %switch.lookup24, label %33
 
 switch.lookup24:                                  ; preds = %switch.hole_check23
   %36 = zext nneg i16 %switch.tableidx to i64
@@ -584,15 +584,15 @@ switch.lookup24:                                  ; preds = %switch.hole_check23
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %switch.lookup24, %switch.lookup
-  %.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep28, %switch.lookup24 ]
+  %.sink.in = phi ptr [ %switch.gep28, %switch.lookup24 ], [ %switch.gep, %switch.lookup ]
   %.sink = load i16, ptr %.sink.in, align 2
   store i16 %27, ptr %12, align 2
   store i16 %.sink, ptr %13, align 2
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %23
-  %.0835 = phi ptr [ %12, %26 ], [ %4, %23 ], [ %12, %.thread.sink.split ]
-  %.0844 = phi ptr [ %13, %26 ], [ %5, %23 ], [ %13, %.thread.sink.split ]
+  %.0835 = phi ptr [ %4, %23 ], [ %12, %26 ], [ %12, %.thread.sink.split ]
+  %.0844 = phi ptr [ %5, %23 ], [ %13, %26 ], [ %13, %.thread.sink.split ]
   %37 = zext nneg i8 %1 to i64
   %38 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %3, i64 noundef %37) #10
   %39 = icmp ne ptr %.0835, null
@@ -621,11 +621,11 @@ switch.lookup24:                                  ; preds = %switch.hole_check23
   %spec.select112 = select i1 %or.cond.i, ptr %.0844, ptr %.0835
   br label %communityid_tuple_lt.exit.thread
 
-communityid_tuple_lt.exit.thread:                 ; preds = %45, %31, %34, %50
-  %.185 = phi ptr [ %13, %34 ], [ %.0844, %45 ], [ %spec.select, %50 ], [ %13, %31 ]
-  %.1 = phi ptr [ %12, %34 ], [ %.0835, %45 ], [ %spec.select112, %50 ], [ %12, %31 ]
-  %.082 = phi ptr [ %3, %34 ], [ %3, %45 ], [ %2, %50 ], [ %3, %31 ]
-  %.081 = phi ptr [ %2, %34 ], [ %2, %45 ], [ %3, %50 ], [ %2, %31 ]
+communityid_tuple_lt.exit.thread:                 ; preds = %45, %33, %34, %50
+  %.185 = phi ptr [ %13, %34 ], [ %.0844, %45 ], [ %spec.select, %50 ], [ %13, %33 ]
+  %.1 = phi ptr [ %12, %34 ], [ %.0835, %45 ], [ %spec.select112, %50 ], [ %12, %33 ]
+  %.082 = phi ptr [ %3, %34 ], [ %3, %45 ], [ %2, %50 ], [ %3, %33 ]
+  %.081 = phi ptr [ %2, %34 ], [ %2, %45 ], [ %3, %50 ], [ %2, %33 ]
   %51 = load i16, ptr @cid_cfg.1, align 2
   %rev110 = call i16 @llvm.bswap.i16(i16 %51)
   store i16 %rev110, ptr %10, align 2

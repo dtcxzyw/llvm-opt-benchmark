@@ -512,7 +512,7 @@ PerformAuthentication.exit:                       ; preds = %70, %95
   br label %103
 
 103:                                              ; preds = %66, %101
-  %.070.shrunk = phi i1 [ %69, %66 ], [ %102, %101 ]
+  %.070.shrunk = phi i1 [ %102, %101 ], [ %69, %66 ]
   %104 = load i8, ptr @IsBinaryUpgrade, align 1, !range !8, !noundef !9
   %105 = trunc nuw i8 %104 to i1
   %.not = xor i1 %105, true

@@ -5932,7 +5932,7 @@ _ZN4core10intrinsics10typed_swap17ha476fca74d94ba4aE.exit.i.i.i.i.i: ; preds = %
   br label %.thread26.i
 
 627:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38f95d890ecdf3b4E.exit.thread.i", %624
-  %.sroa.03.3.ph.i = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38f95d890ecdf3b4E.exit.thread.i" ], [ true, %624 ]
+  %.sroa.03.3.ph.i = phi i1 [ true, %624 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38f95d890ecdf3b4E.exit.thread.i" ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
@@ -8412,7 +8412,7 @@ _ZN4core10intrinsics10typed_swap17h85a37a8832cb9ef2E.exit.i104.i: ; preds = %112
   br i1 %1409, label %.invoke, label %1411
 
 .invoke1244:                                      ; preds = %1534, %1463, %1396, %1636
-  %1410 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.106, %1636 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.105, %1534 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.99, %1396 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.103, %1463 ]
+  %1410 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.106, %1636 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.99, %1396 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.103, %1463 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.105, %1534 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.63d7726f91c71b16c46073a8f7ecf62f.50.llvm.14901586487751506972, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1410) #33
           to label %.cont1245 unwind label %.critedge125.thread510.loopexit.split-lp.loopexit.split-lp
 
@@ -8424,9 +8424,9 @@ _ZN4core10intrinsics10typed_swap17h85a37a8832cb9ef2E.exit.i104.i: ; preds = %112
   br i1 %1412, label %1418, label %.invoke1246
 
 .invoke1246:                                      ; preds = %1548, %1477, %1411, %1650
-  %1413 = phi i64 [ %1645, %1650 ], [ %1543, %1548 ], [ %1405, %1411 ], [ %1472, %1477 ]
-  %1414 = phi i64 [ %1648, %1650 ], [ %1546, %1548 ], [ %1408, %1411 ], [ %1475, %1477 ]
-  %1415 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.106, %1650 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.105, %1548 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.99, %1411 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.103, %1477 ]
+  %1413 = phi i64 [ %1645, %1650 ], [ %1405, %1411 ], [ %1472, %1477 ], [ %1543, %1548 ]
+  %1414 = phi i64 [ %1648, %1650 ], [ %1408, %1411 ], [ %1475, %1477 ], [ %1546, %1548 ]
+  %1415 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.106, %1650 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.99, %1411 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.103, %1477 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.105, %1548 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %1413, i64 noundef %1414, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1415) #33
           to label %.cont1247 unwind label %.critedge125.thread510.loopexit.split-lp.loopexit.split-lp
 
@@ -8438,7 +8438,7 @@ _ZN4core10intrinsics10typed_swap17h85a37a8832cb9ef2E.exit.i104.i: ; preds = %112
           to label %1387 unwind label %.critedge125.thread510.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %1470, %1461, %1403, %1394, %1643, %1634
-  %1417 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1643 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1634 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1470 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1403 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1394 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1461 ]
+  %1417 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1643 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1634 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1394 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1461 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1403 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1470 ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) %1417) #33
           to label %.cont unwind label %.critedge125.thread510.loopexit.split-lp.loopexit.split-lp
 
@@ -14776,9 +14776,9 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   invoke void @"_ZN4core3ptr70drop_in_place$LT$$u5b$sum_tree..SumTree$LT$text..Fragment$GT$$u5d$$GT$17hcd52f4abab963db1E.llvm.3163581104415325995"(ptr noalias noundef nonnull align 8 %338, i64 noundef %337)
           to label %.thread346 unwind label %229
 
-.thread346.thread403:                             ; preds = %265, %268, %.thread346
-  %.sroa.037.1332410 = phi i1 [ %.sroa.037.1333, %.thread346 ], [ true, %268 ], [ true, %265 ]
-  %.pn78338408 = phi { ptr, i32 } [ %.pn78339, %.thread346 ], [ %266, %268 ], [ %266, %265 ]
+.thread346.thread403:                             ; preds = %268, %265, %.thread346
+  %.sroa.037.1332410 = phi i1 [ %.sroa.037.1333, %.thread346 ], [ true, %265 ], [ true, %268 ]
+  %.pn78338408 = phi { ptr, i32 } [ %.pn78339, %.thread346 ], [ %266, %265 ], [ %266, %268 ]
   %339 = load i32, ptr %47, align 8, !alias.scope !3308, !noundef !4
   %.not.i.i179 = icmp eq i32 %339, 0
   br i1 %.not.i.i179, label %.thread412, label %340
@@ -15820,7 +15820,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   br label %.thread328
 
 .thread365.loopexit.split-lp.loopexit.split-lp:   ; preds = %231, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17h930e105d4881068fE.exit"
-  %.sroa.037.0.ph.ph = phi i1 [ true, %231 ], [ false, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17h930e105d4881068fE.exit" ]
+  %.sroa.037.0.ph.ph = phi i1 [ false, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17h930e105d4881068fE.exit" ], [ true, %231 ]
   %lpad.loopexit.split-lp526 = landingpad { ptr, i32 }
           cleanup
   br label %.thread328

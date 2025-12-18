@@ -524,8 +524,8 @@ mmbit_iterate.exit19:                             ; preds = %130, %69
   %.not.i163 = icmp eq i32 %.011.i18, -1
   br i1 %.not.i163, label %processReports.exit, label %.lr.ph168
 
-.lr.ph168:                                        ; preds = %106, %62, %mmbit_iterate.exit19
-  %.011.i18215 = phi i32 [ %.011.i18, %mmbit_iterate.exit19 ], [ %109, %106 ], [ %64, %62 ]
+.lr.ph168:                                        ; preds = %62, %106, %mmbit_iterate.exit19
+  %.011.i18215 = phi i32 [ %.011.i18, %mmbit_iterate.exit19 ], [ %64, %62 ], [ %109, %106 ]
   %142 = load i32, ptr @mmbit_root_offset_from_level, align 16
   %143 = zext i32 %142 to i64
   %144 = shl nuw nsw i64 %143, 3
@@ -707,7 +707,7 @@ mmbit_iterate.exit19:                             ; preds = %130, %69
   br label %mmbit_unset.exit.thread
 
 mmbit_unset.exit.thread:                          ; preds = %.thread, %.lr.ph304, %195, %.thread95, %._crit_edge149, %185
-  %.148.i.lcssa218 = phi ptr [ %.148.i.lcssa219, %195 ], [ %.148.i.lcssa219, %.thread95 ], [ %.148.i142.ph, %._crit_edge149 ], [ %.148.i.lcssa219, %185 ], [ %.148.i.lcssa219, %.lr.ph304 ], [ %.350.i, %.thread ]
+  %.148.i.lcssa218 = phi ptr [ %.148.i.lcssa219, %.lr.ph304 ], [ %.148.i.lcssa219, %195 ], [ %.148.i.lcssa219, %.thread95 ], [ %.148.i142.ph, %._crit_edge149 ], [ %.148.i.lcssa219, %185 ], [ %.350.i, %.thread ]
   %240 = load i32, ptr %3, align 32
   %.not.i14 = icmp eq i32 %240, 0
   %241 = add i32 %240, -1
@@ -1012,7 +1012,7 @@ mmbit_get_flat_block.exit61:                      ; preds = %349, %352, %355, %3
   br label %.backedge
 
 mmbit_iterate.exit:                               ; preds = %396, %277, %.thread103, %332, %370
-  %.011.i = phi i32 [ %279, %277 ], [ %337, %332 ], [ %323, %.thread103 ], [ %373, %370 ], [ %400, %396 ]
+  %.011.i = phi i32 [ %337, %332 ], [ %373, %370 ], [ %323, %.thread103 ], [ %279, %277 ], [ %400, %396 ]
   %.not.i = icmp eq i32 %.011.i, -1
   br i1 %.not.i, label %processReports.exit, label %146
 
@@ -1401,7 +1401,7 @@ default.unreachable49:                            ; preds = %get_flat_masks.exit
   unreachable
 
 mmbit_init_range.exit:                            ; preds = %146, %8, %26, %22, %93, %91, %86, %84, %79, %74, %66, %65, %._crit_edge, %4
-  %.0 = phi i8 [ 0, %4 ], [ 1, %._crit_edge ], [ 1, %8 ], [ 1, %65 ], [ 1, %66 ], [ 1, %74 ], [ 1, %79 ], [ 1, %84 ], [ 1, %86 ], [ 1, %91 ], [ 1, %93 ], [ 1, %22 ], [ 1, %26 ], [ 1, %146 ]
+  %.0 = phi i8 [ 0, %4 ], [ 1, %26 ], [ 1, %._crit_edge ], [ 1, %8 ], [ 1, %65 ], [ 1, %66 ], [ 1, %74 ], [ 1, %79 ], [ 1, %84 ], [ 1, %86 ], [ 1, %91 ], [ 1, %93 ], [ 1, %22 ], [ 1, %146 ]
   ret i8 %.0
 }
 
@@ -2193,7 +2193,7 @@ vermUnalign.exit138.i:                            ; preds = %454, %vermSearchAli
   br label %nvermicelliExec.exit119.i
 
 nvermicelliExec.exit119.i:                        ; preds = %405, %.lr.ph827, %.preheader628, %431, %443, %vermUnalign.exit142.i, %vermUnalign.exit138.i
-  %.0.i113.i = phi ptr [ %418, %vermUnalign.exit142.i ], [ %458, %vermUnalign.exit138.i ], [ %435, %431 ], [ %446, %443 ], [ %.059.i235, %.preheader628 ], [ %406, %405 ], [ %.042.i117.i826, %.lr.ph827 ]
+  %.0.i113.i = phi ptr [ %446, %443 ], [ %435, %431 ], [ %418, %vermUnalign.exit142.i ], [ %458, %vermUnalign.exit138.i ], [ %.059.i235, %.preheader628 ], [ %406, %405 ], [ %.042.i117.i826, %.lr.ph827 ]
   %459 = icmp eq ptr %.0.i113.i, %59
   br i1 %459, label %find_xverm_run.exit266, label %460
 
@@ -2330,12 +2330,12 @@ vermUnalign.exit178.i:                            ; preds = %520, %vermSearchAli
   br label %vermicelliExec.exit.i241
 
 vermicelliExec.exit.i241:                         ; preds = %471, %.lr.ph837, %.preheader626, %497, %508, %vermUnalign.exit182.i, %vermUnalign.exit178.i
-  %.0.i.i242 = phi ptr [ %483, %vermUnalign.exit182.i ], [ %524, %vermUnalign.exit178.i ], [ %500, %497 ], [ %511, %508 ], [ %.0.i113.i, %.preheader626 ], [ %scevgep1166, %471 ], [ %.042.i.i253836, %.lr.ph837 ]
+  %.0.i.i242 = phi ptr [ %511, %508 ], [ %500, %497 ], [ %483, %vermUnalign.exit182.i ], [ %524, %vermUnalign.exit178.i ], [ %.0.i113.i, %.preheader626 ], [ %scevgep1166, %471 ], [ %.042.i.i253836, %.lr.ph837 ]
   %525 = icmp eq ptr %.0.i.i242, %463
   br i1 %525, label %find_xverm_run.exit266, label %399
 
 find_xverm_run.exit266:                           ; preds = %vermicelliExec.exit.i241, %nvermicelliExec.exit119.i, %.lr.ph847, %349, %.preheader648, %371, %383, %vermUnalign.exit134.i, %vermUnalign.exit.i260
-  %.0.i249 = phi ptr [ %359, %vermUnalign.exit134.i ], [ %398, %vermUnalign.exit.i260 ], [ %375, %371 ], [ %386, %383 ], [ %81, %.preheader648 ], [ %350, %349 ], [ %.042.i127.i846, %.lr.ph847 ], [ %.0.i113.i, %vermicelliExec.exit.i241 ], [ %59, %nvermicelliExec.exit119.i ]
+  %.0.i249 = phi ptr [ %350, %349 ], [ %386, %383 ], [ %375, %371 ], [ %359, %vermUnalign.exit134.i ], [ %398, %vermUnalign.exit.i260 ], [ %81, %.preheader648 ], [ %.042.i127.i846, %.lr.ph847 ], [ %.0.i113.i, %vermicelliExec.exit.i241 ], [ %59, %nvermicelliExec.exit119.i ]
   %526 = ptrtoint ptr %.0.i249 to i64
   %527 = add i64 %526, %64
   br label %find_last_bad.exit
@@ -2833,7 +2833,7 @@ vermUnalign.exit162.i:                            ; preds = %764, %vermSearchAli
   br i1 %773, label %.lr.ph787, label %vermicelliExec.exit92.i
 
 vermicelliExec.exit92.i:                          ; preds = %.lr.ph782, %716, %.lr.ph787, %771, %.preheader635, %.preheader634, %742, %753, %vermUnalign.exit166.i, %vermUnalign.exit162.i, %706, %vermicelliDoubleExec.exit
-  %.064.i = phi ptr [ %.1.i268, %vermicelliDoubleExec.exit ], [ %.1.i268, %706 ], [ %729, %vermUnalign.exit166.i ], [ %768, %vermUnalign.exit162.i ], [ %745, %742 ], [ %756, %753 ], [ %.1.i268, %.preheader635 ], [ %.059.i223, %.preheader634 ], [ %772, %771 ], [ %.042.i82.i786, %.lr.ph787 ], [ %.042.i91.i781, %.lr.ph782 ], [ %717, %716 ]
+  %.064.i = phi ptr [ %.1.i268, %vermicelliDoubleExec.exit ], [ %756, %753 ], [ %.1.i268, %706 ], [ %.1.i268, %.preheader635 ], [ %745, %742 ], [ %729, %vermUnalign.exit166.i ], [ %768, %vermUnalign.exit162.i ], [ %.059.i223, %.preheader634 ], [ %772, %771 ], [ %.042.i82.i786, %.lr.ph787 ], [ %.042.i91.i781, %.lr.ph782 ], [ %717, %716 ]
   %774 = icmp eq ptr %.064.i, %59
   br i1 %774, label %find_xverm_run.exit, label %775
 
@@ -2971,12 +2971,12 @@ vermUnalign.exit146.i:                            ; preds = %835, %vermSearchAli
   br label %nvermicelliExec.exit.i227
 
 nvermicelliExec.exit.i227:                        ; preds = %785, %.lr.ph797, %.preheader632, %811, %823, %vermUnalign.exit150.i, %vermUnalign.exit146.i
-  %.0.i105.i = phi ptr [ %797, %vermUnalign.exit150.i ], [ %839, %vermUnalign.exit146.i ], [ %815, %811 ], [ %826, %823 ], [ %.064.i, %.preheader632 ], [ %scevgep, %785 ], [ %.042.i109.i796, %.lr.ph797 ]
+  %.0.i105.i = phi ptr [ %826, %823 ], [ %815, %811 ], [ %797, %vermUnalign.exit150.i ], [ %839, %vermUnalign.exit146.i ], [ %.064.i, %.preheader632 ], [ %scevgep, %785 ], [ %.042.i109.i796, %.lr.ph797 ]
   %840 = icmp eq ptr %.0.i105.i, %778
   br i1 %840, label %find_xverm_run.exit, label %652
 
 find_xverm_run.exit:                              ; preds = %nvermicelliExec.exit.i227, %vermicelliExec.exit92.i, %.lr.ph807, %603, %.preheader655, %625, %636, %vermUnalign.exit158.i, %vermUnalign.exit154.i
-  %.0.i231 = phi ptr [ %613, %vermUnalign.exit158.i ], [ %651, %vermUnalign.exit154.i ], [ %628, %625 ], [ %639, %636 ], [ %81, %.preheader655 ], [ %604, %603 ], [ %.042.i100.i806, %.lr.ph807 ], [ %.064.i, %nvermicelliExec.exit.i227 ], [ %59, %vermicelliExec.exit92.i ]
+  %.0.i231 = phi ptr [ %604, %603 ], [ %639, %636 ], [ %628, %625 ], [ %613, %vermUnalign.exit158.i ], [ %651, %vermUnalign.exit154.i ], [ %81, %.preheader655 ], [ %.042.i100.i806, %.lr.ph807 ], [ %.064.i, %nvermicelliExec.exit.i227 ], [ %59, %vermicelliExec.exit92.i ]
   %841 = ptrtoint ptr %.0.i231 to i64
   %842 = add i64 %841, %64
   br label %find_last_bad.exit
@@ -3012,7 +3012,7 @@ find_xverm_run.exit:                              ; preds = %nvermicelliExec.exi
   br i1 %857, label %849, label %find_last_bad.exit
 
 find_last_bad.exit:                               ; preds = %853, %843, %583, %.loopexit, %566, %550, %539, %528, %855, %585, %568, %541, %find_xverm_run.exit266, %find_xverm_run.exit
-  %.0107.i = phi i64 [ %527, %find_xverm_run.exit266 ], [ %842, %find_xverm_run.exit ], [ %.5117.i, %.loopexit ], [ %.3115.i, %568 ], [ %.0112.i, %541 ], [ %58, %539 ], [ %.5117.i, %585 ], [ %.9121.i, %855 ], [ %58, %566 ], [ %.0112.i, %528 ], [ %.3115.i, %550 ], [ %58, %583 ], [ %58, %853 ], [ %.9121.i, %843 ]
+  %.0107.i = phi i64 [ %527, %find_xverm_run.exit266 ], [ %.5117.i, %585 ], [ %.0112.i, %541 ], [ %.5117.i, %.loopexit ], [ %.3115.i, %568 ], [ %842, %find_xverm_run.exit ], [ %58, %566 ], [ %58, %539 ], [ %.9121.i, %855 ], [ %.0112.i, %528 ], [ %.3115.i, %550 ], [ %58, %583 ], [ %.9121.i, %843 ], [ %58, %853 ]
   %.not72.i140 = icmp eq i64 %.0107.i, %.030.i953
   br i1 %.not72.i140, label %.critedge.i141, label %858
 
@@ -3198,7 +3198,7 @@ vermUnalign.exit93.i:                             ; preds = %938, %vermSearchAli
   br label %vermicelliExec.exit.i
 
 vermicelliExec.exit.i:                            ; preds = %894, %.lr.ph872, %.preheader644, %916, %927, %vermUnalign.exit97.i, %vermUnalign.exit93.i
-  %.0.i76.i = phi ptr [ %904, %vermUnalign.exit97.i ], [ %942, %vermUnalign.exit93.i ], [ %919, %916 ], [ %930, %927 ], [ %90, %.preheader644 ], [ %895, %894 ], [ %.042.i.i153871, %.lr.ph872 ]
+  %.0.i76.i = phi ptr [ %930, %927 ], [ %919, %916 ], [ %904, %vermUnalign.exit97.i ], [ %942, %vermUnalign.exit93.i ], [ %90, %.preheader644 ], [ %895, %894 ], [ %.042.i.i153871, %.lr.ph872 ]
   %943 = ptrtoint ptr %.0.i76.i to i64
   %944 = sub i64 %943, %93
   br label %limitByReach.exit.i
@@ -3340,7 +3340,7 @@ vermUnalign.exit.i:                               ; preds = %1012, %vermSearchAl
   br label %nvermicelliExec.exit.i
 
 nvermicelliExec.exit.i:                           ; preds = %967, %.lr.ph862, %.preheader646, %989, %1001, %vermUnalign.exit89.i, %vermUnalign.exit.i
-  %.0.i80.i144 = phi ptr [ %977, %vermUnalign.exit89.i ], [ %1016, %vermUnalign.exit.i ], [ %993, %989 ], [ %1004, %1001 ], [ %90, %.preheader646 ], [ %968, %967 ], [ %.042.i84.i861, %.lr.ph862 ]
+  %.0.i80.i144 = phi ptr [ %1004, %1001 ], [ %993, %989 ], [ %977, %vermUnalign.exit89.i ], [ %1016, %vermUnalign.exit.i ], [ %90, %.preheader646 ], [ %968, %967 ], [ %.042.i84.i861, %.lr.ph862 ]
   %1017 = ptrtoint ptr %.0.i80.i144 to i64
   %1018 = sub i64 %1017, %93
   br label %limitByReach.exit.i
@@ -4022,8 +4022,8 @@ mmbit_iterate.exit42.i:                           ; preds = %1356, %1295
   %.not.i.i120943 = icmp eq i32 %.011.i41.i, -1
   br i1 %.not.i.i120943, label %processReportsForRange.exit, label %.lr.ph948.preheader
 
-.lr.ph948.preheader:                              ; preds = %1332, %1288, %mmbit_iterate.exit42.i
-  %.042.i.i946.ph = phi i32 [ %1290, %1288 ], [ %1335, %1332 ], [ %.011.i41.i, %mmbit_iterate.exit42.i ]
+.lr.ph948.preheader:                              ; preds = %1288, %1332, %mmbit_iterate.exit42.i
+  %.042.i.i946.ph = phi i32 [ %1335, %1332 ], [ %1290, %1288 ], [ %.011.i41.i, %mmbit_iterate.exit42.i ]
   br label %.lr.ph948
 
 .lr.ph948:                                        ; preds = %.lr.ph948.preheader, %mmbit_iterate.exit.i
@@ -4206,8 +4206,8 @@ mmbit_iterate.exit42.i:                           ; preds = %1356, %1295
   br label %mmbit_unset.exit.i.thread
 
 mmbit_unset.exit.i.thread:                        ; preds = %.thread1465, %.lr.ph1893, %1417, %.thread497, %._crit_edge929, %1407
-  %.245.i.i.lcssa1463 = phi i32 [ %.245.i.i.lcssa1464, %1417 ], [ %.245.i.i.lcssa1464, %.thread497 ], [ %.245.i.i923.ph, %._crit_edge929 ], [ %.245.i.i.lcssa1464, %1407 ], [ %.245.i.i.lcssa1464, %.lr.ph1893 ], [ %.4.i.i, %.thread1465 ]
-  %.148.i.i.lcssa1461 = phi ptr [ %.148.i.i.lcssa1462, %1417 ], [ %.148.i.i.lcssa1462, %.thread497 ], [ %.148.i.i922.ph, %._crit_edge929 ], [ %.148.i.i.lcssa1462, %1407 ], [ %.148.i.i.lcssa1462, %.lr.ph1893 ], [ %.350.i.i, %.thread1465 ]
+  %.245.i.i.lcssa1463 = phi i32 [ %.245.i.i.lcssa1464, %.lr.ph1893 ], [ %.245.i.i.lcssa1464, %1417 ], [ %.245.i.i.lcssa1464, %.thread497 ], [ %.245.i.i923.ph, %._crit_edge929 ], [ %.245.i.i.lcssa1464, %1407 ], [ %.4.i.i, %.thread1465 ]
+  %.148.i.i.lcssa1461 = phi ptr [ %.148.i.i.lcssa1462, %.lr.ph1893 ], [ %.148.i.i.lcssa1462, %1417 ], [ %.148.i.i.lcssa1462, %.thread497 ], [ %.148.i.i922.ph, %._crit_edge929 ], [ %.148.i.i.lcssa1462, %1407 ], [ %.350.i.i, %.thread1465 ]
   %1462 = load i32, ptr %16, align 32
   %.not.i37.i = icmp eq i32 %1462, 0
   %1463 = add i32 %1462, -1
@@ -4512,7 +4512,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %1585, %1577, %1574,
   br label %.backedge640
 
 mmbit_iterate.exit.i:                             ; preds = %1618, %1499, %.thread505, %1554, %1592
-  %.011.i.i = phi i32 [ %1501, %1499 ], [ %1559, %1554 ], [ %1545, %.thread505 ], [ %1595, %1592 ], [ %1622, %1618 ]
+  %.011.i.i = phi i32 [ %1559, %1554 ], [ %1595, %1592 ], [ %1545, %.thread505 ], [ %1501, %1499 ], [ %1622, %1618 ]
   %.not.i.i120 = icmp eq i32 %.011.i.i, -1
   br i1 %.not.i.i120, label %.thread525, label %.lr.ph948
 
@@ -5145,8 +5145,8 @@ mmbit_iterate.exit7:                              ; preds = %1913, %1852
   %.not140.i994 = icmp eq i32 %.011.i6, -1
   br i1 %.not140.i994, label %nfaExecMpv_Q_i.exit, label %.lr.ph998
 
-.lr.ph998:                                        ; preds = %1889, %1845, %mmbit_iterate.exit7
-  %.011.i61489 = phi i32 [ %.011.i6, %mmbit_iterate.exit7 ], [ %1892, %1889 ], [ %1847, %1845 ]
+.lr.ph998:                                        ; preds = %1845, %1889, %mmbit_iterate.exit7
+  %.011.i61489 = phi i32 [ %.011.i6, %mmbit_iterate.exit7 ], [ %1847, %1845 ], [ %1892, %1889 ]
   %1925 = load i32, ptr @mmbit_root_offset_from_level, align 16
   %1926 = zext i32 %1925 to i64
   %1927 = shl nuw nsw i64 %1926, 3
@@ -5559,7 +5559,7 @@ mmbit_get_flat_block.exit76:                      ; preds = %2105, %2108, %2111,
   br label %.backedge
 
 mmbit_iterate.exit:                               ; preds = %2152, %2033, %.thread569, %2088, %2126
-  %.011.i = phi i32 [ %2035, %2033 ], [ %2093, %2088 ], [ %2079, %.thread569 ], [ %2129, %2126 ], [ %2156, %2152 ]
+  %.011.i = phi i32 [ %2093, %2088 ], [ %2129, %2126 ], [ %2079, %.thread569 ], [ %2035, %2033 ], [ %2156, %2152 ]
   %.not140.i = icmp eq i32 %.011.i, -1
   br i1 %.not140.i, label %nfaExecMpv_Q_i.exit, label %1929
 
@@ -5781,7 +5781,7 @@ mmbit_iterate.exit12:                             ; preds = %2264, %.thread595, 
   br label %nfaExecMpv_Q_i.exit
 
 nfaExecMpv_Q_i.exit:                              ; preds = %.thread558, %mmbit_get_flat_block.exit76, %2080, %mmbit_get_flat_block.exit, %._crit_edge992, %mmbit_unset.exit, %mmbit_iterate.exit, %.thread579, %mmbit_get_flat_block.exit88, %mmbit_get_flat_block.exit84, %._crit_edge982, %1812, %mmbit_iterate.exit7, %mmbit_unset.exit.i.thread502, %1645, %36, %71, %mmbit_iterate.exit12
-  %.0126.i = phi i8 [ 1, %36 ], [ 1, %71 ], [ %2277, %mmbit_iterate.exit12 ], [ 0, %mmbit_unset.exit.i.thread502 ], [ 1, %1645 ], [ 0, %mmbit_iterate.exit7 ], [ 0, %1812 ], [ 0, %._crit_edge982 ], [ 0, %mmbit_get_flat_block.exit84 ], [ 0, %mmbit_get_flat_block.exit88 ], [ %.1128.i, %mmbit_get_flat_block.exit76 ], [ %.1128.i, %.thread579 ], [ %.1128.i, %mmbit_iterate.exit ], [ %.1128.i, %mmbit_unset.exit ], [ %.1128.i, %._crit_edge992 ], [ %.1128.i, %mmbit_get_flat_block.exit ], [ %.1128.i, %2080 ], [ 0, %.thread558 ]
+  %.0126.i = phi i8 [ 1, %36 ], [ 1, %71 ], [ 1, %1645 ], [ %2277, %mmbit_iterate.exit12 ], [ 0, %mmbit_unset.exit.i.thread502 ], [ 0, %mmbit_iterate.exit7 ], [ %.1128.i, %mmbit_get_flat_block.exit76 ], [ %.1128.i, %.thread579 ], [ 0, %1812 ], [ 0, %._crit_edge982 ], [ 0, %mmbit_get_flat_block.exit84 ], [ 0, %mmbit_get_flat_block.exit88 ], [ %.1128.i, %mmbit_iterate.exit ], [ %.1128.i, %mmbit_unset.exit ], [ %.1128.i, %._crit_edge992 ], [ %.1128.i, %mmbit_get_flat_block.exit ], [ %.1128.i, %2080 ], [ 0, %.thread558 ]
   ret i8 %.0126.i
 }
 
@@ -6582,7 +6582,7 @@ vermUnalign.exit138.i:                            ; preds = %462, %vermSearchAli
   br label %nvermicelliExec.exit119.i
 
 nvermicelliExec.exit119.i:                        ; preds = %413, %.lr.ph913, %.preheader714, %439, %451, %vermUnalign.exit142.i, %vermUnalign.exit138.i
-  %.0.i113.i = phi ptr [ %426, %vermUnalign.exit142.i ], [ %466, %vermUnalign.exit138.i ], [ %443, %439 ], [ %454, %451 ], [ %.059.i291, %.preheader714 ], [ %414, %413 ], [ %.042.i117.i912, %.lr.ph913 ]
+  %.0.i113.i = phi ptr [ %454, %451 ], [ %443, %439 ], [ %426, %vermUnalign.exit142.i ], [ %466, %vermUnalign.exit138.i ], [ %.059.i291, %.preheader714 ], [ %414, %413 ], [ %.042.i117.i912, %.lr.ph913 ]
   %467 = icmp eq ptr %.0.i113.i, %67
   br i1 %467, label %find_xverm_run.exit322, label %468
 
@@ -6719,12 +6719,12 @@ vermUnalign.exit178.i:                            ; preds = %528, %vermSearchAli
   br label %vermicelliExec.exit.i297
 
 vermicelliExec.exit.i297:                         ; preds = %479, %.lr.ph923, %.preheader712, %505, %516, %vermUnalign.exit182.i, %vermUnalign.exit178.i
-  %.0.i.i298 = phi ptr [ %491, %vermUnalign.exit182.i ], [ %532, %vermUnalign.exit178.i ], [ %508, %505 ], [ %519, %516 ], [ %.0.i113.i, %.preheader712 ], [ %scevgep1256, %479 ], [ %.042.i.i309922, %.lr.ph923 ]
+  %.0.i.i298 = phi ptr [ %519, %516 ], [ %508, %505 ], [ %491, %vermUnalign.exit182.i ], [ %532, %vermUnalign.exit178.i ], [ %.0.i113.i, %.preheader712 ], [ %scevgep1256, %479 ], [ %.042.i.i309922, %.lr.ph923 ]
   %533 = icmp eq ptr %.0.i.i298, %471
   br i1 %533, label %find_xverm_run.exit322, label %407
 
 find_xverm_run.exit322:                           ; preds = %vermicelliExec.exit.i297, %nvermicelliExec.exit119.i, %.lr.ph933, %357, %.preheader734, %379, %391, %vermUnalign.exit134.i, %vermUnalign.exit.i316
-  %.0.i305 = phi ptr [ %367, %vermUnalign.exit134.i ], [ %406, %vermUnalign.exit.i316 ], [ %383, %379 ], [ %394, %391 ], [ %89, %.preheader734 ], [ %358, %357 ], [ %.042.i127.i932, %.lr.ph933 ], [ %.0.i113.i, %vermicelliExec.exit.i297 ], [ %67, %nvermicelliExec.exit119.i ]
+  %.0.i305 = phi ptr [ %358, %357 ], [ %394, %391 ], [ %383, %379 ], [ %367, %vermUnalign.exit134.i ], [ %406, %vermUnalign.exit.i316 ], [ %89, %.preheader734 ], [ %.042.i127.i932, %.lr.ph933 ], [ %.0.i113.i, %vermicelliExec.exit.i297 ], [ %67, %nvermicelliExec.exit119.i ]
   %534 = ptrtoint ptr %.0.i305 to i64
   %535 = add i64 %534, %72
   br label %find_last_bad.exit
@@ -7222,7 +7222,7 @@ vermUnalign.exit162.i:                            ; preds = %772, %vermSearchAli
   br i1 %781, label %.lr.ph873, label %vermicelliExec.exit92.i
 
 vermicelliExec.exit92.i:                          ; preds = %.lr.ph868, %724, %.lr.ph873, %779, %.preheader721, %.preheader720, %750, %761, %vermUnalign.exit166.i, %vermUnalign.exit162.i, %714, %vermicelliDoubleExec.exit
-  %.064.i = phi ptr [ %.1.i324, %vermicelliDoubleExec.exit ], [ %.1.i324, %714 ], [ %737, %vermUnalign.exit166.i ], [ %776, %vermUnalign.exit162.i ], [ %753, %750 ], [ %764, %761 ], [ %.1.i324, %.preheader721 ], [ %.059.i279, %.preheader720 ], [ %780, %779 ], [ %.042.i82.i872, %.lr.ph873 ], [ %.042.i91.i867, %.lr.ph868 ], [ %725, %724 ]
+  %.064.i = phi ptr [ %.1.i324, %vermicelliDoubleExec.exit ], [ %764, %761 ], [ %.1.i324, %714 ], [ %.1.i324, %.preheader721 ], [ %753, %750 ], [ %737, %vermUnalign.exit166.i ], [ %776, %vermUnalign.exit162.i ], [ %.059.i279, %.preheader720 ], [ %780, %779 ], [ %.042.i82.i872, %.lr.ph873 ], [ %.042.i91.i867, %.lr.ph868 ], [ %725, %724 ]
   %782 = icmp eq ptr %.064.i, %67
   br i1 %782, label %find_xverm_run.exit, label %783
 
@@ -7360,12 +7360,12 @@ vermUnalign.exit146.i:                            ; preds = %843, %vermSearchAli
   br label %nvermicelliExec.exit.i283
 
 nvermicelliExec.exit.i283:                        ; preds = %793, %.lr.ph883, %.preheader718, %819, %831, %vermUnalign.exit150.i, %vermUnalign.exit146.i
-  %.0.i105.i = phi ptr [ %805, %vermUnalign.exit150.i ], [ %847, %vermUnalign.exit146.i ], [ %823, %819 ], [ %834, %831 ], [ %.064.i, %.preheader718 ], [ %scevgep, %793 ], [ %.042.i109.i882, %.lr.ph883 ]
+  %.0.i105.i = phi ptr [ %834, %831 ], [ %823, %819 ], [ %805, %vermUnalign.exit150.i ], [ %847, %vermUnalign.exit146.i ], [ %.064.i, %.preheader718 ], [ %scevgep, %793 ], [ %.042.i109.i882, %.lr.ph883 ]
   %848 = icmp eq ptr %.0.i105.i, %786
   br i1 %848, label %find_xverm_run.exit, label %660
 
 find_xverm_run.exit:                              ; preds = %nvermicelliExec.exit.i283, %vermicelliExec.exit92.i, %.lr.ph893, %611, %.preheader741, %633, %644, %vermUnalign.exit158.i, %vermUnalign.exit154.i
-  %.0.i287 = phi ptr [ %621, %vermUnalign.exit158.i ], [ %659, %vermUnalign.exit154.i ], [ %636, %633 ], [ %647, %644 ], [ %89, %.preheader741 ], [ %612, %611 ], [ %.042.i100.i892, %.lr.ph893 ], [ %.064.i, %nvermicelliExec.exit.i283 ], [ %67, %vermicelliExec.exit92.i ]
+  %.0.i287 = phi ptr [ %612, %611 ], [ %647, %644 ], [ %636, %633 ], [ %621, %vermUnalign.exit158.i ], [ %659, %vermUnalign.exit154.i ], [ %89, %.preheader741 ], [ %.042.i100.i892, %.lr.ph893 ], [ %.064.i, %nvermicelliExec.exit.i283 ], [ %67, %vermicelliExec.exit92.i ]
   %849 = ptrtoint ptr %.0.i287 to i64
   %850 = add i64 %849, %72
   br label %find_last_bad.exit
@@ -7401,7 +7401,7 @@ find_xverm_run.exit:                              ; preds = %nvermicelliExec.exi
   br i1 %865, label %857, label %find_last_bad.exit
 
 find_last_bad.exit:                               ; preds = %861, %851, %591, %.loopexit, %574, %558, %547, %536, %863, %593, %576, %549, %find_xverm_run.exit322, %find_xverm_run.exit
-  %.0107.i = phi i64 [ %535, %find_xverm_run.exit322 ], [ %850, %find_xverm_run.exit ], [ %.5117.i, %.loopexit ], [ %.3115.i, %576 ], [ %.0112.i, %549 ], [ %66, %547 ], [ %.5117.i, %593 ], [ %.9121.i, %863 ], [ %66, %574 ], [ %.0112.i, %536 ], [ %.3115.i, %558 ], [ %66, %591 ], [ %66, %861 ], [ %.9121.i, %851 ]
+  %.0107.i = phi i64 [ %535, %find_xverm_run.exit322 ], [ %.5117.i, %593 ], [ %.0112.i, %549 ], [ %.5117.i, %.loopexit ], [ %.3115.i, %576 ], [ %850, %find_xverm_run.exit ], [ %66, %574 ], [ %66, %547 ], [ %.9121.i, %863 ], [ %.0112.i, %536 ], [ %.3115.i, %558 ], [ %66, %591 ], [ %.9121.i, %851 ], [ %66, %861 ]
   %.not72.i196 = icmp eq i64 %.0107.i, %.030.i1039
   br i1 %.not72.i196, label %.critedge.i197, label %866
 
@@ -7587,7 +7587,7 @@ vermUnalign.exit93.i:                             ; preds = %946, %vermSearchAli
   br label %vermicelliExec.exit.i
 
 vermicelliExec.exit.i:                            ; preds = %902, %.lr.ph958, %.preheader730, %924, %935, %vermUnalign.exit97.i, %vermUnalign.exit93.i
-  %.0.i76.i = phi ptr [ %912, %vermUnalign.exit97.i ], [ %950, %vermUnalign.exit93.i ], [ %927, %924 ], [ %938, %935 ], [ %98, %.preheader730 ], [ %903, %902 ], [ %.042.i.i209957, %.lr.ph958 ]
+  %.0.i76.i = phi ptr [ %938, %935 ], [ %927, %924 ], [ %912, %vermUnalign.exit97.i ], [ %950, %vermUnalign.exit93.i ], [ %98, %.preheader730 ], [ %903, %902 ], [ %.042.i.i209957, %.lr.ph958 ]
   %951 = ptrtoint ptr %.0.i76.i to i64
   %952 = sub i64 %951, %101
   br label %limitByReach.exit.i
@@ -7729,7 +7729,7 @@ vermUnalign.exit.i:                               ; preds = %1020, %vermSearchAl
   br label %nvermicelliExec.exit.i
 
 nvermicelliExec.exit.i:                           ; preds = %975, %.lr.ph948, %.preheader732, %997, %1009, %vermUnalign.exit89.i, %vermUnalign.exit.i
-  %.0.i80.i200 = phi ptr [ %985, %vermUnalign.exit89.i ], [ %1024, %vermUnalign.exit.i ], [ %1001, %997 ], [ %1012, %1009 ], [ %98, %.preheader732 ], [ %976, %975 ], [ %.042.i84.i947, %.lr.ph948 ]
+  %.0.i80.i200 = phi ptr [ %1012, %1009 ], [ %1001, %997 ], [ %985, %vermUnalign.exit89.i ], [ %1024, %vermUnalign.exit.i ], [ %98, %.preheader732 ], [ %976, %975 ], [ %.042.i84.i947, %.lr.ph948 ]
   %1025 = ptrtoint ptr %.0.i80.i200 to i64
   %1026 = sub i64 %1025, %101
   br label %limitByReach.exit.i
@@ -8411,8 +8411,8 @@ mmbit_iterate.exit42.i:                           ; preds = %1364, %1303
   %.not.i.i1761029 = icmp eq i32 %.011.i41.i, -1
   br i1 %.not.i.i1761029, label %processReportsForRange.exit, label %.lr.ph1034.preheader
 
-.lr.ph1034.preheader:                             ; preds = %1340, %1296, %mmbit_iterate.exit42.i
-  %.042.i.i1032.ph = phi i32 [ %1298, %1296 ], [ %1343, %1340 ], [ %.011.i41.i, %mmbit_iterate.exit42.i ]
+.lr.ph1034.preheader:                             ; preds = %1296, %1340, %mmbit_iterate.exit42.i
+  %.042.i.i1032.ph = phi i32 [ %1343, %1340 ], [ %1298, %1296 ], [ %.011.i41.i, %mmbit_iterate.exit42.i ]
   br label %.lr.ph1034
 
 .lr.ph1034:                                       ; preds = %.lr.ph1034.preheader, %mmbit_iterate.exit.i
@@ -8595,8 +8595,8 @@ mmbit_iterate.exit42.i:                           ; preds = %1364, %1303
   br label %mmbit_unset.exit.i.thread
 
 mmbit_unset.exit.i.thread:                        ; preds = %.thread1560, %.lr.ph2000, %1425, %.thread561, %._crit_edge1015, %1415
-  %.245.i.i.lcssa1558 = phi i32 [ %.245.i.i.lcssa1559, %1425 ], [ %.245.i.i.lcssa1559, %.thread561 ], [ %.245.i.i1009.ph, %._crit_edge1015 ], [ %.245.i.i.lcssa1559, %1415 ], [ %.245.i.i.lcssa1559, %.lr.ph2000 ], [ %.4.i.i, %.thread1560 ]
-  %.148.i.i.lcssa1556 = phi ptr [ %.148.i.i.lcssa1557, %1425 ], [ %.148.i.i.lcssa1557, %.thread561 ], [ %.148.i.i1008.ph, %._crit_edge1015 ], [ %.148.i.i.lcssa1557, %1415 ], [ %.148.i.i.lcssa1557, %.lr.ph2000 ], [ %.350.i.i, %.thread1560 ]
+  %.245.i.i.lcssa1558 = phi i32 [ %.245.i.i.lcssa1559, %.lr.ph2000 ], [ %.245.i.i.lcssa1559, %1425 ], [ %.245.i.i.lcssa1559, %.thread561 ], [ %.245.i.i1009.ph, %._crit_edge1015 ], [ %.245.i.i.lcssa1559, %1415 ], [ %.4.i.i, %.thread1560 ]
+  %.148.i.i.lcssa1556 = phi ptr [ %.148.i.i.lcssa1557, %.lr.ph2000 ], [ %.148.i.i.lcssa1557, %1425 ], [ %.148.i.i.lcssa1557, %.thread561 ], [ %.148.i.i1008.ph, %._crit_edge1015 ], [ %.148.i.i.lcssa1557, %1415 ], [ %.350.i.i, %.thread1560 ]
   %1470 = load i32, ptr %26, align 32
   %.not.i37.i = icmp eq i32 %1470, 0
   %1471 = add i32 %1470, -1
@@ -8901,7 +8901,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %1593, %1585, %1582,
   br label %.backedge726
 
 mmbit_iterate.exit.i:                             ; preds = %1626, %1507, %.thread569, %1562, %1600
-  %.011.i.i = phi i32 [ %1509, %1507 ], [ %1567, %1562 ], [ %1553, %.thread569 ], [ %1603, %1600 ], [ %1630, %1626 ]
+  %.011.i.i = phi i32 [ %1567, %1562 ], [ %1603, %1600 ], [ %1553, %.thread569 ], [ %1509, %1507 ], [ %1630, %1626 ]
   %.not.i.i176 = icmp eq i32 %.011.i.i, -1
   br i1 %.not.i.i176, label %.thread589, label %.lr.ph1034
 
@@ -9534,8 +9534,8 @@ mmbit_iterate.exit47:                             ; preds = %1921, %1860
   %.not140.i1080 = icmp eq i32 %.011.i46, -1
   br i1 %.not140.i1080, label %mmbit_any_precise.exit.thread682, label %.lr.ph1084
 
-.lr.ph1084:                                       ; preds = %1897, %1853, %mmbit_iterate.exit47
-  %.011.i461584 = phi i32 [ %.011.i46, %mmbit_iterate.exit47 ], [ %1900, %1897 ], [ %1855, %1853 ]
+.lr.ph1084:                                       ; preds = %1853, %1897, %mmbit_iterate.exit47
+  %.011.i461584 = phi i32 [ %.011.i46, %mmbit_iterate.exit47 ], [ %1855, %1853 ], [ %1900, %1897 ]
   %1933 = load i32, ptr @mmbit_root_offset_from_level, align 16
   %1934 = zext i32 %1933 to i64
   %1935 = shl nuw nsw i64 %1934, 3
@@ -9948,7 +9948,7 @@ mmbit_get_flat_block.exit132:                     ; preds = %2113, %2116, %2119,
   br label %.backedge709
 
 mmbit_iterate.exit:                               ; preds = %2160, %2041, %.thread633, %2096, %2134
-  %.011.i = phi i32 [ %2043, %2041 ], [ %2101, %2096 ], [ %2087, %.thread633 ], [ %2137, %2134 ], [ %2164, %2160 ]
+  %.011.i = phi i32 [ %2101, %2096 ], [ %2137, %2134 ], [ %2087, %.thread633 ], [ %2043, %2041 ], [ %2164, %2160 ]
   %.not140.i = icmp eq i32 %.011.i, -1
   br i1 %.not140.i, label %nfaExecMpv_Q_i.exit.loopexit, label %1937
 
@@ -10173,7 +10173,7 @@ nfaExecMpv_Q_i.exit.loopexit:                     ; preds = %mmbit_get_flat_bloc
   br label %nfaExecMpv_Q_i.exit
 
 nfaExecMpv_Q_i.exit:                              ; preds = %nfaExecMpv_Q_i.exit.loopexit, %1653, %46, %79, %mmbit_iterate.exit52
-  %.0126.i = phi i1 [ true, %46 ], [ true, %79 ], [ %2284, %mmbit_iterate.exit52 ], [ true, %1653 ], [ %2285, %nfaExecMpv_Q_i.exit.loopexit ]
+  %.0126.i = phi i1 [ true, %46 ], [ true, %79 ], [ true, %1653 ], [ %2284, %mmbit_iterate.exit52 ], [ %2285, %nfaExecMpv_Q_i.exit.loopexit ]
   %or.cond = select i1 %17, i1 %.0126.i, i1 false
   br i1 %or.cond, label %2286, label %mmbit_any_precise.exit.thread682
 
@@ -10358,7 +10358,7 @@ mmbit_any_precise.exit.thread:                    ; preds = %.thread670, %mmbit_
   br label %mmbit_any_precise.exit.thread682
 
 mmbit_any_precise.exit.thread682:                 ; preds = %.thread622, %.lr.ph1089, %mmbit_get_flat_block.exit144, %mmbit_get_flat_block.exit140, %._crit_edge1068, %1820, %mmbit_iterate.exit47, %mmbit_get_flat_block.exit.i346, %.critedge.i343, %nfaExecMpv_Q_i.exit.thread, %nfaExecMpv_Q_i.exit, %mmbit_any_precise.exit, %2376, %3
-  %.0 = phi i64 [ 1, %3 ], [ 0, %nfaExecMpv_Q_i.exit ], [ %2377, %2376 ], [ 1, %mmbit_any_precise.exit ], [ 0, %nfaExecMpv_Q_i.exit.thread ], [ 1, %mmbit_get_flat_block.exit.i346 ], [ 1, %.critedge.i343 ], [ 0, %mmbit_iterate.exit47 ], [ 0, %1820 ], [ 0, %._crit_edge1068 ], [ 0, %mmbit_get_flat_block.exit140 ], [ 0, %mmbit_get_flat_block.exit144 ], [ 1, %.lr.ph1089 ], [ 0, %.thread622 ]
+  %.0 = phi i64 [ 1, %3 ], [ 0, %nfaExecMpv_Q_i.exit ], [ %2377, %2376 ], [ 1, %mmbit_any_precise.exit ], [ 0, %nfaExecMpv_Q_i.exit.thread ], [ 1, %mmbit_get_flat_block.exit.i346 ], [ 1, %.lr.ph1089 ], [ 1, %.critedge.i343 ], [ 0, %mmbit_iterate.exit47 ], [ 0, %1820 ], [ 0, %._crit_edge1068 ], [ 0, %mmbit_get_flat_block.exit140 ], [ 0, %mmbit_get_flat_block.exit144 ], [ 0, %.thread622 ]
   ret i64 %.0
 }
 
@@ -10593,8 +10593,8 @@ mmbit_iterate.exit98:                             ; preds = %109, %48
   %.not88511 = icmp eq i32 %.011.i97, -1
   br i1 %.not88511, label %._crit_edge515, label %.lr.ph514
 
-.lr.ph514:                                        ; preds = %85, %41, %mmbit_iterate.exit98
-  %.011.i97668 = phi i32 [ %.011.i97, %mmbit_iterate.exit98 ], [ %88, %85 ], [ %43, %41 ]
+.lr.ph514:                                        ; preds = %41, %85, %mmbit_iterate.exit98
+  %.011.i97668 = phi i32 [ %.011.i97, %mmbit_iterate.exit98 ], [ %43, %41 ], [ %88, %85 ]
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %122 = getelementptr i8, ptr %5, i64 %6
   %123 = ptrtoint ptr %5 to i64
@@ -10881,7 +10881,7 @@ vermUnalign.exit225:                              ; preds = %vermSearchAligned.e
   br label %vermicelliExec.exit190
 
 vermicelliExec.exit190:                           ; preds = %.lr.ph456, %239, %261, %272, %vermUnalign.exit229, %vermUnalign.exit225
-  %.0.i185 = phi ptr [ %249, %vermUnalign.exit229 ], [ %287, %vermUnalign.exit225 ], [ %264, %261 ], [ %275, %272 ], [ %.042.i189455, %.lr.ph456 ], [ %240, %239 ]
+  %.0.i185 = phi ptr [ %275, %272 ], [ %264, %261 ], [ %249, %vermUnalign.exit229 ], [ %287, %vermUnalign.exit225 ], [ %.042.i189455, %.lr.ph456 ], [ %240, %239 ]
   %288 = ptrtoint ptr %.0.i185 to i64
   %289 = sub i64 %288, %123
   br label %limitByReach.exit
@@ -11020,7 +11020,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   br label %nvermicelliExec.exit208
 
 nvermicelliExec.exit208:                          ; preds = %.lr.ph445, %312, %334, %346, %vermUnalign.exit213, %vermUnalign.exit
-  %.0.i202 = phi ptr [ %322, %vermUnalign.exit213 ], [ %361, %vermUnalign.exit ], [ %338, %334 ], [ %349, %346 ], [ %.042.i206444, %.lr.ph445 ], [ %313, %312 ]
+  %.0.i202 = phi ptr [ %349, %346 ], [ %338, %334 ], [ %322, %vermUnalign.exit213 ], [ %361, %vermUnalign.exit ], [ %.042.i206444, %.lr.ph445 ], [ %313, %312 ]
   %362 = ptrtoint ptr %.0.i202 to i64
   %363 = sub i64 %362, %123
   br label %limitByReach.exit
@@ -11274,7 +11274,7 @@ vermUnalign.exit233:                              ; preds = %vermSearchAligned.e
   br label %vermicelliExec.exit
 
 vermicelliExec.exit:                              ; preds = %.lr.ph484, %450, %.preheader377, %471, %482, %vermUnalign.exit237, %vermUnalign.exit233
-  %.0.i181 = phi ptr [ %459, %vermUnalign.exit237 ], [ %497, %vermUnalign.exit233 ], [ %474, %471 ], [ %485, %482 ], [ %136, %.preheader377 ], [ %.042.i483, %.lr.ph484 ], [ %122, %450 ]
+  %.0.i181 = phi ptr [ %485, %482 ], [ %474, %471 ], [ %459, %vermUnalign.exit237 ], [ %497, %vermUnalign.exit233 ], [ %136, %.preheader377 ], [ %.042.i483, %.lr.ph484 ], [ %122, %450 ]
   %498 = ptrtoint ptr %.0.i181 to i64
   %499 = sub i64 %498, %138
   br label %limitByReach.exit170
@@ -11416,7 +11416,7 @@ vermUnalign.exit217:                              ; preds = %vermSearchAligned.e
   br label %nvermicelliExec.exit
 
 nvermicelliExec.exit:                             ; preds = %.lr.ph473, %522, %.preheader379, %543, %555, %vermUnalign.exit221, %vermUnalign.exit217
-  %.0.i194 = phi ptr [ %531, %vermUnalign.exit221 ], [ %570, %vermUnalign.exit217 ], [ %547, %543 ], [ %558, %555 ], [ %136, %.preheader379 ], [ %.042.i198472, %.lr.ph473 ], [ %122, %522 ]
+  %.0.i194 = phi ptr [ %558, %555 ], [ %547, %543 ], [ %531, %vermUnalign.exit221 ], [ %570, %vermUnalign.exit217 ], [ %136, %.preheader379 ], [ %.042.i198472, %.lr.ph473 ], [ %122, %522 ]
   %571 = ptrtoint ptr %.0.i194 to i64
   %572 = sub i64 %571, %138
   br label %limitByReach.exit170
@@ -11988,7 +11988,7 @@ mmbit_get_flat_block.exit138:                     ; preds = %838, %841, %844, %8
   br label %.backedge
 
 mmbit_iterate.exit:                               ; preds = %885, %766, %.thread350, %821, %859
-  %.011.i = phi i32 [ %768, %766 ], [ %826, %821 ], [ %812, %.thread350 ], [ %862, %859 ], [ %889, %885 ]
+  %.011.i = phi i32 [ %826, %821 ], [ %862, %859 ], [ %812, %.thread350 ], [ %768, %766 ], [ %889, %885 ]
   %.not88 = icmp eq i32 %.011.i, -1
   br i1 %.not88, label %._crit_edge515, label %146
 
@@ -12268,7 +12268,7 @@ vermUnalign.exit101:                              ; preds = %vermSearchAligned.e
   br label %vermicelliExec.exit
 
 vermicelliExec.exit:                              ; preds = %.lr.ph213, %106, %.preheader, %133, %144, %vermUnalign.exit105, %vermUnalign.exit101
-  %.0.i84 = phi ptr [ %119, %vermUnalign.exit105 ], [ %160, %vermUnalign.exit101 ], [ %136, %133 ], [ %147, %144 ], [ %91, %.preheader ], [ %.042.i212, %.lr.ph213 ], [ %107, %106 ]
+  %.0.i84 = phi ptr [ %147, %144 ], [ %136, %133 ], [ %119, %vermUnalign.exit105 ], [ %160, %vermUnalign.exit101 ], [ %91, %.preheader ], [ %.042.i212, %.lr.ph213 ], [ %107, %106 ]
   %161 = ptrtoint ptr %.0.i84 to i64
   %162 = sub i64 %161, %101
   br label %limitByReach.exit
@@ -12427,7 +12427,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   br label %nvermicelliExec.exit
 
 nvermicelliExec.exit:                             ; preds = %.lr.ph203, %193, %.preheader163, %220, %232, %vermUnalign.exit97, %vermUnalign.exit
-  %.0.i88 = phi ptr [ %206, %vermUnalign.exit97 ], [ %248, %vermUnalign.exit ], [ %224, %220 ], [ %235, %232 ], [ %91, %.preheader163 ], [ %.042.i92202, %.lr.ph203 ], [ %194, %193 ]
+  %.0.i88 = phi ptr [ %235, %232 ], [ %224, %220 ], [ %206, %vermUnalign.exit97 ], [ %248, %vermUnalign.exit ], [ %91, %.preheader163 ], [ %.042.i92202, %.lr.ph203 ], [ %194, %193 ]
   %249 = ptrtoint ptr %.0.i88 to i64
   %250 = sub i64 %249, %189
   br label %limitByReach.exit

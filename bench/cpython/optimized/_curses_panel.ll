@@ -931,7 +931,7 @@ _curses_panel_panel_move_impl.exit.sink.split:    ; preds = %.split22, %.split
   br label %_curses_panel_panel_move_impl.exit
 
 _curses_panel_panel_move_impl.exit:               ; preds = %_curses_panel_panel_move_impl.exit.sink.split, %.split22, %.split, %27, %16, %10
-  %.0 = phi ptr [ null, %16 ], [ null, %27 ], [ null, %10 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %.split22 ], [ null, %_curses_panel_panel_move_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %16 ], [ null, %27 ], [ null, %10 ], [ @_Py_NoneStruct, %.split22 ], [ @_Py_NoneStruct, %.split ], [ null, %_curses_panel_panel_move_impl.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

@@ -648,7 +648,7 @@ define dso_local void @reserve_bootmem_region(i64 noundef %0, i64 noundef %1, i3
   br label %67
 
 67:                                               ; preds = %64, %56
-  %68 = phi i32 [ %57, %56 ], [ %66, %64 ]
+  %68 = phi i32 [ %66, %64 ], [ %57, %56 ]
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread, label %70
 
@@ -3078,7 +3078,7 @@ define internal fastcc void @init_unavailable_range(i64 noundef %0, i64 noundef 
   br label %76
 
 76:                                               ; preds = %73, %65
-  %77 = phi i32 [ %66, %65 ], [ %75, %73 ]
+  %77 = phi i32 [ %75, %73 ], [ %66, %65 ]
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.thread, label %80
 

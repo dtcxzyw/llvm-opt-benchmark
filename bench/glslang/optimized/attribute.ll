@@ -348,7 +348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   br i1 %.not.i13, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEESB_PDoFiiEET0_T_SF_SE_T1_.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEESB_PDoFiiEET0_T_SF_SE_T1_.exit: ; preds = %.lr.ph.i, %22, %8, %4, %38, %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
-  %98 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit ], [ true, %87 ], [ false, %38 ], [ false, %4 ], [ false, %8 ], [ false, %22 ], [ true, %.lr.ph.i ]
+  %98 = phi i1 [ false, %22 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit ], [ true, %87 ], [ false, %38 ], [ false, %4 ], [ false, %8 ], [ true, %.lr.ph.i ]
   ret i1 %98
 }
 

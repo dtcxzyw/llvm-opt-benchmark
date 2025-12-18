@@ -1221,10 +1221,10 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   br i1 %.not372, label %.preheader, label %.preheader488.preheader
 
 .preheader488.preheader:                          ; preds = %.thread464, %207, %.thread437, %269, %517
-  %.ph = phi i32 [ %202, %207 ], [ %265, %269 ], [ %337, %.thread437 ], [ %513, %517 ], [ %580, %.thread464 ]
-  %.2311.ph = phi i32 [ %206, %207 ], [ %278, %269 ], [ %341, %.thread437 ], [ %526, %517 ], [ %586, %.thread464 ]
-  %.3307.ph = phi i32 [ %204, %207 ], [ %.1305, %269 ], [ %339, %.thread437 ], [ %.2306, %517 ], [ %584, %.thread464 ]
-  %.7301.ph = phi i32 [ %.5299, %207 ], [ %276, %269 ], [ %.11, %.thread437 ], [ %524, %517 ], [ %.19, %.thread464 ]
+  %.ph = phi i32 [ %202, %207 ], [ %265, %269 ], [ %513, %517 ], [ %337, %.thread437 ], [ %580, %.thread464 ]
+  %.2311.ph = phi i32 [ %206, %207 ], [ %278, %269 ], [ %526, %517 ], [ %341, %.thread437 ], [ %586, %.thread464 ]
+  %.3307.ph = phi i32 [ %204, %207 ], [ %.1305, %269 ], [ %.2306, %517 ], [ %339, %.thread437 ], [ %584, %.thread464 ]
+  %.7301.ph = phi i32 [ %.5299, %207 ], [ %276, %269 ], [ %524, %517 ], [ %.11, %.thread437 ], [ %.19, %.thread464 ]
   br label %.preheader488
 
 .preheader488:                                    ; preds = %.preheader488.preheader, %.thread450

@@ -2488,7 +2488,7 @@ _ZNK17array_recognizers8is_arrayEP4expr.exit:     ; preds = %_ZNK4decl13get_fami
   br i1 %.not27.old.i.i, label %_ZNK17array_recognizers8is_arrayEP4expr.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %60, %57
-  %.137.i.i.be = phi ptr [ %.old.i.i, %60 ], [ %59, %57 ]
+  %.137.i.i.be = phi ptr [ %59, %57 ], [ %.old.i.i, %60 ]
   br label %.lr.ph38.i.i, !llvm.loop !158
 
 _ZNK17array_recognizers8is_arrayEP4expr.exit.thread: ; preds = %46, %41, %60, %57, %52, %.preheader.i.i, %_ZNK8datatype4util11is_datatypeEPK4sort.exit.thread, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %_ZNK17array_recognizers8is_arrayEP4expr.exit
@@ -2909,7 +2909,7 @@ _ZNK11ast_manager11is_distinctEPK4expr.exit.thread: ; preds = %9, %4, %_ZNK11ast
   br i1 %.not27.old.i.i.i, label %_ZNK16expr_sparse_mark9is_markedEP4expr.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %71, %68
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %71 ], [ %70, %68 ]
+  %.137.i.i.i.be = phi ptr [ %70, %68 ], [ %.old.i.i.i, %71 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !173
 
 _ZNK16expr_sparse_mark9is_markedEP4expr.exit:     ; preds = %57, %52, %71, %68, %63, %.preheader.i.i.i, %_ZNK11ast_manager6is_iteEPK4expr.exit, %_ZNK11ast_manager5is_orEPK4expr.exit, %_ZNK11ast_manager10is_impliesEPK4expr.exit, %_ZNK11ast_manager11is_distinctEPK4expr.exit, %2
@@ -3070,7 +3070,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.thread:     ; preds = %9, %4, %_ZNK11ast_m
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %53, %50
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %53 ], [ %52, %50 ]
+  %.137.i.i.i.be = phi ptr [ %52, %50 ], [ %.old.i.i.i, %53 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !173
 
 .loopexit:                                        ; preds = %39, %50, %53, %.preheader.i.i.i
@@ -3143,11 +3143,11 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.thread:     ; preds = %9, %4, %_ZNK11ast_m
   br i1 %.not27.old.i.i.i18, label %_ZNK16expr_sparse_mark9is_markedEP4expr.exit, label %.lr.ph38.i.i.i14.backedge
 
 .lr.ph38.i.i.i14.backedge:                        ; preds = %85, %82
-  %.137.i.i.i15.be = phi ptr [ %.old.i.i.i17, %85 ], [ %84, %82 ]
+  %.137.i.i.i15.be = phi ptr [ %84, %82 ], [ %.old.i.i.i17, %85 ]
   br label %.lr.ph38.i.i.i14, !llvm.loop !173
 
 _ZNK16expr_sparse_mark9is_markedEP4expr.exit:     ; preds = %34, %45, %71, %66, %85, %82, %77, %.preheader.i.i.i12, %_ZNK11ast_manager6is_iteEPK4expr.exit, %2
-  %86 = phi i1 [ true, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ true, %2 ], [ false, %.preheader.i.i.i12 ], [ true, %45 ], [ true, %77 ], [ %.not.i.not.i9.not.not, %71 ], [ false, %85 ], [ false, %82 ], [ %.not.i.not.i9.not.not, %66 ], [ true, %34 ]
+  %86 = phi i1 [ %.not.i.not.i9.not.not, %71 ], [ true, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ true, %2 ], [ true, %45 ], [ false, %.preheader.i.i.i12 ], [ true, %77 ], [ false, %85 ], [ false, %82 ], [ %.not.i.not.i9.not.not, %66 ], [ true, %34 ]
   ret i1 %86
 }
 

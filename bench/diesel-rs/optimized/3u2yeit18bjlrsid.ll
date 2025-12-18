@@ -1218,7 +1218,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   ret void
 
 70:                                               ; preds = %54, %69
-  %.2 = phi i1 [ false, %54 ], [ true, %69 ]
+  %.2 = phi i1 [ true, %69 ], [ false, %54 ]
   %71 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %72 = add nsw i64 %71, -8
   %73 = icmp ugt i64 %72, 3

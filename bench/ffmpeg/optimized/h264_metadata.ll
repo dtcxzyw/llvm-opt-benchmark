@@ -1282,7 +1282,7 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
   br label %h264_metadata_handle_display_orientation.exit.thread
 
 h264_metadata_handle_display_orientation.exit.thread: ; preds = %424, %548, %449
-  %.2.i81.ph = phi i32 [ -12, %449 ], [ %546, %548 ], [ -12, %424 ]
+  %.2.i81.ph = phi i32 [ %546, %548 ], [ -12, %449 ], [ -12, %424 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 

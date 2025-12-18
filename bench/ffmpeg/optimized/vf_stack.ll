@@ -468,7 +468,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br label %132
 
 132:                                              ; preds = %125, %107
-  %.2333 = phi i32 [ %131, %125 ], [ %.1332528, %107 ]
+  %.2333 = phi i32 [ %.1332528, %107 ], [ %131, %125 ]
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %133 = load i32, ptr %85, align 8, !tbaa !41
   %134 = sext i32 %133 to i64
@@ -872,7 +872,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br i1 %351, label %242, label %._crit_edge564, !llvm.loop !74
 
 .thread466:                                       ; preds = %242, %249, %.thread447, %273, %284, %279, %304, %299, %319, %316, %236
-  %.12.ph = phi i32 [ %232, %236 ], [ -22, %284 ], [ -22, %273 ], [ -22, %316 ], [ -22, %319 ], [ -22, %299 ], [ -22, %304 ], [ -22, %279 ], [ %255, %249 ], [ %330, %.thread447 ], [ -22, %242 ]
+  %.12.ph = phi i32 [ %232, %236 ], [ -22, %273 ], [ -22, %284 ], [ -22, %316 ], [ -22, %319 ], [ -22, %299 ], [ -22, %304 ], [ -22, %279 ], [ %255, %249 ], [ %330, %.thread447 ], [ -22, %242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -889,8 +889,8 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br label %.thread442
 
 .thread442:                                       ; preds = %78, %132, %212, %.preheader478, %.preheader474, %.preheader473, %._crit_edge564
-  %.0331 = phi i32 [ %.8339.lcssa, %._crit_edge564 ], [ 0, %.preheader473 ], [ %19, %.preheader474 ], [ %19, %.preheader478 ], [ %.2333, %132 ], [ %spec.select, %212 ], [ %19, %78 ]
-  %.3325 = phi i32 [ %.7329.lcssa, %._crit_edge564 ], [ 0, %.preheader473 ], [ %17, %.preheader474 ], [ %17, %.preheader478 ], [ %17, %132 ], [ %213, %212 ], [ %.1323.ph, %78 ]
+  %.0331 = phi i32 [ %19, %.preheader478 ], [ %.2333, %132 ], [ %.8339.lcssa, %._crit_edge564 ], [ 0, %.preheader473 ], [ %19, %.preheader474 ], [ %spec.select, %212 ], [ %19, %78 ]
+  %.3325 = phi i32 [ %17, %.preheader478 ], [ %17, %132 ], [ %.7329.lcssa, %._crit_edge564 ], [ 0, %.preheader473 ], [ %17, %.preheader474 ], [ %213, %212 ], [ %.1323.ph, %78 ]
   %352 = load i32, ptr %20, align 4, !tbaa !60
   %353 = call i32 @av_pix_fmt_count_planes(i32 noundef %352) #11
   %354 = getelementptr inbounds nuw i8, ptr %8, i64 44
@@ -997,7 +997,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br label %.thread431
 
 .thread431:                                       ; preds = %41, %99, %121, %172, %164, %211, %162, %97, %.thread466, %39, %.loopexit, %1, %._crit_edge572
-  %.0 = phi i32 [ %378, %.loopexit ], [ -558323010, %1 ], [ %403, %._crit_edge572 ], [ -22, %97 ], [ %.12.ph, %.thread466 ], [ -22, %39 ], [ -22, %162 ], [ -22, %211 ], [ %105, %99 ], [ %187, %172 ], [ %170, %164 ], [ %123, %121 ], [ %45, %41 ]
+  %.0 = phi i32 [ %378, %.loopexit ], [ -558323010, %1 ], [ %403, %._crit_edge572 ], [ %187, %172 ], [ -22, %97 ], [ %.12.ph, %.thread466 ], [ -22, %39 ], [ -22, %162 ], [ %105, %99 ], [ -22, %211 ], [ %170, %164 ], [ %123, %121 ], [ %45, %41 ]
   ret i32 %.0
 }
 
@@ -1101,7 +1101,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %._crit_edge, %49
-  %.0 = phi i32 [ %53, %49 ], [ -12, %._crit_edge ], [ %22, %19 ]
+  %.0 = phi i32 [ -12, %._crit_edge ], [ %53, %49 ], [ %22, %19 ]
   ret i32 %.0
 }
 

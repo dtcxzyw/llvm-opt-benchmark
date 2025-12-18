@@ -173,7 +173,7 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
   br i1 %exitcond111.not, label %.thread88, label %.thread84, !llvm.loop !23
 
 .thread88:                                        ; preds = %29, %.thread84, %47, %.thread93, %8
-  %.0 = phi ptr [ null, %8 ], [ %48, %47 ], [ null, %.thread84 ], [ null, %.thread93 ], [ %30, %29 ]
+  %.0 = phi ptr [ %48, %47 ], [ null, %8 ], [ null, %.thread84 ], [ null, %.thread93 ], [ %30, %29 ]
   ret ptr %.0
 }
 

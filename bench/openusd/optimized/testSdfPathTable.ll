@@ -5937,9 +5937,9 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i6.i
   br i1 %.not12.not.i.i, label %.lr.ph.i6.i, label %.loopexit2465
 
 .loopexit2465:                                    ; preds = %1817, %select.unfold.i.i, %.lr.ph.i6.i, %1825, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941, %1798, %1796
-  %1832 = phi i32 [ %1814, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %1814, %1825 ], [ %.pre2543, %1796 ], [ %.pre2543, %1798 ], [ %1814, %select.unfold.i.i ], [ %1814, %.lr.ph.i6.i ], [ %1814, %1817 ]
-  %.sroa.0.0.i9.i = phi ptr [ %.09.i.i937, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %.09.i.i937, %1825 ], [ null, %1796 ], [ null, %1798 ], [ %.09.i.i937, %select.unfold.i.i ], [ %.09.i.i937, %.lr.ph.i6.i ], [ null, %1817 ]
-  %.sroa.0.0.i5.i = phi ptr [ %1824, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ null, %1825 ], [ null, %1796 ], [ null, %1798 ], [ null, %select.unfold.i.i ], [ %1831, %.lr.ph.i6.i ], [ null, %1817 ]
+  %1832 = phi i32 [ %1814, %select.unfold.i.i ], [ %1814, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %1814, %1825 ], [ %.pre2543, %1798 ], [ %.pre2543, %1796 ], [ %1814, %.lr.ph.i6.i ], [ %1814, %1817 ]
+  %.sroa.0.0.i9.i = phi ptr [ %.09.i.i937, %select.unfold.i.i ], [ %.09.i.i937, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %.09.i.i937, %1825 ], [ null, %1798 ], [ null, %1796 ], [ %.09.i.i937, %.lr.ph.i6.i ], [ null, %1817 ]
+  %.sroa.0.0.i5.i = phi ptr [ null, %select.unfold.i.i ], [ %1824, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ null, %1825 ], [ null, %1798 ], [ null, %1796 ], [ %1831, %.lr.ph.i6.i ], [ null, %1817 ]
   %.not.i.i942 = icmp eq i32 %1832, 0
   br i1 %.not.i.i942, label %1850, label %1833
 
@@ -6079,9 +6079,9 @@ select.unfold.i.i975:                             ; preds = %.lr.ph.i6.i970
   br i1 %.not12.not.i.i977, label %.lr.ph.i6.i970, label %.loopexit2463
 
 .loopexit2463:                                    ; preds = %1877, %select.unfold.i.i975, %.lr.ph.i6.i970, %1885, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964, %1858, %1856
-  %1892 = phi i32 [ %1874, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %1874, %1885 ], [ %.pre2544, %1856 ], [ %.pre2544, %1858 ], [ %1874, %select.unfold.i.i975 ], [ %1874, %.lr.ph.i6.i970 ], [ %1874, %1877 ]
-  %.sroa.0.0.i9.i960 = phi ptr [ %.09.i.i956, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %.09.i.i956, %1885 ], [ null, %1856 ], [ null, %1858 ], [ %.09.i.i956, %select.unfold.i.i975 ], [ %.09.i.i956, %.lr.ph.i6.i970 ], [ null, %1877 ]
-  %.sroa.0.0.i5.i961 = phi ptr [ %1884, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ null, %1885 ], [ null, %1856 ], [ null, %1858 ], [ null, %select.unfold.i.i975 ], [ %1891, %.lr.ph.i6.i970 ], [ null, %1877 ]
+  %1892 = phi i32 [ %1874, %select.unfold.i.i975 ], [ %1874, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %1874, %1885 ], [ %.pre2544, %1858 ], [ %.pre2544, %1856 ], [ %1874, %.lr.ph.i6.i970 ], [ %1874, %1877 ]
+  %.sroa.0.0.i9.i960 = phi ptr [ %.09.i.i956, %select.unfold.i.i975 ], [ %.09.i.i956, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %.09.i.i956, %1885 ], [ null, %1858 ], [ null, %1856 ], [ %.09.i.i956, %.lr.ph.i6.i970 ], [ null, %1877 ]
+  %.sroa.0.0.i5.i961 = phi ptr [ null, %select.unfold.i.i975 ], [ %1884, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ null, %1885 ], [ null, %1858 ], [ null, %1856 ], [ %1891, %.lr.ph.i6.i970 ], [ null, %1877 ]
   %.not.i.i979 = icmp eq i32 %1892, 0
   br i1 %.not.i.i979, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit980, label %1893
 
@@ -6276,9 +6276,9 @@ select.unfold.i.i1015:                            ; preds = %.lr.ph.i6.i1010
   br i1 %.not12.not.i.i1017, label %.lr.ph.i6.i1010, label %.loopexit2460
 
 .loopexit2460:                                    ; preds = %1955, %select.unfold.i.i1015, %.lr.ph.i6.i1010, %1963, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004, %1936, %1934
-  %1970 = phi i32 [ %1952, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %1952, %1963 ], [ %.pre2545, %1934 ], [ %.pre2545, %1936 ], [ %1952, %select.unfold.i.i1015 ], [ %1952, %.lr.ph.i6.i1010 ], [ %1952, %1955 ]
-  %.sroa.0.0.i9.i1000 = phi ptr [ %.09.i.i996, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %.09.i.i996, %1963 ], [ null, %1934 ], [ null, %1936 ], [ %.09.i.i996, %select.unfold.i.i1015 ], [ %.09.i.i996, %.lr.ph.i6.i1010 ], [ null, %1955 ]
-  %.sroa.0.0.i5.i1001 = phi ptr [ %1962, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ null, %1963 ], [ null, %1934 ], [ null, %1936 ], [ null, %select.unfold.i.i1015 ], [ %1969, %.lr.ph.i6.i1010 ], [ null, %1955 ]
+  %1970 = phi i32 [ %1952, %select.unfold.i.i1015 ], [ %1952, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %1952, %1963 ], [ %.pre2545, %1936 ], [ %.pre2545, %1934 ], [ %1952, %.lr.ph.i6.i1010 ], [ %1952, %1955 ]
+  %.sroa.0.0.i9.i1000 = phi ptr [ %.09.i.i996, %select.unfold.i.i1015 ], [ %.09.i.i996, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %.09.i.i996, %1963 ], [ null, %1936 ], [ null, %1934 ], [ %.09.i.i996, %.lr.ph.i6.i1010 ], [ null, %1955 ]
+  %.sroa.0.0.i5.i1001 = phi ptr [ null, %select.unfold.i.i1015 ], [ %1962, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ null, %1963 ], [ null, %1936 ], [ null, %1934 ], [ %1969, %.lr.ph.i6.i1010 ], [ null, %1955 ]
   %.not.i.i1019 = icmp eq i32 %1970, 0
   br i1 %.not.i.i1019, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1020, label %1971
 
@@ -13501,17 +13501,17 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24_
   %.not.i.i = icmp eq i64 %8, 0
   %9 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not32 = icmp eq i64 %9, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %10
+  br i1 %.not.i.i, label %11, label %10
 
 10:                                               ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %11
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-11:                                               ; preds = %10
+11:                                               ; preds = %7
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %10
   %12 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %5)
   br i1 %12, label %13, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread: ; preds = %10, %.lr.ph, %11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   br label %13
@@ -13552,17 +13552,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
   %.not.i.i7 = icmp eq i64 %24, 0
   %25 = and i64 %.0.copyload.i6.i.i6, 4294967295
   %.not33 = icmp eq i64 %25, 0
-  br i1 %.not.i.i7, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10, label %26
+  br i1 %.not.i.i7, label %27, label %26
 
 26:                                               ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %27
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
 
-27:                                               ; preds = %26
+27:                                               ; preds = %23
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %26
   %28 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %28, label %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread: ; preds = %26, %20, %27, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
   br label %29
@@ -14659,17 +14659,17 @@ define linkonce_odr dso_local void @_ZN16HashAndSetDriver12EraseSubtreeERKN32pxr
   %.not.i.i.i.i.i = icmp eq i64 %9, 0
   %10 = and i64 %.0.copyload.i6.i.i.i.i.i, 4294967295
   %.not11.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, label %11
+  br i1 %.not.i.i.i.i.i, label %12, label %11
 
 11:                                               ; preds = %8
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %12
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i
 
-12:                                               ; preds = %11
+12:                                               ; preds = %8
+  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %14
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %11
   %13 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %13, label %14, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i: ; preds = %8
-  br i1 %.not11.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i, label %14
 
 14:                                               ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i, %12
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i.i.i
@@ -14986,8 +14986,8 @@ _ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__
   resume { ptr, i32 } %75
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit: ; preds = %14, %44, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_iENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, %36
-  %.sroa.023.0 = phi ptr [ %37, %36 ], [ %73, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_iENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %49, %44 ], [ %.sroa.020.0, %14 ]
-  %.sroa.4.0 = phi i8 [ 0, %36 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_iENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %44 ], [ 0, %14 ]
+  %.sroa.023.0 = phi ptr [ %49, %44 ], [ %73, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_iENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %37, %36 ], [ %.sroa.020.0, %14 ]
+  %.sroa.4.0 = phi i8 [ 0, %44 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_iENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %36 ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -15346,17 +15346,17 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24_
   %.not.i.i = icmp eq i64 %8, 0
   %9 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not32 = icmp eq i64 %9, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %10
+  br i1 %.not.i.i, label %11, label %10
 
 10:                                               ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %11
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
 
-11:                                               ; preds = %10
+11:                                               ; preds = %7
+  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %10
   %12 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %5)
   br i1 %12, label %13, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; preds = %7
-  br i1 %.not32, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread, label %13
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread: ; preds = %10, %.lr.ph, %11, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit
   br label %13
@@ -15397,17 +15397,17 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
   %.not.i.i7 = icmp eq i64 %24, 0
   %25 = and i64 %.0.copyload.i6.i.i6, 4294967295
   %.not33 = icmp eq i64 %25, 0
-  br i1 %.not.i.i7, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10, label %26
+  br i1 %.not.i.i7, label %27, label %26
 
 26:                                               ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %27
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
 
-27:                                               ; preds = %26
+27:                                               ; preds = %23
+  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %26
   %28 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %28, label %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread
-
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10: ; preds = %23
-  br i1 %.not33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread, label %29
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10.thread: ; preds = %26, %20, %27, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit10
   br label %29

@@ -2445,7 +2445,7 @@ _ZNK2dd3pdd6is_valEv.exit:                        ; preds = %38
   br i1 %.not.old, label %_ZN2dd6solver8canceledEv.exit.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.critedge31, %_ZNK2dd3pdd6is_valEv.exit
-  %.02856.be = phi ptr [ %.old, %.critedge31 ], [ %44, %_ZNK2dd3pdd6is_valEv.exit ]
+  %.02856.be = phi ptr [ %44, %_ZNK2dd3pdd6is_valEv.exit ], [ %.old, %.critedge31 ]
   br label %.lr.ph
 
 _ZN2dd6solver8canceledEv.exit.thread:             ; preds = %.critedge31, %_ZN2dd6solver8canceledEv.exit, %_ZNK2dd3pdd6is_valEv.exit, %23, %38
@@ -4488,7 +4488,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %_ZN6vectorIPN2dd6
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit, %_ZN6vectorIPN2dd6solver8equationELb0EjE5resetEv.exit, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit
-  %14 = phi ptr [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ], [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE5resetEv.exit ], [ %33, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit ]
+  %14 = phi ptr [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE5resetEv.exit ], [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ], [ %33, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = icmp eq ptr %16, null
@@ -4539,7 +4539,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit: ; preds = %26, %32
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge42:                                    ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit30, %._crit_edge, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit24
-  %40 = phi ptr [ %14, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit24 ], [ %14, %._crit_edge ], [ %59, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit30 ]
+  %40 = phi ptr [ %14, %._crit_edge ], [ %14, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit24 ], [ %59, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit30 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %42 = load ptr, ptr %41, align 8, !tbaa !24
   %43 = icmp eq ptr %42, null

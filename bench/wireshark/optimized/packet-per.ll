@@ -3470,7 +3470,7 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br i1 %or.cond3, label %.thread305, label %93
 
 93:                                               ; preds = %89, %82
-  %.0265 = phi i64 [ %80, %82 ], [ %92, %89 ]
+  %.0265 = phi i64 [ %92, %89 ], [ %80, %82 ]
   store i64 0, ptr %11, align 8
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %94, align 8
@@ -5044,7 +5044,7 @@ index_get_field_name.exit:                        ; preds = %142, %150
   br i1 %.not.i219, label %index_get_extension_name.exit, label %.lr.ph.i217, !llvm.loop !34
 
 index_get_extension_name.exit:                    ; preds = %196, %178, %188, %190, %192
-  %.0.i220 = phi ptr [ @.str.179, %190 ], [ @.str.181, %188 ], [ %193, %192 ], [ @.str.180, %178 ], [ @.str.180, %196 ]
+  %.0.i220 = phi ptr [ @.str.179, %190 ], [ %193, %192 ], [ @.str.181, %188 ], [ @.str.180, %178 ], [ @.str.180, %196 ]
   %201 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %202 = trunc nuw i8 %201 to i1
   %203 = select i1 %202, ptr @.str.36, ptr @.str.37
@@ -5361,7 +5361,7 @@ proto_item_set_hidden.exit.us:                    ; preds = %36, %33, %31, %.lr.
   br i1 %exitcond100.not, label %.preheader, label %.lr.ph84.split.us, !llvm.loop !40
 
 .preheader:                                       ; preds = %100, %50, %25
-  %.051.lcssa.ph = phi i32 [ %1, %25 ], [ %28, %50 ], [ %53, %100 ]
+  %.051.lcssa.ph = phi i32 [ %28, %50 ], [ %1, %25 ], [ %53, %100 ]
   %.pr = load ptr, ptr %4, align 8
   %.not6386 = icmp eq ptr %.pr, null
   br i1 %.not6386, label %._crit_edge92, label %.lr.ph91

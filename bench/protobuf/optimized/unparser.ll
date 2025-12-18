@@ -13687,7 +13687,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body, %invoke.
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i, %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i, %if.then.i.i.i, %if.then.i.i112
-  %fields.sroa.0.0.ph.ph.ph = phi ptr [ %fields.sroa.0.2, %if.then.i.i112 ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i ], [ %fields.sroa.0.1218, %if.then.i.i.i ], [ null, %if.then.i ]
+  %fields.sroa.0.0.ph.ph.ph = phi ptr [ %fields.sroa.0.2, %if.then.i.i112 ], [ %fields.sroa.0.1218, %if.then.i.i.i ], [ null, %if.then.i ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i ]
   %lpad.loopexit.split-lp209 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -14320,7 +14320,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i30.not, label %for.end47, label %call.i.noexc
 
 for.end47:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.end.i, %for.end
-  %fields.sroa.0.1.lcssa236242 = phi ptr [ %fields.sroa.0.2, %for.end ], [ null, %if.end.i ], [ %fields.sroa.0.2, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
+  %fields.sroa.0.1.lcssa236242 = phi ptr [ null, %if.end.i ], [ %fields.sroa.0.2, %for.end ], [ %fields.sroa.0.2, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   store i64 0, ptr %agg.result, align 8, !alias.scope !545
   br label %cleanup49
 

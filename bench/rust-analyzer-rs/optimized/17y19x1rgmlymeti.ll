@@ -2335,7 +2335,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.body172 unwind label %532
 
 .thread315:                                       ; preds = %437, %.body.thread, %.body.thread.thread332, %.body112, %.body.thread.thread, %256, %.thread322
-  %.pn84308 = phi { ptr, i32 } [ %257, %256 ], [ %lpad.thr_comm, %.thread322 ], [ %eh.lpad-body113, %.body112 ], [ %286, %.body.thread ], [ %.pn331, %.body.thread.thread ], [ %eh.lpad-body129, %.body.thread.thread332 ], [ %eh.lpad-body.i, %437 ]
+  %.pn84308 = phi { ptr, i32 } [ %257, %256 ], [ %lpad.thr_comm, %.thread322 ], [ %eh.lpad-body129, %.body.thread.thread332 ], [ %eh.lpad-body113, %.body112 ], [ %286, %.body.thread ], [ %.pn331, %.body.thread.thread ], [ %eh.lpad-body.i, %437 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$vfs..loader..Entry$GT$$GT$17h6b7194b22c0813e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66) #14
           to label %.thread309 unwind label %532
 

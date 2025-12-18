@@ -11021,8 +11021,8 @@ _ZN9rmp_serde6decode13read_str_data17h5920c37ba135b65dE.exit: ; preds = %182, %1
   br i1 %.not.i.i, label %._crit_edge766.loopexit, label %.lr.ph765
 
 273:                                              ; preds = %271, %267
-  %.sroa.0522.0 = phi i8 [ %269, %271 ], [ %265, %267 ]
-  %.sroa.10525.0 = phi i8 [ %.sroa.4547.0.copyload, %271 ], [ %.sroa.5550.0.copyload, %267 ]
+  %.sroa.0522.0 = phi i8 [ %265, %267 ], [ %269, %271 ]
+  %.sroa.10525.0 = phi i8 [ %.sroa.5550.0.copyload, %267 ], [ %.sroa.4547.0.copyload, %271 ]
   store i8 %.sroa.0522.0, ptr %0, align 8
   %.sroa.2286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.10525.0, ptr %.sroa.2286.0..sroa_idx, align 1
@@ -19225,9 +19225,9 @@ _ZN5serde2de7Visitor18visit_borrowed_str17ha4b76f67d3040e66E.exit.i.i.i.i.i.i.i.
   br label %684
 
 .loopexit.split-lp.i:                             ; preds = %807, %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hadf6997d90c48ddaE.exit.i432", %779, %742, %730, %719, %700
-  %.sroa.0130.1.ph.i = phi i8 [ %.sroa.0130.8.i, %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hadf6997d90c48ddaE.exit.i432" ], [ 1, %742 ], [ 1, %730 ], [ 1, %719 ], [ 1, %700 ], [ 1, %779 ], [ %.sroa.0130.8.i, %807 ]
-  %.sroa.0132.1.ph.i = phi i8 [ %.sroa.0132.10.i, %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hadf6997d90c48ddaE.exit.i432" ], [ 1, %742 ], [ 1, %730 ], [ 1, %719 ], [ 1, %700 ], [ 1, %779 ], [ %.sroa.0132.10.i, %807 ]
-  %.sroa.0134.1.ph.i = phi i8 [ %.sroa.0134.6.i, %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hadf6997d90c48ddaE.exit.i432" ], [ 1, %742 ], [ 1, %730 ], [ 1, %719 ], [ 1, %700 ], [ 1, %779 ], [ %.sroa.0134.6.i, %807 ]
+  %.sroa.0130.1.ph.i = phi i8 [ 1, %730 ], [ 1, %742 ], [ 1, %719 ], [ %.sroa.0130.8.i, %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hadf6997d90c48ddaE.exit.i432" ], [ 1, %700 ], [ 1, %779 ], [ %.sroa.0130.8.i, %807 ]
+  %.sroa.0132.1.ph.i = phi i8 [ 1, %730 ], [ 1, %742 ], [ 1, %719 ], [ %.sroa.0132.10.i, %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hadf6997d90c48ddaE.exit.i432" ], [ 1, %700 ], [ 1, %779 ], [ %.sroa.0132.10.i, %807 ]
+  %.sroa.0134.1.ph.i = phi i8 [ 1, %730 ], [ 1, %742 ], [ 1, %719 ], [ %.sroa.0134.6.i, %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hadf6997d90c48ddaE.exit.i432" ], [ 1, %700 ], [ 1, %779 ], [ %.sroa.0134.6.i, %807 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %684
@@ -24193,8 +24193,8 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17hbf26b7d60f6b4c9fE.exit.i: ; preds =
   br label %658
 
 .loopexit.split-lp.i:                             ; preds = %724, %720, %700, %687, %668
-  %660 = phi ptr [ null, %720 ], [ %373, %687 ], [ %373, %668 ], [ %.lcssa8961216, %700 ], [ null, %724 ]
-  %.sroa.066.1.ph.i = phi i8 [ %.sroa.066.6.i, %720 ], [ 1, %687 ], [ 1, %668 ], [ 1, %700 ], [ %.sroa.066.6.i, %724 ]
+  %660 = phi ptr [ %373, %687 ], [ null, %720 ], [ %373, %668 ], [ %.lcssa8961216, %700 ], [ null, %724 ]
+  %.sroa.066.1.ph.i = phi i8 [ 1, %687 ], [ %.sroa.066.6.i, %720 ], [ 1, %668 ], [ 1, %700 ], [ %.sroa.066.6.i, %724 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %658

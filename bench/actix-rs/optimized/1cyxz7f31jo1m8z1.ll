@@ -4350,9 +4350,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h1071ca92806efc20E.exit: ; preds = %_
   br i1 %or.cond4.i, label %.lr.ph.i56, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h3fd352de2949f69eE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h3fd352de2949f69eE.exit": ; preds = %.lr.ph.i56, %.lr.ph24.i, %191, %196
-  %.sroa.18.1.i = phi ptr [ %188, %191 ], [ %187, %196 ], [ %203, %.lr.ph24.i ], [ %212, %.lr.ph.i56 ]
-  %.sroa.10.1.i = phi ptr [ %193, %191 ], [ %197, %196 ], [ %205, %.lr.ph24.i ], [ %197, %.lr.ph.i56 ]
-  %.sroa.0.0.i55 = phi ptr [ %14, %191 ], [ %14, %196 ], [ %14, %.lr.ph24.i ], [ %217, %.lr.ph.i56 ]
+  %.sroa.18.1.i = phi ptr [ %203, %.lr.ph24.i ], [ %188, %191 ], [ %187, %196 ], [ %212, %.lr.ph.i56 ]
+  %.sroa.10.1.i = phi ptr [ %205, %.lr.ph24.i ], [ %193, %191 ], [ %197, %196 ], [ %197, %.lr.ph.i56 ]
+  %.sroa.0.0.i55 = phi ptr [ %14, %.lr.ph24.i ], [ %14, %191 ], [ %14, %196 ], [ %217, %.lr.ph.i56 ]
   %220 = ptrtoint ptr %.sroa.10.1.i to i64
   %221 = ptrtoint ptr %.sroa.0.0.i55 to i64
   %222 = sub nuw i64 %220, %221
@@ -5045,9 +5045,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h74dead92ad54bf8aE.exit: ; preds = %_
   br label %.body
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h25168bba9d2e6440E.exit": ; preds = %210, %202, %195, %190
-  %.sroa.18.1.i = phi ptr [ %187, %190 ], [ %186, %195 ], [ %203, %202 ], [ %211, %210 ]
-  %.sroa.10.1.i = phi ptr [ %192, %190 ], [ %196, %195 ], [ %205, %202 ], [ %196, %210 ]
-  %.sroa.0.0.i59 = phi ptr [ %16, %190 ], [ %16, %195 ], [ %16, %202 ], [ %216, %210 ]
+  %.sroa.18.1.i = phi ptr [ %203, %202 ], [ %187, %190 ], [ %186, %195 ], [ %211, %210 ]
+  %.sroa.10.1.i = phi ptr [ %205, %202 ], [ %192, %190 ], [ %196, %195 ], [ %196, %210 ]
+  %.sroa.0.0.i59 = phi ptr [ %16, %202 ], [ %16, %190 ], [ %16, %195 ], [ %216, %210 ]
   %223 = ptrtoint ptr %.sroa.10.1.i to i64
   %224 = ptrtoint ptr %.sroa.0.0.i59 to i64
   %225 = sub nuw i64 %223, %224
@@ -5516,8 +5516,8 @@ switch.lookup303:                                 ; preds = %114
 
 .invoke:                                          ; preds = %.loopexit81, %133, %219
   %136 = phi i64 [ %215, %219 ], [ %.0123, %133 ], [ %.0123, %.loopexit81 ]
-  %137 = phi i64 [ %224, %219 ], [ %140, %.loopexit81 ], [ %.0.sroa.speculated.i.i, %133 ]
-  %138 = phi ptr [ @anon.5e77c1c506aa0ed12307cc52e552df81.48, %219 ], [ @anon.5e77c1c506aa0ed12307cc52e552df81.45, %.loopexit81 ], [ @anon.5e77c1c506aa0ed12307cc52e552df81.69, %133 ]
+  %137 = phi i64 [ %224, %219 ], [ %.0.sroa.speculated.i.i, %133 ], [ %140, %.loopexit81 ]
+  %138 = phi ptr [ @anon.5e77c1c506aa0ed12307cc52e552df81.48, %219 ], [ @anon.5e77c1c506aa0ed12307cc52e552df81.69, %133 ], [ @anon.5e77c1c506aa0ed12307cc52e552df81.45, %.loopexit81 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %136, i64 noundef %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138) #26
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -5930,9 +5930,9 @@ switch.lookup323:                                 ; preds = %284
   br i1 %or.cond4.i, label %.lr.ph.i55, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17he67e1d9abdfeac8cE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17he67e1d9abdfeac8cE.exit": ; preds = %290, %263, %234, %239
-  %.sroa.18.1.i = phi ptr [ %231, %234 ], [ %230, %239 ], [ %266, %263 ], [ %293, %290 ]
-  %.sroa.10.1.i = phi ptr [ %236, %234 ], [ %240, %239 ], [ %268, %263 ], [ %240, %290 ]
-  %.sroa.0.0.i54 = phi ptr [ %14, %234 ], [ %14, %239 ], [ %14, %263 ], [ %298, %290 ]
+  %.sroa.18.1.i = phi ptr [ %266, %263 ], [ %231, %234 ], [ %230, %239 ], [ %293, %290 ]
+  %.sroa.10.1.i = phi ptr [ %268, %263 ], [ %236, %234 ], [ %240, %239 ], [ %240, %290 ]
+  %.sroa.0.0.i54 = phi ptr [ %14, %263 ], [ %14, %234 ], [ %14, %239 ], [ %298, %290 ]
   %301 = ptrtoint ptr %.sroa.10.1.i to i64
   %302 = ptrtoint ptr %.sroa.0.0.i54 to i64
   %303 = sub nuw i64 %301, %302

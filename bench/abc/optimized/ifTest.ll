@@ -74,7 +74,7 @@ define void @Gia_ParComputeSignature(ptr noundef readonly captures(none) %0, i32
   br i1 %exitcond37.not, label %.critedge, label %.lr.ph.us, !llvm.loop !37
 
 .critedge:                                        ; preds = %._crit_edge.us, %.lr.ph25.split, %.lr.ph25, %2
-  %.lcssa21.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph25.split ], [ %21, %._crit_edge.us ]
+  %.lcssa21.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph25.split ], [ 0, %.lr.ph25 ], [ %21, %._crit_edge.us ]
   %22 = load ptr, ptr @stdout, align 8, !tbaa !38
   br label %23
 
@@ -1092,8 +1092,8 @@ Vec_IntPush.exit106.sink.split:                   ; preds = %.critedge
   br label %Vec_IntPush.exit106
 
 Vec_IntPush.exit106:                              ; preds = %Vec_IntPush.exit106.sink.split, %Gia_ParTestSimulateInit.exit, %.critedge
-  %78 = phi i32 [ %.pre, %.critedge ], [ 0, %Gia_ParTestSimulateInit.exit ], [ %.pre, %Vec_IntPush.exit106.sink.split ]
-  %79 = phi ptr [ %.pre.i99176, %.critedge ], [ %40, %Gia_ParTestSimulateInit.exit ], [ %77, %Vec_IntPush.exit106.sink.split ]
+  %78 = phi i32 [ 0, %Gia_ParTestSimulateInit.exit ], [ %.pre, %.critedge ], [ %.pre, %Vec_IntPush.exit106.sink.split ]
+  %79 = phi ptr [ %40, %Gia_ParTestSimulateInit.exit ], [ %.pre.i99176, %.critedge ], [ %77, %Vec_IntPush.exit106.sink.split ]
   %80 = add nsw i32 %78, 1
   store i32 %80, ptr %39, align 4, !tbaa !28
   %81 = sext i32 %78 to i64

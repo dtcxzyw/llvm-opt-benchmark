@@ -2079,7 +2079,7 @@ dissect_trunkcall_ts.exit.i:                      ; preds = %675, %._crit_edge.i
   br label %call_list_find.exit.i
 
 call_list_find.exit.i:                            ; preds = %.lr.ph.i.i, %703, %.thread.i
-  %.1.i = phi ptr [ %.015.i, %703 ], [ %692, %.thread.i ], [ %.015.i, %.lr.ph.i.i ]
+  %.1.i = phi ptr [ %692, %.thread.i ], [ %.015.i, %703 ], [ %.015.i, %.lr.ph.i.i ]
   %705 = add i32 %.05413.i, 1
   %706 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %690)
   %707 = icmp sgt i32 %706, 5
@@ -2171,7 +2171,7 @@ dissect_trunkcall_nots.exit.i:                    ; preds = %720, %._crit_edge.i
   br label %call_list_find.exit73.i
 
 call_list_find.exit73.i:                          ; preds = %.lr.ph.i68.i, %745, %.thread8.i
-  %.4.i = phi ptr [ %.320.i, %745 ], [ %734, %.thread8.i ], [ %.320.i, %.lr.ph.i68.i ]
+  %.4.i = phi ptr [ %734, %.thread8.i ], [ %.320.i, %745 ], [ %.320.i, %.lr.ph.i68.i ]
   %747 = add i32 %.25618.i, 1
   %748 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %732)
   %749 = icmp sgt i32 %748, 3
@@ -2194,9 +2194,9 @@ call_list_find.exit73.i:                          ; preds = %.lr.ph.i68.i, %745,
   br i1 %.not.i81.i, label %call_list_length.exit.i, label %.lr.ph.i80.i, !llvm.loop !14
 
 call_list_length.exit.i:                          ; preds = %.lr.ph.i80.i, %.loopexit.i, %.preheader.i, %.preheader9.i
-  %.15247.i = phi i32 [ %.152.i, %.loopexit.i ], [ %655, %.preheader.i ], [ %655, %.preheader9.i ], [ %.152.i, %.lr.ph.i80.i ]
-  %.15546.i = phi i32 [ %.155.i, %.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader9.i ], [ %.155.i, %.lr.ph.i80.i ]
-  %.0.lcssa.i.i = phi i32 [ 0, %.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader9.i ], [ %750, %.lr.ph.i80.i ]
+  %.15247.i = phi i32 [ %.152.i, %.loopexit.i ], [ %655, %.preheader9.i ], [ %655, %.preheader.i ], [ %.152.i, %.lr.ph.i80.i ]
+  %.15546.i = phi i32 [ %.155.i, %.loopexit.i ], [ 0, %.preheader9.i ], [ 0, %.preheader.i ], [ %.155.i, %.lr.ph.i80.i ]
+  %.0.lcssa.i.i = phi i32 [ 0, %.loopexit.i ], [ 0, %.preheader9.i ], [ 0, %.preheader.i ], [ %750, %.lr.ph.i80.i ]
   br i1 %.not.i73, label %dissect_trunkpacket.exit, label %753
 
 753:                                              ; preds = %call_list_length.exit.i
@@ -2561,8 +2561,8 @@ is_reverse_circuit.exit66.i:                      ; preds = %.lr.ph.i61.i
   unreachable
 
 iax_lookup_call_from_dest.exit:                   ; preds = %.lr.ph.i53.i, %.lr.ph.i70.i, %.lr.ph.i, %.lr.ph.i35, %.loopexit.i, %is_reverse_circuit.exit.i, %11, %iax2_new_circuit_for_call.exit.i, %64
-  %.040 = phi i8 [ 0, %64 ], [ 0, %is_reverse_circuit.exit.i ], [ 0, %.loopexit.i ], [ 0, %11 ], [ 1, %iax2_new_circuit_for_call.exit.i ], [ 0, %.lr.ph.i70.i ], [ 1, %.lr.ph.i35 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph.i53.i ]
-  %.0 = phi ptr [ null, %64 ], [ null, %is_reverse_circuit.exit.i ], [ null, %.loopexit.i ], [ null, %11 ], [ %22, %iax2_new_circuit_for_call.exit.i ], [ %22, %.lr.ph.i70.i ], [ %70, %.lr.ph.i35 ], [ %70, %.lr.ph.i ], [ %22, %.lr.ph.i53.i ]
+  %.040 = phi i8 [ 0, %64 ], [ 0, %.lr.ph.i70.i ], [ 1, %.lr.ph.i35 ], [ 0, %is_reverse_circuit.exit.i ], [ 0, %.loopexit.i ], [ 0, %11 ], [ 0, %.lr.ph.i ], [ 1, %iax2_new_circuit_for_call.exit.i ], [ 1, %.lr.ph.i53.i ]
+  %.0 = phi ptr [ null, %64 ], [ %22, %.lr.ph.i70.i ], [ %70, %.lr.ph.i35 ], [ null, %is_reverse_circuit.exit.i ], [ null, %.loopexit.i ], [ null, %11 ], [ %70, %.lr.ph.i ], [ %22, %iax2_new_circuit_for_call.exit.i ], [ %22, %.lr.ph.i53.i ]
   %.not30 = icmp eq ptr %3, null
   br i1 %.not30, label %88, label %87
 

@@ -486,7 +486,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   br i1 %exitcond63.not.i.i.i, label %select.unfold.i.i, label %.split.i.i.i, !llvm.loop !11
 
 select.unfold.i.i:                                ; preds = %51, %63, %.split55.us.i.i.i
-  %.4.i.i = phi i32 [ %.248.i.i, %.split55.us.i.i.i ], [ %66, %63 ], [ %54, %51 ]
+  %.4.i.i = phi i32 [ %66, %63 ], [ %.248.i.i, %.split55.us.i.i.i ], [ %54, %51 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond99.not.i.i = icmp eq i64 %indvars.iv.next.i, %31
   br i1 %exitcond99.not.i.i, label %._crit_edge.i.i, label %38, !llvm.loop !12

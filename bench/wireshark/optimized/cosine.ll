@@ -81,7 +81,7 @@ define hidden range(i32 -1, 2) i32 @cosine_open(ptr noundef %0, ptr noundef %1, 
   %22 = sext i1 %switch.selectcmp.not to i32
   br label %35
 
-23:                                               ; preds = %18, %16
+23:                                               ; preds = %16, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = load ptr, ptr %0, align 8
   %25 = call i64 @file_seek(ptr noundef %24, i64 noundef 0, i32 noundef 0, ptr noundef %1)
@@ -106,7 +106,7 @@ define hidden range(i32 -1, 2) i32 @cosine_open(ptr noundef %0, ptr noundef %1, 
   br label %35
 
 35:                                               ; preds = %.loopexit, %23, %27
-  %.0 = phi i32 [ 1, %27 ], [ %22, %.loopexit ], [ -1, %23 ]
+  %.0 = phi i32 [ -1, %23 ], [ 1, %27 ], [ %22, %.loopexit ]
   ret i32 %.0
 }
 
@@ -577,7 +577,7 @@ parse_single_hex_dump_line.exit:                  ; preds = %152
   br i1 %exitcond.not, label %empty_line.exit.thread, label %133, !llvm.loop !10
 
 empty_line.exit.thread:                           ; preds = %163, %139, %141, %88
-  %.088 = phi i32 [ 0, %88 ], [ %.090, %141 ], [ %164, %163 ], [ %.090, %139 ]
+  %.088 = phi i32 [ %.090, %141 ], [ 0, %88 ], [ %164, %163 ], [ %.090, %139 ]
   store i32 %.088, ptr %25, align 8
   br label %166
 

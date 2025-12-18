@@ -7749,8 +7749,8 @@ default.unreachable1100:                          ; preds = %2
           to label %259 unwind label %257
 
 228:                                              ; preds = %663, %551
-  %.0161 = phi i8 [ %.3164, %551 ], [ %.1162, %663 ]
-  %.pn351.pn = phi { ptr, i32 } [ %.pn346.pn, %551 ], [ %664, %663 ]
+  %.0161 = phi i8 [ %.1162, %663 ], [ %.3164, %551 ]
+  %.pn351.pn = phi { ptr, i32 } [ %664, %663 ], [ %.pn346.pn, %551 ]
   %229 = trunc nuw i8 %.0161 to i1
   br i1 %229, label %.thread, label %.body429
 

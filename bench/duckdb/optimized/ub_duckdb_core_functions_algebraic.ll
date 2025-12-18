@@ -8525,13 +8525,13 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit37:  ; preds = %.lr.ph50.split, %_Z
   br i1 %exitcond134.not, label %..loopexit_crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, !llvm.loop !168
 
 ..loopexit_crit_edge:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us
-  %.us-phi = phi double [ %122, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %78, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %234, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi69 = phi double [ %119, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %75, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %231, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi71 = phi double [ %114, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %70, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %226, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi72 = phi double [ %111, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %67, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %223, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi74 = phi double [ %106, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %62, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %218, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi75 = phi double [ %104, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %60, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %216, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi76 = phi double [ %100, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %56, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %212, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi = phi double [ %78, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %122, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %234, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi69 = phi double [ %75, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %119, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %231, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi71 = phi double [ %70, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %114, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %226, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi72 = phi double [ %67, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %111, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %223, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi74 = phi double [ %62, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %106, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %218, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi75 = phi double [ %60, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %104, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %216, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi76 = phi double [ %56, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %100, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %212, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
   %.us-phi77 = add i64 %.promoted, %4
   %.us-phi73 = add i64 %.promoted57, %4
   %.us-phi70 = add i64 %.promoted63, %4
@@ -9131,7 +9131,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.
   br i1 %exitcond74.not, label %.loopexit57, label %.lr.ph63, !llvm.loop !176
 
 .loopexit57:                                      ; preds = %.lr.ph, %55, %.preheader58, %.preheader56, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.448.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %55 ], [ %13, %.lr.ph ]
+  %.sroa.448.2 = phi i64 [ %13, %55 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %.lr.ph ]
   %57 = add nuw nsw i64 %.066, 1
   %exitcond75.not = icmp eq i64 %57, %9
   br i1 %exitcond75.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !177
@@ -10667,7 +10667,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.
   br i1 %exitcond74.not, label %.loopexit57, label %.lr.ph63, !llvm.loop !190
 
 .loopexit57:                                      ; preds = %.lr.ph, %55, %.preheader58, %.preheader56, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.448.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %55 ], [ %13, %.lr.ph ]
+  %.sroa.448.2 = phi i64 [ %13, %55 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %.lr.ph ]
   %57 = add nuw nsw i64 %.066, 1
   %exitcond75.not = icmp eq i64 %57, %9
   br i1 %exitcond75.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !191
@@ -12142,7 +12142,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.
   br i1 %exitcond74.not, label %.loopexit57, label %.lr.ph63, !llvm.loop !204
 
 .loopexit57:                                      ; preds = %.lr.ph, %55, %.preheader58, %.preheader56, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.448.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %55 ], [ %13, %.lr.ph ]
+  %.sroa.448.2 = phi i64 [ %13, %55 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %.lr.ph ]
   %57 = add nuw nsw i64 %.066, 1
   %exitcond75.not = icmp eq i64 %57, %9
   br i1 %exitcond75.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !205
@@ -13616,7 +13616,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.
   br i1 %exitcond74.not, label %.loopexit57, label %.lr.ph63, !llvm.loop !218
 
 .loopexit57:                                      ; preds = %.lr.ph, %55, %.preheader58, %.preheader56, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.448.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %55 ], [ %13, %.lr.ph ]
+  %.sroa.448.2 = phi i64 [ %13, %55 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %.lr.ph ]
   %57 = add nuw nsw i64 %.066, 1
   %exitcond75.not = icmp eq i64 %57, %9
   br i1 %exitcond75.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !219
@@ -15085,7 +15085,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.
   br i1 %exitcond74.not, label %.loopexit57, label %.lr.ph63, !llvm.loop !232
 
 .loopexit57:                                      ; preds = %.lr.ph, %55, %.preheader58, %.preheader56, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.448.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %55 ], [ %13, %.lr.ph ]
+  %.sroa.448.2 = phi i64 [ %13, %55 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %.lr.ph ]
   %57 = add nuw nsw i64 %.066, 1
   %exitcond75.not = icmp eq i64 %57, %9
   br i1 %exitcond75.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !233
@@ -16183,7 +16183,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %40,
   br i1 %exitcond74.not.i, label %.loopexit57.i, label %.lr.ph63.i, !llvm.loop !257
 
 .loopexit57.i:                                    ; preds = %.lr.ph.i, %74, %.preheader56.i, %.preheader58.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
-  %.sroa.448.2.i = phi i64 [ %46, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i ], [ %.sroa.448.065.i, %.preheader56.i ], [ %.sroa.448.065.i, %.preheader58.i ], [ %46, %74 ], [ %46, %.lr.ph.i ]
+  %.sroa.448.2.i = phi i64 [ %46, %74 ], [ %46, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i ], [ %.sroa.448.065.i, %.preheader56.i ], [ %.sroa.448.065.i, %.preheader58.i ], [ %46, %.lr.ph.i ]
   %76 = add nuw nsw i64 %.066.i, 1
   %exitcond75.not.i = icmp eq i64 %76, %42
   br i1 %exitcond75.not.i, label %_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgStateIlEEsNS_23IntegerAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPPT_RNS_12ValidityMaskEm.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i, !llvm.loop !258
@@ -17809,7 +17809,7 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
   br i1 %exitcond78.not, label %.loopexit61, label %.lr.ph67, !llvm.loop !299
 
 .loopexit61:                                      ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44, %.preheader62, %.preheader60, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.452.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.452.069, %.preheader60 ], [ %.sroa.452.069, %.preheader62 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %.sroa.452.2 = phi i64 [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.452.069, %.preheader60 ], [ %.sroa.452.069, %.preheader62 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
   %56 = add nuw nsw i64 %.070, 1
   %exitcond79.not = icmp eq i64 %56, %9
   br i1 %exitcond79.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !300
@@ -19350,7 +19350,7 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
   br i1 %exitcond78.not, label %.loopexit61, label %.lr.ph67, !llvm.loop !314
 
 .loopexit61:                                      ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44, %.preheader62, %.preheader60, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.452.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.452.069, %.preheader60 ], [ %.sroa.452.069, %.preheader62 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %.sroa.452.2 = phi i64 [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.452.069, %.preheader60 ], [ %.sroa.452.069, %.preheader62 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
   %54 = add nuw nsw i64 %.070, 1
   %exitcond79.not = icmp eq i64 %54, %9
   br i1 %exitcond79.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !315
@@ -20789,7 +20789,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.thread: ; preds =
   br i1 %exitcond.not, label %.loopexit73, label %.lr.ph, !llvm.loop !327
 
 .loopexit73:                                      ; preds = %42, %.lr.ph79, %.preheader74, %.preheader72, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.460.2 = phi i64 [ %14, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.460.081, %.preheader72 ], [ %.sroa.460.081, %.preheader74 ], [ %.ph, %.lr.ph79 ], [ %14, %42 ]
+  %.sroa.460.2 = phi i64 [ %14, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.ph, %.lr.ph79 ], [ %.sroa.460.081, %.preheader72 ], [ %.sroa.460.081, %.preheader74 ], [ %14, %42 ]
   %44 = add nuw nsw i64 %.082, 1
   %exitcond93.not = icmp eq i64 %44, %9
   br i1 %exitcond93.not, label %.loopexit, label %.lr.ph84, !llvm.loop !328
@@ -22520,7 +22520,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %8, %_ZN6
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !359
 
 .loopexit.i:                                      ; preds = %68, %48, %45, %.preheader.i, %39
-  %.sroa.4.2.i = phi i64 [ %43, %39 ], [ %.sroa.4.051.i, %45 ], [ %.sroa.4.051.i, %.preheader.i ], [ %46, %48 ], [ %43, %68 ]
+  %.sroa.4.2.i = phi i64 [ %43, %39 ], [ %46, %48 ], [ %.sroa.4.051.i, %45 ], [ %.sroa.4.051.i, %.preheader.i ], [ %43, %68 ]
   %70 = add nuw nsw i64 %.052.i, 1
   %exitcond59.not.i = icmp eq i64 %70, %33
   br i1 %exitcond59.not.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateINS_9hugeint_tEEES3_NS_23HugeintAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %35, !llvm.loop !360
@@ -23298,7 +23298,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.thread: ; preds =
   br i1 %exitcond.not, label %.loopexit73, label %.lr.ph, !llvm.loop !370
 
 .loopexit73:                                      ; preds = %42, %.lr.ph79, %.preheader74, %.preheader72, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.460.2 = phi i64 [ %14, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.460.081, %.preheader72 ], [ %.sroa.460.081, %.preheader74 ], [ %.ph, %.lr.ph79 ], [ %14, %42 ]
+  %.sroa.460.2 = phi i64 [ %14, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.ph, %.lr.ph79 ], [ %.sroa.460.081, %.preheader72 ], [ %.sroa.460.081, %.preheader74 ], [ %14, %42 ]
   %44 = add nuw nsw i64 %.082, 1
   %exitcond93.not = icmp eq i64 %44, %9
   br i1 %exitcond93.not, label %.loopexit, label %.lr.ph84, !llvm.loop !371
@@ -24454,7 +24454,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !398
 
 .loopexit.i:                                      ; preds = %57, %37, %34, %.preheader.i, %28
-  %.sroa.4.2.i = phi i64 [ %32, %28 ], [ %.sroa.4.051.i, %34 ], [ %.sroa.4.051.i, %.preheader.i ], [ %35, %37 ], [ %32, %57 ]
+  %.sroa.4.2.i = phi i64 [ %32, %28 ], [ %35, %37 ], [ %.sroa.4.051.i, %34 ], [ %.sroa.4.051.i, %.preheader.i ], [ %32, %57 ]
   %59 = add nuw nsw i64 %.052.i, 1
   %exitcond59.not.i = icmp eq i64 %59, %22
   br i1 %exitcond59.not.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_16IntervalAvgStateENS_10interval_tENS_24IntervalAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %24, !llvm.loop !399
@@ -25682,7 +25682,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %39,
   br i1 %exitcond74.not.i, label %.loopexit57.i, label %.lr.ph63.i, !llvm.loop !422
 
 .loopexit57.i:                                    ; preds = %.lr.ph.i, %71, %.preheader56.i, %.preheader58.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
-  %.sroa.448.2.i = phi i64 [ %45, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i ], [ %.sroa.448.065.i, %.preheader56.i ], [ %.sroa.448.065.i, %.preheader58.i ], [ %45, %71 ], [ %45, %.lr.ph.i ]
+  %.sroa.448.2.i = phi i64 [ %45, %71 ], [ %45, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i ], [ %.sroa.448.065.i, %.preheader56.i ], [ %.sroa.448.065.i, %.preheader58.i ], [ %45, %.lr.ph.i ]
   %73 = add nuw nsw i64 %.066.i, 1
   %exitcond75.not.i = icmp eq i64 %73, %41
   br i1 %exitcond75.not.i, label %_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgStateIdEEdNS_23NumericAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPPT_RNS_12ValidityMaskEm.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i, !llvm.loop !423
@@ -27177,7 +27177,7 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
   br i1 %exitcond78.not, label %.loopexit61, label %.lr.ph67, !llvm.loop !452
 
 .loopexit61:                                      ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44, %.preheader62, %.preheader60, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.452.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.452.069, %.preheader60 ], [ %.sroa.452.069, %.preheader62 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %.sroa.452.2 = phi i64 [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit44 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.452.069, %.preheader60 ], [ %.sroa.452.069, %.preheader62 ], [ %13, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
   %54 = add nuw nsw i64 %.070, 1
   %exitcond79.not = icmp eq i64 %54, %9
   br i1 %exitcond79.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !453
@@ -28623,7 +28623,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.
   br i1 %exitcond74.not, label %.loopexit57, label %.lr.ph63, !llvm.loop !471
 
 .loopexit57:                                      ; preds = %.lr.ph, %49, %.preheader58, %.preheader56, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.sroa.448.2 = phi i64 [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %49 ], [ %13, %.lr.ph ]
+  %.sroa.448.2 = phi i64 [ %13, %49 ], [ %13, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.sroa.448.065, %.preheader56 ], [ %.sroa.448.065, %.preheader58 ], [ %13, %.lr.ph ]
   %51 = add nuw nsw i64 %.066, 1
   %exitcond75.not = icmp eq i64 %51, %9
   br i1 %exitcond75.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !472
@@ -30977,9 +30977,9 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit37:  ; preds = %.lr.ph55.split, %_Z
   br i1 %exitcond95.not, label %..loopexit_crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, !llvm.loop !489
 
 ..loopexit_crit_edge:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us
-  %.us-phi = phi double [ %138, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %116, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %205, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi62 = phi double [ %136, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %114, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %203, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi63 = phi double [ %132, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %110, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %199, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi = phi double [ %116, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %138, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %205, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi62 = phi double [ %114, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %136, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %203, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi63 = phi double [ %110, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %132, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %199, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
   %.us-phi64 = add i64 %.promoted, %4
   store i64 %.us-phi64, ptr %3, align 8, !tbaa !147
   store double %.us-phi63, ptr %91, align 8, !tbaa !149
@@ -32498,9 +32498,9 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit37:  ; preds = %.lr.ph55.split, %_Z
   br i1 %exitcond95.not, label %..loopexit_crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, !llvm.loop !495
 
 ..loopexit_crit_edge:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us
-  %.us-phi = phi double [ %138, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %116, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %205, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi62 = phi double [ %136, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %114, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %203, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi63 = phi double [ %132, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %110, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %199, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi = phi double [ %116, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %138, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %205, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi62 = phi double [ %114, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %136, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %203, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi63 = phi double [ %110, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %132, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us65 ], [ %199, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
   %.us-phi64 = add i64 %.promoted, %4
   store i64 %.us-phi64, ptr %3, align 8, !tbaa !147
   store double %.us-phi63, ptr %91, align 8, !tbaa !149

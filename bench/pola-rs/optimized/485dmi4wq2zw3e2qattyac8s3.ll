@@ -2122,7 +2122,7 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   br i1 %41, label %50, label %.split26.us.i.i.i.i.i.i
 
 .split26.us.i.i.i.i.i.i:                          ; preds = %39, %34, %20, %16
-  %.us-phi27.i.i.i.i.i.i = phi ptr [ %.promoted.i.i.i.i.i.us.i, %16 ], [ %.sroa.0.0.copyload822.us.i.i.i.i.i.i, %34 ], [ %.sroa.0.0.copyload822.us.i.i.i.i.i.us.i, %20 ], [ %.promoted.i.i.i.i.i.i, %39 ]
+  %.us-phi27.i.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload822.us.i.i.i.i.i.i, %34 ], [ %.sroa.0.0.copyload822.us.i.i.i.i.i.us.i, %20 ], [ %.promoted.i.i.i.i.i.us.i, %16 ], [ %.promoted.i.i.i.i.i.i, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %.us-phi27.i.i.i.i.i.i, i64 8
   store ptr %42, ptr %4, align 8, !alias.scope !367, !noalias !355
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -8427,7 +8427,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h5a6d9e6
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6ccc37cb9feb48e5E.exit.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6ccc37cb9feb48e5E.exit.i": ; preds = %29, %16
-  %.sroa.0.0.i.i = phi ptr [ %18, %16 ], [ %31, %29 ]
+  %.sroa.0.0.i.i = phi ptr [ %31, %29 ], [ %18, %16 ]
   %.val.i = load ptr, ptr %7, align 8, !alias.scope !1325, !nonnull !12, !align !71, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1350)
   %32 = load ptr, ptr %.val.i, align 8, !noalias !1353, !nonnull !12, !noundef !12

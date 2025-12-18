@@ -669,7 +669,7 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %87, %92
   br i1 %311, label %.loopexit, label %.preheader350
 
 .loopexit:                                        ; preds = %._crit_edge443, %137, %310, %.thread342, %.thread334, %224, %222, %.thread303, %112, %.thread329, %276, %274, %4
-  %.0 = phi i32 [ 0, %4 ], [ %109, %.thread303 ], [ 0, %112 ], [ 0, %.thread329 ], [ 0, %276 ], [ %271, %.thread334 ], [ 0, %274 ], [ %309, %.thread342 ], [ %223, %222 ], [ %225, %224 ], [ %.6, %137 ], [ 0, %310 ], [ %.9, %._crit_edge443 ]
+  %.0 = phi i32 [ 0, %4 ], [ %109, %.thread303 ], [ %.6, %137 ], [ 0, %112 ], [ 0, %.thread329 ], [ 0, %276 ], [ 0, %310 ], [ %271, %.thread334 ], [ 0, %274 ], [ %309, %.thread342 ], [ %223, %222 ], [ %225, %224 ], [ %.9, %._crit_edge443 ]
   ret i32 %.0
 }
 

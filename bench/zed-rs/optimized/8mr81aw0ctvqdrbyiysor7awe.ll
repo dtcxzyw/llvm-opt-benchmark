@@ -919,7 +919,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h3d0c161b5880fd87E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1028,7 +1028,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h3d0c161b5880fd87E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %42, %22, %40
-  %.sroa.0.0.be = phi i32 [ %44, %42 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %40 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %40 ], [ %44, %42 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -1070,7 +1070,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h86c817f2d35771eeE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1179,7 +1179,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h86c817f2d35771eeE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %42, %22, %40
-  %.sroa.0.0.be = phi i32 [ %44, %42 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %40 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %40 ], [ %44, %42 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -6796,8 +6796,8 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, i64 } %83
 
 84:                                               ; preds = %62, %66
-  %85 = phi i8 [ %64, %62 ], [ %.pre15, %66 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %62 ], [ %72, %66 ]
+  %85 = phi i8 [ %.pre15, %66 ], [ %64, %62 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %72, %66 ], [ %.sroa.6.1.i.i, %62 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
   %86 = getelementptr inbounds i8, ptr %29, i64 %.sroa.3.0.i.ph.i
   %87 = and i8 %85, 1
@@ -7111,8 +7111,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd4
   ret void
 
 85:                                               ; preds = %63, %67
-  %86 = phi i8 [ %65, %63 ], [ %.pre13, %67 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %63 ], [ %73, %67 ]
+  %86 = phi i8 [ %.pre13, %67 ], [ %65, %63 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %73, %67 ], [ %.sroa.6.1.i.i, %63 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1036)
   %87 = getelementptr inbounds i8, ptr %30, i64 %.sroa.3.0.i.ph.i
   %88 = and i8 %86, 1
@@ -7335,8 +7335,8 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   ret ptr %.sroa.0.0
 
 78:                                               ; preds = %60, %64
-  %79 = phi i8 [ %62, %60 ], [ %.pre15, %64 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %60 ], [ %70, %64 ]
+  %79 = phi i8 [ %.pre15, %64 ], [ %62, %60 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %70, %64 ], [ %.sroa.6.1.i.i, %60 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1134)
   %80 = getelementptr inbounds i8, ptr %27, i64 %.sroa.3.0.i.ph.i
   %81 = and i8 %79, 1
@@ -7529,8 +7529,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, ptr } %70
 
 71:                                               ; preds = %52, %56
-  %72 = phi i8 [ %54, %52 ], [ %.pre, %56 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %52 ], [ %62, %56 ]
+  %72 = phi i8 [ %.pre, %56 ], [ %54, %52 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %62, %56 ], [ %.sroa.6.1.i.i, %52 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1185)
   %73 = getelementptr inbounds i8, ptr %19, i64 %.sroa.3.0.i.ph.i
   %74 = and i8 %72, 1
@@ -7772,8 +7772,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; preds = %.lr.ph, %45, %41
-  %.sroa.3.0 = phi i64 [ %51, %45 ], [ %.sroa.6.1, %41 ], [ %20, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ 1, %45 ], [ 1, %41 ], [ 0, %.lr.ph ]
+  %.sroa.3.0 = phi i64 [ %.sroa.6.1, %41 ], [ %51, %45 ], [ %20, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ 1, %41 ], [ 1, %45 ], [ 0, %.lr.ph ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.3.0, 1
   ret { i64, i64 } %27
@@ -7980,8 +7980,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %73 = zext nneg i16 %72 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.4858207109798798013.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.4858207109798798013.exit.thread: ; preds = %67, %63
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %63 ], [ %73, %67 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.4858207109798798013.exit.thread: ; preds = %63, %67
+  %.sroa.3.0.i.ph = phi i64 [ %73, %67 ], [ %.sroa.6.1.i, %63 ]
   %74 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %78
 

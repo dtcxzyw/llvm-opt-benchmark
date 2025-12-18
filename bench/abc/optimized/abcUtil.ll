@@ -4268,9 +4268,9 @@ Vec_PtrPush.exit290:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %293, label %276, label %.critedge13, !llvm.loop !125
 
 .critedge13:                                      ; preds = %.critedge11, %291, %218, %273, %.critedge11.preheader
-  %294 = phi i32 [ %264, %.critedge11.preheader ], [ %166, %273 ], [ %166, %218 ], [ %166, %291 ], [ %264, %.critedge11 ]
-  %.2190 = phi i32 [ %.1189, %.critedge11.preheader ], [ %.0188373, %273 ], [ %.1189, %218 ], [ %.0188373, %291 ], [ %.1189, %.critedge11 ]
-  %.2 = phi i32 [ %.1187, %.critedge11.preheader ], [ %.0186374, %273 ], [ %.1187, %218 ], [ %.0186374, %291 ], [ %.1187, %.critedge11 ]
+  %294 = phi i32 [ %166, %291 ], [ %264, %.critedge11.preheader ], [ %166, %273 ], [ %166, %218 ], [ %264, %.critedge11 ]
+  %.2190 = phi i32 [ %.0188373, %291 ], [ %.1189, %.critedge11.preheader ], [ %.0188373, %273 ], [ %.1189, %218 ], [ %.1189, %.critedge11 ]
+  %.2 = phi i32 [ %.0186374, %291 ], [ %.1187, %.critedge11.preheader ], [ %.0186374, %273 ], [ %.1187, %218 ], [ %.1187, %.critedge11 ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count412
   br i1 %exitcond413.not, label %.critedge4, label %165, !llvm.loop !126

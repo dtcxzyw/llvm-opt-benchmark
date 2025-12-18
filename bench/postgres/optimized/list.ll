@@ -1926,7 +1926,7 @@ list_copy.exit:                                   ; preds = %2, %4
   br i1 %46, label %list_member.exit, label %39
 
 .critedge:                                        ; preds = %list_member.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member.exit ]
+  %.0.lcssa = phi ptr [ %.0.i, %.lr.ph ], [ %.0.i, %list_copy.exit ], [ %.1, %list_member.exit ]
   ret ptr %.0.lcssa
 
 .loopexit.loopexit:                               ; preds = %39
@@ -2031,7 +2031,7 @@ list_copy.exit:                                   ; preds = %2, %4
   br i1 %45, label %list_member_ptr.exit, label %41
 
 .critedge:                                        ; preds = %list_member_ptr.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
+  %.0.lcssa = phi ptr [ %.0.i, %.lr.ph ], [ %.0.i, %list_copy.exit ], [ %.1, %list_member_ptr.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %41, %.lr.ph.i, %.lr.ph22
@@ -2132,7 +2132,7 @@ list_copy.exit:                                   ; preds = %2, %4
   br i1 %45, label %list_member_int.exit, label %41
 
 .critedge:                                        ; preds = %list_member_int.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_int.exit ]
+  %.0.lcssa = phi ptr [ %.0.i, %.lr.ph ], [ %.0.i, %list_copy.exit ], [ %.1, %list_member_int.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %41, %.lr.ph.i, %.lr.ph22
@@ -2233,7 +2233,7 @@ list_copy.exit:                                   ; preds = %2, %4
   br i1 %45, label %list_member_oid.exit, label %41
 
 .critedge:                                        ; preds = %list_member_oid.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_oid.exit ]
+  %.0.lcssa = phi ptr [ %.0.i, %.lr.ph ], [ %.0.i, %list_copy.exit ], [ %.1, %list_member_oid.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %41, %.lr.ph.i, %.lr.ph22
@@ -2486,7 +2486,7 @@ list_member.exit:                                 ; preds = %.lr.ph23.i, %.loope
   br i1 %53, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member.exit ]
+  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member.exit ]
   ret ptr %.0
 }
 
@@ -2586,7 +2586,7 @@ list_member_ptr.exit:                             ; preds = %44, %.loopexit
   br i1 %51, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member_ptr.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
+  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_ptr.exit ]
   ret ptr %.0
 }
 
@@ -2686,7 +2686,7 @@ list_member_int.exit:                             ; preds = %44, %.loopexit
   br i1 %51, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member_int.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_int.exit ]
+  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_int.exit ]
   ret ptr %.0
 }
 
@@ -2786,7 +2786,7 @@ list_member_oid.exit:                             ; preds = %44, %.loopexit
   br i1 %51, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member_oid.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_oid.exit ]
+  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_oid.exit ]
   ret ptr %.0
 }
 
@@ -2984,7 +2984,7 @@ define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly ca
   br i1 %21, label %list_member.exit, label %14
 
 .critedge:                                        ; preds = %list_member.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member.exit ]
+  %.0.lcssa = phi ptr [ %0, %.lr.ph ], [ %0, %2 ], [ %.1, %list_member.exit ]
   ret ptr %.0.lcssa
 
 .loopexit.loopexit:                               ; preds = %14
@@ -3052,7 +3052,7 @@ define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonl
   br i1 %20, label %list_member_ptr.exit, label %16
 
 .critedge:                                        ; preds = %list_member_ptr.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
+  %.0.lcssa = phi ptr [ %0, %.lr.ph ], [ %0, %2 ], [ %.1, %list_member_ptr.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %16, %.lr.ph.i, %.lr.ph21
@@ -3116,7 +3116,7 @@ define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonl
   br i1 %20, label %list_member_int.exit, label %16
 
 .critedge:                                        ; preds = %list_member_int.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_int.exit ]
+  %.0.lcssa = phi ptr [ %0, %.lr.ph ], [ %0, %2 ], [ %.1, %list_member_int.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %16, %.lr.ph.i, %.lr.ph21
@@ -3180,7 +3180,7 @@ define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonl
   br i1 %20, label %list_member_oid.exit, label %16
 
 .critedge:                                        ; preds = %list_member_oid.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_oid.exit ]
+  %.0.lcssa = phi ptr [ %0, %.lr.ph ], [ %0, %2 ], [ %.1, %list_member_oid.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %16, %.lr.ph.i, %.lr.ph21

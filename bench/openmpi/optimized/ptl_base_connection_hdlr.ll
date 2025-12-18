@@ -1416,7 +1416,7 @@ pmix_obj_run_destructors.exit691:                 ; preds = %.lr.ph.i688, %663
   call void @free(ptr noundef nonnull %.0861867) #17
   br label %.thread882
 
-.thread882:                                       ; preds = %30, %20, %pmix_obj_update.exit678, %676, %674, %649
+.thread882:                                       ; preds = %20, %30, %pmix_obj_update.exit678, %676, %674, %649
   %677 = load i32, ptr %21, align 4, !tbaa !21
   %678 = icmp sgt i32 %677, -1
   br i1 %678, label %679, label %683

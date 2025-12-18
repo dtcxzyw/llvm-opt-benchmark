@@ -5806,7 +5806,7 @@ tailrecurse:
   br i1 %.not, label %.loopexit, label %.preheader.backedge
 
 .loopexit:                                        ; preds = %.backedge, %45, %47, %42, %.preheader119, %38, %30, %tailrecurse
-  %.0 = phi i32 [ 0, %tailrecurse ], [ %39, %38 ], [ 1, %30 ], [ 0, %.preheader119 ], [ 0, %42 ], [ 0, %47 ], [ 0, %45 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ 0, %tailrecurse ], [ 1, %30 ], [ %39, %38 ], [ 0, %.preheader119 ], [ 0, %42 ], [ 0, %47 ], [ 0, %45 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 

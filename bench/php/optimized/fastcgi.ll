@@ -2326,7 +2326,7 @@ safe_read.exit194.thread.i:                       ; preds = %368, %safe_read.exi
   br i1 %.not138277.i, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.outer.i, %382, %380, %371
-  %.0124.idx.ph249.i = phi i64 [ 8, %371 ], [ %.0124.idx.ph283.i, %380 ], [ %.0124.idx.ph283.i, %382 ], [ %.add212.i, %.outer.i ]
+  %.0124.idx.ph249.i = phi i64 [ 8, %371 ], [ %.0124.idx.ph283.i, %380 ], [ %.add212.i, %.outer.i ], [ %.0124.idx.ph283.i, %382 ]
   %433 = trunc i64 %.0124.idx.ph249.i to i32
   %434 = add i32 %433, -8
   %435 = add i32 %433, -1
@@ -2408,7 +2408,7 @@ safe_write.exit.thread:                           ; preds = %460, %safe_write.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %fcgi_close.exit59.backedge
 
-.loopexit:                                        ; preds = %159, %safe_read.exit154.i, %189, %273, %.lr.ph289.i, %safe_read.exit.thread.sink.split.i, %safe_read.exit170.i, %251, %safe_read.exit162.i, %._crit_edge.i, %348, %safe_read.exit.i
+.loopexit:                                        ; preds = %159, %safe_read.exit154.i, %189, %273, %.lr.ph289.i, %safe_read.exit.thread.sink.split.i, %251, %safe_read.exit162.i, %safe_read.exit170.i, %._crit_edge.i, %348, %safe_read.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %463 = load i32, ptr %21, align 8, !tbaa !61
@@ -2478,7 +2478,7 @@ fcgi_close.exit59.backedge:                       ; preds = %.thread16.i58, %482
   br label %fcgi_close.exit59
 
 .loopexit90:                                      ; preds = %124, %.preheader, %.backedge, %93, %91, %fcgi_close.exit59.thread
-  %.1 = phi i32 [ %462, %fcgi_close.exit59.thread ], [ -1, %.backedge ], [ -1, %91 ], [ -1, %93 ], [ -1, %.preheader ], [ -1, %124 ]
+  %.1 = phi i32 [ -1, %.backedge ], [ %462, %fcgi_close.exit59.thread ], [ -1, %91 ], [ -1, %93 ], [ -1, %.preheader ], [ -1, %124 ]
   ret i32 %.1
 }
 

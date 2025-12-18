@@ -156,7 +156,7 @@ define hidden noundef zeroext i1 @_ZN3smt7checker8all_argsEP3appb(ptr noundef no
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %54, %51
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %54 ], [ %53, %51 ]
+  %.137.i.i.i.be = phi ptr [ %53, %51 ], [ %.old.i.i.i, %54 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !27
 
 _ZNK7obj_mapI4exprbE4findEPS0_Rb.exit:            ; preds = %35, %46
@@ -270,7 +270,7 @@ define hidden noundef zeroext i1 @_ZN3smt7checker5checkEP4exprb(ptr noundef nonn
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %44, %41
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !27
 
 _ZNK7obj_mapI4exprbE4findEPS0_Rb.exit:            ; preds = %25, %36
@@ -921,7 +921,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit.thread: ; preds = %_ZNK3smt7contex
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPN3smt5enodeEE4findEPS0_RS3_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %92, %89
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %92 ], [ %91, %89 ]
+  %.137.i.i.i.be = phi ptr [ %91, %89 ], [ %.old.i.i.i, %92 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !610
 
 _ZNK7obj_mapI4exprPN3smt5enodeEE4findEPS0_RS3_.exit: ; preds = %73, %84
@@ -1101,7 +1101,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %.noexc29, %_ZN
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit, %43
-  %.3 = phi ptr [ null, %43 ], [ %42, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread ], [ null, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit ], [ null, %14 ]
+  %.3 = phi ptr [ null, %43 ], [ null, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit ], [ %42, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread ], [ null, %14 ]
   %58 = load ptr, ptr %3, align 8, !tbaa !613
   %.not.i.i.i31 = icmp eq ptr %58, %4
   %59 = icmp eq ptr %58, null
@@ -1854,7 +1854,7 @@ define hidden void @_ZN3smt7checkerC2ERNS_7contextE(ptr noundef nonnull align 8 
   br i1 %32, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %.preheader, %31, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %30, %31 ], [ %26, %.preheader ]
+  %.pn = phi { ptr, i32 } [ %30, %31 ], [ %26, %25 ], [ %26, %.preheader ]
   resume { ptr, i32 } %.pn
 }
 

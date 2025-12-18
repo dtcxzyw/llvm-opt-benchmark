@@ -875,7 +875,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   br label %80
 
 80:                                               ; preds = %47, %79
-  %.0 = phi ptr [ %53, %47 ], [ %58, %79 ]
+  %.0 = phi ptr [ %58, %79 ], [ %53, %47 ]
   %.not69 = icmp eq ptr %.0, null
   br i1 %.not69, label %.thread, label %81
 
@@ -2497,7 +2497,7 @@ dissect_pvfs2_attrmask.exit:                      ; preds = %72
   br label %dissect_pvfs_meta_attr_dfiles.exit
 
 dissect_pvfs_meta_attr_dfiles.exit:               ; preds = %.lr.ph.i, %.lr.ph.i64, %90, %80, %106, %114, %112, %99
-  %.0 = phi i32 [ %78, %112 ], [ %103, %99 ], [ %111, %106 ], [ %118, %114 ], [ %85, %80 ], [ %94, %90 ], [ %95, %.lr.ph.i64 ], [ %86, %.lr.ph.i ]
+  %.0 = phi i32 [ %78, %112 ], [ %95, %.lr.ph.i64 ], [ %103, %99 ], [ %111, %106 ], [ %118, %114 ], [ %85, %80 ], [ %94, %90 ], [ %86, %.lr.ph.i ]
   ret i32 %.0
 }
 

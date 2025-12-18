@@ -698,7 +698,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %38, %18, %15, %57, %._crit_edge, %54, %.loopexit, %6
-  %.1 = phi i32 [ %spec.select167, %.loopexit ], [ 1, %6 ], [ -1, %57 ], [ -1, %54 ], [ -1, %._crit_edge ], [ -1, %15 ], [ -1, %18 ], [ -1, %38 ]
+  %.1 = phi i32 [ -1, %57 ], [ %spec.select167, %.loopexit ], [ 1, %6 ], [ -1, %54 ], [ -1, %._crit_edge ], [ -1, %15 ], [ -1, %18 ], [ -1, %38 ]
   ret i32 %.1
 }
 

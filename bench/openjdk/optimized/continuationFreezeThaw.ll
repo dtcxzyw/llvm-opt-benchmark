@@ -834,7 +834,7 @@ _ZNK5frame6senderEP11RegisterMap.exit23.i:        ; preds = %_ZNK11RegisterMap7i
   br i1 %114, label %_ZL10is_pinned0P10JavaThreadP7oopDescb.exit, label %.outer, !llvm.loop !17
 
 _ZL10is_pinned0P10JavaThreadP7oopDescb.exit:      ; preds = %82, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i, %96, %104, %110, %113, %_ZN10JNIHandles7resolveEP8_jobject.exit, %48, %51
-  %.0.i9 = phi i32 [ 4, %51 ], [ 0, %_ZN10JNIHandles7resolveEP8_jobject.exit ], [ 2, %48 ], [ 3, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ], [ 3, %82 ], [ 0, %96 ], [ 0, %104 ], [ 4, %113 ], [ 2, %110 ]
+  %.0.i9 = phi i32 [ 4, %51 ], [ 0, %_ZN10JNIHandles7resolveEP8_jobject.exit ], [ 2, %48 ], [ 3, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ], [ 3, %82 ], [ 0, %104 ], [ 0, %96 ], [ 4, %113 ], [ 2, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -19537,8 +19537,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i15:    ; preds = %_ZNK21StackChunkFra
   br i1 %.not7.i16, label %select.unfold21, label %82
 
 82:                                               ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15
-  %83 = phi ptr [ %.pre28, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ], [ %26, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
-  %.0.in = phi i32 [ %24, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ], [ %81, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
+  %83 = phi ptr [ %26, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ], [ %.pre28, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ]
+  %.0.in = phi i32 [ %81, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ], [ %24, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ]
   %.0 = lshr i32 %.0.in, 24
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -19746,7 +19746,7 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit.thread: ; preds = %68
   br label %95
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit: ; preds = %84, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i
-  %.0.i.i.sink.i = phi ptr [ %88, %84 ], [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %.0.i.i.sink.i = phi ptr [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ], [ %88, %84 ]
   store ptr %.0.i.i.sink.i, ptr %4, align 8
   %.not4 = icmp eq ptr %.0.i.i.sink.i, null
   %or.cond = select i1 %.not19, i1 true, i1 %.not4

@@ -13146,7 +13146,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Usd_ValueContainsBlockEPKNS_7VtValueE.exi
   %19 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__13SdfValueBlockE)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__22Usd_ValueContainsBlockEPKNS_7VtValueE.exit.thread6, label %_ZN32pxrInternal_v0_24__pxrReserved__22Usd_ValueContainsBlockEPKNS_7VtValueE.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__22Usd_ValueContainsBlockEPKNS_7VtValueE.exit.thread6: ; preds = %7, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__22Usd_ValueContainsBlockEPKNS_7VtValueE.exit
+_ZN32pxrInternal_v0_24__pxrReserved__22Usd_ValueContainsBlockEPKNS_7VtValueE.exit.thread6: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i.i, %7, %_ZN32pxrInternal_v0_24__pxrReserved__22Usd_ValueContainsBlockEPKNS_7VtValueE.exit
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %20, align 8
   %.not.i3 = icmp eq ptr %0, %2
@@ -14752,7 +14752,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.e
   br i1 %.not29, label %.loopexit, label %98, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_half4halfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i52 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_half4halfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit ]
+  %.0.i.i52 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_half4halfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i52
@@ -16874,7 +16874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKS
   br i1 %.not29, label %.loopexit, label %105, !llvm.loop !42
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i50 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i50 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i50
@@ -18947,7 +18947,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIdEEEEbRKS
   br i1 %.not29, label %.loopexit, label %105, !llvm.loop !66
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIdEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i50 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIdEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i50 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIdEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i50
@@ -21087,7 +21087,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %115, %.loopexit.sink.split, %109, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i60 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %109 ], [ true, %.loopexit.sink.split ], [ true, %115 ]
+  %.0.i.i60 = phi i1 [ true, %.loopexit.sink.split ], [ true, %109 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %115 ]
   %128 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %129 = load ptr, ptr %128, align 8
   %.not.i.i = icmp eq ptr %129, null
@@ -22214,7 +22214,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyE
   br i1 %.not.i.i.i.i67, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !100
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i51, %.lr.ph.i.i.i.i, %47, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61 ], [ %36, %47 ], [ %.1, %.lr.ph.i.i.i.i51 ], [ %37, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %36, %47 ], [ %.1, %.lr.ph.i.i.i.i51 ], [ %37, %.lr.ph.i.i.i.i ], [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61 ], [ %65, %.lr.ph.i.i.i.i65 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE5clearEv.exit.sink.split, label %75
@@ -24520,7 +24520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
   br i1 %.not29, label %.loopexit, label %102, !llvm.loop !177
 
 .loopexit:                                        ; preds = %108, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i53 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %108 ]
+  %.0.i.i53 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %108 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #20
   ret i1 %.0.i.i53
@@ -27052,7 +27052,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
   br i1 %.not29, label %.loopexit, label %102, !llvm.loop !282
 
 .loopexit:                                        ; preds = %108, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i53 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %108 ]
+  %.0.i.i53 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %108 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #20
   ret i1 %.0.i.i53
@@ -29418,7 +29418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
   br i1 %.not29, label %.loopexit, label %102, !llvm.loop !387
 
 .loopexit:                                        ; preds = %108, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i53 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %108 ]
+  %.0.i.i53 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %108 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #20
   ret i1 %.0.i.i53
@@ -31726,7 +31726,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %105, !llvm.loop !435
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i50 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i50 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i50
@@ -33887,7 +33887,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %105, !llvm.loop !459
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i50 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i50 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i50
@@ -36588,7 +36588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %100, !llvm.loop !483
 
 .loopexit:                                        ; preds = %106, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i53 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %106 ]
+  %.0.i.i53 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %106 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #20
   ret i1 %.0.i.i53
@@ -38904,7 +38904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %105, !llvm.loop !558
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i50 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i50 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i50
@@ -41332,7 +41332,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not31, label %.loopexit, label %105, !llvm.loop !602
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i52 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i52 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i52
@@ -43920,7 +43920,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %102, !llvm.loop !626
 
 .loopexit:                                        ; preds = %108, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i53 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %108 ]
+  %.0.i.i53 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %108 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #20
   ret i1 %.0.i.i53
@@ -46308,7 +46308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %105, !llvm.loop !701
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i50 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i50 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i50
@@ -48821,7 +48821,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %105, !llvm.loop !745
 
 .loopexit:                                        ; preds = %105, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i50 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %.preheader ], [ true, %105 ]
+  %.0.i.i50 = phi i1 [ true, %.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.invoke ], [ true, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i50
@@ -51572,7 +51572,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   br i1 %.not29, label %.loopexit, label %102, !llvm.loop !769
 
 .loopexit:                                        ; preds = %110, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i53 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %110 ]
+  %.0.i.i53 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %110 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #20
   ret i1 %.0.i.i53
@@ -53928,7 +53928,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit: ; preds 
   br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !802
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatdEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i51 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatdEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit ]
+  %.0.i.i51 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatdEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i51
@@ -56278,7 +56278,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit: ; preds 
   br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !832
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i51 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit ]
+  %.0.i.i51 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i51
@@ -58551,7 +58551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit: ; preds 
   br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !856
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit, %.invoke, %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuathEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i51 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuathEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %.invoke ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit ]
+  %.0.i.i51 = phi i1 [ true, %.invoke ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuathEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %.preheader ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   ret i1 %.0.i.i51

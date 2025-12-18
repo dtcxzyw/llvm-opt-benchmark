@@ -1181,7 +1181,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsI
   br i1 %.not25.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !31
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %86, %69, %74, %82
-  %.020.i.i = phi i64 [ -1, %74 ], [ %85, %82 ], [ 0, %69 ], [ -1, %86 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.020.i.i = phi i64 [ 0, %69 ], [ -1, %74 ], [ %85, %82 ], [ -1, %86 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   %90 = icmp eq ptr %70, %61
   br i1 %90, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
@@ -1429,7 +1429,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i85: ; preds = %_ZNSt11char_traitsI
   br i1 %.not25.i.i87, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit88, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i80, !llvm.loop !31
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit88: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i80, %170, %153, %158, %166
-  %.020.i.i77 = phi i64 [ -1, %158 ], [ %169, %166 ], [ 0, %153 ], [ -1, %170 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i80 ]
+  %.020.i.i77 = phi i64 [ 0, %153 ], [ -1, %158 ], [ %169, %166 ], [ -1, %170 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i80 ]
   %174 = icmp eq ptr %154, %145
   br i1 %174, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91
 

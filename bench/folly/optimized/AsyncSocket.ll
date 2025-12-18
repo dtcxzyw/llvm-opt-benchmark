@@ -7915,8 +7915,8 @@ _ZNKSt8functionIFbRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEEEclES7
   br label %_ZNK5folly5IOBuf9isManagedEv.exit
 
 _ZNK5folly5IOBuf9isManagedEv.exit:                ; preds = %.preheader, %_ZN5folly11AsyncSocket19adjustZeroCopyFlagsERNS_10WriteFlagsE.exit._ZNK5folly5IOBuf9isManagedEv.exit_crit_edge, %30, %_ZNKSt8functionIFbRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEEEclES7_.exit
-  %32 = phi ptr [ %.pre31, %30 ], [ %.pre, %_ZN5folly11AsyncSocket19adjustZeroCopyFlagsERNS_10WriteFlagsE.exit._ZNK5folly5IOBuf9isManagedEv.exit_crit_edge ], [ %.pre31, %_ZNKSt8functionIFbRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEEEclES7_.exit ], [ %.pre31, %.preheader ]
-  %.0 = phi i32 [ %31, %30 ], [ %.140, %_ZN5folly11AsyncSocket19adjustZeroCopyFlagsERNS_10WriteFlagsE.exit._ZNK5folly5IOBuf9isManagedEv.exit_crit_edge ], [ %3, %_ZNKSt8functionIFbRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEEEclES7_.exit ], [ %3, %.preheader ]
+  %32 = phi ptr [ %.pre31, %_ZNKSt8functionIFbRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEEEclES7_.exit ], [ %.pre31, %30 ], [ %.pre, %_ZN5folly11AsyncSocket19adjustZeroCopyFlagsERNS_10WriteFlagsE.exit._ZNK5folly5IOBuf9isManagedEv.exit_crit_edge ], [ %.pre31, %.preheader ]
+  %.0 = phi i32 [ %3, %_ZNKSt8functionIFbRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEEEclES7_.exit ], [ %31, %30 ], [ %.140, %_ZN5folly11AsyncSocket19adjustZeroCopyFlagsERNS_10WriteFlagsE.exit._ZNK5folly5IOBuf9isManagedEv.exit_crit_edge ], [ %3, %.preheader ]
   %33 = tail call noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull align 8 dereferenceable(56) %32) #48
   %34 = icmp ult i64 %33, 65
   br i1 %34, label %35, label %42
@@ -22750,7 +22750,7 @@ _ZNSt10shared_ptrIN5folly21ObserverContainerBaseINS0_28AsyncSocketObserverInterf
   br i1 %.not, label %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreIS9_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSA_EEENS1_26ObserverContainerStoreBaseIS9_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEESS_SS_SS_T0_.exit.thread, label %.lr.ph, !llvm.loop !658
 
 _ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreIS9_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSA_EEENS1_26ObserverContainerStoreBaseIS9_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEESS_SS_SS_T0_.exit.thread: ; preds = %66, %32, %._crit_edge.i.i, %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreIS9_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSA_EEENS1_26ObserverContainerStoreBaseIS9_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEESS_SS_SS_T0_.exit
-  %.016 = phi ptr [ %.028.i.i, %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreIS9_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSA_EEENS1_26ObserverContainerStoreBaseIS9_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEESS_SS_SS_T0_.exit ], [ %1, %._crit_edge.i.i ], [ %1, %32 ], [ %.1, %66 ]
+  %.016 = phi ptr [ %.028.i.i, %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreIS9_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSA_EEENS1_26ObserverContainerStoreBaseIS9_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEESS_SS_SS_T0_.exit ], [ %1, %32 ], [ %1, %._crit_edge.i.i ], [ %.1, %66 ]
   ret ptr %.016
 }
 
@@ -30430,7 +30430,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN5folly5IOBufEESaIS5_ENSt8__detail10_Select1stESt8
   br label %common.resume
 
 _ZNSt13unordered_mapIjPN5folly5IOBufESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit: ; preds = %23, %18, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %19, %18 ], [ %34, %.loopexit.i.i ], [ %25, %23 ]
+  %.pn.i.i = phi ptr [ %34, %.loopexit.i.i ], [ %19, %18 ], [ %25, %23 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %9, ptr %.1.i.i, align 8, !tbaa !198
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -31034,7 +31034,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN5folly5IOBufEESaIS5_ENSt8__detail10_Select1stESt8
   br label %common.resume
 
 _ZNSt13unordered_mapIjPN5folly5IOBufESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit: ; preds = %20, %15, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %16, %15 ], [ %31, %.loopexit.i.i ], [ %22, %20 ]
+  %.pn.i.i = phi ptr [ %31, %.loopexit.i.i ], [ %16, %15 ], [ %22, %20 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %1, ptr %.1.i.i, align 8, !tbaa !198
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -46700,7 +46700,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %19, %13, %10, %17, %23
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %19 ], [ %12, %10 ], [ %18, %17 ], [ %14, %13 ], [ %.sroa.05.0.extract.trunc.i, %23 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %23 ], [ %14, %13 ], [ %.sroa.011.0.extract.trunc.i, %19 ], [ %12, %10 ], [ %18, %17 ]
   %35 = icmp ugt i64 %.0.i, 2147483647
   br i1 %35, label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23, label %36
 
@@ -46824,7 +46824,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %19, %13, %10, %17, %23
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %19 ], [ %12, %10 ], [ %18, %17 ], [ %14, %13 ], [ %.sroa.05.0.extract.trunc.i, %23 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %23 ], [ %14, %13 ], [ %.sroa.011.0.extract.trunc.i, %19 ], [ %12, %10 ], [ %18, %17 ]
   %35 = icmp ugt i64 %.0.i, 2147483647
   br i1 %35, label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23, label %36
 

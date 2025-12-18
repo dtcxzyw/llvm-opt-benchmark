@@ -2914,7 +2914,7 @@ H5T_update_shared.exit:                           ; preds = %152, %159
   br label %.thread83
 
 .thread83:                                        ; preds = %90, %11, %190, %124, %218, %.thread77, %15
-  %.1 = phi ptr [ null, %218 ], [ null, %.thread77 ], [ null, %15 ], [ %45, %124 ], [ %127, %190 ], [ null, %11 ], [ null, %90 ]
+  %.1 = phi ptr [ null, %218 ], [ null, %.thread77 ], [ null, %15 ], [ %127, %190 ], [ %45, %124 ], [ null, %11 ], [ null, %90 ]
   ret ptr %.1
 }
 
@@ -3034,7 +3034,7 @@ define ptr @H5T_construct_datatype(ptr noundef %0) local_unnamed_addr #0 {
   br label %55
 
 55:                                               ; preds = %41, %49, %53
-  %.0 = phi ptr [ null, %41 ], [ null, %49 ], [ %47, %53 ]
+  %.0 = phi ptr [ %47, %53 ], [ null, %49 ], [ null, %41 ]
   %56 = call ptr @H5MM_xfree(ptr noundef nonnull %30) #9
   br label %.thread
 

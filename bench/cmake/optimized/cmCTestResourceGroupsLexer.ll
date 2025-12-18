@@ -315,6 +315,12 @@ _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
   %.not166.not = icmp eq i64 %143, 0
   br i1 %.not166.not, label %101, label %.preheader.outer, !llvm.loop !43
 
+.preheader.outer.backedge:                        ; preds = %._crit_edge.i245, %_ZL18yy_get_next_bufferPv.exit.thread252, %_ZL16yy_try_NUL_transiPv.exit
+  %.1153.ph.be = phi ptr [ %325, %_ZL16yy_try_NUL_transiPv.exit ], [ %642, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %642, %._crit_edge.i245 ]
+  %.2144.ph.be = phi ptr [ %328, %_ZL16yy_try_NUL_transiPv.exit ], [ %644, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %644, %._crit_edge.i245 ]
+  %.3.ph.be = phi i32 [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %645, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %687, %._crit_edge.i245 ]
+  br label %.preheader.outer
+
 .preheader.outer:                                 ; preds = %._crit_edge, %.preheader.outer.backedge
   %.1153.ph = phi ptr [ %.1153.ph.be, %.preheader.outer.backedge ], [ %.0152, %._crit_edge ]
   %.2144.ph = phi ptr [ %.2144.ph.be, %.preheader.outer.backedge ], [ %140, %._crit_edge ]
@@ -1022,9 +1028,9 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i209, %377
   br label %.loopexit255.backedge
 
 .loopexit255.backedge:                            ; preds = %._crit_edge.i229, %398, %590
-  %.0152.be = phi ptr [ %589, %590 ], [ %325, %398 ], [ %589, %._crit_edge.i229 ]
-  %.0142.be = phi ptr [ %597, %590 ], [ %402, %398 ], [ %597, %._crit_edge.i229 ]
-  %.0129.be = phi i32 [ %598, %590 ], [ %401, %398 ], [ %640, %._crit_edge.i229 ]
+  %.0152.be = phi ptr [ %325, %398 ], [ %589, %590 ], [ %589, %._crit_edge.i229 ]
+  %.0142.be = phi ptr [ %402, %398 ], [ %597, %590 ], [ %597, %._crit_edge.i229 ]
+  %.0129.be = phi i32 [ %401, %398 ], [ %598, %590 ], [ %640, %._crit_edge.i229 ]
   br label %.loopexit255
 
 403:                                              ; preds = %312
@@ -1517,12 +1523,6 @@ _ZL18yy_get_next_bufferPv.exit.thread252:         ; preds = %414, %_ZL18yy_get_n
   %645 = load i32, ptr %81, align 4, !tbaa !16
   %646 = icmp ult ptr %642, %644
   br i1 %646, label %.lr.ph33.i234, label %.preheader.outer.backedge
-
-.preheader.outer.backedge:                        ; preds = %._crit_edge.i245, %_ZL18yy_get_next_bufferPv.exit.thread252, %_ZL16yy_try_NUL_transiPv.exit
-  %.1153.ph.be = phi ptr [ %642, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %325, %_ZL16yy_try_NUL_transiPv.exit ], [ %642, %._crit_edge.i245 ]
-  %.2144.ph.be = phi ptr [ %644, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %328, %_ZL16yy_try_NUL_transiPv.exit ], [ %644, %._crit_edge.i245 ]
-  %.3.ph.be = phi i32 [ %645, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %687, %._crit_edge.i245 ]
-  br label %.preheader.outer
 
 .lr.ph33.i234:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread252, %._crit_edge.i245
   %.02131.i235 = phi i32 [ %687, %._crit_edge.i245 ], [ %645, %_ZL18yy_get_next_bufferPv.exit.thread252 ]

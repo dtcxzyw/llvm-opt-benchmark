@@ -1677,8 +1677,8 @@ define i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br label %.critedge355.loopexit
 
 .critedge355.loopexit:                            ; preds = %.critedge355.loopexit.loopexit476, %.critedge355.loopexit.loopexit, %30
-  %.1305.ph.lcssa420 = phi i32 [ %.0304436, %30 ], [ %28, %.critedge355.loopexit.loopexit ], [ %29, %.critedge355.loopexit.loopexit476 ]
-  %.1299.ph.lcssa419 = phi ptr [ %.0298437, %30 ], [ %.1299.ph433, %.critedge355.loopexit.loopexit ], [ %107, %.critedge355.loopexit.loopexit476 ]
+  %.1305.ph.lcssa420 = phi i32 [ %28, %.critedge355.loopexit.loopexit ], [ %.0304436, %30 ], [ %29, %.critedge355.loopexit.loopexit476 ]
+  %.1299.ph.lcssa419 = phi ptr [ %.1299.ph433, %.critedge355.loopexit.loopexit ], [ %.0298437, %30 ], [ %107, %.critedge355.loopexit.loopexit476 ]
   %indvars.iv.next499 = add nsw i64 %indvars.iv498, -1
   %.not323 = icmp eq i64 %indvars.iv498, 0
   br i1 %.not323, label %142, label %30
@@ -2008,7 +2008,7 @@ get_codelet_prio.exit:                            ; preds = %133
   br label %print_type.exit
 
 print_type.exit:                                  ; preds = %142, %144, %.fold.split.i, %.fold.split16.i, %.fold.split17.i, %.fold.split18.i, %.fold.split19.i, %.fold.split20.i, %.fold.split21.i, %.fold.split22.i, %.fold.split23.i, %.fold.split24.i, %.fold.split25.i, %.fold.split26.i, %.fold.split27.i
-  %149 = phi ptr [ @.str.18, %142 ], [ %148, %144 ], [ @.str.19, %.fold.split.i ], [ @.str.20, %.fold.split16.i ], [ @.str.21, %.fold.split17.i ], [ @.str.22, %.fold.split18.i ], [ @.str.23, %.fold.split19.i ], [ @.str.24, %.fold.split20.i ], [ @.str.25, %.fold.split21.i ], [ @.str.26, %.fold.split22.i ], [ @.str.27, %.fold.split23.i ], [ @.str.28, %.fold.split24.i ], [ @.str.29, %.fold.split25.i ], [ @.str.30, %.fold.split26.i ], [ @.str.31, %.fold.split27.i ]
+  %149 = phi ptr [ @.str.18, %142 ], [ @.str.30, %.fold.split26.i ], [ @.str.19, %.fold.split.i ], [ @.str.20, %.fold.split16.i ], [ @.str.21, %.fold.split17.i ], [ @.str.22, %.fold.split18.i ], [ @.str.23, %.fold.split19.i ], [ @.str.24, %.fold.split20.i ], [ @.str.25, %.fold.split21.i ], [ @.str.26, %.fold.split22.i ], [ @.str.27, %.fold.split23.i ], [ @.str.28, %.fold.split24.i ], [ @.str.29, %.fold.split25.i ], [ %148, %144 ], [ @.str.31, %.fold.split27.i ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, ptr noundef %149) #14
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.7) #14
   call fastcc void @print_flags(ptr noundef %9, i64 noundef %2)
@@ -2472,8 +2472,8 @@ print_type.exit:                                  ; preds = %142, %144, %.fold.s
   br label %.sink.split
 
 .sink.split:                                      ; preds = %102, %312, %.thread390, %247, %280, %.critedge359, %288
-  %.1299.ph433.lcssa.sink = phi ptr [ %.1299.ph.lcssa419, %288 ], [ %.1299.ph.lcssa419, %.critedge359 ], [ %.1299.ph.lcssa419, %280 ], [ %.1299.ph.lcssa419, %247 ], [ %.1299.ph.lcssa419, %.thread390 ], [ %.1299.ph.lcssa419, %312 ], [ %.1299.ph433, %102 ]
-  %.2.ph = phi i32 [ -12, %288 ], [ %.3381, %.critedge359 ], [ -12, %280 ], [ -12, %247 ], [ %.2269393, %.thread390 ], [ %.2269393, %312 ], [ -12, %102 ]
+  %.1299.ph433.lcssa.sink = phi ptr [ %.1299.ph.lcssa419, %312 ], [ %.1299.ph.lcssa419, %288 ], [ %.1299.ph.lcssa419, %.critedge359 ], [ %.1299.ph.lcssa419, %280 ], [ %.1299.ph.lcssa419, %247 ], [ %.1299.ph.lcssa419, %.thread390 ], [ %.1299.ph433, %102 ]
+  %.2.ph = phi i32 [ %.2269393, %312 ], [ -12, %288 ], [ %.3381, %.critedge359 ], [ -12, %280 ], [ -12, %247 ], [ %.2269393, %.thread390 ], [ -12, %102 ]
   call void @av_free(ptr noundef %.1299.ph433.lcssa.sink) #14
   br label %313
 
@@ -2707,7 +2707,7 @@ define internal fastcc void @print_cd_info(ptr noundef readonly captures(none) %
   br label %print_type.exit
 
 print_type.exit:                                  ; preds = %5, %10, %.fold.split.i, %.fold.split16.i, %.fold.split17.i, %.fold.split18.i, %.fold.split19.i, %.fold.split20.i, %.fold.split21.i, %.fold.split22.i, %.fold.split23.i, %.fold.split24.i, %.fold.split25.i, %.fold.split26.i, %.fold.split27.i
-  %15 = phi ptr [ @.str.18, %5 ], [ %14, %10 ], [ @.str.19, %.fold.split.i ], [ @.str.20, %.fold.split16.i ], [ @.str.21, %.fold.split17.i ], [ @.str.22, %.fold.split18.i ], [ @.str.23, %.fold.split19.i ], [ @.str.24, %.fold.split20.i ], [ @.str.25, %.fold.split21.i ], [ @.str.26, %.fold.split22.i ], [ @.str.27, %.fold.split23.i ], [ @.str.28, %.fold.split24.i ], [ @.str.29, %.fold.split25.i ], [ @.str.30, %.fold.split26.i ], [ @.str.31, %.fold.split27.i ]
+  %15 = phi ptr [ @.str.18, %5 ], [ @.str.30, %.fold.split26.i ], [ @.str.19, %.fold.split.i ], [ @.str.20, %.fold.split16.i ], [ @.str.21, %.fold.split17.i ], [ @.str.22, %.fold.split18.i ], [ @.str.23, %.fold.split19.i ], [ @.str.24, %.fold.split20.i ], [ @.str.25, %.fold.split21.i ], [ @.str.26, %.fold.split22.i ], [ @.str.27, %.fold.split23.i ], [ @.str.28, %.fold.split24.i ], [ @.str.29, %.fold.split25.i ], [ %14, %10 ], [ @.str.31, %.fold.split27.i ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.17, ptr noundef %15) #14
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.50) #14
   %.not = icmp eq i32 %2, 0

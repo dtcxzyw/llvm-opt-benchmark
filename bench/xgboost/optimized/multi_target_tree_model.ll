@@ -3723,13 +3723,13 @@ _ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE12EED2Ev.exit248: ; preds = %6
   br label %.body63
 
 .body63:                                          ; preds = %685, %.body66
-  %.sroa.22481.0 = phi ptr [ %.sroa.22481.1895, %685 ], [ %.sroa.22481.2, %.body66 ]
-  %.sroa.8472.0 = phi ptr [ %.sroa.8472.1899, %685 ], [ %.sroa.8472.2, %.body66 ]
-  %.sroa.22502.1 = phi ptr [ %.sroa.22502.2901, %685 ], [ %.sroa.22502.3, %.body66 ]
-  %.sroa.8493.1 = phi ptr [ %.sroa.8493.2903, %685 ], [ %.sroa.8493.3, %.body66 ]
-  %.sroa.22523.2 = phi ptr [ %.sroa.22523.3905, %685 ], [ %.sroa.22523.4, %.body66 ]
-  %.sroa.8514.2 = phi ptr [ %.sroa.8514.3907, %685 ], [ %.sroa.8514.4, %.body66 ]
-  %.pn36.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn36.pn.pn.pn.pn.pn.pn.pn.pn909, %685 ], [ %.pn36.pn.pn.pn.pn.pn.pn.pn, %.body66 ]
+  %.sroa.22481.0 = phi ptr [ %.sroa.22481.2, %.body66 ], [ %.sroa.22481.1895, %685 ]
+  %.sroa.8472.0 = phi ptr [ %.sroa.8472.2, %.body66 ], [ %.sroa.8472.1899, %685 ]
+  %.sroa.22502.1 = phi ptr [ %.sroa.22502.3, %.body66 ], [ %.sroa.22502.2901, %685 ]
+  %.sroa.8493.1 = phi ptr [ %.sroa.8493.3, %.body66 ], [ %.sroa.8493.2903, %685 ]
+  %.sroa.22523.2 = phi ptr [ %.sroa.22523.4, %.body66 ], [ %.sroa.22523.3905, %685 ]
+  %.sroa.8514.2 = phi ptr [ %.sroa.8514.4, %.body66 ], [ %.sroa.8514.3907, %685 ]
+  %.pn36.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn36.pn.pn.pn.pn.pn.pn.pn, %.body66 ], [ %.pn36.pn.pn.pn.pn.pn.pn.pn.pn909, %685 ]
   %.not.i.i.i.i258 = icmp eq ptr %.sroa.8472.0, null
   br i1 %.not.i.i.i.i258, label %.body58, label %.body63.thread
 

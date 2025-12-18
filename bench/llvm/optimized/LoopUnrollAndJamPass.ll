@@ -1208,7 +1208,7 @@ _ZL27hasUnrollAndJamEnablePragmaPKN4llvm4LoopE.exit.i.i: ; preds = %_ZL28unrollA
   br i1 %.not104.i.i, label %.critedge.i28.i, label %334, !llvm.loop !164
 
 .critedge.i28.i:                                  ; preds = %337, %334, %.preheader145.i.i, %327, %318
-  %spec.select.i.i163.i20.i = phi i1 [ %spec.select.i.i163.i2225.i, %.preheader145.i.i ], [ %spec.select.i.i163.i.i, %327 ], [ %spec.select.i.i163.i21.i, %318 ], [ %spec.select.i.i163.i2225.i, %334 ], [ %spec.select.i.i163.i2225.i, %337 ]
+  %spec.select.i.i163.i20.i = phi i1 [ %spec.select.i.i163.i21.i, %318 ], [ %spec.select.i.i163.i.i, %327 ], [ %spec.select.i.i163.i2225.i, %.preheader145.i.i ], [ %spec.select.i.i163.i2225.i, %334 ], [ %spec.select.i.i163.i2225.i, %337 ]
   br i1 %spec.select.i.i163.i20.i, label %_ZL24computeUnrollAndJamCountPN4llvm4LoopES1_RKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjRKNS_19UnrollCostEstimatorEjjRNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesE.exit.i, label %338
 
 338:                                              ; preds = %.critedge.i28.i
@@ -1705,7 +1705,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread33: ; preds = %74, %_ZNK4llvm6MD
   br i1 %exitcond.not, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %.lr.ph.split, !llvm.loop !193
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread33, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread33.us, %45, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %3
-  %79 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %45 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread33.us ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread33 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
+  %79 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread33.us ], [ true, %45 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread33 ]
   ret i1 %79
 }
 

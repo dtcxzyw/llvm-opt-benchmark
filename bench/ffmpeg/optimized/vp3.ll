@@ -3820,7 +3820,7 @@ vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.e
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split
 
-.loopexit379:                                     ; preds = %.critedge.i314, %.loopexit381.thread598, %.loopexit381, %1262, %.preheader256.lr.ph.i
+.loopexit379:                                     ; preds = %.critedge.i314, %.loopexit381.thread598, %.loopexit381, %.preheader256.lr.ph.i, %1262
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2055 = call fastcc i32 @unpack_block_qpis(ptr noundef %17, ptr noundef %11)
@@ -5009,9 +5009,9 @@ render_slice.exit:                                ; preds = %2154, %2165
   call fastcc void @update_frames(ptr %.val)
   br label %2725
 
-.sink.split:                                      ; preds = %851, %850, %2063, %2060, %.loopexit379, %._crit_edge166.i, %867, %.loopexit383, %1242, %2054
-  %.str.39.sink = phi ptr [ @.str.38, %2060 ], [ @.str.37, %.loopexit379 ], [ @.str.34, %._crit_edge166.i ], [ @.str.36, %2054 ], [ @.str.35, %1242 ], [ @.str.33, %.loopexit383 ], [ @.str.34, %867 ], [ @.str.39, %2063 ], [ @.str.34, %850 ], [ @.str.34, %851 ]
-  %.2.ph = phi i32 [ %2061, %2060 ], [ -1, %.loopexit379 ], [ -1, %._crit_edge166.i ], [ -1, %2054 ], [ -1, %1242 ], [ %.1166.i.ph, %.loopexit383 ], [ -1094995529, %867 ], [ %2064, %2063 ], [ -1, %851 ], [ -1094995529, %850 ]
+.sink.split:                                      ; preds = %850, %851, %2063, %2060, %.loopexit379, %._crit_edge166.i, %867, %.loopexit383, %1242, %2054
+  %.str.39.sink = phi ptr [ @.str.38, %2060 ], [ @.str.37, %.loopexit379 ], [ @.str.34, %._crit_edge166.i ], [ @.str.36, %2054 ], [ @.str.35, %1242 ], [ @.str.33, %.loopexit383 ], [ @.str.39, %2063 ], [ @.str.34, %867 ], [ @.str.34, %851 ], [ @.str.34, %850 ]
+  %.2.ph = phi i32 [ %2061, %2060 ], [ -1, %.loopexit379 ], [ -1, %._crit_edge166.i ], [ -1, %2054 ], [ -1, %1242 ], [ %.1166.i.ph, %.loopexit383 ], [ %2064, %2063 ], [ -1094995529, %867 ], [ -1094995529, %850 ], [ -1, %851 ]
   %2717 = load ptr, ptr %17, align 16, !tbaa !65
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2717, i32 noundef 16, ptr noundef nonnull %.str.39.sink) #10
   br label %2718
@@ -6361,7 +6361,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br label %.thread184
 
 .thread184:                                       ; preds = %271, %.thread163, %264, %2, %276, %124
-  %.0137 = phi i32 [ -1, %124 ], [ 0, %276 ], [ -1094995529, %2 ], [ -1, %264 ], [ -1, %.thread163 ], [ -1, %271 ]
+  %.0137 = phi i32 [ -1, %124 ], [ 0, %276 ], [ -1094995529, %2 ], [ -1, %.thread163 ], [ -1, %264 ], [ -1, %271 ]
   ret i32 %.0137
 }
 
@@ -6690,7 +6690,7 @@ get_vlc2.exit:                                    ; preds = %46, %63
   br i1 %.not67.not, label %17, label %.critedge71, !llvm.loop !225
 
 .critedge71:                                      ; preds = %126, %105, %2
-  %.not67.not81 = phi i32 [ 0, %2 ], [ -1, %105 ], [ 0, %126 ]
+  %.not67.not81 = phi i32 [ -1, %105 ], [ 0, %2 ], [ 0, %126 ]
   ret i32 %.not67.not81
 }
 

@@ -801,7 +801,7 @@ define hidden noundef ptr @updateGCMParams(ptr noundef readnone captures(none) %
   br label %42
 
 42:                                               ; preds = %.sink.split, %2, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ %1, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %1, %.sink.split ]
   ret ptr %.0
 }
 

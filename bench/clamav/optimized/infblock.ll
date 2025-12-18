@@ -1926,7 +1926,7 @@ inflate_flush.exit870:                            ; preds = %805
   br i1 %868, label %.sink.split.preheader, label %924
 
 .sink.split.preheader:                            ; preds = %857, %860
-  %.sink.ph = phi ptr [ %.sroa.323276.61163, %857 ], [ %41, %860 ]
+  %.sink.ph = phi ptr [ %41, %860 ], [ %.sroa.323276.61163, %857 ]
   br label %.sink.split
 
 .sink.split:                                      ; preds = %885, %.sink.split.preheader
@@ -2087,7 +2087,7 @@ inflate_flush.exit880:                            ; preds = %905
   br i1 %946, label %.sink.split2206.preheader, label %982
 
 .sink.split2206.preheader:                        ; preds = %935, %938
-  %.sink2209.ph = phi ptr [ %.sroa.323276.0, %935 ], [ %41, %938 ]
+  %.sink2209.ph = phi ptr [ %41, %938 ], [ %.sroa.323276.0, %935 ]
   br label %.sink.split2206
 
 .sink.split2206:                                  ; preds = %963, %.sink.split2206.preheader
@@ -2803,7 +2803,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
   br label %.loopexit233
 
 .loopexit233:                                     ; preds = %.lr.ph, %.critedge, %._crit_edge, %._crit_edge318, %23
-  %.0191 = phi i32 [ 0, %23 ], [ %186, %._crit_edge318 ], [ -3, %._crit_edge ], [ -4, %.critedge ], [ -3, %.lr.ph ]
+  %.0191 = phi i32 [ 0, %23 ], [ %186, %._crit_edge318 ], [ -4, %.critedge ], [ -3, %._crit_edge ], [ -3, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

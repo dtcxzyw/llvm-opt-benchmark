@@ -2027,7 +2027,7 @@ _ZNSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit324
 
 .loopexit:                                        ; preds = %728, %.noexc280, %723
-  %.pn.i.i = phi ptr [ %724, %723 ], [ %738, %.noexc280 ], [ %730, %728 ]
+  %.pn.i.i = phi ptr [ %738, %.noexc280 ], [ %724, %723 ], [ %730, %728 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %740 = load i64, ptr %.1.i.i, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -3730,7 +3730,7 @@ _ZNSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %34
 
 _ZNSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEixERS5_.exit: ; preds = %23, %18, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %19, %18 ], [ %33, %.loopexit.i.i ], [ %25, %23 ]
+  %.pn.i.i = phi ptr [ %33, %.loopexit.i.i ], [ %19, %18 ], [ %25, %23 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %35 = load i64, ptr %.1.i.i, align 8, !tbaa !9
   %36 = load i64, ptr %5, align 8, !tbaa !159
@@ -3937,7 +3937,7 @@ _ZNSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %42
 
 _ZNKSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %33, %20, %28
-  %.sroa.043.0.ph = phi ptr [ %29, %28 ], [ %.sroa.035.0, %20 ], [ %35, %33 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %20 ], [ %29, %28 ], [ %35, %33 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #26
   br label %_ZNSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -4249,7 +4249,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIlSt4pairIKlSt6vecto
   resume { ptr, i32 } %51
 
 _ZNKSt10_HashtableIlSt4pairIKlSt6vectorIhSaIhEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %41, %28, %36
-  %.sroa.037.0.ph = phi ptr [ %37, %36 ], [ %.sroa.033.0, %28 ], [ %43, %41 ]
+  %.sroa.037.0.ph = phi ptr [ %.sroa.033.0, %28 ], [ %37, %36 ], [ %43, %41 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKlSt6vectorIhSaIhEEELb0EEEEE18_M_deallocate_nodeEPS8_.exit.i, label %52
 

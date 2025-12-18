@@ -2147,7 +2147,7 @@ define i32 @exr_copy_unset_attributes(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %373
 
 373:                                              ; preds = %370, %363, %305, %295, %276, %226, %193
-  %.2.i = phi i32 [ %372, %370 ], [ %199, %193 ], [ %235, %226 ], [ %287, %276 ], [ %304, %295 ], [ %311, %305 ], [ %369, %363 ]
+  %.2.i = phi i32 [ %372, %370 ], [ %369, %363 ], [ %311, %305 ], [ %199, %193 ], [ %304, %295 ], [ %287, %276 ], [ %235, %226 ]
   %.not156.i = icmp eq i32 %.2.i, 0
   br i1 %.not156.i, label %copy_attr.exit, label %374
 
@@ -10741,7 +10741,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %171, label %.lr.ph, label %.thread147, !llvm.loop !117
 
 .thread147:                                       ; preds = %.lr.ph, %134, %.lr.ph166, %.lr.ph169, %56, %.preheader153, %.preheader151, %.preheader, %59, %49
-  %.2119 = phi i32 [ %51, %49 ], [ %63, %59 ], [ 0, %.preheader ], [ 0, %.preheader151 ], [ 0, %.preheader153 ], [ %57, %56 ], [ %137, %134 ], [ %74, %.lr.ph169 ], [ %146, %.lr.ph166 ], [ %168, %.lr.ph ]
+  %.2119 = phi i32 [ %51, %49 ], [ %74, %.lr.ph169 ], [ %146, %.lr.ph166 ], [ %57, %56 ], [ %63, %59 ], [ 0, %.preheader ], [ 0, %.preheader151 ], [ 0, %.preheader153 ], [ %137, %134 ], [ %168, %.lr.ph ]
   %172 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #6
   br label %173
 

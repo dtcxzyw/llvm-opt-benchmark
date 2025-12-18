@@ -2182,7 +2182,7 @@ _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit: ; preds = %8
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !99
 
 .loopexit:                                        ; preds = %18, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit, %.preheader, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %.preheader ], [ false, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit ], [ true, %18 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit ], [ true, %.preheader ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -6938,10 +6938,10 @@ _ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread3
   br label %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit
 
 _ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit: ; preds = %7, %31, %35
-  %.sroa.58.0.i.shrunk.i = phi i32 [ %narrow.i, %31 ], [ %narrow.i, %35 ], [ 0, %7 ]
-  %.sroa.32.0.i.i = phi i64 [ 0, %31 ], [ 458752, %35 ], [ 0, %7 ]
-  %.sroa.19.0.i.i = phi i64 [ 256, %31 ], [ 512, %35 ], [ 256, %7 ]
-  %.sroa.0.0.i.i = phi i64 [ 2, %31 ], [ 7, %35 ], [ 0, %7 ]
+  %.sroa.58.0.i.shrunk.i = phi i32 [ 0, %7 ], [ %narrow.i, %35 ], [ %narrow.i, %31 ]
+  %.sroa.32.0.i.i = phi i64 [ 0, %7 ], [ 458752, %35 ], [ 0, %31 ]
+  %.sroa.19.0.i.i = phi i64 [ 256, %7 ], [ 512, %35 ], [ 256, %31 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %7 ], [ 7, %35 ], [ 2, %31 ]
   %.sroa.58.0.i.i = zext i32 %.sroa.58.0.i.shrunk.i to i64
   %.sroa.58.0.insert.ext.i.i = shl nuw i64 %.sroa.58.0.i.i, 32
   %.sroa.32.0.insert.insert.i.i = or disjoint i64 %.sroa.58.0.insert.ext.i.i, %.sroa.32.0.i.i

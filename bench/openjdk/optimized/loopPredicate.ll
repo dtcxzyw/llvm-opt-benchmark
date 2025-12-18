@@ -8888,7 +8888,7 @@ _ZNK14PhaseIdealLoop26can_create_loop_predicatesEPK14PredicateBlock.exit: ; pred
   br label %_ZNK14PhaseIdealLoop26can_create_loop_predicatesEPK14PredicateBlock.exit.outer.outer, !llvm.loop !33
 
 _ZNK14PhaseIdealLoop26can_create_loop_predicatesEPK14PredicateBlock.exit.thread: ; preds = %307, %_ZNK14PhaseIdealLoop26can_create_loop_predicatesEPK14PredicateBlock.exit, %305, %289, %._crit_edge
-  %.085 = phi i1 [ false, %._crit_edge ], [ false, %289 ], [ %.1.ph.ph, %_ZNK14PhaseIdealLoop26can_create_loop_predicatesEPK14PredicateBlock.exit ], [ %.1.ph.ph, %305 ], [ %.1.ph.ph, %307 ]
+  %.085 = phi i1 [ false, %289 ], [ false, %._crit_edge ], [ %.1.ph.ph, %_ZNK14PhaseIdealLoop26can_create_loop_predicatesEPK14PredicateBlock.exit ], [ %.1.ph.ph, %305 ], [ %.1.ph.ph, %307 ]
   br i1 %66, label %317, label %_ZN13PathFrequencyD2Ev.exit
 
 317:                                              ; preds = %_ZNK14PhaseIdealLoop26can_create_loop_predicatesEPK14PredicateBlock.exit.thread

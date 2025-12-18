@@ -500,7 +500,7 @@ _ZNK3nla7nex_sum3endEv.exit:                      ; preds = %59
   br i1 %or.cond, label %_ZNK3nla4core9no_boundsEj.exit, label %.lr.ph
 
 _ZNK3nla4core9no_boundsEj.exit:                   ; preds = %.lr.ph, %_ZNK3nla9intervals17has_zero_intervalERKNS_3nexE.exit, %33, %_ZNK3nla9intervals17has_zero_intervalERKNS_3nexE.exit.thread, %59, %23, %_ZNK3nla7nex_mul3endEv.exit, %_ZNK3nla7nex_sum3endEv.exit, %14, %8, %53
-  %.0 = phi i1 [ false, %53 ], [ false, %23 ], [ %16, %14 ], [ false, %8 ], [ false, %_ZNK3nla7nex_sum3endEv.exit ], [ false, %_ZNK3nla7nex_mul3endEv.exit ], [ false, %59 ], [ %51, %_ZNK3nla9intervals17has_zero_intervalERKNS_3nexE.exit.thread ], [ false, %_ZNK3nla9intervals17has_zero_intervalERKNS_3nexE.exit ], [ false, %33 ], [ %69, %.lr.ph ]
+  %.0 = phi i1 [ false, %53 ], [ false, %23 ], [ %16, %14 ], [ false, %8 ], [ false, %_ZNK3nla7nex_sum3endEv.exit ], [ false, %_ZNK3nla7nex_mul3endEv.exit ], [ %51, %_ZNK3nla9intervals17has_zero_intervalERKNS_3nexE.exit.thread ], [ false, %59 ], [ false, %_ZNK3nla9intervals17has_zero_intervalERKNS_3nexE.exit ], [ false, %33 ], [ %69, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -13901,7 +13901,7 @@ _Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit96: ; pr
 
 203:                                              ; preds = %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit96
   %204 = load ptr, ptr %153, align 8, !tbaa !250
-  br i1 %.not.i.i, label %205, label %235
+  br i1 %.not.i.i, label %205, label %236
 
 205:                                              ; preds = %203
   br i1 %.not.i.i88, label %206, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread
@@ -13936,31 +13936,31 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i:     ; preds = %211, %206
   %224 = load i8, ptr %223, align 4
   %225 = and i8 %224, 1
   %226 = icmp eq i8 %225, 0
-  br i1 %226, label %227, label %232
+  br i1 %226, label %227, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
 
 227:                                              ; preds = %222
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %229 = load i8, ptr %228, align 4
   %230 = and i8 %229, 1
   %231 = icmp eq i8 %230, 0
-  br i1 %231, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit, label %232
+  br i1 %231, label %232, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
 
-232:                                              ; preds = %227, %222
-  %233 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %204, ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %187)
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %240, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread
+232:                                              ; preds = %227
+  %233 = load i32, ptr %164, align 8, !tbaa !181
+  %234 = load i32, ptr %187, align 8, !tbaa !181
+  %235 = icmp eq i32 %233, %234
+  br i1 %235, label %240, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread
 
-235:                                              ; preds = %203
-  %236 = icmp eq i32 %.0104, %.0
-  br i1 %236, label %240, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread
+236:                                              ; preds = %203
+  %237 = icmp eq i32 %.0104, %.0
+  br i1 %237, label %240, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread
 
-_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit: ; preds = %227
-  %237 = load i32, ptr %164, align 8, !tbaa !181
-  %238 = load i32, ptr %187, align 8, !tbaa !181
-  %239 = icmp eq i32 %237, %238
+_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit: ; preds = %222, %227
+  %238 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %204, ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %187)
+  %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread
 
-240:                                              ; preds = %232, %235, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
+240:                                              ; preds = %232, %236, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
   %241 = load i8, ptr %10, align 8
   %242 = and i8 %241, 3
   %or.cond = icmp eq i8 %242, 2
@@ -14049,7 +14049,7 @@ _Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit: ; pr
   store i8 %305, ptr %296, align 8
   br label %366
 
-_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread: ; preds = %216, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i, %205, %232, %235, %240, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
+_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit.thread: ; preds = %216, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i, %205, %232, %236, %240, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
   %306 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %307 = load i32, ptr %306, align 8, !tbaa !185
   %308 = load i32, ptr %152, align 8, !tbaa !185

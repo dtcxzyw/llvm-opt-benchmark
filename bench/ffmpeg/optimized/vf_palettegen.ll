@@ -394,8 +394,8 @@ update_histogram_diff.exit:                       ; preds = %color_inc.exit.thre
   store i32 %130, ptr %128, align 8, !tbaa !64
   br label %update_histogram_diff.exit.thread
 
-update_histogram_diff.exit.thread:                ; preds = %.critedge.i.thread.i, %.critedge.i.i, %.critedge.i.thread.i39, %.critedge.i.i52, %.lr.ph42.i, %77, %.lr.ph51.i, %15, %127, %update_histogram_diff.exit
-  %131 = phi i32 [ %125, %update_histogram_diff.exit ], [ %125, %127 ], [ 0, %.lr.ph42.i ], [ 0, %77 ], [ 0, %.lr.ph51.i ], [ 0, %15 ], [ -12, %.critedge.i.thread.i39 ], [ -12, %.critedge.i.i52 ], [ -12, %.critedge.i.i ], [ -12, %.critedge.i.thread.i ]
+update_histogram_diff.exit.thread:                ; preds = %.critedge.i.thread.i, %.critedge.i.i, %.critedge.i.thread.i39, %.critedge.i.i52, %77, %.lr.ph42.i, %15, %.lr.ph51.i, %127, %update_histogram_diff.exit
+  %131 = phi i32 [ %125, %update_histogram_diff.exit ], [ %125, %127 ], [ 0, %.lr.ph51.i ], [ 0, %77 ], [ -12, %.critedge.i.thread.i39 ], [ 0, %.lr.ph42.i ], [ 0, %15 ], [ -12, %.critedge.i.i52 ], [ -12, %.critedge.i.i ], [ -12, %.critedge.i.thread.i ]
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %133 = load i32, ptr %132, align 8, !tbaa !65
   switch i32 %133, label %154 [

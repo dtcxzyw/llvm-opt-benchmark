@@ -817,7 +817,7 @@ define hidden noundef ptr @_ZN9CMoveNode8IdentityEP8PhaseGVN(ptr noundef nonnull
   br label %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit
 
 _ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit: ; preds = %62, %65
-  %.0.i = phi ptr [ %8, %65 ], [ %6, %62 ]
+  %.0.i = phi ptr [ %6, %62 ], [ %8, %65 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit.thread, label %66
 

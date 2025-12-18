@@ -503,7 +503,7 @@ lg_g15_register_led.exit:                         ; preds = %187, %201, %204, %2
   br i1 %220, label %184, label %lg_g15_get_initial_led_brightness.exit.thread14
 
 lg_g15_get_initial_led_brightness.exit.thread14:  ; preds = %lg_g15_register_led.exit, %128, %125, %95, %89, %180, %161, %lg_g15_get_initial_led_brightness.exit.thread.thread, %67
-  %221 = phi i32 [ %70, %67 ], [ %spec.select, %95 ], [ %159, %lg_g15_get_initial_led_brightness.exit.thread.thread ], [ %162, %161 ], [ %181, %180 ], [ -22, %89 ], [ %129, %128 ], [ %126, %125 ], [ %219, %lg_g15_register_led.exit ]
+  %221 = phi i32 [ %70, %67 ], [ -22, %89 ], [ %159, %lg_g15_get_initial_led_brightness.exit.thread.thread ], [ %162, %161 ], [ %181, %180 ], [ %129, %128 ], [ %spec.select, %95 ], [ %126, %125 ], [ %219, %lg_g15_register_led.exit ]
   tail call void @hid_hw_stop(ptr noundef %0) #10
   br label %.loopexit
 

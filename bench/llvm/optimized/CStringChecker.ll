@@ -10115,7 +10115,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit230: ; preds 
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0.0303309) #25
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit232
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit232: ; preds = %74, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit, %91, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit230, %252
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit232: ; preds = %74, %91, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit230, %252
   ret void
 }
 
@@ -11047,7 +11047,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149: ; preds 
   br label %134
 
 134:                                              ; preds = %.sink.split, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit122, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit109, %8
-  %.sink = phi ptr [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit109 ], [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116 ], [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit122 ], [ %0, %8 ], [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149 ], [ %3, %.sink.split ]
+  %.sink = phi ptr [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit109 ], [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116 ], [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit122 ], [ %0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149 ], [ %0, %8 ], [ %3, %.sink.split ]
   store ptr null, ptr %.sink, align 8, !tbaa !130
   ret void
 }
@@ -12166,7 +12166,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %68 = icmp eq i8 %.fca.1.extract2.i, 1
   br i1 %68, label %69, label %.sink.split.i
 
-69:                                               ; preds = %42, %38, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
+69:                                               ; preds = %42, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %23) #25
@@ -15484,7 +15484,7 @@ _ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit.sink.split: ; pre
   br label %_ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit: ; preds = %_ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit.sink.split, %53, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit209, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit228, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %53 ], [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit209 ], [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit228 ], [ true, %_ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit.sink.split ]
+  %.0 = phi i1 [ false, %6 ], [ false, %53 ], [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit228 ], [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit209 ], [ true, %_ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.0
 }
@@ -21986,8 +21986,8 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
   %or.cond = select i1 %74, i1 %spec.select16.i.i, i1 false
   br i1 %or.cond, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
-_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %67, %71, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %71 ], [ %54, %67 ]
+_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %71, %67, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %67 ], [ %54, %71 ]
   br label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread: ; preds = %69, %73, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
@@ -23749,8 +23749,8 @@ _ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_1
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.sink27.i, ptr %5, align 8, !tbaa !91, !alias.scope !1089
-  %.repack4.i.i.i35.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %.repack4.i.i.i35.i.i, align 8, !tbaa !91, !alias.scope !1089
+  %.repack4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 0, ptr %.repack4.i.i.i.i.i, align 8, !tbaa !91, !alias.scope !1089
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEEMS1_KFvS7_SA_EE9_M_invokeERKSt9_Any_dataOS3_S7_SA_, ptr %92, align 8, !tbaa !94, !alias.scope !1089
   store ptr @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_114CStringCheckerERN5clang4ento14CheckerContextERKNS5_9CallEventEEMS1_KFvS7_SA_EE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %93, align 8, !tbaa !97, !alias.scope !1089
   br label %_ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread23.i
@@ -23774,7 +23774,7 @@ _ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_1
   br label %_ZNK12_GLOBAL__N_114CStringChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_114CStringChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %72, %80, %3, %10, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i.i, %18, %.critedge25.i.i, %82, %_ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, %_ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread23.i, %99
-  %.011.i = phi i1 [ %98, %99 ], [ %98, %_ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread23.i ], [ false, %_ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i ], [ false, %3 ], [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i.i ], [ false, %82 ], [ false, %10 ], [ false, %18 ], [ false, %.critedge25.i.i ], [ false, %80 ], [ false, %72 ]
+  %.011.i = phi i1 [ %98, %99 ], [ %98, %_ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread23.i ], [ false, %_ZNK12_GLOBAL__N_114CStringChecker12identifyCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i ], [ false, %80 ], [ false, %3 ], [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i.i ], [ false, %82 ], [ false, %10 ], [ false, %18 ], [ false, %.critedge25.i.i ], [ false, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.011.i
 }

@@ -61875,7 +61875,7 @@ define hidden void @_ZN13rust_analyzer11diagnostics8to_proto26map_rust_diagnosti
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdcf5d17395e47489E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdcf5d17395e47489E.exit.i": ; preds = %.noexc.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i.i", %.noexc26.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i24.i", %163, %137, %136, %130, %130
-  %.0.ph.i = phi i32 [ 3, %136 ], [ 1, %130 ], [ 4, %137 ], [ 1, %130 ], [ 3, %.noexc26.i ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i24.i" ], [ 2, %163 ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i.i" ], [ 4, %.noexc.i ]
+  %.0.ph.i = phi i32 [ 3, %.noexc26.i ], [ 3, %136 ], [ 1, %130 ], [ 4, %137 ], [ 1, %130 ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i24.i" ], [ 2, %163 ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i.i" ], [ 4, %.noexc.i ]
   %.pr.i = load i64, ptr %91, align 8, !alias.scope !13908, !noalias !13900
   %138 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %138, label %176, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$cargo_metadata..diagnostic..DiagnosticCode$GT$$GT$17h432903e3e0f1855aE.exit.sink.split.i"
@@ -64325,7 +64325,7 @@ thread-pre-split:                                 ; preds = %47, %"_ZN4core6resu
   br label %23
 
 .loopexit.split-lp:                               ; preds = %.invoke100, %.invoke, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb92c6ed525f620b7E.exit.thread"
-  %.2.ph = phi i1 [ true, %.invoke100 ], [ true, %.invoke ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb92c6ed525f620b7E.exit.thread" ]
+  %.2.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb92c6ed525f620b7E.exit.thread" ], [ true, %.invoke100 ], [ true, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %23
@@ -67686,7 +67686,7 @@ define hidden void @_ZN13rust_analyzer3lsp8to_proto16completion_items17hb48ea278
   br label %.body
 
 .body:                                            ; preds = %1080, %1045, %1093, %1386, %1388, %408
-  %eh.lpad-body = phi { ptr, i32 } [ %409, %408 ], [ %.pn268.pn.pn.pn.i, %1388 ], [ %.pn268.pn.pn.pn.i, %1386 ], [ %.pn266.i, %1093 ], [ %.pn266.i, %1045 ], [ %eh.lpad-body59, %1080 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %409, %408 ], [ %.pn266.i, %1045 ], [ %.pn268.pn.pn.pn.i, %1388 ], [ %.pn268.pn.pn.pn.i, %1386 ], [ %.pn266.i, %1093 ], [ %eh.lpad-body59, %1080 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3979025e8ab5e89aE.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(32) %136)
           to label %.body27 unwind label %1436
 
@@ -70291,8 +70291,8 @@ _ZN13rust_analyzer3lsp8to_proto20completion_item_kind17h42257fe6caa3d3cfE.exit.i
           to label %.critedge287.i unwind label %671, !noalias !14929
 
 .critedge287.i:                                   ; preds = %1113, %498
-  %.6150.i = phi i1 [ false, %1113 ], [ true, %498 ]
-  %.pn258.pn.i = phi { ptr, i32 } [ %eh.lpad-body303.i, %1113 ], [ %499, %498 ]
+  %.6150.i = phi i1 [ true, %498 ], [ false, %1113 ]
+  %.pn258.pn.i = phi { ptr, i32 } [ %499, %498 ], [ %eh.lpad-body303.i, %1113 ]
   %1114 = load i64, ptr %113, align 8, !range !167, !alias.scope !15420, !noalias !14931, !noundef !4
   %1115 = icmp eq i64 %1114, -9223372036854775808
   br i1 %1115, label %1117, label %1116
@@ -73999,7 +73999,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf3400c107519e14eE.exit.i: ; pr
 226:                                              ; preds = %206
   br i1 %207, label %.backedge, label %84
 
-.backedge.sink.split:                             ; preds = %276, %.thread.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i", %268, %268, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h124cca9ab5c7ccd6E.exit.i.i.i.i.i", %284, %278, %246
+.backedge.sink.split:                             ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i", %.thread.i, %276, %268, %268, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h124cca9ab5c7ccd6E.exit.i.i.i.i.i", %284, %278, %246
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0148)
   br label %.backedge
 
@@ -77044,7 +77044,7 @@ define hidden void @_ZN13rust_analyzer3lsp8to_proto22snippet_workspace_edit17hf2
   br label %.thread
 
 .loopexit.split-lp254:                            ; preds = %._crit_edge, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h666f1b2b4e405547E.exit.thread", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h811990f98e45558bE.exit.thread", %790, %.loopexit252
-  %.0103.ph = phi i8 [ 1, %._crit_edge ], [ 1, %.loopexit252 ], [ 1, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h666f1b2b4e405547E.exit.thread" ], [ 0, %790 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h811990f98e45558bE.exit.thread" ]
+  %.0103.ph = phi i8 [ 1, %.loopexit252 ], [ 1, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h666f1b2b4e405547E.exit.thread" ], [ 1, %._crit_edge ], [ 0, %790 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h811990f98e45558bE.exit.thread" ]
   %lpad.loopexit.split-lp256 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

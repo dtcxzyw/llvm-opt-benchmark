@@ -28520,7 +28520,7 @@ _ZNK8V3Number6bitIsXEi.exit:                      ; preds = %_ZNK12V3NumberData3
   tail call void @_ZN8V3Number6setBitEic(ptr noundef nonnull align 8 dereferenceable(56) %21, i32 noundef %2, i8 noundef signext %4)
   br label %_ZN8V3Number6setBitEic.exit
 
-55:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i, %29, %_ZNK12V3NumberData3numEv.exit.i, %_ZNK8V3Number6bitIsXEi.exit
+55:                                               ; preds = %29, %_ZNK12V3NumberData3numEv.exit.i.i, %_ZNK12V3NumberData3numEv.exit.i, %_ZNK8V3Number6bitIsXEi.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %57 = load i32, ptr %56, align 8, !tbaa !244
   %.not.i13 = icmp slt i32 %2, %57
@@ -31657,7 +31657,7 @@ _ZNK8V3Number6bitIsZEi.exit.sink.split:           ; preds = %_ZNK12V3NumberData3
   br label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK8V3Number6bitIsZEi.exit.sink.split, %_ZNK12V3NumberData3numEv.exit.i, %10, %_ZNK12V3NumberData3numEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK12V3NumberData3numEv.exit ], [ false, %10 ], [ false, %_ZNK12V3NumberData3numEv.exit.i ], [ %35, %_ZNK8V3Number6bitIsZEi.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK12V3NumberData3numEv.exit ], [ false, %_ZNK12V3NumberData3numEv.exit.i ], [ false, %10 ], [ %35, %_ZNK8V3Number6bitIsZEi.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -31852,7 +31852,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %_ZNK12V3NumberData3numEv.exit, %22
-  %.0 = phi i1 [ false, %_ZNK12V3NumberData3numEv.exit ], [ %25, %22 ], [ false, %2 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %25, %22 ], [ false, %_ZNK12V3NumberData3numEv.exit ], [ false, %2 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -38287,8 +38287,8 @@ _ZNK6AstVar4nameB5cxx11Ev.exit:                   ; preds = %._crit_edge.i.i.i, 
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %78, %80
-  %83 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre32, %80 ], [ %.pre32, %78 ]
-  %84 = phi i1 [ false, %..critedge_crit_edge ], [ %82, %80 ], [ true, %78 ]
+  %83 = phi ptr [ %.pre32, %78 ], [ %.pre32, %80 ], [ %.pre, %..critedge_crit_edge ]
+  %84 = phi i1 [ true, %78 ], [ %82, %80 ], [ false, %..critedge_crit_edge ]
   %85 = icmp eq ptr %83, %59
   br i1 %85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -111689,7 +111689,7 @@ _ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit196: ; preds = %269
   br label %.thread
 
 .thread:                                          ; preds = %_ZN7AstNode9privateAsI11AstNodeBiopPK11AstNodeExprEEPKT_PKS_.exit, %.lr.ph, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175, %235, %_ZN7AstNode11privateCastI14AstCMethodHardPK11AstNodeExprEEPKT_PKS_.exit, %180, %_ZN7AstNode9privateAsI8AstConstPK11AstNodeExprEEPKT_PKS_.exit, %175, %169, %167, %161, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121, %tailrecurse._crit_edge
-  %.0 = phi i32 [ %19, %tailrecurse._crit_edge ], [ %., %175 ], [ %.109, %180 ], [ 1, %167 ], [ -1, %161 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121 ], [ -1, %169 ], [ -1, %_ZN7AstNode9privateAsI8AstConstPK11AstNodeExprEEPKT_PKS_.exit ], [ %283, %._crit_edge ], [ %240, %235 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ 0, %_ZN7AstNode11privateCastI14AstCMethodHardPK11AstNodeExprEEPKT_PKS_.exit ], [ %249, %.lr.ph ], [ %187, %_ZN7AstNode9privateAsI11AstNodeBiopPK11AstNodeExprEEPKT_PKS_.exit ]
+  %.0 = phi i32 [ %19, %tailrecurse._crit_edge ], [ %., %175 ], [ %249, %.lr.ph ], [ %.109, %180 ], [ 1, %167 ], [ -1, %161 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121 ], [ -1, %169 ], [ -1, %_ZN7AstNode9privateAsI8AstConstPK11AstNodeExprEEPKT_PKS_.exit ], [ %283, %._crit_edge ], [ %240, %235 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ 0, %_ZN7AstNode11privateCastI14AstCMethodHardPK11AstNodeExprEEPKT_PKS_.exit ], [ %187, %_ZN7AstNode9privateAsI11AstNodeBiopPK11AstNodeExprEEPKT_PKS_.exit ]
   ret i32 %.0
 
 284:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152
@@ -112612,7 +112612,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_Sa
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1488
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 

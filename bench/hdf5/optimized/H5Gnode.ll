@@ -1777,7 +1777,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr noundef readnone
   br label %.loopexit.sink.split
 
 86:                                               ; preds = %83, %85
-  %.167 = phi ptr [ %7, %85 ], [ %51, %83 ]
+  %.167 = phi ptr [ %51, %83 ], [ %7, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1953,7 +1953,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr noundef readnone
   br label %.loopexit
 
 .loopexit:                                        ; preds = %165, %.loopexit.sink.split, %.preheader
-  %.170.ph = phi i32 [ 0, %.preheader ], [ -1, %.loopexit.sink.split ], [ 0, %165 ]
+  %.170.ph = phi i32 [ -1, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %165 ]
   %173 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef nonnull %27, i32 noundef 0) #9
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %175, label %179

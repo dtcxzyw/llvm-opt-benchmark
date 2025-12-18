@@ -1366,7 +1366,7 @@ _ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_grap
   br i1 %.not.i, label %_ZN3ue2L22overhangMatchesTriggerERKSt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEESE_.exit.i, label %.lr.ph115.i, !llvm.loop !122
 
 _ZN3ue2L22overhangMatchesTriggerERKSt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEESE_.exit.i: ; preds = %.lr.ph115.i, %._crit_edge.i, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EE4swapERSD_.exit.i, %79, %78, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEC2ERKSA_RKSB_.exit.i
-  %.not109.i = phi i1 [ true, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEC2ERKSA_RKSB_.exit.i ], [ true, %79 ], [ true, %78 ], [ false, %.lr.ph115.i ], [ false, %._crit_edge.i ], [ true, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EE4swapERSD_.exit.i ]
+  %.not109.i = phi i1 [ true, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEC2ERKSA_RKSB_.exit.i ], [ true, %79 ], [ true, %78 ], [ true, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EE4swapERSD_.exit.i ], [ false, %._crit_edge.i ], [ false, %.lr.ph115.i ]
   %212 = load i64, ptr %19, align 8
   %.not.i.i.i.i.i = icmp eq i64 %212, 0
   br i1 %.not.i.i.i.i.i, label %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit.i, label %213
@@ -5244,7 +5244,7 @@ _ZNK3ue28bitfieldILm256EE10find_firstEv.exit.i.i: ; preds = %302
   br label %329
 
 ._crit_edge189.i.i:                               ; preds = %305, %373, %384, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit.i.i
-  %.064.lcssa.i.i = phi i8 [ %.0.i.i.i.i, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit.i.i ], [ %.1.i.i, %373 ], [ %.1.i.i, %384 ], [ %.0.i.i.i.i, %305 ]
+  %.064.lcssa.i.i = phi i8 [ %.0.i.i.i.i, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit.i.i ], [ %.1.i.i, %384 ], [ %.1.i.i, %373 ], [ %.0.i.i.i.i, %305 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %214, i64 32, i1 false)
@@ -5544,10 +5544,10 @@ _ZNK3ue28bitfieldILm256EE9find_nextEm.exit83.i.i: ; preds = %442, %435
   br label %401, !llvm.loop !298
 
 .loopexit156.i.i:                                 ; preds = %395, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i, %437, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i
-  %.lcssa196.i.i = phi i64 [ %324, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %426, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %426, %437 ], [ %324, %395 ]
-  %.lcssa194.i.i = phi i64 [ %321, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %423, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %423, %437 ], [ %321, %395 ]
-  %.lcssa192.i.i = phi i64 [ %318, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %420, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %420, %437 ], [ %318, %395 ]
-  %.lcssa190.i.i = phi i64 [ %315, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %417, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %417, %437 ], [ %315, %395 ]
+  %.lcssa196.i.i = phi i64 [ %324, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %426, %437 ], [ %426, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %324, %395 ]
+  %.lcssa194.i.i = phi i64 [ %321, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %423, %437 ], [ %423, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %321, %395 ]
+  %.lcssa192.i.i = phi i64 [ %318, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %420, %437 ], [ %420, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %318, %395 ]
+  %.lcssa190.i.i = phi i64 [ %315, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit75.i.i ], [ %417, %437 ], [ %417, %_ZNKSt3mapIjN3ue28bitfieldILm256EEESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i.i ], [ %315, %395 ]
   store i64 %.lcssa190.i.i, ptr %4, align 8
   store i64 %.lcssa192.i.i, ptr %218, align 8
   store i64 %.lcssa194.i.i, ptr %220, align 8
@@ -8709,7 +8709,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i260.i.i: ; preds = %_ZN5boost6detail10
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit127.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit127.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i260.i.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i123.i.i
-  %.0.i125.i.i = phi i64 [ %738, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i123.i.i ], [ %783, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i260.i.i ]
+  %.0.i125.i.i = phi i64 [ %783, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i260.i.i ], [ %738, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i123.i.i ]
   %.not82.i.i = icmp eq i64 %.0.i125.i.i, -1
   br i1 %.not82.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.thread.i.i, label %.lr.ph542.i.split.i
 
@@ -8718,7 +8718,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.thread.i.loopexit75.i: ; preds = %
   br label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.thread.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.thread.i.i: ; preds = %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit127.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i245.i.i, %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit.i.i, %.lr.ph.i109.i.us.i, %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.thread.i.loopexit75.i, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit107.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.thread.i.loopexit75.i ], [ %644, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i.i ], [ %644, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit107.i.i ], [ %644, %.lr.ph.i109.i.us.i ], [ %644, %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit.i.i ], [ %644, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i245.i.i ], [ %644, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit127.i.i ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.thread.i.loopexit75.i ], [ %644, %.lr.ph.i109.i.us.i ], [ %644, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i.i ], [ %644, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit107.i.i ], [ %644, %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit.i.i ], [ %644, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i245.i.i ], [ %644, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit127.i.i ]
   %.not785.i.i = icmp eq i64 %.pre-phi.i, 0
   br i1 %.not785.i.i, label %._crit_edge.i.i.i.i279.i.i, label %.lr.ph.i.i.i.i305.preheader.i.i
 
@@ -8811,8 +8811,8 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i: ; preds = %.lr.ph.i.i.i.i305.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit479, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit481, %808, %804, %800, %._crit_edge.i.i.i.i279.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit._crit_edge.i.i
-  %.sroa.0446.1694701.i.i = phi ptr [ %527, %804 ], [ %527, %808 ], [ %527, %._crit_edge.i.i.i.i279.i.i ], [ %527, %800 ], [ null, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit._crit_edge.i.i ], [ %527, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit481 ], [ %527, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit479 ], [ %527, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit ], [ %527, %.lr.ph.i.i.i.i305.i.i ]
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i286.i.i = phi ptr [ %.sroa.032.1.i.i.i.i302.i.i, %804 ], [ %spec.select.i.i.i.i284.i.i, %808 ], [ %443, %._crit_edge.i.i.i.i279.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i281.i.i, %800 ], [ %443, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit._crit_edge.i.i ], [ %812, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit481 ], [ %811, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit479 ], [ %810, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i307.i.i, %.lr.ph.i.i.i.i305.i.i ]
+  %.sroa.0446.1694701.i.i = phi ptr [ %527, %804 ], [ %527, %808 ], [ %527, %._crit_edge.i.i.i.i279.i.i ], [ %527, %800 ], [ null, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit._crit_edge.i.i ], [ %527, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit ], [ %527, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit481 ], [ %527, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit479 ], [ %527, %.lr.ph.i.i.i.i305.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i286.i.i = phi ptr [ %.sroa.032.1.i.i.i.i302.i.i, %804 ], [ %spec.select.i.i.i.i284.i.i, %808 ], [ %443, %._crit_edge.i.i.i.i279.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i281.i.i, %800 ], [ %443, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit._crit_edge.i.i ], [ %810, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit ], [ %812, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit481 ], [ %811, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i285.i.i.loopexit.split.loop.exit479 ], [ %.sroa.032.051.i.i.i.i307.i.i, %.lr.ph.i.i.i.i305.i.i ]
   %813 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i286.i.i to i64
   %814 = sub i64 %813, %515
   %.not.i287.i.i = icmp ult i64 %814, %437
@@ -9078,7 +9078,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i340.i.i: ; preds = %_ZN5boost6detail10
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit149.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit149.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i340.i.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i145.i.i
-  %.0.i147.i.i = phi i64 [ %866, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i145.i.i ], [ %912, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i340.i.i ]
+  %.0.i147.i.i = phi i64 [ %912, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i340.i.i ], [ %866, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i145.i.i ]
   %.not83.i.i = icmp eq i64 %.0.i147.i.i, -1
   br i1 %.not83.i.i, label %._crit_edge566.i.i, label %832
 
@@ -9736,17 +9736,17 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i420.i.i: ; preds = %_ZN5boost6detail10
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit214.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit214.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i420.i.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i210.i.i
-  %.0.i212.i.i = phi i64 [ %1124, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i210.i.i ], [ %1171, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i420.i.i ]
+  %.0.i212.i.i = phi i64 [ %1171, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i420.i.i ], [ %1124, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i210.i.i ]
   %.not84.i.i = icmp eq i64 %.0.i212.i.i, -1
   br i1 %.not84.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit177.thread.thread.i.i, label %.lr.ph585.i.split.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit177.thread.i.i: ; preds = %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i405.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i365.i.i, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i.i, %936
-  %.sroa.0446.0.i.i = phi ptr [ %.sroa.0446.1694701.i.i, %936 ], [ %.sroa.0439.0.i.i, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i.i ], [ %.sroa.0439.0.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i365.i.i ], [ %.sroa.0439.0.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i405.i.i ]
+  %.sroa.0446.0.i.i = phi ptr [ %.sroa.0439.0.i.i, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i.i ], [ %.sroa.0446.1694701.i.i, %936 ], [ %.sroa.0439.0.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i365.i.i ], [ %.sroa.0439.0.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i405.i.i ]
   %.not.i.i.i.i215.i.i = icmp eq ptr %.sroa.0446.0.i.i, null
   br i1 %.not.i.i.i.i215.i.i, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit216.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit177.thread.thread.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit177.thread.thread.i.i: ; preds = %994, %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit196.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit214.i.i, %.lr.ph.i194.i.us.i, %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit177.thread.i.i, %_ZNKSt3mapIjN5boost14dynamic_bitsetImSaImEEESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit192.i.us.i, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit179.i.i
-  %.sroa.0446.0497.i.i = phi ptr [ %.sroa.0446.0.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit177.thread.i.i ], [ %.sroa.0439.0.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit179.i.i ], [ %.sroa.0439.0.i.i, %_ZNKSt3mapIjN5boost14dynamic_bitsetImSaImEEESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit192.i.us.i ], [ %.sroa.0439.0.i.i, %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit196.i.i ], [ %.sroa.0439.0.i.i, %.lr.ph.i194.i.us.i ], [ %.sroa.0439.0.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit214.i.i ], [ %.sroa.0439.0.i.i, %994 ]
+  %.sroa.0446.0497.i.i = phi ptr [ %.sroa.0446.0.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit177.thread.i.i ], [ %.sroa.0439.0.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit179.i.i ], [ %.sroa.0439.0.i.i, %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit196.i.i ], [ %.sroa.0439.0.i.i, %.lr.ph.i194.i.us.i ], [ %.sroa.0439.0.i.i, %_ZNKSt3mapIjN5boost14dynamic_bitsetImSaImEEESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit192.i.us.i ], [ %.sroa.0439.0.i.i, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit214.i.i ], [ %.sroa.0439.0.i.i, %994 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0446.0497.i.i) #26
   br label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit216.i.i
 
@@ -10033,7 +10033,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tEN
   br i1 %.not19.i.i.i, label %.split.i.i.i, label %.loopexit, !llvm.loop !347
 
 _ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEE4findERS9_.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i, %1272, %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i, %1218
-  %.sroa.07.1.i = phi ptr [ %.0.us.i.i.i, %1272 ], [ %.sroa.07.018.us.i, %1218 ], [ %.sroa.07.018.i, %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i ], [ %.0.i.i6.i, %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i ]
+  %.sroa.07.1.i = phi ptr [ %.0.us.i.i.i, %1272 ], [ %.sroa.07.018.i, %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i ], [ %.sroa.07.018.us.i, %1218 ], [ %.0.i.i6.i, %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i ]
   %1305 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i, i64 40
   %1306 = load i16, ptr %1305, align 8
   store i16 %1306, ptr %14, align 2
@@ -11214,7 +11214,7 @@ define linkonce_odr hidden void @_ZNSt3setIN3ue212graph_detail17vertex_descripto
   br i1 %.not.i.i3, label %._crit_edge.thread.i.i, label %.lr.ph.split.i.i.backedge
 
 .lr.ph.split.i.i.backedge:                        ; preds = %29, %.thread
-  %.02632.i.i.be = phi ptr [ %.026.i.i, %29 ], [ %.026.i.i26, %.thread ]
+  %.02632.i.i.be = phi ptr [ %.026.i.i26, %.thread ], [ %.026.i.i, %29 ]
   br label %.lr.ph.split.i.i, !llvm.loop !362
 
 .thread:                                          ; preds = %.lr.ph.split.i.i, %27
@@ -13500,7 +13500,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue29CharReachE
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !458
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %47, %45, %39
-  %.018.i.i.i = phi i64 [ %.1.i.i, %39 ], [ %.021.i.i.i, %45 ], [ 0, %47 ]
+  %.018.i.i.i = phi i64 [ %.021.i.i.i, %45 ], [ %.1.i.i, %39 ], [ 0, %47 ]
   %49 = getelementptr inbounds %"class.ue2::CharReach", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.07.i)
@@ -13623,7 +13623,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue29CharReachE
   br i1 %49, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !458
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %47, %45, %39
-  %.018.i.i = phi i64 [ %.1.i, %39 ], [ %.021.i.i, %45 ], [ %.0922.i.i, %47 ]
+  %.018.i.i = phi i64 [ %.021.i.i, %45 ], [ %.1.i, %39 ], [ %.0922.i.i, %47 ]
   %50 = getelementptr inbounds %"class.ue2::CharReach", ptr %0, i64 %.018.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -15809,7 +15809,7 @@ _ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit110: ; preds = %57
   br i1 %.not166, label %.thread135, label %.lr.ph204
 
 .thread135:                                       ; preds = %28, %30, %.lr.ph, %22, %.loopexit, %57, %59, %.lr.ph195, %51, %.thread143
-  %.6 = phi i1 [ true, %.thread143 ], [ true, %.loopexit ], [ false, %57 ], [ false, %51 ], [ false, %.lr.ph195 ], [ false, %59 ], [ false, %22 ], [ false, %.lr.ph ], [ false, %30 ], [ false, %28 ]
+  %.6 = phi i1 [ false, %57 ], [ true, %.loopexit ], [ true, %.thread143 ], [ false, %51 ], [ false, %.lr.ph195 ], [ false, %59 ], [ false, %22 ], [ false, %.lr.ph ], [ false, %30 ], [ false, %28 ]
   ret i1 %.6
 }
 
@@ -18597,7 +18597,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i58:     ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i58, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i
-  %.0.i = phi i64 [ %193, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i ], [ %240, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i58 ]
+  %.0.i = phi i64 [ %240, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i58 ], [ %193, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i ]
   %.not = icmp eq i64 %.0.i, -1
   br i1 %.not, label %._crit_edge.thread, label %86
 

@@ -1926,7 +1926,7 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %for.inc.i, %for.body.i.us31, %for.inc.i.us25, %for.body.i.us, %for.body.i.lr.ph.split.split.split.us, %if.end7.i, %if.end.i, %if.then.i, %sw.bb8, %sw.bb6, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
-  %retval.0 = phi i32 [ %conv, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit ], [ %call9, %sw.bb8 ], [ %call7, %sw.bb6 ], [ %add5.i, %if.then.i ], [ %conv3.i, %if.end.i ], [ %rowSize.0.i, %if.end7.i ], [ %rowSize.0.i, %for.body.i.lr.ph.split.split.split.us ], [ %add25.i.us37, %for.body.i.us31 ], [ %add25.i.us, %for.body.i.us ], [ %rowSize.2.i.us26, %for.inc.i.us25 ], [ %rowSize.2.i, %for.inc.i ]
+  %retval.0 = phi i32 [ %conv, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit ], [ %call9, %sw.bb8 ], [ %call7, %sw.bb6 ], [ %add5.i, %if.then.i ], [ %conv3.i, %if.end.i ], [ %rowSize.0.i, %if.end7.i ], [ %rowSize.2.i.us26, %for.inc.i.us25 ], [ %rowSize.0.i, %for.body.i.lr.ph.split.split.split.us ], [ %add25.i.us37, %for.body.i.us31 ], [ %add25.i.us, %for.body.i.us ], [ %rowSize.2.i, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -2798,7 +2798,7 @@ for.inc.i:                                        ; preds = %for.body.i, %if.the
   br i1 %exitcond.not, label %_ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit, label %for.body.i, !llvm.loop !7
 
 _ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit: ; preds = %for.inc.i, %for.body.i.us119, %for.inc.i.us113, %for.body.i.us, %for.body.i.lr.ph.split.split.split.us, %if.end7.i, %if.then.i
-  %retval.0.i11 = phi i32 [ %add5.i, %if.then.i ], [ %rowSize.0.i, %if.end7.i ], [ %rowSize.0.i, %for.body.i.lr.ph.split.split.split.us ], [ %add25.i.us125, %for.body.i.us119 ], [ %add25.i.us, %for.body.i.us ], [ %rowSize.2.i.us114, %for.inc.i.us113 ], [ %rowSize.2.i, %for.inc.i ]
+  %retval.0.i11 = phi i32 [ %add5.i, %if.then.i ], [ %rowSize.0.i, %if.end7.i ], [ %rowSize.2.i.us114, %for.inc.i.us113 ], [ %rowSize.0.i, %for.body.i.lr.ph.split.split.split.us ], [ %add25.i.us125, %for.body.i.us119 ], [ %add25.i.us, %for.body.i.us ], [ %rowSize.2.i, %for.inc.i ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 224
   %and.i15 = and i64 %12, 2
   %tobool.i16.not = icmp eq i64 %and.i15, 0
@@ -2947,8 +2947,8 @@ for.inc.i39:                                      ; preds = %for.body.i33, %if.t
   br i1 %exitcond188.not, label %_ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit46, label %for.body.i33, !llvm.loop !7
 
 _ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit46: ; preds = %for.inc.i39, %for.body.i33.us151, %for.inc.i39.us145, %for.body.i33.us, %for.body.i33.lr.ph.split.split.split.us, %if.end7.i21, %_ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit.thread, %if.then.i42, %if.end.i19
-  %retval.0.i1194 = phi i32 [ %retval.0.i1196, %if.then.i42 ], [ %retval.0.i11, %if.end.i19 ], [ %conv3.i, %_ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit.thread ], [ %retval.0.i11, %if.end7.i21 ], [ %retval.0.i11, %for.body.i33.lr.ph.split.split.split.us ], [ %retval.0.i11, %for.body.i33.us151 ], [ %retval.0.i11, %for.body.i33.us ], [ %retval.0.i11, %for.inc.i39.us145 ], [ %retval.0.i11, %for.inc.i39 ]
-  %retval.0.i32 = phi i32 [ %add5.i45, %if.then.i42 ], [ %conv3.i, %if.end.i19 ], [ %conv3.i, %_ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit.thread ], [ %rowSize.0.i27, %if.end7.i21 ], [ %rowSize.0.i27, %for.body.i33.lr.ph.split.split.split.us ], [ %add25.i38.us157, %for.body.i33.us151 ], [ %add25.i38.us, %for.body.i33.us ], [ %rowSize.2.i40.us146, %for.inc.i39.us145 ], [ %rowSize.2.i40, %for.inc.i39 ]
+  %retval.0.i1194 = phi i32 [ %retval.0.i1196, %if.then.i42 ], [ %retval.0.i11, %if.end.i19 ], [ %conv3.i, %_ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit.thread ], [ %retval.0.i11, %if.end7.i21 ], [ %retval.0.i11, %for.body.i33.us151 ], [ %retval.0.i11, %for.body.i33.us ], [ %retval.0.i11, %for.inc.i39.us145 ], [ %retval.0.i11, %for.body.i33.lr.ph.split.split.split.us ], [ %retval.0.i11, %for.inc.i39 ]
+  %retval.0.i32 = phi i32 [ %add5.i45, %if.then.i42 ], [ %conv3.i, %if.end.i19 ], [ %conv3.i, %_ZN8facebook5velox3row10CompactRow12arrayRowSizeERS2_iib.exit.thread ], [ %rowSize.0.i27, %if.end7.i21 ], [ %add25.i38.us157, %for.body.i33.us151 ], [ %add25.i38.us, %for.body.i33.us ], [ %rowSize.2.i40.us146, %for.inc.i39.us145 ], [ %rowSize.0.i27, %for.body.i33.lr.ph.split.split.split.us ], [ %rowSize.2.i40, %for.inc.i39 ]
   %add = add nsw i32 %retval.0.i32, %retval.0.i1194
   ret i32 %add
 }
@@ -3101,7 +3101,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %for.inc, %for.body.us35, %for.inc.us29, %for.body.us, %for.body.lr.ph.split.split.split.us, %if.end7, %if.end, %if.then
-  %retval.0 = phi i32 [ %add5, %if.then ], [ %conv3, %if.end ], [ %rowSize.0, %if.end7 ], [ %rowSize.0, %for.body.lr.ph.split.split.split.us ], [ %add25.us41, %for.body.us35 ], [ %add25.us, %for.body.us ], [ %rowSize.2.us30, %for.inc.us29 ], [ %rowSize.2, %for.inc ]
+  %retval.0 = phi i32 [ %add5, %if.then ], [ %conv3, %if.end ], [ %rowSize.0, %if.end7 ], [ %rowSize.2.us30, %for.inc.us29 ], [ %rowSize.0, %for.body.lr.ph.split.split.split.us ], [ %add25.us41, %for.body.us35 ], [ %add25.us, %for.body.us ], [ %rowSize.2, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -3730,7 +3730,7 @@ for.end90:                                        ; preds = %for.inc88
   br label %return
 
 return:                                           ; preds = %for.inc53, %if.end26, %for.cond40.preheader, %for.cond17.preheader, %if.else56, %for.end90, %_ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit
-  %retval.0 = phi i32 [ %conv12, %_ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit ], [ %elementsOffset.5, %for.end90 ], [ %add, %if.else56 ], [ %add, %for.cond17.preheader ], [ %add, %for.cond40.preheader ], [ %conv30, %if.end26 ], [ %elementsOffset.3, %for.inc53 ]
+  %retval.0 = phi i32 [ %conv12, %_ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit ], [ %add, %if.else56 ], [ %conv30, %if.end26 ], [ %elementsOffset.5, %for.end90 ], [ %add, %for.cond17.preheader ], [ %add, %for.cond40.preheader ], [ %elementsOffset.3, %for.inc53 ]
   ret i32 %retval.0
 }
 

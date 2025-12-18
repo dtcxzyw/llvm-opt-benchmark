@@ -711,7 +711,7 @@ _ZL10LinkInPathPKw.exit:                          ; preds = %55, %38
   br i1 %67, label %65, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %65, %60, %56
-  %.030 = phi ptr [ %2, %60 ], [ %2, %56 ], [ %.131, %65 ]
+  %.030 = phi ptr [ %2, %56 ], [ %2, %60 ], [ %.131, %65 ]
   %69 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %.030)
   %70 = icmp sge i32 %57, %.033
   %71 = icmp sge i32 %69, %.033

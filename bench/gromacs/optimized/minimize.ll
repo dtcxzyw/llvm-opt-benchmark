@@ -2109,7 +2109,7 @@ _ZL15reorder_partsumPK9t_commrecPK9t_grpoptsRK10gmx_mtop_tPK8em_stateSA_.exit.i:
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %800, %778, %_ZL15reorder_partsumPK9t_commrecPK9t_grpoptsRK10gmx_mtop_tPK8em_stateSA_.exit.i, %765
-  %911 = phi double [ %.042.lcssa.i.i, %_ZL15reorder_partsumPK9t_commrecPK9t_grpoptsRK10gmx_mtop_tPK8em_stateSA_.exit.i ], [ 0.000000e+00, %765 ], [ %793, %778 ], [ %815, %800 ]
+  %911 = phi double [ %793, %778 ], [ %.042.lcssa.i.i, %_ZL15reorder_partsumPK9t_commrecPK9t_grpoptsRK10gmx_mtop_tPK8em_stateSA_.exit.i ], [ 0.000000e+00, %765 ], [ %815, %800 ]
   %912 = getelementptr inbounds nuw i8, ptr %750, i64 56
   %913 = load i32, ptr %912, align 8, !tbaa !183
   %914 = icmp sgt i32 %913, 1
@@ -11975,10 +11975,10 @@ _ZN3gmx14LogEntryWriterD2Ev.exit255:              ; preds = %407, %_ZNKSt7__cxx1
   br label %638
 
 ._crit_edge321:                                   ; preds = %.split319, %.split319.us.us, %594
-  %632 = phi ptr [ %595, %594 ], [ %619, %.split319.us.us ], [ %595, %.split319 ]
-  %633 = phi ptr [ %596, %594 ], [ %618, %.split319.us.us ], [ %596, %.split319 ]
-  %634 = phi ptr [ %597, %594 ], [ %619, %.split319.us.us ], [ %595, %.split319 ]
-  %635 = phi ptr [ %597, %594 ], [ %618, %.split319.us.us ], [ %596, %.split319 ]
+  %632 = phi ptr [ %619, %.split319.us.us ], [ %595, %594 ], [ %595, %.split319 ]
+  %633 = phi ptr [ %618, %.split319.us.us ], [ %596, %594 ], [ %596, %.split319 ]
+  %634 = phi ptr [ %619, %.split319.us.us ], [ %597, %594 ], [ %595, %.split319 ]
+  %635 = phi ptr [ %618, %.split319.us.us ], [ %597, %594 ], [ %596, %.split319 ]
   %636 = add nuw nsw i64 %.0103322, 1
   %exitcond343.not = icmp eq i64 %636, %445
   br i1 %exitcond343.not, label %.critedge, label %.lr.ph, !llvm.loop !798

@@ -168,9 +168,9 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
   %41 = icmp eq i32 %3, 64
   br i1 %41, label %.sink.split, label %42
 
-.sink.split.sink.split:                           ; preds = %._crit_edge.thread, %20, %.loopexit.loopexit, %.loopexit.loopexit75, %29
-  %.058101.sink.ph = phi ptr [ %31, %.loopexit.loopexit75 ], [ %31, %29 ], [ null, %._crit_edge.thread ], [ %22, %20 ], [ %22, %.loopexit.loopexit ]
-  %.23950.ph.ph = phi i32 [ %40, %.loopexit.loopexit75 ], [ 0, %29 ], [ 0, %._crit_edge.thread ], [ 0, %20 ], [ %39, %.loopexit.loopexit ]
+.sink.split.sink.split:                           ; preds = %._crit_edge.thread, %.loopexit.loopexit, %20, %.loopexit.loopexit75, %29
+  %.058101.sink.ph = phi ptr [ %31, %.loopexit.loopexit75 ], [ %31, %29 ], [ null, %._crit_edge.thread ], [ %22, %.loopexit.loopexit ], [ %22, %20 ]
+  %.23950.ph.ph = phi i32 [ %40, %.loopexit.loopexit75 ], [ 0, %29 ], [ 0, %._crit_edge.thread ], [ %39, %.loopexit.loopexit ], [ 0, %20 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   br label %.sink.split
 
@@ -1074,7 +1074,7 @@ _is_empty_dir.exit.thread:                        ; preds = %15, %_is_empty_dir.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.preheader, %.critedge, %81, %84, %.critedge.thread69, %76, %71, %74, %68, %55, %58, %40, %47, %44, %10
-  %.015 = phi i32 [ -1, %40 ], [ -1, %55 ], [ 0, %10 ], [ -1, %76 ], [ -1, %44 ], [ -1, %47 ], [ -1, %58 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ 0, %.critedge.thread69 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %50 ]
+  %.015 = phi i32 [ -1, %40 ], [ 0, %.critedge ], [ -1, %55 ], [ 0, %10 ], [ -1, %76 ], [ -1, %44 ], [ -1, %47 ], [ -1, %58 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ 0, %.critedge.thread69 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.preheader ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.015

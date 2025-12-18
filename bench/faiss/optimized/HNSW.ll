@@ -1678,14 +1678,14 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   br label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit
 
 _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i, %172, %.thread74, %..loopexit_crit_edge21.i.i, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit.i
-  %240 = phi i64 [ %239, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit.i ], [ 0, %172 ], [ %138, %.thread74 ], [ %138, %..loopexit_crit_edge21.i.i ], [ 0, %.lr.ph.i ], [ %138, %.lr.ph.i.i ]
+  %240 = phi i64 [ 0, %.lr.ph.i ], [ %239, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit.i ], [ 0, %172 ], [ %138, %.thread74 ], [ %138, %..loopexit_crit_edge21.i.i ], [ %138, %.lr.ph.i.i ]
   %241 = add nsw i32 %.346106, 1
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %152, %..loopexit_crit_edge21.i.i.i.i.i, %145, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit
-  %242 = phi i64 [ %138, %145 ], [ %240, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit ], [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ %138, %152 ], [ 0, %.preheader ], [ %138, %.lr.ph.i.i.i.i.i ]
-  %.548.ph = phi i32 [ %.346106, %145 ], [ %241, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit ], [ %.346106, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.346106, %152 ], [ %.346106, %.preheader ], [ %.346106, %.lr.ph.i.i.i.i.i ]
-  %.5.ph = phi i32 [ %146, %145 ], [ %.3113, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit ], [ %.3113, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.3113, %152 ], [ %.3113, %.preheader ], [ %.3113, %.lr.ph.i.i.i.i.i ]
+  %242 = phi i64 [ %138, %145 ], [ %240, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit ], [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %.preheader ], [ %138, %152 ], [ %138, %.lr.ph.i.i.i.i.i ]
+  %.548.ph = phi i32 [ %.346106, %145 ], [ %241, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit ], [ %.346106, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.346106, %.preheader ], [ %.346106, %152 ], [ %.346106, %.lr.ph.i.i.i.i.i ]
+  %.5.ph = phi i32 [ %146, %145 ], [ %.3113, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit ], [ %.3113, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.3113, %.preheader ], [ %.3113, %152 ], [ %.3113, %.lr.ph.i.i.i.i.i ]
   %243 = add nuw i64 %.0120, 1
   %exitcond156.not = icmp eq i64 %243, %136
   br i1 %exitcond156.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !82
@@ -6107,7 +6107,7 @@ define void @_ZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerE
   br i1 %.not67, label %._crit_edge, label %.lr.ph63
 
 ._crit_edge:                                      ; preds = %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit45", %19, %.thread51
-  %.0.lcssa84 = phi i64 [ %.0.lcssa, %.thread51 ], [ 0, %19 ], [ %.0.lcssa, %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit45" ]
+  %.0.lcssa84 = phi i64 [ 0, %19 ], [ %.0.lcssa, %.thread51 ], [ %.0.lcssa, %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit45" ]
   %73 = add i64 %22, %.0.lcssa84
   %74 = add i64 %21, 1
   %75 = load i32, ptr %4, align 4, !tbaa !19
@@ -8235,7 +8235,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_E
   br label %408
 
 ._crit_edge227:                                   ; preds = %401, %._crit_edge.thread, %._crit_edge, %.preheader170
-  %.5.lcssa = phi i32 [ %.4, %.preheader170 ], [ %.0229, %._crit_edge ], [ %.0229, %._crit_edge.thread ], [ %79, %401 ]
+  %.5.lcssa = phi i32 [ %.4, %.preheader170 ], [ %.0229, %._crit_edge.thread ], [ %.0229, %._crit_edge ], [ %79, %401 ]
   %403 = load i64, ptr %40, align 8, !tbaa !233
   %404 = add i64 %403, 1
   store i64 %404, ptr %40, align 8, !tbaa !233

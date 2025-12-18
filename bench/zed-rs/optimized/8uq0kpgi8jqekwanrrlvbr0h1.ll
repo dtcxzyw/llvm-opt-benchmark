@@ -2914,7 +2914,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br i1 %46, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hddc1cd3c307b173bE.llvm.4495110368786696258.exit, label %36
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hddc1cd3c307b173bE.llvm.4495110368786696258.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7bbd12d3e83b58d8E.llvm.4495110368786696258.exit.loopexit", %38, %3
-  %.not.not.not.i5 = phi i1 [ false, %3 ], [ true, %38 ], [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7bbd12d3e83b58d8E.llvm.4495110368786696258.exit.loopexit" ]
+  %.not.not.not.i5 = phi i1 [ true, %38 ], [ false, %3 ], [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7bbd12d3e83b58d8E.llvm.4495110368786696258.exit.loopexit" ]
   ret i1 %.not.not.not.i5
 }
 
@@ -10878,7 +10878,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h1f89baada8e3699cE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hc6123eb94d2fa3d8E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hca242e9035b3f4cfE.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17hebe868418b0474efE.exit.i.i.i, %.preheader24.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdcfe81a000e1242bE.exit.i", %56, %31
-  %.sroa.0.0.i2023.i = phi i64 [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdcfe81a000e1242bE.exit.i" ], [ %28, %31 ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics10typed_swap17hebe868418b0474efE.exit.i.i.i ]
+  %.sroa.0.0.i2023.i = phi i64 [ %28, %31 ], [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdcfe81a000e1242bE.exit.i" ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics10typed_swap17hebe868418b0474efE.exit.i.i.i ]
   %62 = shl i64 %.sroa.0.0.i2023.i, 1
   %63 = or disjoint i64 %62, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hc6123eb94d2fa3d8E.exit
@@ -11201,7 +11201,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h4bd08a06e4947f09E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h294e4164f39f9d14E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hddf5a7ce9b18997fE.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17h13ad2889f64e182aE.exit.i.i.i, %.preheader24.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h858a0f85b0e40822E.exit.i", %56, %31
-  %.sroa.0.0.i2023.i = phi i64 [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h858a0f85b0e40822E.exit.i" ], [ %28, %31 ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics10typed_swap17h13ad2889f64e182aE.exit.i.i.i ]
+  %.sroa.0.0.i2023.i = phi i64 [ %28, %31 ], [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h858a0f85b0e40822E.exit.i" ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics10typed_swap17h13ad2889f64e182aE.exit.i.i.i ]
   %62 = shl i64 %.sroa.0.0.i2023.i, 1
   %63 = or disjoint i64 %62, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h294e4164f39f9d14E.exit
@@ -11724,7 +11724,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h29746920bf98c416E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h688c152f82833ee4E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h81ed5c5946ab6232E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i", %.preheader57.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i", %164, %25
-  %.sroa.0.0.i5356.i = phi i64 [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ %22, %25 ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
+  %.sroa.0.0.i5356.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
   %170 = shl i64 %.sroa.0.0.i5356.i, 1
   %171 = or disjoint i64 %170, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h688c152f82833ee4E.exit
@@ -12239,7 +12239,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h4255ea5690abbe2bE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17haee1d842c951eea7E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h81ed5c5946ab6232E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i", %.preheader57.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i", %164, %25
-  %.sroa.0.0.i5356.i = phi i64 [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ %22, %25 ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
+  %.sroa.0.0.i5356.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
   %170 = shl i64 %.sroa.0.0.i5356.i, 1
   %171 = or disjoint i64 %170, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17haee1d842c951eea7E.exit
@@ -12754,7 +12754,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h952824fbe1d89739E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hb529e8f27910a0c3E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h81ed5c5946ab6232E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i", %.preheader57.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i", %164, %25
-  %.sroa.0.0.i5356.i = phi i64 [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ %22, %25 ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
+  %.sroa.0.0.i5356.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
   %170 = shl i64 %.sroa.0.0.i5356.i, 1
   %171 = or disjoint i64 %170, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hb529e8f27910a0c3E.exit
@@ -13269,7 +13269,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h7a7e2c9a40d34e05E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h9661343958c3b621E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h81ed5c5946ab6232E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i", %.preheader57.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i", %164, %25
-  %.sroa.0.0.i5356.i = phi i64 [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ %22, %25 ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
+  %.sroa.0.0.i5356.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
   %170 = shl i64 %.sroa.0.0.i5356.i, 1
   %171 = or disjoint i64 %170, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h9661343958c3b621E.exit
@@ -13784,7 +13784,7 @@ _ZN4core5slice4sort6shared17find_existing_run17ha706b97debf78820E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h88f651b12b8b9179E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h81ed5c5946ab6232E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i", %.preheader57.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i", %164, %25
-  %.sroa.0.0.i5356.i = phi i64 [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ %22, %25 ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
+  %.sroa.0.0.i5356.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
   %170 = shl i64 %.sroa.0.0.i5356.i, 1
   %171 = or disjoint i64 %170, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h88f651b12b8b9179E.exit
@@ -14316,7 +14316,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h509b51b7f5c4d81cE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h796658e5ebaa543eE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h325d82e7d515579dE.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f5f416e9f80b3fbE.exit7.i.i.i", %.preheader69.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f5f416e9f80b3fbE.exit.i", %149, %26
-  %.sroa.0.0.i6568.i = phi i64 [ %.sroa.0.0.i.i, %149 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f5f416e9f80b3fbE.exit.i" ], [ %23, %26 ], [ 2, %.preheader69.i ], [ %.sroa.0.0.i123130133.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f5f416e9f80b3fbE.exit7.i.i.i" ]
+  %.sroa.0.0.i6568.i = phi i64 [ %23, %26 ], [ %.sroa.0.0.i.i, %149 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f5f416e9f80b3fbE.exit.i" ], [ 2, %.preheader69.i ], [ %.sroa.0.0.i123130133.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f5f416e9f80b3fbE.exit7.i.i.i" ]
   %155 = shl i64 %.sroa.0.0.i6568.i, 1
   %156 = or disjoint i64 %155, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h796658e5ebaa543eE.exit
@@ -14589,7 +14589,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h4f85444f75c098fcE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h138f213bf4195e91E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hbe54ed238962dd0dE.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17hcb02e72af553353dE.exit.i.i.i, %.preheader18.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9e10742c71ab0dbbE.exit.i", %42, %25
-  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9e10742c71ab0dbbE.exit.i" ], [ %22, %25 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i465356.i, %_ZN4core10intrinsics10typed_swap17hcb02e72af553353dE.exit.i.i.i ]
+  %.sroa.0.0.i1417.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9e10742c71ab0dbbE.exit.i" ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i465356.i, %_ZN4core10intrinsics10typed_swap17hcb02e72af553353dE.exit.i.i.i ]
   %48 = shl i64 %.sroa.0.0.i1417.i, 1
   %49 = or disjoint i64 %48, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h138f213bf4195e91E.exit
@@ -15112,7 +15112,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h9a4465b8e8c8a5b9E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h54a03844f2e957ffE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h81ed5c5946ab6232E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i", %.preheader57.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i", %164, %25
-  %.sroa.0.0.i5356.i = phi i64 [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ %22, %25 ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
+  %.sroa.0.0.i5356.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
   %170 = shl i64 %.sroa.0.0.i5356.i, 1
   %171 = or disjoint i64 %170, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h54a03844f2e957ffE.exit
@@ -15416,7 +15416,7 @@ _ZN4core5slice4sort6shared17find_existing_run17ha5e2a811d4f4fed1E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h2eef50d28f50c0d3E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha3daad0569725daeE.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17h5a1bdcd2a6ffd261E.exit.i.i.i, %.preheader23.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc37058ead822a7a6E.exit.i", %62, %25
-  %.sroa.0.0.i1922.i = phi i64 [ %.sroa.0.0.i.i, %62 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc37058ead822a7a6E.exit.i" ], [ %22, %25 ], [ 2, %.preheader23.i ], [ %.sroa.0.0.i465356.i, %_ZN4core10intrinsics10typed_swap17h5a1bdcd2a6ffd261E.exit.i.i.i ]
+  %.sroa.0.0.i1922.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %62 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc37058ead822a7a6E.exit.i" ], [ 2, %.preheader23.i ], [ %.sroa.0.0.i465356.i, %_ZN4core10intrinsics10typed_swap17h5a1bdcd2a6ffd261E.exit.i.i.i ]
   %68 = shl i64 %.sroa.0.0.i1922.i, 1
   %69 = or disjoint i64 %68, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h2eef50d28f50c0d3E.exit
@@ -15939,7 +15939,7 @@ _ZN4core5slice4sort6shared17find_existing_run17ha34b56f76ea104b3E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h4b8cab10d6f55694E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h81ed5c5946ab6232E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i", %.preheader57.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i", %164, %25
-  %.sroa.0.0.i5356.i = phi i64 [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ %22, %25 ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
+  %.sroa.0.0.i5356.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %164 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit.i" ], [ 2, %.preheader57.i ], [ %.sroa.0.0.i9198101.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33d733fd6acff2c8E.exit7.i.i.i" ]
   %170 = shl i64 %.sroa.0.0.i5356.i, 1
   %171 = or disjoint i64 %170, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h4b8cab10d6f55694E.exit
@@ -19716,7 +19716,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h12997fac1
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -20764,7 +20764,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5c01b20b6
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -21555,7 +21555,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h69cd73500
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -22263,7 +22263,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h6e5d93917
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -23058,7 +23058,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h8adee6fda
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -24185,7 +24185,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hd268b6714
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -24893,7 +24893,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hd4d7bd86e
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71

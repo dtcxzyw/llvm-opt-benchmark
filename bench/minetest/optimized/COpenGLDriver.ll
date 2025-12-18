@@ -3522,8 +3522,8 @@ for.body55:                                       ; preds = %for.body55, %for.bo
   br i1 %exitcond.not, label %if.end65, label %for.body55, !llvm.loop !250
 
 if.end65:                                         ; preds = %for.body55, %for.body37, %for.body, %for.cond.preheader, %for.cond34.preheader, %for.cond52.preheader, %if.end4
-  %buffer.sroa.0.1 = phi ptr [ null, %if.end4 ], [ %buffer.sroa.0.0, %for.cond.preheader ], [ %buffer.sroa.0.0, %for.cond34.preheader ], [ %buffer.sroa.0.0, %for.cond52.preheader ], [ %buffer.sroa.0.0, %for.body37 ], [ %buffer.sroa.0.0, %for.body ], [ %buffer.sroa.0.0, %for.body55 ]
-  %vbuf.0 = phi ptr [ %call, %if.end4 ], [ %buffer.sroa.0.0, %for.cond.preheader ], [ %buffer.sroa.0.0, %for.cond34.preheader ], [ %buffer.sroa.0.0, %for.cond52.preheader ], [ %buffer.sroa.0.0, %for.body37 ], [ %buffer.sroa.0.0, %for.body ], [ %buffer.sroa.0.0, %for.body55 ]
+  %buffer.sroa.0.1 = phi ptr [ null, %if.end4 ], [ %buffer.sroa.0.0, %for.cond.preheader ], [ %buffer.sroa.0.0, %for.cond34.preheader ], [ %buffer.sroa.0.0, %for.cond52.preheader ], [ %buffer.sroa.0.0, %for.body ], [ %buffer.sroa.0.0, %for.body37 ], [ %buffer.sroa.0.0, %for.body55 ]
+  %vbuf.0 = phi ptr [ %call, %if.end4 ], [ %buffer.sroa.0.0, %for.cond.preheader ], [ %buffer.sroa.0.0, %for.cond34.preheader ], [ %buffer.sroa.0.0, %for.cond52.preheader ], [ %buffer.sroa.0.0, %for.body ], [ %buffer.sroa.0.0, %for.body37 ], [ %buffer.sroa.0.0, %for.body55 ]
   %vbo_verticesID = getelementptr inbounds nuw i8, ptr %HWBuffer, i64 40
   %19 = load i32, ptr %vbo_verticesID, align 8, !tbaa !251
   %tobool66.not = icmp eq i32 %19, 0

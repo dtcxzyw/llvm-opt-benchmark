@@ -243,7 +243,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           cleanup
   br label %.thread110
 
-.thread123.loopexit:                              ; preds = %149, %66, %96, %128
+.thread123.loopexit:                              ; preds = %128, %149, %66, %96
   %lpad.loopexit127 = landingpad { ptr, i32 }
           cleanup
   br label %.thread123
@@ -254,7 +254,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %.thread123
 
 39:                                               ; preds = %104, %136, %157
-  %.sroa.051.1.ph.ph = phi i8 [ %.sroa.051.7, %157 ], [ %.sroa.051.4, %104 ], [ %.sroa.051.6, %136 ]
+  %.sroa.051.1.ph.ph = phi i8 [ %.sroa.051.6, %136 ], [ %.sroa.051.7, %157 ], [ %.sroa.051.4, %104 ]
   %lpad.thr_comm.split-lp122 = landingpad { ptr, i32 }
           cleanup
   %40 = trunc nuw i8 %.sroa.051.1.ph.ph to i1

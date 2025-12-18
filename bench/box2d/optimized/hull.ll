@@ -768,7 +768,7 @@ b2Normalize.exit97:                               ; preds = %36, %52
   br i1 %58, label %35, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %27, %35, %b2Normalize.exit97, %1
-  %.0 = phi i1 [ false, %1 ], [ %exitcond127.not, %35 ], [ %exitcond127.not, %b2Normalize.exit97 ], [ false, %27 ]
+  %.0 = phi i1 [ %exitcond127.not, %35 ], [ false, %1 ], [ %exitcond127.not, %b2Normalize.exit97 ], [ false, %27 ]
   ret i1 %.0
 }
 

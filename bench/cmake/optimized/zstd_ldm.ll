@@ -1633,8 +1633,8 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   br i1 %.not.i.i, label %maybeSplitSequence.exit, label %79
 
 maybeSplitSequence.exit:                          ; preds = %79, %108, %73, %75, %87, %96, %107
-  %.sroa.8.0.i = phi i32 [ %.sroa.8.0.copyload.i, %73 ], [ %.sroa.8.1.i, %75 ], [ %.sroa.8.1.i, %87 ], [ %.sroa.8.1.i, %96 ], [ %.sroa.8.1.i, %107 ], [ %.sroa.8.1.i, %108 ], [ %.sroa.8.1.i, %79 ]
-  %.sroa.010.sroa.0.0.i = phi i64 [ %.sroa.010.0.copyload.i, %73 ], [ %.sroa.010.sroa.0.1.i, %75 ], [ %.sroa.010.sroa.0.1.i, %87 ], [ %.sroa.010.sroa.0.1.i, %96 ], [ %.sroa.010.sroa.0.1.i, %107 ], [ %.sroa.010.sroa.0.1.i, %108 ], [ %.sroa.010.sroa.0.1.i, %79 ]
+  %.sroa.8.0.i = phi i32 [ %.sroa.8.0.copyload.i, %73 ], [ %.sroa.8.1.i, %75 ], [ %.sroa.8.1.i, %107 ], [ %.sroa.8.1.i, %87 ], [ %.sroa.8.1.i, %96 ], [ %.sroa.8.1.i, %108 ], [ %.sroa.8.1.i, %79 ]
+  %.sroa.010.sroa.0.0.i = phi i64 [ %.sroa.010.0.copyload.i, %73 ], [ %.sroa.010.sroa.0.1.i, %75 ], [ %.sroa.010.sroa.0.1.i, %107 ], [ %.sroa.010.sroa.0.1.i, %87 ], [ %.sroa.010.sroa.0.1.i, %96 ], [ %.sroa.010.sroa.0.1.i, %108 ], [ %.sroa.010.sroa.0.1.i, %79 ]
   %.sroa.06.0.extract.trunc = trunc i64 %.sroa.010.sroa.0.0.i to i32
   %111 = icmp eq i32 %.sroa.06.0.extract.trunc, 0
   br i1 %111, label %.thread, label %112

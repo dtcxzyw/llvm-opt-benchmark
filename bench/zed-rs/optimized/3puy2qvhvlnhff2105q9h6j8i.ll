@@ -20666,9 +20666,9 @@ default.unreachable505:                           ; preds = %.noexc42.i.i.i, %26
           to label %432 unwind label %426
 
 423:                                              ; preds = %369, %341
-  %424 = phi ptr [ %308, %341 ], [ %360, %369 ]
-  %425 = phi ptr [ %309, %341 ], [ %361, %369 ]
-  %.sink.i.i = phi i8 [ 3, %341 ], [ 4, %369 ]
+  %424 = phi ptr [ %360, %369 ], [ %308, %341 ]
+  %425 = phi ptr [ %361, %369 ], [ %309, %341 ]
+  %.sink.i.i = phi i8 [ 4, %369 ], [ 3, %341 ]
   store i8 %.sink.i.i, ptr %425, align 4, !noalias !3310
   call void @llvm.lifetime.end.p0(ptr nonnull %128), !noalias !3247
   br label %434
@@ -20691,8 +20691,8 @@ default.unreachable505:                           ; preds = %.noexc42.i.i.i, %26
   br label %.body
 
 432:                                              ; preds = %239, %419
-  %433 = phi ptr [ %420, %419 ], [ %189, %239 ]
-  %common.ret.op.i = phi i1 [ %common.ret.op.i27.ph.i, %419 ], [ true, %239 ]
+  %433 = phi ptr [ %189, %239 ], [ %420, %419 ]
+  %common.ret.op.i = phi i1 [ true, %239 ], [ %common.ret.op.i27.ph.i, %419 ]
   store i8 1, ptr %433, align 8, !noalias !3247
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$oo7..is_sandboxed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4f777aa34bf69a7aE"(ptr noundef nonnull align 8 %433)
           to label %439 unwind label %437

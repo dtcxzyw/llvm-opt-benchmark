@@ -1190,9 +1190,9 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %20, %29
   br i1 %89, label %58, label %_ZN5Gluco10SimpSolver11extendModelEv.exit, !llvm.loop !94
 
 _ZN5Gluco10SimpSolver11extendModelEv.exit:        ; preds = %.loopexit.i, %43, %47, %51, %48
-  %.sroa.027.169 = phi i8 [ %49, %48 ], [ 0, %51 ], [ 1, %47 ], [ 1, %43 ], [ %49, %.loopexit.i ]
-  %.sroa.9.03368 = phi i32 [ %.sroa.9.034, %48 ], [ %.sroa.9.034, %51 ], [ %.sroa.9.1.lcssa, %47 ], [ %.sroa.9.1.lcssa, %43 ], [ %.sroa.9.034, %.loopexit.i ]
-  %.sroa.020.03567 = phi ptr [ %.sroa.020.036, %48 ], [ %.sroa.020.036, %51 ], [ %.sroa.020.1.lcssa, %47 ], [ %.sroa.020.1.lcssa, %43 ], [ %.sroa.020.036, %.loopexit.i ]
+  %.sroa.027.169 = phi i8 [ 1, %43 ], [ %49, %48 ], [ 0, %51 ], [ 1, %47 ], [ %49, %.loopexit.i ]
+  %.sroa.9.03368 = phi i32 [ %.sroa.9.1.lcssa, %43 ], [ %.sroa.9.034, %48 ], [ %.sroa.9.034, %51 ], [ %.sroa.9.1.lcssa, %47 ], [ %.sroa.9.034, %.loopexit.i ]
+  %.sroa.020.03567 = phi ptr [ %.sroa.020.1.lcssa, %43 ], [ %.sroa.020.036, %48 ], [ %.sroa.020.036, %51 ], [ %.sroa.020.1.lcssa, %47 ], [ %.sroa.020.036, %.loopexit.i ]
   %90 = icmp sgt i32 %.sroa.9.03368, 0
   %or.cond = select i1 %.not.not, i1 %90, i1 false
   br i1 %or.cond, label %.lr.ph51, label %.loopexit
@@ -4037,7 +4037,7 @@ _ZNK5Gluco6Clause8subsumesERKS0_.exit.thread98:   ; preds = %_ZNK5Gluco6Clause8s
   br i1 %203, label %.lr.ph130, label %.loopexit.loopexit, !llvm.loop !142
 
 .thread106:                                       ; preds = %25, %193, %31
-  %.6 = phi i1 [ true, %31 ], [ false, %193 ], [ true, %25 ]
+  %.6 = phi i1 [ false, %193 ], [ true, %31 ], [ true, %25 ]
   ret i1 %.6
 }
 
@@ -4704,11 +4704,11 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %.cont.cont._ZN5Gluc
   br i1 %145, label %105, label %.preheader160, !llvm.loop !149
 
 ._crit_edge205:                                   ; preds = %._crit_edge.us, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit, %.preheader158.lr.ph, %.preheader160
-  %146 = phi i1 [ false, %.preheader160 ], [ true, %.preheader158.lr.ph ], [ false, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ true, %._crit_edge.us ]
-  %.sroa.0102.0.lcssa283 = phi ptr [ %.sroa.0102.1, %.preheader160 ], [ %.sroa.0102.1, %.preheader158.lr.ph ], [ null, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.0102.1, %._crit_edge.us ]
-  %.sroa.11.0.lcssa282 = phi i32 [ %spec.select154, %.preheader160 ], [ %spec.select154, %.preheader158.lr.ph ], [ 0, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select154, %._crit_edge.us ]
-  %.sroa.081.0.lcssa278 = phi ptr [ %.sroa.081.1, %.preheader160 ], [ %.sroa.081.1, %.preheader158.lr.ph ], [ null, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.081.1, %._crit_edge.us ]
-  %.sroa.9.0.lcssa277 = phi i32 [ %spec.select, %.preheader160 ], [ %spec.select, %.preheader158.lr.ph ], [ 0, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select, %._crit_edge.us ]
+  %146 = phi i1 [ false, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ false, %.preheader160 ], [ true, %.preheader158.lr.ph ], [ true, %._crit_edge.us ]
+  %.sroa.0102.0.lcssa283 = phi ptr [ null, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.0102.1, %.preheader160 ], [ %.sroa.0102.1, %.preheader158.lr.ph ], [ %.sroa.0102.1, %._crit_edge.us ]
+  %.sroa.11.0.lcssa282 = phi i32 [ 0, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select154, %.preheader160 ], [ %spec.select154, %.preheader158.lr.ph ], [ %spec.select154, %._crit_edge.us ]
+  %.sroa.081.0.lcssa278 = phi ptr [ null, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.081.1, %.preheader160 ], [ %.sroa.081.1, %.preheader158.lr.ph ], [ %.sroa.081.1, %._crit_edge.us ]
+  %.sroa.9.0.lcssa277 = phi i32 [ 0, %_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select, %.preheader160 ], [ %spec.select, %.preheader158.lr.ph ], [ %spec.select, %._crit_edge.us ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %148 = load ptr, ptr %147, align 8, !tbaa !71
   %149 = getelementptr inbounds i8, ptr %148, i64 %6
@@ -6733,7 +6733,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco9IntOption5parseEPKc(ptr nounde
   br label %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit
 
 _ZN5GlucoL5matchIPKcEEbRT_S2_.exit:               ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
-  %.0 = phi i1 [ %22, %41 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i7 ]
+  %.0 = phi i1 [ %22, %41 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i7 ]
   ret i1 %.0
 }
 
@@ -6906,7 +6906,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco12DoubleOption5parseEPKc(ptr no
   br label %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit
 
 _ZN5GlucoL5matchIPKcEEbRT_S2_.exit:               ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+  %.0 = phi i1 [ %21, %50 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i15 ]
   ret i1 %.0
 }
 

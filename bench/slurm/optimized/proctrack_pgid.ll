@@ -314,7 +314,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_get_pids(i64 noundef %0, ptr 
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit39, %.outer._crit_edge.loopexit, %17
-  %.1.ph.lcssa = phi i32 [ 0, %17 ], [ %63, %.outer._crit_edge.loopexit ], [ %64, %.outer._crit_edge.loopexit39 ]
+  %.1.ph.lcssa = phi i32 [ %63, %.outer._crit_edge.loopexit ], [ 0, %17 ], [ %64, %.outer._crit_edge.loopexit39 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #10
   %65 = call i32 @closedir(ptr noundef nonnull %13)
   %.pre = load ptr, ptr %12, align 8

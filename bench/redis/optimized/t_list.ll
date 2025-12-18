@@ -3583,8 +3583,8 @@ sdslen.exit:                                      ; preds = %listTypeLength.exit
   br i1 %.not97, label %.critedge, label %.lr.ph118.split.split, !llvm.loop !107
 
 .critedge:                                        ; preds = %.lr.ph118.split.split, %183, %187, %.lr.ph118.split.split.us, %164, %168, %.lr.ph118.split.us, %147, %..critedge_crit_edge120.split.us, %sdslen.exit
-  %.176 = phi i64 [ -1, %168 ], [ %146, %..critedge_crit_edge120.split.us ], [ -1, %sdslen.exit ], [ -1, %.lr.ph118.split.us ], [ -1, %147 ], [ %159, %164 ], [ -1, %.lr.ph118.split.split.us ], [ -1, %.lr.ph118.split.split ], [ -1, %187 ], [ %.079115, %183 ]
-  %.1 = phi i64 [ %.2.us141, %168 ], [ 0, %..critedge_crit_edge120.split.us ], [ 0, %sdslen.exit ], [ 0, %.lr.ph118.split.us ], [ 0, %147 ], [ %162, %164 ], [ %.074117.us136, %.lr.ph118.split.split.us ], [ %.074117, %.lr.ph118.split.split ], [ %.2, %187 ], [ %181, %183 ]
+  %.176 = phi i64 [ -1, %.lr.ph118.split.us ], [ %146, %..critedge_crit_edge120.split.us ], [ -1, %168 ], [ -1, %sdslen.exit ], [ -1, %147 ], [ %159, %164 ], [ -1, %.lr.ph118.split.split.us ], [ -1, %.lr.ph118.split.split ], [ %.079115, %183 ], [ -1, %187 ]
+  %.1 = phi i64 [ 0, %.lr.ph118.split.us ], [ 0, %..critedge_crit_edge120.split.us ], [ %.2.us141, %168 ], [ 0, %sdslen.exit ], [ 0, %147 ], [ %162, %164 ], [ %.074117.us136, %.lr.ph118.split.split.us ], [ %.074117, %.lr.ph118.split.split ], [ %181, %183 ], [ %.2, %187 ]
   %190 = load i8, ptr %84, align 8, !tbaa !60
   %191 = icmp eq i8 %190, 9
   br i1 %191, label %192, label %listTypeReleaseIterator.exit

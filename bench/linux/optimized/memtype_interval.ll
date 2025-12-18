@@ -86,7 +86,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   br i1 %43, label %.thread, label %.preheader52.backedge
 
 .preheader52.backedge:                            ; preds = %40, %24
-  %.pn39.be = phi ptr [ %22, %24 ], [ %38, %40 ]
+  %.pn39.be = phi ptr [ %38, %40 ], [ %22, %24 ]
   br label %.preheader52, !llvm.loop !5
 
 44:                                               ; preds = %31
@@ -171,7 +171,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   br i1 %92, label %.thread, label %.preheader46.backedge
 
 .preheader46.backedge:                            ; preds = %89, %73
-  %.pn35.be = phi ptr [ %71, %73 ], [ %87, %89 ]
+  %.pn35.be = phi ptr [ %87, %89 ], [ %71, %73 ]
   br label %.preheader46, !llvm.loop !5
 
 .thread25:                                        ; preds = %.thread25.preheader, %98
@@ -273,7 +273,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   br i1 %152, label %.thread, label %.preheader40.backedge
 
 .preheader40.backedge:                            ; preds = %149, %133
-  %.pn37.be = phi ptr [ %131, %133 ], [ %147, %149 ]
+  %.pn37.be = phi ptr [ %147, %149 ], [ %131, %133 ]
   br label %.preheader40, !llvm.loop !5
 
 .thread28:                                        ; preds = %.thread28.preheader, %158
@@ -310,7 +310,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   br i1 %173, label %.thread, label %.preheader43, !llvm.loop !10
 
 .thread:                                          ; preds = %28, %40, %36, %104, %.thread25, %89, %85, %77, %.loopexit, %164, %149, %145, %137, %.thread28, %15, %11, %2, %.loopexit47, %44
-  %174 = phi i32 [ %7, %44 ], [ %58, %.loopexit47 ], [ %7, %2 ], [ %7, %11 ], [ %7, %15 ], [ %58, %104 ], [ %58, %.thread28 ], [ %58, %149 ], [ %58, %164 ], [ %58, %.loopexit ], [ %58, %89 ], [ %58, %.thread25 ], [ %58, %137 ], [ %58, %145 ], [ %58, %77 ], [ %58, %85 ], [ %7, %36 ], [ %7, %40 ], [ %7, %28 ]
+  %174 = phi i32 [ %7, %44 ], [ %58, %.loopexit47 ], [ %58, %104 ], [ %58, %164 ], [ %58, %.loopexit ], [ %7, %2 ], [ %7, %11 ], [ %7, %15 ], [ %58, %89 ], [ %58, %149 ], [ %58, %.thread28 ], [ %58, %.thread25 ], [ %58, %137 ], [ %58, %145 ], [ %58, %77 ], [ %58, %85 ], [ %7, %36 ], [ %7, %40 ], [ %7, %28 ]
   %175 = icmp eq ptr %1, null
   br i1 %175, label %.thread33, label %202
 
@@ -871,7 +871,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   br i1 %39, label %.thread, label %.preheader25.backedge
 
 .preheader25.backedge:                            ; preds = %36, %20
-  %.pn20.be = phi ptr [ %18, %20 ], [ %34, %36 ]
+  %.pn20.be = phi ptr [ %34, %36 ], [ %18, %20 ]
   br label %.preheader25, !llvm.loop !5
 
 40:                                               ; preds = %27
@@ -970,7 +970,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   br i1 %96, label %.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %93, %77
-  %.pn18.be = phi ptr [ %75, %77 ], [ %91, %93 ]
+  %.pn18.be = phi ptr [ %91, %93 ], [ %75, %77 ]
   br label %.preheader, !llvm.loop !5
 
 .thread15:                                        ; preds = %.thread15.preheader, %102
@@ -1007,7 +1007,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   br i1 %117, label %.thread, label %45, !llvm.loop !14
 
 .thread:                                          ; preds = %24, %36, %32, %.loopexit, %59, %52, %45, %108, %93, %89, %81, %.thread15, %11, %7, %3, %40
-  %118 = phi ptr [ null, %40 ], [ null, %3 ], [ null, %7 ], [ null, %11 ], [ %46, %59 ], [ null, %.thread15 ], [ null, %93 ], [ null, %108 ], [ null, %81 ], [ null, %89 ], [ %46, %52 ], [ null, %45 ], [ null, %.loopexit ], [ null, %32 ], [ null, %36 ], [ null, %24 ]
+  %118 = phi ptr [ null, %40 ], [ null, %108 ], [ null, %11 ], [ %46, %59 ], [ null, %.thread15 ], [ null, %7 ], [ null, %3 ], [ null, %93 ], [ null, %81 ], [ null, %89 ], [ %46, %52 ], [ null, %45 ], [ null, %.loopexit ], [ null, %32 ], [ null, %36 ], [ null, %24 ]
   ret ptr %118
 }
 
@@ -1070,7 +1070,7 @@ define dso_local noundef ptr @memtype_lookup(i64 noundef %0) local_unnamed_addr 
   br i1 %37, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %34, %18
-  %.pn5.be = phi ptr [ %16, %18 ], [ %32, %34 ]
+  %.pn5.be = phi ptr [ %32, %34 ], [ %16, %18 ]
   br label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %34, %30, %25, %22, %9, %5, %1

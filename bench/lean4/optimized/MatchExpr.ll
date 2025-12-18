@@ -26384,7 +26384,7 @@ lean_alloc_ctor.exit196:                          ; preds = %lean_dec.exit
   br label %.backedge
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit196, %lean_dec.exit118
-  %.096.be = phi ptr [ %.090, %lean_dec.exit118 ], [ %286, %lean_alloc_ctor.exit196 ]
+  %.096.be = phi ptr [ %286, %lean_alloc_ctor.exit196 ], [ %.090, %lean_dec.exit118 ]
   br label %5
 
 .thread.sink.split.sink.split:                    ; preds = %257, %lean_dec.exit120, %lean_dec.exit124

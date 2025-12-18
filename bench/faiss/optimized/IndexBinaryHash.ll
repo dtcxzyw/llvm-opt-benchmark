@@ -2411,7 +2411,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i.i.i: ; preds = %_ZN5fais
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i.i.i: ; preds = %173, %158, %168
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %169, %168 ], [ %.sroa.06.0.i.i.i.i.i.i, %158 ], [ %175, %173 ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %158 ], [ %169, %168 ], [ %175, %173 ]
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 24
   %182 = load ptr, ptr %181, align 8, !tbaa !105
@@ -2663,7 +2663,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i90.i.i: ; preds = %_ZN5fa
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i85.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i94.i.i: ; preds = %289, %274, %284
-  %.sroa.06.1.i.i.i.i95.i.i = phi ptr [ %285, %284 ], [ %.sroa.06.0.i.i.i.i102.i.i, %274 ], [ %291, %289 ]
+  %.sroa.06.1.i.i.i.i95.i.i = phi ptr [ %.sroa.06.0.i.i.i.i102.i.i, %274 ], [ %285, %284 ], [ %291, %289 ]
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i95.i.i, i64 16
   %297 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i95.i.i, i64 24
   %298 = load ptr, ptr %297, align 8, !tbaa !105
@@ -2918,7 +2918,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i121.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i116.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i125.i.i: ; preds = %407, %392, %402
-  %.sroa.06.1.i.i.i.i126.i.i = phi ptr [ %403, %402 ], [ %.sroa.06.0.i.i.i.i133.i.i, %392 ], [ %409, %407 ]
+  %.sroa.06.1.i.i.i.i126.i.i = phi ptr [ %.sroa.06.0.i.i.i.i133.i.i, %392 ], [ %403, %402 ], [ %409, %407 ]
   %414 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i126.i.i, i64 16
   %415 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i126.i.i, i64 24
   %416 = load ptr, ptr %415, align 8, !tbaa !105
@@ -3181,7 +3181,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i153.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i148.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i158.i.i: ; preds = %535, %520, %530
-  %.sroa.06.1.i.i.i.i159.i.i = phi ptr [ %531, %530 ], [ %.sroa.06.0.i.i.i.i166.i.i, %520 ], [ %537, %535 ]
+  %.sroa.06.1.i.i.i.i159.i.i = phi ptr [ %.sroa.06.0.i.i.i.i166.i.i, %520 ], [ %531, %530 ], [ %537, %535 ]
   %542 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i159.i.i, i64 16
   %543 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i159.i.i, i64 24
   %544 = load ptr, ptr %543, align 8, !tbaa !105
@@ -3451,7 +3451,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i186.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i181.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i191.i.i: ; preds = %670, %655, %665
-  %.sroa.06.1.i.i.i.i192.i.i = phi ptr [ %666, %665 ], [ %.sroa.06.0.i.i.i.i201.i.i, %655 ], [ %672, %670 ]
+  %.sroa.06.1.i.i.i.i192.i.i = phi ptr [ %.sroa.06.0.i.i.i.i201.i.i, %655 ], [ %666, %665 ], [ %672, %670 ]
   %677 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i192.i.i, i64 16
   %678 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i192.i.i, i64 24
   %679 = load ptr, ptr %678, align 8, !tbaa !105
@@ -3736,7 +3736,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i221.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i216.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i226.i.i: ; preds = %820, %805, %815
-  %.sroa.06.1.i.i.i.i227.i.i = phi ptr [ %816, %815 ], [ %.sroa.06.0.i.i.i.i236.i.i, %805 ], [ %822, %820 ]
+  %.sroa.06.1.i.i.i.i227.i.i = phi ptr [ %.sroa.06.0.i.i.i.i236.i.i, %805 ], [ %816, %815 ], [ %822, %820 ]
   %827 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i227.i.i, i64 16
   %828 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i227.i.i, i64 24
   %829 = load ptr, ptr %828, align 8, !tbaa !105
@@ -4037,7 +4037,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i256.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i251.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i261.i.i: ; preds = %982, %967, %977
-  %.sroa.06.1.i.i.i.i262.i.i = phi ptr [ %978, %977 ], [ %.sroa.06.0.i.i.i.i269.i.i, %967 ], [ %984, %982 ]
+  %.sroa.06.1.i.i.i.i262.i.i = phi ptr [ %.sroa.06.0.i.i.i.i269.i.i, %967 ], [ %978, %977 ], [ %984, %982 ]
   %989 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i262.i.i, i64 16
   %990 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i262.i.i, i64 24
   %991 = load ptr, ptr %990, align 8, !tbaa !105
@@ -5389,7 +5389,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i.i.i: ; preds = %_ZN5fais
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i.i.i: ; preds = %182, %168, %177
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %178, %177 ], [ %.sroa.06.0.i.i.i.i.i.i, %168 ], [ %184, %182 ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %168 ], [ %178, %177 ], [ %184, %182 ]
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 24
   %191 = load ptr, ptr %190, align 8, !tbaa !105
@@ -5710,7 +5710,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i59.i.i: ; preds = %_ZN5fa
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i54.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i63.i.i: ; preds = %336, %322, %331
-  %.sroa.06.1.i.i.i.i64.i.i = phi ptr [ %332, %331 ], [ %.sroa.06.0.i.i.i.i83.i.i, %322 ], [ %338, %336 ]
+  %.sroa.06.1.i.i.i.i64.i.i = phi ptr [ %.sroa.06.0.i.i.i.i83.i.i, %322 ], [ %332, %331 ], [ %338, %336 ]
   %343 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i64.i.i, i64 16
   %344 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i64.i.i, i64 24
   %345 = load ptr, ptr %344, align 8, !tbaa !105
@@ -6034,7 +6034,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i103.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i98.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i108.i.i: ; preds = %492, %478, %487
-  %.sroa.06.1.i.i.i.i109.i.i = phi ptr [ %488, %487 ], [ %.sroa.06.0.i.i.i.i128.i.i, %478 ], [ %494, %492 ]
+  %.sroa.06.1.i.i.i.i109.i.i = phi ptr [ %.sroa.06.0.i.i.i.i128.i.i, %478 ], [ %488, %487 ], [ %494, %492 ]
   %499 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i109.i.i, i64 16
   %500 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i109.i.i, i64 24
   %501 = load ptr, ptr %500, align 8, !tbaa !105
@@ -6366,7 +6366,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i148.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i143.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i153.i.i: ; preds = %658, %644, %653
-  %.sroa.06.1.i.i.i.i154.i.i = phi ptr [ %654, %653 ], [ %.sroa.06.0.i.i.i.i173.i.i, %644 ], [ %660, %658 ]
+  %.sroa.06.1.i.i.i.i154.i.i = phi ptr [ %.sroa.06.0.i.i.i.i173.i.i, %644 ], [ %654, %653 ], [ %660, %658 ]
   %665 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i154.i.i, i64 16
   %666 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i154.i.i, i64 24
   %667 = load ptr, ptr %666, align 8, !tbaa !105
@@ -6705,7 +6705,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i193.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i188.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i198.i.i: ; preds = %831, %817, %826
-  %.sroa.06.1.i.i.i.i199.i.i = phi ptr [ %827, %826 ], [ %.sroa.06.0.i.i.i.i220.i.i, %817 ], [ %833, %831 ]
+  %.sroa.06.1.i.i.i.i199.i.i = phi ptr [ %.sroa.06.0.i.i.i.i220.i.i, %817 ], [ %827, %826 ], [ %833, %831 ]
   %838 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i199.i.i, i64 16
   %839 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i199.i.i, i64 24
   %840 = load ptr, ptr %839, align 8, !tbaa !105
@@ -7059,7 +7059,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i240.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i235.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i245.i.i: ; preds = %1019, %1005, %1014
-  %.sroa.06.1.i.i.i.i246.i.i = phi ptr [ %1015, %1014 ], [ %.sroa.06.0.i.i.i.i265.i.i, %1005 ], [ %1021, %1019 ]
+  %.sroa.06.1.i.i.i.i246.i.i = phi ptr [ %.sroa.06.0.i.i.i.i265.i.i, %1005 ], [ %1015, %1014 ], [ %1021, %1019 ]
   %1026 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i246.i.i, i64 16
   %1027 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i246.i.i, i64 24
   %1028 = load ptr, ptr %1027, align 8, !tbaa !105
@@ -7430,7 +7430,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i285.i.i: ; preds = %_ZN5f
   br label %_ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.thread.i.i280.i.i, !llvm.loop !30
 
 _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i.i290.i.i: ; preds = %1220, %1205, %1215
-  %.sroa.06.1.i.i.i.i291.i.i = phi ptr [ %1216, %1215 ], [ %.sroa.06.0.i.i.i.i310.i.i, %1205 ], [ %1222, %1220 ]
+  %.sroa.06.1.i.i.i.i291.i.i = phi ptr [ %.sroa.06.0.i.i.i.i310.i.i, %1205 ], [ %1216, %1215 ], [ %1222, %1220 ]
   %1227 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i291.i.i, i64 16
   %1228 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i291.i.i, i64 24
   %1229 = load ptr, ptr %1228, align 8, !tbaa !105
@@ -8787,7 +8787,7 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17
           to label %304 unwind label %629
 
 .lr.ph95.i:                                       ; preds = %104, %299
-  %.pre.i127 = phi i64 [ %.pre.i, %299 ], [ 0, %104 ]
+  %.pre.i125 = phi i64 [ %.pre.i, %299 ], [ 0, %104 ]
   %121 = phi ptr [ %267, %299 ], [ %48, %104 ]
   %122 = phi i64 [ %268, %299 ], [ 0, %104 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %299 ], [ 0, %104 ]
@@ -8810,7 +8810,7 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer
 
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %274, %.lr.ph95.i
-  %.pre.i126.ph = phi i64 [ %.pre.i, %274 ], [ %.pre.i127, %.lr.ph95.i ]
+  %.pre.i124.ph = phi i64 [ %.pre.i, %274 ], [ %.pre.i125, %.lr.ph95.i ]
   %.ph = phi ptr [ %267, %274 ], [ %121, %.lr.ph95.i ]
   %.ph218 = phi i64 [ %268, %274 ], [ %122, %.lr.ph95.i ]
   %.sroa.5.0.i.ph = phi i32 [ %275, %274 ], [ 0, %.lr.ph95.i ]
@@ -8819,7 +8819,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %274, %.l
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i
 
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, %295
-  %.pre.i126 = phi i64 [ %.pre.i, %295 ], [ %.pre.i126.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
+  %.pre.i124 = phi i64 [ %.pre.i, %295 ], [ %.pre.i124.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %138 = phi ptr [ %267, %295 ], [ %.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %139 = phi i64 [ %268, %295 ], [ %.ph218, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %.sroa.13.1.i = phi i64 [ %298, %295 ], [ %.sroa.13.1.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
@@ -8877,7 +8877,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GL
   br label %._crit_edge.i, !llvm.loop !91
 
 _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i: ; preds = %157, %142, %152
-  %.sroa.06.1.i.i.i = phi ptr [ %153, %152 ], [ %.sroa.06.0.i.i.i, %142 ], [ %159, %157 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %142 ], [ %153, %152 ], [ %159, %157 ]
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %165 = load ptr, ptr %164, align 8, !tbaa !54
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
@@ -8886,7 +8886,7 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
   br i1 %.not90.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i, %.loopexit.i
-  %.pre.i124 = phi i64 [ %.pre.i123, %.loopexit.i ], [ %.pre.i126, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
+  %.pre.i123 = phi i64 [ %.pre.i127, %.loopexit.i ], [ %.pre.i124, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %168 = phi ptr [ %262, %.loopexit.i ], [ %138, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %169 = phi i64 [ %263, %.loopexit.i ], [ %139, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %.sroa.066.091.i = phi ptr [ %264, %.loopexit.i ], [ %165, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
@@ -9157,9 +9157,9 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %.body60.i
 
 .loopexit.i:                                      ; preds = %187, %175, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit, %182
-  %.pre.i123 = phi i64 [ %.pre.i124, %182 ], [ %260, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %.pre.i124, %175 ], [ %.pre.i124, %187 ]
-  %262 = phi ptr [ %168, %182 ], [ %244, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %168, %175 ], [ %168, %187 ]
-  %263 = phi i64 [ %169, %182 ], [ %260, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ 0, %175 ], [ %169, %187 ]
+  %.pre.i127 = phi i64 [ %.pre.i123, %175 ], [ %.pre.i123, %182 ], [ %260, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %.pre.i123, %187 ]
+  %262 = phi ptr [ %168, %175 ], [ %168, %182 ], [ %244, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %168, %187 ]
+  %263 = phi i64 [ 0, %175 ], [ %169, %182 ], [ %260, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %169, %187 ]
   %264 = getelementptr inbounds nuw i8, ptr %.sroa.066.091.i, i64 8
   %.not.i = icmp eq ptr %264, %167
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -9170,10 +9170,10 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %.body60.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %.preheader98.i, %.loopexit.i, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i, %..loopexit_crit_edge21.i.i.i.i.i, %146
-  %.pre.i = phi i64 [ %.pre.i126, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %.pre.i126, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre.i126, %146 ], [ %.pre.i126, %.preheader98.i ], [ %.pre.i123, %.loopexit.i ], [ %.pre.i126, %.lr.ph.i.i.i.i.i ]
-  %267 = phi ptr [ %138, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ %138, %146 ], [ %138, %.preheader98.i ], [ %262, %.loopexit.i ], [ %138, %.lr.ph.i.i.i.i.i ]
-  %268 = phi i64 [ %139, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %139, %..loopexit_crit_edge21.i.i.i.i.i ], [ %139, %146 ], [ %139, %.preheader98.i ], [ %263, %.loopexit.i ], [ %139, %.lr.ph.i.i.i.i.i ]
-  %.sink.i = phi ptr [ %31, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %30, %..loopexit_crit_edge21.i.i.i.i.i ], [ %30, %146 ], [ %30, %.preheader98.i ], [ %31, %.loopexit.i ], [ %30, %.lr.ph.i.i.i.i.i ]
+  %.pre.i = phi i64 [ %.pre.i124, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %.pre.i124, %146 ], [ %.pre.i127, %.loopexit.i ], [ %.pre.i124, %.preheader98.i ], [ %.pre.i124, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre.i124, %.lr.ph.i.i.i.i.i ]
+  %267 = phi ptr [ %138, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %138, %146 ], [ %262, %.loopexit.i ], [ %138, %.preheader98.i ], [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ %138, %.lr.ph.i.i.i.i.i ]
+  %268 = phi i64 [ %139, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %139, %146 ], [ %263, %.loopexit.i ], [ %139, %.preheader98.i ], [ %139, %..loopexit_crit_edge21.i.i.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i ]
+  %.sink.i = phi ptr [ %31, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %30, %146 ], [ %31, %.loopexit.i ], [ %30, %.preheader98.i ], [ %30, %..loopexit_crit_edge21.i.i.i.i.i ], [ %30, %.lr.ph.i.i.i.i.i ]
   %269 = load i64, ptr %.sink.i, align 8, !tbaa !24
   %270 = add i64 %269, 1
   store i64 %270, ptr %.sink.i, align 8, !tbaa !24
@@ -10588,7 +10588,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
           to label %310 unwind label %949
 
 .lr.ph96.i:                                       ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, %305
-  %.pre.i110 = phi i64 [ %.pre.i, %305 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
+  %.pre.i108 = phi i64 [ %.pre.i, %305 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
   %127 = phi ptr [ %273, %305 ], [ %47, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
   %128 = phi i64 [ %274, %305 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %305 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
@@ -10611,7 +10611,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer
 
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %280, %.lr.ph96.i
-  %.pre.i109.ph = phi i64 [ %.pre.i, %280 ], [ %.pre.i110, %.lr.ph96.i ]
+  %.pre.i107.ph = phi i64 [ %.pre.i, %280 ], [ %.pre.i108, %.lr.ph96.i ]
   %.ph = phi ptr [ %273, %280 ], [ %127, %.lr.ph96.i ]
   %.ph273 = phi i64 [ %274, %280 ], [ %128, %.lr.ph96.i ]
   %.sroa.5.0.i.ph = phi i32 [ %281, %280 ], [ 0, %.lr.ph96.i ]
@@ -10620,7 +10620,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %280, %.l
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i
 
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, %301
-  %.pre.i109 = phi i64 [ %.pre.i, %301 ], [ %.pre.i109.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
+  %.pre.i107 = phi i64 [ %.pre.i, %301 ], [ %.pre.i107.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %144 = phi ptr [ %273, %301 ], [ %.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %145 = phi i64 [ %274, %301 ], [ %.ph273, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %.sroa.13.1.i = phi i64 [ %304, %301 ], [ %.sroa.13.1.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
@@ -10678,7 +10678,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GL
   br label %._crit_edge.i, !llvm.loop !91
 
 _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i: ; preds = %163, %148, %158
-  %.sroa.06.1.i.i.i = phi ptr [ %159, %158 ], [ %.sroa.06.0.i.i.i, %148 ], [ %165, %163 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %148 ], [ %159, %158 ], [ %165, %163 ]
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %171 = load ptr, ptr %170, align 8, !tbaa !54
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
@@ -10687,7 +10687,7 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
   br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i, %.loopexit.i
-  %.pre.i107 = phi i64 [ %.pre.i106, %.loopexit.i ], [ %.pre.i109, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
+  %.pre.i106 = phi i64 [ %.pre.i110, %.loopexit.i ], [ %.pre.i107, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %174 = phi ptr [ %268, %.loopexit.i ], [ %144, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %175 = phi i64 [ %269, %.loopexit.i ], [ %145, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %.sroa.061.092.i = phi ptr [ %270, %.loopexit.i ], [ %171, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
@@ -10958,9 +10958,9 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %.body.i
 
 .loopexit.i:                                      ; preds = %193, %181, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit, %188
-  %.pre.i106 = phi i64 [ %.pre.i107, %188 ], [ %266, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %.pre.i107, %181 ], [ %.pre.i107, %193 ]
-  %268 = phi ptr [ %174, %188 ], [ %250, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %174, %181 ], [ %174, %193 ]
-  %269 = phi i64 [ %175, %188 ], [ %266, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ 0, %181 ], [ %175, %193 ]
+  %.pre.i110 = phi i64 [ %.pre.i106, %181 ], [ %.pre.i106, %188 ], [ %266, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %.pre.i106, %193 ]
+  %268 = phi ptr [ %174, %181 ], [ %174, %188 ], [ %250, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %174, %193 ]
+  %269 = phi i64 [ 0, %181 ], [ %175, %188 ], [ %266, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm.exit ], [ %175, %193 ]
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.061.092.i, i64 8
   %.not.i = icmp eq ptr %270, %173
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -10971,10 +10971,10 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %.body.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %.preheader102.i, %.loopexit.i, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i, %..loopexit_crit_edge21.i.i.i.i.i, %152
-  %.pre.i = phi i64 [ %.pre.i109, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %.pre.i109, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre.i109, %152 ], [ %.pre.i109, %.preheader102.i ], [ %.pre.i106, %.loopexit.i ], [ %.pre.i109, %.lr.ph.i.i.i.i.i ]
-  %273 = phi ptr [ %144, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %144, %..loopexit_crit_edge21.i.i.i.i.i ], [ %144, %152 ], [ %144, %.preheader102.i ], [ %268, %.loopexit.i ], [ %144, %.lr.ph.i.i.i.i.i ]
-  %274 = phi i64 [ %145, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %145, %..loopexit_crit_edge21.i.i.i.i.i ], [ %145, %152 ], [ %145, %.preheader102.i ], [ %269, %.loopexit.i ], [ %145, %.lr.ph.i.i.i.i.i ]
-  %.sink.i = phi ptr [ %34, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %36, %..loopexit_crit_edge21.i.i.i.i.i ], [ %36, %152 ], [ %36, %.preheader102.i ], [ %34, %.loopexit.i ], [ %36, %.lr.ph.i.i.i.i.i ]
+  %.pre.i = phi i64 [ %.pre.i107, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %.pre.i107, %152 ], [ %.pre.i110, %.loopexit.i ], [ %.pre.i107, %.preheader102.i ], [ %.pre.i107, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre.i107, %.lr.ph.i.i.i.i.i ]
+  %273 = phi ptr [ %144, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %144, %152 ], [ %268, %.loopexit.i ], [ %144, %.preheader102.i ], [ %144, %..loopexit_crit_edge21.i.i.i.i.i ], [ %144, %.lr.ph.i.i.i.i.i ]
+  %274 = phi i64 [ %145, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %145, %152 ], [ %269, %.loopexit.i ], [ %145, %.preheader102.i ], [ %145, %..loopexit_crit_edge21.i.i.i.i.i ], [ %145, %.lr.ph.i.i.i.i.i ]
+  %.sink.i = phi ptr [ %34, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ], [ %36, %152 ], [ %34, %.loopexit.i ], [ %36, %.preheader102.i ], [ %36, %..loopexit_crit_edge21.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i ]
   %275 = load i64, ptr %.sink.i, align 8, !tbaa !24
   %276 = add i64 %275, 1
   store i64 %276, ptr %.sink.i, align 8, !tbaa !24

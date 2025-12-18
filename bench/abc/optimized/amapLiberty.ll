@@ -640,7 +640,7 @@ Amap_LibertyItem.exit14:                          ; preds = %Amap_LibertyPinFunc
   br i1 %.not, label %Amap_LibertyPinFunction.exit, label %12, !llvm.loop !26
 
 Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyPinFunction.exit.thread, %Amap_LibertyItem.exit14, %.lr.ph.i, %2, %Amap_LibertyItem.exit
-  %.019 = phi ptr [ null, %Amap_LibertyItem.exit ], [ null, %2 ], [ %.021, %.lr.ph.i ], [ null, %Amap_LibertyItem.exit14 ], [ null, %Amap_LibertyPinFunction.exit.thread ]
+  %.019 = phi ptr [ %.021, %.lr.ph.i ], [ null, %Amap_LibertyItem.exit ], [ null, %2 ], [ null, %Amap_LibertyItem.exit14 ], [ null, %Amap_LibertyPinFunction.exit.thread ]
   ret ptr %.019
 }
 
@@ -3315,7 +3315,7 @@ define void @Amap_LibertyWipeOutComments(ptr noundef captures(address) %0, ptr n
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %25, %23, %.preheader, %.lr.ph26, %7
-  %.2 = phi ptr [ %.01725, %7 ], [ %.01725, %.lr.ph26 ], [ %.122, %.preheader ], [ %.122, %23 ], [ %scevgep30, %25 ]
+  %.2 = phi ptr [ %.01725, %.lr.ph26 ], [ %.122, %.preheader ], [ %.01725, %7 ], [ %.122, %23 ], [ %scevgep30, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %28 = icmp ult ptr %27, %1
   br i1 %28, label %.lr.ph26, label %._crit_edge, !llvm.loop !53
@@ -3430,7 +3430,7 @@ Amap_LibertySkipSpaces.exit:                      ; preds = %14, %Amap_LibertyCh
   br i1 %exitcond.not.i, label %Amap_LibertySkipEntry.exit, label %.lr.ph.i168, !llvm.loop !58
 
 Amap_LibertySkipEntry.exit:                       ; preds = %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %36, %.preheader.i, %.preheader26.i, %33
-  %.1.i = phi ptr [ %34, %33 ], [ %.0.lcssa.i, %.preheader26.i ], [ %.0.i, %.preheader.i ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %scevgep.i, %36 ]
+  %.1.i = phi ptr [ %34, %33 ], [ %.0.i, %.preheader.i ], [ %.0.lcssa.i, %.preheader26.i ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %scevgep.i, %36 ], [ %.230.i, %.lr.ph.i168 ]
   store ptr %.1.i, ptr %1, align 8, !tbaa !54
   %.not179 = icmp eq ptr %.1.i, %2
   br i1 %.not179, label %198, label %38
@@ -3898,7 +3898,7 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr noundef ca
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.preheader, %.preheader26, %14
-  %.1 = phi ptr [ %15, %14 ], [ %4, %.preheader26 ], [ %.0, %.preheader ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
+  %.1 = phi ptr [ %15, %14 ], [ %.0, %.preheader ], [ %4, %.preheader26 ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
   store ptr %.1, ptr %0, align 8, !tbaa !54
   %19 = icmp eq ptr %.1, %1
   %20 = zext i1 %19 to i32
@@ -4316,7 +4316,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %43, %41, %.preheader.i, %25, %.lr.ph26.i
-  %.2.i = phi ptr [ %.01725.i, %25 ], [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
+  %.2.i = phi ptr [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.01725.i, %25 ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
   %45 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %46 = icmp ult ptr %45, %20
   br i1 %46, label %.lr.ph26.i, label %Amap_LibertyWipeOutComments.exit.loopexit, !llvm.loop !53
@@ -4597,7 +4597,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %43, %41, %.preheader.i, %25, %.lr.ph26.i
-  %.2.i = phi ptr [ %.01725.i, %25 ], [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
+  %.2.i = phi ptr [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.01725.i, %25 ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
   %45 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %46 = icmp ult ptr %45, %20
   br i1 %46, label %.lr.ph26.i, label %Amap_LibertyWipeOutComments.exit.loopexit, !llvm.loop !53

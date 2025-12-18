@@ -2618,8 +2618,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   br i1 %76, label %131, label %.invoke
 
 77:                                               ; preds = %67, %63
-  %78 = phi i8 [ %65, %63 ], [ %.pre.i, %67 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.4.1.i.i.i, %63 ], [ %73, %67 ]
+  %78 = phi i8 [ %.pre.i, %67 ], [ %65, %63 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %73, %67 ], [ %.sroa.4.1.i.i.i, %63 ]
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %80 = load i64, ptr %79, align 8, !alias.scope !492, !noalias !495, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
@@ -2968,8 +2968,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   br i1 %76, label %131, label %.invoke
 
 77:                                               ; preds = %67, %63
-  %78 = phi i8 [ %65, %63 ], [ %.pre.i, %67 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.4.1.i.i.i, %63 ], [ %73, %67 ]
+  %78 = phi i8 [ %.pre.i, %67 ], [ %65, %63 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %73, %67 ], [ %.sroa.4.1.i.i.i, %63 ]
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %80 = load i64, ptr %79, align 8, !alias.scope !579, !noalias !582, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)

@@ -343,7 +343,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.thread.i
 
 .split86.us.i:                                    ; preds = %.lr.ph123.i, %.lr.ph108.preheader.i, %.lr.ph123.i.preheader, %.lr.ph108.preheader.i.preheader
-  %.us-phi87.i = phi i64 [ %83, %.lr.ph108.preheader.i.preheader ], [ %70, %.lr.ph123.i.preheader ], [ %103, %.lr.ph108.preheader.i ], [ %80, %.lr.ph123.i ]
+  %.us-phi87.i = phi i64 [ %103, %.lr.ph108.preheader.i ], [ %83, %.lr.ph108.preheader.i.preheader ], [ %70, %.lr.ph123.i.preheader ], [ %80, %.lr.ph123.i ]
   %109 = and i64 %.us-phi87.i, 2147483647
   %110 = getelementptr inbounds nuw i8, ptr %.045.ph127.i, i64 %109
   %111 = sub i64 %.046.ph125.i, %109
@@ -496,7 +496,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.thread.i
 
 .split136.us.i:                                   ; preds = %.lr.ph174.i, %.lr.ph159.preheader.i, %.lr.ph174.i.preheader, %.lr.ph159.preheader.i.preheader
-  %.us-phi137.i = phi i64 [ %144, %.lr.ph159.preheader.i.preheader ], [ %131, %.lr.ph174.i.preheader ], [ %164, %.lr.ph159.preheader.i ], [ %141, %.lr.ph174.i ]
+  %.us-phi137.i = phi i64 [ %164, %.lr.ph159.preheader.i ], [ %144, %.lr.ph159.preheader.i.preheader ], [ %131, %.lr.ph174.i.preheader ], [ %141, %.lr.ph174.i ]
   %170 = and i64 %.us-phi137.i, 2147483647
   %171 = getelementptr inbounds nuw i8, ptr %.042.ph179.i, i64 %170
   %172 = sub i64 %.043.ph177.i, %170

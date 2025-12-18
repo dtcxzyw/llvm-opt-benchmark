@@ -23049,8 +23049,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hffee25d8e27ab4caE.exit13.i.i
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b1b5b424edbeb3cE.exit"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b1b5b424edbeb3cE.exit": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i", %38, %44, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffee25d8e27ab4caE.exit13.i.i
-  %.sroa.3.0.i2.pn.i.i = phi double [ %.sroa.3.0.i2.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffee25d8e27ab4caE.exit13.i.i ], [ %39, %38 ], [ %45, %44 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.i3.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffee25d8e27ab4caE.exit13.i.i ], [ 1, %38 ], [ 1, %44 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
+  %.sroa.3.0.i2.pn.i.i = phi double [ %.sroa.3.0.i2.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffee25d8e27ab4caE.exit13.i.i ], [ %45, %44 ], [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.i3.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffee25d8e27ab4caE.exit13.i.i ], [ 1, %44 ], [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %98 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i.i, 0
   %99 = insertvalue { i64, double } %98, double %.sroa.3.0.i2.pn.i.i, 1
   ret { i64, double } %99

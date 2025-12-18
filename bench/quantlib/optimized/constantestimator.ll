@@ -93,7 +93,7 @@ while.body3.i.i:                                  ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i, label %invoke.cont5, label %while.body3.i.i, !llvm.loop !20
 
 invoke.cont5:                                     ; preds = %while.body3.i.i, %while.body.i.i, %while.cond1.preheader.i.i
-  %cur.sroa.0.1 = phi ptr [ %1, %while.cond1.preheader.i.i ], [ %call.i.i.i, %while.body.i.i ], [ %call.i4.i.i, %while.body3.i.i ]
+  %cur.sroa.0.1 = phi ptr [ %call.i.i.i, %while.body.i.i ], [ %1, %while.cond1.preheader.i.i ], [ %call.i4.i.i, %while.body3.i.i ]
   %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %volatilitySeries, i64 40
   %3 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !14
   %cmp31 = icmp ult i64 %2, %3

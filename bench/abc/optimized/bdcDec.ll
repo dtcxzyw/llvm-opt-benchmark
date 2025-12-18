@@ -1240,8 +1240,8 @@ select.unfold.i155:                               ; preds = %Kit_TruthIsDisjoint
   br i1 %204, label %select.unfold.i155, label %Kit_TruthCopy.exit, !llvm.loop !32
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i143, %187, %select.unfold.i155, %select.unfold.i121, %140, %select.unfold.i131, %Kit_TruthIsDisjoint3.exit152, %Kit_TruthIsDisjoint3.exit140, %Kit_TruthIsDisjoint3.exit128, %Kit_TruthIsDisjoint3.exit, %93
-  %.1104 = phi i32 [ %.0103197, %93 ], [ %128, %Kit_TruthIsDisjoint3.exit ], [ %.0103197, %Kit_TruthIsDisjoint3.exit128 ], [ %.0103197, %Kit_TruthIsDisjoint3.exit140 ], [ %199, %Kit_TruthIsDisjoint3.exit152 ], [ %.0103197, %187 ], [ %.0103197, %select.unfold.i131 ], [ %.0103197, %140 ], [ %128, %select.unfold.i121 ], [ %199, %select.unfold.i155 ], [ %.0103197, %select.unfold.i143 ]
-  %.1 = phi i32 [ %.0198, %93 ], [ %.0198, %Kit_TruthIsDisjoint3.exit ], [ %152, %Kit_TruthIsDisjoint3.exit128 ], [ %175, %Kit_TruthIsDisjoint3.exit140 ], [ %.0198, %Kit_TruthIsDisjoint3.exit152 ], [ %.0198, %187 ], [ %152, %select.unfold.i131 ], [ %.0198, %140 ], [ %.0198, %select.unfold.i121 ], [ %.0198, %select.unfold.i155 ], [ %175, %select.unfold.i143 ]
+  %.1104 = phi i32 [ %.0103197, %93 ], [ %.0103197, %140 ], [ %128, %select.unfold.i121 ], [ %199, %select.unfold.i155 ], [ %.0103197, %187 ], [ %.0103197, %select.unfold.i131 ], [ %128, %Kit_TruthIsDisjoint3.exit ], [ %.0103197, %Kit_TruthIsDisjoint3.exit128 ], [ %.0103197, %Kit_TruthIsDisjoint3.exit140 ], [ %199, %Kit_TruthIsDisjoint3.exit152 ], [ %.0103197, %select.unfold.i143 ]
+  %.1 = phi i32 [ %.0198, %93 ], [ %.0198, %140 ], [ %.0198, %select.unfold.i121 ], [ %.0198, %select.unfold.i155 ], [ %.0198, %187 ], [ %152, %select.unfold.i131 ], [ %.0198, %Kit_TruthIsDisjoint3.exit ], [ %152, %Kit_TruthIsDisjoint3.exit128 ], [ %175, %Kit_TruthIsDisjoint3.exit140 ], [ %.0198, %Kit_TruthIsDisjoint3.exit152 ], [ %175, %select.unfold.i143 ]
   %205 = add nuw nsw i32 %.0105196, 1
   %206 = load i32, ptr %74, align 8, !tbaa !24
   %207 = icmp slt i32 %205, %206

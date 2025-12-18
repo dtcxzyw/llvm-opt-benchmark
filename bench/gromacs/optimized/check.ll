@@ -2073,7 +2073,7 @@ _ZNSt10unique_ptrI10t_inputrecSt14default_deleteIS0_EED2Ev.exit55.i: ; preds = %
   br i1 %796, label %.loopexit57.i, label %793
 
 .loopexit57.i:                                    ; preds = %.preheader.i, %793, %730
-  %.pn47.pn.pn.i = phi { ptr, i32 } [ %731, %730 ], [ %.pn47.pn.i, %793 ], [ %731, %.preheader.i ]
+  %.pn47.pn.pn.i = phi { ptr, i32 } [ %.pn47.pn.i, %793 ], [ %731, %730 ], [ %731, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %797
 
@@ -2085,7 +2085,7 @@ _ZNSt10unique_ptrI10t_inputrecSt14default_deleteIS0_EED2Ev.exit55.i: ; preds = %
   br i1 %800, label %.loopexit.i27, label %797
 
 .loopexit.i27:                                    ; preds = %.preheader59.i, %797, %724
-  %.pn47.pn.pn.pn.i = phi { ptr, i32 } [ %725, %724 ], [ %.pn47.pn.pn.i, %797 ], [ %725, %.preheader59.i ]
+  %.pn47.pn.pn.pn.i = phi { ptr, i32 } [ %.pn47.pn.pn.i, %797 ], [ %725, %724 ], [ %725, %.preheader59.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %801
 

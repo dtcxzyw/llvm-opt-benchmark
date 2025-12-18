@@ -2180,7 +2180,7 @@ define noundef zeroext i1 @_ZNK6marisa8grimoire4trie9LoudsTrie6lookupERNS_5Agent
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %16, %27
-  %.0 = phi i1 [ true, %27 ], [ false, %16 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %16 ], [ true, %27 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -9329,15 +9329,15 @@ _ZSt11stable_sortIPN6marisa8grimoire4trie13WeightedRangeESt7greaterIS3_EEvT_S7_T
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %565, %501, %.noexc.i.i, %.noexc3.i.i
-  %.sroa.0282.6.ph = phi ptr [ %.sroa.0282.5473, %.invoke ], [ %.sroa.0282.7, %.noexc3.i.i ], [ %.sroa.0282.7, %.noexc.i.i ], [ %.sroa.0282.7, %565 ], [ %.sroa.0282.7, %501 ]
+  %.sroa.0282.6.ph = phi ptr [ %.sroa.0282.7, %.noexc3.i.i ], [ %.sroa.0282.7, %.noexc.i.i ], [ %.sroa.0282.5473, %.invoke ], [ %.sroa.0282.7, %565 ], [ %.sroa.0282.7, %501 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9bad_alloc
   br label %.body
 
 .thread:                                          ; preds = %.loopexit, %271, %252
-  %.082.in338 = phi i64 [ %256, %252 ], [ %.082.in464, %271 ], [ %268, %.loopexit ]
-  %.082336 = phi i64 [ %.082463, %252 ], [ %.082465, %271 ], [ %263, %.loopexit ]
+  %.082.in338 = phi i64 [ %.082.in464, %271 ], [ %256, %252 ], [ %268, %.loopexit ]
+  %.082336 = phi i64 [ %.082465, %271 ], [ %.082463, %252 ], [ %263, %.loopexit ]
   %280 = getelementptr inbounds nuw i8, ptr %253, i64 12
   %281 = load float, ptr %280, align 4, !tbaa !237
   %282 = load ptr, ptr %260, align 8, !tbaa !55
@@ -14230,8 +14230,8 @@ _ZSt11stable_sortIPN6marisa8grimoire4trie13WeightedRangeESt7greaterIS3_EEvT_S7_T
   br i1 %.not, label %270, label %.thread, !llvm.loop !290
 
 .thread:                                          ; preds = %.loopexit, %272, %252
-  %.082.in336 = phi i64 [ %256, %252 ], [ %.082.in462, %272 ], [ %268, %.loopexit ]
-  %.082334 = phi i64 [ %.082461, %252 ], [ %.082463, %272 ], [ %263, %.loopexit ]
+  %.082.in336 = phi i64 [ %.082.in462, %272 ], [ %256, %252 ], [ %268, %.loopexit ]
+  %.082334 = phi i64 [ %.082463, %272 ], [ %.082461, %252 ], [ %263, %.loopexit ]
   %283 = load i64, ptr %34, align 8, !tbaa !73
   %284 = getelementptr inbounds nuw i8, ptr %253, i64 12
   %285 = load float, ptr %284, align 4, !tbaa !237
@@ -14428,7 +14428,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %337, %_ZN6mari
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %567, %503, %.noexc.i.i, %.noexc3.i.i
-  %.sroa.0282.6.ph = phi ptr [ %.sroa.0282.5470, %.invoke ], [ %.sroa.0282.7, %.noexc3.i.i ], [ %.sroa.0282.7, %.noexc.i.i ], [ %.sroa.0282.7, %567 ], [ %.sroa.0282.7, %503 ]
+  %.sroa.0282.6.ph = phi ptr [ %.sroa.0282.7, %.noexc3.i.i ], [ %.sroa.0282.7, %.noexc.i.i ], [ %.sroa.0282.5470, %.invoke ], [ %.sroa.0282.7, %567 ], [ %.sroa.0282.7, %503 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9bad_alloc

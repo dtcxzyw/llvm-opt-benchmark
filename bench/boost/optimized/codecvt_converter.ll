@@ -1879,7 +1879,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale4util16simple_converter1
   br label %_ZNK5boost6locale4util21simple_converter_impl12from_unicodeEjPcPKc.exit
 
 _ZNK5boost6locale4util21simple_converter_impl12from_unicodeEjPcPKc.exit: ; preds = %13, %4, %.preheader.i, %.loopexit.sink.split.i
-  %.0.i = phi i32 [ -2, %4 ], [ -1, %.preheader.i ], [ 1, %.loopexit.sink.split.i ], [ -1, %13 ]
+  %.0.i = phi i32 [ -2, %4 ], [ 1, %.loopexit.sink.split.i ], [ -1, %.preheader.i ], [ -1, %13 ]
   ret i32 %.0.i
 }
 

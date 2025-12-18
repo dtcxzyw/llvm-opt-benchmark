@@ -724,7 +724,7 @@ switch.lookup:
   br label %96
 
 96:                                               ; preds = %.sink.split, %90, %94, %86
-  %.0 = phi i32 [ 0, %86 ], [ 0, %94 ], [ 0, %90 ], [ 26, %.sink.split ]
+  %.0 = phi i32 [ 0, %90 ], [ 0, %94 ], [ 0, %86 ], [ 26, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1994,9 +1994,9 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %228, %270, %264, %2
   br label %.preheader
 
 .preheader:                                       ; preds = %58, %473, %.thread122, %81, %78, %69, %66, %62
-  %.12311.ph = phi ptr [ null, %473 ], [ %.3302.ph, %.thread122 ], [ null, %81 ], [ null, %78 ], [ null, %69 ], [ null, %66 ], [ null, %62 ], [ null, %58 ]
-  %.10298.ph = phi i32 [ %.2290.lcssa, %473 ], [ %.3291.ph, %.thread122 ], [ %.0288, %81 ], [ %.0288, %78 ], [ %.0288, %69 ], [ %.0288, %66 ], [ %.0288, %62 ], [ %.0288, %58 ]
-  %.24.ph = phi i32 [ 26, %473 ], [ %.3.ph, %.thread122 ], [ 26, %81 ], [ 26, %78 ], [ %68, %69 ], [ 0, %66 ], [ 0, %62 ], [ %.0230, %58 ]
+  %.12311.ph = phi ptr [ null, %62 ], [ null, %473 ], [ %.3302.ph, %.thread122 ], [ null, %81 ], [ null, %78 ], [ null, %69 ], [ null, %66 ], [ null, %58 ]
+  %.10298.ph = phi i32 [ %.0288, %62 ], [ %.2290.lcssa, %473 ], [ %.3291.ph, %.thread122 ], [ %.0288, %81 ], [ %.0288, %78 ], [ %.0288, %69 ], [ %.0288, %66 ], [ %.0288, %58 ]
+  %.24.ph = phi i32 [ 0, %62 ], [ 26, %473 ], [ %.3.ph, %.thread122 ], [ 26, %81 ], [ 26, %78 ], [ %68, %69 ], [ 0, %66 ], [ %.0230, %58 ]
   %474 = load ptr, ptr %11, align 8, !tbaa !85
   %.not416 = icmp eq ptr %474, null
   %.not417 = icmp eq i32 %.10298.ph, -1
@@ -2199,13 +2199,13 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %228, %270, %264, %2
   br i1 %.not423, label %.split.us, label %.preheader.split.split
 
 .split.us:                                        ; preds = %551, %547, %531, %527, %507, %511, %495, %499, %488, %484
-  %.us-phi497 = phi i32 [ %.24.us498, %531 ], [ %.24.us.us, %488 ], [ %.24.us.us509, %495 ], [ %.24.us, %507 ], [ %.24.us.us, %484 ], [ %.24.us.us509, %499 ], [ %.24.us, %511 ], [ %.24.us498, %527 ], [ %.24, %547 ], [ %.24, %551 ]
+  %.us-phi497 = phi i32 [ %.24.us, %507 ], [ %.24.us.us, %488 ], [ %.24.us498, %531 ], [ %.24.us.us509, %495 ], [ %.24.us.us, %484 ], [ %.24.us.us509, %499 ], [ %.24.us, %511 ], [ %.24.us498, %527 ], [ %.24, %547 ], [ %.24, %551 ]
   %553 = load ptr, ptr %6, align 8, !tbaa !82
   call void @free(ptr noundef %553) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %545, %525, %505, %493, %482, %.split.us
-  %.24139 = phi i32 [ %.us-phi497, %.split.us ], [ %.24.us498, %525 ], [ %.24.us.us, %482 ], [ %.24.us.us509, %493 ], [ %.24.us, %505 ], [ %.24, %545 ]
+  %.24139 = phi i32 [ %.us-phi497, %.split.us ], [ %.24.us, %505 ], [ %.24.us.us, %482 ], [ %.24.us.us509, %493 ], [ %.24.us498, %525 ], [ %.24, %545 ]
   call void @free(ptr noundef %27) #12
   %554 = load ptr, ptr %9, align 8, !tbaa !82
   %.not424 = icmp eq ptr %554, null
@@ -2458,7 +2458,7 @@ fmap_readn.exit.thread:                           ; preds = %84, %82, %fmap_read
   br label %.thread
 
 .thread:                                          ; preds = %37, %.preheader19, %52, %48, %fmap_readn.exit.thread, %72, %62, %61, %36, %10
-  %.0 = phi i32 [ 26, %10 ], [ 26, %36 ], [ 26, %61 ], [ 26, %62 ], [ 26, %72 ], [ 26, %fmap_readn.exit.thread ], [ 26, %48 ], [ 26, %52 ], [ 0, %.preheader19 ], [ 0, %37 ]
+  %.0 = phi i32 [ 26, %10 ], [ 26, %36 ], [ 26, %52 ], [ 26, %61 ], [ 26, %62 ], [ 26, %72 ], [ 26, %fmap_readn.exit.thread ], [ 26, %48 ], [ 0, %.preheader19 ], [ 0, %37 ]
   ret i32 %.0
 }
 

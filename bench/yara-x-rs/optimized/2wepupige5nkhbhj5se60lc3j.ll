@@ -916,7 +916,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
   br i1 %.not8.i, label %.split.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2c9dfaa80949b13bE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h2c9dfaa80949b13bE.exit: ; preds = %.split.i, %49, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h369119e27ce83477E.exit.i", %._crit_edge.i.i.i.i.i, %.split.us.i
-  %.not12.i = phi i1 [ %.not.us.not.i.not, %.split.us.i ], [ false, %._crit_edge.i.i.i.i.i ], [ %.not.not.not.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h369119e27ce83477E.exit.i" ], [ %.not.not.not.i, %49 ], [ %.not.not.not.i, %.split.i ]
+  %.not12.i = phi i1 [ false, %._crit_edge.i.i.i.i.i ], [ %.not.us.not.i.not, %.split.us.i ], [ %.not.not.not.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h369119e27ce83477E.exit.i" ], [ %.not.not.not.i, %49 ], [ %.not.not.not.i, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 

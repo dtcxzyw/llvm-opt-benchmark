@@ -3442,7 +3442,7 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit2691, %.critedge30.preheader, %1608, %1594
-  %.1714 = phi i32 [ %.0713, %1594 ], [ %.0713, %1608 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit2691 ], [ 1, %.critedge30.backedge ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ]
+  %.1714 = phi i32 [ %.0713, %1594 ], [ %.0713, %1608 ], [ 1, %.critedge30.backedge ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit2691 ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ]
   %1625 = icmp slt i32 %.1714, %1595
   br i1 %1625, label %1626, label %1631
 
@@ -4639,9 +4639,9 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %2456, %2228, %2438
-  %.0702.be = phi ptr [ %2436, %2438 ], [ %2205, %2228 ], [ %2436, %2456 ]
-  %.0696.be = phi ptr [ %2445, %2438 ], [ %2230, %2228 ], [ %2445, %2456 ]
-  %.0695.be = phi i32 [ %2446, %2438 ], [ %2229, %2228 ], [ %2460, %2456 ]
+  %.0702.be = phi ptr [ %2205, %2228 ], [ %2436, %2438 ], [ %2436, %2456 ]
+  %.0696.be = phi ptr [ %2230, %2228 ], [ %2445, %2438 ], [ %2445, %2456 ]
+  %.0695.be = phi i32 [ %2229, %2228 ], [ %2446, %2438 ], [ %2460, %2456 ]
   br label %.loopexit
 
 2231:                                             ; preds = %2189
@@ -6984,7 +6984,7 @@ psql_yy_delete_buffer.exit.i:                     ; preds = %32, %.critedge.i.i
   br label %psql_yypop_buffer_state.exit
 
 psql_yypop_buffer_state.exit:                     ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

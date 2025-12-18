@@ -3603,7 +3603,7 @@ define internal noundef range(i32 0, 2) i32 @uart_put_char(ptr noundef readonly 
   br label %.thread7
 
 .thread7:                                         ; preds = %15, %18, %2, %54, %46, %25
-  %60 = phi i32 [ 0, %18 ], [ 0, %25 ], [ %47, %46 ], [ %56, %54 ], [ 0, %2 ], [ 0, %15 ]
+  %60 = phi i32 [ 0, %2 ], [ 0, %18 ], [ 0, %25 ], [ %47, %46 ], [ %56, %54 ], [ 0, %15 ]
   ret i32 %60
 }
 

@@ -500,7 +500,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr noundef readonly ca
   br label %42
 
 42:                                               ; preds = %38, %39, %40, %41
-  %43 = phi i32 [ 268435456, %41 ], [ 536870912, %40 ], [ 1073741824, %39 ], [ -2147483648, %38 ]
+  %43 = phi i32 [ -2147483648, %38 ], [ 268435456, %41 ], [ 536870912, %40 ], [ 1073741824, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 7176
   %45 = load i8, ptr %44, align 8
   %46 = icmp ugt i8 %45, 11
@@ -1066,7 +1066,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br label %141
 
 138:                                              ; preds = %134, %131, %128
-  %.in = phi i8 [ %130, %128 ], [ %133, %131 ], [ %135, %134 ]
+  %.in = phi i8 [ %135, %134 ], [ %133, %131 ], [ %130, %128 ]
   %.in.fr = freeze i8 %.in
   %139 = and i8 %.in.fr, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

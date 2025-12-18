@@ -4412,7 +4412,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   br label %cba_ldev_find.exit.thread
 
 cba_ldev_find.exit:                               ; preds = %35, %31
-  %.1.i = phi ptr [ %38, %35 ], [ %33, %31 ]
+  %.1.i = phi ptr [ %33, %31 ], [ %38, %35 ]
   %48 = call ptr @wmem_file_scope()
   %49 = load i32, ptr %8, align 4
   %50 = zext i32 %49 to i64
@@ -6598,7 +6598,7 @@ cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range
   br i1 %.not51, label %._crit_edge, label %.preheader.i, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %cba_frame_find_by_provcrid.exit, %.lr.ph.split.us, %.thread, %50
-  %.049.lcssa = phi i32 [ %49, %50 ], [ %49, %.thread ], [ %68, %.lr.ph.split.us ], [ %73, %cba_frame_find_by_provcrid.exit ]
+  %.049.lcssa = phi i32 [ %49, %50 ], [ %68, %.lr.ph.split.us ], [ %49, %.thread ], [ %73, %cba_frame_find_by_provcrid.exit ]
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %9, align 4

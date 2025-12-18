@@ -588,8 +588,8 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i: ; preds 
   br label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i
 
 _ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i: ; preds = %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i, %switch.early.test.i.i, %54, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i, %.critedge.loopexit.split.loop.exit.i.i, %55, %35, %.preheader25.i.i, %32, %30
-  %.038.i = phi i32 [ %.0.i.i, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ 2, %.preheader25.i.i ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %48, %54 ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01327.i.i, %switch.early.test.i.i ]
-  %.pn.i = phi i32 [ %64, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ 2, %.preheader25.i.i ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %48, %54 ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01327.i.i, %switch.early.test.i.i ]
+  %.038.i = phi i32 [ %.0.i.i, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ 2, %.preheader25.i.i ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ %48, %54 ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01327.i.i, %switch.early.test.i.i ]
+  %.pn.i = phi i32 [ %64, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ 2, %.preheader25.i.i ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ %48, %54 ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01327.i.i, %switch.early.test.i.i ]
   %.137.i = add i32 %.pn.i, %.036.i
   %65 = icmp ugt i32 %.137.i, %26
   br i1 %65, label %83, label %66
@@ -3727,7 +3727,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i135: ; preds = %_ZNK4llvm9Stri
   %264 = sub nsw i32 %60, %210
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread299
 
-"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit.thread303": ; preds = %255, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i135, %233, %_ZN4llvmneENS_9StringRefES0_.exit.thread
+"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit.thread303": ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i135, %255, %233, %_ZN4llvmneENS_9StringRefES0_.exit.thread
   %265 = load i32, ptr %64, align 8, !tbaa !236
   %266 = call i32 @llvm.usub.sat.i32(i32 %210, i32 %265)
   %spec.select = sub i32 0, %266
@@ -3856,7 +3856,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i153: ; preds = %_ZNK4llvm9Stri
   %or.cond315.not = icmp eq i16 %322, 0
   br i1 %or.cond315.not, label %"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit163.thread", label %"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit163.thread307"
 
-"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit163.thread307": ; preds = %314, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i153
+"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit163.thread307": ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i153, %314
   %323 = icmp eq i8 %279, 125
   %324 = icmp ne i32 %.2, 0
   %325 = select i1 %323, i1 %324, i1 false

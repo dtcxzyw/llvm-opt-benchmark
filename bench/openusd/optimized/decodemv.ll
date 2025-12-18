@@ -6990,7 +6990,7 @@ av1_ceil_log2.exit.thread.i:                      ; preds = %aom_read_literal_.e
   br i1 %184, label %.lr.ph.i70.i, label %av1_ceil_log2.exit74.i, !llvm.loop !18
 
 av1_ceil_log2.exit74.i:                           ; preds = %.lr.ph.i70.i, %av1_ceil_log2.exit.thread.i, %av1_ceil_log2.exit.thread105.i, %av1_ceil_log2.exit.i
-  %185 = phi i32 [ %spec.select.i, %av1_ceil_log2.exit.thread.i ], [ %spec.select113.i, %av1_ceil_log2.exit.i ], [ %.05086.i, %av1_ceil_log2.exit.thread105.i ], [ %182, %.lr.ph.i70.i ]
+  %185 = phi i32 [ %.05086.i, %av1_ceil_log2.exit.thread105.i ], [ %spec.select113.i, %av1_ceil_log2.exit.i ], [ %spec.select.i, %av1_ceil_log2.exit.thread.i ], [ %182, %.lr.ph.i70.i ]
   %indvars.iv.next97.i = add nsw i64 %indvars.iv96.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next97.i to i32
   %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %119
@@ -7366,7 +7366,7 @@ av1_ceil_log2.exit.thread.i109:                   ; preds = %aom_read_literal_.e
   br i1 %363, label %.lr.ph.i123.i, label %av1_ceil_log2.exit127.i, !llvm.loop !18
 
 av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1_ceil_log2.exit.thread.i109, %av1_ceil_log2.exit.thread222.i, %av1_ceil_log2.exit.i108
-  %364 = phi i32 [ %spec.select161.i, %av1_ceil_log2.exit.thread.i109 ], [ %spec.select235.i, %av1_ceil_log2.exit.i108 ], [ %.092177.i, %av1_ceil_log2.exit.thread222.i ], [ %361, %.lr.ph.i123.i ]
+  %364 = phi i32 [ %.092177.i, %av1_ceil_log2.exit.thread222.i ], [ %spec.select235.i, %av1_ceil_log2.exit.i108 ], [ %spec.select161.i, %av1_ceil_log2.exit.thread.i109 ], [ %361, %.lr.ph.i123.i ]
   %indvars.iv.next198.i = add nsw i64 %indvars.iv197.i, 1
   %lftr.wideiv.i106 = trunc i64 %indvars.iv.next198.i to i32
   %exitcond.not.i107 = icmp eq i32 %326, %lftr.wideiv.i106
@@ -9019,7 +9019,7 @@ get_predicted_segment_id.exit112.sink.split:      ; preds = %106, %aom_read_symb
   br label %get_predicted_segment_id.exit112
 
 get_predicted_segment_id.exit112:                 ; preds = %._crit_edge.us.i.i110, %get_predicted_segment_id.exit112.sink.split, %174, %171
-  %.074 = phi i32 [ 2147483647, %174 ], [ 0, %171 ], [ %186, %get_predicted_segment_id.exit112.sink.split ], [ %.1..us.i.i107, %._crit_edge.us.i.i110 ]
+  %.074 = phi i32 [ 2147483647, %174 ], [ %186, %get_predicted_segment_id.exit112.sink.split ], [ 0, %171 ], [ %.1..us.i.i107, %._crit_edge.us.i.i110 ]
   %187 = icmp sgt i32 %28, 0
   br i1 %187, label %.preheader.lr.ph.i113, label %get_predicted_segment_id.exit
 
@@ -9055,7 +9055,7 @@ get_predicted_segment_id.exit112:                 ; preds = %._crit_edge.us.i.i1
   br i1 %exitcond16.not.i119, label %get_predicted_segment_id.exit, label %.preheader.us.i114, !llvm.loop !7
 
 get_predicted_segment_id.exit:                    ; preds = %._crit_edge.us.i, %._crit_edge.us.i118, %._crit_edge.us.i.i, %.preheader.lr.ph.i113, %get_predicted_segment_id.exit112, %.preheader.lr.ph.i88, %88, %63, %copy_segment_id.exit, %75, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %75 ], [ 0, %copy_segment_id.exit ], [ 2147483647, %63 ], [ %89, %88 ], [ %89, %.preheader.lr.ph.i88 ], [ %.074, %get_predicted_segment_id.exit112 ], [ %.074, %.preheader.lr.ph.i113 ], [ %.074, %._crit_edge.us.i118 ], [ %.1..us.i.i, %._crit_edge.us.i.i ], [ %89, %._crit_edge.us.i ]
+  %.0 = phi i32 [ %.1..us.i.i, %._crit_edge.us.i.i ], [ 0, %4 ], [ %.074, %._crit_edge.us.i118 ], [ 0, %75 ], [ 0, %copy_segment_id.exit ], [ 2147483647, %63 ], [ %89, %88 ], [ %89, %.preheader.lr.ph.i88 ], [ %.074, %get_predicted_segment_id.exit112 ], [ %.074, %.preheader.lr.ph.i113 ], [ %89, %._crit_edge.us.i ]
   ret i32 %.0
 }
 

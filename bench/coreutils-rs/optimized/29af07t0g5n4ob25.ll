@@ -476,7 +476,7 @@ default.unreachable:                              ; preds = %102
   %121 = invoke noundef zeroext i1 @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17ha8645a16dff0d6d8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 @anon.2017e7f75baa88644315c7e5bf963c16.13, i64 noundef 1)
           to label %151 unwind label %.loopexit
 
-.thread212:                                       ; preds = %101, %113, %102
+.thread212:                                       ; preds = %113, %101, %102
   %122 = invoke noundef zeroext i1 @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17ha8645a16dff0d6d8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 @anon.2017e7f75baa88644315c7e5bf963c16.8, i64 noundef 1)
           to label %171 unwind label %.loopexit
 

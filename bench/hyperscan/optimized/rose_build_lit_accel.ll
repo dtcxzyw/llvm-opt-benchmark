@@ -255,8 +255,8 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   br label %.critedge.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %91, %64, %..critedge.split_crit_edge.i, %..critedge.split.us_crit_edge.i
-  %.us-phi.i = phi i8 [ 1, %..critedge.split.us_crit_edge.i ], [ 1, %..critedge.split_crit_edge.i ], [ 0, %64 ], [ 0, %91 ]
-  %.us-phi65.i = phi i1 [ %88, %..critedge.split.us_crit_edge.i ], [ %125, %..critedge.split_crit_edge.i ], [ %88, %64 ], [ %125, %91 ]
+  %.us-phi.i = phi i8 [ 1, %..critedge.split_crit_edge.i ], [ 1, %..critedge.split.us_crit_edge.i ], [ 0, %64 ], [ 0, %91 ]
+  %.us-phi65.i = phi i1 [ %125, %..critedge.split_crit_edge.i ], [ %88, %..critedge.split.us_crit_edge.i ], [ %88, %64 ], [ %125, %91 ]
   %95 = or i8 %.us-phi.i, %.sroa.22.1.i
   %or.cond.not80.i = icmp eq i8 %95, 0
   %or.cond5.i = select i1 %or.cond.not80.i, i1 %.us-phi65.i, i1 false
@@ -472,7 +472,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i: ; preds = %_ZN3ue2L13mask_
   br i1 %197, label %.lr.ph86.split.i, label %.thread50.i, !llvm.loop !9
 
 .thread50.i:                                      ; preds = %.critedge82.i, %.critedge82.us.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i, %144
-  %.sroa.1719.3.i = phi i32 [ %.sroa.1719.095.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i ], [ %196, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i ], [ %.sroa.1719.095.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ], [ %.sroa.1719.095.i, %144 ], [ %.sroa.1719.095.i, %.critedge82.us.i ], [ %.sroa.1719.095.i, %.critedge82.i ]
+  %.sroa.1719.3.i = phi i32 [ %.sroa.1719.095.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i ], [ %.sroa.1719.095.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ], [ %196, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i ], [ %.sroa.1719.095.i, %144 ], [ %.sroa.1719.095.i, %.critedge82.us.i ], [ %.sroa.1719.095.i, %.critedge82.i ]
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.01.096.i, i64 8
   %.not55.i = icmp eq ptr %198, %.sroa.11169.1
   br i1 %.not55.i, label %._crit_edge.i, label %144

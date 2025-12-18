@@ -1411,7 +1411,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11Sma
   br i1 %45, label %_ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !619
 
 _ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit: ; preds = %33, %.lr.ph.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit, %22, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %35
-  %46 = phi ptr [ null, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %36, %35 ], [ null, %22 ], [ %42, %.lr.ph.i.i.i.i ], [ null, %33 ]
+  %46 = phi ptr [ null, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ null, %22 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %36, %35 ], [ %42, %.lr.ph.i.i.i.i ], [ null, %33 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @_ZN5clang7CodeGen13CGHLSLRuntime16BufferResBindingC1EPNS_23HLSLResourceBindingAttrE(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef %46) #19
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1563,7 +1563,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_16HLSLResourceAttrEN4llvm11SmallVecto
   br i1 %73, label %_ZNK5clang4Decl7getAttrINS_16HLSLResourceAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !624
 
 _ZNK5clang4Decl7getAttrINS_16HLSLResourceAttrEEEPT_v.exit: ; preds = %61, %.lr.ph.i.i.i.i, %46, %50, %_ZN5clangneENS_22specific_attr_iteratorINS_16HLSLResourceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %63
-  %74 = phi ptr [ null, %46 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_16HLSLResourceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %64, %63 ], [ null, %50 ], [ %70, %.lr.ph.i.i.i.i ], [ null, %61 ]
+  %74 = phi ptr [ null, %46 ], [ null, %50 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_16HLSLResourceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %64, %63 ], [ %70, %.lr.ph.i.i.i.i ], [ null, %61 ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.057.072, i64 48
   %.sroa.0.0.copyload.i41 = load i64, ptr %75, align 8, !tbaa !401
   %76 = and i64 %.sroa.0.0.copyload.i41, -16
@@ -1746,7 +1746,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11Sma
   br i1 %168, label %_ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i53, !llvm.loop !619
 
 _ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit: ; preds = %156, %.lr.ph.i.i.i.i53, %_ZL20calculateElementTypeRKN5clang10ASTContextEPKNS_4TypeE.exit, %145, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %158
-  %169 = phi ptr [ null, %_ZL20calculateElementTypeRKN5clang10ASTContextEPKNS_4TypeE.exit ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %159, %158 ], [ null, %145 ], [ %165, %.lr.ph.i.i.i.i53 ], [ null, %156 ]
+  %169 = phi ptr [ null, %_ZL20calculateElementTypeRKN5clang10ASTContextEPKNS_4TypeE.exit ], [ null, %145 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %159, %158 ], [ %165, %.lr.ph.i.i.i.i53 ], [ null, %156 ]
   call void @_ZN5clang7CodeGen13CGHLSLRuntime16BufferResBindingC1EPNS_23HLSLResourceBindingAttrE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %169) #19
   %cond = icmp eq i8 %87, 2
   br i1 %cond, label %170, label %_ZN5clang7CodeGen13CGHLSLRuntime27addBufferResourceAnnotationEPN4llvm14GlobalVariableENS2_4dxil13ResourceClassENS5_12ResourceKindEbNS5_11ElementTypeERNS1_16BufferResBindingE.exit
@@ -2123,7 +2123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5clang4Decl7getAttrINS_18HLSLNumThreadsAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_18HLSLNumThreadsAttrEEEPT_v.exit.thread: ; preds = %42, %31, %_ZN5clangneENS_22specific_attr_iteratorINS_18HLSLNumThreadsAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7getAttrINS_14HLSLShaderAttrEEEPT_v.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZNK5clang4Decl7getAttrINS_18HLSLNumThreadsAttrEEEPT_v.exit.thread: ; preds = %42, %_ZN5clangneENS_22specific_attr_iteratorINS_18HLSLNumThreadsAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %31, %_ZNK5clang4Decl7getAttrINS_14HLSLShaderAttrEEEPT_v.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %89 = load i32, ptr %10, align 4
   %90 = and i32 %89, 256
   %.not.i32 = icmp eq i32 %90, 0
@@ -2262,7 +2262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK5clang4Decl7getAttrINS_16HLSLWaveSizeAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_16HLSLWaveSizeAttrEEEPT_v.exit.thread: ; preds = %102, %91, %_ZN5clangneENS_22specific_attr_iteratorINS_16HLSLWaveSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7getAttrINS_18HLSLNumThreadsAttrEEEPT_v.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
+_ZNK5clang4Decl7getAttrINS_16HLSLWaveSizeAttrEEEPT_v.exit.thread: ; preds = %102, %_ZN5clangneENS_22specific_attr_iteratorINS_16HLSLWaveSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %91, %_ZNK5clang4Decl7getAttrINS_18HLSLNumThreadsAttrEEEPT_v.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
   call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef 31) #19
   ret void
 }
@@ -2473,7 +2473,7 @@ _ZNK5clang4Decl7hasAttrINS_18HLSLSV_GroupIDAttrEEEbv.exit: ; preds = %.lr.ph.i.i
   br label %_ZNK5clang4Decl7hasAttrINS_18HLSLSV_GroupIDAttrEEEbv.exit.thread66
 
 _ZNK5clang4Decl7hasAttrINS_18HLSLSV_GroupIDAttrEEEbv.exit.thread66: ; preds = %95, %84, %_ZNK5clang4Decl7hasAttrINS_24HLSLSV_GroupThreadIDAttrEEEbv.exit.thread64, %_ZNK5clang4Decl7hasAttrINS_18HLSLSV_GroupIDAttrEEEbv.exit, %97, %72, %47, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
-  %.0 = phi ptr [ %31, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ], [ %56, %47 ], [ %81, %72 ], [ %106, %97 ], [ null, %_ZNK5clang4Decl7hasAttrINS_18HLSLSV_GroupIDAttrEEEbv.exit ], [ null, %_ZNK5clang4Decl7hasAttrINS_24HLSLSV_GroupThreadIDAttrEEEbv.exit.thread64 ], [ null, %84 ], [ null, %95 ]
+  %.0 = phi ptr [ %31, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ], [ %56, %47 ], [ %81, %72 ], [ %106, %97 ], [ null, %_ZNK5clang4Decl7hasAttrINS_18HLSLSV_GroupIDAttrEEEbv.exit ], [ null, %84 ], [ null, %_ZNK5clang4Decl7hasAttrINS_24HLSLSV_GroupThreadIDAttrEEEbv.exit.thread64 ], [ null, %95 ]
   ret ptr %.0
 }
 
@@ -3802,7 +3802,7 @@ _ZL20createResourceInitFnRN5clang7CodeGen13CodeGenModuleEPKNS_7VarDeclEPN4llvm14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit.thread: ; preds = %27, %16, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %3, %_ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit, %_ZL20createResourceInitFnRN5clang7CodeGen13CodeGenModuleEPKNS_7VarDeclEPN4llvm14GlobalVariableEjj.exit
+_ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit.thread: ; preds = %27, %_ZN5clangneENS_22specific_attr_iteratorINS_23HLSLResourceBindingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %16, %3, %_ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit, %_ZL20createResourceInitFnRN5clang7CodeGen13CodeGenModuleEPKNS_7VarDeclEPN4llvm14GlobalVariableEjj.exit
   ret void
 }
 
@@ -4847,7 +4847,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !799
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

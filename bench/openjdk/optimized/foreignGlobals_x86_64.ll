@@ -243,7 +243,7 @@ define hidden noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE8Register
   br i1 %or.cond, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit, label %16, !llvm.loop !6
 
 _ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit: ; preds = %8, %16, %.loopexit
-  %19 = phi i1 [ false, %.loopexit ], [ %.not.i6, %16 ], [ true, %8 ]
+  %19 = phi i1 [ %.not.i6, %16 ], [ false, %.loopexit ], [ true, %8 ]
   ret i1 %19
 }
 
@@ -295,7 +295,7 @@ define hidden noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE11XMMRegi
   br i1 %or.cond, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit, label %17, !llvm.loop !8
 
 _ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit: ; preds = %9, %17, %.loopexit
-  %20 = phi i1 [ false, %.loopexit ], [ %.not.i6, %17 ], [ true, %9 ]
+  %20 = phi i1 [ %.not.i6, %17 ], [ false, %.loopexit ], [ true, %9 ]
   ret i1 %20
 }
 

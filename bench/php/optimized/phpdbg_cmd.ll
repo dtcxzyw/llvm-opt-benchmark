@@ -1694,7 +1694,7 @@ phpdbg_command_name.exit191:                      ; preds = %391, %395
   br i1 %.not127300, label %.critedge2, label %.lr.ph
 
 .critedge2:                                       ; preds = %.lr.ph.split, %.thread196, %.split.us, %46, %40, %50, %90, %130, %170, %210, %250, %290, %330, %370
-  %.0110.ph279 = phi i64 [ %.0110.ph358, %370 ], [ %.0110.ph358, %50 ], [ %.0110.ph358, %90 ], [ %.0110.ph358, %130 ], [ %.0110.ph358, %170 ], [ %.0110.ph358, %210 ], [ %.0110.ph358, %250 ], [ %.0110.ph358, %290 ], [ %.0110.ph358, %330 ], [ %.0110.ph358, %40 ], [ %.0110.ph358, %46 ], [ %.pre-phi, %.thread196 ], [ %.0110.ph358, %.lr.ph.split ], [ %.0110.ph358, %.split.us ]
+  %.0110.ph279 = phi i64 [ %.0110.ph358, %370 ], [ %.0110.ph358, %50 ], [ %.0110.ph358, %90 ], [ %.0110.ph358, %130 ], [ %.0110.ph358, %170 ], [ %.0110.ph358, %210 ], [ %.0110.ph358, %250 ], [ %.0110.ph358, %290 ], [ %.0110.ph358, %330 ], [ %.0110.ph358, %40 ], [ %.0110.ph358, %46 ], [ %.0110.ph358, %.lr.ph.split ], [ %.0110.ph358, %.split.us ], [ %.pre-phi, %.thread196 ]
   %413 = icmp ult i64 %.0110.ph279, %.0111
   br i1 %413, label %414, label %.sink.split
 
@@ -2076,7 +2076,7 @@ phpdbg_internal_stack_execute.exit.thread:        ; preds = %43, %33, %51, %28, 
   br label %.loopexit
 
 phpdbg_internal_stack_execute.exit:               ; preds = %19, %25, %31, %46
-  %.0.i = phi i32 [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ %50, %46 ]
+  %.0.i = phi i32 [ %50, %46 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not14 = icmp eq i32 %.0.i, 0
   br i1 %.not14, label %54, label %.loopexit

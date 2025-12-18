@@ -1256,7 +1256,7 @@ _ZNK4ncnn3Mat5emptyEv.exit54:                     ; preds = %62
   br i1 %exitcond82.not, label %_ZNK4ncnn3Mat5emptyEv.exit54.thread, label %.lr.ph75, !llvm.loop !59
 
 _ZNK4ncnn3Mat5emptyEv.exit54.thread:              ; preds = %.lr.ph75, %89, %62, %84, %_ZNK4ncnn3Mat5emptyEv.exit54
-  %.045 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit54 ], [ 0, %84 ], [ -100, %62 ], [ 0, %89 ], [ 0, %.lr.ph75 ]
+  %.045 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit54 ], [ -100, %62 ], [ 0, %84 ], [ 0, %89 ], [ 0, %.lr.ph75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2007,7 +2007,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   br i1 %61, label %.preheader.lr.ph.split.us.split.split.us.us.us, label %.preheader.us.us148.us
 
 ._crit_edge.split.us.us.us:                       ; preds = %._crit_edge109.split.split.us128.us.us, %._crit_edge109.split.split.us.us.us.us.us, %._crit_edge109.split.us.us.us.split.us.us, %._crit_edge109.split.us.us.us.split.us.us.split.us.us, %._crit_edge109.split.us.us.us.split.us.us.split.us.us.us.us
-  %83 = phi float [ %191, %._crit_edge109.split.split.us.us.us.us.us ], [ %281, %._crit_edge109.split.us.us.us.split.us.us.split.us.us.us.us ], [ %227, %._crit_edge109.split.us.us.us.split.us.us.split.us.us ], [ %154, %._crit_edge109.split.us.us.us.split.us.us ], [ %80, %._crit_edge109.split.split.us128.us.us ]
+  %83 = phi float [ %227, %._crit_edge109.split.us.us.us.split.us.us.split.us.us ], [ %281, %._crit_edge109.split.us.us.us.split.us.us.split.us.us.us.us ], [ %191, %._crit_edge109.split.split.us.us.us.us.us ], [ %154, %._crit_edge109.split.us.us.us.split.us.us ], [ %80, %._crit_edge109.split.split.us128.us.us ]
   %indvars.iv.next220 = add i64 %indvars.iv219, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next220 to i32
   %exitcond222.not = icmp eq i32 %43, %lftr.wideiv

@@ -926,8 +926,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit110:                 ; preds = %271, %_ZNKSt14defau
   br label %_ZN4llvm8ExpectedIjED2Ev.exit106
 
 _ZN4llvm8ExpectedIjED2Ev.exit106:                 ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit102, %.critedge30, %.loopexit, %_ZN4llvm8ExpectedIjED2Ev.exit110, %._crit_edge, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38
-  %.sroa.0144.1 = phi i32 [ 2, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ 0, %._crit_edge ], [ %.sroa.0144.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ 2, %.loopexit ], [ 3, %.critedge30 ], [ %.sroa.0144.6158, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
-  %.sroa.15.1 = phi ptr [ %.0.i.i2.i.i.i.i36, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ %265, %._crit_edge ], [ %.sroa.15.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ %.sroa.15.3154, %.loopexit ], [ %.sroa.15.7, %.critedge30 ], [ %.sroa.15.6159, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
+  %.sroa.0144.1 = phi i32 [ 2, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ 0, %._crit_edge ], [ 3, %.critedge30 ], [ %.sroa.0144.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ 2, %.loopexit ], [ %.sroa.0144.6158, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
+  %.sroa.15.1 = phi ptr [ %.0.i.i2.i.i.i.i36, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ %265, %._crit_edge ], [ %.sroa.15.7, %.critedge30 ], [ %.sroa.15.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ %.sroa.15.3154, %.loopexit ], [ %.sroa.15.6159, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
   %276 = load i8, ptr %61, align 8, !tbaa !41, !range !62, !noundef !63
   %277 = trunc nuw i8 %276 to i1
   br i1 %277, label %278, label %_ZNSt14_Optional_baseIN4llvm18BitstreamBlockInfoELb0ELb0EED2Ev.exit
@@ -1598,8 +1598,8 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41: ; preds = %9
   br label %.critedge18
 
 _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge, %87
-  %95 = phi ptr [ %.pre, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ], [ %88, %87 ]
-  %.212 = phi i1 [ %.010, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ], [ true, %87 ]
+  %95 = phi ptr [ %88, %87 ], [ %.pre, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ]
+  %.212 = phi i1 [ true, %87 ], [ %.010, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %96 = icmp eq ptr %95, %33
   br i1 %96, label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit, label %97

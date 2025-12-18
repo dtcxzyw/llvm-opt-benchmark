@@ -733,7 +733,7 @@ _ZNK4llvm9StringRef12find_last_ofEcm.exit.i:      ; preds = %83, %._crit_edge.i
   br label %_ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit
 
 _ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit: ; preds = %82, %69, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i, %_ZNK4llvm9StringRef12find_last_ofEcm.exit.i, %88, %93
-  %.010.i = phi i64 [ 0, %88 ], [ %94, %93 ], [ 0, %_ZNK4llvm9StringRef12find_last_ofEcm.exit.i ], [ %70, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %70, %69 ], [ 0, %82 ]
+  %.010.i = phi i64 [ 0, %88 ], [ %94, %93 ], [ 0, %_ZNK4llvm9StringRef12find_last_ofEcm.exit.i ], [ %70, %69 ], [ %70, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ 0, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %95 = load i64, ptr %.sroa.211.0..sroa_idx, align 8, !tbaa !11
   %.sroa.speculated3.i = call i64 @llvm.umin.i64(i64 %95, i64 %.010.i)
@@ -2470,7 +2470,7 @@ _ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit.threa
   br label %65
 
 _ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit: ; preds = %_ZNK4llvm9StringRef12find_last_ofEcm.exit, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i, %63
-  %.010.i = phi i64 [ %64, %63 ], [ %40, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %40, %_ZNK4llvm9StringRef12find_last_ofEcm.exit ]
+  %.010.i = phi i64 [ %40, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %64, %63 ], [ %40, %_ZNK4llvm9StringRef12find_last_ofEcm.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not9 = icmp ult i64 %35, %.010.i
   br i1 %.not9, label %_ZNK4llvm9StringRef12find_last_ofEcm.exit.thread, label %65
@@ -3328,7 +3328,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit16:              ; preds = %_ZNK4llvm9StringRef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit16, %.thread
-  %.sroa.speculated.i.pn = phi i64 [ %11, %.thread ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit16 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.24.0.copyload.i, %9 ]
+  %.sroa.speculated.i.pn = phi i64 [ %11, %.thread ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit16 ], [ %.sroa.24.0.copyload.i, %9 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.sroa.03.0.copyload.i, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %.sroa.speculated.i.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -3388,8 +3388,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit12:              ; preds = %_ZNK4llvm9StringRef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit12, %.thread
-  %.sroa.6.0 = phi i64 [ %18, %.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit12 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %9 ]
-  %.sroa.024.0 = phi ptr [ %15, %.thread ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit12 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %9 ]
+  %.sroa.6.0 = phi i64 [ %18, %.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit12 ], [ 0, %9 ]
+  %.sroa.024.0 = phi ptr [ %15, %.thread ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit12 ], [ null, %9 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.024.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3891,7 +3891,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit16.i:            ; preds = %_ZNK4llvm9StringRef
   br label %_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE.exit
 
 _ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE.exit: ; preds = %33, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit16.i, %.thread.i
-  %.sroa.speculated.i.pn.i = phi i64 [ %35, %.thread.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit16.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.sroa.24.0.copyload.i.i, %33 ]
+  %.sroa.speculated.i.pn.i = phi i64 [ %35, %.thread.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit16.i ], [ %.sroa.24.0.copyload.i.i, %33 ]
   %41 = load ptr, ptr %4, align 8, !tbaa !34
   %42 = icmp eq ptr %41, %5
   br i1 %42, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %43
@@ -4013,7 +4013,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit12.i:            ; preds = %_ZNK4llvm9StringRef
   br label %_ZN4llvm3sys4path9extensionENS_9StringRefENS1_5StyleE.exit
 
 _ZN4llvm3sys4path9extensionENS_9StringRefENS1_5StyleE.exit: ; preds = %33, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit12.i, %.thread.i
-  %.sroa.6.0.i = phi i1 [ true, %.thread.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit12.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %33 ]
+  %.sroa.6.0.i = phi i1 [ true, %.thread.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit12.i ], [ false, %33 ]
   %41 = load ptr, ptr %4, align 8, !tbaa !34
   %42 = icmp eq ptr %41, %5
   br i1 %42, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %43
@@ -4183,9 +4183,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path15is_absolute_gnuERKNS_5Tw
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %14, %16, %21, %25
-  %28 = phi ptr [ %26, %25 ], [ %4, %21 ], [ %4, %16 ], [ %4, %14 ]
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ %15, %14 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ %13, %14 ]
+  %28 = phi ptr [ %26, %25 ], [ %4, %21 ], [ %4, %14 ], [ %4, %16 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %15, %14 ], [ %20, %16 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %13, %14 ], [ %18, %16 ]
   %29 = icmp eq i64 %.sroa.3.0.i, 0
   br i1 %29, label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.thread, label %30
 
@@ -4218,7 +4218,7 @@ _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit: ; preds = %30
   br label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.thread
 
 _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.thread: ; preds = %38, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit, %34, %36, %30, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit
-  %.0 = phi i1 [ true, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit ], [ true, %30 ], [ %41, %38 ], [ false, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ false, %36 ], [ false, %34 ]
+  %.0 = phi i1 [ true, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit ], [ true, %30 ], [ %41, %38 ], [ false, %36 ], [ false, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ false, %34 ]
   %42 = icmp eq ptr %28, %4
   br i1 %42, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %43
 
@@ -4331,8 +4331,8 @@ _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit12.thread.us.us: ; preds = %.lr
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %.critedge2.us71, %.lr.ph42.split.split.us, %7, %.critedge2.us, %.lr.ph42.split.us.split, %.critedge.loopexit113, %.critedge.loopexit, %3
-  %.sroa.8.0.lcssa = phi i64 [ %1, %3 ], [ 0, %.critedge.loopexit113 ], [ %.pn2631.us50, %.critedge2.us ], [ 0, %.critedge.loopexit ], [ %.sroa.8.040.us, %7 ], [ %.sroa.8.040.us, %.lr.ph42.split.us.split ], [ %.sroa.8.040.us66, %.lr.ph42.split.split.us ], [ %.pn2631.us.us, %.critedge2.us71 ], [ %.sroa.8.040.us66, %18 ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %3 ], [ %scevgep.le, %.critedge.loopexit113 ], [ %.pn2830.us51, %.critedge2.us ], [ %scevgep103.le, %.critedge.loopexit ], [ %.sroa.0.041.us, %7 ], [ %.sroa.0.041.us, %.lr.ph42.split.us.split ], [ %.sroa.0.041.us65, %.lr.ph42.split.split.us ], [ %.pn2830.us.us, %.critedge2.us71 ], [ %.sroa.0.041.us65, %18 ]
+  %.sroa.8.0.lcssa = phi i64 [ %1, %3 ], [ %.pn2631.us50, %.critedge2.us ], [ 0, %.critedge.loopexit ], [ 0, %.critedge.loopexit113 ], [ %.sroa.8.040.us, %7 ], [ %.sroa.8.040.us, %.lr.ph42.split.us.split ], [ %.sroa.8.040.us66, %.lr.ph42.split.split.us ], [ %.pn2631.us.us, %.critedge2.us71 ], [ %.sroa.8.040.us66, %18 ]
+  %.sroa.0.0.lcssa = phi ptr [ %0, %3 ], [ %.pn2830.us51, %.critedge2.us ], [ %scevgep103.le, %.critedge.loopexit ], [ %scevgep.le, %.critedge.loopexit113 ], [ %.sroa.0.041.us, %7 ], [ %.sroa.0.041.us, %.lr.ph42.split.us.split ], [ %.sroa.0.041.us65, %.lr.ph42.split.split.us ], [ %.pn2830.us.us, %.critedge2.us71 ], [ %.sroa.0.041.us65, %18 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.lcssa, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0.lcssa, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -10421,8 +10421,8 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs11tryLockFileEiNSt6chrono8duration
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.critedge, %22
-  %.sroa.013.2 = phi i32 [ 37, %22 ], [ 0, %.critedge ], [ %.sroa.013.1, %18 ]
-  %.sroa.4.2 = phi ptr [ %23, %22 ], [ %10, %.critedge ], [ %.sroa.4.1, %18 ]
+  %.sroa.013.2 = phi i32 [ 0, %.critedge ], [ 37, %22 ], [ %.sroa.013.1, %18 ]
+  %.sroa.4.2 = phi ptr [ %10, %.critedge ], [ %23, %22 ], [ %.sroa.4.1, %18 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.013.2, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.4.2, 1
   ret { i32, ptr } %.fca.1.insert

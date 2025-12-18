@@ -112,7 +112,7 @@ define ptr @cs_compress(ptr noundef readonly captures(address_is_null) %0) local
   br i1 %exitcond66.not, label %.sink.split, label %.lr.ph56.split, !llvm.loop !19
 
 .sink.split:                                      ; preds = %.lr.ph56.split, %.lr.ph56.split.us, %._crit_edge.thread, %6
-  %.sink = phi i32 [ 0, %6 ], [ 1, %._crit_edge.thread ], [ 1, %.lr.ph56.split.us ], [ 1, %.lr.ph56.split ]
+  %.sink = phi i32 [ 0, %6 ], [ 1, %.lr.ph56.split.us ], [ 1, %._crit_edge.thread ], [ 1, %.lr.ph56.split ]
   %61 = tail call ptr @cs_done(ptr noundef %19, ptr noundef %20, ptr noundef null, i32 noundef %.sink) #2
   br label %62
 

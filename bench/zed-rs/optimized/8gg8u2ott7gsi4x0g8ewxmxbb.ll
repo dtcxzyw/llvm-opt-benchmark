@@ -12886,7 +12886,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$sum_tree..Node$LT$text..ope
   br i1 %49, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17h6609ed48777bef50E.exit8.i.i.i.i", %.body, %54, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %22, %54 ], [ %22, %.body ], [ %41, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17h6609ed48777bef50E.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %22, %.body ], [ %22, %54 ], [ %41, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17h6609ed48777bef50E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %48
@@ -17383,7 +17383,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$sum_tree..Node$LT$text..ope
   br i1 %45, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17hd59fe7647bd5358bE.exit8.i.i.i.i", %.body, %50, %36
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %18, %50 ], [ %18, %.body ], [ %37, %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17hd59fe7647bd5358bE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %18, %.body ], [ %18, %50 ], [ %37, %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17hd59fe7647bd5358bE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %44
@@ -85344,7 +85344,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$sum_tree..Node$LT$channel..c
   br i1 %35, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit8.i.i.i.i", %38, %42, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %39, %42 ], [ %39, %38 ], [ %27, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %39, %38 ], [ %39, %42 ], [ %27, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %34

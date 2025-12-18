@@ -9109,7 +9109,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %free_gen_ivtbl.exit
   br i1 %96, label %77, label %RB_FL_UNSET.exit, !llvm.loop !375
 
 RB_FL_UNSET.exit:                                 ; preds = %93, %.preheader, %39, %RB_FL_ABLE.exit.i, %free_gen_ivtbl.exit, %64, %74, %3
-  %.0 = phi i32 [ %.038, %64 ], [ %9, %3 ], [ %.038, %74 ], [ 2, %free_gen_ivtbl.exit ], [ 2, %RB_FL_ABLE.exit.i ], [ 2, %39 ], [ %.038, %.preheader ], [ %.038, %93 ]
+  %.0 = phi i32 [ %.038, %64 ], [ %9, %3 ], [ %.038, %74 ], [ 2, %39 ], [ 2, %free_gen_ivtbl.exit ], [ 2, %RB_FL_ABLE.exit.i ], [ %.038, %.preheader ], [ %.038, %93 ]
   ret i32 %.0
 }
 
@@ -14608,7 +14608,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %RB_SYMBOL_P.exit.i,
   unreachable
 
 rb_gc_impl_stat_heap.exit:                        ; preds = %86, %RB_SYMBOL_P.exit.thread.i, %108
-  %.1.i = phi i64 [ %107, %RB_SYMBOL_P.exit.thread.i ], [ %112, %108 ], [ %.0, %86 ]
+  %.1.i = phi i64 [ %112, %108 ], [ %107, %RB_SYMBOL_P.exit.thread.i ], [ %.0, %86 ]
   %114 = icmp eq i64 %.1.i, 36
   br i1 %114, label %115, label %118
 
@@ -15470,7 +15470,7 @@ rb_ractor_shareable_p.exit.i:                     ; preds = %89
   unreachable
 
 id2ref.exit:                                      ; preds = %17, %17, %17, %18, %26, %rb_gc_impl_object_id_to_ref.exit.i, %84, %89, %rb_ractor_shareable_p.exit.i
-  %.1.i = phi i64 [ %.0.i.i, %26 ], [ %42, %rb_ractor_shareable_p.exit.i ], [ %42, %rb_gc_impl_object_id_to_ref.exit.i ], [ %.0.i.i, %17 ], [ %.0.i.i, %18 ], [ %.0.i.i, %17 ], [ %42, %89 ], [ %42, %84 ], [ %.0.i.i, %17 ]
+  %.1.i = phi i64 [ %.0.i.i, %26 ], [ %42, %rb_ractor_shareable_p.exit.i ], [ %42, %rb_gc_impl_object_id_to_ref.exit.i ], [ %.0.i.i, %17 ], [ %.0.i.i, %18 ], [ %42, %89 ], [ %.0.i.i, %17 ], [ %42, %84 ], [ %.0.i.i, %17 ]
   ret i64 %.1.i
 }
 
@@ -21819,7 +21819,7 @@ rb_gc_impl_location.exit:                         ; preds = %149, %.split2.us.i
   br label %159
 
 159:                                              ; preds = %.loopexit, %144, %156, %20
-  %.0 = phi i1 [ %21, %20 ], [ true, %156 ], [ true, %144 ], [ %158, %.loopexit ]
+  %.0 = phi i1 [ %21, %20 ], [ true, %144 ], [ true, %156 ], [ %158, %.loopexit ]
   ret i1 %.0
 }
 
@@ -27460,7 +27460,7 @@ objspace_malloc_increase_body.exit.us:            ; preds = %.thread58
   br i1 %64, label %rb_gc_impl_free.exit, label %.preheader.i24.i
 
 rb_gc_impl_free.exit:                             ; preds = %.preheader.i.i, %.preheader.i24.i, %objspace_malloc_increase_body.exit.us, %.thread58.split, %45, %atomic_sub_nounderflow.exit.us.i, %47, %13
-  %.037 = phi ptr [ null, %47 ], [ %14, %13 ], [ %18, %atomic_sub_nounderflow.exit.us.i ], [ null, %45 ], [ %.03961, %objspace_malloc_increase_body.exit.us ], [ %.03961, %.thread58.split ], [ %.03961, %.preheader.i24.i ], [ %18, %.preheader.i.i ]
+  %.037 = phi ptr [ null, %45 ], [ null, %47 ], [ %14, %13 ], [ %18, %atomic_sub_nounderflow.exit.us.i ], [ %.03961, %objspace_malloc_increase_body.exit.us ], [ %.03961, %.thread58.split ], [ %.03961, %.preheader.i24.i ], [ %18, %.preheader.i.i ]
   ret ptr %.037
 }
 
@@ -28766,42 +28766,42 @@ rb_scan_args_n_opt.exit:                          ; preds = %rbimpl_intern_const
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !93
   switch i32 %17, label %.thread120 [
-    i32 0, label %24
+    i32 0, label %rb_scan_args_keyword_p.exit
     i32 1, label %36
-    i32 3, label %26
+    i32 3, label %24
   ]
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @rb_keyword_given_p() #6
-  %.not80 = icmp eq i32 %25, 0
+  %25 = icmp eq i64 %23, 0
+  %26 = and i64 %23, 7
+  %27 = icmp ne i64 %26, 0
+  %28 = or i1 %25, %27
+  br i1 %28, label %.thread120, label %29
+
+29:                                               ; preds = %24
+  %30 = inttoptr i64 %23 to ptr
+  %31 = load i64, ptr %30, align 8, !tbaa !113
+  %32 = and i64 %31, 31
+  %33 = icmp eq i64 %32, 8
+  br i1 %33, label %36, label %.thread120
+
+rb_scan_args_keyword_p.exit:                      ; preds = %19
+  %34 = tail call i32 @rb_keyword_given_p() #6
+  %.not80 = icmp eq i32 %34, 0
   br i1 %.not80, label %.thread120, label %36
-
-26:                                               ; preds = %19
-  %27 = icmp eq i64 %23, 0
-  %28 = and i64 %23, 7
-  %29 = icmp ne i64 %28, 0
-  %30 = or i1 %27, %29
-  br i1 %30, label %.thread120, label %rb_scan_args_keyword_p.exit
-
-rb_scan_args_keyword_p.exit:                      ; preds = %26
-  %31 = inttoptr i64 %23 to ptr
-  %32 = load i64, ptr %31, align 8, !tbaa !113
-  %33 = and i64 %32, 31
-  %34 = icmp eq i64 %33, 8
-  br i1 %34, label %36, label %.thread120
 
 rb_scan_args_keyword_p.exit.thread:               ; preds = %rb_scan_args_n_opt.exit
   %35 = icmp slt i32 %0, 0
   br i1 %35, label %.thread120, label %rb_scan_args_set.exit
 
-36:                                               ; preds = %rb_scan_args_keyword_p.exit, %24, %19
+36:                                               ; preds = %rb_scan_args_keyword_p.exit, %29, %19
   %37 = tail call i64 @rb_hash_dup(i64 noundef %23) #6
   %38 = add nsw i32 %0, -1
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %rb_scan_args_set.exit, label %.thread120
 
-.thread120:                                       ; preds = %rb_scan_args_keyword_p.exit, %24, %26, %19, %36, %rb_scan_args_keyword_p.exit.thread
-  %.0.i116 = phi i32 [ %38, %36 ], [ %0, %rb_scan_args_keyword_p.exit.thread ], [ %0, %19 ], [ %0, %26 ], [ %0, %24 ], [ %0, %rb_scan_args_keyword_p.exit ]
+.thread120:                                       ; preds = %rb_scan_args_keyword_p.exit, %29, %24, %19, %36, %rb_scan_args_keyword_p.exit.thread
+  %.0.i116 = phi i32 [ %38, %36 ], [ %0, %rb_scan_args_keyword_p.exit.thread ], [ %0, %19 ], [ %0, %24 ], [ %0, %29 ], [ %0, %rb_scan_args_keyword_p.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i116, i32 noundef 0, i32 noundef 0) #56
   unreachable
 

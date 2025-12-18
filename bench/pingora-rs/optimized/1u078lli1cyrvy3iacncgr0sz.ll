@@ -2192,7 +2192,7 @@ _ZN19brotli_decompressor6decode21ReadSymbolCodeLengths17hf294041fa4dec71bE.exit:
   br i1 %190, label %.backedge, label %.preheader.preheader
 
 _ZN19brotli_decompressor6decode24ReadSimpleHuffmanSymbols17hd3dd43b43f857365E.exit: ; preds = %.loopexit.i, %38, %68, %249, %271, %109, %.loopexit31.i, %.loopexit, %288, %209, %195, %191
-  %.sroa.06.0 = phi i32 [ 2, %191 ], [ -7, %.loopexit ], [ 1, %209 ], [ 2, %195 ], [ 1, %288 ], [ %.sroa.0.2.i, %.loopexit31.i ], [ 2, %109 ], [ -5, %68 ], [ 2, %249 ], [ 2, %271 ], [ -6, %.loopexit.i ], [ 2, %38 ]
+  %.sroa.06.0 = phi i32 [ %.sroa.0.2.i, %.loopexit31.i ], [ 2, %191 ], [ -7, %.loopexit ], [ 1, %209 ], [ 2, %195 ], [ 2, %109 ], [ 1, %288 ], [ 2, %249 ], [ -5, %68 ], [ 2, %271 ], [ 2, %38 ], [ -6, %.loopexit.i ]
   ret i32 %.sroa.06.0
 
 .backedge:                                        ; preds = %72, %188, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e1d1da7814ca4afE.exit26.i", %.preheader.preheader, %192, %217
@@ -2958,8 +2958,8 @@ default.unreachable:                              ; preds = %.backedge47.i
   br i1 %160, label %163, label %.preheader.i
 
 .invoke:                                          ; preds = %138, %129, %.preheader.i
-  %161 = phi i64 [ %153, %.preheader.i ], [ %139, %138 ], [ %130, %129 ]
-  %162 = phi ptr [ @anon.c4824aabc3fc9bdfc05d04d543564e99.50, %.preheader.i ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.49, %138 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.48, %129 ]
+  %161 = phi i64 [ %153, %.preheader.i ], [ %130, %129 ], [ %139, %138 ]
+  %162 = phi ptr [ @anon.c4824aabc3fc9bdfc05d04d543564e99.50, %.preheader.i ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.48, %129 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.49, %138 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %161, i64 noundef %.val38.i, ptr noalias noundef readonly align 8 dereferenceable(24) %162) #29
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -3021,7 +3021,7 @@ default.unreachable:                              ; preds = %.backedge47.i
           to label %209 unwind label %207
 
 _ZN19brotli_decompressor6decode21DecodeContextMapInner17ha14e63ba66984c94E.exit: ; preds = %74, %.noexc, %167, %128, %.noexc8, %82, %.lr.ph99.preheader.i, %80
-  %.sroa.0.0.i = phi i32 [ %.sroa.0.3.i, %167 ], [ %.sroa.0.1.i, %128 ], [ 1, %80 ], [ 2, %82 ], [ %102, %.noexc8 ], [ 1, %.lr.ph99.preheader.i ], [ -25, %74 ], [ %54, %.noexc ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.0.3.i, %167 ], [ %.sroa.0.1.i, %128 ], [ 1, %80 ], [ 2, %82 ], [ %102, %.noexc8 ], [ 1, %.lr.ph99.preheader.i ], [ %54, %.noexc ], [ -25, %74 ]
   %175 = load i8, ptr %18, align 1, !range !68, !noundef !29
   %176 = trunc nuw i8 %175 to i1
   %177 = load i32, ptr %15, align 4, !noundef !29
@@ -3190,7 +3190,7 @@ default.unreachable56:                            ; preds = %13
   br label %.backedge
 
 .loopexit:                                        ; preds = %33, %80, %31, %19, %17, %15, %91, %57, %72, %90, %56, %86, %77, %48
-  %.sroa.0.0 = phi i32 [ 2, %90 ], [ 1, %48 ], [ 2, %72 ], [ 1, %86 ], [ 2, %56 ], [ 1, %77 ], [ -3, %91 ], [ -1, %57 ], [ 2, %33 ], [ -2, %80 ], [ 2, %31 ], [ 2, %19 ], [ 2, %17 ], [ 2, %15 ]
+  %.sroa.0.0 = phi i32 [ 2, %90 ], [ 1, %48 ], [ -1, %57 ], [ 2, %72 ], [ 1, %86 ], [ 2, %56 ], [ 1, %77 ], [ -3, %91 ], [ 2, %33 ], [ -2, %80 ], [ 2, %31 ], [ 2, %19 ], [ 2, %17 ], [ 2, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
@@ -3594,12 +3594,12 @@ default.unreachable560:                           ; preds = %.preheader160
   br label %.preheader160.backedge
 
 .preheader160.backedge:                           ; preds = %152, %270, %274, %285, %328, %.loopexit158, %361, %413, %429, %448, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit, %557
-  %.be = phi i8 [ %.neg, %270 ], [ 2, %274 ], [ 3, %285 ], [ 4, %152 ], [ 6, %328 ], [ 21, %.loopexit158 ], [ 24, %361 ], [ 18, %413 ], [ 19, %429 ], [ 20, %448 ], [ 22, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ], [ 23, %557 ]
-  %.be1199 = phi i64 [ %132, %270 ], [ %132, %274 ], [ %132, %285 ], [ %132, %152 ], [ %132, %328 ], [ %132, %.loopexit158 ], [ %362, %361 ], [ %132, %413 ], [ %132, %429 ], [ %132, %448 ], [ %132, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ], [ %132, %557 ]
-  %.be1200 = phi i64 [ %133, %270 ], [ %133, %274 ], [ %133, %285 ], [ %133, %152 ], [ %133, %328 ], [ %133, %.loopexit158 ], [ %363, %361 ], [ %133, %413 ], [ %133, %429 ], [ %133, %448 ], [ %133, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ], [ %133, %557 ]
-  %.be1201 = phi i64 [ %134, %270 ], [ %134, %274 ], [ %134, %285 ], [ %134, %152 ], [ %134, %328 ], [ %134, %.loopexit158 ], [ %364, %361 ], [ %134, %413 ], [ %134, %429 ], [ %134, %448 ], [ %134, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ], [ %134, %557 ]
-  %.be1202 = phi i64 [ %135, %270 ], [ %135, %274 ], [ %135, %285 ], [ %135, %152 ], [ %135, %328 ], [ %135, %.loopexit158 ], [ %365, %361 ], [ %135, %413 ], [ %135, %429 ], [ %135, %448 ], [ %135, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ], [ %135, %557 ]
-  %.sroa.014.2.be = phi i32 [ 1, %270 ], [ %.sroa.014.2, %274 ], [ %.sroa.014.2, %285 ], [ %.sroa.014.2, %152 ], [ %.sroa.014.2, %328 ], [ 1, %.loopexit158 ], [ %spec.select, %361 ], [ 1, %413 ], [ 1, %429 ], [ 1, %448 ], [ 1, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ], [ 1, %557 ]
+  %.be = phi i8 [ 23, %557 ], [ %.neg, %270 ], [ 2, %274 ], [ 3, %285 ], [ 4, %152 ], [ 6, %328 ], [ 21, %.loopexit158 ], [ 24, %361 ], [ 18, %413 ], [ 19, %429 ], [ 20, %448 ], [ 22, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ]
+  %.be1199 = phi i64 [ %132, %557 ], [ %132, %270 ], [ %132, %274 ], [ %132, %285 ], [ %132, %152 ], [ %132, %328 ], [ %132, %.loopexit158 ], [ %362, %361 ], [ %132, %413 ], [ %132, %429 ], [ %132, %448 ], [ %132, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ]
+  %.be1200 = phi i64 [ %133, %557 ], [ %133, %270 ], [ %133, %274 ], [ %133, %285 ], [ %133, %152 ], [ %133, %328 ], [ %133, %.loopexit158 ], [ %363, %361 ], [ %133, %413 ], [ %133, %429 ], [ %133, %448 ], [ %133, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ]
+  %.be1201 = phi i64 [ %134, %557 ], [ %134, %270 ], [ %134, %274 ], [ %134, %285 ], [ %134, %152 ], [ %134, %328 ], [ %134, %.loopexit158 ], [ %364, %361 ], [ %134, %413 ], [ %134, %429 ], [ %134, %448 ], [ %134, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ]
+  %.be1202 = phi i64 [ %135, %557 ], [ %135, %270 ], [ %135, %274 ], [ %135, %285 ], [ %135, %152 ], [ %135, %328 ], [ %135, %.loopexit158 ], [ %365, %361 ], [ %135, %413 ], [ %135, %429 ], [ %135, %448 ], [ %135, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ]
+  %.sroa.014.2.be = phi i32 [ 1, %557 ], [ 1, %270 ], [ %.sroa.014.2, %274 ], [ %.sroa.014.2, %285 ], [ %.sroa.014.2, %152 ], [ %.sroa.014.2, %328 ], [ 1, %.loopexit158 ], [ %spec.select, %361 ], [ 1, %413 ], [ 1, %429 ], [ 1, %448 ], [ 1, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286ffE.exit ]
   br label %.preheader160
 
 153:                                              ; preds = %.preheader160
@@ -4621,7 +4621,7 @@ _ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h79653698326286
   br label %.thread152
 
 .loopexit163:                                     ; preds = %573, %652, %635
-  %.sroa.014.8 = phi i32 [ %.sroa.014.1, %652 ], [ %.sroa.014.1, %635 ], [ %574, %573 ]
+  %.sroa.014.8 = phi i32 [ %.sroa.014.1, %635 ], [ %.sroa.014.1, %652 ], [ %574, %573 ]
   store i32 %.sroa.014.8, ptr %27, align 4
   %cond = icmp eq i32 %.sroa.014.8, 3
   %spec.select879 = select i1 %cond, i32 3, i32 0
@@ -5089,7 +5089,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17h09d23f3d267f813fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
           to label %184 unwind label %182
 
-.thread32:                                        ; preds = %48, %38, %14
+.thread32:                                        ; preds = %14, %38, %48
   %lpad.thr_comm30 = landingpad { ptr, i32 }
           cleanup
   br label %.thread23
@@ -5425,9 +5425,9 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   br i1 %108, label %386, label %109, !prof !3
 
 .thread268:                                       ; preds = %94, %1027, %1024, %625, %388, %.backedge, %441, %710, %960, %.loopexit1139, %435, %532, %548, %1115, %1119, %1087, %.loopexit291, %1089, %608
-  %.sroa.0.1257 = phi i32 [ %.sroa.0.3259, %532 ], [ %549, %548 ], [ %1112, %1119 ], [ %1117, %1115 ], [ 0, %608 ], [ %.sroa.0.8, %.loopexit291 ], [ %969, %1089 ], [ %969, %1087 ], [ %.sroa.0.3259, %435 ], [ %.sroa.0.0256, %960 ], [ %.sroa.0.0256, %710 ], [ %.sroa.0.10, %.loopexit1139 ], [ %.sroa.0.3259, %441 ], [ %.sroa.0.0256, %625 ], [ %969, %1024 ], [ %969, %1027 ], [ %.sroa.0.0256, %94 ], [ %.sroa.0.0256, %388 ], [ %.sroa.0.0256, %.backedge ]
-  %.sroa.055.1 = phi i32 [ %.sroa.055.3, %532 ], [ %542, %548 ], [ %.sroa.055.2, %1119 ], [ %104, %1115 ], [ %.sroa.055.5, %608 ], [ %.sroa.055.8, %.loopexit291 ], [ %.sroa.055.10, %1089 ], [ %.pre-phi, %1087 ], [ %.sroa.055.3, %435 ], [ %.sroa.055.0, %960 ], [ %.sroa.055.0, %710 ], [ %.sroa.055.0, %.loopexit1139 ], [ %.sroa.055.3, %441 ], [ %.sroa.055.0, %.backedge ], [ %.sroa.055.0, %388 ], [ %.sroa.055.0, %625 ], [ %.sroa.055.0, %1024 ], [ %.sroa.055.0, %1027 ], [ %.sroa.055.0, %94 ]
-  %.sroa.0.2 = phi i32 [ 2, %532 ], [ 1, %548 ], [ 1, %1119 ], [ 1, %1115 ], [ 1, %608 ], [ %.sroa.0.6, %.loopexit291 ], [ 1, %1089 ], [ 1, %1087 ], [ 2, %435 ], [ 2, %960 ], [ 2, %710 ], [ 2, %.loopexit1139 ], [ 2, %441 ], [ 2, %625 ], [ -12, %1024 ], [ -11, %1027 ], [ 2, %94 ], [ 2, %388 ], [ -31, %.backedge ]
+  %.sroa.0.1257 = phi i32 [ %549, %548 ], [ %.sroa.0.3259, %532 ], [ %.sroa.0.0256, %710 ], [ %1112, %1119 ], [ %1117, %1115 ], [ 0, %608 ], [ %.sroa.0.8, %.loopexit291 ], [ %969, %1089 ], [ %969, %1087 ], [ %.sroa.0.3259, %435 ], [ %.sroa.0.0256, %960 ], [ %.sroa.0.10, %.loopexit1139 ], [ %.sroa.0.3259, %441 ], [ %.sroa.0.0256, %625 ], [ %.sroa.0.0256, %.backedge ], [ %969, %1024 ], [ %969, %1027 ], [ %.sroa.0.0256, %94 ], [ %.sroa.0.0256, %388 ]
+  %.sroa.055.1 = phi i32 [ %542, %548 ], [ %.sroa.055.3, %532 ], [ %.sroa.055.0, %710 ], [ %.sroa.055.2, %1119 ], [ %104, %1115 ], [ %.sroa.055.5, %608 ], [ %.sroa.055.8, %.loopexit291 ], [ %.sroa.055.10, %1089 ], [ %.pre-phi, %1087 ], [ %.sroa.055.3, %435 ], [ %.sroa.055.0, %960 ], [ %.sroa.055.0, %.loopexit1139 ], [ %.sroa.055.3, %441 ], [ %.sroa.055.0, %.backedge ], [ %.sroa.055.0, %388 ], [ %.sroa.055.0, %625 ], [ %.sroa.055.0, %1024 ], [ %.sroa.055.0, %1027 ], [ %.sroa.055.0, %94 ]
+  %.sroa.0.2 = phi i32 [ 1, %548 ], [ 2, %532 ], [ 2, %710 ], [ 1, %1119 ], [ 1, %1115 ], [ 1, %608 ], [ %.sroa.0.6, %.loopexit291 ], [ 1, %1089 ], [ 1, %1087 ], [ 2, %435 ], [ 2, %960 ], [ 2, %.loopexit1139 ], [ 2, %441 ], [ 2, %625 ], [ -31, %.backedge ], [ -12, %1024 ], [ -11, %1027 ], [ 2, %94 ], [ 2, %388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -6394,9 +6394,9 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17hdfa73ea06d9f029bE.exit: ; preds 
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %609, %552, %389, %401, %402, %607, %1023, %1088, %1118
-  %.be = phi i8 [ 7, %389 ], [ 9, %401 ], [ 8, %402 ], [ 7, %1118 ], [ 9, %607 ], [ 7, %1088 ], [ 10, %1023 ], [ 8, %552 ], [ 8, %609 ]
-  %.sroa.0.0256.be = phi i32 [ %.sroa.0.0256, %389 ], [ 0, %401 ], [ %399, %402 ], [ %1112, %1118 ], [ 0, %607 ], [ %969, %1088 ], [ %969, %1023 ], [ %.sroa.0.3259, %552 ], [ %.sroa.0.7, %609 ]
-  %.sroa.055.0.be = phi i32 [ %.sroa.055.0, %389 ], [ %.sroa.055.0, %401 ], [ %.sroa.055.0, %402 ], [ %.sroa.055.2, %1118 ], [ %.sroa.055.5, %607 ], [ %.sroa.055.10, %1088 ], [ %.sroa.055.0, %1023 ], [ %.sroa.055.3, %552 ], [ %.sroa.055.7, %609 ]
+  %.be = phi i8 [ 7, %1118 ], [ 7, %389 ], [ 9, %401 ], [ 8, %402 ], [ 10, %1023 ], [ 9, %607 ], [ 7, %1088 ], [ 8, %552 ], [ 8, %609 ]
+  %.sroa.0.0256.be = phi i32 [ %1112, %1118 ], [ %.sroa.0.0256, %389 ], [ 0, %401 ], [ %399, %402 ], [ %969, %1023 ], [ 0, %607 ], [ %969, %1088 ], [ %.sroa.0.3259, %552 ], [ %.sroa.0.7, %609 ]
+  %.sroa.055.0.be = phi i32 [ %.sroa.055.2, %1118 ], [ %.sroa.055.0, %389 ], [ %.sroa.055.0, %401 ], [ %.sroa.055.0, %402 ], [ %.sroa.055.0, %1023 ], [ %.sroa.055.5, %607 ], [ %.sroa.055.10, %1088 ], [ %.sroa.055.3, %552 ], [ %.sroa.055.7, %609 ]
   br label %.backedge
 
 610:                                              ; preds = %588
@@ -7204,9 +7204,9 @@ thread-pre-split:                                 ; preds = %1002, %1017, %_ZN19
   unreachable
 
 .invoke1620:                                      ; preds = %1070, %1053, %.noexc148, %1006, %.noexc143, %974, %897, %876, %850, %818, %797, %771, %648, %357, %336, %310, %277, %256, %230, %122, %470
-  %1058 = phi i64 [ %475, %470 ], [ %1013, %.noexc148 ], [ %362, %357 ], [ %903, %897 ], [ %991, %.noexc143 ], [ %1051, %1053 ], [ %127, %122 ], [ %236, %230 ], [ %262, %256 ], [ %282, %277 ], [ %316, %310 ], [ %342, %336 ], [ %653, %648 ], [ %777, %771 ], [ %803, %797 ], [ %824, %818 ], [ %856, %850 ], [ %882, %876 ], [ %989, %974 ], [ %1011, %1006 ], [ %1068, %1070 ]
-  %1059 = phi i64 [ %3, %470 ], [ %.val158, %.noexc148 ], [ %3, %357 ], [ %3, %897 ], [ %.val162, %.noexc143 ], [ 122784, %1053 ], [ %3, %122 ], [ %3, %230 ], [ %3, %256 ], [ %3, %277 ], [ %3, %310 ], [ %3, %336 ], [ %3, %648 ], [ %3, %771 ], [ %3, %797 ], [ %3, %818 ], [ %3, %850 ], [ %3, %876 ], [ %.val162, %974 ], [ %.val158, %1006 ], [ %.val156, %1070 ]
-  %1060 = phi ptr [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %470 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.145, %.noexc148 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %357 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %897 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.145, %.noexc143 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.92, %1053 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %122 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %230 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %256 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %277 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %310 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %336 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %648 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %771 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %797 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %818 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %850 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %876 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.143, %974 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.143, %1006 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.93, %1070 ]
+  %1058 = phi i64 [ %475, %470 ], [ %362, %357 ], [ %903, %897 ], [ %991, %.noexc143 ], [ %1051, %1053 ], [ %127, %122 ], [ %236, %230 ], [ %262, %256 ], [ %282, %277 ], [ %316, %310 ], [ %342, %336 ], [ %1068, %1070 ], [ %653, %648 ], [ %777, %771 ], [ %803, %797 ], [ %824, %818 ], [ %856, %850 ], [ %882, %876 ], [ %989, %974 ], [ %1011, %1006 ], [ %1013, %.noexc148 ]
+  %1059 = phi i64 [ %3, %470 ], [ %3, %357 ], [ %3, %897 ], [ %.val162, %.noexc143 ], [ 122784, %1053 ], [ %3, %122 ], [ %3, %230 ], [ %3, %256 ], [ %3, %277 ], [ %3, %310 ], [ %3, %336 ], [ %.val156, %1070 ], [ %3, %648 ], [ %3, %771 ], [ %3, %797 ], [ %3, %818 ], [ %3, %850 ], [ %3, %876 ], [ %.val162, %974 ], [ %.val158, %1006 ], [ %.val158, %.noexc148 ]
+  %1060 = phi ptr [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %470 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %357 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %897 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.145, %.noexc143 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.92, %1053 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %122 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %230 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %256 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %277 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %310 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %336 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.93, %1070 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %648 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %771 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %797 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.11, %818 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %850 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.13, %876 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.143, %974 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.143, %1006 ], [ @anon.c4824aabc3fc9bdfc05d04d543564e99.145, %.noexc148 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %1058, i64 noundef %1059, ptr noalias noundef readonly align 8 dereferenceable(24) %1060) #29
           to label %.cont1621 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

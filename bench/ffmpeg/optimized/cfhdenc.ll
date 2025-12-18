@@ -3082,7 +3082,7 @@ bytestream2_put_be16.exit725:                     ; preds = %1285, %bytestream2_
   br i1 %exitcond23.not.i, label %quantize_band.exit, label %.preheader.us.i747, !llvm.loop !100
 
 quantize_band.exit:                               ; preds = %._crit_edge.us.i752, %bytestream2_put_be16.exit725, %.preheader.lr.ph.i744
-  %brmerge = phi i1 [ true, %bytestream2_put_be16.exit725 ], [ true, %.preheader.lr.ph.i744 ], [ false, %._crit_edge.us.i752 ]
+  %brmerge = phi i1 [ true, %.preheader.lr.ph.i744 ], [ true, %bytestream2_put_be16.exit725 ], [ false, %._crit_edge.us.i752 ]
   %1311 = load ptr, ptr %184, align 8, !tbaa !76
   %1312 = load ptr, ptr %8, align 8, !tbaa !79
   %1313 = load ptr, ptr %191, align 8, !tbaa !80
@@ -3342,8 +3342,8 @@ put_bits.exit.i758:                               ; preds = %1438, %1419
   br i1 %1442, label %.preheader1232, label %put_runcode.exit761, !llvm.loop !106
 
 put_runcode.exit761:                              ; preds = %put_bits.exit.i758, %quantize_band.exit, %._crit_edge1004
-  %1443 = phi i32 [ %.pre11.i.us1122, %._crit_edge1004 ], [ 32, %quantize_band.exit ], [ %.0.i.i.i760, %put_bits.exit.i758 ]
-  %1444 = phi i32 [ %.pre.i.us1119, %._crit_edge1004 ], [ 0, %quantize_band.exit ], [ %.026.i.i.i759, %put_bits.exit.i758 ]
+  %1443 = phi i32 [ 32, %quantize_band.exit ], [ %.pre11.i.us1122, %._crit_edge1004 ], [ %.0.i.i.i760, %put_bits.exit.i758 ]
+  %1444 = phi i32 [ 0, %quantize_band.exit ], [ %.pre.i.us1119, %._crit_edge1004 ], [ %.026.i.i.i759, %put_bits.exit.i758 ]
   %1445 = load i32, ptr %545, align 4, !tbaa !52
   %1446 = load i32, ptr %544, align 4, !tbaa !50
   %1447 = icmp slt i32 %1445, %1443

@@ -2686,7 +2686,7 @@ AddDeviceToEnumeration.exit26:                    ; preds = %24, %23, %.lr.ph
   br i1 %.not.i27, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !8
 
 PLATFORM_hid_free_enumeration.exit:               ; preds = %.lr.ph.i, %9, %.preheader37, %.preheader, %.loopexit, %5
-  %.022 = phi ptr [ null, %5 ], [ %.134, %.loopexit ], [ null, %.preheader ], [ null, %.preheader37 ], [ null, %9 ], [ %.134, %.lr.ph.i ]
+  %.022 = phi ptr [ null, %5 ], [ %.134, %.loopexit ], [ null, %9 ], [ null, %.preheader ], [ null, %.preheader37 ], [ %.134, %.lr.ph.i ]
   ret ptr %.022
 }
 
@@ -3661,7 +3661,7 @@ hid_iterate_over_collection.exit:                 ; preds = %.thread36.i
   br label %.thread
 
 .thread:                                          ; preds = %98, %102, %.thread.sink.split, %5, %._crit_edge, %114
-  %.2 = phi i32 [ 1, %._crit_edge ], [ 1, %114 ], [ 1, %5 ], [ 0, %.thread.sink.split ], [ -1, %102 ], [ -1, %98 ]
+  %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %.thread.sink.split ], [ 1, %114 ], [ 1, %5 ], [ -1, %102 ], [ -1, %98 ]
   ret i32 %.2
 }
 

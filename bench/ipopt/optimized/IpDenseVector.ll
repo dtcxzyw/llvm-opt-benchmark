@@ -1764,7 +1764,7 @@ define noundef double @_ZNK5Ipopt11DenseVector7MaxImplEv(ptr noundef nonnull rea
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %1, %11
-  %.07 = phi double [ %13, %11 ], [ 0xFFEFFFFFFFFFFFFF, %1 ], [ %17, %14 ], [ %.sroa.speculated.i, %.lr.ph ]
+  %.07 = phi double [ 0xFFEFFFFFFFFFFFFF, %1 ], [ %13, %11 ], [ %17, %14 ], [ %.sroa.speculated.i, %.lr.ph ]
   ret double %.07
 }
 
@@ -1811,7 +1811,7 @@ define noundef double @_ZNK5Ipopt11DenseVector7MinImplEv(ptr noundef nonnull rea
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %1, %11
-  %.07 = phi double [ %13, %11 ], [ 0x7FEFFFFFFFFFFFFF, %1 ], [ %17, %14 ], [ %.sroa.speculated.i, %.lr.ph ]
+  %.07 = phi double [ 0x7FEFFFFFFFFFFFFF, %1 ], [ %13, %11 ], [ %17, %14 ], [ %.sroa.speculated.i, %.lr.ph ]
   ret double %.07
 }
 
@@ -3770,7 +3770,7 @@ define noundef double @_ZNK5Ipopt11DenseVector15FracToBoundImplERKNS_6VectorEd(p
   br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !141
 
 .loopexit:                                        ; preds = %70, %55, %44, %.preheader48, %.preheader, %25, %29, %48, %3
-  %.038 = phi double [ 1.000000e+00, %3 ], [ %.sroa.speculated.i, %29 ], [ 1.000000e+00, %25 ], [ 1.000000e+00, %48 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %.preheader48 ], [ %.sroa.speculated.i44, %55 ], [ %.1, %44 ], [ %.5, %70 ]
+  %.038 = phi double [ 1.000000e+00, %3 ], [ %.sroa.speculated.i, %29 ], [ 1.000000e+00, %25 ], [ %.sroa.speculated.i44, %55 ], [ 1.000000e+00, %.preheader48 ], [ 1.000000e+00, %48 ], [ 1.000000e+00, %.preheader ], [ %.1, %44 ], [ %.5, %70 ]
   ret double %.038
 }
 

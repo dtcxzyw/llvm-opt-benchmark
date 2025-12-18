@@ -83,7 +83,7 @@ _ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i: ; preds = %_ZSt7adv
   br i1 %36, label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit", !llvm.loop !7
 
 "_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, %13, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %13 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
+  %.0 = phi ptr [ null, %13 ], [ null, %19 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
   ret ptr %.0
 }
 

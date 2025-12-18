@@ -2455,8 +2455,8 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %61, %.split.us, %.split16.us
-  %95 = phi ptr [ %.us-phi17, %.split16.us ], [ null, %.split.us ], [ %62, %61 ], [ %68, %.split ]
-  %96 = phi i32 [ %.us-phi18, %.split16.us ], [ %51, %.split.us ], [ %66, %61 ], [ %72, %.split ]
+  %95 = phi ptr [ %.us-phi17, %.split16.us ], [ %62, %61 ], [ null, %.split.us ], [ %68, %.split ]
+  %96 = phi i32 [ %.us-phi18, %.split16.us ], [ %66, %61 ], [ %51, %.split.us ], [ %72, %.split ]
   call void @__rcu_read_unlock() #19
   br label %97
 
@@ -3420,7 +3420,7 @@ define internal fastcc i32 @string_to_context_struct(ptr noundef %0, ptr noundef
   br i1 %50, label %select.unfold, label %59
 
 select.unfold:                                    ; preds = %6, %18, %48, %39, %43, %35, %23, %11
-  %.ph = phi i32 [ -22, %39 ], [ -22, %11 ], [ -22, %23 ], [ -22, %35 ], [ %46, %43 ], [ -22, %48 ], [ -22, %18 ], [ -22, %6 ]
+  %.ph = phi i32 [ -22, %39 ], [ -22, %18 ], [ -22, %48 ], [ -22, %11 ], [ -22, %23 ], [ -22, %35 ], [ %46, %43 ], [ -22, %6 ]
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4002,8 +4002,8 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %99, label %.preheader, label %.loopexit23
 
 .loopexit22:                                      ; preds = %86, %.preheader, %54, %40
-  %100 = phi i16 [ 0, %40 ], [ 0, %54 ], [ %69, %.preheader ], [ %88, %86 ]
-  %101 = phi i8 [ %45, %40 ], [ %45, %54 ], [ %97, %.preheader ], [ %87, %86 ]
+  %100 = phi i16 [ 0, %40 ], [ %69, %.preheader ], [ 0, %54 ], [ %88, %86 ]
+  %101 = phi i8 [ %45, %40 ], [ %97, %.preheader ], [ %45, %54 ], [ %87, %86 ]
   %102 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 %100, ptr %102, align 2
   %103 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %47
@@ -4842,7 +4842,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %73, %48, %.split.split.us, %.split.us, %.split.split, %.split.split, %.thread11, %.thread9
-  %90 = phi i32 [ 0, %.thread9 ], [ 0, %.thread11 ], [ -22, %.split.split ], [ -22, %.split.split.us ], [ -22, %.split.us ], [ -22, %.split.split ], [ %46, %48 ], [ %71, %73 ]
+  %90 = phi i32 [ 0, %.thread9 ], [ 0, %.thread11 ], [ -22, %.split.split.us ], [ -22, %.split.split ], [ %46, %48 ], [ -22, %.split.us ], [ -22, %.split.split ], [ %71, %73 ]
   call void @__rcu_read_unlock() #19
   br label %91
 
@@ -5088,9 +5088,9 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   br i1 %152, label %.preheader29, label %.loopexit30, !llvm.loop !74
 
 .loopexit30:                                      ; preds = %73, %148, %54, %76
-  %153 = phi ptr [ %58, %76 ], [ %58, %54 ], [ %118, %148 ], [ %58, %73 ]
-  %154 = phi i32 [ %56, %76 ], [ %56, %54 ], [ %119, %148 ], [ %56, %73 ]
-  %155 = phi i32 [ %55, %76 ], [ %55, %54 ], [ %120, %148 ], [ %55, %73 ]
+  %153 = phi ptr [ %58, %76 ], [ %118, %148 ], [ %58, %54 ], [ %58, %73 ]
+  %154 = phi i32 [ %56, %76 ], [ %119, %148 ], [ %56, %54 ], [ %56, %73 ]
+  %155 = phi i32 [ %55, %76 ], [ %120, %148 ], [ %55, %54 ], [ %55, %73 ]
   %156 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %158 = load i32, ptr %157, align 8
@@ -5139,9 +5139,9 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   br i1 %187, label %54, label %.loopexit, !llvm.loop !75
 
 .loopexit:                                        ; preds = %32, %93, %45, %22, %42, %183, %105, %91, %14
-  %188 = phi ptr [ %12, %14 ], [ %153, %183 ], [ %26, %42 ], [ %86, %105 ], [ %86, %91 ], [ %26, %32 ], [ %26, %45 ], [ %86, %93 ], [ %26, %22 ]
+  %188 = phi ptr [ %12, %14 ], [ %153, %183 ], [ %26, %42 ], [ %86, %105 ], [ %86, %91 ], [ %26, %45 ], [ %86, %93 ], [ %26, %22 ], [ %26, %32 ]
   %189 = phi i32 [ 0, %14 ], [ %154, %183 ], [ 0, %42 ], [ %84, %105 ], [ %84, %91 ], [ 0, %22 ], [ 0, %45 ], [ 0, %93 ], [ 0, %32 ]
-  %190 = phi i32 [ -22, %14 ], [ 0, %183 ], [ 0, %42 ], [ -12, %105 ], [ %92, %91 ], [ 0, %32 ], [ 0, %45 ], [ -22, %93 ], [ -22, %22 ]
+  %190 = phi i32 [ -22, %14 ], [ 0, %183 ], [ 0, %42 ], [ -12, %105 ], [ %92, %91 ], [ 0, %45 ], [ -22, %93 ], [ -22, %22 ], [ 0, %32 ]
   call void @__rcu_read_unlock() #19
   %191 = icmp eq i32 %190, 0
   %192 = icmp ne i32 %189, 0
@@ -5366,7 +5366,7 @@ define internal fastcc i32 @__security_genfs_sid(ptr noundef readonly captures(n
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %63, %26, %79, %45, %.loopexit
-  %81 = phi i32 [ %80, %79 ], [ -2, %.loopexit ], [ -2, %45 ], [ -2, %26 ], [ -2, %63 ], [ -2, %.preheader ]
+  %81 = phi i32 [ %80, %79 ], [ -2, %.loopexit ], [ -2, %45 ], [ -2, %63 ], [ -2, %26 ], [ -2, %.preheader ]
   ret i32 %81
 }
 

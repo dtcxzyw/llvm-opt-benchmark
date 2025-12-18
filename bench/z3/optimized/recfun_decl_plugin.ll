@@ -3876,8 +3876,8 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit130:  ; preds = %379, %.noexc129
   br i1 %.not85, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %433, %.thread278, %_ZNK11ast_manager6is_iteEPK4exprRPS0_S4_S4_.exit115.thread, %363, %346
-  %.sroa.0242.3 = phi ptr [ %.sroa.0242.0383, %363 ], [ %.sroa.0242.0383, %346 ], [ %.sroa.0242.0383, %_ZNK11ast_manager6is_iteEPK4exprRPS0_S4_S4_.exit115.thread ], [ %.sroa.0242.0383, %.thread278 ], [ %.sroa.0242.5, %433 ]
-  %.sroa.7.2 = phi ptr [ %362, %363 ], [ %.sroa.7.1384, %346 ], [ %.sroa.7.1384, %_ZNK11ast_manager6is_iteEPK4exprRPS0_S4_S4_.exit115.thread ], [ %.sroa.7.1384, %.thread278 ], [ %.sroa.7.1384, %433 ]
+  %.sroa.0242.3 = phi ptr [ %.sroa.0242.0383, %363 ], [ %.sroa.0242.0383, %_ZNK11ast_manager6is_iteEPK4exprRPS0_S4_S4_.exit115.thread ], [ %.sroa.0242.0383, %346 ], [ %.sroa.0242.0383, %.thread278 ], [ %.sroa.0242.5, %433 ]
+  %.sroa.7.2 = phi ptr [ %362, %363 ], [ %.sroa.7.1384, %_ZNK11ast_manager6is_iteEPK4exprRPS0_S4_S4_.exit115.thread ], [ %.sroa.7.1384, %346 ], [ %.sroa.7.1384, %.thread278 ], [ %.sroa.7.1384, %433 ]
   %435 = icmp eq ptr %.sroa.0242.3, null
   br i1 %435, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !227
 
@@ -7096,7 +7096,7 @@ _ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit: ; preds = %_ZN15ast_transl
   br i1 %.not27.old.i.i.i, label %.loopexit58, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %70, %67
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %70 ], [ %69, %67 ]
+  %.137.i.i.i.be = phi ptr [ %69, %67 ], [ %.old.i.i.i, %70 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !315
 
 .loopexit58:                                      ; preds = %56, %67, %70, %.preheader.i.i.i
@@ -7406,7 +7406,7 @@ _ZNK7obj_mapI9func_declPN6recfun3defEE8containsEPS0_.exit.loopexit: ; preds = %_
   br label %_ZNK7obj_mapI9func_declPN6recfun3defEE8containsEPS0_.exit
 
 _ZNK7obj_mapI9func_declPN6recfun3defEE8containsEPS0_.exit: ; preds = %51, %62, %75, %_ZNK7obj_mapI9func_declPN6recfun3defEE8containsEPS0_.exit.loopexit, %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit
-  %171 = phi ptr [ %.pre91, %_ZNK7obj_mapI9func_declPN6recfun3defEE8containsEPS0_.exit.loopexit ], [ %36, %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit ], [ %36, %75 ], [ %36, %62 ], [ %36, %51 ]
+  %171 = phi ptr [ %36, %75 ], [ %36, %62 ], [ %.pre91, %_ZNK7obj_mapI9func_declPN6recfun3defEE8containsEPS0_.exit.loopexit ], [ %36, %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit ], [ %36, %51 ]
   %.not.i.i30 = icmp eq ptr %171, null
   br i1 %.not.i.i30, label %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, label %172
 
@@ -7559,7 +7559,7 @@ define hidden void @_ZN6recfun4decl6plugin9erase_defEP9func_decl(ptr noundef non
   br i1 %.not27.old.i.i.i, label %_Z7deallocIN6recfun3defEEvPT_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !315
 
 .loopexit:                                        ; preds = %19, %30
@@ -12366,7 +12366,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declPN6recf
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !394
 
 .loopexit38:                                      ; preds = %17, %28
@@ -12595,7 +12595,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declPN6recf
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !396
 
 .loopexit38:                                      ; preds = %17, %28

@@ -301,7 +301,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController16Dec
   br label %_ZN5draco17AttributesDecoder16DecodeAttributesEPNS_13DecoderBufferE.exit
 
 _ZN5draco17AttributesDecoder16DecodeAttributesEPNS_13DecoderBufferE.exit: ; preds = %.lr.ph, %48, %43, %.critedge, %2, %5
-  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %43 ], [ %52, %48 ], [ false, %.critedge ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %.critedge ], [ false, %43 ], [ %52, %48 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

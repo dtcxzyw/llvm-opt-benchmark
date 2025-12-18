@@ -438,7 +438,7 @@ define internal ptr @rsa_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %26
 
 26:                                               ; preds = %.sink.split, %18, %21, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %4, %21 ], [ %4, %18 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %4, %18 ], [ %4, %21 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

@@ -3930,7 +3930,7 @@ _ZN4llvm8DebugLocD2Ev.exit234.i:                  ; preds = %1259, %_ZN4llvm10MI
   br label %.thread.thread.i
 
 .thread.thread.i:                                 ; preds = %869, %823, %806, %_ZN4llvm8DebugLocD2Ev.exit234.i, %_ZN4llvm8DebugLocD2Ev.exit114.i, %879, %.thread.i, %_ZNK12_GLOBAL__N_119AArch64SIMDInstrOpt15determineSrcRegERN4llvm12MachineInstrE.exit.i, %.lr.ph
-  %.4.i = phi i1 [ false, %.thread.i ], [ false, %879 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit234.i ], [ true, %_ZN4llvm8DebugLocD2Ev.exit114.i ], [ false, %_ZNK12_GLOBAL__N_119AArch64SIMDInstrOpt15determineSrcRegERN4llvm12MachineInstrE.exit.i ], [ false, %.lr.ph ], [ false, %823 ], [ false, %806 ], [ false, %869 ]
+  %.4.i = phi i1 [ false, %.thread.i ], [ false, %823 ], [ false, %879 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit234.i ], [ true, %_ZN4llvm8DebugLocD2Ev.exit114.i ], [ false, %_ZNK12_GLOBAL__N_119AArch64SIMDInstrOpt15determineSrcRegERN4llvm12MachineInstrE.exit.i ], [ false, %.lr.ph ], [ false, %806 ], [ false, %869 ]
   %1260 = load ptr, ptr %54, align 8, !tbaa !40
   %1261 = icmp eq ptr %1260, %145
   br i1 %1261, label %_ZN4llvm11SmallVectorIPKNS_11MCInstrDescELj10EED2Ev.exit.i, label %1262

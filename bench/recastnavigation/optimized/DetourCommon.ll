@@ -900,7 +900,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit68:              ; preds = %.lr.ph.i63, %_ZL11p
   br i1 %or.cond.not, label %101, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit52.us, %_ZL11projectPolyPKfS0_iRfS1_.exit68, %_ZL11projectPolyPKfS0_iRfS1_.exit, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128 ], [ %not..i69, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.us ]
+  %.0 = phi i1 [ %not..i69, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128 ], [ true, %._crit_edge ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.us ]
   ret i1 %.0
 }
 

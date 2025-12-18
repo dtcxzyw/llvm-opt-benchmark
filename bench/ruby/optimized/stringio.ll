@@ -3779,8 +3779,8 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br label %detect_bom.exit
 
 detect_bom.exit:                                  ; preds = %22, %30, %48, %50, %66
-  %.011 = phi i64 [ 3, %22 ], [ 2, %30 ], [ 4, %48 ], [ 2, %50 ], [ 4, %66 ]
-  %.0.i = phi i32 [ %23, %22 ], [ %31, %30 ], [ %49, %48 ], [ %51, %50 ], [ %67, %66 ]
+  %.011 = phi i64 [ 4, %66 ], [ 2, %50 ], [ 4, %48 ], [ 3, %22 ], [ 2, %30 ]
+  %.0.i = phi i32 [ %67, %66 ], [ %51, %50 ], [ %49, %48 ], [ %23, %22 ], [ %31, %30 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %detect_bom.exit.thread, label %68
 
@@ -4544,7 +4544,7 @@ RSTRING_PTR.exit209:                              ; preds = %.lr.ph241
   br i1 %215, label %.split.us, label %.lr.ph241, !llvm.loop !103
 
 .split.us:                                        ; preds = %RSTRING_PTR.exit209, %RSTRING_PTR.exit209.us, %.lr.ph239.split, %.lr.ph239.split.us
-  %.us-phi = phi ptr [ %204, %.lr.ph239.split.us ], [ %204, %.lr.ph239.split ], [ %211, %RSTRING_PTR.exit209.us ], [ %214, %RSTRING_PTR.exit209 ]
+  %.us-phi = phi ptr [ %211, %RSTRING_PTR.exit209.us ], [ %204, %.lr.ph239.split.us ], [ %204, %.lr.ph239.split ], [ %214, %RSTRING_PTR.exit209 ]
   %.not177 = icmp eq i8 %197, 0
   %216 = select i1 %.not177, i64 0, i64 %74
   br label %.loopexit
@@ -4601,8 +4601,8 @@ bm_init_skip.exit:                                ; preds = %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph241, %.lr.ph243, %.preheader, %bm_init_skip.exit, %.split.us, %191
-  %.5 = phi ptr [ %.us-phi, %.split.us ], [ %.6, %bm_init_skip.exit ], [ %.0152, %191 ], [ %.0152, %.preheader ], [ %.0152, %.lr.ph243 ], [ %.0152, %.lr.ph241 ]
-  %.3 = phi i64 [ %216, %.split.us ], [ 0, %bm_init_skip.exit ], [ 0, %191 ], [ 0, %.preheader ], [ 0, %.lr.ph243 ], [ 0, %.lr.ph241 ]
+  %.5 = phi ptr [ %.us-phi, %.split.us ], [ %.0152, %191 ], [ %.6, %bm_init_skip.exit ], [ %.0152, %.preheader ], [ %.0152, %.lr.ph243 ], [ %.0152, %.lr.ph241 ]
+  %.3 = phi i64 [ %216, %.split.us ], [ 0, %191 ], [ 0, %bm_init_skip.exit ], [ 0, %.preheader ], [ 0, %.lr.ph243 ], [ 0, %.lr.ph241 ]
   %236 = load i64, ptr %17, align 8, !tbaa !23
   %237 = ptrtoint ptr %.5 to i64
   %238 = add i64 %.3, %193
@@ -4653,7 +4653,7 @@ RSTRING_PTR.exit220:                              ; preds = %strio_substr.exit, 
   br label %.thread
 
 .thread:                                          ; preds = %83, %9, %14, %16, %RSTRING_PTR.exit220
-  %.0 = phi i64 [ %.0150, %RSTRING_PTR.exit220 ], [ 4, %16 ], [ 4, %14 ], [ 4, %9 ], [ 4, %83 ]
+  %.0 = phi i64 [ 4, %9 ], [ %.0150, %RSTRING_PTR.exit220 ], [ 4, %16 ], [ 4, %14 ], [ 4, %83 ]
   ret i64 %.0
 }
 
@@ -4719,7 +4719,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us, %.loopexit.loopexit, %.preheader.lr.ph, %5
-  %.020 = phi i64 [ -1, %5 ], [ %1, %.preheader.lr.ph ], [ %25, %.loopexit.loopexit ], [ -1, %.critedge.us ]
+  %.020 = phi i64 [ %25, %.loopexit.loopexit ], [ -1, %5 ], [ %1, %.preheader.lr.ph ], [ -1, %.critedge.us ]
   ret i64 %.020
 }
 

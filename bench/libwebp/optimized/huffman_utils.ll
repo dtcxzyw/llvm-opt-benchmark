@@ -483,11 +483,11 @@ ReplicateValue.exit176.us.loopexit:               ; preds = %145
   br label %ReplicateValue.exit176.us
 
 ReplicateValue.exit176.us:                        ; preds = %ReplicateValue.exit176.us.loopexit, %137, %NextTableBitSize.exit.us
-  %.2122188.us = phi ptr [ %.1121251.us, %137 ], [ %.1121251.us, %NextTableBitSize.exit.us ], [ %.2122198.us, %ReplicateValue.exit176.us.loopexit ]
-  %.3127187.us = phi i32 [ %.2126250.us, %137 ], [ %126, %NextTableBitSize.exit.us ], [ %.3127197.us, %ReplicateValue.exit176.us.loopexit ]
-  %.2139186.us = phi i32 [ %.1138248.us, %137 ], [ %122, %NextTableBitSize.exit.us ], [ %.2139196.us, %ReplicateValue.exit176.us.loopexit ]
-  %.2153185.us = phi i32 [ %.1152246.us, %137 ], [ %125, %NextTableBitSize.exit.us ], [ %.2153195.us, %ReplicateValue.exit176.us.loopexit ]
-  %.7.us = phi i32 [ %.6249.us, %137 ], [ %.6249.us, %NextTableBitSize.exit.us ], [ %150, %ReplicateValue.exit176.us.loopexit ]
+  %.2122188.us = phi ptr [ %.1121251.us, %NextTableBitSize.exit.us ], [ %.1121251.us, %137 ], [ %.2122198.us, %ReplicateValue.exit176.us.loopexit ]
+  %.3127187.us = phi i32 [ %126, %NextTableBitSize.exit.us ], [ %.2126250.us, %137 ], [ %.3127197.us, %ReplicateValue.exit176.us.loopexit ]
+  %.2139186.us = phi i32 [ %122, %NextTableBitSize.exit.us ], [ %.1138248.us, %137 ], [ %.2139196.us, %ReplicateValue.exit176.us.loopexit ]
+  %.2153185.us = phi i32 [ %125, %NextTableBitSize.exit.us ], [ %.1152246.us, %137 ], [ %.2153195.us, %ReplicateValue.exit176.us.loopexit ]
+  %.7.us = phi i32 [ %.6249.us, %NextTableBitSize.exit.us ], [ %.6249.us, %137 ], [ %150, %ReplicateValue.exit176.us.loopexit ]
   br label %151
 
 151:                                              ; preds = %151, %ReplicateValue.exit176.us
@@ -597,11 +597,11 @@ ReplicateValue.exit176.loopexit:                  ; preds = %190
   br label %ReplicateValue.exit176
 
 ReplicateValue.exit176:                           ; preds = %ReplicateValue.exit176.loopexit, %._crit_edge.loopexit.i, %182
-  %.2122188 = phi ptr [ %.1121251, %182 ], [ %.1121251, %._crit_edge.loopexit.i ], [ %.2122198, %ReplicateValue.exit176.loopexit ]
-  %.3127187 = phi i32 [ %.2126250, %182 ], [ %172, %._crit_edge.loopexit.i ], [ %.3127197, %ReplicateValue.exit176.loopexit ]
-  %.2139186 = phi i32 [ %.1138248, %182 ], [ %171, %._crit_edge.loopexit.i ], [ %.2139196, %ReplicateValue.exit176.loopexit ]
-  %.2153185 = phi i32 [ %.1152246, %182 ], [ %160, %._crit_edge.loopexit.i ], [ %.2153195, %ReplicateValue.exit176.loopexit ]
-  %.7 = phi i32 [ %.6249, %182 ], [ %.6249, %._crit_edge.loopexit.i ], [ %195, %ReplicateValue.exit176.loopexit ]
+  %.2122188 = phi ptr [ %.1121251, %._crit_edge.loopexit.i ], [ %.1121251, %182 ], [ %.2122198, %ReplicateValue.exit176.loopexit ]
+  %.3127187 = phi i32 [ %172, %._crit_edge.loopexit.i ], [ %.2126250, %182 ], [ %.3127197, %ReplicateValue.exit176.loopexit ]
+  %.2139186 = phi i32 [ %171, %._crit_edge.loopexit.i ], [ %.1138248, %182 ], [ %.2139196, %ReplicateValue.exit176.loopexit ]
+  %.2153185 = phi i32 [ %160, %._crit_edge.loopexit.i ], [ %.1152246, %182 ], [ %.2153195, %ReplicateValue.exit176.loopexit ]
+  %.7 = phi i32 [ %.6249, %._crit_edge.loopexit.i ], [ %.6249, %182 ], [ %195, %ReplicateValue.exit176.loopexit ]
   br label %196
 
 196:                                              ; preds = %196, %ReplicateValue.exit176
@@ -649,7 +649,7 @@ GetNextKey.exit179:                               ; preds = %196
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %31, %45, %.lr.ph238.split, %.lr.ph238.split.us, %111, %62, %._crit_edge282, %58, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %8, %58 ], [ %spec.select, %._crit_edge282 ], [ 0, %31 ], [ %8, %62 ], [ 0, %111 ], [ 0, %.lr.ph238.split.us ], [ 0, %.lr.ph238.split ], [ 0, %45 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %.lr.ph238.split.us ], [ 0, %._crit_edge ], [ 0, %.lr.ph238.split ], [ %8, %62 ], [ %8, %58 ], [ 0, %45 ], [ %spec.select, %._crit_edge282 ], [ 0, %111 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

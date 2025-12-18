@@ -8607,13 +8607,13 @@ _ZNK4llvh5APInt3uleERKS0_.exit:                   ; preds = %while.body.i.i.i
   br i1 %cmp7.i.i.i.not, label %for.inc, label %if.then27
 
 if.then27:                                        ; preds = %_ZN4llvh5APIntD2Ev.exit196, %_ZNK4llvh5APInt3uleERKS0_.exit, %if.then.i.i151, %while.cond.i.i.i, %_ZN4llvh5APIntC2Ejmb.exit145
-  %BitWidth.i969009061053 = phi ptr [ %BitWidth.i96895, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %BitWidth.i969009061054, %while.cond.i.i.i ], [ %BitWidth.i969009061054, %if.then.i.i151 ], [ %BitWidth.i969009061054, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %BitWidth.i969009061054, %_ZN4llvh5APIntD2Ev.exit196 ]
-  %BitWidth.i718918969101048 = phi ptr [ %BitWidth.i71888, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %BitWidth.i718918969101049, %while.cond.i.i.i ], [ %BitWidth.i718918969101049, %if.then.i.i151 ], [ %BitWidth.i718918969101049, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %BitWidth.i718918969101049, %_ZN4llvh5APIntD2Ev.exit196 ]
-  %41 = phi ptr [ %27, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %29, %while.cond.i.i.i ], [ %29, %if.then.i.i151 ], [ %29, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %29, %_ZN4llvh5APIntD2Ev.exit196 ]
-  %42 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %30, %while.cond.i.i.i ], [ %30, %if.then.i.i151 ], [ %30, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %30, %_ZN4llvh5APIntD2Ev.exit196 ]
-  %43 = phi i64 [ 1, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %31, %while.cond.i.i.i ], [ %31, %if.then.i.i151 ], [ %31, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %31, %_ZN4llvh5APIntD2Ev.exit196 ]
-  %testy.sroa.0.0962 = phi i64 [ %and.i.i69, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %testy.sroa.0.0967, %while.cond.i.i.i ], [ %ref.tmp30.sroa.0.0914, %_ZN4llvh5APIntD2Ev.exit196 ], [ %testy.sroa.0.0967, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %testy.sroa.0.0967, %if.then.i.i151 ]
-  %i.0960 = phi i32 [ 4, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %i.0968, %while.cond.i.i.i ], [ %add, %_ZN4llvh5APIntD2Ev.exit196 ], [ %i.0968, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %i.0968, %if.then.i.i151 ]
+  %BitWidth.i969009061053 = phi ptr [ %BitWidth.i969009061054, %while.cond.i.i.i ], [ %BitWidth.i96895, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %BitWidth.i969009061054, %if.then.i.i151 ], [ %BitWidth.i969009061054, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %BitWidth.i969009061054, %_ZN4llvh5APIntD2Ev.exit196 ]
+  %BitWidth.i718918969101048 = phi ptr [ %BitWidth.i718918969101049, %while.cond.i.i.i ], [ %BitWidth.i71888, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %BitWidth.i718918969101049, %if.then.i.i151 ], [ %BitWidth.i718918969101049, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %BitWidth.i718918969101049, %_ZN4llvh5APIntD2Ev.exit196 ]
+  %41 = phi ptr [ %29, %while.cond.i.i.i ], [ %27, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %29, %if.then.i.i151 ], [ %29, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %29, %_ZN4llvh5APIntD2Ev.exit196 ]
+  %42 = phi ptr [ %30, %while.cond.i.i.i ], [ inttoptr (i64 1 to ptr), %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %30, %if.then.i.i151 ], [ %30, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %30, %_ZN4llvh5APIntD2Ev.exit196 ]
+  %43 = phi i64 [ %31, %while.cond.i.i.i ], [ 1, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %31, %if.then.i.i151 ], [ %31, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %31, %_ZN4llvh5APIntD2Ev.exit196 ]
+  %testy.sroa.0.0962 = phi i64 [ %testy.sroa.0.0967, %while.cond.i.i.i ], [ %and.i.i69, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %testy.sroa.0.0967, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %testy.sroa.0.0967, %if.then.i.i151 ], [ %ref.tmp30.sroa.0.0914, %_ZN4llvh5APIntD2Ev.exit196 ]
+  %i.0960 = phi i32 [ %i.0968, %while.cond.i.i.i ], [ 4, %_ZN4llvh5APIntC2Ejmb.exit145 ], [ %i.0968, %_ZNK4llvh5APInt3uleERKS0_.exit ], [ %i.0968, %if.then.i.i151 ], [ %add, %_ZN4llvh5APIntD2Ev.exit196 ]
   %div4 = lshr exact i32 %i.0960, 1
   %44 = load i32, ptr %BitWidth.i718918969101048, align 8, !noalias !102
   %cmp.i.i.i152 = icmp ult i32 %44, 65

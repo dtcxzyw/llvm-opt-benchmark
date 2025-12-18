@@ -5260,10 +5260,10 @@ IDATestError.exit.i:                              ; preds = %.sink.split.i.i, %1
   br i1 %1042, label %IDANls.exit.thread.i, label %1075
 
 IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774, %762, %760, %._crit_edge.i124.i, %716, %IDAPredict.exit.i.i, %913, %900, %791, %.lr.ph144.i.i.i, %IDATestError.exit.i, %958
-  %.1272.ph.i = phi double [ %.0271.i, %958 ], [ %982, %IDATestError.exit.i ], [ %.0271.i, %913 ], [ %.0271.i, %.lr.ph144.i.i.i ], [ %.0271.i, %791 ], [ %.0271.i, %900 ], [ %.0271.i, %IDAPredict.exit.i.i ], [ %.0271.i, %716 ], [ %.0271.i, %._crit_edge.i124.i ], [ %.0271.i, %760 ], [ %.0271.i, %762 ], [ %.0271.i, %774 ], [ %.0271.i, %.loopexit.i.i ]
-  %.1257.ph.i = phi double [ %.0256.i, %958 ], [ %.8264.i, %IDATestError.exit.i ], [ %.0256.i, %913 ], [ %.0256.i, %.lr.ph144.i.i.i ], [ %.0256.i, %791 ], [ %.0256.i, %900 ], [ %.0256.i, %IDAPredict.exit.i.i ], [ %.0256.i, %716 ], [ %.0256.i, %._crit_edge.i124.i ], [ %.0256.i, %760 ], [ %.0256.i, %762 ], [ %.0256.i, %774 ], [ %.0256.i, %.loopexit.i.i ]
-  %.1253.ph.i = phi double [ %.0252.i, %958 ], [ %.8.i, %IDATestError.exit.i ], [ %.0252.i, %913 ], [ %.0252.i, %.lr.ph144.i.i.i ], [ %.0252.i, %791 ], [ %.0252.i, %900 ], [ %.0252.i, %IDAPredict.exit.i.i ], [ %.0252.i, %716 ], [ %.0252.i, %._crit_edge.i124.i ], [ %.0252.i, %760 ], [ %.0252.i, %762 ], [ %.0252.i, %774 ], [ %.0252.i, %.loopexit.i.i ]
-  %.0101.ph.i = phi i32 [ 5, %958 ], [ 7, %IDATestError.exit.i ], [ -41, %913 ], [ -7, %.lr.ph144.i.i.i ], [ -8, %900 ], [ -7, %791 ], [ -6, %762 ], [ 11, %760 ], [ -41, %._crit_edge.i124.i ], [ 1, %716 ], [ -8, %IDAPredict.exit.i.i ], [ %.0.i.ph.i.i, %.loopexit.i.i ], [ 2, %774 ]
+  %.1272.ph.i = phi double [ %.0271.i, %.lr.ph144.i.i.i ], [ %982, %IDATestError.exit.i ], [ %.0271.i, %958 ], [ %.0271.i, %913 ], [ %.0271.i, %791 ], [ %.0271.i, %900 ], [ %.0271.i, %IDAPredict.exit.i.i ], [ %.0271.i, %716 ], [ %.0271.i, %._crit_edge.i124.i ], [ %.0271.i, %760 ], [ %.0271.i, %762 ], [ %.0271.i, %774 ], [ %.0271.i, %.loopexit.i.i ]
+  %.1257.ph.i = phi double [ %.0256.i, %.lr.ph144.i.i.i ], [ %.8264.i, %IDATestError.exit.i ], [ %.0256.i, %958 ], [ %.0256.i, %913 ], [ %.0256.i, %791 ], [ %.0256.i, %900 ], [ %.0256.i, %IDAPredict.exit.i.i ], [ %.0256.i, %716 ], [ %.0256.i, %._crit_edge.i124.i ], [ %.0256.i, %760 ], [ %.0256.i, %762 ], [ %.0256.i, %774 ], [ %.0256.i, %.loopexit.i.i ]
+  %.1253.ph.i = phi double [ %.0252.i, %.lr.ph144.i.i.i ], [ %.8.i, %IDATestError.exit.i ], [ %.0252.i, %958 ], [ %.0252.i, %913 ], [ %.0252.i, %791 ], [ %.0252.i, %900 ], [ %.0252.i, %IDAPredict.exit.i.i ], [ %.0252.i, %716 ], [ %.0252.i, %._crit_edge.i124.i ], [ %.0252.i, %760 ], [ %.0252.i, %762 ], [ %.0252.i, %774 ], [ %.0252.i, %.loopexit.i.i ]
+  %.0101.ph.i = phi i32 [ -7, %.lr.ph144.i.i.i ], [ 7, %IDATestError.exit.i ], [ 5, %958 ], [ -41, %913 ], [ -8, %900 ], [ -7, %791 ], [ 11, %760 ], [ -41, %._crit_edge.i124.i ], [ 1, %716 ], [ -8, %IDAPredict.exit.i.i ], [ 2, %774 ], [ -6, %762 ], [ %.0.i.ph.i.i, %.loopexit.i.i ]
   tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %517)
   %1043 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.0101.ph.i, double noundef %.1272.ph.i, double noundef %.1257.ph.i, ptr noundef %383, ptr noundef %7, ptr noundef %384, ptr noundef %8)
   %.not119.i = icmp eq i32 %1043, 20
@@ -5327,9 +5327,9 @@ IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774
   br i1 %1067, label %.lr.ph32.i, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %.lr.ph32.i, %.preheader.i429, %.loopexit29.i, %1654, %1445, %1191, %1179, %1044
-  %.0271.i.be = phi double [ %.5276.i, %1445 ], [ %.3274.i, %1179 ], [ %.2273.i, %1191 ], [ %.1272.ph.i, %1044 ], [ %.6277.i, %1654 ], [ %.0271.be.ph.i, %.loopexit29.i ], [ %.0271.be.ph.i, %.preheader.i429 ], [ %.0271.be.ph.i, %.lr.ph32.i ]
-  %.0256.i.be = phi double [ %.5261.i, %1445 ], [ %.3259.i, %1179 ], [ %.2258.i, %1191 ], [ %.1257.ph.i, %1044 ], [ %.6262.i, %1654 ], [ %.0256.be.ph.i, %.loopexit29.i ], [ %.0256.be.ph.i, %.preheader.i429 ], [ %.0256.be.ph.i, %.lr.ph32.i ]
-  %.0252.i.be = phi double [ %.5.i, %1445 ], [ %.3255.i, %1179 ], [ %.2254.i, %1191 ], [ %.1253.ph.i, %1044 ], [ %.6.i, %1654 ], [ %.0252.be.ph.i, %.loopexit29.i ], [ %.0252.be.ph.i, %.preheader.i429 ], [ %.0252.be.ph.i, %.lr.ph32.i ]
+  %.0271.i.be = phi double [ %.0271.be.ph.i, %.loopexit29.i ], [ %.0271.be.ph.i, %.preheader.i429 ], [ %.5276.i, %1445 ], [ %.3274.i, %1179 ], [ %.2273.i, %1191 ], [ %.1272.ph.i, %1044 ], [ %.6277.i, %1654 ], [ %.0271.be.ph.i, %.lr.ph32.i ]
+  %.0256.i.be = phi double [ %.0256.be.ph.i, %.loopexit29.i ], [ %.0256.be.ph.i, %.preheader.i429 ], [ %.5261.i, %1445 ], [ %.3259.i, %1179 ], [ %.2258.i, %1191 ], [ %.1257.ph.i, %1044 ], [ %.6262.i, %1654 ], [ %.0256.be.ph.i, %.lr.ph32.i ]
+  %.0252.i.be = phi double [ %.0252.be.ph.i, %.loopexit29.i ], [ %.0252.be.ph.i, %.preheader.i429 ], [ %.5.i, %1445 ], [ %.3255.i, %1179 ], [ %.2254.i, %1191 ], [ %.1253.ph.i, %1044 ], [ %.6.i, %1654 ], [ %.0252.be.ph.i, %.lr.ph32.i ]
   br label %.backedge.i
 
 .lr.ph32.i:                                       ; preds = %.preheader.i429, %.lr.ph32.i
@@ -5993,10 +5993,10 @@ IDASensTestError.exit.i:                          ; preds = %.sink.split.i174.i,
   br i1 %1443, label %IDASensNls.exit.thread.i, label %.thread306.i
 
 IDASensNls.exit.thread.i:                         ; preds = %1249, %1236, %1234, %._crit_edge.i143.i, %IDASensTestError.exit.i, %.loopexit.i155.i
-  %.5276.i = phi double [ %.2273.i, %.loopexit.i155.i ], [ %.9280.i, %IDASensTestError.exit.i ], [ %.2273.i, %._crit_edge.i143.i ], [ %.2273.i, %1234 ], [ %.2273.i, %1236 ], [ %.2273.i, %1249 ]
-  %.5261.i = phi double [ %.2258.i, %.loopexit.i155.i ], [ %.12268.i, %IDASensTestError.exit.i ], [ %.2258.i, %._crit_edge.i143.i ], [ %.2258.i, %1234 ], [ %.2258.i, %1236 ], [ %.2258.i, %1249 ]
-  %.5.i = phi double [ %.2254.i, %.loopexit.i155.i ], [ %.14.i, %IDASensTestError.exit.i ], [ %.2254.i, %._crit_edge.i143.i ], [ %.2254.i, %1234 ], [ %.2254.i, %1236 ], [ %.2254.i, %1249 ]
-  %.2.i = phi i32 [ %.0.i63.ph.i.i, %.loopexit.i155.i ], [ 7, %IDASensTestError.exit.i ], [ 2, %1249 ], [ -6, %1236 ], [ 11, %1234 ], [ -41, %._crit_edge.i143.i ]
+  %.5276.i = phi double [ %.9280.i, %IDASensTestError.exit.i ], [ %.2273.i, %.loopexit.i155.i ], [ %.2273.i, %._crit_edge.i143.i ], [ %.2273.i, %1234 ], [ %.2273.i, %1236 ], [ %.2273.i, %1249 ]
+  %.5261.i = phi double [ %.12268.i, %IDASensTestError.exit.i ], [ %.2258.i, %.loopexit.i155.i ], [ %.2258.i, %._crit_edge.i143.i ], [ %.2258.i, %1234 ], [ %.2258.i, %1236 ], [ %.2258.i, %1249 ]
+  %.5.i = phi double [ %.14.i, %IDASensTestError.exit.i ], [ %.2254.i, %.loopexit.i155.i ], [ %.2254.i, %._crit_edge.i143.i ], [ %.2254.i, %1234 ], [ %.2254.i, %1236 ], [ %.2254.i, %1249 ]
+  %.2.i = phi i32 [ 7, %IDASensTestError.exit.i ], [ %.0.i63.ph.i.i, %.loopexit.i155.i ], [ 2, %1249 ], [ -6, %1236 ], [ 11, %1234 ], [ -41, %._crit_edge.i143.i ]
   tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %517)
   %1444 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.2.i, double noundef %.5276.i, double noundef %.5261.i, ptr noundef %371, ptr noundef %7, ptr noundef %372, ptr noundef %8)
   %.not117.i = icmp eq i32 %1444, 20
@@ -6603,30 +6603,30 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
   %1775 = fmul double %.7278.i, %1774
   %1776 = fmul double %1772, %1771
   %1777 = icmp eq i32 %1769, 1
-  br i1 %1777, label %1778, label %1781
+  br i1 %1777, label %1786, label %1778
 
 1778:                                             ; preds = %IDAQuadSensWrmsNormUpdate.exit.i.i
-  %1779 = fmul double %1775, 5.000000e-01
-  %1780 = fcmp ult double %1776, %1779
-  br i1 %1780, label %1789, label %.thread263.i.i
+  %1779 = sitofp i32 %1769 to double
+  %1780 = fmul double %.7263.i, %1779
+  %1781 = fcmp olt double %1775, %1776
+  %1782 = select i1 %1781, double %1775, double %1776
+  %1783 = fcmp ugt double %1780, %1782
+  br i1 %1783, label %1784, label %._crit_edge334.i.i
 
-1781:                                             ; preds = %IDAQuadSensWrmsNormUpdate.exit.i.i
-  %1782 = sitofp i32 %1769 to double
-  %1783 = fmul double %.7263.i, %1782
-  %1784 = fcmp olt double %1775, %1776
-  %1785 = select i1 %1784, double %1775, double %1776
-  %1786 = fcmp ugt double %1783, %1785
-  br i1 %1786, label %1787, label %._crit_edge334.i.i
-
-._crit_edge334.i.i:                               ; preds = %1781
+._crit_edge334.i.i:                               ; preds = %1778
   %.pre.i217.i = add nsw i32 %1769, -1
   br label %1790
 
-1787:                                             ; preds = %1781
-  %1788 = fcmp ult double %1776, %1775
+1784:                                             ; preds = %1778
+  %1785 = fcmp ult double %1776, %1775
+  br i1 %1785, label %1789, label %.thread263.i.i
+
+1786:                                             ; preds = %IDAQuadSensWrmsNormUpdate.exit.i.i
+  %1787 = fmul double %1775, 5.000000e-01
+  %1788 = fcmp ult double %1776, %1787
   br i1 %1788, label %1789, label %.thread263.i.i
 
-1789:                                             ; preds = %1787, %1778
+1789:                                             ; preds = %1786, %1784
   store i32 %1773, ptr %314, align 8, !tbaa !211
   br label %.thread263.i.i
 
@@ -6635,9 +6635,9 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
   store i32 %.pre-phi.i218.i, ptr %314, align 8, !tbaa !211
   br label %.thread263.i.i
 
-.thread263.i.i:                                   ; preds = %1790, %1789, %1787, %1778, %.thread258.i.i, %.thread258.thread.i.i
-  %1791 = phi i32 [ %1773, %1789 ], [ %.pre-phi.i218.i, %1790 ], [ %1659, %.thread258.i.i ], [ %1659, %.thread258.thread.i.i ], [ %1769, %1787 ], [ 1, %1778 ]
-  %.0238.i.i = phi double [ %1772, %1789 ], [ %.7263.i, %1790 ], [ %.7278.i, %.thread258.i.i ], [ %.7278.i, %.thread258.thread.i.i ], [ %.7278.i, %1787 ], [ %.7278.i, %1778 ]
+.thread263.i.i:                                   ; preds = %1790, %1789, %1786, %1784, %.thread258.i.i, %.thread258.thread.i.i
+  %1791 = phi i32 [ %1773, %1789 ], [ %.pre-phi.i218.i, %1790 ], [ %1659, %.thread258.i.i ], [ %1659, %.thread258.thread.i.i ], [ 1, %1786 ], [ %1769, %1784 ]
+  %.0238.i.i = phi double [ %1772, %1789 ], [ %.7263.i, %1790 ], [ %.7278.i, %.thread258.i.i ], [ %.7278.i, %.thread258.thread.i.i ], [ %.7278.i, %1786 ], [ %.7278.i, %1784 ]
   %1792 = load double, ptr %317, align 8, !tbaa !205
   %1793 = tail call double @llvm.fmuladd.f64(double %.0238.i.i, double 2.000000e+00, double 1.000000e-04)
   %1794 = add nsw i32 %1791, 1
@@ -7181,7 +7181,7 @@ IDAStopTest2.exit:                                ; preds = %2009, %2029, %2037
   br i1 %or.cond417, label %397, label %._crit_edge
 
 IDAStopTest2.exit.thread:                         ; preds = %.thread, %2058, %2076, %2024, %2006, %._crit_edge, %410, %427, %439, %453, %.loopexit, %1978, %1983, %508, %501, %291, %67, %288, %285, %282, %256, %253, %250, %190, %169, %97, %86, %76, %58, %46, %29, %26, %22, %18, %15, %10
-  %.0358 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -22, %46 ], [ -22, %58 ], [ -10, %288 ], [ -22, %76 ], [ -22, %86 ], [ -22, %97 ], [ -22, %169 ], [ -10, %190 ], [ -22, %250 ], [ -10, %253 ], [ 2, %256 ], [ 0, %282 ], [ %68, %67 ], [ %292, %291 ], [ 2, %285 ], [ -1, %._crit_edge ], [ -22, %410 ], [ -22, %427 ], [ -22, %439 ], [ -22, %453 ], [ -2, %508 ], [ -2, %501 ], [ %1950, %.loopexit ], [ 2, %1978 ], [ -10, %1983 ], [ 1, %2058 ], [ 0, %2076 ], [ 1, %2024 ], [ 0, %2006 ], [ -99, %.thread ]
+  %.0358 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -22, %46 ], [ -22, %58 ], [ -10, %288 ], [ -22, %76 ], [ -22, %86 ], [ -22, %97 ], [ -22, %169 ], [ -10, %190 ], [ -22, %250 ], [ -10, %253 ], [ 2, %256 ], [ 0, %282 ], [ %68, %67 ], [ %292, %291 ], [ 2, %285 ], [ -1, %._crit_edge ], [ -22, %410 ], [ -22, %427 ], [ -22, %439 ], [ -22, %453 ], [ -2, %508 ], [ -2, %501 ], [ %1950, %.loopexit ], [ 2, %1978 ], [ -10, %1983 ], [ 0, %2006 ], [ 1, %2058 ], [ 0, %2076 ], [ 1, %2024 ], [ -99, %.thread ]
   ret i32 %.0358
 }
 

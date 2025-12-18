@@ -177,7 +177,7 @@ mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
   br label %ctr_drbg_update_internal.exit
 
 ctr_drbg_update_internal.exit:                    ; preds = %mbedtls_ctr_increment_counter.exit.i, %mbedtls_xor.exit.i, %29
-  %.0.i = phi i32 [ %28, %mbedtls_xor.exit.i ], [ 0, %29 ], [ %19, %mbedtls_ctr_increment_counter.exit.i ]
+  %.0.i = phi i32 [ 0, %29 ], [ %28, %mbedtls_xor.exit.i ], [ %19, %mbedtls_ctr_increment_counter.exit.i ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 48) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
@@ -304,7 +304,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
   br i1 %47, label %42, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader56, %44, %42, %38, %20
-  %.039 = phi i32 [ %22, %20 ], [ %39, %38 ], [ %43, %42 ], [ 0, %44 ], [ %33, %.preheader56 ]
+  %.039 = phi i32 [ %22, %20 ], [ %43, %42 ], [ %39, %38 ], [ 0, %44 ], [ %33, %.preheader56 ]
   call void @mbedtls_aes_free(ptr noundef nonnull %8) #14
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 416) #14
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 48) #14
@@ -745,7 +745,7 @@ ctr_drbg_update_internal.exit66.thread:           ; preds = %mbedtls_ctr_increme
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_ctr_increment_counter.exit, %ctr_drbg_update_internal.exit66.thread, %ctr_drbg_update_internal.exit.thread, %24, %81
-  %.032 = phi i32 [ %25, %24 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ], [ %.0.i58.ph, %ctr_drbg_update_internal.exit66.thread ], [ 0, %81 ], [ %57, %mbedtls_ctr_increment_counter.exit ]
+  %.032 = phi i32 [ %25, %24 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ], [ 0, %81 ], [ %.0.i58.ph, %ctr_drbg_update_internal.exit66.thread ], [ %57, %mbedtls_ctr_increment_counter.exit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 64) #14
   br label %85
 

@@ -275,7 +275,7 @@ define internal ptr @H5HL__cache_prefix_deserialize(ptr noundef %0, i64 noundef 
   br label %93
 
 93:                                               ; preds = %82, %73, %66, %33, %86, %89, %75, %78, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %78 ], [ null, %75 ], [ null, %89 ], [ null, %86 ], [ null, %82 ], [ %27, %73 ], [ %27, %66 ], [ %27, %33 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %78 ], [ null, %75 ], [ null, %89 ], [ null, %86 ], [ null, %82 ], [ %27, %33 ], [ %27, %66 ], [ %27, %73 ]
   ret ptr %.0
 }
 
@@ -1515,7 +1515,7 @@ define internal fastcc void @H5HL__fl_serialize(ptr noundef readonly captures(no
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %40, %.preheader, %54, %60, %20, %45
-  %.sink = phi i64 [ 4, %54 ], [ 2, %60 ], [ 4, %20 ], [ 2, %45 ], [ 8, %.preheader ], [ 8, %40 ]
+  %.sink = phi i64 [ 4, %54 ], [ 8, %.preheader ], [ 2, %60 ], [ 4, %20 ], [ 2, %45 ], [ 8, %40 ]
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink
   %.pr = load i64, ptr %11, align 8, !tbaa !45
   br label %63

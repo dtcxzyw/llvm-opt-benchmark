@@ -704,7 +704,7 @@ ossl_ht_test_int_get.exit.us:                     ; preds = %53, %50, %47, %.pre
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %38, %.preheader.split.preheader, %.split.us, %.split48.us, %27, %1, %23, %17
-  %.029 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %1 ], [ 0, %27 ], [ 0, %.split48.us ], [ 0, %.split.us ], [ 1, %.preheader.split.preheader ], [ 1, %38 ], [ 1, %59 ]
+  %.029 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %.split.us ], [ 0, %1 ], [ 0, %27 ], [ 0, %.split48.us ], [ 1, %.preheader.split.preheader ], [ 1, %38 ], [ 1, %59 ]
   call void @ossl_ht_free(ptr noundef %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

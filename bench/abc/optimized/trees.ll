@@ -615,7 +615,7 @@ define hidden void @_tr_flush_block(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not17.i, label %31, label %detect_data_type.exit
 
 detect_data_type.exit:                            ; preds = %17, %31, %.preheader.i, %22, %25, %28
-  %.014.i = phi i32 [ 1, %25 ], [ 1, %22 ], [ 1, %28 ], [ 1, %.preheader.i ], [ 0, %31 ], [ 0, %17 ]
+  %.014.i = phi i32 [ 1, %25 ], [ 1, %.preheader.i ], [ 1, %22 ], [ 1, %28 ], [ 0, %31 ], [ 0, %17 ]
   store i32 %.014.i, ptr %10, align 8, !tbaa !37
   br label %34
 

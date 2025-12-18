@@ -1221,7 +1221,7 @@ UTF8_GetTrailingBytes.exit:                       ; preds = %19
   br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %UTF8_GetTrailingBytes.exit, %8, %select.unfold, %13
-  %.2 = phi i64 [ %7, %13 ], [ %spec.select, %select.unfold ], [ %9, %8 ], [ %7, %UTF8_GetTrailingBytes.exit ]
+  %.2 = phi i64 [ %9, %8 ], [ %7, %13 ], [ %spec.select, %select.unfold ], [ %7, %UTF8_GetTrailingBytes.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %1, i64 %.2, i1 false)
   br label %23
 

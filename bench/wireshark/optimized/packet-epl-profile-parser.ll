@@ -581,7 +581,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br label %40
 
 40:                                               ; preds = %34, %38
-  %.044 = phi ptr [ null, %34 ], [ %0, %38 ]
+  %.044 = phi ptr [ %0, %38 ], [ null, %34 ]
   %.not62 = icmp eq ptr %19, null
   br i1 %.not62, label %.thread68, label %41
 

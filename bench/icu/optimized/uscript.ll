@@ -912,7 +912,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60: ; preds = %_ZNK6icu
   br label %115
 
 _ZL8setCodesPK11UScriptCodeiPS_iP10UErrorCode.exit: ; preds = %.preheader.i53, %.preheader.i42, %.preheader.i, %105, %111, %112, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60, %104, %96, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit50.thread, %66, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit39.thread, %47, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread, %28
-  %.129 = phi i32 [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60 ], [ 0, %28 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread ], [ 3, %47 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit39.thread ], [ 2, %66 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit50.thread ], [ 2, %96 ], [ 0, %104 ], [ 0, %105 ], [ 1, %111 ], [ 1, %112 ], [ 2, %.preheader.i42 ], [ 3, %.preheader.i ], [ 2, %.preheader.i53 ]
+  %.129 = phi i32 [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60 ], [ 0, %28 ], [ 1, %112 ], [ 2, %.preheader.i42 ], [ 3, %.preheader.i ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread ], [ 3, %47 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit39.thread ], [ 2, %66 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit50.thread ], [ 2, %96 ], [ 0, %104 ], [ 0, %105 ], [ 1, %111 ], [ 2, %.preheader.i53 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #13

@@ -10269,7 +10269,7 @@ define dso_local void @slurmdb_tres_list_from_string(ptr noundef captures(none) 
   br i1 %.not113, label %.loopexit, label %18, !llvm.loop !58
 
 .loopexit:                                        ; preds = %107, %.thread, %52, %48
-  %.183 = phi i32 [ %.082, %48 ], [ %.082, %52 ], [ %.082, %.thread ], [ %.2, %107 ]
+  %.183 = phi i32 [ %.082, %48 ], [ %.082, %.thread ], [ %.082, %52 ], [ %.2, %107 ]
   %.not114 = icmp eq i32 %.183, 0
   %110 = and i32 %2, 4
   %.not115 = icmp eq i32 %110, 0

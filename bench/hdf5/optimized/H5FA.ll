@@ -995,7 +995,7 @@ define i32 @H5FA_iterate(ptr noundef readonly captures(none) %0, ptr noundef rea
   br label %49
 
 .loopexit:                                        ; preds = %23, %.preheader, %40, %33
-  %.1.ph = phi i32 [ %38, %40 ], [ -1, %33 ], [ 0, %.preheader ], [ %38, %23 ]
+  %.1.ph = phi i32 [ -1, %33 ], [ %38, %40 ], [ 0, %.preheader ], [ %38, %23 ]
   %48 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_fa_native_elmt_blk_free_list, ptr noundef nonnull %18) #5
   br label %49
 

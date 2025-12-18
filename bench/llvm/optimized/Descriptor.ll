@@ -1442,7 +1442,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.sink.split: ; preds = 
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit30, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.sink.split, %.preheader, %109, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
-  %.sroa.012.1 = phi i64 [ %.sroa.0.0, %109 ], [ %.sroa.0.0, %.preheader ], [ %.sroa.0.0, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %.sroa.0.0.copyload.i31, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.sink.split ], [ %.sroa.0.0.copyload.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit30 ]
+  %.sroa.012.1 = phi i64 [ %.sroa.0.0, %109 ], [ %.sroa.0.0, %.preheader ], [ %.sroa.0.0.copyload.i31, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.sink.split ], [ %.sroa.0.0, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %.sroa.0.0.copyload.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit30 ]
   ret i64 %.sroa.012.1
 }
 

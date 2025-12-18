@@ -142,7 +142,7 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   br i1 %55, label %.preheader107.lr.ph.us.us, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge119.split.us.us.us, %._crit_edge.us.us.us, %.preheader108.split.us.split.us.preheader, %.preheader108
-  %.us-phi125 = phi i32 [ %.090112, %.preheader108 ], [ %smin, %.preheader108.split.us.split.us.preheader ], [ %.3.us.us179, %._crit_edge.us.us.us ], [ %smin, %._crit_edge119.split.us.us.us ]
+  %.us-phi125 = phi i32 [ %smin, %.preheader108.split.us.split.us.preheader ], [ %.090112, %.preheader108 ], [ %.3.us.us179, %._crit_edge.us.us.us ], [ %smin, %._crit_edge119.split.us.us.us ]
   %56 = icmp eq i32 %.us-phi125, %3
   br i1 %56, label %.thread.thread, label %57
 

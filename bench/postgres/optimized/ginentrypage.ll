@@ -920,7 +920,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
   br i1 %.not37, label %.loopexit, label %38, !llvm.loop !9
 
 .loopexit:                                        ; preds = %25, %38, %50, %.loopexit59, %12
-  %.031 = phi i16 [ %3, %12 ], [ 0, %.loopexit59 ], [ 0, %50 ], [ %.151, %38 ], [ %.030, %25 ]
+  %.031 = phi i16 [ 0, %.loopexit59 ], [ %3, %12 ], [ 0, %50 ], [ %.151, %38 ], [ %.030, %25 ]
   ret i16 %.031
 }
 

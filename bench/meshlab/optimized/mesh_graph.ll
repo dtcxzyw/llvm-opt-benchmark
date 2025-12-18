@@ -1006,7 +1006,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
   br label %.body
 
 .loopexit96:                                      ; preds = %68, %.noexc, %63
-  %.0.i.pn.i.i = phi ptr [ %64, %63 ], [ %79, %.noexc ], [ %70, %68 ]
+  %.0.i.pn.i.i = phi ptr [ %79, %.noexc ], [ %64, %63 ], [ %70, %68 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   %81 = add i64 %.1117, 1
   store ptr null, ptr %.0.i.i, align 8
@@ -1028,7 +1028,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
   br label %.body
 
 .loopexit98:                                      ; preds = %51, %35, %46, %.loopexit96
-  %.2 = phi i64 [ %81, %.loopexit96 ], [ %.1117, %46 ], [ %.1117, %35 ], [ %.1117, %51 ]
+  %.2 = phi i64 [ %81, %.loopexit96 ], [ %.1117, %35 ], [ %.1117, %46 ], [ %.1117, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %82, label %31, !llvm.loop !12
@@ -1205,7 +1205,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
   br label %.body
 
 .loopexit:                                        ; preds = %153, %.noexc63, %148
-  %.0.i.pn.i.i61 = phi ptr [ %149, %148 ], [ %164, %.noexc63 ], [ %155, %153 ]
+  %.0.i.pn.i.i61 = phi ptr [ %164, %.noexc63 ], [ %149, %148 ], [ %155, %153 ]
   %.0.i.i62 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i61, i64 16
   %166 = load ptr, ptr %.0.i.i62, align 8
   %167 = icmp eq ptr %166, null
@@ -6544,7 +6544,7 @@ define void @_ZN9MeshGraph8GetChartEi(ptr dead_on_unwind noalias writable writeo
   br label %.loopexit, !llvm.loop !74
 
 _ZNSt13unordered_mapIiSt10shared_ptrI9FaceGroupESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit: ; preds = %27, %9, %22
-  %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %9 ], [ %29, %27 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %9 ], [ %23, %22 ], [ %29, %27 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %0, align 8
@@ -7105,7 +7105,7 @@ _ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrI9FaceGroupEESaIS5_ENSt8__detail10_S
           to label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrI9FaceGroupEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %30
 
 _ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrI9FaceGroupEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %42, %26, %37
-  %.sroa.021.0.ph = phi ptr [ %38, %37 ], [ %.sroa.018.0, %26 ], [ %44, %42 ]
+  %.sroa.021.0.ph = phi ptr [ %.sroa.018.0, %26 ], [ %38, %37 ], [ %44, %42 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10shared_ptrI9FaceGroupEELb0EEEEE18_M_deallocate_nodeEPS8_.exit.i, label %53
 

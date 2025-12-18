@@ -529,7 +529,7 @@ _ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit.sink.split: ;
   br label %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit
 
 _ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.i, %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit.sink.split, %220, %162
-  %.sroa.018.0.in = phi i64 [ 0, %162 ], [ 0, %220 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit.sink.split ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.018.0.in = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit.sink.split ], [ 0, %220 ], [ 0, %162 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i.i ]
   %.sroa.6.0.in = lshr i64 %.sroa.018.0.in, 32
   %.sroa.6.0 = trunc nuw i64 %.sroa.6.0.in to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

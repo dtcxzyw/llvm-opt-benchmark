@@ -1402,7 +1402,7 @@ switch.edge.i:                                    ; preds = %_ZNK4llvm4Type13get
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %15, %.split.i, %20, %22, %24, %switch.edge.i, %26, %.fold.split.i
-  %.0.i = phi i64 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ 0, %.split.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ 0, %26 ], [ 0, %15 ], [ 10, %.fold.split.i ], [ 8, %switch.edge.i ]
+  %.0.i = phi i64 [ 0, %15 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ 0, %.split.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ 0, %26 ], [ 10, %.fold.split.i ], [ 8, %switch.edge.i ]
   %.not = icmp eq i32 %8, 17
   br i1 %.not, label %27, label %32
 
@@ -1757,7 +1757,7 @@ switch.edge.i.i:                                  ; preds = %_ZNK4llvm4Type13get
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %126, %switch.edge.i.i, %124, %122, %120, %.split.i.i, %115, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i = phi i32 [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %126 ], [ 0, %115 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
+  %.0.i.i = phi i32 [ 0, %115 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %126 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
   %.not.i36 = icmp eq i32 %108, 17
   br i1 %.not.i36, label %127, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
@@ -1838,7 +1838,7 @@ switch.edge.i.i45:                                ; preds = %_ZNK4llvm4Type13get
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46:    ; preds = %.fold.split.i.i51, %154, %switch.edge.i.i45, %152, %150, %148, %.split.i.i52, %143, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
-  %.0.i.i47 = phi i32 [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ 0, %.split.i.i52 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43 ], [ 0, %154 ], [ 0, %143 ], [ 10, %.fold.split.i.i51 ], [ 8, %switch.edge.i.i45 ]
+  %.0.i.i47 = phi i32 [ 0, %143 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ 0, %.split.i.i52 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43 ], [ 0, %154 ], [ 10, %.fold.split.i.i51 ], [ 8, %switch.edge.i.i45 ]
   %.not.i48 = icmp eq i32 %136, 17
   br i1 %.not.i48, label %155, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit55
 
@@ -2580,7 +2580,7 @@ switch.edge.i.i:                                  ; preds = %_ZNK4llvm4Type13get
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %345, %switch.edge.i.i, %343, %341, %339, %.split.i.i, %334, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i96 = phi i32 [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %345 ], [ 0, %334 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
+  %.0.i.i96 = phi i32 [ 0, %334 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %345 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
   %.not.i97 = icmp eq i32 %327, 17
   br i1 %.not.i97, label %346, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
@@ -3698,7 +3698,7 @@ switch.edge.i.i:                                  ; preds = %_ZNK4llvm4Type13get
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %445, %switch.edge.i.i, %443, %441, %439, %.split.i.i, %434, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i = phi i64 [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %445 ], [ 0, %434 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
+  %.0.i.i = phi i64 [ 0, %434 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %445 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %446 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 32, ptr %446, align 8, !tbaa !193
@@ -4088,7 +4088,7 @@ switch.edge.i.i:                                  ; preds = %_ZNK4llvm4Type13get
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %85, %switch.edge.i.i, %83, %81, %79, %.split.i.i, %74, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i = phi i32 [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %85 ], [ 0, %74 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
+  %.0.i.i = phi i32 [ 0, %74 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ 0, %.split.i.i ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 0, %85 ], [ 10, %.fold.split.i.i ], [ 8, %switch.edge.i.i ]
   %.not.i40 = icmp eq i32 %67, 17
   br i1 %.not.i40, label %86, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
@@ -9068,7 +9068,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16Resou
   br label %_ZSt4moveIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit44
 
 _ZSt4moveIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit44: ; preds = %.lr.ph.i.i.i.i.i40, %.lr.ph.i.i.i.i.i61, %_ZSt4moveIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit58, %_ZSt13move_backwardIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit, %53, %9, %96
-  %.0 = phi ptr [ %2, %53 ], [ %97, %96 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit ], [ %2, %_ZSt4moveIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit58 ], [ %88, %.lr.ph.i.i.i.i.i61 ], [ %49, %.lr.ph.i.i.i.i.i40 ]
+  %.0 = phi ptr [ %2, %53 ], [ %97, %96 ], [ %88, %.lr.ph.i.i.i.i.i61 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit ], [ %2, %_ZSt4moveIPSt5tupleIJPN4llvm8CallInstENS1_4dxil19ResourceBindingInfoENS4_16ResourceTypeInfoEEES8_ET0_T_SA_S9_.exit58 ], [ %49, %.lr.ph.i.i.i.i.i40 ]
   ret ptr %.0
 }
 

@@ -725,7 +725,7 @@ ff_q_equal.exit.thread17.i:                       ; preds = %42, %39, %5
   %or.cond = or i1 %or.cond5.i.i12.i.not58, %59
   br i1 %or.cond, label %.preheader54.preheader, label %ff_sws_matrix3x3_mul.exit52
 
-.preheader54.preheader:                           ; preds = %32, %46, %56, %42
+.preheader54.preheader:                           ; preds = %32, %46, %42, %56
   br label %.preheader54
 
 .preheader54:                                     ; preds = %.preheader54.preheader, %.preheader54

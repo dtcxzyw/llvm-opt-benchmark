@@ -466,8 +466,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %109
   br label %._crit_edge589
 
 ._crit_edge589:                                   ; preds = %._crit_edge589.loopexit704, %._crit_edge589.loopexit703, %._crit_edge589.loopexit702, %._crit_edge589.loopexit701, %._crit_edge589.loopexit, %.preheader546
-  %.1409.lcssa = phi i32 [ %.0408618, %.preheader546 ], [ %.2.us598, %._crit_edge589.loopexit ], [ %.2, %._crit_edge589.loopexit701 ], [ %.2.us607, %._crit_edge589.loopexit702 ], [ %.0408618, %._crit_edge589.loopexit703 ], [ %.0408618, %._crit_edge589.loopexit704 ]
-  %.1.lcssa = phi i32 [ %.0407619, %.preheader546 ], [ %157, %._crit_edge589.loopexit ], [ %158, %._crit_edge589.loopexit701 ], [ %159, %._crit_edge589.loopexit702 ], [ %160, %._crit_edge589.loopexit703 ], [ %161, %._crit_edge589.loopexit704 ]
+  %.1409.lcssa = phi i32 [ %.0408618, %.preheader546 ], [ %.2.us607, %._crit_edge589.loopexit702 ], [ %.0408618, %._crit_edge589.loopexit703 ], [ %.2.us598, %._crit_edge589.loopexit ], [ %.2, %._crit_edge589.loopexit701 ], [ %.0408618, %._crit_edge589.loopexit704 ]
+  %.1.lcssa = phi i32 [ %.0407619, %.preheader546 ], [ %159, %._crit_edge589.loopexit702 ], [ %160, %._crit_edge589.loopexit703 ], [ %157, %._crit_edge589.loopexit ], [ %158, %._crit_edge589.loopexit701 ], [ %161, %._crit_edge589.loopexit704 ]
   %indvars.iv.next778 = add nuw nsw i64 %indvars.iv777, 1
   %indvars.iv.next759 = add i32 %indvars.iv758, -1
   %exitcond781.not = icmp eq i64 %indvars.iv.next778, %wide.trip.count780
@@ -1252,8 +1252,8 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %325
   br label %.loopexit
 
 .loopexit:                                        ; preds = %314, %gv_calloc.exit527, %471, %475
-  %.0452 = phi ptr [ %332, %471 ], [ null, %gv_calloc.exit527 ], [ null, %314 ], [ %332, %475 ]
-  %.0412 = phi i32 [ %.1413.lcssa, %471 ], [ -1, %gv_calloc.exit527 ], [ -1, %314 ], [ %.1413.lcssa, %475 ]
+  %.0452 = phi ptr [ %332, %471 ], [ null, %gv_calloc.exit527 ], [ %332, %475 ], [ null, %314 ]
+  %.0412 = phi i32 [ %.1413.lcssa, %471 ], [ -1, %gv_calloc.exit527 ], [ %.1413.lcssa, %475 ], [ -1, %314 ]
   %.not487 = icmp eq ptr %225, null
   br i1 %.not487, label %486, label %.preheader539
 

@@ -8908,7 +8908,7 @@ define internal fastcc i32 @ftp_state_list(ptr noundef %0) unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %17, %23
-  %.132 = phi ptr [ %15, %17 ], [ null, %23 ]
+  %.132 = phi ptr [ null, %23 ], [ %15, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %26
 

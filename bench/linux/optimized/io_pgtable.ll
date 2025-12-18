@@ -462,9 +462,9 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   br i1 %237, label %231, label %.loopexit29.us, !llvm.loop !24
 
 .loopexit29.us:                                   ; preds = %231, %217, %215, %162
-  %.ph.us = phi i8 [ %216, %215 ], [ %145, %162 ], [ %145, %217 ], [ 1, %231 ]
-  %.ph20.us = phi ptr [ %147, %215 ], [ %173, %162 ], [ %147, %217 ], [ %147, %231 ]
-  %.ph21.us = phi i32 [ %146, %215 ], [ %167, %162 ], [ %146, %217 ], [ %146, %231 ]
+  %.ph.us = phi i8 [ %145, %217 ], [ %216, %215 ], [ %145, %162 ], [ 1, %231 ]
+  %.ph20.us = phi ptr [ %147, %217 ], [ %147, %215 ], [ %173, %162 ], [ %147, %231 ]
+  %.ph21.us = phi i32 [ %146, %217 ], [ %146, %215 ], [ %167, %162 ], [ %146, %231 ]
   %238 = icmp sgt i32 %.ph21.us, %143
   br i1 %238, label %.preheader31.us, label %.loopexit32.us, !llvm.loop !21
 
@@ -1040,7 +1040,7 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.i, %42, %fetch_pte.exit, %74, %12, %.loopexit, %100, %109, %113
-  %114 = phi i64 [ %.2, %.loopexit ], [ %.2, %113 ], [ %.2, %109 ], [ %.2, %100 ], [ 4096, %12 ], [ %.2, %fetch_pte.exit ], [ %.2, %74 ], [ %.1, %42 ], [ %.1, %.preheader.i ]
+  %114 = phi i64 [ %.2, %.loopexit ], [ %.2, %113 ], [ %.2, %109 ], [ %.2, %100 ], [ 4096, %12 ], [ %.2, %74 ], [ %.2, %fetch_pte.exit ], [ %.1, %42 ], [ %.1, %.preheader.i ]
   %115 = add i64 %114, %13
   %116 = icmp ult i64 %115, %7
   br i1 %116, label %12, label %117, !llvm.loop !42

@@ -2438,7 +2438,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
   br label %match_streams_one_to_one.exit
 
 match_streams_one_to_one.exit:                    ; preds = %204, %150, %152, %._crit_edge, %detect_stream_specific.exit.thread, %13, %1, %.loopexit
-  %.029 = phi i32 [ 0, %1 ], [ -12, %13 ], [ %.0.i.ph, %detect_stream_specific.exit.thread ], [ 0, %.loopexit ], [ -558323010, %._crit_edge ], [ -12, %150 ], [ %158, %152 ], [ %209, %204 ]
+  %.029 = phi i32 [ 0, %1 ], [ -12, %13 ], [ %.0.i.ph, %detect_stream_specific.exit.thread ], [ 0, %.loopexit ], [ -12, %150 ], [ -558323010, %._crit_edge ], [ %158, %152 ], [ %209, %204 ]
   ret i32 %.029
 }
 

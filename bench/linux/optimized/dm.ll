@@ -2125,7 +2125,7 @@ define dso_local i32 @dm_resume(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br label %__dm_resume.exit
 
 __dm_resume.exit:                                 ; preds = %3, %28, %51, %25, %21
-  %52 = phi i32 [ 0, %51 ], [ -22, %25 ], [ -22, %21 ], [ %29, %28 ], [ -22, %3 ]
+  %52 = phi i32 [ %29, %28 ], [ 0, %51 ], [ -22, %25 ], [ -22, %21 ], [ -22, %3 ]
   tail call void @mutex_unlock(ptr noundef %0) #23
   br label %.loopexit
 

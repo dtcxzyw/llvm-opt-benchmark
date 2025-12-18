@@ -9156,9 +9156,9 @@ _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.e
   %71 = icmp eq i64 %indvars.iv.next.i19, %zext28
   br i1 %71, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit, label %66, !llvm.loop !85
 
-_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit: ; preds = %66, %.split7, %.split, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit
-  %.037 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ 0, %.split7 ], [ %1, %.split ], [ %1, %66 ]
-  %.0.i2436 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ null, %.split7 ], [ %9, %.split ], [ %9, %66 ]
+_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit: ; preds = %66, %.split, %.split7, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit
+  %.037 = phi i32 [ 0, %.split7 ], [ %1, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ %1, %.split ], [ %1, %66 ]
+  %.0.i2436 = phi ptr [ null, %.split7 ], [ %9, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ %9, %.split ], [ %9, %66 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !34
   %.not.i22 = icmp eq ptr %73, null
@@ -9385,8 +9385,8 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %31, %23
   br i1 %37, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit, label %23, !llvm.loop !84
 
 _ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, %.split, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit
-  %.035 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %1, %.split ], [ 0, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %1, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
-  %.0.i2334 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %9, %.split ], [ null, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %9, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
+  %.035 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %1, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %1, %.split ], [ %1, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
+  %.0.i2334 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %9, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %9, %.split ], [ %9, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %.not.i21 = icmp ne ptr %39, null

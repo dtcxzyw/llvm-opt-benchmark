@@ -2551,9 +2551,9 @@ common.resume:                                    ; preds = %433, %47, %386, %.b
   br label %437
 
 436:                                              ; preds = %418, %423
-  %.sroa.737.0 = phi i64 [ %.032.i.i, %423 ], [ undef, %418 ]
-  %.sroa.5.0 = phi i64 [ %.val.i.i.i, %423 ], [ %.sroa.911.031.i.i, %418 ]
-  %.sroa.036.0 = phi i64 [ 6, %423 ], [ 5, %418 ]
+  %.sroa.737.0 = phi i64 [ undef, %418 ], [ %.032.i.i, %423 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.911.031.i.i, %418 ], [ %.val.i.i.i, %423 ]
+  %.sroa.036.0 = phi i64 [ 5, %418 ], [ 6, %423 ]
   store i64 %.sroa.036.0, ptr %0, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0, ptr %.sroa.228.0..sroa_idx, align 8

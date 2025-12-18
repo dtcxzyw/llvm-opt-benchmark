@@ -6887,7 +6887,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br i1 %259, label %.critedge._crit_edge.thread, label %330
 
 .critedge._crit_edge.thread:                      ; preds = %.lr.ph.split.split.us, %.critedge.us.us, %.preheader, %.critedge._crit_edge
-  %.1104512 = phi i32 [ %.1104, %.critedge._crit_edge ], [ 0, %.preheader ], [ %223, %.critedge.us.us ], [ %247, %.lr.ph.split.split.us ]
+  %.1104512 = phi i32 [ %.1104, %.critedge._crit_edge ], [ %223, %.critedge.us.us ], [ 0, %.preheader ], [ %247, %.lr.ph.split.split.us ]
   %260 = icmp eq i32 %.1104512, %163
   %261 = and i32 %.0152, 64
   %262 = icmp eq i32 %261, 0
@@ -8679,37 +8679,37 @@ hashTypeLength.exit46:                            ; preds = %65, %69, %75
   %124 = load i32, ptr %7, align 8
   %125 = lshr i32 %124, 4
   %126 = and i32 %125, 15
-  switch i32 %126, label %129 [
+  switch i32 %126, label %127 [
     i32 11, label %hashTypeIsFieldsWithExpire.exit51.thread
-    i32 12, label %127
+    i32 12, label %hashTypeIsFieldsWithExpire.exit51
   ]
 
 127:                                              ; preds = %123
-  %128 = tail call fastcc i64 @listpackExGetMinExpire(ptr noundef nonnull readonly %7)
-  %.not71 = icmp eq i64 %128, 281474976710656
-  br i1 %.not71, label %hashTypeIsFieldsWithExpire.exit51.thread, label %138
-
-129:                                              ; preds = %123
-  %130 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !10
-  %.val.i49 = load ptr, ptr %131, align 8, !tbaa !56
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %129 = load ptr, ptr %128, align 8, !tbaa !10
+  %.val.i49 = load ptr, ptr %129, align 8, !tbaa !56
   %.not.i50 = icmp eq ptr %.val.i49, @mstrHashDictTypeWithHFE
-  br i1 %.not.i50, label %hashTypeIsFieldsWithExpire.exit51, label %hashTypeIsFieldsWithExpire.exit51.thread
+  br i1 %.not.i50, label %130, label %hashTypeIsFieldsWithExpire.exit51.thread
 
-hashTypeIsFieldsWithExpire.exit51:                ; preds = %129
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 72
-  %133 = load ptr, ptr %132, align 8, !tbaa !58
-  %134 = tail call i64 @ebGetTotalItems(ptr noundef %133, ptr noundef nonnull @hashFieldExpireBucketsType) #17
-  %.not72 = icmp eq i64 %134, 0
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 72
+  %132 = load ptr, ptr %131, align 8, !tbaa !58
+  %133 = tail call i64 @ebGetTotalItems(ptr noundef %132, ptr noundef nonnull @hashFieldExpireBucketsType) #17
+  %.not72 = icmp eq i64 %133, 0
   br i1 %.not72, label %hashTypeIsFieldsWithExpire.exit51.thread, label %138
 
-hashTypeIsFieldsWithExpire.exit51.thread:         ; preds = %127, %129, %123, %hashTypeIsFieldsWithExpire.exit51
+hashTypeIsFieldsWithExpire.exit51:                ; preds = %123
+  %134 = tail call fastcc i64 @listpackExGetMinExpire(ptr noundef nonnull readonly %7)
+  %.not71 = icmp eq i64 %134, 281474976710656
+  br i1 %.not71, label %hashTypeIsFieldsWithExpire.exit51.thread, label %138
+
+hashTypeIsFieldsWithExpire.exit51.thread:         ; preds = %130, %127, %123, %hashTypeIsFieldsWithExpire.exit51
   %135 = load ptr, ptr %95, align 8, !tbaa !109
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = tail call i32 @ebRemove(ptr noundef nonnull %136, ptr noundef nonnull @hashExpireBucketsType, ptr noundef nonnull %7) #17
   br label %138
 
-138:                                              ; preds = %127, %122, %hashTypeIsFieldsWithExpire.exit51, %hashTypeIsFieldsWithExpire.exit51.thread, %115
+138:                                              ; preds = %130, %122, %hashTypeIsFieldsWithExpire.exit51, %hashTypeIsFieldsWithExpire.exit51.thread, %115
   %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !135
   %140 = add nsw i64 %139, %103
   store i64 %140, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !135
@@ -8998,7 +8998,7 @@ hashTypeInitIterator.exit:                        ; preds = %36, %39
   br i1 %.not38, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !154
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %hashTypeInitIterator.exit
-  %.0.lcssa = phi i32 [ 0, %hashTypeInitIterator.exit ], [ %49, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.us.split.us ], [ %47, %.lr.ph.split.us.split ], [ %.reass, %.lr.ph.split.split ]
+  %.0.lcssa = phi i32 [ 0, %hashTypeInitIterator.exit ], [ %49, %.lr.ph.split.split.us ], [ %47, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us.split.us ], [ %.reass, %.lr.ph.split.split ]
   %52 = load i32, ptr %35, align 8, !tbaa !113
   %53 = icmp eq i32 %52, 2
   br i1 %53, label %54, label %hashTypeReleaseIterator.exit

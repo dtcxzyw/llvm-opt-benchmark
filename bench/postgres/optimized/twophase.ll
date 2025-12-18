@@ -3113,7 +3113,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br i1 %78, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %.lr.ph.split, %52, %30, %34, %18, %22
-  %.0 = phi ptr [ null, %30 ], [ null, %18 ], [ null, %22 ], [ null, %34 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.us.split.us ], [ %53, %.lr.ph.split.split.us ]
+  %.0 = phi ptr [ null, %30 ], [ null, %18 ], [ null, %22 ], [ null, %34 ], [ %53, %.lr.ph.split ], [ %53, %52 ], [ %53, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.us.split.us ], [ %53, %.lr.ph.split.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

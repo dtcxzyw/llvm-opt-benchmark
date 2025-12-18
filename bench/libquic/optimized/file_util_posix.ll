@@ -3037,7 +3037,7 @@ define noundef zeroext i1 @_ZN4base19WriteFileDescriptorEiPKci(i32 noundef %0, p
   br i1 %or.cond, label %.preheader, label %.critedge18, !llvm.loop !90
 
 .critedge18:                                      ; preds = %.critedge, %10, %3
-  %.not22 = phi i1 [ true, %3 ], [ false, %10 ], [ %14, %.critedge ]
+  %.not22 = phi i1 [ false, %10 ], [ true, %3 ], [ %14, %.critedge ]
   ret i1 %.not22
 }
 

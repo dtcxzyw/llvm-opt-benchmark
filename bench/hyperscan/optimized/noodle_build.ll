@@ -245,7 +245,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit83.thread:           ; preds = %21
   br i1 %or.cond.i, label %.lr.ph.split.i, label %_ZN3ue2L18findNoodFragOffsetERKNS_11hwlmLiteralE.exit, !llvm.loop !13
 
 _ZN3ue2L18findNoodFragOffsetERKNS_11hwlmLiteralE.exit: ; preds = %.lr.ph.split.i, %.backedge.us.i, %105, %100, %83
-  %.1.i = phi i64 [ 0, %83 ], [ %.01832.us.i, %105 ], [ %.01832.us.i, %100 ], [ %91, %.backedge.us.i ], [ %.01832.i, %.lr.ph.split.i ]
+  %.1.i = phi i64 [ %.01832.us.i, %105 ], [ 0, %83 ], [ %.01832.us.i, %100 ], [ %91, %.backedge.us.i ], [ %.01832.i, %.lr.ph.split.i ]
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %113 = load i32, ptr %112, align 8
   store i32 %113, ptr %84, align 8

@@ -2277,14 +2277,14 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   br label %.outer
 
 .outer:                                           ; preds = %100, %112, %116, %107, %226, %297, %220, %177, %50, %65, %93, %78
-  %.219 = phi i64 [ %.017.ph256, %297 ], [ %.017.ph256, %226 ], [ %.017.ph256, %177 ], [ %.017.ph256, %220 ], [ %.017.ph256, %116 ], [ %.017.ph256, %112 ], [ %.017.ph256, %107 ], [ %.118, %93 ], [ %.118, %78 ], [ %.118, %50 ], [ %.118, %65 ], [ %.017.ph256, %100 ]
-  %.2 = phi ptr [ %.0.ph257, %297 ], [ %.0.ph257, %226 ], [ %.0.ph257, %177 ], [ %.0.ph257, %220 ], [ %.0.ph257, %116 ], [ %.0.ph257, %112 ], [ %.0.ph257, %107 ], [ %.1, %93 ], [ %.1, %78 ], [ %.1, %50 ], [ %.1, %65 ], [ %.0.ph257, %100 ]
+  %.219 = phi i64 [ %.017.ph256, %297 ], [ %.017.ph256, %226 ], [ %.017.ph256, %177 ], [ %.017.ph256, %220 ], [ %.118, %65 ], [ %.017.ph256, %116 ], [ %.017.ph256, %112 ], [ %.017.ph256, %107 ], [ %.118, %93 ], [ %.118, %78 ], [ %.118, %50 ], [ %.017.ph256, %100 ]
+  %.2 = phi ptr [ %.0.ph257, %297 ], [ %.0.ph257, %226 ], [ %.0.ph257, %177 ], [ %.0.ph257, %220 ], [ %.1, %65 ], [ %.0.ph257, %116 ], [ %.0.ph257, %112 ], [ %.0.ph257, %107 ], [ %.1, %93 ], [ %.1, %78 ], [ %.1, %50 ], [ %.0.ph257, %100 ]
   %304 = load ptr, ptr %7, align 8, !tbaa !195
   %305 = icmp eq ptr %304, %7
   br i1 %305, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !211
 
 .outer._crit_edge:                                ; preds = %.outer, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit
-  %.0.ph.lcssa254 = phi ptr [ null, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ], [ %.0.ph257, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54 ], [ %.2, %.outer ]
+  %.0.ph.lcssa254 = phi ptr [ %.0.ph257, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54 ], [ null, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ], [ %.2, %.outer ]
   call void @free(ptr noundef %.0.ph.lcssa254) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
   %306 = load ptr, ptr %7, align 8, !tbaa !195
@@ -3245,14 +3245,14 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   br label %.outer
 
 .outer:                                           ; preds = %100, %112, %116, %107, %226, %297, %220, %177, %50, %65, %93, %78
-  %.219 = phi i64 [ %.017.ph256, %297 ], [ %.017.ph256, %226 ], [ %.017.ph256, %177 ], [ %.017.ph256, %220 ], [ %.017.ph256, %116 ], [ %.017.ph256, %112 ], [ %.017.ph256, %107 ], [ %.118, %93 ], [ %.118, %78 ], [ %.118, %50 ], [ %.118, %65 ], [ %.017.ph256, %100 ]
-  %.2 = phi ptr [ %.0.ph257, %297 ], [ %.0.ph257, %226 ], [ %.0.ph257, %177 ], [ %.0.ph257, %220 ], [ %.0.ph257, %116 ], [ %.0.ph257, %112 ], [ %.0.ph257, %107 ], [ %.1, %93 ], [ %.1, %78 ], [ %.1, %50 ], [ %.1, %65 ], [ %.0.ph257, %100 ]
+  %.219 = phi i64 [ %.017.ph256, %297 ], [ %.017.ph256, %226 ], [ %.017.ph256, %177 ], [ %.017.ph256, %220 ], [ %.118, %65 ], [ %.017.ph256, %116 ], [ %.017.ph256, %112 ], [ %.017.ph256, %107 ], [ %.118, %93 ], [ %.118, %78 ], [ %.118, %50 ], [ %.017.ph256, %100 ]
+  %.2 = phi ptr [ %.0.ph257, %297 ], [ %.0.ph257, %226 ], [ %.0.ph257, %177 ], [ %.0.ph257, %220 ], [ %.1, %65 ], [ %.0.ph257, %116 ], [ %.0.ph257, %112 ], [ %.0.ph257, %107 ], [ %.1, %93 ], [ %.1, %78 ], [ %.1, %50 ], [ %.0.ph257, %100 ]
   %304 = load ptr, ptr %7, align 8, !tbaa !195
   %305 = icmp eq ptr %304, %7
   br i1 %305, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !213
 
 .outer._crit_edge:                                ; preds = %.outer, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit
-  %.0.ph.lcssa254 = phi ptr [ null, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ], [ %.0.ph257, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54 ], [ %.2, %.outer ]
+  %.0.ph.lcssa254 = phi ptr [ %.0.ph257, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54 ], [ null, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ], [ %.2, %.outer ]
   call void @free(ptr noundef %.0.ph.lcssa254) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
   %306 = load ptr, ptr %7, align 8, !tbaa !195
@@ -5251,8 +5251,8 @@ _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %6, !llvm.loop !270
 
 _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !207
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

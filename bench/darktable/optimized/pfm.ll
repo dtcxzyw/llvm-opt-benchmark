@@ -219,8 +219,8 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
   br label %137
 
 .critedge122:                                     ; preds = %.critedge, %68, %.preheader127, %62
-  %103 = phi i32 [ %57, %62 ], [ 0, %.preheader127 ], [ %57, %68 ], [ %95, %.critedge ]
-  %104 = phi i32 [ %56, %62 ], [ %.pre148, %.preheader127 ], [ %56, %68 ], [ %94, %.critedge ]
+  %103 = phi i32 [ %57, %68 ], [ %57, %62 ], [ 0, %.preheader127 ], [ %95, %.critedge ]
+  %104 = phi i32 [ %56, %68 ], [ %56, %62 ], [ %.pre148, %.preheader127 ], [ %94, %.critedge ]
   %105 = mul nsw i32 %104, 3
   %106 = sext i32 %105 to i64
   %107 = call noalias ptr @calloc(i64 noundef %106, i64 noundef 4) #12

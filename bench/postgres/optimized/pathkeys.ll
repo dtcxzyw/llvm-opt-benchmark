@@ -186,7 +186,7 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly captu
   br i1 %.not18.i, label %pathkey_is_redundant.exit, label %20
 
 .critedge:                                        ; preds = %pathkey_is_redundant.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %pathkey_is_redundant.exit ]
+  %.0.lcssa = phi ptr [ %0, %.lr.ph ], [ %0, %2 ], [ %.1, %pathkey_is_redundant.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %20, %.preheader.i, %.lr.ph.i
@@ -876,7 +876,7 @@ pathkeys_contained_in.exit.thread25.us:           ; preds = %44, %36
   br i1 %4, label %53, label %57
 
 .critedge:                                        ; preds = %pathkeys_contained_in.exit.thread25, %pathkeys_contained_in.exit.thread25.us, %pathkeys_contained_in.exit.thread25.us.us, %.lr.ph.split.preheader, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us.split, %5
-  %.0.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us.split.us.split ], [ null, %.lr.ph.split.us.split.split ], [ null, %.lr.ph.split.preheader ], [ %.1.us, %pathkeys_contained_in.exit.thread25.us ], [ %.1.us.us, %pathkeys_contained_in.exit.thread25.us.us ], [ %.1, %pathkeys_contained_in.exit.thread25 ]
+  %.0.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us.split.split ], [ null, %.lr.ph.split.us.split.us.split ], [ %.1.us, %pathkeys_contained_in.exit.thread25.us ], [ %.1.us.us, %pathkeys_contained_in.exit.thread25.us.us ], [ null, %.lr.ph.split.preheader ], [ %.1, %pathkeys_contained_in.exit.thread25 ]
   ret ptr %.0.lcssa
 
 53:                                               ; preds = %.lr.ph99
@@ -1062,7 +1062,7 @@ pathkeys_contained_in.exit.thread24.us:           ; preds = %22, %14
   br i1 %.not21, label %34, label %31
 
 .critedge:                                        ; preds = %pathkeys_contained_in.exit.thread24, %pathkeys_contained_in.exit.thread24.us, %.lr.ph.split.preheader, %.lr.ph.split.us.split, %4
-  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.preheader ], [ %.1.us, %pathkeys_contained_in.exit.thread24.us ], [ %.1, %pathkeys_contained_in.exit.thread24 ]
+  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.us.split ], [ %.1.us, %pathkeys_contained_in.exit.thread24.us ], [ null, %.lr.ph.split.preheader ], [ %.1, %pathkeys_contained_in.exit.thread24 ]
   ret ptr %.0.lcssa
 
 31:                                               ; preds = %.lr.ph69
@@ -1556,7 +1556,7 @@ is_notclause.exit.i.i:                            ; preds = %77
   br i1 %90, label %.lr.ph45.i, label %pathkey_is_redundant.exit
 
 .loopexit:                                        ; preds = %45, %69, %83, %.loopexit51, %34
-  %.232.ph = phi ptr [ %.03056, %34 ], [ %50, %.loopexit51 ], [ %.03056, %69 ], [ %.03056, %83 ], [ %.03056, %45 ]
+  %.232.ph = phi ptr [ %.03056, %69 ], [ %50, %.loopexit51 ], [ %.03056, %34 ], [ %.03056, %83 ], [ %.03056, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i16, ptr %7, align 2
   %92 = sext i16 %91 to i64
@@ -1564,8 +1564,8 @@ is_notclause.exit.i.i:                            ; preds = %77
   br i1 %93, label %17, label %pathkey_is_redundant.exit, !llvm.loop !11
 
 pathkey_is_redundant.exit:                        ; preds = %.lr.ph.i37, %57, %51, %.loopexit, %87, %4
-  %.03054 = phi ptr [ null, %4 ], [ %.03056, %87 ], [ %.03056, %.lr.ph.i37 ], [ %.03056, %57 ], [ %.03056, %51 ], [ %.232.ph, %.loopexit ]
-  %storemerge = phi i8 [ 0, %4 ], [ 1, %87 ], [ 1, %.lr.ph.i37 ], [ 1, %57 ], [ 1, %51 ], [ 0, %.loopexit ]
+  %.03054 = phi ptr [ %.03056, %87 ], [ null, %4 ], [ %.03056, %.lr.ph.i37 ], [ %.03056, %57 ], [ %.03056, %51 ], [ %.232.ph, %.loopexit ]
+  %storemerge = phi i8 [ 1, %87 ], [ 0, %4 ], [ 1, %.lr.ph.i37 ], [ 1, %57 ], [ 1, %51 ], [ 0, %.loopexit ]
   store i8 %storemerge, ptr %3, align 1
   ret ptr %.03054
 }
@@ -1993,9 +1993,9 @@ list_length.exit148:                              ; preds = %make_canonical_path
   %spec.select128 = select i1 %210, ptr %.1.i, ptr %.5191287
   br label %find_var_for_subquery_tle.exit140.thread
 
-find_var_for_subquery_tle.exit140.thread:         ; preds = %139, %119, %.lr.ph.i132, %.lr.ph, %146, %141, %find_var_for_subquery_tle.exit140, %209
-  %.3101 = phi i32 [ %spec.select127, %209 ], [ %.2100189288, %141 ], [ %.2100189288, %find_var_for_subquery_tle.exit140 ], [ %.2100189288, %146 ], [ %.2100189288, %.lr.ph ], [ %.2100189288, %.lr.ph.i132 ], [ %.2100189288, %119 ], [ %.2100189288, %139 ]
-  %.6 = phi ptr [ %spec.select128, %209 ], [ %.5191287, %141 ], [ %.5191287, %find_var_for_subquery_tle.exit140 ], [ %.5191287, %146 ], [ %.5191287, %.lr.ph ], [ %.5191287, %.lr.ph.i132 ], [ %.5191287, %119 ], [ %.5191287, %139 ]
+find_var_for_subquery_tle.exit140.thread:         ; preds = %139, %.lr.ph.i132, %119, %.lr.ph, %146, %141, %find_var_for_subquery_tle.exit140, %209
+  %.3101 = phi i32 [ %spec.select127, %209 ], [ %.2100189288, %141 ], [ %.2100189288, %find_var_for_subquery_tle.exit140 ], [ %.2100189288, %146 ], [ %.2100189288, %.lr.ph ], [ %.2100189288, %119 ], [ %.2100189288, %.lr.ph.i132 ], [ %.2100189288, %139 ]
+  %.6 = phi ptr [ %spec.select128, %209 ], [ %.5191287, %141 ], [ %.5191287, %find_var_for_subquery_tle.exit140 ], [ %.5191287, %146 ], [ %.5191287, %.lr.ph ], [ %.5191287, %119 ], [ %.5191287, %.lr.ph.i132 ], [ %.5191287, %139 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv286, 1
   %211 = load i32, ptr %13, align 4
   %212 = sext i32 %211 to i64
@@ -2068,8 +2068,8 @@ pathkey_is_redundant.exit.thread170:              ; preds = %228, %.loopexit, %2
   %237 = icmp slt i64 %indvars.iv.next241, %236
   br i1 %237, label %.lr.ph298, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph199, %42, %.lr.ph.i, %37, %find_var_for_subquery_tle.exit, %64, %.critedge124, %pathkey_is_redundant.exit.thread170, %86, %62, %.lr.ph211, %list_length.exit
-  %.088188 = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph211 ], [ %.088210296, %62 ], [ %.088210296, %86 ], [ %.2175, %pathkey_is_redundant.exit.thread170 ], [ %.088210296, %.critedge124 ], [ %.088210296, %64 ], [ %.088210296, %find_var_for_subquery_tle.exit ], [ %.088210296, %37 ], [ %.088210296, %.lr.ph.i ], [ %.088210296, %42 ], [ %.088210296, %.lr.ph199 ]
+.critedge:                                        ; preds = %.lr.ph199, %.lr.ph.i, %42, %37, %find_var_for_subquery_tle.exit, %64, %.critedge124, %pathkey_is_redundant.exit.thread170, %86, %62, %.lr.ph211, %list_length.exit
+  %.088188 = phi ptr [ %.088210296, %62 ], [ null, %list_length.exit ], [ null, %.lr.ph211 ], [ %.2175, %pathkey_is_redundant.exit.thread170 ], [ %.088210296, %.critedge124 ], [ %.088210296, %64 ], [ %.088210296, %find_var_for_subquery_tle.exit ], [ %.088210296, %37 ], [ %.088210296, %42 ], [ %.088210296, %.lr.ph.i ], [ %.088210296, %.lr.ph199 ], [ %.088210296, %86 ]
   ret ptr %.088188
 }
 
@@ -2349,7 +2349,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph84.i, %.crite
   br label %pathkeys_useful_for_ordering.exit
 
 pathkeys_useful_for_ordering.exit:                ; preds = %108, %91, %92, %95, %119, %.loopexit.loopexit.i.i
-  %indvars71.le.sink.i.i = phi i32 [ %indvars71.le.i.i, %119 ], [ 0, %95 ], [ 0, %91 ], [ %94, %92 ], [ %indvars71.le82.i.i, %.loopexit.loopexit.i.i ], [ %smax.i.i, %108 ]
+  %indvars71.le.sink.i.i = phi i32 [ %indvars71.le.i.i, %119 ], [ %indvars71.le82.i.i, %.loopexit.loopexit.i.i ], [ 0, %95 ], [ 0, %91 ], [ %94, %92 ], [ %smax.i.i, %108 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %indvars71.le.sink.i.i, i32 %.063.i)
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %121 = load ptr, ptr %120, align 8
@@ -2509,7 +2509,7 @@ pathkeys_useful_for_distinct.exit:                ; preds = %pathkeys_useful_for
   br label %pathkeys_useful_for_setop.exit
 
 pathkeys_useful_for_setop.exit:                   ; preds = %170, %153, %154, %157, %181, %.loopexit.loopexit.i.i65
-  %indvars71.le.sink.i.i63 = phi i32 [ %indvars71.le.i.i62, %181 ], [ 0, %157 ], [ 0, %153 ], [ %156, %154 ], [ %indvars71.le82.i.i66, %.loopexit.loopexit.i.i65 ], [ %smax.i.i56, %170 ]
+  %indvars71.le.sink.i.i63 = phi i32 [ %indvars71.le.i.i62, %181 ], [ %indvars71.le82.i.i66, %.loopexit.loopexit.i.i65 ], [ 0, %157 ], [ 0, %153 ], [ %156, %154 ], [ %smax.i.i56, %170 ]
   %.3 = tail call i32 @llvm.smax.i32(i32 %indvars71.le.sink.i.i63, i32 %.2)
   %182 = icmp eq i32 %.3, 0
   br i1 %182, label %188, label %183
@@ -3212,7 +3212,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   br label %list_length.exit.thread.sink.split
 
 .critedge163.thread:                              ; preds = %..loopexit_crit_edge.us, %.lr.ph207, %.lr.ph213, %.thread173, %.lr.ph213.split.us.split, %._crit_edge202, %.critedge
-  %.0118 = phi ptr [ null, %.critedge ], [ null, %._crit_edge202 ], [ %92, %.lr.ph213.split.us.split ], [ %92, %.thread173 ], [ %92, %.lr.ph213 ], [ null, %.lr.ph207 ], [ %92, %..loopexit_crit_edge.us ]
+  %.0118 = phi ptr [ null, %.critedge ], [ null, %._crit_edge202 ], [ %92, %.lr.ph213.split.us.split ], [ %92, %.thread173 ], [ null, %.lr.ph207 ], [ %92, %.lr.ph213 ], [ %92, %..loopexit_crit_edge.us ]
   %117 = icmp sgt i32 %.0124.lcssa, 1
   %wide.trip.count259 = zext nneg i32 %.0124.lcssa to i64
   br label %118

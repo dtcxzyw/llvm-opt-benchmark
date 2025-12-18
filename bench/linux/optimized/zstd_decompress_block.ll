@@ -2658,7 +2658,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   br i1 %952, label %945, label %.loopexit148, !llvm.loop !31
 
 .loopexit148:                                     ; preds = %945, %.preheader149, %889, %940, %923, %884, %874, %846
-  %953 = phi i64 [ %847, %846 ], [ %836, %874 ], [ %836, %923 ], [ %836, %884 ], [ %836, %940 ], [ %836, %.preheader149 ], [ %836, %889 ], [ %836, %945 ]
+  %953 = phi i64 [ %847, %846 ], [ %836, %874 ], [ %836, %889 ], [ %836, %923 ], [ %836, %884 ], [ %836, %940 ], [ %836, %.preheader149 ], [ %836, %945 ]
   %954 = icmp ult i64 %953, -119
   br i1 %954, label %955, label %.critedge.thread
 
@@ -3072,7 +3072,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   br i1 %1216, label %1209, label %.loopexit158, !llvm.loop !31
 
 .loopexit158:                                     ; preds = %1209, %.preheader164, %1153, %1080, %.preheader159, %1024, %1204, %1187, %1148, %1138, %1109, %1075, %1058, %1019, %1009, %980
-  %1217 = phi i64 [ %981, %980 ], [ %971, %1009 ], [ %971, %1058 ], [ %971, %1019 ], [ %971, %1075 ], [ %1110, %1109 ], [ %1098, %1138 ], [ %1098, %1187 ], [ %1098, %1148 ], [ %1098, %1204 ], [ %1098, %.preheader164 ], [ %971, %1024 ], [ %971, %.preheader159 ], [ %971, %1080 ], [ %1098, %1153 ], [ %1098, %1209 ]
+  %1217 = phi i64 [ %981, %980 ], [ %971, %1009 ], [ %971, %1024 ], [ %971, %1058 ], [ %971, %1019 ], [ %971, %1075 ], [ %1110, %1109 ], [ %1098, %1138 ], [ %1098, %.preheader164 ], [ %1098, %1187 ], [ %1098, %1148 ], [ %1098, %1204 ], [ %1098, %1153 ], [ %971, %.preheader159 ], [ %971, %1080 ], [ %1098, %1209 ]
   %1218 = icmp ult i64 %1217, -119
   br i1 %1218, label %1219, label %.critedge.thread
 
@@ -3440,7 +3440,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   br i1 %1448, label %1441, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %1441, %.preheader, %1385, %1342, %1370, %1380, %1419, %1436
-  %1449 = phi i64 [ %1343, %1342 ], [ %1332, %1370 ], [ %1332, %1419 ], [ %1332, %1380 ], [ %1332, %1436 ], [ %1332, %.preheader ], [ %1332, %1385 ], [ %1332, %1441 ]
+  %1449 = phi i64 [ %1343, %1342 ], [ %1332, %1370 ], [ %1332, %1385 ], [ %1332, %1419 ], [ %1332, %1380 ], [ %1332, %1436 ], [ %1332, %.preheader ], [ %1332, %1441 ]
   %1450 = icmp ult i64 %1449, -119
   %1451 = select i1 %1450, i64 %1449, i64 0
   %1452 = getelementptr i8, ptr %1326, i64 %1451
@@ -3837,7 +3837,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   br i1 %1702, label %1695, label %.loopexit136, !llvm.loop !31
 
 .loopexit136:                                     ; preds = %1695, %.preheader142, %1639, %1569, %.preheader137, %1513, %1690, %1673, %1634, %1624, %1595, %1564, %1547, %1508, %1498, %1469
-  %1703 = phi i64 [ %1470, %1469 ], [ %1460, %1498 ], [ %1460, %1547 ], [ %1460, %1508 ], [ %1460, %1564 ], [ %1596, %1595 ], [ %1584, %1624 ], [ %1584, %1673 ], [ %1584, %1634 ], [ %1584, %1690 ], [ %1584, %.preheader142 ], [ %1460, %1513 ], [ %1460, %.preheader137 ], [ %1460, %1569 ], [ %1584, %1639 ], [ %1584, %1695 ]
+  %1703 = phi i64 [ %1470, %1469 ], [ %1460, %1498 ], [ %1460, %1513 ], [ %1460, %1547 ], [ %1460, %1508 ], [ %1460, %1564 ], [ %1596, %1595 ], [ %1584, %1624 ], [ %1584, %.preheader142 ], [ %1584, %1673 ], [ %1584, %1634 ], [ %1584, %1690 ], [ %1584, %1639 ], [ %1460, %.preheader137 ], [ %1460, %1569 ], [ %1584, %1695 ]
   %1704 = icmp ult i64 %1703, -119
   %1705 = select i1 %1704, i64 %1703, i64 0
   %1706 = getelementptr i8, ptr %1259, i64 %1705
@@ -4780,7 +4780,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %555, label %548, label %.loopexit152, !llvm.loop !31
 
 .loopexit152:                                     ; preds = %548, %.preheader153, %492, %543, %526, %487, %477, %448
-  %556 = phi i64 [ %449, %448 ], [ %439, %477 ], [ %439, %526 ], [ %439, %487 ], [ %439, %543 ], [ %439, %.preheader153 ], [ %439, %492 ], [ %439, %548 ]
+  %556 = phi i64 [ %449, %448 ], [ %439, %477 ], [ %439, %492 ], [ %439, %526 ], [ %439, %487 ], [ %439, %543 ], [ %439, %.preheader153 ], [ %439, %548 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %557 = icmp ult i64 %556, -119
   br i1 %557, label %558, label %.critedge.thread, !prof !43
@@ -5360,7 +5360,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %935, label %928, label %.loopexit142, !llvm.loop !31
 
 .loopexit142:                                     ; preds = %928, %.preheader143, %872, %923, %906, %867, %857, %828
-  %936 = phi i64 [ %829, %828 ], [ %817, %857 ], [ %817, %906 ], [ %817, %867 ], [ %817, %923 ], [ %817, %.preheader143 ], [ %817, %872 ], [ %817, %928 ]
+  %936 = phi i64 [ %829, %828 ], [ %817, %857 ], [ %817, %872 ], [ %817, %906 ], [ %817, %867 ], [ %817, %923 ], [ %817, %.preheader143 ], [ %817, %928 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %937 = icmp ult i64 %936, -119
   br i1 %937, label %938, label %.critedge.thread, !prof !43
@@ -5837,7 +5837,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %1252, label %1245, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %1245, %.preheader, %1189, %1240, %1223, %1184, %1174, %1145
-  %1253 = phi i64 [ %1146, %1145 ], [ %1134, %1174 ], [ %1134, %1223 ], [ %1134, %1184 ], [ %1134, %1240 ], [ %1134, %.preheader ], [ %1134, %1189 ], [ %1134, %1245 ]
+  %1253 = phi i64 [ %1146, %1145 ], [ %1134, %1174 ], [ %1134, %1189 ], [ %1134, %1223 ], [ %1134, %1184 ], [ %1134, %1240 ], [ %1134, %.preheader ], [ %1134, %1245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1254 = icmp ult i64 %1253, -119
   br i1 %1254, label %1255, label %.critedge.thread, !prof !43
@@ -5905,8 +5905,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br label %978
 
 .thread129:                                       ; preds = %558, %1255, %938
-  %1291 = phi ptr [ %939, %938 ], [ %1256, %1255 ], [ %559, %558 ]
-  %.ph109119131 = phi ptr [ %812, %938 ], [ %812, %1255 ], [ %22, %558 ]
+  %1291 = phi ptr [ %1256, %1255 ], [ %939, %938 ], [ %559, %558 ]
+  %.ph109119131 = phi ptr [ %812, %1255 ], [ %812, %938 ], [ %22, %558 ]
   %1292 = load i32, ptr %131, align 8
   %1293 = icmp ugt i32 %1292, 64
   br i1 %1293, label %.preheader379, label %1294
@@ -5937,7 +5937,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %1308, label %.critedge, label %1301, !llvm.loop !55
 
 .critedge.thread:                                 ; preds = %.loopexit152, %.loopexit, %1294, %42, %._crit_edge, %49, %108, %.thread105, %.loopexit142, %759, %.thread100, %.thread121
-  %.ph132 = phi i64 [ -20, %.thread105 ], [ -20, %49 ], [ %936, %.loopexit142 ], [ -70, %759 ], [ -20, %108 ], [ -20, %42 ], [ -20, %1294 ], [ -20, %.thread100 ], [ -20, %.thread121 ], [ -20, %._crit_edge ], [ %1253, %.loopexit ], [ %556, %.loopexit152 ]
+  %.ph132 = phi i64 [ -20, %49 ], [ %936, %.loopexit142 ], [ -70, %759 ], [ -20, %.thread105 ], [ -20, %108 ], [ %1253, %.loopexit ], [ -20, %42 ], [ -20, %1294 ], [ -20, %.thread121 ], [ -20, %._crit_edge ], [ -20, %.thread100 ], [ %556, %.loopexit152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread135
 
@@ -6846,7 +6846,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   br i1 %559, label %552, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %552, %.preheader, %496, %547, %530, %491, %481, %452
-  %560 = phi i64 [ %453, %452 ], [ %441, %481 ], [ %441, %530 ], [ %441, %491 ], [ %441, %547 ], [ %441, %.preheader ], [ %441, %496 ], [ %441, %552 ]
+  %560 = phi i64 [ %453, %452 ], [ %441, %481 ], [ %441, %496 ], [ %441, %530 ], [ %441, %491 ], [ %441, %547 ], [ %441, %.preheader ], [ %441, %552 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %561 = icmp ult i64 %560, -119
   br i1 %561, label %562, label %.critedge.thread, !prof !43
@@ -6948,7 +6948,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   br i1 %615, label %.critedge, label %608, !llvm.loop !65
 
 .critedge.thread:                                 ; preds = %.loopexit, %601, %50, %57, %116, %.thread38
-  %.ph41 = phi i64 [ -20, %116 ], [ -20, %50 ], [ -20, %601 ], [ -20, %.thread38 ], [ -20, %57 ], [ %560, %.loopexit ]
+  %.ph41 = phi i64 [ -20, %116 ], [ -20, %57 ], [ -20, %50 ], [ -20, %601 ], [ -20, %.thread38 ], [ %560, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %634
 
@@ -8379,7 +8379,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   br i1 %893, label %886, label %.loopexit148, !llvm.loop !31
 
 .loopexit148:                                     ; preds = %886, %.preheader149, %830, %881, %864, %825, %815, %787
-  %894 = phi i64 [ %788, %787 ], [ %777, %815 ], [ %777, %864 ], [ %777, %825 ], [ %777, %881 ], [ %777, %.preheader149 ], [ %777, %830 ], [ %777, %886 ]
+  %894 = phi i64 [ %788, %787 ], [ %777, %815 ], [ %777, %830 ], [ %777, %864 ], [ %777, %825 ], [ %777, %881 ], [ %777, %.preheader149 ], [ %777, %886 ]
   %895 = icmp ult i64 %894, -119
   br i1 %895, label %896, label %.critedge.thread
 
@@ -8793,7 +8793,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   br i1 %1157, label %1150, label %.loopexit158, !llvm.loop !31
 
 .loopexit158:                                     ; preds = %1150, %.preheader164, %1094, %1021, %.preheader159, %965, %1145, %1128, %1089, %1079, %1050, %1016, %999, %960, %950, %921
-  %1158 = phi i64 [ %922, %921 ], [ %912, %950 ], [ %912, %999 ], [ %912, %960 ], [ %912, %1016 ], [ %1051, %1050 ], [ %1039, %1079 ], [ %1039, %1128 ], [ %1039, %1089 ], [ %1039, %1145 ], [ %1039, %.preheader164 ], [ %912, %965 ], [ %912, %.preheader159 ], [ %912, %1021 ], [ %1039, %1094 ], [ %1039, %1150 ]
+  %1158 = phi i64 [ %922, %921 ], [ %912, %950 ], [ %912, %965 ], [ %912, %999 ], [ %912, %960 ], [ %912, %1016 ], [ %1039, %1094 ], [ %912, %.preheader159 ], [ %912, %1021 ], [ %1051, %1050 ], [ %1039, %1079 ], [ %1039, %.preheader164 ], [ %1039, %1128 ], [ %1039, %1089 ], [ %1039, %1145 ], [ %1039, %1150 ]
   %1159 = icmp ult i64 %1158, -119
   br i1 %1159, label %1160, label %.critedge.thread
 
@@ -9161,7 +9161,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   br i1 %1389, label %1382, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %1382, %.preheader, %1326, %1283, %1311, %1321, %1360, %1377
-  %1390 = phi i64 [ %1284, %1283 ], [ %1273, %1311 ], [ %1273, %1360 ], [ %1273, %1321 ], [ %1273, %1377 ], [ %1273, %.preheader ], [ %1273, %1326 ], [ %1273, %1382 ]
+  %1390 = phi i64 [ %1284, %1283 ], [ %1273, %1311 ], [ %1273, %1326 ], [ %1273, %1360 ], [ %1273, %1321 ], [ %1273, %1377 ], [ %1273, %.preheader ], [ %1273, %1382 ]
   %1391 = icmp ult i64 %1390, -119
   %1392 = select i1 %1391, i64 %1390, i64 0
   %1393 = getelementptr i8, ptr %1267, i64 %1392
@@ -9558,7 +9558,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   br i1 %1643, label %1636, label %.loopexit136, !llvm.loop !31
 
 .loopexit136:                                     ; preds = %1636, %.preheader142, %1580, %1510, %.preheader137, %1454, %1631, %1614, %1575, %1565, %1536, %1505, %1488, %1449, %1439, %1410
-  %1644 = phi i64 [ %1411, %1410 ], [ %1401, %1439 ], [ %1401, %1488 ], [ %1401, %1449 ], [ %1401, %1505 ], [ %1537, %1536 ], [ %1525, %1565 ], [ %1525, %1614 ], [ %1525, %1575 ], [ %1525, %1631 ], [ %1525, %.preheader142 ], [ %1401, %1454 ], [ %1401, %.preheader137 ], [ %1401, %1510 ], [ %1525, %1580 ], [ %1525, %1636 ]
+  %1644 = phi i64 [ %1411, %1410 ], [ %1401, %1439 ], [ %1401, %1454 ], [ %1401, %1488 ], [ %1401, %1449 ], [ %1401, %1505 ], [ %1525, %1580 ], [ %1401, %.preheader137 ], [ %1401, %1510 ], [ %1537, %1536 ], [ %1525, %1565 ], [ %1525, %.preheader142 ], [ %1525, %1614 ], [ %1525, %1575 ], [ %1525, %1631 ], [ %1525, %1636 ]
   %1645 = icmp ult i64 %1644, -119
   %1646 = select i1 %1645, i64 %1644, i64 0
   %1647 = getelementptr i8, ptr %1200, i64 %1646
@@ -11009,7 +11009,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %548, label %541, label %.loopexit156, !llvm.loop !31
 
 .loopexit156:                                     ; preds = %541, %.preheader157, %485, %536, %519, %480, %470, %441
-  %549 = phi i64 [ %442, %441 ], [ %432, %470 ], [ %432, %519 ], [ %432, %480 ], [ %432, %536 ], [ %432, %.preheader157 ], [ %432, %485 ], [ %432, %541 ]
+  %549 = phi i64 [ %442, %441 ], [ %432, %470 ], [ %432, %485 ], [ %432, %519 ], [ %432, %480 ], [ %432, %536 ], [ %432, %.preheader157 ], [ %432, %541 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %550 = icmp ult i64 %549, -119
   br i1 %550, label %551, label %.critedge.thread, !prof !43
@@ -11594,7 +11594,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %930, label %923, label %.loopexit146, !llvm.loop !31
 
 .loopexit146:                                     ; preds = %923, %.preheader147, %867, %918, %901, %862, %852, %823
-  %931 = phi i64 [ %824, %823 ], [ %812, %852 ], [ %812, %901 ], [ %812, %862 ], [ %812, %918 ], [ %812, %.preheader147 ], [ %812, %867 ], [ %812, %923 ]
+  %931 = phi i64 [ %824, %823 ], [ %812, %852 ], [ %812, %867 ], [ %812, %901 ], [ %812, %862 ], [ %812, %918 ], [ %812, %.preheader147 ], [ %812, %923 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %932 = icmp ult i64 %931, -119
   br i1 %932, label %933, label %.critedge.thread, !prof !43
@@ -12076,7 +12076,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %1249, label %1242, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %1242, %.preheader, %1186, %1237, %1220, %1181, %1171, %1142
-  %1250 = phi i64 [ %1143, %1142 ], [ %1131, %1171 ], [ %1131, %1220 ], [ %1131, %1181 ], [ %1131, %1237 ], [ %1131, %.preheader ], [ %1131, %1186 ], [ %1131, %1242 ]
+  %1250 = phi i64 [ %1143, %1142 ], [ %1131, %1171 ], [ %1131, %1186 ], [ %1131, %1220 ], [ %1131, %1181 ], [ %1131, %1237 ], [ %1131, %.preheader ], [ %1131, %1242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1251 = icmp ult i64 %1250, -119
   br i1 %1251, label %1252, label %.critedge.thread, !prof !43
@@ -12144,8 +12144,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br label %973
 
 .thread133:                                       ; preds = %551, %1252, %933
-  %1288 = phi ptr [ %934, %933 ], [ %1253, %1252 ], [ %552, %551 ]
-  %.ph113123135 = phi ptr [ %807, %933 ], [ %807, %1252 ], [ %16, %551 ]
+  %1288 = phi ptr [ %1253, %1252 ], [ %934, %933 ], [ %552, %551 ]
+  %.ph113123135 = phi ptr [ %807, %1252 ], [ %807, %933 ], [ %16, %551 ]
   %1289 = load i32, ptr %125, align 8
   %1290 = icmp ugt i32 %1289, 64
   br i1 %1290, label %.preheader387, label %1291
@@ -12176,7 +12176,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %1305, label %.critedge, label %1298, !llvm.loop !55
 
 .critedge.thread:                                 ; preds = %.loopexit156, %.loopexit, %1291, %36, %._crit_edge, %43, %102, %.thread109, %.loopexit146, %754, %.thread104, %.thread125
-  %.ph136 = phi i64 [ -20, %.thread109 ], [ -20, %43 ], [ %931, %.loopexit146 ], [ -70, %754 ], [ -20, %102 ], [ -20, %36 ], [ -20, %1291 ], [ -20, %.thread104 ], [ -20, %.thread125 ], [ -20, %._crit_edge ], [ %1250, %.loopexit ], [ %549, %.loopexit156 ]
+  %.ph136 = phi i64 [ -20, %43 ], [ %931, %.loopexit146 ], [ -70, %754 ], [ -20, %.thread109 ], [ -20, %102 ], [ %1250, %.loopexit ], [ -20, %36 ], [ -20, %1291 ], [ -20, %.thread125 ], [ -20, %._crit_edge ], [ -20, %.thread104 ], [ %549, %.loopexit156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread139
 
@@ -13076,7 +13076,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br i1 %555, label %548, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %548, %.preheader, %492, %543, %526, %487, %477, %448
-  %556 = phi i64 [ %449, %448 ], [ %437, %477 ], [ %437, %526 ], [ %437, %487 ], [ %437, %543 ], [ %437, %.preheader ], [ %437, %492 ], [ %437, %548 ]
+  %556 = phi i64 [ %449, %448 ], [ %437, %477 ], [ %437, %492 ], [ %437, %526 ], [ %437, %487 ], [ %437, %543 ], [ %437, %.preheader ], [ %437, %548 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %557 = icmp ult i64 %556, -119
   br i1 %557, label %558, label %.critedge.thread, !prof !43
@@ -13178,7 +13178,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br i1 %611, label %.critedge, label %604, !llvm.loop !65
 
 .critedge.thread:                                 ; preds = %.loopexit, %597, %44, %51, %110, %.thread40
-  %.ph43 = phi i64 [ -20, %110 ], [ -20, %44 ], [ -20, %597 ], [ -20, %.thread40 ], [ -20, %51 ], [ %556, %.loopexit ]
+  %.ph43 = phi i64 [ -20, %110 ], [ -20, %51 ], [ -20, %44 ], [ -20, %597 ], [ -20, %.thread40 ], [ %556, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %630
 

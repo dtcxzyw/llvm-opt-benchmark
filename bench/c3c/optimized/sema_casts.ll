@@ -1988,7 +1988,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr noundef readonly captures(none
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %70, %64
-  %.0.i.in.be = phi ptr [ %69, %64 ], [ %71, %70 ]
+  %.0.i.in.be = phi ptr [ %71, %70 ], [ %69, %64 ]
   br label %.preheader
 
 72:                                               ; preds = %.preheader
@@ -3317,8 +3317,8 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %73, %52, %52, %.loopexit.sink.split, %56, %69, %69, %.critedge2, %48, %48
-  %.076.sink = phi i32 [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ 19, %56 ], [ 20, %69 ], [ 20, %69 ], [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
-  %80 = phi ptr [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %61, %56 ], [ %61, %69 ], [ %61, %69 ], [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
+  %.076.sink = phi i32 [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ 20, %69 ], [ 20, %69 ], [ 19, %56 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
+  %80 = phi ptr [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %61, %69 ], [ %61, %69 ], [ %61, %56 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.076.sink, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -3776,7 +3776,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %43
 
 .thread:                                          ; preds = %43, %43, %27, %39, %39
-  %.066.ph = phi i32 [ 20, %39 ], [ 20, %39 ], [ 19, %27 ], [ 21, %43 ], [ 21, %43 ]
+  %.066.ph = phi i32 [ 19, %27 ], [ 20, %39 ], [ 20, %39 ], [ 21, %43 ], [ 21, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.066.ph, ptr %47, align 4
   br label %57
@@ -5049,7 +5049,7 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %4, %3, %33
-  %.024 = phi i1 [ true, %3 ], [ false, %4 ], [ false, %33 ], [ false, %._crit_edge ], [ true, %.lr.ph ]
+  %.024 = phi i1 [ true, %3 ], [ false, %4 ], [ false, %._crit_edge ], [ false, %33 ], [ true, %.lr.ph ]
   ret i1 %.024
 }
 
@@ -7090,7 +7090,7 @@ type_flatten.exit27:                              ; preds = %19, %type_flatten.e
   br label %type_flatten.exit27.backedge
 
 type_flatten.exit27.backedge:                     ; preds = %41, %35
-  %.0.i28.in.be = phi ptr [ %40, %35 ], [ %42, %41 ]
+  %.0.i28.in.be = phi ptr [ %42, %41 ], [ %40, %35 ]
   br label %type_flatten.exit27
 
 43:                                               ; preds = %type_flatten.exit27
@@ -7293,7 +7293,7 @@ define internal void @cast_vec_to_vec(ptr noundef %0, ptr noundef captures(none)
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %17, %11
-  %.0.i.in.be = phi ptr [ %16, %11 ], [ %18, %17 ]
+  %.0.i.in.be = phi ptr [ %18, %17 ], [ %16, %11 ]
   br label %.preheader
 
 19:                                               ; preds = %.preheader
@@ -7938,7 +7938,7 @@ type_flatten.exit25:                              ; preds = %21
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %45, %39
-  %.0.i26.in.be = phi ptr [ %44, %39 ], [ %46, %45 ]
+  %.0.i26.in.be = phi ptr [ %46, %45 ], [ %44, %39 ]
   br label %.preheader
 
 47:                                               ; preds = %.preheader

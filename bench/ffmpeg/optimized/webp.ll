@@ -1100,7 +1100,7 @@ bytestream2_init.exit.i:                          ; preds = %54
   br i1 %223, label %.lr.ph89.split.i.i, label %vp8_lossy_decode_alpha.exit, !llvm.loop !100
 
 vp8_lossy_decode_alpha.exit:                      ; preds = %._crit_edge87.i.i, %._crit_edge94.i.i, %._crit_edge101.i.i, %.lr.ph103.i.i, %.preheader.i.i, %.lr.ph96.i.i, %.preheader71.i.i, %.lr.ph89.i.i, %.preheader73.i.i, %._crit_edge82.i.i, %.loopexit.i, %.thread.i, %update_canvas_size.exit, %30, %22, %21
-  %.033 = phi i32 [ -1163346256, %21 ], [ %28, %22 ], [ -1094995529, %30 ], [ %28, %update_canvas_size.exit ], [ %.045.ph.i, %.thread.i ], [ 0, %.loopexit.i ], [ 0, %._crit_edge82.i.i ], [ 0, %.preheader73.i.i ], [ 0, %.lr.ph89.i.i ], [ 0, %.preheader71.i.i ], [ 0, %.lr.ph96.i.i ], [ 0, %.preheader.i.i ], [ 0, %.lr.ph103.i.i ], [ 0, %._crit_edge94.i.i ], [ 0, %._crit_edge101.i.i ], [ 0, %._crit_edge87.i.i ]
+  %.033 = phi i32 [ -1163346256, %21 ], [ %28, %22 ], [ -1094995529, %30 ], [ %28, %update_canvas_size.exit ], [ %.045.ph.i, %.thread.i ], [ 0, %.loopexit.i ], [ 0, %._crit_edge82.i.i ], [ 0, %.preheader73.i.i ], [ 0, %.lr.ph89.i.i ], [ 0, %.preheader71.i.i ], [ 0, %.lr.ph96.i.i ], [ 0, %.preheader.i.i ], [ 0, %.lr.ph103.i.i ], [ 0, %._crit_edge101.i.i ], [ 0, %._crit_edge94.i.i ], [ 0, %._crit_edge87.i.i ]
   ret i32 %.033
 }
 
@@ -2150,7 +2150,7 @@ apply_predictor_transform.exit:                   ; preds = %._crit_edge100.i, %
   br label %.thread
 
 .thread:                                          ; preds = %204, %159, %132, %512, %346, %125, %248, %._crit_edge165
-  %.4 = phi i32 [ %4, %._crit_edge165 ], [ %249, %248 ], [ -1094995529, %125 ], [ -1094995529, %346 ], [ -12, %512 ], [ %183, %159 ], [ %156, %132 ], [ %206, %204 ]
+  %.4 = phi i32 [ %4, %._crit_edge165 ], [ %249, %248 ], [ -12, %512 ], [ -1094995529, %125 ], [ -1094995529, %346 ], [ %183, %159 ], [ %156, %132 ], [ %206, %204 ]
   %673 = getelementptr inbounds nuw i8, ptr %10, i64 6696
   br label %674
 
@@ -2230,7 +2230,7 @@ image_ctx_free.exit:                              ; preds = %684, %._crit_edge.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %image_ctx_free.exit, %.loopexit.sink.split, %81, %84, %update_canvas_size.exit, %14
-  %.0 = phi i32 [ -558323010, %81 ], [ -558323010, %84 ], [ %55, %update_canvas_size.exit ], [ -1094995529, %14 ], [ -1094995529, %.loopexit.sink.split ], [ %.4, %image_ctx_free.exit ]
+  %.0 = phi i32 [ -1094995529, %.loopexit.sink.split ], [ -558323010, %81 ], [ -558323010, %84 ], [ %55, %update_canvas_size.exit ], [ -1094995529, %14 ], [ %.4, %image_ctx_free.exit ]
   ret i32 %.0
 }
 
@@ -3950,8 +3950,8 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
   br label %.thread342
 
 .thread342:                                       ; preds = %1042, %1054, %865, %1076
-  %.1223 = phi i32 [ %spec.select285, %865 ], [ %spec.select292, %1076 ], [ %spec.select289, %1054 ], [ %spec.select289, %1042 ]
-  %.1214 = phi i32 [ %spec.select286, %865 ], [ %spec.select293, %1076 ], [ %spec.select290, %1054 ], [ %spec.select290, %1042 ]
+  %.1223 = phi i32 [ %spec.select292, %1076 ], [ %spec.select285, %865 ], [ %spec.select289, %1054 ], [ %spec.select289, %1042 ]
+  %.1214 = phi i32 [ %spec.select293, %1076 ], [ %spec.select286, %865 ], [ %spec.select290, %1054 ], [ %spec.select290, %1042 ]
   %1085 = load ptr, ptr %13, align 8, !tbaa !111
   %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 108
   %1087 = load i32, ptr %1086, align 4, !tbaa !93
@@ -3959,7 +3959,7 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
   br i1 %1088, label %533, label %decode_entropy_image.exit.thread, !llvm.loop !156
 
 decode_entropy_image.exit.thread:                 ; preds = %read_huffman_code_normal.exit, %.thread342, %533, %._crit_edge382, %._crit_edge, %1068, %1073, %969, %read_huffman_code_normal.exit.thread, %89, %146, %66, %32, %15, %63
-  %.0 = phi i32 [ -12, %15 ], [ -1094995529, %63 ], [ -12, %66 ], [ %113, %89 ], [ -12, %146 ], [ -1094995529, %1068 ], [ %.0212, %32 ], [ %.168.i.ph, %read_huffman_code_normal.exit.thread ], [ -1094995529, %969 ], [ -1094995529, %1073 ], [ 0, %._crit_edge ], [ -1094995529, %._crit_edge382 ], [ -1094995529, %533 ], [ 0, %.thread342 ], [ %.081.i, %read_huffman_code_normal.exit ]
+  %.0 = phi i32 [ -12, %15 ], [ -1094995529, %63 ], [ -12, %66 ], [ %113, %89 ], [ -1094995529, %._crit_edge382 ], [ -12, %146 ], [ -1094995529, %1068 ], [ %.0212, %32 ], [ %.168.i.ph, %read_huffman_code_normal.exit.thread ], [ -1094995529, %969 ], [ -1094995529, %1073 ], [ 0, %._crit_edge ], [ -1094995529, %533 ], [ 0, %.thread342 ], [ %.081.i, %read_huffman_code_normal.exit ]
   ret i32 %.0
 }
 

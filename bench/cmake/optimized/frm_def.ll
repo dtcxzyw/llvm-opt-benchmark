@@ -567,7 +567,7 @@ Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
   br i1 %exitcond130.not, label %._crit_edge.thread, label %.lr.ph116, !llvm.loop !55
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge112, %70, %._crit_edge, %.preheader, %2
-  %.sink = phi i32 [ -1, %._crit_edge ], [ -2, %.preheader ], [ 0, %2 ], [ 0, %70 ], [ 0, %._crit_edge112 ], [ -4, %.lr.ph ]
+  %.sink = phi i32 [ -1, %._crit_edge ], [ -2, %.preheader ], [ 0, %._crit_edge112 ], [ 0, %2 ], [ 0, %70 ], [ -4, %.lr.ph ]
   %125 = tail call ptr @__errno_location() #11
   store i32 %.sink, ptr %125, align 4, !tbaa !12
   ret i32 %.sink

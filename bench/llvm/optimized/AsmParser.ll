@@ -4060,7 +4060,7 @@ _ZN12_GLOBAL__N_118ParseStatementInfoD2Ev.exit:   ; preds = %_ZN4llvm23SmallVect
   br i1 %.not499, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !488
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %_ZN12_GLOBAL__N_19AsmParser20parseCurlyBlockScopeERN4llvm15SmallVectorImplINS1_10AsmRewriteEEE.exit, %10
-  %.0158.ph.lcssa460 = phi i32 [ 0, %10 ], [ %.0158.ph472, %_ZN12_GLOBAL__N_19AsmParser20parseCurlyBlockScopeERN4llvm15SmallVectorImplINS1_10AsmRewriteEEE.exit ], [ %.1159, %.outer.backedge ]
+  %.0158.ph.lcssa460 = phi i32 [ %.0158.ph472, %_ZN12_GLOBAL__N_19AsmParser20parseCurlyBlockScopeERN4llvm15SmallVectorImplINS1_10AsmRewriteEEE.exit ], [ 0, %10 ], [ %.1159, %.outer.backedge ]
   %530 = load i32, ptr %47, align 8, !tbaa !163
   store i32 %530, ptr %2, align 4, !tbaa !473
   %531 = load i32, ptr %44, align 8, !tbaa !163
@@ -7078,7 +7078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit111: ; preds = %_Z
   br label %.thread155
 
 .thread155:                                       ; preds = %.thread, %65, %165, %112, %.thread151, %._crit_edge, %2
-  %.064 = phi i1 [ true, %2 ], [ false, %._crit_edge ], [ %149, %.thread151 ], [ %168, %165 ], [ %115, %112 ], [ %68, %65 ], [ true, %.thread ]
+  %.064 = phi i1 [ true, %2 ], [ false, %._crit_edge ], [ %149, %.thread151 ], [ %168, %165 ], [ %68, %65 ], [ %115, %112 ], [ true, %.thread ]
   ret i1 %.064
 }
 
@@ -12012,7 +12012,7 @@ _ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.
   br label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit
 
 _ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit: ; preds = %_ZN4llvm8AsmTokenD2Ev.exit230, %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit.fold.split, %288, %290, %292, %294, %296, %298, %300, %302, %304, %306, %308, %314, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %485, %_ZN4llvmeqENS_9StringRefES0_.exit234.thread, %_ZN4llvmeqENS_9StringRefES0_.exit250.thread, %329, %439, %470, %437, %_ZN4llvmeqENS_9StringRefES0_.exit262.thread363, %250, %.thread.i, %281, %500, %537, %541, %543, %545, %547, %551, %555, %559, %563, %567, %571, %583, %586, %591, %596, %608, %620, %622, %624, %626, %628, %630, %632, %634, %636, %638, %642, %646, %650, %654, %658, %662, %666, %670, %674, %678, %682, %684, %686, %688, %690, %692, %701, %703, %705, %707, %709, %711, %713, %715, %717, %719, %721, %723, %725, %727, %729, %733, %735, %737, %739, %741, %743, %745, %747, %749, %757, %765, %767, %769, %771, %773, %775, %777, %779, %781, %783, %785, %787, %789, %791, %793, %795, %797, %799, %801, %803, %805, %807, %809, %811, %813, %815, %817, %819, %821, %823, %825, %827, %829, %831, %833, %835, %837, %839, %841, %843, %846, %848, %851, %860, %862, %864, %866, %868, %870, %872, %874, %876, %878, %880, %884, %_ZN4llvm8AsmTokenC2ERKS0_.exit263, %920, %923, %181, %155, %135, %120
-  %.1 = phi i1 [ false, %120 ], [ %188, %181 ], [ %142, %135 ], [ %162, %155 ], [ false, %314 ], [ %309, %308 ], [ %342, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ true, %329 ], [ %490, %485 ], [ false, %250 ], [ %896, %_ZN4llvmeqENS_9StringRefES0_.exit234.thread ], [ %899, %_ZN4llvmeqENS_9StringRefES0_.exit250.thread ], [ false, %439 ], [ %883, %880 ], [ %501, %500 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit262.thread363 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %305, %304 ], [ %307, %306 ], [ %438, %437 ], [ false, %470 ], [ true, %.thread.i ], [ false, %281 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit230 ], [ %539, %537 ], [ %887, %884 ], [ %542, %541 ], [ %544, %543 ], [ %546, %545 ], [ %550, %547 ], [ %554, %551 ], [ %558, %555 ], [ %562, %559 ], [ %566, %563 ], [ %570, %567 ], [ %582, %571 ], [ %585, %583 ], [ %590, %586 ], [ %595, %591 ], [ %607, %596 ], [ %619, %608 ], [ %621, %620 ], [ %623, %622 ], [ %625, %624 ], [ %627, %626 ], [ %629, %628 ], [ %631, %630 ], [ %633, %632 ], [ %635, %634 ], [ %637, %636 ], [ false, %638 ], [ %645, %642 ], [ %649, %646 ], [ %653, %650 ], [ %657, %654 ], [ %661, %658 ], [ %665, %662 ], [ %669, %666 ], [ %673, %670 ], [ %677, %674 ], [ %681, %678 ], [ %683, %682 ], [ %685, %684 ], [ %687, %686 ], [ %689, %688 ], [ %691, %690 ], [ %700, %692 ], [ %702, %701 ], [ %704, %703 ], [ %706, %705 ], [ %708, %707 ], [ %710, %709 ], [ %712, %711 ], [ %714, %713 ], [ %716, %715 ], [ %718, %717 ], [ %720, %719 ], [ %722, %721 ], [ %724, %723 ], [ %726, %725 ], [ %728, %727 ], [ %732, %729 ], [ %734, %733 ], [ %736, %735 ], [ %738, %737 ], [ %740, %739 ], [ %742, %741 ], [ %744, %743 ], [ %746, %745 ], [ %748, %747 ], [ false, %749 ], [ false, %757 ], [ %766, %765 ], [ %768, %767 ], [ %770, %769 ], [ %772, %771 ], [ %774, %773 ], [ %776, %775 ], [ %778, %777 ], [ %780, %779 ], [ %782, %781 ], [ %784, %783 ], [ %786, %785 ], [ %788, %787 ], [ %790, %789 ], [ %792, %791 ], [ %794, %793 ], [ %796, %795 ], [ %798, %797 ], [ %800, %799 ], [ %802, %801 ], [ %804, %803 ], [ %806, %805 ], [ %808, %807 ], [ %810, %809 ], [ %812, %811 ], [ %814, %813 ], [ %816, %815 ], [ %818, %817 ], [ %820, %819 ], [ %822, %821 ], [ %824, %823 ], [ %826, %825 ], [ %828, %827 ], [ %830, %829 ], [ %832, %831 ], [ %834, %833 ], [ %836, %835 ], [ %838, %837 ], [ %840, %839 ], [ %842, %841 ], [ %845, %843 ], [ %847, %846 ], [ %850, %848 ], [ %859, %851 ], [ %861, %860 ], [ %863, %862 ], [ %865, %864 ], [ %867, %866 ], [ %869, %868 ], [ %871, %870 ], [ %873, %872 ], [ %875, %874 ], [ %877, %876 ], [ %879, %878 ], [ %917, %_ZN4llvm8AsmTokenC2ERKS0_.exit263 ], [ %917, %920 ], [ %917, %923 ], [ false, %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit.fold.split ]
+  %.1 = phi i1 [ false, %120 ], [ %188, %181 ], [ %142, %135 ], [ %162, %155 ], [ false, %314 ], [ %309, %308 ], [ %342, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ true, %329 ], [ %490, %485 ], [ false, %250 ], [ %896, %_ZN4llvmeqENS_9StringRefES0_.exit234.thread ], [ %899, %_ZN4llvmeqENS_9StringRefES0_.exit250.thread ], [ false, %439 ], [ %883, %880 ], [ %501, %500 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit262.thread363 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %305, %304 ], [ %307, %306 ], [ %438, %437 ], [ false, %470 ], [ true, %.thread.i ], [ false, %281 ], [ %917, %923 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit230 ], [ %539, %537 ], [ %887, %884 ], [ %542, %541 ], [ %544, %543 ], [ %546, %545 ], [ %550, %547 ], [ %554, %551 ], [ %558, %555 ], [ %562, %559 ], [ %566, %563 ], [ %570, %567 ], [ %582, %571 ], [ %585, %583 ], [ %590, %586 ], [ %595, %591 ], [ %607, %596 ], [ %619, %608 ], [ %621, %620 ], [ %623, %622 ], [ %625, %624 ], [ %627, %626 ], [ %629, %628 ], [ %631, %630 ], [ %633, %632 ], [ %635, %634 ], [ %637, %636 ], [ false, %638 ], [ %645, %642 ], [ %649, %646 ], [ %653, %650 ], [ %657, %654 ], [ %661, %658 ], [ %665, %662 ], [ %669, %666 ], [ %673, %670 ], [ %677, %674 ], [ %681, %678 ], [ %683, %682 ], [ %685, %684 ], [ %687, %686 ], [ %689, %688 ], [ %691, %690 ], [ %700, %692 ], [ %702, %701 ], [ %704, %703 ], [ %706, %705 ], [ %708, %707 ], [ %710, %709 ], [ %712, %711 ], [ %714, %713 ], [ %716, %715 ], [ %718, %717 ], [ %720, %719 ], [ %722, %721 ], [ %724, %723 ], [ %726, %725 ], [ %728, %727 ], [ %732, %729 ], [ %734, %733 ], [ %736, %735 ], [ %738, %737 ], [ %740, %739 ], [ %742, %741 ], [ %744, %743 ], [ %746, %745 ], [ %748, %747 ], [ false, %749 ], [ false, %757 ], [ %766, %765 ], [ %768, %767 ], [ %770, %769 ], [ %772, %771 ], [ %774, %773 ], [ %776, %775 ], [ %778, %777 ], [ %780, %779 ], [ %782, %781 ], [ %784, %783 ], [ %786, %785 ], [ %788, %787 ], [ %790, %789 ], [ %792, %791 ], [ %794, %793 ], [ %796, %795 ], [ %798, %797 ], [ %800, %799 ], [ %802, %801 ], [ %804, %803 ], [ %806, %805 ], [ %808, %807 ], [ %810, %809 ], [ %812, %811 ], [ %814, %813 ], [ %816, %815 ], [ %818, %817 ], [ %820, %819 ], [ %822, %821 ], [ %824, %823 ], [ %826, %825 ], [ %828, %827 ], [ %830, %829 ], [ %832, %831 ], [ %834, %833 ], [ %836, %835 ], [ %838, %837 ], [ %840, %839 ], [ %842, %841 ], [ %845, %843 ], [ %847, %846 ], [ %850, %848 ], [ %859, %851 ], [ %861, %860 ], [ %863, %862 ], [ %865, %864 ], [ %867, %866 ], [ %869, %868 ], [ %871, %870 ], [ %873, %872 ], [ %875, %874 ], [ %877, %876 ], [ %879, %878 ], [ %917, %_ZN4llvm8AsmTokenC2ERKS0_.exit263 ], [ %917, %920 ], [ false, %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %924 = load i32, ptr %108, align 8, !tbaa !552
@@ -17724,7 +17724,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit57.thread114:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %.thread
 
 .thread:                                          ; preds = %106, %114, %123, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread114, %.critedge4, %.critedge6, %.critedge8
-  %.4.ph = phi i1 [ true, %.critedge8 ], [ true, %.critedge6 ], [ true, %.critedge4 ], [ %130, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread114 ], [ true, %123 ], [ true, %114 ], [ true, %106 ]
+  %.4.ph = phi i1 [ %130, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread114 ], [ true, %.critedge8 ], [ true, %.critedge6 ], [ true, %.critedge4 ], [ true, %123 ], [ true, %114 ], [ true, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %322
 
@@ -23838,7 +23838,7 @@ _ZN4llvm8AsmTokenD2Ev.exit326:                    ; preds = %_ZN4llvm8AsmTokenD2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm19MCAsmMacroParameterD2Ev.exit, %_ZN4llvm8AsmTokenD2Ev.exit326, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.2 = phi i1 [ %159, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.11, %_ZN4llvm8AsmTokenD2Ev.exit326 ], [ %.3, %_ZN4llvm19MCAsmMacroParameterD2Ev.exit ]
+  %.2 = phi i1 [ %.11, %_ZN4llvm8AsmTokenD2Ev.exit326 ], [ %159, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.3, %_ZN4llvm19MCAsmMacroParameterD2Ev.exit ]
   %542 = load ptr, ptr %6, align 8, !tbaa !696
   %543 = load ptr, ptr %63, align 8, !tbaa !699
   %.not4.i.i.i.i = icmp eq ptr %542, %543
@@ -30533,7 +30533,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbvEE11callback_fnIZ
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %12, %.critedge.thread.i, %.critedge.i, %1
-  %.0.i = phi i1 [ true, %1 ], [ false, %.critedge.thread.i ], [ false, %.critedge.i ], [ true, %12 ]
+  %.0.i = phi i1 [ false, %.critedge.i ], [ true, %1 ], [ false, %.critedge.thread.i ], [ true, %12 ]
   %42 = load ptr, ptr %2, align 8, !tbaa !370
   %43 = icmp eq ptr %42, %5
   br i1 %43, label %"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAsciiEN4llvm9StringRefEbENK3$_0clEv.exit", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -36570,7 +36570,7 @@ _ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llv
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !1442
 
 _ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i52, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendIPKtvEEvT_S6_.exit
-  %.041 = phi ptr [ %34, %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendIPKtvEEvT_S6_.exit ], [ %40, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ], [ %40, %._crit_edge ], [ %40, %.lr.ph.i.i.i.i ], [ %40, %.lr.ph.i.i.i.i.i52 ]
+  %.041 = phi ptr [ %34, %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendIPKtvEEvT_S6_.exit ], [ %40, %.lr.ph.i.i.i.i ], [ %40, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ], [ %40, %._crit_edge ], [ %40, %.lr.ph.i.i.i.i.i52 ]
   ret ptr %.041
 }
 

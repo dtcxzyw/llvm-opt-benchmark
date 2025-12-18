@@ -4183,7 +4183,7 @@ _ZNSt10_HashtableIPN7rocksdb16ColumnFamilyDataESt4pairIKS2_mESaIS5_ENSt8__detail
   br label %.body200
 
 .loopexit292:                                     ; preds = %338, %.noexc, %333
-  %.pn.i.i = phi ptr [ %334, %333 ], [ %349, %.noexc ], [ %340, %338 ]
+  %.pn.i.i = phi ptr [ %349, %.noexc ], [ %334, %333 ], [ %340, %338 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %351 = load i64, ptr %.1.i.i, align 8, !tbaa !638
   br label %.thread266
@@ -4194,7 +4194,7 @@ _ZNSt10_HashtableIPN7rocksdb16ColumnFamilyDataESt4pairIKS2_mESaIS5_ENSt8__detail
   br label %.body200
 
 .thread266:                                       ; preds = %.lr.ph.i.i.i.i.i, %.preheader373, %309, %..loopexit_crit_edge21.i.i.i.i.i, %.loopexit292
-  %.098 = phi i64 [ %351, %.loopexit292 ], [ -1, %..loopexit_crit_edge21.i.i.i.i.i ], [ -1, %309 ], [ -1, %.preheader373 ], [ -1, %.lr.ph.i.i.i.i.i ]
+  %.098 = phi i64 [ %351, %.loopexit292 ], [ -1, %..loopexit_crit_edge21.i.i.i.i.i ], [ -1, %.preheader373 ], [ -1, %309 ], [ -1, %.lr.ph.i.i.i.i.i ]
   %354 = getelementptr inbounds nuw i8, ptr %248, i64 2448
   %355 = load ptr, ptr %354, align 8, !tbaa !820
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 3264
@@ -4481,7 +4481,7 @@ _ZNKSt10_HashtableIPN7rocksdb16ColumnFamilyDataESt4pairIKS2_mESaIS5_ENSt8__detai
   br label %.body200
 
 _ZNSt13unordered_mapIPN7rocksdb16ColumnFamilyDataEmSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEE4findERS8_.exit: ; preds = %429, %413, %424
-  %.sroa.06.1.i.i = phi ptr [ %425, %424 ], [ %.sroa.06.0.i.i, %413 ], [ %431, %429 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %413 ], [ %425, %424 ], [ %431, %429 ]
   %472 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %473 = load i64, ptr %472, align 8, !tbaa !819
   %474 = icmp ugt i64 %125, %473
@@ -4635,8 +4635,8 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14de
   br label %.thread281
 
 .thread281:                                       ; preds = %153, %187, %208, %.thread277, %510, %508
-  %532 = phi i1 [ %.pr279.pr, %.thread277 ], [ false, %508 ], [ true, %510 ], [ false, %208 ], [ false, %187 ], [ false, %153 ]
-  %.6 = phi i1 [ %spec.select283, %.thread277 ], [ true, %508 ], [ %.4365, %510 ], [ true, %208 ], [ true, %187 ], [ true, %153 ]
+  %532 = phi i1 [ true, %510 ], [ %.pr279.pr, %.thread277 ], [ false, %508 ], [ false, %208 ], [ false, %187 ], [ false, %153 ]
+  %.6 = phi i1 [ %.4365, %510 ], [ %spec.select283, %.thread277 ], [ true, %508 ], [ true, %208 ], [ true, %187 ], [ true, %153 ]
   call void @_ZN7rocksdb10WriteBatchD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7840,7 +7840,7 @@ _ZNK7rocksdb12MergeContext11GetOperandsEv.exit:   ; preds = %_ZSt7reverseIN9__gn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %575, %.loopexit.sink.split, %_ZNK7rocksdb12MergeContext11GetOperandsEv.exit, %536
-  %.082 = phi i64 [ 0, %_ZNK7rocksdb12MergeContext11GetOperandsEv.exit ], [ 0, %536 ], [ %588, %.loopexit.sink.split ], [ %581, %575 ]
+  %.082 = phi i64 [ 0, %_ZNK7rocksdb12MergeContext11GetOperandsEv.exit ], [ %588, %.loopexit.sink.split ], [ 0, %536 ], [ %581, %575 ]
   %589 = load ptr, ptr %129, align 64, !tbaa !970
   %.not.i245 = icmp eq ptr %589, null
   br i1 %.not.i245, label %_ZN7rocksdb21RecordTimeToHistogramEPNS_10StatisticsEjm.exit, label %590
@@ -31259,8 +31259,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

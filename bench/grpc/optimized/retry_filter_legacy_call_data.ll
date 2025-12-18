@@ -8357,9 +8357,9 @@ common.resume:                                    ; preds = %106, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
-46:                                               ; preds = %39, %38
-  %47 = phi ptr [ %.pre17, %39 ], [ %24, %38 ]
-  %48 = phi ptr [ %.pre, %39 ], [ %12, %38 ]
+46:                                               ; preds = %38, %39
+  %47 = phi ptr [ %24, %38 ], [ %.pre17, %39 ]
+  %48 = phi ptr [ %12, %38 ], [ %.pre, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1664
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -9305,9 +9305,9 @@ common.resume:                                    ; preds = %101, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
-46:                                               ; preds = %39, %38
-  %47 = phi ptr [ %.pre17, %39 ], [ %24, %38 ]
-  %48 = phi ptr [ %.pre, %39 ], [ %12, %38 ]
+46:                                               ; preds = %38, %39
+  %47 = phi ptr [ %24, %38 ], [ %.pre17, %39 ]
+  %48 = phi ptr [ %12, %38 ], [ %.pre, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2336
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 64
@@ -10089,9 +10089,9 @@ _ZN4absl12lts_202407226Status3RefEm.exit.i:       ; preds = %52, %50
   tail call void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %58)
   br label %_ZN4absl12lts_202407226StatusaSERKS1_.exit
 
-59:                                               ; preds = %39, %38
-  %60 = phi ptr [ %.pre21, %39 ], [ %24, %38 ]
-  %61 = phi ptr [ %.pre, %39 ], [ %12, %38 ]
+59:                                               ; preds = %38, %39
+  %60 = phi ptr [ %24, %38 ], [ %.pre21, %39 ]
+  %61 = phi ptr [ %12, %38 ], [ %.pre, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 3184
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 104
@@ -12302,9 +12302,9 @@ common.resume:                                    ; preds = %99, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %98
 
-47:                                               ; preds = %40, %39
-  %.pre16 = phi ptr [ %.pre16.pre, %40 ], [ %20, %39 ]
-  %48 = phi i8 [ %.pre, %40 ], [ %17, %39 ]
+47:                                               ; preds = %39, %40
+  %.pre16 = phi ptr [ %20, %39 ], [ %.pre16.pre, %40 ]
+  %48 = phi i8 [ %17, %39 ], [ %.pre, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = and i8 %48, 4
   %.not = icmp eq i8 %49, 0

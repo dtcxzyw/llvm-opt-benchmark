@@ -280,7 +280,7 @@ define internal i32 @query_engine_info(ptr noundef %0, ptr noundef readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %65, %.thread15, %39, %35, %.loopexit, %.thread5, %44, %2
-  %94 = phi i32 [ -22, %2 ], [ %28, %44 ], [ -22, %.thread5 ], [ %93, %.loopexit ], [ -14, %39 ], [ -22, %35 ], [ 16, %.thread15 ], [ -14, %65 ]
+  %94 = phi i32 [ -22, %2 ], [ %28, %44 ], [ -22, %.thread5 ], [ %93, %.loopexit ], [ -22, %35 ], [ -14, %39 ], [ 16, %.thread15 ], [ -14, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %94
@@ -672,7 +672,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %52, %86, %36, %34, %100, %.thread7, %39, %2
-  %107 = phi i32 [ -22, %2 ], [ %27, %39 ], [ -22, %.thread7 ], [ %106, %100 ], [ -14, %36 ], [ -22, %34 ], [ -14, %86 ], [ -22, %52 ]
+  %107 = phi i32 [ -22, %2 ], [ %27, %39 ], [ -22, %.thread7 ], [ %106, %100 ], [ -22, %34 ], [ -14, %86 ], [ -14, %36 ], [ -22, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %107

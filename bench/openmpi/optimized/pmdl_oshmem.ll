@@ -1438,7 +1438,7 @@ pmix_obj_run_destructors.exit136:                 ; preds = %.lr.ph.i133, %309
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %25, %.lr.ph.i88, %.lr.ph.i84, %.lr.ph.i108, %.lr.ph.i103, %.lr.ph.i128, %.lr.ph.i123, %19, %300, %.loopexit, %183, %.loopexit141, %92, %81, %._crit_edge163, %350, %115, %27
-  %.0 = phi i32 [ -1366, %27 ], [ 0, %115 ], [ 0, %350 ], [ 0, %._crit_edge163 ], [ %78, %81 ], [ -27, %92 ], [ %171, %.loopexit141 ], [ -27, %183 ], [ %288, %.loopexit ], [ -27, %300 ], [ -1366, %19 ], [ -27, %.lr.ph.i88 ], [ %288, %.lr.ph.i123 ], [ -27, %.lr.ph.i128 ], [ %171, %.lr.ph.i103 ], [ -27, %.lr.ph.i108 ], [ %78, %.lr.ph.i84 ], [ -1366, %25 ]
+  %.0 = phi i32 [ -1366, %19 ], [ -1366, %27 ], [ -27, %.lr.ph.i88 ], [ %171, %.lr.ph.i103 ], [ -27, %.lr.ph.i108 ], [ %288, %.lr.ph.i123 ], [ 0, %115 ], [ -27, %.lr.ph.i128 ], [ 0, %350 ], [ 0, %._crit_edge163 ], [ %78, %81 ], [ -27, %92 ], [ %171, %.loopexit141 ], [ -27, %183 ], [ %288, %.loopexit ], [ -27, %300 ], [ %78, %.lr.ph.i84 ], [ -1366, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

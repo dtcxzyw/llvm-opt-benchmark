@@ -897,8 +897,8 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   br label %.split, !llvm.loop !74
 
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread100: ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit, %17, %.split.us, %3, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103
-  %.sink = phi ptr [ %27, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103 ], [ null, %3 ], [ %13, %.split.us ], [ %23, %17 ], [ %25, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit ]
-  %.0 = phi i1 [ false, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103 ], [ false, %3 ], [ true, %.split.us ], [ true, %17 ], [ true, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit ]
+  %.sink = phi ptr [ %27, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103 ], [ null, %3 ], [ %23, %17 ], [ %13, %.split.us ], [ %25, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit ]
+  %.0 = phi i1 [ false, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103 ], [ false, %3 ], [ true, %17 ], [ true, %.split.us ], [ true, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit ]
   store ptr %.sink, ptr %2, align 8, !tbaa !32
   ret i1 %.0
 }

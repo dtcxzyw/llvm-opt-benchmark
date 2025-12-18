@@ -4144,7 +4144,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_
   br label %230
 
 ._crit_edge:                                      ; preds = %227, %170, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit.thread150, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit.thread, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit
-  %storemerge141 = phi double [ %86, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit.thread ], [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit.thread150 ], [ %89, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit ], [ %storemerge140158, %170 ], [ %storemerge140146, %227 ]
+  %storemerge141 = phi double [ %86, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit.thread ], [ %storemerge140158, %170 ], [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit.thread150 ], [ %89, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdET0_T_S9_S8_.exit ], [ %storemerge140146, %227 ]
   %.not.i.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %174
 
@@ -17304,7 +17304,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !588
 
 _ZSt11swap_rangesIPmS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -21076,7 +21076,7 @@ define linkonce_odr ptr @_ZN14__gnu_parallel24multiway_merge_3_variantINS_16_Gua
   br label %.preheader48
 
 .loopexit:                                        ; preds = %.preheader50, %.preheader48, %.preheader46, %.preheader44, %.preheader42, %.preheader
-  %.sroa.0.6 = phi ptr [ %69, %.preheader48 ], [ %59, %.preheader ], [ %49, %.preheader42 ], [ %89, %.preheader44 ], [ %79, %.preheader46 ], [ %39, %.preheader50 ]
+  %.sroa.0.6 = phi ptr [ %59, %.preheader ], [ %69, %.preheader48 ], [ %79, %.preheader46 ], [ %49, %.preheader42 ], [ %89, %.preheader44 ], [ %39, %.preheader50 ]
   %97 = load ptr, ptr %7, align 8, !tbaa !703
   store ptr %97, ptr %0, align 8, !tbaa !531
   %98 = load ptr, ptr %8, align 8, !tbaa !703
@@ -22266,7 +22266,7 @@ define linkonce_odr ptr @_ZN14__gnu_parallel24multiway_merge_4_variantINS_16_Gua
   br label %.preheader122
 
 .loopexit:                                        ; preds = %.preheader152, %.preheader150, %.preheader148, %.preheader146, %.preheader144, %.preheader142, %.preheader140, %.preheader138, %.preheader136, %.preheader134, %.preheader132, %.preheader130, %.preheader128, %.preheader126, %.preheader124, %.preheader122, %.preheader120, %.preheader118, %.preheader116, %.preheader114, %.preheader112, %.preheader110, %.preheader108, %.preheader
-  %.sroa.0.24 = phi ptr [ %.sroa.0.1, %.preheader150 ], [ %.sroa.0.5, %.preheader ], [ %.sroa.0.18, %.preheader108 ], [ %.sroa.0.3, %.preheader110 ], [ %.sroa.0.14, %.preheader112 ], [ %.sroa.0.2, %.preheader114 ], [ %.sroa.0.7, %.preheader116 ], [ %.sroa.0.11, %.preheader118 ], [ %.sroa.0.15, %.preheader120 ], [ %.sroa.0.23, %.preheader122 ], [ %.sroa.0.19, %.preheader124 ], [ %.sroa.0.16, %.preheader126 ], [ %.sroa.0.17, %.preheader128 ], [ %.sroa.0.22, %.preheader130 ], [ %.sroa.0.20, %.preheader132 ], [ %.sroa.0.21, %.preheader134 ], [ %.sroa.0.10, %.preheader136 ], [ %.sroa.0.6, %.preheader138 ], [ %.sroa.0.4, %.preheader140 ], [ %.sroa.0.9, %.preheader142 ], [ %.sroa.0.8, %.preheader144 ], [ %.sroa.0.13, %.preheader146 ], [ %.sroa.0.12, %.preheader148 ], [ %.sroa.0.0, %.preheader152 ]
+  %.sroa.0.24 = phi ptr [ %.sroa.0.20, %.preheader132 ], [ %.sroa.0.22, %.preheader130 ], [ %.sroa.0.17, %.preheader128 ], [ %.sroa.0.16, %.preheader126 ], [ %.sroa.0.19, %.preheader124 ], [ %.sroa.0.23, %.preheader122 ], [ %.sroa.0.15, %.preheader120 ], [ %.sroa.0.6, %.preheader138 ], [ %.sroa.0.11, %.preheader118 ], [ %.sroa.0.7, %.preheader116 ], [ %.sroa.0.2, %.preheader114 ], [ %.sroa.0.14, %.preheader112 ], [ %.sroa.0.3, %.preheader110 ], [ %.sroa.0.21, %.preheader134 ], [ %.sroa.0.18, %.preheader108 ], [ %.sroa.0.5, %.preheader ], [ %.sroa.0.1, %.preheader150 ], [ %.sroa.0.12, %.preheader148 ], [ %.sroa.0.13, %.preheader146 ], [ %.sroa.0.10, %.preheader136 ], [ %.sroa.0.8, %.preheader144 ], [ %.sroa.0.9, %.preheader142 ], [ %.sroa.0.4, %.preheader140 ], [ %.sroa.0.0, %.preheader152 ]
   %365 = load ptr, ptr %7, align 8, !tbaa !703
   store ptr %365, ptr %0, align 8, !tbaa !531
   %366 = load ptr, ptr %8, align 8, !tbaa !703
@@ -24128,7 +24128,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !806
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -30855,7 +30855,7 @@ define linkonce_odr ptr @_ZN14__gnu_parallel24multiway_merge_3_variantINS_16_Gua
   br label %.preheader48
 
 .loopexit:                                        ; preds = %.preheader50, %.preheader48, %.preheader46, %.preheader44, %.preheader42, %.preheader
-  %.sroa.0.6 = phi ptr [ %69, %.preheader48 ], [ %59, %.preheader ], [ %49, %.preheader42 ], [ %89, %.preheader44 ], [ %79, %.preheader46 ], [ %39, %.preheader50 ]
+  %.sroa.0.6 = phi ptr [ %59, %.preheader ], [ %69, %.preheader48 ], [ %79, %.preheader46 ], [ %49, %.preheader42 ], [ %89, %.preheader44 ], [ %39, %.preheader50 ]
   %97 = load ptr, ptr %7, align 8, !tbaa !1007
   store ptr %97, ptr %0, align 8, !tbaa !531
   %98 = load ptr, ptr %8, align 8, !tbaa !1007
@@ -32045,7 +32045,7 @@ define linkonce_odr ptr @_ZN14__gnu_parallel24multiway_merge_4_variantINS_16_Gua
   br label %.preheader122
 
 .loopexit:                                        ; preds = %.preheader152, %.preheader150, %.preheader148, %.preheader146, %.preheader144, %.preheader142, %.preheader140, %.preheader138, %.preheader136, %.preheader134, %.preheader132, %.preheader130, %.preheader128, %.preheader126, %.preheader124, %.preheader122, %.preheader120, %.preheader118, %.preheader116, %.preheader114, %.preheader112, %.preheader110, %.preheader108, %.preheader
-  %.sroa.0.24 = phi ptr [ %.sroa.0.1, %.preheader150 ], [ %.sroa.0.5, %.preheader ], [ %.sroa.0.18, %.preheader108 ], [ %.sroa.0.3, %.preheader110 ], [ %.sroa.0.14, %.preheader112 ], [ %.sroa.0.2, %.preheader114 ], [ %.sroa.0.7, %.preheader116 ], [ %.sroa.0.11, %.preheader118 ], [ %.sroa.0.15, %.preheader120 ], [ %.sroa.0.23, %.preheader122 ], [ %.sroa.0.19, %.preheader124 ], [ %.sroa.0.16, %.preheader126 ], [ %.sroa.0.17, %.preheader128 ], [ %.sroa.0.22, %.preheader130 ], [ %.sroa.0.20, %.preheader132 ], [ %.sroa.0.21, %.preheader134 ], [ %.sroa.0.10, %.preheader136 ], [ %.sroa.0.6, %.preheader138 ], [ %.sroa.0.4, %.preheader140 ], [ %.sroa.0.9, %.preheader142 ], [ %.sroa.0.8, %.preheader144 ], [ %.sroa.0.13, %.preheader146 ], [ %.sroa.0.12, %.preheader148 ], [ %.sroa.0.0, %.preheader152 ]
+  %.sroa.0.24 = phi ptr [ %.sroa.0.20, %.preheader132 ], [ %.sroa.0.22, %.preheader130 ], [ %.sroa.0.17, %.preheader128 ], [ %.sroa.0.16, %.preheader126 ], [ %.sroa.0.19, %.preheader124 ], [ %.sroa.0.23, %.preheader122 ], [ %.sroa.0.15, %.preheader120 ], [ %.sroa.0.6, %.preheader138 ], [ %.sroa.0.11, %.preheader118 ], [ %.sroa.0.7, %.preheader116 ], [ %.sroa.0.2, %.preheader114 ], [ %.sroa.0.14, %.preheader112 ], [ %.sroa.0.3, %.preheader110 ], [ %.sroa.0.21, %.preheader134 ], [ %.sroa.0.18, %.preheader108 ], [ %.sroa.0.5, %.preheader ], [ %.sroa.0.1, %.preheader150 ], [ %.sroa.0.12, %.preheader148 ], [ %.sroa.0.13, %.preheader146 ], [ %.sroa.0.10, %.preheader136 ], [ %.sroa.0.8, %.preheader144 ], [ %.sroa.0.9, %.preheader142 ], [ %.sroa.0.4, %.preheader140 ], [ %.sroa.0.0, %.preheader152 ]
   %365 = load ptr, ptr %7, align 8, !tbaa !1007
   store ptr %365, ptr %0, align 8, !tbaa !531
   %366 = load ptr, ptr %8, align 8, !tbaa !1007

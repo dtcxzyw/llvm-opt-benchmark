@@ -422,7 +422,7 @@ if.end:                                           ; preds = %land.rhs.i.i, %if.t
   br label %return
 
 return:                                           ; preds = %while.body.i, %while.body.i.us, %entry, %if.end
-  %retval.0 = phi ptr [ %13, %if.end ], [ null, %entry ], [ null, %while.body.i.us ], [ null, %while.body.i ]
+  %retval.0 = phi ptr [ %13, %if.end ], [ null, %while.body.i.us ], [ null, %entry ], [ null, %while.body.i ]
   ret ptr %retval.0
 }
 

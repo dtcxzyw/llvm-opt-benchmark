@@ -9511,7 +9511,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
   br i1 %62, label %.loopexit, label %.lr.ph336
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit170", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit147", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit124", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit101", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit78", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit193", %.preheader295, %.preheader293, %.preheader291, %.preheader289, %.preheader287, %.preheader
-  %.sroa.27.6 = phi i64 [ %61, %.preheader ], [ %61, %.preheader287 ], [ %61, %.preheader289 ], [ %61, %.preheader291 ], [ %61, %.preheader293 ], [ %61, %.preheader295 ], [ %104, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit147" ], [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit193" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit78" ], [ %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit101" ], [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit124" ], [ %116, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit170" ]
+  %.sroa.27.6 = phi i64 [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit193" ], [ %104, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit147" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit78" ], [ %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit101" ], [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit124" ], [ %61, %.preheader ], [ %61, %.preheader287 ], [ %61, %.preheader289 ], [ %61, %.preheader291 ], [ %61, %.preheader293 ], [ %61, %.preheader295 ], [ %116, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit170" ]
   %63 = sub i64 %.0.i.i, %.sroa.27.6
   store i64 %63, ptr %43, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -11638,8 +11638,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %302
 
 148:                                              ; preds = %.thread181, %.thread142
-  %.sroa.077.0 = phi i8 [ %.sroa.077.2120148, %.thread142 ], [ %.sroa.077.3159187, %.thread181 ]
-  %.sroa.1782.0 = phi ptr [ %.sroa.1782.2122147, %.thread142 ], [ %.sroa.1782.3161186, %.thread181 ]
+  %.sroa.077.0 = phi i8 [ %.sroa.077.3159187, %.thread181 ], [ %.sroa.077.2120148, %.thread142 ]
+  %.sroa.1782.0 = phi ptr [ %.sroa.1782.3161186, %.thread181 ], [ %.sroa.1782.2122147, %.thread142 ]
   %149 = icmp eq i8 %.sroa.077.0, 4
   br i1 %149, label %.thread, label %298
 

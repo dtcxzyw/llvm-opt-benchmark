@@ -2692,7 +2692,7 @@ define internal fastcc noundef zeroext i1 @parse_port_pasv(ptr noundef %0, i32 n
   br i1 %.not35, label %.critedge, label %.lr.ph50, !llvm.loop !20
 
 .critedge:                                        ; preds = %.preheader, %27, %89, %8, %34
-  %.not38 = phi i1 [ true, %34 ], [ false, %8 ], [ false, %89 ], [ false, %27 ], [ false, %.preheader ]
+  %.not38 = phi i1 [ true, %34 ], [ false, %89 ], [ false, %8 ], [ false, %27 ], [ false, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.not38

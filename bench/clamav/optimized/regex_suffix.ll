@@ -684,7 +684,7 @@ make_node.exit128.thread:                         ; preds = %make_leaf.exit, %ma
   br label %make_node.exit106.backedge
 
 .critedge:                                        ; preds = %make_node.exit106, %make_node.exit106, %make_node.exit106, %make_node.exit113, %make_node.exit92, %.loopexit, %171, %parse_char_class.exit.thread, %72, %56, %45, %42, %39, %20
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %20 ], [ null, %make_node.exit113 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %56 ], [ null, %make_node.exit92 ], [ null, %72 ], [ null, %171 ], [ null, %parse_char_class.exit.thread ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %20 ], [ null, %make_node.exit113 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %56 ], [ null, %make_node.exit92 ], [ null, %parse_char_class.exit.thread ], [ null, %72 ], [ null, %171 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
   ret ptr %.0
 }
 
@@ -784,7 +784,7 @@ textbuffer_putc.exit:                             ; preds = %28, %32
   br label %.critedge36
 
 .critedge36:                                      ; preds = %7, %.lr.ph, %5, %20, %40, %textbuffer_putc.exit, %16, %10
-  %.0 = phi i32 [ 0, %20 ], [ 20, %10 ], [ %., %textbuffer_putc.exit ], [ 20, %16 ], [ %.37, %40 ], [ 0, %5 ], [ 0, %.lr.ph ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %20 ], [ %.37, %40 ], [ 20, %10 ], [ %., %textbuffer_putc.exit ], [ 20, %16 ], [ 0, %5 ], [ 0, %.lr.ph ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1216,7 +1216,7 @@ textbuffer_putc.exit118:                          ; preds = %114, %118
   br i1 %.not, label %.thread120, label %9
 
 .thread120:                                       ; preds = %128, %textbuffer_putc.exit109, %102, %6, %textbuffer_putc.exit118, %textbuffer_putc.exit100, %107, %textbuffer_putc.exit
-  %.5 = phi i32 [ %., %textbuffer_putc.exit ], [ %.82, %textbuffer_putc.exit118 ], [ %.80, %textbuffer_putc.exit100 ], [ %.81, %107 ], [ 0, %6 ], [ 20, %textbuffer_putc.exit109 ], [ 0, %102 ], [ 0, %128 ]
+  %.5 = phi i32 [ 20, %textbuffer_putc.exit109 ], [ %., %textbuffer_putc.exit ], [ %.82, %textbuffer_putc.exit118 ], [ %.80, %textbuffer_putc.exit100 ], [ %.81, %107 ], [ 0, %6 ], [ 0, %102 ], [ 0, %128 ]
   ret i32 %.5
 }
 

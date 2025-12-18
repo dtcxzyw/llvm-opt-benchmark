@@ -16681,7 +16681,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %_ZNSt11unique_lockI
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %20, %4, %_ZNSt11unique_lockISt5mutexED2Ev.exit16
-  %23 = phi ptr [ %19, %_ZNSt11unique_lockISt5mutexED2Ev.exit16 ], [ %8, %4 ], [ %19, %20 ]
+  %23 = phi ptr [ %8, %4 ], [ %19, %_ZNSt11unique_lockISt5mutexED2Ev.exit16 ], [ %19, %20 ]
   %.not.i.i.i17 = icmp eq ptr %23, null
   br i1 %.not.i.i.i17, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %24
 

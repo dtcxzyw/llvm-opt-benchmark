@@ -329,8 +329,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %79, %81, %86, %90
-  %.sroa.3.0.i = phi i64 [ %92, %90 ], [ %89, %86 ], [ %85, %81 ], [ %80, %79 ]
-  %.sroa.0.0.i = phi ptr [ %91, %90 ], [ %87, %86 ], [ %83, %81 ], [ %78, %79 ]
+  %.sroa.3.0.i = phi i64 [ %92, %90 ], [ %89, %86 ], [ %80, %79 ], [ %85, %81 ]
+  %.sroa.0.0.i = phi ptr [ %91, %90 ], [ %87, %86 ], [ %78, %79 ], [ %83, %81 ]
   %93 = icmp eq i64 %.sroa.3.0.i, 0
   br i1 %93, label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.thread, label %94
 

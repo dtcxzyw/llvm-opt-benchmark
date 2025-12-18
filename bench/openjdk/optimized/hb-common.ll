@@ -544,7 +544,7 @@ _ZN18hb_language_item_taSEPKc.exit:               ; preds = %29
   br label %2
 
 .loopexit25:                                      ; preds = %.loopexit, %._crit_edge, %_ZNK18hb_language_item_teqEPKc.exit, %_ZN18hb_language_item_taSEPKc.exit
-  %.0 = phi ptr [ null, %_ZN18hb_language_item_taSEPKc.exit ], [ %.02034, %_ZNK18hb_language_item_teqEPKc.exit ], [ %28, %.loopexit ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %_ZN18hb_language_item_taSEPKc.exit ], [ %.02034, %_ZNK18hb_language_item_teqEPKc.exit ], [ null, %._crit_edge ], [ %28, %.loopexit ]
   ret ptr %.0
 }
 
@@ -2835,7 +2835,7 @@ _ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %23
   br label %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit.thread
 
 _ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %30, %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit
-  %.013.shrunk = phi i1 [ %31, %30 ], [ %40, %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit ]
+  %.013.shrunk = phi i1 [ %40, %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit ], [ %31, %30 ]
   tail call void @hb_blob_destroy(ptr noundef nonnull %3)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -2845,7 +2845,7 @@ _ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %30, %_ZNK
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %44
 
-.critedge:                                        ; preds = %22, %23
+.critedge:                                        ; preds = %23, %22
   tail call void @hb_blob_destroy(ptr noundef nonnull %3)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -4809,7 +4809,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit318: ; preds = %682, 
   br label %_ZN11hb_vector_tI15contour_point_tLb0EE6resizeEibb.exit.thread
 
 _ZN11hb_vector_tI15contour_point_tLb0EE6resizeEibb.exit.thread: ; preds = %130, %.invoke616, %371, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i226, %.loopexit489, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i, %98, %.loopexit
-  %.1 = phi i1 [ %698, %.loopexit ], [ false, %.loopexit489 ], [ false, %371 ], [ false, %.invoke616 ], [ false, %98 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i226 ], [ false, %130 ]
+  %.1 = phi i1 [ %698, %.loopexit ], [ false, %.loopexit489 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i226 ], [ false, %.invoke616 ], [ false, %371 ], [ false, %98 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %130 ]
   %699 = load i32, ptr %17, align 8
   %.not.i.i.i319 = icmp eq i32 %699, 0
   br i1 %.not.i.i.i319, label %_ZN22contour_point_vector_tD2Ev.exit320, label %700
@@ -5002,8 +5002,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK2OT9glyf_impl5Glyph12trim_paddingEv
   br label %_ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit
 
 _ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit: ; preds = %49, %67, %66, %5, %74, %73, %4
-  %.sroa.03.0.copyload4.pn = phi ptr [ %.sroa.03.0.copyload4, %74 ], [ %.sroa.01.0.copyload, %4 ], [ %.sroa.03.0.copyload, %73 ], [ %.sroa.0.0.copyload, %67 ], [ null, %5 ], [ null, %66 ], [ null, %49 ]
-  %.sroa.5.0.copyload6.pn = phi i64 [ %.sroa.5.0.copyload6, %74 ], [ %.sroa.22.0.copyload, %4 ], [ %.sroa.5.0.copyload, %73 ], [ %.sroa.3.8.insert.ext.i.i.i, %67 ], [ 0, %5 ], [ 0, %66 ], [ 0, %49 ]
+  %.sroa.03.0.copyload4.pn = phi ptr [ %.sroa.03.0.copyload4, %74 ], [ %.sroa.01.0.copyload, %4 ], [ %.sroa.03.0.copyload, %73 ], [ %.sroa.0.0.copyload, %67 ], [ null, %66 ], [ null, %5 ], [ null, %49 ]
+  %.sroa.5.0.copyload6.pn = phi i64 [ %.sroa.5.0.copyload6, %74 ], [ %.sroa.22.0.copyload, %4 ], [ %.sroa.5.0.copyload, %73 ], [ %.sroa.3.8.insert.ext.i.i.i, %67 ], [ 0, %66 ], [ 0, %5 ], [ 0, %49 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.03.0.copyload4.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.5.0.copyload6.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -5315,7 +5315,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit: ; preds = %101, %10
   br label %.critedge
 
 .critedge:                                        ; preds = %133, %.lr.ph28.i, %28, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i, %3, %18, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit, %.loopexit, %146, %117, %._crit_edge
-  %.0 = phi i1 [ false, %3 ], [ %147, %146 ], [ false, %._crit_edge ], [ false, %117 ], [ false, %28 ], [ false, %.loopexit ], [ true, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit ], [ false, %18 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit ], [ false, %.lr.ph28.i ], [ false, %133 ]
+  %.0 = phi i1 [ false, %3 ], [ %147, %146 ], [ false, %._crit_edge ], [ false, %117 ], [ false, %28 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit ], [ false, %.loopexit ], [ true, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %18 ], [ false, %.lr.ph28.i ], [ false, %133 ]
   ret i1 %.0
 }
 
@@ -6076,7 +6076,7 @@ _ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i: ; preds = %242, %.thread.i.i27
   br i1 %exitcond81.not.i, label %.loopexit.i, label %.lr.ph52.i, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %.lr.ph49.i, %.lr.ph52.i, %.lr.ph.preheader.i, %.preheader.i, %.preheader43.i, %.preheader45.i
-  %.2.i = phi i32 [ %.03754.i, %.preheader.i ], [ %.03754.i, %.preheader43.i ], [ %.03754.i, %.preheader45.i ], [ %252, %.lr.ph.preheader.i ], [ %252, %.lr.ph52.i ], [ %252, %.lr.ph49.i ]
+  %.2.i = phi i32 [ %252, %.lr.ph52.i ], [ %252, %.lr.ph.preheader.i ], [ %.03754.i, %.preheader.i ], [ %.03754.i, %.preheader43.i ], [ %.03754.i, %.preheader45.i ], [ %252, %.lr.ph49.i ]
   %.not65.i = icmp ult i32 %.2.i, %230
   br i1 %.not65.i, label %.lr.ph55.i, label %_ZN2OT18TupleVariationData13unpack_deltasERPKNS_7IntTypeIhLj1EEER11hb_vector_tIiLb0EES4_.exit, !llvm.loop !56
 
@@ -6222,7 +6222,7 @@ _ZN2OT18TupleVariationData13unpack_deltasERPKNS_7IntTypeIhLj1EEER11hb_vector_tIi
   br i1 %exitcond81.not.i322, label %.loopexit.i298, label %.lr.ph52.i319, !llvm.loop !55
 
 .loopexit.i298:                                   ; preds = %.lr.ph49.i312, %.lr.ph52.i319, %.lr.ph.preheader.i302, %.preheader.i316, %.preheader43.i309, %.preheader45.i297
-  %.2.i299 = phi i32 [ %.03754.i294, %.preheader.i316 ], [ %.03754.i294, %.preheader43.i309 ], [ %.03754.i294, %.preheader45.i297 ], [ %312, %.lr.ph.preheader.i302 ], [ %312, %.lr.ph52.i319 ], [ %312, %.lr.ph49.i312 ]
+  %.2.i299 = phi i32 [ %312, %.lr.ph52.i319 ], [ %312, %.lr.ph.preheader.i302 ], [ %.03754.i294, %.preheader.i316 ], [ %.03754.i294, %.preheader43.i309 ], [ %.03754.i294, %.preheader45.i297 ], [ %312, %.lr.ph49.i312 ]
   %.not65.i300 = icmp ult i32 %.2.i299, %230
   br i1 %.not65.i300, label %.lr.ph55.i293, label %_ZN2OT18TupleVariationData13unpack_deltasERPKNS_7IntTypeIhLj1EEER11hb_vector_tIiLb0EES4_.exit323, !llvm.loop !56
 
@@ -6650,7 +6650,7 @@ _ZN11hb_vector_tIjLb0EE4pushIJRjEEEPjDpOT_.exit:  ; preds = %_ZN11hb_vector_tIjL
   br i1 %.not230, label %513, label %.preheader706.backedge
 
 .preheader706.backedge:                           ; preds = %.preheader706, %513
-  %.be = phi i8 [ 0, %513 ], [ %512, %.preheader706 ]
+  %.be = phi i8 [ %512, %.preheader706 ], [ 0, %513 ]
   br label %.preheader706, !llvm.loop !70
 
 513:                                              ; preds = %.preheader706
@@ -6783,23 +6783,23 @@ _ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3
   br i1 %.not227, label %.loopexit712, label %.lr.ph858
 
 .loopexit712:                                     ; preds = %.loopexit705, %.lr.ph837, %.lr.ph839, %.thread, %.thread642, %477, %.loopexit714, %165
-  %.sroa.0522.1 = phi i32 [ %.sroa.0522.0, %165 ], [ %.sroa.0522.4, %.loopexit714 ], [ %.sroa.0522.4, %477 ], [ %.sroa.0522.0, %.thread642 ], [ %.sroa.0522.0, %.thread ], [ %.sroa.0522.0, %.lr.ph837 ], [ %.sroa.0522.0, %.lr.ph839 ], [ %.sroa.0522.4, %.loopexit705 ]
-  %.sroa.10527.1 = phi i32 [ %.sroa.10527.0, %165 ], [ %.sroa.10527.4, %.loopexit714 ], [ %.sroa.10527.4, %477 ], [ %.sroa.10527.0, %.thread642 ], [ %.sroa.10527.0, %.thread ], [ %.sroa.10527.0, %.lr.ph837 ], [ %.sroa.10527.0, %.lr.ph839 ], [ %.sroa.10527.4, %.loopexit705 ]
-  %.sroa.16530.1 = phi ptr [ %.sroa.16530.0, %165 ], [ %.sroa.16530.4, %.loopexit714 ], [ %.sroa.16530.4, %477 ], [ %.sroa.16530.0, %.thread642 ], [ %.sroa.16530.0, %.thread ], [ %.sroa.16530.0, %.lr.ph837 ], [ %.sroa.16530.0, %.lr.ph839 ], [ %.sroa.16530.4, %.loopexit705 ]
-  %.sroa.4.1 = phi i32 [ %.sroa.4.0, %165 ], [ %.sroa.4.3, %.loopexit714 ], [ %.sroa.4.3, %477 ], [ %.sroa.4.0, %.thread642 ], [ %.sroa.4.0, %.thread ], [ %.sroa.4.0, %.lr.ph837 ], [ %.sroa.4.0, %.lr.ph839 ], [ %.sroa.4.3, %.loopexit705 ]
-  %.sroa.0510.1 = phi ptr [ %.sroa.0510.0, %165 ], [ %.sroa.0510.3, %.loopexit714 ], [ %.sroa.0510.3, %477 ], [ %.sroa.0510.0, %.thread642 ], [ %.sroa.0510.0, %.thread ], [ %.sroa.0510.0, %.lr.ph837 ], [ %.sroa.0510.0, %.lr.ph839 ], [ %.sroa.0510.3, %.loopexit705 ]
-  %.sroa.0488.2 = phi i32 [ %.sroa.0488.0, %165 ], [ %.sroa.0488.4, %.loopexit714 ], [ %.sroa.0488.4, %477 ], [ %.sroa.0488.4, %.thread642 ], [ %.sroa.0488.4, %.thread ], [ %.sroa.0488.4, %.lr.ph837 ], [ %.sroa.0488.4, %.lr.ph839 ], [ %.sroa.0488.4, %.loopexit705 ]
-  %.sroa.15.2 = phi ptr [ %.sroa.15.0, %165 ], [ %.sroa.15.4, %.loopexit714 ], [ %.sroa.15.4, %477 ], [ %.sroa.15.4, %.thread642 ], [ %.sroa.15.4, %.thread ], [ %.sroa.15.4, %.lr.ph837 ], [ %.sroa.15.4, %.lr.ph839 ], [ %.sroa.15.4, %.loopexit705 ]
-  %.sroa.16.1 = phi i32 [ %.sroa.16.0, %165 ], [ %.sroa.16.2, %.loopexit714 ], [ %.sroa.16.2, %477 ], [ %.sroa.16.2, %.thread642 ], [ %.sroa.16.2, %.thread ], [ %.sroa.16.2, %.lr.ph837 ], [ %.sroa.16.2, %.lr.ph839 ], [ %.sroa.16.2, %.loopexit705 ]
-  %.sroa.0464.1 = phi ptr [ %.sroa.0464.0, %165 ], [ %.sroa.0464.2, %.loopexit714 ], [ %.sroa.0464.2, %477 ], [ %.sroa.0464.2, %.thread642 ], [ %.sroa.0464.2, %.thread ], [ %.sroa.0464.2, %.lr.ph837 ], [ %.sroa.0464.2, %.lr.ph839 ], [ %.sroa.0464.2, %.loopexit705 ]
-  %.sroa.0438.1 = phi i32 [ %.sroa.0438.0, %165 ], [ %.sroa.0438.0, %.loopexit714 ], [ %.sroa.0438.4.lcssa, %477 ], [ %.sroa.0438.0, %.thread642 ], [ %.sroa.0438.0, %.thread ], [ %.sroa.0438.0, %.lr.ph837 ], [ %.sroa.0438.0, %.lr.ph839 ], [ %.sroa.0438.31098, %.loopexit705 ]
-  %.sroa.10.1 = phi i32 [ %.sroa.10.0, %165 ], [ %.sroa.10.0, %.loopexit714 ], [ 0, %477 ], [ %.sroa.10.0, %.thread642 ], [ %.sroa.10.0, %.thread ], [ %.sroa.10.0, %.lr.ph837 ], [ %.sroa.10.0, %.lr.ph839 ], [ %.sroa.10.31099, %.loopexit705 ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %165 ], [ %.sroa.17.0, %.loopexit714 ], [ %.sroa.17.4.lcssa, %477 ], [ %.sroa.17.0, %.thread642 ], [ %.sroa.17.0, %.thread ], [ %.sroa.17.0, %.lr.ph837 ], [ %.sroa.17.0, %.lr.ph839 ], [ %.sroa.17.31100, %.loopexit705 ]
-  %.sroa.0408.1 = phi i32 [ %.sroa.0408.0, %165 ], [ %.sroa.0408.4.ph1083, %.loopexit714 ], [ %.sroa.0408.4.ph1083, %477 ], [ %.sroa.0408.4.ph1083, %.thread642 ], [ %.sroa.0408.4.ph1083, %.thread ], [ %.sroa.0408.4.ph1083, %.lr.ph837 ], [ %.sroa.0408.4.ph1083, %.lr.ph839 ], [ %.sroa.0408.4.ph1083, %.loopexit705 ]
-  %.sroa.14414.1 = phi ptr [ %.sroa.14414.0, %165 ], [ %.sroa.14414.4.ph1085, %.loopexit714 ], [ %.sroa.14414.4.ph1085, %477 ], [ %.sroa.14414.4.ph1085, %.thread642 ], [ %.sroa.14414.4.ph1085, %.thread ], [ %.sroa.14414.4.ph1085, %.lr.ph837 ], [ %.sroa.14414.4.ph1085, %.lr.ph839 ], [ %.sroa.14414.4.ph1085, %.loopexit705 ]
-  %.sroa.0384.1 = phi i32 [ %.sroa.0384.0, %165 ], [ %.sroa.0384.4.ph, %.loopexit714 ], [ %.sroa.0384.4.ph, %477 ], [ %.sroa.0384.4.ph, %.thread642 ], [ %.sroa.0384.4.ph, %.thread ], [ %.sroa.0384.4.ph, %.lr.ph837 ], [ %.sroa.0384.4.ph, %.lr.ph839 ], [ %.sroa.0384.4.ph, %.loopexit705 ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0, %165 ], [ %.sroa.14.4.ph, %.loopexit714 ], [ %.sroa.14.4.ph, %477 ], [ %.sroa.14.4.ph, %.thread642 ], [ %.sroa.14.4.ph, %.thread ], [ %.sroa.14.4.ph, %.lr.ph837 ], [ %.sroa.14.4.ph, %.lr.ph839 ], [ %.sroa.14.4.ph, %.loopexit705 ]
-  %.1197 = phi i8 [ %.0196, %165 ], [ 1, %.loopexit714 ], [ 1, %477 ], [ 1, %.thread642 ], [ 1, %.thread ], [ 1, %.lr.ph837 ], [ 1, %.lr.ph839 ], [ 1, %.loopexit705 ]
+  %.sroa.0522.1 = phi i32 [ %.sroa.0522.0, %165 ], [ %.sroa.0522.4, %.loopexit714 ], [ %.sroa.0522.4, %477 ], [ %.sroa.0522.0, %.lr.ph839 ], [ %.sroa.0522.0, %.lr.ph837 ], [ %.sroa.0522.0, %.thread ], [ %.sroa.0522.0, %.thread642 ], [ %.sroa.0522.4, %.loopexit705 ]
+  %.sroa.10527.1 = phi i32 [ %.sroa.10527.0, %165 ], [ %.sroa.10527.4, %.loopexit714 ], [ %.sroa.10527.4, %477 ], [ %.sroa.10527.0, %.lr.ph839 ], [ %.sroa.10527.0, %.lr.ph837 ], [ %.sroa.10527.0, %.thread ], [ %.sroa.10527.0, %.thread642 ], [ %.sroa.10527.4, %.loopexit705 ]
+  %.sroa.16530.1 = phi ptr [ %.sroa.16530.0, %165 ], [ %.sroa.16530.4, %.loopexit714 ], [ %.sroa.16530.4, %477 ], [ %.sroa.16530.0, %.lr.ph839 ], [ %.sroa.16530.0, %.lr.ph837 ], [ %.sroa.16530.0, %.thread ], [ %.sroa.16530.0, %.thread642 ], [ %.sroa.16530.4, %.loopexit705 ]
+  %.sroa.4.1 = phi i32 [ %.sroa.4.0, %165 ], [ %.sroa.4.3, %.loopexit714 ], [ %.sroa.4.3, %477 ], [ %.sroa.4.0, %.lr.ph839 ], [ %.sroa.4.0, %.lr.ph837 ], [ %.sroa.4.0, %.thread ], [ %.sroa.4.0, %.thread642 ], [ %.sroa.4.3, %.loopexit705 ]
+  %.sroa.0510.1 = phi ptr [ %.sroa.0510.0, %165 ], [ %.sroa.0510.3, %.loopexit714 ], [ %.sroa.0510.3, %477 ], [ %.sroa.0510.0, %.lr.ph839 ], [ %.sroa.0510.0, %.lr.ph837 ], [ %.sroa.0510.0, %.thread ], [ %.sroa.0510.0, %.thread642 ], [ %.sroa.0510.3, %.loopexit705 ]
+  %.sroa.0488.2 = phi i32 [ %.sroa.0488.0, %165 ], [ %.sroa.0488.4, %.loopexit714 ], [ %.sroa.0488.4, %477 ], [ %.sroa.0488.4, %.lr.ph839 ], [ %.sroa.0488.4, %.lr.ph837 ], [ %.sroa.0488.4, %.thread ], [ %.sroa.0488.4, %.thread642 ], [ %.sroa.0488.4, %.loopexit705 ]
+  %.sroa.15.2 = phi ptr [ %.sroa.15.0, %165 ], [ %.sroa.15.4, %.loopexit714 ], [ %.sroa.15.4, %477 ], [ %.sroa.15.4, %.lr.ph839 ], [ %.sroa.15.4, %.lr.ph837 ], [ %.sroa.15.4, %.thread ], [ %.sroa.15.4, %.thread642 ], [ %.sroa.15.4, %.loopexit705 ]
+  %.sroa.16.1 = phi i32 [ %.sroa.16.0, %165 ], [ %.sroa.16.2, %.loopexit714 ], [ %.sroa.16.2, %477 ], [ %.sroa.16.2, %.lr.ph839 ], [ %.sroa.16.2, %.lr.ph837 ], [ %.sroa.16.2, %.thread ], [ %.sroa.16.2, %.thread642 ], [ %.sroa.16.2, %.loopexit705 ]
+  %.sroa.0464.1 = phi ptr [ %.sroa.0464.0, %165 ], [ %.sroa.0464.2, %.loopexit714 ], [ %.sroa.0464.2, %477 ], [ %.sroa.0464.2, %.lr.ph839 ], [ %.sroa.0464.2, %.lr.ph837 ], [ %.sroa.0464.2, %.thread ], [ %.sroa.0464.2, %.thread642 ], [ %.sroa.0464.2, %.loopexit705 ]
+  %.sroa.0438.1 = phi i32 [ %.sroa.0438.0, %165 ], [ %.sroa.0438.0, %.loopexit714 ], [ %.sroa.0438.4.lcssa, %477 ], [ %.sroa.0438.0, %.lr.ph839 ], [ %.sroa.0438.0, %.lr.ph837 ], [ %.sroa.0438.0, %.thread ], [ %.sroa.0438.0, %.thread642 ], [ %.sroa.0438.31098, %.loopexit705 ]
+  %.sroa.10.1 = phi i32 [ %.sroa.10.0, %165 ], [ %.sroa.10.0, %.loopexit714 ], [ 0, %477 ], [ %.sroa.10.0, %.lr.ph839 ], [ %.sroa.10.0, %.lr.ph837 ], [ %.sroa.10.0, %.thread ], [ %.sroa.10.0, %.thread642 ], [ %.sroa.10.31099, %.loopexit705 ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %165 ], [ %.sroa.17.0, %.loopexit714 ], [ %.sroa.17.4.lcssa, %477 ], [ %.sroa.17.0, %.lr.ph839 ], [ %.sroa.17.0, %.lr.ph837 ], [ %.sroa.17.0, %.thread ], [ %.sroa.17.0, %.thread642 ], [ %.sroa.17.31100, %.loopexit705 ]
+  %.sroa.0408.1 = phi i32 [ %.sroa.0408.0, %165 ], [ %.sroa.0408.4.ph1083, %.loopexit714 ], [ %.sroa.0408.4.ph1083, %477 ], [ %.sroa.0408.4.ph1083, %.lr.ph839 ], [ %.sroa.0408.4.ph1083, %.lr.ph837 ], [ %.sroa.0408.4.ph1083, %.thread ], [ %.sroa.0408.4.ph1083, %.thread642 ], [ %.sroa.0408.4.ph1083, %.loopexit705 ]
+  %.sroa.14414.1 = phi ptr [ %.sroa.14414.0, %165 ], [ %.sroa.14414.4.ph1085, %.loopexit714 ], [ %.sroa.14414.4.ph1085, %477 ], [ %.sroa.14414.4.ph1085, %.lr.ph839 ], [ %.sroa.14414.4.ph1085, %.lr.ph837 ], [ %.sroa.14414.4.ph1085, %.thread ], [ %.sroa.14414.4.ph1085, %.thread642 ], [ %.sroa.14414.4.ph1085, %.loopexit705 ]
+  %.sroa.0384.1 = phi i32 [ %.sroa.0384.0, %165 ], [ %.sroa.0384.4.ph, %.loopexit714 ], [ %.sroa.0384.4.ph, %477 ], [ %.sroa.0384.4.ph, %.lr.ph839 ], [ %.sroa.0384.4.ph, %.lr.ph837 ], [ %.sroa.0384.4.ph, %.thread ], [ %.sroa.0384.4.ph, %.thread642 ], [ %.sroa.0384.4.ph, %.loopexit705 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0, %165 ], [ %.sroa.14.4.ph, %.loopexit714 ], [ %.sroa.14.4.ph, %477 ], [ %.sroa.14.4.ph, %.lr.ph839 ], [ %.sroa.14.4.ph, %.lr.ph837 ], [ %.sroa.14.4.ph, %.thread ], [ %.sroa.14.4.ph, %.thread642 ], [ %.sroa.14.4.ph, %.loopexit705 ]
+  %.1197 = phi i8 [ %.0196, %165 ], [ 1, %.loopexit714 ], [ 1, %477 ], [ 1, %.lr.ph839 ], [ 1, %.lr.ph837 ], [ 1, %.thread ], [ 1, %.thread642 ], [ 1, %.loopexit705 ]
   %587 = load i8, ptr %.sroa.27.0, align 1
   %588 = zext i8 %587 to i32
   %589 = shl nuw nsw i32 %588, 8
@@ -6893,17 +6893,17 @@ _ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread: ; pred
   br i1 %exitcond1023.not, label %_ZN11hb_vector_tI15contour_point_tLb0EE6resizeEibb.exit, label %.lr.ph861, !llvm.loop !74
 
 _ZN11hb_vector_tI15contour_point_tLb0EE6resizeEibb.exit: ; preds = %353, %174, %193, %225, %199, %._crit_edge, %224, %.lr.ph55.i, %248, %261, %280, %.lr.ph55.i293, %308, %321, %340, %.lr.ph861, %635, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread
-  %.sroa.0522.2 = phi i32 [ %.sroa.0522.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0522.1, %635 ], [ %.sroa.0522.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.01538.sink.i.ph.i.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0522.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0522.0, %.lr.ph55.i293 ], [ %.sroa.0522.0, %.lr.ph55.i ], [ %.sroa.0522.1, %.lr.ph861 ], [ %.sroa.0522.0, %340 ], [ %.sroa.0522.0, %321 ], [ %.sroa.0522.0, %308 ], [ %.sroa.0522.0, %280 ], [ %.sroa.0522.0, %261 ], [ %.sroa.0522.0, %248 ], [ %.sroa.0522.0, %193 ], [ %.sroa.0522.0, %353 ], [ %.sroa.0522.0, %224 ], [ %.sroa.0522.0, %199 ], [ %.sroa.0522.0, %174 ], [ %.sroa.0522.0, %225 ], [ %.sroa.0522.4, %._crit_edge ]
-  %.sroa.16530.2 = phi ptr [ %.sroa.16530.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.16530.1, %635 ], [ %.sroa.16530.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.16530.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.16530.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.16530.0, %.lr.ph55.i293 ], [ %.sroa.16530.0, %.lr.ph55.i ], [ %.sroa.16530.1, %.lr.ph861 ], [ %.sroa.16530.0, %340 ], [ %.sroa.16530.0, %321 ], [ %.sroa.16530.0, %308 ], [ %.sroa.16530.0, %280 ], [ %.sroa.16530.0, %261 ], [ %.sroa.16530.0, %248 ], [ %.sroa.16530.0, %193 ], [ %.sroa.16530.0, %353 ], [ %.sroa.16530.0, %224 ], [ %.sroa.16530.0, %199 ], [ %.sroa.16530.0, %174 ], [ %.sroa.16530.0, %225 ], [ %.sroa.16530.4, %._crit_edge ]
-  %.sroa.0488.3 = phi i32 [ %.sroa.0488.2, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0488.2, %635 ], [ %.01538.sink.i.ph.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0488.4, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0488.4, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0488.4, %.lr.ph55.i293 ], [ %.sroa.0488.4, %.lr.ph55.i ], [ %.sroa.0488.2, %.lr.ph861 ], [ %.sroa.0488.4, %340 ], [ %.sroa.0488.4, %321 ], [ %.sroa.0488.4, %308 ], [ %.sroa.0488.4, %280 ], [ %.sroa.0488.4, %261 ], [ %.sroa.0488.4, %248 ], [ %.sroa.0488.0, %193 ], [ %.sroa.0488.4, %353 ], [ %.sroa.0488.4, %224 ], [ %.sroa.0488.0, %199 ], [ %.sroa.0488.0, %174 ], [ %.sroa.0488.4, %225 ], [ %.sroa.0488.4, %._crit_edge ]
-  %.sroa.15.3 = phi ptr [ %.sroa.15.2, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.15.2, %635 ], [ %.sroa.15.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.15.4, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.15.4, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.15.4, %.lr.ph55.i293 ], [ %.sroa.15.4, %.lr.ph55.i ], [ %.sroa.15.2, %.lr.ph861 ], [ %.sroa.15.4, %340 ], [ %.sroa.15.4, %321 ], [ %.sroa.15.4, %308 ], [ %.sroa.15.4, %280 ], [ %.sroa.15.4, %261 ], [ %.sroa.15.4, %248 ], [ %.sroa.15.0, %193 ], [ %.sroa.15.4, %353 ], [ %.sroa.15.4, %224 ], [ %.sroa.15.0, %199 ], [ %.sroa.15.0, %174 ], [ %.sroa.15.4, %225 ], [ %.sroa.15.4, %._crit_edge ]
-  %.sroa.0438.2 = phi i32 [ %.sroa.0438.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0438.1, %635 ], [ %.sroa.0438.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0438.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0438.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0438.0, %.lr.ph55.i293 ], [ %.sroa.0438.0, %.lr.ph55.i ], [ %.sroa.0438.1, %.lr.ph861 ], [ %.sroa.0438.0, %340 ], [ %.sroa.0438.0, %321 ], [ %.sroa.0438.0, %308 ], [ %.sroa.0438.0, %280 ], [ %.sroa.0438.0, %261 ], [ %.sroa.0438.0, %248 ], [ %.sroa.0438.0, %193 ], [ %.sroa.0438.0, %353 ], [ %.sroa.0438.0, %224 ], [ %.sroa.0438.0, %199 ], [ %.sroa.0438.0, %174 ], [ %.sroa.0438.0, %225 ], [ %.sroa.0438.4.lcssa, %._crit_edge ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.17.1, %635 ], [ %.sroa.17.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.17.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.17.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.17.0, %.lr.ph55.i293 ], [ %.sroa.17.0, %.lr.ph55.i ], [ %.sroa.17.1, %.lr.ph861 ], [ %.sroa.17.0, %340 ], [ %.sroa.17.0, %321 ], [ %.sroa.17.0, %308 ], [ %.sroa.17.0, %280 ], [ %.sroa.17.0, %261 ], [ %.sroa.17.0, %248 ], [ %.sroa.17.0, %193 ], [ %.sroa.17.0, %353 ], [ %.sroa.17.0, %224 ], [ %.sroa.17.0, %199 ], [ %.sroa.17.0, %174 ], [ %.sroa.17.0, %225 ], [ %.sroa.17.4.lcssa, %._crit_edge ]
-  %.sroa.0408.2 = phi i32 [ %.sroa.0408.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0408.1, %635 ], [ %.sroa.0408.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0408.4.ph1083, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.01538.sink.i.ph.i277, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0408.4.ph1083, %.lr.ph55.i293 ], [ %.sroa.0408.4.ph1082, %.lr.ph55.i ], [ %.sroa.0408.1, %.lr.ph861 ], [ %.sroa.0408.4.ph1083, %340 ], [ %.sroa.0408.4.ph1083, %321 ], [ %.sroa.0408.4.ph1083, %308 ], [ %.sroa.0408.4.ph1082, %280 ], [ %.sroa.0408.4.ph1082, %261 ], [ %.sroa.0408.4.ph1082, %248 ], [ %.sroa.0408.0, %193 ], [ %.sroa.0408.4.ph1083, %353 ], [ %.sroa.0408.0, %224 ], [ %.sroa.0408.0, %199 ], [ %.sroa.0408.0, %174 ], [ %.sroa.0408.0, %225 ], [ %.sroa.0408.4.ph1083, %._crit_edge ]
-  %.sroa.14414.2 = phi ptr [ %.sroa.14414.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.14414.1, %635 ], [ %.sroa.14414.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14414.4.ph1085, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.14414.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14414.4.ph1085, %.lr.ph55.i293 ], [ %.sroa.14414.4.ph1084, %.lr.ph55.i ], [ %.sroa.14414.1, %.lr.ph861 ], [ %.sroa.14414.4.ph1085, %340 ], [ %.sroa.14414.4.ph1085, %321 ], [ %.sroa.14414.4.ph1085, %308 ], [ %.sroa.14414.4.ph1084, %280 ], [ %.sroa.14414.4.ph1084, %261 ], [ %.sroa.14414.4.ph1084, %248 ], [ %.sroa.14414.0, %193 ], [ %.sroa.14414.4.ph1085, %353 ], [ %.sroa.14414.0, %224 ], [ %.sroa.14414.0, %199 ], [ %.sroa.14414.0, %174 ], [ %.sroa.14414.0, %225 ], [ %.sroa.14414.4.ph1085, %._crit_edge ]
-  %.sroa.0384.2 = phi i32 [ %.sroa.0384.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0384.1, %635 ], [ %.sroa.0384.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0384.4.ph, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0384.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0384.4.ph, %.lr.ph55.i293 ], [ %.sroa.0384.0, %.lr.ph55.i ], [ %.sroa.0384.1, %.lr.ph861 ], [ %.sroa.0384.4.ph, %340 ], [ %.sroa.0384.4.ph, %321 ], [ %.sroa.0384.4.ph, %308 ], [ %.sroa.0384.0, %280 ], [ %.sroa.0384.0, %261 ], [ %.sroa.0384.0, %248 ], [ %.sroa.0384.0, %193 ], [ %.sroa.0384.4.ph, %353 ], [ %.sroa.0384.0, %224 ], [ %.sroa.0384.0, %199 ], [ %.sroa.0384.0, %174 ], [ %.sroa.0384.0, %225 ], [ %.sroa.0384.4.ph, %._crit_edge ]
-  %.sroa.14.2 = phi ptr [ %.sroa.14.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.14.1, %635 ], [ %.sroa.14.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14.4.ph, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.14.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14.4.ph, %.lr.ph55.i293 ], [ %.sroa.14.0, %.lr.ph55.i ], [ %.sroa.14.1, %.lr.ph861 ], [ %.sroa.14.4.ph, %340 ], [ %.sroa.14.4.ph, %321 ], [ %.sroa.14.4.ph, %308 ], [ %.sroa.14.0, %280 ], [ %.sroa.14.0, %261 ], [ %.sroa.14.0, %248 ], [ %.sroa.14.0, %193 ], [ %.sroa.14.4.ph, %353 ], [ %.sroa.14.0, %224 ], [ %.sroa.14.0, %199 ], [ %.sroa.14.0, %174 ], [ %.sroa.14.0, %225 ], [ %.sroa.14.4.ph, %._crit_edge ]
-  %.2 = phi i1 [ true, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ true, %635 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ false, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ false, %.lr.ph55.i293 ], [ false, %.lr.ph55.i ], [ true, %.lr.ph861 ], [ false, %340 ], [ false, %321 ], [ false, %308 ], [ false, %280 ], [ false, %261 ], [ false, %248 ], [ false, %224 ], [ false, %._crit_edge ], [ false, %199 ], [ false, %225 ], [ false, %193 ], [ false, %174 ], [ false, %353 ]
+  %.sroa.0522.2 = phi i32 [ %.01538.sink.i.ph.i.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0522.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0522.0, %.lr.ph55.i ], [ %.sroa.0522.1, %.lr.ph861 ], [ %.sroa.0522.1, %635 ], [ %.sroa.0522.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0522.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0522.0, %.lr.ph55.i293 ], [ %.sroa.0522.0, %340 ], [ %.sroa.0522.0, %321 ], [ %.sroa.0522.0, %308 ], [ %.sroa.0522.0, %280 ], [ %.sroa.0522.0, %261 ], [ %.sroa.0522.0, %248 ], [ %.sroa.0522.0, %193 ], [ %.sroa.0522.0, %353 ], [ %.sroa.0522.0, %224 ], [ %.sroa.0522.0, %199 ], [ %.sroa.0522.0, %174 ], [ %.sroa.0522.0, %225 ], [ %.sroa.0522.4, %._crit_edge ]
+  %.sroa.16530.2 = phi ptr [ %.sroa.16530.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.16530.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.16530.0, %.lr.ph55.i ], [ %.sroa.16530.1, %.lr.ph861 ], [ %.sroa.16530.1, %635 ], [ %.sroa.16530.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.16530.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.16530.0, %.lr.ph55.i293 ], [ %.sroa.16530.0, %340 ], [ %.sroa.16530.0, %321 ], [ %.sroa.16530.0, %308 ], [ %.sroa.16530.0, %280 ], [ %.sroa.16530.0, %261 ], [ %.sroa.16530.0, %248 ], [ %.sroa.16530.0, %193 ], [ %.sroa.16530.0, %353 ], [ %.sroa.16530.0, %224 ], [ %.sroa.16530.0, %199 ], [ %.sroa.16530.0, %174 ], [ %.sroa.16530.0, %225 ], [ %.sroa.16530.4, %._crit_edge ]
+  %.sroa.0488.3 = phi i32 [ %.sroa.0488.4, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0488.2, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0488.4, %.lr.ph55.i ], [ %.sroa.0488.2, %.lr.ph861 ], [ %.sroa.0488.2, %635 ], [ %.01538.sink.i.ph.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0488.4, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0488.4, %.lr.ph55.i293 ], [ %.sroa.0488.4, %340 ], [ %.sroa.0488.4, %321 ], [ %.sroa.0488.4, %308 ], [ %.sroa.0488.4, %280 ], [ %.sroa.0488.4, %261 ], [ %.sroa.0488.4, %248 ], [ %.sroa.0488.0, %193 ], [ %.sroa.0488.4, %353 ], [ %.sroa.0488.4, %224 ], [ %.sroa.0488.0, %199 ], [ %.sroa.0488.0, %174 ], [ %.sroa.0488.4, %225 ], [ %.sroa.0488.4, %._crit_edge ]
+  %.sroa.15.3 = phi ptr [ %.sroa.15.4, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.15.2, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.15.4, %.lr.ph55.i ], [ %.sroa.15.2, %.lr.ph861 ], [ %.sroa.15.2, %635 ], [ %.sroa.15.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.15.4, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.15.4, %.lr.ph55.i293 ], [ %.sroa.15.4, %340 ], [ %.sroa.15.4, %321 ], [ %.sroa.15.4, %308 ], [ %.sroa.15.4, %280 ], [ %.sroa.15.4, %261 ], [ %.sroa.15.4, %248 ], [ %.sroa.15.0, %193 ], [ %.sroa.15.4, %353 ], [ %.sroa.15.4, %224 ], [ %.sroa.15.0, %199 ], [ %.sroa.15.0, %174 ], [ %.sroa.15.4, %225 ], [ %.sroa.15.4, %._crit_edge ]
+  %.sroa.0438.2 = phi i32 [ %.sroa.0438.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0438.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0438.0, %.lr.ph55.i ], [ %.sroa.0438.1, %.lr.ph861 ], [ %.sroa.0438.1, %635 ], [ %.sroa.0438.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0438.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0438.0, %.lr.ph55.i293 ], [ %.sroa.0438.0, %340 ], [ %.sroa.0438.0, %321 ], [ %.sroa.0438.0, %308 ], [ %.sroa.0438.0, %280 ], [ %.sroa.0438.0, %261 ], [ %.sroa.0438.0, %248 ], [ %.sroa.0438.0, %193 ], [ %.sroa.0438.0, %353 ], [ %.sroa.0438.0, %224 ], [ %.sroa.0438.0, %199 ], [ %.sroa.0438.0, %174 ], [ %.sroa.0438.0, %225 ], [ %.sroa.0438.4.lcssa, %._crit_edge ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.17.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.17.0, %.lr.ph55.i ], [ %.sroa.17.1, %.lr.ph861 ], [ %.sroa.17.1, %635 ], [ %.sroa.17.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.17.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.17.0, %.lr.ph55.i293 ], [ %.sroa.17.0, %340 ], [ %.sroa.17.0, %321 ], [ %.sroa.17.0, %308 ], [ %.sroa.17.0, %280 ], [ %.sroa.17.0, %261 ], [ %.sroa.17.0, %248 ], [ %.sroa.17.0, %193 ], [ %.sroa.17.0, %353 ], [ %.sroa.17.0, %224 ], [ %.sroa.17.0, %199 ], [ %.sroa.17.0, %174 ], [ %.sroa.17.0, %225 ], [ %.sroa.17.4.lcssa, %._crit_edge ]
+  %.sroa.0408.2 = phi i32 [ %.sroa.0408.4.ph1083, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0408.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0408.4.ph1082, %.lr.ph55.i ], [ %.sroa.0408.1, %.lr.ph861 ], [ %.sroa.0408.1, %635 ], [ %.sroa.0408.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.01538.sink.i.ph.i277, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0408.4.ph1083, %.lr.ph55.i293 ], [ %.sroa.0408.4.ph1083, %340 ], [ %.sroa.0408.4.ph1083, %321 ], [ %.sroa.0408.4.ph1083, %308 ], [ %.sroa.0408.4.ph1082, %280 ], [ %.sroa.0408.4.ph1082, %261 ], [ %.sroa.0408.4.ph1082, %248 ], [ %.sroa.0408.0, %193 ], [ %.sroa.0408.4.ph1083, %353 ], [ %.sroa.0408.0, %224 ], [ %.sroa.0408.0, %199 ], [ %.sroa.0408.0, %174 ], [ %.sroa.0408.0, %225 ], [ %.sroa.0408.4.ph1083, %._crit_edge ]
+  %.sroa.14414.2 = phi ptr [ %.sroa.14414.4.ph1085, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.14414.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.14414.4.ph1084, %.lr.ph55.i ], [ %.sroa.14414.1, %.lr.ph861 ], [ %.sroa.14414.1, %635 ], [ %.sroa.14414.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14414.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14414.4.ph1085, %.lr.ph55.i293 ], [ %.sroa.14414.4.ph1085, %340 ], [ %.sroa.14414.4.ph1085, %321 ], [ %.sroa.14414.4.ph1085, %308 ], [ %.sroa.14414.4.ph1084, %280 ], [ %.sroa.14414.4.ph1084, %261 ], [ %.sroa.14414.4.ph1084, %248 ], [ %.sroa.14414.0, %193 ], [ %.sroa.14414.4.ph1085, %353 ], [ %.sroa.14414.0, %224 ], [ %.sroa.14414.0, %199 ], [ %.sroa.14414.0, %174 ], [ %.sroa.14414.0, %225 ], [ %.sroa.14414.4.ph1085, %._crit_edge ]
+  %.sroa.0384.2 = phi i32 [ %.sroa.0384.4.ph, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.0384.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.0384.0, %.lr.ph55.i ], [ %.sroa.0384.1, %.lr.ph861 ], [ %.sroa.0384.1, %635 ], [ %.sroa.0384.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0384.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.0384.4.ph, %.lr.ph55.i293 ], [ %.sroa.0384.4.ph, %340 ], [ %.sroa.0384.4.ph, %321 ], [ %.sroa.0384.4.ph, %308 ], [ %.sroa.0384.0, %280 ], [ %.sroa.0384.0, %261 ], [ %.sroa.0384.0, %248 ], [ %.sroa.0384.0, %193 ], [ %.sroa.0384.4.ph, %353 ], [ %.sroa.0384.0, %224 ], [ %.sroa.0384.0, %199 ], [ %.sroa.0384.0, %174 ], [ %.sroa.0384.0, %225 ], [ %.sroa.0384.4.ph, %._crit_edge ]
+  %.sroa.14.2 = phi ptr [ %.sroa.14.4.ph, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ %.sroa.14.1, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ %.sroa.14.0, %.lr.ph55.i ], [ %.sroa.14.1, %.lr.ph861 ], [ %.sroa.14.1, %635 ], [ %.sroa.14.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ %.sroa.14.4.ph, %.lr.ph55.i293 ], [ %.sroa.14.4.ph, %340 ], [ %.sroa.14.4.ph, %321 ], [ %.sroa.14.4.ph, %308 ], [ %.sroa.14.0, %280 ], [ %.sroa.14.0, %261 ], [ %.sroa.14.0, %248 ], [ %.sroa.14.0, %193 ], [ %.sroa.14.4.ph, %353 ], [ %.sroa.14.0, %224 ], [ %.sroa.14.0, %199 ], [ %.sroa.14.0, %174 ], [ %.sroa.14.0, %225 ], [ %.sroa.14.4.ph, %._crit_edge ]
+  %.2 = phi i1 [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i ], [ true, %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread ], [ false, %.lr.ph55.i ], [ true, %.lr.ph861 ], [ true, %635 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i ], [ false, %.lr.ph55.i293 ], [ false, %340 ], [ false, %321 ], [ false, %308 ], [ false, %280 ], [ false, %261 ], [ false, %248 ], [ false, %224 ], [ false, %._crit_edge ], [ false, %199 ], [ false, %225 ], [ false, %193 ], [ false, %174 ], [ false, %353 ]
   %.not.i.i359 = icmp eq i32 %.sroa.0384.2, 0
   br i1 %.not.i.i359, label %_ZN11hb_vector_tIiLb0EED2Ev.exit360, label %_ZN11hb_vector_tI15contour_point_tLb0EE6resizeEibb.exit.thread656
 
@@ -8352,8 +8352,8 @@ _ZN11hb_vector_tIjLb0EE6resizeEibb.exit:          ; preds = %22
   br i1 %exitcond90.not, label %.loopexit, label %.lr.ph64, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph64, %.preheader57, %.preheader
-  %.248 = phi i32 [ %.04667, %.preheader ], [ %.04667, %.preheader57 ], [ %45, %.lr.ph64 ], [ %45, %.lr.ph ]
-  %.2 = phi i32 [ %.04568, %.preheader ], [ %.04568, %.preheader57 ], [ %78, %.lr.ph64 ], [ %63, %.lr.ph ]
+  %.248 = phi i32 [ %45, %.lr.ph64 ], [ %.04667, %.preheader ], [ %.04667, %.preheader57 ], [ %45, %.lr.ph ]
+  %.2 = phi i32 [ %78, %.lr.ph64 ], [ %.04568, %.preheader ], [ %.04568, %.preheader57 ], [ %63, %.lr.ph ]
   %81 = icmp ult i32 %.248, %.044
   br i1 %81, label %37, label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit.thread, !llvm.loop !83
 
@@ -9970,7 +9970,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -9988,7 +9988,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -9998,27 +9998,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -10538,7 +10538,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -10556,7 +10556,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -10566,27 +10566,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -11964,7 +11964,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -11982,7 +11982,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -11992,27 +11992,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45

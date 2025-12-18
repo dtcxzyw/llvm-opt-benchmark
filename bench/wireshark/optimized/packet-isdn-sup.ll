@@ -1305,7 +1305,7 @@ get_err.exit:                                     ; preds = %20
   br label %get_err.exit.thread
 
 get_err.exit.thread:                              ; preds = %18, %46, %43, %get_err.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_err.exit ], [ %48, %46 ], [ 0, %43 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_err.exit ], [ 0, %43 ], [ %48, %46 ], [ 0, %18 ]
   ret i32 %.0
 }
 

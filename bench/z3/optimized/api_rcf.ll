@@ -1009,7 +1009,7 @@ _ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65: ; preds = %55
   br label %.lr.ph85
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %55, %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65
-  %.0.i64113 = phi i32 [ 0, %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65 ], [ 0, %55 ], [ %59, %.lr.ph85 ]
+  %.0.i64113 = phi i32 [ 0, %55 ], [ 0, %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65 ], [ %59, %.lr.ph85 ]
   %60 = icmp ne i32 %.054, 0
   %or.cond = and i1 %60, %9
   br i1 %or.cond, label %.lr.ph88.preheader, label %.loopexit

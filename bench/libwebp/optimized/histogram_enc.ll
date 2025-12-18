@@ -1102,9 +1102,9 @@ HistogramSetRemoveHistogram.exit.i:               ; preds = %178, %171, %161
   br label %HistogramSetRemoveHistogram.exit33.i
 
 HistogramSetRemoveHistogram.exit33.i:             ; preds = %196, %189, %199, %HistogramSetRemoveHistogram.exit.i
-  %.2 = phi i32 [ %164, %HistogramSetRemoveHistogram.exit.i ], [ %.1214, %199 ], [ %164, %189 ], [ %164, %196 ]
-  %.02637.sink.i = phi i32 [ -1, %HistogramSetRemoveHistogram.exit.i ], [ %.02637.i, %199 ], [ -1, %189 ], [ -1, %196 ]
-  %.1.i = phi i32 [ %.02637.i, %HistogramSetRemoveHistogram.exit.i ], [ %216, %199 ], [ %.02637.i, %189 ], [ %.02637.i, %196 ]
+  %.2 = phi i32 [ %.1214, %199 ], [ %164, %HistogramSetRemoveHistogram.exit.i ], [ %164, %189 ], [ %164, %196 ]
+  %.02637.sink.i = phi i32 [ %.02637.i, %199 ], [ -1, %HistogramSetRemoveHistogram.exit.i ], [ -1, %189 ], [ -1, %196 ]
+  %.1.i = phi i32 [ %216, %199 ], [ %.02637.i, %HistogramSetRemoveHistogram.exit.i ], [ %.02637.i, %189 ], [ %.02637.i, %196 ]
   %217 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i91
   store i32 %.02637.sink.i, ptr %217, align 4, !tbaa !17
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
@@ -1626,7 +1626,7 @@ HistogramSetRemoveHistogram.exit.i109:            ; preds = %440, %433, %415
   br i1 %465, label %.lr.ph96.i, label %HistogramCombineEntropyBin.exit, !llvm.loop !57
 
 HistogramCombineEntropyBin.exit:                  ; preds = %462, %.preheader88.i, %._crit_edge.i106
-  %.4217 = phi i32 [ %.4, %._crit_edge.i106 ], [ %.3, %.preheader88.i ], [ %.4, %462 ]
+  %.4217 = phi i32 [ %.3, %.preheader88.i ], [ %.4, %._crit_edge.i106 ], [ %.4, %462 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.preheader65.us.i
 

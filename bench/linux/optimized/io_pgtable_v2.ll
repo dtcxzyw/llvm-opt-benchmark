@@ -342,8 +342,8 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0
 
 .thread18:                                        ; preds = %135, %138, %86, %89
   %147 = phi i8 [ %63, %86 ], [ %63, %89 ], [ %136, %138 ], [ %136, %135 ]
-  %148 = phi i64 [ %45, %86 ], [ %45, %89 ], [ %45, %135 ], [ %145, %138 ]
-  %149 = phi i32 [ -22, %86 ], [ -22, %89 ], [ -22, %135 ], [ 0, %138 ]
+  %148 = phi i64 [ %45, %86 ], [ %45, %89 ], [ %145, %138 ], [ %45, %135 ]
+  %149 = phi i32 [ -22, %86 ], [ -22, %89 ], [ 0, %138 ], [ -22, %135 ]
   %150 = icmp eq i8 %147, 0
   br i1 %150, label %.thread19, label %151
 
@@ -453,8 +453,8 @@ define internal i64 @iommu_v2_unmap_pages(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %57, %59
-  %60 = phi i64 [ 2097152, %59 ], [ 1073741824, %57 ], [ 4096, %35 ]
-  %61 = phi ptr [ %53, %59 ], [ %53, %57 ], [ %37, %35 ]
+  %60 = phi i64 [ 1073741824, %57 ], [ 2097152, %59 ], [ 4096, %35 ]
+  %61 = phi ptr [ %53, %57 ], [ %53, %59 ], [ %37, %35 ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.thread, label %63
 
@@ -527,8 +527,8 @@ define internal range(i64 0, 4503599627370496) i64 @iommu_v2_iova_to_phys(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %37, %39
-  %40 = phi i64 [ 2097152, %39 ], [ 1073741824, %37 ], [ 4096, %15 ]
-  %41 = phi ptr [ %33, %39 ], [ %33, %37 ], [ %17, %15 ]
+  %40 = phi i64 [ 1073741824, %37 ], [ 2097152, %39 ], [ 4096, %15 ]
+  %41 = phi ptr [ %33, %37 ], [ %33, %39 ], [ %17, %15 ]
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread, label %43
 

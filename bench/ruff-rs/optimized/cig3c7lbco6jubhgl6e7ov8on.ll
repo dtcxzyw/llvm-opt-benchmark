@@ -1202,7 +1202,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16: ; preds = %.lr.p
   br i1 %.not12, label %40, label %38
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread: ; preds = %.preheader.i, %27, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge
-  %37 = phi i64 [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge ], [ %13, %27 ], [ %13, %.preheader.i ]
+  %37 = phi i64 [ %13, %27 ], [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge ], [ %13, %.preheader.i ]
   store i64 %37, ptr %4, align 8
   br label %._crit_edge
 
@@ -2744,7 +2744,7 @@ _ZN20ruff_python_semantic7analyze10visibility8is_magic17hf491f40183c17cc1E.exit:
   br label %_ZN20ruff_python_semantic7analyze10visibility8is_magic17hf491f40183c17cc1E.exit.thread
 
 _ZN20ruff_python_semantic7analyze10visibility8is_magic17hf491f40183c17cc1E.exit.thread: ; preds = %"_ZN20ruff_python_semantic7analyze10visibility17method_visibility28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21126f2b68a2fc9dE.exit.i.i", %_ZN20ruff_python_semantic7analyze10visibility8is_magic17hf491f40183c17cc1E.exit, %60, %"_ZN20ruff_python_semantic7analyze10visibility17method_visibility28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21126f2b68a2fc9dE.exit.i.thread.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6f0e0fb6ceb219deE.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6f0e0fb6ceb219deE.exit" ], [ true, %"_ZN20ruff_python_semantic7analyze10visibility17method_visibility28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21126f2b68a2fc9dE.exit.i.thread.i" ], [ true, %60 ], [ %not., %_ZN20ruff_python_semantic7analyze10visibility8is_magic17hf491f40183c17cc1E.exit ], [ true, %"_ZN20ruff_python_semantic7analyze10visibility17method_visibility28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21126f2b68a2fc9dE.exit.i.i" ]
+  %.sroa.0.0 = phi i1 [ %not., %_ZN20ruff_python_semantic7analyze10visibility8is_magic17hf491f40183c17cc1E.exit ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6f0e0fb6ceb219deE.exit" ], [ true, %"_ZN20ruff_python_semantic7analyze10visibility17method_visibility28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21126f2b68a2fc9dE.exit.i.thread.i" ], [ true, %60 ], [ true, %"_ZN20ruff_python_semantic7analyze10visibility17method_visibility28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21126f2b68a2fc9dE.exit.i.i" ]
   ret i1 %.sroa.0.0
 }
 

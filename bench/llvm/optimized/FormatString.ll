@@ -295,7 +295,7 @@ define dso_local void @_ZN5clang21analyze_format_string22ParseNonPositionAmountE
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader.i, %19
-  %.02034.i = phi ptr [ %5, %19 ], [ %5, %.lr.ph.preheader.i ], [ %scevgep.i, %.lr.ph ]
+  %.02034.i = phi ptr [ %5, %.lr.ph.preheader.i ], [ %5, %19 ], [ %scevgep.i, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false), !alias.scope !21
   %42 = load i8, ptr %41, align 4, !alias.scope !21
@@ -355,7 +355,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph65, %.lr.ph.preheader.i, %10
-  %.02033.i.ph = phi ptr [ %4, %10 ], [ %11, %.lr.ph.preheader.i ], [ %scevgep.i, %.lr.ph65 ]
+  %.02033.i.ph = phi ptr [ %11, %.lr.ph.preheader.i ], [ %4, %10 ], [ %scevgep.i, %.lr.ph65 ]
   %25 = ptrtoint ptr %.02033.i.ph to i64
   %26 = ptrtoint ptr %7 to i64
   %27 = sub i64 %25, %26
@@ -505,7 +505,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   br i1 %.not.i39, label %.loopexit.i35, label %.lr.ph.i30, !llvm.loop !9
 
 .loopexit.i35:                                    ; preds = %.lr.ph, %.lr.ph.preheader.i28, %83
-  %.02034.i36 = phi ptr [ %7, %83 ], [ %7, %.lr.ph.preheader.i28 ], [ %scevgep.i29, %.lr.ph ]
+  %.02034.i36 = phi ptr [ %7, %.lr.ph.preheader.i28 ], [ %7, %83 ], [ %scevgep.i29, %.lr.ph ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false), !alias.scope !29
   %106 = load i8, ptr %105, align 4, !alias.scope !29
@@ -582,11 +582,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15ParseFiel
   br i1 %.not.i.i, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.i: ; preds = %.lr.ph.i, %16, %.lr.ph.preheader.i.i, %.lr.ph.i._crit_edge.i
-  %.sroa.6.0 = phi i32 [ %29, %.lr.ph.i._crit_edge.i ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %16 ], [ 0, %.lr.ph.i ]
-  %.sroa.8.0 = phi i32 [ 1, %.lr.ph.i._crit_edge.i ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %16 ], [ 0, %.lr.ph.i ]
-  %.sroa.10.0 = phi i32 [ %24, %.lr.ph.i._crit_edge.i ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %16 ], [ 0, %.lr.ph.i ]
-  %.sroa.0.0 = phi ptr [ %9, %.lr.ph.i._crit_edge.i ], [ null, %.lr.ph.preheader.i.i ], [ null, %16 ], [ null, %.lr.ph.i ]
-  %.02033.i.i = phi ptr [ %31, %.lr.ph.i._crit_edge.i ], [ %9, %.lr.ph.preheader.i.i ], [ %9, %16 ], [ %scevgep.i.i, %.lr.ph.i ]
+  %.sroa.6.0 = phi i32 [ %29, %.lr.ph.i._crit_edge.i ], [ 0, %16 ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %.lr.ph.i ]
+  %.sroa.8.0 = phi i32 [ 1, %.lr.ph.i._crit_edge.i ], [ 0, %16 ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %.lr.ph.i ]
+  %.sroa.10.0 = phi i32 [ %24, %.lr.ph.i._crit_edge.i ], [ 0, %16 ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %.lr.ph.i ]
+  %.sroa.0.0 = phi ptr [ %9, %.lr.ph.i._crit_edge.i ], [ null, %16 ], [ null, %.lr.ph.preheader.i.i ], [ null, %.lr.ph.i ]
+  %.02033.i.i = phi ptr [ %31, %.lr.ph.i._crit_edge.i ], [ %9, %16 ], [ %9, %.lr.ph.preheader.i.i ], [ %scevgep.i.i, %.lr.ph.i ]
   store ptr %.02033.i.i, ptr %3, align 8, !tbaa !3, !noalias !35
   br label %_ZN5clang21analyze_format_string22ParseNonPositionAmountERPKcS2_Rj.exit
 
@@ -1891,7 +1891,7 @@ switch.lookup:                                    ; preds = %86
   br label %.critedge2
 
 .critedge2:                                       ; preds = %switch.lookup, %86, %81, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit309.thread, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit309.thread467, %.critedge16, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit302.thread461, %_ZNK5clang4Type10isVoidTypeEv.exit358, %_ZNK5clang4Type10isVoidTypeEv.exit, %378, %380, %244, %216, %211, %431, %437, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread, %403, %77, %77, %77, %77, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread441, %27, %_ZNK5clang8QualType16isConstQualifiedEv.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread, %306, %342, %.critedge18, %.critedge2.thread, %249, %207, %241, %238, %232, %210, %140, %84, %68, %55, %401, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread, %42, %391
-  %.2 = phi i32 [ 4, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ %396, %391 ], [ 1, %431 ], [ 1, %42 ], [ 1, %403 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit302.thread461 ], [ 0, %55 ], [ 1, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit ], [ 0, %68 ], [ %spec.select166, %401 ], [ 1, %378 ], [ %not., %81 ], [ 0, %140 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread441 ], [ 0, %84 ], [ 0, %86 ], [ %.5.ph, %.critedge2.thread ], [ 0, %249 ], [ 0, %207 ], [ 1, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ 0, %244 ], [ 0, %241 ], [ 0, %238 ], [ 0, %232 ], [ 0, %216 ], [ 0, %211 ], [ 0, %210 ], [ 1, %306 ], [ %346, %.critedge18 ], [ 1, %342 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit309.thread467 ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ 0, %437 ], [ 0, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread ], [ %spec.select, %_ZNK5clang4Type10isVoidTypeEv.exit358 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ 0, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ 0, %27 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ %switch.load, %switch.lookup ], [ 4, %380 ], [ 0, %.critedge16 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit309.thread ]
+  %.2 = phi i32 [ 4, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ %396, %391 ], [ 1, %431 ], [ 1, %42 ], [ 1, %403 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit302.thread461 ], [ 0, %55 ], [ 1, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit ], [ 0, %68 ], [ %spec.select166, %401 ], [ 1, %378 ], [ %not., %81 ], [ 0, %140 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread441 ], [ 0, %84 ], [ 0, %86 ], [ %.5.ph, %.critedge2.thread ], [ 0, %249 ], [ 0, %207 ], [ 4, %380 ], [ 0, %244 ], [ 0, %241 ], [ 0, %238 ], [ 0, %232 ], [ 0, %216 ], [ 0, %211 ], [ 0, %210 ], [ 1, %306 ], [ %346, %.critedge18 ], [ 1, %342 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit309.thread467 ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ 0, %437 ], [ 0, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread ], [ %spec.select, %_ZNK5clang4Type10isVoidTypeEv.exit358 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ 0, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ 0, %27 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ %switch.load, %switch.lookup ], [ 1, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ 0, %.critedge16 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit309.thread ]
   ret i32 %.2
 }
 
@@ -3404,7 +3404,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit51:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.critedge.thread.sink.split, %2
-  %.not87 = phi i1 [ false, %2 ], [ true, %.critedge.thread.sink.split ], [ false, %.critedge ]
+  %.not87 = phi i1 [ true, %.critedge.thread.sink.split ], [ false, %2 ], [ false, %.critedge ]
   ret i1 %.not87
 }
 

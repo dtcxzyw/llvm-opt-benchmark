@@ -1051,7 +1051,7 @@ Bac_BoxBoNtk.exit:                                ; preds = %70, %Bac_ManNtkIsOk
   br label %.thread182
 
 .thread182:                                       ; preds = %201, %208, %213, %186, %128, %140, %134, %132, %.fold.split, %137, %135, %194, %187, %141, %152, %163, %174, %180, %168, %157, %146, %133
-  %.4.ph = phi i32 [ %11, %201 ], [ %216, %213 ], [ %212, %208 ], [ 0, %132 ], [ %11, %186 ], [ %11, %.fold.split ], [ %200, %194 ], [ %193, %187 ], [ %11, %140 ], [ %185, %180 ], [ %179, %174 ], [ %173, %168 ], [ %167, %163 ], [ %162, %157 ], [ %156, %152 ], [ %151, %146 ], [ %145, %141 ], [ %11, %134 ], [ %139, %137 ], [ %136, %135 ], [ 1, %133 ], [ %11, %128 ]
+  %.4.ph = phi i32 [ %11, %201 ], [ %216, %213 ], [ %212, %208 ], [ %11, %186 ], [ %11, %.fold.split ], [ %200, %194 ], [ %193, %187 ], [ %11, %140 ], [ %185, %180 ], [ %179, %174 ], [ %173, %168 ], [ %167, %163 ], [ %162, %157 ], [ %156, %152 ], [ %151, %146 ], [ %145, %141 ], [ %11, %134 ], [ %139, %137 ], [ %136, %135 ], [ 0, %132 ], [ 1, %133 ], [ %11, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
@@ -1743,8 +1743,8 @@ Bac_ObjSetIndex.exit110.i..critedge6.i.loopexit_crit_edge: ; preds = %Bac_ObjSet
   br label %.critedge6.i, !llvm.loop !66
 
 .critedge6.i:                                     ; preds = %.lr.ph128.i, %.lr.ph128.i.preheader, %Bac_ObjSetIndex.exit110.i..critedge6.i.loopexit_crit_edge, %.critedge4.i, %..critedge6_crit_edge.i
-  %indvars.iv.next139.pre-phi.i = phi i64 [ %.pre163.i, %..critedge6_crit_edge.i ], [ %173, %.critedge4.i ], [ %173, %Bac_ObjSetIndex.exit110.i..critedge6.i.loopexit_crit_edge ], [ %173, %.lr.ph128.i.preheader ], [ %173, %.lr.ph128.i ]
-  %.val55.i = phi i32 [ %.val55160.i, %..critedge6_crit_edge.i ], [ %.val55158.i, %.critedge4.i ], [ %.val56.i, %Bac_ObjSetIndex.exit110.i..critedge6.i.loopexit_crit_edge ], [ %.val55158.i, %.lr.ph128.i.preheader ], [ %.val56.i, %.lr.ph128.i ]
+  %indvars.iv.next139.pre-phi.i = phi i64 [ %.pre163.i, %..critedge6_crit_edge.i ], [ %173, %.critedge4.i ], [ %173, %.lr.ph128.i.preheader ], [ %173, %Bac_ObjSetIndex.exit110.i..critedge6.i.loopexit_crit_edge ], [ %173, %.lr.ph128.i ]
+  %.val55.i = phi i32 [ %.val55160.i, %..critedge6_crit_edge.i ], [ %.val55158.i, %.critedge4.i ], [ %.val55158.i, %.lr.ph128.i.preheader ], [ %.val56.i, %Bac_ObjSetIndex.exit110.i..critedge6.i.loopexit_crit_edge ], [ %.val56.i, %.lr.ph128.i ]
   %218 = sext i32 %.val55.i to i64
   %219 = icmp slt i64 %indvars.iv.next139.pre-phi.i, %218
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
@@ -5636,8 +5636,8 @@ Bac_ObjSetName.exit151.i..critedge2.i.loopexit_crit_edge: ; preds = %Bac_ObjSetN
   br label %.critedge2.i, !llvm.loop !116
 
 .critedge2.i:                                     ; preds = %.lr.ph225.i, %.lr.ph225.i.preheader, %Bac_ObjSetName.exit151.i..critedge2.i.loopexit_crit_edge, %Bac_ObjSetName.exit127.i, %..critedge2_crit_edge.i
-  %indvars.iv.next247.pre-phi.i = phi i64 [ %.pre.i, %..critedge2_crit_edge.i ], [ %141, %Bac_ObjSetName.exit127.i ], [ %141, %Bac_ObjSetName.exit151.i..critedge2.i.loopexit_crit_edge ], [ %141, %.lr.ph225.i.preheader ], [ %141, %.lr.ph225.i ]
-  %.val100.i = phi i32 [ %.val100262.i, %..critedge2_crit_edge.i ], [ %.val99223.i, %Bac_ObjSetName.exit127.i ], [ %.val99.i, %Bac_ObjSetName.exit151.i..critedge2.i.loopexit_crit_edge ], [ %.val99223.i, %.lr.ph225.i.preheader ], [ %.val99.i, %.lr.ph225.i ]
+  %indvars.iv.next247.pre-phi.i = phi i64 [ %.pre.i, %..critedge2_crit_edge.i ], [ %141, %Bac_ObjSetName.exit127.i ], [ %141, %.lr.ph225.i.preheader ], [ %141, %Bac_ObjSetName.exit151.i..critedge2.i.loopexit_crit_edge ], [ %141, %.lr.ph225.i ]
+  %.val100.i = phi i32 [ %.val100262.i, %..critedge2_crit_edge.i ], [ %.val99223.i, %Bac_ObjSetName.exit127.i ], [ %.val99223.i, %.lr.ph225.i.preheader ], [ %.val99.i, %Bac_ObjSetName.exit151.i..critedge2.i.loopexit_crit_edge ], [ %.val99.i, %.lr.ph225.i ]
   %169 = sext i32 %.val100.i to i64
   %170 = icmp slt i64 %indvars.iv.next247.pre-phi.i, %169
   %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
@@ -6126,7 +6126,7 @@ Abc_NodeIsSeriousGate.exit.thread74:              ; preds = %.thread71.thread, %
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.sink.split, %.thread71, %27, %21, %Abc_NodeIsSeriousGate.exit
-  %.1 = phi i32 [ %.088, %21 ], [ %.088, %.thread71 ], [ %.088, %Abc_NodeIsSeriousGate.exit ], [ %.088, %27 ], [ %.1.ph, %.critedge4.sink.split ]
+  %.1 = phi i32 [ %.088, %21 ], [ %.088, %27 ], [ %.088, %.thread71 ], [ %.088, %Abc_NodeIsSeriousGate.exit ], [ %.1.ph, %.critedge4.sink.split ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %53 = load ptr, ptr %6, align 8, !tbaa !134
   %54 = getelementptr i8, ptr %53, i64 4

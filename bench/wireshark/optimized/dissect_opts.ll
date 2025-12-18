@@ -638,7 +638,7 @@ process_enable_disable_list.exit45.thread:        ; preds = %.critedge, %process
   br i1 %.not.i63, label %.critedge5, label %.lr.ph.i47, !llvm.loop !9
 
 .critedge5:                                       ; preds = %.loopexit.i.thread, %.loopexit.i20.thread, %.loopexit.i40.thread, %.loopexit.i60, %process_enable_disable_list.exit45.thread, %process_enable_disable_list.exit25, %process_enable_disable_list.exit, %process_enable_disable_list.exit45
-  %80 = phi i1 [ false, %process_enable_disable_list.exit45 ], [ false, %process_enable_disable_list.exit25 ], [ false, %process_enable_disable_list.exit ], [ true, %process_enable_disable_list.exit45.thread ], [ false, %.loopexit.i20.thread ], [ %.330.i61, %.loopexit.i60 ], [ false, %.loopexit.i40.thread ], [ false, %.loopexit.i.thread ]
+  %80 = phi i1 [ false, %process_enable_disable_list.exit45 ], [ false, %process_enable_disable_list.exit25 ], [ false, %process_enable_disable_list.exit ], [ true, %process_enable_disable_list.exit45.thread ], [ false, %.loopexit.i20.thread ], [ false, %.loopexit.i40.thread ], [ %.330.i61, %.loopexit.i60 ], [ false, %.loopexit.i.thread ]
   ret i1 %80
 }
 

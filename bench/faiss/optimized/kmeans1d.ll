@@ -377,9 +377,9 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit85:                                      ; preds = %41, %.noexc..loopexit85_crit_edge, %36
-  %53 = phi ptr [ %27, %36 ], [ %.pre115, %.noexc..loopexit85_crit_edge ], [ %27, %41 ]
-  %54 = phi ptr [ %28, %36 ], [ %.pre, %.noexc..loopexit85_crit_edge ], [ %28, %41 ]
-  %.pn.i.i = phi ptr [ %37, %36 ], [ %51, %.noexc..loopexit85_crit_edge ], [ %43, %41 ]
+  %53 = phi ptr [ %.pre115, %.noexc..loopexit85_crit_edge ], [ %27, %36 ], [ %27, %41 ]
+  %54 = phi ptr [ %.pre, %.noexc..loopexit85_crit_edge ], [ %28, %36 ], [ %28, %41 ]
+  %.pn.i.i = phi ptr [ %51, %.noexc..loopexit85_crit_edge ], [ %37, %36 ], [ %43, %41 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.097, ptr %.1.i.i, align 8, !tbaa !9
   %55 = add nuw nsw i64 %.097, 1
@@ -509,8 +509,8 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit79:                                      ; preds = %102, %.noexc69..loopexit79_crit_edge, %97
-  %.pre116 = phi ptr [ %79, %97 ], [ %.pre116.pre, %.noexc69..loopexit79_crit_edge ], [ %79, %102 ]
-  %.pn.i.i67 = phi ptr [ %98, %97 ], [ %112, %.noexc69..loopexit79_crit_edge ], [ %104, %102 ]
+  %.pre116 = phi ptr [ %.pre116.pre, %.noexc69..loopexit79_crit_edge ], [ %79, %97 ], [ %79, %102 ]
+  %.pn.i.i67 = phi ptr [ %112, %.noexc69..loopexit79_crit_edge ], [ %98, %97 ], [ %104, %102 ]
   %.1.i.i68 = getelementptr inbounds nuw i8, ptr %.pn.i.i67, i64 16
   %114 = load i64, ptr %.1.i.i68, align 8, !tbaa !9
   br label %117

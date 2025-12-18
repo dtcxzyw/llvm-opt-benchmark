@@ -1993,7 +1993,7 @@ _ZN12_GLOBAL__N_115DataSendContext10FlushBytesEv.exit.i: ; preds = %_ZNK9grpc_co
   br i1 %.not.i43, label %.critedge.i44, label %719, !llvm.loop !470
 
 .critedge.i44:                                    ; preds = %_ZN12_GLOBAL__N_115DataSendContext10FlushBytesEv.exit.i, %_ZNK12_GLOBAL__N_115DataSendContext12max_outgoingEv.exit.i
-  %.sroa.27.0.lcssa.i = phi i1 [ %751, %_ZN12_GLOBAL__N_115DataSendContext10FlushBytesEv.exit.i ], [ %.sroa.27.029.i, %_ZNK12_GLOBAL__N_115DataSendContext12max_outgoingEv.exit.i ]
+  %.sroa.27.0.lcssa.i = phi i1 [ %.sroa.27.029.i, %_ZNK12_GLOBAL__N_115DataSendContext12max_outgoingEv.exit.i ], [ %751, %_ZN12_GLOBAL__N_115DataSendContext10FlushBytesEv.exit.i ]
   %764 = load ptr, ptr %219, align 8, !tbaa !388
   call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef %764)
   br i1 %.sroa.27.0.lcssa.i, label %765, label %766

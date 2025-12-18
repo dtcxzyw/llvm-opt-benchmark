@@ -862,9 +862,9 @@ _ZNSt5stackIjSt6vectorIjSaIjEEE4pushERKj.exit:    ; preds = %_ZNSt6vectorIjSaIjE
   br label %.loopexit370
 
 .loopexit370:                                     ; preds = %.loopexit370.loopexit, %221, %._crit_edge458
-  %.sroa.9285.5 = phi ptr [ %216, %221 ], [ %.sroa.9285.1.lcssa, %._crit_edge458 ], [ %.sroa.9285.7546, %.loopexit370.loopexit ]
-  %.1120 = phi i32 [ %.0119465, %221 ], [ %.0119465, %._crit_edge458 ], [ %indvars.le, %.loopexit370.loopexit ]
-  %.4111 = phi i32 [ %217, %221 ], [ %.2109, %._crit_edge458 ], [ %indvars.le, %.loopexit370.loopexit ]
+  %.sroa.9285.5 = phi ptr [ %.sroa.9285.1.lcssa, %._crit_edge458 ], [ %216, %221 ], [ %.sroa.9285.7546, %.loopexit370.loopexit ]
+  %.1120 = phi i32 [ %.0119465, %._crit_edge458 ], [ %.0119465, %221 ], [ %indvars.le, %.loopexit370.loopexit ]
+  %.4111 = phi i32 [ %.2109, %._crit_edge458 ], [ %217, %221 ], [ %indvars.le, %.loopexit370.loopexit ]
   %231 = icmp sgt i32 %.4111, -1
   br i1 %231, label %128, label %.loopexit370.thread, !llvm.loop !13
 

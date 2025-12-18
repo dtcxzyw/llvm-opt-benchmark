@@ -531,12 +531,12 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br label %.critedge
 
 .thread297:                                       ; preds = %137, %157, %52, %172, %.thread305
-  %.5191 = phi ptr [ %30, %52 ], [ %84, %.thread305 ], [ %171, %172 ], [ %84, %157 ], [ %84, %137 ]
+  %.5191 = phi ptr [ %84, %.thread305 ], [ %30, %52 ], [ %171, %172 ], [ %84, %157 ], [ %84, %137 ]
   %.not256 = icmp eq ptr %.5191, null
   br i1 %.not256, label %.critedge, label %15, !llvm.loop !34
 
-.critedge:                                        ; preds = %.thread297, %72, %70, %uriIsHostSetA.exit.thread, %.thread309, %168, %4, %6
-  %.0 = phi i32 [ 1, %4 ], [ 1, %6 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetA.exit.thread ], [ 1, %70 ], [ 1, %72 ], [ 1, %.thread297 ]
+.critedge:                                        ; preds = %.thread297, %uriIsHostSetA.exit.thread, %70, %72, %.thread309, %168, %4, %6
+  %.0 = phi i32 [ 1, %uriIsHostSetA.exit.thread ], [ 1, %4 ], [ 1, %6 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %72 ], [ 1, %70 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 
@@ -1485,12 +1485,12 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br label %.critedge
 
 .thread297:                                       ; preds = %139, %159, %54, %174, %.thread305
-  %.5191 = phi ptr [ %31, %54 ], [ %86, %.thread305 ], [ %173, %174 ], [ %86, %159 ], [ %86, %139 ]
+  %.5191 = phi ptr [ %86, %.thread305 ], [ %31, %54 ], [ %173, %174 ], [ %86, %159 ], [ %86, %139 ]
   %.not256 = icmp eq ptr %.5191, null
   br i1 %.not256, label %.critedge, label %15, !llvm.loop !62
 
-.critedge:                                        ; preds = %.thread297, %74, %72, %uriIsHostSetW.exit.thread, %.thread309, %170, %4, %6
-  %.0 = phi i32 [ 1, %4 ], [ 1, %6 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetW.exit.thread ], [ 1, %72 ], [ 1, %74 ], [ 1, %.thread297 ]
+.critedge:                                        ; preds = %.thread297, %uriIsHostSetW.exit.thread, %72, %74, %.thread309, %170, %4, %6
+  %.0 = phi i32 [ 1, %uriIsHostSetW.exit.thread ], [ 1, %4 ], [ 1, %6 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %74 ], [ 1, %72 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 

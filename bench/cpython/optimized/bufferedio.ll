@@ -2477,7 +2477,7 @@ Py_DECREF.exit173:                                ; preds = %159, %160, %163
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %146, %140, %185, %182, %180, %179, %176, %173, %158, %155, %154, %113, %101, %98, %97, %.split136, %90, %_bufferedreader_fill_buffer.exit
-  %.9266 = phi ptr [ null, %90 ], [ null, %185 ], [ null, %182 ], [ null, %180 ], [ %174, %176 ], [ %174, %173 ], [ null, %155 ], [ null, %154 ], [ null, %98 ], [ null, %97 ], [ null, %158 ], [ null, %113 ], [ null, %101 ], [ %174, %179 ], [ null, %_bufferedreader_fill_buffer.exit ], [ %170, %.split136 ], [ null, %140 ], [ null, %146 ]
+  %.9266 = phi ptr [ null, %90 ], [ null, %182 ], [ null, %180 ], [ %174, %176 ], [ %174, %173 ], [ null, %155 ], [ null, %154 ], [ null, %98 ], [ null, %97 ], [ null, %158 ], [ null, %113 ], [ null, %185 ], [ null, %101 ], [ %174, %179 ], [ null, %_bufferedreader_fill_buffer.exit ], [ %170, %.split136 ], [ null, %140 ], [ null, %146 ]
   store volatile i64 0, ptr %84, align 8, !tbaa !71
   %186 = load ptr, ptr %77, align 8, !tbaa !53
   tail call void @PyThread_release_lock(ptr noundef %186) #10
@@ -2777,7 +2777,7 @@ define internal fastcc noundef ptr @_bufferedwriter_flush_unlocked(ptr noundef c
   br label %_set_BlockingIOError.exit
 
 _set_BlockingIOError.exit:                        ; preds = %49, %32, %48, %45, %42, %37, %19, %.loopexit
-  %.0 = phi ptr [ @_Py_NoneStruct, %.loopexit ], [ null, %19 ], [ null, %37 ], [ null, %42 ], [ null, %45 ], [ null, %48 ], [ null, %32 ], [ null, %49 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %.loopexit ], [ null, %48 ], [ null, %45 ], [ null, %19 ], [ null, %37 ], [ null, %42 ], [ null, %32 ], [ null, %49 ]
   ret ptr %.0
 }
 
@@ -4254,9 +4254,9 @@ Py_DECREF.exit.i.i:                               ; preds = %180, %177, %175, %1
   br label %Py_XINCREF.exit.i.i
 
 Py_XINCREF.exit.i.i:                              ; preds = %170, %205, %.thread153.i.i, %202, %189, %164, %160, %Py_DECREF.exit72.i.i, %Py_DECREF.exit74.i.i, %120, %95
-  %.036110.ph.i.i = phi ptr [ null, %95 ], [ null, %120 ], [ null, %164 ], [ null, %160 ], [ null, %189 ], [ null, %Py_DECREF.exit72.i.i ], [ null, %Py_DECREF.exit74.i.i ], [ %.036160.i.i, %.thread153.i.i ], [ null, %202 ], [ %.036160.i.i, %205 ], [ null, %170 ]
-  %.037109.ph.i.i = phi ptr [ null, %95 ], [ null, %120 ], [ null, %164 ], [ null, %160 ], [ %165, %189 ], [ null, %Py_DECREF.exit72.i.i ], [ null, %Py_DECREF.exit74.i.i ], [ %.037159.i.i, %.thread153.i.i ], [ %.037.i.i, %202 ], [ %.037159.i.i, %205 ], [ %165, %170 ]
-  %.1108.ph.i.i = phi ptr [ null, %95 ], [ null, %120 ], [ null, %164 ], [ %.0.i.i.i.i, %160 ], [ null, %189 ], [ null, %Py_DECREF.exit72.i.i ], [ null, %Py_DECREF.exit74.i.i ], [ %.1158.i.i, %.thread153.i.i ], [ %.1.i.i, %202 ], [ %.1158.i.i, %205 ], [ null, %170 ]
+  %.036110.ph.i.i = phi ptr [ null, %95 ], [ null, %120 ], [ %.036160.i.i, %205 ], [ null, %164 ], [ null, %160 ], [ null, %189 ], [ null, %Py_DECREF.exit72.i.i ], [ null, %Py_DECREF.exit74.i.i ], [ %.036160.i.i, %.thread153.i.i ], [ null, %202 ], [ null, %170 ]
+  %.037109.ph.i.i = phi ptr [ null, %95 ], [ null, %120 ], [ %.037159.i.i, %205 ], [ null, %164 ], [ null, %160 ], [ %165, %189 ], [ null, %Py_DECREF.exit72.i.i ], [ null, %Py_DECREF.exit74.i.i ], [ %.037159.i.i, %.thread153.i.i ], [ %.037.i.i, %202 ], [ %165, %170 ]
+  %.1108.ph.i.i = phi ptr [ null, %95 ], [ null, %120 ], [ %.1158.i.i, %205 ], [ null, %164 ], [ %.0.i.i.i.i, %160 ], [ null, %189 ], [ null, %Py_DECREF.exit72.i.i ], [ null, %Py_DECREF.exit74.i.i ], [ %.1158.i.i, %.thread153.i.i ], [ %.1.i.i, %202 ], [ null, %170 ]
   %.pr.i.i = load ptr, ptr %6, align 8, !tbaa !4
   %.not.i85.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i85.i.i, label %Py_XDECREF.exit.i.i, label %207
@@ -5862,7 +5862,7 @@ Py_DECREF.exit.i:                                 ; preds = %133, %130, %128, %1
   br label %_io__Buffered_seek_impl.exit
 
 _io__Buffered_seek_impl.exit:                     ; preds = %165, %118, %113, %111, %77, %65, %.critedge.i, %.thread32, %32, %31, %15, %5
-  %.011 = phi ptr [ null, %5 ], [ null, %15 ], [ null, %31 ], [ null, %.thread32 ], [ null, %.critedge.i ], [ null, %32 ], [ null, %118 ], [ null, %65 ], [ %.2103.i, %165 ], [ null, %77 ], [ %112, %111 ], [ %114, %113 ]
+  %.011 = phi ptr [ null, %5 ], [ null, %15 ], [ null, %31 ], [ null, %.thread32 ], [ null, %.critedge.i ], [ null, %32 ], [ null, %118 ], [ null, %65 ], [ %.2103.i, %165 ], [ null, %77 ], [ %114, %113 ], [ %112, %111 ]
   ret ptr %.011
 }
 
@@ -7572,7 +7572,7 @@ _set_BlockingIOError.exit.thread231.i:            ; preds = %195
   br label %.thread.i
 
 .thread.i:                                        ; preds = %224, %189, %250, %223, %220, %217, %210, %180, %138, %_buffered_check_blocking_error.exit.thread.i, %buffered_closed.exit.thread.i
-  %.1168.i = phi ptr [ null, %buffered_closed.exit.thread.i ], [ %251, %250 ], [ null, %_buffered_check_blocking_error.exit.thread.i ], [ null, %180 ], [ null, %138 ], [ null, %210 ], [ null, %217 ], [ null, %220 ], [ null, %223 ], [ null, %189 ], [ null, %224 ]
+  %.1168.i = phi ptr [ null, %buffered_closed.exit.thread.i ], [ %251, %250 ], [ null, %_buffered_check_blocking_error.exit.thread.i ], [ null, %180 ], [ null, %138 ], [ null, %223 ], [ null, %210 ], [ null, %217 ], [ null, %220 ], [ null, %189 ], [ null, %224 ]
   store volatile i64 0, ptr %23, align 8, !tbaa !71
   %252 = load ptr, ptr %16, align 8, !tbaa !53
   call void @PyThread_release_lock(ptr noundef %252) #10

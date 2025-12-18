@@ -627,7 +627,7 @@ lean_obj_tag.exit122:                             ; preds = %131, %134
   br label %lean_int_dec_eq.exit
 
 lean_int_dec_eq.exit:                             ; preds = %lean_int_dec_eq.exit118, %82, %63, %lean_obj_tag.exit114, %lean_obj_tag.exit110, %lean_obj_tag.exit106, %lean_obj_tag.exit102, %127, %.critedge.i.i125, %154, %.critedge.i, %52, %.critedge.i.i, %30, %lean_obj_tag.exit122, %138, %lean_obj_tag.exit98, %lean_obj_tag.exit94
-  %.1.shrunk = phi i1 [ false, %138 ], [ false, %lean_obj_tag.exit122 ], [ %32, %.critedge.i.i ], [ false, %lean_obj_tag.exit94 ], [ false, %lean_obj_tag.exit98 ], [ %54, %.critedge.i ], [ %31, %30 ], [ %53, %52 ], [ %155, %154 ], [ %156, %.critedge.i.i125 ], [ false, %127 ], [ false, %lean_obj_tag.exit102 ], [ false, %lean_obj_tag.exit106 ], [ false, %lean_obj_tag.exit110 ], [ false, %lean_obj_tag.exit114 ], [ false, %63 ], [ false, %82 ], [ false, %lean_int_dec_eq.exit118 ]
+  %.1.shrunk = phi i1 [ %156, %.critedge.i.i125 ], [ false, %138 ], [ false, %lean_obj_tag.exit122 ], [ %155, %154 ], [ %32, %.critedge.i.i ], [ false, %lean_obj_tag.exit94 ], [ %53, %52 ], [ false, %lean_obj_tag.exit98 ], [ %31, %30 ], [ %54, %.critedge.i ], [ false, %127 ], [ false, %lean_obj_tag.exit102 ], [ false, %lean_obj_tag.exit106 ], [ false, %lean_obj_tag.exit110 ], [ false, %lean_obj_tag.exit114 ], [ false, %63 ], [ false, %82 ], [ false, %lean_int_dec_eq.exit118 ]
   %.1 = zext i1 %.1.shrunk to i8
   ret i8 %.1
 }
@@ -7220,8 +7220,8 @@ lean_dec.exit423:                                 ; preds = %900, %899, %897, %l
   br i1 %.not746, label %901, label %lean_dec.exit435.backedge
 
 lean_dec.exit435.backedge:                        ; preds = %lean_dec.exit423, %904, %906, %907, %lean_dec.exit430, %670, %672, %673, %lean_dec.exit436, %538, %540, %541
-  %.0386.be = phi ptr [ %447, %lean_dec.exit436 ], [ %447, %lean_dec.exit430 ], [ %447, %541 ], [ %447, %540 ], [ %447, %538 ], [ %447, %673 ], [ %447, %672 ], [ %447, %670 ], [ %733, %907 ], [ %733, %906 ], [ %733, %904 ], [ %733, %lean_dec.exit423 ]
-  %.0375.be = phi ptr [ %441, %lean_dec.exit436 ], [ %441, %lean_dec.exit430 ], [ %441, %541 ], [ %441, %540 ], [ %441, %538 ], [ %441, %673 ], [ %441, %672 ], [ %441, %670 ], [ %680, %907 ], [ %680, %906 ], [ %680, %904 ], [ %680, %lean_dec.exit423 ]
+  %.0386.be = phi ptr [ %733, %lean_dec.exit423 ], [ %733, %904 ], [ %733, %906 ], [ %733, %907 ], [ %447, %670 ], [ %447, %672 ], [ %447, %673 ], [ %447, %538 ], [ %447, %540 ], [ %447, %lean_dec.exit436 ], [ %447, %lean_dec.exit430 ], [ %447, %541 ]
+  %.0375.be = phi ptr [ %680, %lean_dec.exit423 ], [ %680, %904 ], [ %680, %906 ], [ %680, %907 ], [ %441, %670 ], [ %441, %672 ], [ %441, %673 ], [ %441, %538 ], [ %441, %540 ], [ %441, %lean_dec.exit436 ], [ %441, %lean_dec.exit430 ], [ %441, %541 ]
   br label %lean_dec.exit435
 
 901:                                              ; preds = %lean_dec.exit423
@@ -9089,7 +9089,7 @@ lean_obj_tag.exit:                                ; preds = %70, %73
   br i1 %76, label %.split42.us, label %114
 
 .split42.us:                                      ; preds = %lean_obj_tag.exit, %lean_obj_tag.exit.us46, %lean_obj_tag.exit.us
-  %.us-phi = phi ptr [ %.020.us43, %lean_obj_tag.exit.us46 ], [ %.020.us, %lean_obj_tag.exit.us ], [ %.020, %lean_obj_tag.exit ]
+  %.us-phi = phi ptr [ %.020.us, %lean_obj_tag.exit.us ], [ %.020.us43, %lean_obj_tag.exit.us46 ], [ %.020, %lean_obj_tag.exit ]
   %77 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = ptrtoint ptr %78 to i64
@@ -9248,7 +9248,7 @@ lean_dec.exit:                                    ; preds = %150, %149, %147, %l
   br i1 %.0.i.i36, label %.split.split, label %lean_dec.exit22
 
 lean_dec.exit22:                                  ; preds = %lean_dec.exit, %lean_dec.exit.us58, %lean_dec.exit.us, %lean_int_dec_eq.exit, %110, %112, %113
-  %.1.shrunk = phi i1 [ %.0.i.i, %113 ], [ %.0.i.i, %112 ], [ %.0.i.i, %110 ], [ %.0.i.i, %lean_int_dec_eq.exit ], [ false, %lean_dec.exit.us58 ], [ false, %lean_dec.exit.us ], [ false, %lean_dec.exit ]
+  %.1.shrunk = phi i1 [ %.0.i.i, %lean_int_dec_eq.exit ], [ %.0.i.i, %113 ], [ %.0.i.i, %112 ], [ %.0.i.i, %110 ], [ false, %lean_dec.exit.us58 ], [ false, %lean_dec.exit.us ], [ false, %lean_dec.exit ]
   %.1 = zext i1 %.1.shrunk to i8
   ret i8 %.1
 }

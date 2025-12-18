@@ -1008,7 +1008,7 @@ topology_p_topology_free.exit:                    ; preds = %89, %103
   br label %.loopexit
 
 .loopexit:                                        ; preds = %82, %23, %.thread116, %.thread, %62, %20, %topology_p_topology_free.exit
-  %.0 = phi i32 [ -1, %topology_p_topology_free.exit ], [ 0, %20 ], [ 0, %62 ], [ 0, %.thread116 ], [ 0, %.thread ], [ 0, %23 ], [ 0, %82 ]
+  %.0 = phi i32 [ -1, %topology_p_topology_free.exit ], [ 0, %20 ], [ 0, %62 ], [ 0, %.thread116 ], [ 0, %23 ], [ 0, %.thread ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -1126,7 +1126,7 @@ define dso_local i32 @topology_p_get_fragmentation(ptr noundef %0) local_unnamed
   br i1 %exitcond51.not, label %.loopexit, label %29, !llvm.loop !25
 
 .loopexit:                                        ; preds = %28, %36, %.preheader32, %.preheader
-  %.3 = phi i32 [ %.02738, %.preheader ], [ %.02738, %.preheader32 ], [ %.2, %36 ], [ %.02738, %28 ]
+  %.3 = phi i32 [ %.02738, %.preheader32 ], [ %.02738, %.preheader ], [ %.2, %36 ], [ %.02738, %28 ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %37 = sext i32 %.pre57 to i64
   %38 = icmp slt i64 %indvars.iv.next53, %37

@@ -2372,7 +2372,7 @@ define dso_local noundef ptr @_Z16find_blk_for_varPK8Variable(ptr noundef %0) lo
   br i1 %44, label %.lr.ph31, label %.thread, !llvm.loop !98
 
 .thread:                                          ; preds = %._crit_edge, %.lr.ph, %.preheader, %15, %1
-  %.0 = phi ptr [ null, %1 ], [ %17, %15 ], [ null, %.preheader ], [ %34, %.lr.ph ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %1 ], [ null, %.preheader ], [ %17, %15 ], [ %34, %.lr.ph ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -2568,7 +2568,7 @@ _ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit: ; preds = %.lr.ph
   br i1 %.not.not.not, label %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.thread, label %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit
 
 _ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.thread: ; preds = %.lr.ph.i.i, %30, %.lr.ph, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.preheader, %3
-  %.1 = phi i1 [ false, %3 ], [ false, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.preheader ], [ false, %30 ], [ %.not.not.not, %.lr.ph ], [ %.not.not.not, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit ], [ false, %.lr.ph.i.i ]
+  %.1 = phi i1 [ false, %30 ], [ false, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.preheader ], [ false, %3 ], [ %.not.not.not, %.lr.ph ], [ %.not.not.not, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit ], [ false, %.lr.ph.i.i ]
   ret i1 %.1
 }
 

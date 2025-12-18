@@ -430,8 +430,8 @@ _ZN3std2io4Read8read_buf17hdd3162208d364977E.exit.thread.i.i: ; preds = %._crit_
   br label %.loopexit.split-lp
 
 .loopexit31:                                      ; preds = %.noexc15, %82, %84, %88, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit.i.i, %.loopexit.split.loop.exit99.i.i, %.loopexit124.i.i, %54, %35, %.noexc
-  %.sroa.8.1.i.i = phi i64 [ 0, %35 ], [ %33, %.noexc ], [ %56, %54 ], [ %108, %.loopexit124.i.i ], [ %115, %.loopexit.split.loop.exit99.i.i ], [ %80, %82 ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit.i.i ], [ %80, %88 ], [ %80, %84 ], [ 163208757251, %.noexc15 ]
-  %.sroa.0.1.i.i = phi i64 [ 0, %35 ], [ %31, %.noexc ], [ 0, %54 ], [ 0, %.loopexit124.i.i ], [ 1, %.loopexit.split.loop.exit99.i.i ], [ 1, %82 ], [ 1, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit.i.i ], [ 1, %88 ], [ 1, %84 ], [ 1, %.noexc15 ]
+  %.sroa.8.1.i.i = phi i64 [ 0, %35 ], [ %33, %.noexc ], [ %56, %54 ], [ %108, %.loopexit124.i.i ], [ %80, %82 ], [ %115, %.loopexit.split.loop.exit99.i.i ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit.i.i ], [ %80, %88 ], [ %80, %84 ], [ 163208757251, %.noexc15 ]
+  %.sroa.0.1.i.i = phi i64 [ 0, %35 ], [ %31, %.noexc ], [ 0, %54 ], [ 0, %.loopexit124.i.i ], [ 1, %82 ], [ 1, %.loopexit.split.loop.exit99.i.i ], [ 1, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit.i.i ], [ 1, %88 ], [ 1, %84 ], [ 1, %.noexc15 ]
   %116 = inttoptr i64 %.sroa.8.1.i.i to ptr
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %118 = load ptr, ptr %117, align 8, !nonnull !3, !noundef !3

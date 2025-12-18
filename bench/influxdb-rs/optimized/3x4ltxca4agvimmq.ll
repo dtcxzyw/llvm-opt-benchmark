@@ -10471,7 +10471,7 @@ define hidden void @"_ZN87_$LT$influxdb3_write..catalog..TableDefinitionVisitor$
   br label %.thread200
 
 .thread207.loopexit.split-lp:                     ; preds = %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread, %153, %89
-  %.1.ph.ph = phi i8 [ 0, %153 ], [ 1, %89 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread ]
+  %.1.ph.ph = phi i8 [ 1, %89 ], [ 0, %153 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread200
@@ -10645,8 +10645,8 @@ _ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread.loopexit: ; p
           to label %146 unwind label %.thread207.loopexit
 
 _ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread: ; preds = %.noexc152, %.noexc153, %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread.loopexit, %_ZN5serde2de9MapAccess10next_value17h64bd0e25f3e5a60fE.exit.thread, %.loopexit262, %115, %93, %.loopexit430
-  %.sink = phi ptr [ %116, %115 ], [ %94, %93 ], [ %113, %.loopexit430 ], [ %135, %.loopexit262 ], [ %.1.i.ph.i.i172, %_ZN5serde2de9MapAccess10next_value17h64bd0e25f3e5a60fE.exit.thread ], [ %72, %.noexc153 ], [ %70, %.noexc152 ], [ %75, %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread.loopexit ]
-  %85 = phi i64 [ %45, %115 ], [ 1, %93 ], [ 0, %.loopexit430 ], [ %45, %.loopexit262 ], [ %45, %_ZN5serde2de9MapAccess10next_value17h64bd0e25f3e5a60fE.exit.thread ], [ %45, %.noexc153 ], [ %45, %.noexc152 ], [ %45, %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread.loopexit ]
+  %.sink = phi ptr [ %116, %115 ], [ %94, %93 ], [ %113, %.loopexit430 ], [ %135, %.loopexit262 ], [ %.1.i.ph.i.i172, %_ZN5serde2de9MapAccess10next_value17h64bd0e25f3e5a60fE.exit.thread ], [ %70, %.noexc152 ], [ %72, %.noexc153 ], [ %75, %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread.loopexit ]
+  %85 = phi i64 [ %45, %115 ], [ 1, %93 ], [ 0, %.loopexit430 ], [ %45, %.loopexit262 ], [ %45, %_ZN5serde2de9MapAccess10next_value17h64bd0e25f3e5a60fE.exit.thread ], [ %45, %.noexc152 ], [ %45, %.noexc153 ], [ %45, %_ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.thread.loopexit ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %86, align 8
   store ptr null, ptr %0, align 8

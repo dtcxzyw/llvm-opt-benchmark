@@ -9532,8 +9532,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit508:             ; preds = %1267, %1272, %1279
   br label %.body504
 
 1288:                                             ; preds = %1190, %1207, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit508
-  %1289 = phi ptr [ %.pre4735, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit508 ], [ %1208, %1207 ], [ %1193, %1190 ]
-  %.2314 = phi ptr [ %1266, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit508 ], [ %1128, %1207 ], [ %1128, %1190 ]
+  %1289 = phi ptr [ %.pre4735, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit508 ], [ %1193, %1190 ], [ %1208, %1207 ]
+  %.2314 = phi ptr [ %1266, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit508 ], [ %1128, %1190 ], [ %1128, %1207 ]
   %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 88
   %1291 = load i32, ptr %1290, align 4, !tbaa !128
   %.not.i.i509 = icmp eq i32 %1291, 0

@@ -1979,8 +1979,8 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit:        ; preds = %681
   br label %.loopexit592
 
 .loopexit592:                                     ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit352, %668, %698
-  %.0548 = phi ptr [ %659, %668 ], [ %674, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit352 ], [ %683, %698 ], [ %646, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %646, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
-  %.0546 = phi i32 [ %.sroa.speculated, %668 ], [ 2, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit352 ], [ %699, %698 ], [ %644, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %644, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
+  %.0548 = phi ptr [ %683, %698 ], [ %659, %668 ], [ %674, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit352 ], [ %646, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %646, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
+  %.0546 = phi i32 [ %699, %698 ], [ %.sroa.speculated, %668 ], [ 2, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit352 ], [ %644, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %644, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
   %700 = sext i32 %.0546 to i64
   %701 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.111, i32 noundef 1510, i64 noundef range(i64 -2147483648, 2147483648) %700, i64 noundef 4)
           to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit355.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2838,7 +2838,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit414.i:     ; preds = %_ZNSt10filesystem7_
   br i1 %exitcond664.not.i, label %._crit_edge575.i, label %.preheader539.i, !llvm.loop !97
 
 ._crit_edge575.i:                                 ; preds = %.split.i, %.split.us.us.i, %.preheader540.i
-  %.pre.i553 = phi ptr [ %.pre.i, %.preheader540.i ], [ %.pre.i, %.split.us.us.i ], [ %.pre.i552958, %.split.i ]
+  %.pre.i553 = phi ptr [ %.pre.i, %.split.us.us.i ], [ %.pre.i, %.preheader540.i ], [ %.pre.i552958, %.split.i ]
   %1037 = load float, ptr %24, align 4, !tbaa !39
   %1038 = invoke noundef i32 @_Z9write_trxP11t_trxstatusiPKiPK7t_atomsifPA3_fS7_S7_P12gmx_conect_t(ptr noundef %.0356.i, i32 noundef %854, ptr noundef %855, ptr noundef nonnull %.0207, i32 noundef 0, float noundef %1037, ptr noundef nonnull %22, ptr noundef %.pre.i553, ptr noundef null, ptr noundef null)
           to label %.noexc393 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4601,7 +4601,7 @@ _ZL7projectPKcPK10t_topology7PbcTypePA3_fS0_S0_S0_S0_S0_iS0_bfiPK7t_atomsiPibS6_
   br i1 %exitcond215.not.i, label %._crit_edge.i427, label %.lr.ph185.split.split.i, !llvm.loop !138
 
 ._crit_edge.i427:                                 ; preds = %.noexc449, %.noexc448, %._crit_edge170.us.i, %.noexc446
-  %.080.lcssa.i = phi float [ 0.000000e+00, %.noexc446 ], [ 0.000000e+00, %.noexc448 ], [ %.us-phi.us.i, %._crit_edge170.us.i ], [ 0.000000e+00, %.noexc449 ]
+  %.080.lcssa.i = phi float [ 0.000000e+00, %.noexc446 ], [ %.us-phi.us.i, %._crit_edge170.us.i ], [ 0.000000e+00, %.noexc448 ], [ 0.000000e+00, %.noexc449 ]
   %1755 = load ptr, ptr @stderr, align 8, !tbaa !31
   %fputc.i428 = call i32 @fputc(i32 10, ptr %1755)
   store i32 41, ptr %5, align 4, !tbaa !4
@@ -6234,8 +6234,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br i1 %exitcond226.not, label %.loopexit, label %.preheader186.us, !llvm.loop !163
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge.us, %53, %45
-  %.2169 = phi float [ %48, %45 ], [ %57, %53 ], [ %.5172.us, %._crit_edge.us ], [ %.1168, %.lr.ph ]
-  %.2166 = phi float [ %48, %45 ], [ %57, %53 ], [ %.5.us, %._crit_edge.us ], [ %.1165, %.lr.ph ]
+  %.2169 = phi float [ %57, %53 ], [ %.5172.us, %._crit_edge.us ], [ %48, %45 ], [ %.1168, %.lr.ph ]
+  %.2166 = phi float [ %57, %53 ], [ %.5.us, %._crit_edge.us ], [ %48, %45 ], [ %.1165, %.lr.ph ]
   br i1 %12, label %71, label %65
 
 65:                                               ; preds = %.loopexit

@@ -1648,9 +1648,9 @@ _ZN15FieldStreamBase4nextEv.exit.i.i:             ; preds = %135, %_ZN17Filtered
   br i1 %.not.i1.i, label %114, label %_ZN23FilteredJavaFieldStream4nextEv.exit, !llvm.loop !14
 
 _ZN23FilteredJavaFieldStream4nextEv.exit:         ; preds = %114, %_ZN15FieldStreamBase4nextEv.exit.i.i, %133, %_ZN15FieldStreamBase4nextEv.exit.i
-  %.pre3236 = phi i32 [ %.pre32, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %.pre3239, %133 ], [ %.pre3239, %114 ], [ %.pre3238, %_ZN15FieldStreamBase4nextEv.exit.i.i ]
-  %139 = phi i32 [ %.pre32, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %115, %133 ], [ %115, %114 ], [ %136, %_ZN15FieldStreamBase4nextEv.exit.i.i ]
-  %140 = phi i32 [ %.pre31, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %117, %133 ], [ %117, %114 ], [ %137, %_ZN15FieldStreamBase4nextEv.exit.i.i ]
+  %.pre3236 = phi i32 [ %.pre32, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %.pre3239, %133 ], [ %.pre3238, %_ZN15FieldStreamBase4nextEv.exit.i.i ], [ %.pre3239, %114 ]
+  %139 = phi i32 [ %.pre32, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %115, %133 ], [ %136, %_ZN15FieldStreamBase4nextEv.exit.i.i ], [ %115, %114 ]
+  %140 = phi i32 [ %.pre31, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %117, %133 ], [ %137, %_ZN15FieldStreamBase4nextEv.exit.i.i ], [ %117, %114 ]
   %141 = add nsw i32 %.124, 1
   %.not17 = icmp slt i32 %140, %139
   br i1 %.not17, label %69, label %._crit_edge27, !llvm.loop !16
@@ -2080,9 +2080,9 @@ _ZN15FieldStreamBase4nextEv.exit.i.i:             ; preds = %211, %_ZN17Filtered
   br i1 %.not.i1.i, label %190, label %_ZN23FilteredJavaFieldStream4nextEv.exit, !llvm.loop !14
 
 _ZN23FilteredJavaFieldStream4nextEv.exit:         ; preds = %190, %_ZN15FieldStreamBase4nextEv.exit.i.i, %209, %_ZN15FieldStreamBase4nextEv.exit.i
-  %.pre5862 = phi i32 [ %.pre58, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %.pre5865, %209 ], [ %.pre5865, %190 ], [ %.pre5864, %_ZN15FieldStreamBase4nextEv.exit.i.i ]
-  %215 = phi i32 [ %.pre58, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %191, %209 ], [ %191, %190 ], [ %212, %_ZN15FieldStreamBase4nextEv.exit.i.i ]
-  %216 = phi i32 [ %.pre57, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %193, %209 ], [ %193, %190 ], [ %213, %_ZN15FieldStreamBase4nextEv.exit.i.i ]
+  %.pre5862 = phi i32 [ %.pre58, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %.pre5865, %209 ], [ %.pre5864, %_ZN15FieldStreamBase4nextEv.exit.i.i ], [ %.pre5865, %190 ]
+  %215 = phi i32 [ %.pre58, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %191, %209 ], [ %212, %_ZN15FieldStreamBase4nextEv.exit.i.i ], [ %191, %190 ]
+  %216 = phi i32 [ %.pre57, %_ZN15FieldStreamBase4nextEv.exit.i ], [ %193, %209 ], [ %213, %_ZN15FieldStreamBase4nextEv.exit.i.i ], [ %193, %190 ]
   %217 = add nuw nsw i32 %.045, 1
   %.not36 = icmp slt i32 %216, %215
   br i1 %.not36, label %.lr.ph46, label %._crit_edge, !llvm.loop !20
@@ -11168,7 +11168,7 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split: ; preds = %_Z
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split, %161, %109, %159, %152
-  %.1 = phi i1 [ true, %159 ], [ false, %152 ], [ true, %109 ], [ true, %161 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split ]
+  %.1 = phi i1 [ true, %159 ], [ false, %152 ], [ true, %161 ], [ true, %109 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit33.sink.split ]
   %194 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11639,7 +11639,7 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split: ; preds = %_Z
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split, %173, %116, %171, %164
-  %.1 = phi i1 [ true, %171 ], [ false, %164 ], [ true, %116 ], [ true, %173 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split ]
+  %.1 = phi i1 [ true, %171 ], [ false, %164 ], [ true, %173 ], [ true, %116 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split ]
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -11887,7 +11887,7 @@ _ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43: ; p
   br i1 %.not.i, label %_ZN17StackRefCollector14process_framesEP6vframe.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZN17StackRefCollector14process_framesEP6vframe.exit: ; preds = %.lr.ph, %111, %.lr.ph.i, %109, %106, %82, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit40
-  %.1 = phi i1 [ false, %106 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit40 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43 ], [ false, %82 ], [ true, %109 ], [ %110, %111 ], [ %110, %.lr.ph.i ], [ false, %.lr.ph ]
+  %.1 = phi i1 [ false, %106 ], [ %110, %111 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit40 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43 ], [ false, %82 ], [ true, %109 ], [ %110, %.lr.ph.i ], [ false, %.lr.ph ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #14
   %115 = load ptr, ptr %61, align 8
   %.not.i.i.i.i = icmp eq ptr %115, null
@@ -12810,7 +12810,7 @@ _ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %_ZN15CallbackInvoker30report_constant_pool_referenceEP7oopDescS1_i.exit, %174, %_ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit, %.loopexit.sink.split, %69, %61, %51, %37, %2, %_ZN15CallbackInvoker24report_signers_referenceEP7oopDescS1_.exit, %_ZN15CallbackInvoker34report_protection_domain_referenceEP7oopDescS1_.exit, %_ZN15CallbackInvoker29report_class_loader_referenceEP7oopDescS1_.exit, %_ZN15CallbackInvoker27report_superclass_referenceEP7oopDescS1_.exit, %9
-  %.0 = phi i1 [ false, %_ZN15CallbackInvoker24report_signers_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker34report_protection_domain_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker29report_class_loader_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker27report_superclass_referenceEP7oopDescS1_.exit ], [ true, %9 ], [ true, %2 ], [ false, %37 ], [ false, %51 ], [ false, %61 ], [ false, %69 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %174 ], [ false, %_ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker30report_constant_pool_referenceEP7oopDescS1_i.exit ], [ false, %150 ]
+  %.0 = phi i1 [ false, %_ZN15CallbackInvoker24report_signers_referenceEP7oopDescS1_.exit ], [ %.0.ph, %.loopexit.sink.split ], [ false, %61 ], [ false, %174 ], [ false, %51 ], [ false, %_ZN15CallbackInvoker34report_protection_domain_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker29report_class_loader_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker27report_superclass_referenceEP7oopDescS1_.exit ], [ true, %9 ], [ false, %69 ], [ true, %2 ], [ false, %37 ], [ false, %_ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker30report_constant_pool_referenceEP7oopDescS1_i.exit ], [ false, %150 ]
   ret i1 %.0
 }
 
@@ -13151,7 +13151,7 @@ _ZNK7oopDesc5klassEv.exit32:                      ; preds = %78, %86
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %60, %_ZN15CallbackInvoker22report_field_referenceEP7oopDescS1_i.exit, %27, %90, %_ZN15CallbackInvoker22report_class_referenceEP7oopDescS1_.exit, %92
-  %.0 = phi i1 [ false, %_ZN15CallbackInvoker22report_class_referenceEP7oopDescS1_.exit ], [ true, %92 ], [ false, %90 ], [ false, %27 ], [ false, %_ZN15CallbackInvoker22report_field_referenceEP7oopDescS1_i.exit ], [ false, %60 ], [ false, %54 ]
+  %.0 = phi i1 [ false, %27 ], [ false, %_ZN15CallbackInvoker22report_class_referenceEP7oopDescS1_.exit ], [ true, %92 ], [ false, %90 ], [ false, %_ZN15CallbackInvoker22report_field_referenceEP7oopDescS1_i.exit ], [ false, %60 ], [ false, %54 ]
   ret i1 %.0
 }
 
@@ -13983,7 +13983,7 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split: ; preds = %_Z
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split, %210, %153, %208, %196
-  %.1 = phi i1 [ true, %208 ], [ false, %196 ], [ true, %153 ], [ true, %210 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split ]
+  %.1 = phi i1 [ true, %208 ], [ false, %196 ], [ true, %210 ], [ true, %153 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit39.sink.split ]
   %243 = load i8, ptr %98, align 8
   %244 = trunc i8 %243 to i1
   br i1 %244, label %_ZN15CallbackWrapper24post_callback_tag_updateEP7oopDescP16JvmtiTagMapTablel.exit.i, label %245

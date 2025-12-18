@@ -445,8 +445,8 @@ mmbit_sparse_iter_begin.exit:                     ; preds = %mmbit_mask_index.ex
   %.not89.i951 = icmp eq i32 %221, -1
   br i1 %.not89.i951, label %._crit_edge955, label %.lr.ph954
 
-.lr.ph954:                                        ; preds = %146, %195, %mmbit_sparse_iter_begin.exit
-  %.0.i1691465 = phi i32 [ %221, %mmbit_sparse_iter_begin.exit ], [ %148, %146 ], [ %200, %195 ]
+.lr.ph954:                                        ; preds = %195, %146, %mmbit_sparse_iter_begin.exit
+  %.0.i1691465 = phi i32 [ %221, %mmbit_sparse_iter_begin.exit ], [ %200, %195 ], [ %148, %146 ]
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -1199,7 +1199,7 @@ mmbit_sparse_iter_next.exit.loopexit845:          ; preds = %617, %.lr.ph944.mmb
   br label %._crit_edge955
 
 mmbit_sparse_iter_next.exit:                      ; preds = %mmbit_mask_index.exit.i.i, %599, %613
-  %.0.i174 = phi i32 [ %616, %613 ], [ %601, %599 ], [ %683, %mmbit_mask_index.exit.i.i ]
+  %.0.i174 = phi i32 [ %601, %599 ], [ %616, %613 ], [ %683, %mmbit_mask_index.exit.i.i ]
   %.not89.i = icmp eq i32 %.0.i174, -1
   br i1 %.not89.i, label %._crit_edge955, label %288
 
@@ -2209,9 +2209,9 @@ mmbit_iterate.exit315:                            ; preds = %1236, %1175
   %.not19.i978 = icmp eq i32 %.011.i314, -1
   br i1 %.not19.i978, label %roseSaveNfaStreamState.exit, label %.lr.ph980
 
-.lr.ph980:                                        ; preds = %1212, %1168, %mmbit_iterate.exit315
-  %.011.i3141486 = phi i32 [ %.011.i314, %mmbit_iterate.exit315 ], [ %1215, %1212 ], [ %1170, %1168 ]
-  %1249 = phi i32 [ %1248, %mmbit_iterate.exit315 ], [ %1138, %1212 ], [ %1138, %1168 ]
+.lr.ph980:                                        ; preds = %1168, %1212, %mmbit_iterate.exit315
+  %.011.i3141486 = phi i32 [ %.011.i314, %mmbit_iterate.exit315 ], [ %1170, %1168 ], [ %1215, %1212 ]
+  %1249 = phi i32 [ %1248, %mmbit_iterate.exit315 ], [ %1138, %1168 ], [ %1138, %1212 ]
   %1250 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %1251 = icmp ugt i32 %1107, 256
   %1252 = zext nneg i32 %1107 to i64
@@ -2528,7 +2528,7 @@ mmbit_get_flat_block.exit.i330:                   ; preds = %1390, %1382, %1379,
   br label %.backedge
 
 mmbit_iterate.exit:                               ; preds = %1420, %1307, %.thread627, %1360, %1397
-  %.011.i = phi i32 [ %1309, %1307 ], [ %1365, %1360 ], [ %1352, %.thread627 ], [ %1400, %1397 ], [ %1424, %1420 ]
+  %.011.i = phi i32 [ %1365, %1360 ], [ %1400, %1397 ], [ %1352, %.thread627 ], [ %1309, %1307 ], [ %1424, %1420 ]
   %.not19.i = icmp eq i32 %.011.i, -1
   br i1 %.not19.i, label %roseSaveNfaStreamState.exit, label %1270
 
@@ -2808,8 +2808,8 @@ mmbit_sparse_iter_begin.exit.i:                   ; preds = %mmbit_mask_index.ex
   %.not27.i2611039 = icmp eq i32 %1551, -1
   br i1 %.not27.i2611039, label %._crit_edge1043, label %.lr.ph1042
 
-.lr.ph1042:                                       ; preds = %1476, %1525, %mmbit_sparse_iter_begin.exit.i
-  %.0.i.i2591495 = phi i32 [ %1551, %mmbit_sparse_iter_begin.exit.i ], [ %1478, %1476 ], [ %1530, %1525 ]
+.lr.ph1042:                                       ; preds = %1525, %1476, %mmbit_sparse_iter_begin.exit.i
+  %.0.i.i2591495 = phi i32 [ %1551, %mmbit_sparse_iter_begin.exit.i ], [ %1530, %1525 ], [ %1478, %1476 ]
   %1592 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %1593 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %1594 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -3906,7 +3906,7 @@ infixTooOld.exit:                                 ; preds = %2194
   br i1 %exitcond1267.not, label %._crit_edge1015, label %.lr.ph1014
 
 ._crit_edge1015:                                  ; preds = %2256, %.lr.ph1014, %.loopexit
-  %2265 = phi i32 [ 1, %.loopexit ], [ %2263, %.lr.ph1014 ], [ 1, %2256 ]
+  %2265 = phi i32 [ %2263, %.lr.ph1014 ], [ 1, %.loopexit ], [ 1, %2256 ]
   br i1 %.not60.i407, label %reduceInfixQueue.exit, label %2266
 
 2266:                                             ; preds = %._crit_edge1015
@@ -3992,7 +3992,7 @@ roseCatchUpLeftfix.exit:                          ; preds = %1859, %1855
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mmbit_unset.exit.i267
 
-roseCatchUpLeftfix.exit.thread734:                ; preds = %reduceInfixQueue.exit, %infixTooOld.exit, %roseCatchUpLeftfix.exit.thread737
+roseCatchUpLeftfix.exit.thread734:                ; preds = %infixTooOld.exit, %reduceInfixQueue.exit, %roseCatchUpLeftfix.exit.thread737
   %2313 = getelementptr inbounds nuw i8, ptr %1617, i64 24
   %2314 = load i64, ptr %2313, align 8
   %2315 = load i64, ptr %75, align 8
@@ -4314,7 +4314,7 @@ mmbit_sparse_iter_next.exit.i.loopexit839:        ; preds = %2390, %.lr.ph1030.m
   br label %._crit_edge1043
 
 mmbit_sparse_iter_next.exit.i:                    ; preds = %mmbit_mask_index.exit.i.i.i, %2372, %2386
-  %.0.i31.i = phi i32 [ %2389, %2386 ], [ %2374, %2372 ], [ %2455, %mmbit_mask_index.exit.i.i.i ]
+  %.0.i31.i = phi i32 [ %2374, %2372 ], [ %2389, %2386 ], [ %2455, %mmbit_mask_index.exit.i.i.i ]
   %.not27.i261 = icmp eq i32 %.0.i31.i, -1
   br i1 %.not27.i261, label %._crit_edge1043, label %1615
 
@@ -5729,7 +5729,7 @@ checkHashTable.exit:                              ; preds = %cmpForward.exit.thr
   store i8 %3293, ptr %3256, align 1
   br label %ensureStreamNeatAndTidy.exit
 
-ensureStreamNeatAndTidy.exit:                     ; preds = %1041, %1094, %roseCatchUpTo.exit, %3292, %3290, %3285, %3283, %3278, %3273, %3265, %3264, %3252, %partial_store_u64a.exit460, %995
+ensureStreamNeatAndTidy.exit:                     ; preds = %1094, %1041, %roseCatchUpTo.exit, %3292, %3290, %3285, %3283, %3278, %3273, %3265, %3264, %3252, %partial_store_u64a.exit460, %995
   %3294 = load i8, ptr %997, align 8
   %3295 = and i8 %3294, 1
   %.not142 = icmp eq i8 %3295, 0

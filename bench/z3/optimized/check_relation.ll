@@ -10520,7 +10520,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %_ZN6vectorIP4sortLb
   br i1 %exitcond.not.i, label %_ZN6vectorIP4sortLb0EjE7reverseEv.exit, label %.lr.ph.i, !llvm.loop !408
 
 _ZN6vectorIP4sortLb0EjE7reverseEv.exit:           ; preds = %.lr.ph.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit62, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %.ph = phi ptr [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit62 ], [ %.pr, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ], [ %.pr, %.lr.ph.i ]
+  %.ph = phi ptr [ %.pr, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit62 ], [ %.pr, %.lr.ph.i ]
   %.pr152 = load ptr, ptr %17, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !395
@@ -11843,7 +11843,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4sortLb
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit, %_ZN6vectorIP4sortLb0EjE5resetEv.exit, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %14 = phi ptr [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
+  %14 = phi ptr [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
   %15 = load ptr, ptr %1, align 8, !tbaa !10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %._crit_edge24, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit16

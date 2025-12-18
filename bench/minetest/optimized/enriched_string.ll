@@ -1043,7 +1043,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit216: ; preds = %eh
   resume { ptr, i32 } %.pn135.pn.pn
 
 while.end95:                                      ; preds = %cleanup91, %if.end, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backERKS2_.exit, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE7reserveEm.exit
-  %use_default.0.ph262 = phi i8 [ %frombool, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE7reserveEm.exit ], [ %use_default.0.ph272, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backERKS2_.exit ], [ %use_default.0.ph272, %if.end ], [ %use_default.2, %cleanup91 ]
+  %use_default.0.ph262 = phi i8 [ %frombool, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE7reserveEm.exit ], [ %use_default.0.ph272, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backERKS2_.exit ], [ %use_default.2, %cleanup91 ], [ %use_default.0.ph272, %if.end ]
   %tobool96.not = icmp eq i8 %use_default.0.ph262, 0
   br i1 %tobool96.not, label %if.end101, label %if.then97
 

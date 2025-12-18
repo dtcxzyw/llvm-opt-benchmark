@@ -755,7 +755,7 @@ check_retval.exit99:                              ; preds = %37
   br i1 %exitcond125.not, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %check_retval.exit99, %122, %check_retval.exit99.thread, %check_retval.exit
-  %.0 = phi i32 [ 1, %check_retval.exit ], [ 1, %check_retval.exit99.thread ], [ 1, %122 ], [ 0, %check_retval.exit99 ]
+  %.0 = phi i32 [ 1, %122 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit99.thread ], [ 0, %check_retval.exit99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)

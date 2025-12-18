@@ -795,8 +795,8 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %110, %117
-  %341 = phi ptr [ %100, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %100, %117 ], [ %100, %110 ], [ %.pre, %.loopexit.loopexit ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.043, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %.sroa.6.043, %117 ], [ %.sroa.6.043, %110 ], [ %337, %.loopexit.loopexit ]
+  %341 = phi ptr [ %100, %110 ], [ %100, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %100, %117 ], [ %.pre, %.loopexit.loopexit ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.043, %110 ], [ %.sroa.6.043, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %.sroa.6.043, %117 ], [ %337, %.loopexit.loopexit ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 640
   %343 = load i32, ptr %342, align 8, !tbaa !72

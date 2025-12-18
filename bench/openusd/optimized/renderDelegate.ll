@@ -651,7 +651,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRenderDelegate16SetRenderS
   br i1 %.not.i, label %.sink.split, label %.sink.split.sink.split
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit: ; preds = %41, %12, %30
-  %.sroa.06.1.i.i = phi ptr [ %31, %30 ], [ %.sroa.06.0.i.i, %12 ], [ %49, %41 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %12 ], [ %31, %30 ], [ %49, %41 ]
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 24
   %57 = load ptr, ptr %56, align 8
@@ -807,7 +807,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16HdRenderDelegate16GetRender
   br label %.loopexit, !llvm.loop !9
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit: ; preds = %39, %11, %28
-  %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %11 ], [ %47, %39 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %29, %28 ], [ %47, %39 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %53, align 8

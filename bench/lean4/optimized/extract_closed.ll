@@ -9202,7 +9202,7 @@ _ZN4lean4expraSERKS0_.exit100:                    ; preds = %_ZN4lean3incEP11lea
   unreachable
 
 _ZN4lean10object_refD2Ev.exit83:                  ; preds = %_ZN4lean10object_refD2Ev.exit92, %403, %343, %342, %340, %332, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit, %_ZN4lean8optionalINS_4exprEED2Ev.exit
-  %.1112 = phi i8 [ %.0111182, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ %.2186, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit ], [ %spec.select, %403 ], [ %333, %332 ], [ %333, %340 ], [ %333, %342 ], [ %333, %343 ], [ 0, %_ZN4lean10object_refD2Ev.exit92 ]
+  %.1112 = phi i8 [ %.0111182, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ %.2186, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit ], [ %spec.select, %403 ], [ %333, %343 ], [ %333, %332 ], [ %333, %340 ], [ %333, %342 ], [ 0, %_ZN4lean10object_refD2Ev.exit92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
   call void @llvm.experimental.noalias.scope.decl(metadata !260)

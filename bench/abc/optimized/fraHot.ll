@@ -707,10 +707,10 @@ Fra_OneHotNodesAreClause.exit114.sink.split:      ; preds = %Fra_OneHotNodesAreC
   br label %Fra_OneHotNodesAreClause.exit114
 
 Fra_OneHotNodesAreClause.exit114:                 ; preds = %62, %69, %.lr.ph44.i, %Fra_OneHotNodesAreClause.exit114.sink.split, %.lr.ph.split
-  %.pre.i85194 = phi ptr [ %.pre.i85193, %.lr.ph.split ], [ %.pre.i85194.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %.pre.i85193, %69 ], [ %.pre.i85193, %.lr.ph44.i ], [ %.pre.i85193, %62 ]
-  %.pre.i108184 = phi ptr [ %46, %.lr.ph.split ], [ %.pre.i108184.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %46, %69 ], [ %46, %.lr.ph44.i ], [ %46, %62 ]
-  %.pre.i124176 = phi ptr [ %47, %.lr.ph.split ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %47, %69 ], [ %47, %.lr.ph44.i ], [ %47, %62 ]
-  %.pre.i117172 = phi ptr [ %48, %.lr.ph.split ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %48, %69 ], [ %48, %.lr.ph44.i ], [ %48, %62 ]
+  %.pre.i85194 = phi ptr [ %.pre.i85193, %69 ], [ %.pre.i85194.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %.pre.i85193, %.lr.ph44.i ], [ %.pre.i85193, %.lr.ph.split ], [ %.pre.i85193, %62 ]
+  %.pre.i108184 = phi ptr [ %46, %69 ], [ %.pre.i108184.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %46, %.lr.ph44.i ], [ %46, %.lr.ph.split ], [ %46, %62 ]
+  %.pre.i124176 = phi ptr [ %47, %69 ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %47, %.lr.ph44.i ], [ %47, %.lr.ph.split ], [ %47, %62 ]
+  %.pre.i117172 = phi ptr [ %48, %69 ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %48, %.lr.ph44.i ], [ %48, %.lr.ph.split ], [ %48, %62 ]
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
   %227 = load ptr, ptr %1, align 8, !tbaa !21
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
@@ -723,11 +723,11 @@ Fra_OneHotNodesAreClause.exit114:                 ; preds = %62, %69, %.lr.ph44.
   br i1 %232, label %.lr.ph.split, label %.critedge2, !llvm.loop !42
 
 .critedge2:                                       ; preds = %36, %Fra_OneHotNodesAreClause.exit114, %Fra_OneHotNodeIsConst.exit.preheader, %.lr.ph153.split
-  %234 = phi ptr [ %22, %.lr.ph153.split ], [ %22, %Fra_OneHotNodeIsConst.exit.preheader ], [ %227, %Fra_OneHotNodesAreClause.exit114 ], [ %22, %36 ]
-  %.pre.i85188 = phi ptr [ %.pre.i85187, %.lr.ph153.split ], [ %.pre.i85187, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i85194, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i85187, %36 ]
-  %.pre.i108180 = phi ptr [ %.pre.i108179, %.lr.ph153.split ], [ %.pre.i108179, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i108184, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i108179, %36 ]
-  %.pre.i124174 = phi ptr [ %.pre.i124173, %.lr.ph153.split ], [ %.pre.i124173, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i124176, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i124173, %36 ]
-  %.pre.i117170 = phi ptr [ %.pre.i117169, %.lr.ph153.split ], [ %.pre.i117169, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i117172, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i117169, %36 ]
+  %234 = phi ptr [ %227, %Fra_OneHotNodesAreClause.exit114 ], [ %22, %.lr.ph153.split ], [ %22, %Fra_OneHotNodeIsConst.exit.preheader ], [ %22, %36 ]
+  %.pre.i85188 = phi ptr [ %.pre.i85194, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i85187, %.lr.ph153.split ], [ %.pre.i85187, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i85187, %36 ]
+  %.pre.i108180 = phi ptr [ %.pre.i108184, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i108179, %.lr.ph153.split ], [ %.pre.i108179, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i108179, %36 ]
+  %.pre.i124174 = phi ptr [ %.pre.i124176, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i124173, %.lr.ph153.split ], [ %.pre.i124173, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i124173, %36 ]
+  %.pre.i117170 = phi ptr [ %.pre.i117172, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i117169, %.lr.ph153.split ], [ %.pre.i117169, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i117169, %36 ]
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !37
@@ -1119,8 +1119,8 @@ Fra_OneHotNodesAreClause.exit:                    ; preds = %.lr.ph49.i, %.lr.ph
   br label %Fra_OneHotNodesAreClause.exit.thread
 
 Fra_OneHotNodesAreClause.exit.thread:             ; preds = %59, %85, %72, %54, %80, %67, %79, %Fra_OneHotNodesAreClause.exit, %13
-  %.val29 = phi i32 [ %.val2951, %13 ], [ %.val29.pre, %Fra_OneHotNodesAreClause.exit ], [ %.val2951, %79 ], [ %.val2951, %67 ], [ %.val2951, %80 ], [ %.val2951, %54 ], [ %.val2951, %85 ], [ %.val2951, %72 ], [ %.val2951, %59 ]
-  %.1 = phi i32 [ %.02744, %13 ], [ 1, %Fra_OneHotNodesAreClause.exit ], [ %.02744, %79 ], [ %.02744, %67 ], [ %.02744, %80 ], [ %.02744, %54 ], [ %.02744, %85 ], [ %.02744, %72 ], [ %.02744, %59 ]
+  %.val29 = phi i32 [ %.val2951, %13 ], [ %.val29.pre, %Fra_OneHotNodesAreClause.exit ], [ %.val2951, %79 ], [ %.val2951, %67 ], [ %.val2951, %80 ], [ %.val2951, %72 ], [ %.val2951, %54 ], [ %.val2951, %85 ], [ %.val2951, %59 ]
+  %.1 = phi i32 [ %.02744, %13 ], [ 1, %Fra_OneHotNodesAreClause.exit ], [ %.02744, %79 ], [ %.02744, %67 ], [ %.02744, %80 ], [ %.02744, %72 ], [ %.02744, %54 ], [ %.02744, %85 ], [ %.02744, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %92 = sext i32 %.val29 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92

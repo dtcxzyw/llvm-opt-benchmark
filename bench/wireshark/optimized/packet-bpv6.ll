@@ -3149,8 +3149,8 @@ evaluate_sdnv.exit440.i:                          ; preds = %1262, %1261, %1255
   br label %display_extension_block.exit
 
 display_extension_block.exit:                     ; preds = %1245, %1009, %1020, %evaluate_sdnv.exit412.i, %.thread.i, %1049, %1111, %1139, %evaluate_sdnv.exit430.i, %1241, %.thread527.i, %1288, %1298, %.thread533.i, %1320, %1324
-  %.4 = phi i8 [ 1, %1009 ], [ %..i, %1324 ], [ %..i, %1020 ], [ %..i, %evaluate_sdnv.exit412.i ], [ %..i, %.thread.i ], [ 1, %1049 ], [ 1, %1241 ], [ %..i, %evaluate_sdnv.exit430.i ], [ 1, %1111 ], [ 1, %1139 ], [ %..i, %.thread527.i ], [ 1, %1288 ], [ %..i, %1298 ], [ 1, %.thread533.i ], [ %..i, %1320 ], [ %..i, %1245 ]
-  %.0.i58 = phi i32 [ %.0356.i, %1009 ], [ %1327, %1324 ], [ %1023, %1020 ], [ %1036, %evaluate_sdnv.exit412.i ], [ %1048, %.thread.i ], [ %1041, %1049 ], [ %1201, %1241 ], [ %1190, %evaluate_sdnv.exit430.i ], [ %1100, %1111 ], [ %1130, %1139 ], [ %1287, %.thread527.i ], [ %1266, %1288 ], [ %1306, %1298 ], [ %1306, %.thread533.i ], [ %1323, %1320 ], [ %.13.ph.i, %1245 ]
+  %.4 = phi i8 [ 1, %1009 ], [ %..i, %1324 ], [ %..i, %1020 ], [ %..i, %evaluate_sdnv.exit412.i ], [ %..i, %.thread.i ], [ 1, %1049 ], [ 1, %1241 ], [ %..i, %1320 ], [ %..i, %evaluate_sdnv.exit430.i ], [ 1, %1111 ], [ 1, %1139 ], [ %..i, %.thread527.i ], [ 1, %1288 ], [ %..i, %1298 ], [ 1, %.thread533.i ], [ %..i, %1245 ]
+  %.0.i58 = phi i32 [ %.0356.i, %1009 ], [ %1327, %1324 ], [ %1023, %1020 ], [ %1036, %evaluate_sdnv.exit412.i ], [ %1048, %.thread.i ], [ %1041, %1049 ], [ %1201, %1241 ], [ %1323, %1320 ], [ %1190, %evaluate_sdnv.exit430.i ], [ %1100, %1111 ], [ %1130, %1139 ], [ %1287, %.thread527.i ], [ %1266, %1288 ], [ %1306, %1298 ], [ %1306, %.thread533.i ], [ %.13.ph.i, %1245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1328
 

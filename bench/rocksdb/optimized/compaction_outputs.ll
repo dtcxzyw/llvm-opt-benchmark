@@ -2066,7 +2066,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit32.thread: ; pre
   br label %.thread
 
 .thread:                                          ; preds = %159, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20, %111, %.thread.sink.split, %.preheader, %68, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit ], [ false, %68 ], [ false, %.preheader ], [ true, %.thread.sink.split ], [ false, %111 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20 ], [ false, %159 ]
+  %.1 = phi i1 [ true, %.thread.sink.split ], [ false, %.preheader ], [ false, %2 ], [ false, %68 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit ], [ false, %111 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20 ], [ false, %159 ]
   ret i1 %.1
 }
 
@@ -4325,7 +4325,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit203: ; preds = %
   br label %481
 
 472:                                              ; preds = %460, %470
-  %473 = phi i1 [ true, %460 ], [ %471, %470 ]
+  %473 = phi i1 [ %471, %470 ], [ true, %460 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %or.cond7 = and i1 %6, %473
   br i1 %or.cond7, label %474, label %481

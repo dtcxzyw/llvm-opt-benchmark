@@ -1395,7 +1395,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %Vec_IntPush.exit, %59, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %Vec_IntPush.exit ], [ %61, %59 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ %61, %59 ], [ 0, %3 ], [ 0, %Vec_IntPush.exit ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 

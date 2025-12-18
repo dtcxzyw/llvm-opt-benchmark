@@ -9554,8 +9554,8 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit50:         ; preds = %_ZNSt6vectorIfSaIfE
   br label %185
 
 .loopexit113:                                     ; preds = %56, %38, %35, %31, %21, %._crit_edge
-  %.pn51.i.i = phi ptr [ %.sroa.094.5, %._crit_edge ], [ %26, %21 ], [ %.sroa.022.058.i.i, %35 ], [ %.sroa.022.058.i.i, %38 ], [ %.sroa.036.060.i.i, %31 ], [ %.sroa.022.3.i.i, %56 ]
-  %.pn49.i.i = phi ptr [ %.sroa.094.5, %._crit_edge ], [ %storemerge.sroa.speculated.v.i.i, %21 ], [ %.sroa.0.059.i.i, %35 ], [ %.sroa.036.060.i.i, %38 ], [ %.sroa.0.059.i.i, %31 ], [ %.sroa.0.2.i.i, %56 ]
+  %.pn51.i.i = phi ptr [ %.sroa.094.5, %._crit_edge ], [ %26, %21 ], [ %.sroa.036.060.i.i, %31 ], [ %.sroa.022.058.i.i, %35 ], [ %.sroa.022.058.i.i, %38 ], [ %.sroa.022.3.i.i, %56 ]
+  %.pn49.i.i = phi ptr [ %.sroa.094.5, %._crit_edge ], [ %storemerge.sroa.speculated.v.i.i, %21 ], [ %.sroa.0.059.i.i, %31 ], [ %.sroa.0.059.i.i, %35 ], [ %.sroa.036.060.i.i, %38 ], [ %.sroa.0.2.i.i, %56 ]
   %133 = icmp eq ptr %.sroa.086.3, %.sroa.11.2
   %134 = icmp eq ptr %.sroa.086.3, %.pn112
   %or.cond271 = or i1 %133, %134
@@ -9638,8 +9638,8 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit50:         ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i64, label %.loopexit, label %.lr.ph.i.i55, !llvm.loop !338
 
 .loopexit:                                        ; preds = %170, %152, %149, %145, %135, %.loopexit113
-  %.pn51.i.i65 = phi ptr [ %.sroa.086.3, %.loopexit113 ], [ %140, %135 ], [ %.sroa.022.058.i.i58, %149 ], [ %.sroa.022.058.i.i58, %152 ], [ %.sroa.036.060.i.i56, %145 ], [ %.sroa.022.3.i.i61, %170 ]
-  %.pn49.i.i66 = phi ptr [ %.sroa.086.3, %.loopexit113 ], [ %storemerge.sroa.speculated.v.i.i51, %135 ], [ %.sroa.0.059.i.i57, %149 ], [ %.sroa.036.060.i.i56, %152 ], [ %.sroa.0.059.i.i57, %145 ], [ %.sroa.0.2.i.i62, %170 ]
+  %.pn51.i.i65 = phi ptr [ %.sroa.086.3, %.loopexit113 ], [ %140, %135 ], [ %.sroa.036.060.i.i56, %145 ], [ %.sroa.022.058.i.i58, %149 ], [ %.sroa.022.058.i.i58, %152 ], [ %.sroa.022.3.i.i61, %170 ]
+  %.pn49.i.i66 = phi ptr [ %.sroa.086.3, %.loopexit113 ], [ %storemerge.sroa.speculated.v.i.i51, %135 ], [ %.sroa.0.059.i.i57, %145 ], [ %.sroa.0.059.i.i57, %149 ], [ %.sroa.036.060.i.i56, %152 ], [ %.sroa.0.2.i.i62, %170 ]
   %172 = load float, ptr %.pn49.i.i, align 4, !tbaa !137
   %173 = load float, ptr %.pn51.i.i, align 4, !tbaa !137
   %174 = load float, ptr %.pn49.i.i66, align 4, !tbaa !137
@@ -11208,7 +11208,7 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i.us: ; preds = %_ZNKSt4lessIS
   br i1 %.not.i.i200.us, label %._crit_edge.thread.i.i.us, label %.lr.ph.i.i.us.backedge
 
 .lr.ph.i.i.us.backedge:                           ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i.us, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread.i.us
-  %.02126.i.i.us.be = phi ptr [ %.021.i.i.us, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i.us ], [ %.021.i13.i.us, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread.i.us ]
+  %.02126.i.i.us.be = phi ptr [ %.021.i13.i.us, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.thread.i.us ], [ %.021.i.i.us, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i.us ]
   br label %.lr.ph.i.i.us, !llvm.loop !403
 
 ._crit_edge.thread.i.i.us:                        ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i.us, %58
@@ -14586,7 +14586,7 @@ _ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6spliceESt20_List_const_iterato
   br i1 %.not.i.i8, label %_ZNSt7__cxx1110_List_baseIN2cv6detail9GraphEdgeESaIS3_EED2Ev.exit, label %.lr.ph.i.i7, !llvm.loop !58
 
 _ZNSt7__cxx1110_List_baseIN2cv6detail9GraphEdgeESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i7, %4, %23
-  %.sroa.06.020 = phi ptr [ %.sroa.06.0, %23 ], [ %1, %4 ], [ %.sroa.06.0, %.lr.ph.i.i7 ]
+  %.sroa.06.020 = phi ptr [ %1, %4 ], [ %.sroa.06.0, %23 ], [ %.sroa.06.0, %.lr.ph.i.i7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.06.020
 }

@@ -1872,7 +1872,7 @@ arraydestroy.body69:                              ; preds = %ehcleanup68, %array
   br i1 %arraydestroy.done72, label %ehcleanup74, label %arraydestroy.body69
 
 ehcleanup74:                                      ; preds = %arraydestroy.body69, %lpad.i, %ehcleanup68.thread46, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %18, %lpad.i ], [ %8, %lpad ], [ %eh.lpad-body40, %ehcleanup68.thread46 ], [ %.pn, %arraydestroy.body69 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %18, %lpad.i ], [ %eh.lpad-body40, %ehcleanup68.thread46 ], [ %8, %lpad ], [ %.pn, %arraydestroy.body69 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_instance) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unknown_fields_type) #29
   resume { ptr, i32 } %.pn.pn.pn
@@ -10314,7 +10314,7 @@ lpad101.loopexit.split-lp.loopexit:               ; preds = %_ZNKSt6vectorIPKN6g
   br label %lpad101
 
 lpad101.loopexit.split-lp.loopexit.split-lp:      ; preds = %if.then.i.i.i363, %if.then.i.i.i239, %cond.false177, %cond.false
-  %next_scc_q.sroa.0.4.ph.ph = phi ptr [ %next_scc_q.sroa.0.5.ph.ph, %if.then.i.i.i239 ], [ %next_scc_q.sroa.0.6829, %if.then.i.i.i363 ], [ %next_scc_q.sroa.0.6829, %cond.false177 ], [ %next_scc_q.sroa.0.6829, %cond.false ]
+  %next_scc_q.sroa.0.4.ph.ph = phi ptr [ %next_scc_q.sroa.0.5.ph.ph, %if.then.i.i.i239 ], [ %next_scc_q.sroa.0.6829, %if.then.i.i.i363 ], [ %next_scc_q.sroa.0.6829, %cond.false ], [ %next_scc_q.sroa.0.6829, %cond.false177 ]
   %lpad.loopexit.split-lp729 = landingpad { ptr, i32 }
           cleanup
   br label %lpad101
@@ -11212,7 +11212,7 @@ for.inc:                                          ; preds = %for.cond.us.i, %for
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !273
 
 return:                                           ; preds = %for.inc, %for.body.lr.ph.i, %for.body.us.i, %for.inc.us, %entry
-  %cmp9 = phi i1 [ false, %entry ], [ true, %for.body.us.i ], [ false, %for.inc.us ], [ false, %for.inc ], [ true, %for.body.lr.ph.i ]
+  %cmp9 = phi i1 [ true, %for.body.us.i ], [ false, %entry ], [ false, %for.inc.us ], [ true, %for.body.lr.ph.i ], [ false, %for.inc ]
   ret i1 %cmp9
 }
 
@@ -12699,7 +12699,7 @@ arraydestroy.body21:                              ; preds = %arraydestroy.body21
   br i1 %arraydestroy.done24, label %cleanup.action, label %arraydestroy.body21
 
 cleanup.action:                                   ; preds = %arraydestroy.body, %arraydestroy.body21, %lpad2.thread
-  %.pn = phi { ptr, i32 } [ %4, %lpad2.thread ], [ %15, %arraydestroy.body21 ], [ %14, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %15, %arraydestroy.body21 ], [ %4, %lpad2.thread ], [ %14, %arraydestroy.body ]
   call void @_ZdlPv(ptr noundef nonnull %call) #31
   br label %ehcleanup26
 
@@ -13734,7 +13734,7 @@ _ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.
   br label %ehcleanup211
 
 ehcleanup211:                                     ; preds = %arraydestroy.body76, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i145, %ehcleanup210, %ehcleanup74.thread, %ehcleanup74, %lpad90, %lpad83
-  %.pn31.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup74.thread ], [ %66, %lpad90 ], [ %65, %lpad83 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup74 ], [ %.pn31.pn, %ehcleanup210 ], [ %.pn31.pn, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i145 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body76 ]
+  %.pn31.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup74.thread ], [ %66, %lpad90 ], [ %65, %lpad83 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup74 ], [ %.pn31.pn, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i145 ], [ %.pn31.pn, %ehcleanup210 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body76 ]
   call void @_ZN6google8protobuf2io7PrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %p) #29
   br label %ehcleanup212
 
@@ -20439,7 +20439,7 @@ for.inc44:                                        ; preds = %invoke.cont27, %inv
   br i1 %cmp.i.not, label %cleanupthread-pre-split, label %for.body
 
 cleanupthread-pre-split:                          ; preds = %for.inc44, %invoke.cont39, %invoke.cont11, %invoke.cont33
-  %cmp.i42.ph = phi i1 [ true, %invoke.cont33 ], [ false, %for.inc44 ], [ true, %invoke.cont39 ], [ true, %invoke.cont11 ]
+  %cmp.i42.ph = phi i1 [ true, %invoke.cont33 ], [ true, %invoke.cont39 ], [ true, %invoke.cont11 ], [ false, %for.inc44 ]
   %.pr = load ptr, ptr %fields, align 8
   br label %cleanup
 

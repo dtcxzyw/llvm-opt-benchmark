@@ -388,7 +388,7 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph68.split.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %41, %._crit_edge.split.us.us, %._crit_edge.split.split.us73, %.lr.ph68.split.us, %12, %37
-  %.030 = phi ptr [ %.us-phi44, %37 ], [ null, %12 ], [ null, %.lr.ph68.split.us ], [ null, %._crit_edge.split.us.us ], [ null, %._crit_edge.split.split.us73 ], [ null, %41 ]
+  %.030 = phi ptr [ %.us-phi44, %37 ], [ null, %._crit_edge.split.us.us ], [ null, %12 ], [ null, %._crit_edge.split.split.us73 ], [ null, %.lr.ph68.split.us ], [ null, %41 ]
   ret ptr %.030
 }
 

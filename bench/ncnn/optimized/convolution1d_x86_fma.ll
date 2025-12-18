@@ -3066,8 +3066,8 @@ _ZN4ncnn3MatD2Ev.exit571.us.i:                    ; preds = %181, %180
   br i1 %217, label %.lr.ph1337.us.i, label %.preheader1074.us.i
 
 ._crit_edge1366.us.i:                             ; preds = %._crit_edge1357.us.us.i, %.lr.ph1365.us.i, %.lr.ph1337.us.i, %.preheader1074.us.i
-  %.3514.lcssa.us.i = phi float [ %.1512.lcssa.us.i, %.preheader1074.us.i ], [ %.1512.lcssa.us.i, %.lr.ph1365.us.i ], [ %207, %.lr.ph1337.us.i ], [ %459, %._crit_edge1357.us.us.i ]
-  %.3509.lcssa.us.i = phi float [ %.1507.lcssa.us.i, %.preheader1074.us.i ], [ %.1507.lcssa.us.i, %.lr.ph1365.us.i ], [ %215, %.lr.ph1337.us.i ], [ %463, %._crit_edge1357.us.us.i ]
+  %.3514.lcssa.us.i = phi float [ %.1512.lcssa.us.i, %.preheader1074.us.i ], [ %207, %.lr.ph1337.us.i ], [ %.1512.lcssa.us.i, %.lr.ph1365.us.i ], [ %459, %._crit_edge1357.us.us.i ]
+  %.3509.lcssa.us.i = phi float [ %.1507.lcssa.us.i, %.preheader1074.us.i ], [ %215, %.lr.ph1337.us.i ], [ %.1507.lcssa.us.i, %.lr.ph1365.us.i ], [ %463, %._crit_edge1357.us.us.i ]
   switch i32 %148, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit588.us.i [
     i32 1, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1037.us.i
     i32 2, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1040.us.i
@@ -3202,9 +3202,9 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit588.us.i:   ; preds = %_ZL13activation_ssf
   br i1 %brmerge.i, label %.loopexit1066.us.i, label %.lr.ph1302.us.i
 
 .loopexit1066.us.i:                               ; preds = %.lr.ph1302.us.i, %.lr.ph1292.us.i, %.preheader1067.us.i, %.loopexit1068.us.i
-  %.31012.us.i = phi nsz <4 x float> [ %.010091306.us.i, %.loopexit1068.us.i ], [ %.010091306.us.i, %.preheader1067.us.i ], [ %310, %.lr.ph1292.us.i ], [ %301, %.lr.ph1302.us.i ]
-  %.31007.us.i = phi nsz <4 x float> [ %.010041307.us.i, %.loopexit1068.us.i ], [ %.010041307.us.i, %.preheader1067.us.i ], [ %311, %.lr.ph1292.us.i ], [ %302, %.lr.ph1302.us.i ]
-  %.10500.us.i = phi ptr [ %.74971308.us.i, %.loopexit1068.us.i ], [ %.74971308.us.i, %.preheader1067.us.i ], [ %313, %.lr.ph1292.us.i ], [ %304, %.lr.ph1302.us.i ]
+  %.31012.us.i = phi nsz <4 x float> [ %.010091306.us.i, %.loopexit1068.us.i ], [ %310, %.lr.ph1292.us.i ], [ %.010091306.us.i, %.preheader1067.us.i ], [ %301, %.lr.ph1302.us.i ]
+  %.31007.us.i = phi nsz <4 x float> [ %.010041307.us.i, %.loopexit1068.us.i ], [ %311, %.lr.ph1292.us.i ], [ %.010041307.us.i, %.preheader1067.us.i ], [ %302, %.lr.ph1302.us.i ]
+  %.10500.us.i = phi ptr [ %.74971308.us.i, %.loopexit1068.us.i ], [ %313, %.lr.ph1292.us.i ], [ %.74971308.us.i, %.preheader1067.us.i ], [ %304, %.lr.ph1302.us.i ]
   %284 = add nuw nsw i32 %.14871309.us.i, 4
   %285 = or disjoint i32 %284, 3
   %286 = icmp slt i32 %285, %130
@@ -4156,11 +4156,11 @@ _ZN4ncnn3MatD2Ev.exit572.i:                       ; preds = %508, %507
   br i1 %exitcond1647.not.i, label %.loopexit1076.i, label %.lr.ph1162.i, !llvm.loop !149
 
 .loopexit1076.i:                                  ; preds = %.lr.ph1162.i, %.lr.ph1148.i, %.preheader1075.i, %.loopexit1078.i, %.preheader1077.i
-  %.10995.i = phi nsz <4 x float> [ %.79921168.i, %.loopexit1078.i ], [ %.79921168.i, %.preheader1075.i ], [ %.79921168.i, %.preheader1077.i ], [ %809, %.lr.ph1148.i ], [ %838, %.lr.ph1162.i ]
-  %.10983.i = phi nsz <4 x float> [ %.79801169.i, %.loopexit1078.i ], [ %.79801169.i, %.preheader1075.i ], [ %.79801169.i, %.preheader1077.i ], [ %804, %.lr.ph1148.i ], [ %833, %.lr.ph1162.i ]
-  %.10969.i = phi nsz <4 x float> [ %.79661170.i, %.loopexit1078.i ], [ %.79661170.i, %.preheader1075.i ], [ %.79661170.i, %.preheader1077.i ], [ %799, %.lr.ph1148.i ], [ %828, %.lr.ph1162.i ]
-  %.11949.i = phi nsz <4 x float> [ %.89461171.i, %.loopexit1078.i ], [ %.89461171.i, %.preheader1075.i ], [ %.89461171.i, %.preheader1077.i ], [ %794, %.lr.ph1148.i ], [ %823, %.lr.ph1162.i ]
-  %.10533.i = phi ptr [ %.75301173.i, %.loopexit1078.i ], [ %.75301173.i, %.preheader1075.i ], [ %.75301173.i, %.preheader1077.i ], [ %811, %.lr.ph1148.i ], [ %840, %.lr.ph1162.i ]
+  %.10995.i = phi nsz <4 x float> [ %.79921168.i, %.loopexit1078.i ], [ %.79921168.i, %.preheader1075.i ], [ %809, %.lr.ph1148.i ], [ %.79921168.i, %.preheader1077.i ], [ %838, %.lr.ph1162.i ]
+  %.10983.i = phi nsz <4 x float> [ %.79801169.i, %.loopexit1078.i ], [ %.79801169.i, %.preheader1075.i ], [ %804, %.lr.ph1148.i ], [ %.79801169.i, %.preheader1077.i ], [ %833, %.lr.ph1162.i ]
+  %.10969.i = phi nsz <4 x float> [ %.79661170.i, %.loopexit1078.i ], [ %.79661170.i, %.preheader1075.i ], [ %799, %.lr.ph1148.i ], [ %.79661170.i, %.preheader1077.i ], [ %828, %.lr.ph1162.i ]
+  %.11949.i = phi nsz <4 x float> [ %.89461171.i, %.loopexit1078.i ], [ %.89461171.i, %.preheader1075.i ], [ %794, %.lr.ph1148.i ], [ %.89461171.i, %.preheader1077.i ], [ %823, %.lr.ph1162.i ]
+  %.10533.i = phi ptr [ %.75301173.i, %.loopexit1078.i ], [ %.75301173.i, %.preheader1075.i ], [ %811, %.lr.ph1148.i ], [ %.75301173.i, %.preheader1077.i ], [ %840, %.lr.ph1162.i ]
   %842 = add nuw nsw i32 %.15401172.i, 4
   %843 = or disjoint i32 %842, 3
   %844 = icmp slt i32 %843, %472
@@ -4553,7 +4553,7 @@ _ZN4ncnn3MatD2Ev.exit.us.i:                       ; preds = %1079, %1078
   br i1 %1099, label %.lr.ph1478.us.i, label %.preheader1064.us.i
 
 ._crit_edge1502.us.i:                             ; preds = %._crit_edge1495.us.us.i, %.lr.ph1501.us.i, %.lr.ph1478.us.i, %.preheader1064.us.i
-  %.3463.lcssa.us.i = phi float [ %.1461.lcssa.us.i, %.preheader1064.us.i ], [ %.1461.lcssa.us.i, %.lr.ph1501.us.i ], [ %1097, %.lr.ph1478.us.i ], [ %1295, %._crit_edge1495.us.us.i ]
+  %.3463.lcssa.us.i = phi float [ %.1461.lcssa.us.i, %.preheader1064.us.i ], [ %1097, %.lr.ph1478.us.i ], [ %.1461.lcssa.us.i, %.lr.ph1501.us.i ], [ %1295, %._crit_edge1495.us.us.i ]
   switch i32 %1048, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit589.us.i [
     i32 1, label %1138
     i32 2, label %1133
@@ -5663,11 +5663,11 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %67, %65
   br i1 %exitcond732.not, label %.loopexit536, label %.lr.ph577, !llvm.loop !174
 
 .loopexit536:                                     ; preds = %.lr.ph577, %.lr.ph563, %.lr.ph, %.preheader538, %188, %.preheader535, %.loopexit537
-  %.5523 = phi nsz <8 x float> [ %.0518583, %.loopexit537 ], [ %.0518583, %.preheader535 ], [ %.0518583, %188 ], [ %.0518583, %.preheader538 ], [ %242, %.lr.ph563 ], [ %184, %.lr.ph ], [ %300, %.lr.ph577 ]
-  %.5511 = phi nsz <8 x float> [ %.0506584, %.loopexit537 ], [ %.0506584, %.preheader535 ], [ %.0506584, %188 ], [ %.0506584, %.preheader538 ], [ %237, %.lr.ph563 ], [ %179, %.lr.ph ], [ %295, %.lr.ph577 ]
-  %.5497 = phi nsz <8 x float> [ %.0492585, %.loopexit537 ], [ %.0492585, %.preheader535 ], [ %.0492585, %188 ], [ %.0492585, %.preheader538 ], [ %232, %.lr.ph563 ], [ %174, %.lr.ph ], [ %290, %.lr.ph577 ]
-  %.6482 = phi nsz <8 x float> [ %.1477586, %.loopexit537 ], [ %.1477586, %.preheader535 ], [ %.1477586, %188 ], [ %.1477586, %.preheader538 ], [ %227, %.lr.ph563 ], [ %169, %.lr.ph ], [ %285, %.lr.ph577 ]
-  %.5 = phi ptr [ %.0205587, %.loopexit537 ], [ %.0205587, %.preheader535 ], [ %.0205587, %188 ], [ %.0205587, %.preheader538 ], [ %245, %.lr.ph563 ], [ %186, %.lr.ph ], [ %302, %.lr.ph577 ]
+  %.5523 = phi nsz <8 x float> [ %.0518583, %.loopexit537 ], [ %.0518583, %.preheader535 ], [ %184, %.lr.ph ], [ %242, %.lr.ph563 ], [ %.0518583, %188 ], [ %.0518583, %.preheader538 ], [ %300, %.lr.ph577 ]
+  %.5511 = phi nsz <8 x float> [ %.0506584, %.loopexit537 ], [ %.0506584, %.preheader535 ], [ %179, %.lr.ph ], [ %237, %.lr.ph563 ], [ %.0506584, %188 ], [ %.0506584, %.preheader538 ], [ %295, %.lr.ph577 ]
+  %.5497 = phi nsz <8 x float> [ %.0492585, %.loopexit537 ], [ %.0492585, %.preheader535 ], [ %174, %.lr.ph ], [ %232, %.lr.ph563 ], [ %.0492585, %188 ], [ %.0492585, %.preheader538 ], [ %290, %.lr.ph577 ]
+  %.6482 = phi nsz <8 x float> [ %.1477586, %.loopexit537 ], [ %.1477586, %.preheader535 ], [ %169, %.lr.ph ], [ %227, %.lr.ph563 ], [ %.1477586, %188 ], [ %.1477586, %.preheader538 ], [ %285, %.lr.ph577 ]
+  %.5 = phi ptr [ %.0205587, %.loopexit537 ], [ %.0205587, %.preheader535 ], [ %186, %.lr.ph ], [ %245, %.lr.ph563 ], [ %.0205587, %188 ], [ %.0205587, %.preheader538 ], [ %302, %.lr.ph577 ]
   %304 = add nuw nsw i32 %.0201588, 8
   %305 = or disjoint i32 %304, 7
   %306 = icmp slt i32 %305, %43
@@ -5859,11 +5859,11 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %67, %65
   br i1 %exitcond734.not, label %.loopexit, label %.lr.ph617, !llvm.loop !179
 
 .loopexit:                                        ; preds = %.lr.ph617, %.lr.ph603, %.preheader533, %.preheader, %.loopexit534
-  %.10528 = phi nsz <8 x float> [ %.7525623, %.loopexit534 ], [ %.7525623, %.preheader ], [ %.7525623, %.preheader533 ], [ %376, %.lr.ph603 ], [ %405, %.lr.ph617 ]
-  %.10516 = phi nsz <8 x float> [ %.7513624, %.loopexit534 ], [ %.7513624, %.preheader ], [ %.7513624, %.preheader533 ], [ %371, %.lr.ph603 ], [ %400, %.lr.ph617 ]
-  %.10502 = phi nsz <8 x float> [ %.7499625, %.loopexit534 ], [ %.7499625, %.preheader ], [ %.7499625, %.preheader533 ], [ %366, %.lr.ph603 ], [ %395, %.lr.ph617 ]
-  %.11487 = phi nsz <8 x float> [ %.8484626, %.loopexit534 ], [ %.8484626, %.preheader ], [ %.8484626, %.preheader533 ], [ %361, %.lr.ph603 ], [ %390, %.lr.ph617 ]
-  %.10 = phi ptr [ %.7627, %.loopexit534 ], [ %.7627, %.preheader ], [ %.7627, %.preheader533 ], [ %378, %.lr.ph603 ], [ %407, %.lr.ph617 ]
+  %.10528 = phi nsz <8 x float> [ %.7525623, %.loopexit534 ], [ %.7525623, %.preheader ], [ %376, %.lr.ph603 ], [ %.7525623, %.preheader533 ], [ %405, %.lr.ph617 ]
+  %.10516 = phi nsz <8 x float> [ %.7513624, %.loopexit534 ], [ %.7513624, %.preheader ], [ %371, %.lr.ph603 ], [ %.7513624, %.preheader533 ], [ %400, %.lr.ph617 ]
+  %.10502 = phi nsz <8 x float> [ %.7499625, %.loopexit534 ], [ %.7499625, %.preheader ], [ %366, %.lr.ph603 ], [ %.7499625, %.preheader533 ], [ %395, %.lr.ph617 ]
+  %.11487 = phi nsz <8 x float> [ %.8484626, %.loopexit534 ], [ %.8484626, %.preheader ], [ %361, %.lr.ph603 ], [ %.8484626, %.preheader533 ], [ %390, %.lr.ph617 ]
+  %.10 = phi ptr [ %.7627, %.loopexit534 ], [ %.7627, %.preheader ], [ %378, %.lr.ph603 ], [ %.7627, %.preheader533 ], [ %407, %.lr.ph617 ]
   %409 = add nuw nsw i32 %.1202628, 4
   %410 = or disjoint i32 %409, 3
   %411 = icmp slt i32 %410, %43

@@ -2933,7 +2933,7 @@ default.unreachable11.i.i:                        ; preds = %223
   br label %182
 
 "_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50612244e4816c6bE.exit": ; preds = %105, %234
-  %.sink.i = phi i8 [ 4, %105 ], [ 3, %234 ]
+  %.sink.i = phi i8 [ 3, %234 ], [ 4, %105 ]
   store i8 %.sink.i, ptr %28, align 8, !noalias !298
   br label %81
 
@@ -3687,7 +3687,7 @@ default.unreachable11.i.i:                        ; preds = %223
   br label %182
 
 "_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he5732eac9f0d00feE.exit": ; preds = %105, %234
-  %.sink.i = phi i8 [ 4, %105 ], [ 3, %234 ]
+  %.sink.i = phi i8 [ 3, %234 ], [ 4, %105 ]
   store i8 %.sink.i, ptr %28, align 8, !noalias !387
   br label %81
 
@@ -4441,7 +4441,7 @@ default.unreachable11.i.i:                        ; preds = %223
   br label %182
 
 "_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h93cd5b73a5caed1dE.exit": ; preds = %105, %234
-  %.sink.i = phi i8 [ 4, %105 ], [ 3, %234 ]
+  %.sink.i = phi i8 [ 3, %234 ], [ 4, %105 ]
   store i8 %.sink.i, ptr %28, align 8, !noalias !475
   br label %81
 

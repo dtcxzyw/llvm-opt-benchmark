@@ -1352,7 +1352,7 @@ default.unreachable:                              ; preds = %300, %276, %258
   br label %233
 
 231:                                              ; preds = %.noexc137, %227
-  %.sroa.0183.0 = phi i64 [ %.sroa.0183.0.copyload185, %.noexc137 ], [ %.sroa.0183.0.copyload184, %227 ]
+  %.sroa.0183.0 = phi i64 [ %.sroa.0183.0.copyload184, %227 ], [ %.sroa.0183.0.copyload185, %.noexc137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)

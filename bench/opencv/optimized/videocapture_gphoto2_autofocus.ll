@@ -2173,14 +2173,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %70
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit151
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit151:  ; preds = %.noexc152, %.noexc150, %.invoke429, %717, %716, %699
-  %.sroa.0297.3 = phi i32 [ %.sroa.0297.2, %699 ], [ %.sroa.0297.2, %.invoke429 ], [ %.sroa.0297.2, %717 ], [ 1024, %716 ], [ %.sroa.0297.2, %.noexc150 ], [ %.sroa.0297.2, %.noexc152 ]
-  %.sroa.16.2 = phi i32 [ %.sroa.16.1, %699 ], [ %.sroa.16.1, %.invoke429 ], [ %.sroa.16.1, %717 ], [ 1, %716 ], [ %.sroa.16.1, %.noexc150 ], [ %.sroa.16.1, %.noexc152 ]
-  %.sroa.26.2 = phi i32 [ %.sroa.26.1, %699 ], [ %.sroa.26.1, %.invoke429 ], [ %.sroa.26.1, %717 ], [ 0, %716 ], [ %.sroa.26.1, %.noexc150 ], [ %.sroa.26.1, %.noexc152 ]
-  %.sroa.36.2 = phi i32 [ %.sroa.36.1, %699 ], [ %.sroa.36.1, %.invoke429 ], [ %.sroa.36.1, %717 ], [ 0, %716 ], [ %.sroa.36.1, %.noexc150 ], [ %.sroa.36.1, %.noexc152 ]
-  %.sroa.45.2 = phi i32 [ %.sroa.45.1, %699 ], [ %.sroa.45.1, %.invoke429 ], [ %.sroa.45.1, %717 ], [ 0, %716 ], [ %.sroa.45.1, %.noexc150 ], [ %.sroa.45.1, %.noexc152 ]
-  %.sroa.60.2 = phi double [ %.sroa.60.1, %699 ], [ %.sroa.60.1, %.invoke429 ], [ %.sroa.60.1, %717 ], [ 0.000000e+00, %716 ], [ %.sroa.60.1, %.noexc150 ], [ %.sroa.60.1, %.noexc152 ]
-  %.sroa.55.2 = phi double [ %.sroa.55.1, %699 ], [ %.sroa.55.1, %.invoke429 ], [ %.sroa.55.1, %717 ], [ 0.000000e+00, %716 ], [ %.sroa.55.1, %.noexc150 ], [ %.sroa.55.1, %.noexc152 ]
-  %.342 = phi i8 [ %.241, %699 ], [ %.241, %.invoke429 ], [ %718, %717 ], [ 1, %716 ], [ %.241, %.noexc150 ], [ %.241, %.noexc152 ]
+  %.sroa.0297.3 = phi i32 [ %.sroa.0297.2, %699 ], [ %.sroa.0297.2, %.invoke429 ], [ %.sroa.0297.2, %.noexc150 ], [ %.sroa.0297.2, %717 ], [ 1024, %716 ], [ %.sroa.0297.2, %.noexc152 ]
+  %.sroa.16.2 = phi i32 [ %.sroa.16.1, %699 ], [ %.sroa.16.1, %.invoke429 ], [ %.sroa.16.1, %.noexc150 ], [ %.sroa.16.1, %717 ], [ 1, %716 ], [ %.sroa.16.1, %.noexc152 ]
+  %.sroa.26.2 = phi i32 [ %.sroa.26.1, %699 ], [ %.sroa.26.1, %.invoke429 ], [ %.sroa.26.1, %.noexc150 ], [ %.sroa.26.1, %717 ], [ 0, %716 ], [ %.sroa.26.1, %.noexc152 ]
+  %.sroa.36.2 = phi i32 [ %.sroa.36.1, %699 ], [ %.sroa.36.1, %.invoke429 ], [ %.sroa.36.1, %.noexc150 ], [ %.sroa.36.1, %717 ], [ 0, %716 ], [ %.sroa.36.1, %.noexc152 ]
+  %.sroa.45.2 = phi i32 [ %.sroa.45.1, %699 ], [ %.sroa.45.1, %.invoke429 ], [ %.sroa.45.1, %.noexc150 ], [ %.sroa.45.1, %717 ], [ 0, %716 ], [ %.sroa.45.1, %.noexc152 ]
+  %.sroa.60.2 = phi double [ %.sroa.60.1, %699 ], [ %.sroa.60.1, %.invoke429 ], [ %.sroa.60.1, %.noexc150 ], [ %.sroa.60.1, %717 ], [ 0.000000e+00, %716 ], [ %.sroa.60.1, %.noexc152 ]
+  %.sroa.55.2 = phi double [ %.sroa.55.1, %699 ], [ %.sroa.55.1, %.invoke429 ], [ %.sroa.55.1, %.noexc150 ], [ %.sroa.55.1, %717 ], [ 0.000000e+00, %716 ], [ %.sroa.55.1, %.noexc152 ]
+  %.342 = phi i8 [ %.241, %699 ], [ %.241, %.invoke429 ], [ %.241, %.noexc150 ], [ %718, %717 ], [ 1, %716 ], [ %.241, %.noexc152 ]
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, !llvm.loop !67
 
 719:                                              ; preds = %568, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, %461

@@ -1988,10 +1988,10 @@ _ZN4ncnn3MatD2Ev.exit250.us.i:                    ; preds = %161, %160
   br i1 %127, label %.lr.ph419.us.i, label %._crit_edge.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit394.us.i.loopexit39, %.loopexit394.us.i.us, %.lr.ph419.us.i.split, %_ZN4ncnn3MatD2Ev.exit250.us.i
-  %.0363.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %.3366.us.i.us, %.loopexit394.us.i.us ], [ %258, %.loopexit394.us.i.loopexit39 ]
-  %.0358.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %.3361.us.i.us, %.loopexit394.us.i.us ], [ %260, %.loopexit394.us.i.loopexit39 ]
-  %.0222.lcssa.us.i = phi ptr [ %149, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %149, %.lr.ph419.us.i.split ], [ %.3225.us.i.us, %.loopexit394.us.i.us ], [ %262, %.loopexit394.us.i.loopexit39 ]
-  %.0219.lcssa.us.i = phi i32 [ 0, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %131, %.lr.ph419.us.i.split ], [ %131, %.loopexit394.us.i.us ], [ %131, %.loopexit394.us.i.loopexit39 ]
+  %.0363.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %.3366.us.i.us, %.loopexit394.us.i.us ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %258, %.loopexit394.us.i.loopexit39 ]
+  %.0358.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %.3361.us.i.us, %.loopexit394.us.i.us ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %260, %.loopexit394.us.i.loopexit39 ]
+  %.0222.lcssa.us.i = phi ptr [ %149, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %.3225.us.i.us, %.loopexit394.us.i.us ], [ %149, %.lr.ph419.us.i.split ], [ %262, %.loopexit394.us.i.loopexit39 ]
+  %.0219.lcssa.us.i = phi i32 [ 0, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %131, %.loopexit394.us.i.us ], [ %131, %.lr.ph419.us.i.split ], [ %131, %.loopexit394.us.i.loopexit39 ]
   %164 = shufflevector <4 x float> %.0363.lcssa.us.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %165 = fadd fast <4 x float> %164, %.0363.lcssa.us.i
   %166 = extractelement <4 x float> %165, i64 1
@@ -2009,8 +2009,8 @@ _ZN4ncnn3MatD2Ev.exit250.us.i:                    ; preds = %161, %160
   br i1 %177, label %.lr.ph440.us.i, label %.preheader397.us.i
 
 ._crit_edge468.us.i:                              ; preds = %._crit_edge459.us.us.i, %.lr.ph467.us.i, %.lr.ph440.us.i, %.preheader397.us.i
-  %.3239.lcssa.us.i = phi float [ %.1237.lcssa.us.i, %.preheader397.us.i ], [ %.1237.lcssa.us.i, %.lr.ph467.us.i ], [ %169, %.lr.ph440.us.i ], [ %335, %._crit_edge459.us.us.i ]
-  %.3234.lcssa.us.i = phi float [ %.1232.lcssa.us.i, %.preheader397.us.i ], [ %.1232.lcssa.us.i, %.lr.ph467.us.i ], [ %175, %.lr.ph440.us.i ], [ %339, %._crit_edge459.us.us.i ]
+  %.3239.lcssa.us.i = phi float [ %.1237.lcssa.us.i, %.preheader397.us.i ], [ %169, %.lr.ph440.us.i ], [ %.1237.lcssa.us.i, %.lr.ph467.us.i ], [ %335, %._crit_edge459.us.us.i ]
+  %.3234.lcssa.us.i = phi float [ %.1232.lcssa.us.i, %.preheader397.us.i ], [ %175, %.lr.ph440.us.i ], [ %.1232.lcssa.us.i, %.lr.ph467.us.i ], [ %339, %._crit_edge459.us.us.i ]
   switch i32 %130, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit259.us.i [
     i32 1, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i
     i32 2, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread379.us.i
@@ -2457,7 +2457,7 @@ _ZN4ncnn3MatD2Ev.exit.us.i:                       ; preds = %392, %391
   br i1 %401, label %.lr.ph533.us.i, label %.preheader392.us.i
 
 ._crit_edge556.us.i:                              ; preds = %._crit_edge549.us.us.i, %.lr.ph555.us.i, %.lr.ph533.us.i, %.preheader392.us.i
-  %.3205.lcssa.us.i = phi float [ %.1203.lcssa.us.i, %.preheader392.us.i ], [ %.1203.lcssa.us.i, %.lr.ph555.us.i ], [ %399, %.lr.ph533.us.i ], [ %520, %._crit_edge549.us.us.i ]
+  %.3205.lcssa.us.i = phi float [ %.1203.lcssa.us.i, %.preheader392.us.i ], [ %399, %.lr.ph533.us.i ], [ %.1203.lcssa.us.i, %.lr.ph555.us.i ], [ %520, %._crit_edge549.us.us.i ]
   switch i32 %363, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit260.us.i [
     i32 1, label %440
     i32 2, label %435
@@ -3347,11 +3347,11 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %65, %63
   br i1 %exitcond426.not, label %.loopexit, label %.lr.ph334, !llvm.loop !128
 
 .loopexit:                                        ; preds = %.lr.ph334, %.lr.ph, %136, %.preheader311, %.preheader
-  %.3305 = phi nsz <4 x float> [ %.0302340, %136 ], [ %.0302340, %.preheader ], [ %.0302340, %.preheader311 ], [ %168, %.lr.ph ], [ %201, %.lr.ph334 ]
-  %.3300 = phi nsz <4 x float> [ %.0297341, %136 ], [ %.0297341, %.preheader ], [ %.0297341, %.preheader311 ], [ %162, %.lr.ph ], [ %195, %.lr.ph334 ]
-  %.3293 = phi nsz <4 x float> [ %.0290342, %136 ], [ %.0290342, %.preheader ], [ %.0290342, %.preheader311 ], [ %156, %.lr.ph ], [ %189, %.lr.ph334 ]
-  %.4285 = phi nsz <4 x float> [ %.1282343, %136 ], [ %.1282343, %.preheader ], [ %.1282343, %.preheader311 ], [ %150, %.lr.ph ], [ %183, %.lr.ph334 ]
-  %.3 = phi ptr [ %.0116344, %136 ], [ %.0116344, %.preheader ], [ %.0116344, %.preheader311 ], [ %170, %.lr.ph ], [ %203, %.lr.ph334 ]
+  %.3305 = phi nsz <4 x float> [ %.0302340, %136 ], [ %.0302340, %.preheader ], [ %168, %.lr.ph ], [ %.0302340, %.preheader311 ], [ %201, %.lr.ph334 ]
+  %.3300 = phi nsz <4 x float> [ %.0297341, %136 ], [ %.0297341, %.preheader ], [ %162, %.lr.ph ], [ %.0297341, %.preheader311 ], [ %195, %.lr.ph334 ]
+  %.3293 = phi nsz <4 x float> [ %.0290342, %136 ], [ %.0290342, %.preheader ], [ %156, %.lr.ph ], [ %.0290342, %.preheader311 ], [ %189, %.lr.ph334 ]
+  %.4285 = phi nsz <4 x float> [ %.1282343, %136 ], [ %.1282343, %.preheader ], [ %150, %.lr.ph ], [ %.1282343, %.preheader311 ], [ %183, %.lr.ph334 ]
+  %.3 = phi ptr [ %.0116344, %136 ], [ %.0116344, %.preheader ], [ %170, %.lr.ph ], [ %.0116344, %.preheader311 ], [ %203, %.lr.ph334 ]
   %205 = add nuw nsw i32 %.0113345, 4
   %206 = or disjoint i32 %205, 3
   %207 = icmp slt i32 %206, %43

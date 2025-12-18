@@ -1680,7 +1680,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   br label %.lr.ph55.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph55.i, %.thread.thread50.i.thread, %.thread, %.thread63.i
-  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ %.249.i, %.thread ], [ 0, %.thread.thread50.i.thread ], [ %.248.i217243246, %.lr.ph55.i ]
+  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ 0, %.thread.thread50.i.thread ], [ %.249.i, %.thread ], [ %.248.i217243246, %.lr.ph55.i ]
   %99 = zext nneg i32 %.248626568.i to i64
   %100 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %99
   store float %65, ptr %100, align 4, !tbaa !15
@@ -1820,7 +1820,7 @@ _add_node.exit:                                   ; preds = %.thread241, %._crit
   br label %.lr.ph55.i127
 
 ._crit_edge.i120:                                 ; preds = %.lr.ph55.i127, %.thread.thread50.i124.thread, %.thread208, %.thread63.i118
-  %.248626568.i121 = phi i32 [ 0, %.thread63.i118 ], [ %.249.i123, %.thread208 ], [ 0, %.thread.thread50.i124.thread ], [ %.248.i125222249252, %.lr.ph55.i127 ]
+  %.248626568.i121 = phi i32 [ 0, %.thread63.i118 ], [ 0, %.thread.thread50.i124.thread ], [ %.249.i123, %.thread208 ], [ %.248.i125222249252, %.lr.ph55.i127 ]
   %157 = zext nneg i32 %.248626568.i121 to i64
   %158 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %157
   store float %.1, ptr %158, align 4, !tbaa !15
@@ -1961,7 +1961,7 @@ _add_node.exit137:                                ; preds = %.thread247, %._crit
   br label %.lr.ph55.i150
 
 ._crit_edge.i143:                                 ; preds = %.lr.ph55.i150, %.thread.thread50.i147.thread, %.thread210, %.thread63.i141
-  %.248626568.i144 = phi i32 [ 0, %.thread63.i141 ], [ %.249.i146, %.thread210 ], [ 0, %.thread.thread50.i147.thread ], [ %.248.i148227255258, %.lr.ph55.i150 ]
+  %.248626568.i144 = phi i32 [ 0, %.thread63.i141 ], [ 0, %.thread.thread50.i147.thread ], [ %.249.i146, %.thread210 ], [ %.248.i148227255258, %.lr.ph55.i150 ]
   %216 = zext nneg i32 %.248626568.i144 to i64
   %217 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %216
   store float %.2, ptr %217, align 4, !tbaa !15
@@ -2101,7 +2101,7 @@ _add_node.exit160:                                ; preds = %.thread253, %._crit
   br label %.lr.ph55.i173
 
 ._crit_edge.i166:                                 ; preds = %.lr.ph55.i173, %.thread.thread50.i170.thread, %.thread212, %.thread63.i164
-  %.248626568.i167 = phi i32 [ 0, %.thread63.i164 ], [ %.249.i169, %.thread212 ], [ 0, %.thread.thread50.i170.thread ], [ %.248.i171232261264, %.lr.ph55.i173 ]
+  %.248626568.i167 = phi i32 [ 0, %.thread63.i164 ], [ 0, %.thread.thread50.i170.thread ], [ %.249.i169, %.thread212 ], [ %.248.i171232261264, %.lr.ph55.i173 ]
   %274 = zext nneg i32 %.248626568.i167 to i64
   %275 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %274
   store float %.3, ptr %275, align 4, !tbaa !15
@@ -2241,7 +2241,7 @@ _add_node.exit183:                                ; preds = %.thread259, %._crit
   br label %.lr.ph55.i196
 
 ._crit_edge.i189:                                 ; preds = %.lr.ph55.i196, %.thread.thread50.i193.thread, %.thread214, %.thread63.i187
-  %.248626568.i190 = phi i32 [ 0, %.thread63.i187 ], [ %.249.i192, %.thread214 ], [ 0, %.thread.thread50.i193.thread ], [ %.248.i194237267270, %.lr.ph55.i196 ]
+  %.248626568.i190 = phi i32 [ 0, %.thread63.i187 ], [ 0, %.thread.thread50.i193.thread ], [ %.249.i192, %.thread214 ], [ %.248.i194237267270, %.lr.ph55.i196 ]
   %332 = zext nneg i32 %.248626568.i190 to i64
   %333 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %332
   store float %298, ptr %333, align 4, !tbaa !15
@@ -2354,7 +2354,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br label %.lr.ph55
 
 ._crit_edge:                                      ; preds = %.lr.ph55, %.thread63, %30
-  %.248626568 = phi i32 [ %.248, %30 ], [ 0, %.thread63 ], [ %.248, %.lr.ph55 ]
+  %.248626568 = phi i32 [ 0, %.thread63 ], [ %.248, %30 ], [ %.248, %.lr.ph55 ]
   %33 = zext nneg i32 %.248626568 to i64
   %34 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %0, i64 %33
   store float %2, ptr %34, align 4, !tbaa !15
@@ -2676,7 +2676,7 @@ _delete_node.exit:                                ; preds = %._crit_edge.i60, %8
   br label %.lr.ph55.i
 
 ._crit_edge.i68:                                  ; preds = %.lr.ph55.i, %.thread.thread50.i.thread, %.thread, %.thread63.i
-  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ %.249.i, %.thread ], [ 0, %.thread.thread50.i.thread ], [ %.248.i818790, %.lr.ph55.i ]
+  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ 0, %.thread.thread50.i.thread ], [ %.249.i, %.thread ], [ %.248.i818790, %.lr.ph55.i ]
   %128 = zext nneg i32 %.248626568.i to i64
   %129 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %20, i64 %128
   store float %22, ptr %129, align 4, !tbaa !15
@@ -6177,7 +6177,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br i1 %exitcond258.not, label %._crit_edge, label %263
 
 279:                                              ; preds = %248, %._crit_edge
-  %280 = phi i32 [ %.pre261, %248 ], [ %.0215.lcssa, %._crit_edge ]
+  %280 = phi i32 [ %.0215.lcssa, %._crit_edge ], [ %.pre261, %248 ]
   %281 = icmp sgt i32 %280, -1
   br i1 %281, label %282, label %.loopexit
 
@@ -6458,8 +6458,8 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   br label %19
 
 19:                                               ; preds = %17, %18, %16, %13, %13
-  %.018 = phi nsz float [ 0.000000e+00, %16 ], [ 0x3F50624DE0000000, %17 ], [ 0xBF50624DE0000000, %18 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %13 ]
-  %.0 = phi nsz float [ 0xBF50624DE0000000, %16 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %18 ], [ 0x3F50624DE0000000, %13 ], [ 0x3F50624DE0000000, %13 ]
+  %.018 = phi nsz float [ 0.000000e+00, %13 ], [ 0.000000e+00, %16 ], [ 0x3F50624DE0000000, %17 ], [ 0xBF50624DE0000000, %18 ], [ 0.000000e+00, %13 ]
+  %.0 = phi nsz float [ 0x3F50624DE0000000, %13 ], [ 0xBF50624DE0000000, %16 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %18 ], [ 0x3F50624DE0000000, %13 ]
   tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #31
   %20 = load i32, ptr %10, align 4, !tbaa !179
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24

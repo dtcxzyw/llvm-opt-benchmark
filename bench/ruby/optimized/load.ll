@@ -932,7 +932,7 @@ define hidden i64 @rb_resolve_feature_path(i64 %0, i64 noundef %1) #0 {
   br i1 %.not.i12, label %.lr.ph.i11, label %rbimpl_intern_const.exit, !llvm.loop !92
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i11, %.lr.ph.i, %10, %8
-  %.lcssa.i10.sink = phi i64 [ %.pr.i, %8 ], [ %.pr.i8, %10 ], [ %9, %.lr.ph.i ], [ %11, %.lr.ph.i11 ]
+  %.lcssa.i10.sink = phi i64 [ %9, %.lr.ph.i ], [ %.pr.i, %8 ], [ %.pr.i8, %10 ], [ %11, %.lr.ph.i11 ]
   %12 = call i64 @rb_id2sym(i64 noundef %.lcssa.i10.sink) #6
   %13 = load i64, ptr %3, align 8, !tbaa !42
   %14 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %12, i64 noundef %13) #6

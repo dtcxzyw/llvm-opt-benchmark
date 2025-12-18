@@ -717,9 +717,9 @@ _ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit.us.us: ; preds = %_ZNSt6vectorIPKfS
   br label %548
 
 .loopexit.split-lp:                               ; preds = %._crit_edge546.thread, %239, %501, %240, %.noexc256, %422
-  %.sroa.0391.0.lcssa731 = phi ptr [ %.us-phi540.us, %240 ], [ %.us-phi540.us, %.noexc256 ], [ %.us-phi540.us, %501 ], [ %.us-phi540.us, %422 ], [ %.sroa.0391.0.lcssa732, %._crit_edge546.thread ], [ %.sroa.0391.0.lcssa732, %239 ]
-  %.sroa.0371.0.ph = phi ptr [ null, %240 ], [ null, %.noexc256 ], [ %.sroa.0371.8, %501 ], [ %.sroa.0371.9614, %422 ], [ null, %._crit_edge546.thread ], [ null, %239 ]
-  %.sroa.0379.0.ph = phi ptr [ null, %240 ], [ null, %.noexc256 ], [ %.sroa.0379.7, %501 ], [ %.sroa.0379.8617, %422 ], [ null, %._crit_edge546.thread ], [ null, %239 ]
+  %.sroa.0391.0.lcssa731 = phi ptr [ %.us-phi540.us, %.noexc256 ], [ %.us-phi540.us, %240 ], [ %.us-phi540.us, %501 ], [ %.us-phi540.us, %422 ], [ %.sroa.0391.0.lcssa732, %._crit_edge546.thread ], [ %.sroa.0391.0.lcssa732, %239 ]
+  %.sroa.0371.0.ph = phi ptr [ null, %.noexc256 ], [ null, %240 ], [ %.sroa.0371.8, %501 ], [ %.sroa.0371.9614, %422 ], [ null, %._crit_edge546.thread ], [ null, %239 ]
+  %.sroa.0379.0.ph = phi ptr [ null, %.noexc256 ], [ null, %240 ], [ %.sroa.0379.7, %501 ], [ %.sroa.0379.8617, %422 ], [ null, %._crit_edge546.thread ], [ null, %239 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %548

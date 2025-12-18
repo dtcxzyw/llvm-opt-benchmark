@@ -323,7 +323,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %139, %136
   br i1 %.not6779.i, label %.outer._crit_edge.i, label %.preheader.lr.ph.i, !llvm.loop !41
 
 .outer._crit_edge.i:                              ; preds = %Extra_ProgressBarUpdate.exit.i, %.loopexit.i, %47
-  %.0.ph.lcssa.i = phi i32 [ 0, %47 ], [ %.0.ph86.i, %.loopexit.i ], [ %135, %Extra_ProgressBarUpdate.exit.i ]
+  %.0.ph.lcssa.i = phi i32 [ %.0.ph86.i, %.loopexit.i ], [ 0, %47 ], [ %135, %Extra_ProgressBarUpdate.exit.i ]
   call void @Extra_ProgressBarStop(ptr noundef %49) #11
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.0.ph.lcssa.i, ptr %141, align 4, !tbaa !42
@@ -477,7 +477,7 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr noundef write
   br label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %.critedge, %.critedge4.thread.loopexit80, %.critedge4.thread.loopexit, %._crit_edge
-  %storemerge = phi i32 [ 1, %._crit_edge ], [ %39, %.critedge4.thread.loopexit ], [ %40, %.critedge4.thread.loopexit80 ], [ 0, %.critedge ]
+  %storemerge = phi i32 [ %40, %.critedge4.thread.loopexit80 ], [ %39, %.critedge4.thread.loopexit ], [ 1, %._crit_edge ], [ 0, %.critedge ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !24
   ret ptr %.051
 }

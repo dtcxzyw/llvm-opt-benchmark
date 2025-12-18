@@ -383,8 +383,8 @@ fmap_readn.exit182:                               ; preds = %.lr.ph234, %120
   br i1 %.not165, label %134, label %.thread
 
 .thread.thread:                                   ; preds = %137, %136, %149
-  %.2117.ph = phi i32 [ 0, %149 ], [ 0, %136 ], [ 14, %137 ]
-  %.pn.ph = phi i64 [ %.0111231, %149 ], [ %.0.i179, %136 ], [ %.0.i179, %137 ]
+  %.2117.ph = phi i32 [ 0, %136 ], [ 0, %149 ], [ 14, %137 ]
+  %.pn.ph = phi i64 [ %.0.i179, %136 ], [ %.0111231, %149 ], [ %.0.i179, %137 ]
   %.4281 = add i64 %.pn.ph, %.2110232
   br label %.loopexit.sink.split
 
@@ -1106,8 +1106,8 @@ md5str.exit.i:                                    ; preds = %170
   br label %.thread375.i
 
 .thread375.i:                                     ; preds = %.thread375.fold.split.i, %297, %296, %284, %.critedge.thread.i, %283, %246, %239, %225
-  %.1199.i = phi i32 [ %.0198339.i.lcssa, %297 ], [ %.0198339.i.lcssa, %225 ], [ %.0198339.i.lcssa, %239 ], [ %.0198339.i.lcssa, %296 ], [ %.0198339.i.lcssa, %246 ], [ 0, %284 ], [ 0, %283 ], [ 0, %.critedge.thread.i ], [ %.0198339.i.lcssa, %.thread375.fold.split.i ]
-  %.1192.i = phi i32 [ %.0191340.i.ph, %297 ], [ %.0191340.i.ph, %225 ], [ %.0191340.i.ph, %239 ], [ %.0191340.i.ph, %296 ], [ %.0191340.i.ph, %246 ], [ %269, %284 ], [ %.0191340.i.ph, %283 ], [ %.0191340.i.ph, %.critedge.thread.i ], [ %269, %.thread375.fold.split.i ]
+  %.1199.i = phi i32 [ %.0198339.i.lcssa, %297 ], [ %.0198339.i.lcssa, %225 ], [ %.0198339.i.lcssa, %239 ], [ %.0198339.i.lcssa, %296 ], [ %.0198339.i.lcssa, %246 ], [ 0, %284 ], [ 0, %.critedge.thread.i ], [ 0, %283 ], [ %.0198339.i.lcssa, %.thread375.fold.split.i ]
+  %.1192.i = phi i32 [ %.0191340.i.ph, %297 ], [ %.0191340.i.ph, %225 ], [ %.0191340.i.ph, %239 ], [ %.0191340.i.ph, %296 ], [ %.0191340.i.ph, %246 ], [ %269, %284 ], [ %.0191340.i.ph, %.critedge.thread.i ], [ %.0191340.i.ph, %283 ], [ %269, %.thread375.fold.split.i ]
   %.not250.i = icmp eq ptr %spec.select252.i, @.str.35
   br i1 %.not250.i, label %306, label %298
 
@@ -1167,18 +1167,18 @@ is_parse_hdr.exit.thread.sink.split:              ; preds = %295, %282
   %.0186.i.ph.ph = phi i32 [ 25, %282 ], [ %285, %295 ]
   %324 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0206.i) #14
   %325 = add i64 %324, 1
-  %.val.i271.i = load ptr, ptr %116, align 8, !tbaa !74
-  %.val3.i272.i = load i64, ptr %117, align 8, !tbaa !75
+  %.val.i275.i = load ptr, ptr %116, align 8, !tbaa !74
+  %.val3.i276.i = load i64, ptr %117, align 8, !tbaa !75
   %326 = ptrtoint ptr %.0206.i to i64
-  %327 = ptrtoint ptr %.val.i271.i to i64
-  %328 = add i64 %.val3.i272.i, %327
+  %327 = ptrtoint ptr %.val.i275.i to i64
+  %328 = add i64 %.val3.i276.i, %327
   %329 = sub i64 %326, %328
   %330 = load ptr, ptr %137, align 8, !tbaa !76
   call void %330(ptr noundef nonnull %105, i64 noundef %329, i64 noundef %325) #13
   br label %is_parse_hdr.exit.thread
 
 is_parse_hdr.exit.thread:                         ; preds = %is_parse_hdr.exit.thread.sink.split, %295, %282, %132
-  %.0186.i.ph = phi i32 [ 22, %132 ], [ 25, %282 ], [ %285, %295 ], [ %.0186.i.ph.ph, %is_parse_hdr.exit.thread.sink.split ]
+  %.0186.i.ph = phi i32 [ 22, %132 ], [ %285, %295 ], [ 25, %282 ], [ %.0186.i.ph.ph, %is_parse_hdr.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %349
 
@@ -1236,8 +1236,8 @@ is_parse_hdr.exit:                                ; preds = %315
   %spec.store.select = select i1 %350, i32 0, i32 %.0186.i201
   br label %.thread193
 
-.thread193:                                       ; preds = %54, %.thread, %335, %349, %.thread180
-  %.5 = phi i32 [ %spec.store.select, %349 ], [ 0, %.thread180 ], [ %.6, %335 ], [ %99, %.thread ], [ 1, %54 ]
+.thread193:                                       ; preds = %.thread, %54, %335, %349, %.thread180
+  %.5 = phi i32 [ %.6, %335 ], [ %spec.store.select, %349 ], [ 0, %.thread180 ], [ %99, %.thread ], [ 1, %54 ]
   %.not147 = icmp eq ptr %.sroa.0.0.ph, null
   br i1 %.not147, label %.thread193.thread, label %.thread193.thread370
 

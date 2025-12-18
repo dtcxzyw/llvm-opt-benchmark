@@ -826,7 +826,7 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit73.i: ; preds = %260, %257
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.preheader.i, %272, %.thread79.i, %.thread.i
-  %.pn27.pn.pn.pn.pn.pn.pn78.i = phi { ptr, i32 } [ %247, %.thread.i ], [ %.pn27.pn.pn.pn.pn.i, %272 ], [ %248, %.thread79.i ], [ %.pn27.pn.pn.pn.pn.i, %.preheader.preheader.i ]
+  %.pn27.pn.pn.pn.pn.pn.pn78.i = phi { ptr, i32 } [ %247, %.thread.i ], [ %248, %.thread79.i ], [ %.pn27.pn.pn.pn.pn.i, %272 ], [ %.pn27.pn.pn.pn.pn.i, %.preheader.preheader.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   br label %.body.i
 

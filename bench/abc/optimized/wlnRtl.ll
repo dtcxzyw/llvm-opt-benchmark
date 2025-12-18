@@ -487,7 +487,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %.lr.ph, %66, %.preheader, %38, %32, %58, %45
-  %.035 = phi ptr [ null, %45 ], [ %43, %58 ], [ null, %32 ], [ null, %38 ], [ %43, %.preheader ], [ %43, %66 ], [ %43, %.lr.ph ]
+  %.035 = phi ptr [ null, %45 ], [ %43, %58 ], [ null, %38 ], [ null, %32 ], [ %43, %.preheader ], [ %43, %66 ], [ %43, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.035
 }

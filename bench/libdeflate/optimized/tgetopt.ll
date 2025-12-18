@@ -82,7 +82,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %30, %16
-  %31 = phi ptr [ null, %22 ], [ %23, %30 ], [ null, %16 ]
+  %31 = phi ptr [ null, %22 ], [ null, %16 ], [ %23, %30 ]
   %32 = icmp ne ptr %31, null
   %33 = icmp slt i64 %indvars.iv.next, %7
   %34 = select i1 %32, i1 true, i1 %33

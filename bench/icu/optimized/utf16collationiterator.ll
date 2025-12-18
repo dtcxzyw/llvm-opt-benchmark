@@ -2063,7 +2063,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %41
   br label %_ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit.thread
 
 _ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit.thread: ; preds = %.lr.ph43, %65, %67
-  %.ph = phi ptr [ %8, %67 ], [ %.promoted27, %65 ], [ %.promoted27, %.lr.ph43 ]
+  %.ph = phi ptr [ %.promoted27, %65 ], [ %8, %67 ], [ %.promoted27, %.lr.ph43 ]
   store ptr %10, ptr %11, align 8, !tbaa !17
   store i8 -1, ptr %3, align 8, !tbaa !53
   br label %._crit_edge

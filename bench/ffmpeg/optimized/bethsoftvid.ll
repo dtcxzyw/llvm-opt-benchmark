@@ -417,9 +417,9 @@ tailrecurse:                                      ; preds = %18
   br i1 %.not113.i, label %.thread128.i, label %.split.i, !llvm.loop !65
 
 .thread128.i:                                     ; preds = %143, %170, %166, %.split146.us.i
-  %171 = phi i1 [ %164, %.split146.us.i ], [ %164, %166 ], [ false, %170 ], [ true, %143 ]
-  %.395143.i = phi i32 [ %.us-phi147.i, %.split146.us.i ], [ %.us-phi147.i, %166 ], [ %.395.i, %170 ], [ %.395.us.i, %143 ]
-  %172 = phi ptr [ %.us-phi148.i, %.split146.us.i ], [ %.us-phi148.i, %166 ], [ %146, %170 ], [ %116, %143 ]
+  %171 = phi i1 [ %164, %166 ], [ %164, %.split146.us.i ], [ false, %170 ], [ true, %143 ]
+  %.395143.i = phi i32 [ %.us-phi147.i, %166 ], [ %.us-phi147.i, %.split146.us.i ], [ %.395.i, %170 ], [ %.395.us.i, %143 ]
+  %172 = phi ptr [ %.us-phi148.i, %166 ], [ %.us-phi148.i, %.split146.us.i ], [ %146, %170 ], [ %116, %143 ]
   %173 = call i32 @av_new_packet(ptr noundef %1, i32 noundef %.395143.i) #5
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %.thread.i, label %175

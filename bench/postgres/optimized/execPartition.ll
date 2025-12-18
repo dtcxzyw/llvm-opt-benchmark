@@ -1580,7 +1580,7 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   br label %261
 
 261:                                              ; preds = %.sink.split, %110, %adjust_partition_colnos.exit, %list_length.exit263.thread
-  %.3 = phi ptr [ %.1, %110 ], [ %.1, %list_length.exit263.thread ], [ %.6, %adjust_partition_colnos.exit ], [ %.3.ph, %.sink.split ]
+  %.3 = phi ptr [ %.6, %adjust_partition_colnos.exit ], [ %.1, %110 ], [ %.1, %list_length.exit263.thread ], [ %.3.ph, %.sink.split ]
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %263 = load ptr, ptr %262, align 8
   store ptr %263, ptr @CurrentMemoryContext, align 8
@@ -2150,7 +2150,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   br label %.critedge.i.preheader
 
 .critedge.i.preheader:                            ; preds = %136, %.critedge.loopexit.split.loop.exit234.i, %.preheader.i
-  %.2.i.ph = phi i32 [ %137, %.critedge.loopexit.split.loop.exit234.i ], [ %.0147188.i, %.preheader.i ], [ %128, %136 ]
+  %.2.i.ph = phi i32 [ %.0147188.i, %.preheader.i ], [ %137, %.critedge.loopexit.split.loop.exit234.i ], [ %128, %136 ]
   br label %.critedge.i
 
 .loopexit.i:                                      ; preds = %167

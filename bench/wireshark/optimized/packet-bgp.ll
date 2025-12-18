@@ -4082,8 +4082,8 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
   br i1 %128, label %heuristic_as2_or_4_from_as_path.exit.thread, label %heuristic_as2_or_4_from_as_path.exit.thread1787
 
 heuristic_as2_or_4_from_as_path.exit.thread:      ; preds = %.lr.ph105.i, %96, %.preheader.i, %._crit_edge100.i
-  %.31781.ph = phi i32 [ 0, %.preheader.i ], [ %126, %._crit_edge100.i ], [ 0, %96 ], [ %81, %.lr.ph105.i ]
-  %.082.i.ph = phi i8 [ 4, %.preheader.i ], [ %.078.i, %._crit_edge100.i ], [ 0, %96 ], [ 4, %.lr.ph105.i ]
+  %.31781.ph = phi i32 [ 0, %96 ], [ 0, %.preheader.i ], [ %126, %._crit_edge100.i ], [ %81, %.lr.ph105.i ]
+  %.082.i.ph = phi i8 [ 0, %96 ], [ 4, %.preheader.i ], [ %.078.i, %._crit_edge100.i ], [ 4, %.lr.ph105.i ]
   %129 = zext nneg i8 %.082.i.ph to i32
   br label %135
 
@@ -4697,7 +4697,7 @@ save_afi_safi_data.exit:                          ; preds = %328, %344
   br label %.thread.i
 
 413:                                              ; preds = %406, %401, %394, %384, %382, %373, %368, %366
-  %.0.i1770 = phi i32 [ %367, %366 ], [ %402, %401 ], [ %369, %368 ], [ %374, %373 ], [ %395, %394 ], [ %407, %406 ], [ %383, %382 ], [ %385, %384 ]
+  %.0.i1770 = phi i32 [ %395, %394 ], [ %407, %406 ], [ %367, %366 ], [ %402, %401 ], [ %369, %368 ], [ %374, %373 ], [ %383, %382 ], [ %385, %384 ]
   %.not141.i = icmp eq i32 %.0.i1770, 0
   br i1 %.not141.i, label %.thread.i, label %.thread157.i
 
@@ -9208,7 +9208,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   br label %decode_link_state_attribute_flex_algo_subtlv.exit
 
 decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.preheader79.i, %246, %265, %267, %.preheader.i, %285, %293
-  %.pre-phi88.i = phi i32 [ %235, %246 ], [ %235, %.preheader79.i ], [ %275, %.preheader.i ], [ %.pre87.i, %293 ], [ %275, %285 ], [ %257, %267 ], [ %257, %265 ], [ %275, %287 ], [ %235, %248 ]
+  %.pre-phi88.i = phi i32 [ %275, %287 ], [ %235, %246 ], [ %235, %.preheader79.i ], [ %275, %.preheader.i ], [ %.pre87.i, %293 ], [ %275, %285 ], [ %257, %267 ], [ %257, %265 ], [ %235, %248 ]
   %296 = add i32 %.pre-phi88.i, %.013921535
   %297 = icmp slt i32 %296, %220
   br i1 %297, label %.lr.ph1536, label %.loopexit, !llvm.loop !44
@@ -11054,7 +11054,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
   br i1 %140, label %dissect_bgp_update.exit, label %135
 
 .loopexit98.i:                                    ; preds = %128, %135, %115
-  %.0.i = phi i32 [ 21, %115 ], [ %136, %135 ], [ %129, %128 ]
+  %.0.i = phi i32 [ %136, %135 ], [ 21, %115 ], [ %129, %128 ]
   %141 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
   %142 = load i32, ptr @hf_bgp_update_total_path_attribute_length, align 4
   %143 = tail call ptr @proto_tree_add_item(ptr noundef %.07984, i32 noundef %142, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0)
@@ -11399,7 +11399,7 @@ dissect_bgp_route_refresh.exit:                   ; preds = %.loopexit.i70, %238
   br i1 %327, label %.lr.ph.i72, label %dissect_bgp_update.exit, !llvm.loop !65
 
 dissect_bgp_update.exit:                          ; preds = %.lr.ph.i72, %.lr.ph.i67, %.preheader100.i, %.preheader97.i, %.lr.ph.i64, %.lr.ph110.i, %322, %.thread84.i, %233, %221, %210, %171, %.preheader.i, %144, %.loopexit98.i, %dissect_bgp_open.exit, %dissect_bgp_route_refresh.exit, %43, %38
-  %.058 = phi i32 [ %41, %38 ], [ %44, %43 ], [ %44, %.thread84.i ], [ %44, %dissect_bgp_route_refresh.exit ], [ %44, %dissect_bgp_open.exit ], [ %44, %.loopexit98.i ], [ %44, %144 ], [ %44, %.preheader.i ], [ %44, %171 ], [ %44, %210 ], [ %44, %221 ], [ %44, %233 ], [ %44, %322 ], [ %44, %.lr.ph.i67 ], [ %44, %.lr.ph110.i ], [ %44, %.lr.ph.i64 ], [ %44, %.preheader97.i ], [ %44, %.preheader100.i ], [ %44, %.lr.ph.i72 ]
+  %.058 = phi i32 [ %41, %38 ], [ %44, %43 ], [ %44, %.thread84.i ], [ %44, %dissect_bgp_route_refresh.exit ], [ %44, %.lr.ph110.i ], [ %44, %dissect_bgp_open.exit ], [ %44, %.preheader100.i ], [ %44, %.preheader97.i ], [ %44, %.loopexit98.i ], [ %44, %144 ], [ %44, %.preheader.i ], [ %44, %.lr.ph.i64 ], [ %44, %171 ], [ %44, %210 ], [ %44, %221 ], [ %44, %.lr.ph.i67 ], [ %44, %233 ], [ %44, %322 ], [ %44, %.lr.ph.i72 ]
   ret i32 %.058
 }
 
@@ -11830,7 +11830,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
   br i1 %48, label %28, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %20, %12, %.lr.ph, %28, %33, %41, %47, %.preheader
-  %.036 = phi i32 [ 0, %.preheader ], [ 0, %47 ], [ 1, %28 ], [ 1, %41 ], [ 1, %33 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %20 ]
+  %.036 = phi i32 [ 0, %47 ], [ 0, %.preheader ], [ 1, %28 ], [ 1, %41 ], [ 1, %33 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %20 ]
   ret i32 %.036
 }
 
@@ -12476,8 +12476,8 @@ decode_bgp_nlri_op_tcpf_value.exit:               ; preds = %127
   br label %decode_bgp_nlri_op_dscp_value.exit
 
 decode_bgp_nlri_op_dscp_value.exit:               ; preds = %263, %216, %98, %87, %178, %decode_bgp_nlri_op_tcpf_value.exit, %120, %116, %112, %108, %104, %100
-  %.1179 = phi i32 [ %181, %178 ], [ %.0178, %87 ], [ %.2180, %98 ], [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %176, %decode_bgp_nlri_op_tcpf_value.exit ], [ %214, %216 ], [ %261, %263 ]
-  %.2 = phi i32 [ %179, %178 ], [ %spec.select182, %87 ], [ %spec.select184, %98 ], [ %101, %100 ], [ %105, %104 ], [ %109, %108 ], [ %113, %112 ], [ %117, %116 ], [ %121, %120 ], [ %125, %decode_bgp_nlri_op_tcpf_value.exit ], [ %183, %216 ], [ %218, %263 ]
+  %.1179 = phi i32 [ %261, %263 ], [ %181, %178 ], [ %.0178, %87 ], [ %.2180, %98 ], [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %176, %decode_bgp_nlri_op_tcpf_value.exit ], [ %214, %216 ]
+  %.2 = phi i32 [ %218, %263 ], [ %179, %178 ], [ %spec.select182, %87 ], [ %spec.select184, %98 ], [ %101, %100 ], [ %105, %104 ], [ %109, %108 ], [ %113, %112 ], [ %117, %116 ], [ %121, %120 ], [ %125, %decode_bgp_nlri_op_tcpf_value.exit ], [ %183, %216 ]
   %264 = icmp sgt i32 %.1179, 0
   br i1 %264, label %265, label %decode_bgp_nlri_op_dscp_value.exit.thread
 
@@ -15041,7 +15041,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph346, %121, %.lr.ph350, %176, %133, %91, %._crit_edge, %63, %209, %214, %200, %204, %171, %128, %118, %109, %114, %81, %69, %74, %36, %41, %242, %229, %227, %167, %145, %33
-  %.1 = phi i32 [ %243, %242 ], [ %34, %33 ], [ %40, %36 ], [ %50, %41 ], [ %237, %229 ], [ %73, %69 ], [ %77, %74 ], [ %85, %81 ], [ %52, %._crit_edge ], [ %113, %109 ], [ %117, %114 ], [ %.0, %118 ], [ %132, %128 ], [ %161, %145 ], [ %168, %167 ], [ %175, %171 ], [ %.0, %200 ], [ %207, %204 ], [ %213, %209 ], [ %221, %214 ], [ %228, %227 ], [ %52, %63 ], [ %95, %91 ], [ %.0, %133 ], [ %189, %176 ], [ %143, %.lr.ph346 ], [ %106, %.lr.ph350 ], [ %124, %121 ], [ %196, %.lr.ph ]
+  %.1 = phi i32 [ %243, %242 ], [ %34, %33 ], [ %40, %36 ], [ %50, %41 ], [ %237, %229 ], [ %73, %69 ], [ %77, %74 ], [ %85, %81 ], [ %52, %._crit_edge ], [ %113, %109 ], [ %117, %114 ], [ %143, %.lr.ph346 ], [ %.0, %118 ], [ %132, %128 ], [ %106, %.lr.ph350 ], [ %161, %145 ], [ %168, %167 ], [ %175, %171 ], [ %124, %121 ], [ %.0, %200 ], [ %207, %204 ], [ %213, %209 ], [ %221, %214 ], [ %228, %227 ], [ %52, %63 ], [ %95, %91 ], [ %.0, %133 ], [ %189, %176 ], [ %196, %.lr.ph ]
   ret i32 %.1
 }
 

@@ -2093,7 +2093,7 @@ add_data_until_next_order_code.exit:              ; preds = %60, %61
   br label %dissect_field_attribute_pairs.exit
 
 dissect_field_attribute_pairs.exit:               ; preds = %.lr.ph.i, %39, %34, %22, %17, %31, %43, %47, %50, %13, %13, %add_data_until_next_order_code.exit
-  %.1 = phi i32 [ %16, %50 ], [ %21, %17 ], [ %64, %add_data_until_next_order_code.exit ], [ %33, %31 ], [ %46, %43 ], [ %49, %47 ], [ %16, %13 ], [ %16, %13 ], [ %27, %22 ], [ %42, %39 ], [ %37, %34 ], [ %29, %.lr.ph.i ]
+  %.1 = phi i32 [ %16, %50 ], [ %21, %17 ], [ %64, %add_data_until_next_order_code.exit ], [ %33, %31 ], [ %37, %34 ], [ %46, %43 ], [ %49, %47 ], [ %16, %13 ], [ %16, %13 ], [ %27, %22 ], [ %42, %39 ], [ %29, %.lr.ph.i ]
   %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.1)
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %10, label %._crit_edge, !llvm.loop !10
@@ -2268,7 +2268,7 @@ define internal fastcc noundef i32 @dissect_structured_fields(ptr noundef %0, pt
   br i1 %exitcond.not.i.i, label %dissect_read_partition.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 dissect_read_partition.exit.i:                    ; preds = %.lr.ph.i.i, %78, %72, %67
-  %.1.i.i = phi i32 [ %75, %72 ], [ %70, %67 ], [ %75, %78 ], [ %85, %.lr.ph.i.i ]
+  %.1.i.i = phi i32 [ %70, %67 ], [ %75, %72 ], [ %75, %78 ], [ %85, %.lr.ph.i.i ]
   %87 = sub i32 %.1.i.i, %52
   br label %process_outbound_structured_field.exit
 
@@ -4909,7 +4909,7 @@ dissect_unknown_data.exit.i352:                   ; preds = %643, %638
   br i1 %.not.i.i42.i, label %dissect_daid_sd_parm.exit.i, label %.preheader49.i, !llvm.loop !6
 
 dissect_daid_sd_parm.exit.i:                      ; preds = %.preheader49.i, %.preheader.i, %dissect_unknown_data.exit.i352
-  %.2.i344 = phi i32 [ %646, %dissect_unknown_data.exit.i352 ], [ %655, %.preheader.i ], [ %666, %.preheader49.i ]
+  %.2.i344 = phi i32 [ %655, %.preheader.i ], [ %646, %dissect_unknown_data.exit.i352 ], [ %666, %.preheader49.i ]
   %669 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i344)
   %670 = icmp slt i32 %669, 1
   %671 = add nuw nsw i32 %.03854.i, 1
@@ -5546,7 +5546,7 @@ dissect_unknown_data.exit.i471:                   ; preds = %973, %968
   br i1 %.not.i.i42.i456, label %dissect_daid_sd_parm.exit.i457, label %.preheader49.i452, !llvm.loop !6
 
 dissect_daid_sd_parm.exit.i457:                   ; preds = %.preheader49.i452, %.preheader.i465, %dissect_unknown_data.exit.i471
-  %.2.i458 = phi i32 [ %976, %dissect_unknown_data.exit.i471 ], [ %985, %.preheader.i465 ], [ %996, %.preheader49.i452 ]
+  %.2.i458 = phi i32 [ %985, %.preheader.i465 ], [ %976, %dissect_unknown_data.exit.i471 ], [ %996, %.preheader49.i452 ]
   %999 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i458)
   %1000 = icmp slt i32 %999, 1
   %1001 = add nuw nsw i32 %.03854.i451, 1

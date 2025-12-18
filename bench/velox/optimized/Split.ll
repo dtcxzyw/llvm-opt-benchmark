@@ -10727,7 +10727,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -12077,7 +12077,7 @@ if.end20.i.i:                                     ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !146
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.end20.i.i, %while.body, %if.end.i.i, %if.then18.i.i
-  %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end.i.i ], [ 0, %while.body ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %retval.0.i.i = phi i64 [ 0, %while.body ], [ -1, %if.end.i.i ], [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   %spec.select = add i64 %retval.0.i.i, %inc
   %cmp = icmp ugt i64 %spec.select, %sinput.sroa.0.0
   %6 = load i32, ptr %length_.i, align 4
@@ -12555,7 +12555,7 @@ if.end20.i.i:                                     ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !146
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.end20.i.i, %while.body, %if.end.i.i, %if.then18.i.i
-  %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end.i.i ], [ 0, %while.body ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %retval.0.i.i = phi i64 [ 0, %while.body ], [ -1, %if.end.i.i ], [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   %spec.select = add i64 %retval.0.i.i, %inc
   %cmp12 = icmp ugt i64 %spec.select, %sinput.sroa.0.0
   br i1 %cmp12, label %while.end, label %if.end14
@@ -13193,7 +13193,7 @@ if.end20.i.i:                                     ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !146
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.end20.i.i, %while.body, %if.end.i.i, %if.then18.i.i
-  %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end.i.i ], [ 0, %while.body ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %retval.0.i.i = phi i64 [ 0, %while.body ], [ -1, %if.end.i.i ], [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   %spec.select = add i64 %retval.0.i.i, %inc
   %cmp = icmp ugt i64 %spec.select, %sinput.sroa.0.0
   %6 = load i32, ptr %length_.i, align 4
@@ -13662,7 +13662,7 @@ if.end20.i.i:                                     ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !146
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.end20.i.i, %while.body, %if.end.i.i, %if.then18.i.i
-  %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end.i.i ], [ 0, %while.body ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %retval.0.i.i = phi i64 [ 0, %while.body ], [ -1, %if.end.i.i ], [ %sub.ptr.sub.i.i, %if.then18.i.i ], [ -1, %if.end20.i.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   %spec.select = add i64 %retval.0.i.i, %inc
   %cmp12 = icmp ugt i64 %spec.select, %sinput.sroa.0.0
   br i1 %cmp12, label %while.end, label %if.end14

@@ -2252,7 +2252,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i.i.i: ; preds = %_ZN4llvm10succ_em
   br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
 "_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i": ; preds = %110, %104, %98, %.lr.ph.i.i.i.i.i.i.i.i, %140, %135, %128, %121
-  %.sroa.9.0.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.1.i.i.i.i.i.i.i.i, %128 ], [ %75, %140 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %121 ], [ %.sroa.15.2.i.i.i.i.i.i.i.i, %135 ], [ %.sroa.15.096.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %99, %98 ], [ %105, %104 ], [ %111, %110 ]
+  %.sroa.9.0.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.1.i.i.i.i.i.i.i.i, %128 ], [ %.sroa.15.2.i.i.i.i.i.i.i.i, %135 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %121 ], [ %75, %140 ], [ %.sroa.15.096.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %99, %98 ], [ %105, %104 ], [ %111, %110 ]
   %141 = icmp eq i32 %75, %.sroa.9.0.i.i.i.i.i.i.i.i
   %142 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(8) %10)
   %143 = zext i1 %141 to i8

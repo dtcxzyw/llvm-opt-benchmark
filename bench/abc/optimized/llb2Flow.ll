@@ -2856,7 +2856,7 @@ tailrecurse:                                      ; preds = %8
   br label %.fold.split
 
 .fold.split:                                      ; preds = %tailrecurse, %8, %.lr.ph, %.fold.split.loopexit32, %2
-  %.0 = phi i32 [ 0, %.lr.ph ], [ 1, %2 ], [ 1, %tailrecurse ], [ 0, %8 ], [ 1, %.fold.split.loopexit32 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %8 ], [ 1, %tailrecurse ], [ 1, %.fold.split.loopexit32 ]
   ret i32 %.0
 }
 

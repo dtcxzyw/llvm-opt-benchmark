@@ -2328,7 +2328,7 @@ setLastError.exit.i:                              ; preds = %78, %74
   br label %118
 
 parseScopeId.exit.thread.i:                       ; preds = %104, %83
-  %.05.i.ph.i = phi i64 [ %86, %83 ], [ %89, %104 ]
+  %.05.i.ph.i = phi i64 [ %89, %104 ], [ %86, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 

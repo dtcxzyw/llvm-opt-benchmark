@@ -1086,7 +1086,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %278, %275, %281, %288, %163, %176, %197, %254, %156, %151, %108, %80, %66, %64, %.loopexit29.loopexit.split.loop.exit182, %.loopexit29.loopexit.split.loop.exit184, %.loopexit29.loopexit.split.loop.exit186, %.loopexit29.loopexit.split.loop.exit188, %.loopexit29.loopexit.split.loop.exit190, %.loopexit29.loopexit.split.loop.exit192, %.loopexit29.loopexit.split.loop.exit194, %.loopexit29.loopexit.split.loop.exit196, %219
-  %306 = phi ptr [ %221, %219 ], [ %301, %.loopexit29.loopexit.split.loop.exit188 ], [ %302, %.loopexit29.loopexit.split.loop.exit190 ], [ %305, %.loopexit29.loopexit.split.loop.exit196 ], [ %303, %.loopexit29.loopexit.split.loop.exit192 ], [ %304, %.loopexit29.loopexit.split.loop.exit194 ], [ %298, %.loopexit29.loopexit.split.loop.exit182 ], [ %299, %.loopexit29.loopexit.split.loop.exit184 ], [ %300, %.loopexit29.loopexit.split.loop.exit186 ], [ %43, %64 ], [ %157, %176 ], [ %157, %163 ], [ %240, %254 ], [ %43, %80 ], [ %43, %108 ], [ %43, %151 ], [ %157, %156 ], [ %.pre143, %288 ], [ %157, %197 ], [ %43, %66 ], [ %.pre144, %281 ], [ %.pre130.pre, %275 ], [ %.pre130, %278 ]
+  %306 = phi ptr [ %221, %219 ], [ %301, %.loopexit29.loopexit.split.loop.exit188 ], [ %302, %.loopexit29.loopexit.split.loop.exit190 ], [ %305, %.loopexit29.loopexit.split.loop.exit196 ], [ %304, %.loopexit29.loopexit.split.loop.exit194 ], [ %303, %.loopexit29.loopexit.split.loop.exit192 ], [ %298, %.loopexit29.loopexit.split.loop.exit182 ], [ %299, %.loopexit29.loopexit.split.loop.exit184 ], [ %300, %.loopexit29.loopexit.split.loop.exit186 ], [ %43, %64 ], [ %157, %176 ], [ %157, %163 ], [ %240, %254 ], [ %43, %80 ], [ %43, %108 ], [ %43, %151 ], [ %157, %156 ], [ %.pre143, %288 ], [ %157, %197 ], [ %43, %66 ], [ %.pre144, %281 ], [ %.pre130.pre, %275 ], [ %.pre130, %278 ]
   %307 = icmp eq ptr %3, null
   br i1 %307, label %.thread24, label %308
 
@@ -1099,7 +1099,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br label %.thread24
 
 .thread24:                                        ; preds = %291, %60, %56, %45, %20, %308, %.loopexit29
-  %313 = phi i32 [ 0, %20 ], [ -22, %308 ], [ -22, %.loopexit29 ], [ 0, %45 ], [ 0, %60 ], [ 0, %56 ], [ 0, %291 ]
+  %313 = phi i32 [ 0, %20 ], [ -22, %308 ], [ -22, %.loopexit29 ], [ 0, %56 ], [ 0, %60 ], [ 0, %45 ], [ 0, %291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %313
 }

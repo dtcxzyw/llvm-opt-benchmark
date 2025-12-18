@@ -313,7 +313,7 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
   br i1 %or.cond.i, label %_ZL10parseStatePKcPiPj.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZL10parseStatePKcPiPj.exit.thread:               ; preds = %117, %32, %21
-  %.080.i.ph = phi ptr [ %23, %21 ], [ %34, %32 ], [ %.384104.i, %117 ]
+  %.080.i.ph = phi ptr [ %34, %32 ], [ %23, %21 ], [ %.384104.i, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %127
 
@@ -322,7 +322,7 @@ _ZL10parseStatePKcPiPj.exit.thread14:             ; preds = %117, %37
   br label %130
 
 _ZL10parseStatePKcPiPj.exit:                      ; preds = %52, %59, %72, %119, %40
-  %.080.i = phi ptr [ %41, %40 ], [ %121, %119 ], [ %54, %52 ], [ %68, %72 ], [ %54, %59 ]
+  %.080.i = phi ptr [ %41, %40 ], [ %54, %52 ], [ %68, %72 ], [ %121, %119 ], [ %54, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %.080.i, null
   br i1 %.not, label %130, label %127

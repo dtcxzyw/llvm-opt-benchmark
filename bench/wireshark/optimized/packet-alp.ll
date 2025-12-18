@@ -358,8 +358,8 @@ proto_item_set_generated.exit.i:                  ; preds = %30, %27, %19
   br i1 %.not88.i, label %._crit_edge.i, label %54, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %54, %51, %proto_item_set_generated.exit.i
-  %.0113.i = phi i32 [ 2, %51 ], [ 1, %proto_item_set_generated.exit.i ], [ 2, %54 ]
-  %.084112.i = phi i1 [ %52, %51 ], [ true, %proto_item_set_generated.exit.i ], [ %52, %54 ]
+  %.0113.i = phi i32 [ 1, %proto_item_set_generated.exit.i ], [ 2, %51 ], [ 2, %54 ]
+  %.084112.i = phi i1 [ true, %proto_item_set_generated.exit.i ], [ %52, %51 ], [ %52, %54 ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noalias dereferenceable_or_null(188) ptr @wmem_alloc(ptr noundef %67, i64 noundef 188) #5

@@ -598,7 +598,7 @@ _can_use_gres_exc_topo.exit.thread3._crit_edge.i: ; preds = %_can_use_gres_exc_t
   br i1 %exitcond135.not.i, label %.loopexit48.i, label %.preheader47.i, !llvm.loop !13
 
 .loopexit48.i:                                    ; preds = %291, %284, %275, %.thread.i, %281
-  %.0320.i = phi i1 [ %.mux.mux.i, %.thread.i ], [ false, %281 ], [ false, %275 ], [ false, %284 ], [ true, %291 ]
+  %.0320.i = phi i1 [ %.mux.mux.i, %.thread.i ], [ false, %281 ], [ false, %284 ], [ false, %275 ], [ true, %291 ]
   %292 = load ptr, ptr %168, align 8
   %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv152.i
   %294 = load ptr, ptr %293, align 8
@@ -784,7 +784,7 @@ _can_use_gres_exc_topo.exit.thread3._crit_edge.i: ; preds = %_can_use_gres_exc_t
   br label %.thread33.i
 
 _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit46.us.i, %327, %326, %.loopexit46.us.thread.i, %313, %312, %310, %258, %246, %_can_use_gres_exc_topo.exit.i, %230, %227, %224, %219, %216, %213, %190, %181, %175
-  %.2329.ph.i = phi i1 [ %.032777.i, %181 ], [ true, %312 ], [ %.032777.i, %190 ], [ true, %310 ], [ %.032777.i, %258 ], [ %.032777.i, %246 ], [ %.032777.i, %_can_use_gres_exc_topo.exit.i ], [ %.032777.i, %175 ], [ %.032777.i, %224 ], [ %.032777.i, %213 ], [ %.032777.i, %216 ], [ %.032777.i, %219 ], [ %.032777.i, %227 ], [ %.032777.i, %230 ], [ %.032777.i, %313 ], [ true, %.loopexit46.us.thread.i ], [ %.032777.i, %327 ], [ %.032777.i, %326 ], [ %.032777.i, %.loopexit46.us.i ]
+  %.2329.ph.i = phi i1 [ %.032777.i, %181 ], [ true, %312 ], [ %.032777.i, %190 ], [ true, %310 ], [ %.032777.i, %230 ], [ %.032777.i, %258 ], [ %.032777.i, %246 ], [ %.032777.i, %_can_use_gres_exc_topo.exit.i ], [ %.032777.i, %175 ], [ %.032777.i, %224 ], [ %.032777.i, %213 ], [ %.032777.i, %216 ], [ %.032777.i, %219 ], [ %.032777.i, %227 ], [ %.032777.i, %313 ], [ true, %.loopexit46.us.thread.i ], [ %.032777.i, %326 ], [ %.032777.i, %327 ], [ %.032777.i, %.loopexit46.us.i ]
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %360 = load i16, ptr %160, align 8
   %361 = zext i16 %360 to i64
@@ -1380,7 +1380,7 @@ _handle_gres_exc_by_type.exit.i:                  ; preds = %617, %614, %607, %6
   br i1 %633, label %.lr.ph.split.i, label %._crit_edge.i157, !llvm.loop !26
 
 ._crit_edge.i157:                                 ; preds = %630, %573, %544
-  %.0.lcssa.i = phi i1 [ %.1.us.i162, %573 ], [ %.1.us.us.i, %544 ], [ %.1.i, %630 ]
+  %.0.lcssa.i = phi i1 [ %.1.us.us.i, %544 ], [ %.1.us.i162, %573 ], [ %.1.i, %630 ]
   br i1 %.0.lcssa.i, label %_build_sock_gres_by_type.exit, label %.critedge10.i
 
 .critedge10.i:                                    ; preds = %._crit_edge.i157, %509
@@ -1510,8 +1510,8 @@ _build_sock_gres_by_topo.exit.thread:             ; preds = %_handle_gres_exc_ba
   %.not144 = icmp eq ptr %79, null
   br i1 %.not144, label %.thread, label %.thread.sink.split
 
-_build_sock_gres_by_topo.exit.thread184:          ; preds = %679, %505, %_build_sock_gres_by_topo.exit
-  %.0109187 = phi ptr [ %.0109, %_build_sock_gres_by_topo.exit ], [ %680, %679 ], [ %154, %505 ]
+_build_sock_gres_by_topo.exit.thread184:          ; preds = %505, %679, %_build_sock_gres_by_topo.exit
+  %.0109187 = phi ptr [ %.0109, %_build_sock_gres_by_topo.exit ], [ %154, %505 ], [ %680, %679 ]
   %687 = getelementptr inbounds nuw i8, ptr %.0109187, i64 80
   store i8 %26, ptr %687, align 8
   %688 = getelementptr inbounds nuw i8, ptr %.0109187, i64 32
@@ -1528,7 +1528,7 @@ _build_sock_gres_by_topo.exit.thread184:          ; preds = %679, %505, %_build_
   br label %.thread
 
 .thread:                                          ; preds = %_build_sock_gres_by_topo.exit.thread184, %.thread.sink.split, %78, %_build_sock_gres_by_topo.exit.thread, %105
-  %.1 = phi ptr [ null, %105 ], [ null, %_build_sock_gres_by_topo.exit.thread ], [ %79, %78 ], [ null, %.thread.sink.split ], [ %79, %_build_sock_gres_by_topo.exit.thread184 ]
+  %.1 = phi ptr [ null, %_build_sock_gres_by_topo.exit.thread ], [ null, %105 ], [ null, %.thread.sink.split ], [ %79, %78 ], [ %79, %_build_sock_gres_by_topo.exit.thread184 ]
   call void @slurm_list_iterator_destroy(ptr noundef %80) #5
   %691 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %692 = and i64 %691, 64

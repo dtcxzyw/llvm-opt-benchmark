@@ -255,7 +255,7 @@ define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0)
   br label %57
 
 57:                                               ; preds = %12, %54
-  %.1 = phi ptr [ %11, %12 ], [ %36, %54 ]
+  %.1 = phi ptr [ %36, %54 ], [ %11, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4294967296
   br i1 %exitcond, label %58, label %6, !llvm.loop !8
@@ -543,7 +543,7 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   br label %.thread
 
 .thread:                                          ; preds = %64, %51, %.thread.loopexit61, %62, %44
-  %.029 = phi i32 [ 0, %44 ], [ 0, %62 ], [ 0, %.thread.loopexit61 ], [ %.012.i, %51 ], [ %.012.i, %64 ]
+  %.029 = phi i32 [ 0, %44 ], [ 0, %.thread.loopexit61 ], [ 0, %62 ], [ %.012.i, %51 ], [ %.012.i, %64 ]
   ret i32 %.029
 }
 

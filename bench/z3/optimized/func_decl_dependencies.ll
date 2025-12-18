@@ -551,7 +551,7 @@ define hidden noundef zeroext i1 @_ZN22func_decl_dependencies6insertEP9func_decl
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !48
 
 _ZNK7obj_mapI9func_declP13obj_hashtableIS0_EE8containsEPS0_.exit: ; preds = %20, %31
@@ -987,7 +987,7 @@ define hidden void @_ZN22func_decl_dependencies5eraseEP9func_decl(ptr noundef no
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableIS0_EE4findEPS0_RS3_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !48
 
 .loopexit9:                                       ; preds = %18, %29
@@ -1209,7 +1209,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22func_decl_dependencies8top_s
   br i1 %.not27.old.i.i.i.i, label %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %40, %37
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !70
 
 _ZNK14core_hashtableIN7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit.i.i.i: ; preds = %21, %32
@@ -1357,7 +1357,7 @@ _ZN6vectorIP9func_declLb0EjE4backEv.exit:         ; preds = %_ZNK6vectorIP9func_
   br i1 %.not27.old.i.i.i.i22, label %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit36.thread, label %.lr.ph38.i.i.i.i18.backedge
 
 .lr.ph38.i.i.i.i18.backedge:                      ; preds = %107, %104
-  %.137.i.i.i.i19.be = phi ptr [ %.old.i.i.i.i21, %107 ], [ %106, %104 ]
+  %.137.i.i.i.i19.be = phi ptr [ %106, %104 ], [ %.old.i.i.i.i21, %107 ]
   br label %.lr.ph38.i.i.i.i18, !llvm.loop !70
 
 _ZNK14core_hashtableIN7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit.i.i.i26: ; preds = %88, %99
@@ -1448,7 +1448,7 @@ _ZN6vectorIP9func_declLb0EjE5resetEv.exit:        ; preds = %_ZNK22func_decl_dep
   br i1 %129, label %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit.thread39, label %_ZNK6vectorIP9func_declLb0EjE5emptyEv.exit
 
 _ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit.thread39: ; preds = %_ZNK6vectorIP9func_declLb0EjE5emptyEv.exit, %_ZN6vectorIP9func_declLb0EjE5resetEv.exit, %125, %123, %2, %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit
-  %.08 = phi i1 [ false, %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit ], [ false, %2 ], [ true, %123 ], [ true, %125 ], [ false, %_ZN6vectorIP9func_declLb0EjE5resetEv.exit ], [ false, %_ZNK6vectorIP9func_declLb0EjE5emptyEv.exit ]
+  %.08 = phi i1 [ false, %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit ], [ true, %125 ], [ true, %123 ], [ false, %2 ], [ false, %_ZN6vectorIP9func_declLb0EjE5resetEv.exit ], [ false, %_ZNK6vectorIP9func_declLb0EjE5emptyEv.exit ]
   ret i1 %.08
 }
 
@@ -1527,7 +1527,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22func_decl_dependencies8top_s
   br i1 %.not27.old.i.i.i.i, label %_ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %37, %34
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !48
 
 _ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit: ; preds = %18, %29
@@ -1677,7 +1677,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK22func_decl_dependencies8top_
   br i1 %.not27.old.i.i.i.i, label %_ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %36, %33
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !48
 
 _ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit: ; preds = %17, %28
@@ -1794,7 +1794,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %.not27.old.i.i.i.i22, label %_ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i18.backedge
 
 .lr.ph38.i.i.i.i18.backedge:                      ; preds = %86, %83
-  %.137.i.i.i.i19.be = phi ptr [ %.old.i.i.i.i21, %86 ], [ %85, %83 ]
+  %.137.i.i.i.i19.be = phi ptr [ %85, %83 ], [ %.old.i.i.i.i21, %86 ]
   br label %.lr.ph38.i.i.i.i18, !llvm.loop !70
 
 _ZNK14core_hashtableIN7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit.i.i.i: ; preds = %67, %78
@@ -1845,7 +1845,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br i1 %.not39, label %_ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit.thread, label %57, !llvm.loop !80
 
 _ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit.thread: ; preds = %22, %36, %33, %.preheader.i.i.i.i16, %_ZNK14core_hashtableIN7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit.i.i.i, %_ZNK7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13find_iteratorEPS0_.exit.i, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit, %72, %86, %83, %89, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, %.preheader.i.i.i.i, %_ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit
-  %.0 = phi i1 [ true, %_ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit ], [ true, %.preheader.i.i.i.i ], [ true, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ true, %36 ], [ false, %89 ], [ false, %86 ], [ false, %72 ], [ false, %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit ], [ false, %83 ], [ false, %.preheader.i.i.i.i16 ], [ false, %_ZNK14core_hashtableIN7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit.i.i.i ], [ false, %_ZNK7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13find_iteratorEPS0_.exit.i ], [ true, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ true, %33 ], [ true, %22 ]
+  %.0 = phi i1 [ false, %89 ], [ true, %_ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit ], [ true, %.preheader.i.i.i.i ], [ true, %36 ], [ false, %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit ], [ false, %72 ], [ false, %86 ], [ true, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ false, %83 ], [ false, %.preheader.i.i.i.i16 ], [ false, %_ZNK14core_hashtableIN7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit.i.i.i ], [ false, %_ZNK7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13find_iteratorEPS0_.exit.i ], [ true, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ true, %33 ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -2426,7 +2426,7 @@ define linkonce_odr hidden void @_ZN22func_decl_dependencies8top_sort5visitEP9fu
   br i1 %.not27.old.i.i.i.i, label %_ZNK22func_decl_dependencies8top_sort9get_colorEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %38, %35
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !70
 
 _ZNK14core_hashtableIN7obj_mapI9func_declN22func_decl_dependencies8top_sort5colorEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit.i.i.i: ; preds = %19, %30
@@ -3726,7 +3726,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !149
 
 .loopexit38:                                      ; preds = %17, %28

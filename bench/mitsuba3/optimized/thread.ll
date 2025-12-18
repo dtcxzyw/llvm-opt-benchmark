@@ -840,7 +840,7 @@ _ZN7mitsuba6Thread6threadEv.exit66:               ; preds = %72, %75
   br label %89
 
 89:                                               ; preds = %.sink.split, %63, %82, %_ZN7mitsuba6Thread6threadEv.exit66, %56, %_ZN7mitsuba6Thread6threadEv.exit64, %34, %_ZN7mitsuba6Thread6threadEv.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit ], [ false, %34 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit64 ], [ false, %56 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit66 ], [ false, %82 ], [ true, %63 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %2 ], [ true, %63 ], [ false, %82 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit66 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit ], [ false, %34 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit64 ], [ false, %56 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

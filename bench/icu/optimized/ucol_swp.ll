@@ -849,7 +849,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion4EPK12UD
   br label %178
 
 178:                                              ; preds = %.sink.split, %170, %40
-  %.1 = phi i32 [ %.0, %40 ], [ %.0, %170 ], [ 0, %.sink.split ]
+  %.1 = phi i32 [ %.0, %170 ], [ %.0, %40 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %179
 

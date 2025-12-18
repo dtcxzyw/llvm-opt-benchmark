@@ -1520,7 +1520,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit18.i.i: ; p
   br label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i
 
 _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i: ; preds = %.lr.ph.i.i133.i, %._crit_edge.i140.i, %466, %465, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i
-  %.188.i = phi ptr [ %.087119.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i ], [ %.087119.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ %443, %465 ], [ %471, %466 ], [ %498, %._crit_edge.i140.i ], [ %.087119.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i ], [ %.087119.i, %.lr.ph.i.i133.i ]
+  %.188.i = phi ptr [ %.087119.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i ], [ %.087119.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ %.087119.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i ], [ %443, %465 ], [ %471, %466 ], [ %498, %._crit_edge.i140.i ], [ %.087119.i, %.lr.ph.i.i133.i ]
   %499 = getelementptr inbounds nuw i8, ptr %.sroa.014.0118.i, i64 8
   %500 = load ptr, ptr %499, align 8, !tbaa !181
   %501 = icmp eq ptr %500, null
@@ -1555,7 +1555,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEP
   br i1 %515, label %.lr.ph131.i, label %._crit_edge132.i
 
 .loopexit.i:                                      ; preds = %529, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit158.thread.i, %585, %.lr.ph131.i
-  %516 = phi ptr [ %521, %.lr.ph131.i ], [ %.1.i160123.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit158.thread.i ], [ %.1.i160123.i, %585 ], [ %521, %529 ]
+  %516 = phi ptr [ %.1.i160123.i, %585 ], [ %521, %.lr.ph131.i ], [ %.1.i160123.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit158.thread.i ], [ %521, %529 ]
   %517 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %516) #14
   %.fca.0.extract14.i = extractvalue { ptr, i64 } %517, 0
   %518 = getelementptr inbounds i8, ptr %.fca.0.extract14.i, i64 -24

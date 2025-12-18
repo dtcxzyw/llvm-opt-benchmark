@@ -1881,7 +1881,7 @@ perform_pruning_base_step.exit:                   ; preds = %.thread.i, %get_mat
   unreachable
 
 perform_pruning_combine_step.exit:                ; preds = %575, %541, %.preheader.i, %.preheader70.i, %500, %484, %perform_pruning_base_step.exit
-  %.sink = phi ptr [ %.3.i, %perform_pruning_base_step.exit ], [ %480, %484 ], [ %480, %500 ], [ %480, %.preheader70.i ], [ %480, %.preheader.i ], [ %480, %541 ], [ %480, %575 ]
+  %.sink = phi ptr [ %.3.i, %perform_pruning_base_step.exit ], [ %480, %541 ], [ %480, %.preheader.i ], [ %480, %484 ], [ %480, %500 ], [ %480, %.preheader70.i ], [ %480, %575 ]
   %582 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %583 = load i32, ptr %582, align 4
   %584 = sext i32 %583 to i64
@@ -2326,16 +2326,16 @@ is_orclause.exit:                                 ; preds = %56
 169:                                              ; preds = %167
   %170 = load i32, ptr %135, align 8
   switch i32 %170, label %220 [
-    i32 1, label %.thread
-    i32 0, label %match_clause_to_partition_key.exit.thread295.loopexit1102
-    i32 3, label %.thread786
-    i32 2, label %match_clause_to_partition_key.exit.thread295
+    i32 1, label %.thread786
+    i32 0, label %match_clause_to_partition_key.exit.thread295
+    i32 3, label %.thread
+    i32 2, label %match_clause_to_partition_key.exit.thread295.loopexit1102
     i32 5, label %.thread309
     i32 4, label %.thread311
   ]
 
-.thread786:                                       ; preds = %169
-  br label %.thread
+.thread:                                          ; preds = %169
+  br label %.thread786
 
 is_notclause.exit.i:                              ; preds = %158
   %171 = load i32, ptr %133, align 4
@@ -2377,8 +2377,8 @@ is_notclause.exit.thread.thread.i:                ; preds = %179, %is_notclause.
   %188 = call zeroext i1 @equal(ptr noundef %187, ptr noundef %146) #5
   br i1 %188, label %match_clause_to_partition_key.exit.thread295, label %220
 
-.thread:                                          ; preds = %169, %.thread786
-  %.sink920 = phi i1 [ false, %.thread786 ], [ true, %169 ]
+.thread786:                                       ; preds = %169, %.thread
+  %.sink920 = phi i1 [ false, %.thread ], [ true, %169 ]
   %189 = call ptr @makeBoolConst(i1 noundef zeroext %.sink920, i1 noundef zeroext false) #5
   %190 = call ptr @copyObjectImpl(ptr noundef nonnull %.0161) #5
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
@@ -2388,15 +2388,15 @@ is_notclause.exit.thread.thread.i:                ; preds = %179, %is_notclause.
     i32 3, label %193
   ]
 
-193:                                              ; preds = %.thread
+193:                                              ; preds = %.thread786
   br label %.sink.split921
 
-.sink.split921:                                   ; preds = %.thread, %193
-  %.sink922 = phi i32 [ 0, %193 ], [ 2, %.thread ]
+.sink.split921:                                   ; preds = %.thread786, %193
+  %.sink922 = phi i32 [ 0, %193 ], [ 2, %.thread786 ]
   store i32 %.sink922, ptr %191, align 8
   br label %194
 
-194:                                              ; preds = %.sink.split921, %.thread
+194:                                              ; preds = %.sink.split921, %.thread786
   %195 = call noundef ptr @palloc0(i64 noundef 32) #5
   store i32 52, ptr %195, align 4
   %196 = call ptr @copyObjectImpl(ptr noundef %146) #5
@@ -2422,7 +2422,7 @@ match_clause_to_partition_key.exit.thread295.loopexit1102: ; preds = %169
   br label %match_clause_to_partition_key.exit.thread295
 
 match_clause_to_partition_key.exit.thread295:     ; preds = %186, %169, %match_clause_to_partition_key.exit.thread295.loopexit1102, %184
-  %.sink923 = phi i1 [ %185, %184 ], [ false, %169 ], [ %182, %186 ], [ true, %match_clause_to_partition_key.exit.thread295.loopexit1102 ]
+  %.sink923 = phi i1 [ %185, %184 ], [ true, %169 ], [ %182, %186 ], [ false, %match_clause_to_partition_key.exit.thread295.loopexit1102 ]
   %208 = call ptr @makeBoolConst(i1 noundef zeroext %.sink923, i1 noundef zeroext false) #5
   %209 = call ptr @palloc(i64 noundef 32) #5
   store i32 %157, ptr %209, align 8
@@ -3105,10 +3105,10 @@ match_clause_to_partition_key.exit.thread:        ; preds = %match_clause_to_par
   br i1 %516, label %139, label %match_clause_to_partition_key.exit.thread277, !llvm.loop !17
 
 match_clause_to_partition_key.exit.thread277:     ; preds = %match_clause_to_partition_key.exit.thread, %match_clause_to_partition_key.exit, %396, %377, %374, %379, %401, %404, %369, %.thread229, %450, %482, %122, %105, %106, %123, %507, %511, %match_clause_to_partition_key.exit.thread301, %495
-  %.2147.ph = phi ptr [ %.01455291062, %495 ], [ %.01455291062, %511 ], [ %.01455291062, %507 ], [ %513, %match_clause_to_partition_key.exit.thread301 ], [ %.01455291062, %122 ], [ %130, %123 ], [ %115, %106 ], [ %.01455291062, %105 ], [ %.01455291062, %482 ], [ %.01455291062, %450 ], [ %.01455291062, %.thread229 ], [ %.01455291062, %369 ], [ %.01455291062, %404 ], [ %.01455291062, %401 ], [ %.01455291062, %379 ], [ %.01455291062, %374 ], [ %.01455291062, %377 ], [ %.01455291062, %396 ], [ %.01455291062, %match_clause_to_partition_key.exit ], [ %.01455291062, %match_clause_to_partition_key.exit.thread ]
-  %.2139.ph = phi i1 [ true, %495 ], [ %.01375351059, %511 ], [ %.01375351059, %507 ], [ %.01375351059, %match_clause_to_partition_key.exit.thread301 ], [ %.01375351059, %122 ], [ %.01375351059, %123 ], [ %.01375351059, %106 ], [ %.01375351059, %105 ], [ %.01375351059, %482 ], [ %.01375351059, %450 ], [ %.01375351059, %.thread229 ], [ %.01375351059, %369 ], [ %.01375351059, %404 ], [ %.01375351059, %401 ], [ %.01375351059, %379 ], [ %.01375351059, %374 ], [ %.01375351059, %377 ], [ %.01375351059, %396 ], [ %.01375351059, %match_clause_to_partition_key.exit ], [ %.01375351059, %match_clause_to_partition_key.exit.thread ]
-  %.2132.ph = phi ptr [ %.01305391054, %495 ], [ %512, %511 ], [ %.01305391054, %507 ], [ %.01305391054, %match_clause_to_partition_key.exit.thread301 ], [ %.01305391054, %122 ], [ %.01305391054, %123 ], [ %.01305391054, %106 ], [ %.01305391054, %105 ], [ %.01305391054, %482 ], [ %.01305391054, %450 ], [ %.01305391054, %.thread229 ], [ %.01305391054, %369 ], [ %.01305391054, %404 ], [ %.01305391054, %401 ], [ %.01305391054, %379 ], [ %.01305391054, %374 ], [ %.01305391054, %377 ], [ %.01305391054, %396 ], [ %.01305391054, %match_clause_to_partition_key.exit ], [ %.01305391054, %match_clause_to_partition_key.exit.thread ]
-  %.2125.ph = phi ptr [ %.01235451049, %495 ], [ %.01235451049, %511 ], [ %508, %507 ], [ %.01235451049, %match_clause_to_partition_key.exit.thread301 ], [ %.01235451049, %122 ], [ %.01235451049, %123 ], [ %.01235451049, %106 ], [ %.01235451049, %105 ], [ %.01235451049, %482 ], [ %.01235451049, %450 ], [ %.01235451049, %.thread229 ], [ %.01235451049, %369 ], [ %.01235451049, %404 ], [ %.01235451049, %401 ], [ %.01235451049, %379 ], [ %.01235451049, %374 ], [ %.01235451049, %377 ], [ %.01235451049, %396 ], [ %.01235451049, %match_clause_to_partition_key.exit ], [ %.01235451049, %match_clause_to_partition_key.exit.thread ]
+  %.2147.ph = phi ptr [ %.01455291062, %495 ], [ %.01455291062, %511 ], [ %.01455291062, %507 ], [ %513, %match_clause_to_partition_key.exit.thread301 ], [ %.01455291062, %122 ], [ %.01455291062, %450 ], [ %130, %123 ], [ %115, %106 ], [ %.01455291062, %105 ], [ %.01455291062, %482 ], [ %.01455291062, %.thread229 ], [ %.01455291062, %396 ], [ %.01455291062, %369 ], [ %.01455291062, %404 ], [ %.01455291062, %401 ], [ %.01455291062, %379 ], [ %.01455291062, %374 ], [ %.01455291062, %377 ], [ %.01455291062, %match_clause_to_partition_key.exit ], [ %.01455291062, %match_clause_to_partition_key.exit.thread ]
+  %.2139.ph = phi i1 [ true, %495 ], [ %.01375351059, %511 ], [ %.01375351059, %507 ], [ %.01375351059, %match_clause_to_partition_key.exit.thread301 ], [ %.01375351059, %122 ], [ %.01375351059, %450 ], [ %.01375351059, %123 ], [ %.01375351059, %106 ], [ %.01375351059, %105 ], [ %.01375351059, %482 ], [ %.01375351059, %.thread229 ], [ %.01375351059, %396 ], [ %.01375351059, %369 ], [ %.01375351059, %404 ], [ %.01375351059, %401 ], [ %.01375351059, %379 ], [ %.01375351059, %374 ], [ %.01375351059, %377 ], [ %.01375351059, %match_clause_to_partition_key.exit ], [ %.01375351059, %match_clause_to_partition_key.exit.thread ]
+  %.2132.ph = phi ptr [ %.01305391054, %495 ], [ %512, %511 ], [ %.01305391054, %507 ], [ %.01305391054, %match_clause_to_partition_key.exit.thread301 ], [ %.01305391054, %122 ], [ %.01305391054, %450 ], [ %.01305391054, %123 ], [ %.01305391054, %106 ], [ %.01305391054, %105 ], [ %.01305391054, %482 ], [ %.01305391054, %.thread229 ], [ %.01305391054, %396 ], [ %.01305391054, %369 ], [ %.01305391054, %404 ], [ %.01305391054, %401 ], [ %.01305391054, %379 ], [ %.01305391054, %374 ], [ %.01305391054, %377 ], [ %.01305391054, %match_clause_to_partition_key.exit ], [ %.01305391054, %match_clause_to_partition_key.exit.thread ]
+  %.2125.ph = phi ptr [ %.01235451049, %495 ], [ %.01235451049, %511 ], [ %508, %507 ], [ %.01235451049, %match_clause_to_partition_key.exit.thread301 ], [ %.01235451049, %122 ], [ %.01235451049, %450 ], [ %.01235451049, %123 ], [ %.01235451049, %106 ], [ %.01235451049, %105 ], [ %.01235451049, %482 ], [ %.01235451049, %.thread229 ], [ %.01235451049, %396 ], [ %.01235451049, %369 ], [ %.01235451049, %404 ], [ %.01235451049, %401 ], [ %.01235451049, %379 ], [ %.01235451049, %374 ], [ %.01235451049, %377 ], [ %.01235451049, %match_clause_to_partition_key.exit ], [ %.01235451049, %match_clause_to_partition_key.exit.thread ]
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv7311048, 1
   %517 = load i32, ptr %36, align 4
   %518 = sext i32 %517 to i64
@@ -3438,8 +3438,8 @@ list_head.exit247.i:                              ; preds = %673, %list_head.exi
   br i1 %.not238451.i, label %.lr.ph460.i, label %.thread298.i
 
 .thread290.thread.i:                              ; preds = %.lr.ph596, %.thread290.i.loopexit.thread, %.lr.ph430.split.i.thread, %.thread290.i.loopexit, %.thread290.i
-  %.1190539.i = phi ptr [ %.1190.i, %.thread290.i ], [ %750, %.thread290.i.loopexit ], [ null, %.lr.ph430.split.i.thread ], [ %744, %.thread290.i.loopexit.thread ], [ null, %.lr.ph596 ]
-  %.9538.i = phi ptr [ %.5199.i, %.thread290.i ], [ %.5199.i, %.thread290.i.loopexit ], [ %.5199.i, %.lr.ph430.split.i.thread ], [ %746, %.thread290.i.loopexit.thread ], [ %746, %.lr.ph596 ]
+  %.1190539.i = phi ptr [ %.1190.i, %.thread290.i ], [ %744, %.thread290.i.loopexit.thread ], [ %750, %.thread290.i.loopexit ], [ null, %.lr.ph430.split.i.thread ], [ null, %.lr.ph596 ]
+  %.9538.i = phi ptr [ %.5199.i, %.thread290.i ], [ %746, %.thread290.i.loopexit.thread ], [ %.5199.i, %.thread290.i.loopexit ], [ %.5199.i, %.lr.ph430.split.i.thread ], [ %746, %.lr.ph596 ]
   %676 = add nuw nsw i32 %.0202452.i, 1
   %677 = load i32, ptr %640, align 8
   %.not238.i = icmp slt i32 %676, %677
@@ -3560,9 +3560,9 @@ list_head.exit247.i:                              ; preds = %673, %list_head.exi
   br label %.thread281.i
 
 .thread281.i:                                     ; preds = %.lr.ph588, %701, %.thread281.i.loopexit.split.loop.exit581, %.lr.ph396.split.i, %.thread271.i
-  %.3206.i = phi i1 [ %.0203.lcssa.i, %.thread271.i ], [ %.0203.lcssa.i, %701 ], [ %.0203.lcssa.i, %.lr.ph396.split.i ], [ %.3206.i.ph.ph582, %.thread281.i.loopexit.split.loop.exit581 ], [ true, %.lr.ph588 ]
-  %.5199.i = phi ptr [ %.2196.lcssa.i, %.thread271.i ], [ %.2196.lcssa.i, %701 ], [ %.2196.lcssa.i, %.lr.ph396.split.i ], [ %.5199.i.ph.ph583, %.thread281.i.loopexit.split.loop.exit581 ], [ %720, %.lr.ph588 ]
-  %.1188.i = phi ptr [ %.0187458.i, %.thread271.i ], [ null, %701 ], [ null, %.lr.ph396.split.i ], [ %724, %.thread281.i.loopexit.split.loop.exit581 ], [ null, %.lr.ph588 ]
+  %.3206.i = phi i1 [ %.0203.lcssa.i, %.thread271.i ], [ %.0203.lcssa.i, %.lr.ph396.split.i ], [ %.0203.lcssa.i, %701 ], [ %.3206.i.ph.ph582, %.thread281.i.loopexit.split.loop.exit581 ], [ true, %.lr.ph588 ]
+  %.5199.i = phi ptr [ %.2196.lcssa.i, %.thread271.i ], [ %.2196.lcssa.i, %.lr.ph396.split.i ], [ %.2196.lcssa.i, %701 ], [ %.5199.i.ph.ph583, %.thread281.i.loopexit.split.loop.exit581 ], [ %720, %.lr.ph588 ]
+  %.1188.i = phi ptr [ %.0187458.i, %.thread271.i ], [ null, %.lr.ph396.split.i ], [ null, %701 ], [ %724, %.thread281.i.loopexit.split.loop.exit581 ], [ null, %.lr.ph588 ]
   br i1 %or.cond9.i, label %725, label %.thread290.i
 
 725:                                              ; preds = %.thread281.i
@@ -3649,7 +3649,7 @@ list_head.exit247.i:                              ; preds = %673, %list_head.exi
   br i1 %763, label %.lr.ph604, label %.critedge240.i
 
 .critedge240.i:                                   ; preds = %759, %.thread290.i, %.thread290.i.loopexit, %.lr.ph430.split.i.thread, %.lr.ph464.i, %629
-  %.1170318.i = phi ptr [ %.0169470.i, %629 ], [ %.0169470.i, %.lr.ph464.i ], [ %.1170463.i602, %.thread290.i ], [ %.1170463.i602, %.lr.ph430.split.i.thread ], [ %.1170463.i602, %.thread290.i.loopexit ], [ %760, %759 ]
+  %.1170318.i = phi ptr [ %.1170463.i602, %.thread290.i ], [ %.0169470.i, %629 ], [ %.0169470.i, %.lr.ph464.i ], [ %.1170463.i602, %.lr.ph430.split.i.thread ], [ %.1170463.i602, %.thread290.i.loopexit ], [ %760, %759 ]
   %indvars.iv.next523.i = add nuw nsw i64 %indvars.iv522.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next523.i, 6
   br i1 %exitcond.not.i, label %gen_prune_steps_from_opexps.exit, label %629, !llvm.loop !20
@@ -3738,7 +3738,7 @@ for_each_cell_setup.exit266.i:                    ; preds = %.lr.ph342.i, %.lr.p
   unreachable
 
 gen_prune_steps_from_opexps.exit:                 ; preds = %563, %.lr.ph565, %.lr.ph347.i, %.critedge240.i, %764, %767, %for_each_cell_setup.exit266.i
-  %.2.i193 = phi ptr [ null, %764 ], [ null, %for_each_cell_setup.exit266.i ], [ null, %767 ], [ null, %.lr.ph565 ], [ %.1170318.i, %.critedge240.i ], [ %798, %.lr.ph347.i ], [ null, %563 ]
+  %.2.i193 = phi ptr [ %.1170318.i, %.critedge240.i ], [ null, %.lr.ph565 ], [ null, %764 ], [ null, %for_each_cell_setup.exit266.i ], [ %798, %.lr.ph347.i ], [ null, %767 ], [ null, %563 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %807 = call ptr @list_concat(ptr noundef %.0145529.lcssa, ptr noundef %.2.i193) #5
@@ -3825,7 +3825,7 @@ list_length.exit:                                 ; preds = %825
   br label %.thread343
 
 .thread343:                                       ; preds = %116, %825, %match_clause_to_partition_key.exit.thread290, %506, %510, %494, %65, %.critedge610, %list_length.exit, %.critedge185, %33
-  %.0 = phi ptr [ null, %33 ], [ null, %match_clause_to_partition_key.exit.thread290 ], [ %850, %.critedge185 ], [ %.11, %list_length.exit ], [ null, %.critedge610 ], [ null, %65 ], [ null, %494 ], [ null, %510 ], [ null, %506 ], [ null, %825 ], [ null, %116 ]
+  %.0 = phi ptr [ null, %33 ], [ null, %match_clause_to_partition_key.exit.thread290 ], [ %850, %.critedge185 ], [ %.11, %list_length.exit ], [ null, %825 ], [ null, %.critedge610 ], [ null, %65 ], [ null, %494 ], [ null, %510 ], [ null, %506 ], [ null, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret ptr %.0
 }
@@ -4062,7 +4062,7 @@ for_each_cell_setup.exit100:                      ; preds = %10
   br i1 %85, label %58, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %58, %40, %.lr.ph117, %for_each_cell_setup.exit, %for_each_cell_setup.exit100
-  %.3 = phi ptr [ null, %for_each_cell_setup.exit100 ], [ null, %for_each_cell_setup.exit ], [ %.0116, %.lr.ph117 ], [ %50, %40 ], [ %82, %58 ]
+  %.3 = phi ptr [ null, %for_each_cell_setup.exit100 ], [ %.0116, %.lr.ph117 ], [ null, %for_each_cell_setup.exit ], [ %50, %40 ], [ %82, %58 ]
   ret ptr %.3
 }
 

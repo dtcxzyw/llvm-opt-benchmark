@@ -6602,7 +6602,7 @@ _ZL24apply_modified_positionsP10swap_groupPA3_f.exit: ; preds = %516, %.lr.ph340
   br i1 %534, label %.lr.ph340, label %_ZL9need_swapPK12t_swapcoordsP6t_swap.exit.thread, !llvm.loop !482
 
 _ZL9need_swapPK12t_swapcoordsP6t_swap.exit.thread: ; preds = %141, %_ZL24apply_modified_positionsP10swap_groupPA3_f.exit, %503, %121
-  %535 = phi i1 [ false, %121 ], [ true, %503 ], [ true, %_ZL24apply_modified_positionsP10swap_groupPA3_f.exit ], [ false, %141 ]
+  %535 = phi i1 [ true, %503 ], [ false, %121 ], [ true, %_ZL24apply_modified_positionsP10swap_groupPA3_f.exit ], [ false, %141 ]
   br i1 %23, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %536
 
 536:                                              ; preds = %_ZL9need_swapPK12t_swapcoordsP6t_swap.exit.thread

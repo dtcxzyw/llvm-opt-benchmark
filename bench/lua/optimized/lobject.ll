@@ -631,9 +631,9 @@ isneg.exit.i:                                     ; preds = %.sink.split.i.i, %1
   br i1 %.not22.i, label %.loopexit.i, label %55
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %62, %48, %21
-  %.0.i = phi ptr [ %.3.i, %48 ], [ %22, %21 ], [ %66, %62 ], [ %41, %.lr.ph.i ]
-  %.not27.i = phi i1 [ false, %48 ], [ false, %21 ], [ true, %62 ], [ true, %.lr.ph.i ]
-  %.115.i = phi i64 [ 0, %48 ], [ 0, %21 ], [ %65, %62 ], [ %40, %.lr.ph.i ]
+  %.0.i = phi ptr [ %66, %62 ], [ %.3.i, %48 ], [ %22, %21 ], [ %41, %.lr.ph.i ]
+  %.not27.i = phi i1 [ true, %62 ], [ false, %48 ], [ false, %21 ], [ true, %.lr.ph.i ]
+  %.115.i = phi i64 [ %65, %62 ], [ 0, %48 ], [ 0, %21 ], [ %40, %.lr.ph.i ]
   br label %73
 
 73:                                               ; preds = %73, %.loopexit.i

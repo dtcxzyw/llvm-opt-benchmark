@@ -1659,7 +1659,7 @@ define dso_local noundef range(i32 -13, 1) i32 @set_mm_exe_file(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %6, %24, %22
-  %28 = phi i32 [ 0, %24 ], [ 0, %22 ], [ -13, %6 ], [ -13, %18 ]
+  %28 = phi i32 [ 0, %22 ], [ 0, %24 ], [ -13, %6 ], [ -13, %18 ]
   ret i32 %28
 }
 
@@ -1826,7 +1826,7 @@ define dso_local noundef range(i32 -16, 1) i32 @replace_mm_exe_file(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %41, %69, %64, %40
-  %73 = phi i32 [ %38, %40 ], [ 0, %69 ], [ 0, %64 ], [ -13, %41 ], [ -13, %53 ]
+  %73 = phi i32 [ %38, %40 ], [ 0, %64 ], [ 0, %69 ], [ -13, %41 ], [ -13, %53 ]
   ret i32 %73
 }
 

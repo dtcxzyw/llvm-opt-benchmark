@@ -2181,7 +2181,7 @@ define internal fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef %0, ptr no
   br i1 %164, label %.split.split, label %.split9.us, !llvm.loop !44
 
 .split9.us:                                       ; preds = %159, %144, %.split.us
-  %.us-phi = phi i32 [ %145, %144 ], [ %123, %.split.us ], [ %160, %159 ]
+  %.us-phi = phi i32 [ %123, %.split.us ], [ %145, %144 ], [ %160, %159 ]
   %165 = icmp slt i32 %.us-phi, 1
   br i1 %165, label %95, label %166
 
@@ -2609,7 +2609,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   br i1 %154, label %.thread13, label %23, !llvm.loop !54
 
 .thread13:                                        ; preds = %.thread14, %139, %145, %149, %136
-  %155 = phi i32 [ 0, %139 ], [ 0, %136 ], [ 0, %149 ], [ 0, %145 ], [ -2, %.thread14 ]
+  %155 = phi i32 [ 0, %139 ], [ 0, %145 ], [ 0, %136 ], [ 0, %149 ], [ -2, %.thread14 ]
   call void @__rcu_read_unlock() #16
   ret i32 %155
 }

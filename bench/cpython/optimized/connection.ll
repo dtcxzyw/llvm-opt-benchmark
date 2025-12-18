@@ -5192,7 +5192,7 @@ Py_DECREF.exit:                                   ; preds = %27, %30, %33
   br label %35
 
 35:                                               ; preds = %25, %34, %Py_DECREF.exit
-  %.0 = phi ptr [ %28, %Py_DECREF.exit ], [ null, %34 ], [ null, %25 ]
+  %.0 = phi ptr [ null, %25 ], [ %28, %Py_DECREF.exit ], [ null, %34 ]
   %36 = load i32, ptr %23, align 8, !tbaa !34
   %.not.i.i = icmp sgt i32 %36, -1
   br i1 %.not.i.i, label %37, label %Py_XDECREF.exit
@@ -5547,7 +5547,7 @@ _Py_NewRef.exit.thread:                           ; preds = %41, %38, %_Py_NewRe
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %_Py_NewRef.exit.thread, %.preheader, %49, %46, %.loopexit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %.loopexit ], [ null, %46 ], [ null, %49 ], [ %5, %.preheader ], [ %5, %_Py_NewRef.exit.thread ]
+  %.0 = phi ptr [ null, %49 ], [ null, %3 ], [ null, %.loopexit ], [ null, %46 ], [ %5, %.preheader ], [ %5, %_Py_NewRef.exit.thread ]
   ret ptr %.0
 }
 
@@ -5826,7 +5826,7 @@ define internal i32 @collation_callback(ptr noundef readonly captures(none) %0, 
   br label %37
 
 37:                                               ; preds = %.sink.split, %14, %18, %30, %35, %.thread
-  %.020.ph = phi ptr [ %22, %.thread ], [ %22, %35 ], [ %22, %30 ], [ null, %18 ], [ null, %14 ], [ %22, %.sink.split ]
+  %.020.ph = phi ptr [ %22, %.thread ], [ %22, %35 ], [ null, %14 ], [ null, %18 ], [ %22, %30 ], [ %22, %.sink.split ]
   %38 = load i32, ptr %12, align 8, !tbaa !34
   %.not.i.i = icmp sgt i32 %38, -1
   br i1 %.not.i.i, label %39, label %Py_XDECREF.exit

@@ -8324,8 +8324,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   br i1 %377, label %.body211.i, label %374
 
 .body211.i:                                       ; preds = %374, %372, %234
-  %.pn.i = phi { ptr, i32 } [ %373, %372 ], [ %235, %234 ], [ %238, %374 ]
-  %378 = phi i1 [ false, %372 ], [ false, %234 ], [ true, %374 ]
+  %.pn.i = phi { ptr, i32 } [ %235, %234 ], [ %373, %372 ], [ %238, %374 ]
+  %378 = phi i1 [ false, %234 ], [ false, %372 ], [ true, %374 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %57) #28
   br label %.loopexit276.loopexit.i
 

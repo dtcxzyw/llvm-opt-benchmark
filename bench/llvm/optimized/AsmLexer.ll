@@ -3796,11 +3796,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %55 = zext i8 %54 to i32
   br label %.preheader.outer.backedge
 
-.preheader.outer.backedge:                        ; preds = %52, %62, %_ZN4llvm8AsmLexer11getNextCharEv.exit18
-  %.ph.be = phi ptr [ %60, %_ZN4llvm8AsmLexer11getNextCharEv.exit18 ], [ %63, %62 ], [ %53, %52 ]
-  %.0.ph.be = phi i32 [ -1, %_ZN4llvm8AsmLexer11getNextCharEv.exit18 ], [ %65, %62 ], [ %55, %52 ]
-  br label %.preheader.outer, !llvm.loop !183
-
 56:                                               ; preds = %.preheader
   %57 = icmp eq ptr %.ph, %17
   br i1 %57, label %_ZN4llvm8AsmLexer12peekNextCharEv.exit.thread, label %_ZN4llvm8AsmLexer12peekNextCharEv.exit
@@ -3815,6 +3810,11 @@ _ZN4llvm8AsmLexer11getNextCharEv.exit18:          ; preds = %_ZN4llvm8AsmLexer12
   store ptr %60, ptr %11, align 8, !tbaa !50
   %61 = icmp eq ptr %60, %17
   br i1 %61, label %.preheader.outer.backedge, label %62
+
+.preheader.outer.backedge:                        ; preds = %_ZN4llvm8AsmLexer11getNextCharEv.exit18, %52, %62
+  %.ph.be = phi ptr [ %63, %62 ], [ %53, %52 ], [ %60, %_ZN4llvm8AsmLexer11getNextCharEv.exit18 ]
+  %.0.ph.be = phi i32 [ %65, %62 ], [ %55, %52 ], [ -1, %_ZN4llvm8AsmLexer11getNextCharEv.exit18 ]
+  br label %.preheader.outer, !llvm.loop !183
 
 62:                                               ; preds = %_ZN4llvm8AsmLexer11getNextCharEv.exit18
   %63 = getelementptr inbounds nuw i8, ptr %.ph, i64 2
@@ -4202,11 +4202,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %54 = zext i8 %53 to i32
   br label %.preheader.outer.backedge
 
-.preheader.outer.backedge:                        ; preds = %51, %61, %_ZN4llvm8AsmLexer11getNextCharEv.exit12
-  %.ph.be = phi ptr [ %59, %_ZN4llvm8AsmLexer11getNextCharEv.exit12 ], [ %62, %61 ], [ %52, %51 ]
-  %.0.ph.be = phi i32 [ -1, %_ZN4llvm8AsmLexer11getNextCharEv.exit12 ], [ %64, %61 ], [ %54, %51 ]
-  br label %.preheader.outer, !llvm.loop !196
-
 55:                                               ; preds = %.preheader
   %56 = icmp eq ptr %.ph, %15
   br i1 %56, label %_ZN4llvm8AsmLexer12peekNextCharEv.exit.thread, label %_ZN4llvm8AsmLexer12peekNextCharEv.exit
@@ -4221,6 +4216,11 @@ _ZN4llvm8AsmLexer11getNextCharEv.exit12:          ; preds = %_ZN4llvm8AsmLexer12
   store ptr %59, ptr %9, align 8, !tbaa !50
   %60 = icmp eq ptr %59, %15
   br i1 %60, label %.preheader.outer.backedge, label %61
+
+.preheader.outer.backedge:                        ; preds = %_ZN4llvm8AsmLexer11getNextCharEv.exit12, %51, %61
+  %.ph.be = phi ptr [ %62, %61 ], [ %52, %51 ], [ %59, %_ZN4llvm8AsmLexer11getNextCharEv.exit12 ]
+  %.0.ph.be = phi i32 [ %64, %61 ], [ %54, %51 ], [ -1, %_ZN4llvm8AsmLexer11getNextCharEv.exit12 ]
+  br label %.preheader.outer, !llvm.loop !196
 
 61:                                               ; preds = %_ZN4llvm8AsmLexer11getNextCharEv.exit12
   %62 = getelementptr inbounds nuw i8, ptr %.ph, i64 2
@@ -4373,8 +4373,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   br i1 %121, label %.preheader41.backedge, label %122
 
 .preheader41.backedge:                            ; preds = %119, %122
-  %.be = phi ptr [ %123, %122 ], [ %120, %119 ]
-  %.2.be = phi i32 [ %125, %122 ], [ -1, %119 ]
+  %.be = phi ptr [ %120, %119 ], [ %123, %122 ]
+  %.2.be = phi i32 [ -1, %119 ], [ %125, %122 ]
   br label %.preheader41, !llvm.loop !203
 
 122:                                              ; preds = %119
@@ -4544,7 +4544,7 @@ _ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread: ; preds = %62
   br i1 %66, label %.critedge, label %.lr.ph, !llvm.loop !206
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread, %62, %53, %51, %51, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread.us, %43, %40, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.us.us, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread.us.us, %30, %30, %31, %.split, %.split.us.split.us
-  %.us-phi = phi ptr [ %3, %.split ], [ %32, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.us.us ], [ %3, %.split.us.split.us ], [ %19, %53 ], [ %26, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread.us.us ], [ %19, %31 ], [ %26, %30 ], [ %26, %30 ], [ %36, %51 ], [ %36, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread.us ], [ %36, %43 ], [ %36, %40 ], [ %36, %51 ], [ %60, %.lr.ph ], [ %63, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread ], [ %19, %62 ], [ %60, %.lr.ph ]
+  %.us-phi = phi ptr [ %32, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.us.us ], [ %3, %.split ], [ %19, %53 ], [ %3, %.split.us.split.us ], [ %26, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread.us.us ], [ %19, %31 ], [ %26, %30 ], [ %26, %30 ], [ %36, %51 ], [ %36, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread.us ], [ %36, %43 ], [ %36, %40 ], [ %36, %51 ], [ %60, %.lr.ph ], [ %63, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread ], [ %19, %62 ], [ %60, %.lr.ph ]
   %67 = ptrtoint ptr %.us-phi to i64
   %68 = ptrtoint ptr %3 to i64
   %69 = sub i64 %67, %68

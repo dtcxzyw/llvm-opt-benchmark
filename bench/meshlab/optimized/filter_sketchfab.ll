@@ -3730,8 +3730,8 @@ default.unreachable:                              ; preds = %104
   br label %.loopexit1878
 
 .loopexit1878:                                    ; preds = %398, %387, %.lr.ph1950, %._crit_edge1941
-  %434 = phi i32 [ %.pre2039, %._crit_edge1941 ], [ %370, %.lr.ph1950 ], [ %370, %387 ], [ %370, %398 ]
-  %.11232 = phi i32 [ %.31234.lcssa, %._crit_edge1941 ], [ %.012311948, %.lr.ph1950 ], [ %.012311948, %387 ], [ %.012311948, %398 ]
+  %434 = phi i32 [ %370, %.lr.ph1950 ], [ %.pre2039, %._crit_edge1941 ], [ %370, %387 ], [ %370, %398 ]
+  %.11232 = phi i32 [ %.012311948, %.lr.ph1950 ], [ %.31234.lcssa, %._crit_edge1941 ], [ %.012311948, %387 ], [ %.012311948, %398 ]
   %indvars.iv.next2032 = add nuw nsw i64 %indvars.iv2031, 1
   %435 = zext i32 %434 to i64
   %436 = getelementptr inbounds nuw i32, ptr %350, i64 %435
@@ -6428,10 +6428,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21tdefl_compress_normalP1
   br label %129
 
 .critedge4:                                       ; preds = %123, %71, %39
-  %125 = phi i32 [ %40, %39 ], [ %40, %71 ], [ %36, %123 ]
-  %126 = phi i32 [ %59, %39 ], [ %59, %71 ], [ %99, %123 ]
-  %.3369 = phi ptr [ %.0366, %39 ], [ %57, %71 ], [ %87, %123 ]
-  %.2365 = phi i64 [ %58, %39 ], [ %58, %71 ], [ 0, %123 ]
+  %125 = phi i32 [ %40, %71 ], [ %40, %39 ], [ %36, %123 ]
+  %126 = phi i32 [ %59, %71 ], [ %59, %39 ], [ %99, %123 ]
+  %.3369 = phi ptr [ %57, %71 ], [ %.0366, %39 ], [ %87, %123 ]
+  %.2365 = phi i64 [ %58, %71 ], [ %58, %39 ], [ 0, %123 ]
   %127 = sub i32 32768, %126
   %. = tail call i32 @llvm.umin.i32(i32 %127, i32 %125)
   store i32 %., ptr %9, align 4
@@ -6684,9 +6684,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21tdefl_compress_normalP1
   br label %.critedge6
 
 .critedge6:                                       ; preds = %238, %.critedge6.split.loop.exit643, %.critedge6.split.loop.exit639, %.critedge6.split.loop.exit635
-  %.in = phi i16 [ %236, %.critedge6.split.loop.exit635 ], [ %230, %.critedge6.split.loop.exit639 ], [ %224, %.critedge6.split.loop.exit643 ], [ %242, %238 ]
-  %.in599 = phi i16 [ %234, %.critedge6.split.loop.exit635 ], [ %228, %.critedge6.split.loop.exit639 ], [ %222, %.critedge6.split.loop.exit643 ], [ %240, %238 ]
-  %.1359 = phi ptr [ %247, %.critedge6.split.loop.exit635 ], [ %248, %.critedge6.split.loop.exit639 ], [ %249, %.critedge6.split.loop.exit643 ], [ %239, %238 ]
+  %.in = phi i16 [ %224, %.critedge6.split.loop.exit643 ], [ %236, %.critedge6.split.loop.exit635 ], [ %230, %.critedge6.split.loop.exit639 ], [ %242, %238 ]
+  %.in599 = phi i16 [ %222, %.critedge6.split.loop.exit643 ], [ %234, %.critedge6.split.loop.exit635 ], [ %228, %.critedge6.split.loop.exit639 ], [ %240, %238 ]
+  %.1359 = phi ptr [ %249, %.critedge6.split.loop.exit643 ], [ %247, %.critedge6.split.loop.exit635 ], [ %248, %.critedge6.split.loop.exit639 ], [ %239, %238 ]
   %250 = trunc i16 %.in599 to i8
   %251 = trunc i16 %.in to i8
   %252 = ptrtoint ptr %.1359 to i64
@@ -6705,8 +6705,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21tdefl_compress_normalP1
   br i1 %.not447, label %.outer.outer, label %.loopexit, !llvm.loop !96
 
 .loopexit:                                        ; preds = %260, %214, %163, %170, %166, %186, %182, %202, %198, %._crit_edge, %.critedge462, %151, %136
-  %.1400 = phi i32 [ %..0399, %._crit_edge ], [ %spec.select, %136 ], [ %spec.select, %151 ], [ %246, %.critedge462 ], [ %.0348.ph.ph, %214 ], [ %.0348.ph.ph, %198 ], [ %.0348.ph.ph, %202 ], [ %.0348.ph.ph, %182 ], [ %.0348.ph.ph, %186 ], [ %.0348.ph.ph, %166 ], [ %.0348.ph.ph, %170 ], [ %.0348.ph.ph, %163 ], [ %261, %260 ]
-  %.0395 = phi i32 [ %.461, %._crit_edge ], [ 0, %136 ], [ 0, %151 ], [ %.0, %.critedge462 ], [ %.1396.ph.ph, %214 ], [ %.1396.ph.ph, %198 ], [ %.1396.ph.ph, %202 ], [ %.1396.ph.ph, %182 ], [ %.1396.ph.ph, %186 ], [ %.1396.ph.ph, %166 ], [ %.1396.ph.ph, %170 ], [ %.1396.ph.ph, %163 ], [ %.0, %260 ]
+  %.1400 = phi i32 [ %.0348.ph.ph, %214 ], [ %..0399, %._crit_edge ], [ %246, %.critedge462 ], [ %spec.select, %136 ], [ %spec.select, %151 ], [ %.0348.ph.ph, %198 ], [ %.0348.ph.ph, %202 ], [ %.0348.ph.ph, %182 ], [ %.0348.ph.ph, %186 ], [ %.0348.ph.ph, %166 ], [ %.0348.ph.ph, %170 ], [ %.0348.ph.ph, %163 ], [ %261, %260 ]
+  %.0395 = phi i32 [ %.1396.ph.ph, %214 ], [ %.461, %._crit_edge ], [ %.0, %.critedge462 ], [ 0, %136 ], [ 0, %151 ], [ %.1396.ph.ph, %198 ], [ %.1396.ph.ph, %202 ], [ %.1396.ph.ph, %182 ], [ %.1396.ph.ph, %186 ], [ %.1396.ph.ph, %166 ], [ %.1396.ph.ph, %170 ], [ %.1396.ph.ph, %163 ], [ %.0, %260 ]
   %262 = icmp eq i32 %.1400, 3
   %263 = icmp ugt i32 %.0395, 8191
   %or.cond = select i1 %262, i1 %263, i1 false
@@ -8583,7 +8583,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit47.i: ; preds = %85
   br label %.loopexit320.i
 
 .loopexit320.i:                                   ; preds = %261, %284, %302, %298, %277, %266, %130
-  %.17.i = phi i32 [ %274, %266 ], [ %.6.i, %277 ], [ %295, %298 ], [ %295, %302 ], [ 0, %130 ], [ %286, %284 ], [ %263, %261 ]
+  %.17.i = phi i32 [ %274, %266 ], [ %.6.i, %277 ], [ %286, %284 ], [ %295, %302 ], [ %295, %298 ], [ 0, %130 ], [ %263, %261 ]
   tail call fastcc void @_ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %307 = load i32, ptr %306, align 4
@@ -9865,7 +9865,7 @@ _ZL34tdefl_calculate_minimum_redundancyP14tdefl_sym_freqi.exit: ; preds = %._cri
   br i1 %.not.i94, label %_ZL35tdefl_huffman_enforce_max_code_sizePiii.exit, label %.lr.ph.i93, !llvm.loop !164
 
 _ZL35tdefl_huffman_enforce_max_code_sizePiii.exit: ; preds = %.loopexit.i, %_ZL21tdefl_radix_sort_symsjP14tdefl_sym_freqS0_.exit, %_ZL21tdefl_radix_sort_symsjP14tdefl_sym_freqS0_.exit.thread, %_ZL34tdefl_calculate_minimum_redundancyP14tdefl_sym_freqi.exit, %._crit_edge, %.preheader.i92
-  %.us-phi56.i165167172 = phi ptr [ %.04052.us.i, %.preheader.i92 ], [ %.04052.us.i, %._crit_edge ], [ %.04052.us.i, %_ZL34tdefl_calculate_minimum_redundancyP14tdefl_sym_freqi.exit ], [ %.04052.us.i, %_ZL21tdefl_radix_sort_symsjP14tdefl_sym_freqS0_.exit ], [ %11, %_ZL21tdefl_radix_sort_symsjP14tdefl_sym_freqS0_.exit.thread ], [ %.04052.us.i, %.loopexit.i ]
+  %.us-phi56.i165167172 = phi ptr [ %11, %_ZL21tdefl_radix_sort_symsjP14tdefl_sym_freqS0_.exit.thread ], [ %.04052.us.i, %.preheader.i92 ], [ %.04052.us.i, %._crit_edge ], [ %.04052.us.i, %_ZL34tdefl_calculate_minimum_redundancyP14tdefl_sym_freqi.exit ], [ %.04052.us.i, %_ZL21tdefl_radix_sort_symsjP14tdefl_sym_freqS0_.exit ], [ %.04052.us.i, %.loopexit.i ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 36682
   %196 = getelementptr inbounds nuw [288 x i8], ptr %195, i64 %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(288) %196, i8 0, i64 288, i1 false)
@@ -11173,7 +11173,7 @@ _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit: ; 
   br label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
 _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191: ; preds = %35, %31, %.critedge, %186, %177, %172, %167, %160, %.lr.ph218, %142, %8, %78, %117, %96, %.loopexit, %207, %131, %62, %57, %54, %41, %25, %2
-  %.0145 = phi i32 [ 0, %2 ], [ 0, %25 ], [ 1, %.loopexit ], [ 0, %54 ], [ 0, %57 ], [ 0, %96 ], [ 0, %131 ], [ 0, %117 ], [ 0, %62 ], [ 0, %41 ], [ 1, %207 ], [ 0, %78 ], [ 0, %8 ], [ 0, %186 ], [ 0, %142 ], [ 0, %.lr.ph218 ], [ 0, %160 ], [ 0, %167 ], [ 0, %172 ], [ 0, %177 ], [ 0, %.critedge ], [ 0, %31 ], [ 0, %35 ]
+  %.0145 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 0, %117 ], [ 0, %25 ], [ 1, %.loopexit ], [ 0, %54 ], [ 0, %57 ], [ 0, %96 ], [ 0, %131 ], [ 0, %78 ], [ 1, %207 ], [ 0, %41 ], [ 0, %62 ], [ 0, %186 ], [ 0, %142 ], [ 0, %.lr.ph218 ], [ 0, %160 ], [ 0, %167 ], [ 0, %172 ], [ 0, %177 ], [ 0, %.critedge ], [ 0, %31 ], [ 0, %35 ]
   ret i32 %.0145
 }
 
@@ -12899,7 +12899,7 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly captures(address_is_n
   br label %.critedge161
 
 .critedge161:                                     ; preds = %64, %._crit_edge.i, %.critedge, %.critedge.us.us194, %.critedge.us, %.critedge.us.us, %.critedge161.loopexit278.split.loop.exit, %.critedge161.loopexit278.split.loop.exit287, %.critedge161.loopexit274.split.loop.exit291, %.critedge161.loopexit272.split.loop.exit296, %.critedge161.loopexit271.split.loop.exit, %.critedge161.loopexit276, %.critedge161.loopexit, %.preheader169, %20, %72, %68, %4, %5, %10
-  %.0117 = phi i32 [ -1, %4 ], [ -1, %68 ], [ -1, %72 ], [ -1, %10 ], [ -1, %5 ], [ %216, %.critedge161.loopexit276 ], [ -1, %20 ], [ -1, %.preheader169 ], [ %212, %.critedge161.loopexit ], [ %213, %.critedge161.loopexit271.split.loop.exit ], [ %214, %.critedge161.loopexit272.split.loop.exit296 ], [ %215, %.critedge161.loopexit274.split.loop.exit291 ], [ %218, %.critedge161.loopexit278.split.loop.exit287 ], [ %217, %.critedge161.loopexit278.split.loop.exit ], [ -1, %.critedge.us ], [ -1, %.critedge.us.us194 ], [ -1, %.critedge ], [ -1, %.critedge.us.us ], [ %35, %._crit_edge.i ], [ -1, %64 ]
+  %.0117 = phi i32 [ -1, %20 ], [ -1, %4 ], [ -1, %68 ], [ -1, %72 ], [ -1, %.critedge ], [ -1, %10 ], [ -1, %5 ], [ %212, %.critedge161.loopexit ], [ -1, %.critedge.us.us194 ], [ -1, %.critedge.us.us ], [ -1, %.critedge.us ], [ %216, %.critedge161.loopexit276 ], [ -1, %.preheader169 ], [ %213, %.critedge161.loopexit271.split.loop.exit ], [ %214, %.critedge161.loopexit272.split.loop.exit296 ], [ %215, %.critedge161.loopexit274.split.loop.exit291 ], [ %218, %.critedge161.loopexit278.split.loop.exit287 ], [ %217, %.critedge161.loopexit278.split.loop.exit ], [ -1, %64 ], [ %35, %._crit_edge.i ]
   ret i32 %.0117
 }
 
@@ -13749,8 +13749,8 @@ mz_zip_reader_is_file_a_directory.exit.thread:    ; preds = %15, %16, %19, %22, 
   br label %.thread
 
 .thread:                                          ; preds = %118, %.lr.ph.split, %103, %.lr.ph.split.us, %159, %157, %141, %110, %124, %171, %.thread191, %168
-  %.0121189 = phi ptr [ %.0121198, %.thread191 ], [ %129, %168 ], [ %.0121198202, %171 ], [ null, %110 ], [ null, %124 ], [ null, %103 ], [ %129, %159 ], [ %129, %141 ], [ %129, %157 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ null, %118 ]
-  %.2.shrunk = phi i1 [ true, %.thread191 ], [ false, %168 ], [ %or.cond, %171 ], [ %.not165, %110 ], [ false, %124 ], [ false, %103 ], [ false, %159 ], [ false, %141 ], [ false, %157 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %118 ]
+  %.0121189 = phi ptr [ %.0121198, %.thread191 ], [ %129, %168 ], [ %.0121198202, %171 ], [ null, %110 ], [ null, %103 ], [ null, %124 ], [ %129, %159 ], [ %129, %141 ], [ %129, %157 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ null, %118 ]
+  %.2.shrunk = phi i1 [ true, %.thread191 ], [ false, %168 ], [ %or.cond, %171 ], [ %.not165, %110 ], [ false, %103 ], [ false, %124 ], [ false, %159 ], [ false, %141 ], [ false, %157 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %118 ]
   %176 = load ptr, ptr %79, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 104
   %178 = load ptr, ptr %177, align 8
@@ -14368,7 +14368,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef initializes((72,
   br i1 %.not31, label %mz_zip_writer_init.exit.thread, label %51, !llvm.loop !189
 
 mz_zip_writer_init.exit.thread:                   ; preds = %58, %3, %9, %12, %29, %47, %56, %45
-  %.0 = phi i32 [ 0, %45 ], [ 0, %56 ], [ 1, %47 ], [ 0, %29 ], [ 0, %12 ], [ 0, %9 ], [ 0, %3 ], [ 1, %58 ]
+  %.0 = phi i32 [ 0, %45 ], [ 0, %56 ], [ 1, %47 ], [ 0, %3 ], [ 0, %29 ], [ 0, %12 ], [ 0, %9 ], [ 1, %58 ]
   ret i32 %.0
 }
 
@@ -17014,7 +17014,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !195
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 

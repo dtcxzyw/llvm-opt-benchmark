@@ -8212,9 +8212,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit118
 
 .loopexit118:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit118.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %68 = phi ptr [ %.pre160, %.loopexit118.loopexit ], [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre157, %.loopexit118.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %69 = phi i64 [ %.pre, %.loopexit118.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %68 = phi ptr [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre160, %.loopexit118.loopexit ], [ %54, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit118.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %69 = phi i64 [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit118.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %68, null
@@ -8269,7 +8269,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %75, %70, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %71, %70 ], [ %85, %.loopexit.i.i ], [ %77, %75 ]
+  %.pn.i.i = phi ptr [ %85, %.loopexit.i.i ], [ %71, %70 ], [ %77, %75 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -8326,7 +8326,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit30: ; preds = %97, %92, %.loopexit.i.i26
-  %.pn.i.i28 = phi ptr [ %93, %92 ], [ %107, %.loopexit.i.i26 ], [ %99, %97 ]
+  %.pn.i.i28 = phi ptr [ %107, %.loopexit.i.i26 ], [ %93, %92 ], [ %99, %97 ]
   %.1.i.i29 = getelementptr inbounds nuw i8, ptr %.pn.i.i28, i64 12
   %.pre151 = load i32, ptr %15, align 8, !tbaa !164
   %.pre152 = load i32, ptr %16, align 4
@@ -8415,9 +8415,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18: ; preds = %39, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i33, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i37
-  %141 = phi ptr [ %.pre162, %.loopexit.loopexit ], [ %127, %..loopexit_crit_edge21.i.i.i.i.i37 ], [ %127, %.lr.ph.i.i.i.i.i33 ]
-  %.pre-phi159 = phi i64 [ %.pre158, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i37 ], [ %124, %.lr.ph.i.i.i.i.i33 ]
-  %142 = phi i64 [ %.pre153, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i37 ], [ %123, %.lr.ph.i.i.i.i.i33 ]
+  %141 = phi ptr [ %127, %..loopexit_crit_edge21.i.i.i.i.i37 ], [ %.pre162, %.loopexit.loopexit ], [ %127, %.lr.ph.i.i.i.i.i33 ]
+  %.pre-phi159 = phi i64 [ %124, %..loopexit_crit_edge21.i.i.i.i.i37 ], [ %.pre158, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i33 ]
+  %142 = phi i64 [ %123, %..loopexit_crit_edge21.i.i.i.i.i37 ], [ %.pre153, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i45 = icmp eq ptr %141, null
@@ -8466,7 +8466,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit55: ; preds = %148, %143, %.loopexit.i.i51
-  %.pn.i.i53 = phi ptr [ %144, %143 ], [ %158, %.loopexit.i.i51 ], [ %150, %148 ]
+  %.pn.i.i53 = phi ptr [ %158, %.loopexit.i.i51 ], [ %144, %143 ], [ %150, %148 ]
   %.1.i.i54 = getelementptr inbounds nuw i8, ptr %.pn.i.i53, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i54, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -8523,7 +8523,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit66: ; preds = %170, %165, %.loopexit.i.i62
-  %.pn.i.i64 = phi ptr [ %166, %165 ], [ %180, %.loopexit.i.i62 ], [ %172, %170 ]
+  %.pn.i.i64 = phi ptr [ %180, %.loopexit.i.i62 ], [ %166, %165 ], [ %172, %170 ]
   %.1.i.i65 = getelementptr inbounds nuw i8, ptr %.pn.i.i64, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit
 
@@ -8989,9 +8989,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %68 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %69 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %68 = phi ptr [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %54, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %69 = phi i64 [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %68, null
@@ -9046,7 +9046,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %75, %70, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %71, %70 ], [ %85, %.loopexit.i.i ], [ %77, %75 ]
+  %.pn.i.i = phi ptr [ %85, %.loopexit.i.i ], [ %71, %70 ], [ %77, %75 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -9103,7 +9103,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %97, %92, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %93, %92 ], [ %107, %.loopexit.i.i23 ], [ %99, %97 ]
+  %.pn.i.i25 = phi ptr [ %107, %.loopexit.i.i23 ], [ %93, %92 ], [ %99, %97 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -9192,9 +9192,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %141 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %127, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %124, %.lr.ph.i.i.i.i.i30 ]
-  %142 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %141 = phi ptr [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %127, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i30 ]
+  %142 = phi i64 [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %141, null
@@ -9243,7 +9243,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %148, %143, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %144, %143 ], [ %158, %.loopexit.i.i48 ], [ %150, %148 ]
+  %.pn.i.i50 = phi ptr [ %158, %.loopexit.i.i48 ], [ %144, %143 ], [ %150, %148 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -9300,7 +9300,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %170, %165, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %166, %165 ], [ %180, %.loopexit.i.i59 ], [ %172, %170 ]
+  %.pn.i.i61 = phi ptr [ %180, %.loopexit.i.i59 ], [ %166, %165 ], [ %172, %170 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -9565,9 +9565,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %66 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %52, %..loopexit_crit_edge21.i.i.i.i.i ], [ %52, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %67 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %66 = phi ptr [ %52, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %52, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %67 = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %66, null
@@ -9622,7 +9622,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %73, %68, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %69, %68 ], [ %83, %.loopexit.i.i ], [ %75, %73 ]
+  %.pn.i.i = phi ptr [ %83, %.loopexit.i.i ], [ %69, %68 ], [ %75, %73 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -9679,7 +9679,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %95, %90, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %91, %90 ], [ %105, %.loopexit.i.i23 ], [ %97, %95 ]
+  %.pn.i.i25 = phi ptr [ %105, %.loopexit.i.i23 ], [ %91, %90 ], [ %97, %95 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -9768,9 +9768,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %139 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %125, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %125, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %122, %.lr.ph.i.i.i.i.i30 ]
-  %140 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %121, %.lr.ph.i.i.i.i.i30 ]
+  %139 = phi ptr [ %125, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %125, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %122, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i30 ]
+  %140 = phi i64 [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %139, null
@@ -9819,7 +9819,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %146, %141, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %142, %141 ], [ %156, %.loopexit.i.i48 ], [ %148, %146 ]
+  %.pn.i.i50 = phi ptr [ %156, %.loopexit.i.i48 ], [ %142, %141 ], [ %148, %146 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -9876,7 +9876,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %168, %163, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %164, %163 ], [ %178, %.loopexit.i.i59 ], [ %170, %168 ]
+  %.pn.i.i61 = phi ptr [ %178, %.loopexit.i.i59 ], [ %164, %163 ], [ %170, %168 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -10145,9 +10145,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %66 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %52, %..loopexit_crit_edge21.i.i.i.i.i ], [ %52, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %67 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %66 = phi ptr [ %52, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %52, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %67 = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %66, null
@@ -10202,7 +10202,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %73, %68, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %69, %68 ], [ %83, %.loopexit.i.i ], [ %75, %73 ]
+  %.pn.i.i = phi ptr [ %83, %.loopexit.i.i ], [ %69, %68 ], [ %75, %73 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -10259,7 +10259,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %95, %90, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %91, %90 ], [ %105, %.loopexit.i.i23 ], [ %97, %95 ]
+  %.pn.i.i25 = phi ptr [ %105, %.loopexit.i.i23 ], [ %91, %90 ], [ %97, %95 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -10348,9 +10348,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %139 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %125, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %125, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %122, %.lr.ph.i.i.i.i.i30 ]
-  %140 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %121, %.lr.ph.i.i.i.i.i30 ]
+  %139 = phi ptr [ %125, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %125, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %122, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i30 ]
+  %140 = phi i64 [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %139, null
@@ -10399,7 +10399,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %146, %141, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %142, %141 ], [ %156, %.loopexit.i.i48 ], [ %148, %146 ]
+  %.pn.i.i50 = phi ptr [ %156, %.loopexit.i.i48 ], [ %142, %141 ], [ %148, %146 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -10456,7 +10456,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %168, %163, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %164, %163 ], [ %178, %.loopexit.i.i59 ], [ %170, %168 ]
+  %.pn.i.i61 = phi ptr [ %178, %.loopexit.i.i59 ], [ %164, %163 ], [ %170, %168 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -10724,9 +10724,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %68 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %69 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %68 = phi ptr [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %54, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %69 = phi i64 [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %68, null
@@ -10781,7 +10781,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %75, %70, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %71, %70 ], [ %85, %.loopexit.i.i ], [ %77, %75 ]
+  %.pn.i.i = phi ptr [ %85, %.loopexit.i.i ], [ %71, %70 ], [ %77, %75 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -10838,7 +10838,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %97, %92, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %93, %92 ], [ %107, %.loopexit.i.i23 ], [ %99, %97 ]
+  %.pn.i.i25 = phi ptr [ %107, %.loopexit.i.i23 ], [ %93, %92 ], [ %99, %97 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -10927,9 +10927,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %141 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %127, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %124, %.lr.ph.i.i.i.i.i30 ]
-  %142 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %141 = phi ptr [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %127, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i30 ]
+  %142 = phi i64 [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %141, null
@@ -10978,7 +10978,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %148, %143, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %144, %143 ], [ %158, %.loopexit.i.i48 ], [ %150, %148 ]
+  %.pn.i.i50 = phi ptr [ %158, %.loopexit.i.i48 ], [ %144, %143 ], [ %150, %148 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -11035,7 +11035,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %170, %165, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %166, %165 ], [ %180, %.loopexit.i.i59 ], [ %172, %170 ]
+  %.pn.i.i61 = phi ptr [ %180, %.loopexit.i.i59 ], [ %166, %165 ], [ %172, %170 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -11304,9 +11304,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %68 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %69 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %68 = phi ptr [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %54, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %69 = phi i64 [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %68, null
@@ -11361,7 +11361,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %75, %70, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %71, %70 ], [ %85, %.loopexit.i.i ], [ %77, %75 ]
+  %.pn.i.i = phi ptr [ %85, %.loopexit.i.i ], [ %71, %70 ], [ %77, %75 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -11418,7 +11418,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %97, %92, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %93, %92 ], [ %107, %.loopexit.i.i23 ], [ %99, %97 ]
+  %.pn.i.i25 = phi ptr [ %107, %.loopexit.i.i23 ], [ %93, %92 ], [ %99, %97 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -11507,9 +11507,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %141 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %127, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %124, %.lr.ph.i.i.i.i.i30 ]
-  %142 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %141 = phi ptr [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %127, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i30 ]
+  %142 = phi i64 [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %141, null
@@ -11558,7 +11558,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %148, %143, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %144, %143 ], [ %158, %.loopexit.i.i48 ], [ %150, %148 ]
+  %.pn.i.i50 = phi ptr [ %158, %.loopexit.i.i48 ], [ %144, %143 ], [ %150, %148 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -11615,7 +11615,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %170, %165, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %166, %165 ], [ %180, %.loopexit.i.i59 ], [ %172, %170 ]
+  %.pn.i.i61 = phi ptr [ %180, %.loopexit.i.i59 ], [ %166, %165 ], [ %172, %170 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -11879,9 +11879,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit116
 
 .loopexit116:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit116.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %68 = phi ptr [ %.pre158, %.loopexit116.loopexit ], [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre155, %.loopexit116.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %69 = phi i64 [ %.pre, %.loopexit116.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %68 = phi ptr [ %54, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre158, %.loopexit116.loopexit ], [ %54, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre155, %.loopexit116.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %69 = phi i64 [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit116.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %68, null
@@ -11936,7 +11936,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %75, %70, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %71, %70 ], [ %85, %.loopexit.i.i ], [ %77, %75 ]
+  %.pn.i.i = phi ptr [ %85, %.loopexit.i.i ], [ %71, %70 ], [ %77, %75 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -11993,7 +11993,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %97, %92, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %93, %92 ], [ %107, %.loopexit.i.i23 ], [ %99, %97 ]
+  %.pn.i.i25 = phi ptr [ %107, %.loopexit.i.i23 ], [ %93, %92 ], [ %99, %97 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre149 = load i32, ptr %15, align 8, !tbaa !164
   %.pre150 = load i32, ptr %16, align 4
@@ -12082,9 +12082,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %141 = phi ptr [ %.pre160, %.loopexit.loopexit ], [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %127, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi157 = phi i64 [ %.pre156, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %124, %.lr.ph.i.i.i.i.i30 ]
-  %142 = phi i64 [ %.pre151, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %141 = phi ptr [ %127, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre160, %.loopexit.loopexit ], [ %127, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi157 = phi i64 [ %124, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre156, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i30 ]
+  %142 = phi i64 [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre151, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.096)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.096, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %141, null
@@ -12133,7 +12133,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %148, %143, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %144, %143 ], [ %158, %.loopexit.i.i48 ], [ %150, %148 ]
+  %.pn.i.i50 = phi ptr [ %158, %.loopexit.i.i48 ], [ %144, %143 ], [ %150, %148 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.096, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.096)
@@ -12190,7 +12190,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %170, %165, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %166, %165 ], [ %180, %.loopexit.i.i59 ], [ %172, %170 ]
+  %.pn.i.i61 = phi ptr [ %180, %.loopexit.i.i59 ], [ %166, %165 ], [ %172, %170 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -12622,9 +12622,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit197.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %184 = phi ptr [ %.pre256, %.loopexit197.loopexit ], [ %170, %..loopexit_crit_edge21.i.i.i.i.i ], [ %170, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre251, %.loopexit197.loopexit ], [ %167, %..loopexit_crit_edge21.i.i.i.i.i ], [ %167, %.lr.ph.i.i.i.i.i ]
-  %185 = phi i64 [ %.pre, %.loopexit197.loopexit ], [ %166, %..loopexit_crit_edge21.i.i.i.i.i ], [ %166, %.lr.ph.i.i.i.i.i ]
+  %184 = phi ptr [ %170, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre256, %.loopexit197.loopexit ], [ %170, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %167, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre251, %.loopexit197.loopexit ], [ %167, %.lr.ph.i.i.i.i.i ]
+  %185 = phi i64 [ %166, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit197.loopexit ], [ %166, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0173)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %184, null
@@ -12679,7 +12679,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %191, %186, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %187, %186 ], [ %201, %.loopexit.i.i ], [ %193, %191 ]
+  %.pn.i.i = phi ptr [ %201, %.loopexit.i.i ], [ %187, %186 ], [ %193, %191 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0173)
@@ -12736,7 +12736,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %213, %208, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %209, %208 ], [ %223, %.loopexit.i.i19 ], [ %215, %213 ]
+  %.pn.i.i21 = phi ptr [ %223, %.loopexit.i.i19 ], [ %209, %208 ], [ %215, %213 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -12837,9 +12837,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit194.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %265 = phi ptr [ %.pre258, %.loopexit194.loopexit ], [ %251, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %251, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi253 = phi i64 [ %.pre252, %.loopexit194.loopexit ], [ %248, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %248, %.lr.ph.i.i.i.i.i26 ]
-  %266 = phi i64 [ %.pre245, %.loopexit194.loopexit ], [ %247, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %247, %.lr.ph.i.i.i.i.i26 ]
+  %265 = phi ptr [ %251, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre258, %.loopexit194.loopexit ], [ %251, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi253 = phi i64 [ %248, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre252, %.loopexit194.loopexit ], [ %248, %.lr.ph.i.i.i.i.i26 ]
+  %266 = phi i64 [ %247, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre245, %.loopexit194.loopexit ], [ %247, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0168)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %265, null
@@ -12888,7 +12888,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %272, %267, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %268, %267 ], [ %282, %.loopexit.i.i44 ], [ %274, %272 ]
+  %.pn.i.i46 = phi ptr [ %282, %.loopexit.i.i44 ], [ %268, %267 ], [ %274, %272 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0168)
@@ -12945,7 +12945,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %294, %289, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %290, %289 ], [ %304, %.loopexit.i.i55 ], [ %296, %294 ]
+  %.pn.i.i57 = phi ptr [ %304, %.loopexit.i.i55 ], [ %290, %289 ], [ %296, %294 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -13046,9 +13046,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %346 = phi ptr [ %.pre260, %.loopexit.loopexit ], [ %332, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %332, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi255 = phi i64 [ %.pre254, %.loopexit.loopexit ], [ %329, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %329, %.lr.ph.i.i.i.i.i64 ]
-  %347 = phi i64 [ %.pre247, %.loopexit.loopexit ], [ %328, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %328, %.lr.ph.i.i.i.i.i64 ]
+  %346 = phi ptr [ %332, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre260, %.loopexit.loopexit ], [ %332, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi255 = phi i64 [ %329, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre254, %.loopexit.loopexit ], [ %329, %.lr.ph.i.i.i.i.i64 ]
+  %347 = phi i64 [ %328, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre247, %.loopexit.loopexit ], [ %328, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %346, null
@@ -13097,7 +13097,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %353, %348, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %349, %348 ], [ %363, %.loopexit.i.i82 ], [ %355, %353 ]
+  %.pn.i.i84 = phi ptr [ %363, %.loopexit.i.i82 ], [ %349, %348 ], [ %355, %353 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0164)
@@ -13154,7 +13154,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %375, %370, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %371, %370 ], [ %385, %.loopexit.i.i93 ], [ %377, %375 ]
+  %.pn.i.i95 = phi ptr [ %385, %.loopexit.i.i93 ], [ %371, %370 ], [ %377, %375 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -13533,9 +13533,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit197.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %190 = phi ptr [ %.pre256, %.loopexit197.loopexit ], [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %176, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre251, %.loopexit197.loopexit ], [ %173, %..loopexit_crit_edge21.i.i.i.i.i ], [ %173, %.lr.ph.i.i.i.i.i ]
-  %191 = phi i64 [ %.pre, %.loopexit197.loopexit ], [ %172, %..loopexit_crit_edge21.i.i.i.i.i ], [ %172, %.lr.ph.i.i.i.i.i ]
+  %190 = phi ptr [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre256, %.loopexit197.loopexit ], [ %176, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %173, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre251, %.loopexit197.loopexit ], [ %173, %.lr.ph.i.i.i.i.i ]
+  %191 = phi i64 [ %172, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit197.loopexit ], [ %172, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0173)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %190, null
@@ -13590,7 +13590,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %197, %192, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %193, %192 ], [ %207, %.loopexit.i.i ], [ %199, %197 ]
+  %.pn.i.i = phi ptr [ %207, %.loopexit.i.i ], [ %193, %192 ], [ %199, %197 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0173)
@@ -13647,7 +13647,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %219, %214, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %215, %214 ], [ %229, %.loopexit.i.i19 ], [ %221, %219 ]
+  %.pn.i.i21 = phi ptr [ %229, %.loopexit.i.i19 ], [ %215, %214 ], [ %221, %219 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -13748,9 +13748,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit194.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %271 = phi ptr [ %.pre258, %.loopexit194.loopexit ], [ %257, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %257, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi253 = phi i64 [ %.pre252, %.loopexit194.loopexit ], [ %254, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %254, %.lr.ph.i.i.i.i.i26 ]
-  %272 = phi i64 [ %.pre245, %.loopexit194.loopexit ], [ %253, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %253, %.lr.ph.i.i.i.i.i26 ]
+  %271 = phi ptr [ %257, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre258, %.loopexit194.loopexit ], [ %257, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi253 = phi i64 [ %254, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre252, %.loopexit194.loopexit ], [ %254, %.lr.ph.i.i.i.i.i26 ]
+  %272 = phi i64 [ %253, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre245, %.loopexit194.loopexit ], [ %253, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0168)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %271, null
@@ -13799,7 +13799,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %278, %273, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %274, %273 ], [ %288, %.loopexit.i.i44 ], [ %280, %278 ]
+  %.pn.i.i46 = phi ptr [ %288, %.loopexit.i.i44 ], [ %274, %273 ], [ %280, %278 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0168)
@@ -13856,7 +13856,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %300, %295, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %296, %295 ], [ %310, %.loopexit.i.i55 ], [ %302, %300 ]
+  %.pn.i.i57 = phi ptr [ %310, %.loopexit.i.i55 ], [ %296, %295 ], [ %302, %300 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -13957,9 +13957,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %352 = phi ptr [ %.pre260, %.loopexit.loopexit ], [ %338, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %338, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi255 = phi i64 [ %.pre254, %.loopexit.loopexit ], [ %335, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %335, %.lr.ph.i.i.i.i.i64 ]
-  %353 = phi i64 [ %.pre247, %.loopexit.loopexit ], [ %334, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %334, %.lr.ph.i.i.i.i.i64 ]
+  %352 = phi ptr [ %338, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre260, %.loopexit.loopexit ], [ %338, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi255 = phi i64 [ %335, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre254, %.loopexit.loopexit ], [ %335, %.lr.ph.i.i.i.i.i64 ]
+  %353 = phi i64 [ %334, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre247, %.loopexit.loopexit ], [ %334, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %352, null
@@ -14008,7 +14008,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %359, %354, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %355, %354 ], [ %369, %.loopexit.i.i82 ], [ %361, %359 ]
+  %.pn.i.i84 = phi ptr [ %369, %.loopexit.i.i82 ], [ %355, %354 ], [ %361, %359 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0164)
@@ -14065,7 +14065,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %381, %376, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %377, %376 ], [ %391, %.loopexit.i.i93 ], [ %383, %381 ]
+  %.pn.i.i95 = phi ptr [ %391, %.loopexit.i.i93 ], [ %377, %376 ], [ %383, %381 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -14474,9 +14474,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit203
 
 .loopexit203:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit203.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %185 = phi ptr [ %.pre278, %.loopexit203.loopexit ], [ %171, %..loopexit_crit_edge21.i.i.i.i.i ], [ %171, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre273, %.loopexit203.loopexit ], [ %168, %..loopexit_crit_edge21.i.i.i.i.i ], [ %168, %.lr.ph.i.i.i.i.i ]
-  %186 = phi i64 [ %.pre, %.loopexit203.loopexit ], [ %167, %..loopexit_crit_edge21.i.i.i.i.i ], [ %167, %.lr.ph.i.i.i.i.i ]
+  %185 = phi ptr [ %171, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre278, %.loopexit203.loopexit ], [ %171, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %168, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre273, %.loopexit203.loopexit ], [ %168, %.lr.ph.i.i.i.i.i ]
+  %186 = phi i64 [ %167, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit203.loopexit ], [ %167, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0179)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0179, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %185, null
@@ -14531,7 +14531,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %192, %187, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %188, %187 ], [ %202, %.loopexit.i.i ], [ %194, %192 ]
+  %.pn.i.i = phi ptr [ %202, %.loopexit.i.i ], [ %188, %187 ], [ %194, %192 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0179, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0179)
@@ -14588,7 +14588,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %214, %209, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %210, %209 ], [ %224, %.loopexit.i.i19 ], [ %216, %214 ]
+  %.pn.i.i21 = phi ptr [ %224, %.loopexit.i.i19 ], [ %210, %209 ], [ %216, %214 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -14689,9 +14689,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit200
 
 .loopexit200:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit200.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %266 = phi ptr [ %.pre280, %.loopexit200.loopexit ], [ %252, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %252, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi275 = phi i64 [ %.pre274, %.loopexit200.loopexit ], [ %249, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %249, %.lr.ph.i.i.i.i.i26 ]
-  %267 = phi i64 [ %.pre267, %.loopexit200.loopexit ], [ %248, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %248, %.lr.ph.i.i.i.i.i26 ]
+  %266 = phi ptr [ %252, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre280, %.loopexit200.loopexit ], [ %252, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi275 = phi i64 [ %249, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre274, %.loopexit200.loopexit ], [ %249, %.lr.ph.i.i.i.i.i26 ]
+  %267 = phi i64 [ %248, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre267, %.loopexit200.loopexit ], [ %248, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0174)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0174, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %266, null
@@ -14740,7 +14740,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %273, %268, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %269, %268 ], [ %283, %.loopexit.i.i44 ], [ %275, %273 ]
+  %.pn.i.i46 = phi ptr [ %283, %.loopexit.i.i44 ], [ %269, %268 ], [ %275, %273 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0174, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0174)
@@ -14797,7 +14797,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %295, %290, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %291, %290 ], [ %305, %.loopexit.i.i55 ], [ %297, %295 ]
+  %.pn.i.i57 = phi ptr [ %305, %.loopexit.i.i55 ], [ %291, %290 ], [ %297, %295 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -14898,9 +14898,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %347 = phi ptr [ %.pre282, %.loopexit.loopexit ], [ %333, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %333, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi277 = phi i64 [ %.pre276, %.loopexit.loopexit ], [ %330, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %330, %.lr.ph.i.i.i.i.i64 ]
-  %348 = phi i64 [ %.pre269, %.loopexit.loopexit ], [ %329, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %329, %.lr.ph.i.i.i.i.i64 ]
+  %347 = phi ptr [ %333, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre282, %.loopexit.loopexit ], [ %333, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi277 = phi i64 [ %330, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre276, %.loopexit.loopexit ], [ %330, %.lr.ph.i.i.i.i.i64 ]
+  %348 = phi i64 [ %329, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre269, %.loopexit.loopexit ], [ %329, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0170)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0170, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %347, null
@@ -14949,7 +14949,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %354, %349, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %350, %349 ], [ %364, %.loopexit.i.i82 ], [ %356, %354 ]
+  %.pn.i.i84 = phi ptr [ %364, %.loopexit.i.i82 ], [ %350, %349 ], [ %356, %354 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0170, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0170)
@@ -15006,7 +15006,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %376, %371, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %372, %371 ], [ %386, %.loopexit.i.i93 ], [ %378, %376 ]
+  %.pn.i.i95 = phi ptr [ %386, %.loopexit.i.i93 ], [ %372, %371 ], [ %378, %376 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -15382,9 +15382,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit197.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %193 = phi ptr [ %.pre256, %.loopexit197.loopexit ], [ %179, %..loopexit_crit_edge21.i.i.i.i.i ], [ %179, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre251, %.loopexit197.loopexit ], [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %176, %.lr.ph.i.i.i.i.i ]
-  %194 = phi i64 [ %.pre, %.loopexit197.loopexit ], [ %175, %..loopexit_crit_edge21.i.i.i.i.i ], [ %175, %.lr.ph.i.i.i.i.i ]
+  %193 = phi ptr [ %179, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre256, %.loopexit197.loopexit ], [ %179, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre251, %.loopexit197.loopexit ], [ %176, %.lr.ph.i.i.i.i.i ]
+  %194 = phi i64 [ %175, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit197.loopexit ], [ %175, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0173)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %193, null
@@ -15439,7 +15439,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %200, %195, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %196, %195 ], [ %210, %.loopexit.i.i ], [ %202, %200 ]
+  %.pn.i.i = phi ptr [ %210, %.loopexit.i.i ], [ %196, %195 ], [ %202, %200 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0173)
@@ -15496,7 +15496,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %222, %217, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %218, %217 ], [ %232, %.loopexit.i.i19 ], [ %224, %222 ]
+  %.pn.i.i21 = phi ptr [ %232, %.loopexit.i.i19 ], [ %218, %217 ], [ %224, %222 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -15597,9 +15597,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit194.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %274 = phi ptr [ %.pre258, %.loopexit194.loopexit ], [ %260, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %260, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi253 = phi i64 [ %.pre252, %.loopexit194.loopexit ], [ %257, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %257, %.lr.ph.i.i.i.i.i26 ]
-  %275 = phi i64 [ %.pre245, %.loopexit194.loopexit ], [ %256, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %256, %.lr.ph.i.i.i.i.i26 ]
+  %274 = phi ptr [ %260, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre258, %.loopexit194.loopexit ], [ %260, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi253 = phi i64 [ %257, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre252, %.loopexit194.loopexit ], [ %257, %.lr.ph.i.i.i.i.i26 ]
+  %275 = phi i64 [ %256, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre245, %.loopexit194.loopexit ], [ %256, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0168)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %274, null
@@ -15648,7 +15648,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %281, %276, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %277, %276 ], [ %291, %.loopexit.i.i44 ], [ %283, %281 ]
+  %.pn.i.i46 = phi ptr [ %291, %.loopexit.i.i44 ], [ %277, %276 ], [ %283, %281 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0168)
@@ -15705,7 +15705,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %303, %298, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %299, %298 ], [ %313, %.loopexit.i.i55 ], [ %305, %303 ]
+  %.pn.i.i57 = phi ptr [ %313, %.loopexit.i.i55 ], [ %299, %298 ], [ %305, %303 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -15806,9 +15806,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %355 = phi ptr [ %.pre260, %.loopexit.loopexit ], [ %341, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %341, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi255 = phi i64 [ %.pre254, %.loopexit.loopexit ], [ %338, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %338, %.lr.ph.i.i.i.i.i64 ]
-  %356 = phi i64 [ %.pre247, %.loopexit.loopexit ], [ %337, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %337, %.lr.ph.i.i.i.i.i64 ]
+  %355 = phi ptr [ %341, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre260, %.loopexit.loopexit ], [ %341, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi255 = phi i64 [ %338, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre254, %.loopexit.loopexit ], [ %338, %.lr.ph.i.i.i.i.i64 ]
+  %356 = phi i64 [ %337, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre247, %.loopexit.loopexit ], [ %337, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %355, null
@@ -15857,7 +15857,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %362, %357, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %358, %357 ], [ %372, %.loopexit.i.i82 ], [ %364, %362 ]
+  %.pn.i.i84 = phi ptr [ %372, %.loopexit.i.i82 ], [ %358, %357 ], [ %364, %362 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0164)
@@ -15914,7 +15914,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %384, %379, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %380, %379 ], [ %394, %.loopexit.i.i93 ], [ %386, %384 ]
+  %.pn.i.i95 = phi ptr [ %394, %.loopexit.i.i93 ], [ %380, %379 ], [ %386, %384 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -16215,9 +16215,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit258.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %136 = phi ptr [ %.pre317, %.loopexit258.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i ], [ %122, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre312, %.loopexit258.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i ], [ %119, %.lr.ph.i.i.i.i.i ]
-  %137 = phi i64 [ %.pre, %.loopexit258.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i ], [ %118, %.lr.ph.i.i.i.i.i ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre317, %.loopexit258.loopexit ], [ %122, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre312, %.loopexit258.loopexit ], [ %119, %.lr.ph.i.i.i.i.i ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit258.loopexit ], [ %118, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0201)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0201, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %136, null
@@ -16272,7 +16272,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %143, %138, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i ], [ %145, %143 ]
+  %.pn.i.i = phi ptr [ %153, %.loopexit.i.i ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0201, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0201)
@@ -16329,7 +16329,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %165, %160, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i45 ], [ %167, %165 ]
+  %.pn.i.i47 = phi ptr [ %175, %.loopexit.i.i45 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -16428,9 +16428,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.lr.ph.i.i.i.i.i54, %.loopexit255.loopexit, %..loopexit_crit_edge21.i.i.i.i.i58
-  %217 = phi ptr [ %.pre319, %.loopexit255.loopexit ], [ %203, %..loopexit_crit_edge21.i.i.i.i.i58 ], [ %203, %.lr.ph.i.i.i.i.i54 ]
-  %.pre-phi314 = phi i64 [ %.pre313, %.loopexit255.loopexit ], [ %200, %..loopexit_crit_edge21.i.i.i.i.i58 ], [ %200, %.lr.ph.i.i.i.i.i54 ]
-  %218 = phi i64 [ %.pre306, %.loopexit255.loopexit ], [ %199, %..loopexit_crit_edge21.i.i.i.i.i58 ], [ %199, %.lr.ph.i.i.i.i.i54 ]
+  %217 = phi ptr [ %203, %..loopexit_crit_edge21.i.i.i.i.i58 ], [ %.pre319, %.loopexit255.loopexit ], [ %203, %.lr.ph.i.i.i.i.i54 ]
+  %.pre-phi314 = phi i64 [ %200, %..loopexit_crit_edge21.i.i.i.i.i58 ], [ %.pre313, %.loopexit255.loopexit ], [ %200, %.lr.ph.i.i.i.i.i54 ]
+  %218 = phi i64 [ %199, %..loopexit_crit_edge21.i.i.i.i.i58 ], [ %.pre306, %.loopexit255.loopexit ], [ %199, %.lr.ph.i.i.i.i.i54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0196)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i66 = icmp eq ptr %217, null
@@ -16479,7 +16479,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit76: ; preds = %224, %219, %.loopexit.i.i72
-  %.pn.i.i74 = phi ptr [ %220, %219 ], [ %234, %.loopexit.i.i72 ], [ %226, %224 ]
+  %.pn.i.i74 = phi ptr [ %234, %.loopexit.i.i72 ], [ %220, %219 ], [ %226, %224 ]
   %.1.i.i75 = getelementptr inbounds nuw i8, ptr %.pn.i.i74, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i75, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0196)
@@ -16536,7 +16536,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit87: ; preds = %246, %241, %.loopexit.i.i83
-  %.pn.i.i85 = phi ptr [ %242, %241 ], [ %256, %.loopexit.i.i83 ], [ %248, %246 ]
+  %.pn.i.i85 = phi ptr [ %256, %.loopexit.i.i83 ], [ %242, %241 ], [ %248, %246 ]
   %.1.i.i86 = getelementptr inbounds nuw i8, ptr %.pn.i.i85, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -16635,9 +16635,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i92, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i96
-  %298 = phi ptr [ %.pre321, %.loopexit.loopexit ], [ %284, %..loopexit_crit_edge21.i.i.i.i.i96 ], [ %284, %.lr.ph.i.i.i.i.i92 ]
-  %.pre-phi316 = phi i64 [ %.pre315, %.loopexit.loopexit ], [ %281, %..loopexit_crit_edge21.i.i.i.i.i96 ], [ %281, %.lr.ph.i.i.i.i.i92 ]
-  %299 = phi i64 [ %.pre308, %.loopexit.loopexit ], [ %280, %..loopexit_crit_edge21.i.i.i.i.i96 ], [ %280, %.lr.ph.i.i.i.i.i92 ]
+  %298 = phi ptr [ %284, %..loopexit_crit_edge21.i.i.i.i.i96 ], [ %.pre321, %.loopexit.loopexit ], [ %284, %.lr.ph.i.i.i.i.i92 ]
+  %.pre-phi316 = phi i64 [ %281, %..loopexit_crit_edge21.i.i.i.i.i96 ], [ %.pre315, %.loopexit.loopexit ], [ %281, %.lr.ph.i.i.i.i.i92 ]
+  %299 = phi i64 [ %280, %..loopexit_crit_edge21.i.i.i.i.i96 ], [ %.pre308, %.loopexit.loopexit ], [ %280, %.lr.ph.i.i.i.i.i92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0192)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0192, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i104 = icmp eq ptr %298, null
@@ -16686,7 +16686,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit114: ; preds = %305, %300, %.loopexit.i.i110
-  %.pn.i.i112 = phi ptr [ %301, %300 ], [ %315, %.loopexit.i.i110 ], [ %307, %305 ]
+  %.pn.i.i112 = phi ptr [ %315, %.loopexit.i.i110 ], [ %301, %300 ], [ %307, %305 ]
   %.1.i.i113 = getelementptr inbounds nuw i8, ptr %.pn.i.i112, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i113, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0192, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0192)
@@ -16743,7 +16743,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit125: ; preds = %327, %322, %.loopexit.i.i121
-  %.pn.i.i123 = phi ptr [ %323, %322 ], [ %337, %.loopexit.i.i121 ], [ %329, %327 ]
+  %.pn.i.i123 = phi ptr [ %337, %.loopexit.i.i121 ], [ %323, %322 ], [ %329, %327 ]
   %.1.i.i124 = getelementptr inbounds nuw i8, ptr %.pn.i.i123, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -17067,9 +17067,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit288
 
 .loopexit288:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit288.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %153 = phi ptr [ %.pre347, %.loopexit288.loopexit ], [ %139, %..loopexit_crit_edge21.i.i.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre342, %.loopexit288.loopexit ], [ %136, %..loopexit_crit_edge21.i.i.i.i.i ], [ %136, %.lr.ph.i.i.i.i.i ]
-  %154 = phi i64 [ %.pre, %.loopexit288.loopexit ], [ %135, %..loopexit_crit_edge21.i.i.i.i.i ], [ %135, %.lr.ph.i.i.i.i.i ]
+  %153 = phi ptr [ %139, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre347, %.loopexit288.loopexit ], [ %139, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %136, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre342, %.loopexit288.loopexit ], [ %136, %.lr.ph.i.i.i.i.i ]
+  %154 = phi i64 [ %135, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit288.loopexit ], [ %135, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0221)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0221, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %153, null
@@ -17124,7 +17124,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %160, %155, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %156, %155 ], [ %170, %.loopexit.i.i ], [ %162, %160 ]
+  %.pn.i.i = phi ptr [ %170, %.loopexit.i.i ], [ %156, %155 ], [ %162, %160 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0221, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0221)
@@ -17181,7 +17181,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit68: ; preds = %182, %177, %.loopexit.i.i64
-  %.pn.i.i66 = phi ptr [ %178, %177 ], [ %192, %.loopexit.i.i64 ], [ %184, %182 ]
+  %.pn.i.i66 = phi ptr [ %192, %.loopexit.i.i64 ], [ %178, %177 ], [ %184, %182 ]
   %.1.i.i67 = getelementptr inbounds nuw i8, ptr %.pn.i.i66, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -17280,9 +17280,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit285
 
 .loopexit285:                                     ; preds = %.lr.ph.i.i.i.i.i73, %.loopexit285.loopexit, %..loopexit_crit_edge21.i.i.i.i.i77
-  %234 = phi ptr [ %.pre349, %.loopexit285.loopexit ], [ %220, %..loopexit_crit_edge21.i.i.i.i.i77 ], [ %220, %.lr.ph.i.i.i.i.i73 ]
-  %.pre-phi344 = phi i64 [ %.pre343, %.loopexit285.loopexit ], [ %217, %..loopexit_crit_edge21.i.i.i.i.i77 ], [ %217, %.lr.ph.i.i.i.i.i73 ]
-  %235 = phi i64 [ %.pre336, %.loopexit285.loopexit ], [ %216, %..loopexit_crit_edge21.i.i.i.i.i77 ], [ %216, %.lr.ph.i.i.i.i.i73 ]
+  %234 = phi ptr [ %220, %..loopexit_crit_edge21.i.i.i.i.i77 ], [ %.pre349, %.loopexit285.loopexit ], [ %220, %.lr.ph.i.i.i.i.i73 ]
+  %.pre-phi344 = phi i64 [ %217, %..loopexit_crit_edge21.i.i.i.i.i77 ], [ %.pre343, %.loopexit285.loopexit ], [ %217, %.lr.ph.i.i.i.i.i73 ]
+  %235 = phi i64 [ %216, %..loopexit_crit_edge21.i.i.i.i.i77 ], [ %.pre336, %.loopexit285.loopexit ], [ %216, %.lr.ph.i.i.i.i.i73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0216)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0216, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i85 = icmp eq ptr %234, null
@@ -17331,7 +17331,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit95: ; preds = %241, %236, %.loopexit.i.i91
-  %.pn.i.i93 = phi ptr [ %237, %236 ], [ %251, %.loopexit.i.i91 ], [ %243, %241 ]
+  %.pn.i.i93 = phi ptr [ %251, %.loopexit.i.i91 ], [ %237, %236 ], [ %243, %241 ]
   %.1.i.i94 = getelementptr inbounds nuw i8, ptr %.pn.i.i93, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i94, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0216, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0216)
@@ -17388,7 +17388,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit106: ; preds = %263, %258, %.loopexit.i.i102
-  %.pn.i.i104 = phi ptr [ %259, %258 ], [ %273, %.loopexit.i.i102 ], [ %265, %263 ]
+  %.pn.i.i104 = phi ptr [ %273, %.loopexit.i.i102 ], [ %259, %258 ], [ %265, %263 ]
   %.1.i.i105 = getelementptr inbounds nuw i8, ptr %.pn.i.i104, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -17487,9 +17487,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i111, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i115
-  %315 = phi ptr [ %.pre351, %.loopexit.loopexit ], [ %301, %..loopexit_crit_edge21.i.i.i.i.i115 ], [ %301, %.lr.ph.i.i.i.i.i111 ]
-  %.pre-phi346 = phi i64 [ %.pre345, %.loopexit.loopexit ], [ %298, %..loopexit_crit_edge21.i.i.i.i.i115 ], [ %298, %.lr.ph.i.i.i.i.i111 ]
-  %316 = phi i64 [ %.pre338, %.loopexit.loopexit ], [ %297, %..loopexit_crit_edge21.i.i.i.i.i115 ], [ %297, %.lr.ph.i.i.i.i.i111 ]
+  %315 = phi ptr [ %301, %..loopexit_crit_edge21.i.i.i.i.i115 ], [ %.pre351, %.loopexit.loopexit ], [ %301, %.lr.ph.i.i.i.i.i111 ]
+  %.pre-phi346 = phi i64 [ %298, %..loopexit_crit_edge21.i.i.i.i.i115 ], [ %.pre345, %.loopexit.loopexit ], [ %298, %.lr.ph.i.i.i.i.i111 ]
+  %316 = phi i64 [ %297, %..loopexit_crit_edge21.i.i.i.i.i115 ], [ %.pre338, %.loopexit.loopexit ], [ %297, %.lr.ph.i.i.i.i.i111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0212)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i123 = icmp eq ptr %315, null
@@ -17538,7 +17538,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit133: ; preds = %322, %317, %.loopexit.i.i129
-  %.pn.i.i131 = phi ptr [ %318, %317 ], [ %332, %.loopexit.i.i129 ], [ %324, %322 ]
+  %.pn.i.i131 = phi ptr [ %332, %.loopexit.i.i129 ], [ %318, %317 ], [ %324, %322 ]
   %.1.i.i132 = getelementptr inbounds nuw i8, ptr %.pn.i.i131, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i132, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0212)
@@ -17595,7 +17595,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit144: ; preds = %344, %339, %.loopexit.i.i140
-  %.pn.i.i142 = phi ptr [ %340, %339 ], [ %354, %.loopexit.i.i140 ], [ %346, %344 ]
+  %.pn.i.i142 = phi ptr [ %354, %.loopexit.i.i140 ], [ %340, %339 ], [ %346, %344 ]
   %.1.i.i143 = getelementptr inbounds nuw i8, ptr %.pn.i.i142, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -17894,9 +17894,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit281
 
 .loopexit281:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit281.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %151 = phi ptr [ %.pre340, %.loopexit281.loopexit ], [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %137, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre335, %.loopexit281.loopexit ], [ %134, %..loopexit_crit_edge21.i.i.i.i.i ], [ %134, %.lr.ph.i.i.i.i.i ]
-  %152 = phi i64 [ %.pre, %.loopexit281.loopexit ], [ %133, %..loopexit_crit_edge21.i.i.i.i.i ], [ %133, %.lr.ph.i.i.i.i.i ]
+  %151 = phi ptr [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre340, %.loopexit281.loopexit ], [ %137, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %134, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre335, %.loopexit281.loopexit ], [ %134, %.lr.ph.i.i.i.i.i ]
+  %152 = phi i64 [ %133, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit281.loopexit ], [ %133, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0212)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %151, null
@@ -17951,7 +17951,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %158, %153, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %154, %153 ], [ %168, %.loopexit.i.i ], [ %160, %158 ]
+  %.pn.i.i = phi ptr [ %168, %.loopexit.i.i ], [ %154, %153 ], [ %160, %158 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0212)
@@ -18008,7 +18008,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit58: ; preds = %180, %175, %.loopexit.i.i54
-  %.pn.i.i56 = phi ptr [ %176, %175 ], [ %190, %.loopexit.i.i54 ], [ %182, %180 ]
+  %.pn.i.i56 = phi ptr [ %190, %.loopexit.i.i54 ], [ %176, %175 ], [ %182, %180 ]
   %.1.i.i57 = getelementptr inbounds nuw i8, ptr %.pn.i.i56, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -18107,9 +18107,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit278
 
 .loopexit278:                                     ; preds = %.lr.ph.i.i.i.i.i63, %.loopexit278.loopexit, %..loopexit_crit_edge21.i.i.i.i.i67
-  %232 = phi ptr [ %.pre342, %.loopexit278.loopexit ], [ %218, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %218, %.lr.ph.i.i.i.i.i63 ]
-  %.pre-phi337 = phi i64 [ %.pre336, %.loopexit278.loopexit ], [ %215, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %215, %.lr.ph.i.i.i.i.i63 ]
-  %233 = phi i64 [ %.pre329, %.loopexit278.loopexit ], [ %214, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %214, %.lr.ph.i.i.i.i.i63 ]
+  %232 = phi ptr [ %218, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %.pre342, %.loopexit278.loopexit ], [ %218, %.lr.ph.i.i.i.i.i63 ]
+  %.pre-phi337 = phi i64 [ %215, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %.pre336, %.loopexit278.loopexit ], [ %215, %.lr.ph.i.i.i.i.i63 ]
+  %233 = phi i64 [ %214, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %.pre329, %.loopexit278.loopexit ], [ %214, %.lr.ph.i.i.i.i.i63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0207)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0207, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i75 = icmp eq ptr %232, null
@@ -18158,7 +18158,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit85: ; preds = %239, %234, %.loopexit.i.i81
-  %.pn.i.i83 = phi ptr [ %235, %234 ], [ %249, %.loopexit.i.i81 ], [ %241, %239 ]
+  %.pn.i.i83 = phi ptr [ %249, %.loopexit.i.i81 ], [ %235, %234 ], [ %241, %239 ]
   %.1.i.i84 = getelementptr inbounds nuw i8, ptr %.pn.i.i83, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i84, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0207, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0207)
@@ -18215,7 +18215,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit96: ; preds = %261, %256, %.loopexit.i.i92
-  %.pn.i.i94 = phi ptr [ %257, %256 ], [ %271, %.loopexit.i.i92 ], [ %263, %261 ]
+  %.pn.i.i94 = phi ptr [ %271, %.loopexit.i.i92 ], [ %257, %256 ], [ %263, %261 ]
   %.1.i.i95 = getelementptr inbounds nuw i8, ptr %.pn.i.i94, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -18314,9 +18314,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i101, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i105
-  %313 = phi ptr [ %.pre344, %.loopexit.loopexit ], [ %299, %..loopexit_crit_edge21.i.i.i.i.i105 ], [ %299, %.lr.ph.i.i.i.i.i101 ]
-  %.pre-phi339 = phi i64 [ %.pre338, %.loopexit.loopexit ], [ %296, %..loopexit_crit_edge21.i.i.i.i.i105 ], [ %296, %.lr.ph.i.i.i.i.i101 ]
-  %314 = phi i64 [ %.pre331, %.loopexit.loopexit ], [ %295, %..loopexit_crit_edge21.i.i.i.i.i105 ], [ %295, %.lr.ph.i.i.i.i.i101 ]
+  %313 = phi ptr [ %299, %..loopexit_crit_edge21.i.i.i.i.i105 ], [ %.pre344, %.loopexit.loopexit ], [ %299, %.lr.ph.i.i.i.i.i101 ]
+  %.pre-phi339 = phi i64 [ %296, %..loopexit_crit_edge21.i.i.i.i.i105 ], [ %.pre338, %.loopexit.loopexit ], [ %296, %.lr.ph.i.i.i.i.i101 ]
+  %314 = phi i64 [ %295, %..loopexit_crit_edge21.i.i.i.i.i105 ], [ %.pre331, %.loopexit.loopexit ], [ %295, %.lr.ph.i.i.i.i.i101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0203)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i113 = icmp eq ptr %313, null
@@ -18365,7 +18365,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit123: ; preds = %320, %315, %.loopexit.i.i119
-  %.pn.i.i121 = phi ptr [ %316, %315 ], [ %330, %.loopexit.i.i119 ], [ %322, %320 ]
+  %.pn.i.i121 = phi ptr [ %330, %.loopexit.i.i119 ], [ %316, %315 ], [ %322, %320 ]
   %.1.i.i122 = getelementptr inbounds nuw i8, ptr %.pn.i.i121, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i122, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0203)
@@ -18422,7 +18422,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit134: ; preds = %342, %337, %.loopexit.i.i130
-  %.pn.i.i132 = phi ptr [ %338, %337 ], [ %352, %.loopexit.i.i130 ], [ %344, %342 ]
+  %.pn.i.i132 = phi ptr [ %352, %.loopexit.i.i130 ], [ %338, %337 ], [ %344, %342 ]
   %.1.i.i133 = getelementptr inbounds nuw i8, ptr %.pn.i.i132, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -18847,9 +18847,9 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit267
 
 .loopexit267:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit267.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %227 = phi ptr [ %.pre345, %.loopexit267.loopexit ], [ %213, %..loopexit_crit_edge21.i.i.i.i.i ], [ %213, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre338, %.loopexit267.loopexit ], [ %210, %..loopexit_crit_edge21.i.i.i.i.i ], [ %210, %.lr.ph.i.i.i.i.i ]
-  %228 = phi i64 [ %.pre, %.loopexit267.loopexit ], [ %209, %..loopexit_crit_edge21.i.i.i.i.i ], [ %209, %.lr.ph.i.i.i.i.i ]
+  %227 = phi ptr [ %213, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre345, %.loopexit267.loopexit ], [ %213, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %210, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre338, %.loopexit267.loopexit ], [ %210, %.lr.ph.i.i.i.i.i ]
+  %228 = phi i64 [ %209, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit267.loopexit ], [ %209, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0242)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %227, null
@@ -18904,7 +18904,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %234, %229, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %230, %229 ], [ %244, %.loopexit.i.i ], [ %236, %234 ]
+  %.pn.i.i = phi ptr [ %244, %.loopexit.i.i ], [ %230, %229 ], [ %236, %234 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0242)
@@ -18961,7 +18961,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25: ; preds = %256, %251, %.loopexit.i.i21
-  %.pn.i.i23 = phi ptr [ %252, %251 ], [ %266, %.loopexit.i.i21 ], [ %258, %256 ]
+  %.pn.i.i23 = phi ptr [ %266, %.loopexit.i.i21 ], [ %252, %251 ], [ %258, %256 ]
   %.1.i.i24 = getelementptr inbounds nuw i8, ptr %.pn.i.i23, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -19062,9 +19062,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit264
 
 .loopexit264:                                     ; preds = %.lr.ph.i.i.i.i.i28, %.loopexit264.loopexit, %..loopexit_crit_edge21.i.i.i.i.i32
-  %308 = phi ptr [ %.pre347, %.loopexit264.loopexit ], [ %294, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %294, %.lr.ph.i.i.i.i.i28 ]
-  %.pre-phi340 = phi i64 [ %.pre339, %.loopexit264.loopexit ], [ %291, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %291, %.lr.ph.i.i.i.i.i28 ]
-  %309 = phi i64 [ %.pre330, %.loopexit264.loopexit ], [ %290, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %290, %.lr.ph.i.i.i.i.i28 ]
+  %308 = phi ptr [ %294, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre347, %.loopexit264.loopexit ], [ %294, %.lr.ph.i.i.i.i.i28 ]
+  %.pre-phi340 = phi i64 [ %291, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre339, %.loopexit264.loopexit ], [ %291, %.lr.ph.i.i.i.i.i28 ]
+  %309 = phi i64 [ %290, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre330, %.loopexit264.loopexit ], [ %290, %.lr.ph.i.i.i.i.i28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0237)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i40 = icmp eq ptr %308, null
@@ -19113,7 +19113,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50: ; preds = %315, %310, %.loopexit.i.i46
-  %.pn.i.i48 = phi ptr [ %311, %310 ], [ %325, %.loopexit.i.i46 ], [ %317, %315 ]
+  %.pn.i.i48 = phi ptr [ %325, %.loopexit.i.i46 ], [ %311, %310 ], [ %317, %315 ]
   %.1.i.i49 = getelementptr inbounds nuw i8, ptr %.pn.i.i48, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0237)
@@ -19170,7 +19170,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61: ; preds = %337, %332, %.loopexit.i.i57
-  %.pn.i.i59 = phi ptr [ %333, %332 ], [ %347, %.loopexit.i.i57 ], [ %339, %337 ]
+  %.pn.i.i59 = phi ptr [ %347, %.loopexit.i.i57 ], [ %333, %332 ], [ %339, %337 ]
   %.1.i.i60 = getelementptr inbounds nuw i8, ptr %.pn.i.i59, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -19271,9 +19271,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit261
 
 .loopexit261:                                     ; preds = %.lr.ph.i.i.i.i.i66, %.loopexit261.loopexit, %..loopexit_crit_edge21.i.i.i.i.i70
-  %389 = phi ptr [ %.pre349, %.loopexit261.loopexit ], [ %375, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %375, %.lr.ph.i.i.i.i.i66 ]
-  %.pre-phi342 = phi i64 [ %.pre341, %.loopexit261.loopexit ], [ %372, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %372, %.lr.ph.i.i.i.i.i66 ]
-  %390 = phi i64 [ %.pre332, %.loopexit261.loopexit ], [ %371, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %371, %.lr.ph.i.i.i.i.i66 ]
+  %389 = phi ptr [ %375, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre349, %.loopexit261.loopexit ], [ %375, %.lr.ph.i.i.i.i.i66 ]
+  %.pre-phi342 = phi i64 [ %372, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre341, %.loopexit261.loopexit ], [ %372, %.lr.ph.i.i.i.i.i66 ]
+  %390 = phi i64 [ %371, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre332, %.loopexit261.loopexit ], [ %371, %.lr.ph.i.i.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i78 = icmp eq ptr %389, null
@@ -19322,7 +19322,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88: ; preds = %396, %391, %.loopexit.i.i84
-  %.pn.i.i86 = phi ptr [ %392, %391 ], [ %406, %.loopexit.i.i84 ], [ %398, %396 ]
+  %.pn.i.i86 = phi ptr [ %406, %.loopexit.i.i84 ], [ %392, %391 ], [ %398, %396 ]
   %.1.i.i87 = getelementptr inbounds nuw i8, ptr %.pn.i.i86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0232)
@@ -19379,7 +19379,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99: ; preds = %418, %413, %.loopexit.i.i95
-  %.pn.i.i97 = phi ptr [ %414, %413 ], [ %428, %.loopexit.i.i95 ], [ %420, %418 ]
+  %.pn.i.i97 = phi ptr [ %428, %.loopexit.i.i95 ], [ %414, %413 ], [ %420, %418 ]
   %.1.i.i98 = getelementptr inbounds nuw i8, ptr %.pn.i.i97, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -19480,9 +19480,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i104, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i108
-  %470 = phi ptr [ %.pre351, %.loopexit.loopexit ], [ %456, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %456, %.lr.ph.i.i.i.i.i104 ]
-  %.pre-phi344 = phi i64 [ %.pre343, %.loopexit.loopexit ], [ %453, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %453, %.lr.ph.i.i.i.i.i104 ]
-  %471 = phi i64 [ %.pre334, %.loopexit.loopexit ], [ %452, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %452, %.lr.ph.i.i.i.i.i104 ]
+  %470 = phi ptr [ %456, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre351, %.loopexit.loopexit ], [ %456, %.lr.ph.i.i.i.i.i104 ]
+  %.pre-phi344 = phi i64 [ %453, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre343, %.loopexit.loopexit ], [ %453, %.lr.ph.i.i.i.i.i104 ]
+  %471 = phi i64 [ %452, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre334, %.loopexit.loopexit ], [ %452, %.lr.ph.i.i.i.i.i104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0228)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i116 = icmp eq ptr %470, null
@@ -19531,7 +19531,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126: ; preds = %477, %472, %.loopexit.i.i122
-  %.pn.i.i124 = phi ptr [ %473, %472 ], [ %487, %.loopexit.i.i122 ], [ %479, %477 ]
+  %.pn.i.i124 = phi ptr [ %487, %.loopexit.i.i122 ], [ %473, %472 ], [ %479, %477 ]
   %.1.i.i125 = getelementptr inbounds nuw i8, ptr %.pn.i.i124, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0228)
@@ -19588,7 +19588,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137: ; preds = %499, %494, %.loopexit.i.i133
-  %.pn.i.i135 = phi ptr [ %495, %494 ], [ %509, %.loopexit.i.i133 ], [ %501, %499 ]
+  %.pn.i.i135 = phi ptr [ %509, %.loopexit.i.i133 ], [ %495, %494 ], [ %501, %499 ]
   %.1.i.i136 = getelementptr inbounds nuw i8, ptr %.pn.i.i135, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -20037,9 +20037,9 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit267
 
 .loopexit267:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit267.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %233 = phi ptr [ %.pre345, %.loopexit267.loopexit ], [ %219, %..loopexit_crit_edge21.i.i.i.i.i ], [ %219, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre338, %.loopexit267.loopexit ], [ %216, %..loopexit_crit_edge21.i.i.i.i.i ], [ %216, %.lr.ph.i.i.i.i.i ]
-  %234 = phi i64 [ %.pre, %.loopexit267.loopexit ], [ %215, %..loopexit_crit_edge21.i.i.i.i.i ], [ %215, %.lr.ph.i.i.i.i.i ]
+  %233 = phi ptr [ %219, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre345, %.loopexit267.loopexit ], [ %219, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %216, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre338, %.loopexit267.loopexit ], [ %216, %.lr.ph.i.i.i.i.i ]
+  %234 = phi i64 [ %215, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit267.loopexit ], [ %215, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0242)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %233, null
@@ -20094,7 +20094,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %240, %235, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %236, %235 ], [ %250, %.loopexit.i.i ], [ %242, %240 ]
+  %.pn.i.i = phi ptr [ %250, %.loopexit.i.i ], [ %236, %235 ], [ %242, %240 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0242)
@@ -20151,7 +20151,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25: ; preds = %262, %257, %.loopexit.i.i21
-  %.pn.i.i23 = phi ptr [ %258, %257 ], [ %272, %.loopexit.i.i21 ], [ %264, %262 ]
+  %.pn.i.i23 = phi ptr [ %272, %.loopexit.i.i21 ], [ %258, %257 ], [ %264, %262 ]
   %.1.i.i24 = getelementptr inbounds nuw i8, ptr %.pn.i.i23, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -20252,9 +20252,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit264
 
 .loopexit264:                                     ; preds = %.lr.ph.i.i.i.i.i28, %.loopexit264.loopexit, %..loopexit_crit_edge21.i.i.i.i.i32
-  %314 = phi ptr [ %.pre347, %.loopexit264.loopexit ], [ %300, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %300, %.lr.ph.i.i.i.i.i28 ]
-  %.pre-phi340 = phi i64 [ %.pre339, %.loopexit264.loopexit ], [ %297, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %297, %.lr.ph.i.i.i.i.i28 ]
-  %315 = phi i64 [ %.pre330, %.loopexit264.loopexit ], [ %296, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %296, %.lr.ph.i.i.i.i.i28 ]
+  %314 = phi ptr [ %300, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre347, %.loopexit264.loopexit ], [ %300, %.lr.ph.i.i.i.i.i28 ]
+  %.pre-phi340 = phi i64 [ %297, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre339, %.loopexit264.loopexit ], [ %297, %.lr.ph.i.i.i.i.i28 ]
+  %315 = phi i64 [ %296, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre330, %.loopexit264.loopexit ], [ %296, %.lr.ph.i.i.i.i.i28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0237)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i40 = icmp eq ptr %314, null
@@ -20303,7 +20303,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50: ; preds = %321, %316, %.loopexit.i.i46
-  %.pn.i.i48 = phi ptr [ %317, %316 ], [ %331, %.loopexit.i.i46 ], [ %323, %321 ]
+  %.pn.i.i48 = phi ptr [ %331, %.loopexit.i.i46 ], [ %317, %316 ], [ %323, %321 ]
   %.1.i.i49 = getelementptr inbounds nuw i8, ptr %.pn.i.i48, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0237)
@@ -20360,7 +20360,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61: ; preds = %343, %338, %.loopexit.i.i57
-  %.pn.i.i59 = phi ptr [ %339, %338 ], [ %353, %.loopexit.i.i57 ], [ %345, %343 ]
+  %.pn.i.i59 = phi ptr [ %353, %.loopexit.i.i57 ], [ %339, %338 ], [ %345, %343 ]
   %.1.i.i60 = getelementptr inbounds nuw i8, ptr %.pn.i.i59, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -20461,9 +20461,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit261
 
 .loopexit261:                                     ; preds = %.lr.ph.i.i.i.i.i66, %.loopexit261.loopexit, %..loopexit_crit_edge21.i.i.i.i.i70
-  %395 = phi ptr [ %.pre349, %.loopexit261.loopexit ], [ %381, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %381, %.lr.ph.i.i.i.i.i66 ]
-  %.pre-phi342 = phi i64 [ %.pre341, %.loopexit261.loopexit ], [ %378, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %378, %.lr.ph.i.i.i.i.i66 ]
-  %396 = phi i64 [ %.pre332, %.loopexit261.loopexit ], [ %377, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %377, %.lr.ph.i.i.i.i.i66 ]
+  %395 = phi ptr [ %381, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre349, %.loopexit261.loopexit ], [ %381, %.lr.ph.i.i.i.i.i66 ]
+  %.pre-phi342 = phi i64 [ %378, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre341, %.loopexit261.loopexit ], [ %378, %.lr.ph.i.i.i.i.i66 ]
+  %396 = phi i64 [ %377, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre332, %.loopexit261.loopexit ], [ %377, %.lr.ph.i.i.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i78 = icmp eq ptr %395, null
@@ -20512,7 +20512,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88: ; preds = %402, %397, %.loopexit.i.i84
-  %.pn.i.i86 = phi ptr [ %398, %397 ], [ %412, %.loopexit.i.i84 ], [ %404, %402 ]
+  %.pn.i.i86 = phi ptr [ %412, %.loopexit.i.i84 ], [ %398, %397 ], [ %404, %402 ]
   %.1.i.i87 = getelementptr inbounds nuw i8, ptr %.pn.i.i86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0232)
@@ -20569,7 +20569,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99: ; preds = %424, %419, %.loopexit.i.i95
-  %.pn.i.i97 = phi ptr [ %420, %419 ], [ %434, %.loopexit.i.i95 ], [ %426, %424 ]
+  %.pn.i.i97 = phi ptr [ %434, %.loopexit.i.i95 ], [ %420, %419 ], [ %426, %424 ]
   %.1.i.i98 = getelementptr inbounds nuw i8, ptr %.pn.i.i97, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -20670,9 +20670,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i104, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i108
-  %476 = phi ptr [ %.pre351, %.loopexit.loopexit ], [ %462, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %462, %.lr.ph.i.i.i.i.i104 ]
-  %.pre-phi344 = phi i64 [ %.pre343, %.loopexit.loopexit ], [ %459, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %459, %.lr.ph.i.i.i.i.i104 ]
-  %477 = phi i64 [ %.pre334, %.loopexit.loopexit ], [ %458, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %458, %.lr.ph.i.i.i.i.i104 ]
+  %476 = phi ptr [ %462, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre351, %.loopexit.loopexit ], [ %462, %.lr.ph.i.i.i.i.i104 ]
+  %.pre-phi344 = phi i64 [ %459, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre343, %.loopexit.loopexit ], [ %459, %.lr.ph.i.i.i.i.i104 ]
+  %477 = phi i64 [ %458, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre334, %.loopexit.loopexit ], [ %458, %.lr.ph.i.i.i.i.i104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0228)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i116 = icmp eq ptr %476, null
@@ -20721,7 +20721,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126: ; preds = %483, %478, %.loopexit.i.i122
-  %.pn.i.i124 = phi ptr [ %479, %478 ], [ %493, %.loopexit.i.i122 ], [ %485, %483 ]
+  %.pn.i.i124 = phi ptr [ %493, %.loopexit.i.i122 ], [ %479, %478 ], [ %485, %483 ]
   %.1.i.i125 = getelementptr inbounds nuw i8, ptr %.pn.i.i124, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0228)
@@ -20778,7 +20778,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137: ; preds = %505, %500, %.loopexit.i.i133
-  %.pn.i.i135 = phi ptr [ %501, %500 ], [ %515, %.loopexit.i.i133 ], [ %507, %505 ]
+  %.pn.i.i135 = phi ptr [ %515, %.loopexit.i.i133 ], [ %501, %500 ], [ %507, %505 ]
   %.1.i.i136 = getelementptr inbounds nuw i8, ptr %.pn.i.i135, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -21225,9 +21225,9 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit265
 
 .loopexit265:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit265.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %235 = phi ptr [ %.pre363, %.loopexit265.loopexit ], [ %221, %..loopexit_crit_edge21.i.i.i.i.i ], [ %221, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre356, %.loopexit265.loopexit ], [ %218, %..loopexit_crit_edge21.i.i.i.i.i ], [ %218, %.lr.ph.i.i.i.i.i ]
-  %236 = phi i64 [ %.pre, %.loopexit265.loopexit ], [ %217, %..loopexit_crit_edge21.i.i.i.i.i ], [ %217, %.lr.ph.i.i.i.i.i ]
+  %235 = phi ptr [ %221, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre363, %.loopexit265.loopexit ], [ %221, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %218, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre356, %.loopexit265.loopexit ], [ %218, %.lr.ph.i.i.i.i.i ]
+  %236 = phi i64 [ %217, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit265.loopexit ], [ %217, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0240)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0240, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %235, null
@@ -21282,7 +21282,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %242, %237, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %238, %237 ], [ %252, %.loopexit.i.i ], [ %244, %242 ]
+  %.pn.i.i = phi ptr [ %252, %.loopexit.i.i ], [ %238, %237 ], [ %244, %242 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0240, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0240)
@@ -21339,7 +21339,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25: ; preds = %264, %259, %.loopexit.i.i21
-  %.pn.i.i23 = phi ptr [ %260, %259 ], [ %274, %.loopexit.i.i21 ], [ %266, %264 ]
+  %.pn.i.i23 = phi ptr [ %274, %.loopexit.i.i21 ], [ %260, %259 ], [ %266, %264 ]
   %.1.i.i24 = getelementptr inbounds nuw i8, ptr %.pn.i.i23, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -21440,9 +21440,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit262
 
 .loopexit262:                                     ; preds = %.lr.ph.i.i.i.i.i28, %.loopexit262.loopexit, %..loopexit_crit_edge21.i.i.i.i.i32
-  %316 = phi ptr [ %.pre365, %.loopexit262.loopexit ], [ %302, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %302, %.lr.ph.i.i.i.i.i28 ]
-  %.pre-phi358 = phi i64 [ %.pre357, %.loopexit262.loopexit ], [ %299, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %299, %.lr.ph.i.i.i.i.i28 ]
-  %317 = phi i64 [ %.pre348, %.loopexit262.loopexit ], [ %298, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %298, %.lr.ph.i.i.i.i.i28 ]
+  %316 = phi ptr [ %302, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre365, %.loopexit262.loopexit ], [ %302, %.lr.ph.i.i.i.i.i28 ]
+  %.pre-phi358 = phi i64 [ %299, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre357, %.loopexit262.loopexit ], [ %299, %.lr.ph.i.i.i.i.i28 ]
+  %317 = phi i64 [ %298, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre348, %.loopexit262.loopexit ], [ %298, %.lr.ph.i.i.i.i.i28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0235)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0235, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i40 = icmp eq ptr %316, null
@@ -21491,7 +21491,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50: ; preds = %323, %318, %.loopexit.i.i46
-  %.pn.i.i48 = phi ptr [ %319, %318 ], [ %333, %.loopexit.i.i46 ], [ %325, %323 ]
+  %.pn.i.i48 = phi ptr [ %333, %.loopexit.i.i46 ], [ %319, %318 ], [ %325, %323 ]
   %.1.i.i49 = getelementptr inbounds nuw i8, ptr %.pn.i.i48, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0235, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0235)
@@ -21548,7 +21548,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61: ; preds = %345, %340, %.loopexit.i.i57
-  %.pn.i.i59 = phi ptr [ %341, %340 ], [ %355, %.loopexit.i.i57 ], [ %347, %345 ]
+  %.pn.i.i59 = phi ptr [ %355, %.loopexit.i.i57 ], [ %341, %340 ], [ %347, %345 ]
   %.1.i.i60 = getelementptr inbounds nuw i8, ptr %.pn.i.i59, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -21649,9 +21649,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit259
 
 .loopexit259:                                     ; preds = %.lr.ph.i.i.i.i.i66, %.loopexit259.loopexit, %..loopexit_crit_edge21.i.i.i.i.i70
-  %397 = phi ptr [ %.pre367, %.loopexit259.loopexit ], [ %383, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %383, %.lr.ph.i.i.i.i.i66 ]
-  %.pre-phi360 = phi i64 [ %.pre359, %.loopexit259.loopexit ], [ %380, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %380, %.lr.ph.i.i.i.i.i66 ]
-  %398 = phi i64 [ %.pre350, %.loopexit259.loopexit ], [ %379, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %379, %.lr.ph.i.i.i.i.i66 ]
+  %397 = phi ptr [ %383, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre367, %.loopexit259.loopexit ], [ %383, %.lr.ph.i.i.i.i.i66 ]
+  %.pre-phi360 = phi i64 [ %380, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre359, %.loopexit259.loopexit ], [ %380, %.lr.ph.i.i.i.i.i66 ]
+  %398 = phi i64 [ %379, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre350, %.loopexit259.loopexit ], [ %379, %.lr.ph.i.i.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0230)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0230, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i78 = icmp eq ptr %397, null
@@ -21700,7 +21700,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88: ; preds = %404, %399, %.loopexit.i.i84
-  %.pn.i.i86 = phi ptr [ %400, %399 ], [ %414, %.loopexit.i.i84 ], [ %406, %404 ]
+  %.pn.i.i86 = phi ptr [ %414, %.loopexit.i.i84 ], [ %400, %399 ], [ %406, %404 ]
   %.1.i.i87 = getelementptr inbounds nuw i8, ptr %.pn.i.i86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0230, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0230)
@@ -21757,7 +21757,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99: ; preds = %426, %421, %.loopexit.i.i95
-  %.pn.i.i97 = phi ptr [ %422, %421 ], [ %436, %.loopexit.i.i95 ], [ %428, %426 ]
+  %.pn.i.i97 = phi ptr [ %436, %.loopexit.i.i95 ], [ %422, %421 ], [ %428, %426 ]
   %.1.i.i98 = getelementptr inbounds nuw i8, ptr %.pn.i.i97, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -21858,9 +21858,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i104, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i108
-  %478 = phi ptr [ %.pre369, %.loopexit.loopexit ], [ %464, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %464, %.lr.ph.i.i.i.i.i104 ]
-  %.pre-phi362 = phi i64 [ %.pre361, %.loopexit.loopexit ], [ %461, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %461, %.lr.ph.i.i.i.i.i104 ]
-  %479 = phi i64 [ %.pre352, %.loopexit.loopexit ], [ %460, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %460, %.lr.ph.i.i.i.i.i104 ]
+  %478 = phi ptr [ %464, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre369, %.loopexit.loopexit ], [ %464, %.lr.ph.i.i.i.i.i104 ]
+  %.pre-phi362 = phi i64 [ %461, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre361, %.loopexit.loopexit ], [ %461, %.lr.ph.i.i.i.i.i104 ]
+  %479 = phi i64 [ %460, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre352, %.loopexit.loopexit ], [ %460, %.lr.ph.i.i.i.i.i104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0226)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0226, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i116 = icmp eq ptr %478, null
@@ -21909,7 +21909,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126: ; preds = %485, %480, %.loopexit.i.i122
-  %.pn.i.i124 = phi ptr [ %481, %480 ], [ %495, %.loopexit.i.i122 ], [ %487, %485 ]
+  %.pn.i.i124 = phi ptr [ %495, %.loopexit.i.i122 ], [ %481, %480 ], [ %487, %485 ]
   %.1.i.i125 = getelementptr inbounds nuw i8, ptr %.pn.i.i124, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0226, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0226)
@@ -21966,7 +21966,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137: ; preds = %507, %502, %.loopexit.i.i133
-  %.pn.i.i135 = phi ptr [ %503, %502 ], [ %517, %.loopexit.i.i133 ], [ %509, %507 ]
+  %.pn.i.i135 = phi ptr [ %517, %.loopexit.i.i133 ], [ %503, %502 ], [ %509, %507 ]
   %.1.i.i136 = getelementptr inbounds nuw i8, ptr %.pn.i.i135, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -22910,9 +22910,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %65 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
-  %66 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi ptr [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %66 = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0106)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0106, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %65, null
@@ -22967,7 +22967,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %72, %67, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %68, %67 ], [ %82, %.loopexit.i.i ], [ %74, %72 ]
+  %.pn.i.i = phi ptr [ %82, %.loopexit.i.i ], [ %68, %67 ], [ %74, %72 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0106, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0106)
@@ -23024,7 +23024,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %94, %89, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %90, %89 ], [ %104, %.loopexit.i.i20 ], [ %96, %94 ]
+  %.pn.i.i22 = phi ptr [ %104, %.loopexit.i.i20 ], [ %90, %89 ], [ %96, %94 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -23113,9 +23113,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %138 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %124, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %121, %.lr.ph.i.i.i.i.i27 ]
-  %139 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %120, %.lr.ph.i.i.i.i.i27 ]
+  %138 = phi ptr [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i27 ]
+  %139 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0102)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0102, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %138, null
@@ -23164,7 +23164,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %145, %140, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %141, %140 ], [ %155, %.loopexit.i.i45 ], [ %147, %145 ]
+  %.pn.i.i47 = phi ptr [ %155, %.loopexit.i.i45 ], [ %141, %140 ], [ %147, %145 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0102, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0102)
@@ -23221,7 +23221,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %167, %162, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %163, %162 ], [ %177, %.loopexit.i.i56 ], [ %169, %167 ]
+  %.pn.i.i58 = phi ptr [ %177, %.loopexit.i.i56 ], [ %163, %162 ], [ %169, %167 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -23464,9 +23464,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %65 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
-  %66 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi ptr [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %66 = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %65, null
@@ -23521,7 +23521,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %72, %67, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %68, %67 ], [ %82, %.loopexit.i.i ], [ %74, %72 ]
+  %.pn.i.i = phi ptr [ %82, %.loopexit.i.i ], [ %68, %67 ], [ %74, %72 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -23578,7 +23578,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %94, %89, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %90, %89 ], [ %104, %.loopexit.i.i20 ], [ %96, %94 ]
+  %.pn.i.i22 = phi ptr [ %104, %.loopexit.i.i20 ], [ %90, %89 ], [ %96, %94 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -23667,9 +23667,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %138 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %124, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %121, %.lr.ph.i.i.i.i.i27 ]
-  %139 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %120, %.lr.ph.i.i.i.i.i27 ]
+  %138 = phi ptr [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i27 ]
+  %139 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %138, null
@@ -23718,7 +23718,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %145, %140, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %141, %140 ], [ %155, %.loopexit.i.i45 ], [ %147, %145 ]
+  %.pn.i.i47 = phi ptr [ %155, %.loopexit.i.i45 ], [ %141, %140 ], [ %147, %145 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -23775,7 +23775,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %167, %162, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %163, %162 ], [ %177, %.loopexit.i.i56 ], [ %169, %167 ]
+  %.pn.i.i58 = phi ptr [ %177, %.loopexit.i.i56 ], [ %163, %162 ], [ %169, %167 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -24023,9 +24023,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %63 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
-  %64 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi ptr [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %63, null
@@ -24080,7 +24080,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %70, %65, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %66, %65 ], [ %80, %.loopexit.i.i ], [ %72, %70 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %66, %65 ], [ %72, %70 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -24137,7 +24137,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %92, %87, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %88, %87 ], [ %102, %.loopexit.i.i20 ], [ %94, %92 ]
+  %.pn.i.i22 = phi ptr [ %102, %.loopexit.i.i20 ], [ %88, %87 ], [ %94, %92 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -24226,9 +24226,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %136 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %122, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %119, %.lr.ph.i.i.i.i.i27 ]
-  %137 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %118, %.lr.ph.i.i.i.i.i27 ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i27 ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %136, null
@@ -24277,7 +24277,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %143, %138, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i45 ], [ %145, %143 ]
+  %.pn.i.i47 = phi ptr [ %153, %.loopexit.i.i45 ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -24334,7 +24334,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %165, %160, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i56 ], [ %167, %165 ]
+  %.pn.i.i58 = phi ptr [ %175, %.loopexit.i.i56 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -24583,9 +24583,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %63 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
-  %64 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi ptr [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %63, null
@@ -24640,7 +24640,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %70, %65, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %66, %65 ], [ %80, %.loopexit.i.i ], [ %72, %70 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %66, %65 ], [ %72, %70 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -24697,7 +24697,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %92, %87, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %88, %87 ], [ %102, %.loopexit.i.i20 ], [ %94, %92 ]
+  %.pn.i.i22 = phi ptr [ %102, %.loopexit.i.i20 ], [ %88, %87 ], [ %94, %92 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -24786,9 +24786,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %136 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %122, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %119, %.lr.ph.i.i.i.i.i27 ]
-  %137 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %118, %.lr.ph.i.i.i.i.i27 ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i27 ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %136, null
@@ -24837,7 +24837,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %143, %138, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i45 ], [ %145, %143 ]
+  %.pn.i.i47 = phi ptr [ %153, %.loopexit.i.i45 ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -24894,7 +24894,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %165, %160, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i56 ], [ %167, %165 ]
+  %.pn.i.i58 = phi ptr [ %175, %.loopexit.i.i56 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -25142,9 +25142,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %65 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
-  %66 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi ptr [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %66 = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %65, null
@@ -25199,7 +25199,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %72, %67, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %68, %67 ], [ %82, %.loopexit.i.i ], [ %74, %72 ]
+  %.pn.i.i = phi ptr [ %82, %.loopexit.i.i ], [ %68, %67 ], [ %74, %72 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -25256,7 +25256,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %94, %89, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %90, %89 ], [ %104, %.loopexit.i.i20 ], [ %96, %94 ]
+  %.pn.i.i22 = phi ptr [ %104, %.loopexit.i.i20 ], [ %90, %89 ], [ %96, %94 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -25345,9 +25345,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %138 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %124, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %121, %.lr.ph.i.i.i.i.i27 ]
-  %139 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %120, %.lr.ph.i.i.i.i.i27 ]
+  %138 = phi ptr [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i27 ]
+  %139 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %138, null
@@ -25396,7 +25396,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %145, %140, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %141, %140 ], [ %155, %.loopexit.i.i45 ], [ %147, %145 ]
+  %.pn.i.i47 = phi ptr [ %155, %.loopexit.i.i45 ], [ %141, %140 ], [ %147, %145 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -25453,7 +25453,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %167, %162, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %163, %162 ], [ %177, %.loopexit.i.i56 ], [ %169, %167 ]
+  %.pn.i.i58 = phi ptr [ %177, %.loopexit.i.i56 ], [ %163, %162 ], [ %169, %167 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -25702,9 +25702,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %65 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
-  %66 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi ptr [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %66 = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %65, null
@@ -25759,7 +25759,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %72, %67, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %68, %67 ], [ %82, %.loopexit.i.i ], [ %74, %72 ]
+  %.pn.i.i = phi ptr [ %82, %.loopexit.i.i ], [ %68, %67 ], [ %74, %72 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -25816,7 +25816,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %94, %89, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %90, %89 ], [ %104, %.loopexit.i.i20 ], [ %96, %94 ]
+  %.pn.i.i22 = phi ptr [ %104, %.loopexit.i.i20 ], [ %90, %89 ], [ %96, %94 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -25905,9 +25905,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %138 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %124, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %121, %.lr.ph.i.i.i.i.i27 ]
-  %139 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %120, %.lr.ph.i.i.i.i.i27 ]
+  %138 = phi ptr [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i27 ]
+  %139 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %138, null
@@ -25956,7 +25956,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %145, %140, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %141, %140 ], [ %155, %.loopexit.i.i45 ], [ %147, %145 ]
+  %.pn.i.i47 = phi ptr [ %155, %.loopexit.i.i45 ], [ %141, %140 ], [ %147, %145 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -26013,7 +26013,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %167, %162, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %163, %162 ], [ %177, %.loopexit.i.i56 ], [ %169, %167 ]
+  %.pn.i.i58 = phi ptr [ %177, %.loopexit.i.i56 ], [ %163, %162 ], [ %169, %167 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -26260,9 +26260,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit121
 
 .loopexit121:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit121.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %65 = phi ptr [ %.pre163, %.loopexit121.loopexit ], [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre160, %.loopexit121.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
-  %66 = phi i64 [ %.pre, %.loopexit121.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi ptr [ %51, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre163, %.loopexit121.loopexit ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre160, %.loopexit121.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %66 = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit121.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0105)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0105, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %65, null
@@ -26317,7 +26317,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %72, %67, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %68, %67 ], [ %82, %.loopexit.i.i ], [ %74, %72 ]
+  %.pn.i.i = phi ptr [ %82, %.loopexit.i.i ], [ %68, %67 ], [ %74, %72 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0105, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0105)
@@ -26374,7 +26374,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %94, %89, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %90, %89 ], [ %104, %.loopexit.i.i20 ], [ %96, %94 ]
+  %.pn.i.i22 = phi ptr [ %104, %.loopexit.i.i20 ], [ %90, %89 ], [ %96, %94 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre154 = load i32, ptr %12, align 8, !tbaa !164
   %.pre155 = load i32, ptr %13, align 4
@@ -26463,9 +26463,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %138 = phi ptr [ %.pre165, %.loopexit.loopexit ], [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %124, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi162 = phi i64 [ %.pre161, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %121, %.lr.ph.i.i.i.i.i27 ]
-  %139 = phi i64 [ %.pre156, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %120, %.lr.ph.i.i.i.i.i27 ]
+  %138 = phi ptr [ %124, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre165, %.loopexit.loopexit ], [ %124, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi162 = phi i64 [ %121, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre161, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i27 ]
+  %139 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre156, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0101)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0101, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %138, null
@@ -26514,7 +26514,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %145, %140, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %141, %140 ], [ %155, %.loopexit.i.i45 ], [ %147, %145 ]
+  %.pn.i.i47 = phi ptr [ %155, %.loopexit.i.i45 ], [ %141, %140 ], [ %147, %145 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0101, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0101)
@@ -26571,7 +26571,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %167, %162, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %163, %162 ], [ %177, %.loopexit.i.i56 ], [ %169, %167 ]
+  %.pn.i.i58 = phi ptr [ %177, %.loopexit.i.i56 ], [ %163, %162 ], [ %169, %167 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -26956,9 +26956,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit229
 
 .loopexit229:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit229.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %167 = phi ptr [ %.pre288, %.loopexit229.loopexit ], [ %153, %..loopexit_crit_edge21.i.i.i.i.i ], [ %153, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre283, %.loopexit229.loopexit ], [ %150, %..loopexit_crit_edge21.i.i.i.i.i ], [ %150, %.lr.ph.i.i.i.i.i ]
-  %168 = phi i64 [ %.pre, %.loopexit229.loopexit ], [ %149, %..loopexit_crit_edge21.i.i.i.i.i ], [ %149, %.lr.ph.i.i.i.i.i ]
+  %167 = phi ptr [ %153, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre288, %.loopexit229.loopexit ], [ %153, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %150, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre283, %.loopexit229.loopexit ], [ %150, %.lr.ph.i.i.i.i.i ]
+  %168 = phi i64 [ %149, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit229.loopexit ], [ %149, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0205)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %167, null
@@ -27013,7 +27013,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %174, %169, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %170, %169 ], [ %184, %.loopexit.i.i ], [ %176, %174 ]
+  %.pn.i.i = phi ptr [ %184, %.loopexit.i.i ], [ %170, %169 ], [ %176, %174 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0205)
@@ -27070,7 +27070,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %196, %191, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %192, %191 ], [ %206, %.loopexit.i.i25 ], [ %198, %196 ]
+  %.pn.i.i27 = phi ptr [ %206, %.loopexit.i.i25 ], [ %192, %191 ], [ %198, %196 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -27171,9 +27171,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit226
 
 .loopexit226:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit226.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %248 = phi ptr [ %.pre290, %.loopexit226.loopexit ], [ %234, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %234, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi285 = phi i64 [ %.pre284, %.loopexit226.loopexit ], [ %231, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %231, %.lr.ph.i.i.i.i.i34 ]
-  %249 = phi i64 [ %.pre277, %.loopexit226.loopexit ], [ %230, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %230, %.lr.ph.i.i.i.i.i34 ]
+  %248 = phi ptr [ %234, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre290, %.loopexit226.loopexit ], [ %234, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi285 = phi i64 [ %231, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre284, %.loopexit226.loopexit ], [ %231, %.lr.ph.i.i.i.i.i34 ]
+  %249 = phi i64 [ %230, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre277, %.loopexit226.loopexit ], [ %230, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0200)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %248, null
@@ -27222,7 +27222,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %255, %250, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %251, %250 ], [ %265, %.loopexit.i.i52 ], [ %257, %255 ]
+  %.pn.i.i54 = phi ptr [ %265, %.loopexit.i.i52 ], [ %251, %250 ], [ %257, %255 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0200)
@@ -27279,7 +27279,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %277, %272, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %273, %272 ], [ %287, %.loopexit.i.i63 ], [ %279, %277 ]
+  %.pn.i.i65 = phi ptr [ %287, %.loopexit.i.i63 ], [ %273, %272 ], [ %279, %277 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -27380,9 +27380,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %329 = phi ptr [ %.pre292, %.loopexit.loopexit ], [ %315, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %315, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi287 = phi i64 [ %.pre286, %.loopexit.loopexit ], [ %312, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %312, %.lr.ph.i.i.i.i.i72 ]
-  %330 = phi i64 [ %.pre279, %.loopexit.loopexit ], [ %311, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %311, %.lr.ph.i.i.i.i.i72 ]
+  %329 = phi ptr [ %315, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre292, %.loopexit.loopexit ], [ %315, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi287 = phi i64 [ %312, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre286, %.loopexit.loopexit ], [ %312, %.lr.ph.i.i.i.i.i72 ]
+  %330 = phi i64 [ %311, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre279, %.loopexit.loopexit ], [ %311, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0196)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %329, null
@@ -27431,7 +27431,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %336, %331, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %332, %331 ], [ %346, %.loopexit.i.i90 ], [ %338, %336 ]
+  %.pn.i.i92 = phi ptr [ %346, %.loopexit.i.i90 ], [ %332, %331 ], [ %338, %336 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0196)
@@ -27488,7 +27488,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %358, %353, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %354, %353 ], [ %368, %.loopexit.i.i101 ], [ %360, %358 ]
+  %.pn.i.i103 = phi ptr [ %368, %.loopexit.i.i101 ], [ %354, %353 ], [ %360, %358 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -27826,9 +27826,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit229
 
 .loopexit229:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit229.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %173 = phi ptr [ %.pre288, %.loopexit229.loopexit ], [ %159, %..loopexit_crit_edge21.i.i.i.i.i ], [ %159, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre283, %.loopexit229.loopexit ], [ %156, %..loopexit_crit_edge21.i.i.i.i.i ], [ %156, %.lr.ph.i.i.i.i.i ]
-  %174 = phi i64 [ %.pre, %.loopexit229.loopexit ], [ %155, %..loopexit_crit_edge21.i.i.i.i.i ], [ %155, %.lr.ph.i.i.i.i.i ]
+  %173 = phi ptr [ %159, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre288, %.loopexit229.loopexit ], [ %159, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %156, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre283, %.loopexit229.loopexit ], [ %156, %.lr.ph.i.i.i.i.i ]
+  %174 = phi i64 [ %155, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit229.loopexit ], [ %155, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0205)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %173, null
@@ -27883,7 +27883,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %180, %175, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %176, %175 ], [ %190, %.loopexit.i.i ], [ %182, %180 ]
+  %.pn.i.i = phi ptr [ %190, %.loopexit.i.i ], [ %176, %175 ], [ %182, %180 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0205)
@@ -27940,7 +27940,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %202, %197, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %198, %197 ], [ %212, %.loopexit.i.i25 ], [ %204, %202 ]
+  %.pn.i.i27 = phi ptr [ %212, %.loopexit.i.i25 ], [ %198, %197 ], [ %204, %202 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -28041,9 +28041,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit226
 
 .loopexit226:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit226.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %254 = phi ptr [ %.pre290, %.loopexit226.loopexit ], [ %240, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %240, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi285 = phi i64 [ %.pre284, %.loopexit226.loopexit ], [ %237, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %237, %.lr.ph.i.i.i.i.i34 ]
-  %255 = phi i64 [ %.pre277, %.loopexit226.loopexit ], [ %236, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %236, %.lr.ph.i.i.i.i.i34 ]
+  %254 = phi ptr [ %240, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre290, %.loopexit226.loopexit ], [ %240, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi285 = phi i64 [ %237, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre284, %.loopexit226.loopexit ], [ %237, %.lr.ph.i.i.i.i.i34 ]
+  %255 = phi i64 [ %236, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre277, %.loopexit226.loopexit ], [ %236, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0200)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %254, null
@@ -28092,7 +28092,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %261, %256, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %257, %256 ], [ %271, %.loopexit.i.i52 ], [ %263, %261 ]
+  %.pn.i.i54 = phi ptr [ %271, %.loopexit.i.i52 ], [ %257, %256 ], [ %263, %261 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0200)
@@ -28149,7 +28149,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %283, %278, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %279, %278 ], [ %293, %.loopexit.i.i63 ], [ %285, %283 ]
+  %.pn.i.i65 = phi ptr [ %293, %.loopexit.i.i63 ], [ %279, %278 ], [ %285, %283 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -28250,9 +28250,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %335 = phi ptr [ %.pre292, %.loopexit.loopexit ], [ %321, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %321, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi287 = phi i64 [ %.pre286, %.loopexit.loopexit ], [ %318, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %318, %.lr.ph.i.i.i.i.i72 ]
-  %336 = phi i64 [ %.pre279, %.loopexit.loopexit ], [ %317, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %317, %.lr.ph.i.i.i.i.i72 ]
+  %335 = phi ptr [ %321, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre292, %.loopexit.loopexit ], [ %321, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi287 = phi i64 [ %318, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre286, %.loopexit.loopexit ], [ %318, %.lr.ph.i.i.i.i.i72 ]
+  %336 = phi i64 [ %317, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre279, %.loopexit.loopexit ], [ %317, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0196)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %335, null
@@ -28301,7 +28301,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %342, %337, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %338, %337 ], [ %352, %.loopexit.i.i90 ], [ %344, %342 ]
+  %.pn.i.i92 = phi ptr [ %352, %.loopexit.i.i90 ], [ %338, %337 ], [ %344, %342 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0196)
@@ -28358,7 +28358,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %364, %359, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %360, %359 ], [ %374, %.loopexit.i.i101 ], [ %366, %364 ]
+  %.pn.i.i103 = phi ptr [ %374, %.loopexit.i.i101 ], [ %360, %359 ], [ %366, %364 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -28729,9 +28729,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit236
 
 .loopexit236:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit236.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %168 = phi ptr [ %.pre311, %.loopexit236.loopexit ], [ %154, %..loopexit_crit_edge21.i.i.i.i.i ], [ %154, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre306, %.loopexit236.loopexit ], [ %151, %..loopexit_crit_edge21.i.i.i.i.i ], [ %151, %.lr.ph.i.i.i.i.i ]
-  %169 = phi i64 [ %.pre, %.loopexit236.loopexit ], [ %150, %..loopexit_crit_edge21.i.i.i.i.i ], [ %150, %.lr.ph.i.i.i.i.i ]
+  %168 = phi ptr [ %154, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre311, %.loopexit236.loopexit ], [ %154, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %151, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre306, %.loopexit236.loopexit ], [ %151, %.lr.ph.i.i.i.i.i ]
+  %169 = phi i64 [ %150, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit236.loopexit ], [ %150, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0212)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %168, null
@@ -28786,7 +28786,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %175, %170, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %171, %170 ], [ %185, %.loopexit.i.i ], [ %177, %175 ]
+  %.pn.i.i = phi ptr [ %185, %.loopexit.i.i ], [ %171, %170 ], [ %177, %175 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0212)
@@ -28843,7 +28843,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %197, %192, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %193, %192 ], [ %207, %.loopexit.i.i25 ], [ %199, %197 ]
+  %.pn.i.i27 = phi ptr [ %207, %.loopexit.i.i25 ], [ %193, %192 ], [ %199, %197 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -28944,9 +28944,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit233
 
 .loopexit233:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit233.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %249 = phi ptr [ %.pre313, %.loopexit233.loopexit ], [ %235, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %235, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi308 = phi i64 [ %.pre307, %.loopexit233.loopexit ], [ %232, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %232, %.lr.ph.i.i.i.i.i34 ]
-  %250 = phi i64 [ %.pre300, %.loopexit233.loopexit ], [ %231, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %231, %.lr.ph.i.i.i.i.i34 ]
+  %249 = phi ptr [ %235, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre313, %.loopexit233.loopexit ], [ %235, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi308 = phi i64 [ %232, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre307, %.loopexit233.loopexit ], [ %232, %.lr.ph.i.i.i.i.i34 ]
+  %250 = phi i64 [ %231, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre300, %.loopexit233.loopexit ], [ %231, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0207)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0207, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %249, null
@@ -28995,7 +28995,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %256, %251, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %252, %251 ], [ %266, %.loopexit.i.i52 ], [ %258, %256 ]
+  %.pn.i.i54 = phi ptr [ %266, %.loopexit.i.i52 ], [ %252, %251 ], [ %258, %256 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0207, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0207)
@@ -29052,7 +29052,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %278, %273, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %274, %273 ], [ %288, %.loopexit.i.i63 ], [ %280, %278 ]
+  %.pn.i.i65 = phi ptr [ %288, %.loopexit.i.i63 ], [ %274, %273 ], [ %280, %278 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -29153,9 +29153,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %330 = phi ptr [ %.pre315, %.loopexit.loopexit ], [ %316, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %316, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi310 = phi i64 [ %.pre309, %.loopexit.loopexit ], [ %313, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %313, %.lr.ph.i.i.i.i.i72 ]
-  %331 = phi i64 [ %.pre302, %.loopexit.loopexit ], [ %312, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %312, %.lr.ph.i.i.i.i.i72 ]
+  %330 = phi ptr [ %316, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre315, %.loopexit.loopexit ], [ %316, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi310 = phi i64 [ %313, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre309, %.loopexit.loopexit ], [ %313, %.lr.ph.i.i.i.i.i72 ]
+  %331 = phi i64 [ %312, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre302, %.loopexit.loopexit ], [ %312, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0203)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %330, null
@@ -29204,7 +29204,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %337, %332, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %333, %332 ], [ %347, %.loopexit.i.i90 ], [ %339, %337 ]
+  %.pn.i.i92 = phi ptr [ %347, %.loopexit.i.i90 ], [ %333, %332 ], [ %339, %337 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0203)
@@ -29261,7 +29261,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %359, %354, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %355, %354 ], [ %369, %.loopexit.i.i101 ], [ %361, %359 ]
+  %.pn.i.i103 = phi ptr [ %369, %.loopexit.i.i101 ], [ %355, %354 ], [ %361, %359 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -29602,9 +29602,9 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit229
 
 .loopexit229:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit229.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %176 = phi ptr [ %.pre288, %.loopexit229.loopexit ], [ %162, %..loopexit_crit_edge21.i.i.i.i.i ], [ %162, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre283, %.loopexit229.loopexit ], [ %159, %..loopexit_crit_edge21.i.i.i.i.i ], [ %159, %.lr.ph.i.i.i.i.i ]
-  %177 = phi i64 [ %.pre, %.loopexit229.loopexit ], [ %158, %..loopexit_crit_edge21.i.i.i.i.i ], [ %158, %.lr.ph.i.i.i.i.i ]
+  %176 = phi ptr [ %162, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre288, %.loopexit229.loopexit ], [ %162, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %159, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre283, %.loopexit229.loopexit ], [ %159, %.lr.ph.i.i.i.i.i ]
+  %177 = phi i64 [ %158, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit229.loopexit ], [ %158, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0205)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %176, null
@@ -29659,7 +29659,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %183, %178, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %179, %178 ], [ %193, %.loopexit.i.i ], [ %185, %183 ]
+  %.pn.i.i = phi ptr [ %193, %.loopexit.i.i ], [ %179, %178 ], [ %185, %183 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0205)
@@ -29716,7 +29716,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %205, %200, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %201, %200 ], [ %215, %.loopexit.i.i25 ], [ %207, %205 ]
+  %.pn.i.i27 = phi ptr [ %215, %.loopexit.i.i25 ], [ %201, %200 ], [ %207, %205 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -29817,9 +29817,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit226
 
 .loopexit226:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit226.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %257 = phi ptr [ %.pre290, %.loopexit226.loopexit ], [ %243, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %243, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi285 = phi i64 [ %.pre284, %.loopexit226.loopexit ], [ %240, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %240, %.lr.ph.i.i.i.i.i34 ]
-  %258 = phi i64 [ %.pre277, %.loopexit226.loopexit ], [ %239, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %239, %.lr.ph.i.i.i.i.i34 ]
+  %257 = phi ptr [ %243, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre290, %.loopexit226.loopexit ], [ %243, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi285 = phi i64 [ %240, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre284, %.loopexit226.loopexit ], [ %240, %.lr.ph.i.i.i.i.i34 ]
+  %258 = phi i64 [ %239, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre277, %.loopexit226.loopexit ], [ %239, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0200)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %257, null
@@ -29868,7 +29868,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %264, %259, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %260, %259 ], [ %274, %.loopexit.i.i52 ], [ %266, %264 ]
+  %.pn.i.i54 = phi ptr [ %274, %.loopexit.i.i52 ], [ %260, %259 ], [ %266, %264 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0200)
@@ -29925,7 +29925,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %286, %281, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %282, %281 ], [ %296, %.loopexit.i.i63 ], [ %288, %286 ]
+  %.pn.i.i65 = phi ptr [ %296, %.loopexit.i.i63 ], [ %282, %281 ], [ %288, %286 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -30026,9 +30026,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %338 = phi ptr [ %.pre292, %.loopexit.loopexit ], [ %324, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %324, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi287 = phi i64 [ %.pre286, %.loopexit.loopexit ], [ %321, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %321, %.lr.ph.i.i.i.i.i72 ]
-  %339 = phi i64 [ %.pre279, %.loopexit.loopexit ], [ %320, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %320, %.lr.ph.i.i.i.i.i72 ]
+  %338 = phi ptr [ %324, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre292, %.loopexit.loopexit ], [ %324, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi287 = phi i64 [ %321, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre286, %.loopexit.loopexit ], [ %321, %.lr.ph.i.i.i.i.i72 ]
+  %339 = phi i64 [ %320, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre279, %.loopexit.loopexit ], [ %320, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0196)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %338, null
@@ -30077,7 +30077,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %345, %340, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %341, %340 ], [ %355, %.loopexit.i.i90 ], [ %347, %345 ]
+  %.pn.i.i92 = phi ptr [ %355, %.loopexit.i.i90 ], [ %341, %340 ], [ %347, %345 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0196)
@@ -30134,7 +30134,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %367, %362, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %363, %362 ], [ %377, %.loopexit.i.i101 ], [ %369, %367 ]
+  %.pn.i.i103 = phi ptr [ %377, %.loopexit.i.i101 ], [ %363, %362 ], [ %369, %367 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -30396,9 +30396,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit290
 
 .loopexit290:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit290.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %115 = phi ptr [ %.pre349, %.loopexit290.loopexit ], [ %101, %..loopexit_crit_edge21.i.i.i.i.i ], [ %101, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre344, %.loopexit290.loopexit ], [ %98, %..loopexit_crit_edge21.i.i.i.i.i ], [ %98, %.lr.ph.i.i.i.i.i ]
-  %116 = phi i64 [ %.pre, %.loopexit290.loopexit ], [ %97, %..loopexit_crit_edge21.i.i.i.i.i ], [ %97, %.lr.ph.i.i.i.i.i ]
+  %115 = phi ptr [ %101, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre349, %.loopexit290.loopexit ], [ %101, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %98, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre344, %.loopexit290.loopexit ], [ %98, %.lr.ph.i.i.i.i.i ]
+  %116 = phi i64 [ %97, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit290.loopexit ], [ %97, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %115, null
@@ -30453,7 +30453,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %122, %117, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %118, %117 ], [ %132, %.loopexit.i.i ], [ %124, %122 ]
+  %.pn.i.i = phi ptr [ %132, %.loopexit.i.i ], [ %118, %117 ], [ %124, %122 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0232)
@@ -30510,7 +30510,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %144, %139, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %140, %139 ], [ %154, %.loopexit.i.i52 ], [ %146, %144 ]
+  %.pn.i.i54 = phi ptr [ %154, %.loopexit.i.i52 ], [ %140, %139 ], [ %146, %144 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -30609,9 +30609,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit287
 
 .loopexit287:                                     ; preds = %.lr.ph.i.i.i.i.i61, %.loopexit287.loopexit, %..loopexit_crit_edge21.i.i.i.i.i65
-  %196 = phi ptr [ %.pre351, %.loopexit287.loopexit ], [ %182, %..loopexit_crit_edge21.i.i.i.i.i65 ], [ %182, %.lr.ph.i.i.i.i.i61 ]
-  %.pre-phi346 = phi i64 [ %.pre345, %.loopexit287.loopexit ], [ %179, %..loopexit_crit_edge21.i.i.i.i.i65 ], [ %179, %.lr.ph.i.i.i.i.i61 ]
-  %197 = phi i64 [ %.pre338, %.loopexit287.loopexit ], [ %178, %..loopexit_crit_edge21.i.i.i.i.i65 ], [ %178, %.lr.ph.i.i.i.i.i61 ]
+  %196 = phi ptr [ %182, %..loopexit_crit_edge21.i.i.i.i.i65 ], [ %.pre351, %.loopexit287.loopexit ], [ %182, %.lr.ph.i.i.i.i.i61 ]
+  %.pre-phi346 = phi i64 [ %179, %..loopexit_crit_edge21.i.i.i.i.i65 ], [ %.pre345, %.loopexit287.loopexit ], [ %179, %.lr.ph.i.i.i.i.i61 ]
+  %197 = phi i64 [ %178, %..loopexit_crit_edge21.i.i.i.i.i65 ], [ %.pre338, %.loopexit287.loopexit ], [ %178, %.lr.ph.i.i.i.i.i61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0227)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0227, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i73 = icmp eq ptr %196, null
@@ -30660,7 +30660,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit83: ; preds = %203, %198, %.loopexit.i.i79
-  %.pn.i.i81 = phi ptr [ %199, %198 ], [ %213, %.loopexit.i.i79 ], [ %205, %203 ]
+  %.pn.i.i81 = phi ptr [ %213, %.loopexit.i.i79 ], [ %199, %198 ], [ %205, %203 ]
   %.1.i.i82 = getelementptr inbounds nuw i8, ptr %.pn.i.i81, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i82, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0227, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0227)
@@ -30717,7 +30717,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %225, %220, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %221, %220 ], [ %235, %.loopexit.i.i90 ], [ %227, %225 ]
+  %.pn.i.i92 = phi ptr [ %235, %.loopexit.i.i90 ], [ %221, %220 ], [ %227, %225 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -30816,9 +30816,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i99, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i103
-  %277 = phi ptr [ %.pre353, %.loopexit.loopexit ], [ %263, %..loopexit_crit_edge21.i.i.i.i.i103 ], [ %263, %.lr.ph.i.i.i.i.i99 ]
-  %.pre-phi348 = phi i64 [ %.pre347, %.loopexit.loopexit ], [ %260, %..loopexit_crit_edge21.i.i.i.i.i103 ], [ %260, %.lr.ph.i.i.i.i.i99 ]
-  %278 = phi i64 [ %.pre340, %.loopexit.loopexit ], [ %259, %..loopexit_crit_edge21.i.i.i.i.i103 ], [ %259, %.lr.ph.i.i.i.i.i99 ]
+  %277 = phi ptr [ %263, %..loopexit_crit_edge21.i.i.i.i.i103 ], [ %.pre353, %.loopexit.loopexit ], [ %263, %.lr.ph.i.i.i.i.i99 ]
+  %.pre-phi348 = phi i64 [ %260, %..loopexit_crit_edge21.i.i.i.i.i103 ], [ %.pre347, %.loopexit.loopexit ], [ %260, %.lr.ph.i.i.i.i.i99 ]
+  %278 = phi i64 [ %259, %..loopexit_crit_edge21.i.i.i.i.i103 ], [ %.pre340, %.loopexit.loopexit ], [ %259, %.lr.ph.i.i.i.i.i99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0223)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0223, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i111 = icmp eq ptr %277, null
@@ -30867,7 +30867,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit121: ; preds = %284, %279, %.loopexit.i.i117
-  %.pn.i.i119 = phi ptr [ %280, %279 ], [ %294, %.loopexit.i.i117 ], [ %286, %284 ]
+  %.pn.i.i119 = phi ptr [ %294, %.loopexit.i.i117 ], [ %280, %279 ], [ %286, %284 ]
   %.1.i.i120 = getelementptr inbounds nuw i8, ptr %.pn.i.i119, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i120, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0223, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0223)
@@ -30924,7 +30924,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit132: ; preds = %306, %301, %.loopexit.i.i128
-  %.pn.i.i130 = phi ptr [ %302, %301 ], [ %316, %.loopexit.i.i128 ], [ %308, %306 ]
+  %.pn.i.i130 = phi ptr [ %316, %.loopexit.i.i128 ], [ %302, %301 ], [ %308, %306 ]
   %.1.i.i131 = getelementptr inbounds nuw i8, ptr %.pn.i.i130, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -31205,9 +31205,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit326
 
 .loopexit326:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit326.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %133 = phi ptr [ %.pre385, %.loopexit326.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i ], [ %119, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre380, %.loopexit326.loopexit ], [ %116, %..loopexit_crit_edge21.i.i.i.i.i ], [ %116, %.lr.ph.i.i.i.i.i ]
-  %134 = phi i64 [ %.pre, %.loopexit326.loopexit ], [ %115, %..loopexit_crit_edge21.i.i.i.i.i ], [ %115, %.lr.ph.i.i.i.i.i ]
+  %133 = phi ptr [ %119, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre385, %.loopexit326.loopexit ], [ %119, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %116, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre380, %.loopexit326.loopexit ], [ %116, %.lr.ph.i.i.i.i.i ]
+  %134 = phi i64 [ %115, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit326.loopexit ], [ %115, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0258)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0258, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %133, null
@@ -31262,7 +31262,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %140, %135, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %136, %135 ], [ %150, %.loopexit.i.i ], [ %142, %140 ]
+  %.pn.i.i = phi ptr [ %150, %.loopexit.i.i ], [ %136, %135 ], [ %142, %140 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0258, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0258)
@@ -31319,7 +31319,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit75: ; preds = %162, %157, %.loopexit.i.i71
-  %.pn.i.i73 = phi ptr [ %158, %157 ], [ %172, %.loopexit.i.i71 ], [ %164, %162 ]
+  %.pn.i.i73 = phi ptr [ %172, %.loopexit.i.i71 ], [ %158, %157 ], [ %164, %162 ]
   %.1.i.i74 = getelementptr inbounds nuw i8, ptr %.pn.i.i73, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -31418,9 +31418,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit323
 
 .loopexit323:                                     ; preds = %.lr.ph.i.i.i.i.i80, %.loopexit323.loopexit, %..loopexit_crit_edge21.i.i.i.i.i84
-  %214 = phi ptr [ %.pre387, %.loopexit323.loopexit ], [ %200, %..loopexit_crit_edge21.i.i.i.i.i84 ], [ %200, %.lr.ph.i.i.i.i.i80 ]
-  %.pre-phi382 = phi i64 [ %.pre381, %.loopexit323.loopexit ], [ %197, %..loopexit_crit_edge21.i.i.i.i.i84 ], [ %197, %.lr.ph.i.i.i.i.i80 ]
-  %215 = phi i64 [ %.pre374, %.loopexit323.loopexit ], [ %196, %..loopexit_crit_edge21.i.i.i.i.i84 ], [ %196, %.lr.ph.i.i.i.i.i80 ]
+  %214 = phi ptr [ %200, %..loopexit_crit_edge21.i.i.i.i.i84 ], [ %.pre387, %.loopexit323.loopexit ], [ %200, %.lr.ph.i.i.i.i.i80 ]
+  %.pre-phi382 = phi i64 [ %197, %..loopexit_crit_edge21.i.i.i.i.i84 ], [ %.pre381, %.loopexit323.loopexit ], [ %197, %.lr.ph.i.i.i.i.i80 ]
+  %215 = phi i64 [ %196, %..loopexit_crit_edge21.i.i.i.i.i84 ], [ %.pre374, %.loopexit323.loopexit ], [ %196, %.lr.ph.i.i.i.i.i80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0253)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0253, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i92 = icmp eq ptr %214, null
@@ -31469,7 +31469,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit102: ; preds = %221, %216, %.loopexit.i.i98
-  %.pn.i.i100 = phi ptr [ %217, %216 ], [ %231, %.loopexit.i.i98 ], [ %223, %221 ]
+  %.pn.i.i100 = phi ptr [ %231, %.loopexit.i.i98 ], [ %217, %216 ], [ %223, %221 ]
   %.1.i.i101 = getelementptr inbounds nuw i8, ptr %.pn.i.i100, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i101, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0253, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0253)
@@ -31526,7 +31526,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit113: ; preds = %243, %238, %.loopexit.i.i109
-  %.pn.i.i111 = phi ptr [ %239, %238 ], [ %253, %.loopexit.i.i109 ], [ %245, %243 ]
+  %.pn.i.i111 = phi ptr [ %253, %.loopexit.i.i109 ], [ %239, %238 ], [ %245, %243 ]
   %.1.i.i112 = getelementptr inbounds nuw i8, ptr %.pn.i.i111, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -31625,9 +31625,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i118, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i122
-  %295 = phi ptr [ %.pre389, %.loopexit.loopexit ], [ %281, %..loopexit_crit_edge21.i.i.i.i.i122 ], [ %281, %.lr.ph.i.i.i.i.i118 ]
-  %.pre-phi384 = phi i64 [ %.pre383, %.loopexit.loopexit ], [ %278, %..loopexit_crit_edge21.i.i.i.i.i122 ], [ %278, %.lr.ph.i.i.i.i.i118 ]
-  %296 = phi i64 [ %.pre376, %.loopexit.loopexit ], [ %277, %..loopexit_crit_edge21.i.i.i.i.i122 ], [ %277, %.lr.ph.i.i.i.i.i118 ]
+  %295 = phi ptr [ %281, %..loopexit_crit_edge21.i.i.i.i.i122 ], [ %.pre389, %.loopexit.loopexit ], [ %281, %.lr.ph.i.i.i.i.i118 ]
+  %.pre-phi384 = phi i64 [ %278, %..loopexit_crit_edge21.i.i.i.i.i122 ], [ %.pre383, %.loopexit.loopexit ], [ %278, %.lr.ph.i.i.i.i.i118 ]
+  %296 = phi i64 [ %277, %..loopexit_crit_edge21.i.i.i.i.i122 ], [ %.pre376, %.loopexit.loopexit ], [ %277, %.lr.ph.i.i.i.i.i118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0249)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0249, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i130 = icmp eq ptr %295, null
@@ -31676,7 +31676,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit140: ; preds = %302, %297, %.loopexit.i.i136
-  %.pn.i.i138 = phi ptr [ %298, %297 ], [ %312, %.loopexit.i.i136 ], [ %304, %302 ]
+  %.pn.i.i138 = phi ptr [ %312, %.loopexit.i.i136 ], [ %298, %297 ], [ %304, %302 ]
   %.1.i.i139 = getelementptr inbounds nuw i8, ptr %.pn.i.i138, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i139, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0249, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0249)
@@ -31733,7 +31733,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit151: ; preds = %324, %319, %.loopexit.i.i147
-  %.pn.i.i149 = phi ptr [ %320, %319 ], [ %334, %.loopexit.i.i147 ], [ %326, %324 ]
+  %.pn.i.i149 = phi ptr [ %334, %.loopexit.i.i147 ], [ %320, %319 ], [ %326, %324 ]
   %.1.i.i150 = getelementptr inbounds nuw i8, ptr %.pn.i.i149, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -31997,9 +31997,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit311
 
 .loopexit311:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit311.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %124 = phi ptr [ %.pre370, %.loopexit311.loopexit ], [ %110, %..loopexit_crit_edge21.i.i.i.i.i ], [ %110, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre365, %.loopexit311.loopexit ], [ %107, %..loopexit_crit_edge21.i.i.i.i.i ], [ %107, %.lr.ph.i.i.i.i.i ]
-  %125 = phi i64 [ %.pre, %.loopexit311.loopexit ], [ %106, %..loopexit_crit_edge21.i.i.i.i.i ], [ %106, %.lr.ph.i.i.i.i.i ]
+  %124 = phi ptr [ %110, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre370, %.loopexit311.loopexit ], [ %110, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %107, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre365, %.loopexit311.loopexit ], [ %107, %.lr.ph.i.i.i.i.i ]
+  %125 = phi i64 [ %106, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit311.loopexit ], [ %106, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0241)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0241, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %124, null
@@ -32054,7 +32054,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %131, %126, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %127, %126 ], [ %141, %.loopexit.i.i ], [ %133, %131 ]
+  %.pn.i.i = phi ptr [ %141, %.loopexit.i.i ], [ %127, %126 ], [ %133, %131 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0241, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0241)
@@ -32111,7 +32111,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit65: ; preds = %153, %148, %.loopexit.i.i61
-  %.pn.i.i63 = phi ptr [ %149, %148 ], [ %163, %.loopexit.i.i61 ], [ %155, %153 ]
+  %.pn.i.i63 = phi ptr [ %163, %.loopexit.i.i61 ], [ %149, %148 ], [ %155, %153 ]
   %.1.i.i64 = getelementptr inbounds nuw i8, ptr %.pn.i.i63, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -32210,9 +32210,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit308
 
 .loopexit308:                                     ; preds = %.lr.ph.i.i.i.i.i70, %.loopexit308.loopexit, %..loopexit_crit_edge21.i.i.i.i.i74
-  %205 = phi ptr [ %.pre372, %.loopexit308.loopexit ], [ %191, %..loopexit_crit_edge21.i.i.i.i.i74 ], [ %191, %.lr.ph.i.i.i.i.i70 ]
-  %.pre-phi367 = phi i64 [ %.pre366, %.loopexit308.loopexit ], [ %188, %..loopexit_crit_edge21.i.i.i.i.i74 ], [ %188, %.lr.ph.i.i.i.i.i70 ]
-  %206 = phi i64 [ %.pre359, %.loopexit308.loopexit ], [ %187, %..loopexit_crit_edge21.i.i.i.i.i74 ], [ %187, %.lr.ph.i.i.i.i.i70 ]
+  %205 = phi ptr [ %191, %..loopexit_crit_edge21.i.i.i.i.i74 ], [ %.pre372, %.loopexit308.loopexit ], [ %191, %.lr.ph.i.i.i.i.i70 ]
+  %.pre-phi367 = phi i64 [ %188, %..loopexit_crit_edge21.i.i.i.i.i74 ], [ %.pre366, %.loopexit308.loopexit ], [ %188, %.lr.ph.i.i.i.i.i70 ]
+  %206 = phi i64 [ %187, %..loopexit_crit_edge21.i.i.i.i.i74 ], [ %.pre359, %.loopexit308.loopexit ], [ %187, %.lr.ph.i.i.i.i.i70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0236)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0236, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i82 = icmp eq ptr %205, null
@@ -32261,7 +32261,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit92: ; preds = %212, %207, %.loopexit.i.i88
-  %.pn.i.i90 = phi ptr [ %208, %207 ], [ %222, %.loopexit.i.i88 ], [ %214, %212 ]
+  %.pn.i.i90 = phi ptr [ %222, %.loopexit.i.i88 ], [ %208, %207 ], [ %214, %212 ]
   %.1.i.i91 = getelementptr inbounds nuw i8, ptr %.pn.i.i90, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i91, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0236, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0236)
@@ -32318,7 +32318,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit103: ; preds = %234, %229, %.loopexit.i.i99
-  %.pn.i.i101 = phi ptr [ %230, %229 ], [ %244, %.loopexit.i.i99 ], [ %236, %234 ]
+  %.pn.i.i101 = phi ptr [ %244, %.loopexit.i.i99 ], [ %230, %229 ], [ %236, %234 ]
   %.1.i.i102 = getelementptr inbounds nuw i8, ptr %.pn.i.i101, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -32417,9 +32417,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i108, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i112
-  %286 = phi ptr [ %.pre374, %.loopexit.loopexit ], [ %272, %..loopexit_crit_edge21.i.i.i.i.i112 ], [ %272, %.lr.ph.i.i.i.i.i108 ]
-  %.pre-phi369 = phi i64 [ %.pre368, %.loopexit.loopexit ], [ %269, %..loopexit_crit_edge21.i.i.i.i.i112 ], [ %269, %.lr.ph.i.i.i.i.i108 ]
-  %287 = phi i64 [ %.pre361, %.loopexit.loopexit ], [ %268, %..loopexit_crit_edge21.i.i.i.i.i112 ], [ %268, %.lr.ph.i.i.i.i.i108 ]
+  %286 = phi ptr [ %272, %..loopexit_crit_edge21.i.i.i.i.i112 ], [ %.pre374, %.loopexit.loopexit ], [ %272, %.lr.ph.i.i.i.i.i108 ]
+  %.pre-phi369 = phi i64 [ %269, %..loopexit_crit_edge21.i.i.i.i.i112 ], [ %.pre368, %.loopexit.loopexit ], [ %269, %.lr.ph.i.i.i.i.i108 ]
+  %287 = phi i64 [ %268, %..loopexit_crit_edge21.i.i.i.i.i112 ], [ %.pre361, %.loopexit.loopexit ], [ %268, %.lr.ph.i.i.i.i.i108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i120 = icmp eq ptr %286, null
@@ -32468,7 +32468,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit130: ; preds = %293, %288, %.loopexit.i.i126
-  %.pn.i.i128 = phi ptr [ %289, %288 ], [ %303, %.loopexit.i.i126 ], [ %295, %293 ]
+  %.pn.i.i128 = phi ptr [ %303, %.loopexit.i.i126 ], [ %289, %288 ], [ %295, %293 ]
   %.1.i.i129 = getelementptr inbounds nuw i8, ptr %.pn.i.i128, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i129, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0232)
@@ -32525,7 +32525,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit141: ; preds = %315, %310, %.loopexit.i.i137
-  %.pn.i.i139 = phi ptr [ %311, %310 ], [ %325, %.loopexit.i.i137 ], [ %317, %315 ]
+  %.pn.i.i139 = phi ptr [ %325, %.loopexit.i.i137 ], [ %311, %310 ], [ %317, %315 ]
   %.1.i.i140 = getelementptr inbounds nuw i8, ptr %.pn.i.i139, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -32901,9 +32901,9 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit313
 
 .loopexit313:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit313.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %203 = phi ptr [ %.pre391, %.loopexit313.loopexit ], [ %189, %..loopexit_crit_edge21.i.i.i.i.i ], [ %189, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre384, %.loopexit313.loopexit ], [ %186, %..loopexit_crit_edge21.i.i.i.i.i ], [ %186, %.lr.ph.i.i.i.i.i ]
-  %204 = phi i64 [ %.pre, %.loopexit313.loopexit ], [ %185, %..loopexit_crit_edge21.i.i.i.i.i ], [ %185, %.lr.ph.i.i.i.i.i ]
+  %203 = phi ptr [ %189, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre391, %.loopexit313.loopexit ], [ %189, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %186, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre384, %.loopexit313.loopexit ], [ %186, %.lr.ph.i.i.i.i.i ]
+  %204 = phi i64 [ %185, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit313.loopexit ], [ %185, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0288)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %203, null
@@ -32958,7 +32958,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %210, %205, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %206, %205 ], [ %220, %.loopexit.i.i ], [ %212, %210 ]
+  %.pn.i.i = phi ptr [ %220, %.loopexit.i.i ], [ %206, %205 ], [ %212, %210 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0288)
@@ -33015,7 +33015,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35: ; preds = %232, %227, %.loopexit.i.i31
-  %.pn.i.i33 = phi ptr [ %228, %227 ], [ %242, %.loopexit.i.i31 ], [ %234, %232 ]
+  %.pn.i.i33 = phi ptr [ %242, %.loopexit.i.i31 ], [ %228, %227 ], [ %234, %232 ]
   %.1.i.i34 = getelementptr inbounds nuw i8, ptr %.pn.i.i33, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -33116,9 +33116,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit310
 
 .loopexit310:                                     ; preds = %.lr.ph.i.i.i.i.i40, %.loopexit310.loopexit, %..loopexit_crit_edge21.i.i.i.i.i44
-  %284 = phi ptr [ %.pre393, %.loopexit310.loopexit ], [ %270, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %270, %.lr.ph.i.i.i.i.i40 ]
-  %.pre-phi386 = phi i64 [ %.pre385, %.loopexit310.loopexit ], [ %267, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %267, %.lr.ph.i.i.i.i.i40 ]
-  %285 = phi i64 [ %.pre376, %.loopexit310.loopexit ], [ %266, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %266, %.lr.ph.i.i.i.i.i40 ]
+  %284 = phi ptr [ %270, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre393, %.loopexit310.loopexit ], [ %270, %.lr.ph.i.i.i.i.i40 ]
+  %.pre-phi386 = phi i64 [ %267, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre385, %.loopexit310.loopexit ], [ %267, %.lr.ph.i.i.i.i.i40 ]
+  %285 = phi i64 [ %266, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre376, %.loopexit310.loopexit ], [ %266, %.lr.ph.i.i.i.i.i40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0283)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i52 = icmp eq ptr %284, null
@@ -33167,7 +33167,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62: ; preds = %291, %286, %.loopexit.i.i58
-  %.pn.i.i60 = phi ptr [ %287, %286 ], [ %301, %.loopexit.i.i58 ], [ %293, %291 ]
+  %.pn.i.i60 = phi ptr [ %301, %.loopexit.i.i58 ], [ %287, %286 ], [ %293, %291 ]
   %.1.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i.i60, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i61, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0283)
@@ -33224,7 +33224,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73: ; preds = %313, %308, %.loopexit.i.i69
-  %.pn.i.i71 = phi ptr [ %309, %308 ], [ %323, %.loopexit.i.i69 ], [ %315, %313 ]
+  %.pn.i.i71 = phi ptr [ %323, %.loopexit.i.i69 ], [ %309, %308 ], [ %315, %313 ]
   %.1.i.i72 = getelementptr inbounds nuw i8, ptr %.pn.i.i71, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -33325,9 +33325,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit307
 
 .loopexit307:                                     ; preds = %.lr.ph.i.i.i.i.i78, %.loopexit307.loopexit, %..loopexit_crit_edge21.i.i.i.i.i82
-  %365 = phi ptr [ %.pre395, %.loopexit307.loopexit ], [ %351, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %351, %.lr.ph.i.i.i.i.i78 ]
-  %.pre-phi388 = phi i64 [ %.pre387, %.loopexit307.loopexit ], [ %348, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %348, %.lr.ph.i.i.i.i.i78 ]
-  %366 = phi i64 [ %.pre378, %.loopexit307.loopexit ], [ %347, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %347, %.lr.ph.i.i.i.i.i78 ]
+  %365 = phi ptr [ %351, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre395, %.loopexit307.loopexit ], [ %351, %.lr.ph.i.i.i.i.i78 ]
+  %.pre-phi388 = phi i64 [ %348, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre387, %.loopexit307.loopexit ], [ %348, %.lr.ph.i.i.i.i.i78 ]
+  %366 = phi i64 [ %347, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre378, %.loopexit307.loopexit ], [ %347, %.lr.ph.i.i.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0278)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i90 = icmp eq ptr %365, null
@@ -33376,7 +33376,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100: ; preds = %372, %367, %.loopexit.i.i96
-  %.pn.i.i98 = phi ptr [ %368, %367 ], [ %382, %.loopexit.i.i96 ], [ %374, %372 ]
+  %.pn.i.i98 = phi ptr [ %382, %.loopexit.i.i96 ], [ %368, %367 ], [ %374, %372 ]
   %.1.i.i99 = getelementptr inbounds nuw i8, ptr %.pn.i.i98, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i99, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0278)
@@ -33433,7 +33433,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111: ; preds = %394, %389, %.loopexit.i.i107
-  %.pn.i.i109 = phi ptr [ %390, %389 ], [ %404, %.loopexit.i.i107 ], [ %396, %394 ]
+  %.pn.i.i109 = phi ptr [ %404, %.loopexit.i.i107 ], [ %390, %389 ], [ %396, %394 ]
   %.1.i.i110 = getelementptr inbounds nuw i8, ptr %.pn.i.i109, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -33534,9 +33534,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i116, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i120
-  %446 = phi ptr [ %.pre397, %.loopexit.loopexit ], [ %432, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %432, %.lr.ph.i.i.i.i.i116 ]
-  %.pre-phi390 = phi i64 [ %.pre389, %.loopexit.loopexit ], [ %429, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %429, %.lr.ph.i.i.i.i.i116 ]
-  %447 = phi i64 [ %.pre380, %.loopexit.loopexit ], [ %428, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %428, %.lr.ph.i.i.i.i.i116 ]
+  %446 = phi ptr [ %432, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre397, %.loopexit.loopexit ], [ %432, %.lr.ph.i.i.i.i.i116 ]
+  %.pre-phi390 = phi i64 [ %429, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre389, %.loopexit.loopexit ], [ %429, %.lr.ph.i.i.i.i.i116 ]
+  %447 = phi i64 [ %428, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre380, %.loopexit.loopexit ], [ %428, %.lr.ph.i.i.i.i.i116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0274)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i128 = icmp eq ptr %446, null
@@ -33585,7 +33585,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138: ; preds = %453, %448, %.loopexit.i.i134
-  %.pn.i.i136 = phi ptr [ %449, %448 ], [ %463, %.loopexit.i.i134 ], [ %455, %453 ]
+  %.pn.i.i136 = phi ptr [ %463, %.loopexit.i.i134 ], [ %449, %448 ], [ %455, %453 ]
   %.1.i.i137 = getelementptr inbounds nuw i8, ptr %.pn.i.i136, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i137, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0274)
@@ -33642,7 +33642,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149: ; preds = %475, %470, %.loopexit.i.i145
-  %.pn.i.i147 = phi ptr [ %471, %470 ], [ %485, %.loopexit.i.i145 ], [ %477, %475 ]
+  %.pn.i.i147 = phi ptr [ %485, %.loopexit.i.i145 ], [ %471, %470 ], [ %477, %475 ]
   %.1.i.i148 = getelementptr inbounds nuw i8, ptr %.pn.i.i147, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -34034,9 +34034,9 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit313
 
 .loopexit313:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit313.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %209 = phi ptr [ %.pre391, %.loopexit313.loopexit ], [ %195, %..loopexit_crit_edge21.i.i.i.i.i ], [ %195, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre384, %.loopexit313.loopexit ], [ %192, %..loopexit_crit_edge21.i.i.i.i.i ], [ %192, %.lr.ph.i.i.i.i.i ]
-  %210 = phi i64 [ %.pre, %.loopexit313.loopexit ], [ %191, %..loopexit_crit_edge21.i.i.i.i.i ], [ %191, %.lr.ph.i.i.i.i.i ]
+  %209 = phi ptr [ %195, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre391, %.loopexit313.loopexit ], [ %195, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %192, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre384, %.loopexit313.loopexit ], [ %192, %.lr.ph.i.i.i.i.i ]
+  %210 = phi i64 [ %191, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit313.loopexit ], [ %191, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0288)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %209, null
@@ -34091,7 +34091,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %216, %211, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %212, %211 ], [ %226, %.loopexit.i.i ], [ %218, %216 ]
+  %.pn.i.i = phi ptr [ %226, %.loopexit.i.i ], [ %212, %211 ], [ %218, %216 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0288)
@@ -34148,7 +34148,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35: ; preds = %238, %233, %.loopexit.i.i31
-  %.pn.i.i33 = phi ptr [ %234, %233 ], [ %248, %.loopexit.i.i31 ], [ %240, %238 ]
+  %.pn.i.i33 = phi ptr [ %248, %.loopexit.i.i31 ], [ %234, %233 ], [ %240, %238 ]
   %.1.i.i34 = getelementptr inbounds nuw i8, ptr %.pn.i.i33, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -34249,9 +34249,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit310
 
 .loopexit310:                                     ; preds = %.lr.ph.i.i.i.i.i40, %.loopexit310.loopexit, %..loopexit_crit_edge21.i.i.i.i.i44
-  %290 = phi ptr [ %.pre393, %.loopexit310.loopexit ], [ %276, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %276, %.lr.ph.i.i.i.i.i40 ]
-  %.pre-phi386 = phi i64 [ %.pre385, %.loopexit310.loopexit ], [ %273, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %273, %.lr.ph.i.i.i.i.i40 ]
-  %291 = phi i64 [ %.pre376, %.loopexit310.loopexit ], [ %272, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %272, %.lr.ph.i.i.i.i.i40 ]
+  %290 = phi ptr [ %276, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre393, %.loopexit310.loopexit ], [ %276, %.lr.ph.i.i.i.i.i40 ]
+  %.pre-phi386 = phi i64 [ %273, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre385, %.loopexit310.loopexit ], [ %273, %.lr.ph.i.i.i.i.i40 ]
+  %291 = phi i64 [ %272, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre376, %.loopexit310.loopexit ], [ %272, %.lr.ph.i.i.i.i.i40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0283)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i52 = icmp eq ptr %290, null
@@ -34300,7 +34300,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62: ; preds = %297, %292, %.loopexit.i.i58
-  %.pn.i.i60 = phi ptr [ %293, %292 ], [ %307, %.loopexit.i.i58 ], [ %299, %297 ]
+  %.pn.i.i60 = phi ptr [ %307, %.loopexit.i.i58 ], [ %293, %292 ], [ %299, %297 ]
   %.1.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i.i60, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i61, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0283)
@@ -34357,7 +34357,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73: ; preds = %319, %314, %.loopexit.i.i69
-  %.pn.i.i71 = phi ptr [ %315, %314 ], [ %329, %.loopexit.i.i69 ], [ %321, %319 ]
+  %.pn.i.i71 = phi ptr [ %329, %.loopexit.i.i69 ], [ %315, %314 ], [ %321, %319 ]
   %.1.i.i72 = getelementptr inbounds nuw i8, ptr %.pn.i.i71, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -34458,9 +34458,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit307
 
 .loopexit307:                                     ; preds = %.lr.ph.i.i.i.i.i78, %.loopexit307.loopexit, %..loopexit_crit_edge21.i.i.i.i.i82
-  %371 = phi ptr [ %.pre395, %.loopexit307.loopexit ], [ %357, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %357, %.lr.ph.i.i.i.i.i78 ]
-  %.pre-phi388 = phi i64 [ %.pre387, %.loopexit307.loopexit ], [ %354, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %354, %.lr.ph.i.i.i.i.i78 ]
-  %372 = phi i64 [ %.pre378, %.loopexit307.loopexit ], [ %353, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %353, %.lr.ph.i.i.i.i.i78 ]
+  %371 = phi ptr [ %357, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre395, %.loopexit307.loopexit ], [ %357, %.lr.ph.i.i.i.i.i78 ]
+  %.pre-phi388 = phi i64 [ %354, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre387, %.loopexit307.loopexit ], [ %354, %.lr.ph.i.i.i.i.i78 ]
+  %372 = phi i64 [ %353, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre378, %.loopexit307.loopexit ], [ %353, %.lr.ph.i.i.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0278)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i90 = icmp eq ptr %371, null
@@ -34509,7 +34509,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100: ; preds = %378, %373, %.loopexit.i.i96
-  %.pn.i.i98 = phi ptr [ %374, %373 ], [ %388, %.loopexit.i.i96 ], [ %380, %378 ]
+  %.pn.i.i98 = phi ptr [ %388, %.loopexit.i.i96 ], [ %374, %373 ], [ %380, %378 ]
   %.1.i.i99 = getelementptr inbounds nuw i8, ptr %.pn.i.i98, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i99, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0278)
@@ -34566,7 +34566,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111: ; preds = %400, %395, %.loopexit.i.i107
-  %.pn.i.i109 = phi ptr [ %396, %395 ], [ %410, %.loopexit.i.i107 ], [ %402, %400 ]
+  %.pn.i.i109 = phi ptr [ %410, %.loopexit.i.i107 ], [ %396, %395 ], [ %402, %400 ]
   %.1.i.i110 = getelementptr inbounds nuw i8, ptr %.pn.i.i109, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -34667,9 +34667,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i116, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i120
-  %452 = phi ptr [ %.pre397, %.loopexit.loopexit ], [ %438, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %438, %.lr.ph.i.i.i.i.i116 ]
-  %.pre-phi390 = phi i64 [ %.pre389, %.loopexit.loopexit ], [ %435, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %435, %.lr.ph.i.i.i.i.i116 ]
-  %453 = phi i64 [ %.pre380, %.loopexit.loopexit ], [ %434, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %434, %.lr.ph.i.i.i.i.i116 ]
+  %452 = phi ptr [ %438, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre397, %.loopexit.loopexit ], [ %438, %.lr.ph.i.i.i.i.i116 ]
+  %.pre-phi390 = phi i64 [ %435, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre389, %.loopexit.loopexit ], [ %435, %.lr.ph.i.i.i.i.i116 ]
+  %453 = phi i64 [ %434, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre380, %.loopexit.loopexit ], [ %434, %.lr.ph.i.i.i.i.i116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0274)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i128 = icmp eq ptr %452, null
@@ -34718,7 +34718,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138: ; preds = %459, %454, %.loopexit.i.i134
-  %.pn.i.i136 = phi ptr [ %455, %454 ], [ %469, %.loopexit.i.i134 ], [ %461, %459 ]
+  %.pn.i.i136 = phi ptr [ %469, %.loopexit.i.i134 ], [ %455, %454 ], [ %461, %459 ]
   %.1.i.i137 = getelementptr inbounds nuw i8, ptr %.pn.i.i136, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i137, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0274)
@@ -34775,7 +34775,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149: ; preds = %481, %476, %.loopexit.i.i145
-  %.pn.i.i147 = phi ptr [ %477, %476 ], [ %491, %.loopexit.i.i145 ], [ %483, %481 ]
+  %.pn.i.i147 = phi ptr [ %491, %.loopexit.i.i145 ], [ %477, %476 ], [ %483, %481 ]
   %.1.i.i148 = getelementptr inbounds nuw i8, ptr %.pn.i.i147, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -35171,9 +35171,9 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit311
 
 .loopexit311:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit311.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %211 = phi ptr [ %.pre409, %.loopexit311.loopexit ], [ %197, %..loopexit_crit_edge21.i.i.i.i.i ], [ %197, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre402, %.loopexit311.loopexit ], [ %194, %..loopexit_crit_edge21.i.i.i.i.i ], [ %194, %.lr.ph.i.i.i.i.i ]
-  %212 = phi i64 [ %.pre, %.loopexit311.loopexit ], [ %193, %..loopexit_crit_edge21.i.i.i.i.i ], [ %193, %.lr.ph.i.i.i.i.i ]
+  %211 = phi ptr [ %197, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre409, %.loopexit311.loopexit ], [ %197, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %194, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre402, %.loopexit311.loopexit ], [ %194, %.lr.ph.i.i.i.i.i ]
+  %212 = phi i64 [ %193, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit311.loopexit ], [ %193, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0286)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0286, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %211, null
@@ -35228,7 +35228,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %218, %213, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %214, %213 ], [ %228, %.loopexit.i.i ], [ %220, %218 ]
+  %.pn.i.i = phi ptr [ %228, %.loopexit.i.i ], [ %214, %213 ], [ %220, %218 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0286, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0286)
@@ -35285,7 +35285,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35: ; preds = %240, %235, %.loopexit.i.i31
-  %.pn.i.i33 = phi ptr [ %236, %235 ], [ %250, %.loopexit.i.i31 ], [ %242, %240 ]
+  %.pn.i.i33 = phi ptr [ %250, %.loopexit.i.i31 ], [ %236, %235 ], [ %242, %240 ]
   %.1.i.i34 = getelementptr inbounds nuw i8, ptr %.pn.i.i33, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -35386,9 +35386,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit308
 
 .loopexit308:                                     ; preds = %.lr.ph.i.i.i.i.i40, %.loopexit308.loopexit, %..loopexit_crit_edge21.i.i.i.i.i44
-  %292 = phi ptr [ %.pre411, %.loopexit308.loopexit ], [ %278, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %278, %.lr.ph.i.i.i.i.i40 ]
-  %.pre-phi404 = phi i64 [ %.pre403, %.loopexit308.loopexit ], [ %275, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %275, %.lr.ph.i.i.i.i.i40 ]
-  %293 = phi i64 [ %.pre394, %.loopexit308.loopexit ], [ %274, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %274, %.lr.ph.i.i.i.i.i40 ]
+  %292 = phi ptr [ %278, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre411, %.loopexit308.loopexit ], [ %278, %.lr.ph.i.i.i.i.i40 ]
+  %.pre-phi404 = phi i64 [ %275, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre403, %.loopexit308.loopexit ], [ %275, %.lr.ph.i.i.i.i.i40 ]
+  %293 = phi i64 [ %274, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre394, %.loopexit308.loopexit ], [ %274, %.lr.ph.i.i.i.i.i40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0281)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0281, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i52 = icmp eq ptr %292, null
@@ -35437,7 +35437,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62: ; preds = %299, %294, %.loopexit.i.i58
-  %.pn.i.i60 = phi ptr [ %295, %294 ], [ %309, %.loopexit.i.i58 ], [ %301, %299 ]
+  %.pn.i.i60 = phi ptr [ %309, %.loopexit.i.i58 ], [ %295, %294 ], [ %301, %299 ]
   %.1.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i.i60, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i61, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0281, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0281)
@@ -35494,7 +35494,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73: ; preds = %321, %316, %.loopexit.i.i69
-  %.pn.i.i71 = phi ptr [ %317, %316 ], [ %331, %.loopexit.i.i69 ], [ %323, %321 ]
+  %.pn.i.i71 = phi ptr [ %331, %.loopexit.i.i69 ], [ %317, %316 ], [ %323, %321 ]
   %.1.i.i72 = getelementptr inbounds nuw i8, ptr %.pn.i.i71, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -35595,9 +35595,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit305
 
 .loopexit305:                                     ; preds = %.lr.ph.i.i.i.i.i78, %.loopexit305.loopexit, %..loopexit_crit_edge21.i.i.i.i.i82
-  %373 = phi ptr [ %.pre413, %.loopexit305.loopexit ], [ %359, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %359, %.lr.ph.i.i.i.i.i78 ]
-  %.pre-phi406 = phi i64 [ %.pre405, %.loopexit305.loopexit ], [ %356, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %356, %.lr.ph.i.i.i.i.i78 ]
-  %374 = phi i64 [ %.pre396, %.loopexit305.loopexit ], [ %355, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %355, %.lr.ph.i.i.i.i.i78 ]
+  %373 = phi ptr [ %359, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre413, %.loopexit305.loopexit ], [ %359, %.lr.ph.i.i.i.i.i78 ]
+  %.pre-phi406 = phi i64 [ %356, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre405, %.loopexit305.loopexit ], [ %356, %.lr.ph.i.i.i.i.i78 ]
+  %374 = phi i64 [ %355, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre396, %.loopexit305.loopexit ], [ %355, %.lr.ph.i.i.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0276)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0276, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i90 = icmp eq ptr %373, null
@@ -35646,7 +35646,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100: ; preds = %380, %375, %.loopexit.i.i96
-  %.pn.i.i98 = phi ptr [ %376, %375 ], [ %390, %.loopexit.i.i96 ], [ %382, %380 ]
+  %.pn.i.i98 = phi ptr [ %390, %.loopexit.i.i96 ], [ %376, %375 ], [ %382, %380 ]
   %.1.i.i99 = getelementptr inbounds nuw i8, ptr %.pn.i.i98, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i99, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0276, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0276)
@@ -35703,7 +35703,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111: ; preds = %402, %397, %.loopexit.i.i107
-  %.pn.i.i109 = phi ptr [ %398, %397 ], [ %412, %.loopexit.i.i107 ], [ %404, %402 ]
+  %.pn.i.i109 = phi ptr [ %412, %.loopexit.i.i107 ], [ %398, %397 ], [ %404, %402 ]
   %.1.i.i110 = getelementptr inbounds nuw i8, ptr %.pn.i.i109, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -35804,9 +35804,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i116, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i120
-  %454 = phi ptr [ %.pre415, %.loopexit.loopexit ], [ %440, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %440, %.lr.ph.i.i.i.i.i116 ]
-  %.pre-phi408 = phi i64 [ %.pre407, %.loopexit.loopexit ], [ %437, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %437, %.lr.ph.i.i.i.i.i116 ]
-  %455 = phi i64 [ %.pre398, %.loopexit.loopexit ], [ %436, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %436, %.lr.ph.i.i.i.i.i116 ]
+  %454 = phi ptr [ %440, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre415, %.loopexit.loopexit ], [ %440, %.lr.ph.i.i.i.i.i116 ]
+  %.pre-phi408 = phi i64 [ %437, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre407, %.loopexit.loopexit ], [ %437, %.lr.ph.i.i.i.i.i116 ]
+  %455 = phi i64 [ %436, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre398, %.loopexit.loopexit ], [ %436, %.lr.ph.i.i.i.i.i116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0272)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0272, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i128 = icmp eq ptr %454, null
@@ -35855,7 +35855,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138: ; preds = %461, %456, %.loopexit.i.i134
-  %.pn.i.i136 = phi ptr [ %457, %456 ], [ %471, %.loopexit.i.i134 ], [ %463, %461 ]
+  %.pn.i.i136 = phi ptr [ %471, %.loopexit.i.i134 ], [ %457, %456 ], [ %463, %461 ]
   %.1.i.i137 = getelementptr inbounds nuw i8, ptr %.pn.i.i136, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i137, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0272, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0272)
@@ -35912,7 +35912,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149: ; preds = %483, %478, %.loopexit.i.i145
-  %.pn.i.i147 = phi ptr [ %479, %478 ], [ %493, %.loopexit.i.i145 ], [ %485, %483 ]
+  %.pn.i.i147 = phi ptr [ %493, %.loopexit.i.i145 ], [ %479, %478 ], [ %485, %483 ]
   %.1.i.i148 = getelementptr inbounds nuw i8, ptr %.pn.i.i147, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -37301,9 +37301,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %64 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %65 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi ptr [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %64, null
@@ -37358,7 +37358,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %71, %66, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %67, %66 ], [ %81, %.loopexit.i.i ], [ %73, %71 ]
+  %.pn.i.i = phi ptr [ %81, %.loopexit.i.i ], [ %67, %66 ], [ %73, %71 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -37415,7 +37415,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %93, %88, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %89, %88 ], [ %103, %.loopexit.i.i23 ], [ %95, %93 ]
+  %.pn.i.i25 = phi ptr [ %103, %.loopexit.i.i23 ], [ %89, %88 ], [ %95, %93 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -37504,9 +37504,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %137 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %120, %.lr.ph.i.i.i.i.i30 ]
-  %138 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %119, %.lr.ph.i.i.i.i.i30 ]
+  %137 = phi ptr [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i30 ]
+  %138 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %137, null
@@ -37555,7 +37555,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %144, %139, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %140, %139 ], [ %154, %.loopexit.i.i48 ], [ %146, %144 ]
+  %.pn.i.i50 = phi ptr [ %154, %.loopexit.i.i48 ], [ %140, %139 ], [ %146, %144 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -37612,7 +37612,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %166, %161, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %162, %161 ], [ %176, %.loopexit.i.i59 ], [ %168, %166 ]
+  %.pn.i.i61 = phi ptr [ %176, %.loopexit.i.i59 ], [ %162, %161 ], [ %168, %166 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -37844,9 +37844,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %64 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %65 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi ptr [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %64, null
@@ -37901,7 +37901,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %71, %66, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %67, %66 ], [ %81, %.loopexit.i.i ], [ %73, %71 ]
+  %.pn.i.i = phi ptr [ %81, %.loopexit.i.i ], [ %67, %66 ], [ %73, %71 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -37958,7 +37958,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %93, %88, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %89, %88 ], [ %103, %.loopexit.i.i23 ], [ %95, %93 ]
+  %.pn.i.i25 = phi ptr [ %103, %.loopexit.i.i23 ], [ %89, %88 ], [ %95, %93 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -38047,9 +38047,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %137 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %120, %.lr.ph.i.i.i.i.i30 ]
-  %138 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %119, %.lr.ph.i.i.i.i.i30 ]
+  %137 = phi ptr [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i30 ]
+  %138 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %137, null
@@ -38098,7 +38098,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %144, %139, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %140, %139 ], [ %154, %.loopexit.i.i48 ], [ %146, %144 ]
+  %.pn.i.i50 = phi ptr [ %154, %.loopexit.i.i48 ], [ %140, %139 ], [ %146, %144 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -38155,7 +38155,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %166, %161, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %162, %161 ], [ %176, %.loopexit.i.i59 ], [ %168, %166 ]
+  %.pn.i.i61 = phi ptr [ %176, %.loopexit.i.i59 ], [ %162, %161 ], [ %168, %166 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -38392,9 +38392,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %62 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
-  %63 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %44, %.lr.ph.i.i.i.i.i ]
+  %62 = phi ptr [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi i64 [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %44, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %62, null
@@ -38449,7 +38449,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %79, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %79, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -38506,7 +38506,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %91, %86, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %87, %86 ], [ %101, %.loopexit.i.i23 ], [ %93, %91 ]
+  %.pn.i.i25 = phi ptr [ %101, %.loopexit.i.i23 ], [ %87, %86 ], [ %93, %91 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -38595,9 +38595,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %135 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %121, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %118, %.lr.ph.i.i.i.i.i30 ]
-  %136 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %117, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %117, %.lr.ph.i.i.i.i.i30 ]
+  %135 = phi ptr [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i30 ]
+  %136 = phi i64 [ %117, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %117, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %135, null
@@ -38646,7 +38646,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %142, %137, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %138, %137 ], [ %152, %.loopexit.i.i48 ], [ %144, %142 ]
+  %.pn.i.i50 = phi ptr [ %152, %.loopexit.i.i48 ], [ %138, %137 ], [ %144, %142 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -38703,7 +38703,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %164, %159, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %160, %159 ], [ %174, %.loopexit.i.i59 ], [ %166, %164 ]
+  %.pn.i.i61 = phi ptr [ %174, %.loopexit.i.i59 ], [ %160, %159 ], [ %166, %164 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -38941,9 +38941,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %62 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
-  %63 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %44, %.lr.ph.i.i.i.i.i ]
+  %62 = phi ptr [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi i64 [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %44, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %62, null
@@ -38998,7 +38998,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %79, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %79, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -39055,7 +39055,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %91, %86, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %87, %86 ], [ %101, %.loopexit.i.i23 ], [ %93, %91 ]
+  %.pn.i.i25 = phi ptr [ %101, %.loopexit.i.i23 ], [ %87, %86 ], [ %93, %91 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -39144,9 +39144,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %135 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %121, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %118, %.lr.ph.i.i.i.i.i30 ]
-  %136 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %117, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %117, %.lr.ph.i.i.i.i.i30 ]
+  %135 = phi ptr [ %121, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %121, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i30 ]
+  %136 = phi i64 [ %117, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %117, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %135, null
@@ -39195,7 +39195,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %142, %137, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %138, %137 ], [ %152, %.loopexit.i.i48 ], [ %144, %142 ]
+  %.pn.i.i50 = phi ptr [ %152, %.loopexit.i.i48 ], [ %138, %137 ], [ %144, %142 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -39252,7 +39252,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %164, %159, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %160, %159 ], [ %174, %.loopexit.i.i59 ], [ %166, %164 ]
+  %.pn.i.i61 = phi ptr [ %174, %.loopexit.i.i59 ], [ %160, %159 ], [ %166, %164 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -39489,9 +39489,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %64 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %65 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi ptr [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %64, null
@@ -39546,7 +39546,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %71, %66, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %67, %66 ], [ %81, %.loopexit.i.i ], [ %73, %71 ]
+  %.pn.i.i = phi ptr [ %81, %.loopexit.i.i ], [ %67, %66 ], [ %73, %71 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -39603,7 +39603,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %93, %88, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %89, %88 ], [ %103, %.loopexit.i.i23 ], [ %95, %93 ]
+  %.pn.i.i25 = phi ptr [ %103, %.loopexit.i.i23 ], [ %89, %88 ], [ %95, %93 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -39692,9 +39692,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %137 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %120, %.lr.ph.i.i.i.i.i30 ]
-  %138 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %119, %.lr.ph.i.i.i.i.i30 ]
+  %137 = phi ptr [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i30 ]
+  %138 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %137, null
@@ -39743,7 +39743,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %144, %139, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %140, %139 ], [ %154, %.loopexit.i.i48 ], [ %146, %144 ]
+  %.pn.i.i50 = phi ptr [ %154, %.loopexit.i.i48 ], [ %140, %139 ], [ %146, %144 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -39800,7 +39800,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %166, %161, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %162, %161 ], [ %176, %.loopexit.i.i59 ], [ %168, %166 ]
+  %.pn.i.i61 = phi ptr [ %176, %.loopexit.i.i59 ], [ %162, %161 ], [ %168, %166 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -40038,9 +40038,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit115.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %64 = phi ptr [ %.pre157, %.loopexit115.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre154, %.loopexit115.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %65 = phi i64 [ %.pre, %.loopexit115.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi ptr [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre157, %.loopexit115.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre154, %.loopexit115.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit115.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %64, null
@@ -40095,7 +40095,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %71, %66, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %67, %66 ], [ %81, %.loopexit.i.i ], [ %73, %71 ]
+  %.pn.i.i = phi ptr [ %81, %.loopexit.i.i ], [ %67, %66 ], [ %73, %71 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.099, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
@@ -40152,7 +40152,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %93, %88, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %89, %88 ], [ %103, %.loopexit.i.i23 ], [ %95, %93 ]
+  %.pn.i.i25 = phi ptr [ %103, %.loopexit.i.i23 ], [ %89, %88 ], [ %95, %93 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre148 = load i32, ptr %15, align 8, !tbaa !164
   %.pre149 = load i32, ptr %16, align 4
@@ -40241,9 +40241,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %137 = phi ptr [ %.pre159, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi156 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %120, %.lr.ph.i.i.i.i.i30 ]
-  %138 = phi i64 [ %.pre150, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %119, %.lr.ph.i.i.i.i.i30 ]
+  %137 = phi ptr [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre159, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi156 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre155, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i30 ]
+  %138 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre150, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.095)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %137, null
@@ -40292,7 +40292,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %144, %139, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %140, %139 ], [ %154, %.loopexit.i.i48 ], [ %146, %144 ]
+  %.pn.i.i50 = phi ptr [ %154, %.loopexit.i.i48 ], [ %140, %139 ], [ %146, %144 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.095, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.095)
@@ -40349,7 +40349,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %166, %161, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %162, %161 ], [ %176, %.loopexit.i.i59 ], [ %168, %166 ]
+  %.pn.i.i61 = phi ptr [ %176, %.loopexit.i.i59 ], [ %162, %161 ], [ %168, %166 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -40585,9 +40585,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit116
 
 .loopexit116:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit116.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %64 = phi ptr [ %.pre158, %.loopexit116.loopexit ], [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre155, %.loopexit116.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %65 = phi i64 [ %.pre, %.loopexit116.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi ptr [ %50, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre158, %.loopexit116.loopexit ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre155, %.loopexit116.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %65 = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit116.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %64, null
@@ -40642,7 +40642,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %71, %66, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %67, %66 ], [ %81, %.loopexit.i.i ], [ %73, %71 ]
+  %.pn.i.i = phi ptr [ %81, %.loopexit.i.i ], [ %67, %66 ], [ %73, %71 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -40699,7 +40699,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit27: ; preds = %93, %88, %.loopexit.i.i23
-  %.pn.i.i25 = phi ptr [ %89, %88 ], [ %103, %.loopexit.i.i23 ], [ %95, %93 ]
+  %.pn.i.i25 = phi ptr [ %103, %.loopexit.i.i23 ], [ %89, %88 ], [ %95, %93 ]
   %.1.i.i26 = getelementptr inbounds nuw i8, ptr %.pn.i.i25, i64 12
   %.pre149 = load i32, ptr %15, align 8, !tbaa !164
   %.pre150 = load i32, ptr %16, align 4
@@ -40788,9 +40788,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i30, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i34
-  %137 = phi ptr [ %.pre160, %.loopexit.loopexit ], [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %123, %.lr.ph.i.i.i.i.i30 ]
-  %.pre-phi157 = phi i64 [ %.pre156, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %120, %.lr.ph.i.i.i.i.i30 ]
-  %138 = phi i64 [ %.pre151, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %119, %.lr.ph.i.i.i.i.i30 ]
+  %137 = phi ptr [ %123, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre160, %.loopexit.loopexit ], [ %123, %.lr.ph.i.i.i.i.i30 ]
+  %.pre-phi157 = phi i64 [ %120, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre156, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i30 ]
+  %138 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i34 ], [ %.pre151, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.096)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.096, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i42 = icmp eq ptr %137, null
@@ -40839,7 +40839,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %144, %139, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %140, %139 ], [ %154, %.loopexit.i.i48 ], [ %146, %144 ]
+  %.pn.i.i50 = phi ptr [ %154, %.loopexit.i.i48 ], [ %140, %139 ], [ %146, %144 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.096, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.096)
@@ -40896,7 +40896,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit63: ; preds = %166, %161, %.loopexit.i.i59
-  %.pn.i.i61 = phi ptr [ %162, %161 ], [ %176, %.loopexit.i.i59 ], [ %168, %166 ]
+  %.pn.i.i61 = phi ptr [ %176, %.loopexit.i.i59 ], [ %162, %161 ], [ %168, %166 ]
   %.1.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i61, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
@@ -41262,9 +41262,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit197.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %154 = phi ptr [ %.pre256, %.loopexit197.loopexit ], [ %140, %..loopexit_crit_edge21.i.i.i.i.i ], [ %140, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre251, %.loopexit197.loopexit ], [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %137, %.lr.ph.i.i.i.i.i ]
-  %155 = phi i64 [ %.pre, %.loopexit197.loopexit ], [ %136, %..loopexit_crit_edge21.i.i.i.i.i ], [ %136, %.lr.ph.i.i.i.i.i ]
+  %154 = phi ptr [ %140, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre256, %.loopexit197.loopexit ], [ %140, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre251, %.loopexit197.loopexit ], [ %137, %.lr.ph.i.i.i.i.i ]
+  %155 = phi i64 [ %136, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit197.loopexit ], [ %136, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0173)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %154, null
@@ -41319,7 +41319,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %161, %156, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %157, %156 ], [ %171, %.loopexit.i.i ], [ %163, %161 ]
+  %.pn.i.i = phi ptr [ %171, %.loopexit.i.i ], [ %157, %156 ], [ %163, %161 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0173)
@@ -41376,7 +41376,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %183, %178, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %179, %178 ], [ %193, %.loopexit.i.i19 ], [ %185, %183 ]
+  %.pn.i.i21 = phi ptr [ %193, %.loopexit.i.i19 ], [ %179, %178 ], [ %185, %183 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -41477,9 +41477,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit194.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %235 = phi ptr [ %.pre258, %.loopexit194.loopexit ], [ %221, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %221, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi253 = phi i64 [ %.pre252, %.loopexit194.loopexit ], [ %218, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %218, %.lr.ph.i.i.i.i.i26 ]
-  %236 = phi i64 [ %.pre245, %.loopexit194.loopexit ], [ %217, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %217, %.lr.ph.i.i.i.i.i26 ]
+  %235 = phi ptr [ %221, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre258, %.loopexit194.loopexit ], [ %221, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi253 = phi i64 [ %218, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre252, %.loopexit194.loopexit ], [ %218, %.lr.ph.i.i.i.i.i26 ]
+  %236 = phi i64 [ %217, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre245, %.loopexit194.loopexit ], [ %217, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0168)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %235, null
@@ -41528,7 +41528,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %242, %237, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %238, %237 ], [ %252, %.loopexit.i.i44 ], [ %244, %242 ]
+  %.pn.i.i46 = phi ptr [ %252, %.loopexit.i.i44 ], [ %238, %237 ], [ %244, %242 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0168)
@@ -41585,7 +41585,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %264, %259, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %260, %259 ], [ %274, %.loopexit.i.i55 ], [ %266, %264 ]
+  %.pn.i.i57 = phi ptr [ %274, %.loopexit.i.i55 ], [ %260, %259 ], [ %266, %264 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -41686,9 +41686,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %316 = phi ptr [ %.pre260, %.loopexit.loopexit ], [ %302, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %302, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi255 = phi i64 [ %.pre254, %.loopexit.loopexit ], [ %299, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %299, %.lr.ph.i.i.i.i.i64 ]
-  %317 = phi i64 [ %.pre247, %.loopexit.loopexit ], [ %298, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %298, %.lr.ph.i.i.i.i.i64 ]
+  %316 = phi ptr [ %302, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre260, %.loopexit.loopexit ], [ %302, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi255 = phi i64 [ %299, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre254, %.loopexit.loopexit ], [ %299, %.lr.ph.i.i.i.i.i64 ]
+  %317 = phi i64 [ %298, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre247, %.loopexit.loopexit ], [ %298, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %316, null
@@ -41737,7 +41737,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %323, %318, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %319, %318 ], [ %333, %.loopexit.i.i82 ], [ %325, %323 ]
+  %.pn.i.i84 = phi ptr [ %333, %.loopexit.i.i82 ], [ %319, %318 ], [ %325, %323 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0164)
@@ -41794,7 +41794,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %345, %340, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %341, %340 ], [ %355, %.loopexit.i.i93 ], [ %347, %345 ]
+  %.pn.i.i95 = phi ptr [ %355, %.loopexit.i.i93 ], [ %341, %340 ], [ %347, %345 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -42125,9 +42125,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit197.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %160 = phi ptr [ %.pre256, %.loopexit197.loopexit ], [ %146, %..loopexit_crit_edge21.i.i.i.i.i ], [ %146, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre251, %.loopexit197.loopexit ], [ %143, %..loopexit_crit_edge21.i.i.i.i.i ], [ %143, %.lr.ph.i.i.i.i.i ]
-  %161 = phi i64 [ %.pre, %.loopexit197.loopexit ], [ %142, %..loopexit_crit_edge21.i.i.i.i.i ], [ %142, %.lr.ph.i.i.i.i.i ]
+  %160 = phi ptr [ %146, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre256, %.loopexit197.loopexit ], [ %146, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %143, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre251, %.loopexit197.loopexit ], [ %143, %.lr.ph.i.i.i.i.i ]
+  %161 = phi i64 [ %142, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit197.loopexit ], [ %142, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0173)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %160, null
@@ -42182,7 +42182,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %167, %162, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %163, %162 ], [ %177, %.loopexit.i.i ], [ %169, %167 ]
+  %.pn.i.i = phi ptr [ %177, %.loopexit.i.i ], [ %163, %162 ], [ %169, %167 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0173)
@@ -42239,7 +42239,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %189, %184, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %185, %184 ], [ %199, %.loopexit.i.i19 ], [ %191, %189 ]
+  %.pn.i.i21 = phi ptr [ %199, %.loopexit.i.i19 ], [ %185, %184 ], [ %191, %189 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -42340,9 +42340,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit194.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %241 = phi ptr [ %.pre258, %.loopexit194.loopexit ], [ %227, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %227, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi253 = phi i64 [ %.pre252, %.loopexit194.loopexit ], [ %224, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %224, %.lr.ph.i.i.i.i.i26 ]
-  %242 = phi i64 [ %.pre245, %.loopexit194.loopexit ], [ %223, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %223, %.lr.ph.i.i.i.i.i26 ]
+  %241 = phi ptr [ %227, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre258, %.loopexit194.loopexit ], [ %227, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi253 = phi i64 [ %224, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre252, %.loopexit194.loopexit ], [ %224, %.lr.ph.i.i.i.i.i26 ]
+  %242 = phi i64 [ %223, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre245, %.loopexit194.loopexit ], [ %223, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0168)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %241, null
@@ -42391,7 +42391,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %248, %243, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %244, %243 ], [ %258, %.loopexit.i.i44 ], [ %250, %248 ]
+  %.pn.i.i46 = phi ptr [ %258, %.loopexit.i.i44 ], [ %244, %243 ], [ %250, %248 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0168)
@@ -42448,7 +42448,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %270, %265, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %266, %265 ], [ %280, %.loopexit.i.i55 ], [ %272, %270 ]
+  %.pn.i.i57 = phi ptr [ %280, %.loopexit.i.i55 ], [ %266, %265 ], [ %272, %270 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -42549,9 +42549,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %322 = phi ptr [ %.pre260, %.loopexit.loopexit ], [ %308, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %308, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi255 = phi i64 [ %.pre254, %.loopexit.loopexit ], [ %305, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %305, %.lr.ph.i.i.i.i.i64 ]
-  %323 = phi i64 [ %.pre247, %.loopexit.loopexit ], [ %304, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %304, %.lr.ph.i.i.i.i.i64 ]
+  %322 = phi ptr [ %308, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre260, %.loopexit.loopexit ], [ %308, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi255 = phi i64 [ %305, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre254, %.loopexit.loopexit ], [ %305, %.lr.ph.i.i.i.i.i64 ]
+  %323 = phi i64 [ %304, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre247, %.loopexit.loopexit ], [ %304, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %322, null
@@ -42600,7 +42600,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %329, %324, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %325, %324 ], [ %339, %.loopexit.i.i82 ], [ %331, %329 ]
+  %.pn.i.i84 = phi ptr [ %339, %.loopexit.i.i82 ], [ %325, %324 ], [ %331, %329 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0164)
@@ -42657,7 +42657,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %351, %346, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %347, %346 ], [ %361, %.loopexit.i.i93 ], [ %353, %351 ]
+  %.pn.i.i95 = phi ptr [ %361, %.loopexit.i.i93 ], [ %347, %346 ], [ %353, %351 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -43021,9 +43021,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit203
 
 .loopexit203:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit203.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %155 = phi ptr [ %.pre278, %.loopexit203.loopexit ], [ %141, %..loopexit_crit_edge21.i.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre273, %.loopexit203.loopexit ], [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ %138, %.lr.ph.i.i.i.i.i ]
-  %156 = phi i64 [ %.pre, %.loopexit203.loopexit ], [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %137, %.lr.ph.i.i.i.i.i ]
+  %155 = phi ptr [ %141, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre278, %.loopexit203.loopexit ], [ %141, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre273, %.loopexit203.loopexit ], [ %138, %.lr.ph.i.i.i.i.i ]
+  %156 = phi i64 [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit203.loopexit ], [ %137, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0179)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0179, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %155, null
@@ -43078,7 +43078,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %162, %157, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %158, %157 ], [ %172, %.loopexit.i.i ], [ %164, %162 ]
+  %.pn.i.i = phi ptr [ %172, %.loopexit.i.i ], [ %158, %157 ], [ %164, %162 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0179, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0179)
@@ -43135,7 +43135,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %184, %179, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %180, %179 ], [ %194, %.loopexit.i.i19 ], [ %186, %184 ]
+  %.pn.i.i21 = phi ptr [ %194, %.loopexit.i.i19 ], [ %180, %179 ], [ %186, %184 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -43236,9 +43236,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit200
 
 .loopexit200:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit200.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %236 = phi ptr [ %.pre280, %.loopexit200.loopexit ], [ %222, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %222, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi275 = phi i64 [ %.pre274, %.loopexit200.loopexit ], [ %219, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %219, %.lr.ph.i.i.i.i.i26 ]
-  %237 = phi i64 [ %.pre267, %.loopexit200.loopexit ], [ %218, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %218, %.lr.ph.i.i.i.i.i26 ]
+  %236 = phi ptr [ %222, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre280, %.loopexit200.loopexit ], [ %222, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi275 = phi i64 [ %219, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre274, %.loopexit200.loopexit ], [ %219, %.lr.ph.i.i.i.i.i26 ]
+  %237 = phi i64 [ %218, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre267, %.loopexit200.loopexit ], [ %218, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0174)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0174, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %236, null
@@ -43287,7 +43287,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %243, %238, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %239, %238 ], [ %253, %.loopexit.i.i44 ], [ %245, %243 ]
+  %.pn.i.i46 = phi ptr [ %253, %.loopexit.i.i44 ], [ %239, %238 ], [ %245, %243 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0174, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0174)
@@ -43344,7 +43344,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %265, %260, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %261, %260 ], [ %275, %.loopexit.i.i55 ], [ %267, %265 ]
+  %.pn.i.i57 = phi ptr [ %275, %.loopexit.i.i55 ], [ %261, %260 ], [ %267, %265 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -43445,9 +43445,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %317 = phi ptr [ %.pre282, %.loopexit.loopexit ], [ %303, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %303, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi277 = phi i64 [ %.pre276, %.loopexit.loopexit ], [ %300, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %300, %.lr.ph.i.i.i.i.i64 ]
-  %318 = phi i64 [ %.pre269, %.loopexit.loopexit ], [ %299, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %299, %.lr.ph.i.i.i.i.i64 ]
+  %317 = phi ptr [ %303, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre282, %.loopexit.loopexit ], [ %303, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi277 = phi i64 [ %300, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre276, %.loopexit.loopexit ], [ %300, %.lr.ph.i.i.i.i.i64 ]
+  %318 = phi i64 [ %299, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre269, %.loopexit.loopexit ], [ %299, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0170)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0170, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %317, null
@@ -43496,7 +43496,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %324, %319, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %320, %319 ], [ %334, %.loopexit.i.i82 ], [ %326, %324 ]
+  %.pn.i.i84 = phi ptr [ %334, %.loopexit.i.i82 ], [ %320, %319 ], [ %326, %324 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0170, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0170)
@@ -43553,7 +43553,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %346, %341, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %342, %341 ], [ %356, %.loopexit.i.i93 ], [ %348, %346 ]
+  %.pn.i.i95 = phi ptr [ %356, %.loopexit.i.i93 ], [ %342, %341 ], [ %348, %346 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -43887,9 +43887,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit197.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %163 = phi ptr [ %.pre256, %.loopexit197.loopexit ], [ %149, %..loopexit_crit_edge21.i.i.i.i.i ], [ %149, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre251, %.loopexit197.loopexit ], [ %146, %..loopexit_crit_edge21.i.i.i.i.i ], [ %146, %.lr.ph.i.i.i.i.i ]
-  %164 = phi i64 [ %.pre, %.loopexit197.loopexit ], [ %145, %..loopexit_crit_edge21.i.i.i.i.i ], [ %145, %.lr.ph.i.i.i.i.i ]
+  %163 = phi ptr [ %149, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre256, %.loopexit197.loopexit ], [ %149, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %146, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre251, %.loopexit197.loopexit ], [ %146, %.lr.ph.i.i.i.i.i ]
+  %164 = phi i64 [ %145, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit197.loopexit ], [ %145, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0173)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %163, null
@@ -43944,7 +43944,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %170, %165, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %166, %165 ], [ %180, %.loopexit.i.i ], [ %172, %170 ]
+  %.pn.i.i = phi ptr [ %180, %.loopexit.i.i ], [ %166, %165 ], [ %172, %170 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0173, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0173)
@@ -44001,7 +44001,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit23: ; preds = %192, %187, %.loopexit.i.i19
-  %.pn.i.i21 = phi ptr [ %188, %187 ], [ %202, %.loopexit.i.i19 ], [ %194, %192 ]
+  %.pn.i.i21 = phi ptr [ %202, %.loopexit.i.i19 ], [ %188, %187 ], [ %194, %192 ]
   %.1.i.i22 = getelementptr inbounds nuw i8, ptr %.pn.i.i21, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -44102,9 +44102,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %.lr.ph.i.i.i.i.i26, %.loopexit194.loopexit, %..loopexit_crit_edge21.i.i.i.i.i30
-  %244 = phi ptr [ %.pre258, %.loopexit194.loopexit ], [ %230, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %230, %.lr.ph.i.i.i.i.i26 ]
-  %.pre-phi253 = phi i64 [ %.pre252, %.loopexit194.loopexit ], [ %227, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %227, %.lr.ph.i.i.i.i.i26 ]
-  %245 = phi i64 [ %.pre245, %.loopexit194.loopexit ], [ %226, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %226, %.lr.ph.i.i.i.i.i26 ]
+  %244 = phi ptr [ %230, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre258, %.loopexit194.loopexit ], [ %230, %.lr.ph.i.i.i.i.i26 ]
+  %.pre-phi253 = phi i64 [ %227, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre252, %.loopexit194.loopexit ], [ %227, %.lr.ph.i.i.i.i.i26 ]
+  %245 = phi i64 [ %226, %..loopexit_crit_edge21.i.i.i.i.i30 ], [ %.pre245, %.loopexit194.loopexit ], [ %226, %.lr.ph.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0168)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i38 = icmp eq ptr %244, null
@@ -44153,7 +44153,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit48: ; preds = %251, %246, %.loopexit.i.i44
-  %.pn.i.i46 = phi ptr [ %247, %246 ], [ %261, %.loopexit.i.i44 ], [ %253, %251 ]
+  %.pn.i.i46 = phi ptr [ %261, %.loopexit.i.i44 ], [ %247, %246 ], [ %253, %251 ]
   %.1.i.i47 = getelementptr inbounds nuw i8, ptr %.pn.i.i46, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0168, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0168)
@@ -44210,7 +44210,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit59: ; preds = %273, %268, %.loopexit.i.i55
-  %.pn.i.i57 = phi ptr [ %269, %268 ], [ %283, %.loopexit.i.i55 ], [ %275, %273 ]
+  %.pn.i.i57 = phi ptr [ %283, %.loopexit.i.i55 ], [ %269, %268 ], [ %275, %273 ]
   %.1.i.i58 = getelementptr inbounds nuw i8, ptr %.pn.i.i57, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -44311,9 +44311,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i64, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i68
-  %325 = phi ptr [ %.pre260, %.loopexit.loopexit ], [ %311, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %311, %.lr.ph.i.i.i.i.i64 ]
-  %.pre-phi255 = phi i64 [ %.pre254, %.loopexit.loopexit ], [ %308, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %308, %.lr.ph.i.i.i.i.i64 ]
-  %326 = phi i64 [ %.pre247, %.loopexit.loopexit ], [ %307, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %307, %.lr.ph.i.i.i.i.i64 ]
+  %325 = phi ptr [ %311, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre260, %.loopexit.loopexit ], [ %311, %.lr.ph.i.i.i.i.i64 ]
+  %.pre-phi255 = phi i64 [ %308, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre254, %.loopexit.loopexit ], [ %308, %.lr.ph.i.i.i.i.i64 ]
+  %326 = phi i64 [ %307, %..loopexit_crit_edge21.i.i.i.i.i68 ], [ %.pre247, %.loopexit.loopexit ], [ %307, %.lr.ph.i.i.i.i.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i76 = icmp eq ptr %325, null
@@ -44362,7 +44362,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit86: ; preds = %332, %327, %.loopexit.i.i82
-  %.pn.i.i84 = phi ptr [ %328, %327 ], [ %342, %.loopexit.i.i82 ], [ %334, %332 ]
+  %.pn.i.i84 = phi ptr [ %342, %.loopexit.i.i82 ], [ %328, %327 ], [ %334, %332 ]
   %.1.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i84, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i85, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0164, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0164)
@@ -44419,7 +44419,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit97: ; preds = %354, %349, %.loopexit.i.i93
-  %.pn.i.i95 = phi ptr [ %350, %349 ], [ %364, %.loopexit.i.i93 ], [ %356, %354 ]
+  %.pn.i.i95 = phi ptr [ %364, %.loopexit.i.i93 ], [ %350, %349 ], [ %356, %354 ]
   %.1.i.i96 = getelementptr inbounds nuw i8, ptr %.pn.i.i95, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -44678,9 +44678,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit239
 
 .loopexit239:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit239.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %106 = phi ptr [ %.pre298, %.loopexit239.loopexit ], [ %92, %..loopexit_crit_edge21.i.i.i.i.i ], [ %92, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre293, %.loopexit239.loopexit ], [ %89, %..loopexit_crit_edge21.i.i.i.i.i ], [ %89, %.lr.ph.i.i.i.i.i ]
-  %107 = phi i64 [ %.pre, %.loopexit239.loopexit ], [ %88, %..loopexit_crit_edge21.i.i.i.i.i ], [ %88, %.lr.ph.i.i.i.i.i ]
+  %106 = phi ptr [ %92, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre298, %.loopexit239.loopexit ], [ %92, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %89, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre293, %.loopexit239.loopexit ], [ %89, %.lr.ph.i.i.i.i.i ]
+  %107 = phi i64 [ %88, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit239.loopexit ], [ %88, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0197)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0197, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %106, null
@@ -44735,7 +44735,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %113, %108, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %109, %108 ], [ %123, %.loopexit.i.i ], [ %115, %113 ]
+  %.pn.i.i = phi ptr [ %123, %.loopexit.i.i ], [ %109, %108 ], [ %115, %113 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0197, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0197)
@@ -44792,7 +44792,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit45: ; preds = %135, %130, %.loopexit.i.i41
-  %.pn.i.i43 = phi ptr [ %131, %130 ], [ %145, %.loopexit.i.i41 ], [ %137, %135 ]
+  %.pn.i.i43 = phi ptr [ %145, %.loopexit.i.i41 ], [ %131, %130 ], [ %137, %135 ]
   %.1.i.i44 = getelementptr inbounds nuw i8, ptr %.pn.i.i43, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -44891,9 +44891,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit236
 
 .loopexit236:                                     ; preds = %.lr.ph.i.i.i.i.i50, %.loopexit236.loopexit, %..loopexit_crit_edge21.i.i.i.i.i54
-  %187 = phi ptr [ %.pre300, %.loopexit236.loopexit ], [ %173, %..loopexit_crit_edge21.i.i.i.i.i54 ], [ %173, %.lr.ph.i.i.i.i.i50 ]
-  %.pre-phi295 = phi i64 [ %.pre294, %.loopexit236.loopexit ], [ %170, %..loopexit_crit_edge21.i.i.i.i.i54 ], [ %170, %.lr.ph.i.i.i.i.i50 ]
-  %188 = phi i64 [ %.pre287, %.loopexit236.loopexit ], [ %169, %..loopexit_crit_edge21.i.i.i.i.i54 ], [ %169, %.lr.ph.i.i.i.i.i50 ]
+  %187 = phi ptr [ %173, %..loopexit_crit_edge21.i.i.i.i.i54 ], [ %.pre300, %.loopexit236.loopexit ], [ %173, %.lr.ph.i.i.i.i.i50 ]
+  %.pre-phi295 = phi i64 [ %170, %..loopexit_crit_edge21.i.i.i.i.i54 ], [ %.pre294, %.loopexit236.loopexit ], [ %170, %.lr.ph.i.i.i.i.i50 ]
+  %188 = phi i64 [ %169, %..loopexit_crit_edge21.i.i.i.i.i54 ], [ %.pre287, %.loopexit236.loopexit ], [ %169, %.lr.ph.i.i.i.i.i50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0192)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0192, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i62 = icmp eq ptr %187, null
@@ -44942,7 +44942,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit72: ; preds = %194, %189, %.loopexit.i.i68
-  %.pn.i.i70 = phi ptr [ %190, %189 ], [ %204, %.loopexit.i.i68 ], [ %196, %194 ]
+  %.pn.i.i70 = phi ptr [ %204, %.loopexit.i.i68 ], [ %190, %189 ], [ %196, %194 ]
   %.1.i.i71 = getelementptr inbounds nuw i8, ptr %.pn.i.i70, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i71, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0192, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0192)
@@ -44999,7 +44999,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit83: ; preds = %216, %211, %.loopexit.i.i79
-  %.pn.i.i81 = phi ptr [ %212, %211 ], [ %226, %.loopexit.i.i79 ], [ %218, %216 ]
+  %.pn.i.i81 = phi ptr [ %226, %.loopexit.i.i79 ], [ %212, %211 ], [ %218, %216 ]
   %.1.i.i82 = getelementptr inbounds nuw i8, ptr %.pn.i.i81, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -45098,9 +45098,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i88, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i92
-  %268 = phi ptr [ %.pre302, %.loopexit.loopexit ], [ %254, %..loopexit_crit_edge21.i.i.i.i.i92 ], [ %254, %.lr.ph.i.i.i.i.i88 ]
-  %.pre-phi297 = phi i64 [ %.pre296, %.loopexit.loopexit ], [ %251, %..loopexit_crit_edge21.i.i.i.i.i92 ], [ %251, %.lr.ph.i.i.i.i.i88 ]
-  %269 = phi i64 [ %.pre289, %.loopexit.loopexit ], [ %250, %..loopexit_crit_edge21.i.i.i.i.i92 ], [ %250, %.lr.ph.i.i.i.i.i88 ]
+  %268 = phi ptr [ %254, %..loopexit_crit_edge21.i.i.i.i.i92 ], [ %.pre302, %.loopexit.loopexit ], [ %254, %.lr.ph.i.i.i.i.i88 ]
+  %.pre-phi297 = phi i64 [ %251, %..loopexit_crit_edge21.i.i.i.i.i92 ], [ %.pre296, %.loopexit.loopexit ], [ %251, %.lr.ph.i.i.i.i.i88 ]
+  %269 = phi i64 [ %250, %..loopexit_crit_edge21.i.i.i.i.i92 ], [ %.pre289, %.loopexit.loopexit ], [ %250, %.lr.ph.i.i.i.i.i88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0188)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0188, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i100 = icmp eq ptr %268, null
@@ -45149,7 +45149,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit110: ; preds = %275, %270, %.loopexit.i.i106
-  %.pn.i.i108 = phi ptr [ %271, %270 ], [ %285, %.loopexit.i.i106 ], [ %277, %275 ]
+  %.pn.i.i108 = phi ptr [ %285, %.loopexit.i.i106 ], [ %271, %270 ], [ %277, %275 ]
   %.1.i.i109 = getelementptr inbounds nuw i8, ptr %.pn.i.i108, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i109, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0188, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0188)
@@ -45206,7 +45206,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit121: ; preds = %297, %292, %.loopexit.i.i117
-  %.pn.i.i119 = phi ptr [ %293, %292 ], [ %307, %.loopexit.i.i117 ], [ %299, %297 ]
+  %.pn.i.i119 = phi ptr [ %307, %.loopexit.i.i117 ], [ %293, %292 ], [ %299, %297 ]
   %.1.i.i120 = getelementptr inbounds nuw i8, ptr %.pn.i.i119, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -45488,9 +45488,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit269
 
 .loopexit269:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit269.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %123 = phi ptr [ %.pre328, %.loopexit269.loopexit ], [ %109, %..loopexit_crit_edge21.i.i.i.i.i ], [ %109, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre323, %.loopexit269.loopexit ], [ %106, %..loopexit_crit_edge21.i.i.i.i.i ], [ %106, %.lr.ph.i.i.i.i.i ]
-  %124 = phi i64 [ %.pre, %.loopexit269.loopexit ], [ %105, %..loopexit_crit_edge21.i.i.i.i.i ], [ %105, %.lr.ph.i.i.i.i.i ]
+  %123 = phi ptr [ %109, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre328, %.loopexit269.loopexit ], [ %109, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %106, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre323, %.loopexit269.loopexit ], [ %106, %.lr.ph.i.i.i.i.i ]
+  %124 = phi i64 [ %105, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit269.loopexit ], [ %105, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0217)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0217, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %123, null
@@ -45545,7 +45545,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %130, %125, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %126, %125 ], [ %140, %.loopexit.i.i ], [ %132, %130 ]
+  %.pn.i.i = phi ptr [ %140, %.loopexit.i.i ], [ %126, %125 ], [ %132, %130 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0217, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0217)
@@ -45602,7 +45602,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit64: ; preds = %152, %147, %.loopexit.i.i60
-  %.pn.i.i62 = phi ptr [ %148, %147 ], [ %162, %.loopexit.i.i60 ], [ %154, %152 ]
+  %.pn.i.i62 = phi ptr [ %162, %.loopexit.i.i60 ], [ %148, %147 ], [ %154, %152 ]
   %.1.i.i63 = getelementptr inbounds nuw i8, ptr %.pn.i.i62, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -45701,9 +45701,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit266
 
 .loopexit266:                                     ; preds = %.lr.ph.i.i.i.i.i69, %.loopexit266.loopexit, %..loopexit_crit_edge21.i.i.i.i.i73
-  %204 = phi ptr [ %.pre330, %.loopexit266.loopexit ], [ %190, %..loopexit_crit_edge21.i.i.i.i.i73 ], [ %190, %.lr.ph.i.i.i.i.i69 ]
-  %.pre-phi325 = phi i64 [ %.pre324, %.loopexit266.loopexit ], [ %187, %..loopexit_crit_edge21.i.i.i.i.i73 ], [ %187, %.lr.ph.i.i.i.i.i69 ]
-  %205 = phi i64 [ %.pre317, %.loopexit266.loopexit ], [ %186, %..loopexit_crit_edge21.i.i.i.i.i73 ], [ %186, %.lr.ph.i.i.i.i.i69 ]
+  %204 = phi ptr [ %190, %..loopexit_crit_edge21.i.i.i.i.i73 ], [ %.pre330, %.loopexit266.loopexit ], [ %190, %.lr.ph.i.i.i.i.i69 ]
+  %.pre-phi325 = phi i64 [ %187, %..loopexit_crit_edge21.i.i.i.i.i73 ], [ %.pre324, %.loopexit266.loopexit ], [ %187, %.lr.ph.i.i.i.i.i69 ]
+  %205 = phi i64 [ %186, %..loopexit_crit_edge21.i.i.i.i.i73 ], [ %.pre317, %.loopexit266.loopexit ], [ %186, %.lr.ph.i.i.i.i.i69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0212)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i81 = icmp eq ptr %204, null
@@ -45752,7 +45752,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit91: ; preds = %211, %206, %.loopexit.i.i87
-  %.pn.i.i89 = phi ptr [ %207, %206 ], [ %221, %.loopexit.i.i87 ], [ %213, %211 ]
+  %.pn.i.i89 = phi ptr [ %221, %.loopexit.i.i87 ], [ %207, %206 ], [ %213, %211 ]
   %.1.i.i90 = getelementptr inbounds nuw i8, ptr %.pn.i.i89, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i90, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0212)
@@ -45809,7 +45809,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit102: ; preds = %233, %228, %.loopexit.i.i98
-  %.pn.i.i100 = phi ptr [ %229, %228 ], [ %243, %.loopexit.i.i98 ], [ %235, %233 ]
+  %.pn.i.i100 = phi ptr [ %243, %.loopexit.i.i98 ], [ %229, %228 ], [ %235, %233 ]
   %.1.i.i101 = getelementptr inbounds nuw i8, ptr %.pn.i.i100, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -45908,9 +45908,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i107, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i111
-  %285 = phi ptr [ %.pre332, %.loopexit.loopexit ], [ %271, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ %271, %.lr.ph.i.i.i.i.i107 ]
-  %.pre-phi327 = phi i64 [ %.pre326, %.loopexit.loopexit ], [ %268, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ %268, %.lr.ph.i.i.i.i.i107 ]
-  %286 = phi i64 [ %.pre319, %.loopexit.loopexit ], [ %267, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ %267, %.lr.ph.i.i.i.i.i107 ]
+  %285 = phi ptr [ %271, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ %.pre332, %.loopexit.loopexit ], [ %271, %.lr.ph.i.i.i.i.i107 ]
+  %.pre-phi327 = phi i64 [ %268, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ %.pre326, %.loopexit.loopexit ], [ %268, %.lr.ph.i.i.i.i.i107 ]
+  %286 = phi i64 [ %267, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ %.pre319, %.loopexit.loopexit ], [ %267, %.lr.ph.i.i.i.i.i107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0208)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0208, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i119 = icmp eq ptr %285, null
@@ -45959,7 +45959,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit129: ; preds = %292, %287, %.loopexit.i.i125
-  %.pn.i.i127 = phi ptr [ %288, %287 ], [ %302, %.loopexit.i.i125 ], [ %294, %292 ]
+  %.pn.i.i127 = phi ptr [ %302, %.loopexit.i.i125 ], [ %288, %287 ], [ %294, %292 ]
   %.1.i.i128 = getelementptr inbounds nuw i8, ptr %.pn.i.i127, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i128, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0208, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0208)
@@ -46016,7 +46016,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit140: ; preds = %314, %309, %.loopexit.i.i136
-  %.pn.i.i138 = phi ptr [ %310, %309 ], [ %324, %.loopexit.i.i136 ], [ %316, %314 ]
+  %.pn.i.i138 = phi ptr [ %324, %.loopexit.i.i136 ], [ %310, %309 ], [ %316, %314 ]
   %.1.i.i139 = getelementptr inbounds nuw i8, ptr %.pn.i.i138, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -46273,9 +46273,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit262
 
 .loopexit262:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit262.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %121 = phi ptr [ %.pre321, %.loopexit262.loopexit ], [ %107, %..loopexit_crit_edge21.i.i.i.i.i ], [ %107, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre316, %.loopexit262.loopexit ], [ %104, %..loopexit_crit_edge21.i.i.i.i.i ], [ %104, %.lr.ph.i.i.i.i.i ]
-  %122 = phi i64 [ %.pre, %.loopexit262.loopexit ], [ %103, %..loopexit_crit_edge21.i.i.i.i.i ], [ %103, %.lr.ph.i.i.i.i.i ]
+  %121 = phi ptr [ %107, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre321, %.loopexit262.loopexit ], [ %107, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %104, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre316, %.loopexit262.loopexit ], [ %104, %.lr.ph.i.i.i.i.i ]
+  %122 = phi i64 [ %103, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit262.loopexit ], [ %103, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0208)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0208, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %121, null
@@ -46330,7 +46330,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %128, %123, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %124, %123 ], [ %138, %.loopexit.i.i ], [ %130, %128 ]
+  %.pn.i.i = phi ptr [ %138, %.loopexit.i.i ], [ %124, %123 ], [ %130, %128 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0208, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0208)
@@ -46387,7 +46387,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit54: ; preds = %150, %145, %.loopexit.i.i50
-  %.pn.i.i52 = phi ptr [ %146, %145 ], [ %160, %.loopexit.i.i50 ], [ %152, %150 ]
+  %.pn.i.i52 = phi ptr [ %160, %.loopexit.i.i50 ], [ %146, %145 ], [ %152, %150 ]
   %.1.i.i53 = getelementptr inbounds nuw i8, ptr %.pn.i.i52, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -46486,9 +46486,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit259
 
 .loopexit259:                                     ; preds = %.lr.ph.i.i.i.i.i59, %.loopexit259.loopexit, %..loopexit_crit_edge21.i.i.i.i.i63
-  %202 = phi ptr [ %.pre323, %.loopexit259.loopexit ], [ %188, %..loopexit_crit_edge21.i.i.i.i.i63 ], [ %188, %.lr.ph.i.i.i.i.i59 ]
-  %.pre-phi318 = phi i64 [ %.pre317, %.loopexit259.loopexit ], [ %185, %..loopexit_crit_edge21.i.i.i.i.i63 ], [ %185, %.lr.ph.i.i.i.i.i59 ]
-  %203 = phi i64 [ %.pre310, %.loopexit259.loopexit ], [ %184, %..loopexit_crit_edge21.i.i.i.i.i63 ], [ %184, %.lr.ph.i.i.i.i.i59 ]
+  %202 = phi ptr [ %188, %..loopexit_crit_edge21.i.i.i.i.i63 ], [ %.pre323, %.loopexit259.loopexit ], [ %188, %.lr.ph.i.i.i.i.i59 ]
+  %.pre-phi318 = phi i64 [ %185, %..loopexit_crit_edge21.i.i.i.i.i63 ], [ %.pre317, %.loopexit259.loopexit ], [ %185, %.lr.ph.i.i.i.i.i59 ]
+  %203 = phi i64 [ %184, %..loopexit_crit_edge21.i.i.i.i.i63 ], [ %.pre310, %.loopexit259.loopexit ], [ %184, %.lr.ph.i.i.i.i.i59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0203)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i71 = icmp eq ptr %202, null
@@ -46537,7 +46537,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit81: ; preds = %209, %204, %.loopexit.i.i77
-  %.pn.i.i79 = phi ptr [ %205, %204 ], [ %219, %.loopexit.i.i77 ], [ %211, %209 ]
+  %.pn.i.i79 = phi ptr [ %219, %.loopexit.i.i77 ], [ %205, %204 ], [ %211, %209 ]
   %.1.i.i80 = getelementptr inbounds nuw i8, ptr %.pn.i.i79, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i80, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0203)
@@ -46594,7 +46594,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit92: ; preds = %231, %226, %.loopexit.i.i88
-  %.pn.i.i90 = phi ptr [ %227, %226 ], [ %241, %.loopexit.i.i88 ], [ %233, %231 ]
+  %.pn.i.i90 = phi ptr [ %241, %.loopexit.i.i88 ], [ %227, %226 ], [ %233, %231 ]
   %.1.i.i91 = getelementptr inbounds nuw i8, ptr %.pn.i.i90, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -46693,9 +46693,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i97, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i101
-  %283 = phi ptr [ %.pre325, %.loopexit.loopexit ], [ %269, %..loopexit_crit_edge21.i.i.i.i.i101 ], [ %269, %.lr.ph.i.i.i.i.i97 ]
-  %.pre-phi320 = phi i64 [ %.pre319, %.loopexit.loopexit ], [ %266, %..loopexit_crit_edge21.i.i.i.i.i101 ], [ %266, %.lr.ph.i.i.i.i.i97 ]
-  %284 = phi i64 [ %.pre312, %.loopexit.loopexit ], [ %265, %..loopexit_crit_edge21.i.i.i.i.i101 ], [ %265, %.lr.ph.i.i.i.i.i97 ]
+  %283 = phi ptr [ %269, %..loopexit_crit_edge21.i.i.i.i.i101 ], [ %.pre325, %.loopexit.loopexit ], [ %269, %.lr.ph.i.i.i.i.i97 ]
+  %.pre-phi320 = phi i64 [ %266, %..loopexit_crit_edge21.i.i.i.i.i101 ], [ %.pre319, %.loopexit.loopexit ], [ %266, %.lr.ph.i.i.i.i.i97 ]
+  %284 = phi i64 [ %265, %..loopexit_crit_edge21.i.i.i.i.i101 ], [ %.pre312, %.loopexit.loopexit ], [ %265, %.lr.ph.i.i.i.i.i97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0199)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0199, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i109 = icmp eq ptr %283, null
@@ -46744,7 +46744,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit119: ; preds = %290, %285, %.loopexit.i.i115
-  %.pn.i.i117 = phi ptr [ %286, %285 ], [ %300, %.loopexit.i.i115 ], [ %292, %290 ]
+  %.pn.i.i117 = phi ptr [ %300, %.loopexit.i.i115 ], [ %286, %285 ], [ %292, %290 ]
   %.1.i.i118 = getelementptr inbounds nuw i8, ptr %.pn.i.i117, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i118, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0199, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0199)
@@ -46801,7 +46801,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit130: ; preds = %312, %307, %.loopexit.i.i126
-  %.pn.i.i128 = phi ptr [ %308, %307 ], [ %322, %.loopexit.i.i126 ], [ %314, %312 ]
+  %.pn.i.i128 = phi ptr [ %322, %.loopexit.i.i126 ], [ %308, %307 ], [ %314, %312 ]
   %.1.i.i129 = getelementptr inbounds nuw i8, ptr %.pn.i.i128, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -47170,9 +47170,9 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit267
 
 .loopexit267:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit267.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %187 = phi ptr [ %.pre345, %.loopexit267.loopexit ], [ %173, %..loopexit_crit_edge21.i.i.i.i.i ], [ %173, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre338, %.loopexit267.loopexit ], [ %170, %..loopexit_crit_edge21.i.i.i.i.i ], [ %170, %.lr.ph.i.i.i.i.i ]
-  %188 = phi i64 [ %.pre, %.loopexit267.loopexit ], [ %169, %..loopexit_crit_edge21.i.i.i.i.i ], [ %169, %.lr.ph.i.i.i.i.i ]
+  %187 = phi ptr [ %173, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre345, %.loopexit267.loopexit ], [ %173, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %170, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre338, %.loopexit267.loopexit ], [ %170, %.lr.ph.i.i.i.i.i ]
+  %188 = phi i64 [ %169, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit267.loopexit ], [ %169, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0242)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %187, null
@@ -47227,7 +47227,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %194, %189, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %190, %189 ], [ %204, %.loopexit.i.i ], [ %196, %194 ]
+  %.pn.i.i = phi ptr [ %204, %.loopexit.i.i ], [ %190, %189 ], [ %196, %194 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0242)
@@ -47284,7 +47284,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25: ; preds = %216, %211, %.loopexit.i.i21
-  %.pn.i.i23 = phi ptr [ %212, %211 ], [ %226, %.loopexit.i.i21 ], [ %218, %216 ]
+  %.pn.i.i23 = phi ptr [ %226, %.loopexit.i.i21 ], [ %212, %211 ], [ %218, %216 ]
   %.1.i.i24 = getelementptr inbounds nuw i8, ptr %.pn.i.i23, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -47385,9 +47385,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit264
 
 .loopexit264:                                     ; preds = %.lr.ph.i.i.i.i.i28, %.loopexit264.loopexit, %..loopexit_crit_edge21.i.i.i.i.i32
-  %268 = phi ptr [ %.pre347, %.loopexit264.loopexit ], [ %254, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %254, %.lr.ph.i.i.i.i.i28 ]
-  %.pre-phi340 = phi i64 [ %.pre339, %.loopexit264.loopexit ], [ %251, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %251, %.lr.ph.i.i.i.i.i28 ]
-  %269 = phi i64 [ %.pre330, %.loopexit264.loopexit ], [ %250, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %250, %.lr.ph.i.i.i.i.i28 ]
+  %268 = phi ptr [ %254, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre347, %.loopexit264.loopexit ], [ %254, %.lr.ph.i.i.i.i.i28 ]
+  %.pre-phi340 = phi i64 [ %251, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre339, %.loopexit264.loopexit ], [ %251, %.lr.ph.i.i.i.i.i28 ]
+  %269 = phi i64 [ %250, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre330, %.loopexit264.loopexit ], [ %250, %.lr.ph.i.i.i.i.i28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0237)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i40 = icmp eq ptr %268, null
@@ -47436,7 +47436,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50: ; preds = %275, %270, %.loopexit.i.i46
-  %.pn.i.i48 = phi ptr [ %271, %270 ], [ %285, %.loopexit.i.i46 ], [ %277, %275 ]
+  %.pn.i.i48 = phi ptr [ %285, %.loopexit.i.i46 ], [ %271, %270 ], [ %277, %275 ]
   %.1.i.i49 = getelementptr inbounds nuw i8, ptr %.pn.i.i48, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0237)
@@ -47493,7 +47493,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61: ; preds = %297, %292, %.loopexit.i.i57
-  %.pn.i.i59 = phi ptr [ %293, %292 ], [ %307, %.loopexit.i.i57 ], [ %299, %297 ]
+  %.pn.i.i59 = phi ptr [ %307, %.loopexit.i.i57 ], [ %293, %292 ], [ %299, %297 ]
   %.1.i.i60 = getelementptr inbounds nuw i8, ptr %.pn.i.i59, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -47594,9 +47594,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit261
 
 .loopexit261:                                     ; preds = %.lr.ph.i.i.i.i.i66, %.loopexit261.loopexit, %..loopexit_crit_edge21.i.i.i.i.i70
-  %349 = phi ptr [ %.pre349, %.loopexit261.loopexit ], [ %335, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %335, %.lr.ph.i.i.i.i.i66 ]
-  %.pre-phi342 = phi i64 [ %.pre341, %.loopexit261.loopexit ], [ %332, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %332, %.lr.ph.i.i.i.i.i66 ]
-  %350 = phi i64 [ %.pre332, %.loopexit261.loopexit ], [ %331, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %331, %.lr.ph.i.i.i.i.i66 ]
+  %349 = phi ptr [ %335, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre349, %.loopexit261.loopexit ], [ %335, %.lr.ph.i.i.i.i.i66 ]
+  %.pre-phi342 = phi i64 [ %332, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre341, %.loopexit261.loopexit ], [ %332, %.lr.ph.i.i.i.i.i66 ]
+  %350 = phi i64 [ %331, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre332, %.loopexit261.loopexit ], [ %331, %.lr.ph.i.i.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i78 = icmp eq ptr %349, null
@@ -47645,7 +47645,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88: ; preds = %356, %351, %.loopexit.i.i84
-  %.pn.i.i86 = phi ptr [ %352, %351 ], [ %366, %.loopexit.i.i84 ], [ %358, %356 ]
+  %.pn.i.i86 = phi ptr [ %366, %.loopexit.i.i84 ], [ %352, %351 ], [ %358, %356 ]
   %.1.i.i87 = getelementptr inbounds nuw i8, ptr %.pn.i.i86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0232)
@@ -47702,7 +47702,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99: ; preds = %378, %373, %.loopexit.i.i95
-  %.pn.i.i97 = phi ptr [ %374, %373 ], [ %388, %.loopexit.i.i95 ], [ %380, %378 ]
+  %.pn.i.i97 = phi ptr [ %388, %.loopexit.i.i95 ], [ %374, %373 ], [ %380, %378 ]
   %.1.i.i98 = getelementptr inbounds nuw i8, ptr %.pn.i.i97, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -47803,9 +47803,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i104, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i108
-  %430 = phi ptr [ %.pre351, %.loopexit.loopexit ], [ %416, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %416, %.lr.ph.i.i.i.i.i104 ]
-  %.pre-phi344 = phi i64 [ %.pre343, %.loopexit.loopexit ], [ %413, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %413, %.lr.ph.i.i.i.i.i104 ]
-  %431 = phi i64 [ %.pre334, %.loopexit.loopexit ], [ %412, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %412, %.lr.ph.i.i.i.i.i104 ]
+  %430 = phi ptr [ %416, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre351, %.loopexit.loopexit ], [ %416, %.lr.ph.i.i.i.i.i104 ]
+  %.pre-phi344 = phi i64 [ %413, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre343, %.loopexit.loopexit ], [ %413, %.lr.ph.i.i.i.i.i104 ]
+  %431 = phi i64 [ %412, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre334, %.loopexit.loopexit ], [ %412, %.lr.ph.i.i.i.i.i104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0228)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i116 = icmp eq ptr %430, null
@@ -47854,7 +47854,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126: ; preds = %437, %432, %.loopexit.i.i122
-  %.pn.i.i124 = phi ptr [ %433, %432 ], [ %447, %.loopexit.i.i122 ], [ %439, %437 ]
+  %.pn.i.i124 = phi ptr [ %447, %.loopexit.i.i122 ], [ %433, %432 ], [ %439, %437 ]
   %.1.i.i125 = getelementptr inbounds nuw i8, ptr %.pn.i.i124, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0228)
@@ -47911,7 +47911,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137: ; preds = %459, %454, %.loopexit.i.i133
-  %.pn.i.i135 = phi ptr [ %455, %454 ], [ %469, %.loopexit.i.i133 ], [ %461, %459 ]
+  %.pn.i.i135 = phi ptr [ %469, %.loopexit.i.i133 ], [ %455, %454 ], [ %461, %459 ]
   %.1.i.i136 = getelementptr inbounds nuw i8, ptr %.pn.i.i135, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -48298,9 +48298,9 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit267
 
 .loopexit267:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit267.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %193 = phi ptr [ %.pre345, %.loopexit267.loopexit ], [ %179, %..loopexit_crit_edge21.i.i.i.i.i ], [ %179, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre338, %.loopexit267.loopexit ], [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %176, %.lr.ph.i.i.i.i.i ]
-  %194 = phi i64 [ %.pre, %.loopexit267.loopexit ], [ %175, %..loopexit_crit_edge21.i.i.i.i.i ], [ %175, %.lr.ph.i.i.i.i.i ]
+  %193 = phi ptr [ %179, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre345, %.loopexit267.loopexit ], [ %179, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre338, %.loopexit267.loopexit ], [ %176, %.lr.ph.i.i.i.i.i ]
+  %194 = phi i64 [ %175, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit267.loopexit ], [ %175, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0242)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %193, null
@@ -48355,7 +48355,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %200, %195, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %196, %195 ], [ %210, %.loopexit.i.i ], [ %202, %200 ]
+  %.pn.i.i = phi ptr [ %210, %.loopexit.i.i ], [ %196, %195 ], [ %202, %200 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0242, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0242)
@@ -48412,7 +48412,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25: ; preds = %222, %217, %.loopexit.i.i21
-  %.pn.i.i23 = phi ptr [ %218, %217 ], [ %232, %.loopexit.i.i21 ], [ %224, %222 ]
+  %.pn.i.i23 = phi ptr [ %232, %.loopexit.i.i21 ], [ %218, %217 ], [ %224, %222 ]
   %.1.i.i24 = getelementptr inbounds nuw i8, ptr %.pn.i.i23, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -48513,9 +48513,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit264
 
 .loopexit264:                                     ; preds = %.lr.ph.i.i.i.i.i28, %.loopexit264.loopexit, %..loopexit_crit_edge21.i.i.i.i.i32
-  %274 = phi ptr [ %.pre347, %.loopexit264.loopexit ], [ %260, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %260, %.lr.ph.i.i.i.i.i28 ]
-  %.pre-phi340 = phi i64 [ %.pre339, %.loopexit264.loopexit ], [ %257, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %257, %.lr.ph.i.i.i.i.i28 ]
-  %275 = phi i64 [ %.pre330, %.loopexit264.loopexit ], [ %256, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %256, %.lr.ph.i.i.i.i.i28 ]
+  %274 = phi ptr [ %260, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre347, %.loopexit264.loopexit ], [ %260, %.lr.ph.i.i.i.i.i28 ]
+  %.pre-phi340 = phi i64 [ %257, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre339, %.loopexit264.loopexit ], [ %257, %.lr.ph.i.i.i.i.i28 ]
+  %275 = phi i64 [ %256, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre330, %.loopexit264.loopexit ], [ %256, %.lr.ph.i.i.i.i.i28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0237)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i40 = icmp eq ptr %274, null
@@ -48564,7 +48564,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50: ; preds = %281, %276, %.loopexit.i.i46
-  %.pn.i.i48 = phi ptr [ %277, %276 ], [ %291, %.loopexit.i.i46 ], [ %283, %281 ]
+  %.pn.i.i48 = phi ptr [ %291, %.loopexit.i.i46 ], [ %277, %276 ], [ %283, %281 ]
   %.1.i.i49 = getelementptr inbounds nuw i8, ptr %.pn.i.i48, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0237)
@@ -48621,7 +48621,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61: ; preds = %303, %298, %.loopexit.i.i57
-  %.pn.i.i59 = phi ptr [ %299, %298 ], [ %313, %.loopexit.i.i57 ], [ %305, %303 ]
+  %.pn.i.i59 = phi ptr [ %313, %.loopexit.i.i57 ], [ %299, %298 ], [ %305, %303 ]
   %.1.i.i60 = getelementptr inbounds nuw i8, ptr %.pn.i.i59, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -48722,9 +48722,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit261
 
 .loopexit261:                                     ; preds = %.lr.ph.i.i.i.i.i66, %.loopexit261.loopexit, %..loopexit_crit_edge21.i.i.i.i.i70
-  %355 = phi ptr [ %.pre349, %.loopexit261.loopexit ], [ %341, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %341, %.lr.ph.i.i.i.i.i66 ]
-  %.pre-phi342 = phi i64 [ %.pre341, %.loopexit261.loopexit ], [ %338, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %338, %.lr.ph.i.i.i.i.i66 ]
-  %356 = phi i64 [ %.pre332, %.loopexit261.loopexit ], [ %337, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %337, %.lr.ph.i.i.i.i.i66 ]
+  %355 = phi ptr [ %341, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre349, %.loopexit261.loopexit ], [ %341, %.lr.ph.i.i.i.i.i66 ]
+  %.pre-phi342 = phi i64 [ %338, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre341, %.loopexit261.loopexit ], [ %338, %.lr.ph.i.i.i.i.i66 ]
+  %356 = phi i64 [ %337, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre332, %.loopexit261.loopexit ], [ %337, %.lr.ph.i.i.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i78 = icmp eq ptr %355, null
@@ -48773,7 +48773,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88: ; preds = %362, %357, %.loopexit.i.i84
-  %.pn.i.i86 = phi ptr [ %358, %357 ], [ %372, %.loopexit.i.i84 ], [ %364, %362 ]
+  %.pn.i.i86 = phi ptr [ %372, %.loopexit.i.i84 ], [ %358, %357 ], [ %364, %362 ]
   %.1.i.i87 = getelementptr inbounds nuw i8, ptr %.pn.i.i86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0232)
@@ -48830,7 +48830,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99: ; preds = %384, %379, %.loopexit.i.i95
-  %.pn.i.i97 = phi ptr [ %380, %379 ], [ %394, %.loopexit.i.i95 ], [ %386, %384 ]
+  %.pn.i.i97 = phi ptr [ %394, %.loopexit.i.i95 ], [ %380, %379 ], [ %386, %384 ]
   %.1.i.i98 = getelementptr inbounds nuw i8, ptr %.pn.i.i97, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -48931,9 +48931,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i104, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i108
-  %436 = phi ptr [ %.pre351, %.loopexit.loopexit ], [ %422, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %422, %.lr.ph.i.i.i.i.i104 ]
-  %.pre-phi344 = phi i64 [ %.pre343, %.loopexit.loopexit ], [ %419, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %419, %.lr.ph.i.i.i.i.i104 ]
-  %437 = phi i64 [ %.pre334, %.loopexit.loopexit ], [ %418, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %418, %.lr.ph.i.i.i.i.i104 ]
+  %436 = phi ptr [ %422, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre351, %.loopexit.loopexit ], [ %422, %.lr.ph.i.i.i.i.i104 ]
+  %.pre-phi344 = phi i64 [ %419, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre343, %.loopexit.loopexit ], [ %419, %.lr.ph.i.i.i.i.i104 ]
+  %437 = phi i64 [ %418, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre334, %.loopexit.loopexit ], [ %418, %.lr.ph.i.i.i.i.i104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0228)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i116 = icmp eq ptr %436, null
@@ -48982,7 +48982,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126: ; preds = %443, %438, %.loopexit.i.i122
-  %.pn.i.i124 = phi ptr [ %439, %438 ], [ %453, %.loopexit.i.i122 ], [ %445, %443 ]
+  %.pn.i.i124 = phi ptr [ %453, %.loopexit.i.i122 ], [ %439, %438 ], [ %445, %443 ]
   %.1.i.i125 = getelementptr inbounds nuw i8, ptr %.pn.i.i124, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0228)
@@ -49039,7 +49039,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137: ; preds = %465, %460, %.loopexit.i.i133
-  %.pn.i.i135 = phi ptr [ %461, %460 ], [ %475, %.loopexit.i.i133 ], [ %467, %465 ]
+  %.pn.i.i135 = phi ptr [ %475, %.loopexit.i.i133 ], [ %461, %460 ], [ %467, %465 ]
   %.1.i.i136 = getelementptr inbounds nuw i8, ptr %.pn.i.i135, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -49430,9 +49430,9 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit265
 
 .loopexit265:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit265.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %195 = phi ptr [ %.pre363, %.loopexit265.loopexit ], [ %181, %..loopexit_crit_edge21.i.i.i.i.i ], [ %181, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre356, %.loopexit265.loopexit ], [ %178, %..loopexit_crit_edge21.i.i.i.i.i ], [ %178, %.lr.ph.i.i.i.i.i ]
-  %196 = phi i64 [ %.pre, %.loopexit265.loopexit ], [ %177, %..loopexit_crit_edge21.i.i.i.i.i ], [ %177, %.lr.ph.i.i.i.i.i ]
+  %195 = phi ptr [ %181, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre363, %.loopexit265.loopexit ], [ %181, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %178, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre356, %.loopexit265.loopexit ], [ %178, %.lr.ph.i.i.i.i.i ]
+  %196 = phi i64 [ %177, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit265.loopexit ], [ %177, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0240)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0240, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %195, null
@@ -49487,7 +49487,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %202, %197, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %198, %197 ], [ %212, %.loopexit.i.i ], [ %204, %202 ]
+  %.pn.i.i = phi ptr [ %212, %.loopexit.i.i ], [ %198, %197 ], [ %204, %202 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0240, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0240)
@@ -49544,7 +49544,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit25: ; preds = %224, %219, %.loopexit.i.i21
-  %.pn.i.i23 = phi ptr [ %220, %219 ], [ %234, %.loopexit.i.i21 ], [ %226, %224 ]
+  %.pn.i.i23 = phi ptr [ %234, %.loopexit.i.i21 ], [ %220, %219 ], [ %226, %224 ]
   %.1.i.i24 = getelementptr inbounds nuw i8, ptr %.pn.i.i23, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -49645,9 +49645,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit262
 
 .loopexit262:                                     ; preds = %.lr.ph.i.i.i.i.i28, %.loopexit262.loopexit, %..loopexit_crit_edge21.i.i.i.i.i32
-  %276 = phi ptr [ %.pre365, %.loopexit262.loopexit ], [ %262, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %262, %.lr.ph.i.i.i.i.i28 ]
-  %.pre-phi358 = phi i64 [ %.pre357, %.loopexit262.loopexit ], [ %259, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %259, %.lr.ph.i.i.i.i.i28 ]
-  %277 = phi i64 [ %.pre348, %.loopexit262.loopexit ], [ %258, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %258, %.lr.ph.i.i.i.i.i28 ]
+  %276 = phi ptr [ %262, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre365, %.loopexit262.loopexit ], [ %262, %.lr.ph.i.i.i.i.i28 ]
+  %.pre-phi358 = phi i64 [ %259, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre357, %.loopexit262.loopexit ], [ %259, %.lr.ph.i.i.i.i.i28 ]
+  %277 = phi i64 [ %258, %..loopexit_crit_edge21.i.i.i.i.i32 ], [ %.pre348, %.loopexit262.loopexit ], [ %258, %.lr.ph.i.i.i.i.i28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0235)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0235, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i40 = icmp eq ptr %276, null
@@ -49696,7 +49696,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit50: ; preds = %283, %278, %.loopexit.i.i46
-  %.pn.i.i48 = phi ptr [ %279, %278 ], [ %293, %.loopexit.i.i46 ], [ %285, %283 ]
+  %.pn.i.i48 = phi ptr [ %293, %.loopexit.i.i46 ], [ %279, %278 ], [ %285, %283 ]
   %.1.i.i49 = getelementptr inbounds nuw i8, ptr %.pn.i.i48, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0235, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0235)
@@ -49753,7 +49753,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61: ; preds = %305, %300, %.loopexit.i.i57
-  %.pn.i.i59 = phi ptr [ %301, %300 ], [ %315, %.loopexit.i.i57 ], [ %307, %305 ]
+  %.pn.i.i59 = phi ptr [ %315, %.loopexit.i.i57 ], [ %301, %300 ], [ %307, %305 ]
   %.1.i.i60 = getelementptr inbounds nuw i8, ptr %.pn.i.i59, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -49854,9 +49854,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit259
 
 .loopexit259:                                     ; preds = %.lr.ph.i.i.i.i.i66, %.loopexit259.loopexit, %..loopexit_crit_edge21.i.i.i.i.i70
-  %357 = phi ptr [ %.pre367, %.loopexit259.loopexit ], [ %343, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %343, %.lr.ph.i.i.i.i.i66 ]
-  %.pre-phi360 = phi i64 [ %.pre359, %.loopexit259.loopexit ], [ %340, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %340, %.lr.ph.i.i.i.i.i66 ]
-  %358 = phi i64 [ %.pre350, %.loopexit259.loopexit ], [ %339, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %339, %.lr.ph.i.i.i.i.i66 ]
+  %357 = phi ptr [ %343, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre367, %.loopexit259.loopexit ], [ %343, %.lr.ph.i.i.i.i.i66 ]
+  %.pre-phi360 = phi i64 [ %340, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre359, %.loopexit259.loopexit ], [ %340, %.lr.ph.i.i.i.i.i66 ]
+  %358 = phi i64 [ %339, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre350, %.loopexit259.loopexit ], [ %339, %.lr.ph.i.i.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0230)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0230, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i78 = icmp eq ptr %357, null
@@ -49905,7 +49905,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88: ; preds = %364, %359, %.loopexit.i.i84
-  %.pn.i.i86 = phi ptr [ %360, %359 ], [ %374, %.loopexit.i.i84 ], [ %366, %364 ]
+  %.pn.i.i86 = phi ptr [ %374, %.loopexit.i.i84 ], [ %360, %359 ], [ %366, %364 ]
   %.1.i.i87 = getelementptr inbounds nuw i8, ptr %.pn.i.i86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0230, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0230)
@@ -49962,7 +49962,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99: ; preds = %386, %381, %.loopexit.i.i95
-  %.pn.i.i97 = phi ptr [ %382, %381 ], [ %396, %.loopexit.i.i95 ], [ %388, %386 ]
+  %.pn.i.i97 = phi ptr [ %396, %.loopexit.i.i95 ], [ %382, %381 ], [ %388, %386 ]
   %.1.i.i98 = getelementptr inbounds nuw i8, ptr %.pn.i.i97, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -50063,9 +50063,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i104, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i108
-  %438 = phi ptr [ %.pre369, %.loopexit.loopexit ], [ %424, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %424, %.lr.ph.i.i.i.i.i104 ]
-  %.pre-phi362 = phi i64 [ %.pre361, %.loopexit.loopexit ], [ %421, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %421, %.lr.ph.i.i.i.i.i104 ]
-  %439 = phi i64 [ %.pre352, %.loopexit.loopexit ], [ %420, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %420, %.lr.ph.i.i.i.i.i104 ]
+  %438 = phi ptr [ %424, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre369, %.loopexit.loopexit ], [ %424, %.lr.ph.i.i.i.i.i104 ]
+  %.pre-phi362 = phi i64 [ %421, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre361, %.loopexit.loopexit ], [ %421, %.lr.ph.i.i.i.i.i104 ]
+  %439 = phi i64 [ %420, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre352, %.loopexit.loopexit ], [ %420, %.lr.ph.i.i.i.i.i104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0226)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0226, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i116 = icmp eq ptr %438, null
@@ -50114,7 +50114,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126: ; preds = %445, %440, %.loopexit.i.i122
-  %.pn.i.i124 = phi ptr [ %441, %440 ], [ %455, %.loopexit.i.i122 ], [ %447, %445 ]
+  %.pn.i.i124 = phi ptr [ %455, %.loopexit.i.i122 ], [ %441, %440 ], [ %447, %445 ]
   %.1.i.i125 = getelementptr inbounds nuw i8, ptr %.pn.i.i124, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0226, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0226)
@@ -50171,7 +50171,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137: ; preds = %467, %462, %.loopexit.i.i133
-  %.pn.i.i135 = phi ptr [ %463, %462 ], [ %477, %.loopexit.i.i133 ], [ %469, %467 ]
+  %.pn.i.i135 = phi ptr [ %477, %.loopexit.i.i133 ], [ %463, %462 ], [ %469, %467 ]
   %.1.i.i136 = getelementptr inbounds nuw i8, ptr %.pn.i.i135, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -51113,9 +51113,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %63 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
-  %64 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi ptr [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %63, null
@@ -51170,7 +51170,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %70, %65, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %66, %65 ], [ %80, %.loopexit.i.i ], [ %72, %70 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %66, %65 ], [ %72, %70 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -51227,7 +51227,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %92, %87, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %88, %87 ], [ %102, %.loopexit.i.i20 ], [ %94, %92 ]
+  %.pn.i.i22 = phi ptr [ %102, %.loopexit.i.i20 ], [ %88, %87 ], [ %94, %92 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -51316,9 +51316,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %136 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %122, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %119, %.lr.ph.i.i.i.i.i27 ]
-  %137 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %118, %.lr.ph.i.i.i.i.i27 ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i27 ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %136, null
@@ -51367,7 +51367,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %143, %138, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i45 ], [ %145, %143 ]
+  %.pn.i.i47 = phi ptr [ %153, %.loopexit.i.i45 ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -51424,7 +51424,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %165, %160, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i56 ], [ %167, %165 ]
+  %.pn.i.i58 = phi ptr [ %175, %.loopexit.i.i56 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -51650,9 +51650,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %63 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
-  %64 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi ptr [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %63, null
@@ -51707,7 +51707,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %70, %65, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %66, %65 ], [ %80, %.loopexit.i.i ], [ %72, %70 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %66, %65 ], [ %72, %70 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -51764,7 +51764,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %92, %87, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %88, %87 ], [ %102, %.loopexit.i.i20 ], [ %94, %92 ]
+  %.pn.i.i22 = phi ptr [ %102, %.loopexit.i.i20 ], [ %88, %87 ], [ %94, %92 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -51853,9 +51853,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %136 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %122, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %119, %.lr.ph.i.i.i.i.i27 ]
-  %137 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %118, %.lr.ph.i.i.i.i.i27 ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i27 ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %136, null
@@ -51904,7 +51904,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %143, %138, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i45 ], [ %145, %143 ]
+  %.pn.i.i47 = phi ptr [ %153, %.loopexit.i.i45 ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -51961,7 +51961,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %165, %160, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i56 ], [ %167, %165 ]
+  %.pn.i.i58 = phi ptr [ %175, %.loopexit.i.i56 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -52192,9 +52192,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %61 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %44, %.lr.ph.i.i.i.i.i ]
-  %62 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %43, %..loopexit_crit_edge21.i.i.i.i.i ], [ %43, %.lr.ph.i.i.i.i.i ]
+  %61 = phi ptr [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %44, %.lr.ph.i.i.i.i.i ]
+  %62 = phi i64 [ %43, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %43, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %61, null
@@ -52249,7 +52249,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %68, %63, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %64, %63 ], [ %78, %.loopexit.i.i ], [ %70, %68 ]
+  %.pn.i.i = phi ptr [ %78, %.loopexit.i.i ], [ %64, %63 ], [ %70, %68 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -52306,7 +52306,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %90, %85, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %86, %85 ], [ %100, %.loopexit.i.i20 ], [ %92, %90 ]
+  %.pn.i.i22 = phi ptr [ %100, %.loopexit.i.i20 ], [ %86, %85 ], [ %92, %90 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -52395,9 +52395,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %134 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %120, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %117, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %117, %.lr.ph.i.i.i.i.i27 ]
-  %135 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %116, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %116, %.lr.ph.i.i.i.i.i27 ]
+  %134 = phi ptr [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %117, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %117, %.lr.ph.i.i.i.i.i27 ]
+  %135 = phi i64 [ %116, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %116, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %134, null
@@ -52446,7 +52446,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %141, %136, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %137, %136 ], [ %151, %.loopexit.i.i45 ], [ %143, %141 ]
+  %.pn.i.i47 = phi ptr [ %151, %.loopexit.i.i45 ], [ %137, %136 ], [ %143, %141 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -52503,7 +52503,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %163, %158, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %159, %158 ], [ %173, %.loopexit.i.i56 ], [ %165, %163 ]
+  %.pn.i.i58 = phi ptr [ %173, %.loopexit.i.i56 ], [ %159, %158 ], [ %165, %163 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -52735,9 +52735,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %61 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %44, %.lr.ph.i.i.i.i.i ]
-  %62 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %43, %..loopexit_crit_edge21.i.i.i.i.i ], [ %43, %.lr.ph.i.i.i.i.i ]
+  %61 = phi ptr [ %47, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %44, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %44, %.lr.ph.i.i.i.i.i ]
+  %62 = phi i64 [ %43, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %43, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %61, null
@@ -52792,7 +52792,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %68, %63, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %64, %63 ], [ %78, %.loopexit.i.i ], [ %70, %68 ]
+  %.pn.i.i = phi ptr [ %78, %.loopexit.i.i ], [ %64, %63 ], [ %70, %68 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -52849,7 +52849,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %90, %85, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %86, %85 ], [ %100, %.loopexit.i.i20 ], [ %92, %90 ]
+  %.pn.i.i22 = phi ptr [ %100, %.loopexit.i.i20 ], [ %86, %85 ], [ %92, %90 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -52938,9 +52938,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %134 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %120, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %117, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %117, %.lr.ph.i.i.i.i.i27 ]
-  %135 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %116, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %116, %.lr.ph.i.i.i.i.i27 ]
+  %134 = phi ptr [ %120, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %120, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %117, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %117, %.lr.ph.i.i.i.i.i27 ]
+  %135 = phi i64 [ %116, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %116, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %134, null
@@ -52989,7 +52989,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %141, %136, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %137, %136 ], [ %151, %.loopexit.i.i45 ], [ %143, %141 ]
+  %.pn.i.i47 = phi ptr [ %151, %.loopexit.i.i45 ], [ %137, %136 ], [ %143, %141 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -53046,7 +53046,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %163, %158, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %159, %158 ], [ %173, %.loopexit.i.i56 ], [ %165, %163 ]
+  %.pn.i.i58 = phi ptr [ %173, %.loopexit.i.i56 ], [ %159, %158 ], [ %165, %163 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -53277,9 +53277,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %63 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
-  %64 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi ptr [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %63, null
@@ -53334,7 +53334,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %70, %65, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %66, %65 ], [ %80, %.loopexit.i.i ], [ %72, %70 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %66, %65 ], [ %72, %70 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -53391,7 +53391,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %92, %87, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %88, %87 ], [ %102, %.loopexit.i.i20 ], [ %94, %92 ]
+  %.pn.i.i22 = phi ptr [ %102, %.loopexit.i.i20 ], [ %88, %87 ], [ %94, %92 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -53480,9 +53480,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %136 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %122, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %119, %.lr.ph.i.i.i.i.i27 ]
-  %137 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %118, %.lr.ph.i.i.i.i.i27 ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i27 ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %136, null
@@ -53531,7 +53531,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %143, %138, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i45 ], [ %145, %143 ]
+  %.pn.i.i47 = phi ptr [ %153, %.loopexit.i.i45 ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -53588,7 +53588,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %165, %160, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i56 ], [ %167, %165 ]
+  %.pn.i.i58 = phi ptr [ %175, %.loopexit.i.i56 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -53820,9 +53820,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit120.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %63 = phi ptr [ %.pre162, %.loopexit120.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre159, %.loopexit120.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
-  %64 = phi i64 [ %.pre, %.loopexit120.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi ptr [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre162, %.loopexit120.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre159, %.loopexit120.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit120.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0104)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %63, null
@@ -53877,7 +53877,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %70, %65, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %66, %65 ], [ %80, %.loopexit.i.i ], [ %72, %70 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %66, %65 ], [ %72, %70 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0104, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104)
@@ -53934,7 +53934,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %92, %87, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %88, %87 ], [ %102, %.loopexit.i.i20 ], [ %94, %92 ]
+  %.pn.i.i22 = phi ptr [ %102, %.loopexit.i.i20 ], [ %88, %87 ], [ %94, %92 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre153 = load i32, ptr %12, align 8, !tbaa !164
   %.pre154 = load i32, ptr %13, align 4
@@ -54023,9 +54023,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %136 = phi ptr [ %.pre164, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %122, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi161 = phi i64 [ %.pre160, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %119, %.lr.ph.i.i.i.i.i27 ]
-  %137 = phi i64 [ %.pre155, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %118, %.lr.ph.i.i.i.i.i27 ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre164, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi161 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre160, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i27 ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre155, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %136, null
@@ -54074,7 +54074,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %143, %138, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i45 ], [ %145, %143 ]
+  %.pn.i.i47 = phi ptr [ %153, %.loopexit.i.i45 ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0100, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0100)
@@ -54131,7 +54131,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %165, %160, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i56 ], [ %167, %165 ]
+  %.pn.i.i58 = phi ptr [ %175, %.loopexit.i.i56 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -54361,9 +54361,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit121
 
 .loopexit121:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit121.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %63 = phi ptr [ %.pre163, %.loopexit121.loopexit ], [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre160, %.loopexit121.loopexit ], [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i ]
-  %64 = phi i64 [ %.pre, %.loopexit121.loopexit ], [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %63 = phi ptr [ %49, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre163, %.loopexit121.loopexit ], [ %49, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %46, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre160, %.loopexit121.loopexit ], [ %46, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i64 [ %45, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit121.loopexit ], [ %45, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0105)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0105, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %63, null
@@ -54418,7 +54418,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %70, %65, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %66, %65 ], [ %80, %.loopexit.i.i ], [ %72, %70 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %66, %65 ], [ %72, %70 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0105, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0105)
@@ -54475,7 +54475,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit24: ; preds = %92, %87, %.loopexit.i.i20
-  %.pn.i.i22 = phi ptr [ %88, %87 ], [ %102, %.loopexit.i.i20 ], [ %94, %92 ]
+  %.pn.i.i22 = phi ptr [ %102, %.loopexit.i.i20 ], [ %88, %87 ], [ %94, %92 ]
   %.1.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 12
   %.pre154 = load i32, ptr %12, align 8, !tbaa !164
   %.pre155 = load i32, ptr %13, align 4
@@ -54564,9 +54564,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i27, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i31
-  %136 = phi ptr [ %.pre165, %.loopexit.loopexit ], [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %122, %.lr.ph.i.i.i.i.i27 ]
-  %.pre-phi162 = phi i64 [ %.pre161, %.loopexit.loopexit ], [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %119, %.lr.ph.i.i.i.i.i27 ]
-  %137 = phi i64 [ %.pre156, %.loopexit.loopexit ], [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %118, %.lr.ph.i.i.i.i.i27 ]
+  %136 = phi ptr [ %122, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre165, %.loopexit.loopexit ], [ %122, %.lr.ph.i.i.i.i.i27 ]
+  %.pre-phi162 = phi i64 [ %119, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre161, %.loopexit.loopexit ], [ %119, %.lr.ph.i.i.i.i.i27 ]
+  %137 = phi i64 [ %118, %..loopexit_crit_edge21.i.i.i.i.i31 ], [ %.pre156, %.loopexit.loopexit ], [ %118, %.lr.ph.i.i.i.i.i27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0101)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0101, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i39 = icmp eq ptr %136, null
@@ -54615,7 +54615,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit49: ; preds = %143, %138, %.loopexit.i.i45
-  %.pn.i.i47 = phi ptr [ %139, %138 ], [ %153, %.loopexit.i.i45 ], [ %145, %143 ]
+  %.pn.i.i47 = phi ptr [ %153, %.loopexit.i.i45 ], [ %139, %138 ], [ %145, %143 ]
   %.1.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i47, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0101, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0101)
@@ -54672,7 +54672,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit60: ; preds = %165, %160, %.loopexit.i.i56
-  %.pn.i.i58 = phi ptr [ %161, %160 ], [ %175, %.loopexit.i.i56 ], [ %167, %165 ]
+  %.pn.i.i58 = phi ptr [ %175, %.loopexit.i.i56 ], [ %161, %160 ], [ %167, %165 ]
   %.1.i.i59 = getelementptr inbounds nuw i8, ptr %.pn.i.i58, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
@@ -55022,9 +55022,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit229
 
 .loopexit229:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit229.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %151 = phi ptr [ %.pre288, %.loopexit229.loopexit ], [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %137, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre283, %.loopexit229.loopexit ], [ %134, %..loopexit_crit_edge21.i.i.i.i.i ], [ %134, %.lr.ph.i.i.i.i.i ]
-  %152 = phi i64 [ %.pre, %.loopexit229.loopexit ], [ %133, %..loopexit_crit_edge21.i.i.i.i.i ], [ %133, %.lr.ph.i.i.i.i.i ]
+  %151 = phi ptr [ %137, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre288, %.loopexit229.loopexit ], [ %137, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %134, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre283, %.loopexit229.loopexit ], [ %134, %.lr.ph.i.i.i.i.i ]
+  %152 = phi i64 [ %133, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit229.loopexit ], [ %133, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0205)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %151, null
@@ -55079,7 +55079,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %158, %153, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %154, %153 ], [ %168, %.loopexit.i.i ], [ %160, %158 ]
+  %.pn.i.i = phi ptr [ %168, %.loopexit.i.i ], [ %154, %153 ], [ %160, %158 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0205)
@@ -55136,7 +55136,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %180, %175, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %176, %175 ], [ %190, %.loopexit.i.i25 ], [ %182, %180 ]
+  %.pn.i.i27 = phi ptr [ %190, %.loopexit.i.i25 ], [ %176, %175 ], [ %182, %180 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -55237,9 +55237,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit226
 
 .loopexit226:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit226.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %232 = phi ptr [ %.pre290, %.loopexit226.loopexit ], [ %218, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %218, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi285 = phi i64 [ %.pre284, %.loopexit226.loopexit ], [ %215, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %215, %.lr.ph.i.i.i.i.i34 ]
-  %233 = phi i64 [ %.pre277, %.loopexit226.loopexit ], [ %214, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %214, %.lr.ph.i.i.i.i.i34 ]
+  %232 = phi ptr [ %218, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre290, %.loopexit226.loopexit ], [ %218, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi285 = phi i64 [ %215, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre284, %.loopexit226.loopexit ], [ %215, %.lr.ph.i.i.i.i.i34 ]
+  %233 = phi i64 [ %214, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre277, %.loopexit226.loopexit ], [ %214, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0200)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %232, null
@@ -55288,7 +55288,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %239, %234, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %235, %234 ], [ %249, %.loopexit.i.i52 ], [ %241, %239 ]
+  %.pn.i.i54 = phi ptr [ %249, %.loopexit.i.i52 ], [ %235, %234 ], [ %241, %239 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0200)
@@ -55345,7 +55345,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %261, %256, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %257, %256 ], [ %271, %.loopexit.i.i63 ], [ %263, %261 ]
+  %.pn.i.i65 = phi ptr [ %271, %.loopexit.i.i63 ], [ %257, %256 ], [ %263, %261 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -55446,9 +55446,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %313 = phi ptr [ %.pre292, %.loopexit.loopexit ], [ %299, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %299, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi287 = phi i64 [ %.pre286, %.loopexit.loopexit ], [ %296, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %296, %.lr.ph.i.i.i.i.i72 ]
-  %314 = phi i64 [ %.pre279, %.loopexit.loopexit ], [ %295, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %295, %.lr.ph.i.i.i.i.i72 ]
+  %313 = phi ptr [ %299, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre292, %.loopexit.loopexit ], [ %299, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi287 = phi i64 [ %296, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre286, %.loopexit.loopexit ], [ %296, %.lr.ph.i.i.i.i.i72 ]
+  %314 = phi i64 [ %295, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre279, %.loopexit.loopexit ], [ %295, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0196)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %313, null
@@ -55497,7 +55497,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %320, %315, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %316, %315 ], [ %330, %.loopexit.i.i90 ], [ %322, %320 ]
+  %.pn.i.i92 = phi ptr [ %330, %.loopexit.i.i90 ], [ %316, %315 ], [ %322, %320 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0196)
@@ -55554,7 +55554,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %342, %337, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %338, %337 ], [ %352, %.loopexit.i.i101 ], [ %344, %342 ]
+  %.pn.i.i103 = phi ptr [ %352, %.loopexit.i.i101 ], [ %338, %337 ], [ %344, %342 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -55872,9 +55872,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit229
 
 .loopexit229:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit229.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %157 = phi ptr [ %.pre288, %.loopexit229.loopexit ], [ %143, %..loopexit_crit_edge21.i.i.i.i.i ], [ %143, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre283, %.loopexit229.loopexit ], [ %140, %..loopexit_crit_edge21.i.i.i.i.i ], [ %140, %.lr.ph.i.i.i.i.i ]
-  %158 = phi i64 [ %.pre, %.loopexit229.loopexit ], [ %139, %..loopexit_crit_edge21.i.i.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i ]
+  %157 = phi ptr [ %143, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre288, %.loopexit229.loopexit ], [ %143, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %140, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre283, %.loopexit229.loopexit ], [ %140, %.lr.ph.i.i.i.i.i ]
+  %158 = phi i64 [ %139, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit229.loopexit ], [ %139, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0205)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %157, null
@@ -55929,7 +55929,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %164, %159, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %160, %159 ], [ %174, %.loopexit.i.i ], [ %166, %164 ]
+  %.pn.i.i = phi ptr [ %174, %.loopexit.i.i ], [ %160, %159 ], [ %166, %164 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0205)
@@ -55986,7 +55986,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %186, %181, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %182, %181 ], [ %196, %.loopexit.i.i25 ], [ %188, %186 ]
+  %.pn.i.i27 = phi ptr [ %196, %.loopexit.i.i25 ], [ %182, %181 ], [ %188, %186 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -56087,9 +56087,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit226
 
 .loopexit226:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit226.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %238 = phi ptr [ %.pre290, %.loopexit226.loopexit ], [ %224, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %224, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi285 = phi i64 [ %.pre284, %.loopexit226.loopexit ], [ %221, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %221, %.lr.ph.i.i.i.i.i34 ]
-  %239 = phi i64 [ %.pre277, %.loopexit226.loopexit ], [ %220, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %220, %.lr.ph.i.i.i.i.i34 ]
+  %238 = phi ptr [ %224, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre290, %.loopexit226.loopexit ], [ %224, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi285 = phi i64 [ %221, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre284, %.loopexit226.loopexit ], [ %221, %.lr.ph.i.i.i.i.i34 ]
+  %239 = phi i64 [ %220, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre277, %.loopexit226.loopexit ], [ %220, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0200)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %238, null
@@ -56138,7 +56138,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %245, %240, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %241, %240 ], [ %255, %.loopexit.i.i52 ], [ %247, %245 ]
+  %.pn.i.i54 = phi ptr [ %255, %.loopexit.i.i52 ], [ %241, %240 ], [ %247, %245 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0200)
@@ -56195,7 +56195,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %267, %262, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %263, %262 ], [ %277, %.loopexit.i.i63 ], [ %269, %267 ]
+  %.pn.i.i65 = phi ptr [ %277, %.loopexit.i.i63 ], [ %263, %262 ], [ %269, %267 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -56296,9 +56296,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %319 = phi ptr [ %.pre292, %.loopexit.loopexit ], [ %305, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %305, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi287 = phi i64 [ %.pre286, %.loopexit.loopexit ], [ %302, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %302, %.lr.ph.i.i.i.i.i72 ]
-  %320 = phi i64 [ %.pre279, %.loopexit.loopexit ], [ %301, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %301, %.lr.ph.i.i.i.i.i72 ]
+  %319 = phi ptr [ %305, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre292, %.loopexit.loopexit ], [ %305, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi287 = phi i64 [ %302, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre286, %.loopexit.loopexit ], [ %302, %.lr.ph.i.i.i.i.i72 ]
+  %320 = phi i64 [ %301, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre279, %.loopexit.loopexit ], [ %301, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0196)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %319, null
@@ -56347,7 +56347,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %326, %321, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %322, %321 ], [ %336, %.loopexit.i.i90 ], [ %328, %326 ]
+  %.pn.i.i92 = phi ptr [ %336, %.loopexit.i.i90 ], [ %322, %321 ], [ %328, %326 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0196)
@@ -56404,7 +56404,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %348, %343, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %344, %343 ], [ %358, %.loopexit.i.i101 ], [ %350, %348 ]
+  %.pn.i.i103 = phi ptr [ %358, %.loopexit.i.i101 ], [ %344, %343 ], [ %350, %348 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -56755,9 +56755,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit236
 
 .loopexit236:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit236.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %152 = phi ptr [ %.pre311, %.loopexit236.loopexit ], [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ %138, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre306, %.loopexit236.loopexit ], [ %135, %..loopexit_crit_edge21.i.i.i.i.i ], [ %135, %.lr.ph.i.i.i.i.i ]
-  %153 = phi i64 [ %.pre, %.loopexit236.loopexit ], [ %134, %..loopexit_crit_edge21.i.i.i.i.i ], [ %134, %.lr.ph.i.i.i.i.i ]
+  %152 = phi ptr [ %138, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre311, %.loopexit236.loopexit ], [ %138, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %135, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre306, %.loopexit236.loopexit ], [ %135, %.lr.ph.i.i.i.i.i ]
+  %153 = phi i64 [ %134, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit236.loopexit ], [ %134, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0212)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %152, null
@@ -56812,7 +56812,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %159, %154, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %155, %154 ], [ %169, %.loopexit.i.i ], [ %161, %159 ]
+  %.pn.i.i = phi ptr [ %169, %.loopexit.i.i ], [ %155, %154 ], [ %161, %159 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0212, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0212)
@@ -56869,7 +56869,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %181, %176, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %177, %176 ], [ %191, %.loopexit.i.i25 ], [ %183, %181 ]
+  %.pn.i.i27 = phi ptr [ %191, %.loopexit.i.i25 ], [ %177, %176 ], [ %183, %181 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -56970,9 +56970,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit233
 
 .loopexit233:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit233.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %233 = phi ptr [ %.pre313, %.loopexit233.loopexit ], [ %219, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %219, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi308 = phi i64 [ %.pre307, %.loopexit233.loopexit ], [ %216, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %216, %.lr.ph.i.i.i.i.i34 ]
-  %234 = phi i64 [ %.pre300, %.loopexit233.loopexit ], [ %215, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %215, %.lr.ph.i.i.i.i.i34 ]
+  %233 = phi ptr [ %219, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre313, %.loopexit233.loopexit ], [ %219, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi308 = phi i64 [ %216, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre307, %.loopexit233.loopexit ], [ %216, %.lr.ph.i.i.i.i.i34 ]
+  %234 = phi i64 [ %215, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre300, %.loopexit233.loopexit ], [ %215, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0207)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0207, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %233, null
@@ -57021,7 +57021,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %240, %235, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %236, %235 ], [ %250, %.loopexit.i.i52 ], [ %242, %240 ]
+  %.pn.i.i54 = phi ptr [ %250, %.loopexit.i.i52 ], [ %236, %235 ], [ %242, %240 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0207, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0207)
@@ -57078,7 +57078,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %262, %257, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %258, %257 ], [ %272, %.loopexit.i.i63 ], [ %264, %262 ]
+  %.pn.i.i65 = phi ptr [ %272, %.loopexit.i.i63 ], [ %258, %257 ], [ %264, %262 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -57179,9 +57179,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %314 = phi ptr [ %.pre315, %.loopexit.loopexit ], [ %300, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %300, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi310 = phi i64 [ %.pre309, %.loopexit.loopexit ], [ %297, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %297, %.lr.ph.i.i.i.i.i72 ]
-  %315 = phi i64 [ %.pre302, %.loopexit.loopexit ], [ %296, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %296, %.lr.ph.i.i.i.i.i72 ]
+  %314 = phi ptr [ %300, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre315, %.loopexit.loopexit ], [ %300, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi310 = phi i64 [ %297, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre309, %.loopexit.loopexit ], [ %297, %.lr.ph.i.i.i.i.i72 ]
+  %315 = phi i64 [ %296, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre302, %.loopexit.loopexit ], [ %296, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0203)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %314, null
@@ -57230,7 +57230,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %321, %316, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %317, %316 ], [ %331, %.loopexit.i.i90 ], [ %323, %321 ]
+  %.pn.i.i92 = phi ptr [ %331, %.loopexit.i.i90 ], [ %317, %316 ], [ %323, %321 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0203, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0203)
@@ -57287,7 +57287,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %343, %338, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %339, %338 ], [ %353, %.loopexit.i.i101 ], [ %345, %343 ]
+  %.pn.i.i103 = phi ptr [ %353, %.loopexit.i.i101 ], [ %339, %338 ], [ %345, %343 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -57608,9 +57608,9 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit229
 
 .loopexit229:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit229.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %160 = phi ptr [ %.pre288, %.loopexit229.loopexit ], [ %146, %..loopexit_crit_edge21.i.i.i.i.i ], [ %146, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre283, %.loopexit229.loopexit ], [ %143, %..loopexit_crit_edge21.i.i.i.i.i ], [ %143, %.lr.ph.i.i.i.i.i ]
-  %161 = phi i64 [ %.pre, %.loopexit229.loopexit ], [ %142, %..loopexit_crit_edge21.i.i.i.i.i ], [ %142, %.lr.ph.i.i.i.i.i ]
+  %160 = phi ptr [ %146, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre288, %.loopexit229.loopexit ], [ %146, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %143, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre283, %.loopexit229.loopexit ], [ %143, %.lr.ph.i.i.i.i.i ]
+  %161 = phi i64 [ %142, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit229.loopexit ], [ %142, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0205)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %160, null
@@ -57665,7 +57665,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %167, %162, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %163, %162 ], [ %177, %.loopexit.i.i ], [ %169, %167 ]
+  %.pn.i.i = phi ptr [ %177, %.loopexit.i.i ], [ %163, %162 ], [ %169, %167 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0205, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0205)
@@ -57722,7 +57722,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit29: ; preds = %189, %184, %.loopexit.i.i25
-  %.pn.i.i27 = phi ptr [ %185, %184 ], [ %199, %.loopexit.i.i25 ], [ %191, %189 ]
+  %.pn.i.i27 = phi ptr [ %199, %.loopexit.i.i25 ], [ %185, %184 ], [ %191, %189 ]
   %.1.i.i28 = getelementptr inbounds nuw i8, ptr %.pn.i.i27, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -57823,9 +57823,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit226
 
 .loopexit226:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit226.loopexit, %..loopexit_crit_edge21.i.i.i.i.i38
-  %241 = phi ptr [ %.pre290, %.loopexit226.loopexit ], [ %227, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %227, %.lr.ph.i.i.i.i.i34 ]
-  %.pre-phi285 = phi i64 [ %.pre284, %.loopexit226.loopexit ], [ %224, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %224, %.lr.ph.i.i.i.i.i34 ]
-  %242 = phi i64 [ %.pre277, %.loopexit226.loopexit ], [ %223, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %223, %.lr.ph.i.i.i.i.i34 ]
+  %241 = phi ptr [ %227, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre290, %.loopexit226.loopexit ], [ %227, %.lr.ph.i.i.i.i.i34 ]
+  %.pre-phi285 = phi i64 [ %224, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre284, %.loopexit226.loopexit ], [ %224, %.lr.ph.i.i.i.i.i34 ]
+  %242 = phi i64 [ %223, %..loopexit_crit_edge21.i.i.i.i.i38 ], [ %.pre277, %.loopexit226.loopexit ], [ %223, %.lr.ph.i.i.i.i.i34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0200)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i46 = icmp eq ptr %241, null
@@ -57874,7 +57874,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit56: ; preds = %248, %243, %.loopexit.i.i52
-  %.pn.i.i54 = phi ptr [ %244, %243 ], [ %258, %.loopexit.i.i52 ], [ %250, %248 ]
+  %.pn.i.i54 = phi ptr [ %258, %.loopexit.i.i52 ], [ %244, %243 ], [ %250, %248 ]
   %.1.i.i55 = getelementptr inbounds nuw i8, ptr %.pn.i.i54, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0200)
@@ -57931,7 +57931,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit67: ; preds = %270, %265, %.loopexit.i.i63
-  %.pn.i.i65 = phi ptr [ %266, %265 ], [ %280, %.loopexit.i.i63 ], [ %272, %270 ]
+  %.pn.i.i65 = phi ptr [ %280, %.loopexit.i.i63 ], [ %266, %265 ], [ %272, %270 ]
   %.1.i.i66 = getelementptr inbounds nuw i8, ptr %.pn.i.i65, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -58032,9 +58032,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i72, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i76
-  %322 = phi ptr [ %.pre292, %.loopexit.loopexit ], [ %308, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %308, %.lr.ph.i.i.i.i.i72 ]
-  %.pre-phi287 = phi i64 [ %.pre286, %.loopexit.loopexit ], [ %305, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %305, %.lr.ph.i.i.i.i.i72 ]
-  %323 = phi i64 [ %.pre279, %.loopexit.loopexit ], [ %304, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %304, %.lr.ph.i.i.i.i.i72 ]
+  %322 = phi ptr [ %308, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre292, %.loopexit.loopexit ], [ %308, %.lr.ph.i.i.i.i.i72 ]
+  %.pre-phi287 = phi i64 [ %305, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre286, %.loopexit.loopexit ], [ %305, %.lr.ph.i.i.i.i.i72 ]
+  %323 = phi i64 [ %304, %..loopexit_crit_edge21.i.i.i.i.i76 ], [ %.pre279, %.loopexit.loopexit ], [ %304, %.lr.ph.i.i.i.i.i72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0196)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i84 = icmp eq ptr %322, null
@@ -58083,7 +58083,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit94: ; preds = %329, %324, %.loopexit.i.i90
-  %.pn.i.i92 = phi ptr [ %325, %324 ], [ %339, %.loopexit.i.i90 ], [ %331, %329 ]
+  %.pn.i.i92 = phi ptr [ %339, %.loopexit.i.i90 ], [ %325, %324 ], [ %331, %329 ]
   %.1.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i92, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i93, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0196)
@@ -58140,7 +58140,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit105: ; preds = %351, %346, %.loopexit.i.i101
-  %.pn.i.i103 = phi ptr [ %347, %346 ], [ %361, %.loopexit.i.i101 ], [ %353, %351 ]
+  %.pn.i.i103 = phi ptr [ %361, %.loopexit.i.i101 ], [ %347, %346 ], [ %353, %351 ]
   %.1.i.i104 = getelementptr inbounds nuw i8, ptr %.pn.i.i103, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -58382,9 +58382,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit271
 
 .loopexit271:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit271.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %99 = phi ptr [ %.pre330, %.loopexit271.loopexit ], [ %85, %..loopexit_crit_edge21.i.i.i.i.i ], [ %85, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre325, %.loopexit271.loopexit ], [ %82, %..loopexit_crit_edge21.i.i.i.i.i ], [ %82, %.lr.ph.i.i.i.i.i ]
-  %100 = phi i64 [ %.pre, %.loopexit271.loopexit ], [ %81, %..loopexit_crit_edge21.i.i.i.i.i ], [ %81, %.lr.ph.i.i.i.i.i ]
+  %99 = phi ptr [ %85, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre330, %.loopexit271.loopexit ], [ %85, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %82, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre325, %.loopexit271.loopexit ], [ %82, %.lr.ph.i.i.i.i.i ]
+  %100 = phi i64 [ %81, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit271.loopexit ], [ %81, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0228)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %99, null
@@ -58439,7 +58439,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %106, %101, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %102, %101 ], [ %116, %.loopexit.i.i ], [ %108, %106 ]
+  %.pn.i.i = phi ptr [ %116, %.loopexit.i.i ], [ %102, %101 ], [ %108, %106 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0228)
@@ -58496,7 +58496,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit52: ; preds = %128, %123, %.loopexit.i.i48
-  %.pn.i.i50 = phi ptr [ %124, %123 ], [ %138, %.loopexit.i.i48 ], [ %130, %128 ]
+  %.pn.i.i50 = phi ptr [ %138, %.loopexit.i.i48 ], [ %124, %123 ], [ %130, %128 ]
   %.1.i.i51 = getelementptr inbounds nuw i8, ptr %.pn.i.i50, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -58595,9 +58595,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit268
 
 .loopexit268:                                     ; preds = %.lr.ph.i.i.i.i.i57, %.loopexit268.loopexit, %..loopexit_crit_edge21.i.i.i.i.i61
-  %180 = phi ptr [ %.pre332, %.loopexit268.loopexit ], [ %166, %..loopexit_crit_edge21.i.i.i.i.i61 ], [ %166, %.lr.ph.i.i.i.i.i57 ]
-  %.pre-phi327 = phi i64 [ %.pre326, %.loopexit268.loopexit ], [ %163, %..loopexit_crit_edge21.i.i.i.i.i61 ], [ %163, %.lr.ph.i.i.i.i.i57 ]
-  %181 = phi i64 [ %.pre319, %.loopexit268.loopexit ], [ %162, %..loopexit_crit_edge21.i.i.i.i.i61 ], [ %162, %.lr.ph.i.i.i.i.i57 ]
+  %180 = phi ptr [ %166, %..loopexit_crit_edge21.i.i.i.i.i61 ], [ %.pre332, %.loopexit268.loopexit ], [ %166, %.lr.ph.i.i.i.i.i57 ]
+  %.pre-phi327 = phi i64 [ %163, %..loopexit_crit_edge21.i.i.i.i.i61 ], [ %.pre326, %.loopexit268.loopexit ], [ %163, %.lr.ph.i.i.i.i.i57 ]
+  %181 = phi i64 [ %162, %..loopexit_crit_edge21.i.i.i.i.i61 ], [ %.pre319, %.loopexit268.loopexit ], [ %162, %.lr.ph.i.i.i.i.i57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0223)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0223, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i69 = icmp eq ptr %180, null
@@ -58646,7 +58646,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit79: ; preds = %187, %182, %.loopexit.i.i75
-  %.pn.i.i77 = phi ptr [ %183, %182 ], [ %197, %.loopexit.i.i75 ], [ %189, %187 ]
+  %.pn.i.i77 = phi ptr [ %197, %.loopexit.i.i75 ], [ %183, %182 ], [ %189, %187 ]
   %.1.i.i78 = getelementptr inbounds nuw i8, ptr %.pn.i.i77, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i78, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0223, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0223)
@@ -58703,7 +58703,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit90: ; preds = %209, %204, %.loopexit.i.i86
-  %.pn.i.i88 = phi ptr [ %205, %204 ], [ %219, %.loopexit.i.i86 ], [ %211, %209 ]
+  %.pn.i.i88 = phi ptr [ %219, %.loopexit.i.i86 ], [ %205, %204 ], [ %211, %209 ]
   %.1.i.i89 = getelementptr inbounds nuw i8, ptr %.pn.i.i88, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -58802,9 +58802,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i95, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i99
-  %261 = phi ptr [ %.pre334, %.loopexit.loopexit ], [ %247, %..loopexit_crit_edge21.i.i.i.i.i99 ], [ %247, %.lr.ph.i.i.i.i.i95 ]
-  %.pre-phi329 = phi i64 [ %.pre328, %.loopexit.loopexit ], [ %244, %..loopexit_crit_edge21.i.i.i.i.i99 ], [ %244, %.lr.ph.i.i.i.i.i95 ]
-  %262 = phi i64 [ %.pre321, %.loopexit.loopexit ], [ %243, %..loopexit_crit_edge21.i.i.i.i.i99 ], [ %243, %.lr.ph.i.i.i.i.i95 ]
+  %261 = phi ptr [ %247, %..loopexit_crit_edge21.i.i.i.i.i99 ], [ %.pre334, %.loopexit.loopexit ], [ %247, %.lr.ph.i.i.i.i.i95 ]
+  %.pre-phi329 = phi i64 [ %244, %..loopexit_crit_edge21.i.i.i.i.i99 ], [ %.pre328, %.loopexit.loopexit ], [ %244, %.lr.ph.i.i.i.i.i95 ]
+  %262 = phi i64 [ %243, %..loopexit_crit_edge21.i.i.i.i.i99 ], [ %.pre321, %.loopexit.loopexit ], [ %243, %.lr.ph.i.i.i.i.i95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0219)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0219, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i107 = icmp eq ptr %261, null
@@ -58853,7 +58853,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit117: ; preds = %268, %263, %.loopexit.i.i113
-  %.pn.i.i115 = phi ptr [ %264, %263 ], [ %278, %.loopexit.i.i113 ], [ %270, %268 ]
+  %.pn.i.i115 = phi ptr [ %278, %.loopexit.i.i113 ], [ %264, %263 ], [ %270, %268 ]
   %.1.i.i116 = getelementptr inbounds nuw i8, ptr %.pn.i.i115, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i116, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0219, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0219)
@@ -58910,7 +58910,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit128: ; preds = %290, %285, %.loopexit.i.i124
-  %.pn.i.i126 = phi ptr [ %286, %285 ], [ %300, %.loopexit.i.i124 ], [ %292, %290 ]
+  %.pn.i.i126 = phi ptr [ %300, %.loopexit.i.i124 ], [ %286, %285 ], [ %292, %290 ]
   %.1.i.i127 = getelementptr inbounds nuw i8, ptr %.pn.i.i126, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -59171,9 +59171,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit307
 
 .loopexit307:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit307.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %117 = phi ptr [ %.pre366, %.loopexit307.loopexit ], [ %103, %..loopexit_crit_edge21.i.i.i.i.i ], [ %103, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre361, %.loopexit307.loopexit ], [ %100, %..loopexit_crit_edge21.i.i.i.i.i ], [ %100, %.lr.ph.i.i.i.i.i ]
-  %118 = phi i64 [ %.pre, %.loopexit307.loopexit ], [ %99, %..loopexit_crit_edge21.i.i.i.i.i ], [ %99, %.lr.ph.i.i.i.i.i ]
+  %117 = phi ptr [ %103, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre366, %.loopexit307.loopexit ], [ %103, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %100, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre361, %.loopexit307.loopexit ], [ %100, %.lr.ph.i.i.i.i.i ]
+  %118 = phi i64 [ %99, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit307.loopexit ], [ %99, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0254)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0254, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %117, null
@@ -59228,7 +59228,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %124, %119, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %120, %119 ], [ %134, %.loopexit.i.i ], [ %126, %124 ]
+  %.pn.i.i = phi ptr [ %134, %.loopexit.i.i ], [ %120, %119 ], [ %126, %124 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0254, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0254)
@@ -59285,7 +59285,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit71: ; preds = %146, %141, %.loopexit.i.i67
-  %.pn.i.i69 = phi ptr [ %142, %141 ], [ %156, %.loopexit.i.i67 ], [ %148, %146 ]
+  %.pn.i.i69 = phi ptr [ %156, %.loopexit.i.i67 ], [ %142, %141 ], [ %148, %146 ]
   %.1.i.i70 = getelementptr inbounds nuw i8, ptr %.pn.i.i69, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -59384,9 +59384,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit304
 
 .loopexit304:                                     ; preds = %.lr.ph.i.i.i.i.i76, %.loopexit304.loopexit, %..loopexit_crit_edge21.i.i.i.i.i80
-  %198 = phi ptr [ %.pre368, %.loopexit304.loopexit ], [ %184, %..loopexit_crit_edge21.i.i.i.i.i80 ], [ %184, %.lr.ph.i.i.i.i.i76 ]
-  %.pre-phi363 = phi i64 [ %.pre362, %.loopexit304.loopexit ], [ %181, %..loopexit_crit_edge21.i.i.i.i.i80 ], [ %181, %.lr.ph.i.i.i.i.i76 ]
-  %199 = phi i64 [ %.pre355, %.loopexit304.loopexit ], [ %180, %..loopexit_crit_edge21.i.i.i.i.i80 ], [ %180, %.lr.ph.i.i.i.i.i76 ]
+  %198 = phi ptr [ %184, %..loopexit_crit_edge21.i.i.i.i.i80 ], [ %.pre368, %.loopexit304.loopexit ], [ %184, %.lr.ph.i.i.i.i.i76 ]
+  %.pre-phi363 = phi i64 [ %181, %..loopexit_crit_edge21.i.i.i.i.i80 ], [ %.pre362, %.loopexit304.loopexit ], [ %181, %.lr.ph.i.i.i.i.i76 ]
+  %199 = phi i64 [ %180, %..loopexit_crit_edge21.i.i.i.i.i80 ], [ %.pre355, %.loopexit304.loopexit ], [ %180, %.lr.ph.i.i.i.i.i76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0249)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0249, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i88 = icmp eq ptr %198, null
@@ -59435,7 +59435,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit98: ; preds = %205, %200, %.loopexit.i.i94
-  %.pn.i.i96 = phi ptr [ %201, %200 ], [ %215, %.loopexit.i.i94 ], [ %207, %205 ]
+  %.pn.i.i96 = phi ptr [ %215, %.loopexit.i.i94 ], [ %201, %200 ], [ %207, %205 ]
   %.1.i.i97 = getelementptr inbounds nuw i8, ptr %.pn.i.i96, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i97, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0249, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0249)
@@ -59492,7 +59492,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit109: ; preds = %227, %222, %.loopexit.i.i105
-  %.pn.i.i107 = phi ptr [ %223, %222 ], [ %237, %.loopexit.i.i105 ], [ %229, %227 ]
+  %.pn.i.i107 = phi ptr [ %237, %.loopexit.i.i105 ], [ %223, %222 ], [ %229, %227 ]
   %.1.i.i108 = getelementptr inbounds nuw i8, ptr %.pn.i.i107, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -59591,9 +59591,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i114, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i118
-  %279 = phi ptr [ %.pre370, %.loopexit.loopexit ], [ %265, %..loopexit_crit_edge21.i.i.i.i.i118 ], [ %265, %.lr.ph.i.i.i.i.i114 ]
-  %.pre-phi365 = phi i64 [ %.pre364, %.loopexit.loopexit ], [ %262, %..loopexit_crit_edge21.i.i.i.i.i118 ], [ %262, %.lr.ph.i.i.i.i.i114 ]
-  %280 = phi i64 [ %.pre357, %.loopexit.loopexit ], [ %261, %..loopexit_crit_edge21.i.i.i.i.i118 ], [ %261, %.lr.ph.i.i.i.i.i114 ]
+  %279 = phi ptr [ %265, %..loopexit_crit_edge21.i.i.i.i.i118 ], [ %.pre370, %.loopexit.loopexit ], [ %265, %.lr.ph.i.i.i.i.i114 ]
+  %.pre-phi365 = phi i64 [ %262, %..loopexit_crit_edge21.i.i.i.i.i118 ], [ %.pre364, %.loopexit.loopexit ], [ %262, %.lr.ph.i.i.i.i.i114 ]
+  %280 = phi i64 [ %261, %..loopexit_crit_edge21.i.i.i.i.i118 ], [ %.pre357, %.loopexit.loopexit ], [ %261, %.lr.ph.i.i.i.i.i114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0245)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0245, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i126 = icmp eq ptr %279, null
@@ -59642,7 +59642,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit136: ; preds = %286, %281, %.loopexit.i.i132
-  %.pn.i.i134 = phi ptr [ %282, %281 ], [ %296, %.loopexit.i.i132 ], [ %288, %286 ]
+  %.pn.i.i134 = phi ptr [ %296, %.loopexit.i.i132 ], [ %282, %281 ], [ %288, %286 ]
   %.1.i.i135 = getelementptr inbounds nuw i8, ptr %.pn.i.i134, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i135, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0245, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0245)
@@ -59699,7 +59699,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit147: ; preds = %308, %303, %.loopexit.i.i143
-  %.pn.i.i145 = phi ptr [ %304, %303 ], [ %318, %.loopexit.i.i143 ], [ %310, %308 ]
+  %.pn.i.i145 = phi ptr [ %318, %.loopexit.i.i143 ], [ %304, %303 ], [ %310, %308 ]
   %.1.i.i146 = getelementptr inbounds nuw i8, ptr %.pn.i.i145, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -59943,9 +59943,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit292
 
 .loopexit292:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit292.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %108 = phi ptr [ %.pre351, %.loopexit292.loopexit ], [ %94, %..loopexit_crit_edge21.i.i.i.i.i ], [ %94, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre346, %.loopexit292.loopexit ], [ %91, %..loopexit_crit_edge21.i.i.i.i.i ], [ %91, %.lr.ph.i.i.i.i.i ]
-  %109 = phi i64 [ %.pre, %.loopexit292.loopexit ], [ %90, %..loopexit_crit_edge21.i.i.i.i.i ], [ %90, %.lr.ph.i.i.i.i.i ]
+  %108 = phi ptr [ %94, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre351, %.loopexit292.loopexit ], [ %94, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %91, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre346, %.loopexit292.loopexit ], [ %91, %.lr.ph.i.i.i.i.i ]
+  %109 = phi i64 [ %90, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit292.loopexit ], [ %90, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0237)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %108, null
@@ -60000,7 +60000,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %115, %110, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %111, %110 ], [ %125, %.loopexit.i.i ], [ %117, %115 ]
+  %.pn.i.i = phi ptr [ %125, %.loopexit.i.i ], [ %111, %110 ], [ %117, %115 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0237, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0237)
@@ -60057,7 +60057,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit61: ; preds = %137, %132, %.loopexit.i.i57
-  %.pn.i.i59 = phi ptr [ %133, %132 ], [ %147, %.loopexit.i.i57 ], [ %139, %137 ]
+  %.pn.i.i59 = phi ptr [ %147, %.loopexit.i.i57 ], [ %133, %132 ], [ %139, %137 ]
   %.1.i.i60 = getelementptr inbounds nuw i8, ptr %.pn.i.i59, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
@@ -60156,9 +60156,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit289
 
 .loopexit289:                                     ; preds = %.lr.ph.i.i.i.i.i66, %.loopexit289.loopexit, %..loopexit_crit_edge21.i.i.i.i.i70
-  %189 = phi ptr [ %.pre353, %.loopexit289.loopexit ], [ %175, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %175, %.lr.ph.i.i.i.i.i66 ]
-  %.pre-phi348 = phi i64 [ %.pre347, %.loopexit289.loopexit ], [ %172, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %172, %.lr.ph.i.i.i.i.i66 ]
-  %190 = phi i64 [ %.pre340, %.loopexit289.loopexit ], [ %171, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %171, %.lr.ph.i.i.i.i.i66 ]
+  %189 = phi ptr [ %175, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre353, %.loopexit289.loopexit ], [ %175, %.lr.ph.i.i.i.i.i66 ]
+  %.pre-phi348 = phi i64 [ %172, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre347, %.loopexit289.loopexit ], [ %172, %.lr.ph.i.i.i.i.i66 ]
+  %190 = phi i64 [ %171, %..loopexit_crit_edge21.i.i.i.i.i70 ], [ %.pre340, %.loopexit289.loopexit ], [ %171, %.lr.ph.i.i.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i78 = icmp eq ptr %189, null
@@ -60207,7 +60207,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit88: ; preds = %196, %191, %.loopexit.i.i84
-  %.pn.i.i86 = phi ptr [ %192, %191 ], [ %206, %.loopexit.i.i84 ], [ %198, %196 ]
+  %.pn.i.i86 = phi ptr [ %206, %.loopexit.i.i84 ], [ %192, %191 ], [ %198, %196 ]
   %.1.i.i87 = getelementptr inbounds nuw i8, ptr %.pn.i.i86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0232, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0232)
@@ -60264,7 +60264,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit99: ; preds = %218, %213, %.loopexit.i.i95
-  %.pn.i.i97 = phi ptr [ %214, %213 ], [ %228, %.loopexit.i.i95 ], [ %220, %218 ]
+  %.pn.i.i97 = phi ptr [ %228, %.loopexit.i.i95 ], [ %214, %213 ], [ %220, %218 ]
   %.1.i.i98 = getelementptr inbounds nuw i8, ptr %.pn.i.i97, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
@@ -60363,9 +60363,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i104, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i108
-  %270 = phi ptr [ %.pre355, %.loopexit.loopexit ], [ %256, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %256, %.lr.ph.i.i.i.i.i104 ]
-  %.pre-phi350 = phi i64 [ %.pre349, %.loopexit.loopexit ], [ %253, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %253, %.lr.ph.i.i.i.i.i104 ]
-  %271 = phi i64 [ %.pre342, %.loopexit.loopexit ], [ %252, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %252, %.lr.ph.i.i.i.i.i104 ]
+  %270 = phi ptr [ %256, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre355, %.loopexit.loopexit ], [ %256, %.lr.ph.i.i.i.i.i104 ]
+  %.pre-phi350 = phi i64 [ %253, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre349, %.loopexit.loopexit ], [ %253, %.lr.ph.i.i.i.i.i104 ]
+  %271 = phi i64 [ %252, %..loopexit_crit_edge21.i.i.i.i.i108 ], [ %.pre342, %.loopexit.loopexit ], [ %252, %.lr.ph.i.i.i.i.i104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0228)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i116 = icmp eq ptr %270, null
@@ -60414,7 +60414,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit126: ; preds = %277, %272, %.loopexit.i.i122
-  %.pn.i.i124 = phi ptr [ %273, %272 ], [ %287, %.loopexit.i.i122 ], [ %279, %277 ]
+  %.pn.i.i124 = phi ptr [ %287, %.loopexit.i.i122 ], [ %273, %272 ], [ %279, %277 ]
   %.1.i.i125 = getelementptr inbounds nuw i8, ptr %.pn.i.i124, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0228, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0228)
@@ -60471,7 +60471,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit137: ; preds = %299, %294, %.loopexit.i.i133
-  %.pn.i.i135 = phi ptr [ %295, %294 ], [ %309, %.loopexit.i.i133 ], [ %301, %299 ]
+  %.pn.i.i135 = phi ptr [ %309, %.loopexit.i.i133 ], [ %295, %294 ], [ %301, %299 ]
   %.1.i.i136 = getelementptr inbounds nuw i8, ptr %.pn.i.i135, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
@@ -60824,9 +60824,9 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit313
 
 .loopexit313:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit313.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %184 = phi ptr [ %.pre391, %.loopexit313.loopexit ], [ %170, %..loopexit_crit_edge21.i.i.i.i.i ], [ %170, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre384, %.loopexit313.loopexit ], [ %167, %..loopexit_crit_edge21.i.i.i.i.i ], [ %167, %.lr.ph.i.i.i.i.i ]
-  %185 = phi i64 [ %.pre, %.loopexit313.loopexit ], [ %166, %..loopexit_crit_edge21.i.i.i.i.i ], [ %166, %.lr.ph.i.i.i.i.i ]
+  %184 = phi ptr [ %170, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre391, %.loopexit313.loopexit ], [ %170, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %167, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre384, %.loopexit313.loopexit ], [ %167, %.lr.ph.i.i.i.i.i ]
+  %185 = phi i64 [ %166, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit313.loopexit ], [ %166, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0288)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %184, null
@@ -60881,7 +60881,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %191, %186, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %187, %186 ], [ %201, %.loopexit.i.i ], [ %193, %191 ]
+  %.pn.i.i = phi ptr [ %201, %.loopexit.i.i ], [ %187, %186 ], [ %193, %191 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0288)
@@ -60938,7 +60938,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35: ; preds = %213, %208, %.loopexit.i.i31
-  %.pn.i.i33 = phi ptr [ %209, %208 ], [ %223, %.loopexit.i.i31 ], [ %215, %213 ]
+  %.pn.i.i33 = phi ptr [ %223, %.loopexit.i.i31 ], [ %209, %208 ], [ %215, %213 ]
   %.1.i.i34 = getelementptr inbounds nuw i8, ptr %.pn.i.i33, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -61039,9 +61039,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit310
 
 .loopexit310:                                     ; preds = %.lr.ph.i.i.i.i.i40, %.loopexit310.loopexit, %..loopexit_crit_edge21.i.i.i.i.i44
-  %265 = phi ptr [ %.pre393, %.loopexit310.loopexit ], [ %251, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %251, %.lr.ph.i.i.i.i.i40 ]
-  %.pre-phi386 = phi i64 [ %.pre385, %.loopexit310.loopexit ], [ %248, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %248, %.lr.ph.i.i.i.i.i40 ]
-  %266 = phi i64 [ %.pre376, %.loopexit310.loopexit ], [ %247, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %247, %.lr.ph.i.i.i.i.i40 ]
+  %265 = phi ptr [ %251, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre393, %.loopexit310.loopexit ], [ %251, %.lr.ph.i.i.i.i.i40 ]
+  %.pre-phi386 = phi i64 [ %248, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre385, %.loopexit310.loopexit ], [ %248, %.lr.ph.i.i.i.i.i40 ]
+  %266 = phi i64 [ %247, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre376, %.loopexit310.loopexit ], [ %247, %.lr.ph.i.i.i.i.i40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0283)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i52 = icmp eq ptr %265, null
@@ -61090,7 +61090,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62: ; preds = %272, %267, %.loopexit.i.i58
-  %.pn.i.i60 = phi ptr [ %268, %267 ], [ %282, %.loopexit.i.i58 ], [ %274, %272 ]
+  %.pn.i.i60 = phi ptr [ %282, %.loopexit.i.i58 ], [ %268, %267 ], [ %274, %272 ]
   %.1.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i.i60, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i61, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0283)
@@ -61147,7 +61147,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73: ; preds = %294, %289, %.loopexit.i.i69
-  %.pn.i.i71 = phi ptr [ %290, %289 ], [ %304, %.loopexit.i.i69 ], [ %296, %294 ]
+  %.pn.i.i71 = phi ptr [ %304, %.loopexit.i.i69 ], [ %290, %289 ], [ %296, %294 ]
   %.1.i.i72 = getelementptr inbounds nuw i8, ptr %.pn.i.i71, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -61248,9 +61248,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit307
 
 .loopexit307:                                     ; preds = %.lr.ph.i.i.i.i.i78, %.loopexit307.loopexit, %..loopexit_crit_edge21.i.i.i.i.i82
-  %346 = phi ptr [ %.pre395, %.loopexit307.loopexit ], [ %332, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %332, %.lr.ph.i.i.i.i.i78 ]
-  %.pre-phi388 = phi i64 [ %.pre387, %.loopexit307.loopexit ], [ %329, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %329, %.lr.ph.i.i.i.i.i78 ]
-  %347 = phi i64 [ %.pre378, %.loopexit307.loopexit ], [ %328, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %328, %.lr.ph.i.i.i.i.i78 ]
+  %346 = phi ptr [ %332, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre395, %.loopexit307.loopexit ], [ %332, %.lr.ph.i.i.i.i.i78 ]
+  %.pre-phi388 = phi i64 [ %329, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre387, %.loopexit307.loopexit ], [ %329, %.lr.ph.i.i.i.i.i78 ]
+  %347 = phi i64 [ %328, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre378, %.loopexit307.loopexit ], [ %328, %.lr.ph.i.i.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0278)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i90 = icmp eq ptr %346, null
@@ -61299,7 +61299,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100: ; preds = %353, %348, %.loopexit.i.i96
-  %.pn.i.i98 = phi ptr [ %349, %348 ], [ %363, %.loopexit.i.i96 ], [ %355, %353 ]
+  %.pn.i.i98 = phi ptr [ %363, %.loopexit.i.i96 ], [ %349, %348 ], [ %355, %353 ]
   %.1.i.i99 = getelementptr inbounds nuw i8, ptr %.pn.i.i98, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i99, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0278)
@@ -61356,7 +61356,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111: ; preds = %375, %370, %.loopexit.i.i107
-  %.pn.i.i109 = phi ptr [ %371, %370 ], [ %385, %.loopexit.i.i107 ], [ %377, %375 ]
+  %.pn.i.i109 = phi ptr [ %385, %.loopexit.i.i107 ], [ %371, %370 ], [ %377, %375 ]
   %.1.i.i110 = getelementptr inbounds nuw i8, ptr %.pn.i.i109, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -61457,9 +61457,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i116, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i120
-  %427 = phi ptr [ %.pre397, %.loopexit.loopexit ], [ %413, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %413, %.lr.ph.i.i.i.i.i116 ]
-  %.pre-phi390 = phi i64 [ %.pre389, %.loopexit.loopexit ], [ %410, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %410, %.lr.ph.i.i.i.i.i116 ]
-  %428 = phi i64 [ %.pre380, %.loopexit.loopexit ], [ %409, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %409, %.lr.ph.i.i.i.i.i116 ]
+  %427 = phi ptr [ %413, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre397, %.loopexit.loopexit ], [ %413, %.lr.ph.i.i.i.i.i116 ]
+  %.pre-phi390 = phi i64 [ %410, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre389, %.loopexit.loopexit ], [ %410, %.lr.ph.i.i.i.i.i116 ]
+  %428 = phi i64 [ %409, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre380, %.loopexit.loopexit ], [ %409, %.lr.ph.i.i.i.i.i116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0274)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i128 = icmp eq ptr %427, null
@@ -61508,7 +61508,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138: ; preds = %434, %429, %.loopexit.i.i134
-  %.pn.i.i136 = phi ptr [ %430, %429 ], [ %444, %.loopexit.i.i134 ], [ %436, %434 ]
+  %.pn.i.i136 = phi ptr [ %444, %.loopexit.i.i134 ], [ %430, %429 ], [ %436, %434 ]
   %.1.i.i137 = getelementptr inbounds nuw i8, ptr %.pn.i.i136, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i137, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0274)
@@ -61565,7 +61565,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149: ; preds = %456, %451, %.loopexit.i.i145
-  %.pn.i.i147 = phi ptr [ %452, %451 ], [ %466, %.loopexit.i.i145 ], [ %458, %456 ]
+  %.pn.i.i147 = phi ptr [ %466, %.loopexit.i.i145 ], [ %452, %451 ], [ %458, %456 ]
   %.1.i.i148 = getelementptr inbounds nuw i8, ptr %.pn.i.i147, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -61934,9 +61934,9 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit313
 
 .loopexit313:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit313.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %190 = phi ptr [ %.pre391, %.loopexit313.loopexit ], [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %176, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre384, %.loopexit313.loopexit ], [ %173, %..loopexit_crit_edge21.i.i.i.i.i ], [ %173, %.lr.ph.i.i.i.i.i ]
-  %191 = phi i64 [ %.pre, %.loopexit313.loopexit ], [ %172, %..loopexit_crit_edge21.i.i.i.i.i ], [ %172, %.lr.ph.i.i.i.i.i ]
+  %190 = phi ptr [ %176, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre391, %.loopexit313.loopexit ], [ %176, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %173, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre384, %.loopexit313.loopexit ], [ %173, %.lr.ph.i.i.i.i.i ]
+  %191 = phi i64 [ %172, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit313.loopexit ], [ %172, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0288)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %190, null
@@ -61991,7 +61991,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %197, %192, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %193, %192 ], [ %207, %.loopexit.i.i ], [ %199, %197 ]
+  %.pn.i.i = phi ptr [ %207, %.loopexit.i.i ], [ %193, %192 ], [ %199, %197 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0288, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0288)
@@ -62048,7 +62048,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35: ; preds = %219, %214, %.loopexit.i.i31
-  %.pn.i.i33 = phi ptr [ %215, %214 ], [ %229, %.loopexit.i.i31 ], [ %221, %219 ]
+  %.pn.i.i33 = phi ptr [ %229, %.loopexit.i.i31 ], [ %215, %214 ], [ %221, %219 ]
   %.1.i.i34 = getelementptr inbounds nuw i8, ptr %.pn.i.i33, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -62149,9 +62149,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit310
 
 .loopexit310:                                     ; preds = %.lr.ph.i.i.i.i.i40, %.loopexit310.loopexit, %..loopexit_crit_edge21.i.i.i.i.i44
-  %271 = phi ptr [ %.pre393, %.loopexit310.loopexit ], [ %257, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %257, %.lr.ph.i.i.i.i.i40 ]
-  %.pre-phi386 = phi i64 [ %.pre385, %.loopexit310.loopexit ], [ %254, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %254, %.lr.ph.i.i.i.i.i40 ]
-  %272 = phi i64 [ %.pre376, %.loopexit310.loopexit ], [ %253, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %253, %.lr.ph.i.i.i.i.i40 ]
+  %271 = phi ptr [ %257, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre393, %.loopexit310.loopexit ], [ %257, %.lr.ph.i.i.i.i.i40 ]
+  %.pre-phi386 = phi i64 [ %254, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre385, %.loopexit310.loopexit ], [ %254, %.lr.ph.i.i.i.i.i40 ]
+  %272 = phi i64 [ %253, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre376, %.loopexit310.loopexit ], [ %253, %.lr.ph.i.i.i.i.i40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0283)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i52 = icmp eq ptr %271, null
@@ -62200,7 +62200,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62: ; preds = %278, %273, %.loopexit.i.i58
-  %.pn.i.i60 = phi ptr [ %274, %273 ], [ %288, %.loopexit.i.i58 ], [ %280, %278 ]
+  %.pn.i.i60 = phi ptr [ %288, %.loopexit.i.i58 ], [ %274, %273 ], [ %280, %278 ]
   %.1.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i.i60, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i61, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0283, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0283)
@@ -62257,7 +62257,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73: ; preds = %300, %295, %.loopexit.i.i69
-  %.pn.i.i71 = phi ptr [ %296, %295 ], [ %310, %.loopexit.i.i69 ], [ %302, %300 ]
+  %.pn.i.i71 = phi ptr [ %310, %.loopexit.i.i69 ], [ %296, %295 ], [ %302, %300 ]
   %.1.i.i72 = getelementptr inbounds nuw i8, ptr %.pn.i.i71, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -62358,9 +62358,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit307
 
 .loopexit307:                                     ; preds = %.lr.ph.i.i.i.i.i78, %.loopexit307.loopexit, %..loopexit_crit_edge21.i.i.i.i.i82
-  %352 = phi ptr [ %.pre395, %.loopexit307.loopexit ], [ %338, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %338, %.lr.ph.i.i.i.i.i78 ]
-  %.pre-phi388 = phi i64 [ %.pre387, %.loopexit307.loopexit ], [ %335, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %335, %.lr.ph.i.i.i.i.i78 ]
-  %353 = phi i64 [ %.pre378, %.loopexit307.loopexit ], [ %334, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %334, %.lr.ph.i.i.i.i.i78 ]
+  %352 = phi ptr [ %338, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre395, %.loopexit307.loopexit ], [ %338, %.lr.ph.i.i.i.i.i78 ]
+  %.pre-phi388 = phi i64 [ %335, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre387, %.loopexit307.loopexit ], [ %335, %.lr.ph.i.i.i.i.i78 ]
+  %353 = phi i64 [ %334, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre378, %.loopexit307.loopexit ], [ %334, %.lr.ph.i.i.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0278)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i90 = icmp eq ptr %352, null
@@ -62409,7 +62409,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100: ; preds = %359, %354, %.loopexit.i.i96
-  %.pn.i.i98 = phi ptr [ %355, %354 ], [ %369, %.loopexit.i.i96 ], [ %361, %359 ]
+  %.pn.i.i98 = phi ptr [ %369, %.loopexit.i.i96 ], [ %355, %354 ], [ %361, %359 ]
   %.1.i.i99 = getelementptr inbounds nuw i8, ptr %.pn.i.i98, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i99, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0278, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0278)
@@ -62466,7 +62466,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111: ; preds = %381, %376, %.loopexit.i.i107
-  %.pn.i.i109 = phi ptr [ %377, %376 ], [ %391, %.loopexit.i.i107 ], [ %383, %381 ]
+  %.pn.i.i109 = phi ptr [ %391, %.loopexit.i.i107 ], [ %377, %376 ], [ %383, %381 ]
   %.1.i.i110 = getelementptr inbounds nuw i8, ptr %.pn.i.i109, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -62567,9 +62567,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i116, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i120
-  %433 = phi ptr [ %.pre397, %.loopexit.loopexit ], [ %419, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %419, %.lr.ph.i.i.i.i.i116 ]
-  %.pre-phi390 = phi i64 [ %.pre389, %.loopexit.loopexit ], [ %416, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %416, %.lr.ph.i.i.i.i.i116 ]
-  %434 = phi i64 [ %.pre380, %.loopexit.loopexit ], [ %415, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %415, %.lr.ph.i.i.i.i.i116 ]
+  %433 = phi ptr [ %419, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre397, %.loopexit.loopexit ], [ %419, %.lr.ph.i.i.i.i.i116 ]
+  %.pre-phi390 = phi i64 [ %416, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre389, %.loopexit.loopexit ], [ %416, %.lr.ph.i.i.i.i.i116 ]
+  %434 = phi i64 [ %415, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre380, %.loopexit.loopexit ], [ %415, %.lr.ph.i.i.i.i.i116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0274)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i128 = icmp eq ptr %433, null
@@ -62618,7 +62618,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138: ; preds = %440, %435, %.loopexit.i.i134
-  %.pn.i.i136 = phi ptr [ %436, %435 ], [ %450, %.loopexit.i.i134 ], [ %442, %440 ]
+  %.pn.i.i136 = phi ptr [ %450, %.loopexit.i.i134 ], [ %436, %435 ], [ %442, %440 ]
   %.1.i.i137 = getelementptr inbounds nuw i8, ptr %.pn.i.i136, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i137, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0274)
@@ -62675,7 +62675,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149: ; preds = %462, %457, %.loopexit.i.i145
-  %.pn.i.i147 = phi ptr [ %458, %457 ], [ %472, %.loopexit.i.i145 ], [ %464, %462 ]
+  %.pn.i.i147 = phi ptr [ %472, %.loopexit.i.i145 ], [ %458, %457 ], [ %464, %462 ]
   %.1.i.i148 = getelementptr inbounds nuw i8, ptr %.pn.i.i147, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
@@ -63048,9 +63048,9 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit311
 
 .loopexit311:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit311.loopexit, %..loopexit_crit_edge21.i.i.i.i.i
-  %192 = phi ptr [ %.pre409, %.loopexit311.loopexit ], [ %178, %..loopexit_crit_edge21.i.i.i.i.i ], [ %178, %.lr.ph.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre402, %.loopexit311.loopexit ], [ %175, %..loopexit_crit_edge21.i.i.i.i.i ], [ %175, %.lr.ph.i.i.i.i.i ]
-  %193 = phi i64 [ %.pre, %.loopexit311.loopexit ], [ %174, %..loopexit_crit_edge21.i.i.i.i.i ], [ %174, %.lr.ph.i.i.i.i.i ]
+  %192 = phi ptr [ %178, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre409, %.loopexit311.loopexit ], [ %178, %.lr.ph.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %175, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre402, %.loopexit311.loopexit ], [ %175, %.lr.ph.i.i.i.i.i ]
+  %193 = phi i64 [ %174, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %.loopexit311.loopexit ], [ %174, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0286)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0286, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i = icmp eq ptr %192, null
@@ -63105,7 +63105,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %199, %194, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %195, %194 ], [ %209, %.loopexit.i.i ], [ %201, %199 ]
+  %.pn.i.i = phi ptr [ %209, %.loopexit.i.i ], [ %195, %194 ], [ %201, %199 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0286, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0286)
@@ -63162,7 +63162,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit35: ; preds = %221, %216, %.loopexit.i.i31
-  %.pn.i.i33 = phi ptr [ %217, %216 ], [ %231, %.loopexit.i.i31 ], [ %223, %221 ]
+  %.pn.i.i33 = phi ptr [ %231, %.loopexit.i.i31 ], [ %217, %216 ], [ %223, %221 ]
   %.1.i.i34 = getelementptr inbounds nuw i8, ptr %.pn.i.i33, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
@@ -63263,9 +63263,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit308
 
 .loopexit308:                                     ; preds = %.lr.ph.i.i.i.i.i40, %.loopexit308.loopexit, %..loopexit_crit_edge21.i.i.i.i.i44
-  %273 = phi ptr [ %.pre411, %.loopexit308.loopexit ], [ %259, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %259, %.lr.ph.i.i.i.i.i40 ]
-  %.pre-phi404 = phi i64 [ %.pre403, %.loopexit308.loopexit ], [ %256, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %256, %.lr.ph.i.i.i.i.i40 ]
-  %274 = phi i64 [ %.pre394, %.loopexit308.loopexit ], [ %255, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %255, %.lr.ph.i.i.i.i.i40 ]
+  %273 = phi ptr [ %259, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre411, %.loopexit308.loopexit ], [ %259, %.lr.ph.i.i.i.i.i40 ]
+  %.pre-phi404 = phi i64 [ %256, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre403, %.loopexit308.loopexit ], [ %256, %.lr.ph.i.i.i.i.i40 ]
+  %274 = phi i64 [ %255, %..loopexit_crit_edge21.i.i.i.i.i44 ], [ %.pre394, %.loopexit308.loopexit ], [ %255, %.lr.ph.i.i.i.i.i40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0281)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0281, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i52 = icmp eq ptr %273, null
@@ -63314,7 +63314,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit62: ; preds = %280, %275, %.loopexit.i.i58
-  %.pn.i.i60 = phi ptr [ %276, %275 ], [ %290, %.loopexit.i.i58 ], [ %282, %280 ]
+  %.pn.i.i60 = phi ptr [ %290, %.loopexit.i.i58 ], [ %276, %275 ], [ %282, %280 ]
   %.1.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i.i60, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i61, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0281, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0281)
@@ -63371,7 +63371,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit73: ; preds = %302, %297, %.loopexit.i.i69
-  %.pn.i.i71 = phi ptr [ %298, %297 ], [ %312, %.loopexit.i.i69 ], [ %304, %302 ]
+  %.pn.i.i71 = phi ptr [ %312, %.loopexit.i.i69 ], [ %298, %297 ], [ %304, %302 ]
   %.1.i.i72 = getelementptr inbounds nuw i8, ptr %.pn.i.i71, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
@@ -63472,9 +63472,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit305
 
 .loopexit305:                                     ; preds = %.lr.ph.i.i.i.i.i78, %.loopexit305.loopexit, %..loopexit_crit_edge21.i.i.i.i.i82
-  %354 = phi ptr [ %.pre413, %.loopexit305.loopexit ], [ %340, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %340, %.lr.ph.i.i.i.i.i78 ]
-  %.pre-phi406 = phi i64 [ %.pre405, %.loopexit305.loopexit ], [ %337, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %337, %.lr.ph.i.i.i.i.i78 ]
-  %355 = phi i64 [ %.pre396, %.loopexit305.loopexit ], [ %336, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %336, %.lr.ph.i.i.i.i.i78 ]
+  %354 = phi ptr [ %340, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre413, %.loopexit305.loopexit ], [ %340, %.lr.ph.i.i.i.i.i78 ]
+  %.pre-phi406 = phi i64 [ %337, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre405, %.loopexit305.loopexit ], [ %337, %.lr.ph.i.i.i.i.i78 ]
+  %355 = phi i64 [ %336, %..loopexit_crit_edge21.i.i.i.i.i82 ], [ %.pre396, %.loopexit305.loopexit ], [ %336, %.lr.ph.i.i.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0276)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0276, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i90 = icmp eq ptr %354, null
@@ -63523,7 +63523,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit100: ; preds = %361, %356, %.loopexit.i.i96
-  %.pn.i.i98 = phi ptr [ %357, %356 ], [ %371, %.loopexit.i.i96 ], [ %363, %361 ]
+  %.pn.i.i98 = phi ptr [ %371, %.loopexit.i.i96 ], [ %357, %356 ], [ %363, %361 ]
   %.1.i.i99 = getelementptr inbounds nuw i8, ptr %.pn.i.i98, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i99, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0276, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0276)
@@ -63580,7 +63580,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit111: ; preds = %383, %378, %.loopexit.i.i107
-  %.pn.i.i109 = phi ptr [ %379, %378 ], [ %393, %.loopexit.i.i107 ], [ %385, %383 ]
+  %.pn.i.i109 = phi ptr [ %393, %.loopexit.i.i107 ], [ %379, %378 ], [ %385, %383 ]
   %.1.i.i110 = getelementptr inbounds nuw i8, ptr %.pn.i.i109, i64 12
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
@@ -63681,9 +63681,9 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i116, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i.i120
-  %435 = phi ptr [ %.pre415, %.loopexit.loopexit ], [ %421, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %421, %.lr.ph.i.i.i.i.i116 ]
-  %.pre-phi408 = phi i64 [ %.pre407, %.loopexit.loopexit ], [ %418, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %418, %.lr.ph.i.i.i.i.i116 ]
-  %436 = phi i64 [ %.pre398, %.loopexit.loopexit ], [ %417, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %417, %.lr.ph.i.i.i.i.i116 ]
+  %435 = phi ptr [ %421, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre415, %.loopexit.loopexit ], [ %421, %.lr.ph.i.i.i.i.i116 ]
+  %.pre-phi408 = phi i64 [ %418, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre407, %.loopexit.loopexit ], [ %418, %.lr.ph.i.i.i.i.i116 ]
+  %436 = phi i64 [ %417, %..loopexit_crit_edge21.i.i.i.i.i120 ], [ %.pre398, %.loopexit.loopexit ], [ %417, %.lr.ph.i.i.i.i.i116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0272)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0272, i8 0, i64 12, i1 false), !tbaa !172
   %.not.i.i.i.i128 = icmp eq ptr %435, null
@@ -63732,7 +63732,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit138: ; preds = %442, %437, %.loopexit.i.i134
-  %.pn.i.i136 = phi ptr [ %438, %437 ], [ %452, %.loopexit.i.i134 ], [ %444, %442 ]
+  %.pn.i.i136 = phi ptr [ %452, %.loopexit.i.i134 ], [ %438, %437 ], [ %444, %442 ]
   %.1.i.i137 = getelementptr inbounds nuw i8, ptr %.pn.i.i136, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1.i.i137, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0272, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0272)
@@ -63789,7 +63789,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br label %common.resume
 
 _ZNSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit149: ; preds = %464, %459, %.loopexit.i.i145
-  %.pn.i.i147 = phi ptr [ %460, %459 ], [ %474, %.loopexit.i.i145 ], [ %466, %464 ]
+  %.pn.i.i147 = phi ptr [ %474, %.loopexit.i.i145 ], [ %460, %459 ], [ %466, %464 ]
   %.1.i.i148 = getelementptr inbounds nuw i8, ptr %.pn.i.i147, i64 12
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 

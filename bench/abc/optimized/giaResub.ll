@@ -3714,7 +3714,7 @@ Abc_TtAndCompl.exit:                              ; preds = %.lr.ph.i142, %.lr.p
   br i1 %.not33.i170, label %193, label %Abc_TtIntersectOne.exit
 
 Abc_TtIntersectOne.exit:                          ; preds = %.lr.ph41.i, %.lr.ph.i150, %175, %.lr.ph41.i159, %.lr.ph.i168, %193
-  %.086 = phi i32 [ 1, %175 ], [ 0, %.lr.ph.i168 ], [ 0, %.lr.ph41.i159 ], [ 1, %193 ], [ 0, %.lr.ph.i150 ], [ 0, %.lr.ph41.i ]
+  %.086 = phi i32 [ 0, %.lr.ph.i150 ], [ 0, %.lr.ph41.i159 ], [ 0, %.lr.ph.i168 ], [ 1, %193 ], [ 1, %175 ], [ 0, %.lr.ph41.i ]
   %.not103 = icmp eq ptr %1, null
   br i1 %.not103, label %Abc_TtIsConst0.exit, label %200
 
@@ -3758,7 +3758,7 @@ Abc_TtIntersectOne.exit:                          ; preds = %.lr.ph41.i, %.lr.ph
   br i1 %exitcond25.not.i, label %Abc_TtIsConst0.exit, label %.lr.ph18.i, !llvm.loop !95
 
 Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i126, %31, %.lr.ph.i, %22, %.lr.ph.i177, %.lr.ph18.i, %164, %182, %27, %18, %.preheader.i181, %.preheader14.i, %Abc_TtFill.exit, %Abc_TtClear.exit, %Abc_TtIntersectOne.exit, %2
-  %.0 = phi i32 [ -1, %2 ], [ %.086, %Abc_TtIntersectOne.exit ], [ 1, %18 ], [ 1, %Abc_TtClear.exit ], [ 1, %Abc_TtFill.exit ], [ 1, %27 ], [ %.086, %.preheader14.i ], [ %.086, %.preheader.i181 ], [ 1, %164 ], [ 1, %182 ], [ 1, %22 ], [ %.086, %.lr.ph18.i ], [ %.086, %.lr.ph.i177 ], [ 0, %.lr.ph.i ], [ 1, %31 ], [ 0, %.lr.ph.i126 ]
+  %.0 = phi i32 [ -1, %2 ], [ %.086, %Abc_TtIntersectOne.exit ], [ 1, %27 ], [ 1, %18 ], [ 1, %Abc_TtClear.exit ], [ %.086, %.lr.ph18.i ], [ 1, %164 ], [ 1, %Abc_TtFill.exit ], [ %.086, %.preheader.i181 ], [ 1, %182 ], [ %.086, %.preheader14.i ], [ 0, %.lr.ph.i ], [ %.086, %.lr.ph.i177 ], [ 1, %22 ], [ 0, %.lr.ph.i126 ], [ 1, %31 ]
   ret i32 %.0
 }
 
@@ -6067,7 +6067,7 @@ Vec_IntFind.exit:                                 ; preds = %128, %120, %._crit_
   br i1 %166, label %159, label %.critedge8, !llvm.loop !131
 
 .critedge8:                                       ; preds = %159, %.critedge6, %Vec_IntFind.exit, %142
-  %.0 = phi i32 [ %146, %142 ], [ 0, %Vec_IntFind.exit ], [ %157, %.critedge6 ], [ %157, %159 ]
+  %.0 = phi i32 [ 0, %Vec_IntFind.exit ], [ %146, %142 ], [ %157, %.critedge6 ], [ %157, %159 ]
   %167 = and i32 %136, 1
   %168 = xor i32 %.0, %167
   br label %.sink.split
@@ -8188,7 +8188,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %.not.i.i52, label %103, label %.loopexit
 
 Gia_ManDivCover.exit.thread68:                    ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %103, %93, %72, %83
-  %.04483.in = phi i64 [ %indvars.iv143, %.preheader.i.i.us ], [ %indvars.iv143, %83 ], [ %indvars.iv143, %72 ], [ %indvars.iv, %93 ], [ %indvars.iv, %103 ], [ %indvars.iv143, %.preheader85.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
+  %.04483.in = phi i64 [ %indvars.iv143, %83 ], [ %indvars.iv, %103 ], [ %indvars.iv143, %72 ], [ %indvars.iv143, %.preheader.i.i.us ], [ %indvars.iv, %93 ], [ %indvars.iv143, %.preheader85.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
   %.04483 = trunc i64 %.04483.in to i32
   %112 = shl i32 %.04483, 17
   %113 = shl i32 %.fr109, 1
@@ -8478,7 +8478,7 @@ Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %
   br i1 %.not.i.i55, label %98, label %Gia_ManDivCover.exit
 
 .thread68:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %98, %88, %68, %79
-  %.04783.in = phi i64 [ %indvars.iv149209, %.preheader.i.i.us ], [ %indvars.iv149209, %79 ], [ %indvars.iv149209, %68 ], [ %indvars.iv146206, %88 ], [ %indvars.iv146206, %98 ], [ %indvars.iv149209, %.preheader85.i.i.us ], [ %indvars.iv146206, %.preheader88.i.i ], [ %indvars.iv146206, %.preheader91.i.i ]
+  %.04783.in = phi i64 [ %indvars.iv149209, %79 ], [ %indvars.iv146206, %98 ], [ %indvars.iv149209, %68 ], [ %indvars.iv149209, %.preheader.i.i.us ], [ %indvars.iv146206, %88 ], [ %indvars.iv149209, %.preheader85.i.i.us ], [ %indvars.iv146206, %.preheader88.i.i ], [ %indvars.iv146206, %.preheader91.i.i ]
   %.04783 = trunc i64 %.04783.in to i32
   %.048111138 = trunc i64 %indvars.iv152 to i32
   %107 = shl i32 %.04783, 17
@@ -8495,7 +8495,7 @@ Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %112, label %.critedge2, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %Gia_ManDivCover.exit, %.critedge2, %Gia_ManDivCover.exit.us, %.critedge2.us, %.critedge2.preheader, %.critedge2.us.preheader, %44
-  %.val50 = phi i32 [ %.val91, %44 ], [ %.val91, %.critedge2.us.preheader ], [ %.val91, %.critedge2.preheader ], [ %.val.us, %Gia_ManDivCover.exit.us ], [ %.val.us, %.critedge2.us ], [ %.val, %.critedge2 ], [ %.val, %Gia_ManDivCover.exit ]
+  %.val50 = phi i32 [ %.val.us, %Gia_ManDivCover.exit.us ], [ %.val91, %44 ], [ %.val91, %.critedge2.us.preheader ], [ %.val91, %.critedge2.preheader ], [ %.val.us, %.critedge2.us ], [ %.val, %.critedge2 ], [ %.val, %Gia_ManDivCover.exit ]
   %113 = sext i32 %.val50 to i64
   %114 = icmp slt i64 %indvars.iv.next153, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9406,7 +9406,7 @@ Abc_TtCountOnes2.exit24.i:                        ; preds = %215, %.lr.ph31.i
   br i1 %exitcond40.not.i, label %Abc_TtCountOnesVecMask2.exit, label %.lr.ph31.i, !llvm.loop !174
 
 Abc_TtCountOnesVecMask2.exit:                     ; preds = %Abc_TtCountOnes2.exit.i68, %Abc_TtCountOnes2.exit24.i, %Abc_TtCountOnes2.exit56.i, %Abc_TtCountOnes2.exit60.i, %Abc_TtCountOnes2.exit58.i, %Abc_TtCountOnes2.exit.i, %.preheader.i71, %.preheader25.i, %.preheader61.i, %.preheader63.i, %.preheader65.i, %.preheader.i
-  %.1.i62.sink = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader61.i ], [ 0, %.preheader63.i ], [ 0, %.preheader65.i ], [ 0, %.preheader.i71 ], [ 0, %.preheader25.i ], [ %235, %Abc_TtCountOnes2.exit24.i ], [ %81, %Abc_TtCountOnes2.exit.i ], [ %144, %Abc_TtCountOnes2.exit58.i ], [ %174, %Abc_TtCountOnes2.exit60.i ], [ %113, %Abc_TtCountOnes2.exit56.i ], [ %206, %Abc_TtCountOnes2.exit.i68 ]
+  %.1.i62.sink = phi i32 [ %235, %Abc_TtCountOnes2.exit24.i ], [ %174, %Abc_TtCountOnes2.exit60.i ], [ %113, %Abc_TtCountOnes2.exit56.i ], [ %144, %Abc_TtCountOnes2.exit58.i ], [ 0, %.preheader.i ], [ 0, %.preheader61.i ], [ 0, %.preheader63.i ], [ 0, %.preheader65.i ], [ %81, %Abc_TtCountOnes2.exit.i ], [ 0, %.preheader.i71 ], [ 0, %.preheader25.i ], [ %206, %Abc_TtCountOnes2.exit.i68 ]
   tail call fastcc void @Vec_WecPush(ptr noundef nonnull %6, i32 noundef %.1.i62.sink, i32 noundef %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val54 = load i32, ptr %28, align 4, !tbaa !28
@@ -11337,7 +11337,7 @@ Gia_ManSortPairs.exit.critedge:                   ; preds = %176
   br label %Abc_TtIsConst0.exit.thread
 
 Abc_TtIsConst0.exit.thread:                       ; preds = %84, %88, %402, %360, %78, %380, %406, %335, %377, %326, %282, %176, %97, %Abc_TtIsConst0.exit357, %241, %202, %164, %140, %118
-  %.0 = phi i32 [ %420, %406 ], [ -1, %380 ], [ %95, %Abc_TtIsConst0.exit357 ], [ %129, %118 ], [ %141, %140 ], [ %175, %164 ], [ -1, %97 ], [ %230, %202 ], [ %281, %241 ], [ -1, %176 ], [ -1, %282 ], [ -1, %326 ], [ -1, %335 ], [ %379, %377 ], [ 0, %78 ], [ -1, %360 ], [ -1, %402 ], [ 1, %88 ], [ 0, %84 ]
+  %.0 = phi i32 [ %420, %406 ], [ -1, %380 ], [ 1, %88 ], [ %95, %Abc_TtIsConst0.exit357 ], [ %129, %118 ], [ %141, %140 ], [ %175, %164 ], [ -1, %97 ], [ %230, %202 ], [ %281, %241 ], [ -1, %176 ], [ -1, %282 ], [ -1, %326 ], [ -1, %335 ], [ %379, %377 ], [ -1, %402 ], [ 0, %78 ], [ -1, %360 ], [ 0, %84 ]
   ret i32 %.0
 }
 

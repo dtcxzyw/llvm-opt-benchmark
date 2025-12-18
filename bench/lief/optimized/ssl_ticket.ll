@@ -485,7 +485,7 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
   br label %ssl_ticket_select_key.exit.thread
 
 ssl_ticket_select_key.exit.thread:                ; preds = %21, %34, %40, %43, %28, %15, %32, %17, %30, %4, %10
-  %.0 = phi i32 [ -27648, %30 ], [ -28928, %4 ], [ -28928, %10 ], [ %16, %15 ], [ %spec.select, %43 ], [ -28928, %17 ], [ %spec.store.select, %28 ], [ %33, %32 ], [ -28928, %40 ], [ -28928, %34 ], [ -28032, %21 ]
+  %.0 = phi i32 [ -27648, %30 ], [ -28928, %4 ], [ -28928, %10 ], [ %16, %15 ], [ %spec.select, %43 ], [ -28928, %17 ], [ %spec.store.select, %28 ], [ -28928, %34 ], [ %33, %32 ], [ -28928, %40 ], [ -28032, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

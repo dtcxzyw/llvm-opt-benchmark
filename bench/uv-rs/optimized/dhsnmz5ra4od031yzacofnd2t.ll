@@ -191,7 +191,7 @@ define void @"_ZN92_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20
   br i1 %95, label %99, label %101
 
 .loopexit:                                        ; preds = %125, %134, %136, %.lr.ph.i44, %68, %77, %79, %.lr.ph.i, %109, %116, %116, %60, %60
-  %.sroa.10.0 = phi i8 [ 1, %60 ], [ 1, %60 ], [ 2, %77 ], [ 1, %116 ], [ 1, %116 ], [ 0, %109 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i44 ], [ 2, %79 ], [ 1, %68 ], [ 1, %125 ], [ 2, %134 ], [ 2, %136 ]
+  %.sroa.10.0 = phi i8 [ 1, %60 ], [ 1, %116 ], [ 1, %60 ], [ 2, %77 ], [ 0, %109 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i44 ], [ 1, %116 ], [ 2, %79 ], [ 1, %68 ], [ 1, %125 ], [ 2, %136 ], [ 2, %134 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.10.0, ptr %96, align 1
   br label %57

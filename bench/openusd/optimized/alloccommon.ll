@@ -584,7 +584,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
   br i1 %.not50, label %.loopexit, label %47
 
 .loopexit:                                        ; preds = %14, %.preheader, %54, %47, %._crit_edge59.us, %25, %40, %32, %.preheader53, %18, %._crit_edge
-  %.046 = phi i32 [ 1, %18 ], [ 1, %._crit_edge ], [ 0, %47 ], [ 0, %.preheader53 ], [ 1, %32 ], [ 1, %._crit_edge59.us ], [ 1, %25 ], [ 0, %40 ], [ 1, %.preheader ], [ 1, %54 ], [ 1, %14 ]
+  %.046 = phi i32 [ 1, %32 ], [ 1, %18 ], [ 0, %.preheader53 ], [ 1, %._crit_edge ], [ 1, %._crit_edge59.us ], [ 0, %47 ], [ 1, %25 ], [ 0, %40 ], [ 1, %.preheader ], [ 1, %54 ], [ 1, %14 ]
   ret i32 %.046
 }
 

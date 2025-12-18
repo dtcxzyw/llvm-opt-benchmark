@@ -9295,8 +9295,8 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit48:         ; preds = %95, %96
   br label %.critedge
 
 .critedge:                                        ; preds = %116, %115, %30, %39, %27, %18, %76, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48, %106, %110, %90, %89, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
-  %.sroa.040.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %89 ], [ 9, %106 ], [ 3, %76 ], [ 9, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ 3, %110 ], [ 3, %30 ], [ 0, %90 ], [ 3, %18 ], [ 3, %27 ], [ 3, %39 ], [ 0, %115 ], [ 0, %116 ]
-  %.sroa.7.0 = phi i64 [ %.2, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %81, %89 ], [ %.379, %106 ], [ %81, %76 ], [ %.379, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ %113, %110 ], [ %1, %30 ], [ %81, %90 ], [ %1, %18 ], [ %1, %27 ], [ %1, %39 ], [ %113, %115 ], [ %113, %116 ]
+  %.sroa.040.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %89 ], [ 3, %110 ], [ 3, %76 ], [ 9, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ 9, %106 ], [ 3, %30 ], [ 0, %90 ], [ 3, %18 ], [ 3, %27 ], [ 3, %39 ], [ 0, %115 ], [ 0, %116 ]
+  %.sroa.7.0 = phi i64 [ %.2, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %81, %89 ], [ %113, %110 ], [ %81, %76 ], [ %.379, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ %.379, %106 ], [ %1, %30 ], [ %81, %90 ], [ %1, %18 ], [ %1, %27 ], [ %1, %39 ], [ %113, %115 ], [ %113, %116 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.040.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert

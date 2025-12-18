@@ -1176,7 +1176,7 @@ _ZN12_GLOBAL__N_17float2DEii.exit233.i:           ; preds = %.lr.ph.i227.i, %.no
   br i1 %512, label %.split.us.i, label %._crit_edge333.i, !llvm.loop !64
 
 ._crit_edge333.i:                                 ; preds = %.lr.ph332.split.i, %507, %.preheader301.i
-  %.pre-phi404.i = phi i64 [ %368, %.preheader301.i ], [ %410, %507 ], [ %410, %.lr.ph332.split.i ]
+  %.pre-phi404.i = phi i64 [ %410, %507 ], [ %368, %.preheader301.i ], [ %410, %.lr.ph332.split.i ]
   %indvars.iv.next383.i = add nuw nsw i64 %indvars.iv382.i, 1
   %513 = icmp slt i64 %indvars.iv.next383.i, %.pre-phi404.i
   br i1 %513, label %.preheader301.i, label %._crit_edge336.i, !llvm.loop !65
@@ -2520,8 +2520,8 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i:  ; preds = %.sink.split.i361.i,
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.loopexit449.i, %.critedge.loopexit.i, %1028, %.preheader414.i
-  %.2301.i = phi i32 [ %.0299442.i, %1028 ], [ %.0299442.i, %.preheader414.i ], [ %1069, %.critedge.loopexit.i ], [ %1070, %.critedge.loopexit449.i ]
-  %.2279.i = phi float [ %984, %1028 ], [ %984, %.preheader414.i ], [ %1068, %.critedge.loopexit.i ], [ %1025, %.critedge.loopexit449.i ]
+  %.2301.i = phi i32 [ %.0299442.i, %1028 ], [ %1069, %.critedge.loopexit.i ], [ %.0299442.i, %.preheader414.i ], [ %1070, %.critedge.loopexit449.i ]
+  %.2279.i = phi float [ %984, %1028 ], [ %1068, %.critedge.loopexit.i ], [ %984, %.preheader414.i ], [ %1025, %.critedge.loopexit449.i ]
   %.not325.i = icmp eq i32 %.2301.i, -1
   br i1 %.not325.i, label %1079, label %.critedge.thread.i
 

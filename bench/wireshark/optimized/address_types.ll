@@ -1053,7 +1053,7 @@ define ptr @address_to_display(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %address_to_name.exit
 
 address_to_name.exit:                             ; preds = %9, %15
-  %.0.i = phi ptr [ %11, %9 ], [ %16, %15 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %11, %9 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %address_to_name.exit.address_to_name.exit.threadthread-pre-split_crit_edge, label %17
 

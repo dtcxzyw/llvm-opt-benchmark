@@ -466,20 +466,20 @@ define dso_local range(i32 0, 2) i32 @ec_main(i32 noundef %0, ptr noundef %1) lo
   br label %.thread
 
 .thread:                                          ; preds = %46, %83, %89, %100, %95, %61, %117, %110, %76, %73, %.loopexit, %148
-  %.087157 = phi ptr [ %135, %148 ], [ null, %.loopexit ], [ null, %73 ], [ null, %76 ], [ null, %110 ], [ null, %117 ], [ null, %61 ], [ null, %95 ], [ null, %100 ], [ null, %89 ], [ null, %83 ], [ null, %46 ]
-  %.093155 = phi ptr [ %.194, %148 ], [ null, %.loopexit ], [ null, %73 ], [ null, %76 ], [ null, %110 ], [ null, %117 ], [ null, %61 ], [ null, %95 ], [ null, %100 ], [ null, %89 ], [ null, %83 ], [ null, %46 ]
-  %.0103153 = phi ptr [ %78, %148 ], [ null, %.loopexit ], [ null, %73 ], [ null, %76 ], [ %78, %110 ], [ %78, %117 ], [ null, %61 ], [ %78, %95 ], [ %78, %100 ], [ %78, %89 ], [ %78, %83 ], [ null, %46 ]
-  %.0104151 = phi ptr [ %.1105, %148 ], [ null, %.loopexit ], [ null, %73 ], [ %.1105, %76 ], [ %.1105, %110 ], [ %.1105, %117 ], [ null, %61 ], [ %.1105, %95 ], [ %.1105, %100 ], [ %.1105, %89 ], [ %.1105, %83 ], [ null, %46 ]
+  %.087157 = phi ptr [ %135, %148 ], [ null, %.loopexit ], [ null, %83 ], [ null, %73 ], [ null, %76 ], [ null, %110 ], [ null, %117 ], [ null, %61 ], [ null, %95 ], [ null, %100 ], [ null, %89 ], [ null, %46 ]
+  %.093155 = phi ptr [ %.194, %148 ], [ null, %.loopexit ], [ null, %83 ], [ null, %73 ], [ null, %76 ], [ null, %110 ], [ null, %117 ], [ null, %61 ], [ null, %95 ], [ null, %100 ], [ null, %89 ], [ null, %46 ]
+  %.0103153 = phi ptr [ %78, %148 ], [ null, %.loopexit ], [ %78, %83 ], [ null, %73 ], [ null, %76 ], [ %78, %110 ], [ %78, %117 ], [ null, %61 ], [ %78, %95 ], [ %78, %100 ], [ %78, %89 ], [ null, %46 ]
+  %.0104151 = phi ptr [ %.1105, %148 ], [ null, %.loopexit ], [ %.1105, %83 ], [ null, %73 ], [ %.1105, %76 ], [ %.1105, %110 ], [ %.1105, %117 ], [ null, %61 ], [ %.1105, %95 ], [ %.1105, %100 ], [ %.1105, %89 ], [ null, %46 ]
   %151 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %151) #4
   br label %.thread171
 
-.thread171:                                       ; preds = %126, %13, %146, %.thread
-  %.076160 = phi i32 [ 1, %.thread ], [ 0, %146 ], [ 0, %13 ], [ 0, %126 ]
-  %.087158 = phi ptr [ %.087157, %.thread ], [ %135, %146 ], [ null, %13 ], [ null, %126 ]
-  %.093156 = phi ptr [ %.093155, %.thread ], [ %.194, %146 ], [ null, %13 ], [ %.194, %126 ]
-  %.0103154 = phi ptr [ %.0103153, %.thread ], [ %78, %146 ], [ null, %13 ], [ %78, %126 ]
-  %.0104152 = phi ptr [ %.0104151, %.thread ], [ %.1105, %146 ], [ null, %13 ], [ %.1105, %126 ]
+.thread171:                                       ; preds = %13, %126, %146, %.thread
+  %.076160 = phi i32 [ 1, %.thread ], [ 0, %146 ], [ 0, %126 ], [ 0, %13 ]
+  %.087158 = phi ptr [ %.087157, %.thread ], [ %135, %146 ], [ null, %126 ], [ null, %13 ]
+  %.093156 = phi ptr [ %.093155, %.thread ], [ %.194, %146 ], [ %.194, %126 ], [ null, %13 ]
+  %.0103154 = phi ptr [ %.0103153, %.thread ], [ %78, %146 ], [ %78, %126 ], [ null, %13 ]
+  %.0104152 = phi ptr [ %.0104151, %.thread ], [ %.1105, %146 ], [ %.1105, %126 ], [ null, %13 ]
   call void @BIO_free_all(ptr noundef %.0103154) #4
   call void @EVP_PKEY_free(ptr noundef %.0104152) #4
   %152 = load ptr, ptr %3, align 8, !tbaa !4

@@ -2554,7 +2554,7 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
   br label %rb_mod_attr_reader.exit
 
 rb_mod_attr_reader.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i21, %.split, %22, %34
-  %.0 = phi i64 [ %25, %22 ], [ %25, %34 ], [ %6, %.split ], [ %16, %.lr.ph.i21 ], [ %6, %.lr.ph.i ]
+  %.0 = phi i64 [ %25, %22 ], [ %25, %34 ], [ %16, %.lr.ph.i21 ], [ %6, %.split ], [ %6, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -6907,7 +6907,7 @@ rb_class_of.exit:                                 ; preds = %95
   br label %120
 
 120:                                              ; preds = %112, %118, %116, %102
-  %.3 = phi i64 [ %104, %102 ], [ %117, %116 ], [ %119, %118 ], [ %113, %112 ]
+  %.3 = phi i64 [ %113, %112 ], [ %119, %118 ], [ %117, %116 ], [ %104, %102 ]
   %121 = icmp ult ptr %.482, %48
   br i1 %121, label %.preheader, label %.loopexit
 
@@ -7336,8 +7336,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %.sink, ptr %4, align 8, !tbaa !7
   br label %.thread125
 
-.thread125:                                       ; preds = %.critedge, %124, %126, %.critedge.thread, %82, %80, %.critedge.us, %.critedge.us.thread, %.thread125.sink.split, %43, %49, %RB_SYMBOL_P.exit.thread
-  %.078 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.078.ph, %.thread125.sink.split ], [ %.280151.us, %82 ], [ %.280151.us, %.critedge.us.thread ], [ %.280151.us, %.critedge.us ], [ %.280151.us, %80 ], [ %.280151, %.critedge.thread ], [ %.280151, %126 ], [ %.280151, %124 ], [ %.280151, %.critedge ]
+.thread125:                                       ; preds = %.critedge, %126, %124, %.critedge.thread, %82, %80, %.critedge.us, %.critedge.us.thread, %.thread125.sink.split, %43, %49, %RB_SYMBOL_P.exit.thread
+  %.078 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.280151.us, %82 ], [ %.078.ph, %.thread125.sink.split ], [ %.280151.us, %.critedge.us.thread ], [ %.280151.us, %.critedge.us ], [ %.280151.us, %80 ], [ %.280151, %.critedge.thread ], [ %.280151, %124 ], [ %.280151, %126 ], [ %.280151, %.critedge ]
   %168 = load i64, ptr %4, align 8, !tbaa !7
   call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.078, i64 noundef %168) #28
   unreachable
@@ -7614,7 +7614,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 .thread128:                                       ; preds = %58, %87, %119, %117, %31, %33, %28
-  %.0 = phi i64 [ 4, %28 ], [ %34, %33 ], [ %120, %119 ], [ %32, %31 ], [ %118, %117 ], [ 4, %87 ], [ 4, %58 ]
+  %.0 = phi i64 [ 4, %28 ], [ %34, %33 ], [ %120, %119 ], [ %32, %31 ], [ 4, %87 ], [ %118, %117 ], [ 4, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }

@@ -901,7 +901,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   br label %nonTlsSearch.exit69
 
 nonTlsSearch.exit69:                              ; preds = %.lr.ph.i63, %50, %46, %nonTlsSearch.exit51.thread, %43, %nonTlsSearch.exit60, %63, %52, %getThreadLocalStorage.exit
-  %.0 = phi ptr [ %65, %63 ], [ %19, %getThreadLocalStorage.exit ], [ %.1, %52 ], [ %.1, %nonTlsSearch.exit60 ], [ %.1, %nonTlsSearch.exit51.thread ], [ %.1, %43 ], [ %.1, %46 ], [ %.1, %50 ], [ %.010.i64, %.lr.ph.i63 ]
+  %.0 = phi ptr [ %65, %63 ], [ %.1, %50 ], [ %19, %getThreadLocalStorage.exit ], [ %.1, %52 ], [ %.1, %nonTlsSearch.exit60 ], [ %.1, %nonTlsSearch.exit51.thread ], [ %.1, %43 ], [ %.1, %46 ], [ %.010.i64, %.lr.ph.i63 ]
   %66 = icmp ne ptr %.0, null
   %67 = icmp ne ptr %0, null
   %or.cond7 = and i1 %67, %66
@@ -1447,8 +1447,8 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
   br label %excludeCopyHelper.exit
 
 enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.exit, %9, %33, %enumerateOverThreadList.exit
-  %.15355 = phi i32 [ 0, %enumerateOverThreadList.exit ], [ %.2, %33 ], [ 0, %9 ], [ %.2, %excludeCopyHelper.exit ]
-  %.0 = phi ptr [ null, %enumerateOverThreadList.exit ], [ %27, %33 ], [ null, %9 ], [ %27, %excludeCopyHelper.exit ]
+  %.15355 = phi i32 [ 0, %9 ], [ 0, %enumerateOverThreadList.exit ], [ %.2, %33 ], [ %.2, %excludeCopyHelper.exit ]
+  %.0 = phi ptr [ null, %9 ], [ null, %enumerateOverThreadList.exit ], [ %27, %33 ], [ %27, %excludeCopyHelper.exit ]
   %51 = load ptr, ptr @gdata, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 528
   %53 = load i32, ptr %52, align 8

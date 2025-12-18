@@ -1393,7 +1393,7 @@ rtsp_read_setup.exit.i:                           ; preds = %._crit_edge107.i.i,
   br i1 %.not43.i, label %69, label %read_line.exit.thread.i
 
 read_line.exit.thread.i:                          ; preds = %266, %.thread.i, %88, %85, %78, %54
-  %.0.i = phi i32 [ %53, %54 ], [ -1094995529, %.thread.i ], [ %87, %88 ], [ %spec.select59.i, %78 ], [ -5, %85 ], [ -1094995529, %266 ]
+  %.0.i = phi i32 [ %53, %54 ], [ -1094995529, %.thread.i ], [ %87, %88 ], [ -5, %85 ], [ %spec.select59.i, %78 ], [ -1094995529, %266 ]
   call void @ff_rtsp_close_streams(ptr noundef %0) #11
   call void @ff_rtsp_close_connections(ptr noundef %0) #11
   call void @ff_network_close() #11

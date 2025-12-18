@@ -587,7 +587,7 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %68, !llvm.loop !45
 
 .loopexit.i.i:                                    ; preds = %68, %58, %64, %._crit_edge.i.i
-  %.2.i.i = phi nsz double [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ 0.000000e+00, %64 ], [ %61, %58 ], [ %71, %68 ]
+  %.2.i.i = phi nsz double [ %61, %58 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ 0.000000e+00, %64 ], [ %71, %68 ]
   switch i32 %43, label %77 [
     i32 4, label %73
     i32 5, label %73
@@ -767,7 +767,7 @@ ebur128_calc_gating_block.exit._crit_edge.i:      ; preds = %ebur128_calc_gating
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %144, !llvm.loop !45
 
 .loopexit.i.i.i.i:                                ; preds = %144, %134, %140, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi nsz double [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ 0.000000e+00, %140 ], [ %137, %134 ], [ %147, %144 ]
+  %.2.i.i.i.i = phi nsz double [ %137, %134 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ 0.000000e+00, %140 ], [ %147, %144 ]
   switch i32 %118, label %153 [
     i32 4, label %149
     i32 5, label %149
@@ -1156,7 +1156,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_shortterm(ptr noundef readonly
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %47, !llvm.loop !45
 
 .loopexit.i.i.i:                                  ; preds = %47, %37, %43, %._crit_edge.i.i.i
-  %.2.i.i.i = phi nsz double [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ 0.000000e+00, %43 ], [ %40, %37 ], [ %50, %47 ]
+  %.2.i.i.i = phi nsz double [ %40, %37 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ 0.000000e+00, %43 ], [ %50, %47 ]
   switch i32 %21, label %56 [
     i32 4, label %52
     i32 5, label %52

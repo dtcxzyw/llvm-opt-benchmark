@@ -2822,7 +2822,7 @@ detect_proxy.exit.i.i:                            ; preds = %510, %506, %.thread
   br label %.thread181.i.i
 
 .thread181.i.i:                                   ; preds = %.thread181.sink.split.i.i, %518, %511
-  %.4121.i.i = phi ptr [ %.2119.i.i, %518 ], [ null, %511 ], [ null, %.thread181.sink.split.i.i ]
+  %.4121.i.i = phi ptr [ null, %511 ], [ %.2119.i.i, %518 ], [ null, %.thread181.sink.split.i.i ]
   %.not155.i.i = icmp eq ptr %.1112.i.i, null
   br i1 %.not155.i.i, label %538, label %525
 
@@ -3657,8 +3657,8 @@ Curl_setup_conn.exit:                             ; preds = %902, %919, %.thread
   br label %924
 
 924:                                              ; preds = %create_conn.exit.thread, %Curl_setup_conn.exit, %create_conn.exit
-  %.127 = phi ptr [ %.1, %create_conn.exit ], [ %.1, %Curl_setup_conn.exit ], [ %.1.ph, %create_conn.exit.thread ]
-  %.0 = phi i32 [ %.0200.i, %create_conn.exit ], [ %.0.i, %Curl_setup_conn.exit ], [ %.0200.i.ph, %create_conn.exit.thread ]
+  %.127 = phi ptr [ %.1, %create_conn.exit ], [ %.1.ph, %create_conn.exit.thread ], [ %.1, %Curl_setup_conn.exit ]
+  %.0 = phi i32 [ %.0200.i, %create_conn.exit ], [ %.0200.i.ph, %create_conn.exit.thread ], [ %.0.i, %Curl_setup_conn.exit ]
   %925 = icmp eq i32 %.0, 89
   br i1 %925, label %.thread33, label %926
 
@@ -4369,7 +4369,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br label %105
 
 .critedge4.thread.i.i:                            ; preds = %.critedge2.i.i, %.critedge6.i.i, %.critedge4.i.i, %84, %57
-  %.1141.i.i = phi ptr [ %.1.ph.i.i, %.critedge4.i.i ], [ %64, %84 ], [ %58, %57 ], [ %.2.i.i, %.critedge6.i.i ], [ %62, %.critedge2.i.i ]
+  %.1141.i.i = phi ptr [ %.1.ph.i.i, %.critedge4.i.i ], [ %.2.i.i, %.critedge6.i.i ], [ %64, %84 ], [ %58, %57 ], [ %62, %.critedge2.i.i ]
   br i1 %.not121.i.i, label %105, label %95
 
 95:                                               ; preds = %.critedge4.thread.i.i
@@ -4711,7 +4711,7 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   br label %parse_connect_to_string.exit.thread137
 
 parse_connect_to_string.exit.thread137:           ; preds = %51, %20, %148, %150, %159, %155, %.thread161, %.critedge, %170, %.critedge115.thread, %.critedge115, %parse_connect_to_string.exit.thread143
-  %.0 = phi i32 [ %.1, %.critedge115 ], [ 0, %.critedge ], [ %.389.i.i.ph, %parse_connect_to_string.exit.thread143 ], [ 0, %.critedge115.thread ], [ 0, %170 ], [ 0, %.thread161 ], [ 0, %155 ], [ 0, %159 ], [ 0, %150 ], [ 0, %148 ], [ 27, %20 ], [ 27, %51 ]
+  %.0 = phi i32 [ %.1, %.critedge115 ], [ 0, %.critedge ], [ %.389.i.i.ph, %parse_connect_to_string.exit.thread143 ], [ 0, %.critedge115.thread ], [ 0, %170 ], [ 0, %148 ], [ 0, %150 ], [ 0, %.thread161 ], [ 0, %155 ], [ 0, %159 ], [ 27, %20 ], [ 27, %51 ]
   ret i32 %.0
 }
 

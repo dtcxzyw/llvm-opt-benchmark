@@ -12806,7 +12806,7 @@ _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i: ; preds = %_Z
   br i1 %.not.i93, label %._crit_edge.thread.i, label %.lr.ph.i92.backedge
 
 .lr.ph.i92.backedge:                              ; preds = %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread
-  %.03651.i.be = phi ptr [ %.036.i171, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread ], [ %.036.i, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i ]
+  %.03651.i.be = phi ptr [ %.036.i, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i ], [ %.036.i171, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread ]
   br label %.lr.ph.i92, !llvm.loop !415
 
 _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread: ; preds = %145, %.thread.i.i.i.i.i, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.i
@@ -12968,7 +12968,7 @@ _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112: ; preds = 
   br i1 %.not.i115, label %._crit_edge.thread.i136, label %.lr.ph.i98.backedge
 
 .lr.ph.i98.backedge:                              ; preds = %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112.thread
-  %.03651.i102.be = phi ptr [ %.036.i114181, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112.thread ], [ %.036.i114, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112 ]
+  %.03651.i102.be = phi ptr [ %.036.i114, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112 ], [ %.036.i114181, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112.thread ]
   br label %.lr.ph.i98, !llvm.loop !415
 
 _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i112.thread: ; preds = %195, %.thread.i.i.i.i.i138, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.i110
@@ -14325,7 +14325,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i: ; preds = %32
   br i1 %40, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread46", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i
-  %.0.in.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ]
+  %.0.in.i.i = phi i32 [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ]
   %.0.i.i = icmp slt i32 %.0.in.i.i, 0
   br i1 %.0.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread46", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread"
 
@@ -14965,7 +14965,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i: ; preds = %21
   br i1 %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread72", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i
-  %.0.in.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ]
+  %.0.in.i.i = phi i32 [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ]
   %.0.i.i = icmp slt i32 %.0.in.i.i, 0
   br i1 %.0.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread72", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatESC_EEbT_T0_.exit.thread"
 
@@ -17181,7 +17181,7 @@ _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exi
   br label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
 _ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i40.i, %.lr.ph.i.i.i.i.i61.i, %158, %_ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i, %189, %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit58.i, %219
-  %.0.i120 = phi ptr [ %.0138, %189 ], [ %220, %219 ], [ %.0139, %158 ], [ %.0139, %_ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i ], [ %.0138, %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit58.i ], [ %215, %.lr.ph.i.i.i.i.i61.i ], [ %185, %.lr.ph.i.i.i.i.i40.i ]
+  %.0.i120 = phi ptr [ %.0138, %189 ], [ %220, %219 ], [ %215, %.lr.ph.i.i.i.i.i61.i ], [ %.0139, %158 ], [ %.0139, %_ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i ], [ %.0138, %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit58.i ], [ %185, %.lr.ph.i.i.i.i.i40.i ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23emitCompressInstEmitterERN4llvm11raw_ostreamENS1_11EmitterTypeEE3$_0EEEvT_SD_SD_T0_SE_T1_SE_T2_"(ptr noundef %.tr181, ptr noundef %.0139, ptr noundef %.0.i120, i64 noundef %.0, i64 noundef %.068, ptr noundef %5, i64 noundef %6, i32 %7)
   %221 = sub nsw i64 %.tr152184, %.068
   %.not = icmp sgt i64 %156, %221

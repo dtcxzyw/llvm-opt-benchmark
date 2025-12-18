@@ -7082,7 +7082,7 @@ invoke.cont7.us.us.i.i.us:                        ; preds = %land.rhs4.i.us.us.i
   br i1 %or.cond, label %cleanup.i.i.us, label %for.body.us.us.i.i.us
 
 cleanup.i.i.us:                                   ; preds = %land.rhs.i.i.us.i.i.us, %for.inc.us.i.i.us, %invoke.cont7.us.us.i.i.us, %invoke.cont.i.i.us
-  %cmp.i6.i.i.us = phi i1 [ false, %invoke.cont.i.i.us ], [ %cmp.i.i3.us.us.i.i.us, %invoke.cont7.us.us.i.i.us ], [ false, %for.inc.us.i.i.us ], [ true, %land.rhs.i.i.us.i.i.us ]
+  %cmp.i6.i.i.us = phi i1 [ %cmp.i.i3.us.us.i.i.us, %invoke.cont7.us.us.i.i.us ], [ false, %invoke.cont.i.i.us ], [ true, %land.rhs.i.i.us.i.i.us ], [ false, %for.inc.us.i.i.us ]
   %tobool.not.i.i.i8.i.i.us = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i8.i.i.us, label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.us", label %if.then.i.i.i9.i.i.us
 
@@ -7249,7 +7249,7 @@ for.inc.i.i:                                      ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp.i.not.i.i, label %cleanup.i.i, label %for.body.i.i
 
 cleanup.i.i:                                      ; preds = %for.inc.i.i, %if.end.i.i.i, %for.inc.i.i.i.i, %invoke.cont.i.i
-  %cmp.i6.i.i = phi i1 [ false, %invoke.cont.i.i ], [ true, %for.inc.i.i.i.i ], [ false, %for.inc.i.i ], [ true, %if.end.i.i.i ]
+  %cmp.i6.i.i = phi i1 [ true, %for.inc.i.i.i.i ], [ false, %invoke.cont.i.i ], [ true, %if.end.i.i.i ], [ false, %for.inc.i.i ]
   %tobool.not.i.i.i8.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i8.i.i, label %"_ZZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcbENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i", label %if.then.i.i.i9.i.i
 
@@ -14526,8 +14526,8 @@ if.end19:                                         ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !184
 
 return:                                           ; preds = %if.end19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31, %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
-  %retval.sroa.3.0 = phi ptr [ %__y.049, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end19 ]
+  %retval.sroa.3.0 = phi ptr [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.049, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end19 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

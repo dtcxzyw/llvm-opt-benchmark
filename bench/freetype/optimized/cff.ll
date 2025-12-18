@@ -832,7 +832,7 @@ thread-pre-split:                                 ; preds = %52
   br label %cff_index_get_sid_string.exit
 
 cff_index_get_sid_string.exit:                    ; preds = %273, %281
-  %.0.i = phi ptr [ %284, %281 ], [ %278, %273 ]
+  %.0.i = phi ptr [ %278, %273 ], [ %284, %281 ]
   %.not396 = icmp eq ptr %.0.i, null
   br i1 %.not396, label %cff_index_get_sid_string.exit.thread, label %285
 
@@ -901,8 +901,8 @@ cff_index_get_sid_string.exit.thread:             ; preds = %218, %218, %268, %2
   br label %cff_index_get_sid_string.exit432
 
 cff_index_get_sid_string.exit432:                 ; preds = %304, %312
-  %316 = phi ptr [ %.pre524, %312 ], [ %293, %304 ]
-  %.0.i431 = phi ptr [ %315, %312 ], [ %309, %304 ]
+  %316 = phi ptr [ %293, %304 ], [ %.pre524, %312 ]
+  %.0.i431 = phi ptr [ %309, %304 ], [ %315, %312 ]
   %317 = icmp ne ptr %.0.i431, null
   %318 = icmp ne ptr %316, null
   %or.cond4 = select i1 %317, i1 %318, i1 false
@@ -1002,7 +1002,7 @@ cff_index_get_sid_string.exit432:                 ; preds = %304, %312
   br label %cff_index_get_sid_string.exit435
 
 cff_index_get_sid_string.exit435:                 ; preds = %341, %349
-  %.0.i434 = phi ptr [ %352, %349 ], [ %346, %341 ]
+  %.0.i434 = phi ptr [ %346, %341 ], [ %352, %349 ]
   %.not400 = icmp eq ptr %.0.i434, null
   br i1 %.not400, label %cff_index_get_sid_string.exit432.thread, label %353
 
@@ -1078,7 +1078,7 @@ cff_index_get_sid_string.exit432.thread:          ; preds = %.outer.backedge, %.
   br label %cff_index_get_sid_string.exit438
 
 cff_index_get_sid_string.exit438:                 ; preds = %378, %386
-  %.0.i437 = phi ptr [ %389, %386 ], [ %383, %378 ]
+  %.0.i437 = phi ptr [ %383, %378 ], [ %389, %386 ]
   %.not408 = icmp eq ptr %.0.i437, null
   br i1 %.not408, label %cff_index_get_sid_string.exit438.thread, label %390
 
@@ -3059,7 +3059,7 @@ cff_size_get_globals_funcs.exit:                  ; preds = %27
   br i1 %.not55.wide, label %cff_size_get_globals_funcs.exit.thread, label %50, !llvm.loop !380
 
 cff_size_get_globals_funcs.exit.thread:           ; preds = %63, %30, %21, %27, %.thread, %18, %cff_size_get_globals_funcs.exit
-  %.1 = phi i32 [ 0, %.thread ], [ 0, %cff_size_get_globals_funcs.exit ], [ %20, %18 ], [ 0, %27 ], [ 0, %21 ], [ 0, %30 ], [ 0, %63 ]
+  %.1 = phi i32 [ 0, %.thread ], [ 0, %21 ], [ 0, %cff_size_get_globals_funcs.exit ], [ %20, %18 ], [ 0, %27 ], [ 0, %30 ], [ 0, %63 ]
   ret i32 %.1
 }
 
@@ -3731,7 +3731,7 @@ define internal i32 @cff_ps_get_font_extra(ptr noundef readonly captures(none) %
   br label %cff_index_get_sid_string.exit
 
 cff_index_get_sid_string.exit:                    ; preds = %25, %34
-  %.0.i = phi ptr [ %37, %34 ], [ %30, %25 ]
+  %.0.i = phi ptr [ %30, %25 ], [ %37, %34 ]
   %.not45 = icmp eq ptr %.0.i, null
   br i1 %.not45, label %cff_index_get_sid_string.exit.thread, label %38
 
@@ -3941,7 +3941,7 @@ define internal i32 @cff_get_glyph_name(ptr noundef %0, i32 noundef %1, ptr noun
   br label %cff_index_get_sid_string.exit
 
 cff_index_get_sid_string.exit:                    ; preds = %39, %45
-  %.0.i = phi ptr [ %48, %45 ], [ %44, %39 ]
+  %.0.i = phi ptr [ %44, %39 ], [ %48, %45 ]
   %.not30 = icmp eq ptr %.0.i, null
   br i1 %.not30, label %cff_index_get_sid_string.exit.thread, label %49
 
@@ -5153,13 +5153,13 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   br label %.thread194
 
 .thread194:                                       ; preds = %30, %36, %38, %40, %.loopexit199, %.thread185
-  %.3 = phi ptr [ %spec.select, %40 ], [ %37, %36 ], [ %39, %38 ], [ %.5, %.loopexit199 ], [ %.5, %.thread185 ], [ %.2138, %30 ]
+  %.3 = phi ptr [ %.5, %.thread185 ], [ %spec.select, %40 ], [ %37, %36 ], [ %39, %38 ], [ %.5, %.loopexit199 ], [ %.2138, %30 ]
   %132 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %133 = icmp ult ptr %132, %2
   br i1 %133, label %.lr.ph258, label %.loopexit201
 
-.loopexit201:                                     ; preds = %.thread194, %27, %64, %45, %42, %125, %.preheader, %3
-  %.0134 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %128, %125 ], [ 6, %42 ], [ 6, %64 ], [ 6, %27 ], [ 0, %.thread194 ], [ 6, %45 ]
+.loopexit201:                                     ; preds = %.thread194, %42, %27, %64, %45, %125, %.preheader, %3
+  %.0134 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ 6, %45 ], [ 6, %27 ], [ 6, %42 ], [ 0, %.thread194 ], [ 6, %64 ], [ %128, %125 ]
   ret i32 %.0134
 }
 
@@ -6605,7 +6605,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %38, %63, %.thread, %154, %82, %129, %121, %126, %91, %113, %152, %147, %79, %162
-  %.0166 = phi i64 [ 2147483647, %82 ], [ 0, %162 ], [ 0, %79 ], [ %92, %91 ], [ %114, %113 ], [ %124, %121 ], [ %127, %126 ], [ 0, %147 ], [ %153, %152 ], [ %spec.select210, %154 ], [ 2147483647, %129 ], [ 0, %.thread ], [ 0, %38 ], [ 0, %63 ], [ 0, %8 ]
+  %.0166 = phi i64 [ 2147483647, %82 ], [ 0, %162 ], [ 0, %79 ], [ %92, %91 ], [ %114, %113 ], [ %124, %121 ], [ %127, %126 ], [ 0, %147 ], [ %153, %152 ], [ 0, %63 ], [ %spec.select210, %154 ], [ 2147483647, %129 ], [ 0, %.thread ], [ 0, %38 ], [ 0, %8 ]
   %.not204 = icmp eq i32 %.0152.ph324, 0
   %161 = sub nsw i64 0, %.0166
   %spec.select209 = select i1 %.not204, i64 %.0166, i64 %161
@@ -7052,8 +7052,8 @@ cff_index_read_offset.exit96:                     ; preds = %.lr.ph.i91
   br i1 %exitcond.not, label %.critedge2.thread, label %.preheader113, !llvm.loop !524
 
 .critedge2.thread:                                ; preds = %63, %52, %56, %40, %.thread
-  %.0.ph = phi i32 [ 0, %.thread ], [ 0, %56 ], [ 0, %40 ], [ %44, %52 ], [ 0, %63 ]
-  %.161.ph = phi i64 [ 0, %.thread ], [ 0, %56 ], [ 0, %40 ], [ %39, %52 ], [ %59, %63 ]
+  %.0.ph = phi i32 [ 0, %.thread ], [ %44, %52 ], [ 0, %56 ], [ 0, %40 ], [ 0, %63 ]
+  %.161.ph = phi i64 [ 0, %.thread ], [ %39, %52 ], [ 0, %56 ], [ 0, %40 ], [ %59, %63 ]
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !525
   %.pre129 = add i64 %65, 1
@@ -8534,7 +8534,7 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
   br i1 %.not91.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !578
 
 ._crit_edge:                                      ; preds = %152, %123, %107
-  %.180129 = phi ptr [ null, %107 ], [ null, %123 ], [ %105, %152 ]
+  %.180129 = phi ptr [ null, %123 ], [ null, %107 ], [ %105, %152 ]
   store ptr %101, ptr %1, align 8, !tbaa !573
   br i1 %.not89, label %157, label %156
 
@@ -8553,7 +8553,7 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
   br label %159
 
 159:                                              ; preds = %157, %158, %104
-  %.079 = phi ptr [ %105, %104 ], [ %.180129138, %158 ], [ %.180129138, %157 ]
+  %.079 = phi ptr [ %.180129138, %157 ], [ %105, %104 ], [ %.180129138, %158 ]
   %160 = load i32, ptr %6, align 4, !tbaa !59
   %161 = icmp ne i32 %160, 0
   %162 = icmp ne ptr %.079, null
@@ -9116,13 +9116,13 @@ define internal fastcc i32 @cff_vstore_load(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond193.not, label %.thread145.sink.split, label %.lr.ph167, !llvm.loop !595
 
 .thread145.sink.split:                            ; preds = %._crit_edge165, %4, %.preheader, %17
-  %.sink = phi i32 [ 3, %17 ], [ 0, %.preheader ], [ 0, %4 ], [ 0, %._crit_edge165 ]
-  %.298.ph = phi ptr [ null, %17 ], [ %27, %.preheader ], [ null, %4 ], [ %27, %._crit_edge165 ]
+  %.sink = phi i32 [ 3, %17 ], [ 0, %4 ], [ 0, %.preheader ], [ 0, %._crit_edge165 ]
+  %.298.ph = phi ptr [ null, %17 ], [ null, %4 ], [ %27, %.preheader ], [ %27, %._crit_edge165 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !59
   br label %.thread145
 
 .thread145:                                       ; preds = %.lr.ph, %.lr.ph160, %.lr.ph157, %64, %68, %103, %99, %97, %.lr.ph167, %.lr.ph164, %.thread145.sink.split, %37, %41, %22, %11, %44, %._crit_edge, %25, %18, %13, %8, %._crit_edge161
-  %.298 = phi ptr [ %27, %37 ], [ %27, %41 ], [ null, %22 ], [ null, %11 ], [ %27, %44 ], [ %27, %._crit_edge161 ], [ %27, %._crit_edge ], [ %27, %25 ], [ null, %18 ], [ null, %13 ], [ null, %8 ], [ %.298.ph, %.thread145.sink.split ], [ %27, %.lr.ph160 ], [ %27, %.lr.ph164 ], [ %27, %103 ], [ %27, %.lr.ph157 ], [ %27, %.lr.ph167 ], [ %27, %97 ], [ %27, %99 ], [ %27, %68 ], [ %27, %64 ], [ %27, %.lr.ph ]
+  %.298 = phi ptr [ %27, %.lr.ph157 ], [ %27, %37 ], [ %27, %41 ], [ null, %22 ], [ null, %11 ], [ %.298.ph, %.thread145.sink.split ], [ %27, %44 ], [ %27, %._crit_edge161 ], [ %27, %._crit_edge ], [ %27, %.lr.ph160 ], [ %27, %25 ], [ null, %18 ], [ null, %13 ], [ %27, %.lr.ph164 ], [ null, %8 ], [ %27, %103 ], [ %27, %.lr.ph167 ], [ %27, %97 ], [ %27, %99 ], [ %27, %68 ], [ %27, %64 ], [ %27, %.lr.ph ]
   call void @ft_mem_free(ptr noundef %7, ptr noundef %.298) #20
   %121 = load i32, ptr %5, align 4, !tbaa !59
   %.not130 = icmp eq i32 %121, 0
@@ -9936,7 +9936,7 @@ cff_charset_cid_to_gindex.exit.thread:            ; preds = %146, %cff_charset_c
   br i1 %exitcond.not, label %.loopexit154, label %146, !llvm.loop !608
 
 .loopexit154:                                     ; preds = %159, %.lr.ph165, %57, %.loopexit, %95, %92, %27, %6, %.thread149..loopexit154_crit_edge, %cff_charset_compute_cids.exit.thread, %30, %87, %13, %19, %23
-  %160 = phi i32 [ %.pre, %.thread149..loopexit154_crit_edge ], [ 3, %27 ], [ %56, %.lr.ph165 ], [ %130, %cff_charset_compute_cids.exit.thread ], [ %34, %30 ], [ %90, %87 ], [ %18, %13 ], [ %22, %19 ], [ %26, %23 ], [ 3, %6 ], [ 0, %.loopexit ], [ %97, %95 ], [ %94, %92 ], [ %59, %57 ], [ 0, %159 ]
+  %160 = phi i32 [ %.pre, %.thread149..loopexit154_crit_edge ], [ 3, %27 ], [ 0, %.loopexit ], [ %56, %.lr.ph165 ], [ %130, %cff_charset_compute_cids.exit.thread ], [ %34, %30 ], [ %90, %87 ], [ %18, %13 ], [ %22, %19 ], [ %26, %23 ], [ 3, %6 ], [ %97, %95 ], [ %94, %92 ], [ %59, %57 ], [ 0, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %160
 }

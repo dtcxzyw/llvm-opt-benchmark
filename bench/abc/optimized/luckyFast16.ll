@@ -126,7 +126,7 @@ define range(i32 0, 2) i32 @luckyCheck(ptr noundef %0, ptr noundef readonly capt
   br i1 %exitcond.not, label %swapAndFlip.exit, label %10, !llvm.loop !8
 
 swapAndFlip.exit:                                 ; preds = %33, %32, %30
-  %.1 = phi i32 [ %.2, %30 ], [ %.2, %32 ], [ %.029, %33 ]
+  %.1 = phi i32 [ %.2, %32 ], [ %.2, %30 ], [ %.029, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count37
   br i1 %exitcond38.not, label %._crit_edge, label %.preheader, !llvm.loop !10

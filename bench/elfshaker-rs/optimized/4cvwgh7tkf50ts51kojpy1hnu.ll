@@ -676,7 +676,7 @@ select.unfold1135:                                ; preds = %102
   br i1 %.not.i.i.i.i.i, label %152, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.i.i.i.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.thread11.i.i.i.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.thread16.i.i.i.i.i"
-  %160 = phi i8 [ %150, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.thread16.i.i.i.i.i" ], [ 1, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.thread11.i.i.i.i.i" ], [ %.pr.pre.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.i.i.i.i.i" ]
+  %160 = phi i8 [ 1, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.thread11.i.i.i.i.i" ], [ %150, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.thread16.i.i.i.i.i" ], [ %.pr.pre.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcf1c1217df5112b2E.exit.i.i.i.i.i" ]
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.sroa.7.1.copyload.i.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 1, !noalias !152
   %.sroa.11.1..sroa.5.0..sroa_idx.i.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 2
@@ -1018,8 +1018,8 @@ select.unfold1264:                                ; preds = %222
   br label %241
 
 241:                                              ; preds = %240, %237
-  %.sroa.01048.0 = phi i8 [ %239, %240 ], [ %236, %237 ]
-  %.sroa.101051.0 = phi i8 [ %.sroa.5.i.sroa.0.0.copyload, %240 ], [ %.sroa.5.i827.sroa.0.0.copyload, %237 ]
+  %.sroa.01048.0 = phi i8 [ %236, %237 ], [ %239, %240 ]
+  %.sroa.101051.0 = phi i8 [ %.sroa.5.i827.sroa.0.0.copyload, %237 ], [ %.sroa.5.i.sroa.0.0.copyload, %240 ]
   store i8 %.sroa.01048.0, ptr %0, align 8, !noalias !246
   %.sroa.41060.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.101051.0, ptr %.sroa.41060.0..sroa_idx, align 1, !noalias !246
@@ -7559,7 +7559,7 @@ select.unfold1217:                                ; preds = %294
   br label %316
 
 .loopexit.split-lp.i:                             ; preds = %375, %359, %342, %328
-  %.sroa.038.1.ph.i = phi i8 [ 1, %359 ], [ %.sroa.038.6.i, %375 ], [ 1, %342 ], [ 1, %328 ]
+  %.sroa.038.1.ph.i = phi i8 [ %.sroa.038.6.i, %375 ], [ 1, %342 ], [ 1, %359 ], [ 1, %328 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %316
@@ -41536,7 +41536,7 @@ select.unfold1172:                                ; preds = %149, %select.unfold
   br i1 %.not.i.i.i.i.i, label %256, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.i.i.i.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.thread11.i.i.i.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.thread17.i.i.i.i.i"
-  %272 = phi i8 [ %254, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.thread17.i.i.i.i.i" ], [ 1, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.thread11.i.i.i.i.i" ], [ %.pr.pre.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.i.i.i.i.i" ]
+  %272 = phi i8 [ 1, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.thread11.i.i.i.i.i" ], [ %254, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.thread17.i.i.i.i.i" ], [ %.pr.pre.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7c6534664c7f1e94E.exit.i.i.i.i.i" ]
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.sroa.7.1.copyload.i.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 1, !noalias !8278
   %.sroa.11.1..sroa.5.0..sroa_idx.i.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -41947,8 +41947,8 @@ select.unfold1302:                                ; preds = %376
   br label %402
 
 402:                                              ; preds = %401, %398
-  %.sroa.01059.0 = phi i8 [ %400, %401 ], [ %397, %398 ]
-  %.sroa.101062.0 = phi i8 [ %.sroa.5.i.sroa.0.0.copyload, %401 ], [ %.sroa.5.i833.sroa.0.0.copyload, %398 ]
+  %.sroa.01059.0 = phi i8 [ %397, %398 ], [ %400, %401 ]
+  %.sroa.101062.0 = phi i8 [ %.sroa.5.i833.sroa.0.0.copyload, %398 ], [ %.sroa.5.i.sroa.0.0.copyload, %401 ]
   store i8 %.sroa.01059.0, ptr %0, align 8, !noalias !8461
   %.sroa.41071.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.101062.0, ptr %.sroa.41071.0..sroa_idx, align 1, !noalias !8461
@@ -48621,7 +48621,7 @@ select.unfold1217:                                ; preds = %294
   br label %316
 
 .loopexit.split-lp.i:                             ; preds = %375, %359, %342, %328
-  %.sroa.038.1.ph.i = phi i8 [ 1, %359 ], [ %.sroa.038.6.i, %375 ], [ 1, %342 ], [ 1, %328 ]
+  %.sroa.038.1.ph.i = phi i8 [ %.sroa.038.6.i, %375 ], [ 1, %342 ], [ 1, %359 ], [ 1, %328 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %316
@@ -52452,7 +52452,7 @@ select.unfold1135:                                ; preds = %102
   br i1 %.not.i.i.i.i.i, label %152, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.i.i.i.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.thread11.i.i.i.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.thread16.i.i.i.i.i"
-  %160 = phi i8 [ %150, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.thread16.i.i.i.i.i" ], [ 1, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.thread11.i.i.i.i.i" ], [ %.pr.pre.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.i.i.i.i.i" ]
+  %160 = phi i8 [ 1, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.thread11.i.i.i.i.i" ], [ %150, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.thread16.i.i.i.i.i" ], [ %.pr.pre.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb63972f5188e2eb0E.exit.i.i.i.i.i" ]
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.sroa.7.1.copyload.i.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 1, !noalias !10795
   %.sroa.11.1..sroa.5.0..sroa_idx.i.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 2
@@ -52794,8 +52794,8 @@ select.unfold1264:                                ; preds = %222
   br label %241
 
 241:                                              ; preds = %240, %237
-  %.sroa.01048.0 = phi i8 [ %239, %240 ], [ %236, %237 ]
-  %.sroa.101051.0 = phi i8 [ %.sroa.5.i.sroa.0.0.copyload, %240 ], [ %.sroa.5.i827.sroa.0.0.copyload, %237 ]
+  %.sroa.01048.0 = phi i8 [ %236, %237 ], [ %239, %240 ]
+  %.sroa.101051.0 = phi i8 [ %.sroa.5.i827.sroa.0.0.copyload, %237 ], [ %.sroa.5.i.sroa.0.0.copyload, %240 ]
   store i8 %.sroa.01048.0, ptr %0, align 8, !noalias !10889
   %.sroa.41060.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.101051.0, ptr %.sroa.41060.0..sroa_idx, align 1, !noalias !10889

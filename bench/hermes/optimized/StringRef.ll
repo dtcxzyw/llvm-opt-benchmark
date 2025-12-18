@@ -821,7 +821,7 @@ if.end61:                                         ; preds = %if.then51, %do.body
   br i1 %cmp67, label %do.body42, label %return, !llvm.loop !16
 
 return:                                           ; preds = %if.end61, %if.end28, %if.end6, %if.end, %entry, %if.then55, %if.then23, %if.then11
-  %retval.0 = phi i64 [ -1, %entry ], [ %From, %if.end ], [ %cond, %if.then11 ], [ %sub.ptr.sub27, %if.then23 ], [ -1, %if.end6 ], [ %sub.ptr.sub59, %if.then55 ], [ -1, %if.end28 ], [ -1, %if.end61 ]
+  %retval.0 = phi i64 [ -1, %if.end28 ], [ -1, %entry ], [ %From, %if.end ], [ %cond, %if.then11 ], [ %sub.ptr.sub27, %if.then23 ], [ -1, %if.end6 ], [ %sub.ptr.sub59, %if.then55 ], [ -1, %if.end61 ]
   ret i64 %retval.0
 }
 
@@ -889,7 +889,7 @@ if.end:                                           ; preds = %for.body.i.i
   br i1 %cmp.not, label %return, label %land.rhs.i, !llvm.loop !17
 
 return:                                           ; preds = %if.end, %for.cond.i.i, %entry, %land.rhs.i.lr.ph
-  %retval.0 = phi i64 [ -1, %entry ], [ %From, %land.rhs.i.lr.ph ], [ %From.addr.048, %for.cond.i.i ], [ -1, %if.end ]
+  %retval.0 = phi i64 [ %From, %land.rhs.i.lr.ph ], [ %From.addr.048, %for.cond.i.i ], [ -1, %entry ], [ -1, %if.end ]
   ret i64 %retval.0
 }
 
@@ -1029,7 +1029,7 @@ _ZNK4llvh9StringRef12equals_lowerES0_.exit:       ; preds = %for.body.i.i.i, %fo
   br i1 %cmp3.not, label %return, label %for.body, !llvm.loop !20
 
 return:                                           ; preds = %_ZNK4llvh9StringRef12equals_lowerES0_.exit, %for.cond.i.i.i, %for.body.lr.ph, %if.end, %entry
-  %retval.0 = phi i64 [ -1, %entry ], [ -1, %if.end ], [ %reass.sub, %for.body.lr.ph ], [ %dec, %for.cond.i.i.i ], [ -1, %_ZNK4llvh9StringRef12equals_lowerES0_.exit ]
+  %retval.0 = phi i64 [ %dec, %for.cond.i.i.i ], [ -1, %entry ], [ %reass.sub, %for.body.lr.ph ], [ -1, %if.end ], [ -1, %_ZNK4llvh9StringRef12equals_lowerES0_.exit ]
   ret i64 %retval.0
 }
 
@@ -1761,7 +1761,7 @@ if.end56:                                         ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %if.end43, %while.end, %if.end, %if.end56
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %if.end56 ], [ true, %while.end ], [ true, %if.end43 ]
+  %retval.0 = phi i1 [ true, %if.end ], [ true, %while.end ], [ false, %if.end56 ], [ true, %if.end43 ]
   ret i1 %retval.0
 }
 
@@ -2028,7 +2028,7 @@ return.sink.split:                                ; preds = %_ZN4llvh22consumeUn
   br label %return
 
 return:                                           ; preds = %if.end43.i45, %if.end43.i, %return.sink.split, %while.end.i28, %if.end.i17, %while.end.i, %if.end.i, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
-  %retval.0 = phi i1 [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59 ], [ true, %if.end.i ], [ true, %while.end.i ], [ true, %if.end.i17 ], [ true, %while.end.i28 ], [ false, %return.sink.split ], [ true, %if.end43.i ], [ true, %if.end43.i45 ]
+  %retval.0 = phi i1 [ true, %if.end43.i ], [ true, %while.end.i28 ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59 ], [ false, %return.sink.split ], [ true, %if.end.i ], [ true, %while.end.i ], [ true, %if.end.i17 ], [ true, %if.end43.i45 ]
   ret i1 %retval.0
 }
 

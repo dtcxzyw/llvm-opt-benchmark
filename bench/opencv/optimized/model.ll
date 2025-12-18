@@ -3313,7 +3313,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit59: ; preds = %_ZNSt6ve
   br label %177
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit59, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit, %.preheader, %53
-  %storemerge = phi ptr [ null, %53 ], [ null, %.preheader ], [ %130, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit ], [ %171, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit59 ]
+  %storemerge = phi ptr [ %130, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit ], [ null, %53 ], [ null, %.preheader ], [ %171, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit59 ]
   store ptr %storemerge, ptr %0, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -8592,8 +8592,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2cv
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS3_.exit
-  %.sink.i66 = phi ptr [ %40, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS3_.exit ], [ null, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %40, %.lr.ph ]
-  %.sroa.027.165 = phi ptr [ %39, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS3_.exit ], [ null, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %39, %.lr.ph ]
+  %.sink.i66 = phi ptr [ null, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %40, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS3_.exit ], [ %40, %.lr.ph ]
+  %.sroa.027.165 = phi ptr [ null, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %39, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS3_.exit ], [ %39, %.lr.ph ]
   %43 = load ptr, ptr %1, align 8, !tbaa !431
   %44 = getelementptr inbounds nuw %"class.std::vector.92", ptr %43, i64 %.02235
   %45 = load ptr, ptr %44, align 8, !tbaa !432

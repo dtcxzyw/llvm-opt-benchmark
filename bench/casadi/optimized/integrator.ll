@@ -11669,7 +11669,7 @@ _ZNK6casadi10Integrator5set_uEPNS_16IntegratorMemoryEPKd.exit.thread: ; preds = 
   br label %_ZNK6casadi10Integrator9next_stopExPKd.exit
 
 _ZNK6casadi10Integrator9next_stopExPKd.exit:      ; preds = %.lr.ph.us.i, %.preheader.split.us.i.loopexit, %193, %.preheader.split.us.preheader.i, %.preheader.split.i, %_ZNK6casadi10Integrator5set_uEPNS_16IntegratorMemoryEPKd.exit.thread
-  %.018.i = phi i64 [ %203, %_ZNK6casadi10Integrator5set_uEPNS_16IntegratorMemoryEPKd.exit.thread ], [ %spec.select.i, %.preheader.split.i ], [ %183, %.preheader.split.us.preheader.i ], [ %.022.us.i1470, %193 ], [ %.022.us.i1470, %.lr.ph.us.i ], [ %183, %.preheader.split.us.i.loopexit ]
+  %.018.i = phi i64 [ %203, %_ZNK6casadi10Integrator5set_uEPNS_16IntegratorMemoryEPKd.exit.thread ], [ %spec.select.i, %.preheader.split.i ], [ %.022.us.i1470, %193 ], [ %183, %.preheader.split.us.preheader.i ], [ %.022.us.i1470, %.lr.ph.us.i ], [ %183, %.preheader.split.us.i.loopexit ]
   %204 = getelementptr inbounds nuw double, ptr %166, i64 %.018.i
   %205 = load double, ptr %204, align 8, !tbaa !342
   store double %205, ptr %133, align 8, !tbaa !359
@@ -15108,7 +15108,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i829
   br label %.loopexit893
 
 .loopexit893:                                     ; preds = %562, %.lr.ph, %1410, %1414
-  %.0 = phi i32 [ 0, %1414 ], [ 0, %1410 ], [ 1, %.lr.ph ], [ 1, %562 ]
+  %.0 = phi i32 [ 0, %1410 ], [ 1, %.lr.ph ], [ 0, %1414 ], [ 1, %562 ]
   ret i32 %.0
 
 1418:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit564, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit817, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit695, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472
@@ -15393,7 +15393,7 @@ define noundef i64 @_ZNK6casadi10Integrator9next_stopExPKd(ptr noundef nonnull r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.split.us.loopexit, %.lr.ph.us, %28, %.preheader.split.us.preheader, %.preheader.split, %37
-  %.018 = phi i64 [ %38, %37 ], [ %spec.select, %.preheader.split ], [ %.022.us49, %28 ], [ %17, %.preheader.split.us.preheader ], [ %.022.us49, %.lr.ph.us ], [ %17, %.preheader.split.us.loopexit ]
+  %.018 = phi i64 [ %38, %37 ], [ %spec.select, %.preheader.split ], [ %17, %.preheader.split.us.preheader ], [ %.022.us49, %28 ], [ %17, %.preheader.split.us.loopexit ], [ %.022.us49, %.lr.ph.us ]
   ret i64 %.018
 }
 
@@ -19092,7 +19092,7 @@ define noundef i64 @_ZNK6casadi10Integrator10next_stopBExPKd(ptr noundef nonnull
   br i1 %23, label %.loopexit, label %.lr.ph34, !llvm.loop !397
 
 .loopexit:                                        ; preds = %.preheader.split.us.loopexit, %.lr.ph.us, %18, %.preheader, %3
-  %.017 = phi i64 [ -1, %3 ], [ %9, %.preheader ], [ %12, %18 ], [ %12, %.lr.ph.us ], [ %9, %.preheader.split.us.loopexit ]
+  %.017 = phi i64 [ -1, %3 ], [ %12, %18 ], [ %9, %.preheader ], [ %9, %.preheader.split.us.loopexit ], [ %12, %.lr.ph.us ]
   ret i64 %.017
 }
 
@@ -39802,7 +39802,7 @@ _ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276: ; pred
   br label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit279
 
 _ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit279:           ; preds = %156, %187, %.loopexit286, %296, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276, %314, %.critedge, %.critedge213
-  %.1156 = phi i32 [ 0, %.critedge ], [ 0, %.critedge213 ], [ 0, %314 ], [ 0, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276 ], [ 1, %.loopexit286 ], [ 1, %296 ], [ 1, %187 ], [ 1, %156 ]
+  %.1156 = phi i32 [ 0, %.critedge ], [ 1, %.loopexit286 ], [ 0, %.critedge213 ], [ 0, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276 ], [ 0, %314 ], [ 1, %296 ], [ 1, %187 ], [ 1, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.1156
 }
@@ -41301,7 +41301,7 @@ _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit312:           ; preds = %.lr.ph.i.i.i.i307, 
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit312, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit278, %229, %230
-  %.2179 = phi ptr [ %242, %230 ], [ null, %229 ], [ %103, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit278 ], [ %.1178, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit312 ]
+  %.2179 = phi ptr [ null, %229 ], [ %242, %230 ], [ %103, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit278 ], [ %.1178, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit312 ]
   %.not221 = icmp eq ptr %111, null
   br i1 %.not221, label %255, label %243
 
@@ -41590,7 +41590,7 @@ _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit348:           ; preds = %.lr.ph.i.i.i.i343, 
   br i1 %374, label %.lr.ph394, label %.loopexit, !llvm.loop !816
 
 .loopexit:                                        ; preds = %191, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit302, %340, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit338, %.lr.ph394, %.critedge234
-  %.1168 = phi i32 [ 0, %.critedge234 ], [ 1, %340 ], [ 0, %.lr.ph394 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit338 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit302 ], [ 1, %191 ]
+  %.1168 = phi i32 [ 0, %.critedge234 ], [ 0, %.lr.ph394 ], [ 1, %340 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit338 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit302 ], [ 1, %191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.1168
 }

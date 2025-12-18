@@ -771,8 +771,8 @@ get_ur_golomb_jpegls.exit150.i:                   ; preds = %307, %273
   br label %get_ur_golomb_jpegls.exit176.i
 
 get_ur_golomb_jpegls.exit176.i:                   ; preds = %354, %389, %378, %344
-  %storemerge123.i166.i = phi i32 [ %..i175.i, %344 ], [ %387, %378 ], [ %376, %389 ], [ %.0110130.i173.i, %354 ]
-  %.0106.i167.i = phi i32 [ %348, %344 ], [ %388, %378 ], [ %.125.i165.i, %389 ], [ -1, %354 ]
+  %storemerge123.i166.i = phi i32 [ %..i175.i, %344 ], [ %376, %389 ], [ %387, %378 ], [ %.0110130.i173.i, %354 ]
+  %.0106.i167.i = phi i32 [ %348, %344 ], [ %.125.i165.i, %389 ], [ %388, %378 ], [ -1, %354 ]
   store i32 %storemerge123.i166.i, ptr %75, align 8, !tbaa !45
   %391 = trunc i32 %.0106.i167.i to i8
   %392 = getelementptr inbounds nuw i8, ptr %323, i64 %indvars.iv.i
@@ -1428,7 +1428,7 @@ get_ur_golomb_jpegls.exit427:                     ; preds = %601, %634
   br label %get_ur_golomb_jpegls.exit454
 
 get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i450, %._crit_edge.i439, %668, %697
-  %storemerge123.i444 = phi i32 [ %..i453, %668 ], [ %699, %697 ], [ %695, %._crit_edge.i439 ], [ %.0110130.i451, %.lr.ph.i450 ]
+  %storemerge123.i444 = phi i32 [ %..i453, %668 ], [ %695, %._crit_edge.i439 ], [ %699, %697 ], [ %.0110130.i451, %.lr.ph.i450 ]
   store i32 %storemerge123.i444, ptr %75, align 8, !tbaa !45
   %.not335 = icmp eq i32 %650, 0
   br i1 %.not335, label %.loopexit, label %.lr.ph, !llvm.loop !74
@@ -1728,8 +1728,8 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %718, %751
   br label %get_ur_golomb_jpegls.exit508
 
 get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i504, %803, %836, %847
-  %storemerge123.i498 = phi i32 [ %..i507, %803 ], [ %845, %836 ], [ %834, %847 ], [ %.0110130.i505, %.lr.ph.i504 ]
-  %.0106.i499 = phi i32 [ %807, %803 ], [ %846, %836 ], [ %.125.i496, %847 ], [ -1, %.lr.ph.i504 ]
+  %storemerge123.i498 = phi i32 [ %..i507, %803 ], [ %834, %847 ], [ %845, %836 ], [ %.0110130.i505, %.lr.ph.i504 ]
+  %.0106.i499 = phi i32 [ %807, %803 ], [ %.125.i496, %847 ], [ %846, %836 ], [ -1, %.lr.ph.i504 ]
   store i32 %storemerge123.i498, ptr %75, align 8, !tbaa !45
   %849 = load i32, ptr %495, align 8, !tbaa !52
   %850 = icmp eq i32 %849, 0
@@ -1937,8 +1937,8 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i504, %803, 
   br label %get_ur_golomb_jpegls.exit.i372
 
 get_ur_golomb_jpegls.exit.i372:                   ; preds = %961, %950, %917
-  %storemerge123.i.i373 = phi i32 [ %..i.i, %917 ], [ %959, %950 ], [ %948, %961 ]
-  %.0106.i.i374 = phi i32 [ %921, %917 ], [ %960, %950 ], [ %.125.i.i, %961 ]
+  %storemerge123.i.i373 = phi i32 [ %..i.i, %917 ], [ %948, %961 ], [ %959, %950 ]
+  %.0106.i.i374 = phi i32 [ %921, %917 ], [ %.125.i.i, %961 ], [ %960, %950 ]
   store i32 %storemerge123.i.i373, ptr %75, align 8, !tbaa !45
   %963 = load i32, ptr %498, align 4, !tbaa !57
   %964 = icmp ugt i32 %.0106.i.i374, %963
@@ -2085,8 +2085,8 @@ get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge: ; preds
   br label %get_ur_golomb_jpegls.exit102.i
 
 get_ur_golomb_jpegls.exit102.i:                   ; preds = %998, %1033, %1022, %988
-  %storemerge123.i92.i = phi i32 [ %..i101.i, %988 ], [ %1031, %1022 ], [ %1020, %1033 ], [ %.0110130.i99.i, %998 ]
-  %.0106.i93.i = phi i32 [ %992, %988 ], [ %1032, %1022 ], [ %.125.i91.i, %1033 ], [ -1, %998 ]
+  %storemerge123.i92.i = phi i32 [ %..i101.i, %988 ], [ %1020, %1033 ], [ %1031, %1022 ], [ %.0110130.i99.i, %998 ]
+  %.0106.i93.i = phi i32 [ %992, %988 ], [ %.125.i91.i, %1033 ], [ %1032, %1022 ], [ -1, %998 ]
   store i32 %storemerge123.i92.i, ptr %75, align 8, !tbaa !45
   %1035 = ashr i32 %.0106.i93.i, 1
   %1036 = and i32 %.0106.i93.i, 1
@@ -2229,7 +2229,7 @@ decode_subframe_lpc.exit:                         ; preds = %get_ur_golomb_jpegl
   br label %read_header.exit.thread
 
 decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %892, %.preheader612, %1055, %._crit_edge155.i, %.thread.i
-  %1097 = phi i32 [ %1060, %.thread.i ], [ %887, %.preheader612 ], [ %1057, %1055 ], [ %1086, %._crit_edge155.i ], [ %894, %892 ], [ %1093, %.lr.ph157.i ]
+  %1097 = phi i32 [ %894, %892 ], [ %1060, %.thread.i ], [ %887, %.preheader612 ], [ %1057, %1055 ], [ %1086, %._crit_edge155.i ], [ %1093, %.lr.ph157.i ]
   %1098 = load i32, ptr %496, align 4, !tbaa !51
   %1099 = icmp sgt i32 %1098, 0
   br i1 %1099, label %1100, label %1150
@@ -2561,7 +2561,7 @@ fix_bitshift.exit:                                ; preds = %.lr.ph.i392, %.lr.p
   br label %read_header.exit.thread
 
 read_header.exit.thread:                          ; preds = %423, %419, %1187, %decode_subframe_lpc.exit, %853, %781, %778, %.loopexit618, %.loopexit620, %408, %417, %155, %160, %168, %init_offset.exit.i, %150, %400, %394, %125, %324, %253, %allocate_buffers.exit.i, %397, %130, %104, %.thread510, %.thread, %1244, %63, %1246, %1241, %487, %62
-  %.2 = phi i32 [ %., %62 ], [ -12, %.thread ], [ %488, %487 ], [ -1094995529, %104 ], [ -1094995529, %1241 ], [ %., %1246 ], [ %1239, %1244 ], [ -1094995529, %63 ], [ -12, %.thread510 ], [ %.066.ph.i, %decode_subframe_lpc.exit ], [ -1094995529, %408 ], [ -1094995529, %417 ], [ -1094995529, %155 ], [ -1094995529, %160 ], [ -1094995529, %168 ], [ -1163346256, %init_offset.exit.i ], [ -22, %150 ], [ -1163346256, %400 ], [ %395, %394 ], [ -1094995529, %125 ], [ -1094995529, %324 ], [ -1094995529, %253 ], [ %443, %allocate_buffers.exit.i ], [ %398, %397 ], [ -1094995529, %130 ], [ -1163346256, %778 ], [ -1094995529, %.loopexit618 ], [ -1094995529, %.loopexit620 ], [ -1094995529, %853 ], [ -22, %781 ], [ %1189, %1187 ], [ %421, %419 ], [ %429, %423 ]
+  %.2 = phi i32 [ %., %62 ], [ -12, %.thread ], [ %488, %487 ], [ -1094995529, %104 ], [ -1094995529, %1241 ], [ %., %1246 ], [ %1239, %1244 ], [ -1094995529, %63 ], [ -12, %.thread510 ], [ %.066.ph.i, %decode_subframe_lpc.exit ], [ %1189, %1187 ], [ -1094995529, %408 ], [ -1094995529, %417 ], [ -1094995529, %155 ], [ -1094995529, %160 ], [ -1094995529, %168 ], [ -1163346256, %init_offset.exit.i ], [ -22, %150 ], [ -1163346256, %400 ], [ %395, %394 ], [ -1094995529, %125 ], [ -1094995529, %324 ], [ -1094995529, %253 ], [ %443, %allocate_buffers.exit.i ], [ %398, %397 ], [ -1094995529, %130 ], [ -1163346256, %778 ], [ -1094995529, %.loopexit618 ], [ -1094995529, %.loopexit620 ], [ -1094995529, %853 ], [ -22, %781 ], [ %421, %419 ], [ %429, %423 ]
   ret i32 %.2
 }
 
@@ -3369,8 +3369,8 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %98, %95, %28
-  %storemerge123 = phi i32 [ %., %28 ], [ %.2, %95 ], [ %61, %98 ], [ %.0110130, %39 ]
-  %.0106 = phi i32 [ %32, %28 ], [ %97, %95 ], [ %.125, %98 ], [ -1, %39 ]
+  %storemerge123 = phi i32 [ %., %28 ], [ %61, %98 ], [ %.2, %95 ], [ %.0110130, %39 ]
+  %.0106 = phi i32 [ %32, %28 ], [ %.125, %98 ], [ %97, %95 ], [ -1, %39 ]
   store i32 %storemerge123, ptr %3, align 8, !tbaa !45
   ret i32 %.0106
 }

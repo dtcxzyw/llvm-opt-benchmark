@@ -159,7 +159,7 @@ define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr n
   br i1 %.not3035.us, label %.backedge.us, label %.lr.ph.us
 
 .backedge.us:                                     ; preds = %17, %.preheader.us, %.preheader32.us, %14
-  %.022.be.us = phi ptr [ %15, %14 ], [ %.1.us, %.preheader32.us ], [ %20, %.preheader.us ], [ %18, %17 ]
+  %.022.be.us = phi ptr [ %15, %14 ], [ %20, %.preheader.us ], [ %.1.us, %.preheader32.us ], [ %18, %17 ]
   br label %.split.us, !llvm.loop !8
 
 .split42.us:                                      ; preds = %.split.us, %4

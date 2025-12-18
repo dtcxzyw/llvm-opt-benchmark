@@ -1246,11 +1246,11 @@ Vec_PtrPush.exit68:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond118.not, label %.critedge, label %88, !llvm.loop !101
 
 .critedge:                                        ; preds = %._crit_edge83, %53, %.preheader, %.loopexit
-  %111 = phi i1 [ false, %.loopexit ], [ false, %.preheader ], [ false, %53 ], [ true, %._crit_edge83 ]
-  %.val138 = phi i32 [ %.val, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %.val, %._crit_edge83 ]
-  %.050.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %94, %._crit_edge83 ]
-  %.049.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %.1.lcssa, %._crit_edge83 ]
-  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %104, %._crit_edge83 ]
+  %111 = phi i1 [ false, %.loopexit ], [ false, %53 ], [ false, %.preheader ], [ true, %._crit_edge83 ]
+  %.val138 = phi i32 [ %.val, %.loopexit ], [ 0, %53 ], [ 0, %.preheader ], [ %.val, %._crit_edge83 ]
+  %.050.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %53 ], [ 0, %.preheader ], [ %94, %._crit_edge83 ]
+  %.049.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %53 ], [ 0, %.preheader ], [ %.1.lcssa, %._crit_edge83 ]
+  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %53 ], [ 0, %.preheader ], [ %104, %._crit_edge83 ]
   %112 = load ptr, ptr %1, align 8, !tbaa !3
   %113 = call ptr (...) @Extra_TimeStamp() #31
   %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %112, i32 noundef %.val138, ptr noundef %113) #31
@@ -2589,7 +2589,7 @@ Mio_CompareTwo.exit.thread147:                    ; preds = %Mio_GateDelayAve.ex
   br i1 %.not.i139, label %Mio_CollectCopy.exit, label %162, !llvm.loop !125
 
 Mio_CollectCopy.exit:                             ; preds = %83, %138, %114, %162, %35, %64, %148, %124, %100, %Mio_CompareTwo.exit, %Mio_CompareTwo.exit.thread147, %.lr.ph166, %13
-  %.195 = phi i32 [ %.094164, %.lr.ph166 ], [ %.094164, %13 ], [ %.094164, %Mio_CompareTwo.exit ], [ %.094164, %Mio_CompareTwo.exit.thread147 ], [ %.094164, %100 ], [ %.094164, %124 ], [ %149, %148 ], [ %.094164, %64 ], [ %.094164, %35 ], [ %.094164, %138 ], [ %149, %162 ], [ %.094164, %114 ], [ %.094164, %83 ]
+  %.195 = phi i32 [ %.094164, %.lr.ph166 ], [ %.094164, %13 ], [ %149, %162 ], [ %.094164, %Mio_CompareTwo.exit ], [ %.094164, %114 ], [ %.094164, %35 ], [ %.094164, %Mio_CompareTwo.exit.thread147 ], [ %.094164, %138 ], [ %.094164, %100 ], [ %.094164, %124 ], [ %149, %148 ], [ %.094164, %64 ], [ %.094164, %83 ]
   %172 = freeze i32 %.195
   %173 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.091165) #31
   %.not = icmp eq ptr %173, null
@@ -5286,8 +5286,8 @@ define void @Mio_LibraryShortFormula(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.backedge
 
 .backedge:                                        ; preds = %31, %.backedge.sink.split, %Abc_SclFindLimit.exit
-  %.020.be = phi ptr [ %.0.i, %Abc_SclFindLimit.exit ], [ %.020.be.ph, %.backedge.sink.split ], [ %.0.i, %31 ]
-  %.019.be = phi ptr [ %.01935, %Abc_SclFindLimit.exit ], [ %13, %.backedge.sink.split ], [ %.01935, %31 ]
+  %.020.be = phi ptr [ %.020.be.ph, %.backedge.sink.split ], [ %.0.i, %Abc_SclFindLimit.exit ], [ %.0.i, %31 ]
+  %.019.be = phi ptr [ %13, %.backedge.sink.split ], [ %.01935, %Abc_SclFindLimit.exit ], [ %.01935, %31 ]
   %14 = load i8, ptr %.020.be, align 1, !tbaa !63
   %.not23 = icmp eq i8 %14, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph36, !llvm.loop !204

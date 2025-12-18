@@ -1308,7 +1308,7 @@ opj_tcd_is_band_empty.exit.thread:                ; preds = %._crit_edge, %369, 
   br i1 %575, label %72, label %.critedge, !llvm.loop !154
 
 .critedge:                                        ; preds = %135, %._crit_edge633, %423, %521, %526, %489, %.preheader, %559, %.thread565, %415, %.thread563, %222, %211, %.thread, %236, %241, %352, %118, %123, %70, %60, %41
-  %.0 = phi i32 [ 0, %41 ], [ 0, %60 ], [ 0, %70 ], [ 0, %118 ], [ 0, %.thread ], [ 0, %123 ], [ 0, %211 ], [ 0, %222 ], [ 0, %.thread563 ], [ 0, %352 ], [ 0, %236 ], [ 0, %241 ], [ 0, %415 ], [ 0, %.thread565 ], [ 0, %559 ], [ 1, %.preheader ], [ 0, %489 ], [ 0, %521 ], [ 0, %423 ], [ 0, %526 ], [ 0, %135 ], [ 1, %._crit_edge633 ]
+  %.0 = phi i32 [ 0, %41 ], [ 0, %60 ], [ 0, %70 ], [ 0, %118 ], [ 0, %559 ], [ 0, %.thread ], [ 0, %521 ], [ 0, %123 ], [ 0, %211 ], [ 0, %222 ], [ 0, %.thread563 ], [ 0, %352 ], [ 0, %236 ], [ 0, %241 ], [ 0, %415 ], [ 0, %489 ], [ 0, %.thread565 ], [ 0, %423 ], [ 1, %.preheader ], [ 0, %526 ], [ 0, %135 ], [ 1, %._crit_edge633 ]
   ret i32 %.0
 }
 
@@ -2832,7 +2832,7 @@ opj_tcd_rate_allocate_encode.exit:                ; preds = %.critedge.i.i, %362
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %opj_tcd_makelayer_fixed.exit.loopexit.i.i, %487, %.lr.ph.i15.i, %opj_tcd_rate_allocate_encode.exit
+.sink.split:                                      ; preds = %opj_tcd_makelayer_fixed.exit.loopexit.i.i, %.lr.ph.i15.i, %487, %opj_tcd_rate_allocate_encode.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %695
 
@@ -4150,7 +4150,7 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   br i1 %744, label %644, label %.critedge, !llvm.loop !251
 
 .critedge:                                        ; preds = %401, %403, %.loopexit.i, %571, %452, %.critedge.i, %._crit_edge.i221, %.critedge153.i, %.loopexit260, %opj_alloc_tile_component_data.exit, %160, %155, %opj_tcd_mct_decode.exit, %364, %370, %270, %30, %opj_tcd_t1_decode.exit, %opj_tcd_t2_decode.exit
-  %.2 = phi i32 [ 0, %364 ], [ 0, %30 ], [ 0, %.loopexit260 ], [ 0, %opj_tcd_t1_decode.exit ], [ 0, %opj_alloc_tile_component_data.exit ], [ 0, %opj_tcd_t2_decode.exit ], [ 0, %270 ], [ 0, %370 ], [ 1, %opj_tcd_mct_decode.exit ], [ 0, %155 ], [ 0, %160 ], [ 0, %.critedge153.i ], [ 0, %._crit_edge.i221 ], [ 0, %.critedge.i ], [ 0, %452 ], [ 0, %571 ], [ 1, %.loopexit.i ], [ 0, %403 ], [ 0, %401 ]
+  %.2 = phi i32 [ 0, %571 ], [ 0, %364 ], [ 0, %30 ], [ 0, %.loopexit260 ], [ 0, %opj_tcd_t1_decode.exit ], [ 0, %opj_alloc_tile_component_data.exit ], [ 0, %opj_tcd_t2_decode.exit ], [ 1, %.loopexit.i ], [ 0, %270 ], [ 0, %370 ], [ 1, %opj_tcd_mct_decode.exit ], [ 0, %155 ], [ 0, %160 ], [ 0, %452 ], [ 0, %.critedge153.i ], [ 0, %._crit_edge.i221 ], [ 0, %.critedge.i ], [ 0, %403 ], [ 0, %401 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.2
 }
@@ -4563,7 +4563,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   br i1 %exitcond.not, label %.loopexit, label %190, !llvm.loop !260
 
 .loopexit:                                        ; preds = %190, %._crit_edge.us, %._crit_edge.us180, %._crit_edge.us192, %._crit_edge.us204, %.preheader144.lr.ph, %.preheader145.lr.ph, %.preheader.lr.ph, %.preheader143.lr.ph, %.preheader153, %.preheader151, %.preheader149, %.preheader147, %.preheader146, %140
-  %.1 = phi ptr [ %.0102209, %140 ], [ %.0102209, %.preheader146 ], [ %.0102209, %.preheader147 ], [ %.0102209, %.preheader149 ], [ %.0102209, %.preheader151 ], [ %.0102209, %.preheader153 ], [ %.0102209, %.preheader143.lr.ph ], [ %.0102209, %.preheader144.lr.ph ], [ %.0102209, %.preheader145.lr.ph ], [ %.0102209, %.preheader.lr.ph ], [ %177, %._crit_edge.us ], [ %165, %._crit_edge.us204 ], [ %156, %._crit_edge.us192 ], [ %186, %._crit_edge.us180 ], [ %191, %190 ]
+  %.1 = phi ptr [ %.0102209, %140 ], [ %165, %._crit_edge.us204 ], [ %186, %._crit_edge.us180 ], [ %177, %._crit_edge.us ], [ %.0102209, %.preheader144.lr.ph ], [ %.0102209, %.preheader146 ], [ %.0102209, %.preheader143.lr.ph ], [ %.0102209, %.preheader147 ], [ %156, %._crit_edge.us192 ], [ %.0102209, %.preheader149 ], [ %.0102209, %.preheader145.lr.ph ], [ %.0102209, %.preheader151 ], [ %.0102209, %.preheader.lr.ph ], [ %.0102209, %.preheader153 ], [ %191, %190 ]
   %194 = getelementptr inbounds nuw i8, ptr %.0130206, i64 64
   %195 = getelementptr inbounds nuw i8, ptr %.0129207, i64 112
   %196 = add nuw i32 %.0122208, 1
@@ -4574,7 +4574,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   br i1 %200, label %97, label %opj_tcd_get_decoded_tile_size.exit.thread, !llvm.loop !261
 
 opj_tcd_get_decoded_tile_size.exit.thread:        ; preds = %78, %77, %74, %43, %42, %39, %.loopexit, %opj_tcd_get_decoded_tile_size.exit, %3
-  %.0101 = phi i32 [ %.mux, %opj_tcd_get_decoded_tile_size.exit ], [ 1, %3 ], [ 0, %43 ], [ 1, %.loopexit ], [ 0, %39 ], [ 0, %42 ], [ 0, %74 ], [ 0, %77 ], [ 0, %78 ]
+  %.0101 = phi i32 [ %.mux, %opj_tcd_get_decoded_tile_size.exit ], [ 0, %43 ], [ 1, %.loopexit ], [ 1, %3 ], [ 0, %39 ], [ 0, %42 ], [ 0, %74 ], [ 0, %77 ], [ 0, %78 ]
   ret i32 %.0101
 }
 
@@ -4849,7 +4849,7 @@ opj_tcd_get_encoder_input_buffer_size.exit.thread: ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !268
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph92, %.lr.ph97, %.lr.ph102, %.lr.ph107, %94, %.preheader82, %.preheader80, %.preheader78, %.preheader, %.lr.ph113
-  %.167 = phi ptr [ %.066112, %.lr.ph113 ], [ %.066112, %.preheader ], [ %.066112, %.preheader78 ], [ %.066112, %.preheader80 ], [ %.066112, %.preheader82 ], [ %.066112, %94 ], [ %84, %.lr.ph92 ], [ %74, %.lr.ph107 ], [ %69, %.lr.ph102 ], [ %89, %.lr.ph97 ], [ %97, %.lr.ph ]
+  %.167 = phi ptr [ %.066112, %.lr.ph113 ], [ %74, %.lr.ph107 ], [ %89, %.lr.ph97 ], [ %84, %.lr.ph92 ], [ %69, %.lr.ph102 ], [ %.066112, %.preheader ], [ %.066112, %.preheader78 ], [ %.066112, %.preheader80 ], [ %.066112, %.preheader82 ], [ %.066112, %94 ], [ %97, %.lr.ph ]
   %101 = getelementptr inbounds nuw i8, ptr %.070110, i64 64
   %102 = getelementptr inbounds nuw i8, ptr %.069111, i64 112
   %103 = add nuw i32 %.071109, 1
@@ -4858,7 +4858,7 @@ opj_tcd_get_encoder_input_buffer_size.exit.thread: ; preds = %.lr.ph.i
   br i1 %105, label %.lr.ph113, label %.loopexit85, !llvm.loop !269
 
 .loopexit85:                                      ; preds = %.loopexit, %opj_tcd_get_encoder_input_buffer_size.exit, %opj_tcd_get_encoder_input_buffer_size.exit.thread
-  %.065 = phi i32 [ %spec.select146, %opj_tcd_get_encoder_input_buffer_size.exit ], [ 0, %opj_tcd_get_encoder_input_buffer_size.exit.thread ], [ 1, %.loopexit ]
+  %.065 = phi i32 [ 0, %opj_tcd_get_encoder_input_buffer_size.exit.thread ], [ %spec.select146, %opj_tcd_get_encoder_input_buffer_size.exit ], [ 1, %.loopexit ]
   ret i32 %.065
 }
 

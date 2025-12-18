@@ -238,8 +238,8 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff131lookup_expert_charset_
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.226.i.i.i.i = phi i32 [ %11, %10 ], [ %.0242.i.i.i.i, %13 ]
-  %.223.i.i.i.i = phi i32 [ %.0213.i.i.i.i, %10 ], [ %14, %13 ]
+  %.226.i.i.i.i = phi i32 [ %.0242.i.i.i.i, %13 ], [ %11, %10 ]
+  %.223.i.i.i.i = phi i32 [ %14, %13 ], [ %.0213.i.i.i.i, %10 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !11
 
@@ -286,8 +286,8 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff138lookup_expert_subset_c
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.226.i.i.i.i = phi i32 [ %11, %10 ], [ %.0242.i.i.i.i, %13 ]
-  %.223.i.i.i.i = phi i32 [ %.0213.i.i.i.i, %10 ], [ %14, %13 ]
+  %.226.i.i.i.i = phi i32 [ %.0242.i.i.i.i, %13 ], [ %11, %10 ]
+  %.223.i.i.i.i = phi i32 [ %14, %13 ], [ %.0213.i.i.i.i, %10 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !11
 
@@ -483,8 +483,8 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %50
 
 50:                                               ; preds = %48, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i
-  %.226.i.i.i.i = phi i32 [ %47, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ], [ %.0244.i.i.i.i, %48 ]
-  %.223.i.i.i.i = phi i32 [ %.0215.i.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ], [ %49, %48 ]
+  %.226.i.i.i.i = phi i32 [ %.0244.i.i.i.i, %48 ], [ %47, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ]
+  %.223.i.i.i.i = phi i32 [ %49, %48 ], [ %.0215.i.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !59
 
@@ -500,7 +500,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %51, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %54, %51 ], [ @_hb_NullPool, %.loopexit.i.i ], [ %38, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
+  %.pn.i.i = phi ptr [ @_hb_NullPool, %.loopexit.i.i ], [ %54, %51 ], [ %38, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 2
   %56 = load i8, ptr %55, align 1, !tbaa !54
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
@@ -674,7 +674,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %121, %130
-  %.03.i15 = phi i32 [ %135, %130 ], [ %126, %121 ]
+  %.03.i15 = phi i32 [ %126, %121 ], [ %135, %130 ]
   switch i32 %.03.i15, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %136
     i32 14, label %137
@@ -969,8 +969,8 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %49
 
 49:                                               ; preds = %47, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i
-  %.226.i.i.i.i = phi i32 [ %46, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ], [ %.0244.i.i.i.i, %47 ]
-  %.223.i.i.i.i = phi i32 [ %.0215.i.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ], [ %48, %47 ]
+  %.226.i.i.i.i = phi i32 [ %.0244.i.i.i.i, %47 ], [ %46, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ]
+  %.223.i.i.i.i = phi i32 [ %48, %47 ], [ %.0215.i.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !59
 
@@ -986,7 +986,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %50, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %53, %50 ], [ @_hb_NullPool, %.loopexit.i.i ], [ %37, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
+  %.pn.i.i = phi ptr [ @_hb_NullPool, %.loopexit.i.i ], [ %53, %50 ], [ %37, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 2
   %55 = load i8, ptr %54, align 1, !tbaa !54
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
@@ -1156,7 +1156,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %118, %127
-  %.03.i17 = phi i32 [ %132, %127 ], [ %123, %118 ]
+  %.03.i17 = phi i32 [ %123, %118 ], [ %132, %127 ]
   switch i32 %.03.i17, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %133
     i32 14, label %134
@@ -1401,8 +1401,8 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %49
 
 49:                                               ; preds = %47, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i
-  %.226.i.i.i.i = phi i32 [ %46, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ], [ %.0244.i.i.i.i, %47 ]
-  %.223.i.i.i.i = phi i32 [ %.0215.i.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ], [ %48, %47 ]
+  %.226.i.i.i.i = phi i32 [ %.0244.i.i.i.i, %47 ], [ %46, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ]
+  %.223.i.i.i.i = phi i32 [ %48, %47 ], [ %.0215.i.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i.i ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !59
 
@@ -1418,7 +1418,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %50, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %53, %50 ], [ @_hb_NullPool, %.loopexit.i.i ], [ %37, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
+  %.pn.i.i = phi ptr [ @_hb_NullPool, %.loopexit.i.i ], [ %53, %50 ], [ %37, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 2
   %55 = load i8, ptr %54, align 1, !tbaa !54
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
@@ -1793,7 +1793,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16cs_interpreter_tINS_2
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %11, %20
-  %.03.i = phi i32 [ %25, %20 ], [ %16, %11 ]
+  %.03.i = phi i32 [ %16, %11 ], [ %25, %20 ]
   switch i32 %.03.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %26
     i32 14, label %29
@@ -3343,7 +3343,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nou
   br i1 %.not.i21, label %.lr.ph.i12, label %_ZNK3CFF8Charset09get_glyphEjj.exit, !llvm.loop !207
 
 _ZNK3CFF8Charset09get_glyphEjj.exit:              ; preds = %.lr.ph._crit_edge.i20, %.lr.ph._crit_edge.i, %14, %40, %31, %25, %16, %.loopexit.loopexit.split.loop.exit.i, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %15, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %16 ], [ %27, %25 ], [ 0, %31 ], [ %42, %40 ], [ 0, %.lr.ph._crit_edge.i ], [ 0, %14 ], [ 0, %.lr.ph._crit_edge.i20 ]
+  %.0 = phi i32 [ 0, %.lr.ph._crit_edge.i ], [ 0, %3 ], [ 0, %14 ], [ 0, %5 ], [ %15, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %16 ], [ %27, %25 ], [ 0, %31 ], [ %42, %40 ], [ 0, %.lr.ph._crit_edge.i20 ]
   ret i32 %.0
 }
 

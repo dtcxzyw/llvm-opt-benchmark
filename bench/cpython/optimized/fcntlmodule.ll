@@ -298,7 +298,7 @@ define internal ptr @fcntl_fcntl(ptr readnone captures(none) %0, ptr noundef rea
   br label %fcntl_fcntl_impl.exit
 
 fcntl_fcntl_impl.exit:                            ; preds = %55, %74, %33, %.thread.i, %43, %.thread8.i, %60, %63, %.thread20.i, %79
-  %.0.i = phi ptr [ null, %63 ], [ null, %33 ], [ %81, %79 ], [ %78, %.thread20.i ], [ null, %.thread.i ], [ %59, %.thread8.i ], [ %62, %60 ], [ null, %43 ], [ null, %74 ], [ null, %55 ]
+  %.0.i = phi ptr [ null, %63 ], [ null, %33 ], [ %81, %79 ], [ %78, %.thread20.i ], [ null, %43 ], [ null, %.thread.i ], [ null, %74 ], [ %59, %.thread8.i ], [ %62, %60 ], [ null, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

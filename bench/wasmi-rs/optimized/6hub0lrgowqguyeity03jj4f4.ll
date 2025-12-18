@@ -2782,7 +2782,7 @@ _ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i: ; preds = %309, %.noexc4
           to label %.noexc122 unwind label %.body.thread359.loopexit.split-lp.loopexit
 
 493:                                              ; preds = %.noexc117, %.noexc121
-  %.sroa.0.0.i = phi ptr [ %480, %.noexc117 ], [ %491, %.noexc121 ]
+  %.sroa.0.0.i = phi ptr [ %491, %.noexc121 ], [ %480, %.noexc117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

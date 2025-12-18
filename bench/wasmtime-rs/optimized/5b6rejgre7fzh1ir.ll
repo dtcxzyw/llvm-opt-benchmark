@@ -20344,21 +20344,21 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$8dedup_by17h2767bd7c8fa5853d
   %.val4.i.i = load i32, ptr %25, align 4, !range !3040, !alias.scope !3038, !noalias !3039, !noundef !9
   %.val6.i.i = load i32, ptr %26, align 4, !alias.scope !3039, !noalias !3038
   %trunc.i.i.i.i = trunc nuw i32 %.val4.i.i to i1
-  br i1 %trunc.i.i.i.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hc48365423efe6302E.exit", label %27
+  br i1 %trunc.i.i.i.i, label %27, label %"_ZN8smallvec17SmallVec$LT$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hc48365423efe6302E.exit"
 
 27:                                               ; preds = %24
-  %28 = trunc nuw i32 %.val6.i.i to i1
-  br i1 %28, label %"_ZN8smallvec17SmallVec$LT$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hc48365423efe6302E.exit.thread", label %35
+  %28 = getelementptr i8, ptr %17, i64 -4
+  %.val7.i.i = load i32, ptr %28, align 4, !alias.scope !3039, !noalias !3038
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %.val5.i.i = load i32, ptr %29, align 4, !alias.scope !3038, !noalias !3039
+  %.not.i.i.i.i = icmp ne i32 %.val6.i.i, 0
+  %30 = icmp eq i32 %.val5.i.i, %.val7.i.i
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, i1 %30, i1 false
+  br i1 %spec.select.i.i.i.i, label %35, label %"_ZN8smallvec17SmallVec$LT$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hc48365423efe6302E.exit.thread"
 
 "_ZN8smallvec17SmallVec$LT$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hc48365423efe6302E.exit": ; preds = %24
-  %29 = getelementptr i8, ptr %17, i64 -4
-  %.val7.i.i = load i32, ptr %29, align 4, !alias.scope !3039, !noalias !3038
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %.val5.i.i = load i32, ptr %30, align 4, !alias.scope !3038, !noalias !3039
-  %.not.i.i.i.i = icmp ne i32 %.val6.i.i, 0
-  %31 = icmp eq i32 %.val5.i.i, %.val7.i.i
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, i1 %31, i1 false
-  br i1 %spec.select.i.i.i.i, label %35, label %"_ZN8smallvec17SmallVec$LT$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hc48365423efe6302E.exit.thread"
+  %31 = trunc nuw i32 %.val6.i.i to i1
+  br i1 %31, label %"_ZN8smallvec17SmallVec$LT$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hc48365423efe6302E.exit.thread", label %35
 
 "_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h2cede88456d5b9a7E.exit": ; preds = %.lr.ph.preheader.i, %10, %1
   ret void

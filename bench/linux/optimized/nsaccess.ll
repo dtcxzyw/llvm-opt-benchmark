@@ -605,7 +605,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.thread, label %.split, !llvm.loop !11
 
 .thread:                                          ; preds = %191, %139, %.split33.us, %.split33.us, %.split33.us, %184, %186, %53, %84, %95
-  %194 = phi i32 [ %2, %95 ], [ %87, %84 ], [ %2, %53 ], [ %2, %184 ], [ %190, %186 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %139 ], [ %2, %191 ]
+  %194 = phi i32 [ %2, %95 ], [ %2, %.split33.us ], [ %87, %84 ], [ %2, %53 ], [ %2, %184 ], [ %190, %186 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %139 ], [ %2, %191 ]
   %195 = and i32 %4, 2
   %196 = icmp eq i32 %195, 0
   %197 = icmp ne ptr %5, null

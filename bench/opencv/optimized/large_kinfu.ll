@@ -7620,8 +7620,8 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_3MatEE16ActiveSubmapD
   br i1 %.not221, label %.preheader225, label %215, !llvm.loop !420
 
 ._crit_edge266:                                   ; preds = %_ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit, %.preheader226, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_3MatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.preheader225
-  %.0.lcssa320325335 = phi i1 [ %.1, %.preheader225 ], [ %.1, %.preheader226 ], [ false, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_3MatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.1, %_ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit ]
-  %.sroa.0182.0.lcssa327334 = phi ptr [ %.sroa.0182.4, %.preheader225 ], [ null, %.preheader226 ], [ null, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_3MatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.sroa.0182.4, %_ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit ]
+  %.0.lcssa320325335 = phi i1 [ false, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_3MatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.1, %.preheader225 ], [ %.1, %.preheader226 ], [ %.1, %_ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit ]
+  %.sroa.0182.0.lcssa327334 = phi ptr [ null, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_3MatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.sroa.0182.4, %.preheader225 ], [ null, %.preheader226 ], [ %.sroa.0182.4, %_ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit ]
   %261 = invoke noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_3MatEE18shouldCreateSubmapEi(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1)
           to label %302 unwind label %368
 
@@ -9094,7 +9094,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_3MatEE18e
   unreachable
 
 .loopexit:                                        ; preds = %76, %58, %71
-  %.sroa.06.1.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.06.0.i.i.i, %58 ], [ %78, %76 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %58 ], [ %72, %71 ], [ %78, %76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %84 = load ptr, ptr %20, align 8, !tbaa !163
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 76
@@ -10643,7 +10643,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_3M
   unreachable
 
 .loopexit39:                                      ; preds = %29, %11, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %11 ], [ %31, %29 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %11 ], [ %25, %24 ], [ %31, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !147
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
@@ -13863,8 +13863,8 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_4UMatEE16ActiveSubmap
   br i1 %.not221, label %.preheader225, label %215, !llvm.loop !663
 
 ._crit_edge266:                                   ; preds = %_ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit, %.preheader226, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_4UMatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.preheader225
-  %.0.lcssa320325335 = phi i1 [ %.1, %.preheader225 ], [ %.1, %.preheader226 ], [ false, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_4UMatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.1, %_ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit ]
-  %.sroa.0182.0.lcssa327334 = phi ptr [ %.sroa.0182.4, %.preheader225 ], [ null, %.preheader226 ], [ null, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_4UMatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.sroa.0182.4, %_ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit ]
+  %.0.lcssa320325335 = phi i1 [ false, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_4UMatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.1, %.preheader225 ], [ %.1, %.preheader226 ], [ %.1, %_ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit ]
+  %.sroa.0182.0.lcssa327334 = phi ptr [ null, %_ZNSt12__shared_ptrIN2cv5kinfu6SubmapINS0_4UMatEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.sroa.0182.4, %.preheader225 ], [ null, %.preheader226 ], [ %.sroa.0182.4, %_ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit ]
   %261 = invoke noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_4UMatEE18shouldCreateSubmapEi(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1)
           to label %302 unwind label %368
 
@@ -15031,7 +15031,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_4UMatEE18
   unreachable
 
 .loopexit:                                        ; preds = %76, %58, %71
-  %.sroa.06.1.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.06.0.i.i.i, %58 ], [ %78, %76 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %58 ], [ %72, %71 ], [ %78, %76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %84 = load ptr, ptr %20, align 8, !tbaa !277
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 76
@@ -16342,7 +16342,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_4U
   unreachable
 
 .loopexit39:                                      ; preds = %29, %11, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %11 ], [ %31, %29 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %11 ], [ %25, %24 ], [ %31, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !266
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24

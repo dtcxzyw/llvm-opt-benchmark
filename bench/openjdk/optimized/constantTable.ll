@@ -654,7 +654,7 @@ _ZN17AbstractAssembler12int_constantEi.exit.thread100: ; preds = %108, %_ZN17Abs
   br i1 %.not, label %16, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, !llvm.loop !20
 
 _ZN17AbstractAssembler16address_constantEPh.exit43.thread: ; preds = %_ZN17AbstractAssembler12int_constantEi.exit, %_ZN17AbstractAssembler12int_constantEi.exit.thread100, %94, %24, %33, %42, %51, %_ZN11OopRecorder10find_indexEP8_jobject.exit, %84, %_ZN11OopRecorder10find_indexEP8Metadata.exit, %.lr.ph, %2
-  %144 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZN17AbstractAssembler12int_constantEi.exit ], [ true, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ], [ false, %94 ], [ false, %24 ], [ false, %33 ], [ false, %42 ], [ false, %51 ], [ false, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ false, %84 ], [ false, %_ZN11OopRecorder10find_indexEP8Metadata.exit ]
+  %144 = phi i1 [ false, %.lr.ph ], [ true, %2 ], [ false, %_ZN17AbstractAssembler12int_constantEi.exit ], [ true, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ], [ false, %94 ], [ false, %24 ], [ false, %33 ], [ false, %42 ], [ false, %51 ], [ false, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ false, %84 ], [ false, %_ZN11OopRecorder10find_indexEP8Metadata.exit ]
   ret i1 %144
 }
 

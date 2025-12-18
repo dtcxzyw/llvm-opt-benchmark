@@ -1714,7 +1714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78.i: ; preds = %2
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0EEET_SP_SP_T0_.exit.i.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0EEET_SP_SP_T0_.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i, %.loopexit.split.loop.exit47.i.i.i.i.i, %243, %238, %233
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.033.1.i.i.i.i.i, %238 ], [ %spec.select.i.i.i.i.i, %243 ], [ %.sroa.033.0.lcssa.i.i.i.i.i, %233 ], [ %247, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %246, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %248, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %.sroa.033.056.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.033.1.i.i.i.i.i, %238 ], [ %spec.select.i.i.i.i.i, %243 ], [ %248, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %.sroa.033.0.lcssa.i.i.i.i.i, %233 ], [ %247, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %246, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %.sroa.033.056.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %249 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %.val44.i
   %.sroa.010.022.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, i64 136
   %.not23.i.i.i = icmp eq ptr %.sroa.010.022.i.i.i, %.val44.i
@@ -1747,8 +1747,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78.i: ; preds = %2
   br label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEEZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0ET_SM_SM_T0_.exit.i"
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEEZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0ET_SM_SM_T0_.exit.i": ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEEZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0ET_SM_SM_T0_.exit.loopexit.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0EEET_SP_SP_T0_.exit.i.i.i"
-  %.val45.i = phi ptr [ %.val44.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0EEET_SP_SP_T0_.exit.i.i.i" ], [ %.val45.pre.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEEZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0ET_SM_SM_T0_.exit.loopexit.i" ]
-  %.sroa.013.0.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0EEET_SP_SP_T0_.exit.i.i.i" ], [ %.sroa.013.2.i.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEEZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0ET_SM_SM_T0_.exit.loopexit.i" ]
+  %.val45.i = phi ptr [ %.val45.pre.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEEZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0ET_SM_SM_T0_.exit.loopexit.i" ], [ %.val44.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0EEET_SP_SP_T0_.exit.i.i.i" ]
+  %.sroa.013.0.i.i.i = phi ptr [ %.sroa.013.2.i.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEEZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0ET_SM_SM_T0_.exit.loopexit.i" ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_19SecondaryStructures15analyseTopologyERKNS2_19TopologyInformationERKNS2_9SelectionERKNS4_12HydrogenModeEbE3$_0EEET_SP_SP_T0_.exit.i.i.i" ]
   %.not.i.i80.i = icmp eq ptr %.sroa.013.0.i.i.i, %.val45.i
   br i1 %.not.i.i80.i, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit.i, label %._crit_edge.i.i81.i
 
@@ -4314,8 +4314,8 @@ _ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures32analyzeBridgesAndSt
   br label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit.i.us.i
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit.i.us.i: ; preds = %944, %.lr.ph.preheader.i.i105.us.i, %.loopexit175.i.us.i
-  %.val121.i.us.i = phi ptr [ %.val121.i.us.pre.i, %.loopexit175.i.us.i ], [ %.val121.i.us281.i, %.lr.ph.preheader.i.i105.us.i ], [ %.val121.i.us281.i, %944 ]
-  %.val.i94.us.i = phi ptr [ %.val.i94.us.pre.i, %.loopexit175.i.us.i ], [ %.val.i94.us275.i, %.lr.ph.preheader.i.i105.us.i ], [ %.val.i94.us275.i, %944 ]
+  %.val121.i.us.i = phi ptr [ %.val121.i.us281.i, %.lr.ph.preheader.i.i105.us.i ], [ %.val121.i.us.pre.i, %.loopexit175.i.us.i ], [ %.val121.i.us281.i, %944 ]
+  %.val.i94.us.i = phi ptr [ %.val.i94.us275.i, %.lr.ph.preheader.i.i105.us.i ], [ %.val.i94.us.pre.i, %.loopexit175.i.us.i ], [ %.val.i94.us275.i, %944 ]
   %958 = add nuw i64 %.0101181.i.us.i, 1
   %959 = ptrtoint ptr %.val121.i.us.i to i64
   %960 = ptrtoint ptr %.val.i94.us.i to i64
@@ -4454,10 +4454,10 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm
   br i1 %exitcond.not.i101.i, label %._crit_edge.i99.i, label %.lr.ph.i100.i, !llvm.loop !278
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit.i.i: ; preds = %987, %995, %.lr.ph.preheader.i.i105.i, %._crit_edge.i99.i
-  %.val121.i.us277.i = phi ptr [ %.val121.i.pre.i, %._crit_edge.i99.i ], [ %.val121.i.us278.i, %.lr.ph.preheader.i.i105.i ], [ %.val121.i.us278.i, %995 ], [ %.val121.i.us278.i, %987 ]
-  %.val.i94.us271.i = phi ptr [ %.val.i94.pre.i, %._crit_edge.i99.i ], [ %.val.i94.us272.i, %.lr.ph.preheader.i.i105.i ], [ %.val.i94.us272.i, %995 ], [ %.val.i94.us272.i, %987 ]
-  %.val121.i.i = phi ptr [ %.val121.i.pre.i, %._crit_edge.i99.i ], [ %.val121.i269.i, %.lr.ph.preheader.i.i105.i ], [ %.val121.i269.i, %995 ], [ %.val121.i269.i, %987 ]
-  %.val.i94.i = phi ptr [ %.val.i94.pre.i, %._crit_edge.i99.i ], [ %.val.i94265.i, %.lr.ph.preheader.i.i105.i ], [ %.val.i94265.i, %995 ], [ %.val.i94265.i, %987 ]
+  %.val121.i.us277.i = phi ptr [ %.val121.i.us278.i, %.lr.ph.preheader.i.i105.i ], [ %.val121.i.us278.i, %995 ], [ %.val121.i.pre.i, %._crit_edge.i99.i ], [ %.val121.i.us278.i, %987 ]
+  %.val.i94.us271.i = phi ptr [ %.val.i94.us272.i, %.lr.ph.preheader.i.i105.i ], [ %.val.i94.us272.i, %995 ], [ %.val.i94.pre.i, %._crit_edge.i99.i ], [ %.val.i94.us272.i, %987 ]
+  %.val121.i.i = phi ptr [ %.val121.i269.i, %.lr.ph.preheader.i.i105.i ], [ %.val121.i269.i, %995 ], [ %.val121.i.pre.i, %._crit_edge.i99.i ], [ %.val121.i269.i, %987 ]
+  %.val.i94.i = phi ptr [ %.val.i94265.i, %.lr.ph.preheader.i.i105.i ], [ %.val.i94265.i, %995 ], [ %.val.i94.pre.i, %._crit_edge.i99.i ], [ %.val.i94265.i, %987 ]
   %1018 = add i64 %.0101181.i.i, 1
   %1019 = add i64 %1018, %921
   %1020 = ptrtoint ptr %.val121.i.i to i64

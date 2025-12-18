@@ -733,7 +733,7 @@ check_flag.exit20:                                ; preds = %.lr.ph, %check_flag
   br label %.loopexit
 
 .loopexit:                                        ; preds = %check_flag.exit20, %.loopexit.sink.split, %check_flag.exit20.preheader
-  %.017 = phi i32 [ 0, %check_flag.exit20.preheader ], [ 1, %.loopexit.sink.split ], [ 0, %check_flag.exit20 ]
+  %.017 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %check_flag.exit20.preheader ], [ 0, %check_flag.exit20 ]
   ret i32 %.017
 }
 

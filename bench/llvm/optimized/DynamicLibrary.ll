@@ -1036,7 +1036,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
   br i1 %.not30.i40, label %44, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread: ; preds = %.lr.ph.i, %22, %.lr.ph.i33, %36, %45, %44, %32, %.loopexit, %28, %.thread
-  %.2 = phi ptr [ %27, %.thread ], [ null, %.loopexit ], [ null, %28 ], [ null, %32 ], [ %25, %22 ], [ null, %44 ], [ null, %36 ], [ %48, %45 ], [ %39, %.lr.ph.i33 ], [ %16, %.lr.ph.i ]
+  %.2 = phi ptr [ null, %36 ], [ null, %44 ], [ %27, %.thread ], [ null, %.loopexit ], [ null, %28 ], [ null, %32 ], [ %25, %22 ], [ %48, %45 ], [ %39, %.lr.ph.i33 ], [ %16, %.lr.ph.i ]
   ret ptr %.2
 }
 

@@ -168,7 +168,7 @@ define dso_local range(i32 0, 13) i32 @mm_read_mtx_crd_size(ptr noundef %0, ptr 
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %6, %.preheader, %.loopexit14.loopexit19, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %.preheader ], [ 12, %.loopexit14.loopexit19 ], [ 12, %6 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 12, %.loopexit14.loopexit19 ], [ 0, %12 ], [ 12, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

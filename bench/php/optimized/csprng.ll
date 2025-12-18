@@ -156,7 +156,7 @@ zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %.thread.thread, %47
   br label %.thread.thread92.sink.split
 
 .thread.thread92.sink.split:                      ; preds = %52, %42, %27, %30, %45, %62, %65
-  %.3.ph = phi i32 [ -1, %65 ], [ -1, %62 ], [ -1, %45 ], [ -1, %30 ], [ -1, %27 ], [ -1, %42 ], [ 0, %52 ]
+  %.3.ph = phi i32 [ -1, %42 ], [ -1, %65 ], [ -1, %62 ], [ -1, %45 ], [ -1, %30 ], [ -1, %27 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread.thread92
 
@@ -299,7 +299,7 @@ php_random_bytes.exit25:                          ; preds = %.lr.ph
   br i1 %.not23, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.split.us, %php_random_bytes.exit25, %.split.preheader, %..critedge_crit_edge
-  %35 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %26, %.split.preheader ], [ %34, %php_random_bytes.exit25 ], [ %27, %.split.us ]
+  %35 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %34, %php_random_bytes.exit25 ], [ %26, %.split.preheader ], [ %27, %.split.us ]
   %36 = urem i64 %35, %21
   %37 = add i64 %36, %0
   store i64 %37, ptr %2, align 8, !tbaa !15

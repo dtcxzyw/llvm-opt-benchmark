@@ -2239,8 +2239,8 @@ define internal range(i32 -19, 16) i32 @pci_netmos_init(ptr noundef %0) #0 align
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.13, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31) #17
   br label %.thread
 
-.thread2:                                         ; preds = %14, %20
-  %.ph = phi i16 [ %4, %20 ], [ 1, %14 ]
+.thread2:                                         ; preds = %20, %14
+  %.ph = phi i16 [ 1, %14 ], [ %4, %20 ]
   %32 = zext nneg i16 %.ph to i32
   br label %46
 

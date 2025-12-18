@@ -320,7 +320,7 @@ hostcache_entry_is_stale.exit.thread:             ; preds = %28, %.thread65
   br label %.thread73
 
 .thread73:                                        ; preds = %.lr.ph, %.thread73.sink.split, %14, %18, %hostcache_entry_is_stale.exit.thread
-  %.3 = phi ptr [ %.03969, %hostcache_entry_is_stale.exit.thread ], [ null, %18 ], [ null, %14 ], [ null, %.thread73.sink.split ], [ %.03969, %.lr.ph ]
+  %.3 = phi ptr [ null, %14 ], [ %.03969, %hostcache_entry_is_stale.exit.thread ], [ null, %.thread73.sink.split ], [ null, %18 ], [ %.03969, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.3
 }
@@ -968,8 +968,8 @@ get_localhost.exit:                               ; preds = %89, %94, %get_local
   br label %153
 
 153:                                              ; preds = %136, %152, %151, %140
-  %.pre = phi ptr [ %146, %152 ], [ %.pre.pre, %151 ], [ %141, %140 ], [ null, %136 ]
-  %.279 = phi i32 [ 0, %152 ], [ %.077, %151 ], [ %., %140 ], [ %.077, %136 ]
+  %.pre = phi ptr [ null, %136 ], [ %141, %140 ], [ %.pre.pre, %151 ], [ %146, %152 ]
+  %.279 = phi i32 [ %.077, %136 ], [ %., %140 ], [ %.077, %151 ], [ 0, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %154
@@ -1676,8 +1676,8 @@ create_hostcache_id.exit:                         ; preds = %21
   br label %110
 
 110:                                              ; preds = %108, %107, %88
-  %.2153 = phi ptr [ %.1152263, %88 ], [ %.1152263, %108 ], [ %96, %107 ]
-  %.1149 = phi ptr [ %.0148264, %88 ], [ %96, %108 ], [ %96, %107 ]
+  %.2153 = phi ptr [ %96, %107 ], [ %.1152263, %88 ], [ %.1152263, %108 ]
+  %.1149 = phi ptr [ %96, %107 ], [ %.0148264, %88 ], [ %96, %108 ]
   %111 = load i8, ptr %.0143, align 1, !tbaa !4
   %.not182 = icmp eq i8 %111, 0
   br i1 %.not182, label %._crit_edge, label %.lr.ph

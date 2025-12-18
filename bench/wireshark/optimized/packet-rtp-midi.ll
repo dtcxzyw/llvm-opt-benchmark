@@ -2685,8 +2685,8 @@ default.unreachable:                              ; preds = %75
   br label %.thread.i185
 
 .thread.i185:                                     ; preds = %292, %.split.i184, %.thread.i185.loopexit487, %.thread.i185.loopexit, %287
-  %.184.i = phi ptr [ @rtp_midi_common_status_sysex_segment_complete, %.thread.i185.loopexit ], [ @rtp_midi_common_status_sysex_cancel, %.split.i184 ], [ %288, %287 ], [ %288, %292 ], [ @rtp_midi_common_status_sysex_segment_start, %.thread.i185.loopexit487 ]
-  %.182.i = phi i32 [ %291, %.thread.i185.loopexit ], [ %291, %.split.i184 ], [ 0, %287 ], [ %291, %292 ], [ %291, %.thread.i185.loopexit487 ]
+  %.184.i = phi ptr [ @rtp_midi_common_status_sysex_cancel, %.split.i184 ], [ @rtp_midi_common_status_sysex_segment_complete, %.thread.i185.loopexit ], [ %288, %287 ], [ %288, %292 ], [ @rtp_midi_common_status_sysex_segment_start, %.thread.i185.loopexit487 ]
+  %.182.i = phi i32 [ %291, %.split.i184 ], [ %291, %.thread.i185.loopexit ], [ 0, %287 ], [ %291, %292 ], [ %291, %.thread.i185.loopexit487 ]
   %293 = add i32 %.182.i, -1
   %294 = add i32 %.0140.i, -1
   %295 = add i32 %.182.i, 1
@@ -3117,7 +3117,7 @@ decode_sysex_common_nrt_mtc.exit.i.i:             ; preds = %523, %521, %424, %3
   br i1 %560, label %decodemidi.exit, label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
 decode_sysex_common_nrt_mtc.exit.thread.i.i:      ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %557, %552, %547, %542, %537, %532, %527, %464, %462, %455, %449, %442, %428, %359, %324, %313
-  %.0131.i.i = phi i32 [ %.0.i.i189, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 1, %557 ], [ 1, %552 ], [ 1, %547 ], [ 1, %542 ], [ 1, %537 ], [ 1, %532 ], [ 1, %527 ], [ %456, %455 ], [ %463, %462 ], [ %.2.i.i.i191, %449 ], [ %468, %464 ], [ 1, %428 ], [ 2, %442 ], [ 2, %359 ], [ 16, %324 ], [ 0, %313 ]
+  %.0131.i.i = phi i32 [ %.0.i.i189, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 0, %313 ], [ 1, %557 ], [ 1, %552 ], [ 1, %547 ], [ 1, %542 ], [ 1, %537 ], [ 1, %532 ], [ 1, %527 ], [ %456, %455 ], [ %463, %462 ], [ %.2.i.i.i191, %449 ], [ %468, %464 ], [ 16, %324 ], [ 1, %428 ], [ 2, %359 ], [ 2, %442 ]
   %561 = add nuw i32 %.0131.i.i, 2
   %.not.i.i188 = icmp eq i32 %323, %.0131.i.i
   br i1 %.not.i.i188, label %737, label %562
@@ -3610,8 +3610,8 @@ decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common
   br label %.thread.i168
 
 .thread.i168:                                     ; preds = %840, %.split.i, %.thread.i168.loopexit488, %.thread.i168.loopexit, %835
-  %.133.i = phi i32 [ 0, %835 ], [ %839, %.split.i ], [ %839, %.thread.i168.loopexit ], [ %839, %840 ], [ %839, %.thread.i168.loopexit488 ]
-  %.1.i169 = phi ptr [ %836, %835 ], [ @rtp_midi_common_status_sysex_cancel, %.split.i ], [ @rtp_midi_common_status_sysex_segment_end, %.thread.i168.loopexit ], [ %836, %840 ], [ @rtp_midi_common_status_sysex_segment, %.thread.i168.loopexit488 ]
+  %.133.i = phi i32 [ %839, %.split.i ], [ %839, %.thread.i168.loopexit ], [ 0, %835 ], [ %839, %840 ], [ %839, %.thread.i168.loopexit488 ]
+  %.1.i169 = phi ptr [ @rtp_midi_common_status_sysex_cancel, %.split.i ], [ @rtp_midi_common_status_sysex_segment_end, %.thread.i168.loopexit ], [ %836, %835 ], [ %836, %840 ], [ @rtp_midi_common_status_sysex_segment, %.thread.i168.loopexit488 ]
   %841 = add i32 %.0140.i, -1
   %842 = add i32 %.133.i, 1
   %843 = load i32, ptr @ett_rtp_midi_command, align 4
@@ -5039,7 +5039,7 @@ decode_channel_journal.exit.thread:               ; preds = %1695, %decode_chann
   br label %.thread242
 
 .thread242:                                       ; preds = %decodemidi.exit, %67, %.preheader.split.i.i, %decode_channel_journal.exit, %1543, %1695, %.preheader.i.i, %1278, %decode_system_journal.exit, %.thread238
-  %.2 = phi i32 [ %1699, %.thread238 ], [ %884, %decode_system_journal.exit ], [ %884, %1278 ], [ %884, %.preheader.i.i ], [ %884, %.preheader.split.i.i ], [ %.7287, %decode_channel_journal.exit ], [ %.7287, %1695 ], [ %.7287, %1543 ], [ %.3121221, %67 ], [ %.3121221, %decodemidi.exit ]
+  %.2 = phi i32 [ %1699, %.thread238 ], [ %.7287, %decode_channel_journal.exit ], [ %884, %.preheader.split.i.i ], [ %884, %.preheader.i.i ], [ %884, %decode_system_journal.exit ], [ %884, %1278 ], [ %.7287, %1695 ], [ %.7287, %1543 ], [ %.3121221, %67 ], [ %.3121221, %decodemidi.exit ]
   ret i32 %.2
 }
 

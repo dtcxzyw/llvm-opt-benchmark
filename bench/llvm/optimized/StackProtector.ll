@@ -1559,7 +1559,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i209: ; preds = %350, %_ZN4llv
   br i1 %.not261, label %.thread247, label %162
 
 .thread247:                                       ; preds = %._crit_edge, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.thread, %186, %184, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_0EEvT_PDTclfL0p_EE.exit", %.thread251, %126, %38
-  %.1 = phi i1 [ true, %.thread251 ], [ false, %126 ], [ true, %38 ], [ %37, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_0EEvT_PDTclfL0p_EE.exit" ], [ true, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.thread ], [ true, %184 ], [ true, %186 ], [ %.392.lcssa, %._crit_edge ]
+  %.1 = phi i1 [ true, %.thread251 ], [ false, %126 ], [ true, %38 ], [ true, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.thread ], [ %37, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_0EEvT_PDTclfL0p_EE.exit" ], [ true, %184 ], [ true, %186 ], [ %.392.lcssa, %._crit_edge ]
   %371 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %372 = load ptr, ptr %371, align 8, !tbaa !177
   %.not.i.i217 = icmp eq ptr %372, null
@@ -2097,12 +2097,12 @@ _ZL14CreateProloguePN4llvm8FunctionEPNS_6ModuleEPNS_11InstructionEPKNS_18TargetL
   br i1 %.not100, label %.lr.ph56.i, label %188
 
 .lr.ph56.i:                                       ; preds = %155, %._crit_edge.i
-  %.sroa.033.0.i.sink.in = phi ptr [ %179, %._crit_edge.i ], [ %53, %155 ]
-  %.sroa.033.0.i.sink = load ptr, ptr %.sroa.033.0.i.sink.in, align 8, !tbaa !146
-  %.not.i = icmp ne ptr %.sroa.033.0.i.sink, %55
-  call void @llvm.assume(i1 %.not.i)
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.i.sink, i64 32
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.i.sink, i64 24
+  %.sroa.033.052.i.sink.in = phi ptr [ %179, %._crit_edge.i ], [ %53, %155 ]
+  %.sroa.033.052.i.sink = load ptr, ptr %.sroa.033.052.i.sink.in, align 8, !tbaa !146
+  %.not53.i = icmp ne ptr %.sroa.033.052.i.sink, %55
+  call void @llvm.assume(i1 %.not53.i)
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.033.052.i.sink, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.033.052.i.sink, i64 24
   %.sroa.029.049.i = load ptr, ptr %156, align 8, !tbaa !149
   %.not4750.i = icmp eq ptr %.sroa.029.049.i, %157
   br i1 %.not4750.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2153,7 +2153,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.i: ;
   br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread.i, %.lr.ph56.i
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.i.sink, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.033.052.i.sink, i64 8
   br label %.lr.ph56.i
 
 _ZL27findStackProtectorIntrinsicRN4llvm8FunctionE.exit: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.i
@@ -4209,7 +4209,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !399
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

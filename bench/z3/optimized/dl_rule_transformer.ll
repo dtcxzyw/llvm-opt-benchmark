@@ -994,7 +994,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   br i1 %.not27.old.i.i, label %.loopexit51, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %61, %58
-  %.137.i.i.be = phi ptr [ %.old.i.i, %61 ], [ %60, %58 ]
+  %.137.i.i.be = phi ptr [ %60, %58 ], [ %.old.i.i, %61 ]
   br label %.lr.ph38.i.i, !llvm.loop !247
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit35.thread: ; preds = %42, %53
@@ -1199,7 +1199,7 @@ _ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.e
   br i1 %143, label %.loopexit, label %140
 
 .loopexit:                                        ; preds = %.preheader54, %140, %89
-  %.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %.pn.pn, %140 ], [ %90, %.preheader54 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %140 ], [ %90, %89 ], [ %90, %.preheader54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn
 }

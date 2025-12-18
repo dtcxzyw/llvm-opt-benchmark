@@ -599,8 +599,8 @@ _ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit: 
   br label %160
 
 _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %114, %93, %.loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge, %104
-  %146 = phi ptr [ %.pre384, %.loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge ], [ %106, %104 ], [ %91, %93 ], [ %106, %114 ]
-  %.2 = phi i64 [ 1, %.loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge ], [ %.030377, %104 ], [ %.030377, %93 ], [ %.030377, %114 ]
+  %146 = phi ptr [ %.pre384, %.loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge ], [ %91, %93 ], [ %106, %104 ], [ %106, %114 ]
+  %.2 = phi i64 [ 1, %.loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge ], [ %.030377, %93 ], [ %.030377, %104 ], [ %.030377, %114 ]
   %147 = load i64, ptr %146, align 8
   %148 = and i64 %147, 1152920405095219200
   %.not.i.i116 = icmp eq i64 %148, 1152920405095219200

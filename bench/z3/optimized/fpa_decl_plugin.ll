@@ -2376,7 +2376,7 @@ _Z9is_app_ofPK4exprii.exit19.thread.sink.split:   ; preds = %_Z9is_app_ofPK4expr
   br label %_Z9is_app_ofPK4exprii.exit19.thread
 
 _Z9is_app_ofPK4exprii.exit19.thread:              ; preds = %_Z9is_app_ofPK4exprii.exit19.thread.sink.split, %10, %3, %_Z9is_app_ofPK4exprii.exit19
-  %.0 = phi i1 [ false, %_Z9is_app_ofPK4exprii.exit19 ], [ false, %3 ], [ false, %10 ], [ true, %_Z9is_app_ofPK4exprii.exit19.thread.sink.split ]
+  %.0 = phi i1 [ false, %10 ], [ false, %3 ], [ false, %_Z9is_app_ofPK4exprii.exit19 ], [ true, %_Z9is_app_ofPK4exprii.exit19.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -2408,7 +2408,7 @@ _Z9is_app_ofPK4exprii.exit.i:                     ; preds = %9
   br label %_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode.exit
 
 _ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode.exit: ; preds = %_Z9is_app_ofPK4exprii.exit.i, %2, %9
-  %.0.i = phi i1 [ %or.cond8, %_Z9is_app_ofPK4exprii.exit.i ], [ false, %2 ], [ false, %9 ]
+  %.0.i = phi i1 [ false, %9 ], [ false, %2 ], [ %or.cond8, %_Z9is_app_ofPK4exprii.exit.i ]
   ret i1 %.0.i
 }
 
@@ -10874,7 +10874,7 @@ _ZNK9parameter7get_astEv.exit98..critedge93_crit_edge: ; preds = %_ZNK9parameter
   br label %.thread
 
 .thread:                                          ; preds = %110, %_ZNK4decl18get_num_parametersEv.exit96, %_ZNK9parameter7get_astEv.exit98, %.lr.ph137, %.critedge93, %_ZNK4decl18get_num_parametersEv.exit, %_ZNK9parameter7get_astEv.exit, %.lr.ph143, %.critedge, %24, %27, %75, %.preheader125, %.preheader, %._crit_edge, %86, %_ZNK8fpa_util8is_floatEP4sort.exit, %17, %137, %._crit_edge155, %.thread105
-  %.2 = phi i1 [ true, %_ZNK8fpa_util8is_floatEP4sort.exit ], [ false, %137 ], [ true, %.thread105 ], [ true, %86 ], [ true, %._crit_edge ], [ false, %._crit_edge155 ], [ true, %17 ], [ false, %75 ], [ false, %.preheader ], [ false, %.preheader125 ], [ %30, %24 ], [ false, %_ZNK4decl18get_num_parametersEv.exit96 ], [ false, %.critedge ], [ %30, %27 ], [ true, %_ZNK9parameter7get_astEv.exit ], [ false, %.lr.ph143 ], [ false, %_ZNK4decl18get_num_parametersEv.exit ], [ false, %.lr.ph137 ], [ true, %_ZNK9parameter7get_astEv.exit98 ], [ false, %.critedge93 ], [ true, %110 ]
+  %.2 = phi i1 [ true, %_ZNK8fpa_util8is_floatEP4sort.exit ], [ false, %137 ], [ false, %.critedge ], [ true, %.thread105 ], [ true, %86 ], [ true, %._crit_edge ], [ false, %.lr.ph137 ], [ false, %._crit_edge155 ], [ false, %75 ], [ true, %17 ], [ false, %.preheader ], [ %30, %24 ], [ false, %.preheader125 ], [ %30, %27 ], [ true, %_ZNK9parameter7get_astEv.exit ], [ false, %.lr.ph143 ], [ false, %_ZNK4decl18get_num_parametersEv.exit ], [ false, %_ZNK4decl18get_num_parametersEv.exit96 ], [ true, %_ZNK9parameter7get_astEv.exit98 ], [ false, %.critedge93 ], [ true, %110 ]
   ret i1 %.2
 }
 
@@ -12882,7 +12882,7 @@ define linkonce_odr hidden noundef ptr @_ZN10chashtableIjN15fpa_decl_plugin13mpf
   br i1 %.not, label %.critedge, label %19, !llvm.loop !251
 
 .critedge:                                        ; preds = %.loopexit, %104, %8
-  %spec.select = phi ptr [ %14, %8 ], [ null, %104 ], [ %.547, %.loopexit ]
+  %spec.select = phi ptr [ null, %104 ], [ %14, %8 ], [ %.547, %.loopexit ]
   ret ptr %spec.select
 }
 

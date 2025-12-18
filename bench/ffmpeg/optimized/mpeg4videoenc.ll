@@ -4899,7 +4899,7 @@ get_block_rate.exit.i:                            ; preds = %1354, %1317
   br i1 %exitcond251.not.i, label %.loopexit224.i, label %1469, !llvm.loop !188
 
 .loopexit224.i:                                   ; preds = %1406, %1388, %1469, %1452
-  %.sink.i = phi ptr [ %1315, %1388 ], [ %1316, %1452 ], [ %1316, %1469 ], [ %1315, %1406 ]
+  %.sink.i = phi ptr [ %1316, %1469 ], [ %1315, %1388 ], [ %1316, %1452 ], [ %1315, %1406 ]
   %1494 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv256.i
   store ptr %.sink.i, ptr %1494, align 8, !tbaa !166
   br label %1495

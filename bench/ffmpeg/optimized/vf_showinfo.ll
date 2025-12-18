@@ -497,8 +497,8 @@ update_sample_stats.exit.loopexit304:             ; preds = %.lr.ph.split.i.i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %update_sample_stats.exit.us330, %update_sample_stats.exit.us, %._crit_edge.sink.split
-  %.us-phi325 = phi i32 [ %.us-phi325.ph, %._crit_edge.sink.split ], [ %71, %update_sample_stats.exit.us ], [ %86, %update_sample_stats.exit.us330 ]
-  %.us-phi326 = phi i32 [ %.us-phi326.ph, %._crit_edge.sink.split ], [ %72, %update_sample_stats.exit.us ], [ %87, %update_sample_stats.exit.us330 ]
+  %.us-phi325 = phi i32 [ %71, %update_sample_stats.exit.us ], [ %.us-phi325.ph, %._crit_edge.sink.split ], [ %86, %update_sample_stats.exit.us330 ]
+  %.us-phi326 = phi i32 [ %72, %update_sample_stats.exit.us ], [ %.us-phi326.ph, %._crit_edge.sink.split ], [ %87, %update_sample_stats.exit.us330 ]
   %.pn = mul i32 %54, %59
   %.us-phi = add i32 %.promoted323, %.pn
   store i32 %.us-phi325, ptr %62, align 4, !tbaa !39

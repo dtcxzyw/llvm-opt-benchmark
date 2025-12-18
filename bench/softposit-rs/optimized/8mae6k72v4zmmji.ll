@@ -2538,7 +2538,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4atan17hb7f606f8e957233fE(i32 
   br label %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit"
 
 "_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit": ; preds = %35, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit.fold.split", %25, %41, %39, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3add17h77caa6880b99a45eE.exit"
-  %.018 = phi i32 [ %.0.i, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3add17h77caa6880b99a45eE.exit" ], [ %.0.i, %35 ], [ %42, %41 ], [ %40, %39 ], [ -2147483648, %25 ], [ 1150352810, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit.fold.split" ]
+  %.018 = phi i32 [ %.0.i, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3add17h77caa6880b99a45eE.exit" ], [ %.0.i, %35 ], [ %42, %41 ], [ -2147483648, %25 ], [ %40, %39 ], [ 1150352810, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit.fold.split" ]
   %43 = sub i32 0, %.018
   %44 = icmp slt i32 %0, 0
   %spec.select = select i1 %44, i32 %43, i32 %.018
@@ -2731,7 +2731,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4acos17h8bdbcf687ea59c95E(i32 
   br label %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit48"
 
 "_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit48": ; preds = %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3add17h77caa6880b99a45eE.exit", %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit48.fold.split", %35, %48, %50
-  %.0.i47 = phi i32 [ %51, %50 ], [ %49, %48 ], [ %.0.i44, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3add17h77caa6880b99a45eE.exit" ], [ -2147483648, %35 ], [ 1150352810, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit48.fold.split" ]
+  %.0.i47 = phi i32 [ %51, %50 ], [ -2147483648, %35 ], [ %49, %48 ], [ %.0.i44, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3add17h77caa6880b99a45eE.exit" ], [ 1150352810, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit48.fold.split" ]
   %52 = icmp eq i32 %.037, 0
   %53 = icmp eq i32 %24, 0
   %or.cond.i49 = or i1 %52, %53

@@ -277,7 +277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3s
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit: ; preds = %28, %14, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split, %27, %21, %13, %5
-  %.0 = phi i64 [ -9223372036854775808, %13 ], [ 0, %5 ], [ 9223372036854775807, %27 ], [ 0, %21 ], [ %.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split ], [ %18, %14 ], [ %32, %28 ]
+  %.0 = phi i64 [ %.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split ], [ -9223372036854775808, %13 ], [ 0, %21 ], [ 0, %5 ], [ 9223372036854775807, %27 ], [ %18, %14 ], [ %32, %28 ]
   ret i64 %.0
 }
 
@@ -354,7 +354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3s
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb.exit: ; preds = %29, %15, %6, %14, %22, %28, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i
-  %.0.i = phi i64 [ -9223372036854775808, %14 ], [ 0, %6 ], [ 9223372036854775807, %28 ], [ 0, %22 ], [ %.0.ph.i, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i ], [ %19, %15 ], [ %33, %29 ]
+  %.0.i = phi i64 [ %.0.ph.i, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i ], [ -9223372036854775808, %14 ], [ 0, %22 ], [ 0, %6 ], [ 9223372036854775807, %28 ], [ %19, %15 ], [ %33, %29 ]
   ret i64 %.0.i
 }
 
@@ -511,7 +511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3s
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit: ; preds = %28, %14, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split, %27, %21, %13, %5
-  %.0 = phi i64 [ -9223372036854775808, %13 ], [ 0, %5 ], [ 9223372036854775807, %27 ], [ 0, %21 ], [ %.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split ], [ %18, %14 ], [ %32, %28 ]
+  %.0 = phi i64 [ %.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split ], [ -9223372036854775808, %13 ], [ 0, %21 ], [ 0, %5 ], [ 9223372036854775807, %27 ], [ %18, %14 ], [ %32, %28 ]
   ret i64 %.0
 }
 
@@ -588,7 +588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3s
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb.exit: ; preds = %29, %15, %6, %14, %22, %28, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i
-  %.0.i = phi i64 [ -9223372036854775808, %14 ], [ 0, %6 ], [ 9223372036854775807, %28 ], [ 0, %22 ], [ %.0.ph.i, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i ], [ %19, %15 ], [ %33, %29 ]
+  %.0.i = phi i64 [ %.0.ph.i, %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i ], [ -9223372036854775808, %14 ], [ 0, %22 ], [ 0, %6 ], [ 9223372036854775807, %28 ], [ %19, %15 ], [ %33, %29 ]
   ret i64 %.0.i
 }
 
@@ -2861,7 +2861,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   br label %181
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.us, %50
-  %.093.lcssa = phi i64 [ 0, %50 ], [ %75, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.us ], [ %.396, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
+  %.093.lcssa = phi i64 [ %75, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.us ], [ 0, %50 ], [ %.396, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
   %164 = add nuw i64 %.093.lcssa, 1
   %165 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext %3, i64 noundef %164) #23
   %.not123 = icmp eq i64 %165, -1

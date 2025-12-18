@@ -1822,9 +1822,9 @@ _ZN6open3d2ml7contrib14CheckRectCrossERKNS1_5PointES4_S4_S4_.exit.i: ; preds = %
   %197 = add nsw i32 %.1181, 1
   br label %_ZN6open3d2ml7contrib12IntersectionERKNS1_5PointES4_S4_S4_RS2_.exit.thread
 
-_ZN6open3d2ml7contrib12IntersectionERKNS1_5PointES4_S4_S4_RS2_.exit.thread: ; preds = %106, %116, %130, %_ZN6open3d2ml7contrib14CheckRectCrossERKNS1_5PointES4_S4_S4_.exit.i, %193
-  %.sroa.0131.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %193 ], [ %.sroa.0131.1179, %_ZN6open3d2ml7contrib14CheckRectCrossERKNS1_5PointES4_S4_S4_.exit.i ], [ %.sroa.0131.1179, %130 ], [ %.sroa.0131.1179, %116 ], [ %.sroa.0131.1179, %106 ]
-  %.2 = phi i32 [ %197, %193 ], [ %.1181, %_ZN6open3d2ml7contrib14CheckRectCrossERKNS1_5PointES4_S4_S4_.exit.i ], [ %.1181, %130 ], [ %.1181, %116 ], [ %.1181, %106 ]
+_ZN6open3d2ml7contrib12IntersectionERKNS1_5PointES4_S4_S4_RS2_.exit.thread: ; preds = %116, %106, %130, %_ZN6open3d2ml7contrib14CheckRectCrossERKNS1_5PointES4_S4_S4_.exit.i, %193
+  %.sroa.0131.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %193 ], [ %.sroa.0131.1179, %_ZN6open3d2ml7contrib14CheckRectCrossERKNS1_5PointES4_S4_S4_.exit.i ], [ %.sroa.0131.1179, %130 ], [ %.sroa.0131.1179, %106 ], [ %.sroa.0131.1179, %116 ]
+  %.2 = phi i32 [ %197, %193 ], [ %.1181, %_ZN6open3d2ml7contrib14CheckRectCrossERKNS1_5PointES4_S4_S4_.exit.i ], [ %.1181, %130 ], [ %.1181, %106 ], [ %.1181, %116 ]
   %exitcond200.not = icmp eq i64 %indvars.iv.next198, 4
   br i1 %exitcond200.not, label %105, label %106, !llvm.loop !118
 

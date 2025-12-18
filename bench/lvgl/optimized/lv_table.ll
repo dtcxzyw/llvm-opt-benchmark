@@ -2071,10 +2071,10 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %170, %154, %._crit_edge.loopexit267.split.loop.exit, %._crit_edge.loopexit267.split.loop.exit271, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit281, %.thread, %126
-  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %128, %._crit_edge.loopexit.split.loop.exit281 ], [ %159, %._crit_edge.loopexit267.split.loop.exit271 ], [ %159, %._crit_edge.loopexit267.split.loop.exit ], [ %128, %154 ], [ %174, %170 ]
-  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %143, %._crit_edge.loopexit.split.loop.exit281 ], [ %134, %._crit_edge.loopexit267.split.loop.exit271 ], [ %134, %._crit_edge.loopexit267.split.loop.exit ], [ %158, %154 ], [ %134, %170 ]
-  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %145, %._crit_edge.loopexit.split.loop.exit281 ], [ %161, %._crit_edge.loopexit267.split.loop.exit271 ], [ %161, %._crit_edge.loopexit267.split.loop.exit ], [ %142, %154 ], [ %140, %170 ]
-  %.lcssa = phi i32 [ %.0142216, %126 ], [ %.0142216, %.thread ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %176, %._crit_edge.loopexit.split.loop.exit281 ], [ %178, %._crit_edge.loopexit267.split.loop.exit271 ], [ %177, %._crit_edge.loopexit267.split.loop.exit ], [ %124, %154 ], [ %124, %170 ]
+  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %128, %154 ], [ %128, %._crit_edge.loopexit.split.loop.exit281 ], [ %159, %._crit_edge.loopexit267.split.loop.exit271 ], [ %159, %._crit_edge.loopexit267.split.loop.exit ], [ %174, %170 ]
+  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %158, %154 ], [ %143, %._crit_edge.loopexit.split.loop.exit281 ], [ %134, %._crit_edge.loopexit267.split.loop.exit271 ], [ %134, %._crit_edge.loopexit267.split.loop.exit ], [ %134, %170 ]
+  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %142, %154 ], [ %145, %._crit_edge.loopexit.split.loop.exit281 ], [ %161, %._crit_edge.loopexit267.split.loop.exit271 ], [ %161, %._crit_edge.loopexit267.split.loop.exit ], [ %140, %170 ]
+  %.lcssa = phi i32 [ %.0142216, %126 ], [ %.0142216, %.thread ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %124, %154 ], [ %176, %._crit_edge.loopexit.split.loop.exit281 ], [ %178, %._crit_edge.loopexit267.split.loop.exit271 ], [ %177, %._crit_edge.loopexit267.split.loop.exit ], [ %124, %170 ]
   %181 = load i32, ptr %43, align 4, !tbaa !51
   %182 = load i32, ptr %67, align 4, !tbaa !50
   %183 = icmp slt i32 %181, %182

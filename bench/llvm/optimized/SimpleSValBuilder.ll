@@ -1148,7 +1148,7 @@ _ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit.fol
   br label %_ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit
 
 _ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit: ; preds = %355, %355, %355, %355, %355, %355, %355, %_ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit.fold.split, %358, %357, %356
-  %.2 = phi i32 [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ 10, %356 ], [ 13, %357 ], [ 12, %358 ], [ 11, %_ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit.fold.split ]
+  %.2 = phi i32 [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ %.0, %355 ], [ 12, %358 ], [ 10, %356 ], [ 13, %357 ], [ 11, %_ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit.fold.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %42, ptr noundef nonnull align 8 dereferenceable(9) %5, i64 9, i1 false)
@@ -1952,8 +1952,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit550: ; preds 
   br label %163
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit459: ; preds = %_ZN4llvm5APIntD2Ev.exit511, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit550, %504, %switch.lookup, %656, %.thread769, %201, %200, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit447, %189, %167, %177, %166, %_ZN4llvm5APIntD2Ev.exit, %246, %248, %250, %164, %146, %140, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, %95, %86
-  %.sroa.0365.0 = phi ptr [ %.fca.0.extract251, %164 ], [ %.fca.0.extract192, %200 ], [ %.fca.0.extract262, %146 ], [ %.fca.0.extract29, %.thread769 ], [ %94, %86 ], [ %103, %95 ], [ %139, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %.fca.0.extract270, %140 ], [ %.fca.0.extract142, %250 ], [ %.fca.0.extract161, %246 ], [ %.fca.0.extract153, %248 ], [ null, %189 ], [ null, %166 ], [ %.fca.0.extract169, %_ZN4llvm5APIntD2Ev.exit ], [ %186, %177 ], [ %176, %167 ], [ %.fca.0.extract192, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit447 ], [ null, %201 ], [ %.sroa.0556.4, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit550 ], [ %.fca.0.extract20, %504 ], [ %.fca.0.extract59, %switch.lookup ], [ %.fca.0.extract, %656 ], [ %.sroa.0365.6, %_ZN4llvm5APIntD2Ev.exit511 ]
-  %.sroa.30.0 = phi i8 [ %.fca.1.extract252, %164 ], [ %.fca.1.extract193, %200 ], [ %.fca.1.extract263, %146 ], [ %.fca.1.extract30, %.thread769 ], [ 6, %86 ], [ 6, %95 ], [ %.sroa.3.0.i, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %.fca.1.extract271, %140 ], [ %.fca.1.extract143, %250 ], [ %.fca.1.extract162, %246 ], [ %.fca.1.extract154, %248 ], [ 1, %189 ], [ 1, %166 ], [ %.fca.1.extract170, %_ZN4llvm5APIntD2Ev.exit ], [ 6, %177 ], [ 6, %167 ], [ %.fca.1.extract193, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit447 ], [ 1, %201 ], [ %.sroa.4.4, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit550 ], [ %.fca.1.extract21, %504 ], [ %.fca.1.extract60, %switch.lookup ], [ %.fca.1.extract, %656 ], [ %.sroa.30.6, %_ZN4llvm5APIntD2Ev.exit511 ]
+  %.sroa.0365.0 = phi ptr [ %.fca.0.extract251, %164 ], [ %.fca.0.extract192, %200 ], [ %.fca.0.extract262, %146 ], [ %.fca.0.extract, %656 ], [ %.fca.0.extract29, %.thread769 ], [ %94, %86 ], [ %103, %95 ], [ %139, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %.fca.0.extract270, %140 ], [ %.fca.0.extract142, %250 ], [ %.fca.0.extract161, %246 ], [ %.fca.0.extract153, %248 ], [ null, %189 ], [ null, %166 ], [ %.fca.0.extract169, %_ZN4llvm5APIntD2Ev.exit ], [ %186, %177 ], [ %176, %167 ], [ %.fca.0.extract192, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit447 ], [ null, %201 ], [ %.sroa.0556.4, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit550 ], [ %.fca.0.extract20, %504 ], [ %.fca.0.extract59, %switch.lookup ], [ %.sroa.0365.6, %_ZN4llvm5APIntD2Ev.exit511 ]
+  %.sroa.30.0 = phi i8 [ %.fca.1.extract252, %164 ], [ %.fca.1.extract193, %200 ], [ %.fca.1.extract263, %146 ], [ %.fca.1.extract, %656 ], [ %.fca.1.extract30, %.thread769 ], [ 6, %86 ], [ 6, %95 ], [ %.sroa.3.0.i, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %.fca.1.extract271, %140 ], [ %.fca.1.extract143, %250 ], [ %.fca.1.extract162, %246 ], [ %.fca.1.extract154, %248 ], [ 1, %189 ], [ 1, %166 ], [ %.fca.1.extract170, %_ZN4llvm5APIntD2Ev.exit ], [ 6, %177 ], [ 6, %167 ], [ %.fca.1.extract193, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit447 ], [ 1, %201 ], [ %.sroa.4.4, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit550 ], [ %.fca.1.extract21, %504 ], [ %.fca.1.extract60, %switch.lookup ], [ %.sroa.30.6, %_ZN4llvm5APIntD2Ev.exit511 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0365.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.30.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -3465,7 +3465,7 @@ _ZN12_GLOBAL__N_117SimpleSValBuilder21simplifyUntilFixpointEN4llvm18IntrusiveRef
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %.lr.ph.i.us, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN12_GLOBAL__N_117SimpleSValBuilder21simplifyUntilFixpointEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_4SValE.exit.thread
-  %.pn.pn.lcssa.i25 = phi { ptr, i8 } [ %.pn.pn.lcssa.i24, %_ZN12_GLOBAL__N_117SimpleSValBuilder21simplifyUntilFixpointEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_4SValE.exit.thread ], [ %6, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %12, %.lr.ph.i.us ]
+  %.pn.pn.lcssa.i25 = phi { ptr, i8 } [ %6, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %.pn.pn.lcssa.i24, %_ZN12_GLOBAL__N_117SimpleSValBuilder21simplifyUntilFixpointEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_4SValE.exit.thread ], [ %12, %.lr.ph.i.us ]
   ret { ptr, i8 } %.pn.pn.lcssa.i25
 }
 
@@ -3672,8 +3672,8 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
   %or.cond = select i1 %74, i1 %spec.select16.i.i, i1 false
   br i1 %or.cond, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
-_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %67, %71, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %71 ], [ %54, %67 ]
+_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %71, %67, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %67 ], [ %54, %71 ]
   br label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread: ; preds = %69, %73, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
@@ -4300,11 +4300,11 @@ _ZNK4llvm5APInt9isAllOnesEv.exit:                 ; preds = %62, %59, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %223, label %.critedge104, label %.critedge.thread
 
-.critedge104:                                     ; preds = %159, %_ZNK4llvm6APSInteqEl.exit107, %171, %165, %_ZNK4llvm6APSInteqEl.exit117, %_ZNK4llvm6APSInteqEl.exit126, %_ZNK4llvm5APInt9isAllOnesEv.exit
+.critedge104:                                     ; preds = %159, %_ZNK4llvm6APSInteqEl.exit117, %171, %165, %_ZNK4llvm6APSInteqEl.exit107, %_ZNK4llvm6APSInteqEl.exit126, %_ZNK4llvm5APInt9isAllOnesEv.exit
   %224 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder8evalCastENS0_4SValENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(412) %0, ptr nonnull %1, i8 9, i64 %4, i64 0) #18
   br label %425
 
-.critedge.thread:                                 ; preds = %_ZNK4llvm6APSInteqEl.exit107, %171, %165, %191, %_ZNK4llvm5APInt9isAllOnesEv.exit128, %_ZNK4llvm6APSInteqEl.exit109, %_ZNK4llvm5APInt9isAllOnesEv.exit
+.critedge.thread:                                 ; preds = %171, %165, %_ZNK4llvm6APSInteqEl.exit107, %191, %_ZNK4llvm5APInt9isAllOnesEv.exit128, %_ZNK4llvm6APSInteqEl.exit109, %_ZNK4llvm5APInt9isAllOnesEv.exit
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %226 = call ptr @_ZN5clang4ento17BasicValueFactory8getValueERKN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(144) %225, ptr noundef nonnull align 8 dereferenceable(13) %3) #18
   br label %278
@@ -5114,8 +5114,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %33, %44, %47
   br label %56
 
 56:                                               ; preds = %.critedge, %_ZN4llvm5APIntD2Ev.exit, %50
-  %.sroa.011.1 = phi ptr [ %0, %50 ], [ %15, %.critedge ], [ %15, %_ZN4llvm5APIntD2Ev.exit ]
-  %.sroa.3.1 = phi ptr [ %55, %50 ], [ %49, %.critedge ], [ %41, %_ZN4llvm5APIntD2Ev.exit ]
+  %.sroa.011.1 = phi ptr [ %0, %50 ], [ %15, %_ZN4llvm5APIntD2Ev.exit ], [ %15, %.critedge ]
+  %.sroa.3.1 = phi ptr [ %55, %50 ], [ %41, %_ZN4llvm5APIntD2Ev.exit ], [ %49, %.critedge ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.011.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert

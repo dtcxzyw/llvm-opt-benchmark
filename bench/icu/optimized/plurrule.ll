@@ -4283,7 +4283,7 @@ _ZN6icu_776number4impl6DecNumD2Ev.exit:           ; preds = %209, %211
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %193, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us, %149, %._crit_edge.loopexit174.split.loop.exit180, %.preheader
-  %.7 = phi i32 [ %.072, %.preheader ], [ %225, %._crit_edge.loopexit174.split.loop.exit180 ], [ %.8.us, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us ], [ %.8.us, %149 ], [ %smax, %193 ]
+  %.7 = phi i32 [ %.072, %.preheader ], [ %.8.us, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us ], [ %225, %._crit_edge.loopexit174.split.loop.exit180 ], [ %.8.us, %149 ], [ %smax, %193 ]
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %13) #29
@@ -4805,7 +4805,7 @@ _ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24.thread86: ; preds = %
   br label %.thread48
 
 .thread48:                                        ; preds = %69, %81, %57, %82
-  %.150 = phi i1 [ %84, %82 ], [ false, %57 ], [ false, %81 ], [ false, %69 ]
+  %.150 = phi i1 [ false, %81 ], [ %84, %82 ], [ false, %57 ], [ false, %69 ]
   %85 = load ptr, ptr %.0.i2190, align 8, !tbaa !15
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
@@ -4813,7 +4813,7 @@ _ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24.thread86: ; preds = %
   br label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25: ; preds = %32, %35, %25, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24, %.thread48
-  %.151 = phi i1 [ %.150, %.thread48 ], [ false, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24 ], [ false, %25 ], [ false, %35 ], [ false, %32 ]
+  %.151 = phi i1 [ %.150, %.thread48 ], [ false, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24 ], [ false, %32 ], [ false, %25 ], [ false, %35 ]
   %88 = icmp eq ptr %.0.i43, null
   br i1 %88, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit26, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25.thread
 
@@ -9886,7 +9886,7 @@ _ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split: ; preds = %146, %.thread.i
   br label %_ZN6icu_7712FixedDecimal4initEdili.exit89
 
 _ZN6icu_7712FixedDecimal4initEdili.exit89:        ; preds = %.lr.ph.i.i, %_ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split, %.preheader.i.i, %212
-  %.0.lcssa.sink.i.i.sink = phi i64 [ 0, %212 ], [ %.0.i, %.preheader.i.i ], [ 0, %_ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split ], [ %224, %.lr.ph.i.i ]
+  %.0.lcssa.sink.i.i.sink = phi i64 [ 0, %_ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split ], [ %.0.i, %.preheader.i.i ], [ 0, %212 ], [ %224, %.lr.ph.i.i ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i.sink, ptr %232, align 8, !tbaa !172
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %9) #29

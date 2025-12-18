@@ -1243,7 +1243,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit62: ; preds 
   br i1 %.not90, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !791
 
 .outer._crit_edge:                                ; preds = %.outer, %54, %32
-  %.0.ph.lcssa89 = phi i32 [ %33, %32 ], [ %.0.ph99, %54 ], [ %78, %.outer ]
+  %.0.ph.lcssa89 = phi i32 [ %.0.ph99, %54 ], [ %33, %32 ], [ %78, %.outer ]
   %113 = zext i32 %.0.ph.lcssa89 to i64
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %115 = load i32, ptr %114, align 8, !tbaa !362
@@ -2241,7 +2241,7 @@ _ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6
   br i1 %.not.i.i.i63, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !803
 
 _ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit62, %84, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit
-  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit ], [ %52, %84 ], [ %52, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit62 ], [ %52, %.lr.ph.i.i.i ], [ %52, %.lr.ph.i.i.i.i54 ]
+  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit ], [ %52, %.lr.ph.i.i.i ], [ %52, %84 ], [ %52, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit62 ], [ %52, %.lr.ph.i.i.i.i54 ]
   ret ptr %.0
 }
 
@@ -2498,7 +2498,7 @@ _ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryE
   br label %82
 
 ._crit_edge81:                                    ; preds = %.loopexit, %._crit_edge.thread98, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit
-  %77 = phi ptr [ %67, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit ], [ %63, %._crit_edge.thread98 ], [ %67, %.loopexit ]
+  %77 = phi ptr [ %63, %._crit_edge.thread98 ], [ %67, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit ], [ %67, %.loopexit ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 1, ptr %78, align 8, !tbaa !806
   %79 = load ptr, ptr %2, align 8, !tbaa !361

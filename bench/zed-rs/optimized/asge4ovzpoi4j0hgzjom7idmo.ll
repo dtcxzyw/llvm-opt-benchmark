@@ -10724,7 +10724,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 35:                                               ; preds = %12
   ret void
 
-36:                                               ; preds = %19, %21
+36:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17he441bd176a2489f8E(ptr noalias noundef nonnull readonly align 1 @anon.6e872e70c265b459b4c356a578d935cd.16.llvm.5026109878215741006, i64 noundef 20) #31
   unreachable
 }
@@ -10801,7 +10801,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 35:                                               ; preds = %12
   ret void
 
-36:                                               ; preds = %19, %21
+36:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17he441bd176a2489f8E(ptr noalias noundef nonnull readonly align 1 @anon.6e872e70c265b459b4c356a578d935cd.16.llvm.5026109878215741006, i64 noundef 20) #31
   unreachable
 }
@@ -95044,7 +95044,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$sum_tree..Node$LT$gpui..elem
   br i1 %47, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h5d755ce5437f00ecE.exit8.i.i.i.i", %.body, %52, %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %20, %52 ], [ %20, %.body ], [ %39, %"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h5d755ce5437f00ecE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %20, %.body ], [ %20, %52 ], [ %39, %"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h5d755ce5437f00ecE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 48:                                               ; preds = %46

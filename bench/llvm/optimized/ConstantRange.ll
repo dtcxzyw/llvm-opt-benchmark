@@ -210,16 +210,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZNK4llvm9KnownBits
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !3
   %31 = icmp ult i32 %30, 65
-  br i1 %31, label %32, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
+  br i1 %31, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = load i64, ptr %14, align 8, !tbaa !9
-  %34 = icmp eq i64 %33, 0
+  %33 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %14) #16
+  %34 = icmp eq i32 %33, %30
   br i1 %34, label %37, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %28
-  %35 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %14) #16
-  %36 = icmp eq i32 %35, %30
+  %35 = load i64, ptr %14, align 8, !tbaa !9
+  %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 37:                                               ; preds = %32, %_ZNK4llvm9KnownBits9isUnknownEv.exit

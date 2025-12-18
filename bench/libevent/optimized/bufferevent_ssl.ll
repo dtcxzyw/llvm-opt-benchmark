@@ -2072,7 +2072,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
   br label %bufferevent_trigger_nolock_.exit
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %52, %20, %101, %86, %132, %127, %.loopexit, %16, %113
-  %.0 = phi i32 [ %.178155, %132 ], [ %114, %113 ], [ 4, %16 ], [ %.178, %.loopexit ], [ %.178155, %127 ], [ %102, %101 ], [ %87, %86 ], [ 0, %20 ], [ 5, %52 ]
+  %.0 = phi i32 [ %.178155, %132 ], [ %114, %113 ], [ %87, %86 ], [ 4, %16 ], [ %.178, %.loopexit ], [ %.178155, %127 ], [ %102, %101 ], [ 0, %20 ], [ 5, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2239,7 +2239,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %19, %.split.us, %86
-  %.172 = phi i32 [ %.071.us, %.split.us ], [ %87, %86 ], [ %.071.us, %19 ]
+  %.172 = phi i32 [ %87, %86 ], [ %.071.us, %.split.us ], [ %.071.us, %19 ]
   %.074.ph121 = trunc i64 %indvars.iv to i32
   %.not89 = icmp eq i64 %.070.us, 0
   br i1 %.not89, label %.thread.thread, label %88
@@ -2284,7 +2284,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %.preheader, %67, %80, %.thread.thread, %100, %103, %93, %8, %2
-  %.0 = phi i32 [ %.172170, %.thread.thread ], [ 0, %2 ], [ 4, %8 ], [ %.172170, %93 ], [ %.172170, %103 ], [ %.172170, %100 ], [ %81, %80 ], [ %68, %67 ], [ 0, %.preheader ], [ 5, %38 ]
+  %.0 = phi i32 [ %.172170, %.thread.thread ], [ 0, %2 ], [ %68, %67 ], [ 4, %8 ], [ %.172170, %93 ], [ %.172170, %103 ], [ %.172170, %100 ], [ %81, %80 ], [ 0, %.preheader ], [ 5, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

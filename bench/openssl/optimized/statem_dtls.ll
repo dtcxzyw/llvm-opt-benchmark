@@ -1091,7 +1091,7 @@ dtls1_process_out_of_seq_message.exit.i:          ; preds = %275, %.critedge.i.i
   br label %.loopexit
 
 326:                                              ; preds = %dtls1_process_out_of_seq_message.exit.i, %282
-  %.046.ph = phi i32 [ %.052.i.i, %dtls1_process_out_of_seq_message.exit.i ], [ %283, %282 ]
+  %.046.ph = phi i32 [ %283, %282 ], [ %.052.i.i, %dtls1_process_out_of_seq_message.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1176,7 +1176,7 @@ dtls1_process_out_of_seq_message.exit.i:          ; preds = %275, %.critedge.i.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %326, %.thread, %334, %336, %340
-  %.0 = phi i32 [ 1, %340 ], [ 1, %336 ], [ 1, %334 ], [ 0, %.thread ], [ 0, %326 ]
+  %.0 = phi i32 [ 0, %.thread ], [ 1, %340 ], [ 1, %336 ], [ 1, %334 ], [ 0, %326 ]
   ret i32 %.0
 }
 

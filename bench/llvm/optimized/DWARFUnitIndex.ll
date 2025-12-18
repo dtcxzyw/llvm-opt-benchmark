@@ -645,7 +645,7 @@ _ZN4llvm22deserializeSectionKindEjj.exit:         ; preds = %109, %switch.lookup
   br i1 %.not47, label %._crit_edge95.loopexit, label %.lr.ph94, !llvm.loop !104
 
 _ZNSt10unique_ptrIA_PN4llvm14DWARFUnitIndex5Entry19SectionContributionESt14default_deleteIS5_EED2Ev.exit: ; preds = %116, %._crit_edge95, %.preheader73, %.preheader, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ true, %.preheader ], [ true, %.preheader73 ], [ true, %._crit_edge95 ], [ false, %116 ]
+  %.2 = phi i1 [ true, %.preheader ], [ false, %.critedge ], [ true, %.preheader73 ], [ true, %._crit_edge95 ], [ false, %116 ]
   call void @_ZdaPv(ptr noundef nonnull %58) #17
   br label %157
 

@@ -50673,7 +50673,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82b1868f89f6fe8aE.exit: ; preds = %5
   br label %102
 
 .loopexit:                                        ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i12.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h3fd12ef91e70a536E.exit.i.i.i", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h76163cf436cc046dE.exit.i", %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf82adaca2b0cfe04E.exit"
-  %.sroa.0.0.i15.sink.i = phi i8 [ 0, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf82adaca2b0cfe04E.exit" ], [ 1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h76163cf436cc046dE.exit.i" ], [ 1, %._crit_edge.i.i12.i ], [ 0, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h3fd12ef91e70a536E.exit.i.i.i" ], [ 0, %._crit_edge.i.i.i ]
+  %.sroa.0.0.i15.sink.i = phi i8 [ 0, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf82adaca2b0cfe04E.exit" ], [ 0, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h3fd12ef91e70a536E.exit.i.i.i" ], [ 1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h76163cf436cc046dE.exit.i" ], [ 1, %._crit_edge.i.i12.i ], [ 0, %._crit_edge.i.i.i ]
   %131 = extractvalue { ptr, ptr } %23, 0
   %132 = icmp ne ptr %131, null
   tail call void @llvm.assume(i1 %132)

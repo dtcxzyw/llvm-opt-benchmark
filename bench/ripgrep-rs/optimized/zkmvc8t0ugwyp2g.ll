@@ -444,7 +444,7 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
   br i1 %64, label %"_ZN61_$LT$globset..glob..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80930101a78a7388E.exit", label %.preheader.split
 
 "_ZN61_$LT$globset..glob..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80930101a78a7388E.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit, %.lr.ph, %60, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h4cda1ac9dfb4df38E.llvm.85219359881541658.exit.i.i", %30, %.preheader.split.i.i, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader, %40, %25, %2, %12, %13, %19
-  %.0.shrunk.i = phi i1 [ true, %2 ], [ %18, %13 ], [ true, %19 ], [ false, %12 ], [ true, %40 ], [ false, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader ], [ true, %25 ], [ true, %60 ], [ %exitcond.not.i.i.not.not, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h4cda1ac9dfb4df38E.llvm.85219359881541658.exit.i.i" ], [ %exitcond.not.i.i.not.not, %.preheader.split.i.i ], [ %exitcond.not.i.i.not.not, %30 ], [ %.not.i.i.i4.not.not, %.lr.ph ], [ %.not.i.i.i4.not.not, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit ]
+  %.0.shrunk.i = phi i1 [ true, %2 ], [ %18, %13 ], [ true, %19 ], [ false, %12 ], [ true, %40 ], [ true, %60 ], [ true, %25 ], [ false, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader ], [ %exitcond.not.i.i.not.not, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h4cda1ac9dfb4df38E.llvm.85219359881541658.exit.i.i" ], [ %exitcond.not.i.i.not.not, %.preheader.split.i.i ], [ %exitcond.not.i.i.not.not, %30 ], [ %.not.i.i.i4.not.not, %.lr.ph ], [ %.not.i.i.i4.not.not, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit ]
   ret i1 %.0.shrunk.i
 }
 
@@ -658,7 +658,7 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit, %.lr.ph, %16, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader ], [ false, %16 ], [ %.not.i.i.i, %.lr.ph ], [ %.not.i.i.i, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit ]
+  %.0 = phi i1 [ true, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader ], [ false, %4 ], [ false, %16 ], [ %.not.i.i.i, %.lr.ph ], [ %.not.i.i.i, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit

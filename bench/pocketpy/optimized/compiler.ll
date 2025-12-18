@@ -6036,8 +6036,8 @@ define void @_ZN4pkpy8Compiler8exprCallEv(ptr noundef nonnull align 8 dereferenc
 .noexc.i:                                         ; preds = %28
   unreachable
 
-common.resume:                                    ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit99.thread, %398, %401, %_ZN4pkpy14unique_ptr_128INS_8CallExprEED2Ev.exit145
-  %common.resume.op = phi { ptr, i32 } [ %29, %_ZN4pkpy14unique_ptr_128INS_8CallExprEED2Ev.exit145 ], [ %399, %401 ], [ %.pn10188, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit99.thread ], [ %399, %398 ]
+common.resume:                                    ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit99.thread, %401, %398, %_ZN4pkpy14unique_ptr_128INS_8CallExprEED2Ev.exit145
+  %common.resume.op = phi { ptr, i32 } [ %29, %_ZN4pkpy14unique_ptr_128INS_8CallExprEED2Ev.exit145 ], [ %399, %398 ], [ %.pn10188, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit99.thread ], [ %399, %401 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4pkpy14unique_ptr_128INS_8CallExprEED2Ev.exit145: ; preds = %28
@@ -6935,7 +6935,7 @@ _ZN4pkpy14unique_ptr_128INS_8CallExprEED2Ev.exit: ; preds = %_ZN4pkpy5stackINS_1
   br label %common.resume
 
 _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit99.thread: ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit84, %258, %260, %.loopexit.split-lp, %.loopexit, %.thread179, %270, %369, %382
-  %.pn10188 = phi { ptr, i32 } [ %383, %382 ], [ %257, %.thread179 ], [ %271, %270 ], [ %370, %369 ], [ %259, %260 ], [ %.pn7.pn, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit84 ], [ %259, %258 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn10188 = phi { ptr, i32 } [ %383, %382 ], [ %257, %.thread179 ], [ %271, %270 ], [ %370, %369 ], [ %259, %260 ], [ %259, %258 ], [ %.pn7.pn, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %405 = load ptr, ptr %9, align 8
   %406 = load ptr, ptr %405, align 8
   call void %406(ptr noundef nonnull align 8 dereferenceable(104) %9) #37
@@ -23922,7 +23922,7 @@ _ZN4pkpy8Compiler13is_expressionEb.exit:          ; preds = %94, %92
   br label %195
 
 .loopexit.split-lp:                               ; preds = %.invoke, %_ZN4pkpy2TKEPKc.exit48, %133, %141, %148, %._crit_edge, %178, %182, %183, %187, %95
-  %.sroa.062.0.ph = phi ptr [ null, %.invoke ], [ %.sroa.062.173, %187 ], [ null, %95 ], [ %.sroa.062.2, %_ZN4pkpy2TKEPKc.exit48 ], [ %.sroa.062.2, %141 ], [ %.sroa.062.173, %183 ], [ null, %133 ], [ %.sroa.062.173, %148 ], [ %.sroa.062.173, %._crit_edge ], [ %.sroa.062.173, %178 ], [ %.sroa.062.173, %182 ]
+  %.sroa.062.0.ph = phi ptr [ null, %.invoke ], [ null, %95 ], [ %.sroa.062.2, %_ZN4pkpy2TKEPKc.exit48 ], [ %.sroa.062.2, %141 ], [ %.sroa.062.173, %187 ], [ null, %133 ], [ %.sroa.062.173, %148 ], [ %.sroa.062.173, %._crit_edge ], [ %.sroa.062.173, %178 ], [ %.sroa.062.173, %182 ], [ %.sroa.062.173, %183 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %195
@@ -31396,7 +31396,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %16, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i
-  %.in = phi ptr [ %18, %16 ], [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ]
+  %.in = phi ptr [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %18, %16 ]
   %45 = load ptr, ptr %.in, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %60

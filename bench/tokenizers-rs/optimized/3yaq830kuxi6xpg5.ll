@@ -13555,8 +13555,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN189_$LT$tokenizers..utils..padding.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..utils..padding..PaddingStrategy$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h4852ae618729cd57E.exit"
 
 "_ZN189_$LT$tokenizers..utils..padding.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..utils..padding..PaddingStrategy$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h4852ae618729cd57E.exit": ; preds = %83, %75
-  %.sroa.021.0 = phi i64 [ 1, %83 ], [ 0, %75 ]
-  %.sroa.8.0 = phi i64 [ %84, %83 ], [ undef, %75 ]
+  %.sroa.021.0 = phi i64 [ 0, %75 ], [ 1, %83 ]
+  %.sroa.8.0 = phi i64 [ undef, %75 ], [ %84, %83 ]
   %85 = load i8, ptr %35, align 8, !noundef !4
   %86 = add i8 %85, 1
   store i8 %86, ptr %35, align 8

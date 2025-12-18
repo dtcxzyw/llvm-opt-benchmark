@@ -268,7 +268,7 @@ define dso_local range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef 
   br label %.critedge35
 
 .critedge35:                                      ; preds = %.critedge35.sink.split, %2, %5, %11
-  %.128 = phi i32 [ 0, %11 ], [ 1, %5 ], [ 2, %2 ], [ 0, %.critedge35.sink.split ]
+  %.128 = phi i32 [ 2, %2 ], [ 1, %5 ], [ 0, %11 ], [ 0, %.critedge35.sink.split ]
   ret i32 %.128
 }
 
@@ -900,7 +900,7 @@ _php_stream_flush.exit:                           ; preds = %66, %60, %57
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %20, %27, %25, %2, %170, %171, %85, %52
-  %.0 = phi i32 [ 0, %52 ], [ %89, %85 ], [ %.090, %170 ], [ %.090, %171 ], [ 1, %2 ], [ 1, %25 ], [ 1, %27 ], [ 1, %20 ], [ 1, %tailrecurse ]
+  %.0 = phi i32 [ 0, %52 ], [ %89, %85 ], [ %.090, %171 ], [ %.090, %170 ], [ 1, %2 ], [ 1, %25 ], [ 1, %27 ], [ 1, %20 ], [ 1, %tailrecurse ]
   ret i32 %.0
 }
 
@@ -1202,8 +1202,8 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   br i1 %.not218, label %._crit_edge262, label %.lr.ph261
 
 .loopexit:                                        ; preds = %.lr.ph, %95, %.preheader243
-  %.2183.lcssa309 = phi ptr [ %.2186246, %.preheader243 ], [ %.2186246, %95 ], [ %.2183247, %.lr.ph ]
-  %.2186.lcssa307 = phi ptr [ %.2183247, %.preheader243 ], [ %.2183247, %95 ], [ %.2186246, %.lr.ph ]
+  %.2183.lcssa309 = phi ptr [ %.2186246, %95 ], [ %.2186246, %.preheader243 ], [ %.2183247, %.lr.ph ]
+  %.2186.lcssa307 = phi ptr [ %.2183247, %95 ], [ %.2183247, %.preheader243 ], [ %.2186246, %.lr.ph ]
   %108 = icmp slt i64 %30, 1
   br i1 %108, label %.thread238, label %17
 
@@ -3944,8 +3944,8 @@ _php_stream_set_option.exit.thread.split.split:   ; preds = %_php_stream_set_opt
   br i1 %141, label %.split282.us, label %.lr.ph286
 
 .split282.us:                                     ; preds = %162, %_php_stream_set_option.exit.thread.split.us, %_php_stream_set_option.exit.thread.split.split
-  %.us-phi283 = phi i64 [ %.5121, %_php_stream_set_option.exit.thread.split.split ], [ %.10126.us, %_php_stream_set_option.exit.thread.split.us ], [ %144, %162 ]
-  %.us-phi284 = phi i64 [ %140, %_php_stream_set_option.exit.thread.split.split ], [ %118, %_php_stream_set_option.exit.thread.split.us ], [ %163, %162 ]
+  %.us-phi283 = phi i64 [ %.10126.us, %_php_stream_set_option.exit.thread.split.us ], [ %.5121, %_php_stream_set_option.exit.thread.split.split ], [ %144, %162 ]
+  %.us-phi284 = phi i64 [ %118, %_php_stream_set_option.exit.thread.split.us ], [ %140, %_php_stream_set_option.exit.thread.split.split ], [ %163, %162 ]
   br i1 %.not, label %.cont191, label %.else193
 
 .else193:                                         ; preds = %.split282.us
@@ -4251,7 +4251,7 @@ zend_hash_add_ptr.exit:                           ; preds = %15, %2
   br label %php_stream_wrapper_scheme_validate.exit
 
 php_stream_wrapper_scheme_validate.exit:          ; preds = %switch.early.test.i, %29, %24, %zend_hash_add_ptr.exit
-  %.0 = phi i32 [ %20, %zend_hash_add_ptr.exit ], [ %20, %24 ], [ %20, %29 ], [ -1, %switch.early.test.i ]
+  %.0 = phi i32 [ %20, %29 ], [ %20, %zend_hash_add_ptr.exit ], [ %20, %24 ], [ -1, %switch.early.test.i ]
   ret i32 %.0
 }
 
@@ -5259,7 +5259,7 @@ zend_string_release_ex.exit171.thread:            ; preds = %123, %127, %131, %1
   br label %zend_string_release_ex.exit175
 
 zend_string_release_ex.exit171:                   ; preds = %140, %137
-  %.3117 = phi i32 [ %.0114, %137 ], [ %70, %140 ]
+  %.3117 = phi i32 [ %70, %140 ], [ %.0114, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %163
 

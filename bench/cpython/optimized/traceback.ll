@@ -3476,7 +3476,7 @@ write_thread_id.exit:                             ; preds = %42
   br i1 %.not40, label %tstate_is_freed.exit.thread, label %28, !llvm.loop !147
 
 tstate_is_freed.exit.thread:                      ; preds = %62, %20, %20, %20, %20, %8, %8, %8, %8, %.thread, %.thread, %.thread, %.thread, %21, %32, %14
-  %.031 = phi ptr [ @.str.10, %20 ], [ @.str.8, %8 ], [ @.str.9, %14 ], [ @.str.11, %21 ], [ null, %32 ], [ @.str.8, %8 ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %8 ], [ @.str.8, %8 ], [ @.str.10, %20 ], [ @.str.10, %20 ], [ @.str.10, %20 ], [ null, %62 ]
+  %.031 = phi ptr [ @.str.10, %20 ], [ @.str.8, %8 ], [ @.str.9, %14 ], [ @.str.11, %21 ], [ @.str.10, %20 ], [ null, %32 ], [ @.str.8, %8 ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %8 ], [ @.str.8, %8 ], [ @.str.10, %20 ], [ @.str.10, %20 ], [ null, %62 ]
   ret ptr %.031
 }
 

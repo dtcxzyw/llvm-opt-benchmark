@@ -835,7 +835,7 @@ if.end.i12:                                       ; preds = %while.body.i8
   br i1 %tobool.not.i14, label %while.cond.backedge.i16, label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.end.i12, %while.cond.backedge.i16, %if.then
-  %txn.0 = phi ptr [ null, %if.then ], [ null, %while.cond.backedge.i16 ], [ %call4.i13, %if.end.i12 ], [ %call4.i, %if.end.i ]
+  %txn.0 = phi ptr [ null, %while.cond.backedge.i16 ], [ null, %if.then ], [ %call4.i13, %if.end.i12 ], [ %call4.i, %if.end.i ]
   ret ptr %txn.0
 }
 

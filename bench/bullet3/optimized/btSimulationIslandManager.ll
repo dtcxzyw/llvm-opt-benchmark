@@ -1626,7 +1626,7 @@ _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
   br label %101, !llvm.loop !94
 
-_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44: ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit16.i41, %156, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42
+_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44: ; preds = %156, %_Z11getIslandIdPK20btPersistentManifold.exit16.i41, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42
   %177 = trunc nsw i64 %indvars.iv72 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv72
   br i1 %.not, label %182, label %178

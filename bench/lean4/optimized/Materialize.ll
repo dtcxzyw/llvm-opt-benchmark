@@ -2477,7 +2477,7 @@ lean_alloc_ctor.exit701:                          ; preds = %lean_alloc_ctor.exi
   br label %.thread710
 
 .thread710:                                       ; preds = %lean_alloc_ctor.exit658, %lean_dec.exit469, %lean_alloc_ctor.exit643, %lean_alloc_ctor.exit620, %lean_alloc_ctor.exit588, %lean_alloc_ctor.exit691, %lean_alloc_ctor.exit686, %lean_alloc_ctor.exit701, %lean_alloc_ctor.exit694, %lean_alloc_ctor.exit682, %lean_dec.exit473, %lean_alloc_ctor.exit665
-  %.6 = phi ptr [ %15, %lean_alloc_ctor.exit665 ], [ %386, %lean_alloc_ctor.exit620 ], [ %764, %lean_alloc_ctor.exit682 ], [ %15, %lean_dec.exit473 ], [ %823, %lean_alloc_ctor.exit691 ], [ %791, %lean_alloc_ctor.exit686 ], [ %855, %lean_alloc_ctor.exit694 ], [ %906, %lean_alloc_ctor.exit701 ], [ %201, %lean_alloc_ctor.exit588 ], [ %85, %lean_alloc_ctor.exit643 ], [ %85, %lean_dec.exit469 ], [ %625, %lean_alloc_ctor.exit658 ]
+  %.6 = phi ptr [ %15, %lean_alloc_ctor.exit665 ], [ %201, %lean_alloc_ctor.exit588 ], [ %764, %lean_alloc_ctor.exit682 ], [ %15, %lean_dec.exit473 ], [ %823, %lean_alloc_ctor.exit691 ], [ %791, %lean_alloc_ctor.exit686 ], [ %855, %lean_alloc_ctor.exit694 ], [ %906, %lean_alloc_ctor.exit701 ], [ %386, %lean_alloc_ctor.exit620 ], [ %85, %lean_alloc_ctor.exit643 ], [ %85, %lean_dec.exit469 ], [ %625, %lean_alloc_ctor.exit658 ]
   ret ptr %.6
 }
 
@@ -20818,7 +20818,7 @@ lean_alloc_ctor.exit1059:                         ; preds = %lean_dec.exit606
   br label %lean_dec.exit605
 
 lean_dec.exit605:                                 ; preds = %lean_dec.exit607, %lean_alloc_ctor.exit1059
-  %.0524 = phi ptr [ %1411, %lean_alloc_ctor.exit1059 ], [ %1323, %lean_dec.exit607 ]
+  %.0524 = phi ptr [ %1323, %lean_dec.exit607 ], [ %1411, %lean_alloc_ctor.exit1059 ]
   br i1 %.not1102, label %1417, label %lean_dec.exit604
 
 1417:                                             ; preds = %lean_dec.exit605
@@ -20936,7 +20936,7 @@ lean_dec.exit602:                                 ; preds = %1451, %1450, %1448,
   br label %lean_dec.exit662
 
 1460:                                             ; preds = %lean_alloc_ctor.exit1055, %lean_dec.exit609
-  %.0524.ph = phi ptr [ %1323, %lean_dec.exit609 ], [ %1375, %lean_alloc_ctor.exit1055 ]
+  %.0524.ph = phi ptr [ %1375, %lean_alloc_ctor.exit1055 ], [ %1323, %lean_dec.exit609 ]
   %1461 = ptrtoint ptr %4 to i64
   %1462 = and i64 %1461, 1
   %.not1115 = icmp eq i64 %1462, 0

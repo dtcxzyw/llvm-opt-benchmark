@@ -157,7 +157,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_reg_prop(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %.sink.split, %17, %1
-  %.0 = phi i32 [ 0, %17 ], [ 0, %1 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %17 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3784,8 +3784,8 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr noundef capture
   br i1 %120, label %.lr.ph117, label %._crit_edge118, !llvm.loop !51
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge112.thread, %._crit_edge112
-  %.sroa.2520.0142 = phi ptr [ null, %._crit_edge112 ], [ null, %._crit_edge112.thread ], [ %91, %.lr.ph117 ]
-  %.1.lcssa135141 = phi i64 [ 0, %._crit_edge112 ], [ 0, %._crit_edge112.thread ], [ %86, %.lr.ph117 ]
+  %.sroa.2520.0142 = phi ptr [ null, %._crit_edge112.thread ], [ null, %._crit_edge112 ], [ %91, %.lr.ph117 ]
+  %.1.lcssa135141 = phi i64 [ 0, %._crit_edge112.thread ], [ 0, %._crit_edge112 ], [ %86, %.lr.ph117 ]
   %121 = tail call i32 @H5Z_append(ptr noundef nonnull %1, i32 noundef %48, i32 noundef %66, i64 noundef %.1.lcssa135141, ptr noundef %.sroa.2520.0142) #10
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %123, label %127
@@ -3803,7 +3803,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr noundef capture
   br i1 %exitcond129.not, label %.thread, label %.lr.ph122, !llvm.loop !52
 
 .thread:                                          ; preds = %127, %._crit_edge.thread, %._crit_edge, %123, %93, %2, %13
-  %.094 = phi i32 [ -1, %13 ], [ 0, %2 ], [ -1, %93 ], [ -1, %123 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %127 ]
+  %.094 = phi i32 [ -1, %13 ], [ 0, %2 ], [ -1, %123 ], [ -1, %93 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %127 ]
   ret i32 %.094
 }
 

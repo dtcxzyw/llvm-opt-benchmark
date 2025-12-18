@@ -1792,8 +1792,8 @@ define internal noundef i32 @_ZL13printf_to_envPvPKcz(ptr noundef readonly captu
   br i1 %27, label %select.unfold, label %30
 
 select.unfold:                                    ; preds = %24, %14, %6
-  %.027 = phi ptr [ %1, %14 ], [ %1, %6 ], [ %21, %24 ]
-  %.026 = phi i64 [ %5, %14 ], [ 1, %6 ], [ %28, %24 ]
+  %.027 = phi ptr [ %1, %6 ], [ %1, %14 ], [ %21, %24 ]
+  %.026 = phi i64 [ 1, %6 ], [ %5, %14 ], [ %28, %24 ]
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %.027, i64 noundef %.026) #12
   %29 = trunc i64 %.026 to i32
   br label %_ZN12outputStream3bolEv.exit

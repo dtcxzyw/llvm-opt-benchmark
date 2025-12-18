@@ -461,7 +461,7 @@ switch.lookup:                                    ; preds = %18
   br label %22
 
 22:                                               ; preds = %switch.lookup, %Abc_Clock.exit
-  %.0213 = phi ptr [ @.str.5, %Abc_Clock.exit ], [ %switch.load, %switch.lookup ]
+  %.0213 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.5, %Abc_Clock.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !3
   %25 = icmp eq i32 %24, 1

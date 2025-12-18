@@ -370,7 +370,7 @@ create_digit_array_with_checksum.exit:            ; preds = %29, %32, %34, %37, 
   br i1 %106, label %69, label %hash_digit_array.exit, !llvm.loop !17
 
 hash_digit_array.exit:                            ; preds = %._crit_edge.i, %77, %79, %81, %83, %85, %88, %93, %63
-  %.2.i = phi i32 [ -151, %63 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %87, %85 ], [ %92, %88 ], [ %94, %93 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %.2.i = phi i32 [ %78, %77 ], [ -151, %63 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %87, %85 ], [ %92, %88 ], [ %94, %93 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %107 = call i32 @psa_hash_abort(ptr noundef nonnull %13) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %15, i64 noundef 32) #10
   %108 = call i32 @psa_status_to_mbedtls(i32 noundef %.2.i, ptr noundef nonnull @psa_to_lms_errors, i64 noundef 3, ptr noundef nonnull @psa_generic_status_to_mbedtls) #10

@@ -2282,9 +2282,9 @@ interpolate_bilinear.exit353.i:                   ; preds = %865
   br i1 %exitcond96.not.i365.i, label %interpolate_bilinear.exit366.i, label %.preheader.us.i358.i
 
 interpolate_bilinear.exit366.i:                   ; preds = %._crit_edge.us.i364.i, %interpolate_bilinear.exit353.i, %.preheader.lr.ph.i.i308, %_mean_gaussian.exit290
-  %.0323.i = phi ptr [ %831, %_mean_gaussian.exit290 ], [ %861, %interpolate_bilinear.exit353.i ], [ %861, %.preheader.lr.ph.i.i308 ], [ %861, %._crit_edge.us.i364.i ]
-  %.0322.i = phi ptr [ %829, %_mean_gaussian.exit290 ], [ %859, %interpolate_bilinear.exit353.i ], [ %859, %.preheader.lr.ph.i.i308 ], [ %859, %._crit_edge.us.i364.i ]
-  %.0.i291 = phi ptr [ %828, %_mean_gaussian.exit290 ], [ %858, %interpolate_bilinear.exit353.i ], [ %858, %.preheader.lr.ph.i.i308 ], [ %858, %._crit_edge.us.i364.i ]
+  %.0323.i = phi ptr [ %831, %_mean_gaussian.exit290 ], [ %861, %.preheader.lr.ph.i.i308 ], [ %861, %interpolate_bilinear.exit353.i ], [ %861, %._crit_edge.us.i364.i ]
+  %.0322.i = phi ptr [ %829, %_mean_gaussian.exit290 ], [ %859, %.preheader.lr.ph.i.i308 ], [ %859, %interpolate_bilinear.exit353.i ], [ %859, %._crit_edge.us.i364.i ]
+  %.0.i291 = phi ptr [ %828, %_mean_gaussian.exit290 ], [ %858, %.preheader.lr.ph.i.i308 ], [ %858, %interpolate_bilinear.exit353.i ], [ %858, %._crit_edge.us.i364.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %1046 = shl i64 %852, 4
   %1047 = call ptr @dt_alloc_aligned(i64 noundef %1046) #31, !noalias !207

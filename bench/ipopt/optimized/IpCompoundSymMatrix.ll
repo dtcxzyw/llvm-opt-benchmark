@@ -2104,7 +2104,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19: ; preds = %_ZNK5Ipopt17Compou
   br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !158
 
 .loopexit:                                        ; preds = %81, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19, %._crit_edge
-  %86 = phi i1 [ true, %._crit_edge ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19 ], [ true, %81 ]
+  %86 = phi i1 [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19 ], [ true, %._crit_edge ], [ true, %81 ]
   ret i1 %86
 }
 

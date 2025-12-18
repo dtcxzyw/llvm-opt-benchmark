@@ -4666,7 +4666,7 @@ pred_8x16_motion.exit:                            ; preds = %2791, %2798, %2804,
   br label %write_back_non_zero_count.exit
 
 .loopexit1569:                                    ; preds = %2245, %2635, %2911, %.preheader1571, %.preheader1576, %.preheader1579, %.preheader1577, %.preheader1573, %.preheader1568, %._crit_edge1627, %944, %942, %2006
-  %.0852 = phi i32 [ %20, %944 ], [ %.2854, %._crit_edge1627 ], [ %2025, %2006 ], [ %20, %942 ], [ %20, %.preheader1573 ], [ %20, %.preheader1568 ], [ %20, %.preheader1577 ], [ %20, %.preheader1576 ], [ %20, %.preheader1579 ], [ %20, %.preheader1571 ], [ %20, %2635 ], [ %20, %2911 ], [ %20, %2245 ]
+  %.0852 = phi i32 [ %20, %944 ], [ %.2854, %._crit_edge1627 ], [ %2025, %2006 ], [ %20, %942 ], [ %20, %.preheader1568 ], [ %20, %.preheader1573 ], [ %20, %.preheader1577 ], [ %20, %.preheader1576 ], [ %20, %.preheader1571 ], [ %20, %2635 ], [ %20, %2911 ], [ %20, %.preheader1579 ], [ %20, %2245 ]
   %2915 = load i32, ptr %5, align 4, !tbaa !93
   %2916 = and i32 %2915, 120
   %.not990 = icmp eq i32 %2916, 0
@@ -11395,10 +11395,10 @@ get_cabac.exit13._crit_edge.sink.split:           ; preds = %select.unfold117, %
   br label %get_cabac.exit13._crit_edge
 
 get_cabac.exit13._crit_edge:                      ; preds = %get_cabac.exit13, %get_cabac.exit9, %get_cabac.exit13._crit_edge.sink.split
-  %.sroa.12689.2 = phi ptr [ %.sroa.12689.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.12689.27, %get_cabac.exit9 ], [ %.sroa.12689.29, %get_cabac.exit13 ]
-  %.sroa.84.2 = phi i32 [ %.sroa.84.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %126, %get_cabac.exit9 ], [ %231, %get_cabac.exit13 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.0.27, %get_cabac.exit9 ], [ %.sroa.0.29, %get_cabac.exit13 ]
-  %.5188.i = phi i32 [ %256, %get_cabac.exit13._crit_edge.sink.split ], [ %98, %get_cabac.exit9 ], [ %203, %get_cabac.exit13 ]
+  %.sroa.12689.2 = phi ptr [ %.sroa.12689.27, %get_cabac.exit9 ], [ %.sroa.12689.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.12689.29, %get_cabac.exit13 ]
+  %.sroa.84.2 = phi i32 [ %126, %get_cabac.exit9 ], [ %.sroa.84.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %231, %get_cabac.exit13 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.27, %get_cabac.exit9 ], [ %.sroa.0.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.0.29, %get_cabac.exit13 ]
+  %.5188.i = phi i32 [ %98, %get_cabac.exit9 ], [ %256, %get_cabac.exit13._crit_edge.sink.split ], [ %203, %get_cabac.exit13 ]
   br i1 %35, label %259, label %269
 
 259:                                              ; preds = %get_cabac.exit13._crit_edge

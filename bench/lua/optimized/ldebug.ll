@@ -473,8 +473,8 @@ define dso_local ptr @lua_getlocal(ptr noundef captures(none) %0, ptr noundef re
   br label %luaG_findlocal.exit
 
 luaG_findlocal.exit:                              ; preds = %76, %38
-  %.015 = phi ptr [ %43, %38 ], [ %79, %76 ]
-  %.0.i = phi ptr [ @.str.9, %38 ], [ %.128.i, %76 ]
+  %.015 = phi ptr [ %79, %76 ], [ %43, %38 ]
+  %.0.i = phi ptr [ %.128.i, %76 ], [ @.str.9, %38 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !24
   %82 = load i64, ptr %.015, align 8, !tbaa !24
@@ -593,8 +593,8 @@ define dso_local ptr @lua_setlocal(ptr noundef captures(none) %0, ptr noundef re
   br label %luaG_findlocal.exit
 
 luaG_findlocal.exit:                              ; preds = %62, %24
-  %.0 = phi ptr [ %29, %24 ], [ %65, %62 ]
-  %.0.i = phi ptr [ @.str.9, %24 ], [ %.128.i, %62 ]
+  %.0 = phi ptr [ %65, %62 ], [ %29, %24 ]
+  %.0.i = phi ptr [ %.128.i, %62 ], [ @.str.9, %24 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !24
   %68 = getelementptr inbounds i8, ptr %67, i64 -16

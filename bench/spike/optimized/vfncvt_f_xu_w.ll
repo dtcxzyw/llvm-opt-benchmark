@@ -798,7 +798,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = shl i64 %2, 32
@@ -1657,7 +1657,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = add i64 %2, 4
@@ -2392,7 +2392,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = shl i64 %2, 32
@@ -3129,7 +3129,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = add i64 %2, 4
@@ -3864,7 +3864,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = shl i64 %2, 32
@@ -4601,7 +4601,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = add i64 %2, 4
@@ -5336,7 +5336,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = shl i64 %2, 32
@@ -6073,7 +6073,7 @@ _ZTW24softfloat_exceptionFlags.exit165:           ; preds = %_ZTW24softfloat_exc
   unreachable
 
 ._crit_edge221:                                   ; preds = %.thread210, %346, %326, %227, %_ZTW22softfloat_roundingMode.exit161, %_ZTW22softfloat_roundingMode.exit
-  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %346 ], [ %192, %227 ], [ %300, %326 ], [ %300, %.thread210 ]
+  %.sink.in = phi ptr [ %192, %_ZTW22softfloat_roundingMode.exit ], [ %300, %_ZTW22softfloat_roundingMode.exit161 ], [ %300, %326 ], [ %192, %227 ], [ %300, %346 ], [ %300, %.thread210 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %.sink, i64 noundef 0) #17
   %365 = add i64 %2, 4

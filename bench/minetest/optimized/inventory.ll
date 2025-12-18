@@ -10377,8 +10377,8 @@ invoke.cont30.loopexit.split.loop.exit208:        ; preds = %if.end.i.i.i
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %for.body.i.i.i, %invoke.cont30.loopexit.split.loop.exit, %invoke.cont30.loopexit.split.loop.exit206, %invoke.cont30.loopexit.split.loop.exit208, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %42 = phi ptr [ %36, %sw.bb.i.i.i ], [ %38, %sw.bb31.i.i.i ], [ %40, %sw.bb38.i.i.i ], [ %31, %invoke.cont30.loopexit.split.loop.exit208 ], [ %31, %invoke.cont30.loopexit.split.loop.exit206 ], [ %31, %invoke.cont30.loopexit.split.loop.exit ], [ %31, %for.body.i.i.i ]
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit208 ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit206 ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
+  %42 = phi ptr [ %36, %sw.bb.i.i.i ], [ %38, %sw.bb31.i.i.i ], [ %40, %sw.bb38.i.i.i ], [ %31, %invoke.cont30.loopexit.split.loop.exit ], [ %31, %invoke.cont30.loopexit.split.loop.exit208 ], [ %31, %invoke.cont30.loopexit.split.loop.exit206 ], [ %31, %for.body.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit208 ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit206 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
   %cmp.i221.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %new_lists.sroa.13.1684
   br i1 %cmp.i221.not, label %if.end, label %cleanup
 

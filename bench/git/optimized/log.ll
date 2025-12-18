@@ -1057,8 +1057,8 @@ _.exit47:                                         ; preds = %195, %197
   br label %._crit_edge
 
 200:                                              ; preds = %171, %193, %181, %show_blob_object.exit
-  %.132 = phi i32 [ %.0.i, %show_blob_object.exit ], [ %194, %193 ], [ 0, %181 ], [ %.3, %171 ]
-  %.1 = phi i32 [ %.03059, %show_blob_object.exit ], [ %.03059, %193 ], [ %.03059, %181 ], [ %174, %171 ]
+  %.132 = phi i32 [ %.3, %171 ], [ %.0.i, %show_blob_object.exit ], [ %194, %193 ], [ 0, %181 ]
+  %.1 = phi i32 [ %174, %171 ], [ %.03059, %show_blob_object.exit ], [ %.03059, %193 ], [ %.03059, %181 ]
   %201 = add i32 %.1, 1
   %202 = load i32, ptr %53, align 8, !tbaa !102
   %203 = icmp ult i32 %201, %202
@@ -1067,7 +1067,7 @@ _.exit47:                                         ; preds = %195, %197
   br i1 %204, label %66, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %200, %52, %_.exit47, %show_tag_object.exit, %50
-  %.0 = phi i32 [ %51, %50 ], [ 0, %52 ], [ -1, %_.exit47 ], [ -1, %show_tag_object.exit ], [ %.132, %200 ]
+  %.0 = phi i32 [ %51, %50 ], [ 0, %52 ], [ -1, %show_tag_object.exit ], [ -1, %_.exit47 ], [ %.132, %200 ]
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 1472
   store i32 0, ptr %49, align 8, !tbaa !69
   call void @diff_free(ptr noundef nonnull %205) #23

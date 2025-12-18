@@ -10519,7 +10519,7 @@ sdslen.exit.thread:                               ; preds = %13, %46, %44, %39, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %processCommandAndResetClient.exit, %107, %110
-  %.0 = phi i32 [ 0, %110 ], [ 0, %107 ], [ -1, %processCommandAndResetClient.exit ]
+  %.0 = phi i32 [ 0, %107 ], [ 0, %110 ], [ -1, %processCommandAndResetClient.exit ]
   ret i32 %.0
 }
 
@@ -11155,7 +11155,7 @@ getClientType.exit:                               ; preds = %28, %34, %36
   br label %.outer, !llvm.loop !238
 
 .split.us:                                        ; preds = %26, %.split19.us.us, %.split21.us
-  %.us-phi = phi ptr [ %8, %.split21.us ], [ %24, %.split19.us.us ], [ %.09.ph, %26 ]
+  %.us-phi = phi ptr [ %24, %.split19.us.us ], [ %8, %.split21.us ], [ %.09.ph, %26 ]
   br i1 %.not14, label %42, label %41
 
 41:                                               ; preds = %.split.us
@@ -13626,12 +13626,12 @@ sdslen.exit.i:                                    ; preds = %106, %102, %98, %94
   br label %166
 
 .loopexit:                                        ; preds = %113, %redactClientCommandArgument.exit123, %sdslen.exit.i, %84, %111, %79
-  %118 = phi i32 [ %22, %sdslen.exit.i ], [ %22, %84 ], [ %22, %111 ], [ %22, %79 ], [ %.pre182, %redactClientCommandArgument.exit123 ], [ %22, %113 ]
-  %119 = phi ptr [ %23, %sdslen.exit.i ], [ %23, %84 ], [ %23, %111 ], [ %23, %79 ], [ %70, %redactClientCommandArgument.exit123 ], [ %23, %113 ]
-  %.398.ph = phi ptr [ %.095173, %sdslen.exit.i ], [ %.095173, %84 ], [ %.095173, %111 ], [ %.095173, %79 ], [ %74, %redactClientCommandArgument.exit123 ], [ %.095173, %113 ]
-  %.394.ph = phi ptr [ %83, %sdslen.exit.i ], [ %83, %84 ], [ %83, %111 ], [ null, %79 ], [ %.091174, %redactClientCommandArgument.exit123 ], [ %83, %113 ]
-  %.390.ph = phi i32 [ %80, %sdslen.exit.i ], [ %80, %84 ], [ %80, %111 ], [ %80, %79 ], [ %60, %redactClientCommandArgument.exit123 ], [ %80, %113 ]
-  %.386.ph = phi ptr [ %.083176, %sdslen.exit.i ], [ %.083176, %84 ], [ %.083176, %111 ], [ %.083176, %79 ], [ %72, %redactClientCommandArgument.exit123 ], [ %.083176, %113 ]
+  %118 = phi i32 [ %.pre182, %redactClientCommandArgument.exit123 ], [ %22, %sdslen.exit.i ], [ %22, %84 ], [ %22, %111 ], [ %22, %79 ], [ %22, %113 ]
+  %119 = phi ptr [ %70, %redactClientCommandArgument.exit123 ], [ %23, %sdslen.exit.i ], [ %23, %84 ], [ %23, %111 ], [ %23, %79 ], [ %23, %113 ]
+  %.398.ph = phi ptr [ %74, %redactClientCommandArgument.exit123 ], [ %.095173, %sdslen.exit.i ], [ %.095173, %84 ], [ %.095173, %111 ], [ %.095173, %79 ], [ %.095173, %113 ]
+  %.394.ph = phi ptr [ %.091174, %redactClientCommandArgument.exit123 ], [ %83, %sdslen.exit.i ], [ %83, %84 ], [ %83, %111 ], [ null, %79 ], [ %83, %113 ]
+  %.390.ph = phi i32 [ %60, %redactClientCommandArgument.exit123 ], [ %80, %sdslen.exit.i ], [ %80, %84 ], [ %80, %111 ], [ %80, %79 ], [ %80, %113 ]
+  %.386.ph = phi ptr [ %72, %redactClientCommandArgument.exit123 ], [ %.083176, %sdslen.exit.i ], [ %.083176, %84 ], [ %.083176, %111 ], [ %.083176, %79 ], [ %.083176, %113 ]
   %120 = add nsw i32 %.390.ph, 1
   %.not103 = icmp slt i32 %120, %118
   br i1 %.not103, label %21, label %.thread156, !llvm.loop !259

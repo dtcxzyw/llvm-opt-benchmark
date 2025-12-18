@@ -6510,7 +6510,7 @@ thread-pre-split:                                 ; preds = %.critedge69
   br i1 %.not71, label %thread-pre-split, label %.critedge70, !llvm.loop !20
 
 .critedge70:                                      ; preds = %45, %.critedge, %.critedge69, %13, %20, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %20 ], [ false, %13 ], [ false, %45 ], [ false, %.critedge ], [ true, %.critedge69 ]
+  %.0 = phi i1 [ false, %20 ], [ true, %8 ], [ true, %.critedge69 ], [ false, %45 ], [ false, %.critedge ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -6660,7 +6660,7 @@ thread-pre-split:                                 ; preds = %43
   br i1 %.not60, label %thread-pre-split, label %.critedge59, !llvm.loop !25
 
 .critedge59:                                      ; preds = %.critedge, %37, %43, %13, %20, %8
-  %.050 = phi i1 [ true, %8 ], [ false, %20 ], [ false, %13 ], [ false, %.critedge ], [ false, %37 ], [ true, %43 ]
+  %.050 = phi i1 [ false, %20 ], [ true, %8 ], [ true, %43 ], [ false, %.critedge ], [ false, %37 ], [ false, %13 ]
   ret i1 %.050
 }
 
@@ -6776,7 +6776,7 @@ thread-pre-split:                                 ; preds = %.loopexit
   br i1 %.not54, label %thread-pre-split, label %.critedge53, !llvm.loop !30
 
 .critedge53:                                      ; preds = %.critedge, %38, %.loopexit, %13, %20, %8
-  %.044 = phi i1 [ true, %8 ], [ false, %20 ], [ false, %13 ], [ false, %.critedge ], [ false, %38 ], [ true, %.loopexit ]
+  %.044 = phi i1 [ false, %20 ], [ true, %8 ], [ true, %.loopexit ], [ false, %.critedge ], [ false, %38 ], [ false, %13 ]
   ret i1 %.044
 }
 
@@ -8260,7 +8260,7 @@ text_position_next_internal.exit.thread29:        ; preds = %.lr.ph66.i, %text_p
   br label %text_position_next_internal.exit.thread
 
 text_position_next_internal.exit.thread:          ; preds = %31, %37, %text_position_next_internal.exit, %._crit_edge.i, %35, %1, %.loopexit
-  %.0 = phi i1 [ false, %1 ], [ true, %.loopexit ], [ false, %._crit_edge.i ], [ false, %35 ], [ false, %text_position_next_internal.exit ], [ false, %37 ], [ false, %31 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %.loopexit ], [ false, %35 ], [ false, %._crit_edge.i ], [ false, %text_position_next_internal.exit ], [ false, %37 ], [ false, %31 ]
   ret i1 %.0
 }
 
@@ -12807,7 +12807,7 @@ rest_of_char_same.exit.thread.us:                 ; preds = %.preheader, %101
   br i1 %exitcond217.not, label %._crit_edge181, label %.preheader160, !llvm.loop !58
 
 ._crit_edge181:                                   ; preds = %.preheader160, %.preheader160.us193, %..loopexit161_crit_edge.us, %.preheader.us, %.preheader.us.us202, %..loopexit_crit_edge.us.us, %.preheader162
-  %.0133.lcssa = phi ptr [ %40, %.preheader162 ], [ %.0135178.us190, %.preheader160.us193 ], [ %.0135178.us.us, %..loopexit_crit_edge.us.us ], [ %.0135178.us.us199, %.preheader.us.us202 ], [ %.0135178.us, %.preheader.us ], [ %.0135178.us184, %..loopexit161_crit_edge.us ], [ %.0135178, %.preheader160 ]
+  %.0133.lcssa = phi ptr [ %40, %.preheader162 ], [ %.0135178.us190, %.preheader160.us193 ], [ %.0135178.us, %.preheader.us ], [ %.0135178.us184, %..loopexit161_crit_edge.us ], [ %.0135178.us.us, %..loopexit_crit_edge.us.us ], [ %.0135178.us.us199, %.preheader.us.us202 ], [ %.0135178, %.preheader160 ]
   %133 = sext i32 %.fr205 to i64
   %134 = getelementptr inbounds i32, ptr %.0133.lcssa, i64 %133
   %135 = load i32, ptr %134, align 4
@@ -13239,7 +13239,7 @@ rest_of_char_same.exit:                           ; preds = %118, %97
   br label %.loopexit332
 
 .loopexit332:                                     ; preds = %.thread315, %198, %49, %._crit_edge365, %15, %12
-  %.0 = phi i32 [ %202, %._crit_edge365 ], [ %50, %49 ], [ %16, %15 ], [ %13, %12 ], [ %69, %198 ], [ %69, %.thread315 ]
+  %.0 = phi i32 [ %13, %12 ], [ %202, %._crit_edge365 ], [ %50, %49 ], [ %16, %15 ], [ %69, %198 ], [ %69, %.thread315 ]
   ret i32 %.0
 }
 

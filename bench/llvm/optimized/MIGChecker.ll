@@ -5729,7 +5729,7 @@ define internal fastcc noundef ptr @_ZL14getOriginParamN5clang4ento4SValERNS0_14
   br i1 %.not25, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %30, %28, %.preheader, %23, %3
-  %.0 = phi ptr [ null, %3 ], [ %27, %23 ], [ null, %.preheader ], [ null, %28 ], [ null, %30 ]
+  %.0 = phi ptr [ %27, %23 ], [ null, %3 ], [ null, %.preheader ], [ null, %28 ], [ null, %30 ]
   ret ptr %.0
 }
 

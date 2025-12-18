@@ -4611,9 +4611,9 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader: ; preds = %_ZNK6vectorI5lboo
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i:         ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader
-  %25 = phi ptr [ %16, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be37, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
-  %26 = phi ptr [ %17, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be37, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
-  %27 = phi ptr [ %.ph, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be37, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
+  %25 = phi ptr [ %16, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be36, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
+  %26 = phi ptr [ %17, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be36, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
+  %27 = phi ptr [ %.ph, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be36, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZNK6vectorI5lboolLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorI5lboolLb0EjE8capacityEv.exit.i.i
 
@@ -4737,7 +4737,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge: ; preds = %74, %33
-  %.be37 = phi ptr [ %36, %33 ], [ %77, %74 ]
+  %.be36 = phi ptr [ %77, %74 ], [ %36, %33 ]
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i, !llvm.loop !272
 
 78:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -11753,7 +11753,7 @@ _ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit: ; preds = %_ZNK5n
   br i1 %.not, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %12
 
 _ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread: ; preds = %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit, %27, %29, %31, %33, %35, %37, %39, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit, %2, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17
-  %.not27 = phi i1 [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17 ], [ true, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit ], [ true, %2 ], [ false, %27 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit ], [ false, %39 ], [ false, %37 ], [ false, %35 ], [ false, %33 ], [ false, %31 ], [ false, %29 ], [ true, %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit ]
+  %.not27 = phi i1 [ false, %27 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17 ], [ true, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit ], [ true, %2 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit ], [ false, %39 ], [ false, %37 ], [ false, %35 ], [ false, %33 ], [ false, %31 ], [ false, %29 ], [ true, %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit ]
   ret i1 %.not27
 }
 
@@ -15765,8 +15765,8 @@ _ZN5nlsat6solver3imp15process_clausesERK10ptr_vectorINS_6clauseEE.exit: ; preds 
   call void @_ZN5nlsat6solver3imp14select_witnessEv(ptr noundef nonnull align 8 dereferenceable(809) %0)
   br label %.backedge
 
-_ZN5nlsat6solver3imp12is_satisfiedEv.exit.thread: ; preds = %243, %_ZN5nlsat6solver3imp15process_clausesERK10ptr_vectorINS_6clauseEE.exit, %.lr.ph17.i.i, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit.i.i, %_ZN5nlsat10assignment5resetEv.exit12.i.i
-  %.1 = phi i32 [ 1, %_ZN5nlsat10assignment5resetEv.exit12.i.i ], [ 1, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit.i.i ], [ 1, %.lr.ph17.i.i ], [ -1, %_ZN5nlsat6solver3imp15process_clausesERK10ptr_vectorINS_6clauseEE.exit ], [ 0, %243 ]
+_ZN5nlsat6solver3imp12is_satisfiedEv.exit.thread: ; preds = %243, %_ZN5nlsat6solver3imp15process_clausesERK10ptr_vectorINS_6clauseEE.exit, %.lr.ph17.i.i, %_ZN5nlsat10assignment5resetEv.exit12.i.i, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit.i.i
+  %.1 = phi i32 [ 1, %.lr.ph17.i.i ], [ 1, %_ZN6vectorIN5nlsat16bound_constraintELb1EjE3endEv.exit.i.i ], [ 1, %_ZN5nlsat10assignment5resetEv.exit12.i.i ], [ 0, %243 ], [ -1, %_ZN5nlsat6solver3imp15process_clausesERK10ptr_vectorINS_6clauseEE.exit ]
   ret i32 %.1
 }
 
@@ -20438,7 +20438,7 @@ _ZN5nlsat6solver3imp17save_assign_trailEj.exit.i: ; preds = %.noexc99, %176
           to label %.thread129 unwind label %191
 
 .thread129:                                       ; preds = %_ZN5nlsat6solver3imp5valueEN3sat7literalE.exit.thread, %.noexc81, %144, %.invoke, %15, %.thread194, %194, %._crit_edge
-  %.5 = phi i1 [ false, %15 ], [ false, %._crit_edge ], [ true, %194 ], [ true, %.invoke ], [ true, %.thread194 ], [ true, %144 ], [ true, %.noexc81 ], [ true, %_ZN5nlsat6solver3imp5valueEN3sat7literalE.exit.thread ]
+  %.5 = phi i1 [ true, %.thread194 ], [ false, %._crit_edge ], [ true, %194 ], [ true, %.invoke ], [ false, %15 ], [ true, %144 ], [ true, %.noexc81 ], [ true, %_ZN5nlsat6solver3imp5valueEN3sat7literalE.exit.thread ]
   %204 = load ptr, ptr %4, align 8, !tbaa !480
   %.not.i.i101 = icmp eq ptr %204, null
   br i1 %.not.i.i101, label %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit103, label %205
@@ -35762,6 +35762,9 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i21: ; preds = %124, %131, %120
   %135 = icmp ult i32 %.0.i.i20, %.0.i28.i22
   br i1 %135, label %.preheader.backedge, label %136
 
+.preheader.backedge:                              ; preds = %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i21, %141, %141, %91, %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit40, %88, %143
+  br label %.preheader, !llvm.loop !599
+
 136:                                              ; preds = %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i21
   %137 = icmp ugt i32 %.0.i.i20, %.0.i28.i22
   br i1 %137, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit40.thread, label %138
@@ -35779,9 +35782,6 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i21: ; preds = %124, %131, %120
     i32 10, label %.preheader.backedge
     i32 0, label %.preheader.backedge
   ]
-
-.preheader.backedge:                              ; preds = %141, %141, %91, %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i21, %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit40, %88, %143
-  br label %.preheader, !llvm.loop !599
 
 142:                                              ; preds = %138, %138
   switch i32 %140, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit40.thread [
@@ -35983,6 +35983,9 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i: ; preds = %70, %77, %66
   %81 = icmp ult i32 %.0.i.i, %.0.i28.i
   br i1 %81, label %.lr.ph.i.backedge, label %82
 
+.lr.ph.i.backedge:                                ; preds = %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i, %87, %87, %37, %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit, %34, %89
+  br label %.lr.ph.i, !llvm.loop !601
+
 82:                                               ; preds = %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i
   %83 = icmp ugt i32 %.0.i.i, %.0.i28.i
   br i1 %83, label %_ZSt25__unguarded_linear_insertIPN3sat7literalEN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_T0_.exit, label %84
@@ -36000,9 +36003,6 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i: ; preds = %70, %77, %66
     i32 10, label %.lr.ph.i.backedge
     i32 0, label %.lr.ph.i.backedge
   ]
-
-.lr.ph.i.backedge:                                ; preds = %87, %87, %37, %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i, %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit, %34, %89
-  br label %.lr.ph.i, !llvm.loop !601
 
 88:                                               ; preds = %84, %84
   switch i32 %86, label %_ZSt25__unguarded_linear_insertIPN3sat7literalEN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_T0_.exit [
@@ -36176,6 +36176,9 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i: ; preds = %57, %64, %53
   %68 = icmp ult i32 %.0.i.i, %.0.i28.i
   br i1 %68, label %.lr.ph.i.backedge, label %69
 
+.lr.ph.i.backedge:                                ; preds = %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i, %74, %74, %24, %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit, %21, %76
+  br label %.lr.ph.i, !llvm.loop !601
+
 69:                                               ; preds = %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i
   %70 = icmp ugt i32 %.0.i.i, %.0.i28.i
   br i1 %70, label %_ZSt25__unguarded_linear_insertIPN3sat7literalEN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_T0_.exit, label %71
@@ -36193,9 +36196,6 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i: ; preds = %57, %64, %53
     i32 10, label %.lr.ph.i.backedge
     i32 0, label %.lr.ph.i.backedge
   ]
-
-.lr.ph.i.backedge:                                ; preds = %74, %74, %24, %_ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i, %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit, %21, %76
-  br label %.lr.ph.i, !llvm.loop !601
 
 75:                                               ; preds = %71, %71
   switch i32 %73, label %_ZSt25__unguarded_linear_insertIPN3sat7literalEN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_T0_.exit [

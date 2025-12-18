@@ -221,7 +221,7 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .split118.us:                                     ; preds = %.lr.ph155, %.lr.ph140.preheader, %.lr.ph155.preheader, %.lr.ph140.preheader.preheader
-  %.us-phi119 = phi i64 [ %20, %.lr.ph140.preheader.preheader ], [ %9, %.lr.ph155.preheader ], [ %38, %.lr.ph140.preheader ], [ %17, %.lr.ph155 ]
+  %.us-phi119 = phi i64 [ %38, %.lr.ph140.preheader ], [ %20, %.lr.ph140.preheader.preheader ], [ %9, %.lr.ph155.preheader ], [ %17, %.lr.ph155 ]
   %44 = and i64 %.us-phi119, 2147483647
   %45 = getelementptr inbounds nuw i8, ptr %.065.ph157, i64 %44
   %46 = sub i64 %.064.ph159, %44
@@ -352,7 +352,7 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .split168.us:                                     ; preds = %.lr.ph206, %.lr.ph191.preheader, %.lr.ph206.preheader, %.lr.ph191.preheader.preheader
-  %.us-phi169 = phi i64 [ %65, %.lr.ph191.preheader.preheader ], [ %54, %.lr.ph206.preheader ], [ %83, %.lr.ph191.preheader ], [ %62, %.lr.ph206 ]
+  %.us-phi169 = phi i64 [ %83, %.lr.ph191.preheader ], [ %65, %.lr.ph191.preheader.preheader ], [ %54, %.lr.ph206.preheader ], [ %62, %.lr.ph206 ]
   %89 = and i64 %.us-phi169, 2147483647
   %90 = getelementptr inbounds nuw i8, ptr %.061.ph211, i64 %89
   %91 = sub i64 %.062.ph209, %89
@@ -498,7 +498,7 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .split220.us:                                     ; preds = %.lr.ph258, %.lr.ph243.preheader, %.lr.ph258.preheader, %.lr.ph243.preheader.preheader
-  %.us-phi221 = phi i64 [ %118, %.lr.ph243.preheader.preheader ], [ %107, %.lr.ph258.preheader ], [ %136, %.lr.ph243.preheader ], [ %115, %.lr.ph258 ]
+  %.us-phi221 = phi i64 [ %136, %.lr.ph243.preheader ], [ %118, %.lr.ph243.preheader.preheader ], [ %107, %.lr.ph258.preheader ], [ %115, %.lr.ph258 ]
   %142 = and i64 %.us-phi221, 2147483647
   %143 = getelementptr inbounds nuw i8, ptr %.059.ph264, i64 %142
   %144 = sub i64 %.060.ph262, %142
@@ -741,7 +741,7 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
   br label %.thread
 
 .split84.us:                                      ; preds = %.lr.ph121, %.lr.ph106.preheader, %.lr.ph121.preheader, %.lr.ph106.preheader.preheader
-  %.us-phi85 = phi i64 [ %26, %.lr.ph106.preheader.preheader ], [ %15, %.lr.ph121.preheader ], [ %44, %.lr.ph106.preheader ], [ %23, %.lr.ph121 ]
+  %.us-phi85 = phi i64 [ %44, %.lr.ph106.preheader ], [ %26, %.lr.ph106.preheader.preheader ], [ %15, %.lr.ph121.preheader ], [ %23, %.lr.ph121 ]
   %50 = and i64 %.us-phi85, 2147483647
   %51 = getelementptr inbounds nuw i8, ptr %.047.ph125, i64 %50
   %52 = sub i64 %.048.ph123, %50
@@ -876,7 +876,7 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
   br label %.thread
 
 .split134.us:                                     ; preds = %.lr.ph172, %.lr.ph157.preheader, %.lr.ph172.preheader, %.lr.ph157.preheader.preheader
-  %.us-phi135 = phi i64 [ %73, %.lr.ph157.preheader.preheader ], [ %62, %.lr.ph172.preheader ], [ %91, %.lr.ph157.preheader ], [ %70, %.lr.ph172 ]
+  %.us-phi135 = phi i64 [ %91, %.lr.ph157.preheader ], [ %73, %.lr.ph157.preheader.preheader ], [ %62, %.lr.ph172.preheader ], [ %70, %.lr.ph172 ]
   %97 = and i64 %.us-phi135, 2147483647
   %98 = getelementptr inbounds nuw i8, ptr %.044.ph178, i64 %97
   %99 = sub i64 %.045.ph176, %97

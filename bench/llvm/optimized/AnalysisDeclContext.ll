@@ -772,7 +772,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread: ; preds = %80, %_ZNK5
   br i1 %.not56, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, label %.lr.ph113
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %_ZL10isSelfDeclPKN5clang7VarDeclE.exit, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread, %_ZL10isSelfDeclPKN5clang7VarDeclE.exit77, %13, %_ZNK5clang13CXXRecordDecl8capturesEv.exit, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %8, %select.unfold, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit
-  %.1 = phi ptr [ %10, %8 ], [ null, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ null, %select.unfold ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit ], [ null, %13 ], [ null, %_ZNK5clang13CXXRecordDecl8capturesEv.exit ], [ %75, %_ZL10isSelfDeclPKN5clang7VarDeclE.exit77 ], [ null, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread ], [ %21, %_ZL10isSelfDeclPKN5clang7VarDeclE.exit ]
+  %.1 = phi ptr [ %10, %8 ], [ null, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ null, %select.unfold ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit ], [ %75, %_ZL10isSelfDeclPKN5clang7VarDeclE.exit77 ], [ null, %13 ], [ null, %_ZNK5clang13CXXRecordDecl8capturesEv.exit ], [ null, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread ], [ %21, %_ZL10isSelfDeclPKN5clang7VarDeclE.exit ]
   ret ptr %.1
 }
 

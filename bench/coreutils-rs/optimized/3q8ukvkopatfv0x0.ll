@@ -11220,9 +11220,9 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h2ba7508275f7e78aE.exit.i.i642
   br i1 %trunc.i.i663, label %803, label %.thread902
 
 .thread902:                                       ; preds = %722, %779, %713, %.noexc658, %718, %.thread894
-  %780 = phi i1 [ false, %.thread894 ], [ false, %718 ], [ false, %.noexc658 ], [ false, %713 ], [ true, %779 ], [ false, %722 ]
-  %.sroa.0229.0 = phi i64 [ 0, %.thread894 ], [ 0, %718 ], [ 0, %.noexc658 ], [ 0, %713 ], [ 1, %779 ], [ 0, %722 ]
-  %.sroa.5231.0 = phi i64 [ undef, %.thread894 ], [ undef, %718 ], [ undef, %.noexc658 ], [ undef, %713 ], [ %.sroa.4821.0, %779 ], [ undef, %722 ]
+  %780 = phi i1 [ true, %779 ], [ false, %.thread894 ], [ false, %713 ], [ false, %718 ], [ false, %.noexc658 ], [ false, %722 ]
+  %.sroa.0229.0 = phi i64 [ 1, %779 ], [ 0, %.thread894 ], [ 0, %713 ], [ 0, %718 ], [ 0, %.noexc658 ], [ 0, %722 ]
+  %.sroa.5231.0 = phi i64 [ %.sroa.4821.0, %779 ], [ undef, %.thread894 ], [ undef, %713 ], [ undef, %718 ], [ undef, %.noexc658 ], [ undef, %722 ]
   %781 = invoke noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h3a4f1c8b58a7187cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.148a832d388ba4488b38de3279afe8e7.97, i64 noundef 5)
           to label %.noexc685 unwind label %499
 

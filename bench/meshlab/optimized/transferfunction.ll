@@ -1628,7 +1628,7 @@ define void @_ZN16TransferFunctionC2Ev(ptr noundef nonnull align 8 dereferenceab
   br i1 %22, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %.preheader13, %19, %11
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %18, %19 ], [ %12, %.preheader13 ]
+  %.pn = phi { ptr, i32 } [ %18, %19 ], [ %12, %11 ], [ %12, %.preheader13 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2896,7 +2896,7 @@ _ZN9TfChannel6addKeyEff.exit47:                   ; preds = %_ZN9TfChannel6addKe
   br i1 %288, label %.loopexit, label %285
 
 .loopexit:                                        ; preds = %.preheader269, %285, %16
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %lpad.phi, %285 ], [ %17, %.preheader269 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %285 ], [ %17, %16 ], [ %17, %.preheader269 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3687,7 +3687,7 @@ _ZN7QStringD2Ev.exit73:                           ; preds = %_ZN11QStringListD2E
   br i1 %269, label %.loopexit, label %266
 
 .loopexit:                                        ; preds = %.preheader113, %266, %23
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn.pn.pn, %266 ], [ %24, %.preheader113 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %266 ], [ %24, %23 ], [ %24, %.preheader113 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 

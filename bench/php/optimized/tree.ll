@@ -204,12 +204,12 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre
   br i1 %21, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %7, %.lr.ph.i, %.lr.ph.i, %16, %20, %.thread18
-  %.str.2.sink.i.sink = phi ptr [ @.str, %.thread18 ], [ @.str.1, %20 ], [ @.str.1, %16 ], [ @.str.2, %.lr.ph.i ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
+  %.str.2.sink.i.sink = phi ptr [ @.str.2, %.lr.ph.i ], [ @.str, %.thread18 ], [ @.str.1, %16 ], [ @.str.1, %20 ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull %.str.2.sink.i.sink, i1 noundef zeroext true) #6
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %13, %20, %15
-  %.0 = phi i1 [ true, %15 ], [ true, %20 ], [ true, %13 ], [ true, %3 ], [ false, %.thread.sink.split ]
+  %.0 = phi i1 [ true, %3 ], [ true, %13 ], [ true, %20 ], [ true, %15 ], [ false, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -287,12 +287,12 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_rep
   br i1 %21, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %7, %.lr.ph.i, %.lr.ph.i, %.lr.ph, %._crit_edge
-  %.str.2.sink.i.sink = phi ptr [ @.str.1, %._crit_edge ], [ @.str.2, %.lr.ph.i ], [ @.str, %.lr.ph ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
+  %.str.2.sink.i.sink = phi ptr [ @.str.1, %._crit_edge ], [ @.str, %.lr.ph ], [ @.str.2, %.lr.ph.i ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull %.str.2.sink.i.sink, i1 noundef zeroext true) #6
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %3, %13, %._crit_edge
-  %.011 = phi i1 [ true, %13 ], [ true, %._crit_edge ], [ true, %3 ], [ false, %.critedge.sink.split ]
+  %.011 = phi i1 [ true, %3 ], [ true, %13 ], [ true, %._crit_edge ], [ false, %.critedge.sink.split ]
   ret i1 %.011
 }
 
@@ -1180,7 +1180,7 @@ instanceof_function.exit:                         ; preds = %7
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.critedge, %3, %25, %28, %13
-  %35 = phi i32 [ -1, %13 ], [ -1, %28 ], [ -1, %25 ], [ 0, %3 ], [ 0, %.critedge ]
+  %35 = phi i32 [ -1, %25 ], [ -1, %13 ], [ -1, %28 ], [ 0, %3 ], [ 0, %.critedge ]
   ret i32 %35
 }
 

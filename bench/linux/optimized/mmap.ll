@@ -446,7 +446,7 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
   br label %72
 
 72:                                               ; preds = %69, %61
-  %73 = phi i32 [ %62, %61 ], [ %71, %69 ]
+  %73 = phi i32 [ %71, %69 ], [ %62, %61 ]
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.thread, label %84
 

@@ -485,7 +485,7 @@ sub_1166:                                         ; preds = %.tail.thread, %.thr
   br label %.backedge283
 
 .thread:                                          ; preds = %141, %123, %138
-  %.str.37.sink = phi ptr [ @.str.37, %138 ], [ @.str.36, %123 ], [ @.str.37, %141 ]
+  %.str.37.sink = phi ptr [ @.str.37, %138 ], [ @.str.37, %141 ], [ @.str.36, %123 ]
   %145 = load ptr, ptr @optarg, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.37.sink, ptr noundef %145) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1873,7 +1873,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %96, %78, %62, %45, %34, %25, %5, %.split.us
-  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %78 ], [ false, %25 ], [ false, %34 ], [ false, %45 ], [ false, %62 ], [ false, %96 ]
+  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %78 ], [ false, %45 ], [ false, %62 ], [ false, %25 ], [ false, %34 ], [ false, %96 ]
   ret i1 %.not33
 }
 

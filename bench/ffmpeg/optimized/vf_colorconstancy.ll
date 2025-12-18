@@ -766,7 +766,7 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %exitcond196.not.i = icmp eq i64 %indvars.iv.next193.i, %wide.trip.count175.i
   br i1 %exitcond196.not.i, label %.loopexit, label %.lr.ph151.i, !llvm.loop !71
 
-.loopexit:                                        ; preds = %.lr.ph151.i, %._crit_edge140.i, %.loopexit119.i, %._crit_edge140.thread.i, %.thread.i
+.loopexit:                                        ; preds = %.lr.ph151.i, %._crit_edge140.thread.i, %._crit_edge140.i, %.loopexit119.i, %.thread.i
   %117 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %3) #10
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %117, ptr %118, align 8, !tbaa !41

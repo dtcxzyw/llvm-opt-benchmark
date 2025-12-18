@@ -4585,7 +4585,7 @@ lean_nat_add.exit.thread57:                       ; preds = %71
   br label %lean_dec.exit37.backedge
 
 lean_dec.exit37.backedge:                         ; preds = %80, %84, %lean_nat_add.exit.thread57, %90, %92, %93
-  %.033.be = phi ptr [ %87, %93 ], [ %74, %lean_nat_add.exit.thread57 ], [ %87, %90 ], [ %87, %92 ], [ %85, %84 ], [ %83, %80 ]
+  %.033.be = phi ptr [ %87, %93 ], [ %87, %92 ], [ %87, %90 ], [ %74, %lean_nat_add.exit.thread57 ], [ %85, %84 ], [ %83, %80 ]
   br label %lean_dec.exit37
 
 84:                                               ; preds = %75

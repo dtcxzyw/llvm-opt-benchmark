@@ -1128,7 +1128,7 @@ decode_picture_timing.exit:                       ; preds = %165, %get_ue_golomb
   br label %347
 
 .thread88:                                        ; preds = %decode_picture_timing.exit, %bytestream2_init.exit51, %46, %.preheader, %72
-  %.144.ph = phi i32 [ -1094995529, %72 ], [ -1094995529, %46 ], [ -1094995529, %.preheader ], [ %.039.fr, %decode_picture_timing.exit ], [ -1094995529, %bytestream2_init.exit51 ]
+  %.144.ph = phi i32 [ -1094995529, %46 ], [ -1094995529, %.preheader ], [ -1094995529, %72 ], [ %.039.fr, %decode_picture_timing.exit ], [ -1094995529, %bytestream2_init.exit51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge

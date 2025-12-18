@@ -1108,8 +1108,8 @@ _ZNK5VLoop5in_bbEPK4Node.exit185:                 ; preds = %.lr.ph222, %_ZNK14P
   br i1 %484, label %349, label %.loopexit198, !llvm.loop !15
 
 .loopexit198:                                     ; preds = %.loopexit, %343, %337, %327, %332, %339, %320, %294
-  %.1151 = phi i1 [ %.0150229, %294 ], [ %.0150229, %320 ], [ %.0150229, %327 ], [ false, %337 ], [ %.0150229, %339 ], [ %.0150229, %332 ], [ %.0150229, %343 ], [ %.3153, %.loopexit ]
-  %.1146 = phi i32 [ %.0145231, %294 ], [ %.0145231, %320 ], [ %.0145231, %327 ], [ %324, %337 ], [ %.0145231, %339 ], [ %.0145231, %332 ], [ %.0145231, %343 ], [ %.3, %.loopexit ]
+  %.1151 = phi i1 [ %.0150229, %294 ], [ %.0150229, %320 ], [ %.0150229, %327 ], [ %.0150229, %332 ], [ false, %337 ], [ %.0150229, %339 ], [ %.0150229, %343 ], [ %.3153, %.loopexit ]
+  %.1146 = phi i32 [ %.0145231, %294 ], [ %.0145231, %320 ], [ %.0145231, %327 ], [ %.0145231, %332 ], [ %324, %337 ], [ %.0145231, %339 ], [ %.0145231, %343 ], [ %.3, %.loopexit ]
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %485 = load i32, ptr %14, align 8
   %486 = zext i32 %485 to i64
@@ -2431,7 +2431,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br i1 %137, label %.lr.ph.i, label %_ZN7PackSet8add_packEP9Node_List.exit, !llvm.loop !32
 
 _ZN7PackSet8add_packEP9Node_List.exit:            ; preds = %.lr.ph.i, %_ZN9Node_List4pushEP4Node.exit10, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.exit.i, %_ZNK7PairSet29is_right_in_a_right_most_pairEPK4Node.exit
-  %.2 = phi ptr [ %.1, %_ZNK7PairSet29is_right_in_a_right_most_pairEPK4Node.exit ], [ null, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.1, %_ZN9Node_List4pushEP4Node.exit10 ], [ null, %.lr.ph.i ]
+  %.2 = phi ptr [ %.1, %_ZN9Node_List4pushEP4Node.exit10 ], [ %.1, %_ZNK7PairSet29is_right_in_a_right_most_pairEPK4Node.exit ], [ null, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ null, %.lr.ph.i ]
   %138 = load ptr, ptr %17, align 8
   %139 = getelementptr inbounds i32, ptr %138, i64 %30
   %140 = load i32, ptr %139, align 4
@@ -2739,7 +2739,7 @@ define hidden void @_ZN9SuperWord46split_packs_only_implemented_with_smaller_siz
   br label %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i"
 
 "_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i": ; preds = %.preheader.i.i.i, %25, %.loopexit.i.i
-  %.pn.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %25 ], [ 0, %.loopexit.i.i ], [ 1, %.preheader.i.i.i ]
+  %.pn.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %.sroa.0.0.insert.insert.i.i.i, %25 ], [ 1, %.preheader.i.i.i ]
   call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr nonnull poison, ptr noundef nonnull %15, i64 %.pn.i.i, ptr poison)
   %26 = load i32, ptr %2, align 8
   %27 = icmp ne i32 %26, 0
@@ -7279,7 +7279,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit39:         ; preds = %_ZN9Node_List4pushE
   br i1 %.not49, label %88, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %._crit_edge, %156, %_ZN16Unique_Node_List4pushEP4Node.exit
-  %182 = phi i1 [ true, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ false, %156 ], [ true, %._crit_edge ]
+  %182 = phi i1 [ false, %156 ], [ true, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ true, %._crit_edge ]
   %183 = load ptr, ptr %43, align 8
   %.not.i.i.i.i = icmp eq ptr %183, null
   br i1 %.not.i.i.i.i, label %185, label %184
@@ -7670,7 +7670,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit32:         ; preds = %_ZN9Node_List4pushE
   br i1 %.not49, label %119, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK9VectorSet4testEj.exit, %.preheader
-  %220 = phi i1 [ true, %.preheader ], [ false, %_ZNK9VectorSet4testEj.exit ], [ true, %._crit_edge ]
+  %220 = phi i1 [ false, %_ZNK9VectorSet4testEj.exit ], [ true, %.preheader ], [ true, %._crit_edge ]
   %221 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %221, null
   br i1 %.not.i.i.i.i, label %223, label %222
@@ -8904,8 +8904,8 @@ _ZNK7PairSet21get_right_or_null_forEPK4Node.exit: ; preds = %_ZNK7PairSet7is_lef
   br i1 %189, label %.lr.ph77, label %_ZNK7PairSet21get_right_or_null_forEPK4Node.exit.thread, !llvm.loop !74
 
 _ZNK7PairSet21get_right_or_null_forEPK4Node.exit.thread: ; preds = %187, %176, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i53, %_ZNK7PairSet7is_leftEPK4Node.exit.i55, %_ZNK7PairSet21get_right_or_null_forEPK4Node.exit
-  %.147 = phi i32 [ %.04680, %_ZNK7PairSet21get_right_or_null_forEPK4Node.exit ], [ %.04680, %_ZNK7PairSet7is_leftEPK4Node.exit.i55 ], [ %.04680, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i53 ], [ %.04680, %176 ], [ %.349, %187 ]
-  %.145 = phi i32 [ %.04481, %_ZNK7PairSet21get_right_or_null_forEPK4Node.exit ], [ %.04481, %_ZNK7PairSet7is_leftEPK4Node.exit.i55 ], [ %.04481, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i53 ], [ %.04481, %176 ], [ %.3, %187 ]
+  %.147 = phi i32 [ %.04680, %_ZNK7PairSet21get_right_or_null_forEPK4Node.exit ], [ %.04680, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i53 ], [ %.04680, %_ZNK7PairSet7is_leftEPK4Node.exit.i55 ], [ %.04680, %176 ], [ %.349, %187 ]
+  %.145 = phi i32 [ %.04481, %_ZNK7PairSet21get_right_or_null_forEPK4Node.exit ], [ %.04481, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i53 ], [ %.04481, %_ZNK7PairSet7is_leftEPK4Node.exit.i55 ], [ %.04481, %176 ], [ %.3, %187 ]
   %190 = getelementptr inbounds nuw i8, ptr %.04382, i64 8
   %191 = icmp ult ptr %190, %102
   br i1 %191, label %108, label %._crit_edge85.loopexit, !llvm.loop !75
@@ -10869,7 +10869,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread: ; preds = %228, %303,
   br label %_ZNK9SuperWord8get_packEPK4Node.exit.thread
 
 _ZNK9SuperWord8get_packEPK4Node.exit.thread:      ; preds = %.lr.ph, %.lr.ph.i, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread, %.lr.ph136, %337, %341, %.lr.ph139, %361, %365, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i, %379, %385, %370, %376, %_ZNK9SuperWord8get_packEPK4Node.exit94, %_ZNK7PackSet28same_inputs_at_index_or_nullEPK9Node_Listi.exit, %105, %_ZNK9SuperWord8get_packEPK4Node.exit, %99, %388
-  %.0 = phi i1 [ false, %_ZNK9SuperWord8get_packEPK4Node.exit94 ], [ false, %_ZNK9SuperWord8get_packEPK4Node.exit ], [ false, %105 ], [ false, %370 ], [ true, %388 ], [ false, %99 ], [ false, %_ZNK7PackSet28same_inputs_at_index_or_nullEPK9Node_Listi.exit ], [ false, %376 ], [ false, %385 ], [ false, %379 ], [ false, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ false, %.lr.ph.i ], [ false, %.lr.ph139 ], [ false, %.lr.ph136 ], [ false, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread ], [ false, %365 ], [ false, %361 ], [ false, %341 ], [ false, %337 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZNK9SuperWord8get_packEPK4Node.exit94 ], [ false, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread ], [ false, %_ZNK9SuperWord8get_packEPK4Node.exit ], [ false, %105 ], [ false, %.lr.ph139 ], [ false, %.lr.ph.i ], [ false, %.lr.ph136 ], [ false, %370 ], [ true, %388 ], [ false, %99 ], [ false, %_ZNK7PackSet28same_inputs_at_index_or_nullEPK9Node_Listi.exit ], [ false, %385 ], [ false, %376 ], [ false, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ false, %379 ], [ false, %365 ], [ false, %361 ], [ false, %341 ], [ false, %337 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -11251,7 +11251,7 @@ _ZNK9SuperWord8get_packEPK4Node.exit70.thread:    ; preds = %_ZNK5VLoop5in_bbEPK
   br label %_ZNK9SuperWord8get_packEPK4Node.exit.thread
 
 _ZNK9SuperWord8get_packEPK4Node.exit.thread:      ; preds = %.lr.ph, %214, %.lr.ph87, %227, %219, %199, %88, %.preheader77, %.preheader74, %.preheader, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i, %240, %177, %_ZNK9SuperWord8get_packEPK4Node.exit, %246, %244
-  %.049 = phi i1 [ %248, %246 ], [ false, %_ZNK9SuperWord8get_packEPK4Node.exit ], [ %245, %244 ], [ false, %177 ], [ true, %199 ], [ true, %.preheader74 ], [ false, %240 ], [ false, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ true, %.preheader ], [ true, %.preheader77 ], [ %.not57, %88 ], [ false, %.lr.ph87 ], [ false, %227 ], [ false, %214 ], [ false, %219 ], [ %.not, %.lr.ph ]
+  %.049 = phi i1 [ %248, %246 ], [ false, %_ZNK9SuperWord8get_packEPK4Node.exit ], [ %245, %244 ], [ false, %177 ], [ true, %199 ], [ true, %.preheader74 ], [ false, %240 ], [ false, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ %.not57, %88 ], [ true, %.preheader ], [ true, %.preheader77 ], [ false, %.lr.ph87 ], [ false, %227 ], [ false, %214 ], [ false, %219 ], [ %.not, %.lr.ph ]
   ret i1 %.049
 }
 
@@ -12122,8 +12122,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit64: ; preds = %_ZN9VectorSet8
   br i1 %exitcond194.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !115
 
 ._crit_edge180:                                   ; preds = %._crit_edge177, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit, %.preheader
-  %.sroa.10.1.lcssa221 = phi i32 [ %.sroa.10.2, %.preheader ], [ %.sroa.10.0182, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.10.2, %._crit_edge177 ]
-  %.sroa.17.1.lcssa220 = phi ptr [ %.sroa.17.2, %.preheader ], [ %.sroa.17.0181, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.17.2, %._crit_edge177 ]
+  %.sroa.10.1.lcssa221 = phi i32 [ %.sroa.10.0182, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.10.2, %.preheader ], [ %.sroa.10.2, %._crit_edge177 ]
+  %.sroa.17.1.lcssa220 = phi ptr [ %.sroa.17.0181, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.17.2, %.preheader ], [ %.sroa.17.2, %._crit_edge177 ]
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %406 = load i32, ptr %28, align 4
   %407 = sext i32 %406 to i64
@@ -13670,7 +13670,7 @@ _ZNK9SuperWord8get_packEPK4Node.exit46.thread:    ; preds = %.loopexit, %122, %_
   br i1 %.not79, label %59, label %.critedge, !llvm.loop !121
 
 .critedge:                                        ; preds = %_ZNK9SuperWord8get_packEPK4Node.exit46.thread, %133, %.critedge60, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i
-  %213 = phi i1 [ true, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ false, %133 ], [ false, %.critedge60 ], [ true, %_ZNK9SuperWord8get_packEPK4Node.exit46.thread ]
+  %213 = phi i1 [ false, %.critedge60 ], [ false, %133 ], [ true, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ true, %_ZNK9SuperWord8get_packEPK4Node.exit46.thread ]
   ret i1 %213
 }
 
@@ -15332,7 +15332,7 @@ _ZN13GrowableArrayIP4NodeED2Ev.exit:              ; preds = %_ZN9VLoopBody10set_
   br label %.critedge
 
 .critedge:                                        ; preds = %91, %91, %98, %.preheader237, %164, %570, %568
-  %.sroa.0.0 = phi ptr [ null, %568 ], [ null, %570 ], [ @.str.17, %164 ], [ @.str.17, %.preheader237 ], [ @.str.16, %98 ], [ @.str.16, %91 ], [ @.str.16, %91 ]
+  %.sroa.0.0 = phi ptr [ null, %570 ], [ @.str.17, %164 ], [ null, %568 ], [ @.str.16, %91 ], [ @.str.16, %98 ], [ @.str.16, %91 ], [ @.str.17, %.preheader237 ]
   ret ptr %.sroa.0.0
 }
 

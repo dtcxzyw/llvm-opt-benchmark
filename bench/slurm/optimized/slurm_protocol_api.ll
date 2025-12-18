@@ -268,8 +268,8 @@ define dso_local void @convert_num_unit2(double noundef %0, ptr noundef writeonl
   br i1 %47, label %.critedge, label %.lr.ph79, !llvm.loop !13
 
 .critedge:                                        ; preds = %24, %17, %37, %41, %.lr.ph79, %.preheader61, %.preheader, %27, %29, %21
-  %.250 = phi i32 [ %3, %21 ], [ %3, %29 ], [ 0, %27 ], [ %3, %.preheader ], [ %3, %.preheader61 ], [ %4, %17 ], [ %46, %.lr.ph79 ], [ %43, %41 ], [ %.35171, %37 ], [ %4, %24 ]
-  %.2 = phi double [ %0, %21 ], [ %0, %29 ], [ %0, %27 ], [ %0, %.preheader ], [ %0, %.preheader61 ], [ %18, %17 ], [ %45, %.lr.ph79 ], [ %42, %41 ], [ %.372, %37 ], [ %25, %24 ]
+  %.250 = phi i32 [ %43, %41 ], [ %4, %17 ], [ %3, %21 ], [ 0, %27 ], [ %3, %29 ], [ %46, %.lr.ph79 ], [ %3, %.preheader ], [ %3, %.preheader61 ], [ %.35171, %37 ], [ %4, %24 ]
+  %.2 = phi double [ %42, %41 ], [ %18, %17 ], [ %0, %21 ], [ %0, %27 ], [ %0, %29 ], [ %45, %.lr.ph79 ], [ %0, %.preheader ], [ %0, %.preheader61 ], [ %.372, %37 ], [ %25, %24 ]
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.250, i32 6)
   %48 = fptoui double %.2 to i64
   %49 = uitofp i64 %48 to double
@@ -392,7 +392,7 @@ get_unit_type.exit.thread.sink.split:             ; preds = %4, %2
   br label %get_unit_type.exit.thread
 
 get_unit_type.exit.thread:                        ; preds = %.lr.ph, %get_unit_type.exit.thread.sink.split, %.preheader, %get_unit_type.exit
-  %.07 = phi i32 [ -1, %get_unit_type.exit ], [ 0, %.preheader ], [ -1, %get_unit_type.exit.thread.sink.split ], [ %.1, %.lr.ph ]
+  %.07 = phi i32 [ -1, %get_unit_type.exit ], [ -1, %get_unit_type.exit.thread.sink.split ], [ 0, %.preheader ], [ %.1, %.lr.ph ]
   ret i32 %.07
 }
 
@@ -2319,7 +2319,7 @@ define dso_local ptr @slurm_receive_msgs(i32 noundef %0, i32 noundef %1, i32 nou
   br label %154
 
 154:                                              ; preds = %.sink.split, %119, %101
-  %.069.ph = phi i32 [ 1007, %119 ], [ 5003, %101 ], [ %.069.ph.ph, %.sink.split ]
+  %.069.ph = phi i32 [ 5003, %101 ], [ 1007, %119 ], [ %.069.ph.ph, %.sink.split ]
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %155) #19
   %.not111 = icmp eq ptr %.167, null
@@ -4464,8 +4464,8 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
 
 .critedge:                                        ; preds = %101, %.thread, %112, %.split.us, %22, %66, %96
   %.05699 = phi ptr [ %.056, %.thread ], [ null, %96 ], [ %.056, %66 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %101 ]
-  %.not6474 = phi i1 [ true, %.thread ], [ false, %66 ], [ false, %96 ], [ true, %112 ], [ false, %.split.us ], [ false, %22 ], [ true, %101 ]
-  %.05872 = phi i32 [ 0, %.thread ], [ -1, %66 ], [ -1, %96 ], [ 0, %112 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %101 ]
+  %.not6474 = phi i1 [ true, %.thread ], [ false, %66 ], [ false, %96 ], [ false, %.split.us ], [ false, %22 ], [ true, %112 ], [ true, %101 ]
+  %.05872 = phi i32 [ 0, %.thread ], [ -1, %66 ], [ -1, %96 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %112 ], [ 0, %101 ]
   %.not67 = icmp eq ptr %.05699, %2
   br i1 %.not67, label %122, label %121
 

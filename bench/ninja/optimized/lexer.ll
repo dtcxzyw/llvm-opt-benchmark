@@ -1713,7 +1713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.preheader156, %.preheader, %168, %150, %145, %137, %135, %57, %47
-  %.093.be = phi ptr [ %41, %47 ], [ %138, %137 ], [ %169, %168 ], [ %52, %57 ], [ %151, %150 ], [ %139, %145 ], [ %136, %135 ], [ %129, %.preheader ], [ %158, %.preheader156 ]
+  %.093.be = phi ptr [ %41, %47 ], [ %138, %137 ], [ %169, %168 ], [ %129, %.preheader ], [ %52, %57 ], [ %136, %135 ], [ %151, %150 ], [ %139, %145 ], [ %158, %.preheader156 ]
   br label %.loopexit, !llvm.loop !37
 
 173:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113
@@ -1771,7 +1771,7 @@ select.unfold.i.backedge:                         ; preds = %.preheader.i, %184,
   br label %select.unfold.i, !llvm.loop !33
 
 _ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %184, %179, %select.unfold.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread154, %174
-  %.292 = phi i1 [ true, %.thread154 ], [ true, %174 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %select.unfold.i ], [ true, %179 ], [ true, %184 ]
+  %.292 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %.thread154 ], [ true, %174 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %select.unfold.i ], [ true, %179 ], [ true, %184 ]
   ret i1 %.292
 }
 

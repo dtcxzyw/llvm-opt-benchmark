@@ -2750,7 +2750,7 @@ _Z9DS_SearchP8DirStack9Directive.exit.thread:     ; preds = %5, %2
   br i1 %.not10, label %_Z9DS_SearchP8DirStack9Directive.exit, label %.lr.ph.i12.preheader, !llvm.loop !76
 
 _Z9DS_SearchP8DirStack9Directive.exit:            ; preds = %.lr.ph.i, %.loopexit, %.lr.ph.i12, %_Z9DS_SearchP8DirStack9Directive.exit.thread
-  %.08 = phi i32 [ %.mux, %_Z9DS_SearchP8DirStack9Directive.exit.thread ], [ 0, %.loopexit ], [ 1, %.lr.ph.i12 ], [ 0, %.lr.ph.i ]
+  %.08 = phi i32 [ 0, %.loopexit ], [ 1, %.lr.ph.i12 ], [ %.mux, %_Z9DS_SearchP8DirStack9Directive.exit.thread ], [ 0, %.lr.ph.i ]
   ret i32 %.08
 }
 

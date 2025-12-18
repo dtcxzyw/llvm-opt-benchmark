@@ -26625,8 +26625,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit34.thre
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread181
 
-.thread185:                                       ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit34.thread.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i, %.thread189
-  %.sroa.7.0.i188 = phi i32 [ %249, %.thread189 ], [ %505, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit34.thread.i ], [ %380, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i ]
+.thread185:                                       ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit34.thread.i, %.thread189
+  %.sroa.7.0.i188 = phi i32 [ %249, %.thread189 ], [ %380, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i ], [ %505, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit34.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i32 %.sroa.7.0.i188, ptr %38, align 4
   %507 = getelementptr inbounds nuw i8, ptr %211, i64 48

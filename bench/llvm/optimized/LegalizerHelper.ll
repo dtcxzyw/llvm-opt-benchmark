@@ -13730,7 +13730,7 @@ _ZN4llvm15LegalizerHelper21moreElementsVectorDstERNS_12MachineInstrENS_3LLTEj.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %310, %334, %312
-  %.1 = phi i32 [ 2, %312 ], [ 2, %334 ], [ 2, %310 ], [ 1, %.critedge.sink.split ]
+  %.1 = phi i32 [ 2, %310 ], [ 2, %334 ], [ 2, %312 ], [ 1, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %790
 
@@ -28903,7 +28903,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj16EED2Ev.exit: ; preds = %_ZN4llvm11SmallVe
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %66, %70, %244, %117, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit154
-  %.2 = phi i32 [ 2, %117 ], [ 2, %244 ], [ 2, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit154 ], [ 2, %70 ], [ 2, %66 ], [ 1, %.critedge.sink.split ]
+  %.2 = phi i32 [ 2, %66 ], [ 2, %117 ], [ 2, %244 ], [ 2, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit154 ], [ 2, %70 ], [ 1, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %402
 
@@ -39527,7 +39527,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerSI
   br label %113
 
 113:                                              ; preds = %.sink.split, %2, %50
-  %.0 = phi i32 [ 2, %2 ], [ 2, %50 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 2, %50 ], [ 2, %2 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -63363,10 +63363,10 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit: ; preds = %.
   br label %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101
 
 _ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101: ; preds = %.lr.ph.i.i.i.i.i91, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit
-  %172 = phi ptr [ %152, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %163, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %167, %.lr.ph.i.i.i.i.i91 ]
-  %173 = phi ptr [ %145, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %.pre, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %145, %.lr.ph.i.i.i.i.i91 ]
-  %174 = phi ptr [ %153, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %161, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %168, %.lr.ph.i.i.i.i.i91 ]
-  %175 = phi ptr [ %152, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %160, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %167, %.lr.ph.i.i.i.i.i91 ]
+  %172 = phi ptr [ %163, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %152, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %167, %.lr.ph.i.i.i.i.i91 ]
+  %173 = phi ptr [ %.pre, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %145, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %145, %.lr.ph.i.i.i.i.i91 ]
+  %174 = phi ptr [ %161, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %153, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %168, %.lr.ph.i.i.i.i.i91 ]
+  %175 = phi ptr [ %160, %_ZN4llvm11SmallVectorINS_8RegisterELj8EEC2EmRKS1_.exit101.loopexit ], [ %152, %_ZSt6fill_nIPN4llvm8RegisterEmS1_ET_S3_T0_RKT1_.exit.i.i89.thread ], [ %167, %.lr.ph.i.i.i.i.i91 ]
   store i32 %110, ptr %174, align 8, !tbaa !190
   %176 = load ptr, ptr %31, align 8, !tbaa !189
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 36
@@ -63439,7 +63439,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i102:       ; preds = %_ZN4llvm11SmallVect
   br i1 %.not.i.i.i.i.i.i.i.i107, label %_ZN4llvm11SmallVectorIiLj8EEC2EmRKi.exit, label %.lr.ph.i.i.i.i.i.i.i.i105, !llvm.loop !898
 
 _ZN4llvm11SmallVectorIiLj8EEC2EmRKi.exit:         ; preds = %.lr.ph.i.i.i.i.i.i.i.i105, %.lr.ph.i.i.i.i.i.i.i.i.i110, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i102
-  %207 = phi ptr [ %196, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i102 ], [ %201, %.lr.ph.i.i.i.i.i.i.i.i.i110 ], [ %196, %.lr.ph.i.i.i.i.i.i.i.i105 ]
+  %207 = phi ptr [ %201, %.lr.ph.i.i.i.i.i.i.i.i.i110 ], [ %196, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i102 ], [ %196, %.lr.ph.i.i.i.i.i.i.i.i105 ]
   store i32 %109, ptr %197, align 8, !tbaa !190
   %.not152 = icmp eq i32 %34, 0
   br i1 %.not152, label %._crit_edge, label %.lr.ph
@@ -64160,8 +64160,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit102: ; pr
   br i1 %207, label %.lr.ph329, label %.loopexit, !llvm.loop !904
 
 .loopexit:                                        ; preds = %.lr.ph318, %.lr.ph329, %142, %191
-  %.sroa.0211.1 = phi i32 [ 0, %191 ], [ %159, %142 ], [ 0, %.lr.ph329 ], [ %187, %.lr.ph318 ]
-  %.sroa.051.1 = phi i32 [ %.sroa.051.2325, %191 ], [ %151, %142 ], [ %.sroa.051.2, %.lr.ph329 ], [ %173, %.lr.ph318 ]
+  %.sroa.0211.1 = phi i32 [ 0, %191 ], [ 0, %.lr.ph329 ], [ %159, %142 ], [ %187, %.lr.ph318 ]
+  %.sroa.051.1 = phi i32 [ %.sroa.051.2325, %191 ], [ %.sroa.051.2, %.lr.ph329 ], [ %151, %142 ], [ %173, %.lr.ph318 ]
   %208 = load ptr, ptr %1, align 8, !tbaa !191
   %209 = getelementptr inbounds nuw %"class.llvm::Register", ptr %208, i64 %indvars.iv344
   store i32 %.sroa.051.1, ptr %209, align 4, !tbaa !193
@@ -69155,7 +69155,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit94:           ; preds = %38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %30, %.critedge, %25
-  %.sroa.0153.0 = phi i64 [ %.sroa.0153.1.lcssa, %.critedge ], [ 274877906945, %30 ], [ %29, %25 ], [ %.sroa.0153.1166, %38 ]
+  %.sroa.0153.0 = phi i64 [ %29, %25 ], [ %.sroa.0153.1.lcssa, %.critedge ], [ 274877906945, %30 ], [ %.sroa.0153.1166, %38 ]
   %53 = load i64, ptr %2, align 8, !tbaa !960
   %.not171 = icmp eq i64 %53, 0
   br i1 %.not171, label %.critedge76, label %.lr.ph176

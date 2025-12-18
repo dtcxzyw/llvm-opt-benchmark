@@ -1947,7 +1947,7 @@ BIO_push.exit:                                    ; preds = %40, %36, %34
   br i1 %or.cond.i, label %.preheader.i39, label %BIO_free_all.exit, !llvm.loop !61
 
 BIO_free_all.exit:                                ; preds = %BIO_push.exit, %.preheader.i39, %1, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %.preheader.i39 ], [ %.136, %BIO_push.exit ]
+  %.0 = phi ptr [ null, %.preheader.i39 ], [ null, %.loopexit ], [ null, %1 ], [ %.136, %BIO_push.exit ]
   ret ptr %.0
 }
 

@@ -1240,7 +1240,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10PcpArcInfoC2Ev.exit: ; preds = %2
           to label %30 unwind label %19
 
 30:                                               ; preds = %.invoke, %28, %23, %21
-  %.0.shrunk = phi i1 [ %27, %.invoke ], [ %22, %21 ], [ %24, %23 ], [ %29, %28 ]
+  %.0.shrunk = phi i1 [ %29, %28 ], [ %27, %.invoke ], [ %22, %21 ], [ %24, %23 ]
   br i1 %.0.shrunk, label %31, label %.critedge
 
 31:                                               ; preds = %30

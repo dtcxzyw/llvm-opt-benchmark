@@ -573,11 +573,11 @@ get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
   br i1 %exitcond.not.i, label %process_cc608.exit.thread, label %.lr.ph.i, !llvm.loop !54
 
 process_cc608.exit:                               ; preds = %236, %244
-  %.0120.i = phi i32 [ %.1.i, %236 ], [ %245, %244 ]
+  %.0120.i = phi i32 [ %245, %244 ], [ %.1.i, %236 ]
   %256 = icmp slt i32 %.0120.i, 0
   br i1 %256, label %.loopexit, label %process_cc608.exit.thread
 
-process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_char.exit.i.i, %212, %189, %get_writing_screen.exit.i126.i, %111, %109, %251, %250, %247, %237, %239, %231, %230, %229, %227, %226, %225, %224, %215, %82, %process_cc608.exit
+process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_char.exit.i.i, %189, %get_writing_screen.exit.i126.i, %111, %109, %251, %250, %247, %237, %239, %231, %230, %229, %227, %226, %225, %224, %215, %212, %82, %process_cc608.exit
   %257 = load i32, ptr %32, align 4, !tbaa !55
   %.not116 = icmp eq i32 %257, 0
   br i1 %.not116, label %validate_cc_data_pair.exit.thread, label %258

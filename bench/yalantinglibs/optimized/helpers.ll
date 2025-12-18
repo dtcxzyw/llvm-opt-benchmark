@@ -604,7 +604,7 @@ ehcleanup:                                        ; preds = %lpad4.i, %lpad14
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %ehcleanup, %lpad2.i, %lpad.i
-  %.pn.pn = phi { ptr, i32 } [ %10, %lpad.i ], [ %11, %lpad2.i ], [ %.pn, %ehcleanup ]
+  %.pn.pn = phi { ptr, i32 } [ %11, %lpad2.i ], [ %10, %lpad.i ], [ %.pn, %ehcleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ns) #20
   resume { ptr, i32 } %.pn.pn
 

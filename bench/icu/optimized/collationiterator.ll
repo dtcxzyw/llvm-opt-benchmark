@@ -3903,7 +3903,7 @@ _ZNK6icu_7713CollationData8getFCD16Ei.exit:       ; preds = %287
   %297 = add nuw nsw i32 %.048, 1
   br label %25
 
-_ZNK6icu_7713CollationData8getFCD16Ei.exit.thread: ; preds = %274, %265, %181, %_ZNK6icu_7713CollationData8getFCD16Ei.exit, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit83.thread
+_ZNK6icu_7713CollationData8getFCD16Ei.exit.thread: ; preds = %274, %265, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit83.thread, %_ZNK6icu_7713CollationData8getFCD16Ei.exit, %181
   %.146.ph = phi i32 [ %.4, %_ZNK6icu_7713CollationData8getFCD16Ei.exit ], [ %.045, %181 ], [ %.045, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit83.thread ], [ %.4, %265 ], [ %.4, %274 ]
   %298 = load ptr, ptr %12, align 8, !tbaa !34
   %.not.i101 = icmp eq ptr %298, null

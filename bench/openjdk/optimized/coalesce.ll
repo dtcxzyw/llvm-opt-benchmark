@@ -878,8 +878,8 @@ _ZN8IndexSet6insertEj.exit:                       ; preds = %113, %108, %.lr.ph.
   br i1 %122, label %.lr.ph.split, label %.loopexit289, !llvm.loop !13
 
 .loopexit289:                                     ; preds = %_ZN8IndexSet6insertEj.exit, %_ZN8IndexSet6insertEj.exit.us, %.preheader288, %_ZN12LiveRangeMap4findEj.exit
-  %.pre353374 = phi ptr [ %.pre353, %_ZN12LiveRangeMap4findEj.exit ], [ %.pre353, %.preheader288 ], [ %.pre353371, %_ZN8IndexSet6insertEj.exit.us ], [ %116, %_ZN8IndexSet6insertEj.exit ]
-  %123 = phi ptr [ %.pre353, %_ZN12LiveRangeMap4findEj.exit ], [ %.pre353, %.preheader288 ], [ %70, %_ZN8IndexSet6insertEj.exit.us ], [ %116, %_ZN8IndexSet6insertEj.exit ]
+  %.pre353374 = phi ptr [ %.pre353371, %_ZN8IndexSet6insertEj.exit.us ], [ %.pre353, %_ZN12LiveRangeMap4findEj.exit ], [ %.pre353, %.preheader288 ], [ %116, %_ZN8IndexSet6insertEj.exit ]
+  %123 = phi ptr [ %70, %_ZN8IndexSet6insertEj.exit.us ], [ %.pre353, %_ZN12LiveRangeMap4findEj.exit ], [ %.pre353, %.preheader288 ], [ %116, %_ZN8IndexSet6insertEj.exit ]
   %124 = add nuw i32 %.0296, 1
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 224
   %126 = load i32, ptr %125, align 8
@@ -2422,13 +2422,13 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit277: ; preds = %_ZN4Node7set_
   br label %_ZNK8JVMState14is_monitor_useEj.exit.thread
 
 _ZNK8JVMState14is_monitor_useEj.exit.thread:      ; preds = %887, %930, %_ZNK8JVMState14is_monitor_useEj.exit, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit277
-  %.5 = phi i32 [ %.4306, %_ZNK8JVMState14is_monitor_useEj.exit ], [ %1033, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit277 ], [ %.4306, %930 ], [ %.4306, %887 ]
+  %.5 = phi i32 [ %.4306, %_ZNK8JVMState14is_monitor_useEj.exit ], [ %.4306, %930 ], [ %1033, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit277 ], [ %.4306, %887 ]
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
   br i1 %exitcond344.not, label %.loopexit, label %tailrecurse.i.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZNK8JVMState14is_monitor_useEj.exit.thread, %644, %868, %_ZN12LiveRangeMap4findEPK4Node.exit221, %.thread, %863, %_ZN4Node7set_reqEjPS_.exit220
-  %.1 = phi i32 [ %375, %_ZN4Node7set_reqEjPS_.exit220 ], [ %.0181309, %_ZN12LiveRangeMap4findEPK4Node.exit221 ], [ %.2, %863 ], [ %.2, %.thread ], [ %.2, %868 ], [ %.0181309, %644 ], [ %.5, %_ZNK8JVMState14is_monitor_useEj.exit.thread ]
+  %.1 = phi i32 [ %375, %_ZN4Node7set_reqEjPS_.exit220 ], [ %.2, %863 ], [ %.0181309, %_ZN12LiveRangeMap4findEPK4Node.exit221 ], [ %.0181309, %644 ], [ %.2, %.thread ], [ %.2, %868 ], [ %.5, %_ZNK8JVMState14is_monitor_useEj.exit.thread ]
   %1054 = add i32 %.1, 1
   %1055 = load i32, ptr %181, align 8
   %1056 = icmp ult i32 %1054, %1055

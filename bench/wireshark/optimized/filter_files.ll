@@ -379,11 +379,11 @@ getc_crlf.exit182:                                ; preds = %88, %95, %95, %97
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.preheader, %39, %skip_whitespace.exit, %107, %.loopexit193, %73
-  %.1154 = phi ptr [ %.0153, %skip_whitespace.exit ], [ %.0153, %73 ], [ %.0153, %.loopexit193 ], [ %114, %107 ], [ %.0153, %.preheader ], [ %.0153, %39 ], [ %.0153, %30 ]
-  %.2144 = phi ptr [ %.0142, %skip_whitespace.exit ], [ %.3145, %73 ], [ %.5147, %.loopexit193 ], [ %.5147, %107 ], [ %.0142, %.preheader ], [ %.0142, %39 ], [ %.0142, %30 ]
-  %.2138 = phi ptr [ %.0136, %skip_whitespace.exit ], [ %.0136, %73 ], [ %.0136, %.loopexit193 ], [ %.5141, %107 ], [ %.0136, %.preheader ], [ %.0136, %39 ], [ %.0136, %30 ]
-  %.1132 = phi i32 [ %.0131, %skip_whitespace.exit ], [ %.2133, %73 ], [ %.4135, %.loopexit193 ], [ %.4135, %107 ], [ %.0131, %.preheader ], [ %.0131, %39 ], [ %.0131, %30 ]
-  %.1 = phi i32 [ %.0130, %skip_whitespace.exit ], [ %.0130, %73 ], [ %.0130, %.loopexit193 ], [ %.4, %107 ], [ %.0130, %.preheader ], [ %.0130, %39 ], [ %.0130, %30 ]
+  %.1154 = phi ptr [ %.0153, %skip_whitespace.exit ], [ %.0153, %.preheader ], [ %.0153, %39 ], [ %.0153, %73 ], [ %.0153, %.loopexit193 ], [ %114, %107 ], [ %.0153, %30 ]
+  %.2144 = phi ptr [ %.0142, %skip_whitespace.exit ], [ %.0142, %.preheader ], [ %.0142, %39 ], [ %.3145, %73 ], [ %.5147, %.loopexit193 ], [ %.5147, %107 ], [ %.0142, %30 ]
+  %.2138 = phi ptr [ %.0136, %skip_whitespace.exit ], [ %.0136, %.preheader ], [ %.0136, %39 ], [ %.0136, %73 ], [ %.0136, %.loopexit193 ], [ %.5141, %107 ], [ %.0136, %30 ]
+  %.1132 = phi i32 [ %.0131, %skip_whitespace.exit ], [ %.0131, %.preheader ], [ %.0131, %39 ], [ %.2133, %73 ], [ %.4135, %.loopexit193 ], [ %.4135, %107 ], [ %.0131, %30 ]
+  %.1 = phi i32 [ %.0130, %skip_whitespace.exit ], [ %.0130, %.preheader ], [ %.0130, %39 ], [ %.0130, %73 ], [ %.0130, %.loopexit193 ], [ %.4, %107 ], [ %.0130, %30 ]
   %115 = add i32 %.0127, 1
   br label %29
 
@@ -395,8 +395,8 @@ getc_crlf.exit182:                                ; preds = %88, %95, %95, %97
   br label %.loopexit195
 
 .loopexit195:                                     ; preds = %30, %.loopexit195.sink.split, %99, %.loopexit192, %71
-  %.1143 = phi ptr [ %.3145, %71 ], [ %.5147, %99 ], [ %.5147, %.loopexit192 ], [ %.1143.ph, %.loopexit195.sink.split ], [ %.0142, %30 ]
-  %.1137 = phi ptr [ %.0136, %71 ], [ %.4140, %99 ], [ %.0136, %.loopexit192 ], [ %.1137.ph, %.loopexit195.sink.split ], [ %.0136, %30 ]
+  %.1143 = phi ptr [ %.1143.ph, %.loopexit195.sink.split ], [ %.3145, %71 ], [ %.5147, %99 ], [ %.5147, %.loopexit192 ], [ %.0142, %30 ]
+  %.1137 = phi ptr [ %.1137.ph, %.loopexit195.sink.split ], [ %.0136, %71 ], [ %.4140, %99 ], [ %.0136, %.loopexit192 ], [ %.0136, %30 ]
   %116 = tail call i32 @ferror(ptr noundef nonnull %.0155) #11
   %.not175 = icmp eq i32 %116, 0
   br i1 %.not175, label %121, label %117

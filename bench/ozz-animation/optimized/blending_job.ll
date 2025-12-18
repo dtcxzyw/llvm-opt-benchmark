@@ -574,9 +574,9 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   br i1 %340, label %252, label %.loopexit.i, !llvm.loop !83
 
 .loopexit.i:                                      ; preds = %112, %65, %252, %210, %.preheader.i, %.preheader191.i, %.preheader193.i, %.preheader195.i
-  %341 = phi i64 [ %44, %.preheader195.i ], [ %44, %.preheader.i ], [ %44, %.preheader191.i ], [ %44, %.preheader193.i ], [ %110, %65 ], [ %250, %210 ], [ %339, %252 ], [ %204, %112 ]
-  %342 = phi i64 [ %45, %.preheader195.i ], [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ %45, %.preheader193.i ], [ %110, %65 ], [ %250, %210 ], [ %339, %252 ], [ %204, %112 ]
-  %343 = phi i64 [ 0, %.preheader195.i ], [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ 0, %.preheader193.i ], [ %110, %65 ], [ %250, %210 ], [ %339, %252 ], [ %204, %112 ]
+  %341 = phi i64 [ %110, %65 ], [ %339, %252 ], [ %250, %210 ], [ %44, %.preheader195.i ], [ %44, %.preheader.i ], [ %44, %.preheader191.i ], [ %44, %.preheader193.i ], [ %204, %112 ]
+  %342 = phi i64 [ %110, %65 ], [ %339, %252 ], [ %250, %210 ], [ %45, %.preheader195.i ], [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ %45, %.preheader193.i ], [ %204, %112 ]
+  %343 = phi i64 [ %110, %65 ], [ %339, %252 ], [ %250, %210 ], [ 0, %.preheader195.i ], [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ 0, %.preheader193.i ], [ %204, %112 ]
   %344 = load i32, ptr %41, align 16, !tbaa !27
   %345 = add nsw i32 %344, 1
   store i32 %345, ptr %41, align 16, !tbaa !27

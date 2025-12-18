@@ -3812,7 +3812,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %98, %96
   br i1 %100, label %72, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %72, %_ZN12ResourceMarkD2Ev.exit, %67, %_ZN12ResourceMarkD2Ev.exit.us, %.lr.ph.split.us, %.lr.ph.split, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %.0121.lcssa = phi i1 [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %67 ], [ true, %_ZN12ResourceMarkD2Ev.exit.us ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %72 ]
+  %.0121.lcssa = phi i1 [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ true, %67 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %_ZN12ResourceMarkD2Ev.exit.us ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %72 ]
   %101 = load volatile i8, ptr %10, align 1
   %102 = icmp eq i8 %101, 3
   br i1 %102, label %103, label %146
@@ -5032,7 +5032,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %73, %60, %58, %30, %28, %._crit_edge, %61, %31, %167
-  %.045 = phi i1 [ true, %._crit_edge ], [ %cond, %167 ], [ false, %30 ], [ true, %31 ], [ false, %61 ], [ false, %28 ], [ false, %58 ], [ false, %60 ], [ false, %73 ]
+  %.045 = phi i1 [ true, %._crit_edge ], [ %cond, %167 ], [ false, %30 ], [ true, %31 ], [ false, %61 ], [ false, %60 ], [ false, %28 ], [ false, %58 ], [ false, %73 ]
   ret i1 %.045
 }
 
@@ -8893,7 +8893,7 @@ _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexi
   br label %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread
 
 _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread: ; preds = %48, %28, %177, %._crit_edge.i46.us95, %138, %._crit_edge.i46.us, %111, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit54.us, %.lr.ph108, %.backedge, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit154, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit160, %._crit_edge, %77, %29, %13, %78, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit
-  %.0 = phi i32 [ %.0.i69, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit ], [ -1, %13 ], [ -1, %29 ], [ %.0.i69, %78 ], [ %.0.i69, %77 ], [ -1, %._crit_edge ], [ %219, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit154 ], [ %218, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit ], [ %220, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit160 ], [ -1, %28 ], [ -1, %.lr.ph108 ], [ %.04180.us, %111 ], [ %.04180.us84, %138 ], [ %.04180.us92, %._crit_edge.i46.us95 ], [ %.04180, %177 ], [ -1, %.backedge ], [ %.04180.us, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit54.us ], [ %.04180.us84, %._crit_edge.i46.us ], [ -1, %48 ]
+  %.0 = phi i32 [ %.0.i69, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit ], [ %.04180.us92, %._crit_edge.i46.us95 ], [ %.0.i69, %77 ], [ %.0.i69, %78 ], [ -1, %28 ], [ -1, %13 ], [ -1, %29 ], [ %.04180.us84, %138 ], [ -1, %.lr.ph108 ], [ -1, %._crit_edge ], [ %.04180.us, %111 ], [ %.04180, %177 ], [ %219, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit154 ], [ %218, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit ], [ %220, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit160 ], [ -1, %.backedge ], [ %.04180.us, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit54.us ], [ %.04180.us84, %._crit_edge.i46.us ], [ -1, %48 ]
   ret i32 %.0
 }
 
@@ -9052,7 +9052,7 @@ _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.i: ; preds = %
   br label %_ZN13InstanceKlass19find_method_by_nameEPK5ArrayIP6MethodEPK6SymbolPi.exit
 
 _ZN13InstanceKlass19find_method_by_nameEPK5ArrayIP6MethodEPK6SymbolPi.exit: ; preds = %44, %24, %9, %25, %.critedge2.i
-  %.021.i = phi i32 [ %.020.lcssa.i, %.critedge2.i ], [ -1, %9 ], [ -1, %25 ], [ -1, %24 ], [ -1, %44 ]
+  %.021.i = phi i32 [ %.020.lcssa.i, %.critedge2.i ], [ -1, %24 ], [ -1, %25 ], [ -1, %9 ], [ -1, %44 ]
   ret i32 %.021.i
 }
 
@@ -9208,7 +9208,7 @@ _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit: ; preds = %.l
   br label %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread
 
 _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread: ; preds = %42, %22, %23, %7, %.critedge2
-  %.021 = phi i32 [ %.020.lcssa, %.critedge2 ], [ -1, %7 ], [ -1, %23 ], [ -1, %22 ], [ -1, %42 ]
+  %.021 = phi i32 [ %.020.lcssa, %.critedge2 ], [ -1, %22 ], [ -1, %23 ], [ -1, %7 ], [ -1, %42 ]
   ret i32 %.021
 }
 
@@ -12577,7 +12577,7 @@ define hidden noundef ptr @_ZNK13InstanceKlass14signature_nameEv(ptr noundef non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %1, %24, %._crit_edge
-  %.023.lcssa41 = phi i64 [ %14, %._crit_edge ], [ %14, %24 ], [ 1, %1 ], [ %14, %17 ]
+  %.023.lcssa41 = phi i64 [ 1, %1 ], [ %14, %._crit_edge ], [ %14, %24 ], [ %14, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 %.023.lcssa41
   store i8 59, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
@@ -13829,7 +13829,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i: ; preds 
   br i1 %.not.us.i, label %.loopexit.i, label %.lr.ph.split.us.split.i, !llvm.loop !88
 
 .loopexit.i:                                      ; preds = %45, %40, %31, %26, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i
-  %.023.i = phi ptr [ %.02233.us.us.i, %26 ], [ null, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i ], [ null, %31 ], [ null, %45 ], [ %.02233.us.i, %40 ]
+  %.023.i = phi ptr [ null, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i ], [ %.02233.us.us.i, %26 ], [ null, %31 ], [ null, %45 ], [ %.02233.us.i, %40 ]
   br i1 %20, label %_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib.exit, label %47
 
 47:                                               ; preds = %.loopexit.i
@@ -14023,7 +14023,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge56, %._crit_edge57, %28, %14, %65, %._crit_edge.thread
-  %.023 = phi ptr [ null, %._crit_edge.thread ], [ %.0.lcssa, %65 ], [ %.02233.us36, %._crit_edge57 ], [ %.02233.us.us, %14 ], [ %.02233.us, %28 ], [ %.02233, %._crit_edge56 ]
+  %.023 = phi ptr [ null, %._crit_edge.thread ], [ %.0.lcssa, %65 ], [ %.02233.us36, %._crit_edge57 ], [ %.02233.us, %28 ], [ %.02233.us.us, %14 ], [ %.02233, %._crit_edge56 ]
   br i1 %7, label %_ZN22ConditionalMutexLockerD2Ev.exit, label %69
 
 69:                                               ; preds = %.loopexit
@@ -16554,8 +16554,8 @@ _ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit
   br i1 %.not42, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !107
 
 .outer._crit_edge:                                ; preds = %.outer, %_ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit, %21
-  %.024.ph.lcssa41 = phi i32 [ 0, %21 ], [ %.024.ph53, %_ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit ], [ %75, %.outer ]
-  %.0.lcssa = phi i32 [ 0, %21 ], [ %68, %_ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit ], [ %.045, %.outer ]
+  %.024.ph.lcssa41 = phi i32 [ %.024.ph53, %_ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit ], [ 0, %21 ], [ %75, %.outer ]
+  %.0.lcssa = phi i32 [ %68, %_ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit ], [ 0, %21 ], [ %.045, %.outer ]
   %86 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_56ELS1_123ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not37 = icmp eq ptr %86, null
   br i1 %.not37, label %88, label %87
@@ -16988,7 +16988,7 @@ _ZN13InstanceKlass17get_klass_versionEi.exit:     ; preds = %4
   br i1 %38, label %_ZN13InstanceKlass22method_with_orig_idnumEi.exit, label %30
 
 _ZN13InstanceKlass22method_with_orig_idnumEi.exit: ; preds = %10, %.lr.ph.i, %30, %28, %21, %_ZN13InstanceKlass17get_klass_versionEi.exit
-  %.0 = phi ptr [ %20, %21 ], [ null, %_ZN13InstanceKlass17get_klass_versionEi.exit ], [ null, %28 ], [ null, %30 ], [ %32, %.lr.ph.i ], [ null, %10 ]
+  %.0 = phi ptr [ null, %30 ], [ %20, %21 ], [ null, %_ZN13InstanceKlass17get_klass_versionEi.exit ], [ null, %28 ], [ %32, %.lr.ph.i ], [ null, %10 ]
   ret ptr %.0
 }
 

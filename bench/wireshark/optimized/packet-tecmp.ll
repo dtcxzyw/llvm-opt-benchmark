@@ -2007,7 +2007,7 @@ dissect_tecmp_status_config_vendor_data.exit.i:   ; preds = %.sink.split.i.i, %4
   br label %dissect_tecmp_status_device.exit
 
 dissect_tecmp_status_device.exit:                 ; preds = %403, %198, %dissect_tecmp_status_device_vendor_data.exit.i, %305, %407, %dissect_tecmp_status_config_vendor_data.exit.i, %441, %442
-  %.0.i = phi i32 [ %444, %442 ], [ 40, %441 ], [ %304, %dissect_tecmp_status_device_vendor_data.exit.i ], [ 40, %198 ], [ %440, %dissect_tecmp_status_config_vendor_data.exit.i ], [ 40, %407 ], [ 40, %305 ], [ %.1.i, %403 ]
+  %.0.i = phi i32 [ %444, %442 ], [ 40, %441 ], [ %304, %dissect_tecmp_status_device_vendor_data.exit.i ], [ 40, %198 ], [ 40, %407 ], [ %440, %dissect_tecmp_status_config_vendor_data.exit.i ], [ 40, %305 ], [ %.1.i, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

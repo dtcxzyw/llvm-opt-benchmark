@@ -1131,7 +1131,7 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   br i1 %.not.i.i.i.i.i.i.i43.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %361, %355
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %355 ], [ %360, %361 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %360, %361 ], [ %.0.i.i.i.i.i.i, %355 ]
   %364 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
   %365 = load ptr, ptr %364, align 8, !tbaa !317
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 68
@@ -1254,7 +1254,7 @@ _ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14Machin
   br label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i
 
 _ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i: ; preds = %373, %.preheader.i.i.i, %_ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14MachineOperandE.exit.i.i, %361, %358, %352, %343, %340
-  %.1.i34.i = phi i1 [ %.032.i.i, %340 ], [ %.032.i.i, %343 ], [ true, %_ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14MachineOperandE.exit.i.i ], [ %.032.i.i, %361 ], [ %.032.i.i, %352 ], [ %.032.i.i, %358 ], [ %.032.i.i, %.preheader.i.i.i ], [ %.032.i.i, %373 ]
+  %.1.i34.i = phi i1 [ %.032.i.i, %340 ], [ %.032.i.i, %358 ], [ %.032.i.i, %343 ], [ true, %_ZN12_GLOBAL__N_19InitUndef15fixupIllOperandEPN4llvm12MachineInstrERNS1_14MachineOperandE.exit.i.i ], [ %.032.i.i, %352 ], [ %.032.i.i, %361 ], [ %.032.i.i, %.preheader.i.i.i ], [ %.032.i.i, %373 ]
   %406 = getelementptr inbounds nuw i8, ptr %.01630.i.i, i64 32
   %.not.i35.i = icmp eq ptr %406, %336
   br i1 %.not.i35.i, label %_ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i, label %340
@@ -1265,7 +1265,7 @@ _ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i: ; preds = %
   br label %_ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.thread.i
 
 _ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.thread.i: ; preds = %137, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit.i.i.i.i.i.i.i.i, %141, %147, %_ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i, %_ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.i, %_ZN4llvm12MachineInstr8all_defsEv.exit.i.i
-  %.3.i = phi i1 [ %407, %_ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i ], [ %.1.i, %_ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.i ], [ %.1.i, %_ZN4llvm12MachineInstr8all_defsEv.exit.i.i ], [ %.1.i, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit.i.i.i.i.i.i.i.i ], [ %.1.i, %147 ], [ %.1.i, %141 ], [ %.1.i, %137 ]
+  %.3.i = phi i1 [ %407, %_ZN12_GLOBAL__N_19InitUndef9handleRegEPN4llvm12MachineInstrE.exit.i ], [ %.1.i, %_ZL16isEarlyClobberMIRN4llvm12MachineInstrE.exit.i ], [ %.1.i, %147 ], [ %.1.i, %_ZN4llvm12MachineInstr8all_defsEv.exit.i.i ], [ %.1.i, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit.i.i.i.i.i.i.i.i ], [ %.1.i, %141 ], [ %.1.i, %137 ]
   %.0.copyload.i.i.i.i.i.i.i.i.i44.i = load i64, ptr %.sroa.049.087.i, align 8
   %408 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i44.i, 4
   %.not.i.i.i45.i = icmp eq i64 %408, 0

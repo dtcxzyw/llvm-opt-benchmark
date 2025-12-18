@@ -45255,9 +45255,9 @@ define hidden void @"_ZN120_$LT$arrow_array..array..boolean_array..BooleanArray$
   br label %107
 
 .body:                                            ; preds = %37, %106
-  %.128 = phi i8 [ %.229.ph, %106 ], [ %.126, %37 ]
-  %.2 = phi i8 [ 0, %106 ], [ %.126, %37 ]
-  %.pn37 = phi { ptr, i32 } [ %.pn.pn.ph, %106 ], [ %38, %37 ]
+  %.128 = phi i8 [ %.126, %37 ], [ %.229.ph, %106 ]
+  %.2 = phi i8 [ %.126, %37 ], [ 0, %106 ]
+  %.pn37 = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn.ph, %106 ]
   %36 = trunc nuw i8 %.128 to i1
   br i1 %36, label %.body.thread, label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit"
 
@@ -45608,9 +45608,9 @@ define hidden void @"_ZN120_$LT$arrow_array..array..boolean_array..BooleanArray$
   br label %107
 
 .body:                                            ; preds = %37, %106
-  %.128 = phi i8 [ %.229.ph, %106 ], [ %.126, %37 ]
-  %.2 = phi i8 [ 0, %106 ], [ %.126, %37 ]
-  %.pn37 = phi { ptr, i32 } [ %.pn.pn.ph, %106 ], [ %38, %37 ]
+  %.128 = phi i8 [ %.126, %37 ], [ %.229.ph, %106 ]
+  %.2 = phi i8 [ %.126, %37 ], [ 0, %106 ]
+  %.pn37 = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn.ph, %106 ]
   %36 = trunc nuw i8 %.128 to i1
   br i1 %36, label %.body.thread, label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit"
 
@@ -86634,8 +86634,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar11ScalarValue13iter_to
   br label %170
 
 162:                                              ; preds = %.body, %164
-  %.1 = phi i8 [ %.01097, %164 ], [ %.4, %.body ]
-  %.pn1167.pn = phi { ptr, i32 } [ %165, %164 ], [ %.pn1163, %.body ]
+  %.1 = phi i8 [ %.4, %.body ], [ %.01097, %164 ]
+  %.pn1167.pn = phi { ptr, i32 } [ %.pn1163, %.body ], [ %165, %164 ]
   %163 = trunc nuw i8 %.1 to i1
   br i1 %163, label %.thread, label %1190
 
@@ -90208,8 +90208,8 @@ define hidden void @_ZN17datafusion_common6scalar11ScalarValue13iter_to_array17h
           to label %173 unwind label %171
 
 169:                                              ; preds = %.body, %171
-  %.1 = phi i8 [ %.01097, %171 ], [ %.4, %.body ]
-  %.pn1167.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn1163, %.body ]
+  %.1 = phi i8 [ %.4, %.body ], [ %.01097, %171 ]
+  %.pn1167.pn = phi { ptr, i32 } [ %.pn1163, %.body ], [ %172, %171 ]
   %170 = trunc nuw i8 %.1 to i1
   br i1 %170, label %.thread, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h085644549ce3c523E.exit1388"
 
@@ -93797,8 +93797,8 @@ define hidden void @_ZN17datafusion_common6scalar11ScalarValue13iter_to_array17h
           to label %173 unwind label %171
 
 169:                                              ; preds = %.body, %171
-  %.1 = phi i8 [ %.01097, %171 ], [ %.4, %.body ]
-  %.pn1167.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn1163, %.body ]
+  %.1 = phi i8 [ %.4, %.body ], [ %.01097, %171 ]
+  %.pn1167.pn = phi { ptr, i32 } [ %.pn1163, %.body ], [ %172, %171 ]
   %170 = trunc nuw i8 %.1 to i1
   br i1 %170, label %.thread, label %"_ZN4core3ptr291drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h64bffc35f44ca11fE.exit1388"
 
@@ -117583,7 +117583,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit"
 
 256:                                              ; preds = %.thread, %228
-  %.sroa.2.1 = phi i8 [ %.sroa.4.0.copyload, %228 ], [ 2, %.thread ]
+  %.sroa.2.1 = phi i8 [ 2, %.thread ], [ %.sroa.4.0.copyload, %228 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016, i64 32, i1 false)
   %.sroa.2.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sroa.2.1, ptr %.sroa.2.0..sroa_idx17, align 8
@@ -130346,7 +130346,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
           to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit58.thread" unwind label %21
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit58": ; preds = %29, %12, %.thread106
-  %.pn43111 = phi { ptr, i32 } [ %28, %.thread106 ], [ %13, %29 ], [ %13, %12 ]
+  %.pn43111 = phi { ptr, i32 } [ %28, %.thread106 ], [ %13, %12 ], [ %13, %29 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 272
   invoke void @"_ZN4core3ptr56drop_in_place$LT$reqwest..async_impl..client..Client$GT$17h5c9b8816fead7d3aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %60) #52
           to label %61 unwind label %21
@@ -135465,7 +135465,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
   br label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit"
 
 "_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit": ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exitthread-pre-split", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf54cd8925f556746E.exit.i18", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc4325d3874fccce5E.exit.i17", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4675a3e1831b0483E.exit.i16", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe26b159d12bfd90E.exit.i15", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he0901a0844c6396bE.exit.i14", %270, %281, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8ba5c851cbaca05eE.exit.i13"
-  %317 = phi i8 [ %.pr, %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exitthread-pre-split" ], [ %.sink.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf54cd8925f556746E.exit.i18" ], [ %.sink.i195.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc4325d3874fccce5E.exit.i17" ], [ %.sink.i198.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4675a3e1831b0483E.exit.i16" ], [ %.sink.i201.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe26b159d12bfd90E.exit.i15" ], [ %.sink.i203.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he0901a0844c6396bE.exit.i14" ], [ %..i.i, %270 ], [ %..i204.i, %281 ], [ %.sink.i205.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8ba5c851cbaca05eE.exit.i13" ]
+  %317 = phi i8 [ %.pr, %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exitthread-pre-split" ], [ %.sink.i205.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8ba5c851cbaca05eE.exit.i13" ], [ %.sink.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf54cd8925f556746E.exit.i18" ], [ %.sink.i195.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc4325d3874fccce5E.exit.i17" ], [ %.sink.i198.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4675a3e1831b0483E.exit.i16" ], [ %.sink.i201.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe26b159d12bfd90E.exit.i15" ], [ %.sink.i203.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he0901a0844c6396bE.exit.i14" ], [ %..i.i, %270 ], [ %..i204.i, %281 ]
   %318 = icmp eq i8 %317, 35
   br i1 %318, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit._ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread_crit_edge", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread55"
 

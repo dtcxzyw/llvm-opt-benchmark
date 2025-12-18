@@ -23736,7 +23736,7 @@ define internal fastcc void @"_ZN4core3ptr464drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %62, %.body.i, %51, %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc1812c7a4d5bf288E.exit.i4.i"
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc1812c7a4d5bf288E.exit.i4.i" ], [ %52, %51 ], [ %eh.lpad-body.i, %.body.i ], [ %65, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc1812c7a4d5bf288E.exit.i4.i" ], [ %eh.lpad-body.i, %.body.i ], [ %52, %51 ], [ %65, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hef674e05f6ef06b6E.exit": ; preds = %57, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc1812c7a4d5bf288E.exit.i.i", %9, %1

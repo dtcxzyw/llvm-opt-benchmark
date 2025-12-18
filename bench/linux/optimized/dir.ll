@@ -1160,7 +1160,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %.thread37
 
 442:                                              ; preds = %.loopexit58, %399, %436
-  %443 = phi i32 [ %299, %.loopexit58 ], [ %405, %436 ], [ %324, %399 ]
+  %443 = phi i32 [ %324, %399 ], [ %299, %.loopexit58 ], [ %405, %436 ]
   %444 = load i64, ptr %98, align 8
   store i64 %444, ptr %118, align 8
   %445 = tail call i32 @llvm.smin.i32(i32 %443, i32 0)
@@ -1594,7 +1594,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 ..loopexit.loopexit_crit_edge176:                 ; preds = %713
   br label %.critedge195, !llvm.loop !25
 
-.critedge196:                                     ; preds = %651, %657, %.loopexit
+.critedge196:                                     ; preds = %657, %651, %.loopexit
   call void @up_read(ptr noundef nonnull %510) #9
   call void @down_read(ptr noundef nonnull %510) #9
   %720 = load i32, ptr %10, align 4

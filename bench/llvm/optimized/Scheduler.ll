@@ -1505,8 +1505,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionESt10unique_ptrI
   br i1 %187, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit80.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !prof !64, !llvm.loop !65
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit80.i.i.i.i.i.i": ; preds = %181, %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, %168, %166
-  %188 = phi ptr [ %169, %168 ], [ %167, %166 ], [ %169, %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i ], [ %169, %181 ]
-  %.sroa.0.1.i.i.i.i77.i.i.i.i.i.i = phi ptr [ %176, %168 ], [ %70, %166 ], [ %185, %181 ], [ %70, %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i ]
+  %188 = phi ptr [ %167, %166 ], [ %169, %168 ], [ %169, %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i ], [ %169, %181 ]
+  %.sroa.0.1.i.i.i.i77.i.i.i.i.i.i = phi ptr [ %70, %166 ], [ %176, %168 ], [ %185, %181 ], [ %70, %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i ]
   %.not.i.i.i78.i.i.i.i.i.i = icmp ne ptr %.sroa.0.1.i.i.i.i77.i.i.i.i.i.i, %70
   tail call void @llvm.assume(i1 %.not.i.i.i78.i.i.i.i.i.i)
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i77.i.i.i.i.i.i, i64 8

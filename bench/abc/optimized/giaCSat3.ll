@@ -1806,7 +1806,7 @@ Cbs3_ManAssign.exit102:                           ; preds = %._crit_edge.i.i95, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Cbs3_ManPropagateClauses.exit, %233, %279, %.critedge
-  %.1 = phi i32 [ 0, %.critedge ], [ %235, %233 ], [ %282, %279 ], [ %170, %Cbs3_ManPropagateClauses.exit ]
+  %.1 = phi i32 [ 0, %.critedge ], [ %282, %279 ], [ %235, %233 ], [ %170, %Cbs3_ManPropagateClauses.exit ]
   ret i32 %.1
 }
 

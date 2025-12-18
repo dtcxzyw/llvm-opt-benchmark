@@ -790,7 +790,7 @@ return.critedge:                                  ; preds = %_ZNSt7__cxx1112basi
   br label %return
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %return.critedge, %if.end.i.i, %if.then9
-  %retval.0 = phi i32 [ 1, %if.then9 ], [ 0, %if.end.i.i ], [ 0, %return.critedge ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ 1, %if.then9 ], [ 0, %return.critedge ], [ 0, %if.end.i.i ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 

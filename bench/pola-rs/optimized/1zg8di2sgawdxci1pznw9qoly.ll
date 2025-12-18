@@ -31165,7 +31165,7 @@ _ZN12polars_arrow7compute11concatenate18concatenate_struct17hab0673f00933f87cE.e
   br label %.body174.i
 
 .loopexit.split-lp277.loopexit.split-lp.i:        ; preds = %1587, %._crit_edge379.i, %1538
-  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1538 ], [ false, %._crit_edge379.i ], [ true, %1587 ]
+  %.sroa.061.2.ph.ph.i = phi i1 [ false, %._crit_edge379.i ], [ true, %1587 ], [ true, %1538 ]
   %lpad.loopexit.split-lp282.i = landingpad { ptr, i32 }
           cleanup
   br label %.body174.i
@@ -32515,7 +32515,7 @@ _ZN12polars_arrow7compute11concatenate16concatenate_view17h3d67b0ed1ea4d031E.exi
   br label %.body174.i585
 
 .loopexit.split-lp277.loopexit.split-lp.i582:     ; preds = %2111, %._crit_edge379.i626, %2062
-  %.sroa.061.2.ph.ph.i583 = phi i1 [ true, %2062 ], [ false, %._crit_edge379.i626 ], [ true, %2111 ]
+  %.sroa.061.2.ph.ph.i583 = phi i1 [ false, %._crit_edge379.i626 ], [ true, %2111 ], [ true, %2062 ]
   %lpad.loopexit.split-lp282.i584 = landingpad { ptr, i32 }
           cleanup
   br label %.body174.i585
@@ -38460,7 +38460,7 @@ _ZN12polars_arrow7compute11concatenate18concatenate_struct17h475029fb986829cfE.e
   br label %.body170.i
 
 .loopexit.split-lp271.loopexit.split-lp.i:        ; preds = %1565, %._crit_edge373.i, %1516
-  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1516 ], [ false, %._crit_edge373.i ], [ true, %1565 ]
+  %.sroa.061.2.ph.ph.i = phi i1 [ false, %._crit_edge373.i ], [ true, %1565 ], [ true, %1516 ]
   %lpad.loopexit.split-lp276.i = landingpad { ptr, i32 }
           cleanup
   br label %.body170.i
@@ -39798,7 +39798,7 @@ _ZN12polars_arrow7compute11concatenate16concatenate_view17h9b7f79d8f0b01036E.exi
   br label %.body170.i462
 
 .loopexit.split-lp271.loopexit.split-lp.i459:     ; preds = %2087, %._crit_edge373.i502, %2038
-  %.sroa.061.2.ph.ph.i460 = phi i1 [ true, %2038 ], [ false, %._crit_edge373.i502 ], [ true, %2087 ]
+  %.sroa.061.2.ph.ph.i460 = phi i1 [ false, %._crit_edge373.i502 ], [ true, %2087 ], [ true, %2038 ]
   %lpad.loopexit.split-lp276.i461 = landingpad { ptr, i32 }
           cleanup
   br label %.body170.i462
@@ -46001,7 +46001,7 @@ _ZN12polars_arrow7compute11concatenate18concatenate_struct17h625d8abd6b8fdfeeE.e
   br label %.body180.i
 
 .loopexit.split-lp283.loopexit.split-lp.i:        ; preds = %1722, %._crit_edge385.i, %1670
-  %.sroa.061.2.ph.ph.i = phi i1 [ false, %._crit_edge385.i ], [ true, %1670 ], [ true, %1722 ]
+  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1722 ], [ true, %1670 ], [ false, %._crit_edge385.i ]
   %lpad.loopexit.split-lp288.i = landingpad { ptr, i32 }
           cleanup
   br label %.body180.i
@@ -47386,7 +47386,7 @@ _ZN12polars_arrow7compute11concatenate16concatenate_view17habdd6a17a64862e2E.exi
   br label %.body180.i483
 
 .loopexit.split-lp283.loopexit.split-lp.i480:     ; preds = %2270, %._crit_edge385.i524, %2218
-  %.sroa.061.2.ph.ph.i481 = phi i1 [ false, %._crit_edge385.i524 ], [ true, %2218 ], [ true, %2270 ]
+  %.sroa.061.2.ph.ph.i481 = phi i1 [ true, %2270 ], [ true, %2218 ], [ false, %._crit_edge385.i524 ]
   %lpad.loopexit.split-lp288.i482 = landingpad { ptr, i32 }
           cleanup
   br label %.body180.i483
@@ -49826,7 +49826,7 @@ define hidden void @"_ZN12polars_utils7idx_map13bytes_idx_map22BytesIndexMap$LT$
   br label %76
 
 76:                                               ; preds = %65, %69
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %65 ], [ %75, %69 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %75, %69 ], [ %.sroa.4.19.i.i, %65 ]
   %77 = inttoptr i64 %9 to ptr
   store ptr %3, ptr %0, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54012,7 +54012,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i64, ptr %4, align 8, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -54168,7 +54168,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i64, ptr %4, align 8, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -54325,7 +54325,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load float, ptr %4, align 4, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -54481,7 +54481,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i16, ptr %4, align 2, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -54637,7 +54637,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i64, ptr %4, align 8, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -54793,7 +54793,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i8, ptr %4, align 1, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -54949,7 +54949,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i16, ptr %4, align 2, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -55105,7 +55105,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i8, ptr %4, align 1, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -55261,7 +55261,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i8, ptr %4, align 1, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -55417,7 +55417,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i32, ptr %4, align 4, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -55574,7 +55574,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load double, ptr %4, align 8, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -55730,7 +55730,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i8, ptr %4, align 1, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -55886,7 +55886,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i128, ptr %4, align 16, !noundef !6
   store i128 %70, ptr %0, align 16
@@ -56041,7 +56041,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i128, ptr %4, align 16, !noundef !6
   store i128 %70, ptr %0, align 16
@@ -56196,7 +56196,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i32, ptr %4, align 4, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -56352,7 +56352,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i32, ptr %4, align 4, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -56508,7 +56508,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i16, ptr %4, align 2, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -56665,7 +56665,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load double, ptr %4, align 8, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -56822,7 +56822,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load float, ptr %4, align 4, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -56978,7 +56978,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i64, ptr %4, align 8, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -57134,7 +57134,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i16, ptr %4, align 2, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -57290,7 +57290,7 @@ define hidden void @"_ZN12polars_utils7idx_map13total_idx_map26TotalIndexMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = inttoptr i64 %6 to ptr
   %70 = load i32, ptr %4, align 4, !noundef !6
   store ptr %7, ptr %0, align 8
@@ -58634,7 +58634,7 @@ define hidden void @"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$
   br label %89
 
 89:                                               ; preds = %78, %82
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %78 ], [ %88, %82 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %88, %82 ], [ %.sroa.4.19.i.i, %78 ]
   %90 = inttoptr i64 %9 to ptr
   store ptr %6, ptr %0, align 8
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -58816,7 +58816,7 @@ define hidden void @"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$
   br label %89
 
 89:                                               ; preds = %78, %82
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.19.i.i, %78 ], [ %88, %82 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %88, %82 ], [ %.sroa.4.19.i.i, %78 ]
   %90 = inttoptr i64 %9 to ptr
   store ptr %6, ptr %0, align 8
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -59132,7 +59132,7 @@ define hidden void @"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = inttoptr i64 %8 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -59285,7 +59285,7 @@ define hidden void @"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = inttoptr i64 %8 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48

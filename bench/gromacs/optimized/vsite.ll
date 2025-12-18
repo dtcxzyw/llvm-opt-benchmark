@@ -14037,7 +14037,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i.i: ; preds = %_ZS
   br i1 %302, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 .invoke:                                          ; preds = %337, %301, %386, %436
-  %303 = phi ptr [ @.str.61, %386 ], [ @.str.61, %436 ], [ @.str.68, %301 ], [ @.str.61, %337 ]
+  %303 = phi ptr [ @.str.61, %386 ], [ @.str.61, %436 ], [ @.str.61, %337 ], [ @.str.68, %301 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %303) #28
           to label %.cont unwind label %.loopexit.split-lp137.loopexit.split-lp.loopexit.split-lp
 

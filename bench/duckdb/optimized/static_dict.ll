@@ -2183,7 +2183,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread
   br label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread: ; preds = %1207, %1209, %1170, %1167, %1157, %1023, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078, %1286, %1224, %1251, %1247, %1300, %1289, %1262, %1275, %1227, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit953, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063, %1133, %1088, %1078, %1101, %1089, %1146, %1136, %1111, %1123, %1087, %1069, %1156
-  %.10 = phi i32 [ 1, %1069 ], [ %.81273, %1156 ], [ 1, %1087 ], [ %.81273, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit953 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063 ], [ 1, %1133 ], [ 1, %1088 ], [ 1, %1078 ], [ 1, %1101 ], [ 1, %1089 ], [ 1, %1146 ], [ 1, %1136 ], [ 1, %1111 ], [ 1, %1123 ], [ %.81273, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078 ], [ 1, %1286 ], [ 1, %1224 ], [ 1, %1251 ], [ 1, %1247 ], [ 1, %1300 ], [ 1, %1289 ], [ 1, %1262 ], [ 1, %1275 ], [ 1, %1227 ], [ %.81273, %1170 ], [ %.81273, %1023 ], [ %.81273, %1167 ], [ %.81273, %1157 ], [ %.81273, %1209 ], [ %.81273, %1207 ]
+  %.10 = phi i32 [ 1, %1069 ], [ %.81273, %1156 ], [ 1, %1087 ], [ %.81273, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit953 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063 ], [ 1, %1133 ], [ 1, %1088 ], [ 1, %1078 ], [ 1, %1101 ], [ 1, %1089 ], [ 1, %1146 ], [ 1, %1136 ], [ 1, %1111 ], [ 1, %1123 ], [ %.81273, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078 ], [ 1, %1286 ], [ 1, %1224 ], [ 1, %1251 ], [ 1, %1247 ], [ 1, %1300 ], [ 1, %1289 ], [ 1, %1262 ], [ 1, %1275 ], [ 1, %1227 ], [ %.81273, %1170 ], [ %.81273, %1023 ], [ %.81273, %1157 ], [ %.81273, %1167 ], [ %.81273, %1209 ], [ %.81273, %1207 ]
   br i1 %1021, label %.loopexit, label %1012
 
 .loopexit:                                        ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, %993, %991
@@ -2370,11 +2370,11 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   br label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread: ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread.sink.split, %1383, %1380, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit897, %1335
-  %.15 = phi i32 [ %.141294, %1383 ], [ %.141294, %1380 ], [ %.141294, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit897 ], [ %.141294, %1335 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread.sink.split ]
+  %.15 = phi i32 [ %.141294, %1335 ], [ %.141294, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit897 ], [ %.141294, %1383 ], [ %.141294, %1380 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread.sink.split ]
   br i1 %1344, label %.thread1084, label %1335, !llvm.loop !42
 
 .thread1084:                                      ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread, %1320, %1316, %1317
-  %.13 = phi i32 [ %.7, %1316 ], [ %.7, %1317 ], [ %.7, %1320 ], [ %.15, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread ]
+  %.13 = phi i32 [ %.7, %1317 ], [ %.7, %1316 ], [ %.7, %1320 ], [ %.15, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread ]
   %1401 = icmp ugt i64 %3, 8
   br i1 %1401, label %1402, label %.thread1100
 
@@ -2656,7 +2656,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
   br i1 %1458, label %.thread1100, label %1449, !llvm.loop !43
 
 .thread1100:                                      ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread, %1434, %1402, %1404, %1407, %1411, %1415, %._crit_edge1221, %.loopexit, %1419, %1422, %1426, %1430, %.thread1084
-  %.16 = phi i32 [ %.13, %.thread1084 ], [ %.13, %1430 ], [ %.13, %1426 ], [ %.13, %1422 ], [ %.13, %1419 ], [ %.13, %1402 ], [ %.0.lcssa, %._crit_edge1221 ], [ %.7, %.loopexit ], [ %.13, %1415 ], [ %.13, %1411 ], [ %.13, %1407 ], [ %.13, %1404 ], [ %.13, %1434 ], [ %.18, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread ]
+  %.16 = phi i32 [ %.13, %.thread1084 ], [ %.13, %1430 ], [ %.13, %1426 ], [ %.13, %1422 ], [ %.13, %1419 ], [ %.13, %1402 ], [ %.13, %1404 ], [ %.0.lcssa, %._crit_edge1221 ], [ %.7, %.loopexit ], [ %.13, %1415 ], [ %.13, %1411 ], [ %.13, %1407 ], [ %.13, %1434 ], [ %.18, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread ]
   ret i32 %.16
 }
 

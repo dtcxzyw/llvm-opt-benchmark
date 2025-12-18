@@ -7070,9 +7070,9 @@ _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit207: ; preds = %_ZN4llvm15S
   br label %.thread
 
 .thread:                                          ; preds = %79, %153, %158, %148, %108
-  %.sroa.0294.2 = phi ptr [ null, %108 ], [ %107, %158 ], [ null, %148 ], [ %.mux, %153 ], [ null, %79 ]
-  %.sroa.0297.2 = phi i64 [ 0, %108 ], [ %159, %158 ], [ 0, %148 ], [ 0, %153 ], [ 0, %79 ]
-  %cond = phi i1 [ false, %108 ], [ true, %158 ], [ false, %148 ], [ %not., %153 ], [ true, %79 ]
+  %.sroa.0294.2 = phi ptr [ null, %148 ], [ null, %108 ], [ %107, %158 ], [ %.mux, %153 ], [ null, %79 ]
+  %.sroa.0297.2 = phi i64 [ 0, %148 ], [ 0, %108 ], [ %159, %158 ], [ 0, %153 ], [ 0, %79 ]
+  %cond = phi i1 [ false, %148 ], [ false, %108 ], [ true, %158 ], [ %not., %153 ], [ true, %79 ]
   %160 = load ptr, ptr %22, align 8, !tbaa !372
   %161 = icmp eq ptr %160, %68
   br i1 %161, label %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit, label %162
@@ -9764,7 +9764,7 @@ _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE
   %.not5.i50 = icmp eq ptr %127, null
   br i1 %.not5.i50, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit", label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit
 
-_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %119, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i49, %116, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41, %105, %76, %79, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i33, %65, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i, %91
+_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %116, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i49, %119, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41, %105, %79, %76, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i33, %65, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i, %91
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 2280
   %130 = load ptr, ptr %129, align 8, !tbaa !777
   %131 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -9806,8 +9806,8 @@ _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE
   %.not25 = icmp eq ptr %148, null
   br i1 %.not25, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81
 
-_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81: ; preds = %137, %140, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit
-  %.0.i5484 = phi ptr [ %148, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit ], [ %136, %140 ], [ %136, %137 ]
+_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81: ; preds = %140, %137, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit
+  %.0.i5484 = phi ptr [ %148, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit ], [ %136, %137 ], [ %136, %140 ]
   %.not26 = icmp eq ptr %5, null
   br i1 %.not26, label %152, label %150
 
@@ -13551,7 +13551,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %88, %85, %_ZNK4llvm
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %.critedge4, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmneENS_9StringRefES0_.exit, %47, %30, %93
-  %94 = phi i1 [ true, %93 ], [ false, %30 ], [ false, %47 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %.critedge4 ]
+  %94 = phi i1 [ true, %93 ], [ false, %47 ], [ false, %30 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %.critedge4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

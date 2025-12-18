@@ -2759,7 +2759,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit72.thread: ; preds = %_ZN7OctNode
   br i1 %.not8.i74, label %tailrecurse.i.i76, label %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit79.backedge
 
 _ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit79.backedge: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit72.thread, %149
-  %.052101.be = phi ptr [ %137, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit72.thread ], [ %150, %149 ]
+  %.052101.be = phi ptr [ %150, %149 ], [ %137, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit72.thread ]
   br label %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit79, !llvm.loop !24
 
 tailrecurse.i.i76:                                ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit72.thread, %142
@@ -5677,7 +5677,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !62
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -19484,7 +19484,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %_Z12IsActiveN
   br i1 %.not8.i66, label %tailrecurse.i.i68, label %.lr.ph108.backedge
 
 .lr.ph108.backedge:                               ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread, %182
-  %.047106.be = phi ptr [ %170, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ], [ %183, %182 ]
+  %.047106.be = phi ptr [ %183, %182 ], [ %170, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ]
   br label %.lr.ph108
 
 tailrecurse.i.i68:                                ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread, %175
@@ -19552,7 +19552,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit73.thread: ; preds = %.lr.ph116, 
   br i1 %.not8.i75, label %tailrecurse.i.i77, label %.lr.ph116.backedge
 
 .lr.ph116.backedge:                               ; preds = %197, %212
-  %.0114.be = phi ptr [ %200, %197 ], [ %213, %212 ]
+  %.0114.be = phi ptr [ %213, %212 ], [ %200, %197 ]
   br label %.lr.ph116
 
 tailrecurse.i.i77:                                ; preds = %197, %205
@@ -26247,8 +26247,8 @@ _ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit:   ; preds = %_ZN7OctNodeI12TreeN
   br label %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit.backedge
 
 _ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit.backedge: ; preds = %.thread48, %31, %44
-  %.be = phi ptr [ %.pre, %31 ], [ %32, %44 ], [ %.pre50, %.thread48 ]
-  %.01830.be = phi ptr [ %.pr.pre, %31 ], [ %45, %44 ], [ %8, %.thread48 ]
+  %.be = phi ptr [ %32, %44 ], [ %.pre, %31 ], [ %.pre50, %.thread48 ]
+  %.01830.be = phi ptr [ %45, %44 ], [ %.pr.pre, %31 ], [ %8, %.thread48 ]
   br label %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit, !llvm.loop !339
 
 .preheader:                                       ; preds = %.preheader24
@@ -26874,7 +26874,7 @@ _ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.
   %.not26 = select i1 %48, i1 %49, i1 false
   br i1 %.not26, label %.critedge14, label %.critedge
 
-.critedge14:                                      ; preds = %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit, %26, %47
+.critedge14:                                      ; preds = %26, %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit, %47
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
@@ -27628,7 +27628,7 @@ _ZN7StencilI7Point3DIdELi5EED2Ev.exit86:          ; preds = %200, %204
   br i1 %205, label %.loopexit, label %200
 
 .loopexit:                                        ; preds = %_ZN7StencilI7Point3DIdELi5EED2Ev.exit, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit86, %82
-  %.pn56.pn = phi { ptr, i32 } [ %83, %82 ], [ %.pn56, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit86 ], [ %83, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit ]
+  %.pn56.pn = phi { ptr, i32 } [ %.pn56, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit86 ], [ %83, %82 ], [ %83, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit ]
   %206 = load ptr, ptr %17, align 8
   %.not.i87 = icmp eq ptr %206, null
   br i1 %.not.i87, label %_ZN7StencilI7Point3DIdELi5EED2Ev.exit88, label %207
@@ -28115,7 +28115,7 @@ _ZN13DenseNodeDataI7Point3DIfELi2EED2Ev.exit:     ; preds = %370, %372
   ret void
 
 .loopexit163:                                     ; preds = %_ZN7StencilI7Point3DIdELi5EED2Ev.exit134, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit149, %.loopexit169, %.loopexit.split-lp170, %333
-  %.pn50 = phi { ptr, i32 } [ %334, %333 ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp170 ], [ %lpad.loopexit171, %.loopexit169 ], [ %.pn, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit149 ], [ %334, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit134 ]
+  %.pn50 = phi { ptr, i32 } [ %.pn, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit149 ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp170 ], [ %334, %333 ], [ %lpad.loopexit171, %.loopexit169 ], [ %334, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit134 ]
   %373 = load ptr, ptr %236, align 8
   %.not.i151 = icmp eq ptr %373, null
   br i1 %.not.i151, label %_ZN7StencilI7Point3DIdELi5EED2Ev.exit88, label %374
@@ -30128,7 +30128,7 @@ _ZN7StencilIdLi2EED2Ev.exit70:                    ; preds = %192, %196
   br i1 %197, label %.lr.ph.i.i.i.i72.preheader, label %192
 
 .lr.ph.i.i.i.i72.preheader:                       ; preds = %_ZN7StencilIdLi2EED2Ev.exit, %_ZN7StencilIdLi2EED2Ev.exit70, %50, %162
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %163, %162 ], [ %171, %_ZN7StencilIdLi2EED2Ev.exit70 ], [ %163, %_ZN7StencilIdLi2EED2Ev.exit ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %171, %_ZN7StencilIdLi2EED2Ev.exit70 ], [ %163, %162 ], [ %163, %_ZN7StencilIdLi2EED2Ev.exit ]
   br label %.lr.ph.i.i.i.i72
 
 .lr.ph.i.i.i.i72:                                 ; preds = %.lr.ph.i.i.i.i72.preheader, %_ZSt8_DestroyIN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EEEEvPT_.exit.i.i.i.i75
@@ -40817,7 +40817,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit45.thread: ; preds = %77, %81, %8
   br i1 %.not8.i, label %tailrecurse.i.i, label %_ZNK7OctNodeI12TreeNodeDataE8nextNodeEPKS1_.exit.backedge
 
 _ZNK7OctNodeI12TreeNodeDataE8nextNodeEPKS1_.exit.backedge: ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit45.thread, %133
-  %.03952.be = phi ptr [ %121, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit45.thread ], [ %134, %133 ]
+  %.03952.be = phi ptr [ %134, %133 ], [ %121, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit45.thread ]
   br label %_ZNK7OctNodeI12TreeNodeDataE8nextNodeEPKS1_.exit
 
 tailrecurse.i.i:                                  ; preds = %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit45.thread, %126
@@ -44017,7 +44017,7 @@ _ZN7StencilIdLi2EED2Ev.exit70:                    ; preds = %192, %196
   br i1 %197, label %.lr.ph.i.i.i.i72.preheader, label %192
 
 .lr.ph.i.i.i.i72.preheader:                       ; preds = %_ZN7StencilIdLi2EED2Ev.exit, %_ZN7StencilIdLi2EED2Ev.exit70, %50, %162
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %163, %162 ], [ %171, %_ZN7StencilIdLi2EED2Ev.exit70 ], [ %163, %_ZN7StencilIdLi2EED2Ev.exit ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %171, %_ZN7StencilIdLi2EED2Ev.exit70 ], [ %163, %162 ], [ %163, %_ZN7StencilIdLi2EED2Ev.exit ]
   br label %.lr.ph.i.i.i.i72
 
 .lr.ph.i.i.i.i72:                                 ; preds = %.lr.ph.i.i.i.i72.preheader, %_ZSt8_DestroyIN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EEEEvPT_.exit.i.i.i.i75
@@ -45686,7 +45686,7 @@ _ZN7StencilIdLi5EED2Ev.exit26:                    ; preds = %129, %133
   br i1 %134, label %.loopexit, label %129
 
 .loopexit:                                        ; preds = %_ZN7StencilIdLi5EED2Ev.exit, %_ZN7StencilIdLi5EED2Ev.exit26, %101
-  %.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %.pn, %_ZN7StencilIdLi5EED2Ev.exit26 ], [ %102, %_ZN7StencilIdLi5EED2Ev.exit ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7StencilIdLi5EED2Ev.exit26 ], [ %102, %101 ], [ %102, %_ZN7StencilIdLi5EED2Ev.exit ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -47452,7 +47452,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexi
   br label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexit, %94, %98, %106, %79, %84, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit
-  %.4 = phi float [ %.3329, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %79 ], [ %.3329, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.3329, %84 ], [ %.3329, %106 ], [ %.3329, %98 ], [ %.3329, %94 ], [ %162, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexit ]
+  %.4 = phi float [ %.3329, %94 ], [ %.3329, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %79 ], [ %.3329, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.3329, %84 ], [ %.3329, %106 ], [ %.3329, %98 ], [ %162, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexit ]
   %indvars.iv.next374 = add nsw i64 %indvars.iv373, 1
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %exitcond380.not = icmp eq i64 %indvars.iv.next376, 3
@@ -51093,12 +51093,12 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us
   br label %280
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %._crit_edge93.split.us.split.us108.us, %._crit_edge93.split.us.split.us.us.us.us, %.preheader90.lr.ph, %184, %55, %62, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit
-  %.187 = phi i32 [ %.086110, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.086110, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.086110, %62 ], [ %.086110, %55 ], [ %.288, %184 ], [ %.288, %.preheader90.lr.ph ], [ %.288, %._crit_edge93.split.us.split.us.us.us.us ], [ %.288, %._crit_edge93.split.us.split.us108.us ]
-  %.184 = phi i32 [ %.083111, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.083111, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.083111, %62 ], [ %.083111, %55 ], [ %.285, %184 ], [ %.285, %.preheader90.lr.ph ], [ %.285, %._crit_edge93.split.us.split.us.us.us.us ], [ %.285, %._crit_edge93.split.us.split.us108.us ]
-  %.181 = phi i32 [ %.080112, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.080112, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.080112, %62 ], [ %.080112, %55 ], [ %.282, %184 ], [ %.282, %.preheader90.lr.ph ], [ %.282, %._crit_edge93.split.us.split.us.us.us.us ], [ %.282, %._crit_edge93.split.us.split.us108.us ]
-  %.178 = phi i32 [ %.077113, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.077113, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.077113, %62 ], [ %.077113, %55 ], [ %.279, %184 ], [ %.279, %.preheader90.lr.ph ], [ %.279, %._crit_edge93.split.us.split.us.us.us.us ], [ %.279, %._crit_edge93.split.us.split.us108.us ]
-  %.175 = phi i32 [ %.074114, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.074114, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.074114, %62 ], [ %.074114, %55 ], [ %.276, %184 ], [ %.276, %.preheader90.lr.ph ], [ %.276, %._crit_edge93.split.us.split.us.us.us.us ], [ %.276, %._crit_edge93.split.us.split.us108.us ]
-  %.1 = phi i32 [ %.073115, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.073115, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.073115, %62 ], [ %.073115, %55 ], [ %.2, %184 ], [ %.2, %.preheader90.lr.ph ], [ %.2, %._crit_edge93.split.us.split.us.us.us.us ], [ %.2, %._crit_edge93.split.us.split.us108.us ]
+  %.187 = phi i32 [ %.086110, %55 ], [ %.086110, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.086110, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.086110, %62 ], [ %.288, %.preheader90.lr.ph ], [ %.288, %184 ], [ %.288, %._crit_edge93.split.us.split.us.us.us.us ], [ %.288, %._crit_edge93.split.us.split.us108.us ]
+  %.184 = phi i32 [ %.083111, %55 ], [ %.083111, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.083111, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.083111, %62 ], [ %.285, %.preheader90.lr.ph ], [ %.285, %184 ], [ %.285, %._crit_edge93.split.us.split.us.us.us.us ], [ %.285, %._crit_edge93.split.us.split.us108.us ]
+  %.181 = phi i32 [ %.080112, %55 ], [ %.080112, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.080112, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.080112, %62 ], [ %.282, %.preheader90.lr.ph ], [ %.282, %184 ], [ %.282, %._crit_edge93.split.us.split.us.us.us.us ], [ %.282, %._crit_edge93.split.us.split.us108.us ]
+  %.178 = phi i32 [ %.077113, %55 ], [ %.077113, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.077113, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.077113, %62 ], [ %.279, %.preheader90.lr.ph ], [ %.279, %184 ], [ %.279, %._crit_edge93.split.us.split.us.us.us.us ], [ %.279, %._crit_edge93.split.us.split.us108.us ]
+  %.175 = phi i32 [ %.074114, %55 ], [ %.074114, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.074114, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.074114, %62 ], [ %.276, %.preheader90.lr.ph ], [ %.276, %184 ], [ %.276, %._crit_edge93.split.us.split.us.us.us.us ], [ %.276, %._crit_edge93.split.us.split.us108.us ]
+  %.1 = phi i32 [ %.073115, %55 ], [ %.073115, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.073115, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.073115, %62 ], [ %.2, %.preheader90.lr.ph ], [ %.2, %184 ], [ %.2, %._crit_edge93.split.us.split.us.us.us.us ], [ %.2, %._crit_edge93.split.us.split.us108.us ]
   %275 = add nuw i32 %.0116, 1
   %276 = load i32, ptr %15, align 4
   %277 = add i32 %276, 1
@@ -54272,7 +54272,7 @@ _ZN7StencilI7Point3DIdELi3EED2Ev.exit286:         ; preds = %.loopexit327, %144
   br i1 %145, label %.loopexit326, label %.loopexit327
 
 .loopexit326:                                     ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit282, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit286, %131
-  %.pn = phi { ptr, i32 } [ %132, %131 ], [ %138, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit286 ], [ %132, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit282 ]
+  %.pn = phi { ptr, i32 } [ %138, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit286 ], [ %132, %131 ], [ %132, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit282 ]
   br label %146
 
 146:                                              ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit288, %.loopexit326
@@ -54293,7 +54293,7 @@ _ZN7StencilI7Point3DIdELi3EED2Ev.exit288:         ; preds = %146, %148
   br i1 %149, label %.loopexit325, label %146
 
 .loopexit325:                                     ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit280, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit288, %125
-  %.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit288 ], [ %126, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit280 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit288 ], [ %126, %125 ], [ %126, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit280 ]
   br label %150
 
 150:                                              ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit290, %.loopexit325
@@ -54314,7 +54314,7 @@ _ZN7StencilI7Point3DIdELi3EED2Ev.exit290:         ; preds = %150, %152
   br i1 %153, label %.loopexit324, label %150
 
 .loopexit324:                                     ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit278, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit290, %119
-  %.pn.pn.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit290 ], [ %120, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit278 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit290 ], [ %120, %119 ], [ %120, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit278 ]
   br label %154
 
 154:                                              ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit292, %.loopexit324
@@ -54335,7 +54335,7 @@ _ZN7StencilI7Point3DIdELi3EED2Ev.exit292:         ; preds = %154, %156
   br i1 %157, label %.loopexit323, label %154
 
 .loopexit323:                                     ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit276, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit292, %113
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %.pn.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit292 ], [ %114, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit276 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit292 ], [ %114, %113 ], [ %114, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit276 ]
   br label %158
 
 158:                                              ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit294, %.loopexit323
@@ -54356,7 +54356,7 @@ _ZN7StencilI7Point3DIdELi3EED2Ev.exit294:         ; preds = %158, %160
   br i1 %161, label %.loopexit322, label %158
 
 .loopexit322:                                     ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit274, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit294, %107
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %108, %107 ], [ %.pn.pn.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit294 ], [ %108, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit274 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit294 ], [ %108, %107 ], [ %108, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit274 ]
   br label %162
 
 162:                                              ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit296, %.loopexit322
@@ -54377,7 +54377,7 @@ _ZN7StencilI7Point3DIdELi3EED2Ev.exit296:         ; preds = %162, %164
   br i1 %165, label %.loopexit321, label %162
 
 .loopexit321:                                     ; preds = %_ZN7StencilI7Point3DIdELi3EED2Ev.exit, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit296, %101
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %.pn.pn.pn.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit296 ], [ %102, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit296 ], [ %102, %101 ], [ %102, %_ZN7StencilI7Point3DIdELi3EED2Ev.exit ]
   %166 = load ptr, ptr %31, align 8
   %.not.i297 = icmp eq ptr %166, null
   br i1 %.not.i297, label %_ZN7StencilI7Point3DIdELi3EED2Ev.exit298, label %167
@@ -54409,7 +54409,7 @@ _ZN7StencilIdLi3EED2Ev.exit300:                   ; preds = %168, %170
   br i1 %171, label %.loopexit320, label %168
 
 .loopexit320:                                     ; preds = %_ZN7StencilIdLi3EED2Ev.exit271, %_ZN7StencilIdLi3EED2Ev.exit300, %93
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit300 ], [ %94, %_ZN7StencilIdLi3EED2Ev.exit271 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit300 ], [ %94, %93 ], [ %94, %_ZN7StencilIdLi3EED2Ev.exit271 ]
   br label %172
 
 172:                                              ; preds = %_ZN7StencilIdLi3EED2Ev.exit302, %.loopexit320
@@ -54430,7 +54430,7 @@ _ZN7StencilIdLi3EED2Ev.exit302:                   ; preds = %172, %174
   br i1 %175, label %.loopexit319, label %172
 
 .loopexit319:                                     ; preds = %_ZN7StencilIdLi3EED2Ev.exit269, %_ZN7StencilIdLi3EED2Ev.exit302, %87
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit302 ], [ %88, %_ZN7StencilIdLi3EED2Ev.exit269 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit302 ], [ %88, %87 ], [ %88, %_ZN7StencilIdLi3EED2Ev.exit269 ]
   br label %176
 
 176:                                              ; preds = %_ZN7StencilIdLi3EED2Ev.exit304, %.loopexit319
@@ -54451,7 +54451,7 @@ _ZN7StencilIdLi3EED2Ev.exit304:                   ; preds = %176, %178
   br i1 %179, label %.loopexit318, label %176
 
 .loopexit318:                                     ; preds = %_ZN7StencilIdLi3EED2Ev.exit267, %_ZN7StencilIdLi3EED2Ev.exit304, %81
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit304 ], [ %82, %_ZN7StencilIdLi3EED2Ev.exit267 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit304 ], [ %82, %81 ], [ %82, %_ZN7StencilIdLi3EED2Ev.exit267 ]
   br label %180
 
 180:                                              ; preds = %_ZN7StencilIdLi3EED2Ev.exit306, %.loopexit318
@@ -54472,7 +54472,7 @@ _ZN7StencilIdLi3EED2Ev.exit306:                   ; preds = %180, %182
   br i1 %183, label %.loopexit317, label %180
 
 .loopexit317:                                     ; preds = %_ZN7StencilIdLi3EED2Ev.exit265, %_ZN7StencilIdLi3EED2Ev.exit306, %75
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit306 ], [ %76, %_ZN7StencilIdLi3EED2Ev.exit265 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit306 ], [ %76, %75 ], [ %76, %_ZN7StencilIdLi3EED2Ev.exit265 ]
   br label %184
 
 184:                                              ; preds = %_ZN7StencilIdLi3EED2Ev.exit308, %.loopexit317
@@ -54493,7 +54493,7 @@ _ZN7StencilIdLi3EED2Ev.exit308:                   ; preds = %184, %186
   br i1 %187, label %.loopexit316, label %184
 
 .loopexit316:                                     ; preds = %_ZN7StencilIdLi3EED2Ev.exit263, %_ZN7StencilIdLi3EED2Ev.exit308, %69
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit308 ], [ %70, %_ZN7StencilIdLi3EED2Ev.exit263 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit308 ], [ %70, %69 ], [ %70, %_ZN7StencilIdLi3EED2Ev.exit263 ]
   br label %188
 
 188:                                              ; preds = %_ZN7StencilIdLi3EED2Ev.exit310, %.loopexit316
@@ -54514,7 +54514,7 @@ _ZN7StencilIdLi3EED2Ev.exit310:                   ; preds = %188, %190
   br i1 %191, label %.loopexit315, label %188
 
 .loopexit315:                                     ; preds = %_ZN7StencilIdLi3EED2Ev.exit261, %_ZN7StencilIdLi3EED2Ev.exit310, %63
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit310 ], [ %64, %_ZN7StencilIdLi3EED2Ev.exit261 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit310 ], [ %64, %63 ], [ %64, %_ZN7StencilIdLi3EED2Ev.exit261 ]
   br label %192
 
 192:                                              ; preds = %_ZN7StencilIdLi3EED2Ev.exit312, %.loopexit315
@@ -54535,7 +54535,7 @@ _ZN7StencilIdLi3EED2Ev.exit312:                   ; preds = %192, %194
   br i1 %195, label %.loopexit, label %192
 
 .loopexit:                                        ; preds = %_ZN7StencilIdLi3EED2Ev.exit, %_ZN7StencilIdLi3EED2Ev.exit312, %57
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit312 ], [ %58, %_ZN7StencilIdLi3EED2Ev.exit ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7StencilIdLi3EED2Ev.exit312 ], [ %58, %57 ], [ %58, %_ZN7StencilIdLi3EED2Ev.exit ]
   %196 = load ptr, ptr %6, align 8
   %.not.i313 = icmp eq ptr %196, null
   br i1 %.not.i313, label %_ZN7StencilIdLi3EED2Ev.exit314, label %197
@@ -64706,7 +64706,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit118: ; preds = 
   br i1 %213, label %_ZNSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !882
 
 _ZNSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader233, %199
-  %.sroa.06.1.i.i = phi ptr [ %205, %199 ], [ %.sroa.06.0.i.i, %.preheader233 ], [ %209, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %.preheader233 ], [ %205, %199 ], [ %209, %.lr.ph.i.i.i.i ]
   %214 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %.sroa.0189.0.copyload = load i32, ptr %214, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 20
@@ -64769,7 +64769,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit202:                                     ; preds = %225, %.noexc, %220
-  %.0.i.pn.i.i = phi ptr [ %221, %220 ], [ %236, %.noexc ], [ %227, %225 ]
+  %.0.i.pn.i.i = phi ptr [ %236, %.noexc ], [ %221, %220 ], [ %227, %225 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store i32 %.sroa.0189.0.copyload, ptr %.0.i.i, align 4
   %238 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 20
@@ -64848,7 +64848,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit201:                                     ; preds = %260, %.noexc135, %255
-  %.0.i.pn.i.i133 = phi ptr [ %256, %255 ], [ %270, %.noexc135 ], [ %262, %260 ]
+  %.0.i.pn.i.i133 = phi ptr [ %270, %.noexc135 ], [ %256, %255 ], [ %262, %260 ]
   %.0.i.i134 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i133, i64 16
   store i64 %249, ptr %.0.i.i134, align 8
   %272 = load i64, ptr %75, align 8
@@ -64906,7 +64906,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit200:                                     ; preds = %282, %.noexc148, %277
-  %.0.i.pn.i.i146 = phi ptr [ %278, %277 ], [ %292, %.noexc148 ], [ %284, %282 ]
+  %.0.i.pn.i.i146 = phi ptr [ %292, %.noexc148 ], [ %278, %277 ], [ %284, %282 ]
   %.0.i.i147 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 16
   store i64 %247, ptr %.0.i.i147, align 8
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %53, ptr nonnull @.gomp_critical_user_set_edge_pairs.var)
@@ -65029,7 +65029,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit198:                                     ; preds = %344, %.noexc164, %339
-  %.0.i.pn.i.i162 = phi ptr [ %340, %339 ], [ %354, %.noexc164 ], [ %346, %344 ]
+  %.0.i.pn.i.i162 = phi ptr [ %354, %.noexc164 ], [ %340, %339 ], [ %346, %344 ]
   %.0.i.i163 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i162, i64 16
   store i64 %249, ptr %.0.i.i163, align 8
   %356 = load i64, ptr %333, align 8
@@ -65087,7 +65087,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit:                                        ; preds = %366, %.noexc178, %361
-  %.0.i.pn.i.i176 = phi ptr [ %362, %361 ], [ %376, %.noexc178 ], [ %368, %366 ]
+  %.0.i.pn.i.i176 = phi ptr [ %376, %.noexc178 ], [ %362, %361 ], [ %368, %366 ]
   %.0.i.i177 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i176, i64 16
   store i64 %247, ptr %.0.i.i177, align 8
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %53, ptr nonnull @.gomp_critical_user_set_edge_pairs.var)
@@ -68496,7 +68496,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit185:                                     ; preds = %207, %.noexc, %202
-  %.0.i.pn.i.i = phi ptr [ %203, %202 ], [ %218, %.noexc ], [ %209, %207 ]
+  %.0.i.pn.i.i = phi ptr [ %218, %.noexc ], [ %203, %202 ], [ %209, %207 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store i32 %196, ptr %.0.i.i, align 4
   %220 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 20
@@ -68518,7 +68518,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
   %225 = load i32, ptr %24, align 4
   switch i32 %225, label %.critedge120 [
     i32 0, label %226
-    i32 1, label %284
+    i32 1, label %281
   ]
 
 226:                                              ; preds = %224
@@ -68603,107 +68603,107 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128: ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 28
   %279 = load i8, ptr %278, align 4
   %280 = icmp slt i8 %279, 0
-  br i1 %280, label %.critedge122, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit129
+  br i1 %280, label %.critedge122, label %338
 
-_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit129: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128
-  %281 = getelementptr inbounds nuw i8, ptr %272, i64 28
-  %282 = load i8, ptr %281, align 4
-  %283 = and i8 %282, 1
-  %.not178 = icmp eq i8 %283, 0
-  br i1 %.not178, label %.critedge122, label %.critedge120
+281:                                              ; preds = %224
+  %282 = load ptr, ptr %149, align 8
+  %283 = load i32, ptr %5, align 4
+  %284 = load i32, ptr %32, align 8
+  %285 = add nsw i32 %284, %283
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds %"struct.OctNode<TreeNodeData>::ConstNeighbors", ptr %282, i64 %286
+  %288 = load i32, ptr %25, align 4
+  %289 = shl nsw i32 %288, 1
+  %290 = sext i32 %289 to i64
+  %291 = getelementptr inbounds [3 x [3 x ptr]], ptr %287, i64 %290
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 32
+  %293 = load ptr, ptr %292, align 8
+  %294 = icmp eq ptr %293, null
+  br i1 %294, label %.critedge122, label %295
 
-284:                                              ; preds = %224
-  %285 = load ptr, ptr %149, align 8
-  %286 = load i32, ptr %5, align 4
-  %287 = load i32, ptr %32, align 8
-  %288 = add nsw i32 %287, %286
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds %"struct.OctNode<TreeNodeData>::ConstNeighbors", ptr %285, i64 %289
-  %291 = load i32, ptr %25, align 4
-  %292 = shl nsw i32 %291, 1
-  %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds [3 x [3 x ptr]], ptr %290, i64 %293
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 32
-  %296 = load ptr, ptr %295, align 8
-  %297 = icmp eq ptr %296, null
-  br i1 %297, label %.critedge122, label %298
+295:                                              ; preds = %281
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %297 = load ptr, ptr %296, align 8
+  %298 = icmp eq ptr %297, null
+  br i1 %298, label %.critedge122, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130
 
-298:                                              ; preds = %284
-  %299 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  %300 = load ptr, ptr %299, align 8
-  %301 = icmp eq ptr %300, null
-  br i1 %301, label %.critedge122, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130
-
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130: ; preds = %298
-  %302 = getelementptr inbounds nuw i8, ptr %300, i64 28
-  %303 = load i8, ptr %302, align 4
-  %304 = icmp slt i8 %303, 0
-  br i1 %304, label %.critedge122, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130: ; preds = %295
+  %299 = getelementptr inbounds nuw i8, ptr %297, i64 28
+  %300 = load i8, ptr %299, align 4
+  %301 = icmp slt i8 %300, 0
+  br i1 %301, label %.critedge122, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131
 
 _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130
-  %305 = getelementptr inbounds nuw i8, ptr %296, i64 28
-  %306 = load i8, ptr %305, align 4
-  %307 = and i8 %306, 1
-  %.not173 = icmp eq i8 %307, 0
-  br i1 %.not173, label %.critedge122, label %308
+  %302 = getelementptr inbounds nuw i8, ptr %293, i64 28
+  %303 = load i8, ptr %302, align 4
+  %304 = and i8 %303, 1
+  %.not173 = icmp eq i8 %304, 0
+  br i1 %.not173, label %.critedge122, label %305
 
-308:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131
-  %309 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  %310 = load i32, ptr %3, align 4
-  %311 = shl nsw i32 %310, 1
-  %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds ptr, ptr %309, i64 %312
-  %314 = load ptr, ptr %313, align 8
-  %315 = icmp eq ptr %314, null
-  br i1 %315, label %.critedge122, label %316
+305:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131
+  %306 = getelementptr inbounds nuw i8, ptr %291, i64 24
+  %307 = load i32, ptr %3, align 4
+  %308 = shl nsw i32 %307, 1
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds ptr, ptr %306, i64 %309
+  %311 = load ptr, ptr %310, align 8
+  %312 = icmp eq ptr %311, null
+  br i1 %312, label %.critedge122, label %313
 
-316:                                              ; preds = %308
-  %317 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %318 = load ptr, ptr %317, align 8
-  %319 = icmp eq ptr %318, null
-  br i1 %319, label %.critedge122, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132
+313:                                              ; preds = %305
+  %314 = getelementptr inbounds nuw i8, ptr %311, i64 8
+  %315 = load ptr, ptr %314, align 8
+  %316 = icmp eq ptr %315, null
+  br i1 %316, label %.critedge122, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132: ; preds = %316
-  %320 = getelementptr inbounds nuw i8, ptr %318, i64 28
-  %321 = load i8, ptr %320, align 4
-  %322 = icmp slt i8 %321, 0
-  br i1 %322, label %.critedge122, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132: ; preds = %313
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 28
+  %318 = load i8, ptr %317, align 4
+  %319 = icmp slt i8 %318, 0
+  br i1 %319, label %.critedge122, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133
 
 _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132
-  %323 = getelementptr inbounds nuw i8, ptr %314, i64 28
-  %324 = load i8, ptr %323, align 4
-  %325 = and i8 %324, 1
-  %.not174 = icmp eq i8 %325, 0
-  br i1 %.not174, label %.critedge122, label %326
+  %320 = getelementptr inbounds nuw i8, ptr %311, i64 28
+  %321 = load i8, ptr %320, align 4
+  %322 = and i8 %321, 1
+  %.not174 = icmp eq i8 %322, 0
+  br i1 %.not174, label %.critedge122, label %323
 
-326:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133
-  %327 = getelementptr inbounds nuw i8, ptr %290, i64 96
-  %328 = getelementptr inbounds ptr, ptr %327, i64 %312
-  %329 = load ptr, ptr %328, align 8
-  %330 = icmp eq ptr %329, null
-  br i1 %330, label %.critedge122, label %331
+323:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133
+  %324 = getelementptr inbounds nuw i8, ptr %287, i64 96
+  %325 = getelementptr inbounds ptr, ptr %324, i64 %309
+  %326 = load ptr, ptr %325, align 8
+  %327 = icmp eq ptr %326, null
+  br i1 %327, label %.critedge122, label %328
 
-331:                                              ; preds = %326
-  %332 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  %333 = load ptr, ptr %332, align 8
-  %334 = icmp eq ptr %333, null
-  br i1 %334, label %.critedge122, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134
+328:                                              ; preds = %323
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  %330 = load ptr, ptr %329, align 8
+  %331 = icmp eq ptr %330, null
+  br i1 %331, label %.critedge122, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134: ; preds = %331
-  %335 = getelementptr inbounds nuw i8, ptr %333, i64 28
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134: ; preds = %328
+  %332 = getelementptr inbounds nuw i8, ptr %330, i64 28
+  %333 = load i8, ptr %332, align 4
+  %334 = icmp slt i8 %333, 0
+  br i1 %334, label %.critedge122, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit135
+
+_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit135: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134
+  %335 = getelementptr inbounds nuw i8, ptr %326, i64 28
   %336 = load i8, ptr %335, align 4
-  %337 = icmp slt i8 %336, 0
-  br i1 %337, label %.critedge122, label %338
-
-338:                                              ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134
-  %339 = getelementptr inbounds nuw i8, ptr %329, i64 28
-  %340 = load i8, ptr %339, align 4
-  %341 = and i8 %340, 1
-  %.not175 = icmp eq i8 %341, 0
+  %337 = and i8 %336, 1
+  %.not175 = icmp eq i8 %337, 0
   br i1 %.not175, label %.critedge122, label %.critedge120
 
-.critedge122:                                     ; preds = %269, %274, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128, %326, %331, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134, %308, %316, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132, %284, %298, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130, %250, %259, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i126, %226, %240, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i124, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit129, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit127, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit125, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131, %338
-  %342 = phi i32 [ %233, %269 ], [ %233, %274 ], [ %233, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128 ], [ %291, %326 ], [ %291, %331 ], [ %291, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134 ], [ %291, %308 ], [ %291, %316 ], [ %291, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132 ], [ %291, %284 ], [ %291, %298 ], [ %291, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130 ], [ %233, %250 ], [ %233, %259 ], [ %233, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i126 ], [ %233, %226 ], [ %233, %240 ], [ %233, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i124 ], [ %233, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit129 ], [ %233, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit127 ], [ %233, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit125 ], [ %291, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133 ], [ %291, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131 ], [ %291, %338 ]
+338:                                              ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128
+  %339 = getelementptr inbounds nuw i8, ptr %272, i64 28
+  %340 = load i8, ptr %339, align 4
+  %341 = and i8 %340, 1
+  %.not178 = icmp eq i8 %341, 0
+  br i1 %.not178, label %.critedge122, label %.critedge120
+
+.critedge122:                                     ; preds = %323, %328, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134, %269, %274, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128, %305, %313, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132, %281, %295, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130, %250, %259, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i126, %226, %240, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i124, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit135, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit127, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit125, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131, %338
+  %342 = phi i32 [ %288, %323 ], [ %288, %328 ], [ %288, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i134 ], [ %233, %269 ], [ %233, %274 ], [ %233, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128 ], [ %288, %305 ], [ %288, %313 ], [ %288, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i132 ], [ %288, %281 ], [ %288, %295 ], [ %288, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i130 ], [ %233, %250 ], [ %233, %259 ], [ %233, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i126 ], [ %233, %226 ], [ %233, %240 ], [ %233, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i124 ], [ %288, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit135 ], [ %233, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit127 ], [ %233, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit125 ], [ %288, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit133 ], [ %288, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit131 ], [ %233, %338 ]
   %343 = load i32, ptr %3, align 4
   %344 = invoke noundef i32 @_ZN4Cube9EdgeIndexEiii(i32 noundef %225, i32 noundef %342, i32 noundef %343)
           to label %345 unwind label %.loopexit.split-lp.loopexit
@@ -68832,7 +68832,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit:                                        ; preds = %394, %.noexc148, %389
-  %.0.i.pn.i.i146 = phi ptr [ %390, %389 ], [ %405, %.noexc148 ], [ %396, %394 ]
+  %.0.i.pn.i.i146 = phi ptr [ %405, %.noexc148 ], [ %390, %389 ], [ %396, %394 ]
   %.0.i.i147 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 16
   store i32 %.sroa.0164.2, ptr %.0.i.i147, align 4
   %407 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 20
@@ -69024,7 +69024,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread.sink
 .critedge:                                        ; preds = %.critedge264, %353, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i136, %373, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread.sink.split, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit137
   br i1 %346, label %.preheader, label %.critedge120, !llvm.loop !925
 
-.critedge120:                                     ; preds = %.critedge, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit129, %224, %156, %223, %338, %157
+.critedge120:                                     ; preds = %.critedge, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit135, %224, %156, %223, %338, %157
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next210, 4
   br i1 %exitcond.not, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %150, !llvm.loop !926
@@ -70928,7 +70928,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit102.thread: ; preds = %272, %276,
   br label %.loopexit134, !llvm.loop !951
 
 _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_toIxESaISt4pairIKxS5_EEE4findERSB_.exit: ; preds = %352, %336, %347
-  %.sroa.06.1.i.i = phi ptr [ %348, %347 ], [ %.sroa.06.0.i.i, %336 ], [ %354, %352 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %336 ], [ %348, %347 ], [ %354, %352 ]
   br i1 %.not130.not, label %.loopexit132, label %.lr.ph156
 
 .lr.ph156:                                        ; preds = %_ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_toIxESaISt4pairIKxS5_EEE4findERSB_.exit
@@ -70948,9 +70948,9 @@ _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_
   br label %.loopexit134
 
 .loopexit134:                                     ; preds = %.lr.ph.i.i.i.i, %.loopexit134.loopexit, %..loopexit_crit_edge21.i.i.i.i
-  %362 = phi ptr [ %.pre200, %.loopexit134.loopexit ], [ %346, %..loopexit_crit_edge21.i.i.i.i ], [ %346, %.lr.ph.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre198, %.loopexit134.loopexit ], [ %343, %..loopexit_crit_edge21.i.i.i.i ], [ %343, %.lr.ph.i.i.i.i ]
-  %363 = phi i64 [ %.pre196, %.loopexit134.loopexit ], [ %342, %..loopexit_crit_edge21.i.i.i.i ], [ %342, %.lr.ph.i.i.i.i ]
+  %362 = phi ptr [ %346, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre200, %.loopexit134.loopexit ], [ %346, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i64 [ %343, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre198, %.loopexit134.loopexit ], [ %343, %.lr.ph.i.i.i.i ]
+  %363 = phi i64 [ %342, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre196, %.loopexit134.loopexit ], [ %342, %.lr.ph.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i.i.i.i107 = icmp eq ptr %362, null
   br i1 %.not.i.i.i.i107, label %.loopexit.i.i, label %364
@@ -71829,8 +71829,8 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit112: ; preds = 
   br i1 %235, label %_ZNSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit, label %.lr.ph.i.i.i.i116, !llvm.loop !882
 
 _ZNSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader252, %.lr.ph.i.i.i.i116, %.preheader250, %221, %198
-  %.sroa.06.1.i.i121.sink332 = phi ptr [ %204, %198 ], [ %227, %221 ], [ %.sroa.06.0.i.i, %.preheader252 ], [ %.sroa.06.0.i.i123, %.preheader250 ], [ %231, %.lr.ph.i.i.i.i116 ], [ %208, %.lr.ph.i.i.i.i ]
-  %.0207 = phi i64 [ %193, %198 ], [ %216, %221 ], [ %193, %.preheader252 ], [ %216, %.preheader250 ], [ %216, %.lr.ph.i.i.i.i116 ], [ %193, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i121.sink332 = phi ptr [ %.sroa.06.0.i.i, %.preheader252 ], [ %231, %.lr.ph.i.i.i.i116 ], [ %204, %198 ], [ %.sroa.06.0.i.i123, %.preheader250 ], [ %227, %221 ], [ %208, %.lr.ph.i.i.i.i ]
+  %.0207 = phi i64 [ %193, %.preheader252 ], [ %216, %.lr.ph.i.i.i.i116 ], [ %193, %198 ], [ %216, %.preheader250 ], [ %216, %221 ], [ %193, %.lr.ph.i.i.i.i ]
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i121.sink332, i64 16
   %237 = load i32, ptr %236, align 4
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i121.sink332, i64 20
@@ -71895,7 +71895,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit216:                                     ; preds = %249, %.noexc, %244
-  %.0.i.pn.i.i = phi ptr [ %245, %244 ], [ %260, %.noexc ], [ %251, %249 ]
+  %.0.i.pn.i.i = phi ptr [ %260, %.noexc ], [ %245, %244 ], [ %251, %249 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store i32 %237, ptr %.0.i.i, align 4
   %262 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 20
@@ -71977,7 +71977,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit215:                                     ; preds = %285, %.noexc141, %280
-  %.0.i.pn.i.i139 = phi ptr [ %281, %280 ], [ %295, %.noexc141 ], [ %287, %285 ]
+  %.0.i.pn.i.i139 = phi ptr [ %295, %.noexc141 ], [ %281, %280 ], [ %287, %285 ]
   %.0.i.i140 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i139, i64 16
   store i64 %274, ptr %.0.i.i140, align 8
   %297 = load i64, ptr %79, align 8
@@ -72035,7 +72035,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit214:                                     ; preds = %307, %.noexc154, %302
-  %.0.i.pn.i.i152 = phi ptr [ %303, %302 ], [ %317, %.noexc154 ], [ %309, %307 ]
+  %.0.i.pn.i.i152 = phi ptr [ %317, %.noexc154 ], [ %303, %302 ], [ %309, %307 ]
   %.0.i.i153 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i152, i64 16
   store i64 %271, ptr %.0.i.i153, align 8
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %52, ptr nonnull @.gomp_critical_user_set_x_edge_pairs.var)
@@ -72162,7 +72162,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit212:                                     ; preds = %370, %.noexc170, %365
-  %.0.i.pn.i.i168 = phi ptr [ %366, %365 ], [ %380, %.noexc170 ], [ %372, %370 ]
+  %.0.i.pn.i.i168 = phi ptr [ %380, %.noexc170 ], [ %366, %365 ], [ %372, %370 ]
   %.0.i.i169 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i168, i64 16
   store i64 %274, ptr %.0.i.i169, align 8
   %382 = load i64, ptr %359, align 8
@@ -72220,7 +72220,7 @@ _ZNSt10_HashtableIxSt4pairIKxxESaIS2_ENSt8__detail10_Select1stESt8equal_toIxESt4
   br label %.body
 
 .loopexit:                                        ; preds = %392, %.noexc184, %387
-  %.0.i.pn.i.i182 = phi ptr [ %388, %387 ], [ %402, %.noexc184 ], [ %394, %392 ]
+  %.0.i.pn.i.i182 = phi ptr [ %402, %.noexc184 ], [ %388, %387 ], [ %394, %392 ]
   %.0.i.i183 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i182, i64 16
   store i64 %271, ptr %.0.i.i183, align 8
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %52, ptr nonnull @.gomp_critical_user_set_x_edge_pairs.var)
@@ -72718,7 +72718,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit180:                                     ; preds = %272, %.noexc, %267
-  %.0.i.pn.i.i = phi ptr [ %268, %267 ], [ %283, %.noexc ], [ %274, %272 ]
+  %.0.i.pn.i.i = phi ptr [ %283, %.noexc ], [ %268, %267 ], [ %274, %272 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store i32 %261, ptr %.0.i.i, align 4
   %285 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 20
@@ -72950,7 +72950,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit:                                        ; preds = %393, %.noexc148, %388
-  %.0.i.pn.i.i146 = phi ptr [ %389, %388 ], [ %404, %.noexc148 ], [ %395, %393 ]
+  %.0.i.pn.i.i146 = phi ptr [ %404, %.noexc148 ], [ %389, %388 ], [ %395, %393 ]
   %.0.i.i147 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 16
   store i32 %.sroa.0159.3, ptr %.0.i.i147, align 4
   %406 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 20
@@ -74197,7 +74197,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit152.thread: ; preds = %380, %384,
   br label %.loopexit189, !llvm.loop !951
 
 _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_toIxESaISt4pairIKxS5_EEE4findERSB_.exit: ; preds = %460, %444, %455
-  %.sroa.06.1.i.i = phi ptr [ %456, %455 ], [ %.sroa.06.0.i.i, %444 ], [ %462, %460 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %444 ], [ %456, %455 ], [ %462, %460 ]
   br i1 %.not185.not, label %_ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EEaSERKS4_.exit, label %.lr.ph226
 
 .lr.ph226:                                        ; preds = %_ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_toIxESaISt4pairIKxS5_EEE4findERSB_.exit
@@ -74217,9 +74217,9 @@ _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_
   br label %.loopexit189
 
 .loopexit189:                                     ; preds = %.lr.ph.i.i.i.i, %.loopexit189.loopexit, %..loopexit_crit_edge21.i.i.i.i
-  %470 = phi ptr [ %.pre284, %.loopexit189.loopexit ], [ %454, %..loopexit_crit_edge21.i.i.i.i ], [ %454, %.lr.ph.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre282, %.loopexit189.loopexit ], [ %451, %..loopexit_crit_edge21.i.i.i.i ], [ %451, %.lr.ph.i.i.i.i ]
-  %471 = phi i64 [ %.pre280, %.loopexit189.loopexit ], [ %450, %..loopexit_crit_edge21.i.i.i.i ], [ %450, %.lr.ph.i.i.i.i ]
+  %470 = phi ptr [ %454, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre284, %.loopexit189.loopexit ], [ %454, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i64 [ %451, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre282, %.loopexit189.loopexit ], [ %451, %.lr.ph.i.i.i.i ]
+  %471 = phi i64 [ %450, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre280, %.loopexit189.loopexit ], [ %450, %.lr.ph.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not.i.i.i.i157 = icmp eq ptr %470, null
   br i1 %.not.i.i.i.i157, label %.loopexit.i.i, label %472
@@ -75024,7 +75024,7 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt
   br label %.loopexit506, !llvm.loop !951
 
 _ZNKSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_toIxESaISt4pairIKxS5_EEE4findERSB_.exit: ; preds = %318, %301, %313
-  %.sroa.06.1.i.i = phi ptr [ %314, %313 ], [ %.sroa.06.0.i.i, %301 ], [ %320, %318 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %301 ], [ %314, %313 ], [ %320, %318 ]
   %325 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %326 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 24
   %327 = load ptr, ptr %326, align 8
@@ -75375,7 +75375,7 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE9push_backEOS2_.exit213: ; preds = %_Z
   br label %.loopexit516, !llvm.loop !951
 
 _ZNKSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_toIxESaISt4pairIKxS5_EEE4findERSB_.exit230: ; preds = %493, %478, %488
-  %.sroa.06.1.i.i226 = phi ptr [ %489, %488 ], [ %.sroa.06.0.i.i228, %478 ], [ %495, %493 ]
+  %.sroa.06.1.i.i226 = phi ptr [ %.sroa.06.0.i.i228, %478 ], [ %489, %488 ], [ %495, %493 ]
   %500 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i226, i64 16
   %501 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i226, i64 24
   %502 = load ptr, ptr %501, align 8
@@ -75529,7 +75529,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i
   br i1 %562, label %.invoke, label %_ZNKSt6vectorIS_IxSaIxEESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 .invoke:                                          ; preds = %803, %561, %.lr.ph705, %410, %518, %229, %343, %767, %730, %681, %632
-  %563 = phi ptr [ @.str.71, %518 ], [ @.str.71, %410 ], [ @.str, %.lr.ph705 ], [ @.str.71, %767 ], [ @.str.71, %343 ], [ @.str.71, %229 ], [ @.str.71, %632 ], [ @.str.71, %681 ], [ @.str.71, %730 ], [ @.str.71, %803 ], [ @.str.9, %561 ]
+  %563 = phi ptr [ @.str, %.lr.ph705 ], [ @.str.71, %229 ], [ @.str.71, %343 ], [ @.str.71, %410 ], [ @.str.71, %518 ], [ @.str.71, %767 ], [ @.str.71, %632 ], [ @.str.71, %681 ], [ @.str.71, %730 ], [ @.str.9, %561 ], [ @.str.71, %803 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %563) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -75702,7 +75702,7 @@ _ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyISt6ve
   br label %.loopexit495, !llvm.loop !883
 
 _ZNKSt13unordered_mapIxxSt4hashIxESt8equal_toIxESaISt4pairIKxxEEE4findERS5_.exit: ; preds = %620, %605, %615
-  %.sroa.06.1.i.i256 = phi ptr [ %616, %615 ], [ %.sroa.06.0.i.i258, %605 ], [ %622, %620 ]
+  %.sroa.06.1.i.i256 = phi ptr [ %.sroa.06.0.i.i258, %605 ], [ %616, %615 ], [ %622, %620 ]
   %627 = load ptr, ptr %587, align 8
   %628 = load ptr, ptr %588, align 8
   %.not.i = icmp eq ptr %627, %628
@@ -75821,7 +75821,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit:          ; preds = %_ZNSt6vectorIxSaIxE
   br label %.loopexit492, !llvm.loop !883
 
 _ZNKSt13unordered_mapIxxSt4hashIxESt8equal_toIxESaISt4pairIKxxEEE4findERS5_.exit273: ; preds = %669, %654, %664
-  %.sroa.06.1.i.i269 = phi ptr [ %665, %664 ], [ %.sroa.06.0.i.i271, %654 ], [ %671, %669 ]
+  %.sroa.06.1.i.i269 = phi ptr [ %.sroa.06.0.i.i271, %654 ], [ %665, %664 ], [ %671, %669 ]
   %676 = load ptr, ptr %587, align 8
   %677 = load ptr, ptr %588, align 8
   %.not.i274 = icmp eq ptr %676, %677
@@ -75940,7 +75940,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit283:       ; preds = %_ZNSt6vectorIxSaIxE
   br label %.loopexit489, !llvm.loop !883
 
 _ZNKSt13unordered_mapIxxSt4hashIxESt8equal_toIxESaISt4pairIKxxEEE4findERS5_.exit295: ; preds = %718, %703, %713
-  %.sroa.06.1.i.i291 = phi ptr [ %714, %713 ], [ %.sroa.06.0.i.i293, %703 ], [ %720, %718 ]
+  %.sroa.06.1.i.i291 = phi ptr [ %.sroa.06.0.i.i293, %703 ], [ %714, %713 ], [ %720, %718 ]
   %725 = load ptr, ptr %587, align 8
   %726 = load ptr, ptr %588, align 8
   %.not.i296 = icmp eq ptr %725, %726
@@ -76387,7 +76387,7 @@ _ZNSt12_Vector_baseISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EEC2EmRKS4_.exit.
   unreachable
 
 _ZNKSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit: ; preds = %860, %845, %883, %868, %906, %891, %901, %878, %855
-  %.sroa.06.1.i.i338.sink1162 = phi ptr [ %856, %855 ], [ %879, %878 ], [ %902, %901 ], [ %.sroa.06.0.i.i340, %845 ], [ %.sroa.06.0.i.i363, %891 ], [ %908, %906 ], [ %.sroa.06.0.i.i351, %868 ], [ %885, %883 ], [ %862, %860 ]
+  %.sroa.06.1.i.i338.sink1162 = phi ptr [ %908, %906 ], [ %.sroa.06.0.i.i340, %845 ], [ %.sroa.06.0.i.i363, %891 ], [ %856, %855 ], [ %885, %883 ], [ %879, %878 ], [ %.sroa.06.0.i.i351, %868 ], [ %902, %901 ], [ %862, %860 ]
   %915 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i338.sink1162, i64 16
   %916 = load ptr, ptr %30, align 8
   %917 = getelementptr inbounds %"struct.std::pair.488", ptr %916, i64 %.0157700
@@ -78818,7 +78818,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66: ; p
   br i1 %.not123, label %.loopexit, label %188, !llvm.loop !1047
 
 .loopexit:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, %._crit_edge145, %.loopexit130, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, %11
-  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %.loopexit130 ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
+  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %.loopexit130 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
   ret ptr %.sroa.0106.0
 }
 

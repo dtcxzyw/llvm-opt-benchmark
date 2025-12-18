@@ -1508,7 +1508,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit44:                  ; preds = %83, %_ZNSt10unique_
   br label %86
 
 85:                                               ; preds = %40, %43, %46, %49, %52, %61, %64, %67, %70, %73, %76
-  %.sroa.055.1.ph = phi ptr [ %34, %40 ], [ %34, %43 ], [ %34, %46 ], [ %34, %49 ], [ %54, %61 ], [ %54, %64 ], [ %54, %67 ], [ %54, %70 ], [ %54, %73 ], [ %54, %76 ], [ %34, %52 ]
+  %.sroa.055.1.ph = phi ptr [ %34, %43 ], [ %34, %46 ], [ %34, %49 ], [ %54, %61 ], [ %54, %64 ], [ %54, %67 ], [ %54, %70 ], [ %54, %73 ], [ %54, %76 ], [ %34, %52 ], [ %34, %40 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %19) #16
@@ -1813,7 +1813,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %.preheader, %.thread.sink.split
-  %.4 = phi i1 [ false, %.thread.sink.split ], [ %.not34, %.preheader ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
+  %.4 = phi i1 [ %.not34, %.preheader ], [ false, %.thread.sink.split ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
   ret i1 %.4
 }
 

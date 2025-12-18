@@ -973,7 +973,7 @@ define internal noundef zeroext i1 @dissect_atn_ulcs_heur(ptr noundef %0, ptr no
   br label %14
 
 14:                                               ; preds = %.sink.split, %10, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %10 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

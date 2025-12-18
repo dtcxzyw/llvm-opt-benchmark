@@ -220,7 +220,7 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
   br label %copy_hostent.exit
 
 copy_hostent.exit:                                ; preds = %.lr.ph119.i, %.lr.ph130.i, %._crit_edge131.i, %._crit_edge110.thread.i, %._crit_edge110.i, %._crit_edge.i, %10, %8
-  %.013 = phi i1 [ false, %8 ], [ true, %10 ], [ true, %._crit_edge.i ], [ true, %._crit_edge110.i ], [ %82, %._crit_edge131.i ], [ true, %._crit_edge110.thread.i ], [ true, %.lr.ph130.i ], [ true, %.lr.ph119.i ]
+  %.013 = phi i1 [ false, %8 ], [ %82, %._crit_edge131.i ], [ true, %10 ], [ true, %._crit_edge.i ], [ true, %._crit_edge110.i ], [ true, %._crit_edge110.thread.i ], [ true, %.lr.ph130.i ], [ true, %.lr.ph119.i ]
   %.not19 = icmp eq ptr %3, null
   br i1 %.not19, label %86, label %83
 

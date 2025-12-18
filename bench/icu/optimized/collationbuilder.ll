@@ -2263,8 +2263,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit134.thread: ; preds = %170, %_ZNK6icu_77
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
 _ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %127, %_ZNK6icu_779UVector6410elementAtiEi.exit131, %235, %234, %231, %92
-  %.1105 = phi i32 [ %94, %92 ], [ %.8, %235 ], [ %.8, %231 ], [ %.8, %234 ], [ %.3107, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ %.3107, %127 ]
-  %.0 = phi i32 [ %1, %92 ], [ %238, %235 ], [ %233, %231 ], [ 0, %234 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ 0, %127 ]
+  %.1105 = phi i32 [ %94, %92 ], [ %.8, %234 ], [ %.8, %235 ], [ %.8, %231 ], [ %.3107, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ %.3107, %127 ]
+  %.0 = phi i32 [ %1, %92 ], [ 0, %234 ], [ %238, %235 ], [ %233, %231 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ 0, %127 ]
   %239 = load i32, ptr %4, align 4, !tbaa !20
   %240 = icmp slt i32 %239, 1
   br i1 %240, label %242, label %241
@@ -3267,8 +3267,8 @@ define noundef i32 @_ZN6icu_7716CollationBuilder26findOrInsertNodeForPrimaryEjR1
   br label %_ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit
 
 36:                                               ; preds = %33, %30
-  %.127.i = phi i32 [ %27, %30 ], [ %.02642.i, %33 ]
-  %.124.i = phi i32 [ %.02343.i, %30 ], [ %27, %33 ]
+  %.127.i = phi i32 [ %.02642.i, %33 ], [ %27, %30 ]
+  %.124.i = phi i32 [ %27, %33 ], [ %.02343.i, %30 ]
   %37 = add nsw i32 %.124.i, %.127.i
   %38 = sdiv i32 %37, 2
   %39 = sext i32 %38 to i64
@@ -3283,7 +3283,7 @@ define noundef i32 @_ZN6icu_7716CollationBuilder26findOrInsertNodeForPrimaryEjR1
   br i1 %47, label %_ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit, label %.lr.ph.i, !llvm.loop !126
 
 _ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit: ; preds = %36, %.preheader.i, %31, %34
-  %.022.i = phi i32 [ %32, %31 ], [ %35, %34 ], [ %16, %.preheader.i ], [ %38, %36 ]
+  %.022.i = phi i32 [ %16, %.preheader.i ], [ %35, %34 ], [ %32, %31 ], [ %38, %36 ]
   %48 = icmp sgt i32 %.022.i, -1
   br i1 %48, label %49, label %_ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit.thread
 
@@ -3846,7 +3846,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit83:       ; preds = %.lr.ph, %92
   br label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit: ; preds = %103, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %.thread, %28, %26, %_ZNK6icu_779UVector6410elementAtiEi.exit.i, %.thread106, %5
-  %.0 = phi i32 [ 0, %5 ], [ %115, %.thread106 ], [ %82, %.thread ], [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %1, %26 ], [ %1, %28 ], [ %42, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ], [ %90, %103 ]
+  %.0 = phi i32 [ 0, %5 ], [ %115, %.thread106 ], [ %82, %.thread ], [ %42, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ], [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %1, %26 ], [ %1, %28 ], [ %90, %103 ]
   ret i32 %.0
 }
 
@@ -5426,7 +5426,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %75, %73, %_ZNK6icu_
           to label %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit unwind label %45
 
 _ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit: ; preds = %93, %.preheader.i.i, %.noexc112
-  %.017.i = phi i32 [ %.178, %.preheader.i.i ], [ %.1.i, %.noexc112 ], [ %.178, %93 ]
+  %.017.i = phi i32 [ %.1.i, %.noexc112 ], [ %.178, %.preheader.i.i ], [ %.178, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i32, ptr %6, align 4, !tbaa !20
   %106 = icmp slt i32 %.pre, 1
@@ -5747,7 +5747,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit135.thread: ; preds = %213, %211, %_ZNK6i
           to label %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit153 unwind label %182
 
 _ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit153: ; preds = %231, %.preheader.i.i142, %.noexc151
-  %.017.i141 = phi i32 [ %.784, %.preheader.i.i142 ], [ %.1.i139, %.noexc151 ], [ %.784, %231 ]
+  %.017.i141 = phi i32 [ %.1.i139, %.noexc151 ], [ %.784, %.preheader.i.i142 ], [ %.784, %231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre260 = load i32, ptr %6, align 4, !tbaa !20
   %244 = icmp slt i32 %.pre260, 1

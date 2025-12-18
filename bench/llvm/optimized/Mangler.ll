@@ -499,7 +499,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit45.thread63: ; preds = %_ZNK4llvm9Strin
   br label %_ZL18hasByteCountSuffixj.exit
 
 58:                                               ; preds = %54, %.fold.split, %53
-  %.034 = phi i8 [ 0, %54 ], [ 64, %53 ], [ %switch.masked98, %.fold.split ]
+  %.034 = phi i8 [ %switch.masked98, %.fold.split ], [ 0, %54 ], [ 64, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 5, ptr %59, align 8, !tbaa !59
@@ -974,7 +974,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit51
 
 _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %64, %_ZN4llvm11raw_ostreamlsEPKc.exit, %73, %71
-  %76 = phi i1 [ true, %73 ], [ true, %71 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ false, %64 ]
+  %76 = phi i1 [ true, %73 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ true, %71 ], [ false, %64 ]
   %77 = load i32, ptr %21, align 4, !tbaa !128
   %78 = icmp eq i32 %77, 14
   %79 = load i32, ptr %24, align 8
@@ -1375,7 +1375,7 @@ switch.early.test.i.i77:                          ; preds = %.lr.ph.i75
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit83
 
 _ZN4llvm11raw_ostreamlsEPKc.exit83:               ; preds = %266, %_ZN4llvm11raw_ostreamlsEPKc.exit73, %273, %271
-  %276 = phi i1 [ true, %273 ], [ true, %271 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit73 ], [ false, %266 ]
+  %276 = phi i1 [ true, %273 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit73 ], [ true, %271 ], [ false, %266 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %277 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %277, ptr %11, align 8, !tbaa !136

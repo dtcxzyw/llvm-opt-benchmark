@@ -988,7 +988,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %65, label %.critedge2.i.i.backedge, label %.lr.ph, !llvm.loop !211
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.critedge2.i.i.i.i, %.lr.ph, %57, %.critedge2.i.i, %34, %28, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
-  %.0 = phi i1 [ false, %28 ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit ], [ true, %34 ], [ true, %.critedge2.i.i.i.i ], [ true, %.critedge2.i.i ], [ false, %.lr.ph ], [ false, %57 ], [ true, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %28 ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit ], [ true, %.critedge2.i.i ], [ false, %.lr.ph ], [ true, %34 ], [ true, %.critedge2.i.i.i.i ], [ false, %57 ], [ true, %.lr.ph.i.i ]
   ret i1 %.0
 }
 

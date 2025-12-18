@@ -759,7 +759,7 @@ define internal fastcc { i64, i32 } @_ZN4absl12lts_2024072212_GLOBAL__N_120MakeT
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
-.thread4:                                         ; preds = %45, %37, %29, %21, %13
+.thread4:                                         ; preds = %29, %37, %21, %45, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %thread-pre-split
 
@@ -853,7 +853,7 @@ _ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
-_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit.thread6: ; preds = %90, %82, %74, %66, %58, %_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit
+_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit.thread6: ; preds = %74, %82, %66, %90, %58, %_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.0.0.copyload.i.i37.pre = load i64, ptr %0, align 8, !tbaa !31
   br label %97

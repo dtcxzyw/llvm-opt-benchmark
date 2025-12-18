@@ -3509,7 +3509,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h4beaa3930261d86eE.llvm.9
   br i1 %547, label %.invoke, label %549
 
 .invoke1044:                                      ; preds = %672, %601, %534, %775
-  %548 = phi ptr [ @anon.25abc276837e5c420900e90578c3115b.72, %775 ], [ @anon.25abc276837e5c420900e90578c3115b.71, %672 ], [ @anon.25abc276837e5c420900e90578c3115b.65, %534 ], [ @anon.25abc276837e5c420900e90578c3115b.69, %601 ]
+  %548 = phi ptr [ @anon.25abc276837e5c420900e90578c3115b.72, %775 ], [ @anon.25abc276837e5c420900e90578c3115b.65, %534 ], [ @anon.25abc276837e5c420900e90578c3115b.69, %601 ], [ @anon.25abc276837e5c420900e90578c3115b.71, %672 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b9dd2477a9535a9e67ec66a4f0f80edb.26.llvm.13578501392857559943, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %548) #23
           to label %.cont1045 unwind label %.critedge125.thread488.loopexit.split-lp.loopexit.split-lp
 
@@ -3521,9 +3521,9 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h4beaa3930261d86eE.llvm.9
   br i1 %550, label %556, label %.invoke1046
 
 .invoke1046:                                      ; preds = %686, %615, %549, %789
-  %551 = phi i64 [ %784, %789 ], [ %681, %686 ], [ %543, %549 ], [ %610, %615 ]
-  %552 = phi i64 [ %787, %789 ], [ %684, %686 ], [ %546, %549 ], [ %613, %615 ]
-  %553 = phi ptr [ @anon.25abc276837e5c420900e90578c3115b.72, %789 ], [ @anon.25abc276837e5c420900e90578c3115b.71, %686 ], [ @anon.25abc276837e5c420900e90578c3115b.65, %549 ], [ @anon.25abc276837e5c420900e90578c3115b.69, %615 ]
+  %551 = phi i64 [ %784, %789 ], [ %543, %549 ], [ %610, %615 ], [ %681, %686 ]
+  %552 = phi i64 [ %787, %789 ], [ %546, %549 ], [ %613, %615 ], [ %684, %686 ]
+  %553 = phi ptr [ @anon.25abc276837e5c420900e90578c3115b.72, %789 ], [ @anon.25abc276837e5c420900e90578c3115b.65, %549 ], [ @anon.25abc276837e5c420900e90578c3115b.69, %615 ], [ @anon.25abc276837e5c420900e90578c3115b.71, %686 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %551, i64 noundef %552, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %553) #23
           to label %.cont1047 unwind label %.critedge125.thread488.loopexit.split-lp.loopexit.split-lp
 
@@ -3535,7 +3535,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h4beaa3930261d86eE.llvm.9
           to label %525 unwind label %.critedge125.thread488.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %608, %599, %541, %532, %782, %773
-  %555 = phi ptr [ @anon.25abc276837e5c420900e90578c3115b.73, %782 ], [ @anon.25abc276837e5c420900e90578c3115b.73, %773 ], [ @anon.25abc276837e5c420900e90578c3115b.70, %608 ], [ @anon.25abc276837e5c420900e90578c3115b.66, %541 ], [ @anon.25abc276837e5c420900e90578c3115b.66, %532 ], [ @anon.25abc276837e5c420900e90578c3115b.70, %599 ]
+  %555 = phi ptr [ @anon.25abc276837e5c420900e90578c3115b.73, %782 ], [ @anon.25abc276837e5c420900e90578c3115b.73, %773 ], [ @anon.25abc276837e5c420900e90578c3115b.66, %532 ], [ @anon.25abc276837e5c420900e90578c3115b.70, %599 ], [ @anon.25abc276837e5c420900e90578c3115b.66, %541 ], [ @anon.25abc276837e5c420900e90578c3115b.70, %608 ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) %555) #23
           to label %.cont unwind label %.critedge125.thread488.loopexit.split-lp.loopexit.split-lp
 
@@ -7892,8 +7892,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hac6b15c8a6a50
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h895eab2f0d623972E.llvm.9807981736256889627.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h8cddc117fa727c82E.llvm.9807981736256889627.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h895eab2f0d623972E.llvm.9807981736256889627.exit", label %.lr.ph.i2.preheader
 

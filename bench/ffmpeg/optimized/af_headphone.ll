@@ -206,7 +206,7 @@ parse_map.exit:                                   ; preds = %._crit_edge.i, %42
   br label %.thread32
 
 .thread32:                                        ; preds = %57, %63, %._crit_edge, %65, %.thread, %1, %12
-  %.0 = phi i32 [ -22, %12 ], [ -12, %.thread ], [ 0, %._crit_edge ], [ %7, %1 ], [ 0, %65 ], [ -12, %63 ], [ %58, %57 ]
+  %.0 = phi i32 [ -22, %12 ], [ -12, %63 ], [ -12, %.thread ], [ 0, %._crit_edge ], [ %7, %1 ], [ 0, %65 ], [ %58, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1052,7 +1052,7 @@ ff_clz_c.exit289.i:                               ; preds = %108, %ff_clz_c.exit
   br i1 %405, label %271, label %.sink.split, !llvm.loop !96
 
 .loopexit:                                        ; preds = %271, %245, %212, %221, %172, %.thread.i, %210, %208, %206, %204, %215, %243, %241
-  %.2.i.ph = phi i32 [ -12, %241 ], [ -12, %243 ], [ -12, %215 ], [ -12, %204 ], [ -12, %206 ], [ -12, %208 ], [ -12, %210 ], [ %.1.ph.i, %.thread.i ], [ -12, %172 ], [ -12, %221 ], [ -12, %212 ], [ -12, %245 ], [ %277, %271 ]
+  %.2.i.ph = phi i32 [ -12, %245 ], [ -12, %241 ], [ -12, %243 ], [ -12, %215 ], [ -12, %204 ], [ -12, %206 ], [ -12, %208 ], [ -12, %210 ], [ %.1.ph.i, %.thread.i ], [ -12, %172 ], [ -12, %221 ], [ -12, %212 ], [ %277, %271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread87
 

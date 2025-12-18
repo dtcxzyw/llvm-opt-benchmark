@@ -1262,7 +1262,7 @@ define noundef zeroext i1 @_ZN7rocksdb11CacheRecord9SerializeEPSt6vectorIPNS_16C
   br i1 %.not.i27, label %_ZN7rocksdb11CacheRecord6AppendEPSt6vectorIPNS_16CacheWriteBufferESaIS3_EEPmPKcm.exit, label %.lr.ph.i18, !llvm.loop !134
 
 _ZN7rocksdb11CacheRecord6AppendEPSt6vectorIPNS_16CacheWriteBufferESaIS3_EEPmPKcm.exit: ; preds = %5, %.lr.ph.i, %113, %.lr.ph.i18, %.loopexit
-  %114 = phi i1 [ true, %.loopexit ], [ false, %.lr.ph.i ], [ %88, %113 ], [ %88, %.lr.ph.i18 ], [ false, %5 ]
+  %114 = phi i1 [ %88, %113 ], [ false, %.lr.ph.i ], [ true, %.loopexit ], [ %88, %.lr.ph.i18 ], [ false, %5 ]
   ret i1 %114
 }
 

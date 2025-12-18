@@ -20927,8 +20927,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %.loopexit
 
 .critedge._crit_edge:                             ; preds = %.critedge, %._crit_edge._crit_edge, %.preheader
-  %.sroa.15.0.lcssa317329 = phi ptr [ %.sroa.15.1, %.preheader ], [ null, %._crit_edge._crit_edge ], [ %.sroa.15.1, %.critedge ]
-  %.sroa.0165.0.lcssa321328 = phi ptr [ %.sroa.0165.1, %.preheader ], [ null, %._crit_edge._crit_edge ], [ %.sroa.0165.1, %.critedge ]
+  %.sroa.15.0.lcssa317329 = phi ptr [ null, %._crit_edge._crit_edge ], [ %.sroa.15.1, %.preheader ], [ %.sroa.15.1, %.critedge ]
+  %.sroa.0165.0.lcssa321328 = phi ptr [ null, %._crit_edge._crit_edge ], [ %.sroa.0165.1, %.preheader ], [ %.sroa.0165.1, %.critedge ]
   %.val86 = load ptr, ptr %23, align 8, !tbaa !223
   %.val87 = load ptr, ptr %24, align 8, !tbaa !224
   %211 = ptrtoint ptr %.val87 to i64

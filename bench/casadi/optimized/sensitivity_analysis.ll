@@ -2090,7 +2090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit321: ; preds = %.b
   br i1 %569, label %.loopexit, label %566
 
 .loopexit:                                        ; preds = %562, %566, %.thread
-  %.pn68 = phi { ptr, i32 } [ %390, %.thread ], [ %407, %566 ], [ %561, %562 ]
+  %.pn68 = phi { ptr, i32 } [ %407, %566 ], [ %390, %.thread ], [ %561, %562 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %702
@@ -4756,7 +4756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286: ; preds = %.b
   br i1 %518, label %.loopexit, label %515
 
 .loopexit:                                        ; preds = %511, %515, %.thread
-  %.pn61 = phi { ptr, i32 } [ %351, %.thread ], [ %370, %515 ], [ %510, %511 ]
+  %.pn61 = phi { ptr, i32 } [ %370, %515 ], [ %351, %.thread ], [ %510, %511 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %619
@@ -6598,7 +6598,7 @@ _ZNSt6vectorI6SolverSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6Sol
   br i1 %943, label %.loopexit3544, label %940
 
 .loopexit3544:                                    ; preds = %940, %.loopexit3544.loopexit17782, %.thread
-  %.pn = phi { ptr, i32 } [ %144, %.thread ], [ %939, %.loopexit3544.loopexit17782 ], [ %eh.lpad-body237219293, %940 ]
+  %.pn = phi { ptr, i32 } [ %939, %.loopexit3544.loopexit17782 ], [ %144, %.thread ], [ %eh.lpad-body237219293, %940 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %4041
 
@@ -6654,7 +6654,7 @@ _ZNSt6vectorI6SolverSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6Sol
   br i1 %961, label %.loopexit3541, label %958
 
 .loopexit3541:                                    ; preds = %954, %958, %.thread3234
-  %.pn360 = phi { ptr, i32 } [ %328, %.thread3234 ], [ %341, %958 ], [ %953, %954 ]
+  %.pn360 = phi { ptr, i32 } [ %341, %958 ], [ %328, %.thread3234 ], [ %953, %954 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit2353
 
@@ -15013,7 +15013,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixI
   br label %.body627.thread
 
 .body627.thread:                                  ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2130, %.body627.thread.sink.split, %_ZN6casadi6MatrixIdED2Ev.exit.i2119, %1044
-  %.pn367 = phi { ptr, i32 } [ %1051, %_ZN6casadi6MatrixIdED2Ev.exit.i2119 ], [ %1045, %1044 ], [ %.pn367.ph, %.body627.thread.sink.split ], [ %1114, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2130 ]
+  %.pn367 = phi { ptr, i32 } [ %1045, %1044 ], [ %.pn367.ph, %.body627.thread.sink.split ], [ %1051, %_ZN6casadi6MatrixIdED2Ev.exit.i2119 ], [ %1114, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %3995
@@ -15408,7 +15408,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixI
   br i1 %3583, label %.body965.thread, label %.preheader3427
 
 .body965.thread:                                  ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2174, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2167, %1630, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i960
-  %.pn398.pn.pn3347 = phi { ptr, i32 } [ %1631, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i960 ], [ %1631, %1630 ], [ %1710, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2167 ], [ %.pn398.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2174 ]
+  %.pn398.pn.pn3347 = phi { ptr, i32 } [ %1631, %1630 ], [ %1631, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i960 ], [ %1710, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2167 ], [ %.pn398.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %3957
@@ -15677,7 +15677,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixI
   br i1 %3661, label %.body1209.thread, label %.preheader3425
 
 .body1209.thread:                                 ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2209, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2202, %2032, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1204
-  %.pn418.pn3366 = phi { ptr, i32 } [ %2033, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1204 ], [ %2033, %2032 ], [ %2112, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2202 ], [ %.pn418.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2209 ]
+  %.pn418.pn3366 = phi { ptr, i32 } [ %2033, %2032 ], [ %2033, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1204 ], [ %2112, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2202 ], [ %.pn418.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %3931
@@ -16072,7 +16072,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixI
   br i1 %3771, label %.body1631.thread, label %.preheader3423
 
 .body1631.thread:                                 ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2253, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2246, %2628, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1626
-  %.pn451.pn.pn3385 = phi { ptr, i32 } [ %2629, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1626 ], [ %2629, %2628 ], [ %2713, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2246 ], [ %.pn451.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2253 ]
+  %.pn451.pn.pn3385 = phi { ptr, i32 } [ %2629, %2628 ], [ %2629, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1626 ], [ %2713, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2246 ], [ %.pn451.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %3893
@@ -16331,7 +16331,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixI
   br i1 %3849, label %.body1886.thread, label %.preheader
 
 .body1886.thread:                                 ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2288, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2281, %3027, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1881
-  %.pn472.pn.pn3404 = phi { ptr, i32 } [ %3028, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1881 ], [ %3028, %3027 ], [ %3112, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2281 ], [ %.pn472.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2288 ]
+  %.pn472.pn.pn3404 = phi { ptr, i32 } [ %3028, %3027 ], [ %3028, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1881 ], [ %3112, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2281 ], [ %.pn472.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi6MatrixIdEEED2Ev.exit2288 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %3873

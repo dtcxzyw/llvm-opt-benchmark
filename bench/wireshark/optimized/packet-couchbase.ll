@@ -2518,7 +2518,7 @@ dissect_frame_extras.exit.thread:                 ; preds = %183, %185, %193, %1
   br label %is_request_magic.exit.i65
 
 dissect_frame_extras.exit:                        ; preds = %.thread581.i.i, %681, %683
-  %.4 = phi i16 [ 0, %683 ], [ %.0, %.thread581.i.i ], [ %.0, %681 ]
+  %.4 = phi i16 [ 0, %683 ], [ %.0, %681 ], [ %.0, %.thread581.i.i ]
   %688 = add nuw nsw i32 %182, %111
   %689 = and i8 %98, -2
   %switch.i.i61 = icmp eq i8 %689, -126
@@ -2775,8 +2775,8 @@ dissect_frame_key.exit.thread75:                  ; preds = %dissect_frame_key.e
   br label %837
 
 dissect_frame_key.exit:                           ; preds = %692, %695, %699, %.thread73.i.i, %switch.early.test.i, %switch.early.test.i, %.thread65.i.i, %switch.early.test16.i, %.critedge.i.i63, %switch.early.test17.i, %749
-  %757 = phi i32 [ %690, %692 ], [ %690, %695 ], [ %690, %699 ], [ %688, %.thread73.i.i ], [ %688, %switch.early.test.i ], [ %688, %switch.early.test.i ], [ %688, %.thread65.i.i ], [ %688, %switch.early.test16.i ], [ %688, %.critedge.i.i63 ], [ %688, %switch.early.test17.i ], [ %688, %749 ]
-  %.471 = phi i16 [ %.472, %692 ], [ %.472, %695 ], [ %.472, %699 ], [ %.4, %.thread73.i.i ], [ %.4, %switch.early.test.i ], [ %.4, %switch.early.test.i ], [ %.4, %.thread65.i.i ], [ %.4, %switch.early.test16.i ], [ %.4, %.critedge.i.i63 ], [ %.4, %switch.early.test17.i ], [ %.4, %749 ]
+  %757 = phi i32 [ %690, %692 ], [ %688, %.thread65.i.i ], [ %688, %749 ], [ %688, %switch.early.test.i ], [ %688, %switch.early.test17.i ], [ %690, %695 ], [ %688, %.critedge.i.i63 ], [ %688, %switch.early.test.i ], [ %690, %699 ], [ %688, %switch.early.test16.i ], [ %688, %.thread73.i.i ]
+  %.471 = phi i16 [ %.472, %692 ], [ %.4, %.thread65.i.i ], [ %.4, %749 ], [ %.4, %switch.early.test.i ], [ %.4, %switch.early.test17.i ], [ %.472, %695 ], [ %.4, %.critedge.i.i63 ], [ %.4, %switch.early.test.i ], [ %.472, %699 ], [ %.4, %switch.early.test16.i ], [ %.4, %.thread73.i.i ]
   %758 = add nuw nsw i32 %757, %110
   switch i8 %98, label %891 [
     i8 -128, label %759
@@ -3765,26 +3765,26 @@ has_json_value.exit.thread476:                    ; preds = %has_json_value.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.lr.ph511, %217, %proto_item_set_generated.exit, %has_json_value.exit.thread, %142, %167, %227, %280, %132, %129, %71, %.lr.ph517._crit_edge, %210, %215, %287, %289, %292
-  %.0428.ph = phi ptr [ %282, %292 ], [ %282, %289 ], [ %282, %287 ], [ %204, %215 ], [ %204, %210 ], [ %.3514.lcssa, %.lr.ph517._crit_edge ], [ null, %227 ], [ %171, %167 ], [ null, %71 ], [ %131, %129 ], [ %131, %132 ], [ %282, %280 ], [ null, %142 ], [ %137, %has_json_value.exit.thread ], [ %81, %proto_item_set_generated.exit ], [ %81, %.lr.ph511 ], [ %204, %217 ], [ %14, %36 ]
+  %.0428.ph = phi ptr [ %282, %292 ], [ %282, %289 ], [ %282, %287 ], [ %204, %215 ], [ %204, %210 ], [ %.3514.lcssa, %.lr.ph517._crit_edge ], [ null, %227 ], [ %81, %.lr.ph511 ], [ %171, %167 ], [ null, %71 ], [ %131, %129 ], [ %131, %132 ], [ %282, %280 ], [ %81, %proto_item_set_generated.exit ], [ %204, %217 ], [ %137, %has_json_value.exit.thread ], [ null, %142 ], [ %14, %36 ]
   switch i8 %6, label %.thread494 [
-    i8 0, label %294
-    i8 9, label %294
-    i8 12, label %294
-    i8 13, label %294
-    i8 5, label %294
-    i8 6, label %294
-    i8 11, label %294
-    i8 21, label %294
-    i8 22, label %294
-    i8 80, label %294
-    i8 81, label %294
-    i8 82, label %294
-    i8 84, label %294
-    i8 85, label %294
-    i8 88, label %294
-    i8 89, label %294
-    i8 90, label %294
-    i8 91, label %294
+    i8 0, label %295
+    i8 9, label %295
+    i8 12, label %295
+    i8 13, label %295
+    i8 5, label %295
+    i8 6, label %295
+    i8 11, label %295
+    i8 21, label %295
+    i8 22, label %295
+    i8 80, label %295
+    i8 81, label %295
+    i8 82, label %295
+    i8 84, label %295
+    i8 85, label %295
+    i8 88, label %295
+    i8 89, label %295
+    i8 90, label %295
+    i8 91, label %295
     i8 4, label %.critedge
     i8 7, label %.critedge
     i8 8, label %.critedge
@@ -3792,23 +3792,23 @@ has_json_value.exit.thread476:                    ; preds = %has_json_value.exit
     i8 20, label %.critedge
     i8 23, label %.critedge
     i8 24, label %.critedge
-    i8 1, label %295
-    i8 2, label %295
-    i8 3, label %295
-    i8 17, label %295
-    i8 18, label %295
-    i8 19, label %295
-    i8 14, label %295
-    i8 15, label %295
-    i8 25, label %295
-    i8 26, label %295
+    i8 1, label %294
+    i8 2, label %294
+    i8 3, label %294
+    i8 17, label %294
+    i8 18, label %294
+    i8 19, label %294
+    i8 14, label %294
+    i8 15, label %294
+    i8 25, label %294
+    i8 26, label %294
   ]
 
-294:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  br i1 %7, label %.critedge, label %.thread494
-
-295:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
+294:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
   br i1 %7, label %.thread494, label %.critedge
+
+295:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
+  br i1 %7, label %.critedge, label %.thread494
 
 .critedge:                                        ; preds = %294, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %295
   %296 = zext nneg i8 %6 to i32

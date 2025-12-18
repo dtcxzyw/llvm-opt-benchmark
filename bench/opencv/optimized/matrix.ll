@@ -902,8 +902,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %79, %
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !41
 
 .critedge:                                        ; preds = %100, %67, %49, %34, %22
-  %.052.lcssa = phi ptr [ %24, %22 ], [ %69, %67 ], [ %24, %34 ], [ %24, %49 ], [ %102, %100 ]
-  %.050.lcssa = phi ptr [ %26, %22 ], [ %26, %67 ], [ %26, %34 ], [ %51, %49 ], [ %103, %100 ]
+  %.052.lcssa = phi ptr [ %24, %22 ], [ %69, %67 ], [ %24, %49 ], [ %24, %34 ], [ %102, %100 ]
+  %.050.lcssa = phi ptr [ %26, %22 ], [ %26, %67 ], [ %51, %49 ], [ %26, %34 ], [ %103, %100 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %3, ptr noundef nonnull %12, i32 noundef 0, ptr noundef %.052.lcssa, ptr noundef %6)
           to label %106 unwind label %118

@@ -601,7 +601,7 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
   br i1 %.not, label %.loopexit, label %.lr.ph76
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph76, %._crit_edge73, %3
-  %.058 = phi ptr [ null, %3 ], [ %10, %._crit_edge73 ], [ %10, %.lr.ph76 ], [ null, %.lr.ph ]
+  %.058 = phi ptr [ %10, %._crit_edge73 ], [ null, %3 ], [ %10, %.lr.ph76 ], [ null, %.lr.ph ]
   ret ptr %.058
 }
 

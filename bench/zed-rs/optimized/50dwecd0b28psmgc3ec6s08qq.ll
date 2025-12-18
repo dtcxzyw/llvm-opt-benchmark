@@ -6976,7 +6976,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit129.i: ; preds =
   br label %.thread434.i
 
 .thread445.loopexit.split-lp.i:                   ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i", %801, %783, %782, %.loopexit512.i
-  %.sroa.044.3.ph.ph.i = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i" ], [ 0, %801 ], [ 1, %782 ], [ 1, %.loopexit512.i ], [ 1, %783 ]
+  %.sroa.044.3.ph.ph.i = phi i8 [ 0, %801 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i" ], [ 1, %782 ], [ 1, %.loopexit512.i ], [ 1, %783 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread434.i
@@ -9533,7 +9533,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit119.i: ; preds =
   br label %531
 
 .thread461.loopexit.split-lp.i:                   ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i", %783, %765, %764, %._crit_edge.i
-  %.sroa.040.3.ph.ph.i = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i" ], [ 0, %783 ], [ 1, %764 ], [ 1, %._crit_edge.i ], [ 1, %765 ]
+  %.sroa.040.3.ph.ph.i = phi i8 [ 0, %783 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i" ], [ 1, %764 ], [ 1, %._crit_edge.i ], [ 1, %765 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread450.i

@@ -995,7 +995,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
   br label %svq1_decode_delta_block.exit.us
 
 svq1_decode_delta_block.exit.us:                  ; preds = %484, %478, %413
-  %.0.i178.us = phi i32 [ %479, %478 ], [ %518, %484 ], [ %414, %413 ]
+  %.0.i178.us = phi i32 [ %414, %413 ], [ %479, %478 ], [ %518, %484 ]
   %.not172.us = icmp eq i32 %.0.i178.us, 0
   br i1 %.not172.us, label %svq1_decode_delta_block.exit.thread.us, label %.thread
 
@@ -1071,7 +1071,7 @@ default.unreachable.i183:                         ; preds = %409
   br label %.thread
 
 .thread:                                          ; preds = %264, %svq1_decode_delta_block.exit.us, %svq1_motion_inter_4v_block.exit.thread.i, %svq1_motion_inter_block.exit.i, %359, %.split.us, %243, %skip_1stop_8data_bits.exit.i, %217, %172, %107, %39, %38, %534, %291, %.thread190, %281, %284, %267, %28, %4, %538
-  %.0 = phi i32 [ %536, %534 ], [ -1094995529, %4 ], [ -1094995529, %28 ], [ -1094995529, %38 ], [ %272, %267 ], [ %13, %281 ], [ %13, %538 ], [ -12, %291 ], [ %289, %.thread190 ], [ %483, %svq1_motion_inter_block.exit.i ], [ %13, %284 ], [ -12, %39 ], [ -1094995529, %107 ], [ -1094995529, %172 ], [ -1094995529, %217 ], [ -1094995529, %skip_1stop_8data_bits.exit.i ], [ -1094995529, %243 ], [ %345, %.split.us ], [ -1094995529, %359 ], [ %.0.i.ph.i.us, %svq1_motion_inter_4v_block.exit.thread.i ], [ %.0.i178.us, %svq1_decode_delta_block.exit.us ], [ -1094995529, %264 ]
+  %.0 = phi i32 [ %536, %534 ], [ -1094995529, %4 ], [ -1094995529, %28 ], [ -1094995529, %38 ], [ %272, %267 ], [ %13, %281 ], [ %.0.i178.us, %svq1_decode_delta_block.exit.us ], [ %13, %538 ], [ -12, %291 ], [ %289, %.thread190 ], [ %483, %svq1_motion_inter_block.exit.i ], [ %13, %284 ], [ -12, %39 ], [ -1094995529, %107 ], [ -1094995529, %172 ], [ -1094995529, %217 ], [ -1094995529, %skip_1stop_8data_bits.exit.i ], [ -1094995529, %243 ], [ %345, %.split.us ], [ -1094995529, %359 ], [ %.0.i.ph.i.us, %svq1_motion_inter_4v_block.exit.thread.i ], [ -1094995529, %264 ]
   ret i32 %.0
 }
 

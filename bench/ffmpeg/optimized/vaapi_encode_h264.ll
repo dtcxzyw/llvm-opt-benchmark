@@ -1714,7 +1714,7 @@ define internal noundef i32 @vaapi_encode_h264_init_slice_params(ptr noundef %0,
   br i1 %215, label %._crit_edge177.thread233.i, label %.thread293
 
 ._crit_edge177.thread233.i:                       ; preds = %213, %._crit_edge177.i, %._crit_edge173.thread.i
-  %.0.lcssa225228232.i = phi i32 [ %132, %._crit_edge177.i ], [ 0, %._crit_edge173.thread.i ], [ %132, %213 ]
+  %.0.lcssa225228232.i = phi i32 [ 0, %._crit_edge173.thread.i ], [ %132, %._crit_edge177.i ], [ %132, %213 ]
   %216 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %217 = load ptr, ptr %216, align 8, !tbaa !209
   %218 = load ptr, ptr %6, align 16, !tbaa !209

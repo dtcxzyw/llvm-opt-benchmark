@@ -294,9 +294,9 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %48
   br label %.loopexit119.i
 
 .loopexit119.i:                                   ; preds = %.critedge.us.i, %.critedge.i, %58, %116, %72, %.preheader118.i, %23
-  %128 = phi i8 [ %24, %23 ], [ %66, %116 ], [ %24, %.preheader118.i ], [ %66, %72 ], [ %66, %.critedge.i ], [ %24, %58 ], [ %66, %.critedge.us.i ]
-  %.190.i = phi i64 [ %.089131.i, %23 ], [ %.291.i, %116 ], [ %.291107180.i, %.preheader118.i ], [ %.291.i, %72 ], [ %.291.i, %.critedge.i ], [ %.291107180.i, %58 ], [ %.291.i, %.critedge.us.i ]
-  %.1.i = phi i32 [ %.085132.i, %23 ], [ %127, %116 ], [ %.085132.i, %.preheader118.i ], [ %.085132.i, %72 ], [ %.085132.i, %.critedge.i ], [ %.085132.i, %58 ], [ %.085132.i, %.critedge.us.i ]
+  %128 = phi i8 [ %24, %23 ], [ %24, %.preheader118.i ], [ %66, %116 ], [ %66, %72 ], [ %24, %58 ], [ %66, %.critedge.i ], [ %66, %.critedge.us.i ]
+  %.190.i = phi i64 [ %.089131.i, %23 ], [ %.291107180.i, %.preheader118.i ], [ %.291.i, %116 ], [ %.291.i, %72 ], [ %.291107180.i, %58 ], [ %.291.i, %.critedge.i ], [ %.291.i, %.critedge.us.i ]
+  %.1.i = phi i32 [ %.085132.i, %23 ], [ %.085132.i, %.preheader118.i ], [ %127, %116 ], [ %.085132.i, %72 ], [ %.085132.i, %58 ], [ %.085132.i, %.critedge.i ], [ %.085132.i, %.critedge.us.i ]
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, 95
   br i1 %exitcond151.not.i, label %21, label %23, !llvm.loop !68

@@ -598,7 +598,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   %67 = icmp sgt i32 %51, %60
   %68 = icmp sgt i32 %51, %.fr
   %or.cond101 = and i1 %67, %68
-  br i1 %or.cond101, label %69, label %97
+  br i1 %or.cond101, label %69, label %89
 
 69:                                               ; preds = %66
   br i1 %.not94, label %70, label %.critedge107
@@ -627,101 +627,101 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   %87 = getelementptr inbounds i8, ptr %86, i64 %77
   %88 = load i8, ptr %87, align 1
   %.not97 = icmp eq i8 %88, 0
-  br i1 %.not97, label %.critedge, label %89
+  br i1 %.not97, label %.critedge, label %144
 
-89:                                               ; preds = %82
-  %90 = getelementptr inbounds [4 x i16], ptr %1, i64 %85
-  %91 = getelementptr inbounds i16, ptr %90, i64 %77
-  %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds [4 x i16], ptr %1, i64 %75
-  %94 = getelementptr inbounds i16, ptr %93, i64 %77
-  %95 = load i16, ptr %94, align 2
-  %96 = icmp ugt i16 %92, %95
-  br i1 %96, label %.critedge107, label %.critedge
+89:                                               ; preds = %66
+  %90 = icmp sgt i32 %25, %60
+  %or.cond102 = and i1 %90, %37
+  br i1 %or.cond102, label %91, label %103
 
-97:                                               ; preds = %66
-  %98 = icmp sgt i32 %25, %60
-  %or.cond102 = and i1 %98, %37
-  br i1 %or.cond102, label %99, label %111
+91:                                               ; preds = %89
+  br i1 %.not94, label %92, label %.critedge107
 
-99:                                               ; preds = %97
-  br i1 %.not94, label %100, label %.critedge107
+92:                                               ; preds = %91
+  %93 = load i32, ptr %0, align 8
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i32, ptr @partner, i64 %94
+  %96 = load i32, ptr %95, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds [4 x i8], ptr %39, i64 %97
+  %99 = sext i32 %56 to i64
+  %100 = getelementptr inbounds i8, ptr %98, i64 %99
+  %101 = load i8, ptr %100, align 1
+  %102 = icmp eq i8 %101, 0
+  br i1 %102, label %.critedge107, label %.critedge
 
-100:                                              ; preds = %99
-  %101 = load i32, ptr %0, align 8
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr @partner, i64 %102
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds [4 x i8], ptr %39, i64 %105
-  %107 = sext i32 %56 to i64
-  %108 = getelementptr inbounds i8, ptr %106, i64 %107
-  %109 = load i8, ptr %108, align 1
-  %110 = icmp eq i8 %109, 0
-  br i1 %110, label %.critedge107, label %.critedge
-
-111:                                              ; preds = %97
+103:                                              ; preds = %89
   %or.cond103 = icmp sgt i32 %60, %invariant.smax
-  %112 = icmp sgt i32 %60, %51
-  %or.cond109 = and i1 %112, %or.cond103
-  br i1 %or.cond109, label %113, label %141
+  %104 = icmp sgt i32 %60, %51
+  %or.cond109 = and i1 %104, %or.cond103
+  br i1 %or.cond109, label %105, label %133
 
-113:                                              ; preds = %111
-  br i1 %38, label %114, label %.critedge
+105:                                              ; preds = %103
+  br i1 %38, label %106, label %.critedge
 
-114:                                              ; preds = %113
-  %115 = load i32, ptr %0, align 8
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i32, ptr @rho, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds [4 x i8], ptr %39, i64 %119
-  %121 = sext i32 %56 to i64
-  %122 = getelementptr inbounds i8, ptr %120, i64 %121
+106:                                              ; preds = %105
+  %107 = load i32, ptr %0, align 8
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds i32, ptr @rho, i64 %108
+  %110 = load i32, ptr %109, align 4
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds [4 x i8], ptr %39, i64 %111
+  %113 = sext i32 %56 to i64
+  %114 = getelementptr inbounds i8, ptr %112, i64 %113
+  %115 = load i8, ptr %114, align 1
+  %.not93 = icmp eq i8 %115, 0
+  br i1 %.not93, label %.critedge, label %116
+
+116:                                              ; preds = %106
+  br i1 %.not94, label %117, label %.critedge107
+
+117:                                              ; preds = %116
+  %118 = getelementptr inbounds i32, ptr @partner, i64 %108
+  %119 = load i32, ptr %118, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds [4 x i8], ptr %39, i64 %120
+  %122 = getelementptr inbounds i8, ptr %121, i64 %113
   %123 = load i8, ptr %122, align 1
-  %.not93 = icmp eq i8 %123, 0
-  br i1 %.not93, label %.critedge, label %124
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %.critedge107, label %125
 
-124:                                              ; preds = %114
-  br i1 %.not94, label %125, label %.critedge107
+125:                                              ; preds = %117
+  %126 = getelementptr inbounds [4 x i16], ptr %1, i64 %111
+  %127 = getelementptr inbounds i16, ptr %126, i64 %113
+  %128 = load i16, ptr %127, align 2
+  %129 = getelementptr inbounds [4 x i16], ptr %1, i64 %120
+  %130 = getelementptr inbounds i16, ptr %129, i64 %113
+  %131 = load i16, ptr %130, align 2
+  %132 = icmp ugt i16 %128, %131
+  br i1 %132, label %.critedge107, label %.critedge
 
-125:                                              ; preds = %124
-  %126 = getelementptr inbounds i32, ptr @partner, i64 %116
-  %127 = load i32, ptr %126, align 4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds [4 x i8], ptr %39, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 %121
-  %131 = load i8, ptr %130, align 1
-  %132 = icmp eq i8 %131, 0
-  br i1 %132, label %.critedge107, label %133
+133:                                              ; preds = %103
+  br i1 %38, label %134, label %.critedge
 
-133:                                              ; preds = %125
-  %134 = getelementptr inbounds [4 x i16], ptr %1, i64 %119
-  %135 = getelementptr inbounds i16, ptr %134, i64 %121
-  %136 = load i16, ptr %135, align 2
-  %137 = getelementptr inbounds [4 x i16], ptr %1, i64 %128
-  %138 = getelementptr inbounds i16, ptr %137, i64 %121
-  %139 = load i16, ptr %138, align 2
-  %140 = icmp ugt i16 %136, %139
-  br i1 %140, label %.critedge107, label %.critedge
-
-141:                                              ; preds = %111
-  br i1 %38, label %142, label %.critedge
-
-142:                                              ; preds = %141
-  %143 = load i32, ptr %0, align 8
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr @rho, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [4 x i8], ptr %39, i64 %147
-  %149 = sext i32 %56 to i64
-  %150 = getelementptr inbounds i8, ptr %148, i64 %149
-  %151 = load i8, ptr %150, align 1
-  %.not.not = icmp eq i8 %151, 0
+134:                                              ; preds = %133
+  %135 = load i32, ptr %0, align 8
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i32, ptr @rho, i64 %136
+  %138 = load i32, ptr %137, align 4
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds [4 x i8], ptr %39, i64 %139
+  %141 = sext i32 %56 to i64
+  %142 = getelementptr inbounds i8, ptr %140, i64 %141
+  %143 = load i8, ptr %142, align 1
+  %.not.not = icmp eq i8 %143, 0
   br i1 %.not.not, label %.critedge, label %.critedge107
 
-.critedge107:                                     ; preds = %89, %133, %61, %69, %124, %70, %125, %63, %100, %99, %142
+144:                                              ; preds = %82
+  %145 = getelementptr inbounds [4 x i16], ptr %1, i64 %85
+  %146 = getelementptr inbounds i16, ptr %145, i64 %77
+  %147 = load i16, ptr %146, align 2
+  %148 = getelementptr inbounds [4 x i16], ptr %1, i64 %75
+  %149 = getelementptr inbounds i16, ptr %148, i64 %77
+  %150 = load i16, ptr %149, align 2
+  %151 = icmp ugt i16 %147, %150
+  br i1 %151, label %.critedge107, label %.critedge
+
+.critedge107:                                     ; preds = %134, %125, %61, %117, %69, %70, %116, %63, %92, %91, %144
   %152 = icmp sgt i32 %27, %51
   br i1 %152, label %153, label %156
 
@@ -811,7 +811,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   store i32 %199, ptr %195, align 4
   br label %216
 
-.critedge:                                        ; preds = %89, %133, %141, %63, %82, %81, %100, %114, %113, %142
+.critedge:                                        ; preds = %134, %125, %133, %63, %82, %81, %92, %106, %105, %144
   %or.cond108 = icmp slt i32 %51, %invariant.smax111
   br i1 %or.cond108, label %200, label %203
 
@@ -3939,68 +3939,68 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %274 = getelementptr inbounds i8, ptr %273, i64 %.pre-phi
   %275 = load i8, ptr %274, align 1
   %276 = icmp eq i8 %275, 0
-  br i1 %276, label %277, label %294
+  br i1 %276, label %277, label %303
 
 277:                                              ; preds = %272
   %278 = getelementptr inbounds i8, ptr %273, i64 %269
   %279 = load i8, ptr %278, align 1
   %.not211 = icmp eq i8 %279, 0
-  br i1 %.not211, label %294, label %280
+  br i1 %.not211, label %303, label %280
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds [4 x i8], ptr %6, i64 %237
   %282 = getelementptr inbounds i8, ptr %281, i64 %.pre-phi
   %283 = load i8, ptr %282, align 1
   %284 = icmp eq i8 %283, 0
-  br i1 %284, label %285, label %288
+  br i1 %284, label %285, label %297
 
 285:                                              ; preds = %280
   %286 = getelementptr inbounds i8, ptr %281, i64 %269
   %287 = load i8, ptr %286, align 1
   %.not212 = icmp eq i8 %287, 0
-  br i1 %.not212, label %288, label %308
+  br i1 %.not212, label %297, label %288
 
-288:                                              ; preds = %285, %280
+288:                                              ; preds = %285
   %289 = getelementptr inbounds i16, ptr %228, i64 %269
   %290 = load i16, ptr %289, align 2
   %291 = getelementptr inbounds i16, ptr %234, i64 %269
   %292 = load i16, ptr %291, align 2
-  %293 = icmp ugt i16 %290, %292
-  br i1 %293, label %.critedge, label %.critedge234
+  %293 = getelementptr inbounds i16, ptr %238, i64 %269
+  %294 = load i16, ptr %293, align 2
+  %295 = or i16 %294, %292
+  %296 = icmp ugt i16 %290, %295
+  br i1 %296, label %.critedge, label %.critedge234
 
-294:                                              ; preds = %277, %272
-  %295 = getelementptr inbounds [4 x i8], ptr %6, i64 %237
-  %296 = getelementptr inbounds i8, ptr %295, i64 %.pre-phi
-  %297 = load i8, ptr %296, align 1
-  %298 = icmp eq i8 %297, 0
-  br i1 %298, label %299, label %.critedge
+297:                                              ; preds = %285, %280
+  %298 = getelementptr inbounds i16, ptr %228, i64 %269
+  %299 = load i16, ptr %298, align 2
+  %300 = getelementptr inbounds i16, ptr %234, i64 %269
+  %301 = load i16, ptr %300, align 2
+  %302 = icmp ugt i16 %299, %301
+  br i1 %302, label %.critedge, label %.critedge234
 
-299:                                              ; preds = %294
-  %300 = getelementptr inbounds i8, ptr %295, i64 %269
-  %301 = load i8, ptr %300, align 1
-  %.not214 = icmp eq i8 %301, 0
-  br i1 %.not214, label %.critedge, label %302
+303:                                              ; preds = %277, %272
+  %304 = getelementptr inbounds [4 x i8], ptr %6, i64 %237
+  %305 = getelementptr inbounds i8, ptr %304, i64 %.pre-phi
+  %306 = load i8, ptr %305, align 1
+  %307 = icmp eq i8 %306, 0
+  br i1 %307, label %308, label %.critedge
 
-302:                                              ; preds = %299
-  %303 = getelementptr inbounds i16, ptr %228, i64 %269
-  %304 = load i16, ptr %303, align 2
-  %305 = getelementptr inbounds i16, ptr %238, i64 %269
-  %306 = load i16, ptr %305, align 2
-  %307 = icmp ugt i16 %304, %306
-  br i1 %307, label %.critedge, label %.critedge234
+308:                                              ; preds = %303
+  %309 = getelementptr inbounds i8, ptr %304, i64 %269
+  %310 = load i8, ptr %309, align 1
+  %.not214 = icmp eq i8 %310, 0
+  br i1 %.not214, label %.critedge, label %311
 
-308:                                              ; preds = %285
-  %309 = getelementptr inbounds i16, ptr %228, i64 %269
-  %310 = load i16, ptr %309, align 2
-  %311 = getelementptr inbounds i16, ptr %234, i64 %269
-  %312 = load i16, ptr %311, align 2
-  %313 = getelementptr inbounds i16, ptr %238, i64 %269
-  %314 = load i16, ptr %313, align 2
-  %315 = or i16 %314, %312
-  %316 = icmp ugt i16 %310, %315
+311:                                              ; preds = %308
+  %312 = getelementptr inbounds i16, ptr %228, i64 %269
+  %313 = load i16, ptr %312, align 2
+  %314 = getelementptr inbounds i16, ptr %238, i64 %269
+  %315 = load i16, ptr %314, align 2
+  %316 = icmp ugt i16 %313, %315
   br i1 %316, label %.critedge, label %.critedge234
 
-.critedge:                                        ; preds = %302, %288, %161, %243, %299, %294, %191, %186, %216, %211, %257, %253, %308
+.critedge:                                        ; preds = %288, %297, %161, %243, %308, %303, %191, %186, %216, %211, %257, %253, %311
   br i1 %55, label %317, label %321
 
 317:                                              ; preds = %.critedge
@@ -4145,9 +4145,9 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %401 = icmp eq i32 %396, %400
   br i1 %401, label %.sink.split, label %482
 
-.critedge234:                                     ; preds = %302, %288, %191, %181, %216, %203, %262, %257, %248, %268, %263, %308
-  %402 = phi i32 [ %232, %302 ], [ %232, %288 ], [ %176, %191 ], [ %176, %181 ], [ %198, %216 ], [ %198, %203 ], [ %232, %262 ], [ %232, %257 ], [ %232, %248 ], [ %232, %268 ], [ %232, %263 ], [ %232, %308 ]
-  %403 = phi i32 [ %226, %302 ], [ %226, %288 ], [ %164, %191 ], [ %164, %181 ], [ %164, %216 ], [ %164, %203 ], [ %226, %262 ], [ %226, %257 ], [ %226, %248 ], [ %226, %268 ], [ %226, %263 ], [ %226, %308 ]
+.critedge234:                                     ; preds = %288, %297, %263, %191, %181, %268, %216, %203, %262, %257, %248, %311
+  %402 = phi i32 [ %232, %288 ], [ %232, %297 ], [ %232, %263 ], [ %176, %191 ], [ %176, %181 ], [ %232, %268 ], [ %198, %216 ], [ %198, %203 ], [ %232, %262 ], [ %232, %257 ], [ %232, %248 ], [ %232, %311 ]
+  %403 = phi i32 [ %226, %288 ], [ %226, %297 ], [ %226, %263 ], [ %164, %191 ], [ %164, %181 ], [ %226, %268 ], [ %164, %216 ], [ %164, %203 ], [ %226, %262 ], [ %226, %257 ], [ %226, %248 ], [ %226, %311 ]
   %404 = getelementptr %struct.absRankType, ptr %53, i64 %.pre-phi
   %405 = getelementptr i8, ptr %404, i64 25
   %406 = load i8, ptr %405, align 1

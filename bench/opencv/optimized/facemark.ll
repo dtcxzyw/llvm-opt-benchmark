@@ -1103,7 +1103,7 @@ define noundef zeroext i1 @_ZN2cv4face16loadTrainingDataENSt7__cxx1112basic_stri
   br label %271
 
 .loopexit.split-lp109:                            ; preds = %19, %31, %._crit_edge147
-  %.sroa.080.0.ph = phi ptr [ null, %19 ], [ null, %31 ], [ %.sroa.080.3.lcssa, %._crit_edge147 ]
+  %.sroa.080.0.ph = phi ptr [ null, %31 ], [ null, %19 ], [ %.sroa.080.3.lcssa, %._crit_edge147 ]
   %lpad.loopexit.split-lp111 = landingpad { ptr, i32 }
           cleanup
   br label %271
@@ -1433,7 +1433,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   br label %.loopexit.split-lp99
 
 .loopexit.split-lp99.loopexit:                    ; preds = %198, %_ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %131, %.noexc.i.i.i.i, %109
-  %.sroa.080.4.ph.ph = phi ptr [ %.sroa.080.5, %198 ], [ %.sroa.080.5, %_ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i ], [ %.sroa.080.3145, %131 ], [ %.sroa.080.3145, %.noexc.i.i.i.i ], [ %.sroa.080.3145, %109 ]
+  %.sroa.080.4.ph.ph = phi ptr [ %.sroa.080.5, %198 ], [ %.sroa.080.5, %_ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i ], [ %.sroa.080.3145, %109 ], [ %.sroa.080.3145, %131 ], [ %.sroa.080.3145, %.noexc.i.i.i.i ]
   %lpad.loopexit113 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp99

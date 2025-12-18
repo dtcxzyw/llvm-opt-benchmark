@@ -731,7 +731,7 @@ mi_heap_malloc_aligned_at.exit:                   ; preds = %66, %.thread.i.i
   br label %mi_heap_malloc_zero_aligned_at.exit
 
 mi_heap_malloc_zero_aligned_at.exit:              ; preds = %47, %.thread.i, %34, %32, %12, %42, %74, %mi_heap_malloc_aligned_at.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ %1, %42 ], [ %.030.i.i, %74 ], [ null, %12 ], [ %36, %.thread.i ], [ %33, %32 ], [ %35, %34 ], [ null, %47 ]
+  %.0 = phi ptr [ %9, %8 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ %1, %42 ], [ %.030.i.i, %74 ], [ null, %12 ], [ %36, %.thread.i ], [ %35, %34 ], [ %33, %32 ], [ null, %47 ]
   ret ptr %.0
 }
 

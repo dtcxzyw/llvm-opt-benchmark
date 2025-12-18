@@ -901,7 +901,7 @@ define hidden noundef zeroext i1 @"_ZN107_$LT$core..ops..range..RangeInclusive$L
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %23, %12, %5, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %5 ], [ false, %2 ], [ %.not.i13.not, %23 ], [ true, %14 ]
+  %.0 = phi i1 [ false, %12 ], [ %.not.i13.not, %23 ], [ false, %5 ], [ false, %2 ], [ true, %14 ]
   ret i1 %.0
 }
 
@@ -2900,10 +2900,10 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i338: ;
   br label %274
 
 .outer._crit_edge:                                ; preds = %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit, %515, %230
-  %.sroa.14.0.ph.lcssa2119 = phi i32 [ undef, %230 ], [ %.sroa.14.0.ph2139, %515 ], [ %.sroa.14.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
-  %.sroa.11.0.ph.lcssa2102 = phi i64 [ undef, %230 ], [ %.sroa.11.0.ph2140, %515 ], [ %.sroa.11.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
-  %.sroa.0.0.ph.lcssa2085 = phi i64 [ 0, %230 ], [ %.sroa.0.0.ph2141, %515 ], [ %.sroa.0.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
-  %.2.lcssa = phi i32 [ %.0, %230 ], [ %.7, %515 ], [ %.61427, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.sroa.14.0.ph.lcssa2119 = phi i32 [ %.sroa.14.0.ph2139, %515 ], [ undef, %230 ], [ %.sroa.14.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.sroa.11.0.ph.lcssa2102 = phi i64 [ %.sroa.11.0.ph2140, %515 ], [ undef, %230 ], [ %.sroa.11.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.sroa.0.0.ph.lcssa2085 = phi i64 [ %.sroa.0.0.ph2141, %515 ], [ 0, %230 ], [ %.sroa.0.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.2.lcssa = phi i32 [ %.7, %515 ], [ %.0, %230 ], [ %.61427, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
   %.not1740 = icmp ult i64 %51, %132
   br i1 %.not1740, label %260, label %253
 
@@ -3255,11 +3255,11 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit573: ; pr
   br i1 %.not88.i, label %403, label %450
 
 _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit: ; preds = %372, %.preheader1766, %344, %428, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i, %407, %457
-  %.61427 = phi i32 [ %.6, %428 ], [ %.6, %457 ], [ %.6, %407 ], [ %.6, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %342, %344 ], [ %.22127, %.preheader1766 ], [ %.6, %372 ]
-  %.413171426 = phi i64 [ %.41317, %428 ], [ %.41317, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %345, %344 ], [ %.113142126, %.preheader1766 ], [ %.41317, %372 ]
-  %.sroa.14.1 = phi i32 [ %432, %428 ], [ %.sroa.14.0.ph2139, %457 ], [ 0, %407 ], [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.14.0.ph2139, %344 ], [ %.sroa.14.0.ph2139, %.preheader1766 ], [ %.sroa.14.0.ph2139, %372 ]
-  %.sroa.11.1 = phi i64 [ %.41317, %428 ], [ %.sroa.11.0.ph2140, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.11.0.ph2140, %344 ], [ %.sroa.11.0.ph2140, %.preheader1766 ], [ %.sroa.11.0.ph2140, %372 ]
-  %.sroa.0.1 = phi i64 [ 1, %428 ], [ %.sroa.0.0.ph2141, %457 ], [ 1, %407 ], [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.0.0.ph2141, %344 ], [ %.sroa.0.0.ph2141, %.preheader1766 ], [ %.sroa.0.0.ph2141, %372 ]
+  %.61427 = phi i32 [ %342, %344 ], [ %.6, %428 ], [ %.6, %457 ], [ %.6, %407 ], [ %.6, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.22127, %.preheader1766 ], [ %.6, %372 ]
+  %.413171426 = phi i64 [ %345, %344 ], [ %.41317, %428 ], [ %.41317, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.113142126, %.preheader1766 ], [ %.41317, %372 ]
+  %.sroa.14.1 = phi i32 [ %.sroa.14.0.ph2139, %344 ], [ %432, %428 ], [ %.sroa.14.0.ph2139, %457 ], [ 0, %407 ], [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.14.0.ph2139, %.preheader1766 ], [ %.sroa.14.0.ph2139, %372 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0.ph2140, %344 ], [ %.41317, %428 ], [ %.sroa.11.0.ph2140, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.11.0.ph2140, %.preheader1766 ], [ %.sroa.11.0.ph2140, %372 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0.ph2141, %344 ], [ 1, %428 ], [ %.sroa.0.0.ph2141, %457 ], [ 1, %407 ], [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.0.0.ph2141, %.preheader1766 ], [ %.sroa.0.0.ph2141, %372 ]
   %401 = add i64 %.413171426, 1
   %402 = icmp ult i64 %401, %51
   br i1 %402, label %.lr.ph2128, label %.outer._crit_edge
@@ -5323,11 +5323,11 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit793: ; pr
   unreachable
 
 _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit801: ; preds = %1123, %.preheader1764, %1206, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798, %1185, %1151
-  %.313511636 = phi i64 [ %.31351, %1206 ], [ %.31351, %1151 ], [ %.31351, %1185 ], [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.013482167, %.preheader1764 ], [ %1124, %1123 ]
-  %.413561635 = phi i32 [ %.41356, %1206 ], [ %.41356, %1151 ], [ %.41356, %1185 ], [ %.41356, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.013522166, %.preheader1764 ], [ %1121, %1123 ]
-  %.sroa.01081.1 = phi i64 [ 1, %1206 ], [ %.sroa.01081.02163, %1151 ], [ 1, %1185 ], [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.sroa.01081.02163, %.preheader1764 ], [ %.sroa.01081.02163, %1123 ]
-  %.sroa.9.1 = phi i64 [ %.31351, %1206 ], [ %.sroa.9.02164, %1151 ], [ %.31351, %1185 ], [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.sroa.9.02164, %.preheader1764 ], [ %.sroa.9.02164, %1123 ]
-  %.sroa.121085.1 = phi i32 [ %1210, %1206 ], [ %.sroa.121085.02165, %1151 ], [ 0, %1185 ], [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.sroa.121085.02165, %.preheader1764 ], [ %.sroa.121085.02165, %1123 ]
+  %.313511636 = phi i64 [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.31351, %1206 ], [ %.31351, %1151 ], [ %.31351, %1185 ], [ %.013482167, %.preheader1764 ], [ %1124, %1123 ]
+  %.413561635 = phi i32 [ %.41356, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.41356, %1206 ], [ %.41356, %1151 ], [ %.41356, %1185 ], [ %.013522166, %.preheader1764 ], [ %1121, %1123 ]
+  %.sroa.01081.1 = phi i64 [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ 1, %1206 ], [ %.sroa.01081.02163, %1151 ], [ 1, %1185 ], [ %.sroa.01081.02163, %.preheader1764 ], [ %.sroa.01081.02163, %1123 ]
+  %.sroa.9.1 = phi i64 [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.31351, %1206 ], [ %.sroa.9.02164, %1151 ], [ %.31351, %1185 ], [ %.sroa.9.02164, %.preheader1764 ], [ %.sroa.9.02164, %1123 ]
+  %.sroa.121085.1 = phi i32 [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %1210, %1206 ], [ %.sroa.121085.02165, %1151 ], [ 0, %1185 ], [ %.sroa.121085.02165, %.preheader1764 ], [ %.sroa.121085.02165, %1123 ]
   %1179 = add i64 %.313511636, 1
   %1180 = icmp ult i64 %1179, %51
   br i1 %1180, label %1053, label %._crit_edge2170
@@ -8623,7 +8623,7 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
   br i1 %328, label %330, label %329
 
 .loopexit:                                        ; preds = %316, %379, %381, %383
-  %.2.i = phi ptr [ %382, %381 ], [ %384, %383 ], [ %380, %379 ], [ null, %316 ]
+  %.2.i = phi ptr [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ null, %316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2248
   br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
 
@@ -12311,8 +12311,8 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   br label %.split84.us.i
 
 .split84.us.i:                                    ; preds = %.split84.us.i.loopexit171, %.split84.us.i.loopexit, %.lr.ph.split.us
-  %.sroa.066.3 = phi i64 [ %.sroa.066.1, %.split84.us.i.loopexit ], [ %.sroa.066.5.insert.insert118, %.lr.ph.split.us ], [ %.sroa.066.2, %.split84.us.i.loopexit171 ]
-  %.sroa.24.3 = phi i64 [ %spec.select, %.split84.us.i.loopexit ], [ 257, %.lr.ph.split.us ], [ %.sroa.24.1.mux, %.split84.us.i.loopexit171 ]
+  %.sroa.066.3 = phi i64 [ %.sroa.066.5.insert.insert118, %.lr.ph.split.us ], [ %.sroa.066.1, %.split84.us.i.loopexit ], [ %.sroa.066.2, %.split84.us.i.loopexit171 ]
+  %.sroa.24.3 = phi i64 [ 257, %.lr.ph.split.us ], [ %spec.select, %.split84.us.i.loopexit ], [ %.sroa.24.1.mux, %.split84.us.i.loopexit171 ]
   %.sroa.066.0.insert.mask = and i64 %.sroa.066.3, -256
   %.sroa.066.0.insert.insert = or disjoint i64 %.sroa.066.0.insert.mask, 2
   br label %"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h937e35ff2fad6632E.exit"
@@ -13102,7 +13102,7 @@ define hidden noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet14con
   br label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit"
 
 "_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit": ; preds = %5, %3, %14
-  %.0.i = phi i1 [ %22, %14 ], [ true, %3 ], [ false, %5 ]
+  %.0.i = phi i1 [ true, %3 ], [ %22, %14 ], [ false, %5 ]
   ret i1 %.0.i
 }
 
@@ -13215,9 +13215,9 @@ define i24 @"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %.loopexit.loopexit, %.lr.ph.preheader, %thread-pre-split
-  %.sroa.4.0 = phi i8 [ -1, %thread-pre-split ], [ %8, %.lr.ph.preheader ], [ %.sroa.4.0.ph, %.loopexit.loopexit ], [ undef, %4 ]
-  %.sroa.3.0 = phi i8 [ -1, %thread-pre-split ], [ %8, %.lr.ph.preheader ], [ %8, %.loopexit.loopexit ], [ undef, %4 ]
-  %.sroa.0.0 = phi i8 [ 1, %thread-pre-split ], [ 1, %.lr.ph.preheader ], [ 1, %.loopexit.loopexit ], [ 0, %4 ]
+  %.sroa.4.0 = phi i8 [ %8, %.lr.ph.preheader ], [ -1, %thread-pre-split ], [ %.sroa.4.0.ph, %.loopexit.loopexit ], [ undef, %4 ]
+  %.sroa.3.0 = phi i8 [ %8, %.lr.ph.preheader ], [ -1, %thread-pre-split ], [ %8, %.loopexit.loopexit ], [ undef, %4 ]
+  %.sroa.0.0 = phi i8 [ 1, %.lr.ph.preheader ], [ 1, %thread-pre-split ], [ 1, %.loopexit.loopexit ], [ 0, %4 ]
   %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.0 to i24

@@ -141,10 +141,10 @@ define void @jinit_d_diff_controller(ptr noundef %0, i32 noundef %1) local_unnam
   br label %._crit_edge62
 
 ._crit_edge62:                                    ; preds = %62, %58, %._crit_edge.thread, %89
-  %.sink71 = phi i64 [ 24, %89 ], [ 8, %._crit_edge.thread ], [ 8, %58 ], [ 8, %62 ]
-  %decompress_data.sink = phi ptr [ @decompress_data, %89 ], [ @consume_data, %._crit_edge.thread ], [ @consume_data, %58 ], [ @consume_data, %62 ]
-  %.sink69 = phi i64 [ 248, %89 ], [ 24, %._crit_edge.thread ], [ 24, %58 ], [ 24, %62 ]
-  %.sink = phi ptr [ null, %89 ], [ @output_data, %._crit_edge.thread ], [ @output_data, %58 ], [ @output_data, %62 ]
+  %.sink71 = phi i64 [ 24, %89 ], [ 8, %58 ], [ 8, %._crit_edge.thread ], [ 8, %62 ]
+  %decompress_data.sink = phi ptr [ @decompress_data, %89 ], [ @consume_data, %58 ], [ @consume_data, %._crit_edge.thread ], [ @consume_data, %62 ]
+  %.sink69 = phi i64 [ 248, %89 ], [ 24, %58 ], [ 24, %._crit_edge.thread ], [ 24, %62 ]
+  %.sink = phi ptr [ null, %89 ], [ @output_data, %58 ], [ @output_data, %._crit_edge.thread ], [ @output_data, %62 ]
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink71
   store ptr %decompress_data.sink, ptr %91, align 8, !tbaa !62
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink69

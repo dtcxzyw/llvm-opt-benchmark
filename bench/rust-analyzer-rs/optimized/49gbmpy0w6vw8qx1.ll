@@ -834,7 +834,7 @@ _ZN8lz4_flex5block8compress13write_integer17h81b7816e5ff18e58E.exit65: ; preds =
   br label %175
 
 .sink.split:                                      ; preds = %175, %.backedge, %32, %23
-  %.0.lcssa.sink = phi i64 [ %2, %23 ], [ %2, %32 ], [ %.0102, %.backedge ], [ %.7, %175 ]
+  %.0.lcssa.sink = phi i64 [ %2, %23 ], [ %.0102, %.backedge ], [ %2, %32 ], [ %.7, %175 ]
   tail call fastcc void @_ZN8lz4_flex5block8compress20handle_last_literals17hb8845c3896eaf2ddE(ptr noalias noundef align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.0.lcssa.sink)
   %.val39 = load i64, ptr %15, align 8, !noundef !9
   %194 = sub i64 %.val39, %.val42
@@ -1225,7 +1225,7 @@ _ZN8lz4_flex5block8compress13write_integer17h81b7816e5ff18e58E.exit65: ; preds =
   br label %177
 
 .sink.split:                                      ; preds = %177, %.backedge, %33, %23
-  %.0.lcssa.sink = phi i64 [ %2, %23 ], [ %2, %33 ], [ %.0102, %.backedge ], [ %.7, %177 ]
+  %.0.lcssa.sink = phi i64 [ %2, %23 ], [ %.0102, %.backedge ], [ %2, %33 ], [ %.7, %177 ]
   tail call fastcc void @_ZN8lz4_flex5block8compress20handle_last_literals17hb8845c3896eaf2ddE(ptr noalias noundef align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.0.lcssa.sink)
   %.val39 = load i64, ptr %15, align 8, !noundef !9
   %196 = sub i64 %.val39, %.val42

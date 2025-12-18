@@ -133,7 +133,7 @@ define hidden noundef ptr @_ZN10StackValue36create_stack_value_from_oop_location
   br label %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit
 
 _ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit: ; preds = %16, %29, %37, %41
-  %.013.i = phi ptr [ %23, %16 ], [ %36, %29 ], [ %43, %41 ], [ %38, %37 ]
+  %.013.i = phi ptr [ %38, %37 ], [ %23, %16 ], [ %43, %41 ], [ %36, %29 ]
   %44 = icmp eq ptr %.013.i, null
   br i1 %44, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %45
 

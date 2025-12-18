@@ -490,7 +490,7 @@ define hidden i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.thread87
 
 .thread87:                                        ; preds = %32, %.lr.ph, %24, %.thread87.loopexit143, %.loopexit, %29
-  %.1 = phi i32 [ 56, %29 ], [ 0, %.loopexit ], [ %51, %.lr.ph ], [ %25, %24 ], [ %33, %32 ], [ 0, %.thread87.loopexit143 ]
+  %.1 = phi i32 [ 56, %29 ], [ 0, %.loopexit ], [ %25, %24 ], [ %51, %.lr.ph ], [ %33, %32 ], [ 0, %.thread87.loopexit143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1

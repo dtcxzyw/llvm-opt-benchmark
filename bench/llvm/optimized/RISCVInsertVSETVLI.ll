@@ -2121,7 +2121,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit62.i:               ; preds = %697, %_ZNK12_GLOBAL
   br label %_ZNK12_GLOBAL__N_118RISCVInsertVSETVLI14needVSETVLIPHIERKNS_11VSETVLIInfoERKN4llvm17MachineBasicBlockE.exit.i
 
 _ZNK12_GLOBAL__N_118RISCVInsertVSETVLI14needVSETVLIPHIERKNS_11VSETVLIInfoERKN4llvm17MachineBasicBlockE.exit.i: ; preds = %580, %700, %_ZN4llvm8DebugLocC2ERKS0_.exit62.i, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit.i.i, %497
-  %.5.i = phi i1 [ %.2.i, %497 ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit.i.i ], [ false, %_ZN4llvm8DebugLocC2ERKS0_.exit62.i ], [ false, %700 ], [ false, %580 ]
+  %.5.i = phi i1 [ %.2.i, %497 ], [ false, %700 ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit.i.i ], [ false, %_ZN4llvm8DebugLocC2ERKS0_.exit62.i ], [ false, %580 ]
   %701 = and i64 %495, 16384
   %.not88.i = icmp eq i64 %701, 0
   br i1 %.not88.i, label %779, label %702
@@ -5403,8 +5403,8 @@ _ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15: ; pr
   %96 = icmp eq i8 %.val10.i6, 3
   br label %_ZNK12_GLOBAL__N_111VSETVLIInfo13hasNonZeroAVLEPKN4llvm13LiveIntervalsE.exit17
 
-_ZNK12_GLOBAL__N_111VSETVLIInfo13hasNonZeroAVLEPKN4llvm13LiveIntervalsE.exit17: ; preds = %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i, %33, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread, %55, %50, %45, %41, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15, %92, %88, %83, %78, %74, %63, %59, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24, %12, %19, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
-  %.0 = phi i1 [ true, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread ], [ false, %55 ], [ true, %19 ], [ true, %12 ], [ false, %88 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24 ], [ false, %59 ], [ %64, %63 ], [ %96, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15 ], [ %95, %92 ], [ false, %74 ], [ false, %78 ], [ false, %83 ], [ false, %41 ], [ false, %45 ], [ false, %50 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread ], [ false, %33 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i ]
+_ZNK12_GLOBAL__N_111VSETVLIInfo13hasNonZeroAVLEPKN4llvm13LiveIntervalsE.exit17: ; preds = %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i, %33, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread, %55, %50, %45, %41, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15, %92, %88, %83, %78, %74, %63, %59, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24, %19, %12, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+  %.0 = phi i1 [ true, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread ], [ false, %55 ], [ true, %12 ], [ true, %19 ], [ false, %88 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24 ], [ false, %59 ], [ %64, %63 ], [ %96, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15 ], [ %95, %92 ], [ false, %74 ], [ false, %78 ], [ false, %83 ], [ false, %41 ], [ false, %45 ], [ false, %50 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread ], [ false, %33 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i ]
   ret i1 %.0
 }
 
@@ -5949,7 +5949,7 @@ _ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit: ; preds = %36
   %46 = icmp eq i32 %41, %45
   br i1 %46, label %47, label %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread
 
-47:                                               ; preds = %28, %34, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+47:                                               ; preds = %34, %28, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %.val14 = load i8, ptr %48, align 1, !tbaa !424
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -5995,8 +5995,8 @@ _ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit: ; preds = %36
   %82 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPEsEmmRKNS_14DemandedFieldsE(i64 noundef %69, i64 noundef %81, ptr noundef nonnull readonly align 1 dereferenceable(8) %1)
   br label %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread
 
-_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %24, %36, %32, %21, %22, %28, %34, %55, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit, %47, %10, %14, %4, %7, %57
-  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ %82, %57 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %7 ], [ false, %14 ], [ false, %47 ], [ false, %55 ], [ false, %28 ], [ false, %34 ], [ false, %22 ], [ false, %21 ], [ false, %32 ], [ false, %36 ], [ false, %24 ]
+_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %24, %36, %32, %21, %22, %34, %28, %55, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit, %47, %10, %14, %4, %7, %57
+  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ %82, %57 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %7 ], [ false, %14 ], [ false, %47 ], [ false, %55 ], [ false, %34 ], [ false, %28 ], [ false, %22 ], [ false, %21 ], [ false, %32 ], [ false, %36 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -6446,8 +6446,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111VSETVLIInfoeqERKS
 8:                                                ; preds = %5
   switch i8 %.val17, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit [
     i8 1, label %9
-    i8 2, label %24
-    i8 3, label %26
+    i8 2, label %20
+    i8 3, label %24
   ]
 
 9:                                                ; preds = %8
@@ -6457,62 +6457,62 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111VSETVLIInfoeqERKS
 11:                                               ; preds = %9
   %.val13.i = load ptr, ptr %0, align 8, !tbaa !349
   %.not.i = icmp eq ptr %.val13.i, null
-  br i1 %.not.i, label %12, label %16
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val16.i = load i32, ptr %13, align 8, !tbaa !423
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val17.i = load i32, ptr %14, align 8, !tbaa !423
-  %15 = icmp eq i32 %.val16.i, %.val17.i
-  br i1 %15, label %39, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
-
-16:                                               ; preds = %11
-  %17 = load i32, ptr %.val13.i, align 8, !tbaa !418
+  %13 = load i32, ptr %.val13.i, align 8, !tbaa !418
   %.val11.i = load ptr, ptr %1, align 8, !tbaa !349
-  %18 = load i32, ptr %.val11.i, align 8, !tbaa !418
-  %19 = icmp eq i32 %17, %18
-  br i1 %19, label %20, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
+  %14 = load i32, ptr %.val11.i, align 8, !tbaa !418
+  %15 = icmp eq i32 %13, %14
+  br i1 %15, label %16, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val18.i = load i32, ptr %21, align 8, !tbaa !423
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val19.i = load i32, ptr %22, align 8, !tbaa !423
-  %23 = icmp eq i32 %.val18.i, %.val19.i
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val18.i = load i32, ptr %17, align 8, !tbaa !423
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val19.i = load i32, ptr %18, align 8, !tbaa !423
+  %19 = icmp eq i32 %.val18.i, %.val19.i
+  br i1 %19, label %39, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
+
+20:                                               ; preds = %8
+  %21 = icmp eq i8 %.val16, 2
+  br i1 %21, label %22, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
+
+22:                                               ; preds = %20
+  %.val22.i = load i32, ptr %0, align 8, !tbaa !349
+  %.val23.i = load i32, ptr %1, align 8, !tbaa !349
+  %23 = icmp eq i32 %.val22.i, %.val23.i
   br i1 %23, label %39, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
 
 24:                                               ; preds = %8
-  %25 = icmp eq i8 %.val16, 2
-  br i1 %25, label %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
+  %25 = icmp eq i8 %.val16, 3
+  br i1 %25, label %26, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
 
-26:                                               ; preds = %8
-  %27 = icmp eq i8 %.val16, 3
-  br i1 %27, label %28, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %.val14.i = load i8, ptr %27, align 1, !tbaa !424
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %.val15.i = load i8, ptr %28, align 2, !tbaa !425
+  %29 = zext i8 %.val15.i to i32
+  %30 = tail call noundef i32 @_ZN4llvm10RISCVVType15getSEWLMULRatioEjNS_7RISCVII5VLMULE(i32 noundef %29, i8 noundef zeroext %.val14.i) #20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %.val3.i.i = load i8, ptr %31, align 1, !tbaa !424
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %.val4.i.i = load i8, ptr %32, align 2, !tbaa !425
+  %33 = zext i8 %.val4.i.i to i32
+  %34 = tail call noundef i32 @_ZN4llvm10RISCVVType15getSEWLMULRatioEjNS_7RISCVII5VLMULE(i32 noundef %33, i8 noundef zeroext %.val3.i.i) #20
+  %35 = icmp eq i32 %30, %34
+  br i1 %35, label %39, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %.val14.i = load i8, ptr %29, align 1, !tbaa !424
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %.val15.i = load i8, ptr %30, align 2, !tbaa !425
-  %31 = zext i8 %.val15.i to i32
-  %32 = tail call noundef i32 @_ZN4llvm10RISCVVType15getSEWLMULRatioEjNS_7RISCVII5VLMULE(i32 noundef %31, i8 noundef zeroext %.val14.i) #20
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %.val3.i.i = load i8, ptr %33, align 1, !tbaa !424
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %.val4.i.i = load i8, ptr %34, align 2, !tbaa !425
-  %35 = zext i8 %.val4.i.i to i32
-  %36 = tail call noundef i32 @_ZN4llvm10RISCVVType15getSEWLMULRatioEjNS_7RISCVII5VLMULE(i32 noundef %35, i8 noundef zeroext %.val3.i.i) #20
-  %37 = icmp eq i32 %32, %36
-  br i1 %37, label %39, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
-
-_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit: ; preds = %24
-  %.val22.i = load i32, ptr %0, align 8, !tbaa !349
-  %.val23.i = load i32, ptr %1, align 8, !tbaa !349
-  %38 = icmp eq i32 %.val22.i, %.val23.i
+_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit: ; preds = %11
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val16.i = load i32, ptr %36, align 8, !tbaa !423
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val17.i = load i32, ptr %37, align 8, !tbaa !423
+  %38 = icmp eq i32 %.val16.i, %.val17.i
   br i1 %38, label %39, label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
 
-39:                                               ; preds = %28, %20, %12, %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit
+39:                                               ; preds = %22, %26, %16, %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %41 = load i8, ptr %40, align 1
   %42 = lshr i8 %41, 2
@@ -6555,8 +6555,8 @@ _ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit: ; preds = %2
   %spec.select.i = and i1 %66, %63
   br label %_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit
 
-_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit: ; preds = %5, %2, %9, %24, %16, %26, %8, %58, %53, %28, %20, %12, %39, %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit, %50
-  %.0 = phi i1 [ false, %24 ], [ %.not22.mux, %2 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit ], [ %52, %50 ], [ false, %28 ], [ false, %9 ], [ false, %39 ], [ %.mux, %5 ], [ %spec.select.i, %58 ], [ false, %12 ], [ false, %20 ], [ false, %53 ], [ false, %8 ], [ false, %26 ], [ false, %16 ]
+_ZNK12_GLOBAL__N_111VSETVLIInfo12hasSameVTYPEERKS0_.exit: ; preds = %5, %2, %9, %20, %12, %24, %8, %58, %53, %22, %26, %16, %39, %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit, %50
+  %.0 = phi i1 [ false, %20 ], [ %.not22.mux, %2 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo22hasSameAVLLatticeValueERKS0_.exit ], [ %52, %50 ], [ false, %22 ], [ false, %9 ], [ false, %39 ], [ %.mux, %5 ], [ %spec.select.i, %58 ], [ false, %16 ], [ false, %26 ], [ false, %53 ], [ false, %8 ], [ false, %24 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -6853,7 +6853,7 @@ _ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit: ; preds = %56
   %66 = icmp eq i32 %61, %65
   br i1 %66, label %67, label %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread
 
-67:                                               ; preds = %48, %54, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+67:                                               ; preds = %54, %48, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %.val100 = load i8, ptr %68, align 1, !tbaa !424
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 18
@@ -6982,7 +6982,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %122 = call i64 @_ZN4llvm11SlotIndexes24insertMachineInstrInMapsERNS_12MachineInstrEb(ptr noundef nonnull align 8 dereferenceable(432) %121, ptr noundef nonnull align 8 dereferenceable(70) %90, i1 noundef zeroext false)
   br label %601
 
-_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %44, %56, %52, %40, %42, %48, %54, %67, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %44, %56, %52, %40, %42, %54, %48, %67, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %.val98 = load i8, ptr %123, align 1, !tbaa !424
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 18

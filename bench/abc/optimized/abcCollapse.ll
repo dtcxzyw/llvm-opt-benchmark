@@ -417,7 +417,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %84, label %.lr.ph61, label %.critedge4, !llvm.loop !50
 
 .critedge4:                                       ; preds = %.critedge6, %1, %.critedge2.preheader
-  %.0.lcssa81 = phi i32 [ %.1, %.critedge2.preheader ], [ 0, %1 ], [ %.1, %.critedge6 ]
+  %.0.lcssa81 = phi i32 [ 0, %1 ], [ %.1, %.critedge2.preheader ], [ %.1, %.critedge6 ]
   ret i32 %.0.lcssa81
 }
 
@@ -2102,7 +2102,7 @@ Vec_IntCountZero.exit.thread:                     ; preds = %.preheader104.lr.ph
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %.critedge.sink.split, %.critedge2, %Vec_IntCountZero.exit.thread, %.preheader
-  %.0 = phi i32 [ 1, %.critedge2 ], [ 1, %.preheader ], [ 0, %Vec_IntCountZero.exit.thread ], [ %.0.ph, %.critedge.sink.split ], [ 1, %13 ]
+  %.0 = phi i32 [ 1, %.critedge2 ], [ %.0.ph, %.critedge.sink.split ], [ 1, %.preheader ], [ 0, %Vec_IntCountZero.exit.thread ], [ 1, %13 ]
   ret i32 %.0
 }
 
