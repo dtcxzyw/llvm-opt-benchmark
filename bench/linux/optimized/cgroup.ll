@@ -18549,29 +18549,28 @@ define internal noundef range(i32 -12, 1) i32 @cpuset_init_fs_context(ptr nounde
   %32 = icmp eq i8 %31, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %33 = or i32 %.pre, 16
-  %34 = select i1 %32, i32 %.pre, i32 %33
   store ptr @cpuset_fs_context_ops, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i16 1, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %37 = or i32 %34, 2
-  store i32 %37, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %2, ptr %38, align 8
-  %39 = tail call ptr @get_filesystem(ptr noundef nonnull @cgroup_fs_type) #31
-  %40 = load ptr, ptr %26, align 8
-  tail call void @put_filesystem(ptr noundef %40) #31
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store i16 1, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %.v = select i1 %32, i32 2, i32 18
+  %35 = or i32 %.pre, %.v
+  store i32 %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr %2, ptr %36, align 8
+  %37 = tail call ptr @get_filesystem(ptr noundef nonnull @cgroup_fs_type) #31
+  %38 = load ptr, ptr %26, align 8
+  tail call void @put_filesystem(ptr noundef %38) #31
   store ptr @cgroup_fs_type, ptr %26, align 8
-  br label %41
+  br label %39
 
 cgroup_init_fs_context.exit:                      ; preds = %1
   tail call void @kfree(ptr noundef %2) #31
-  br label %41
+  br label %39
 
-41:                                               ; preds = %._crit_edge, %cgroup_init_fs_context.exit
-  %42 = phi i32 [ -12, %cgroup_init_fs_context.exit ], [ 0, %._crit_edge ]
-  ret i32 %42
+39:                                               ; preds = %._crit_edge, %cgroup_init_fs_context.exit
+  %40 = phi i32 [ -12, %cgroup_init_fs_context.exit ], [ 0, %._crit_edge ]
+  ret i32 %40
 }
 
 ; Function Attrs: null_pointer_is_valid

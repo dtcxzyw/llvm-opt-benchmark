@@ -4174,51 +4174,50 @@ define void @ffio_write_leb(ptr noundef captures(none) %0, i32 noundef %1) local
   %spec.select12.i = select i1 %.not.i, i16 0, i16 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
   %3 = lshr i32 %spec.select.i, 8
-  %4 = or disjoint i16 %spec.select12.i, 8
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %3
-  %.1.i = select i1 %.not11.i, i16 %spec.select12.i, i16 %4
-  %5 = zext nneg i32 %.110.i to i64
-  %6 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !33
-  %8 = zext i8 %7 to i16
-  %9 = or disjoint i16 %.1.i, 7
-  %.lhs.trunc = add nuw nsw i16 %9, %8
-  %10 = udiv i16 %.lhs.trunc, 7
-  %.zext = zext nneg i16 %10 to i32
-  %11 = add nsw i32 %.zext, -1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %14
+  %4 = zext nneg i32 %.110.i to i64
+  %5 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %4
+  %6 = load i8, ptr %5, align 1, !tbaa !33
+  %7 = zext i8 %6 to i16
+  %.v = select i1 %.not11.i, i16 7, i16 15
+  %8 = or disjoint i16 %spec.select12.i, %.v
+  %.lhs.trunc = add nuw nsw i16 %8, %7
+  %9 = udiv i16 %.lhs.trunc, 7
+  %.zext = zext nneg i16 %9 to i32
+  %10 = add nsw i32 %.zext, -1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %13
 
 ._crit_edge:                                      ; preds = %avio_w8.exit
   ret void
 
-14:                                               ; preds = %.lr.ph, %avio_w8.exit
-  %.013 = phi i32 [ 0, %.lr.ph ], [ %26, %avio_w8.exit ]
-  %15 = mul nuw nsw i32 %.013, 7
-  %16 = lshr i32 %1, %15
-  %17 = and i32 %16, 127
-  %18 = icmp samesign ult i32 %.013, %11
-  %19 = or i32 %16, 128
-  %.010 = select i1 %18, i32 %19, i32 %17
-  %20 = trunc i32 %.010 to i8
-  %21 = load ptr, ptr %12, align 8, !tbaa !16
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store ptr %22, ptr %12, align 8, !tbaa !16
-  store i8 %20, ptr %21, align 1, !tbaa !33
-  %23 = load ptr, ptr %12, align 8, !tbaa !16
-  %24 = load ptr, ptr %13, align 8, !tbaa !19
-  %.not.i12 = icmp ult ptr %23, %24
-  br i1 %.not.i12, label %avio_w8.exit, label %25
+13:                                               ; preds = %.lr.ph, %avio_w8.exit
+  %.013 = phi i32 [ 0, %.lr.ph ], [ %25, %avio_w8.exit ]
+  %14 = mul nuw nsw i32 %.013, 7
+  %15 = lshr i32 %1, %14
+  %16 = and i32 %15, 127
+  %17 = icmp samesign ult i32 %.013, %10
+  %18 = or i32 %15, 128
+  %.010 = select i1 %17, i32 %18, i32 %16
+  %19 = trunc i32 %.010 to i8
+  %20 = load ptr, ptr %11, align 8, !tbaa !16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store ptr %21, ptr %11, align 8, !tbaa !16
+  store i8 %19, ptr %20, align 1, !tbaa !33
+  %22 = load ptr, ptr %11, align 8, !tbaa !16
+  %23 = load ptr, ptr %12, align 8, !tbaa !19
+  %.not.i12 = icmp ult ptr %22, %23
+  br i1 %.not.i12, label %avio_w8.exit, label %24
 
-25:                                               ; preds = %14
+24:                                               ; preds = %13
   tail call fastcc void @flush_buffer(ptr noundef nonnull %0)
   br label %avio_w8.exit
 
-avio_w8.exit:                                     ; preds = %14, %25
-  %26 = add nuw nsw i32 %.013, 1
-  %exitcond.not = icmp eq i32 %26, %.zext
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !68
+avio_w8.exit:                                     ; preds = %13, %24
+  %25 = add nuw nsw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %25, %.zext
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !68
 }
 
 ; Function Attrs: nounwind uwtable

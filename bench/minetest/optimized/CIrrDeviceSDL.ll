@@ -13546,19 +13546,18 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load i8, ptr %WindowMaximized, align 1, !tbaa !819, !range !817, !noundef !818
   %tobool8.not = icmp eq i8 %3, 0
   %SDL_Flags13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %or11 = or i32 %.pre, 128
-  %4 = select i1 %tobool8.not, i32 %.pre, i32 %or11
-  %or14 = or i32 %4, 2
+  %or14.v = select i1 %tobool8.not, i32 2, i32 130
+  %or14 = or i32 %or14.v, %.pre
   store i32 %or14, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
   %Close = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %5 = load i8, ptr %Close, align 8, !tbaa !56, !range !817, !noundef !818
-  %tobool15.not = icmp eq i8 %5, 0
+  %4 = load i8, ptr %Close, align 8, !tbaa !56, !range !817, !noundef !818
+  %tobool15.not = icmp eq i8 %4, 0
   br i1 %tobool15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end
   %DriverType = getelementptr inbounds nuw i8, ptr %this, i64 124
-  %6 = load i32, ptr %DriverType, align 4, !tbaa !55
-  switch i32 %6, label %sw.epilog [
+  %5 = load i32, ptr %DriverType, align 4, !tbaa !55
+  switch i32 %5, label %sw.epilog [
     i32 1, label %sw.bb
     i32 5, label %sw.bb20
     i32 2, label %sw.bb24
@@ -13591,8 +13590,8 @@ sw.bb28:                                          ; preds = %if.end17, %if.end17
 
 sw.epilog:                                        ; preds = %sw.bb28, %sw.bb24, %sw.bb20, %sw.bb, %if.end17
   %Bits = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %7 = load i8, ptr %Bits, align 8, !tbaa !820
-  %cmp = icmp eq i8 %7, 16
+  %6 = load i8, ptr %Bits, align 8, !tbaa !820
+  %cmp = icmp eq i8 %6, 16
   %WithAlphaChannel = getelementptr inbounds nuw i8, ptr %this, i64 152
   br i1 %cmp, label %if.then33, label %if.else
 
@@ -13600,16 +13599,16 @@ if.then33:                                        ; preds = %sw.epilog
   %call34 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 0, i32 noundef 5) #22
   %call35 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 1, i32 noundef 5) #22
   %call36 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 2, i32 noundef 5) #22
-  %8 = load i8, ptr %WithAlphaChannel, align 8, !tbaa !821, !range !817, !noundef !818
-  %cond = zext nneg i8 %8 to i32
+  %7 = load i8, ptr %WithAlphaChannel, align 8, !tbaa !821, !range !817, !noundef !818
+  %cond = zext nneg i8 %7 to i32
   br label %if.end48
 
 if.else:                                          ; preds = %sw.epilog
   %call40 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 0, i32 noundef 8) #22
   %call41 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 1, i32 noundef 8) #22
   %call42 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 2, i32 noundef 8) #22
-  %9 = load i8, ptr %WithAlphaChannel, align 8, !tbaa !821, !range !817, !noundef !818
-  %tobool45.not = icmp eq i8 %9, 0
+  %8 = load i8, ptr %WithAlphaChannel, align 8, !tbaa !821, !range !817, !noundef !818
+  %tobool45.not = icmp eq i8 %8, 0
   %cond46 = select i1 %tobool45.not, i32 0, i32 8
   br label %if.end48
 
@@ -13617,47 +13616,47 @@ if.end48:                                         ; preds = %if.else, %if.then33
   %cond46.sink = phi i32 [ %cond46, %if.else ], [ %cond, %if.then33 ]
   %call47 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 3, i32 noundef %cond46.sink) #22
   %ZBufferBits = getelementptr inbounds nuw i8, ptr %this, i64 145
-  %10 = load i8, ptr %ZBufferBits, align 1, !tbaa !822
-  %conv50 = zext i8 %10 to i32
+  %9 = load i8, ptr %ZBufferBits, align 1, !tbaa !822
+  %conv50 = zext i8 %9 to i32
   %call51 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 6, i32 noundef %conv50) #22
   %Doublebuffer = getelementptr inbounds nuw i8, ptr %this, i64 153
-  %11 = load i8, ptr %Doublebuffer, align 1, !tbaa !823, !range !817, !noundef !818
-  %conv54 = zext nneg i8 %11 to i32
+  %10 = load i8, ptr %Doublebuffer, align 1, !tbaa !823, !range !817, !noundef !818
+  %conv54 = zext nneg i8 %10 to i32
   %call55 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 5, i32 noundef %conv54) #22
   %Stencilbuffer = getelementptr inbounds nuw i8, ptr %this, i64 149
-  %12 = load i8, ptr %Stencilbuffer, align 1, !tbaa !824, !range !817, !noundef !818
-  %tobool57.not = icmp eq i8 %12, 0
+  %11 = load i8, ptr %Stencilbuffer, align 1, !tbaa !824, !range !817, !noundef !818
+  %tobool57.not = icmp eq i8 %11, 0
   %cond58 = select i1 %tobool57.not, i32 0, i32 8
   %call59 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 7, i32 noundef %cond58) #22
   %Stereobuffer = getelementptr inbounds nuw i8, ptr %this, i64 154
-  %13 = load i8, ptr %Stereobuffer, align 2, !tbaa !825, !range !817, !noundef !818
-  %conv62 = zext nneg i8 %13 to i32
+  %12 = load i8, ptr %Stereobuffer, align 2, !tbaa !825, !range !817, !noundef !818
+  %conv62 = zext nneg i8 %12 to i32
   %call63 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 12, i32 noundef %conv62) #22
   %AntiAlias = getelementptr inbounds nuw i8, ptr %this, i64 151
-  %14 = load i8, ptr %AntiAlias, align 1, !tbaa !826
-  %cmp66 = icmp ugt i8 %14, 1
+  %13 = load i8, ptr %AntiAlias, align 1, !tbaa !826
+  %cmp66 = icmp ugt i8 %13, 1
   br i1 %cmp66, label %if.then67, label %if.end73
 
 if.then67:                                        ; preds = %if.end48
   %call68 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 13, i32 noundef 1) #22
-  %15 = load i8, ptr %AntiAlias, align 1, !tbaa !826
-  %conv71 = zext i8 %15 to i32
+  %14 = load i8, ptr %AntiAlias, align 1, !tbaa !826
+  %conv71 = zext i8 %14 to i32
   %call72 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 14, i32 noundef %conv71) #22
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then67, %if.end48
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %16 = load ptr, ptr %Window, align 8, !tbaa !33
-  %tobool74.not = icmp eq ptr %16, null
+  %15 = load ptr, ptr %Window, align 8, !tbaa !33
+  %tobool74.not = icmp eq ptr %15, null
   br i1 %tobool74.not, label %if.end79, label %if.end148
 
 if.end79:                                         ; preds = %if.end73
   %Width = getelementptr inbounds nuw i8, ptr %this, i64 316
-  %17 = load i32, ptr %Width, align 4, !tbaa !827
+  %16 = load i32, ptr %Width, align 4, !tbaa !827
   %Height = getelementptr inbounds nuw i8, ptr %this, i64 320
-  %18 = load i32, ptr %Height, align 8, !tbaa !828
-  %19 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
-  %call77 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %17, i32 noundef %18, i32 noundef %19) #22
+  %17 = load i32, ptr %Height, align 8, !tbaa !828
+  %18 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
+  %call77 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %16, i32 noundef %17, i32 noundef %18) #22
   store ptr %call77, ptr %Window, align 8, !tbaa !33
   %tobool81.not = icmp eq ptr %call77, null
   br i1 %tobool81.not, label %if.end84, label %if.end148
@@ -13667,14 +13666,14 @@ if.end84:                                         ; preds = %if.end79
   tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.19, ptr noundef %call83, i32 noundef 2) #22
   %.pre160 = load ptr, ptr %Window, align 8, !tbaa !33
   %tobool86.not = icmp eq ptr %.pre160, null
-  %20 = load i8, ptr %AntiAlias, align 1
-  %cmp90 = icmp ugt i8 %20, 1
+  %19 = load i8, ptr %AntiAlias, align 1
+  %cmp90 = icmp ugt i8 %19, 1
   %or.cond = select i1 %tobool86.not, i1 %cmp90, i1 false
   br i1 %or.cond, label %while.cond, label %if.end124
 
 while.cond:                                       ; preds = %if.end84, %while.body
-  %21 = load i8, ptr %AntiAlias, align 1, !tbaa !826
-  %dec = add i8 %21, -1
+  %20 = load i8, ptr %AntiAlias, align 1, !tbaa !826
+  %dec = add i8 %20, -1
   store i8 %dec, ptr %AntiAlias, align 1, !tbaa !826
   %cmp95 = icmp ugt i8 %dec, 1
   br i1 %cmp95, label %while.body, label %if.then111
@@ -13682,10 +13681,10 @@ while.cond:                                       ; preds = %if.end84, %while.bo
 while.body:                                       ; preds = %while.cond
   %conv94 = zext i8 %dec to i32
   %call99 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 14, i32 noundef %conv94) #22
-  %22 = load i32, ptr %Width, align 4, !tbaa !827
-  %23 = load i32, ptr %Height, align 8, !tbaa !828
-  %24 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
-  %call103 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %22, i32 noundef %23, i32 noundef %24) #22
+  %21 = load i32, ptr %Width, align 4, !tbaa !827
+  %22 = load i32, ptr %Height, align 8, !tbaa !828
+  %23 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
+  %call103 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %21, i32 noundef %22, i32 noundef %23) #22
   store ptr %call103, ptr %Window, align 8, !tbaa !33
   %tobool106.not = icmp eq ptr %call103, null
   br i1 %tobool106.not, label %while.cond, label %if.end148, !llvm.loop !829
@@ -13693,10 +13692,10 @@ while.body:                                       ; preds = %while.cond
 if.then111:                                       ; preds = %while.cond
   %call112 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 13, i32 noundef 0) #22
   %call113 = tail call i32 @SDL_GL_SetAttribute(i32 noundef 14, i32 noundef 0) #22
-  %25 = load i32, ptr %Width, align 4, !tbaa !827
-  %26 = load i32, ptr %Height, align 8, !tbaa !828
-  %27 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
-  %call117 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %25, i32 noundef %26, i32 noundef %27) #22
+  %24 = load i32, ptr %Width, align 4, !tbaa !827
+  %25 = load i32, ptr %Height, align 8, !tbaa !828
+  %26 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
+  %call117 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %24, i32 noundef %25, i32 noundef %26) #22
   store ptr %call117, ptr %Window, align 8, !tbaa !33
   %tobool120.not = icmp eq ptr %call117, null
   br i1 %tobool120.not, label %if.end124, label %if.then121
@@ -13707,16 +13706,16 @@ if.then121:                                       ; preds = %if.then111
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then121, %if.then111, %if.end84
-  %28 = phi ptr [ %.pre162, %if.then121 ], [ null, %if.then111 ], [ %.pre160, %if.end84 ]
-  %tobool126.not = icmp ne ptr %28, null
-  %29 = load i8, ptr %Doublebuffer, align 1, !range !817
-  %tobool130.not = icmp eq i8 %29, 0
+  %27 = phi ptr [ %.pre162, %if.then121 ], [ null, %if.then111 ], [ %.pre160, %if.end84 ]
+  %tobool126.not = icmp ne ptr %27, null
+  %28 = load i8, ptr %Doublebuffer, align 1, !range !817
+  %tobool130.not = icmp eq i8 %28, 0
   %or.cond157 = select i1 %tobool126.not, i1 true, i1 %tobool130.not
   br i1 %or.cond157, label %if.end143, label %if.then131
 
 if.then131:                                       ; preds = %if.end124
-  %30 = load i32, ptr %DriverType, align 4, !tbaa !55
-  %cmp134 = icmp eq i32 %30, 1
+  %29 = load i32, ptr %DriverType, align 4, !tbaa !55
+  %cmp134 = icmp eq i32 %29, 1
   br i1 %cmp134, label %if.then135, label %if.end137
 
 if.then135:                                       ; preds = %if.then131
@@ -13724,16 +13723,16 @@ if.then135:                                       ; preds = %if.then131
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then135, %if.then131
-  %31 = load i32, ptr %Width, align 4, !tbaa !827
-  %32 = load i32, ptr %Height, align 8, !tbaa !828
-  %33 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
-  %call141 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %31, i32 noundef %32, i32 noundef %33) #22
+  %30 = load i32, ptr %Width, align 4, !tbaa !827
+  %31 = load i32, ptr %Height, align 8, !tbaa !828
+  %32 = load i32, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
+  %call141 = tail call ptr @SDL_CreateWindow(ptr noundef nonnull @.str.18, i32 noundef 805240832, i32 noundef 805240832, i32 noundef %30, i32 noundef %31, i32 noundef %32) #22
   store ptr %call141, ptr %Window, align 8, !tbaa !33
   br label %if.end143
 
 if.end143:                                        ; preds = %if.end137, %if.end124
-  %34 = phi ptr [ %call141, %if.end137 ], [ %28, %if.end124 ]
-  %tobool145.not = icmp eq ptr %34, null
+  %33 = phi ptr [ %call141, %if.end137 ], [ %27, %if.end124 ]
+  %tobool145.not = icmp eq ptr %33, null
   br i1 %tobool145.not, label %if.then146, label %if.end148
 
 if.then146:                                       ; preds = %if.end143
@@ -13742,8 +13741,8 @@ if.then146:                                       ; preds = %if.end143
   br label %return
 
 if.end148:                                        ; preds = %while.body, %if.end143, %if.end79, %if.end73
-  %35 = phi ptr [ %34, %if.end143 ], [ %call77, %if.end79 ], [ %16, %if.end73 ], [ %call103, %while.body ]
-  %call150 = tail call ptr @SDL_GL_CreateContext(ptr noundef nonnull %35) #22
+  %34 = phi ptr [ %33, %if.end143 ], [ %call77, %if.end79 ], [ %15, %if.end73 ], [ %call103, %while.body ]
+  %call150 = tail call ptr @SDL_GL_CreateContext(ptr noundef nonnull %34) #22
   %Context = getelementptr inbounds nuw i8, ptr %this, i64 240
   store ptr %call150, ptr %Context, align 8, !tbaa !830
   %tobool152.not = icmp eq ptr %call150, null
@@ -13752,8 +13751,8 @@ if.end148:                                        ; preds = %while.body, %if.end
 if.then153:                                       ; preds = %if.end148
   %call154 = tail call ptr @SDL_GetError() #22
   tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.22, ptr noundef %call154, i32 noundef 3) #22
-  %36 = load ptr, ptr %Window, align 8, !tbaa !33
-  tail call void @SDL_DestroyWindow(ptr noundef %36) #22
+  %35 = load ptr, ptr %Window, align 8, !tbaa !33
+  tail call void @SDL_DestroyWindow(ptr noundef %35) #22
   br label %return
 
 return:                                           ; preds = %if.then153, %if.end148, %if.then146, %if.end

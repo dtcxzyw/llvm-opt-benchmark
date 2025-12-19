@@ -1355,8 +1355,8 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %29
 
-29:                                               ; preds = %.lr.ph, %299
-  %.0232 = phi i32 [ 1, %.lr.ph ], [ %300, %299 ]
+29:                                               ; preds = %.lr.ph, %298
+  %.0232 = phi i32 [ 1, %.lr.ph ], [ %299, %298 ]
   %30 = sext i32 %.0232 to i64
   %31 = getelementptr inbounds ptr, ptr %2, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !4
@@ -1370,7 +1370,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 36:                                               ; preds = %34
   store ptr null, ptr @outfilename, align 8, !tbaa !4
-  br label %299
+  br label %298
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 1
@@ -1380,7 +1380,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 40:                                               ; preds = %37
   store i32 0, ptr @requested_fmt, align 4, !tbaa !44
-  br label %299
+  br label %298
 
 41:                                               ; preds = %37
   %42 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.68, i32 noundef 1) #12
@@ -1429,7 +1429,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   store i32 %59, ptr %18, align 8, !tbaa !88
   store i32 1, ptr %19, align 4, !tbaa !89
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %299
+  br label %298
 
 60:                                               ; preds = %47
   %61 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.73, i32 noundef 2) #12
@@ -1455,7 +1455,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 70:                                               ; preds = %65
   store i32 0, ptr %20, align 8, !tbaa !90
-  br label %299
+  br label %298
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %67, align 8, !tbaa !4
@@ -1465,7 +1465,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 74:                                               ; preds = %71
   store i32 1, ptr %20, align 8, !tbaa !90
-  br label %299
+  br label %298
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %67, align 8, !tbaa !4
@@ -1475,7 +1475,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 78:                                               ; preds = %75
   store i32 2, ptr %20, align 8, !tbaa !90
-  br label %299
+  br label %298
 
 79:                                               ; preds = %75
   call fastcc void @usage()
@@ -1505,7 +1505,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 90:                                               ; preds = %85
   store i32 2, ptr %21, align 8, !tbaa !91
-  br label %299
+  br label %298
 
 91:                                               ; preds = %85
   %92 = load ptr, ptr %87, align 8, !tbaa !4
@@ -1515,7 +1515,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 94:                                               ; preds = %91
   store i32 0, ptr %21, align 8, !tbaa !91
-  br label %299
+  br label %298
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %87, align 8, !tbaa !4
@@ -1525,7 +1525,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 98:                                               ; preds = %95
   store i32 1, ptr %21, align 8, !tbaa !91
-  br label %299
+  br label %298
 
 99:                                               ; preds = %95
   call fastcc void @usage()
@@ -1563,7 +1563,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %117 = load i32, ptr %116, align 4, !tbaa !77
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %116, align 4, !tbaa !77
-  br label %299
+  br label %298
 
 119:                                              ; preds = %102
   %120 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.91, i32 noundef 4) #12
@@ -1595,7 +1595,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 129:                                              ; preds = %128, %126
   store i32 1, ptr %20, align 8, !tbaa !90
   store i32 0, ptr %23, align 4, !tbaa !93
-  br label %299
+  br label %298
 
 130:                                              ; preds = %124
   %131 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.92, i32 noundef 1) #12
@@ -1604,7 +1604,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 132:                                              ; preds = %130
   store i32 1, ptr @requested_fmt, align 4, !tbaa !44
-  br label %299
+  br label %298
 
 133:                                              ; preds = %130
   %134 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.93, i32 noundef 4) #12
@@ -1613,7 +1613,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 135:                                              ; preds = %133
   store i32 2, ptr @requested_fmt, align 4, !tbaa !44
-  br label %299
+  br label %298
 
 136:                                              ; preds = %133
   %137 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.94, i32 noundef 2) #12
@@ -1627,7 +1627,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 140:                                              ; preds = %138, %136
   store i32 1, ptr %24, align 8, !tbaa !94
-  br label %299
+  br label %298
 
 141:                                              ; preds = %138
   %142 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.96, i32 noundef 2) #12
@@ -1636,7 +1636,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 143:                                              ; preds = %141
   store i32 2, ptr %24, align 8, !tbaa !94
-  br label %299
+  br label %298
 
 144:                                              ; preds = %141
   %145 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.97, i32 noundef 2) #12
@@ -1645,7 +1645,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 146:                                              ; preds = %144
   store i32 16, ptr %24, align 8, !tbaa !94
-  br label %299
+  br label %298
 
 147:                                              ; preds = %144
   %148 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.98, i32 noundef 1) #12
@@ -1667,7 +1667,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %155 = load ptr, ptr %154, align 8, !tbaa !4
   store ptr %155, ptr @icc_filename, align 8, !tbaa !4
   call void @jpeg_save_markers(ptr noundef nonnull %0, i32 noundef 226, i32 noundef 65535) #12
-  br label %299
+  br label %298
 
 156:                                              ; preds = %147
   %157 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.99, i32 noundef 3) #12
@@ -1684,7 +1684,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   unreachable
 
 161:                                              ; preds = %158
-  br i1 %.not195, label %299, label %162
+  br i1 %.not195, label %298, label %162
 
 162:                                              ; preds = %161
   %163 = sext i32 %159 to i64
@@ -1719,12 +1719,12 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 179:                                              ; preds = %178, %177
   %180 = call i32 @fclose(ptr noundef nonnull %166)
   store i32 1, ptr %19, align 4, !tbaa !89
-  br label %299
+  br label %298
 
 181:                                              ; preds = %156
   %182 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.100, i32 noundef 3) #12
   %.not170 = icmp eq i32 %182, 0
-  br i1 %.not170, label %200, label %183
+  br i1 %.not170, label %199, label %183
 
 183:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1755,200 +1755,199 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %195 = and i8 %194, -33
   %or.cond = icmp eq i8 %195, 77
   %.pre = load i64, ptr %6, align 8, !tbaa !95
-  %196 = mul nsw i64 %.pre, 1000
-  %spec.select = select i1 %or.cond, i64 %196, i64 %.pre
-  %197 = mul nsw i64 %spec.select, 1000
-  %198 = load ptr, ptr %26, align 8, !tbaa !96
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 88
-  store i64 %197, ptr %199, align 8, !tbaa !97
+  %.v = select i1 %or.cond, i64 1000000, i64 1000
+  %196 = mul nsw i64 %.pre, %.v
+  %197 = load ptr, ptr %26, align 8, !tbaa !96
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 88
+  store i64 %196, ptr %198, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %299
+  br label %298
 
-200:                                              ; preds = %181
-  %201 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.102, i32 noundef 4) #12
-  %.not171 = icmp eq i32 %201, 0
-  br i1 %.not171, label %211, label %202
+199:                                              ; preds = %181
+  %200 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.102, i32 noundef 4) #12
+  %.not171 = icmp eq i32 %200, 0
+  br i1 %.not171, label %210, label %201
 
-202:                                              ; preds = %200
-  %203 = add nsw i32 %.0232, 1
-  %.not191 = icmp slt i32 %203, %1
-  br i1 %.not191, label %205, label %204
+201:                                              ; preds = %199
+  %202 = add nsw i32 %.0232, 1
+  %.not191 = icmp slt i32 %202, %1
+  br i1 %.not191, label %204, label %203
 
-204:                                              ; preds = %202
+203:                                              ; preds = %201
   call fastcc void @usage()
   unreachable
 
-205:                                              ; preds = %202
-  %206 = sext i32 %203 to i64
-  %207 = getelementptr inbounds ptr, ptr %2, i64 %206
-  %208 = load ptr, ptr %207, align 8, !tbaa !4
-  %209 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %208, ptr noundef nonnull @.str.103, ptr noundef nonnull @max_scans) #12
-  %.not192 = icmp eq i32 %209, 1
-  br i1 %.not192, label %299, label %210
+204:                                              ; preds = %201
+  %205 = sext i32 %202 to i64
+  %206 = getelementptr inbounds ptr, ptr %2, i64 %205
+  %207 = load ptr, ptr %206, align 8, !tbaa !4
+  %208 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %207, ptr noundef nonnull @.str.103, ptr noundef nonnull @max_scans) #12
+  %.not192 = icmp eq i32 %208, 1
+  br i1 %.not192, label %298, label %209
 
-210:                                              ; preds = %205
+209:                                              ; preds = %204
   call fastcc void @usage()
   unreachable
 
-211:                                              ; preds = %200
-  %212 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.104, i32 noundef 3) #12
-  %.not172 = icmp eq i32 %212, 0
-  br i1 %.not172, label %214, label %213
+210:                                              ; preds = %199
+  %211 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.104, i32 noundef 3) #12
+  %.not172 = icmp eq i32 %211, 0
+  br i1 %.not172, label %213, label %212
 
-213:                                              ; preds = %211
+212:                                              ; preds = %210
   store i32 0, ptr %23, align 4, !tbaa !93
-  br label %299
+  br label %298
 
-214:                                              ; preds = %211
-  %215 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.105, i32 noundef 3) #12
-  %.not173 = icmp eq i32 %215, 0
-  br i1 %.not173, label %217, label %216
+213:                                              ; preds = %210
+  %214 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.105, i32 noundef 3) #12
+  %.not173 = icmp eq i32 %214, 0
+  br i1 %.not173, label %216, label %215
 
-216:                                              ; preds = %214
+215:                                              ; preds = %213
   store i32 0, ptr %22, align 4, !tbaa !92
-  br label %299
+  br label %298
 
-217:                                              ; preds = %214
-  %218 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.106, i32 noundef 3) #12
-  %.not174 = icmp eq i32 %218, 0
-  br i1 %.not174, label %220, label %219
+216:                                              ; preds = %213
+  %217 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.106, i32 noundef 3) #12
+  %.not174 = icmp eq i32 %217, 0
+  br i1 %.not174, label %219, label %218
 
-219:                                              ; preds = %217
+218:                                              ; preds = %216
   store i32 3, ptr @requested_fmt, align 4, !tbaa !44
-  br label %299
+  br label %298
 
-220:                                              ; preds = %217
-  %221 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.107, i32 noundef 4) #12
-  %.not175 = icmp eq i32 %221, 0
-  br i1 %.not175, label %229, label %222
+219:                                              ; preds = %216
+  %220 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.107, i32 noundef 4) #12
+  %.not175 = icmp eq i32 %220, 0
+  br i1 %.not175, label %228, label %221
 
-222:                                              ; preds = %220
-  %223 = add nsw i32 %.0232, 1
-  %.not190 = icmp slt i32 %223, %1
-  br i1 %.not190, label %225, label %224
+221:                                              ; preds = %219
+  %222 = add nsw i32 %.0232, 1
+  %.not190 = icmp slt i32 %222, %1
+  br i1 %.not190, label %224, label %223
 
-224:                                              ; preds = %222
+223:                                              ; preds = %221
   call fastcc void @usage()
   unreachable
 
-225:                                              ; preds = %222
-  %226 = sext i32 %223 to i64
-  %227 = getelementptr inbounds ptr, ptr %2, i64 %226
-  %228 = load ptr, ptr %227, align 8, !tbaa !4
-  store ptr %228, ptr @outfilename, align 8, !tbaa !4
-  br label %299
+224:                                              ; preds = %221
+  %225 = sext i32 %222 to i64
+  %226 = getelementptr inbounds ptr, ptr %2, i64 %225
+  %227 = load ptr, ptr %226, align 8, !tbaa !4
+  store ptr %227, ptr @outfilename, align 8, !tbaa !4
+  br label %298
 
-229:                                              ; preds = %220
-  %230 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.108, i32 noundef 2) #12
-  %.not176 = icmp eq i32 %230, 0
-  br i1 %.not176, label %232, label %231
+228:                                              ; preds = %219
+  %229 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.108, i32 noundef 2) #12
+  %.not176 = icmp eq i32 %229, 0
+  br i1 %.not176, label %231, label %230
 
-231:                                              ; preds = %229
+230:                                              ; preds = %228
   store i1 true, ptr @memsrc, align 4
-  br label %299
+  br label %298
 
-232:                                              ; preds = %229
-  %233 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.109, i32 noundef 1) #12
-  %.not177 = icmp eq i32 %233, 0
-  br i1 %.not177, label %234, label %236
+231:                                              ; preds = %228
+  %232 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.109, i32 noundef 1) #12
+  %.not177 = icmp eq i32 %232, 0
+  br i1 %.not177, label %233, label %235
 
-234:                                              ; preds = %232
-  %235 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.110, i32 noundef 1) #12
-  %.not178 = icmp eq i32 %235, 0
-  br i1 %.not178, label %237, label %236
+233:                                              ; preds = %231
+  %234 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.110, i32 noundef 1) #12
+  %.not178 = icmp eq i32 %234, 0
+  br i1 %.not178, label %236, label %235
 
-236:                                              ; preds = %234, %232
+235:                                              ; preds = %233, %231
   store i32 4, ptr @requested_fmt, align 4, !tbaa !44
-  br label %299
+  br label %298
 
-237:                                              ; preds = %234
-  %238 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.111, i32 noundef 2) #12
-  %.not179 = icmp eq i32 %238, 0
-  br i1 %.not179, label %240, label %239
+236:                                              ; preds = %233
+  %237 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.111, i32 noundef 2) #12
+  %.not179 = icmp eq i32 %237, 0
+  br i1 %.not179, label %239, label %238
 
-239:                                              ; preds = %237
+238:                                              ; preds = %236
   store i1 true, ptr @report, align 4
-  br label %299
+  br label %298
 
-240:                                              ; preds = %237
-  %241 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.112, i32 noundef 1) #12
-  %.not180 = icmp eq i32 %241, 0
-  br i1 %.not180, label %251, label %242
+239:                                              ; preds = %236
+  %240 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.112, i32 noundef 1) #12
+  %.not180 = icmp eq i32 %240, 0
+  br i1 %.not180, label %250, label %241
 
-242:                                              ; preds = %240
-  %243 = add nsw i32 %.0232, 1
-  %.not188 = icmp slt i32 %243, %1
-  br i1 %.not188, label %245, label %244
+241:                                              ; preds = %239
+  %242 = add nsw i32 %.0232, 1
+  %.not188 = icmp slt i32 %242, %1
+  br i1 %.not188, label %244, label %243
 
-244:                                              ; preds = %242
+243:                                              ; preds = %241
   call fastcc void @usage()
   unreachable
 
-245:                                              ; preds = %242
-  %246 = sext i32 %243 to i64
-  %247 = getelementptr inbounds ptr, ptr %2, i64 %246
-  %248 = load ptr, ptr %247, align 8, !tbaa !4
-  %249 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %248, ptr noundef nonnull @.str.113, ptr noundef nonnull %27, ptr noundef nonnull %28) #12
-  %.not189 = icmp eq i32 %249, 2
-  br i1 %.not189, label %299, label %250
+244:                                              ; preds = %241
+  %245 = sext i32 %242 to i64
+  %246 = getelementptr inbounds ptr, ptr %2, i64 %245
+  %247 = load ptr, ptr %246, align 8, !tbaa !4
+  %248 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %247, ptr noundef nonnull @.str.113, ptr noundef nonnull %27, ptr noundef nonnull %28) #12
+  %.not189 = icmp eq i32 %248, 2
+  br i1 %.not189, label %298, label %249
 
-250:                                              ; preds = %245
+249:                                              ; preds = %244
   call fastcc void @usage()
   unreachable
 
-251:                                              ; preds = %240
-  %252 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.114, i32 noundef 2) #12
-  %.not181 = icmp eq i32 %252, 0
-  br i1 %.not181, label %269, label %253
+250:                                              ; preds = %239
+  %251 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.114, i32 noundef 2) #12
+  %.not181 = icmp eq i32 %251, 0
+  br i1 %.not181, label %268, label %252
 
-253:                                              ; preds = %251
+252:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -1, ptr %8, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 4, !tbaa !44
-  %254 = add nsw i32 %.0232, 1
-  %.not187 = icmp slt i32 %254, %1
-  br i1 %.not187, label %256, label %255
+  %253 = add nsw i32 %.0232, 1
+  %.not187 = icmp slt i32 %253, %1
+  br i1 %.not187, label %255, label %254
 
-255:                                              ; preds = %253
+254:                                              ; preds = %252
   call fastcc void @usage()
   unreachable
 
-256:                                              ; preds = %253
-  %257 = sext i32 %254 to i64
-  %258 = getelementptr inbounds ptr, ptr %2, i64 %257
-  %259 = load ptr, ptr %258, align 8, !tbaa !4
-  %260 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %259, ptr noundef nonnull @.str.115, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
-  %261 = icmp ne i32 %260, 2
-  %262 = load i32, ptr %8, align 4
-  %263 = icmp slt i32 %262, 0
-  %or.cond4 = select i1 %261, i1 true, i1 %263
-  %264 = load i32, ptr %9, align 4
-  %265 = icmp slt i32 %264, 0
-  %or.cond6 = select i1 %or.cond4, i1 true, i1 %265
-  %266 = icmp sgt i32 %262, %264
-  %or.cond208 = select i1 %or.cond6, i1 true, i1 %266
-  br i1 %or.cond208, label %267, label %268
+255:                                              ; preds = %252
+  %256 = sext i32 %253 to i64
+  %257 = getelementptr inbounds ptr, ptr %2, i64 %256
+  %258 = load ptr, ptr %257, align 8, !tbaa !4
+  %259 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %258, ptr noundef nonnull @.str.115, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
+  %260 = icmp ne i32 %259, 2
+  %261 = load i32, ptr %8, align 4
+  %262 = icmp slt i32 %261, 0
+  %or.cond4 = select i1 %260, i1 true, i1 %262
+  %263 = load i32, ptr %9, align 4
+  %264 = icmp slt i32 %263, 0
+  %or.cond6 = select i1 %or.cond4, i1 true, i1 %264
+  %265 = icmp sgt i32 %261, %263
+  %or.cond208 = select i1 %or.cond6, i1 true, i1 %265
+  br i1 %or.cond208, label %266, label %267
 
-267:                                              ; preds = %256
+266:                                              ; preds = %255
   call fastcc void @usage()
   unreachable
 
-268:                                              ; preds = %256
+267:                                              ; preds = %255
   store i1 true, ptr @skip, align 4
-  store i32 %262, ptr @skip_start, align 4, !tbaa !44
-  store i32 %264, ptr @skip_end, align 4, !tbaa !44
+  store i32 %261, ptr @skip_start, align 4, !tbaa !44
+  store i32 %263, ptr @skip_end, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %299
+  br label %298
 
-269:                                              ; preds = %251
-  %270 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.116, i32 noundef 2) #12
-  %.not182 = icmp eq i32 %270, 0
-  br i1 %.not182, label %292, label %271
+268:                                              ; preds = %250
+  %269 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.116, i32 noundef 2) #12
+  %.not182 = icmp eq i32 %269, 0
+  br i1 %.not182, label %291, label %270
 
-271:                                              ; preds = %269
+270:                                              ; preds = %268
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1958,87 +1957,87 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 -1, ptr %13, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %272 = add nsw i32 %.0232, 1
-  %.not185 = icmp slt i32 %272, %1
-  br i1 %.not185, label %274, label %273
+  %271 = add nsw i32 %.0232, 1
+  %.not185 = icmp slt i32 %271, %1
+  br i1 %.not185, label %273, label %272
 
-273:                                              ; preds = %271
+272:                                              ; preds = %270
   call fastcc void @usage()
   unreachable
 
-274:                                              ; preds = %271
-  %275 = sext i32 %272 to i64
-  %276 = getelementptr inbounds ptr, ptr %2, i64 %275
-  %277 = load ptr, ptr %276, align 8, !tbaa !4
-  %278 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %277, ptr noundef nonnull @.str.117, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #12
-  %.not186 = icmp eq i32 %278, 5
-  br i1 %.not186, label %279, label %290
+273:                                              ; preds = %270
+  %274 = sext i32 %271 to i64
+  %275 = getelementptr inbounds ptr, ptr %2, i64 %274
+  %276 = load ptr, ptr %275, align 8, !tbaa !4
+  %277 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %276, ptr noundef nonnull @.str.117, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #12
+  %.not186 = icmp eq i32 %277, 5
+  br i1 %.not186, label %278, label %289
 
-279:                                              ; preds = %274
-  %280 = load i8, ptr %14, align 1, !tbaa !9
-  %281 = and i8 %280, -33
-  %or.cond9 = icmp ne i8 %281, 88
-  %282 = load i32, ptr %10, align 4
-  %283 = icmp slt i32 %282, 1
-  %or.cond11 = select i1 %or.cond9, i1 true, i1 %283
-  %284 = load i32, ptr %11, align 4
-  %285 = icmp slt i32 %284, 1
-  %or.cond13 = select i1 %or.cond11, i1 true, i1 %285
-  %286 = load i32, ptr %12, align 4
-  %287 = icmp slt i32 %286, 0
-  %or.cond15 = select i1 %or.cond13, i1 true, i1 %287
-  %288 = load i32, ptr %13, align 4
-  %289 = icmp slt i32 %288, 0
-  %or.cond17 = select i1 %or.cond15, i1 true, i1 %289
-  br i1 %or.cond17, label %290, label %291
+278:                                              ; preds = %273
+  %279 = load i8, ptr %14, align 1, !tbaa !9
+  %280 = and i8 %279, -33
+  %or.cond9 = icmp ne i8 %280, 88
+  %281 = load i32, ptr %10, align 4
+  %282 = icmp slt i32 %281, 1
+  %or.cond11 = select i1 %or.cond9, i1 true, i1 %282
+  %283 = load i32, ptr %11, align 4
+  %284 = icmp slt i32 %283, 1
+  %or.cond13 = select i1 %or.cond11, i1 true, i1 %284
+  %285 = load i32, ptr %12, align 4
+  %286 = icmp slt i32 %285, 0
+  %or.cond15 = select i1 %or.cond13, i1 true, i1 %286
+  %287 = load i32, ptr %13, align 4
+  %288 = icmp slt i32 %287, 0
+  %or.cond17 = select i1 %or.cond15, i1 true, i1 %288
+  br i1 %or.cond17, label %289, label %290
 
-290:                                              ; preds = %279, %274
+289:                                              ; preds = %278, %273
   call fastcc void @usage()
   unreachable
 
-291:                                              ; preds = %279
+290:                                              ; preds = %278
   store i1 true, ptr @crop, align 4
-  store i32 %282, ptr @crop_width, align 4, !tbaa !44
-  store i32 %284, ptr @crop_height, align 4, !tbaa !44
-  store i32 %286, ptr @crop_x, align 4, !tbaa !44
-  store i32 %288, ptr @crop_y, align 4, !tbaa !44
+  store i32 %281, ptr @crop_width, align 4, !tbaa !44
+  store i32 %283, ptr @crop_height, align 4, !tbaa !44
+  store i32 %285, ptr @crop_x, align 4, !tbaa !44
+  store i32 %287, ptr @crop_y, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %299
+  br label %298
 
-292:                                              ; preds = %269
-  %293 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.118, i32 noundef 2) #12
-  %.not183 = icmp eq i32 %293, 0
-  br i1 %.not183, label %295, label %294
+291:                                              ; preds = %268
+  %292 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.118, i32 noundef 2) #12
+  %.not183 = icmp eq i32 %292, 0
+  br i1 %.not183, label %294, label %293
 
-294:                                              ; preds = %292
+293:                                              ; preds = %291
   store i1 true, ptr @strict, align 4
-  br label %299
+  br label %298
 
-295:                                              ; preds = %292
-  %296 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.119, i32 noundef 1) #12
-  %.not184 = icmp eq i32 %296, 0
-  br i1 %.not184, label %298, label %297
+294:                                              ; preds = %291
+  %295 = call i32 @keymatch(ptr noundef nonnull %38, ptr noundef nonnull @.str.119, i32 noundef 1) #12
+  %.not184 = icmp eq i32 %295, 0
+  br i1 %.not184, label %297, label %296
 
-297:                                              ; preds = %295
+296:                                              ; preds = %294
   store i32 5, ptr @requested_fmt, align 4, !tbaa !44
-  br label %299
+  br label %298
 
-298:                                              ; preds = %295
+297:                                              ; preds = %294
   call fastcc void @usage()
   unreachable
 
-299:                                              ; preds = %40, %74, %78, %70, %114, %129, %135, %143, %152, %193, %213, %219, %231, %239, %268, %294, %297, %291, %245, %236, %225, %216, %205, %161, %179, %146, %140, %132, %90, %98, %94, %58, %36
-  %.1 = phi i32 [ %.0232, %36 ], [ %.0232, %40 ], [ %50, %58 ], [ %63, %70 ], [ %63, %74 ], [ %63, %78 ], [ %254, %268 ], [ %83, %90 ], [ %83, %94 ], [ %83, %98 ], [ %.0232, %297 ], [ %.0232, %114 ], [ %.0232, %129 ], [ %.0232, %132 ], [ %.0232, %135 ], [ %.0232, %140 ], [ %.0232, %143 ], [ %.0232, %146 ], [ %150, %152 ], [ %159, %179 ], [ %159, %161 ], [ %184, %193 ], [ %.0232, %294 ], [ %203, %205 ], [ %.0232, %213 ], [ %.0232, %216 ], [ %.0232, %219 ], [ %223, %225 ], [ %.0232, %231 ], [ %.0232, %236 ], [ %.0232, %239 ], [ %272, %291 ], [ %243, %245 ]
-  %300 = add nsw i32 %.1, 1
-  %301 = icmp slt i32 %300, %1
-  br i1 %301, label %29, label %._crit_edge, !llvm.loop !99
+298:                                              ; preds = %40, %74, %78, %70, %114, %129, %135, %143, %152, %193, %212, %218, %230, %238, %267, %293, %296, %290, %244, %235, %224, %215, %204, %161, %179, %146, %140, %132, %90, %98, %94, %58, %36
+  %.1 = phi i32 [ %.0232, %36 ], [ %.0232, %40 ], [ %50, %58 ], [ %63, %70 ], [ %63, %74 ], [ %63, %78 ], [ %253, %267 ], [ %83, %90 ], [ %83, %94 ], [ %83, %98 ], [ %.0232, %296 ], [ %.0232, %114 ], [ %.0232, %129 ], [ %.0232, %132 ], [ %.0232, %135 ], [ %.0232, %140 ], [ %.0232, %143 ], [ %.0232, %146 ], [ %150, %152 ], [ %159, %179 ], [ %159, %161 ], [ %184, %193 ], [ %.0232, %293 ], [ %202, %204 ], [ %.0232, %212 ], [ %.0232, %215 ], [ %.0232, %218 ], [ %222, %224 ], [ %.0232, %230 ], [ %.0232, %235 ], [ %.0232, %238 ], [ %271, %290 ], [ %242, %244 ]
+  %299 = add nsw i32 %.1, 1
+  %300 = icmp slt i32 %299, %1
+  br i1 %300, label %29, label %._crit_edge, !llvm.loop !99
 
-._crit_edge:                                      ; preds = %299, %34, %4
-  %.0.lcssa = phi i32 [ 1, %4 ], [ %.0232, %34 ], [ %300, %299 ]
+._crit_edge:                                      ; preds = %298, %34, %4
+  %.0.lcssa = phi i32 [ 1, %4 ], [ %.0232, %34 ], [ %299, %298 ]
   ret i32 %.0.lcssa
 }
 

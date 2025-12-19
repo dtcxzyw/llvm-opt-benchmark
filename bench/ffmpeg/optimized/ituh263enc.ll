@@ -4997,12 +4997,12 @@ h263_pred_dc.exit:                                ; preds = %536, %552, %553
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 4860
   %608 = load i32, ptr %607, align 4, !tbaa !127
   %.not209 = icmp eq i32 %608, 0
-  %609 = getelementptr inbounds nuw i8, ptr %0, i64 4808
-  br i1 %606, label %610, label %647
+  br i1 %606, label %609, label %647
 
-610:                                              ; preds = %.loopexit309
-  %611 = or disjoint i32 %603, 4
-  %spec.select219 = select i1 %.not209, i32 %603, i32 %611
+609:                                              ; preds = %.loopexit309
+  %610 = or disjoint i32 %603, 4
+  %spec.select219 = select i1 %.not209, i32 %603, i32 %610
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 4808
   %612 = zext nneg i32 %spec.select219 to i64
   %613 = getelementptr inbounds nuw i8, ptr @ff_h263_intra_MCBPC_bits, i64 %612
   %614 = load i8, ptr %613, align 1, !tbaa !14
@@ -5010,19 +5010,19 @@ h263_pred_dc.exit:                                ; preds = %536, %552, %553
   %616 = getelementptr inbounds nuw i8, ptr @ff_h263_intra_MCBPC_code, i64 %612
   %617 = load i8, ptr %616, align 1, !tbaa !14
   %618 = zext i8 %617 to i32
-  %619 = load i32, ptr %609, align 8, !tbaa !4
+  %619 = load i32, ptr %611, align 8, !tbaa !4
   %620 = getelementptr inbounds nuw i8, ptr %0, i64 4812
   %621 = load i32, ptr %620, align 4, !tbaa !11
   %622 = icmp sgt i32 %621, %615
   br i1 %622, label %623, label %627
 
-623:                                              ; preds = %610
+623:                                              ; preds = %609
   %624 = shl i32 %619, %615
   %625 = or i32 %624, %618
   %626 = sub nsw i32 %621, %615
   br label %put_bits.exit262
 
-627:                                              ; preds = %610
+627:                                              ; preds = %609
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   %629 = load ptr, ptr %628, align 8, !tbaa !12
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 4824
@@ -5057,14 +5057,13 @@ h263_pred_dc.exit:                                ; preds = %536, %552, %553
 put_bits.exit262:                                 ; preds = %623, %645
   %.026.i.i260 = phi i32 [ %625, %623 ], [ %618, %645 ]
   %.0.i.i261 = phi i32 [ %626, %623 ], [ %646, %645 ]
-  store i32 %.026.i.i260, ptr %609, align 8, !tbaa !4
+  store i32 %.026.i.i260, ptr %611, align 8, !tbaa !4
   store i32 %.0.i.i261, ptr %620, align 4, !tbaa !11
   br label %702
 
 647:                                              ; preds = %.loopexit309
-  %648 = or disjoint i32 %603, 8
-  %spec.select220 = select i1 %.not209, i32 %603, i32 %648
-  %649 = load i32, ptr %609, align 8, !tbaa !4
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 4808
+  %649 = load i32, ptr %648, align 8, !tbaa !4
   %650 = getelementptr inbounds nuw i8, ptr %0, i64 4812
   %651 = load i32, ptr %650, align 4, !tbaa !11
   %652 = icmp sgt i32 %651, 1
@@ -5102,9 +5101,10 @@ put_bits.exit266:                                 ; preds = %664, %669, %653
   %.sink410 = phi i32 [ -1, %653 ], [ 31, %669 ], [ 31, %664 ]
   %.026.i.i264 = phi i32 [ %654, %653 ], [ 0, %669 ], [ 0, %664 ]
   %670 = add nsw i32 %651, %.sink410
-  store i32 %.026.i.i264, ptr %609, align 8, !tbaa !4
+  store i32 %.026.i.i264, ptr %648, align 8, !tbaa !4
   store i32 %670, ptr %650, align 4, !tbaa !11
-  %671 = or disjoint i32 %spec.select220, 4
+  %.v = select i1 %.not209, i32 4, i32 12
+  %671 = or disjoint i32 %.v, %603
   %672 = zext nneg i32 %671 to i64
   %673 = getelementptr inbounds nuw i8, ptr @ff_h263_inter_MCBPC_bits, i64 %672
   %674 = load i8, ptr %673, align 1, !tbaa !14
@@ -5155,7 +5155,7 @@ put_bits.exit270:                                 ; preds = %680, %701
   %.026.i.i268 = phi i32 [ %682, %680 ], [ %678, %701 ]
   %.0.i.i265.pn = phi i32 [ %670, %680 ], [ %reass.sub.i267, %701 ]
   %.0.i.i269 = sub i32 %.0.i.i265.pn, %675
-  store i32 %.026.i.i268, ptr %609, align 8, !tbaa !4
+  store i32 %.026.i.i268, ptr %648, align 8, !tbaa !4
   store i32 %.0.i.i269, ptr %650, align 4, !tbaa !11
   br label %702
 

@@ -1199,11 +1199,10 @@ virtio_bus_get_device.exit:
   %7 = trunc nuw i8 %.val5 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 168
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %8 = or i64 %.pre, 4294967296
-  %9 = select i1 %7, i64 %.pre, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %11 = or i64 %9, 1073741824
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %.v = select i1 %7, i64 1073741824, i64 5368709120
+  %9 = or i64 %.pre, %.v
+  store i64 %9, ptr %8, align 8
   ret void
 }
 

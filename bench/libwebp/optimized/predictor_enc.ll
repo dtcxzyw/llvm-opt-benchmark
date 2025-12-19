@@ -1642,405 +1642,403 @@ GetPredictionCostCrossColorRed.exit.i:            ; preds = %68, %65
   br i1 %75, label %.lr.ph72.preheader.i, label %GetBestGreenToRed.exit
 
 .lr.ph72.preheader.i:                             ; preds = %GetPredictionCostCrossColorRed.exit.i
-  %76 = icmp eq i24 %73, 0
-  %77 = icmp eq i24 %71, 0
-  %78 = sub nsw i64 %32, %70
-  %79 = add nsw i64 %78, -25165824
-  %spec.select.i.i = select i1 %77, i64 %79, i64 %78
-  %80 = add nsw i64 %spec.select.i.i, -25165824
-  %.1.i.i = select i1 %76, i64 %80, i64 %spec.select.i.i
-  %81 = add nsw i64 %.1.i.i, -25165824
-  %82 = add nsw i32 %63, 3
+  %76 = icmp eq i24 %71, 0
+  %77 = sub nsw i64 %32, %70
+  %78 = add nsw i64 %77, -25165824
+  %spec.select.i.i = select i1 %76, i64 %78, i64 %77
+  %79 = icmp eq i24 %73, 0
+  %.v.i = select i1 %79, i64 -50331648, i64 -25165824
+  %80 = add nsw i64 %spec.select.i.i, %.v.i
+  %81 = add nsw i32 %63, 3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph72.preheader.i
   %.071.i = phi i32 [ %spec.select46.i, %._crit_edge.i ], [ 0, %.lr.ph72.preheader.i ]
-  %.03970.i = phi i32 [ %137, %._crit_edge.i ], [ 0, %.lr.ph72.preheader.i ]
-  %.04169.i = phi i64 [ %spec.select.i, %._crit_edge.i ], [ %81, %.lr.ph72.preheader.i ]
-  %83 = lshr i32 32, %.03970.i
-  %84 = sub nsw i32 0, %83
-  %85 = shl nuw nsw i32 %83, 1
-  br label %86
+  %.03970.i = phi i32 [ %136, %._crit_edge.i ], [ 0, %.lr.ph72.preheader.i ]
+  %.04169.i = phi i64 [ %spec.select.i, %._crit_edge.i ], [ %80, %.lr.ph72.preheader.i ]
+  %82 = lshr i32 32, %.03970.i
+  %83 = sub nsw i32 0, %82
+  %84 = shl nuw nsw i32 %82, 1
+  br label %85
 
-86:                                               ; preds = %GetPredictionCostCrossColorRed.exit62.i, %.lr.ph.i
+85:                                               ; preds = %GetPredictionCostCrossColorRed.exit62.i, %.lr.ph.i
   %.167.i = phi i32 [ %.071.i, %.lr.ph.i ], [ %spec.select46.i, %GetPredictionCostCrossColorRed.exit62.i ]
-  %.04066.i = phi i32 [ %84, %.lr.ph.i ], [ %136, %GetPredictionCostCrossColorRed.exit62.i ]
+  %.04066.i = phi i32 [ %83, %.lr.ph.i ], [ %135, %GetPredictionCostCrossColorRed.exit62.i ]
   %.14265.i = phi i64 [ %.04169.i, %.lr.ph.i ], [ %spec.select.i, %GetPredictionCostCrossColorRed.exit62.i ]
-  %87 = add nsw i32 %.04066.i, %.167.i
+  %86 = add nsw i32 %.04066.i, %.167.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %14, i8 0, i64 1024, i1 false)
-  %88 = load ptr, ptr @VP8LCollectColorRedTransforms, align 8, !tbaa !26
-  call void %88(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %87, ptr noundef nonnull %14) #11
-  %89 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
-  %90 = call i64 %89(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
-  %91 = load i32, ptr %14, align 16, !tbaa !3
-  %92 = zext i32 %91 to i64
-  %93 = mul nuw nsw i64 %92, 25165824
-  br label %94
+  %87 = load ptr, ptr @VP8LCollectColorRedTransforms, align 8, !tbaa !26
+  call void %87(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %86, ptr noundef nonnull %14) #11
+  %88 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
+  %89 = call i64 %88(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
+  %90 = load i32, ptr %14, align 16, !tbaa !3
+  %91 = zext i32 %90 to i64
+  %92 = mul nuw nsw i64 %91, 25165824
+  br label %93
 
-94:                                               ; preds = %DivRound.exit16.i.i.i55.i, %86
-  %indvars.iv.i.i.i47.i = phi i64 [ 1, %86 ], [ %indvars.iv.next.i.i.i56.i, %DivRound.exit16.i.i.i55.i ]
-  %.01221.i.i.i48.i = phi i64 [ %93, %86 ], [ %110, %DivRound.exit16.i.i.i55.i ]
-  %.01320.i.i.i49.i = phi i64 [ 2013265920, %86 ], [ %118, %DivRound.exit16.i.i.i55.i ]
-  %95 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i47.i
-  %96 = load i32, ptr %95, align 4, !tbaa !3
-  %97 = sub nuw nsw i64 256, %indvars.iv.i.i.i47.i
-  %98 = getelementptr inbounds nuw i32, ptr %14, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !3
-  %100 = add i32 %99, %96
-  %101 = zext i32 %100 to i64
-  %102 = mul i64 %.01320.i.i.i49.i, %101
-  %103 = icmp sgt i64 %102, -1
-  br i1 %103, label %104, label %107
+93:                                               ; preds = %DivRound.exit16.i.i.i55.i, %85
+  %indvars.iv.i.i.i47.i = phi i64 [ 1, %85 ], [ %indvars.iv.next.i.i.i56.i, %DivRound.exit16.i.i.i55.i ]
+  %.01221.i.i.i48.i = phi i64 [ %92, %85 ], [ %109, %DivRound.exit16.i.i.i55.i ]
+  %.01320.i.i.i49.i = phi i64 [ 2013265920, %85 ], [ %117, %DivRound.exit16.i.i.i55.i ]
+  %94 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i47.i
+  %95 = load i32, ptr %94, align 4, !tbaa !3
+  %96 = sub nuw nsw i64 256, %indvars.iv.i.i.i47.i
+  %97 = getelementptr inbounds nuw i32, ptr %14, i64 %96
+  %98 = load i32, ptr %97, align 4, !tbaa !3
+  %99 = add i32 %98, %95
+  %100 = zext i32 %99 to i64
+  %101 = mul i64 %.01320.i.i.i49.i, %100
+  %102 = icmp sgt i64 %101, -1
+  br i1 %102, label %103, label %106
 
-104:                                              ; preds = %94
-  %105 = add nuw nsw i64 %102, 50
-  %106 = udiv i64 %105, 100
+103:                                              ; preds = %93
+  %104 = add nuw nsw i64 %101, 50
+  %105 = udiv i64 %104, 100
   br label %DivRound.exit.i.i.i52.i
 
-107:                                              ; preds = %94
-  %.neg8.i.i.i.i50.i = sub i64 50, %102
-  %108 = udiv i64 %.neg8.i.i.i.i50.i, 100
-  %.neg.i.i.i.i51.i = sub nsw i64 0, %108
+106:                                              ; preds = %93
+  %.neg8.i.i.i.i50.i = sub i64 50, %101
+  %107 = udiv i64 %.neg8.i.i.i.i50.i, 100
+  %.neg.i.i.i.i51.i = sub nsw i64 0, %107
   br label %DivRound.exit.i.i.i52.i
 
-DivRound.exit.i.i.i52.i:                          ; preds = %107, %104
-  %109 = phi i64 [ %106, %104 ], [ %.neg.i.i.i.i51.i, %107 ]
-  %110 = add i64 %109, %.01221.i.i.i48.i
-  %111 = mul i64 %.01320.i.i.i49.i, 6
-  %112 = icmp sgt i64 %111, -1
-  br i1 %112, label %113, label %116
+DivRound.exit.i.i.i52.i:                          ; preds = %106, %103
+  %108 = phi i64 [ %105, %103 ], [ %.neg.i.i.i.i51.i, %106 ]
+  %109 = add i64 %108, %.01221.i.i.i48.i
+  %110 = mul i64 %.01320.i.i.i49.i, 6
+  %111 = icmp sgt i64 %110, -1
+  br i1 %111, label %112, label %115
 
-113:                                              ; preds = %DivRound.exit.i.i.i52.i
-  %114 = add nuw nsw i64 %111, 5
-  %115 = udiv i64 %114, 10
+112:                                              ; preds = %DivRound.exit.i.i.i52.i
+  %113 = add nuw nsw i64 %110, 5
+  %114 = udiv i64 %113, 10
   br label %DivRound.exit16.i.i.i55.i
 
-116:                                              ; preds = %DivRound.exit.i.i.i52.i
-  %.neg8.i14.i.i.i53.i = sub i64 4, %111
-  %117 = udiv i64 %.neg8.i14.i.i.i53.i, 10
-  %.neg.i15.i.i.i54.i = sub nsw i64 0, %117
+115:                                              ; preds = %DivRound.exit.i.i.i52.i
+  %.neg8.i14.i.i.i53.i = sub i64 4, %110
+  %116 = udiv i64 %.neg8.i14.i.i.i53.i, 10
+  %.neg.i15.i.i.i54.i = sub nsw i64 0, %116
   br label %DivRound.exit16.i.i.i55.i
 
-DivRound.exit16.i.i.i55.i:                        ; preds = %116, %113
-  %118 = phi i64 [ %115, %113 ], [ %.neg.i15.i.i.i54.i, %116 ]
+DivRound.exit16.i.i.i55.i:                        ; preds = %115, %112
+  %117 = phi i64 [ %114, %112 ], [ %.neg.i15.i.i.i54.i, %115 ]
   %indvars.iv.next.i.i.i56.i = add nuw nsw i64 %indvars.iv.i.i.i47.i, 1
   %exitcond.not.i.i.i57.i = icmp eq i64 %indvars.iv.next.i.i.i56.i, 16
-  br i1 %exitcond.not.i.i.i57.i, label %119, label %94, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i57.i, label %118, label %93, !llvm.loop !25
 
-119:                                              ; preds = %DivRound.exit16.i.i.i55.i
-  %120 = icmp sgt i64 %110, -1
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %DivRound.exit16.i.i.i55.i
+  %119 = icmp sgt i64 %109, -1
+  br i1 %119, label %120, label %123
 
-121:                                              ; preds = %119
-  %122 = add nuw nsw i64 %110, 5
-  %123 = udiv i64 %122, 10
+120:                                              ; preds = %118
+  %121 = add nuw nsw i64 %109, 5
+  %122 = udiv i64 %121, 10
   br label %GetPredictionCostCrossColorRed.exit62.i
 
-124:                                              ; preds = %119
-  %.neg8.i17.i.i.i58.i = sub i64 5, %110
-  %125 = udiv i64 %.neg8.i17.i.i.i58.i, 10
-  %.neg.i18.i.i.i59.i = sub nsw i64 0, %125
+123:                                              ; preds = %118
+  %.neg8.i17.i.i.i58.i = sub i64 5, %109
+  %124 = udiv i64 %.neg8.i17.i.i.i58.i, 10
+  %.neg.i18.i.i.i59.i = sub nsw i64 0, %124
   br label %GetPredictionCostCrossColorRed.exit62.i
 
-GetPredictionCostCrossColorRed.exit62.i:          ; preds = %124, %121
-  %126 = phi i64 [ %123, %121 ], [ %.neg.i18.i.i.i59.i, %124 ]
-  %127 = sub nsw i64 %90, %126
-  %128 = and i32 %87, 255
-  %129 = icmp eq i32 %128, %72
-  %130 = add nsw i64 %127, -25165824
-  %spec.select.i60.i = select i1 %129, i64 %130, i64 %127
-  %131 = icmp eq i32 %128, %74
-  %132 = add nsw i64 %spec.select.i60.i, -25165824
-  %.1.i61.i = select i1 %131, i64 %132, i64 %spec.select.i60.i
-  %133 = icmp eq i32 %87, 0
-  %134 = add nsw i64 %.1.i61.i, -25165824
-  %.2.i.i = select i1 %133, i64 %134, i64 %.1.i61.i
+GetPredictionCostCrossColorRed.exit62.i:          ; preds = %123, %120
+  %125 = phi i64 [ %122, %120 ], [ %.neg.i18.i.i.i59.i, %123 ]
+  %126 = sub nsw i64 %89, %125
+  %127 = and i32 %86, 255
+  %128 = icmp eq i32 %127, %72
+  %129 = add nsw i64 %126, -25165824
+  %spec.select.i60.i = select i1 %128, i64 %129, i64 %126
+  %130 = icmp eq i32 %127, %74
+  %131 = add nsw i64 %spec.select.i60.i, -25165824
+  %.1.i61.i = select i1 %130, i64 %131, i64 %spec.select.i60.i
+  %132 = icmp eq i32 %86, 0
+  %133 = add nsw i64 %.1.i61.i, -25165824
+  %.2.i.i = select i1 %132, i64 %133, i64 %.1.i61.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %135 = icmp slt i64 %.2.i.i, %.14265.i
+  %134 = icmp slt i64 %.2.i.i, %.14265.i
   %spec.select.i = call i64 @llvm.smin.i64(i64 %.2.i.i, i64 %.14265.i)
-  %spec.select46.i = select i1 %135, i32 %87, i32 %.167.i
-  %136 = add nsw i32 %.04066.i, %85
-  %.not.i = icmp sgt i32 %136, %83
-  br i1 %.not.i, label %._crit_edge.i, label %86, !llvm.loop !39
+  %spec.select46.i = select i1 %134, i32 %86, i32 %.167.i
+  %135 = add nsw i32 %.04066.i, %84
+  %.not.i = icmp sgt i32 %135, %82
+  br i1 %.not.i, label %._crit_edge.i, label %85, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %GetPredictionCostCrossColorRed.exit62.i
-  %137 = add nuw nsw i32 %.03970.i, 1
-  %exitcond.not.i = icmp eq i32 %.03970.i, %82
+  %136 = add nuw nsw i32 %.03970.i, 1
+  %exitcond.not.i = icmp eq i32 %.03970.i, %81
   br i1 %exitcond.not.i, label %._crit_edge73.loopexit.i, label %.lr.ph.i, !llvm.loop !40
 
 ._crit_edge73.loopexit.i:                         ; preds = %._crit_edge.i
-  %138 = trunc i32 %spec.select46.i to i8
+  %137 = trunc i32 %spec.select46.i to i8
   br label %GetBestGreenToRed.exit
 
 GetBestGreenToRed.exit:                           ; preds = %GetPredictionCostCrossColorRed.exit.i, %._crit_edge73.loopexit.i
-  %.0.lcssa.i = phi i8 [ 0, %GetPredictionCostCrossColorRed.exit.i ], [ %138, %._crit_edge73.loopexit.i ]
+  %.0.lcssa.i = phi i8 [ 0, %GetPredictionCostCrossColorRed.exit.i ], [ %137, %._crit_edge73.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %12, i8 0, i64 1024, i1 false)
-  %139 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !26
-  call void %139(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12) #11
-  %140 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
-  %141 = call i64 %140(ptr noundef nonnull %12, ptr noundef nonnull %9) #11
-  %142 = load i32, ptr %12, align 16, !tbaa !3
-  %143 = zext i32 %142 to i64
-  %144 = mul nuw nsw i64 %143, 25165824
-  br label %145
+  %138 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !26
+  call void %138(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12) #11
+  %139 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
+  %140 = call i64 %139(ptr noundef nonnull %12, ptr noundef nonnull %9) #11
+  %141 = load i32, ptr %12, align 16, !tbaa !3
+  %142 = zext i32 %141 to i64
+  %143 = mul nuw nsw i64 %142, 25165824
+  br label %144
 
-145:                                              ; preds = %DivRound.exit16.i.i.i, %GetBestGreenToRed.exit
+144:                                              ; preds = %DivRound.exit16.i.i.i, %GetBestGreenToRed.exit
   %indvars.iv.i.i.i = phi i64 [ 1, %GetBestGreenToRed.exit ], [ %indvars.iv.next.i.i.i, %DivRound.exit16.i.i.i ]
-  %.01221.i.i.i = phi i64 [ %144, %GetBestGreenToRed.exit ], [ %161, %DivRound.exit16.i.i.i ]
-  %.01320.i.i.i = phi i64 [ 2013265920, %GetBestGreenToRed.exit ], [ %169, %DivRound.exit16.i.i.i ]
-  %146 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i
-  %147 = load i32, ptr %146, align 4, !tbaa !3
-  %148 = sub nuw nsw i64 256, %indvars.iv.i.i.i
-  %149 = getelementptr inbounds nuw i32, ptr %12, i64 %148
-  %150 = load i32, ptr %149, align 4, !tbaa !3
-  %151 = add i32 %150, %147
-  %152 = zext i32 %151 to i64
-  %153 = mul i64 %.01320.i.i.i, %152
-  %154 = icmp sgt i64 %153, -1
-  br i1 %154, label %155, label %158
+  %.01221.i.i.i = phi i64 [ %143, %GetBestGreenToRed.exit ], [ %160, %DivRound.exit16.i.i.i ]
+  %.01320.i.i.i = phi i64 [ 2013265920, %GetBestGreenToRed.exit ], [ %168, %DivRound.exit16.i.i.i ]
+  %145 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i
+  %146 = load i32, ptr %145, align 4, !tbaa !3
+  %147 = sub nuw nsw i64 256, %indvars.iv.i.i.i
+  %148 = getelementptr inbounds nuw i32, ptr %12, i64 %147
+  %149 = load i32, ptr %148, align 4, !tbaa !3
+  %150 = add i32 %149, %146
+  %151 = zext i32 %150 to i64
+  %152 = mul i64 %.01320.i.i.i, %151
+  %153 = icmp sgt i64 %152, -1
+  br i1 %153, label %154, label %157
 
-155:                                              ; preds = %145
-  %156 = add nuw nsw i64 %153, 50
-  %157 = udiv i64 %156, 100
+154:                                              ; preds = %144
+  %155 = add nuw nsw i64 %152, 50
+  %156 = udiv i64 %155, 100
   br label %DivRound.exit.i.i.i
 
-158:                                              ; preds = %145
-  %.neg8.i.i.i.i = sub i64 50, %153
-  %159 = udiv i64 %.neg8.i.i.i.i, 100
-  %.neg.i.i.i.i = sub nsw i64 0, %159
+157:                                              ; preds = %144
+  %.neg8.i.i.i.i = sub i64 50, %152
+  %158 = udiv i64 %.neg8.i.i.i.i, 100
+  %.neg.i.i.i.i = sub nsw i64 0, %158
   br label %DivRound.exit.i.i.i
 
-DivRound.exit.i.i.i:                              ; preds = %158, %155
-  %160 = phi i64 [ %157, %155 ], [ %.neg.i.i.i.i, %158 ]
-  %161 = add i64 %160, %.01221.i.i.i
-  %162 = mul i64 %.01320.i.i.i, 6
-  %163 = icmp sgt i64 %162, -1
-  br i1 %163, label %164, label %167
+DivRound.exit.i.i.i:                              ; preds = %157, %154
+  %159 = phi i64 [ %156, %154 ], [ %.neg.i.i.i.i, %157 ]
+  %160 = add i64 %159, %.01221.i.i.i
+  %161 = mul i64 %.01320.i.i.i, 6
+  %162 = icmp sgt i64 %161, -1
+  br i1 %162, label %163, label %166
 
-164:                                              ; preds = %DivRound.exit.i.i.i
-  %165 = add nuw nsw i64 %162, 5
-  %166 = udiv i64 %165, 10
+163:                                              ; preds = %DivRound.exit.i.i.i
+  %164 = add nuw nsw i64 %161, 5
+  %165 = udiv i64 %164, 10
   br label %DivRound.exit16.i.i.i
 
-167:                                              ; preds = %DivRound.exit.i.i.i
-  %.neg8.i14.i.i.i = sub i64 4, %162
-  %168 = udiv i64 %.neg8.i14.i.i.i, 10
-  %.neg.i15.i.i.i = sub nsw i64 0, %168
+166:                                              ; preds = %DivRound.exit.i.i.i
+  %.neg8.i14.i.i.i = sub i64 4, %161
+  %167 = udiv i64 %.neg8.i14.i.i.i, 10
+  %.neg.i15.i.i.i = sub nsw i64 0, %167
   br label %DivRound.exit16.i.i.i
 
-DivRound.exit16.i.i.i:                            ; preds = %167, %164
-  %169 = phi i64 [ %166, %164 ], [ %.neg.i15.i.i.i, %167 ]
+DivRound.exit16.i.i.i:                            ; preds = %166, %163
+  %168 = phi i64 [ %165, %163 ], [ %.neg.i15.i.i.i, %166 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond.not.i.i.i, label %170, label %145, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i, label %169, label %144, !llvm.loop !25
 
-170:                                              ; preds = %DivRound.exit16.i.i.i
-  %171 = icmp sgt i32 %5, 24
-  %172 = icmp samesign ugt i32 %5, 50
-  %173 = select i1 %172, i64 7, i64 4
-  %174 = icmp sgt i64 %161, -1
-  br i1 %174, label %175, label %178
+169:                                              ; preds = %DivRound.exit16.i.i.i
+  %170 = icmp sgt i32 %5, 24
+  %171 = icmp samesign ugt i32 %5, 50
+  %172 = select i1 %171, i64 7, i64 4
+  %173 = icmp sgt i64 %160, -1
+  br i1 %173, label %174, label %177
 
-175:                                              ; preds = %170
-  %176 = add nuw nsw i64 %161, 5
-  %177 = udiv i64 %176, 10
+174:                                              ; preds = %169
+  %175 = add nuw nsw i64 %160, 5
+  %176 = udiv i64 %175, 10
   br label %GetPredictionCostCrossColorBlue.exit
 
-178:                                              ; preds = %170
-  %.neg8.i17.i.i.i = sub i64 5, %161
-  %179 = udiv i64 %.neg8.i17.i.i.i, 10
-  %.neg.i18.i.i.i = sub nsw i64 0, %179
+177:                                              ; preds = %169
+  %.neg8.i17.i.i.i = sub i64 5, %160
+  %178 = udiv i64 %.neg8.i17.i.i.i, 10
+  %.neg.i18.i.i.i = sub nsw i64 0, %178
   br label %GetPredictionCostCrossColorBlue.exit
 
-GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
-  %180 = phi i64 [ %177, %175 ], [ %.neg.i18.i.i.i, %178 ]
+GetPredictionCostCrossColorBlue.exit:             ; preds = %174, %177
+  %179 = phi i64 [ %176, %174 ], [ %.neg.i18.i.i.i, %177 ]
   %.sroa.2.0.extract.shift.i = lshr i24 %4, 16
   %.sroa.2.0.extract.trunc.i = zext nneg i24 %.sroa.2.0.extract.shift.i to i32
   %.sroa.1.0.extract.shift.i = lshr i24 %4, 8
   %.sroa.221.0.extract.shift.i = lshr i24 %3, 16
   %.sroa.221.0.extract.trunc.i = zext nneg i24 %.sroa.221.0.extract.shift.i to i32
   %.sroa.120.0.extract.shift.i = lshr i24 %3, 8
-  %181 = sub nsw i64 %141, %180
-  %182 = and i24 %.sroa.120.0.extract.shift.i, 255
-  %183 = zext nneg i24 %182 to i32
-  %184 = icmp eq i24 %182, 0
-  %185 = add nsw i64 %181, -25165824
-  %spec.select.i58 = select i1 %184, i64 %185, i64 %181
-  %186 = and i24 %.sroa.1.0.extract.shift.i, 255
-  %187 = zext nneg i24 %186 to i32
-  %188 = icmp eq i24 %186, 0
-  %189 = add nsw i64 %spec.select.i58, -25165824
-  %.1.i = select i1 %188, i64 %189, i64 %spec.select.i58
-  %190 = icmp eq i24 %.sroa.221.0.extract.shift.i, 0
-  %191 = add nsw i64 %.1.i, -25165824
-  %.2.i = select i1 %190, i64 %191, i64 %.1.i
-  %192 = icmp eq i24 %.sroa.2.0.extract.shift.i, 0
-  %193 = add nsw i64 %.2.i, -25165824
-  %.3.i = select i1 %192, i64 %193, i64 %.2.i
-  %194 = add nsw i64 %.3.i, -50331648
+  %180 = sub nsw i64 %140, %179
+  %181 = and i24 %.sroa.120.0.extract.shift.i, 255
+  %182 = zext nneg i24 %181 to i32
+  %183 = icmp eq i24 %181, 0
+  %184 = add nsw i64 %180, -25165824
+  %spec.select.i57 = select i1 %183, i64 %184, i64 %180
+  %185 = and i24 %.sroa.1.0.extract.shift.i, 255
+  %186 = zext nneg i24 %185 to i32
+  %187 = icmp eq i24 %185, 0
+  %188 = add nsw i64 %spec.select.i57, -25165824
+  %.1.i = select i1 %187, i64 %188, i64 %spec.select.i57
+  %189 = icmp eq i24 %.sroa.221.0.extract.shift.i, 0
+  %190 = add nsw i64 %.1.i, -25165824
+  %.2.i = select i1 %189, i64 %190, i64 %.1.i
+  %191 = icmp eq i24 %.sroa.2.0.extract.shift.i, 0
+  %192 = select i1 %191, i64 -75497472, i64 -50331648
+  %193 = add i64 %192, %.2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %198
+  br label %197
 
-195:                                              ; preds = %270
+194:                                              ; preds = %269
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
-  %196 = icmp samesign ugt i64 %173, %indvars.iv.next85.i
-  %197 = select i1 %171, i1 %196, i1 false
-  br i1 %197, label %198, label %GetBestGreenRedToBlue.exit, !llvm.loop !41
+  %195 = icmp samesign ugt i64 %172, %indvars.iv.next85.i
+  %196 = select i1 %170, i1 %195, i1 false
+  br i1 %196, label %197, label %GetBestGreenRedToBlue.exit, !llvm.loop !41
 
-198:                                              ; preds = %195, %GetPredictionCostCrossColorBlue.exit
-  %indvars.iv84.i = phi i64 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %indvars.iv.next85.i, %195 ]
-  %.05879.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %.4.i, %195 ]
-  %.06078.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %.464.i, %195 ]
-  %.06676.i = phi i64 [ %194, %GetPredictionCostCrossColorBlue.exit ], [ %.369.i, %195 ]
-  %199 = getelementptr inbounds nuw i8, ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 %indvars.iv84.i
-  %200 = load i8, ptr %199, align 1, !tbaa !42
-  %201 = sext i8 %200 to i32
-  %202 = icmp ne i64 %indvars.iv84.i, 4
-  %or.cond.not82.i = or i1 %171, %202
-  br label %203
+197:                                              ; preds = %194, %GetPredictionCostCrossColorBlue.exit
+  %indvars.iv84.i = phi i64 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %indvars.iv.next85.i, %194 ]
+  %.05879.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %.4.i, %194 ]
+  %.06078.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %.464.i, %194 ]
+  %.06676.i = phi i64 [ %193, %GetPredictionCostCrossColorBlue.exit ], [ %.369.i, %194 ]
+  %198 = getelementptr inbounds nuw i8, ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 %indvars.iv84.i
+  %199 = load i8, ptr %198, align 1, !tbaa !42
+  %200 = sext i8 %199 to i32
+  %201 = icmp ne i64 %indvars.iv84.i, 4
+  %or.cond.not82.i = or i1 %170, %201
+  br label %202
 
-203:                                              ; preds = %GetPredictionCostCrossColorBlue.exit.i, %198
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %GetPredictionCostCrossColorBlue.exit.i ], [ 0, %198 ]
-  %.275.i = phi i32 [ %.4.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.05879.i, %198 ]
-  %.26274.i = phi i32 [ %.464.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.06078.i, %198 ]
-  %.16773.i = phi i64 [ %.369.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.06676.i, %198 ]
-  %204 = getelementptr inbounds nuw [2 x i8], ptr @__const.GetBestGreenRedToBlue.offset, i64 %indvars.iv.i
-  %205 = load i8, ptr %204, align 2, !tbaa !42
-  %206 = sext i8 %205 to i32
-  %207 = mul nsw i32 %206, %201
-  %208 = add nsw i32 %207, %.275.i
-  %209 = getelementptr inbounds nuw i8, ptr %204, i64 1
-  %210 = load i8, ptr %209, align 1, !tbaa !42
-  %211 = sext i8 %210 to i32
-  %212 = mul nsw i32 %211, %201
-  %213 = add nsw i32 %212, %.26274.i
+202:                                              ; preds = %GetPredictionCostCrossColorBlue.exit.i, %197
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %GetPredictionCostCrossColorBlue.exit.i ], [ 0, %197 ]
+  %.275.i = phi i32 [ %.4.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.05879.i, %197 ]
+  %.26274.i = phi i32 [ %.464.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.06078.i, %197 ]
+  %.16773.i = phi i64 [ %.369.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.06676.i, %197 ]
+  %203 = getelementptr inbounds nuw [2 x i8], ptr @__const.GetBestGreenRedToBlue.offset, i64 %indvars.iv.i
+  %204 = load i8, ptr %203, align 2, !tbaa !42
+  %205 = sext i8 %204 to i32
+  %206 = mul nsw i32 %205, %200
+  %207 = add nsw i32 %206, %.275.i
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 1
+  %209 = load i8, ptr %208, align 1, !tbaa !42
+  %210 = sext i8 %209 to i32
+  %211 = mul nsw i32 %210, %200
+  %212 = add nsw i32 %211, %.26274.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %13, i8 0, i64 1024, i1 false)
-  %214 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !26
-  call void %214(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %208, i32 noundef %213, ptr noundef nonnull %13) #11
-  %215 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
-  %216 = call i64 %215(ptr noundef nonnull %13, ptr noundef nonnull %9) #11
-  %217 = load i32, ptr %13, align 16, !tbaa !3
-  %218 = zext i32 %217 to i64
-  %219 = mul nuw nsw i64 %218, 25165824
-  br label %220
+  %213 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !26
+  call void %213(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %207, i32 noundef %212, ptr noundef nonnull %13) #11
+  %214 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
+  %215 = call i64 %214(ptr noundef nonnull %13, ptr noundef nonnull %9) #11
+  %216 = load i32, ptr %13, align 16, !tbaa !3
+  %217 = zext i32 %216 to i64
+  %218 = mul nuw nsw i64 %217, 25165824
+  br label %219
 
-220:                                              ; preds = %DivRound.exit16.i.i.i.i50, %203
-  %indvars.iv.i.i.i.i42 = phi i64 [ 1, %203 ], [ %indvars.iv.next.i.i.i.i51, %DivRound.exit16.i.i.i.i50 ]
-  %.01221.i.i.i.i43 = phi i64 [ %219, %203 ], [ %236, %DivRound.exit16.i.i.i.i50 ]
-  %.01320.i.i.i.i44 = phi i64 [ 2013265920, %203 ], [ %244, %DivRound.exit16.i.i.i.i50 ]
-  %221 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i.i.i42
-  %222 = load i32, ptr %221, align 4, !tbaa !3
-  %223 = sub nuw nsw i64 256, %indvars.iv.i.i.i.i42
-  %224 = getelementptr inbounds nuw i32, ptr %13, i64 %223
-  %225 = load i32, ptr %224, align 4, !tbaa !3
-  %226 = add i32 %225, %222
-  %227 = zext i32 %226 to i64
-  %228 = mul i64 %.01320.i.i.i.i44, %227
-  %229 = icmp sgt i64 %228, -1
-  br i1 %229, label %230, label %233
+219:                                              ; preds = %DivRound.exit16.i.i.i.i50, %202
+  %indvars.iv.i.i.i.i42 = phi i64 [ 1, %202 ], [ %indvars.iv.next.i.i.i.i51, %DivRound.exit16.i.i.i.i50 ]
+  %.01221.i.i.i.i43 = phi i64 [ %218, %202 ], [ %235, %DivRound.exit16.i.i.i.i50 ]
+  %.01320.i.i.i.i44 = phi i64 [ 2013265920, %202 ], [ %243, %DivRound.exit16.i.i.i.i50 ]
+  %220 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i.i.i42
+  %221 = load i32, ptr %220, align 4, !tbaa !3
+  %222 = sub nuw nsw i64 256, %indvars.iv.i.i.i.i42
+  %223 = getelementptr inbounds nuw i32, ptr %13, i64 %222
+  %224 = load i32, ptr %223, align 4, !tbaa !3
+  %225 = add i32 %224, %221
+  %226 = zext i32 %225 to i64
+  %227 = mul i64 %.01320.i.i.i.i44, %226
+  %228 = icmp sgt i64 %227, -1
+  br i1 %228, label %229, label %232
 
-230:                                              ; preds = %220
-  %231 = add nuw nsw i64 %228, 50
-  %232 = udiv i64 %231, 100
+229:                                              ; preds = %219
+  %230 = add nuw nsw i64 %227, 50
+  %231 = udiv i64 %230, 100
   br label %DivRound.exit.i.i.i.i47
 
-233:                                              ; preds = %220
-  %.neg8.i.i.i.i.i45 = sub i64 50, %228
-  %234 = udiv i64 %.neg8.i.i.i.i.i45, 100
-  %.neg.i.i.i.i.i46 = sub nsw i64 0, %234
+232:                                              ; preds = %219
+  %.neg8.i.i.i.i.i45 = sub i64 50, %227
+  %233 = udiv i64 %.neg8.i.i.i.i.i45, 100
+  %.neg.i.i.i.i.i46 = sub nsw i64 0, %233
   br label %DivRound.exit.i.i.i.i47
 
-DivRound.exit.i.i.i.i47:                          ; preds = %233, %230
-  %235 = phi i64 [ %232, %230 ], [ %.neg.i.i.i.i.i46, %233 ]
-  %236 = add i64 %235, %.01221.i.i.i.i43
-  %237 = mul i64 %.01320.i.i.i.i44, 6
-  %238 = icmp sgt i64 %237, -1
-  br i1 %238, label %239, label %242
+DivRound.exit.i.i.i.i47:                          ; preds = %232, %229
+  %234 = phi i64 [ %231, %229 ], [ %.neg.i.i.i.i.i46, %232 ]
+  %235 = add i64 %234, %.01221.i.i.i.i43
+  %236 = mul i64 %.01320.i.i.i.i44, 6
+  %237 = icmp sgt i64 %236, -1
+  br i1 %237, label %238, label %241
 
-239:                                              ; preds = %DivRound.exit.i.i.i.i47
-  %240 = add nuw nsw i64 %237, 5
-  %241 = udiv i64 %240, 10
+238:                                              ; preds = %DivRound.exit.i.i.i.i47
+  %239 = add nuw nsw i64 %236, 5
+  %240 = udiv i64 %239, 10
   br label %DivRound.exit16.i.i.i.i50
 
-242:                                              ; preds = %DivRound.exit.i.i.i.i47
-  %.neg8.i14.i.i.i.i48 = sub i64 4, %237
-  %243 = udiv i64 %.neg8.i14.i.i.i.i48, 10
-  %.neg.i15.i.i.i.i49 = sub nsw i64 0, %243
+241:                                              ; preds = %DivRound.exit.i.i.i.i47
+  %.neg8.i14.i.i.i.i48 = sub i64 4, %236
+  %242 = udiv i64 %.neg8.i14.i.i.i.i48, 10
+  %.neg.i15.i.i.i.i49 = sub nsw i64 0, %242
   br label %DivRound.exit16.i.i.i.i50
 
-DivRound.exit16.i.i.i.i50:                        ; preds = %242, %239
-  %244 = phi i64 [ %241, %239 ], [ %.neg.i15.i.i.i.i49, %242 ]
+DivRound.exit16.i.i.i.i50:                        ; preds = %241, %238
+  %243 = phi i64 [ %240, %238 ], [ %.neg.i15.i.i.i.i49, %241 ]
   %indvars.iv.next.i.i.i.i51 = add nuw nsw i64 %indvars.iv.i.i.i.i42, 1
   %exitcond.not.i.i.i.i52 = icmp eq i64 %indvars.iv.next.i.i.i.i51, 16
-  br i1 %exitcond.not.i.i.i.i52, label %245, label %220, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i.i52, label %244, label %219, !llvm.loop !25
 
-245:                                              ; preds = %DivRound.exit16.i.i.i.i50
-  %246 = icmp sgt i64 %236, -1
-  br i1 %246, label %247, label %250
+244:                                              ; preds = %DivRound.exit16.i.i.i.i50
+  %245 = icmp sgt i64 %235, -1
+  br i1 %245, label %246, label %249
 
-247:                                              ; preds = %245
-  %248 = add nuw nsw i64 %236, 5
-  %249 = udiv i64 %248, 10
+246:                                              ; preds = %244
+  %247 = add nuw nsw i64 %235, 5
+  %248 = udiv i64 %247, 10
   br label %GetPredictionCostCrossColorBlue.exit.i
 
-250:                                              ; preds = %245
-  %.neg8.i17.i.i.i.i53 = sub i64 5, %236
-  %251 = udiv i64 %.neg8.i17.i.i.i.i53, 10
-  %.neg.i18.i.i.i.i54 = sub nsw i64 0, %251
+249:                                              ; preds = %244
+  %.neg8.i17.i.i.i.i53 = sub i64 5, %235
+  %250 = udiv i64 %.neg8.i17.i.i.i.i53, 10
+  %.neg.i18.i.i.i.i54 = sub nsw i64 0, %250
   br label %GetPredictionCostCrossColorBlue.exit.i
 
-GetPredictionCostCrossColorBlue.exit.i:           ; preds = %250, %247
-  %252 = phi i64 [ %249, %247 ], [ %.neg.i18.i.i.i.i54, %250 ]
-  %253 = sub nsw i64 %216, %252
-  %254 = and i32 %208, 255
-  %255 = icmp eq i32 %254, %183
-  %256 = add nsw i64 %253, -25165824
-  %spec.select.i.i55 = select i1 %255, i64 %256, i64 %253
-  %257 = icmp eq i32 %254, %187
-  %258 = add nsw i64 %spec.select.i.i55, -25165824
-  %.1.i.i56 = select i1 %257, i64 %258, i64 %spec.select.i.i55
-  %259 = and i32 %213, 255
-  %260 = icmp eq i32 %259, %.sroa.221.0.extract.trunc.i
-  %261 = add nsw i64 %.1.i.i56, -25165824
-  %.2.i.i57 = select i1 %260, i64 %261, i64 %.1.i.i56
-  %262 = icmp eq i32 %259, %.sroa.2.0.extract.trunc.i
-  %263 = add nsw i64 %.2.i.i57, -25165824
-  %.3.i.i = select i1 %262, i64 %263, i64 %.2.i.i57
-  %264 = icmp eq i32 %208, 0
-  %265 = add nsw i64 %.3.i.i, -25165824
-  %.4.i.i = select i1 %264, i64 %265, i64 %.3.i.i
-  %266 = icmp eq i32 %213, 0
-  %267 = add nsw i64 %.4.i.i, -25165824
-  %.5.i.i = select i1 %266, i64 %267, i64 %.4.i.i
+GetPredictionCostCrossColorBlue.exit.i:           ; preds = %249, %246
+  %251 = phi i64 [ %248, %246 ], [ %.neg.i18.i.i.i.i54, %249 ]
+  %252 = sub nsw i64 %215, %251
+  %253 = and i32 %207, 255
+  %254 = icmp eq i32 %253, %182
+  %255 = add nsw i64 %252, -25165824
+  %spec.select.i.i55 = select i1 %254, i64 %255, i64 %252
+  %256 = icmp eq i32 %253, %186
+  %257 = add nsw i64 %spec.select.i.i55, -25165824
+  %.1.i.i = select i1 %256, i64 %257, i64 %spec.select.i.i55
+  %258 = and i32 %212, 255
+  %259 = icmp eq i32 %258, %.sroa.221.0.extract.trunc.i
+  %260 = add nsw i64 %.1.i.i, -25165824
+  %.2.i.i56 = select i1 %259, i64 %260, i64 %.1.i.i
+  %261 = icmp eq i32 %258, %.sroa.2.0.extract.trunc.i
+  %262 = add nsw i64 %.2.i.i56, -25165824
+  %.3.i.i = select i1 %261, i64 %262, i64 %.2.i.i56
+  %263 = icmp eq i32 %207, 0
+  %264 = add nsw i64 %.3.i.i, -25165824
+  %.4.i.i = select i1 %263, i64 %264, i64 %.3.i.i
+  %265 = icmp eq i32 %212, 0
+  %266 = add nsw i64 %.4.i.i, -25165824
+  %.5.i.i = select i1 %265, i64 %266, i64 %.4.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %268 = icmp slt i64 %.5.i.i, %.16773.i
+  %267 = icmp slt i64 %.5.i.i, %.16773.i
   %.369.i = call i64 @llvm.smin.i64(i64 %.5.i.i, i64 %.16773.i)
-  %.464.i = select i1 %268, i32 %213, i32 %.26274.i
-  %.4.i = select i1 %268, i32 %208, i32 %.275.i
+  %.464.i = select i1 %267, i32 %212, i32 %.26274.i
+  %.4.i = select i1 %267, i32 %207, i32 %.275.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %269 = icmp samesign ult i64 %indvars.iv.i, 7
-  %or.cond80.i = select i1 %or.cond.not82.i, i1 %269, i1 false
-  br i1 %or.cond80.i, label %203, label %270, !llvm.loop !43
+  %268 = icmp samesign ult i64 %indvars.iv.i, 7
+  %or.cond80.i = select i1 %or.cond.not82.i, i1 %268, i1 false
+  br i1 %or.cond80.i, label %202, label %269, !llvm.loop !43
 
-270:                                              ; preds = %GetPredictionCostCrossColorBlue.exit.i
-  %271 = trunc i64 %indvars.iv84.i to i32
-  %272 = add i32 %271, -4
-  %273 = icmp ult i32 %272, 3
-  %274 = or i32 %.4.i, %.464.i
-  %275 = icmp eq i32 %274, 0
-  %or.cond5.i = select i1 %273, i1 %275, i1 false
-  br i1 %or.cond5.i, label %GetBestGreenRedToBlue.exit, label %195
+269:                                              ; preds = %GetPredictionCostCrossColorBlue.exit.i
+  %270 = trunc i64 %indvars.iv84.i to i32
+  %271 = add i32 %270, -4
+  %272 = icmp ult i32 %271, 3
+  %273 = or i32 %.4.i, %.464.i
+  %274 = icmp eq i32 %273, 0
+  %or.cond5.i = select i1 %272, i1 %274, i1 false
+  br i1 %or.cond5.i, label %GetBestGreenRedToBlue.exit, label %194
 
-GetBestGreenRedToBlue.exit:                       ; preds = %195, %270
-  %.161.i = phi i32 [ 0, %270 ], [ %.464.i, %195 ]
-  %.159.i = phi i32 [ 0, %270 ], [ %.4.i, %195 ]
-  %276 = trunc i32 %.161.i to i24
-  %.sroa.5.0.insert.ext = shl i24 %276, 16
-  %277 = trunc i32 %.159.i to i24
-  %.sroa.3.0.insert.ext = shl i24 %277, 8
+GetBestGreenRedToBlue.exit:                       ; preds = %194, %269
+  %.161.i = phi i32 [ 0, %269 ], [ %.464.i, %194 ]
+  %.159.i = phi i32 [ 0, %269 ], [ %.4.i, %194 ]
+  %275 = trunc i32 %.161.i to i24
+  %.sroa.5.0.insert.ext = shl i24 %275, 16
+  %276 = trunc i32 %.159.i to i24
+  %.sroa.3.0.insert.ext = shl i24 %276, 8
   %.sroa.3.0.insert.shift = and i24 %.sroa.3.0.insert.ext, 65280
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.shift, %.sroa.5.0.insert.ext
   %.sroa.0.0.insert.ext = zext i8 %.0.lcssa.i to i24

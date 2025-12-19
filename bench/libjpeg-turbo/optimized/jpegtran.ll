@@ -567,10 +567,10 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br label %17
 
-17:                                               ; preds = %.lr.ph, %291
-  %.0282 = phi ptr [ null, %.lr.ph ], [ %.1, %291 ]
-  %.0131281 = phi i32 [ 0, %.lr.ph ], [ %.1132, %291 ]
-  %.0133280 = phi i32 [ 1, %.lr.ph ], [ %292, %291 ]
+17:                                               ; preds = %.lr.ph, %290
+  %.0282 = phi ptr [ null, %.lr.ph ], [ %.1, %290 ]
+  %.0131281 = phi i32 [ 0, %.lr.ph ], [ %.1132, %290 ]
+  %.0133280 = phi i32 [ 1, %.lr.ph ], [ %291, %290 ]
   %18 = sext i32 %.0133280 to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
@@ -584,7 +584,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 24:                                               ; preds = %22
   store ptr null, ptr @outfilename, align 8, !tbaa !4
-  br label %291
+  br label %290
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 1
@@ -594,7 +594,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 28:                                               ; preds = %25
   store i32 1, ptr %12, align 4, !tbaa !72
-  br label %291
+  br label %290
 
 29:                                               ; preds = %25
   %30 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.12, i32 noundef 1) #12
@@ -620,7 +620,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 39:                                               ; preds = %34
   store i32 0, ptr @copyoption, align 4, !tbaa !55
-  br label %291
+  br label %290
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %36, align 8, !tbaa !4
@@ -630,7 +630,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 43:                                               ; preds = %40
   store i32 1, ptr @copyoption, align 4, !tbaa !55
-  br label %291
+  br label %290
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %36, align 8, !tbaa !4
@@ -640,7 +640,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 47:                                               ; preds = %44
   store i32 4, ptr @copyoption, align 4, !tbaa !55
-  br label %291
+  br label %290
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %36, align 8, !tbaa !4
@@ -650,7 +650,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
 
 51:                                               ; preds = %48
   store i32 2, ptr @copyoption, align 4, !tbaa !55
-  br label %291
+  br label %290
 
 52:                                               ; preds = %48
   call fastcc void @usage()
@@ -681,7 +681,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %63 = load ptr, ptr %62, align 8, !tbaa !4
   %64 = call i32 @jtransform_parse_crop_spec(ptr noundef nonnull @transformoption, ptr noundef %63) #12
   %.not185 = icmp eq i32 %64, 0
-  br i1 %.not185, label %split, label %291
+  br i1 %.not185, label %split, label %290
 
 split:                                            ; preds = %61, %58
   %65 = load ptr, ptr @stderr, align 8, !tbaa !53
@@ -763,7 +763,7 @@ split298:                                         ; preds = %78, %75
 
 select_transform.exit:                            ; preds = %95, %95
   store i32 9, ptr @transformoption, align 8, !tbaa !74
-  br label %291
+  br label %290
 
 104:                                              ; preds = %70
   %105 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.21, i32 noundef 1) #12
@@ -797,7 +797,7 @@ select_transform.exit:                            ; preds = %95, %95
   %121 = load i32, ptr %120, align 4, !tbaa !45
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 4, !tbaa !45
-  br label %291
+  br label %290
 
 123:                                              ; preds = %106
   %124 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.31, i32 noundef 4) #12
@@ -834,7 +834,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 138:                                              ; preds = %133
   call fastcc void @select_transform(i32 noundef 1)
-  br label %291
+  br label %290
 
 139:                                              ; preds = %133
   %140 = load ptr, ptr %135, align 8, !tbaa !4
@@ -844,7 +844,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 142:                                              ; preds = %139
   call fastcc void @select_transform(i32 noundef 2)
-  br label %291
+  br label %290
 
 143:                                              ; preds = %139
   call fastcc void @usage()
@@ -862,7 +862,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 148:                                              ; preds = %146, %144
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 12), align 4, !tbaa !75
-  br label %291
+  br label %290
 
 149:                                              ; preds = %146
   %150 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.15, i32 noundef 1) #12
@@ -883,12 +883,12 @@ select_transform.exit:                            ; preds = %95, %95
   %156 = getelementptr inbounds ptr, ptr %2, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !4
   store ptr %157, ptr @icc_filename, align 8, !tbaa !4
-  br label %291
+  br label %290
 
 158:                                              ; preds = %149
   %159 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.37, i32 noundef 3) #12
   %.not147 = icmp eq i32 %159, 0
-  br i1 %.not147, label %177, label %160
+  br i1 %.not147, label %176, label %160
 
 160:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -919,344 +919,343 @@ select_transform.exit:                            ; preds = %95, %95
   %172 = and i8 %171, -33
   %or.cond6 = icmp eq i8 %172, 77
   %.pre = load i64, ptr %5, align 8, !tbaa !76
-  %173 = mul nsw i64 %.pre, 1000
-  %spec.select = select i1 %or.cond6, i64 %173, i64 %.pre
-  %174 = mul nsw i64 %spec.select, 1000
-  %175 = load ptr, ptr %13, align 8, !tbaa !48
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 88
-  store i64 %174, ptr %176, align 8, !tbaa !49
+  %.v = select i1 %or.cond6, i64 1000000, i64 1000
+  %173 = mul nsw i64 %.pre, %.v
+  %174 = load ptr, ptr %13, align 8, !tbaa !48
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 88
+  store i64 %173, ptr %175, align 8, !tbaa !49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %291
+  br label %290
 
-177:                                              ; preds = %158
-  %178 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.39, i32 noundef 4) #12
-  %.not148 = icmp eq i32 %178, 0
-  br i1 %.not148, label %188, label %179
+176:                                              ; preds = %158
+  %177 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.39, i32 noundef 4) #12
+  %.not148 = icmp eq i32 %177, 0
+  br i1 %.not148, label %187, label %178
 
-179:                                              ; preds = %177
-  %180 = add nsw i32 %.0133280, 1
-  %.not173 = icmp slt i32 %180, %1
-  br i1 %.not173, label %182, label %181
+178:                                              ; preds = %176
+  %179 = add nsw i32 %.0133280, 1
+  %.not173 = icmp slt i32 %179, %1
+  br i1 %.not173, label %181, label %180
 
-181:                                              ; preds = %179
+180:                                              ; preds = %178
   call fastcc void @usage()
   unreachable
 
-182:                                              ; preds = %179
-  %183 = sext i32 %180 to i64
-  %184 = getelementptr inbounds ptr, ptr %2, i64 %183
-  %185 = load ptr, ptr %184, align 8, !tbaa !4
-  %186 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %185, ptr noundef nonnull @.str.40, ptr noundef nonnull @max_scans) #12
-  %.not174 = icmp eq i32 %186, 1
-  br i1 %.not174, label %291, label %187
+181:                                              ; preds = %178
+  %182 = sext i32 %179 to i64
+  %183 = getelementptr inbounds ptr, ptr %2, i64 %182
+  %184 = load ptr, ptr %183, align 8, !tbaa !4
+  %185 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %184, ptr noundef nonnull @.str.40, ptr noundef nonnull @max_scans) #12
+  %.not174 = icmp eq i32 %185, 1
+  br i1 %.not174, label %290, label %186
 
-187:                                              ; preds = %182
+186:                                              ; preds = %181
   call fastcc void @usage()
   unreachable
 
-188:                                              ; preds = %177
-  %189 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.41, i32 noundef 1) #12
-  %.not149 = icmp eq i32 %189, 0
-  br i1 %.not149, label %190, label %192
+187:                                              ; preds = %176
+  %188 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.41, i32 noundef 1) #12
+  %.not149 = icmp eq i32 %188, 0
+  br i1 %.not149, label %189, label %191
 
-190:                                              ; preds = %188
-  %191 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.42, i32 noundef 1) #12
-  %.not150 = icmp eq i32 %191, 0
-  br i1 %.not150, label %193, label %192
+189:                                              ; preds = %187
+  %190 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.42, i32 noundef 1) #12
+  %.not150 = icmp eq i32 %190, 0
+  br i1 %.not150, label %192, label %191
 
-192:                                              ; preds = %190, %188
+191:                                              ; preds = %189, %187
   store i32 1, ptr %14, align 8, !tbaa !77
-  br label %291
+  br label %290
 
-193:                                              ; preds = %190
-  %194 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.43, i32 noundef 4) #12
-  %.not151 = icmp eq i32 %194, 0
-  br i1 %.not151, label %202, label %195
+192:                                              ; preds = %189
+  %193 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.43, i32 noundef 4) #12
+  %.not151 = icmp eq i32 %193, 0
+  br i1 %.not151, label %201, label %194
 
-195:                                              ; preds = %193
-  %196 = add nsw i32 %.0133280, 1
-  %.not172 = icmp slt i32 %196, %1
-  br i1 %.not172, label %198, label %197
+194:                                              ; preds = %192
+  %195 = add nsw i32 %.0133280, 1
+  %.not172 = icmp slt i32 %195, %1
+  br i1 %.not172, label %197, label %196
 
-197:                                              ; preds = %195
+196:                                              ; preds = %194
   call fastcc void @usage()
   unreachable
 
-198:                                              ; preds = %195
-  %199 = sext i32 %196 to i64
-  %200 = getelementptr inbounds ptr, ptr %2, i64 %199
-  %201 = load ptr, ptr %200, align 8, !tbaa !4
-  store ptr %201, ptr @outfilename, align 8, !tbaa !4
-  br label %291
+197:                                              ; preds = %194
+  %198 = sext i32 %195 to i64
+  %199 = getelementptr inbounds ptr, ptr %2, i64 %198
+  %200 = load ptr, ptr %199, align 8, !tbaa !4
+  store ptr %200, ptr @outfilename, align 8, !tbaa !4
+  br label %290
 
-202:                                              ; preds = %193
-  %203 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.44, i32 noundef 2) #12
-  %.not152 = icmp eq i32 %203, 0
-  br i1 %.not152, label %205, label %204
+201:                                              ; preds = %192
+  %202 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.44, i32 noundef 2) #12
+  %.not152 = icmp eq i32 %202, 0
+  br i1 %.not152, label %204, label %203
 
-204:                                              ; preds = %202
+203:                                              ; preds = %201
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 4), align 4, !tbaa !78
-  br label %291
+  br label %290
 
-205:                                              ; preds = %202
-  %206 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.45, i32 noundef 1) #12
-  %.not153 = icmp eq i32 %206, 0
-  br i1 %.not153, label %207, label %291
+204:                                              ; preds = %201
+  %205 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.45, i32 noundef 1) #12
+  %.not153 = icmp eq i32 %205, 0
+  br i1 %.not153, label %206, label %290
 
-207:                                              ; preds = %205
-  %208 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.46, i32 noundef 3) #12
-  %.not154 = icmp eq i32 %208, 0
-  br i1 %.not154, label %210, label %209
+206:                                              ; preds = %204
+  %207 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.46, i32 noundef 3) #12
+  %.not154 = icmp eq i32 %207, 0
+  br i1 %.not154, label %209, label %208
 
-209:                                              ; preds = %207
+208:                                              ; preds = %206
   store i1 true, ptr @report, align 4
-  br label %291
+  br label %290
 
-210:                                              ; preds = %207
-  %211 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.47, i32 noundef 1) #12
-  %.not155 = icmp eq i32 %211, 0
-  br i1 %.not155, label %231, label %212
+209:                                              ; preds = %206
+  %210 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.47, i32 noundef 1) #12
+  %.not155 = icmp eq i32 %210, 0
+  br i1 %.not155, label %230, label %211
 
-212:                                              ; preds = %210
+211:                                              ; preds = %209
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 120, ptr %8, align 1, !tbaa !9
-  %213 = add nsw i32 %.0133280, 1
-  %.not171 = icmp slt i32 %213, %1
-  br i1 %.not171, label %215, label %214
+  %212 = add nsw i32 %.0133280, 1
+  %.not171 = icmp slt i32 %212, %1
+  br i1 %.not171, label %214, label %213
 
-214:                                              ; preds = %212
+213:                                              ; preds = %211
   call fastcc void @usage()
   unreachable
 
-215:                                              ; preds = %212
-  %216 = sext i32 %213 to i64
-  %217 = getelementptr inbounds ptr, ptr %2, i64 %216
-  %218 = load ptr, ptr %217, align 8, !tbaa !4
-  %219 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %218, ptr noundef nonnull @.str.38, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
-  %220 = icmp slt i32 %219, 1
-  br i1 %220, label %221, label %222
+214:                                              ; preds = %211
+  %215 = sext i32 %212 to i64
+  %216 = getelementptr inbounds ptr, ptr %2, i64 %215
+  %217 = load ptr, ptr %216, align 8, !tbaa !4
+  %218 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %217, ptr noundef nonnull @.str.38, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
+  %219 = icmp slt i32 %218, 1
+  br i1 %219, label %220, label %221
 
-221:                                              ; preds = %215
+220:                                              ; preds = %214
   call fastcc void @usage()
   unreachable
 
-222:                                              ; preds = %215
-  %223 = load i64, ptr %7, align 8, !tbaa !76
-  %or.cond8 = icmp ugt i64 %223, 65535
-  br i1 %or.cond8, label %224, label %225
+221:                                              ; preds = %214
+  %222 = load i64, ptr %7, align 8, !tbaa !76
+  %or.cond8 = icmp ugt i64 %222, 65535
+  br i1 %or.cond8, label %223, label %224
 
-224:                                              ; preds = %222
+223:                                              ; preds = %221
   call fastcc void @usage()
   unreachable
 
-225:                                              ; preds = %222
-  %226 = load i8, ptr %8, align 1, !tbaa !9
-  %227 = and i8 %226, -33
-  %or.cond11 = icmp eq i8 %227, 66
-  %228 = trunc nuw nsw i64 %223 to i32
-  br i1 %or.cond11, label %229, label %230
+224:                                              ; preds = %221
+  %225 = load i8, ptr %8, align 1, !tbaa !9
+  %226 = and i8 %225, -33
+  %or.cond11 = icmp eq i8 %226, 66
+  %227 = trunc nuw nsw i64 %222 to i32
+  br i1 %or.cond11, label %228, label %229
 
-229:                                              ; preds = %225
-  store i32 %228, ptr %16, align 8, !tbaa !79
-  br label %230
+228:                                              ; preds = %224
+  store i32 %227, ptr %16, align 8, !tbaa !79
+  br label %229
 
-230:                                              ; preds = %225, %229
-  %storemerge = phi i32 [ 0, %229 ], [ %228, %225 ]
+229:                                              ; preds = %224, %228
+  %storemerge = phi i32 [ 0, %228 ], [ %227, %224 ]
   store i32 %storemerge, ptr %15, align 4, !tbaa !80
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %291
+  br label %290
 
-231:                                              ; preds = %210
-  %232 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.48, i32 noundef 2) #12
-  %.not156 = icmp eq i32 %232, 0
-  br i1 %.not156, label %251, label %233
+230:                                              ; preds = %209
+  %231 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.48, i32 noundef 2) #12
+  %.not156 = icmp eq i32 %231, 0
+  br i1 %.not156, label %250, label %232
 
-233:                                              ; preds = %231
-  %234 = add nsw i32 %.0133280, 1
-  %.not167 = icmp slt i32 %234, %1
-  br i1 %.not167, label %236, label %235
+232:                                              ; preds = %230
+  %233 = add nsw i32 %.0133280, 1
+  %.not167 = icmp slt i32 %233, %1
+  br i1 %.not167, label %235, label %234
 
-235:                                              ; preds = %233
+234:                                              ; preds = %232
   call fastcc void @usage()
   unreachable
 
-236:                                              ; preds = %233
-  %237 = sext i32 %234 to i64
-  %238 = getelementptr inbounds ptr, ptr %2, i64 %237
-  %239 = load ptr, ptr %238, align 8, !tbaa !4
-  %240 = call i32 @keymatch(ptr noundef %239, ptr noundef nonnull @.str.49, i32 noundef 2) #12
-  %.not168 = icmp eq i32 %240, 0
-  br i1 %.not168, label %242, label %241
+235:                                              ; preds = %232
+  %236 = sext i32 %233 to i64
+  %237 = getelementptr inbounds ptr, ptr %2, i64 %236
+  %238 = load ptr, ptr %237, align 8, !tbaa !4
+  %239 = call i32 @keymatch(ptr noundef %238, ptr noundef nonnull @.str.49, i32 noundef 2) #12
+  %.not168 = icmp eq i32 %239, 0
+  br i1 %.not168, label %241, label %240
 
-241:                                              ; preds = %236
+240:                                              ; preds = %235
   call fastcc void @select_transform(i32 noundef 5)
-  br label %291
+  br label %290
 
-242:                                              ; preds = %236
-  %243 = load ptr, ptr %238, align 8, !tbaa !4
-  %244 = call i32 @keymatch(ptr noundef %243, ptr noundef nonnull @.str.50, i32 noundef 3) #12
-  %.not169 = icmp eq i32 %244, 0
-  br i1 %.not169, label %246, label %245
+241:                                              ; preds = %235
+  %242 = load ptr, ptr %237, align 8, !tbaa !4
+  %243 = call i32 @keymatch(ptr noundef %242, ptr noundef nonnull @.str.50, i32 noundef 3) #12
+  %.not169 = icmp eq i32 %243, 0
+  br i1 %.not169, label %245, label %244
 
-245:                                              ; preds = %242
+244:                                              ; preds = %241
   call fastcc void @select_transform(i32 noundef 6)
-  br label %291
+  br label %290
 
-246:                                              ; preds = %242
-  %247 = load ptr, ptr %238, align 8, !tbaa !4
-  %248 = call i32 @keymatch(ptr noundef %247, ptr noundef nonnull @.str.51, i32 noundef 3) #12
-  %.not170 = icmp eq i32 %248, 0
-  br i1 %.not170, label %250, label %249
+245:                                              ; preds = %241
+  %246 = load ptr, ptr %237, align 8, !tbaa !4
+  %247 = call i32 @keymatch(ptr noundef %246, ptr noundef nonnull @.str.51, i32 noundef 3) #12
+  %.not170 = icmp eq i32 %247, 0
+  br i1 %.not170, label %249, label %248
 
-249:                                              ; preds = %246
+248:                                              ; preds = %245
   call fastcc void @select_transform(i32 noundef 7)
-  br label %291
+  br label %290
 
-250:                                              ; preds = %246
+249:                                              ; preds = %245
   call fastcc void @usage()
   unreachable
 
-251:                                              ; preds = %231
-  %252 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.52, i32 noundef 1) #12
-  %.not157 = icmp eq i32 %252, 0
-  br i1 %.not157, label %260, label %253
+250:                                              ; preds = %230
+  %251 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.52, i32 noundef 1) #12
+  %.not157 = icmp eq i32 %251, 0
+  br i1 %.not157, label %259, label %252
 
-253:                                              ; preds = %251
-  %254 = add nsw i32 %.0133280, 1
-  %.not166 = icmp slt i32 %254, %1
-  br i1 %.not166, label %256, label %255
+252:                                              ; preds = %250
+  %253 = add nsw i32 %.0133280, 1
+  %.not166 = icmp slt i32 %253, %1
+  br i1 %.not166, label %255, label %254
 
-255:                                              ; preds = %253
+254:                                              ; preds = %252
   call fastcc void @usage()
   unreachable
 
-256:                                              ; preds = %253
-  %257 = sext i32 %254 to i64
-  %258 = getelementptr inbounds ptr, ptr %2, i64 %257
-  %259 = load ptr, ptr %258, align 8, !tbaa !4
-  br label %291
+255:                                              ; preds = %252
+  %256 = sext i32 %253 to i64
+  %257 = getelementptr inbounds ptr, ptr %2, i64 %256
+  %258 = load ptr, ptr %257, align 8, !tbaa !4
+  br label %290
 
-260:                                              ; preds = %251
-  %261 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.53, i32 noundef 2) #12
-  %.not158 = icmp eq i32 %261, 0
-  br i1 %.not158, label %263, label %262
+259:                                              ; preds = %250
+  %260 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.53, i32 noundef 2) #12
+  %.not158 = icmp eq i32 %260, 0
+  br i1 %.not158, label %262, label %261
 
-262:                                              ; preds = %260
+261:                                              ; preds = %259
   store i1 true, ptr @strict, align 4
-  br label %291
+  br label %290
 
-263:                                              ; preds = %260
-  %264 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.54, i32 noundef 1) #12
-  %.not159 = icmp eq i32 %264, 0
-  br i1 %.not159, label %266, label %265
+262:                                              ; preds = %259
+  %263 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.54, i32 noundef 1) #12
+  %.not159 = icmp eq i32 %263, 0
+  br i1 %.not159, label %265, label %264
 
-265:                                              ; preds = %263
+264:                                              ; preds = %262
   call fastcc void @select_transform(i32 noundef 3)
-  br label %291
+  br label %290
 
-266:                                              ; preds = %263
-  %267 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.55, i32 noundef 6) #12
-  %.not160 = icmp eq i32 %267, 0
-  br i1 %.not160, label %269, label %268
+265:                                              ; preds = %262
+  %266 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.55, i32 noundef 6) #12
+  %.not160 = icmp eq i32 %266, 0
+  br i1 %.not160, label %268, label %267
 
-268:                                              ; preds = %266
+267:                                              ; preds = %265
   call fastcc void @select_transform(i32 noundef 4)
-  br label %291
+  br label %290
 
-269:                                              ; preds = %266
-  %270 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.56, i32 noundef 3) #12
-  %.not161 = icmp eq i32 %270, 0
-  br i1 %.not161, label %272, label %271
+268:                                              ; preds = %265
+  %269 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.56, i32 noundef 3) #12
+  %.not161 = icmp eq i32 %269, 0
+  br i1 %.not161, label %271, label %270
 
-271:                                              ; preds = %269
+270:                                              ; preds = %268
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 8), align 8, !tbaa !81
-  br label %291
+  br label %290
 
-272:                                              ; preds = %269
-  %273 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.57, i32 noundef 1) #12
-  %.not162 = icmp eq i32 %273, 0
-  br i1 %.not162, label %290, label %274
+271:                                              ; preds = %268
+  %272 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.57, i32 noundef 1) #12
+  %.not162 = icmp eq i32 %272, 0
+  br i1 %.not162, label %289, label %273
 
-274:                                              ; preds = %272
-  %275 = add nsw i32 %.0133280, 1
-  %.not163 = icmp slt i32 %275, %1
-  br i1 %.not163, label %277, label %276
+273:                                              ; preds = %271
+  %274 = add nsw i32 %.0133280, 1
+  %.not163 = icmp slt i32 %274, %1
+  br i1 %.not163, label %276, label %275
 
-276:                                              ; preds = %274
+275:                                              ; preds = %273
   call fastcc void @usage()
   unreachable
 
-277:                                              ; preds = %274
-  %278 = load i32, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 16), align 8, !tbaa !73
-  %.not164 = icmp eq i32 %278, 0
-  %279 = sext i32 %275 to i64
-  br i1 %.not164, label %280, label %split300
+276:                                              ; preds = %273
+  %277 = load i32, ptr getelementptr inbounds nuw (i8, ptr @transformoption, i64 16), align 8, !tbaa !73
+  %.not164 = icmp eq i32 %277, 0
+  %278 = sext i32 %274 to i64
+  br i1 %.not164, label %279, label %split300
 
-280:                                              ; preds = %277
-  %281 = getelementptr inbounds ptr, ptr %2, i64 %279
-  %282 = load ptr, ptr %281, align 8, !tbaa !4
-  %283 = call i32 @jtransform_parse_crop_spec(ptr noundef nonnull @transformoption, ptr noundef %282) #12
-  %.not165 = icmp eq i32 %283, 0
-  br i1 %.not165, label %split300, label %289
+279:                                              ; preds = %276
+  %280 = getelementptr inbounds ptr, ptr %2, i64 %278
+  %281 = load ptr, ptr %280, align 8, !tbaa !4
+  %282 = call i32 @jtransform_parse_crop_spec(ptr noundef nonnull @transformoption, ptr noundef %281) #12
+  %.not165 = icmp eq i32 %282, 0
+  br i1 %.not165, label %split300, label %288
 
-split300:                                         ; preds = %280, %277
-  %284 = load ptr, ptr @stderr, align 8, !tbaa !53
-  %285 = load ptr, ptr @progname, align 8, !tbaa !4
-  %286 = getelementptr inbounds ptr, ptr %2, i64 %279
-  %287 = load ptr, ptr %286, align 8, !tbaa !4
-  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.58, ptr noundef %285, ptr noundef %287) #13
+split300:                                         ; preds = %279, %276
+  %283 = load ptr, ptr @stderr, align 8, !tbaa !53
+  %284 = load ptr, ptr @progname, align 8, !tbaa !4
+  %285 = getelementptr inbounds ptr, ptr %2, i64 %278
+  %286 = load ptr, ptr %285, align 8, !tbaa !4
+  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %283, ptr noundef nonnull @.str.58, ptr noundef %284, ptr noundef %286) #13
   call void @exit(i32 noundef 1) #14
   unreachable
 
-289:                                              ; preds = %280
+288:                                              ; preds = %279
   call fastcc void @select_transform(i32 noundef 8)
-  br label %291
+  br label %290
 
-290:                                              ; preds = %272
+289:                                              ; preds = %271
   call fastcc void @usage()
   unreachable
 
-291:                                              ; preds = %205, %28, %61, %118, %142, %138, %154, %182, %198, %230, %256, %265, %271, %289, %268, %262, %241, %249, %245, %209, %204, %192, %170, %148, %select_transform.exit, %39, %47, %51, %43, %24
-  %.1134 = phi i32 [ %.0133280, %24 ], [ %.0133280, %28 ], [ %32, %39 ], [ %32, %43 ], [ %32, %47 ], [ %32, %51 ], [ %.0133280, %205 ], [ %56, %61 ], [ %93, %select_transform.exit ], [ %.0133280, %118 ], [ %131, %138 ], [ %131, %142 ], [ %275, %289 ], [ %.0133280, %148 ], [ %152, %154 ], [ %161, %170 ], [ %.0133280, %271 ], [ %180, %182 ], [ %.0133280, %192 ], [ %196, %198 ], [ %.0133280, %204 ], [ %.0133280, %265 ], [ %.0133280, %209 ], [ %213, %230 ], [ %234, %241 ], [ %234, %245 ], [ %234, %249 ], [ %.0133280, %268 ], [ %254, %256 ], [ %.0133280, %262 ]
-  %.1132 = phi i32 [ %.0131281, %24 ], [ %.0131281, %28 ], [ %.0131281, %39 ], [ %.0131281, %43 ], [ %.0131281, %47 ], [ %.0131281, %51 ], [ 1, %205 ], [ %.0131281, %61 ], [ %.0131281, %select_transform.exit ], [ %.0131281, %118 ], [ %.0131281, %138 ], [ %.0131281, %142 ], [ %.0131281, %289 ], [ %.0131281, %148 ], [ %.0131281, %154 ], [ %.0131281, %170 ], [ %.0131281, %271 ], [ %.0131281, %182 ], [ %.0131281, %192 ], [ %.0131281, %198 ], [ %.0131281, %204 ], [ %.0131281, %265 ], [ %.0131281, %209 ], [ %.0131281, %230 ], [ %.0131281, %241 ], [ %.0131281, %245 ], [ %.0131281, %249 ], [ %.0131281, %268 ], [ %.0131281, %256 ], [ %.0131281, %262 ]
-  %.1 = phi ptr [ %.0282, %24 ], [ %.0282, %28 ], [ %.0282, %39 ], [ %.0282, %43 ], [ %.0282, %47 ], [ %.0282, %51 ], [ %.0282, %205 ], [ %.0282, %61 ], [ %.0282, %select_transform.exit ], [ %.0282, %118 ], [ %.0282, %138 ], [ %.0282, %142 ], [ %.0282, %289 ], [ %.0282, %148 ], [ %.0282, %154 ], [ %.0282, %170 ], [ %.0282, %271 ], [ %.0282, %182 ], [ %.0282, %192 ], [ %.0282, %198 ], [ %.0282, %204 ], [ %.0282, %265 ], [ %.0282, %209 ], [ %.0282, %230 ], [ %.0282, %241 ], [ %.0282, %245 ], [ %.0282, %249 ], [ %.0282, %268 ], [ %259, %256 ], [ %.0282, %262 ]
-  %292 = add nsw i32 %.1134, 1
-  %293 = icmp slt i32 %292, %1
-  br i1 %293, label %17, label %._crit_edge, !llvm.loop !82
+290:                                              ; preds = %204, %28, %61, %118, %142, %138, %154, %181, %197, %229, %255, %264, %270, %288, %267, %261, %240, %248, %244, %208, %203, %191, %170, %148, %select_transform.exit, %39, %47, %51, %43, %24
+  %.1134 = phi i32 [ %.0133280, %24 ], [ %.0133280, %28 ], [ %32, %39 ], [ %32, %43 ], [ %32, %47 ], [ %32, %51 ], [ %.0133280, %204 ], [ %56, %61 ], [ %93, %select_transform.exit ], [ %.0133280, %118 ], [ %131, %138 ], [ %131, %142 ], [ %274, %288 ], [ %.0133280, %148 ], [ %152, %154 ], [ %161, %170 ], [ %.0133280, %270 ], [ %179, %181 ], [ %.0133280, %191 ], [ %195, %197 ], [ %.0133280, %203 ], [ %.0133280, %264 ], [ %.0133280, %208 ], [ %212, %229 ], [ %233, %240 ], [ %233, %244 ], [ %233, %248 ], [ %.0133280, %267 ], [ %253, %255 ], [ %.0133280, %261 ]
+  %.1132 = phi i32 [ %.0131281, %24 ], [ %.0131281, %28 ], [ %.0131281, %39 ], [ %.0131281, %43 ], [ %.0131281, %47 ], [ %.0131281, %51 ], [ 1, %204 ], [ %.0131281, %61 ], [ %.0131281, %select_transform.exit ], [ %.0131281, %118 ], [ %.0131281, %138 ], [ %.0131281, %142 ], [ %.0131281, %288 ], [ %.0131281, %148 ], [ %.0131281, %154 ], [ %.0131281, %170 ], [ %.0131281, %270 ], [ %.0131281, %181 ], [ %.0131281, %191 ], [ %.0131281, %197 ], [ %.0131281, %203 ], [ %.0131281, %264 ], [ %.0131281, %208 ], [ %.0131281, %229 ], [ %.0131281, %240 ], [ %.0131281, %244 ], [ %.0131281, %248 ], [ %.0131281, %267 ], [ %.0131281, %255 ], [ %.0131281, %261 ]
+  %.1 = phi ptr [ %.0282, %24 ], [ %.0282, %28 ], [ %.0282, %39 ], [ %.0282, %43 ], [ %.0282, %47 ], [ %.0282, %51 ], [ %.0282, %204 ], [ %.0282, %61 ], [ %.0282, %select_transform.exit ], [ %.0282, %118 ], [ %.0282, %138 ], [ %.0282, %142 ], [ %.0282, %288 ], [ %.0282, %148 ], [ %.0282, %154 ], [ %.0282, %170 ], [ %.0282, %270 ], [ %.0282, %181 ], [ %.0282, %191 ], [ %.0282, %197 ], [ %.0282, %203 ], [ %.0282, %264 ], [ %.0282, %208 ], [ %.0282, %229 ], [ %.0282, %240 ], [ %.0282, %244 ], [ %.0282, %248 ], [ %.0282, %267 ], [ %258, %255 ], [ %.0282, %261 ]
+  %291 = add nsw i32 %.1134, 1
+  %292 = icmp slt i32 %291, %1
+  br i1 %292, label %17, label %._crit_edge, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %291, %22
-  %.0133.lcssa.ph = phi i32 [ %292, %291 ], [ %.0133280, %22 ]
-  %.0131.lcssa.ph = phi i32 [ %.1132, %291 ], [ %.0131281, %22 ]
-  %.0.lcssa.ph = phi ptr [ %.1, %291 ], [ %.0282, %22 ]
+._crit_edge:                                      ; preds = %290, %22
+  %.0133.lcssa.ph = phi i32 [ %291, %290 ], [ %.0133280, %22 ]
+  %.0131.lcssa.ph = phi i32 [ %.1132, %290 ], [ %.0131281, %22 ]
+  %.0.lcssa.ph = phi ptr [ %.1, %290 ], [ %.0282, %22 ]
   %.not191 = icmp eq i32 %3, 0
-  br i1 %.not191, label %.thread335, label %294
+  br i1 %.not191, label %.thread335, label %293
 
-294:                                              ; preds = %._crit_edge
-  %295 = icmp eq i32 %.0131.lcssa.ph, 0
-  br i1 %295, label %297, label %296
+293:                                              ; preds = %._crit_edge
+  %294 = icmp eq i32 %.0131.lcssa.ph, 0
+  br i1 %294, label %296, label %295
 
-296:                                              ; preds = %294
+295:                                              ; preds = %293
   call void @jpeg_simple_progression(ptr noundef nonnull %0) #12
-  br label %297
+  br label %296
 
-297:                                              ; preds = %296, %294
+296:                                              ; preds = %295, %293
   %.not193 = icmp eq ptr %.0.lcssa.ph, null
-  br i1 %.not193, label %.thread335, label %298
+  br i1 %.not193, label %.thread335, label %297
 
-298:                                              ; preds = %297
-  %299 = call i32 @read_scan_script(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa.ph) #12
-  %.not194 = icmp eq i32 %299, 0
-  br i1 %.not194, label %300, label %.thread335
+297:                                              ; preds = %296
+  %298 = call i32 @read_scan_script(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa.ph) #12
+  %.not194 = icmp eq i32 %298, 0
+  br i1 %.not194, label %299, label %.thread335
 
-300:                                              ; preds = %298
+299:                                              ; preds = %297
   call fastcc void @usage()
   unreachable
 
-.thread335:                                       ; preds = %4, %297, %298, %._crit_edge
-  %.0133.lcssa327 = phi i32 [ %.0133.lcssa.ph, %._crit_edge ], [ %.0133.lcssa.ph, %297 ], [ %.0133.lcssa.ph, %298 ], [ 1, %4 ]
+.thread335:                                       ; preds = %4, %296, %297, %._crit_edge
+  %.0133.lcssa327 = phi i32 [ %.0133.lcssa.ph, %._crit_edge ], [ %.0133.lcssa.ph, %296 ], [ %.0133.lcssa.ph, %297 ], [ 1, %4 ]
   ret i32 %.0133.lcssa327
 }
 

@@ -87,24 +87,23 @@ GETENV_S.exit:                                    ; preds = %31
   store i8 120, ptr %4, align 1, !tbaa !18
   %38 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef nonnull %4) #9
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %45
+  br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
   %41 = load i8, ptr %4, align 1, !tbaa !18
   %42 = and i8 %41, -33
   %or.cond = icmp eq i8 %42, 77
   %.pre = load i64, ptr %2, align 8, !tbaa !12
-  %43 = mul nsw i64 %.pre, 1000
-  %spec.select = select i1 %or.cond, i64 %43, i64 %.pre
-  %44 = mul nsw i64 %spec.select, 1000
-  store i64 %44, ptr %27, align 8, !tbaa !36
-  br label %45
+  %.v = select i1 %or.cond, i64 1000000, i64 1000
+  %43 = mul nsw i64 %.pre, %.v
+  store i64 %43, ptr %27, align 8, !tbaa !36
+  br label %44
 
-45:                                               ; preds = %40, %37
+44:                                               ; preds = %40, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %GETENV_S.exit.thread49
 
-GETENV_S.exit.thread49:                           ; preds = %31, %15, %45, %GETENV_S.exit
+GETENV_S.exit.thread49:                           ; preds = %31, %15, %44, %GETENV_S.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

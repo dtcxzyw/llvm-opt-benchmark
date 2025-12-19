@@ -123,7 +123,7 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
 
 11:                                               ; preds = %7, %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #10
-  br label %146
+  br label %145
 
 .lr.ph.preheader:                                 ; preds = %7
   %12 = zext nneg i32 %9 to i64
@@ -156,7 +156,7 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
 .thread:                                          ; preds = %.lr.ph144, %.lr.ph._crit_edge
   %25 = phi i32 [ %.lcssa, %.lr.ph._crit_edge ], [ 8, %.lr.ph144 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %25) #10
-  br label %146
+  br label %145
 
 26:                                               ; preds = %.lr.ph._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.lcssa, i64 8
@@ -171,7 +171,7 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
 
 35:                                               ; preds = %26
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %33, i32 noundef %30) #10
-  br label %146
+  br label %145
 
 36:                                               ; preds = %26
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.5, i32 noundef %30) #10
@@ -181,7 +181,7 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
 
 38:                                               ; preds = %36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #10
-  br label %146
+  br label %145
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.lcssa, i64 20
@@ -196,7 +196,7 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
 
 45:                                               ; preds = %39
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #10
-  br label %146
+  br label %145
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.lcssa, i64 24
@@ -235,7 +235,7 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
 
 71:                                               ; preds = %46
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %68) #10
-  br label %146
+  br label %145
 
 72:                                               ; preds = %46
   %.not.i = icmp ult i32 %65, 65536
@@ -261,7 +261,7 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
 
 84:                                               ; preds = %72
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %81) #10
-  br label %146
+  br label %145
 
 85:                                               ; preds = %72
   %.not.i95 = icmp ult i32 %61, 65536
@@ -270,118 +270,117 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
   %spec.select12.i97 = select i1 %.not.i95, i32 0, i32 16
   %.not11.i98 = icmp samesign ult i32 %spec.select.i96, 256
   %87 = lshr i32 %spec.select.i96, 8
-  %88 = or disjoint i32 %spec.select12.i97, 8
   %.110.i99 = select i1 %.not11.i98, i32 %spec.select.i96, i32 %87
-  %.1.i100 = select i1 %.not11.i98, i32 %spec.select12.i97, i32 %88
-  %89 = zext nneg i32 %.110.i99 to i64
-  %90 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !30
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i32 %.1.i100, 1
-  %94 = add nuw nsw i32 %93, %92
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %94, ptr %95, align 4, !tbaa !45
-  %96 = sdiv i32 %61, 16
-  %97 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %96, ptr %97, align 4, !tbaa !46
-  %98 = icmp sgt i32 %61, 8207
-  br i1 %98, label %146, label %99
+  %88 = zext nneg i32 %.110.i99 to i64
+  %89 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !30
+  %91 = zext i8 %90 to i32
+  %.v = select i1 %.not11.i98, i32 1, i32 9
+  %92 = or disjoint i32 %spec.select12.i97, %.v
+  %93 = add nuw nsw i32 %92, %91
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %93, ptr %94, align 4, !tbaa !45
+  %95 = sdiv i32 %61, 16
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 %95, ptr %96, align 4, !tbaa !46
+  %97 = icmp sgt i32 %61, 8207
+  br i1 %97, label %145, label %98
 
-99:                                               ; preds = %85
-  %100 = add nsw i32 %80, -6
-  %101 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %100, ptr %101, align 4, !tbaa !47
-  %102 = sub nuw nsw i32 8, %80
-  %103 = lshr i32 255, %102
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %103, ptr %104, align 16, !tbaa !48
-  %105 = shl nsw i32 %96, 2
-  %106 = ashr i32 %105, %100
-  %107 = icmp sgt i32 %106, 1152
-  br i1 %107, label %108, label %109
+98:                                               ; preds = %85
+  %99 = add nsw i32 %80, -6
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 %99, ptr %100, align 4, !tbaa !47
+  %101 = sub nuw nsw i32 8, %80
+  %102 = lshr i32 255, %101
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 %102, ptr %103, align 16, !tbaa !48
+  %104 = shl nsw i32 %95, 2
+  %105 = ashr i32 %104, %99
+  %106 = icmp sgt i32 %105, 1152
+  br i1 %106, label %107, label %108
 
-108:                                              ; preds = %99
+107:                                              ; preds = %98
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #10
-  br label %146
+  br label %145
 
-109:                                              ; preds = %99
-  %110 = shl nuw nsw i32 %100, 1
-  %111 = load i32, ptr %43, align 4, !tbaa !33
-  %112 = add nsw i32 %111, %110
-  %switch.tableidx = add i32 %112, -1
-  %113 = icmp ult i32 %switch.tableidx, 6
-  br i1 %113, label %switch.lookup, label %115
+108:                                              ; preds = %98
+  %109 = shl nuw nsw i32 %99, 1
+  %110 = load i32, ptr %43, align 4, !tbaa !33
+  %111 = add nsw i32 %110, %109
+  %switch.tableidx = add i32 %111, -1
+  %112 = icmp ult i32 %switch.tableidx, 6
+  br i1 %112, label %switch.lookup, label %114
 
-switch.lookup:                                    ; preds = %109
-  %114 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.qdm2_decode_init, i64 %114
+switch.lookup:                                    ; preds = %108
+  %113 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.qdm2_decode_init, i64 %113
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %115
+  br label %114
 
-115:                                              ; preds = %109, %switch.lookup
-  %.080 = phi i32 [ %switch.load, %switch.lookup ], [ %100, %109 ]
-  %116 = mul nuw nsw i32 %.080, 1000
-  %117 = icmp ugt i32 %56, %116
-  %spec.store.select = zext i1 %117 to i32
-  %118 = mul nuw nsw i32 %.080, 1440
-  %119 = icmp ugt i32 %56, %118
-  %spec.store.select1 = select i1 %119, i32 2, i32 %spec.store.select
-  %120 = mul nuw nsw i32 %.080, 1760
-  %121 = icmp ugt i32 %56, %120
-  %spec.store.select2 = select i1 %121, i32 3, i32 %spec.store.select1
-  %122 = mul nuw nsw i32 %.080, 2240
-  %123 = icmp ugt i32 %56, %122
-  %spec.store.select3 = select i1 %123, i32 4, i32 %spec.store.select2
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 %spec.store.select3, ptr %124, align 4, !tbaa !49
-  %125 = icmp ult i32 %56, 8001
-  br i1 %125, label %126, label %128
+114:                                              ; preds = %108, %switch.lookup
+  %.080 = phi i32 [ %switch.load, %switch.lookup ], [ %99, %108 ]
+  %115 = mul nuw nsw i32 %.080, 1000
+  %116 = icmp ugt i32 %56, %115
+  %spec.store.select = zext i1 %116 to i32
+  %117 = mul nuw nsw i32 %.080, 1440
+  %118 = icmp ugt i32 %56, %117
+  %spec.store.select1 = select i1 %118, i32 2, i32 %spec.store.select
+  %119 = mul nuw nsw i32 %.080, 1760
+  %120 = icmp ugt i32 %56, %119
+  %spec.store.select2 = select i1 %120, i32 3, i32 %spec.store.select1
+  %121 = mul nuw nsw i32 %.080, 2240
+  %122 = icmp ugt i32 %56, %121
+  %spec.store.select3 = select i1 %122, i32 4, i32 %spec.store.select2
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 %spec.store.select3, ptr %123, align 4, !tbaa !49
+  %124 = icmp ult i32 %56, 8001
+  br i1 %124, label %125, label %127
 
-126:                                              ; preds = %115
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %127, align 8, !tbaa !50
-  br label %133
+125:                                              ; preds = %114
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 0, ptr %126, align 8, !tbaa !50
+  br label %132
 
-128:                                              ; preds = %115
-  %129 = icmp ult i32 %56, 16000
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  br i1 %129, label %131, label %132
+127:                                              ; preds = %114
+  %128 = icmp ult i32 %56, 16000
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  br i1 %128, label %130, label %131
 
-131:                                              ; preds = %128
-  store i32 1, ptr %130, align 8, !tbaa !50
-  br label %133
+130:                                              ; preds = %127
+  store i32 1, ptr %129, align 8, !tbaa !50
+  br label %132
 
-132:                                              ; preds = %128
-  store i32 2, ptr %130, align 8, !tbaa !50
-  br label %133
+131:                                              ; preds = %127
+  store i32 2, ptr %129, align 8, !tbaa !50
+  br label %132
 
-133:                                              ; preds = %131, %132, %126
-  %134 = shl nuw nsw i32 1, %80
-  %.not92 = icmp eq i32 %65, %134
-  br i1 %.not92, label %136, label %135
+132:                                              ; preds = %130, %131, %125
+  %133 = shl nuw nsw i32 1, %80
+  %.not92 = icmp eq i32 %65, %133
+  br i1 %.not92, label %135, label %134
 
-135:                                              ; preds = %133
+134:                                              ; preds = %132
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %65) #10
-  br label %146
+  br label %145
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 51416
-  %138 = getelementptr inbounds nuw i8, ptr %4, i64 51424
-  %139 = shl nuw nsw i32 %65, 1
-  %140 = call i32 @av_tx_init(ptr noundef nonnull %137, ptr noundef nonnull %138, i32 noundef 6, i32 noundef 1, i32 noundef %139, ptr noundef nonnull %2, i64 noundef 0) #10
-  %141 = icmp slt i32 %140, 0
-  br i1 %141, label %146, label %142
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 51416
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 51424
+  %138 = shl nuw nsw i32 %65, 1
+  %139 = call i32 @av_tx_init(ptr noundef nonnull %136, ptr noundef nonnull %137, i32 noundef 6, i32 noundef 1, i32 noundef %138, ptr noundef nonnull %2, i64 noundef 0) #10
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %145, label %141
 
-142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw i8, ptr %4, i64 67856
-  call void @ff_mpadsp_init(ptr noundef nonnull %143) #10
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 1, ptr %144, align 4, !tbaa !51
-  %145 = call i32 @pthread_once(ptr noundef nonnull @qdm2_decode_init.init_static_once, ptr noundef nonnull @qdm2_init_static_data) #10
-  br label %146
+141:                                              ; preds = %135
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 67856
+  call void @ff_mpadsp_init(ptr noundef nonnull %142) #10
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  store i32 1, ptr %143, align 4, !tbaa !51
+  %144 = call i32 @pthread_once(ptr noundef nonnull @qdm2_decode_init.init_static_once, ptr noundef nonnull @qdm2_init_static_data) #10
+  br label %145
 
-146:                                              ; preds = %136, %85, %142, %135, %108, %84, %71, %45, %38, %35, %.thread, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %.thread ], [ -1094995529, %35 ], [ -1094995529, %38 ], [ -1094995529, %45 ], [ -1094995529, %71 ], [ -1163346256, %84 ], [ 0, %142 ], [ -1163346256, %108 ], [ -1094995529, %135 ], [ -1094995529, %85 ], [ %140, %136 ]
+145:                                              ; preds = %135, %85, %141, %134, %107, %84, %71, %45, %38, %35, %.thread, %11
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %.thread ], [ -1094995529, %35 ], [ -1094995529, %38 ], [ -1094995529, %45 ], [ -1094995529, %71 ], [ -1163346256, %84 ], [ 0, %141 ], [ -1163346256, %107 ], [ -1094995529, %134 ], [ -1094995529, %85 ], [ %139, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

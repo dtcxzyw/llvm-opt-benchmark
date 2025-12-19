@@ -356,10 +356,9 @@ if.end56:                                         ; preds = %if.end45
   %cmp59 = icmp eq i16 %8, 10
   %flags62 = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %9 = load i32, ptr %flags62, align 8
-  %or = or i32 %9, 4194304
-  %10 = select i1 %cmp59, i32 %or, i32 %9
   %flags64 = getelementptr inbounds nuw i8, ptr %handle, i64 88
-  %or65 = or i32 %10, 8192
+  %or65.v = select i1 %cmp59, i32 4202496, i32 8192
+  %or65 = or i32 %9, %or65.v
   store i32 %or65, ptr %flags64, align 8
   br label %return
 
@@ -436,9 +435,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %3, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %4 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %4, 4194304
-  %5 = select i1 %cmp59.i, i32 %or.i, i32 %4
-  %or65.i = or i32 %5, 8192
+  %or65.v.i = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %or65.v.i, %4
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread12
 
@@ -463,8 +461,8 @@ do.body.preheader:                                ; preds = %uv__udp_maybe_defer
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
   store i32 0, ptr %call1, align 4
-  %6 = load i32, ptr %fd.i, align 8
-  %call2 = call i32 @connect(i32 noundef %6, ptr nonnull %addr, i32 noundef %addrlen) #11
+  %5 = load i32, ptr %fd.i, align 8
+  %call2 = call i32 @connect(i32 noundef %5, ptr nonnull %addr, i32 noundef %addrlen) #11
   switch i32 %call2, label %do.body.if.then8_crit_edge [
     i32 -1, label %land.rhs
     i32 0, label %if.end10
@@ -475,19 +473,19 @@ do.body.if.then8_crit_edge:                       ; preds = %do.body
   br label %if.then8
 
 land.rhs:                                         ; preds = %do.body
-  %7 = load i32, ptr %call1, align 4
-  %cmp5 = icmp eq i32 %7, 4
+  %6 = load i32, ptr %call1, align 4
+  %cmp5 = icmp eq i32 %6, 4
   br i1 %cmp5, label %do.body, label %if.then8
 
 if.then8:                                         ; preds = %land.rhs, %do.body.if.then8_crit_edge
-  %8 = phi i32 [ %.pre, %do.body.if.then8_crit_edge ], [ %7, %land.rhs ]
-  %sub = sub nsw i32 0, %8
+  %7 = phi i32 [ %.pre, %do.body.if.then8_crit_edge ], [ %6, %land.rhs ]
+  %sub = sub nsw i32 0, %7
   br label %return
 
 if.end10:                                         ; preds = %do.body
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
-  %9 = load i32, ptr %flags, align 8
-  %or = or i32 %9, 33554432
+  %8 = load i32, ptr %flags, align 8
+  %or = or i32 %8, 33554432
   store i32 %or, ptr %flags, align 8
   br label %return
 
@@ -599,9 +597,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %3, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %4 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %4, 4194304
-  %5 = select i1 %cmp59.i, i32 %or.i, i32 %4
-  %or65.i = or i32 %5, 8192
+  %or65.v.i = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %or65.v.i, %4
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
@@ -622,15 +619,15 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
 
 if.end3:                                          ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %uv__udp_maybe_deferred_bind.exit, %entry
   %send_queue_count = getelementptr inbounds nuw i8, ptr %handle, i64 104
-  %6 = load i64, ptr %send_queue_count, align 8
-  %cmp = icmp eq i64 %6, 0
+  %5 = load i64, ptr %send_queue_count, align 8
+  %cmp = icmp eq i64 %5, 0
   %type = getelementptr inbounds nuw i8, ptr %req, i64 8
   store i32 5, ptr %type, align 8
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
-  %7 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %8, 1
+  %6 = load ptr, ptr %loop, align 8
+  %active_reqs = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %7 = load i32, ptr %active_reqs, align 8
+  %inc = add i32 %7, 1
   store i32 %inc, ptr %active_reqs, align 8
   %addr12 = getelementptr inbounds nuw i8, ptr %req, i64 96
   br i1 %tobool.not, label %if.then11, label %if.else
@@ -666,53 +663,53 @@ if.end27:                                         ; preds = %if.end15
   br i1 %cmp29, label %do.body32, label %if.end36
 
 do.body32:                                        ; preds = %if.end27
-  %9 = load ptr, ptr %loop, align 8
-  %active_reqs34 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %10 = load i32, ptr %active_reqs34, align 8
-  %dec = add i32 %10, -1
+  %8 = load ptr, ptr %loop, align 8
+  %active_reqs34 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %9 = load i32, ptr %active_reqs34, align 8
+  %dec = add i32 %9, -1
   store i32 %dec, ptr %active_reqs34, align 8
   br label %return
 
 if.end36:                                         ; preds = %if.end15, %if.end27
-  %11 = phi ptr [ %call25, %if.end27 ], [ %bufsml, %if.end15 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 8 %bufs, i64 %mul, i1 false)
-  %12 = load ptr, ptr %bufs19, align 8
-  %13 = load i32, ptr %nbufs18, align 8
-  %call42 = call i64 @uv__count_bufs(ptr noundef %12, i32 noundef %13) #11
+  %10 = phi ptr [ %call25, %if.end27 ], [ %bufsml, %if.end15 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %bufs, i64 %mul, i1 false)
+  %11 = load ptr, ptr %bufs19, align 8
+  %12 = load i32, ptr %nbufs18, align 8
+  %call42 = call i64 @uv__count_bufs(ptr noundef %11, i32 noundef %12) #11
   %send_queue_size = getelementptr inbounds nuw i8, ptr %handle, i64 96
-  %14 = load i64, ptr %send_queue_size, align 8
-  %add = add i64 %14, %call42
+  %13 = load i64, ptr %send_queue_size, align 8
+  %add = add i64 %13, %call42
   store i64 %add, ptr %send_queue_size, align 8
-  %15 = load i64, ptr %send_queue_count, align 8
-  %inc44 = add i64 %15, 1
+  %14 = load i64, ptr %send_queue_count, align 8
+  %inc44 = add i64 %14, 1
   store i64 %inc44, ptr %send_queue_count, align 8
   %write_queue = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %queue = getelementptr inbounds nuw i8, ptr %req, i64 80
   store ptr %write_queue, ptr %queue, align 8
   %prev.i = getelementptr inbounds nuw i8, ptr %handle, i64 192
-  %16 = load ptr, ptr %prev.i, align 8
+  %15 = load ptr, ptr %prev.i, align 8
   %prev1.i = getelementptr inbounds nuw i8, ptr %req, i64 88
-  store ptr %16, ptr %prev1.i, align 8
-  store ptr %queue, ptr %16, align 8
+  store ptr %15, ptr %prev1.i, align 8
+  store ptr %queue, ptr %15, align 8
   store ptr %queue, ptr %prev.i, align 8
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
-  %17 = load i32, ptr %flags, align 8
-  %and = and i32 %17, 4
+  %16 = load i32, ptr %flags, align 8
+  %and = and i32 %16, 4
   %cmp46.not = icmp eq i32 %and, 0
   br i1 %cmp46.not, label %if.end49, label %do.end61
 
 if.end49:                                         ; preds = %if.end36
-  %or = or disjoint i32 %17, 4
+  %or = or disjoint i32 %16, 4
   store i32 %or, ptr %flags, align 8
-  %and52 = and i32 %17, 8
+  %and52 = and i32 %16, 8
   %cmp53.not = icmp eq i32 %and52, 0
   br i1 %cmp53.not, label %do.end61, label %do.body56
 
 do.body56:                                        ; preds = %if.end49
-  %18 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = load i32, ptr %active_handles, align 8
-  %inc58 = add i32 %19, 1
+  %17 = load ptr, ptr %loop, align 8
+  %active_handles = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %18 = load i32, ptr %active_handles, align 8
+  %inc58 = add i32 %18, 1
   store i32 %inc58, ptr %active_handles, align 8
   br label %do.end61
 
@@ -720,27 +717,27 @@ do.end61:                                         ; preds = %if.end49, %do.body5
   br i1 %cmp, label %land.lhs.true, label %if.else73
 
 land.lhs.true:                                    ; preds = %do.end61
-  %20 = load i32, ptr %flags, align 8
-  %and64 = and i32 %20, 16777216
+  %19 = load i32, ptr %flags, align 8
+  %and64 = and i32 %19, 16777216
   %tobool65.not = icmp eq i32 %and64, 0
   br i1 %tobool65.not, label %if.then66, label %if.else73
 
 if.then66:                                        ; preds = %land.lhs.true
   call fastcc void @uv__udp_sendmsg(ptr noundef nonnull %handle)
-  %21 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %write_queue, %21
+  %20 = load ptr, ptr %write_queue, align 8
+  %cmp.i.not = icmp eq ptr %write_queue, %20
   br i1 %cmp.i.not, label %return, label %if.then70
 
 if.then70:                                        ; preds = %if.then66
-  %22 = load ptr, ptr %loop, align 8
+  %21 = load ptr, ptr %loop, align 8
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  call void @uv__io_start(ptr noundef %22, ptr noundef nonnull %io_watcher, i32 noundef 4) #11
+  call void @uv__io_start(ptr noundef %21, ptr noundef nonnull %io_watcher, i32 noundef 4) #11
   br label %return
 
 if.else73:                                        ; preds = %land.lhs.true, %do.end61
-  %23 = load ptr, ptr %loop, align 8
+  %22 = load ptr, ptr %loop, align 8
   %io_watcher75 = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  call void @uv__io_start(ptr noundef %23, ptr noundef nonnull %io_watcher75, i32 noundef 4) #11
+  call void @uv__io_start(ptr noundef %22, ptr noundef nonnull %io_watcher75, i32 noundef 4) #11
   br label %return
 
 return:                                           ; preds = %uv__udp_maybe_deferred_bind.exit.thread44, %if.else73, %if.then70, %if.then66, %uv__udp_maybe_deferred_bind.exit, %do.body32
@@ -1015,9 +1012,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %4, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %5 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %5, 4194304
-  %6 = select i1 %cmp59.i, i32 %or.i, i32 %5
-  %or65.i = or i32 %6, 8192
+  %or65.v.i = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %or65.v.i, %5
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
@@ -1037,8 +1033,8 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
   br i1 %tobool2.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %if.end, %uv__udp_maybe_deferred_bind.exit
-  %7 = getelementptr inbounds nuw i8, ptr %h, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %h, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store ptr %addr, ptr %h, align 8
   %msg_namelen = getelementptr inbounds nuw i8, ptr %h, i64 8
   store i32 %addrlen, ptr %msg_namelen, align 8
@@ -1051,22 +1047,22 @@ if.end5:                                          ; preds = %uv__udp_maybe_defer
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end5
-  %8 = load i32, ptr %fd, align 8
-  %call7 = call i64 @sendmsg(i32 noundef %8, ptr noundef nonnull %h, i32 noundef 0) #11
+  %7 = load i32, ptr %fd, align 8
+  %call7 = call i64 @sendmsg(i32 noundef %7, ptr noundef nonnull %h, i32 noundef 0) #11
   %cmp8 = icmp eq i64 %call7, -1
   br i1 %cmp8, label %land.rhs, label %if.end29
 
 land.rhs:                                         ; preds = %do.body
   %call10 = tail call ptr @__errno_location() #12
-  %9 = load i32, ptr %call10, align 4
-  switch i32 %9, label %if.else27 [
+  %8 = load i32, ptr %call10, align 4
+  switch i32 %8, label %if.else27 [
     i32 4, label %do.body
     i32 11, label %return
     i32 105, label %return
   ]
 
 if.else27:                                        ; preds = %land.rhs
-  %sub = sub nsw i32 0, %9
+  %sub = sub nsw i32 0, %8
   br label %return
 
 if.end29:                                         ; preds = %do.body
@@ -2127,9 +2123,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %2, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %3 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %3, 4194304
-  %4 = select i1 %cmp59.i, i32 %or.i, i32 %3
-  %or65.i = or i32 %4, 8192
+  %or65.v.i = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %or65.v.i, %3
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
@@ -2154,26 +2149,26 @@ if.end7:                                          ; preds = %uv__udp_maybe_defer
   %recv_cb9 = getelementptr inbounds nuw i8, ptr %handle, i64 120
   store ptr %recv_cb, ptr %recv_cb9, align 8
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
-  %5 = load ptr, ptr %loop, align 8
-  call void @uv__io_start(ptr noundef %5, ptr noundef nonnull %io_watcher, i32 noundef 1) #11
+  %4 = load ptr, ptr %loop, align 8
+  call void @uv__io_start(ptr noundef %4, ptr noundef nonnull %io_watcher, i32 noundef 1) #11
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
-  %6 = load i32, ptr %flags, align 8
-  %and = and i32 %6, 4
+  %5 = load i32, ptr %flags, align 8
+  %and = and i32 %5, 4
   %cmp11.not = icmp eq i32 %and, 0
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end7
-  %or = or disjoint i32 %6, 4
+  %or = or disjoint i32 %5, 4
   store i32 %or, ptr %flags, align 8
-  %and16 = and i32 %6, 8
+  %and16 = and i32 %5, 8
   %cmp17.not = icmp eq i32 %and16, 0
   br i1 %cmp17.not, label %return, label %do.body19
 
 do.body19:                                        ; preds = %if.end13
-  %7 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %8 = load i32, ptr %active_handles, align 8
-  %inc = add i32 %8, 1
+  %6 = load ptr, ptr %loop, align 8
+  %active_handles = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %7 = load i32, ptr %active_handles, align 8
+  %inc = add i32 %7, 1
   store i32 %inc, ptr %active_handles, align 8
   br label %return
 

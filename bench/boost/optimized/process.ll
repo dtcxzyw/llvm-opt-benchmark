@@ -19191,8 +19191,8 @@ _ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %64
   %122 = lshr i32 %119, 8
   %123 = and i32 %122, 240
   %.not.i.i = icmp eq i32 %120, 127
-  %..i.i = select i1 %.not.i.i, i32 %119, i32 %120
-  %124 = and i32 %..i.i, -16
+  %.v = select i1 %.not.i.i, i32 -16, i32 112
+  %124 = and i32 %.v, %119
   %125 = select i1 %121, i32 %123, i32 %124
   store i32 %125, ptr %25, align 4, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -20411,8 +20411,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %92, %
   %132 = lshr i32 %129, 8
   %133 = and i32 %132, 240
   %.not.i.i25 = icmp eq i32 %130, 127
-  %..i.i = select i1 %.not.i.i25, i32 %129, i32 %130
-  %134 = and i32 %..i.i, -16
+  %.v = select i1 %.not.i.i25, i32 -16, i32 112
+  %134 = and i32 %.v, %129
   %135 = select i1 %131, i32 %133, i32 %134
   store i32 %135, ptr %25, align 4, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -110703,8 +110703,8 @@ _ZN5boost4asio17cancellation_slot5clearEv.exit.i.i.i: ; preds = %_ZN5boost4asio6
   %112 = lshr i32 %1, 8
   %113 = and i32 %112, 240
   %.not.i.i.i.i.i.i.i = icmp eq i32 %110, 127
-  %..i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i32 %1, i32 %110
-  %114 = and i32 %..i.i.i.i.i.i.i, -16
+  %.v.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i32 -16, i32 112
+  %114 = and i32 %.v.i.i.i.i.i.i, %1
   %115 = select i1 %111, i32 %113, i32 %114
   store i32 %115, ptr %18, align 4, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -115047,8 +115047,8 @@ _ZN5boost4asio17cancellation_slot5clearEv.exit.i.i.i: ; preds = %_ZN5boost4asio6
   %112 = lshr i32 %1, 8
   %113 = and i32 %112, 240
   %.not.i.i.i.i.i.i.i = icmp eq i32 %110, 127
-  %..i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i32 %1, i32 %110
-  %114 = and i32 %..i.i.i.i.i.i.i, -16
+  %.v.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i32 -16, i32 112
+  %114 = and i32 %.v.i.i.i.i.i.i, %1
   %115 = select i1 %111, i32 %113, i32 %114
   store i32 %115, ptr %18, align 4, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

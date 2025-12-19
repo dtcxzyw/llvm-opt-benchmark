@@ -294,7 +294,8 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   %53 = load i8, ptr %52, align 1, !tbaa !45
   %.fr89 = freeze i8 %53
   %.not46.i = icmp eq i8 %.fr89, 0
-  %54 = or i32 %spec.select, 512
+  %.v = select i1 %.not45.i, i32 512, i32 2560
+  %54 = or i32 %.v, %.060.fr
   %.2 = select i1 %.not46.i, i32 %spec.select, i32 %54
   store i32 20000630, ptr %2, align 4, !tbaa !43
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4

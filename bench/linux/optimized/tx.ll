@@ -13217,7 +13217,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(pt
   %313 = getelementptr inbounds nuw i8, ptr %308, i64 176
   %314 = load i16, ptr %313, align 8
   %315 = icmp eq i16 %312, %314
-  br i1 %315, label %316, label %326, !prof !8
+  br i1 %315, label %316, label %325, !prof !8
 
 316:                                              ; preds = %307
   %317 = getelementptr inbounds nuw i8, ptr %308, i64 40
@@ -13225,44 +13225,43 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(pt
   %319 = load i8, ptr %318, align 2, !range !6, !noundef !7
   %320 = icmp eq i8 %319, 0
   %.pre14 = load i32, ptr %317, align 8
-  %321 = or i32 %.pre14, 65536
-  %spec.select = select i1 %320, i32 %.pre14, i32 %321
-  %322 = getelementptr inbounds nuw i8, ptr %308, i64 80
-  %323 = load i32, ptr %322, align 8
-  %324 = or i32 %323, 1
-  store i32 %324, ptr %322, align 8
-  %325 = or i32 %spec.select, 536870912
-  store i32 %325, ptr %317, align 8
-  br label %326
+  %321 = getelementptr inbounds nuw i8, ptr %308, i64 80
+  %322 = load i32, ptr %321, align 8
+  %323 = or i32 %322, 1
+  store i32 %323, ptr %321, align 8
+  %.v = select i1 %320, i32 536870912, i32 536936448
+  %324 = or i32 %.pre14, %.v
+  store i32 %324, ptr %317, align 8
+  br label %325
 
-326:                                              ; preds = %307, %316
-  %327 = tail call fastcc i32 @ieee80211_tx_h_select_key(ptr noundef %0), !range !79
-  %cond.not = icmp eq i32 %327, 0
+325:                                              ; preds = %307, %316
+  %326 = tail call fastcc i32 @ieee80211_tx_h_select_key(ptr noundef %0), !range !79
+  %cond.not = icmp eq i32 %326, 0
   br i1 %cond.not, label %.thread12, label %..thread10_crit_edge, !prof !236
 
-..thread10_crit_edge:                             ; preds = %326
+..thread10_crit_edge:                             ; preds = %325
   %.pre15 = load ptr, ptr %0, align 8
   %.pre16 = load ptr, ptr %2, align 8
   br label %.thread10
 
 .thread10:                                        ; preds = %..thread10_crit_edge, %135, %95, %.thread5
-  %328 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %135 ], [ %85, %95 ], [ %85, %.thread5 ]
-  %329 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %135 ], [ %77, %95 ], [ %77, %.thread5 ]
-  %330 = icmp eq ptr %329, null
-  br i1 %330, label %332, label %331
+  %327 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %135 ], [ %85, %95 ], [ %85, %.thread5 ]
+  %328 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %135 ], [ %77, %95 ], [ %77, %.thread5 ]
+  %329 = icmp eq ptr %328, null
+  br i1 %329, label %331, label %330
+
+330:                                              ; preds = %.thread10
+  tail call void @ieee80211_free_txskb(ptr noundef %327, ptr noundef nonnull %328) #20
+  br label %.thread12
 
 331:                                              ; preds = %.thread10
-  tail call void @ieee80211_free_txskb(ptr noundef %328, ptr noundef nonnull %329) #20
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @ieee80211_purge_tx_queue(ptr noundef %327, ptr noundef nonnull %332) #20
   br label %.thread12
 
-332:                                              ; preds = %.thread10
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @ieee80211_purge_tx_queue(ptr noundef %328, ptr noundef nonnull %333) #20
-  br label %.thread12
-
-.thread12:                                        ; preds = %326, %305, %237, %332, %331
-  %334 = phi i32 [ -1, %237 ], [ -1, %332 ], [ -1, %331 ], [ -1, %305 ], [ 0, %326 ]
-  ret i32 %334
+.thread12:                                        ; preds = %325, %305, %237, %331, %330
+  %333 = phi i32 [ -1, %237 ], [ -1, %331 ], [ -1, %330 ], [ -1, %305 ], [ 0, %325 ]
+  ret i32 %333
 }
 
 ; Function Attrs: null_pointer_is_valid

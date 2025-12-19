@@ -74,249 +74,248 @@ define internal noundef i32 @mqtt_do(ptr noundef %0, ptr noundef writeonly captu
   %.067.v.i = select i1 %.not78.i, i64 14, i64 16
   %.067.i = add i64 %13, %.067.v.i
   %.not79.i = icmp eq i64 %12, 0
-  %14 = add i64 %.067.i, 2
-  %.1.i = select i1 %.not79.i, i64 %.067.i, i64 %14
-  %15 = add i64 %.1.i, 10
-  %.not14.i.i = icmp eq i64 %15, 0
+  %.v.i = select i1 %.not79.i, i64 10, i64 12
+  %14 = add i64 %.067.i, %.v.i
+  %.not14.i.i = icmp eq i64 %14, 0
   br i1 %.not14.i.i, label %mqtt_encode_len.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %2 ]
-  %.01112.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ %15, %2 ]
-  %16 = trunc i64 %.01112.i.i to i8
-  %17 = and i8 %16, 127
-  %18 = lshr i64 %.01112.i.i, 7
-  %.not.i.i = icmp eq i64 %18, 0
+  %.01112.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %14, %2 ]
+  %15 = trunc i64 %.01112.i.i to i8
+  %16 = and i8 %15, 127
+  %17 = lshr i64 %.01112.i.i, 7
+  %.not.i.i = icmp eq i64 %17, 0
   %masksel.i.i = select i1 %.not.i.i, i8 0, i8 -128
-  %.0.i.i = or disjoint i8 %masksel.i.i, %17
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
-  store i8 %.0.i.i, ptr %19, align 1, !tbaa !7
+  %.0.i.i = or disjoint i8 %masksel.i.i, %16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
+  store i8 %.0.i.i, ptr %18, align 1, !tbaa !7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %20 = icmp ne i64 %18, 0
-  %21 = icmp samesign ult i64 %indvars.iv.i.i, 3
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !80
+  %19 = icmp ne i64 %17, 0
+  %20 = icmp samesign ult i64 %indvars.iv.i.i, 3
+  %21 = select i1 %19, i1 %20, i1 false
+  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !80
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %23 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %mqtt_encode_len.exit.i
 
 mqtt_encode_len.exit.i:                           ; preds = %._crit_edge.loopexit.i.i, %2
-  %.010.lcssa.i.i = phi i32 [ 0, %2 ], [ %23, %._crit_edge.loopexit.i.i ]
-  %24 = zext nneg i32 %.010.lcssa.i.i to i64
-  %25 = add i64 %.1.i, 11
-  %26 = add i64 %25, %24
-  %27 = icmp ugt i64 %26, 268435455
-  br i1 %27, label %mqtt_connect.exit.thread, label %28
+  %.010.lcssa.i.i = phi i32 [ 0, %2 ], [ %22, %._crit_edge.loopexit.i.i ]
+  %23 = zext nneg i32 %.010.lcssa.i.i to i64
+  %24 = add i64 %14, 1
+  %25 = add i64 %24, %23
+  %26 = icmp ugt i64 %25, 268435455
+  br i1 %26, label %mqtt_connect.exit.thread, label %27
 
-28:                                               ; preds = %mqtt_encode_len.exit.i
-  %29 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !3
-  %30 = tail call ptr %29(i64 noundef %26) #8
-  %.not80.i = icmp eq ptr %30, null
-  br i1 %.not80.i, label %mqtt_connect.exit.thread, label %31
+27:                                               ; preds = %mqtt_encode_len.exit.i
+  %28 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !3
+  %29 = tail call ptr %28(i64 noundef %25) #8
+  %.not80.i = icmp eq ptr %29, null
+  br i1 %.not80.i, label %mqtt_connect.exit.thread, label %30
 
-31:                                               ; preds = %28
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 0, i64 %26, i1 false)
-  store i8 16, ptr %30, align 1, !tbaa !7
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 4 %4, i64 %24, i1 false)
-  %33 = getelementptr i8, ptr %30, i64 %24
-  %34 = getelementptr i8, ptr %33, i64 1
-  store i8 0, ptr %34, align 1, !tbaa !7
-  %35 = getelementptr i8, ptr %33, i64 2
-  store i8 4, ptr %35, align 1, !tbaa !7
-  %36 = getelementptr i8, ptr %33, i64 3
-  store i8 77, ptr %36, align 1, !tbaa !7
-  %37 = getelementptr i8, ptr %33, i64 4
-  store i8 81, ptr %37, align 1, !tbaa !7
-  %38 = getelementptr i8, ptr %33, i64 5
+30:                                               ; preds = %27
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %29, i8 0, i64 %25, i1 false)
+  store i8 16, ptr %29, align 1, !tbaa !7
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull readonly align 4 %4, i64 %23, i1 false)
+  %32 = getelementptr i8, ptr %29, i64 %23
+  %33 = getelementptr i8, ptr %32, i64 1
+  store i8 0, ptr %33, align 1, !tbaa !7
+  %34 = getelementptr i8, ptr %32, i64 2
+  store i8 4, ptr %34, align 1, !tbaa !7
+  %35 = getelementptr i8, ptr %32, i64 3
+  store i8 77, ptr %35, align 1, !tbaa !7
+  %36 = getelementptr i8, ptr %32, i64 4
+  store i8 81, ptr %36, align 1, !tbaa !7
+  %37 = getelementptr i8, ptr %32, i64 5
+  store i8 84, ptr %37, align 1, !tbaa !7
+  %38 = getelementptr i8, ptr %32, i64 6
   store i8 84, ptr %38, align 1, !tbaa !7
-  %39 = getelementptr i8, ptr %33, i64 6
-  store i8 84, ptr %39, align 1, !tbaa !7
-  %40 = getelementptr i8, ptr %33, i64 7
-  store i8 4, ptr %40, align 1, !tbaa !7
-  %41 = getelementptr i8, ptr %33, i64 8
-  store i8 2, ptr %41, align 1, !tbaa !7
-  %42 = getelementptr i8, ptr %33, i64 9
-  store i8 0, ptr %42, align 1, !tbaa !7
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 10
-  store i8 60, ptr %43, align 1, !tbaa !7
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %45 = call i32 @Curl_rand_alnum(ptr noundef nonnull %0, ptr noundef nonnull %44, i64 noundef 9) #8
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
-  %.not.i88.i = icmp eq i64 %46, 12
-  br i1 %.not.i88.i, label %47, label %add_client_id.exit.i
+  %39 = getelementptr i8, ptr %32, i64 7
+  store i8 4, ptr %39, align 1, !tbaa !7
+  %40 = getelementptr i8, ptr %32, i64 8
+  store i8 2, ptr %40, align 1, !tbaa !7
+  %41 = getelementptr i8, ptr %32, i64 9
+  store i8 0, ptr %41, align 1, !tbaa !7
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 10
+  store i8 60, ptr %42, align 1, !tbaa !7
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %44 = call i32 @Curl_rand_alnum(ptr noundef nonnull %0, ptr noundef nonnull %43, i64 noundef 9) #8
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
+  %.not.i88.i = icmp eq i64 %45, 12
+  br i1 %.not.i88.i, label %46, label %add_client_id.exit.i
 
-add_client_id.exit.i:                             ; preds = %31
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i64 noundef %46) #8
+add_client_id.exit.i:                             ; preds = %30
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i64 noundef %45) #8
   br label %mqtt_connect.exit
 
-47:                                               ; preds = %31
-  %48 = getelementptr inbounds nuw i8, ptr %33, i64 11
-  store i8 0, ptr %48, align 1, !tbaa !7
-  %49 = getelementptr i8, ptr %33, i64 12
-  store i8 12, ptr %49, align 1, !tbaa !7
-  %50 = getelementptr i8, ptr %33, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %50, ptr noundef nonnull readonly align 1 dereferenceable(12) %5, i64 12, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %52 = load i64, ptr %51, align 2
-  %53 = and i64 %52, 2147483648
-  %.not83.i = icmp eq i64 %53, 0
-  br i1 %.not83.i, label %62, label %54
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 11
+  store i8 0, ptr %47, align 1, !tbaa !7
+  %48 = getelementptr i8, ptr %32, i64 12
+  store i8 12, ptr %48, align 1, !tbaa !7
+  %49 = getelementptr i8, ptr %32, i64 13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %49, ptr noundef nonnull readonly align 1 dereferenceable(12) %5, i64 12, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %51 = load i64, ptr %50, align 2
+  %52 = and i64 %51, 2147483648
+  %.not83.i = icmp eq i64 %52, 0
+  br i1 %.not83.i, label %61, label %53
 
-54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %56 = load ptr, ptr %55, align 8, !tbaa !82
-  %.not84.i = icmp eq ptr %56, null
-  br i1 %.not84.i, label %61, label %57
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %55 = load ptr, ptr %54, align 8, !tbaa !82
+  %.not84.i = icmp eq ptr %55, null
+  br i1 %.not84.i, label %60, label %56
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !83
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %61, label %62
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = load i32, ptr %57, align 8, !tbaa !83
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %57, %54
+60:                                               ; preds = %56, %53
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %5) #8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %61, %57, %47
-  %63 = add nuw nsw i32 %.010.lcssa.i.i, 25
-  %64 = zext nneg i32 %63 to i64
-  %65 = add i64 %8, %64
-  br i1 %.not78.i, label %77, label %66
+61:                                               ; preds = %60, %56, %46
+  %62 = add nuw nsw i32 %.010.lcssa.i.i, 25
+  %63 = zext nneg i32 %62 to i64
+  %64 = add i64 %8, %63
+  br i1 %.not78.i, label %76, label %65
 
-66:                                               ; preds = %62
-  %67 = icmp ugt i64 %8, 65535
-  br i1 %67, label %add_user.exit.i, label %add_user.exit.thread.i
+65:                                               ; preds = %61
+  %66 = icmp ugt i64 %8, 65535
+  br i1 %66, label %add_user.exit.i, label %add_user.exit.thread.i
 
-add_user.exit.thread.i:                           ; preds = %66
-  %68 = add nuw nsw i64 %65, 2
-  %69 = load i8, ptr %41, align 1, !tbaa !7
-  %70 = or i8 %69, -128
-  store i8 %70, ptr %41, align 1, !tbaa !7
-  %71 = lshr i64 %8, 8
-  %72 = trunc nuw i64 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %30, i64 %64
-  store i8 %72, ptr %73, align 1, !tbaa !7
-  %74 = trunc i64 %8 to i8
-  %75 = getelementptr i8, ptr %73, i64 1
-  store i8 %74, ptr %75, align 1, !tbaa !7
-  %76 = getelementptr i8, ptr %73, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %76, ptr noundef nonnull readonly align 1 dereferenceable(1) %spec.select.i, i64 range(i64 1, 0) %8, i1 false)
-  br label %77
+add_user.exit.thread.i:                           ; preds = %65
+  %67 = add nuw nsw i64 %64, 2
+  %68 = load i8, ptr %40, align 1, !tbaa !7
+  %69 = or i8 %68, -128
+  store i8 %69, ptr %40, align 1, !tbaa !7
+  %70 = lshr i64 %8, 8
+  %71 = trunc nuw i64 %70 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %29, i64 %63
+  store i8 %71, ptr %72, align 1, !tbaa !7
+  %73 = trunc i64 %8 to i8
+  %74 = getelementptr i8, ptr %72, i64 1
+  store i8 %73, ptr %74, align 1, !tbaa !7
+  %75 = getelementptr i8, ptr %72, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %75, ptr noundef nonnull readonly align 1 dereferenceable(1) %spec.select.i, i64 range(i64 1, 0) %8, i1 false)
+  br label %76
 
-add_user.exit.i:                                  ; preds = %66
+add_user.exit.i:                                  ; preds = %65
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %8) #8
   br label %mqtt_connect.exit
 
-77:                                               ; preds = %add_user.exit.thread.i, %62
-  %.066.i = phi i64 [ %68, %add_user.exit.thread.i ], [ %65, %62 ]
-  br i1 %.not79.i, label %88, label %78
+76:                                               ; preds = %add_user.exit.thread.i, %61
+  %.066.i = phi i64 [ %67, %add_user.exit.thread.i ], [ %64, %61 ]
+  br i1 %.not79.i, label %87, label %77
 
-78:                                               ; preds = %77
-  %79 = icmp ugt i64 %12, 65535
-  br i1 %79, label %add_passwd.exit.i, label %add_passwd.exit.thread.i
+77:                                               ; preds = %76
+  %78 = icmp ugt i64 %12, 65535
+  br i1 %78, label %add_passwd.exit.i, label %add_passwd.exit.thread.i
 
-add_passwd.exit.thread.i:                         ; preds = %78
-  %80 = load i8, ptr %41, align 1, !tbaa !7
-  %81 = or i8 %80, 64
-  store i8 %81, ptr %41, align 1, !tbaa !7
-  %82 = lshr i64 %12, 8
-  %83 = trunc nuw i64 %82 to i8
-  %84 = getelementptr inbounds nuw i8, ptr %30, i64 %.066.i
-  store i8 %83, ptr %84, align 1, !tbaa !7
-  %85 = trunc i64 %12 to i8
-  %86 = getelementptr i8, ptr %84, i64 1
-  store i8 %85, ptr %86, align 1, !tbaa !7
-  %87 = getelementptr i8, ptr %84, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 range(i64 1, 0) %12, i1 false)
-  br label %88
+add_passwd.exit.thread.i:                         ; preds = %77
+  %79 = load i8, ptr %40, align 1, !tbaa !7
+  %80 = or i8 %79, 64
+  store i8 %80, ptr %40, align 1, !tbaa !7
+  %81 = lshr i64 %12, 8
+  %82 = trunc nuw i64 %81 to i8
+  %83 = getelementptr inbounds nuw i8, ptr %29, i64 %.066.i
+  store i8 %82, ptr %83, align 1, !tbaa !7
+  %84 = trunc i64 %12 to i8
+  %85 = getelementptr i8, ptr %83, i64 1
+  store i8 %84, ptr %85, align 1, !tbaa !7
+  %86 = getelementptr i8, ptr %83, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %86, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 range(i64 1, 0) %12, i1 false)
+  br label %87
 
-add_passwd.exit.i:                                ; preds = %78
+add_passwd.exit.i:                                ; preds = %77
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef %12) #8
   br label %mqtt_connect.exit
 
-88:                                               ; preds = %add_passwd.exit.thread.i, %77
-  %.not87.i = icmp eq i32 %45, 0
-  br i1 %.not87.i, label %89, label %mqtt_connect.exit
+87:                                               ; preds = %add_passwd.exit.thread.i, %76
+  %.not87.i = icmp eq i32 %44, 0
+  br i1 %.not87.i, label %88, label %mqtt_connect.exit
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %91 = load ptr, ptr %90, align 8, !tbaa !7
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %90 = load ptr, ptr %89, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %92 = call i32 @Curl_xfer_send(ptr noundef nonnull %0, ptr noundef nonnull %30, i64 noundef %26, i1 noundef zeroext false, ptr noundef nonnull %3) #8
-  %.not.i8 = icmp eq i32 %92, 0
-  br i1 %.not.i8, label %93, label %mqtt_send.exit
+  %91 = call i32 @Curl_xfer_send(ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef %25, i1 noundef zeroext false, ptr noundef nonnull %3) #8
+  %.not.i8 = icmp eq i32 %91, 0
+  br i1 %.not.i8, label %92, label %mqtt_send.exit
 
-93:                                               ; preds = %89
+92:                                               ; preds = %88
+  %93 = load i64, ptr %3, align 8, !tbaa !85
+  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %29, i64 noundef %93) #8
   %94 = load i64, ptr %3, align 8, !tbaa !85
-  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %30, i64 noundef %94) #8
-  %95 = load i64, ptr %3, align 8, !tbaa !85
-  %.not26.i = icmp eq i64 %26, %95
-  br i1 %.not26.i, label %102, label %96
+  %.not26.i = icmp eq i64 %25, %94
+  br i1 %.not26.i, label %101, label %95
 
-96:                                               ; preds = %93
-  %97 = sub i64 %26, %95
-  %98 = getelementptr inbounds nuw i8, ptr %30, i64 %95
-  %99 = call ptr @Curl_memdup(ptr noundef nonnull %98, i64 noundef %97) #8
-  %.not27.not.i = icmp eq ptr %99, null
-  br i1 %.not27.not.i, label %mqtt_send.exit, label %100
+95:                                               ; preds = %92
+  %96 = sub i64 %25, %94
+  %97 = getelementptr inbounds nuw i8, ptr %29, i64 %94
+  %98 = call ptr @Curl_memdup(ptr noundef nonnull %97, i64 noundef %96) #8
+  %.not27.not.i = icmp eq ptr %98, null
+  br i1 %.not27.not.i, label %mqtt_send.exit, label %99
 
-100:                                              ; preds = %96
-  store ptr %99, ptr %91, align 8, !tbaa !86
-  %101 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 %97, ptr %101, align 8, !tbaa !88
+99:                                               ; preds = %95
+  store ptr %98, ptr %90, align 8, !tbaa !86
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store i64 %96, ptr %100, align 8, !tbaa !88
   br label %mqtt_send.exit
 
-102:                                              ; preds = %93
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+101:                                              ; preds = %92
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   br label %mqtt_send.exit
 
-mqtt_send.exit:                                   ; preds = %89, %96, %100, %102
-  %.0.i9 = phi i32 [ 27, %96 ], [ %92, %89 ], [ 0, %100 ], [ 0, %102 ]
+mqtt_send.exit:                                   ; preds = %88, %95, %99, %101
+  %.0.i9 = phi i32 [ 27, %95 ], [ %91, %88 ], [ 0, %99 ], [ 0, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mqtt_connect.exit
 
-mqtt_connect.exit.thread:                         ; preds = %mqtt_encode_len.exit.i, %28
-  %.0.i.ph = phi i32 [ 27, %28 ], [ 8, %mqtt_encode_len.exit.i ]
+mqtt_connect.exit.thread:                         ; preds = %mqtt_encode_len.exit.i, %27
+  %.0.i.ph = phi i32 [ 27, %27 ], [ 8, %mqtt_encode_len.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %108
+  br label %107
 
-mqtt_connect.exit:                                ; preds = %add_client_id.exit.i, %add_user.exit.i, %add_passwd.exit.i, %88, %mqtt_send.exit
-  %.065.i = phi i32 [ 8, %add_client_id.exit.i ], [ 8, %add_user.exit.i ], [ 8, %add_passwd.exit.i ], [ %45, %88 ], [ %.0.i9, %mqtt_send.exit ]
+mqtt_connect.exit:                                ; preds = %add_client_id.exit.i, %add_user.exit.i, %add_passwd.exit.i, %87, %mqtt_send.exit
+  %.065.i = phi i32 [ 8, %add_client_id.exit.i ], [ 8, %add_user.exit.i ], [ 8, %add_passwd.exit.i ], [ %44, %87 ], [ %.0.i9, %mqtt_send.exit ]
+  %102 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  call void %102(ptr noundef nonnull %29) #8
   %103 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %103(ptr noundef nonnull %30) #8
-  %104 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %105 = load ptr, ptr %6, align 8, !tbaa !10
-  call void %104(ptr noundef %105) #8
+  %104 = load ptr, ptr %6, align 8, !tbaa !10
+  call void %103(ptr noundef %104) #8
   store ptr null, ptr %6, align 8, !tbaa !10
-  %106 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %107 = load ptr, ptr %9, align 8, !tbaa !79
-  call void %106(ptr noundef %107) #8
+  %105 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  %106 = load ptr, ptr %9, align 8, !tbaa !79
+  call void %105(ptr noundef %106) #8
   store ptr null, ptr %9, align 8, !tbaa !79
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %.065.i, 0
-  br i1 %.not, label %109, label %108
+  br i1 %.not, label %108, label %107
 
-108:                                              ; preds = %mqtt_connect.exit.thread, %mqtt_connect.exit
+107:                                              ; preds = %mqtt_connect.exit.thread, %mqtt_connect.exit
   %.0.i12 = phi i32 [ %.0.i.ph, %mqtt_connect.exit.thread ], [ %.065.i, %mqtt_connect.exit ]
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %.0.i12) #8
-  br label %113
+  br label %112
 
-109:                                              ; preds = %mqtt_connect.exit
-  %110 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %110, align 8, !tbaa !89
-  %111 = getelementptr inbounds nuw i8, ptr %.val, i64 1088
-  store i32 0, ptr %111, align 4, !tbaa !90
-  %112 = getelementptr inbounds nuw i8, ptr %.val, i64 1092
-  store i32 2, ptr %112, align 4, !tbaa !92
-  br label %113
+108:                                              ; preds = %mqtt_connect.exit
+  %109 = getelementptr i8, ptr %0, i64 24
+  %.val = load ptr, ptr %109, align 8, !tbaa !89
+  %110 = getelementptr inbounds nuw i8, ptr %.val, i64 1088
+  store i32 0, ptr %110, align 4, !tbaa !90
+  %111 = getelementptr inbounds nuw i8, ptr %.val, i64 1092
+  store i32 2, ptr %111, align 4, !tbaa !92
+  br label %112
 
-113:                                              ; preds = %109, %108
-  %.0 = phi i32 [ %.0.i12, %108 ], [ 0, %109 ]
+112:                                              ; preds = %108, %107
+  %.0 = phi i32 [ %.0.i12, %107 ], [ 0, %108 ]
   ret i32 %.0
 }
 

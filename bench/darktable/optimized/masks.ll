@@ -4361,8 +4361,8 @@ define internal fastcc void @_swap_last_secondlast_item_visibility(ptr noundef r
   %.not2527 = icmp eq ptr %17, null
   br i1 %.not2527, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %41
-  %.02228 = phi ptr [ %43, %41 ], [ %17, %15 ]
+.lr.ph:                                           ; preds = %15, %40
+  %.02228 = phi ptr [ %42, %40 ], [ %17, %15 ]
   %18 = load ptr, ptr %.02228, align 8, !tbaa !48
   %19 = load i32, ptr %18, align 4, !tbaa !107
   %20 = icmp eq i32 %19, %3
@@ -4377,37 +4377,36 @@ define internal fastcc void @_swap_last_secondlast_item_visibility(ptr noundef r
 
 25:                                               ; preds = %.lr.ph
   %26 = icmp eq i32 %19, %2
-  br i1 %26, label %27, label %41
+  br i1 %26, label %27, label %40
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !109
   %30 = and i32 %29, 248
   %31 = icmp eq i32 %30, 0
-  %32 = or disjoint i32 %29, 8
-  %spec.select = select i1 %31, i32 %32, i32 %29
-  %33 = or i32 %spec.select, 2
-  store i32 %33, ptr %28, align 4, !tbaa !109
+  %.v = select i1 %31, i32 10, i32 2
+  %32 = or i32 %29, %.v
+  store i32 %32, ptr %28, align 4, !tbaa !109
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %21
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !88
-  %35 = load i32, ptr %6, align 4, !tbaa !17
-  %36 = call ptr @dt_masks_get_from_id(ptr noundef %34, i32 noundef %35) #12
-  %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %38 = load i32, ptr %37, align 4, !tbaa !109
-  %39 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %40 = load float, ptr %39, align 4, !tbaa !110
-  call fastcc void @_set_iter_name(ptr noundef %0, ptr noundef %36, i32 noundef %38, float noundef %40, ptr noundef %11, ptr noundef %1)
-  br label %41
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !88
+  %34 = load i32, ptr %6, align 4, !tbaa !17
+  %35 = call ptr @dt_masks_get_from_id(ptr noundef %33, i32 noundef %34) #12
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %37 = load i32, ptr %36, align 4, !tbaa !109
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %39 = load float, ptr %38, align 4, !tbaa !110
+  call fastcc void @_set_iter_name(ptr noundef %0, ptr noundef %35, i32 noundef %37, float noundef %39, ptr noundef %11, ptr noundef %1)
+  br label %40
 
-41:                                               ; preds = %25, %.critedge
-  %42 = getelementptr inbounds nuw i8, ptr %.02228, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !216
-  %.not25 = icmp eq ptr %43, null
+40:                                               ; preds = %25, %.critedge
+  %41 = getelementptr inbounds nuw i8, ptr %.02228, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !216
+  %.not25 = icmp eq ptr %42, null
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %41, %15, %4
+.loopexit:                                        ; preds = %40, %15, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

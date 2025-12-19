@@ -276,7 +276,7 @@ define internal range(i32 409616, 1506833) i32 @xelpdp_aux_ctl_reg(ptr noundef r
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 3516
   %5 = load i32, ptr %4, align 4
-  switch i32 %5, label %23 [
+  switch i32 %5, label %21 [
     i32 0, label %6
     i32 1, label %6
     i32 3, label %6
@@ -289,42 +289,41 @@ define internal range(i32 409616, 1506833) i32 @xelpdp_aux_ctl_reg(ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %8 = load i16, ptr %7, align 8
   %9 = icmp ugt i16 %8, 19
-  br i1 %9, label %10, label %16
+  br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = icmp samesign ugt i32 %5, 2
   %12 = shl nuw nsw i32 %5, 9
-  %13 = add nuw nsw i32 %12, 3584
-  %14 = select i1 %11, i32 %12, i32 %13
-  %15 = add nuw nsw i32 %14, 1502224
-  br label %29
+  %.v = select i1 %11, i32 1502224, i32 1505808
+  %13 = add nuw nsw i32 %.v, %12
+  br label %27
 
-16:                                               ; preds = %6
-  %17 = icmp samesign ult i32 %5, 3
-  %18 = shl nuw nsw i32 %5, 8
-  %19 = add nuw nsw i32 %18, 409616
-  %20 = shl nuw nsw i32 %5, 9
-  %21 = add nuw nsw i32 %20, 1502224
-  %22 = select i1 %17, i32 %19, i32 %21
-  br label %29
+14:                                               ; preds = %6
+  %15 = icmp samesign ult i32 %5, 3
+  %16 = shl nuw nsw i32 %5, 8
+  %17 = add nuw nsw i32 %16, 409616
+  %18 = shl nuw nsw i32 %5, 9
+  %19 = add nuw nsw i32 %18, 1502224
+  %20 = select i1 %15, i32 %17, i32 %19
+  br label %27
 
-23:                                               ; preds = %1
+21:                                               ; preds = %1
   tail call void asm sideeffect "965: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 965b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 965) #15, !srcloc !10
-  %24 = sext i32 %5 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %24) #15
+  %22 = sext i32 %5 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %22) #15
   tail call void asm sideeffect "966: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 966b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 966) #15, !srcloc !11
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 729, i32 2313, i64 12) #15, !srcloc !12
   tail call void asm sideeffect "967: nop\0A\09.pushsection .discard.instr_end\0A\09.long 967b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 967) #15, !srcloc !13
   tail call void asm sideeffect "968: nop\0A\09.pushsection .discard.instr_end\0A\09.long 968b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 968) #15, !srcloc !14
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 2632
-  %26 = load i16, ptr %25, align 8
-  %27 = icmp ugt i16 %26, 19
-  %28 = select i1 %27, i32 1505808, i32 409616
-  br label %29
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 2632
+  %24 = load i16, ptr %23, align 8
+  %25 = icmp ugt i16 %24, 19
+  %26 = select i1 %25, i32 1505808, i32 409616
+  br label %27
 
-29:                                               ; preds = %23, %16, %10
-  %30 = phi i32 [ %28, %23 ], [ %15, %10 ], [ %22, %16 ]
-  ret i32 %30
+27:                                               ; preds = %21, %14, %10
+  %28 = phi i32 [ %26, %21 ], [ %13, %10 ], [ %20, %14 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -333,7 +332,7 @@ define internal i32 @xelpdp_aux_data_reg(ptr noundef readonly captures(none) %0,
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 3516
   %6 = load i32, ptr %5, align 4
-  switch i32 %6, label %28 [
+  switch i32 %6, label %26 [
     i32 0, label %7
     i32 1, label %7
     i32 3, label %7
@@ -346,48 +345,47 @@ define internal i32 @xelpdp_aux_data_reg(ptr noundef readonly captures(none) %0,
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %9 = load i16, ptr %8, align 8
   %10 = icmp ugt i16 %9, 19
-  br i1 %10, label %11, label %19
+  br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
   %12 = icmp samesign ugt i32 %6, 2
   %13 = shl nuw nsw i32 %6, 9
-  %14 = add nuw nsw i32 %13, 3584
-  %15 = select i1 %12, i32 %13, i32 %14
-  %16 = shl i32 %1, 2
-  %17 = add i32 %16, 1502228
-  %18 = add i32 %17, %15
-  br label %36
+  %.v = select i1 %12, i32 1502228, i32 1505812
+  %14 = shl i32 %1, 2
+  %15 = add i32 %13, %14
+  %16 = add i32 %15, %.v
+  br label %34
 
-19:                                               ; preds = %7
-  %20 = icmp samesign ult i32 %6, 3
-  %21 = shl nuw nsw i32 %6, 8
-  %22 = add nuw nsw i32 %21, 409620
-  %23 = shl nuw nsw i32 %6, 9
-  %24 = add nuw nsw i32 %23, 1502228
-  %25 = select i1 %20, i32 %22, i32 %24
-  %26 = shl i32 %1, 2
-  %27 = add i32 %25, %26
-  br label %36
+17:                                               ; preds = %7
+  %18 = icmp samesign ult i32 %6, 3
+  %19 = shl nuw nsw i32 %6, 8
+  %20 = add nuw nsw i32 %19, 409620
+  %21 = shl nuw nsw i32 %6, 9
+  %22 = add nuw nsw i32 %21, 1502228
+  %23 = select i1 %18, i32 %20, i32 %22
+  %24 = shl i32 %1, 2
+  %25 = add i32 %23, %24
+  br label %34
 
-28:                                               ; preds = %2
+26:                                               ; preds = %2
   tail call void asm sideeffect "969: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 969b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 969) #15, !srcloc !15
-  %29 = sext i32 %6 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %29) #15
+  %27 = sext i32 %6 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %27) #15
   tail call void asm sideeffect "970: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 970b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 970) #15, !srcloc !16
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 749, i32 2313, i64 12) #15, !srcloc !17
   tail call void asm sideeffect "971: nop\0A\09.pushsection .discard.instr_end\0A\09.long 971b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 971) #15, !srcloc !18
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_end\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #15, !srcloc !19
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 2632
-  %31 = load i16, ptr %30, align 8
-  %32 = icmp ugt i16 %31, 19
-  %33 = shl i32 %1, 2
-  %34 = select i1 %32, i32 1505812, i32 409620
-  %35 = add i32 %34, %33
-  br label %36
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 2632
+  %29 = load i16, ptr %28, align 8
+  %30 = icmp ugt i16 %29, 19
+  %31 = shl i32 %1, 2
+  %32 = select i1 %30, i32 1505812, i32 409620
+  %33 = add i32 %32, %31
+  br label %34
 
-36:                                               ; preds = %28, %19, %11
-  %37 = phi i32 [ %35, %28 ], [ %18, %11 ], [ %27, %19 ]
-  ret i32 %37
+34:                                               ; preds = %26, %17, %11
+  %35 = phi i32 [ %33, %26 ], [ %16, %11 ], [ %25, %17 ]
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

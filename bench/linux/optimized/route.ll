@@ -14036,7 +14036,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ip6_nh_lookup_table(ptr no
   store i32 0, ptr %13, align 4
   %14 = tail call ptr @fib6_get_table(ptr noundef %0, i32 noundef %3) #22
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %35, label %16
+  br i1 %15, label %33, label %16
 
 16:                                               ; preds = %6
   %17 = load i64, ptr %12, align 8
@@ -14044,28 +14044,27 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ip6_nh_lookup_table(ptr no
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %19, %17
   %21 = icmp eq i64 %20, 0
-  %22 = or disjoint i32 %4, 4
-  %23 = select i1 %21, i32 %4, i32 %22
-  %24 = or disjoint i32 %23, 64
-  %25 = load i32, ptr %8, align 8
-  %26 = call i32 @fib6_table_lookup(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %25, ptr noundef nonnull %7, ptr noundef %5, i32 noundef %24)
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.v = select i1 %21, i32 64, i32 68
+  %22 = or disjoint i32 %.v, %4
+  %23 = load i32, ptr %8, align 8
+  %24 = call i32 @fib6_table_lookup(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %23, ptr noundef nonnull %7, ptr noundef %5, i32 noundef %22)
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %28, %30
-  br i1 %31, label %35, label %32
+  %29 = icmp eq ptr %26, %28
+  br i1 %29, label %33, label %30
 
-32:                                               ; preds = %16
-  %33 = load i32, ptr %8, align 8
-  %34 = icmp ne i32 %33, 0
-  call void @fib6_select_path(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %33, i1 noundef zeroext %34, ptr noundef null, i32 noundef %24)
-  br label %35
+30:                                               ; preds = %16
+  %31 = load i32, ptr %8, align 8
+  %32 = icmp ne i32 %31, 0
+  call void @fib6_select_path(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %31, i1 noundef zeroext %32, ptr noundef null, i32 noundef %22)
+  br label %33
 
-35:                                               ; preds = %32, %16, %6
-  %36 = phi i32 [ -22, %6 ], [ 0, %32 ], [ 0, %16 ]
+33:                                               ; preds = %30, %16, %6
+  %34 = phi i32 [ -22, %6 ], [ 0, %30 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %36
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -411,10 +411,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit48.thread170:    ; preds = %_ZN4llvmeqENS_9Stri
   %116 = icmp eq i32 %114, %115
   %.pre = load ptr, ptr %3, align 8, !tbaa !6
   %.pre176 = load i64, ptr %.pre, align 8, !tbaa !20
-  %117 = or i64 %.pre176, 33554432
-  %spec.select = select i1 %116, i64 %117, i64 %.pre176
-  %118 = or i64 %spec.select, 70385924048896
-  store i64 %118, ptr %.pre, align 8, !tbaa !20
+  %.v = select i1 %116, i64 70385957603328, i64 70385924048896
+  %117 = or i64 %.pre176, %.v
+  store i64 %117, ptr %.pre, align 8, !tbaa !20
   ret void
 }
 

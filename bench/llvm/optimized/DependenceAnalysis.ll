@@ -5845,7 +5845,7 @@ _ZN4llvm5APIntD2Ev.exit84:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntD2Ev.exit85:                        ; preds = %_ZN4llvm5APIntD2Ev.exit84, %187, %190
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %166, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread, label %266
+  br i1 %166, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread, label %265
 
 191:                                              ; preds = %57, %.critedge70
   %192 = call noundef zeroext i1 @_ZNK4llvm4SCEV6isZeroEv(ptr noundef nonnull align 8 dereferenceable(30) %17) #27
@@ -5880,7 +5880,7 @@ _ZN4llvm5APIntD2Ev.exit85:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %213 = load i8, ptr %212, align 8
   %214 = and i8 %213, -6
   store i8 %214, ptr %212, align 8
-  br label %266
+  br label %265
 
 215:                                              ; preds = %191
   %216 = call noundef zeroext i1 @_ZNK4llvm4SCEV5isOneEv(ptr noundef nonnull align 8 dereferenceable(30) %1) #27
@@ -5953,22 +5953,21 @@ _ZN4llvm5APIntD2Ev.exit85:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %or.cond7 = and i1 %251, %254
   %or.cond9 = and i1 %248, %257
   %or.cond72 = or i1 %or.cond7, %or.cond9
-  %259 = or disjoint i8 %.1, 4
-  %.2 = select i1 %or.cond72, i8 %259, i8 %.1
-  %260 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %261 = load ptr, ptr %260, align 8, !tbaa !166
-  %262 = getelementptr inbounds nuw %"struct.llvm::Dependence::DVEntry", ptr %261, i64 %.pre-phi
-  %263 = load i8, ptr %262, align 8
-  %264 = or disjoint i8 %.2, -8
-  %265 = and i8 %264, %263
-  store i8 %265, ptr %262, align 8
-  br label %266
+  %259 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %260 = load ptr, ptr %259, align 8, !tbaa !166
+  %261 = getelementptr inbounds nuw %"struct.llvm::Dependence::DVEntry", ptr %260, i64 %.pre-phi
+  %262 = load i8, ptr %261, align 8
+  %.v = select i1 %or.cond72, i8 -4, i8 -8
+  %263 = or disjoint i8 %.1, %.v
+  %264 = and i8 %263, %262
+  store i8 %264, ptr %261, align 8
+  br label %265
 
-266:                                              ; preds = %193, %241, %_ZN4llvm5APIntD2Ev.exit85
+265:                                              ; preds = %193, %241, %_ZN4llvm5APIntD2Ev.exit85
   br label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread
 
-_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread: ; preds = %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit, %_ZN4llvm5APIntD2Ev.exit85, %266
-  %.3 = phi i1 [ false, %266 ], [ true, %_ZN4llvm5APIntD2Ev.exit85 ], [ true, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit ], [ true, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit ]
+_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread: ; preds = %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit, %_ZN4llvm5APIntD2Ev.exit85, %265
+  %.3 = phi i1 [ false, %265 ], [ true, %_ZN4llvm5APIntD2Ev.exit85 ], [ true, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit ], [ true, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit ]
   ret i1 %.3
 }
 
@@ -18428,8 +18427,8 @@ _ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEE7advanceEv.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm14DependenceInfo15updateDirectionERNS_10Dependence7DVEntryERKNS0_10ConstraintE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %2, align 8, !tbaa !178
-  switch i32 %4, label %28 [
-    i32 4, label %70
+  switch i32 %4, label %27 [
+    i32 4, label %69
     i32 2, label %5
   ]
 
@@ -18457,87 +18456,86 @@ define dso_local void @_ZNK4llvm14DependenceInfo15updateDirectionERNS_10Dependen
   %21 = load ptr, ptr %14, align 8, !tbaa !75
   %22 = load ptr, ptr %13, align 8, !tbaa !163
   %23 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %21, ptr noundef %22) #27
-  %24 = or disjoint i8 %.130, 4
-  %.231 = select i1 %23, i8 %.130, i8 %24
-  %25 = load i8, ptr %1, align 8
-  %26 = or disjoint i8 %.231, -8
-  %27 = and i8 %25, %26
-  store i8 %27, ptr %1, align 8
-  br label %70
+  %24 = load i8, ptr %1, align 8
+  %.v = select i1 %23, i8 -8, i8 -4
+  %25 = or disjoint i8 %.130, %.v
+  %26 = and i8 %24, %25
+  store i8 %26, ptr %1, align 8
+  br label %69
 
-28:                                               ; preds = %3
-  %29 = and i32 %4, -2
-  %spec.select.i = icmp eq i32 %29, 2
-  br i1 %spec.select.i, label %30, label %34
+27:                                               ; preds = %3
+  %28 = and i32 %4, -2
+  %spec.select.i = icmp eq i32 %28, 2
+  br i1 %spec.select.i, label %29, label %33
 
-30:                                               ; preds = %28
-  %31 = load i8, ptr %1, align 8
-  %32 = and i8 %31, -9
-  store i8 %32, ptr %1, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %33, align 8, !tbaa !163
-  br label %70
+29:                                               ; preds = %27
+  %30 = load i8, ptr %1, align 8
+  %31 = and i8 %30, -9
+  store i8 %31, ptr %1, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr null, ptr %32, align 8, !tbaa !163
+  br label %69
 
-34:                                               ; preds = %28
-  %35 = icmp eq i32 %4, 1
-  tail call void @llvm.assume(i1 %35)
-  %36 = load i8, ptr %1, align 8
-  %37 = and i8 %36, -9
-  store i8 %37, ptr %1, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %38, align 8, !tbaa !163
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !174
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !170
-  %43 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef 33, ptr noundef %40, ptr noundef %42)
-  %spec.select32 = select i1 %43, i8 0, i8 2
-  %44 = load ptr, ptr %39, align 8, !tbaa !174
-  %45 = load ptr, ptr %41, align 8, !tbaa !170
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !75
-  %48 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %47, i64 41, ptr noundef %44, ptr noundef %45) #27
-  br i1 %48, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit
+33:                                               ; preds = %27
+  %34 = icmp eq i32 %4, 1
+  tail call void @llvm.assume(i1 %34)
+  %35 = load i8, ptr %1, align 8
+  %36 = and i8 %35, -9
+  store i8 %36, ptr %1, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr null, ptr %37, align 8, !tbaa !163
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !174
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !170
+  %42 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef 33, ptr noundef %39, ptr noundef %41)
+  %spec.select32 = select i1 %42, i8 0, i8 2
+  %43 = load ptr, ptr %38, align 8, !tbaa !174
+  %44 = load ptr, ptr %40, align 8, !tbaa !170
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !75
+  %47 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %46, i64 41, ptr noundef %43, ptr noundef %44) #27
+  br i1 %47, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit
 
-_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit: ; preds = %34
-  %49 = load ptr, ptr %46, align 8, !tbaa !75
-  %50 = tail call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %49, ptr noundef %44, ptr noundef %45, i32 noundef 0, i32 noundef 0) #27
-  %51 = load ptr, ptr %46, align 8, !tbaa !75
-  %52 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %51, ptr noundef %50) #27
-  %53 = or disjoint i8 %spec.select32, 1
-  br i1 %52, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread, label %54
+_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit: ; preds = %33
+  %48 = load ptr, ptr %45, align 8, !tbaa !75
+  %49 = tail call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %48, ptr noundef %43, ptr noundef %44, i32 noundef 0, i32 noundef 0) #27
+  %50 = load ptr, ptr %45, align 8, !tbaa !75
+  %51 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %50, ptr noundef %49) #27
+  %52 = or disjoint i8 %spec.select32, 1
+  br i1 %51, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread, label %53
 
-_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread: ; preds = %34, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit
-  br label %54
+_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread: ; preds = %33, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit
+  br label %53
 
-54:                                               ; preds = %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread
-  %55 = phi i8 [ %spec.select32, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread ], [ %53, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit ]
-  %56 = load ptr, ptr %39, align 8, !tbaa !174
-  %57 = load ptr, ptr %41, align 8, !tbaa !170
-  %58 = load ptr, ptr %46, align 8, !tbaa !75
-  %59 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %58, i64 39, ptr noundef %56, ptr noundef %57) #27
-  br i1 %59, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34
+53:                                               ; preds = %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread
+  %54 = phi i8 [ %spec.select32, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread ], [ %52, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit ]
+  %55 = load ptr, ptr %38, align 8, !tbaa !174
+  %56 = load ptr, ptr %40, align 8, !tbaa !170
+  %57 = load ptr, ptr %45, align 8, !tbaa !75
+  %58 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %57, i64 39, ptr noundef %55, ptr noundef %56) #27
+  br i1 %58, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34
 
-_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34: ; preds = %54
-  %60 = load ptr, ptr %46, align 8, !tbaa !75
-  %61 = tail call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %60, ptr noundef %56, ptr noundef %57, i32 noundef 0, i32 noundef 0) #27
-  %62 = load ptr, ptr %46, align 8, !tbaa !75
-  %63 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %62, ptr noundef %61) #27
-  %64 = or i8 %55, 4
-  br i1 %63, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread, label %65
+_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34: ; preds = %53
+  %59 = load ptr, ptr %45, align 8, !tbaa !75
+  %60 = tail call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %59, ptr noundef %55, ptr noundef %56, i32 noundef 0, i32 noundef 0) #27
+  %61 = load ptr, ptr %45, align 8, !tbaa !75
+  %62 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %61, ptr noundef %60) #27
+  %63 = or i8 %54, 4
+  br i1 %62, label %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread, label %64
 
-_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread: ; preds = %54, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34
-  br label %65
+_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread: ; preds = %53, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34
+  br label %64
 
-65:                                               ; preds = %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread
-  %66 = phi i8 [ %55, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread ], [ %64, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34 ]
-  %67 = load i8, ptr %1, align 8
-  %68 = or i8 %66, -8
-  %69 = and i8 %68, %67
-  store i8 %69, ptr %1, align 8
-  br label %70
+64:                                               ; preds = %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread
+  %65 = phi i8 [ %54, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34.thread ], [ %63, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit34 ]
+  %66 = load i8, ptr %1, align 8
+  %67 = or i8 %65, -8
+  %68 = and i8 %67, %66
+  store i8 %68, ptr %1, align 8
+  br label %69
 
-70:                                               ; preds = %3, %5, %65, %30
+69:                                               ; preds = %3, %5, %64, %29
   ret void
 }
 

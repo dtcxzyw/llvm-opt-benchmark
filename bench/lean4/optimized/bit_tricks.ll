@@ -45,13 +45,12 @@ define hidden noundef range(i32 0, 32) i32 @_ZN4lean4log2Ej(i32 noundef %0) loca
   %.218 = select i1 %.not21, i32 %.117, i32 %5
   %.2 = select i1 %.not21, i32 %.1, i32 %6
   %.not22 = icmp samesign ult i32 %.218, 4
-  %7 = lshr i32 %.218, 2
-  %8 = or disjoint i32 %.2, 2
-  %.319 = select i1 %.not22, i32 %.218, i32 %7
-  %.3 = select i1 %.not22, i32 %.2, i32 %8
-  %9 = lshr i32 %.319, 1
-  %10 = and i32 %9, 1
-  %.4 = or i32 %10, %.3
+  %7 = or disjoint i32 %.2, 2
+  %.3 = select i1 %.not22, i32 %.2, i32 %7
+  %.v = select i1 %.not22, i32 1, i32 3
+  %8 = lshr i32 %.218, %.v
+  %9 = and i32 %8, 1
+  %.4 = or i32 %9, %.3
   ret i32 %.4
 }
 

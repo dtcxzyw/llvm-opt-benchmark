@@ -428,7 +428,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %.mux = select i1 %6, i32 -4194304, i32 0
   %brmerge41 = or i1 %5, %6
   %.mux.mux = select i1 %5, i32 %.mux, i32 2139095040
-  br i1 %brmerge41, label %65, label %7
+  br i1 %brmerge41, label %67, label %7
 
 7:                                                ; preds = %1
   %8 = icmp samesign ugt i32 %.sroa.14.0, 65535
@@ -450,75 +450,75 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %spec.select11.i43.neg = select i1 %16, i32 -16, i32 0
   %.not.i44 = icmp samesign ult i32 %spec.select.i42, 256
   %18 = lshr i32 %spec.select.i42, 8
-  %.neg52 = add nsw i32 %spec.select11.i43.neg, -8
   %.110.i45 = select i1 %.not.i44, i32 %spec.select.i42, i32 %18
-  %.1.i46.neg53 = select i1 %.not.i44, i32 %spec.select11.i43.neg, i32 %.neg52
   %19 = zext nneg i32 %.110.i45 to i64
   %20 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = zext i8 %21 to i32
-  %.neg51 = add nsw i32 %.1.i46.neg53, 23
-  %23 = add nsw i32 %.neg51, %.1.i
-  %24 = add nsw i32 %23, %15
-  %25 = sub nsw i32 %24, %22
-  %26 = icmp sgt i32 %25, -1
-  %27 = zext nneg i32 %.sroa.0.1 to i64
-  br i1 %26, label %28, label %33
+  %23 = add nsw i32 %spec.select11.i43.neg, 23
+  %24 = or disjoint i32 %spec.select11.i43.neg, 15
+  %.neg51 = select i1 %.not.i44, i32 %23, i32 %24
+  %25 = add nsw i32 %.neg51, %.1.i
+  %26 = add nsw i32 %25, %15
+  %27 = sub nsw i32 %26, %22
+  %28 = icmp sgt i32 %27, -1
+  %29 = zext nneg i32 %.sroa.0.1 to i64
+  br i1 %28, label %30, label %35
 
-28:                                               ; preds = %7
-  %29 = zext nneg i32 %25 to i64
-  %30 = shl nuw i64 1, %29
-  %31 = zext nneg i32 %.sroa.14.0 to i64
-  %32 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef %30, i64 noundef %31) #9
-  br label %39
+30:                                               ; preds = %7
+  %31 = zext nneg i32 %27 to i64
+  %32 = shl nuw i64 1, %31
+  %33 = zext nneg i32 %.sroa.14.0 to i64
+  %34 = tail call i64 @av_rescale(i64 noundef %29, i64 noundef %32, i64 noundef %33) #9
+  br label %41
 
-33:                                               ; preds = %7
-  %34 = zext nneg i32 %.sroa.14.0 to i64
-  %35 = sub nsw i32 0, %25
-  %36 = zext nneg i32 %35 to i64
-  %37 = shl i64 %34, %36
-  %38 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef 1, i64 noundef %37) #9
-  br label %39
+35:                                               ; preds = %7
+  %36 = zext nneg i32 %.sroa.14.0 to i64
+  %37 = sub nsw i32 0, %27
+  %38 = zext nneg i32 %37 to i64
+  %39 = shl i64 %36, %38
+  %40 = tail call i64 @av_rescale(i64 noundef %29, i64 noundef 1, i64 noundef %39) #9
+  br label %41
 
-39:                                               ; preds = %33, %28
-  %.034 = phi i64 [ %32, %28 ], [ %38, %33 ]
-  %40 = icmp sgt i64 %.034, 16777215
-  %.neg = sext i1 %40 to i32
-  %41 = add nsw i32 %25, %.neg
-  %42 = icmp slt i64 %.034, 8388608
-  %43 = zext i1 %42 to i32
-  %44 = add nsw i32 %41, %43
-  %45 = icmp sgt i32 %44, -1
-  %46 = zext nneg i32 %.sroa.0.1 to i64
-  br i1 %45, label %47, label %52
+41:                                               ; preds = %35, %30
+  %.034 = phi i64 [ %34, %30 ], [ %40, %35 ]
+  %42 = icmp sgt i64 %.034, 16777215
+  %.neg = sext i1 %42 to i32
+  %43 = add nsw i32 %27, %.neg
+  %44 = icmp slt i64 %.034, 8388608
+  %45 = zext i1 %44 to i32
+  %46 = add nsw i32 %43, %45
+  %47 = icmp sgt i32 %46, -1
+  %48 = zext nneg i32 %.sroa.0.1 to i64
+  br i1 %47, label %49, label %54
 
-47:                                               ; preds = %39
-  %48 = zext nneg i32 %44 to i64
-  %49 = shl nuw i64 1, %48
-  %50 = zext nneg i32 %.sroa.14.0 to i64
-  %51 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef %49, i64 noundef %50) #9
-  br label %58
+49:                                               ; preds = %41
+  %50 = zext nneg i32 %46 to i64
+  %51 = shl nuw i64 1, %50
+  %52 = zext nneg i32 %.sroa.14.0 to i64
+  %53 = tail call i64 @av_rescale(i64 noundef %48, i64 noundef %51, i64 noundef %52) #9
+  br label %60
 
-52:                                               ; preds = %39
-  %53 = zext nneg i32 %.sroa.14.0 to i64
-  %54 = sub nsw i32 0, %44
-  %55 = zext nneg i32 %54 to i64
-  %56 = shl i64 %53, %55
-  %57 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef 1, i64 noundef %56) #9
-  br label %58
+54:                                               ; preds = %41
+  %55 = zext nneg i32 %.sroa.14.0 to i64
+  %56 = sub nsw i32 0, %46
+  %57 = zext nneg i32 %56 to i64
+  %58 = shl i64 %55, %57
+  %59 = tail call i64 @av_rescale(i64 noundef %48, i64 noundef 1, i64 noundef %58) #9
+  br label %60
 
-58:                                               ; preds = %52, %47
-  %.1 = phi i64 [ %51, %47 ], [ %57, %52 ]
-  %59 = shl i32 %44, 23
-  %60 = sub i32 1258291200, %59
-  %61 = or i32 %60, %.0
-  %62 = trunc i64 %.1 to i32
-  %63 = add i32 %62, -8388608
-  %64 = or i32 %61, %63
-  br label %65
+60:                                               ; preds = %54, %49
+  %.1 = phi i64 [ %53, %49 ], [ %59, %54 ]
+  %61 = shl i32 %46, 23
+  %62 = sub i32 1258291200, %61
+  %63 = or i32 %62, %.0
+  %64 = trunc i64 %.1 to i32
+  %65 = add i32 %64, -8388608
+  %66 = or i32 %63, %65
+  br label %67
 
-65:                                               ; preds = %1, %58
-  %.035 = phi i32 [ %64, %58 ], [ %.mux.mux, %1 ]
+67:                                               ; preds = %1, %60
+  %.035 = phi i32 [ %66, %60 ], [ %.mux.mux, %1 ]
   ret i32 %.035
 }
 

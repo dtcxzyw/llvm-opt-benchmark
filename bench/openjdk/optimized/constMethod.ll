@@ -149,9 +149,8 @@ define hidden noundef ptr @_ZN11ConstMethod8allocateEP15ClassLoaderDataiP16Inlin
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %49 = load i32, ptr %48, align 4
   %50 = icmp sgt i32 %49, 0
-  %51 = add nsw i32 %.8.i, 8
-  %.9.i = select i1 %50, i32 %51, i32 %.8.i
-  %52 = add i32 %.9.i, 7
+  %51 = select i1 %50, i32 15, i32 7
+  %52 = add i32 %.8.i, %51
   %53 = ashr i32 %52, 3
   %54 = add nsw i32 %53, 7
   %55 = sext i32 %54 to i64
@@ -250,9 +249,8 @@ define hidden noundef range(i32 -268435449, 268435463) i32 @_ZN11ConstMethod4siz
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, 0
-  %49 = add nsw i32 %.8, 8
-  %.9 = select i1 %48, i32 %49, i32 %.8
-  %50 = add i32 %.9, 7
+  %49 = select i1 %48, i32 15, i32 7
+  %50 = add i32 %49, %.8
   %51 = ashr i32 %50, 3
   %52 = add nsw i32 %51, 7
   ret i32 %52

@@ -1563,14 +1563,14 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   %514 = getelementptr inbounds nuw i8, ptr %460, i64 7544
   br label %515
 
-515:                                              ; preds = %561, %.loopexit18
-  %516 = phi i64 [ 0, %.loopexit18 ], [ %562, %561 ]
+515:                                              ; preds = %559, %.loopexit18
+  %516 = phi i64 [ 0, %.loopexit18 ], [ %560, %559 ]
   %517 = load i16, ptr %446, align 8
   %518 = zext i16 %517 to i64
   %519 = shl nuw nsw i64 1, %516
   %520 = and i64 %519, %518
   %521 = icmp eq i64 %520, 0
-  br i1 %521, label %561, label %522
+  br i1 %521, label %559, label %522
 
 522:                                              ; preds = %515
   %523 = load i32, ptr %509, align 4
@@ -1613,21 +1613,20 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   %552 = phi i32 [ %545, %544 ], [ %550, %546 ], [ %532, %522 ]
   %553 = load i32, ptr %513, align 4
   %554 = icmp eq i32 %553, 0
-  %555 = or i32 %552, 33554432
-  %556 = select i1 %554, i32 %552, i32 %555
-  %557 = or i32 %556, -2147483648
-  %558 = load ptr, ptr %514, align 8
-  tail call void %558(ptr noundef nonnull %510, i32 %529, i32 noundef %557, i1 noundef zeroext true) #9
-  %559 = load ptr, ptr %511, align 8
-  %560 = tail call i32 %559(ptr noundef nonnull %510, i32 %529, i1 noundef zeroext false) #9
-  br label %561
+  %.v = select i1 %554, i32 -2147483648, i32 -2113929216
+  %555 = or i32 %.v, %552
+  %556 = load ptr, ptr %514, align 8
+  tail call void %556(ptr noundef nonnull %510, i32 %529, i32 noundef %555, i1 noundef zeroext true) #9
+  %557 = load ptr, ptr %511, align 8
+  %558 = tail call i32 %557(ptr noundef nonnull %510, i32 %529, i1 noundef zeroext false) #9
+  br label %559
 
-561:                                              ; preds = %551, %515
-  %562 = add nuw nsw i64 %516, 1
-  %563 = icmp eq i64 %562, 9
-  br i1 %563, label %.loopexit, label %515, !llvm.loop !39
+559:                                              ; preds = %551, %515
+  %560 = add nuw nsw i64 %516, 1
+  %561 = icmp eq i64 %560, 9
+  br i1 %561, label %.loopexit, label %515, !llvm.loop !39
 
-.loopexit:                                        ; preds = %561, %444
+.loopexit:                                        ; preds = %559, %444
   tail call void @intel_backlight_enable(ptr noundef %2, ptr noundef %3) #9
   tail call void @intel_dsi_vbt_exec_sequence(ptr noundef %1, i32 noundef 6) #9
   ret void

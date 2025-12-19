@@ -530,7 +530,7 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   br label %333
 
 333:                                              ; preds = %340, %._crit_edge
-  %.017.i = phi i64 [ 0, %._crit_edge ], [ %362, %340 ]
+  %.017.i = phi i64 [ 0, %._crit_edge ], [ %361, %340 ]
   %.0.i = phi i64 [ 0, %._crit_edge ], [ %341, %340 ]
   %334 = icmp ugt i64 %.017.i, %.0.i
   br i1 %334, label %335, label %340
@@ -571,18 +571,17 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   %.3.i.i = select i1 %.not25.i.i, i32 %.2.i.i, i32 %351
   %353 = and i64 %.321.i.i, 3
   %.not26.i.i = icmp eq i64 %353, 0
-  %354 = add nsw i32 %.3.i.i, -2
-  %355 = lshr exact i64 %.321.i.i, 2
-  %.422.i.i = select i1 %.not26.i.i, i64 %355, i64 %.321.i.i
-  %.4.i.i = select i1 %.not26.i.i, i32 %.3.i.i, i32 %354
-  %356 = trunc i64 %.422.i.i to i32
-  %357 = and i32 %356, 1
-  %.5.i.i177 = add nuw nsw i32 %.4.i.i, 1
-  %358 = sub nuw nsw i32 %.5.i.i177, %357
-  %359 = zext nneg i32 %358 to i64
-  %360 = lshr i64 %1, %359
-  %361 = sub i64 %1, %360
-  %362 = xor i64 %361, %.017.i
+  %354 = lshr exact i64 %.321.i.i, 2
+  %.422.i.i = select i1 %.not26.i.i, i64 %354, i64 %.321.i.i
+  %355 = trunc i64 %.422.i.i to i32
+  %356 = and i32 %355, 1
+  %.5.i.v.i = select i1 %.not26.i.i, i32 1, i32 -1
+  %.5.i.i177 = add nsw i32 %.5.i.v.i, %.3.i.i
+  %357 = sub nuw nsw i32 %.5.i.i177, %356
+  %358 = zext nneg i32 %357 to i64
+  %359 = lshr i64 %1, %358
+  %360 = sub i64 %1, %359
+  %361 = xor i64 %360, %.017.i
   %exitcond.not.i = icmp eq i64 %341, %umax.i
   br i1 %exitcond.not.i, label %bitreverse_permute.exit, label %333, !llvm.loop !15
 

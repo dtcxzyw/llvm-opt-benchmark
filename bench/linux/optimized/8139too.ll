@@ -1777,31 +1777,30 @@ define internal void @rtl8139_set_rx_mode(ptr noundef %0) #2 align 16 {
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 17592186044416
   %52 = icmp eq i64 %51, 0
-  %53 = or disjoint i32 %48, 48
-  %54 = select i1 %52, i32 %48, i32 %53
-  %55 = or disjoint i32 %54, 63360
-  %56 = getelementptr i8, ptr %0, i64 2892
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %57, %55
-  br i1 %58, label %62, label %59
+  %.v = select i1 %52, i32 63360, i32 63408
+  %53 = or i32 %.v, %48
+  %54 = getelementptr i8, ptr %0, i64 2892
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, %53
+  br i1 %56, label %60, label %57
 
-59:                                               ; preds = %.loopexit
-  %60 = getelementptr i8, ptr %6, i64 68
-  tail call void @iowrite32(i32 noundef %55, ptr noundef %60) #14
-  %61 = tail call i32 @ioread32(ptr noundef %60) #14
-  store i32 %55, ptr %56, align 4
-  br label %62
+57:                                               ; preds = %.loopexit
+  %58 = getelementptr i8, ptr %6, i64 68
+  tail call void @iowrite32(i32 noundef %53, ptr noundef %58) #14
+  %59 = tail call i32 @ioread32(ptr noundef %58) #14
+  store i32 %53, ptr %54, align 4
+  br label %60
 
-62:                                               ; preds = %59, %.loopexit
-  %63 = load i32, ptr %2, align 8
-  %64 = getelementptr i8, ptr %6, i64 8
-  tail call void @iowrite32(i32 noundef %63, ptr noundef %64) #14
-  %65 = tail call i32 @ioread32(ptr noundef %64) #14
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr i8, ptr %6, i64 12
-  tail call void @iowrite32(i32 noundef %67, ptr noundef %68) #14
-  %69 = tail call i32 @ioread32(ptr noundef %68) #14
+60:                                               ; preds = %57, %.loopexit
+  %61 = load i32, ptr %2, align 8
+  %62 = getelementptr i8, ptr %6, i64 8
+  tail call void @iowrite32(i32 noundef %61, ptr noundef %62) #14
+  %63 = tail call i32 @ioread32(ptr noundef %62) #14
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = getelementptr i8, ptr %6, i64 12
+  tail call void @iowrite32(i32 noundef %65, ptr noundef %66) #14
+  %67 = tail call i32 @ioread32(ptr noundef %66) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %5) #14
   ret void

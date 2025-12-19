@@ -30132,13 +30132,11 @@ define noundef ptr @_ZN2c43yml6Parser15_append_key_valENS_15basic_substringIKcEE
   %35 = and i32 %34, 8192
   %spec.select = zext nneg i32 %35 to i64
   %.not23 = icmp eq i32 %3, 0
-  %36 = or disjoint i64 %spec.select, 4096
-  %.1 = select i1 %.not23, i64 %spec.select, i64 %36
-  %37 = and i32 %33, 512
-  %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %38, label %_ZN2c43yml6Parser15_consume_scalarEv.exit
+  %36 = and i32 %33, 512
+  %.not.i = icmp eq i32 %36, 0
+  br i1 %.not.i, label %37, label %_ZN2c43yml6Parser15_consume_scalarEv.exit
 
-38:                                               ; preds = %31
+37:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %.sroa.2.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -30149,357 +30147,358 @@ define noundef ptr @_ZN2c43yml6Parser15_append_key_valENS_15basic_substringIKcEE
   store ptr @.str, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8, !tbaa !64
-  %40 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8, !tbaa !60
-  call void %39(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %9, ptr noundef %40)
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8, !tbaa !64
+  %39 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8, !tbaa !60
+  call void %38(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %9, ptr noundef %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre.i = load ptr, ptr %14, align 8, !tbaa !261
   %.pre4.i = load i32, ptr %.pre.i, align 8, !tbaa !254
   br label %_ZN2c43yml6Parser15_consume_scalarEv.exit
 
-_ZN2c43yml6Parser15_consume_scalarEv.exit:        ; preds = %31, %38
-  %41 = phi i32 [ %33, %31 ], [ %.pre4.i, %38 ]
-  %42 = phi ptr [ %32, %31 ], [ %.pre.i, %38 ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %43, align 8, !tbaa !67
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 32
+_ZN2c43yml6Parser15_consume_scalarEv.exit:        ; preds = %31, %37
+  %40 = phi i32 [ %33, %31 ], [ %.pre4.i, %37 ]
+  %41 = phi ptr [ %32, %31 ], [ %.pre.i, %37 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %.sroa.0.0.copyload.i = load ptr, ptr %42, align 8, !tbaa !67
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !68
-  %44 = and i32 %41, -1537
-  store i32 %44, ptr %42, align 8, !tbaa !254
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %45 = load ptr, ptr %12, align 8, !tbaa !253
-  %46 = load ptr, ptr %14, align 8, !tbaa !261
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8, !tbaa !283
-  %49 = load ptr, ptr %45, align 8, !tbaa !117
-  %50 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %49, i64 %48
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 120
-  %52 = load i64, ptr %51, align 8, !tbaa !151
-  %53 = call noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr noundef nonnull align 8 dereferenceable(256) %45)
-  call void @_ZN2c43yml4Tree14_set_hierarchyEmmm(ptr noundef nonnull align 8 dereferenceable(256) %45, i64 noundef %53, i64 noundef %48, i64 noundef %52)
-  %54 = load ptr, ptr %12, align 8, !tbaa !253
+  %43 = and i32 %40, -1537
+  store i32 %43, ptr %41, align 8, !tbaa !254
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  %44 = load ptr, ptr %12, align 8, !tbaa !253
+  %45 = load ptr, ptr %14, align 8, !tbaa !261
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !tbaa !283
+  %48 = load ptr, ptr %44, align 8, !tbaa !117
+  %49 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %48, i64 %47
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
+  %51 = load i64, ptr %50, align 8, !tbaa !151
+  %52 = call noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr noundef nonnull align 8 dereferenceable(256) %44)
+  call void @_ZN2c43yml4Tree14_set_hierarchyEmmm(ptr noundef nonnull align 8 dereferenceable(256) %44, i64 noundef %52, i64 noundef %47, i64 noundef %51)
+  %53 = load ptr, ptr %12, align 8, !tbaa !253
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %55 = load ptr, ptr %54, align 8, !tbaa !117
-  %56 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %55, i64 %53
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 112
-  %58 = load i64, ptr %57, align 8, !tbaa !150
-  %.not.i24 = icmp eq i64 %58, -1
-  br i1 %.not.i24, label %68, label %59
+  %54 = load ptr, ptr %53, align 8, !tbaa !117
+  %55 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %54, i64 %52
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 112
+  %57 = load i64, ptr %56, align 8, !tbaa !150
+  %.not.i24 = icmp eq i64 %57, -1
+  br i1 %.not.i24, label %67, label %58
 
-59:                                               ; preds = %_ZN2c43yml6Parser15_consume_scalarEv.exit
+58:                                               ; preds = %_ZN2c43yml6Parser15_consume_scalarEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %5, ptr noundef nonnull align 16 dereferenceable(37) @__const._ZN2c43yml4Tree9to_streamEmm.msg, i64 37, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %61 = getelementptr inbounds nuw i8, ptr %54, i64 88
-  %62 = load ptr, ptr %61, align 8, !tbaa !103
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 88
+  %61 = load ptr, ptr %60, align 8, !tbaa !103
   store i64 0, ptr %6, align 8, !tbaa !104
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 26566, ptr %63, align 8, !tbaa !105
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %64, align 8, !tbaa !58
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @.str, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 127, ptr %66, align 8
-  %67 = load ptr, ptr %60, align 8, !tbaa !106
-  call void %62(ptr noundef nonnull %5, i64 noundef 37, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %67)
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 26566, ptr %62, align 8, !tbaa !105
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %63, align 8, !tbaa !58
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr @.str, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 127, ptr %65, align 8
+  %66 = load ptr, ptr %59, align 8, !tbaa !106
+  call void %61(ptr noundef nonnull %5, i64 noundef 37, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre.i25 = load ptr, ptr %54, align 8, !tbaa !117
-  br label %68
+  %.pre.i25 = load ptr, ptr %53, align 8, !tbaa !117
+  br label %67
 
-68:                                               ; preds = %59, %_ZN2c43yml6Parser15_consume_scalarEv.exit
-  %69 = phi ptr [ %.pre.i25, %59 ], [ %55, %_ZN2c43yml6Parser15_consume_scalarEv.exit ]
-  %70 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %69, i64 %53
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 104
-  %72 = load i64, ptr %71, align 8, !tbaa !139
-  %73 = icmp eq i64 %72, -1
-  br i1 %73, label %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit, label %74
+67:                                               ; preds = %58, %_ZN2c43yml6Parser15_consume_scalarEv.exit
+  %68 = phi ptr [ %.pre.i25, %58 ], [ %54, %_ZN2c43yml6Parser15_consume_scalarEv.exit ]
+  %69 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %68, i64 %52
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 104
+  %71 = load i64, ptr %70, align 8, !tbaa !139
+  %72 = icmp eq i64 %71, -1
+  br i1 %72, label %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit, label %73
 
-74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %69, i64 %72
-  %76 = load i64, ptr %75, align 8, !tbaa !158
-  %77 = and i64 %76, 4
-  %.not18.i = icmp eq i64 %77, 0
-  br i1 %.not18.i, label %78, label %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %68, i64 %71
+  %75 = load i64, ptr %74, align 8, !tbaa !158
+  %76 = and i64 %75, 4
+  %.not18.i = icmp eq i64 %76, 0
+  br i1 %.not18.i, label %77, label %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit
 
-78:                                               ; preds = %74
+77:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %7, ptr noundef nonnull align 16 dereferenceable(60) @__const._ZN2c43yml4Tree6to_seqEmNS_15basic_substringIKcEEm.msg.173, i64 60, i1 false)
-  %79 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %80 = getelementptr inbounds nuw i8, ptr %54, i64 88
-  %81 = load ptr, ptr %80, align 8, !tbaa !103
+  %78 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %53, i64 88
+  %80 = load ptr, ptr %79, align 8, !tbaa !103
   store i64 0, ptr %8, align 8, !tbaa !104
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 26567, ptr %82, align 8, !tbaa !105
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %83, align 8, !tbaa !58
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr @.str, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 127, ptr %85, align 8
-  %86 = load ptr, ptr %79, align 8, !tbaa !106
-  call void %81(ptr noundef nonnull %7, i64 noundef 60, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %8, ptr noundef %86)
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 26567, ptr %81, align 8, !tbaa !105
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %82, align 8, !tbaa !58
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr @.str, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i64 127, ptr %84, align 8
+  %85 = load ptr, ptr %78, align 8, !tbaa !106
+  call void %80(ptr noundef nonnull %7, i64 noundef 60, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %8, ptr noundef %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre19.i = load ptr, ptr %54, align 8, !tbaa !117
+  %.pre19.i = load ptr, ptr %53, align 8, !tbaa !117
   br label %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit
 
-_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit: ; preds = %68, %74, %78
-  %87 = phi ptr [ %69, %68 ], [ %69, %74 ], [ %.pre19.i, %78 ]
-  %88 = or disjoint i64 %.1, 3
-  %89 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %87, i64 %53
-  store i64 %88, ptr %89, align 8, !tbaa !153
+_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit: ; preds = %67, %73, %77
+  %86 = phi ptr [ %68, %67 ], [ %68, %73 ], [ %.pre19.i, %77 ]
+  %.v = select i1 %.not23, i64 3, i64 4099
+  %87 = or disjoint i64 %.v, %spec.select
+  %88 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %86, i64 %52
+  store i64 %87, ptr %88, align 8, !tbaa !153
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.617.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.617.i, i8 0, i64 16, i1 false)
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
-  %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+  %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %.sroa.0.0.copyload.i, ptr %.sroa.415.0..sroa_idx.i, align 8, !tbaa !67
-  %.sroa.516.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %.sroa.516.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %88, i64 32
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.516.0..sroa_idx.i, align 8, !tbaa !68
-  %.sroa.617.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %.sroa.617.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %88, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.617.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.617.i, i64 16, i1 false), !tbaa.struct !141
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.617.i)
-  %91 = load ptr, ptr %54, align 8, !tbaa !117
-  %92 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %91, i64 %53
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %92, i64 72
+  %90 = load ptr, ptr %53, align 8, !tbaa !117
+  %91 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %90, i64 %52
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %91, i64 72
   store ptr %1, ptr %.sroa.4.0..sroa_idx.i26, align 8, !tbaa !67
-  %.sroa.5.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %92, i64 80
+  %.sroa.5.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %91, i64 80
   store i64 %2, ptr %.sroa.5.0..sroa_idx.i27, align 8, !tbaa !68
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %92, i64 88
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %91, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 2568
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2576
-  %96 = load i64, ptr %95, align 8, !tbaa !56
-  %97 = icmp eq i64 %96, 0
-  %98 = load ptr, ptr %94, align 8
-  %99 = icmp eq ptr %98, null
-  %100 = select i1 %97, i1 true, i1 %99
-  br i1 %100, label %131, label %101
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2568
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 2576
+  %95 = load i64, ptr %94, align 8, !tbaa !56
+  %96 = icmp eq i64 %95, 0
+  %97 = load ptr, ptr %93, align 8
+  %98 = icmp eq ptr %97, null
+  %99 = select i1 %96, i1 true, i1 %98
+  br i1 %99, label %130, label %100
 
-101:                                              ; preds = %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit
-  %102 = load ptr, ptr %12, align 8, !tbaa !253
-  %103 = call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr nonnull %98, i64 %96)
-  switch i16 %103, label %default.unreachable [
-    i16 0, label %117
+100:                                              ; preds = %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit
+  %101 = load ptr, ptr %12, align 8, !tbaa !253
+  %102 = call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr nonnull %97, i64 %95)
+  switch i16 %102, label %default.unreachable [
+    i16 0, label %116
     i16 1, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
-    i16 2, label %104
-    i16 3, label %105
-    i16 4, label %106
-    i16 5, label %107
-    i16 6, label %108
-    i16 7, label %109
-    i16 8, label %110
-    i16 9, label %111
-    i16 10, label %112
-    i16 11, label %113
-    i16 12, label %114
-    i16 13, label %115
-    i16 14, label %116
+    i16 2, label %103
+    i16 3, label %104
+    i16 4, label %105
+    i16 5, label %106
+    i16 6, label %107
+    i16 7, label %108
+    i16 8, label %109
+    i16 9, label %110
+    i16 10, label %111
+    i16 11, label %112
+    i16 12, label %113
+    i16 13, label %114
+    i16 14, label %115
   ]
 
-104:                                              ; preds = %101
+103:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-105:                                              ; preds = %101
+104:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-106:                                              ; preds = %101
+105:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-107:                                              ; preds = %101
+106:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-108:                                              ; preds = %101
+107:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-109:                                              ; preds = %101
+108:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-110:                                              ; preds = %101
+109:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-111:                                              ; preds = %101
+110:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-112:                                              ; preds = %101
+111:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-113:                                              ; preds = %101
+112:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-114:                                              ; preds = %101
+113:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-115:                                              ; preds = %101
+114:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-116:                                              ; preds = %101
+115:                                              ; preds = %100
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-default.unreachable:                              ; preds = %139, %101
+default.unreachable:                              ; preds = %138, %100
   unreachable
 
-117:                                              ; preds = %101
-  %118 = icmp ult i64 %96, 2
-  br i1 %118, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit, label %.lr.ph.i.i
+116:                                              ; preds = %100
+  %117 = icmp ult i64 %95, 2
+  br i1 %117, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit, label %.lr.ph.i.i
 
-119:                                              ; preds = %.lr.ph.i.i
+118:                                              ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i.i, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i, label %.lr.ph.i.i, !llvm.loop !66
 
-.lr.ph.i.i:                                       ; preds = %117, %119
-  %exitcond.not.i.i = phi i1 [ true, %119 ], [ false, %117 ]
-  %.068.i.i = phi i64 [ 1, %119 ], [ 0, %117 ]
-  %120 = getelementptr inbounds nuw i8, ptr %98, i64 %.068.i.i
-  %121 = load i8, ptr %120, align 1, !tbaa !44
-  %122 = getelementptr inbounds nuw i8, ptr @.str.20, i64 %.068.i.i
-  %123 = load i8, ptr %122, align 1, !tbaa !44
-  %.not.i.i = icmp eq i8 %121, %123
-  br i1 %.not.i.i, label %119, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
+.lr.ph.i.i:                                       ; preds = %116, %118
+  %exitcond.not.i.i = phi i1 [ true, %118 ], [ false, %116 ]
+  %.068.i.i = phi i64 [ 1, %118 ], [ 0, %116 ]
+  %119 = getelementptr inbounds nuw i8, ptr %97, i64 %.068.i.i
+  %120 = load i8, ptr %119, align 1, !tbaa !44
+  %121 = getelementptr inbounds nuw i8, ptr @.str.20, i64 %.068.i.i
+  %122 = load i8, ptr %121, align 1, !tbaa !44
+  %.not.i.i = icmp eq i8 %120, %122
+  br i1 %.not.i.i, label %118, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  %125 = add i64 %96, -1
+_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %97, i64 1
+  %124 = add i64 %95, -1
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
-_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i, %101, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117
-  %.sroa.0.0.i.pn.i = phi ptr [ @.str.67, %115 ], [ @.str.68, %116 ], [ @.str.55, %101 ], [ @.str.56, %104 ], [ @.str.57, %105 ], [ @.str.58, %106 ], [ @.str.59, %107 ], [ @.str.60, %108 ], [ @.str.61, %109 ], [ @.str.62, %110 ], [ @.str.63, %111 ], [ @.str.64, %112 ], [ @.str.65, %113 ], [ @.str.66, %114 ], [ %98, %117 ], [ %124, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %98, %.lr.ph.i.i ]
-  %.sroa.18.0.i.pn.i = phi i64 [ 11, %115 ], [ 7, %116 ], [ 5, %101 ], [ 6, %104 ], [ 7, %105 ], [ 5, %106 ], [ 5, %107 ], [ 8, %108 ], [ 6, %109 ], [ 7, %110 ], [ 5, %111 ], [ 7, %112 ], [ 6, %113 ], [ 5, %114 ], [ 1, %117 ], [ %125, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %96, %.lr.ph.i.i ]
-  %126 = load ptr, ptr %102, align 8, !tbaa !117
-  %127 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %126, i64 %53
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %.sroa.0.0.i.pn.i, ptr %128, align 8, !tbaa !67
-  %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %127, i64 16
+_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i, %100, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116
+  %.sroa.0.0.i.pn.i = phi ptr [ @.str.67, %114 ], [ @.str.68, %115 ], [ @.str.55, %100 ], [ @.str.56, %103 ], [ @.str.57, %104 ], [ @.str.58, %105 ], [ @.str.59, %106 ], [ @.str.60, %107 ], [ @.str.61, %108 ], [ @.str.62, %109 ], [ @.str.63, %110 ], [ @.str.64, %111 ], [ @.str.65, %112 ], [ @.str.66, %113 ], [ %97, %116 ], [ %123, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %97, %.lr.ph.i.i ]
+  %.sroa.18.0.i.pn.i = phi i64 [ 11, %114 ], [ 7, %115 ], [ 5, %100 ], [ 6, %103 ], [ 7, %104 ], [ 5, %105 ], [ 5, %106 ], [ 8, %107 ], [ 6, %108 ], [ 7, %109 ], [ 5, %110 ], [ 7, %111 ], [ 6, %112 ], [ 5, %113 ], [ 1, %116 ], [ %124, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %95, %.lr.ph.i.i ]
+  %125 = load ptr, ptr %101, align 8, !tbaa !117
+  %126 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %125, i64 %52
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  store ptr %.sroa.0.0.i.pn.i, ptr %127, align 8, !tbaa !67
+  %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i64 %.sroa.18.0.i.pn.i, ptr %.sroa.2.0..sroa_idx.i28, align 8, !tbaa !68
-  %129 = load i64, ptr %127, align 8, !tbaa !153
-  %130 = or i64 %129, 1024
-  store i64 %130, ptr %127, align 8, !tbaa !153
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
-  br label %131
+  %128 = load i64, ptr %126, align 8, !tbaa !153
+  %129 = or i64 %128, 1024
+  store i64 %129, ptr %126, align 8, !tbaa !153
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
+  br label %130
 
-131:                                              ; preds = %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit, %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 2616
-  %134 = load i64, ptr %133, align 8, !tbaa !56
-  %135 = icmp eq i64 %134, 0
-  %136 = load ptr, ptr %132, align 8
-  %137 = icmp eq ptr %136, null
-  %138 = select i1 %135, i1 true, i1 %137
-  br i1 %138, label %169, label %139
+130:                                              ; preds = %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit, %_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m.exit
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 2608
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 2616
+  %133 = load i64, ptr %132, align 8, !tbaa !56
+  %134 = icmp eq i64 %133, 0
+  %135 = load ptr, ptr %131, align 8
+  %136 = icmp eq ptr %135, null
+  %137 = select i1 %134, i1 true, i1 %136
+  br i1 %137, label %168, label %138
 
-139:                                              ; preds = %131
-  %140 = load ptr, ptr %12, align 8, !tbaa !253
-  %141 = call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr nonnull %136, i64 %134)
-  switch i16 %141, label %default.unreachable [
-    i16 0, label %155
+138:                                              ; preds = %130
+  %139 = load ptr, ptr %12, align 8, !tbaa !253
+  %140 = call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr nonnull %135, i64 %133)
+  switch i16 %140, label %default.unreachable [
+    i16 0, label %154
     i16 1, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
-    i16 2, label %142
-    i16 3, label %143
-    i16 4, label %144
-    i16 5, label %145
-    i16 6, label %146
-    i16 7, label %147
-    i16 8, label %148
-    i16 9, label %149
-    i16 10, label %150
-    i16 11, label %151
-    i16 12, label %152
-    i16 13, label %153
-    i16 14, label %154
+    i16 2, label %141
+    i16 3, label %142
+    i16 4, label %143
+    i16 5, label %144
+    i16 6, label %145
+    i16 7, label %146
+    i16 8, label %147
+    i16 9, label %148
+    i16 10, label %149
+    i16 11, label %150
+    i16 12, label %151
+    i16 13, label %152
+    i16 14, label %153
   ]
 
-142:                                              ; preds = %139
+141:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-143:                                              ; preds = %139
+142:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-144:                                              ; preds = %139
+143:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-145:                                              ; preds = %139
+144:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-146:                                              ; preds = %139
+145:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-147:                                              ; preds = %139
+146:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-148:                                              ; preds = %139
+147:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-149:                                              ; preds = %139
+148:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-150:                                              ; preds = %139
+149:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-151:                                              ; preds = %139
+150:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-152:                                              ; preds = %139
+151:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-153:                                              ; preds = %139
+152:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-154:                                              ; preds = %139
+153:                                              ; preds = %138
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-155:                                              ; preds = %139
-  %156 = icmp ult i64 %134, 2
-  br i1 %156, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42, label %.lr.ph.i.i33
+154:                                              ; preds = %138
+  %155 = icmp ult i64 %133, 2
+  br i1 %155, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42, label %.lr.ph.i.i33
 
-157:                                              ; preds = %.lr.ph.i.i33
+156:                                              ; preds = %.lr.ph.i.i33
   br i1 %exitcond.not.i.i34, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40, label %.lr.ph.i.i33, !llvm.loop !66
 
-.lr.ph.i.i33:                                     ; preds = %155, %157
-  %exitcond.not.i.i34 = phi i1 [ true, %157 ], [ false, %155 ]
-  %.068.i.i35 = phi i64 [ 1, %157 ], [ 0, %155 ]
-  %158 = getelementptr inbounds nuw i8, ptr %136, i64 %.068.i.i35
-  %159 = load i8, ptr %158, align 1, !tbaa !44
-  %160 = getelementptr inbounds nuw i8, ptr @.str.20, i64 %.068.i.i35
-  %161 = load i8, ptr %160, align 1, !tbaa !44
-  %.not.i.i36 = icmp eq i8 %159, %161
-  br i1 %.not.i.i36, label %157, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
+.lr.ph.i.i33:                                     ; preds = %154, %156
+  %exitcond.not.i.i34 = phi i1 [ true, %156 ], [ false, %154 ]
+  %.068.i.i35 = phi i64 [ 1, %156 ], [ 0, %154 ]
+  %157 = getelementptr inbounds nuw i8, ptr %135, i64 %.068.i.i35
+  %158 = load i8, ptr %157, align 1, !tbaa !44
+  %159 = getelementptr inbounds nuw i8, ptr @.str.20, i64 %.068.i.i35
+  %160 = load i8, ptr %159, align 1, !tbaa !44
+  %.not.i.i36 = icmp eq i8 %158, %160
+  br i1 %.not.i.i36, label %156, label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40: ; preds = %157
-  %162 = getelementptr inbounds nuw i8, ptr %136, i64 1
-  %163 = add i64 %134, -1
+_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40: ; preds = %156
+  %161 = getelementptr inbounds nuw i8, ptr %135, i64 1
+  %162 = add i64 %133, -1
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42
 
-_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42: ; preds = %.lr.ph.i.i33, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40, %139, %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155
-  %.sroa.0.0.i.pn.i29 = phi ptr [ @.str.67, %153 ], [ @.str.68, %154 ], [ @.str.55, %139 ], [ @.str.56, %142 ], [ @.str.57, %143 ], [ @.str.58, %144 ], [ @.str.59, %145 ], [ @.str.60, %146 ], [ @.str.61, %147 ], [ @.str.62, %148 ], [ @.str.63, %149 ], [ @.str.64, %150 ], [ @.str.65, %151 ], [ @.str.66, %152 ], [ %136, %155 ], [ %162, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40 ], [ %136, %.lr.ph.i.i33 ]
-  %.sroa.18.0.i.pn.i30 = phi i64 [ 11, %153 ], [ 7, %154 ], [ 5, %139 ], [ 6, %142 ], [ 7, %143 ], [ 5, %144 ], [ 5, %145 ], [ 8, %146 ], [ 6, %147 ], [ 7, %148 ], [ 5, %149 ], [ 7, %150 ], [ 6, %151 ], [ 5, %152 ], [ 1, %155 ], [ %163, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40 ], [ %134, %.lr.ph.i.i33 ]
-  %164 = load ptr, ptr %140, align 8, !tbaa !117
-  %165 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %164, i64 %53
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 56
-  store ptr %.sroa.0.0.i.pn.i29, ptr %166, align 8, !tbaa !67
-  %.sroa.2.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %165, i64 64
+_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42: ; preds = %.lr.ph.i.i33, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40, %138, %141, %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154
+  %.sroa.0.0.i.pn.i29 = phi ptr [ @.str.67, %152 ], [ @.str.68, %153 ], [ @.str.55, %138 ], [ @.str.56, %141 ], [ @.str.57, %142 ], [ @.str.58, %143 ], [ @.str.59, %144 ], [ @.str.60, %145 ], [ @.str.61, %146 ], [ @.str.62, %147 ], [ @.str.63, %148 ], [ @.str.64, %149 ], [ @.str.65, %150 ], [ @.str.66, %151 ], [ %135, %154 ], [ %161, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40 ], [ %135, %.lr.ph.i.i33 ]
+  %.sroa.18.0.i.pn.i30 = phi i64 [ 11, %152 ], [ 7, %153 ], [ 5, %138 ], [ 6, %141 ], [ 7, %142 ], [ 5, %143 ], [ 5, %144 ], [ 8, %145 ], [ 6, %146 ], [ 7, %147 ], [ 5, %148 ], [ 7, %149 ], [ 6, %150 ], [ 5, %151 ], [ 1, %154 ], [ %162, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i40 ], [ %133, %.lr.ph.i.i33 ]
+  %163 = load ptr, ptr %139, align 8, !tbaa !117
+  %164 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %163, i64 %52
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
+  store ptr %.sroa.0.0.i.pn.i29, ptr %165, align 8, !tbaa !67
+  %.sroa.2.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %164, i64 64
   store i64 %.sroa.18.0.i.pn.i30, ptr %.sroa.2.0..sroa_idx.i43, align 8, !tbaa !68
-  %167 = load i64, ptr %165, align 8, !tbaa !153
-  %168 = or i64 %167, 2048
-  store i64 %168, ptr %165, align 8, !tbaa !153
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false)
-  br label %169
+  %166 = load i64, ptr %164, align 8, !tbaa !153
+  %167 = or i64 %166, 2048
+  store i64 %167, ptr %164, align 8, !tbaa !153
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, i8 0, i64 16, i1 false)
+  br label %168
 
-169:                                              ; preds = %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42, %131
-  call void @_ZN2c43yml6Parser17_write_key_anchorEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %53)
-  call void @_ZN2c43yml6Parser17_write_val_anchorEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %53)
-  %170 = load ptr, ptr %14, align 8, !tbaa !261
-  %171 = load i32, ptr %170, align 8, !tbaa !254
-  %172 = and i32 %171, -33
-  store i32 %172, ptr %170, align 8, !tbaa !254
-  %173 = load ptr, ptr %12, align 8, !tbaa !253
-  %174 = icmp eq i64 %53, -1
-  %175 = load ptr, ptr %173, align 8
-  %176 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %175, i64 %53
-  %.0.i = select i1 %174, ptr null, ptr %176
+168:                                              ; preds = %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit42, %130
+  call void @_ZN2c43yml6Parser17_write_key_anchorEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %52)
+  call void @_ZN2c43yml6Parser17_write_val_anchorEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %52)
+  %169 = load ptr, ptr %14, align 8, !tbaa !261
+  %170 = load i32, ptr %169, align 8, !tbaa !254
+  %171 = and i32 %170, -33
+  store i32 %171, ptr %169, align 8, !tbaa !254
+  %172 = load ptr, ptr %12, align 8, !tbaa !253
+  %173 = icmp eq i64 %52, -1
+  %174 = load ptr, ptr %172, align 8
+  %175 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %174, i64 %52
+  %.0.i = select i1 %173, ptr null, ptr %175
   ret ptr %.0.i
 }
 

@@ -102,7 +102,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #11
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %200, label %8
+  br i1 %7, label %199, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
@@ -111,7 +111,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   store ptr %12, ptr @attrs_st_mode, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %200, label %14
+  br i1 %13, label %199, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
@@ -120,7 +120,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #11
   store ptr %18, ptr @attrs_st_ino, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %200, label %20
+  br i1 %19, label %199, label %20
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
@@ -129,7 +129,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4) #11
   store ptr %24, ptr @attrs_st_dev, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %200, label %26
+  br i1 %25, label %199, label %26
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
@@ -138,7 +138,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4) #11
   store ptr %30, ptr @attrs_st_rdev, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %200, label %32
+  br i1 %31, label %199, label %32
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
@@ -147,7 +147,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2) #11
   store ptr %36, ptr @attrs_st_nlink, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %200, label %38
+  br i1 %37, label %199, label %38
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
@@ -156,7 +156,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2) #11
   store ptr %42, ptr @attrs_st_uid, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %200, label %44
+  br i1 %43, label %199, label %44
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
@@ -165,7 +165,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2) #11
   store ptr %48, ptr @attrs_st_gid, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %200, label %50
+  br i1 %49, label %199, label %50
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %0, align 8
@@ -174,7 +174,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4) #11
   store ptr %54, ptr @attrs_st_size, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %200, label %56
+  br i1 %55, label %199, label %56
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %0, align 8
@@ -183,7 +183,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.4) #11
   store ptr %60, ptr @attrs_st_atime_sec, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %200, label %62
+  br i1 %61, label %199, label %62
 
 62:                                               ; preds = %56
   %63 = load ptr, ptr %0, align 8
@@ -192,7 +192,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4) #11
   store ptr %66, ptr @attrs_st_atime_nsec, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %200, label %68
+  br i1 %67, label %199, label %68
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %0, align 8
@@ -201,7 +201,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4) #11
   store ptr %72, ptr @attrs_st_mtime_sec, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %200, label %74
+  br i1 %73, label %199, label %74
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %0, align 8
@@ -210,7 +210,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.4) #11
   store ptr %78, ptr @attrs_st_mtime_nsec, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %200, label %80
+  br i1 %79, label %199, label %80
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %0, align 8
@@ -219,7 +219,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.4) #11
   store ptr %84, ptr @attrs_st_ctime_sec, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %200, label %86
+  br i1 %85, label %199, label %86
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr %0, align 8
@@ -228,7 +228,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %90 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #11
   store ptr %90, ptr @attrs_st_ctime_nsec, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %200, label %92
+  br i1 %91, label %199, label %92
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %0, align 8
@@ -237,7 +237,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %96 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4) #11
   store ptr %96, ptr @attrs_st_birthtime_sec, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %200, label %98
+  br i1 %97, label %199, label %98
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %0, align 8
@@ -246,7 +246,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %102 = tail call ptr %101(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.4) #11
   store ptr %102, ptr @attrs_st_birthtime_nsec, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %200, label %104
+  br i1 %103, label %199, label %104
 
 104:                                              ; preds = %98
   %105 = load ptr, ptr %0, align 8
@@ -254,7 +254,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr %107(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %200, label %110
+  br i1 %109, label %199, label %110
 
 110:                                              ; preds = %104
   %111 = load ptr, ptr %0, align 8
@@ -263,7 +263,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %114 = tail call ptr %113(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.4) #11
   store ptr %114, ptr @attrs_f_frsize, align 8
   %115 = icmp eq ptr %114, null
-  br i1 %115, label %200, label %116
+  br i1 %115, label %199, label %116
 
 116:                                              ; preds = %110
   %117 = load ptr, ptr %0, align 8
@@ -272,7 +272,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %120 = tail call ptr %119(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.4) #11
   store ptr %120, ptr @attrs_f_blocks, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %200, label %122
+  br i1 %121, label %199, label %122
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr %0, align 8
@@ -281,7 +281,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %126 = tail call ptr %125(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.4) #11
   store ptr %126, ptr @attrs_f_bfree, align 8
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %200, label %128
+  br i1 %127, label %199, label %128
 
 128:                                              ; preds = %122
   %129 = load ptr, ptr %0, align 8
@@ -290,7 +290,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %132 = tail call ptr %131(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.4) #11
   store ptr %132, ptr @attrs_f_bavail, align 8
   %133 = icmp eq ptr %132, null
-  br i1 %133, label %200, label %134
+  br i1 %133, label %199, label %134
 
 134:                                              ; preds = %128
   %135 = load ptr, ptr %0, align 8
@@ -298,7 +298,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %137 = load ptr, ptr %136, align 8
   %138 = tail call ptr %137(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #11
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %200, label %140
+  br i1 %139, label %199, label %140
 
 140:                                              ; preds = %134
   %141 = load ptr, ptr %0, align 8
@@ -307,7 +307,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %144 = tail call ptr %143(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #11
   store ptr %144, ptr @entry_name, align 8
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %200, label %146
+  br i1 %145, label %199, label %146
 
 146:                                              ; preds = %140
   %147 = load ptr, ptr %0, align 8
@@ -316,7 +316,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %150 = tail call ptr %149(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.26) #11
   store ptr %150, ptr @entry_dir, align 8
   %151 = icmp eq ptr %150, null
-  br i1 %151, label %200, label %152
+  br i1 %151, label %199, label %152
 
 152:                                              ; preds = %146
   %153 = load ptr, ptr %0, align 8
@@ -325,7 +325,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %156 = tail call ptr %155(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.26) #11
   store ptr %156, ptr @entry_fstype, align 8
   %157 = icmp eq ptr %156, null
-  br i1 %157, label %200, label %158
+  br i1 %157, label %199, label %158
 
 158:                                              ; preds = %152
   %159 = load ptr, ptr %0, align 8
@@ -334,7 +334,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %162 = tail call ptr %161(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.26) #11
   store ptr %162, ptr @entry_options, align 8
   %163 = icmp eq ptr %162, null
-  br i1 %163, label %200, label %164
+  br i1 %163, label %199, label %164
 
 164:                                              ; preds = %158
   %165 = load ptr, ptr %0, align 8
@@ -343,7 +343,7 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %168 = tail call ptr %167(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.4) #11
   store ptr %168, ptr @entry_dev, align 8
   %169 = icmp eq ptr %168, null
-  br i1 %169, label %200, label %170
+  br i1 %169, label %199, label %170
 
 170:                                              ; preds = %164
   %171 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.31) #11
@@ -399,13 +399,12 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %197 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.39) #11
   store ptr %197, ptr @my_statx_func, align 8
   %.not106 = icmp eq ptr %197, null
-  %198 = or i32 %.3, 65536
-  %.4 = select i1 %.not106, i32 %.3, i32 %198
-  %199 = or i32 %.4, 32
-  br label %200
+  %.v = select i1 %.not106, i32 32, i32 65568
+  %198 = or i32 %.3, %.v
+  br label %199
 
-200:                                              ; preds = %164, %158, %152, %146, %140, %134, %128, %122, %116, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14, %8, %2, %182
-  %.0100 = phi i32 [ %199, %182 ], [ 0, %2 ], [ 0, %8 ], [ 0, %14 ], [ 0, %20 ], [ 0, %26 ], [ 0, %32 ], [ 0, %38 ], [ 0, %44 ], [ 0, %50 ], [ 0, %56 ], [ 0, %62 ], [ 0, %68 ], [ 0, %74 ], [ 0, %80 ], [ 0, %86 ], [ 0, %92 ], [ 0, %98 ], [ 0, %104 ], [ 0, %110 ], [ 0, %116 ], [ 0, %122 ], [ 0, %128 ], [ 0, %134 ], [ 0, %140 ], [ 0, %146 ], [ 0, %152 ], [ 0, %158 ], [ 0, %164 ]
+199:                                              ; preds = %164, %158, %152, %146, %140, %134, %128, %122, %116, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14, %8, %2, %182
+  %.0100 = phi i32 [ %198, %182 ], [ 0, %2 ], [ 0, %8 ], [ 0, %14 ], [ 0, %20 ], [ 0, %26 ], [ 0, %32 ], [ 0, %38 ], [ 0, %44 ], [ 0, %50 ], [ 0, %56 ], [ 0, %62 ], [ 0, %68 ], [ 0, %74 ], [ 0, %80 ], [ 0, %86 ], [ 0, %92 ], [ 0, %98 ], [ 0, %104 ], [ 0, %110 ], [ 0, %116 ], [ 0, %122 ], [ 0, %128 ], [ 0, %134 ], [ 0, %140 ], [ 0, %146 ], [ 0, %152 ], [ 0, %158 ], [ 0, %164 ]
   ret i32 %.0100
 }
 

@@ -81,7 +81,7 @@ define hidden noundef i32 @_ZN13CodeInstaller14pd_next_offsetEP17NativeInstructi
 
 6:                                                ; preds = %4, %4, %4
   %7 = add nsw i32 %2, 5
-  br label %53
+  br label %52
 
 .thread6.i:                                       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -131,53 +131,52 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread6.i, %sw
   %.025 = getelementptr inbounds nuw i8, ptr %25, i64 %.025.idx
   %29 = load i8, ptr %.025, align 1
   %30 = icmp eq i8 %29, -43
-  %31 = add nsw i32 %.026, 2
-  %.1 = select i1 %30, i32 %31, i32 %.026
-  %32 = add nsw i32 %.1, 2
-  br label %53
+  %.v = select i1 %30, i32 4, i32 2
+  %31 = add nsw i32 %.026, %.v
+  br label %52
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit
-  %33 = icmp eq i8 %5, -1
-  br i1 %33, label %_ZN17NativeInstruction11is_call_regEv.exit.thread, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
+  %32 = icmp eq i8 %5, -1
+  br i1 %32, label %_ZN17NativeInstruction11is_call_regEv.exit.thread, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread: ; preds = %9, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp eq i8 %35, -1
-  %37 = and i8 %5, -2
-  %spec.select.i27 = icmp eq i8 %37, 64
-  %or.cond29 = and i1 %spec.select.i27, %36
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, -1
+  %36 = and i8 %5, -2
+  %spec.select.i27 = icmp eq i8 %36, 64
+  %or.cond29 = and i1 %spec.select.i27, %35
   br i1 %or.cond29, label %_ZN17NativeInstruction11is_call_regEv.exit.thread, label %_ZN17NativeInstruction11is_call_regEv.exit.thread28
 
 _ZN17NativeInstruction11is_call_regEv.exit.thread: ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread, %9, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
   %.0.i = phi i32 [ 3, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread ], [ 2, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread ], [ 2, %9 ]
-  %38 = add nsw i32 %.0.i, %2
-  br label %53
+  %37 = add nsw i32 %.0.i, %2
+  br label %52
 
 _ZN17NativeInstruction11is_call_regEv.exit.thread28: ; preds = %11, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
-  %39 = load i32, ptr %1, align 4
-  %40 = and i32 %39, 61695
-  %41 = icmp eq i32 %40, 32783
-  %42 = and i32 %39, 240
-  %43 = icmp eq i32 %42, 112
-  %44 = or i1 %41, %43
-  br i1 %44, label %45, label %52
+  %38 = load i32, ptr %1, align 4
+  %39 = and i32 %38, 61695
+  %40 = icmp eq i32 %39, 32783
+  %41 = and i32 %38, 240
+  %42 = icmp eq i32 %41, 112
+  %43 = or i1 %40, %42
+  br i1 %43, label %44, label %51
 
-45:                                               ; preds = %_ZN17NativeInstruction11is_call_regEv.exit.thread28
-  %46 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef nonnull %1) #5
-  %47 = ptrtoint ptr %46 to i64
-  %48 = ptrtoint ptr %1 to i64
-  %49 = sub i64 %47, %48
-  %50 = trunc i64 %49 to i32
-  %51 = add nsw i32 %2, %50
-  br label %53
+44:                                               ; preds = %_ZN17NativeInstruction11is_call_regEv.exit.thread28
+  %45 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef nonnull %1) #5
+  %46 = ptrtoint ptr %45 to i64
+  %47 = ptrtoint ptr %1 to i64
+  %48 = sub i64 %46, %47
+  %49 = trunc i64 %48 to i32
+  %50 = add nsw i32 %2, %49
+  br label %52
 
-52:                                               ; preds = %_ZN17NativeInstruction11is_call_regEv.exit.thread28
+51:                                               ; preds = %_ZN17NativeInstruction11is_call_regEv.exit.thread28
   tail call void (ptr, ptr, i32, ptr, ...) @_ZN8JVMCIEnv12fthrow_errorEPKciS1_z(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @.str.4) #5
-  br label %53
+  br label %52
 
-53:                                               ; preds = %52, %45, %_ZN17NativeInstruction11is_call_regEv.exit.thread, %17, %6
-  %.0 = phi i32 [ %7, %6 ], [ %32, %17 ], [ %38, %_ZN17NativeInstruction11is_call_regEv.exit.thread ], [ %51, %45 ], [ 0, %52 ]
+52:                                               ; preds = %51, %44, %_ZN17NativeInstruction11is_call_regEv.exit.thread, %17, %6
+  %.0 = phi i32 [ %7, %6 ], [ %31, %17 ], [ %37, %_ZN17NativeInstruction11is_call_regEv.exit.thread ], [ %50, %44 ], [ 0, %51 ]
   ret i32 %.0
 }
 
