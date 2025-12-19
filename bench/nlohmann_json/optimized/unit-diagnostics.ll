@@ -30423,8 +30423,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohman
 67:                                               ; preds = %2
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !12
-  %70 = inttoptr i64 %69 to ptr
   store i64 %69, ptr %5, align 8, !tbaa !12
+  %70 = inttoptr i64 %69 to ptr
   br label %thread-pre-split
 
 71:                                               ; preds = %2
@@ -40910,8 +40910,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohman
 69:                                               ; preds = %2
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !12
-  %72 = inttoptr i64 %71 to ptr
   store i64 %71, ptr %4, align 8, !tbaa !12
+  %72 = inttoptr i64 %71 to ptr
   br label %thread-pre-split
 
 73:                                               ; preds = %2

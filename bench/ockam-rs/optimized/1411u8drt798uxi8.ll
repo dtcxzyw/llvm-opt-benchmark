@@ -78584,7 +78584,7 @@ define hidden void @"_ZN89_$LT$minicbor..bytes..ByteArray$LT$_$GT$$u20$as$u20$mi
   br i1 %.not.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread": ; preds = %14
-  %.val.i61 = load <4 x i8>, ptr %11, align 1, !alias.scope !10896
+  %.val.i = load i32, ptr %11, align 1, !alias.scope !10896
   br label %17
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit": ; preds = %14
@@ -78595,7 +78595,7 @@ define hidden void @"_ZN89_$LT$minicbor..bytes..ByteArray$LT$_$GT$$u20$as$u20$mi
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10902
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.5.0.copyload = load <4 x i8>, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.8, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.8.0..sroa_idx, i64 52, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !10899
@@ -78615,11 +78615,11 @@ define hidden void @"_ZN89_$LT$minicbor..bytes..ByteArray$LT$_$GT$$u20$as$u20$mi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   br label %20
 
-17:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit"
-  %.sroa.5.055.ph = phi <4 x i8> [ %.sroa.5.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit" ], [ %.val.i61, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread" ]
+17:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread"
+  %.sroa.5.053 = phi i32 [ %.val.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread" ], [ %.sroa.5.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store <4 x i8> %.sroa.5.055.ph, ptr %18, align 8
+  store i32 %.sroa.5.053, ptr %18, align 8
   store i64 2, ptr %0, align 8
   br label %20
 
@@ -78628,7 +78628,7 @@ define hidden void @"_ZN89_$LT$minicbor..bytes..ByteArray$LT$_$GT$$u20$as$u20$mi
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store <4 x i8> %.sroa.5.0.copyload, ptr %.sroa.240.0..sroa_idx, align 8
+  store i32 %.sroa.5.0.copyload, ptr %.sroa.240.0..sroa_idx, align 8
   %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.341.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.341, i64 52, i1 false)
   br label %20

@@ -11458,54 +11458,54 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit59.t
   br i1 %264, label %.preheader.i.backedge, label %_ZN5Eigen8internal26permutation_matrix_productINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runIS7_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS7_.exit
 
 .preheader.i:                                     ; preds = %.preheader.i.backedge, %.preheader.lr.ph.i
-  %.13789.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %.13789.i.be, %.preheader.i.backedge ]
-  %265 = getelementptr inbounds i8, ptr %calloc.i, i64 %.13789.i
+  %.13787.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %.13787.i.be, %.preheader.i.backedge ]
+  %265 = getelementptr inbounds i8, ptr %calloc.i, i64 %.13787.i
   %266 = load i8, ptr %265, align 1, !tbaa !219, !range !192, !noundef !193
   %267 = trunc nuw i8 %266 to i1
   br i1 %267, label %268, label %271
 
 268:                                              ; preds = %.preheader.i
-  %269 = add nsw i64 %.13789.i, 1
+  %269 = add nsw i64 %.13787.i, 1
   %270 = icmp slt i64 %269, %258
   br i1 %270, label %.preheader.i.backedge, label %_ZN5Eigen8internal26permutation_matrix_productINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runIS7_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS7_.exit
 
 .preheader.i.backedge:                            ; preds = %268, %.loopexit.i
-  %.13789.i.be = phi i64 [ %269, %268 ], [ %273, %.loopexit.i ]
+  %.13787.i.be = phi i64 [ %269, %268 ], [ %273, %.loopexit.i ]
   br label %.preheader.i, !llvm.loop !319
 
 271:                                              ; preds = %.preheader.i
-  %272 = getelementptr inbounds i8, ptr %calloc.i, i64 %.13789.i
-  %273 = add nsw i64 %.13789.i, 1
+  %272 = getelementptr inbounds i8, ptr %calloc.i, i64 %.13787.i
+  %273 = add nsw i64 %.13787.i, 1
   store i8 1, ptr %272, align 1, !tbaa !219
-  %.034.in.in90.i = getelementptr inbounds i32, ptr %263, i64 %.13789.i
-  %.034.in91.i = load i32, ptr %.034.in.in90.i, align 4, !tbaa !99
-  %.03492.i = sext i32 %.034.in91.i to i64
-  %.not4193.i = icmp eq i64 %.13789.i, %.03492.i
-  br i1 %.not4193.i, label %.loopexit.i, label %.lr.ph97.i
+  %.034.in.in88.i = getelementptr inbounds i32, ptr %263, i64 %.13787.i
+  %.034.in89.i = load i32, ptr %.034.in.in88.i, align 4, !tbaa !99
+  %.03490.i = sext i32 %.034.in89.i to i64
+  %.not4191.i = icmp eq i64 %.13787.i, %.03490.i
+  br i1 %.not4191.i, label %.loopexit.i, label %.lr.ph93.i
 
-.lr.ph97.i:                                       ; preds = %271
-  %274 = getelementptr inbounds double, ptr %.sroa.4.8.copyload, i64 %.13789.i
+.lr.ph93.i:                                       ; preds = %271
+  %274 = getelementptr inbounds double, ptr %.sroa.4.8.copyload, i64 %.13787.i
   %.pre.i = load double, ptr %274, align 8, !tbaa !42
   br label %275
 
-275:                                              ; preds = %275, %.lr.ph97.i
-  %276 = phi double [ %.pre.i, %.lr.ph97.i ], [ %278, %275 ]
-  %.03496.i = phi i64 [ %.03492.i, %.lr.ph97.i ], [ %.034.i, %275 ]
-  %277 = getelementptr inbounds double, ptr %.sroa.4.8.copyload, i64 %.03496.i
+275:                                              ; preds = %275, %.lr.ph93.i
+  %276 = phi double [ %.pre.i, %.lr.ph93.i ], [ %278, %275 ]
+  %.03492.i = phi i64 [ %.03490.i, %.lr.ph93.i ], [ %.034.i, %275 ]
+  %277 = getelementptr inbounds double, ptr %.sroa.4.8.copyload, i64 %.03492.i
   %278 = load double, ptr %277, align 8, !tbaa !42
   store double %276, ptr %277, align 8, !tbaa !42
   store double %278, ptr %274, align 8, !tbaa !42
-  %279 = getelementptr inbounds i8, ptr %calloc.i, i64 %.03496.i
+  %279 = getelementptr inbounds i8, ptr %calloc.i, i64 %.03492.i
   store i8 1, ptr %279, align 1, !tbaa !219
-  %.034.in.in.i = getelementptr inbounds i32, ptr %263, i64 %.03496.i
+  %.034.in.in.i = getelementptr inbounds i32, ptr %263, i64 %.03492.i
   %.034.in.i = load i32, ptr %.034.in.in.i, align 4, !tbaa !99
   %.034.i = sext i32 %.034.in.i to i64
-  %.not41.i = icmp eq i64 %.13789.i, %.034.i
+  %.not41.i = icmp eq i64 %.13787.i, %.034.i
   br i1 %.not41.i, label %.loopexit.i, label %275, !llvm.loop !320
 
 _ZN5Eigen8internal26permutation_matrix_productINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runIS7_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS7_.exit: ; preds = %.loopexit.i, %268, %255
-  %.sroa.068.081110.i = phi ptr [ null, %255 ], [ %calloc.i, %268 ], [ %calloc.i, %.loopexit.i ]
-  call void @free(ptr noundef %.sroa.068.081110.i) #36
+  %.sroa.068.081103.i = phi ptr [ null, %255 ], [ %calloc.i, %268 ], [ %calloc.i, %.loopexit.i ]
+  call void @free(ptr noundef %.sroa.068.081103.i) #36
   br label %280
 
 280:                                              ; preds = %3, %_ZN5Eigen8internal26permutation_matrix_productINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runIS7_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS7_.exit, %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit59.thread
@@ -11559,66 +11559,66 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26permutation_matrix_productI
   br i1 %23, label %.preheader.backedge, label %.critedge
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
-  %.14085 = phi i64 [ 0, %.preheader.lr.ph ], [ %.14085.be, %.preheader.backedge ]
-  %24 = getelementptr inbounds i8, ptr %calloc, i64 %.14085
+  %.14084 = phi i64 [ 0, %.preheader.lr.ph ], [ %.14084.be, %.preheader.backedge ]
+  %24 = getelementptr inbounds i8, ptr %calloc, i64 %.14084
   %25 = load i8, ptr %24, align 1, !tbaa !219, !range !192, !noundef !193
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.preheader
-  %28 = add nsw i64 %.14085, 1
+  %28 = add nsw i64 %.14084, 1
   %29 = icmp slt i64 %28, %17
   br i1 %29, label %.preheader.backedge, label %.critedge
 
 .preheader.backedge:                              ; preds = %27, %.loopexit
-  %.14085.be = phi i64 [ %28, %27 ], [ %32, %.loopexit ]
+  %.14084.be = phi i64 [ %28, %27 ], [ %32, %.loopexit ]
   br label %.preheader, !llvm.loop !321
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 %.14085
-  %32 = add nsw i64 %.14085, 1
+  %31 = getelementptr inbounds i8, ptr %calloc, i64 %.14084
+  %32 = add nsw i64 %.14084, 1
   store i8 1, ptr %31, align 1, !tbaa !219
-  %.037.in.in86 = getelementptr inbounds i32, ptr %22, i64 %.14085
-  %.037.in87 = load i32, ptr %.037.in.in86, align 4, !tbaa !99
-  %.03788 = sext i32 %.037.in87 to i64
-  %.not4489 = icmp eq i64 %.14085, %.03788
-  br i1 %.not4489, label %.loopexit, label %.lr.ph93
+  %.037.in.in85 = getelementptr inbounds i32, ptr %22, i64 %.14084
+  %.037.in86 = load i32, ptr %.037.in.in85, align 4, !tbaa !99
+  %.03787 = sext i32 %.037.in86 to i64
+  %.not4488 = icmp eq i64 %.14084, %.03787
+  br i1 %.not4488, label %.loopexit, label %.lr.ph90
 
-.lr.ph93:                                         ; preds = %30
-  %33 = getelementptr inbounds double, ptr %6, i64 %.14085
+.lr.ph90:                                         ; preds = %30
+  %33 = getelementptr inbounds double, ptr %6, i64 %.14084
   %.pre = load double, ptr %33, align 8, !tbaa !42
   br label %34
 
-34:                                               ; preds = %.lr.ph93, %34
-  %35 = phi double [ %.pre, %.lr.ph93 ], [ %37, %34 ]
-  %.03792 = phi i64 [ %.03788, %.lr.ph93 ], [ %.037, %34 ]
-  %36 = getelementptr inbounds double, ptr %6, i64 %.03792
+34:                                               ; preds = %.lr.ph90, %34
+  %35 = phi double [ %.pre, %.lr.ph90 ], [ %37, %34 ]
+  %.03789 = phi i64 [ %.03787, %.lr.ph90 ], [ %.037, %34 ]
+  %36 = getelementptr inbounds double, ptr %6, i64 %.03789
   %37 = load double, ptr %36, align 8, !tbaa !42
   store double %35, ptr %36, align 8, !tbaa !42
   store double %37, ptr %33, align 8, !tbaa !42
-  %38 = getelementptr inbounds i8, ptr %calloc, i64 %.03792
+  %38 = getelementptr inbounds i8, ptr %calloc, i64 %.03789
   store i8 1, ptr %38, align 1, !tbaa !219
-  %.037.in.in = getelementptr inbounds i32, ptr %22, i64 %.03792
+  %.037.in.in = getelementptr inbounds i32, ptr %22, i64 %.03789
   %.037.in = load i32, ptr %.037.in.in, align 4, !tbaa !99
   %.037 = sext i32 %.037.in to i64
-  %.not44 = icmp eq i64 %.14085, %.037
+  %.not44 = icmp eq i64 %.14084, %.037
   br i1 %.not44, label %.loopexit, label %34, !llvm.loop !322
 
 .critedge:                                        ; preds = %.loopexit, %27, %15
-  %.sroa.070.078107 = phi ptr [ null, %15 ], [ %calloc, %27 ], [ %calloc, %.loopexit ]
-  tail call void @free(ptr noundef %.sroa.070.078107) #36
+  %.sroa.070.078101 = phi ptr [ null, %15 ], [ %calloc, %27 ], [ %calloc, %.loopexit ]
+  tail call void @free(ptr noundef %.sroa.070.078101) #36
   br label %.loopexit81
 
 39:                                               ; preds = %.lr.ph, %39
-  %.084 = phi i64 [ 0, %.lr.ph ], [ %46, %39 ]
-  %40 = getelementptr inbounds nuw double, ptr %7, i64 %.084
-  %41 = getelementptr inbounds nuw i32, ptr %14, i64 %.084
+  %.083 = phi i64 [ 0, %.lr.ph ], [ %46, %39 ]
+  %40 = getelementptr inbounds nuw double, ptr %7, i64 %.083
+  %41 = getelementptr inbounds nuw i32, ptr %14, i64 %.083
   %42 = load i32, ptr %41, align 4, !tbaa !99
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds double, ptr %6, i64 %43
   %45 = load double, ptr %40, align 8, !tbaa !42
   store double %45, ptr %44, align 8, !tbaa !42
-  %46 = add nuw nsw i64 %.084, 1
+  %46 = add nuw nsw i64 %.083, 1
   %exitcond.not = icmp eq i64 %46, %5
   br i1 %exitcond.not, label %.loopexit81, label %39, !llvm.loop !323
 

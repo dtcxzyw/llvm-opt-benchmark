@@ -2868,8 +2868,8 @@ _ZN5ceres8internal14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_1
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %84, ptr %109, align 8
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %90, ptr %.sroa.417.0..sroa_idx, align 8
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %90, ptr %.sroa.418.0..sroa_idx, align 8
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %1, ptr %110, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48

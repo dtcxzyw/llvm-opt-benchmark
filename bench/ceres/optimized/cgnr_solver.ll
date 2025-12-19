@@ -3562,8 +3562,8 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; pred
   store i64 %40, ptr %6, align 8, !alias.scope !255
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %37, ptr %41, align 8
-  %.sroa.416.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %38, ptr %.sroa.416.8..sroa_idx, align 8
+  %.sroa.415.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %38, ptr %.sroa.415.8..sroa_idx, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %39, ptr %42, align 8, !alias.scope !255
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8

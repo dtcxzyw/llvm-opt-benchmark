@@ -24159,28 +24159,28 @@ define linkonce_odr void @_ZN5Eigen8internal13trmv_selectorILi6ELi1EE3runINS_9Tr
   %33 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.sroa.speculated136.i = tail call i64 @llvm.smin.i64(i64 %.sroa.251.0.copyload, i64 %.sroa.352.0.copyload)
-  %34 = icmp sgt i64 %.sroa.speculated136.i, 0
-  br i1 %34, label %.lr.ph149.i, label %.loopexit
+  %.sroa.speculated137.i = tail call i64 @llvm.smin.i64(i64 %.sroa.251.0.copyload, i64 %.sroa.352.0.copyload)
+  %34 = icmp sgt i64 %.sroa.speculated137.i, 0
+  br i1 %34, label %.lr.ph148.i, label %.loopexit
 
-.lr.ph149.i:                                      ; preds = %27
+.lr.ph148.i:                                      ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %37
 
-37:                                               ; preds = %.noexc, %.lr.ph149.i
-  %indvars.iv.i = phi i64 [ %.sroa.speculated136.i, %.lr.ph149.i ], [ %indvars.iv.next.i, %.noexc ]
-  %.0147.i = phi i64 [ 0, %.lr.ph149.i ], [ %120, %.noexc ]
+37:                                               ; preds = %.noexc, %.lr.ph148.i
+  %indvars.iv.i = phi i64 [ %.sroa.speculated137.i, %.lr.ph148.i ], [ %indvars.iv.next.i, %.noexc ]
+  %.0146.i = phi i64 [ 0, %.lr.ph148.i ], [ %120, %.noexc ]
   %38 = call i64 @llvm.smax.i64(i64 %indvars.iv.i, i64 1)
   %39 = call i64 @llvm.umin.i64(i64 %38, i64 8)
-  %40 = sub nsw i64 %.sroa.speculated136.i, %.0147.i
+  %40 = sub nsw i64 %.sroa.speculated137.i, %.0146.i
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %40, i64 8)
   %41 = icmp sgt i64 %40, 0
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %37, %.lr.ph._crit_edge.i
   %.064145.i = phi i64 [ %110, %.lr.ph._crit_edge.i ], [ 0, %37 ]
-  %42 = add nuw nsw i64 %.064145.i, %.0147.i
+  %42 = add nuw nsw i64 %.064145.i, %.0146.i
   %43 = xor i64 %.064145.i, -1
   %44 = add nsw i64 %.sroa.speculated.i, %43
   %45 = icmp sgt i64 %44, 0
@@ -24304,13 +24304,13 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !574
 
 ._crit_edge.i:                                    ; preds = %.lr.ph._crit_edge.i, %37
-  %111 = add i64 %.sroa.speculated.i, %.0147.i
+  %111 = add i64 %.sroa.speculated.i, %.0146.i
   %112 = sub i64 %.sroa.251.0.copyload, %111
   %113 = icmp sgt i64 %112, 0
   br i1 %113, label %114, label %.noexc
 
 114:                                              ; preds = %._crit_edge.i
-  %115 = mul nsw i64 %.0147.i, %32
+  %115 = mul nsw i64 %.0146.i, %32
   %116 = getelementptr double, ptr %.sroa.050.0.copyload, i64 %111
   %117 = getelementptr double, ptr %116, i64 %115
   store ptr %117, ptr %5, align 8
@@ -24318,13 +24318,13 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_
   %118 = getelementptr inbounds double, ptr %29, i64 %111
   store ptr %118, ptr %6, align 8
   store i64 1, ptr %36, align 8
-  %119 = getelementptr inbounds nuw double, ptr %33, i64 %.0147.i
+  %119 = getelementptr inbounds nuw double, ptr %33, i64 %.0146.i
   invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi1EEELi1ELb0EdS3_Lb0ELi1EE3runEllRKS3_S6_Pdld(i64 noundef %.sroa.speculated.i, i64 noundef %112, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %119, i64 noundef 1, double noundef %10)
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %114, %._crit_edge.i
-  %120 = add nuw nsw i64 %.0147.i, 8
-  %121 = icmp slt i64 %120, %.sroa.speculated136.i
+  %120 = add nuw nsw i64 %.0146.i, 8
+  %121 = icmp slt i64 %120, %.sroa.speculated137.i
   %indvars.iv.next.i = add i64 %indvars.iv.i, -8
   br i1 %121, label %37, label %.loopexit, !llvm.loop !575
 

@@ -555,11 +555,11 @@ get_slice_poc.exit.i.i:                           ; preds = %129, %127, %125, %1
 137:                                              ; preds = %get_slice_poc.exit.i.i
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %139 = load i32, ptr %138, align 4, !tbaa !14
-  %.not52.i = icmp eq i32 %134, %139
+  %.not51.i = icmp eq i32 %134, %139
   br label %140
 
 140:                                              ; preds = %137, %get_slice_poc.exit.i.i
-  %.not31.i = phi i1 [ false, %get_slice_poc.exit.i.i ], [ %.not52.i, %137 ]
+  %.not31.i = phi i1 [ false, %get_slice_poc.exit.i.i ], [ %.not51.i, %137 ]
   store i8 %135, ptr %90, align 4, !tbaa !12
   %141 = getelementptr inbounds nuw i8, ptr %11, i64 320
   store i32 %134, ptr %141, align 4, !tbaa !14

@@ -12034,15 +12034,15 @@ _ZNK4pbrt16DiffuseAreaLight11AlphaMaskedERKNS_11InteractionE.exit.thread: ; pred
   br label %66
 
 _ZNK4pbrt16DiffuseAreaLight11AlphaMaskedERKNS_11InteractionE.exit: ; preds = %44
-  %46 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i.i to i64
-  %47 = bitcast float %38 to i32
-  %48 = mul i64 %46, -4132994306676758123
+  %46 = bitcast float %38 to i32
+  %47 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i.i to i64
+  %48 = mul i64 %47, -4132994306676758123
   %49 = lshr i64 %48, 47
   %50 = xor i64 %49, %48
   %51 = mul i64 %50, -4132994306676758123
   %52 = xor i64 %51, 5744300541007557372
   %53 = mul i64 %52, -4132994306676758123
-  %54 = zext i32 %47 to i64
+  %54 = zext i32 %46 to i64
   %55 = xor i64 %53, %54
   %56 = mul i64 %55, -4132994306676758123
   %57 = lshr i64 %56, 47

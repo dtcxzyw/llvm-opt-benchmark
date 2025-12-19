@@ -5844,8 +5844,8 @@ zend_hash_update_mem.exit124:                     ; preds = %136, %138
 
 167:                                              ; preds = %158
   %168 = call ptr @zend_hash_find(ptr noundef nonnull %166, ptr noundef nonnull %159) #16
-  %.not238 = icmp eq ptr %168, null
-  br i1 %.not238, label %169, label %191
+  %.not241 = icmp eq ptr %168, null
+  br i1 %.not241, label %169, label %191
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr %9, align 8, !tbaa !66
@@ -6062,16 +6062,16 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
   br i1 %.not101, label %242, label %244
 
 242:                                              ; preds = %232
-  br i1 %.not102, label %243, label %.thread258
+  br i1 %.not102, label %243, label %.thread261
 
 243:                                              ; preds = %242
   store i32 3, ptr %240, align 4, !tbaa !59
-  br label %.thread258
+  br label %.thread261
 
 244:                                              ; preds = %232
-  br i1 %.not102, label %249, label %.thread258
+  br i1 %.not102, label %249, label %.thread261
 
-.thread258:                                       ; preds = %242, %243, %244
+.thread261:                                       ; preds = %242, %243, %244
   %245 = getelementptr inbounds nuw i8, ptr %236, i64 92
   %246 = load i32, ptr %245, align 4, !tbaa !76
   %247 = trunc i32 %246 to i16
@@ -6084,12 +6084,12 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
   %252 = trunc i32 %251 to i16
   br label %253
 
-253:                                              ; preds = %249, %.thread258
-  %.sink239 = phi i16 [ %252, %249 ], [ %248, %.thread258 ]
+253:                                              ; preds = %249, %.thread261
+  %.sink242 = phi i16 [ %252, %249 ], [ %248, %.thread261 ]
   %254 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i16 %.sink239, ptr %254, align 4
+  store i16 %.sink242, ptr %254, align 4
   %255 = getelementptr inbounds nuw i8, ptr %12, i64 10
-  store i16 %.sink239, ptr %255, align 2
+  store i16 %.sink242, ptr %255, align 2
   %256 = getelementptr inbounds nuw i8, ptr %236, i64 64
   call void @zend_hash_apply_with_argument(ptr noundef nonnull %256, ptr noundef nonnull @phar_zip_changed_apply, ptr noundef nonnull %11) #16
   %257 = load ptr, ptr %9, align 8, !tbaa !66
@@ -6111,11 +6111,11 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
   %266 = load ptr, ptr %9, align 8, !tbaa !66
   %267 = load ptr, ptr %266, align 8, !tbaa !21
   %268 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.65, ptr noundef %267, ptr noundef nonnull %263) #16
-  %.pre240 = load ptr, ptr %10, align 8, !tbaa !60
+  %.pre243 = load ptr, ptr %10, align 8, !tbaa !60
   br label %269
 
 269:                                              ; preds = %265, %264
-  %270 = phi ptr [ %.pre240, %265 ], [ %263, %264 ]
+  %270 = phi ptr [ %.pre243, %265 ], [ %263, %264 ]
   call void @_efree(ptr noundef %270) #16
   br label %271
 
@@ -6267,11 +6267,11 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
 
 358:                                              ; preds = %351
   %359 = call i32 @_php_stream_free(ptr noundef nonnull %354, i32 noundef 3) #16
-  %.pre241 = load ptr, ptr %9, align 8, !tbaa !66
+  %.pre244 = load ptr, ptr %9, align 8, !tbaa !66
   br label %360
 
 360:                                              ; preds = %358, %351
-  %361 = phi ptr [ %.pre241, %358 ], [ %352, %351 ]
+  %361 = phi ptr [ %.pre244, %358 ], [ %352, %351 ]
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 256
   %363 = load ptr, ptr %362, align 8, !tbaa !78
   %.not113 = icmp eq ptr %363, null
@@ -6284,11 +6284,11 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
 
 367:                                              ; preds = %364
   %368 = call i32 @_php_stream_free(ptr noundef nonnull %363, i32 noundef 3) #16
-  %.pre242 = load ptr, ptr %9, align 8, !tbaa !66
+  %.pre245 = load ptr, ptr %9, align 8, !tbaa !66
   br label %369
 
 369:                                              ; preds = %367, %364
-  %370 = phi ptr [ %.pre242, %367 ], [ %361, %364 ]
+  %370 = phi ptr [ %.pre245, %367 ], [ %361, %364 ]
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 256
   store ptr null, ptr %371, align 8, !tbaa !78
   br label %372
@@ -6323,11 +6323,11 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
 
 387:                                              ; preds = %386
   %388 = call i32 @_php_stream_free(ptr noundef %.0, i32 noundef 3) #16
-  %.pre243 = load ptr, ptr %9, align 8, !tbaa !66
+  %.pre246 = load ptr, ptr %9, align 8, !tbaa !66
   br label %389
 
 389:                                              ; preds = %387, %386
-  %390 = phi ptr [ %.pre243, %387 ], [ %384, %386 ]
+  %390 = phi ptr [ %.pre246, %387 ], [ %384, %386 ]
   %391 = load ptr, ptr %11, align 8, !tbaa !72
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 248
   store ptr %391, ptr %392, align 8, !tbaa !65

@@ -14847,15 +14847,15 @@ _ZN4pstd8optionalIN4pbrt11ShapeSampleEEptEv.exit: ; preds = %6
   %77 = fmul float %76, 5.000000e-01
   %.sroa.01.0.vec.insert.i.i = insertelement <2 x float> poison, float %73, i64 0
   %.sroa.01.4.vec.insert.i.i = insertelement <2 x float> %.sroa.01.0.vec.insert.i.i, float %75, i64 1
-  %78 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i to i64
-  %79 = bitcast float %77 to i32
-  %80 = mul i64 %78, -4132994306676758123
+  %78 = bitcast float %77 to i32
+  %79 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i to i64
+  %80 = mul i64 %79, -4132994306676758123
   %81 = lshr i64 %80, 47
   %82 = xor i64 %81, %80
   %83 = mul i64 %82, -4132994306676758123
   %84 = xor i64 %83, 5744300541007557372
   %85 = mul i64 %84, -4132994306676758123
-  %86 = zext i32 %79 to i64
+  %86 = zext i32 %78 to i64
   %87 = xor i64 %85, %86
   %88 = mul i64 %87, -4132994306676758123
   %89 = lshr i64 %88, 47
@@ -15069,15 +15069,15 @@ _ZNK4pbrt16DiffuseAreaLight11AlphaMaskedERKNS_11InteractionE.exit.thread: ; pred
   br label %66
 
 _ZNK4pbrt16DiffuseAreaLight11AlphaMaskedERKNS_11InteractionE.exit: ; preds = %44
-  %46 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i.i to i64
-  %47 = bitcast float %38 to i32
-  %48 = mul i64 %46, -4132994306676758123
+  %46 = bitcast float %38 to i32
+  %47 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i.i to i64
+  %48 = mul i64 %47, -4132994306676758123
   %49 = lshr i64 %48, 47
   %50 = xor i64 %49, %48
   %51 = mul i64 %50, -4132994306676758123
   %52 = xor i64 %51, 5744300541007557372
   %53 = mul i64 %52, -4132994306676758123
-  %54 = zext i32 %47 to i64
+  %54 = zext i32 %46 to i64
   %55 = xor i64 %53, %54
   %56 = mul i64 %55, -4132994306676758123
   %57 = lshr i64 %56, 47
@@ -16392,15 +16392,15 @@ define dso_local void @_ZNK4pbrt16DiffuseAreaLight8SampleLeENS_6Point2IfEES2_RNS
   %52 = fmul float %51, 5.000000e-01
   %.sroa.01.0.vec.insert.i.i = insertelement <2 x float> poison, float %48, i64 0
   %.sroa.01.4.vec.insert.i.i = insertelement <2 x float> %.sroa.01.0.vec.insert.i.i, float %50, i64 1
-  %53 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i to i64
-  %54 = bitcast float %52 to i32
-  %55 = mul i64 %53, -4132994306676758123
+  %53 = bitcast float %52 to i32
+  %54 = bitcast <2 x float> %.sroa.01.4.vec.insert.i.i to i64
+  %55 = mul i64 %54, -4132994306676758123
   %56 = lshr i64 %55, 47
   %57 = xor i64 %56, %55
   %58 = mul i64 %57, -4132994306676758123
   %59 = xor i64 %58, 5744300541007557372
   %60 = mul i64 %59, -4132994306676758123
-  %61 = zext i32 %54 to i64
+  %61 = zext i32 %53 to i64
   %62 = xor i64 %60, %61
   %63 = mul i64 %62, -4132994306676758123
   %64 = lshr i64 %63, 47
@@ -20314,8 +20314,8 @@ define dso_local void @_ZNK4pbrt18ImageInfiniteLight8SampleLeENS_6Point2IfEES2_R
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   store float 0.000000e+00, ptr %.sroa.018.i, align 8, !tbaa !233
   %.sroa.018.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.018.i, i64 4
-  %.sroa.018.i.4.i.4.i.4..sroa_idx187 = getelementptr inbounds nuw i8, ptr %.sroa.018.i, i64 4
-  store float 0.000000e+00, ptr %.sroa.018.i.4.i.4.i.4..sroa_idx187, align 4, !tbaa !235
+  %.sroa.018.i.4.i.4.i.4..sroa_idx189 = getelementptr inbounds nuw i8, ptr %.sroa.018.i, i64 4
+  store float 0.000000e+00, ptr %.sroa.018.i.4.i.4.i.4..sroa_idx189, align 4, !tbaa !235
   store float 0.000000e+00, ptr %.sroa.7.i, align 4, !tbaa !236
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.sroa.03.0.vec.extract.i.i = extractelement <2 x float> %11, i64 0

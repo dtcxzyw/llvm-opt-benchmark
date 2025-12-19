@@ -17171,8 +17171,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohman
 73:                                               ; preds = %2
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !14
-  %76 = inttoptr i64 %75 to ptr
   store i64 %75, ptr %5, align 8, !tbaa !14
+  %76 = inttoptr i64 %75 to ptr
   br label %thread-pre-split
 
 77:                                               ; preds = %2

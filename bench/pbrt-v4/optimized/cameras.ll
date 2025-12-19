@@ -1536,7 +1536,7 @@ _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: 
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   %.sroa.21.0.copyload = load float, ptr %.sroa.21.0..sroa_idx, align 4
   %.sroa.25331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.25331.0.copyload = load i32, ptr %.sroa.25331.0..sroa_idx, align 8
+  %.sroa.25331.sroa.0.0.copyload = load i32, ptr %.sroa.25331.0..sroa_idx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %27 = load i64, ptr %26, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1764,7 +1764,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit249: ; preds = %99, %80
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.21.0.copyload, ptr %.sroa.0.sroa.7.0..sroa_idx, align 4
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.25331.0.copyload, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
+  store i32 %.sroa.25331.sroa.0.0.copyload, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %27, ptr %103, align 8, !tbaa !97
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40

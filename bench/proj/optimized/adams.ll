@@ -141,127 +141,127 @@ define internal fastcc noundef ptr @_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !47
   %17 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %14, ptr noundef %16, ptr noundef nonnull @.str.5)
-  %.sroa.015.0..sroa.015.0..cast = inttoptr i64 %17 to ptr
+  %18 = inttoptr i64 %17 to ptr
   %.not = icmp eq i64 %17, 0
-  %spec.store.select = select i1 %.not, ptr @.str.6, ptr %.sroa.015.0..sroa.015.0..cast
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(7) @.str.7) #9
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %23
+  %spec.store.select = select i1 %.not, ptr @.str.6, ptr %18
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(7) @.str.7) #9
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %21, align 4, !tbaa !48
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts, ptr %22, align 8, !tbaa !45
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 0, ptr %22, align 4, !tbaa !48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts, ptr %23, align 8, !tbaa !45
   br label %.thread75
 
-23:                                               ; preds = %13
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(8) @.str.6) #9
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %29
+24:                                               ; preds = %13
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(8) @.str.6) #9
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %27, align 4, !tbaa !48
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconsts, ptr %28, align 8, !tbaa !45
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 1, ptr %28, align 4, !tbaa !48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconsts, ptr %29, align 8, !tbaa !45
   br label %.thread75
 
-29:                                               ; preds = %23
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(12) @.str.8) #9
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+30:                                               ; preds = %24
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(12) @.str.8) #9
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 2, ptr %33, align 4, !tbaa !48
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 2, ptr %34, align 4, !tbaa !48
   br label %.thread75
 
-34:                                               ; preds = %29
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(12) @.str.9) #9
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %39
+35:                                               ; preds = %30
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(12) @.str.9) #9
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 3, ptr %38, align 4, !tbaa !48
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 3, ptr %39, align 4, !tbaa !48
   br label %.thread75
 
-39:                                               ; preds = %34
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(11) @.str.10) #9
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %57
+40:                                               ; preds = %35
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(11) @.str.10) #9
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %58
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 4, ptr %43, align 4, !tbaa !48
-  %44 = load ptr, ptr %0, align 8, !tbaa !46
-  %45 = load ptr, ptr %15, align 8, !tbaa !47
-  %46 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %44, ptr noundef %45, ptr noundef nonnull @.str.11)
-  %47 = and i64 %46, 4294967295
-  %.not71 = icmp eq i64 %47, 0
-  br i1 %.not71, label %.thread75, label %48
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 4, ptr %44, align 4, !tbaa !48
+  %45 = load ptr, ptr %0, align 8, !tbaa !46
+  %46 = load ptr, ptr %15, align 8, !tbaa !47
+  %47 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %45, ptr noundef %46, ptr noundef nonnull @.str.11)
+  %48 = and i64 %47, 4294967295
+  %.not71 = icmp eq i64 %48, 0
+  br i1 %.not71, label %.thread75, label %49
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr %0, align 8, !tbaa !46
-  %50 = load ptr, ptr %15, align 8, !tbaa !47
-  %51 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %49, ptr noundef %50, ptr noundef nonnull @.str.12)
-  %52 = bitcast i64 %51 to double
-  %53 = tail call double @llvm.fabs.f64(double %52)
-  %or.cond = fcmp ule double %53, 1.000000e+00
-  br i1 %or.cond, label %.thread, label %55
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %0, align 8, !tbaa !46
+  %51 = load ptr, ptr %15, align 8, !tbaa !47
+  %52 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %50, ptr noundef %51, ptr noundef nonnull @.str.12)
+  %53 = bitcast i64 %52 to double
+  %54 = tail call double @llvm.fabs.f64(double %53)
+  %or.cond = fcmp ule double %54, 1.000000e+00
+  br i1 %or.cond, label %.thread, label %56
 
-.thread:                                          ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %51, ptr %54, align 8, !tbaa !49
+.thread:                                          ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %52, ptr %55, align 8, !tbaa !49
   br label %.thread75
 
-55:                                               ; preds = %48
+56:                                               ; preds = %49
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.13)
-  %56 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  %57 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
   br label %.thread75
 
-57:                                               ; preds = %39
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(9) @.str.14) #9
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %75
+58:                                               ; preds = %40
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(9) @.str.14) #9
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %76
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 5, ptr %61, align 4, !tbaa !48
-  %62 = load ptr, ptr %0, align 8, !tbaa !46
-  %63 = load ptr, ptr %15, align 8, !tbaa !47
-  %64 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %62, ptr noundef %63, ptr noundef nonnull @.str.15)
-  %65 = and i64 %64, 4294967295
-  %.not70 = icmp eq i64 %65, 0
-  br i1 %.not70, label %.thread75, label %66
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 5, ptr %62, align 4, !tbaa !48
+  %63 = load ptr, ptr %0, align 8, !tbaa !46
+  %64 = load ptr, ptr %15, align 8, !tbaa !47
+  %65 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %63, ptr noundef %64, ptr noundef nonnull @.str.15)
+  %66 = and i64 %65, 4294967295
+  %.not70 = icmp eq i64 %66, 0
+  br i1 %.not70, label %.thread75, label %67
 
-66:                                               ; preds = %60
-  %67 = load ptr, ptr %0, align 8, !tbaa !46
-  %68 = load ptr, ptr %15, align 8, !tbaa !47
-  %69 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %67, ptr noundef %68, ptr noundef nonnull @.str.16)
-  %70 = bitcast i64 %69 to double
-  %71 = tail call double @llvm.fabs.f64(double %70)
-  %or.cond5 = fcmp ule double %71, 1.000000e+00
-  br i1 %or.cond5, label %.thread73, label %73
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %0, align 8, !tbaa !46
+  %69 = load ptr, ptr %15, align 8, !tbaa !47
+  %70 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %68, ptr noundef %69, ptr noundef nonnull @.str.16)
+  %71 = bitcast i64 %70 to double
+  %72 = tail call double @llvm.fabs.f64(double %71)
+  %or.cond5 = fcmp ule double %72, 1.000000e+00
+  br i1 %or.cond5, label %.thread73, label %74
 
-.thread73:                                        ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %69, ptr %72, align 8, !tbaa !50
+.thread73:                                        ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %70, ptr %73, align 8, !tbaa !50
   br label %.thread75
 
-73:                                               ; preds = %66
+74:                                               ; preds = %67
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.17)
-  %74 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  %75 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
   br label %.thread75
 
-75:                                               ; preds = %57
+76:                                               ; preds = %58
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
-  %76 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  %77 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
   br label %.thread75
 
-.thread75:                                        ; preds = %20, %32, %42, %60, %37, %26, %.thread, %.thread73, %7, %11, %75, %55, %73, %5
-  %.0 = phi ptr [ %6, %5 ], [ %74, %73 ], [ %76, %75 ], [ %56, %55 ], [ %0, %7 ], [ %0, %11 ], [ %0, %.thread73 ], [ %0, %.thread ], [ %0, %26 ], [ %0, %37 ], [ %0, %60 ], [ %0, %42 ], [ %0, %32 ], [ %0, %20 ]
+.thread75:                                        ; preds = %21, %33, %43, %61, %38, %27, %.thread, %.thread73, %7, %11, %76, %56, %74, %5
+  %.0 = phi ptr [ %6, %5 ], [ %75, %74 ], [ %77, %76 ], [ %57, %56 ], [ %0, %7 ], [ %0, %11 ], [ %0, %.thread73 ], [ %0, %.thread ], [ %0, %27 ], [ %0, %38 ], [ %0, %61 ], [ %0, %43 ], [ %0, %33 ], [ %0, %21 ]
   ret ptr %.0
 }
 

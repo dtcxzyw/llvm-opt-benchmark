@@ -121,43 +121,43 @@ define hidden noundef ptr @_Z31pj_projection_specific_setup_s2P8PJconsts(ptr nou
   %12 = load ptr, ptr %11, align 8, !tbaa !47
   %13 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %10, ptr noundef %12, ptr noundef nonnull @.str.5)
   %.not = icmp eq i64 %13, 0
-  %14 = inttoptr i64 %13 to ptr
-  br i1 %.not, label %55, label %15
+  br i1 %.not, label %55, label %14
 
-15:                                               ; preds = %8
+14:                                               ; preds = %8
+  %15 = inttoptr i64 %13 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8, !tbaa !48
-  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #23
+  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %17, ptr %2, align 8, !tbaa !49
   %18 = icmp ugt i64 %17, 15
   br i1 %18, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %15
+.noexc.i:                                         ; preds = %14
   %19 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-          to label %.noexc51 unwind label %38
+          to label %.noexc52 unwind label %38
 
-.noexc51:                                         ; preds = %.noexc.i
+.noexc52:                                         ; preds = %.noexc.i
   store ptr %19, ptr %3, align 8, !tbaa !50
   %20 = load i64, ptr %2, align 8, !tbaa !49
   store i64 %20, ptr %16, align 8, !tbaa !51
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc51, %15
-  %21 = phi ptr [ %19, %.noexc51 ], [ %16, %15 ]
+._crit_edge.i.i:                                  ; preds = %.noexc52, %14
+  %21 = phi ptr [ %19, %.noexc52 ], [ %16, %14 ]
   switch i64 %17, label %24 [
     i64 1, label %22
     i64 0, label %25
   ]
 
 22:                                               ; preds = %._crit_edge.i.i
-  %23 = load i8, ptr %14, align 1, !tbaa !51
+  %23 = load i8, ptr %15, align 1, !tbaa !51
   store i8 %23, ptr %21, align 1, !tbaa !51
   br label %25
 
 24:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %14, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %15, i64 %17, i1 false)
   br label %25
 
 25:                                               ; preds = %24, %22, %._crit_edge.i.i
@@ -193,7 +193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31, %
   %39 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
 40:                                               ; preds = %25
   %41 = landingpad { ptr, i32 }
@@ -201,23 +201,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31, %
           catch ptr @_ZTISt12out_of_range
   %42 = load ptr, ptr %3, align 8, !tbaa !50
   %43 = icmp eq ptr %42, %16
-  br i1 %43, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
+  br i1 %43, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52: ; preds = %40
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53: ; preds = %40
   %44 = load i64, ptr %16, align 8, !tbaa !51
   %45 = add i64 %44, 1
   call void @_ZdlPvm(ptr noundef %42, i64 noundef %45) #24
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52, %38
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52 ], [ %41, %40 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53, %38
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53 ], [ %41, %40 ]
   %.043 = extractvalue { ptr, i32 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #23
   %47 = icmp eq i32 %.043, %46
   br i1 %47, label %48, label %96
 
-48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
+48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
   %.045 = extractvalue { ptr, i32 } %.pn, 0
   %49 = call ptr @__cxa_begin_catch(ptr %.045) #23
   invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.6)
@@ -305,8 +305,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %40,
   store double %94, ptr %95, align 8, !tbaa !68
   br label %97
 
-96:                                               ; preds = %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
-  %.merged = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %54, %53 ]
+96:                                               ; preds = %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
+  %.merged = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ %54, %53 ]
   resume { ptr, i32 } %.merged
 
 97:                                               ; preds = %52, %83, %79, %6

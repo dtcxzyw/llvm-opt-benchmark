@@ -1083,44 +1083,44 @@ define internal fastcc noundef ptr @_ZL15read_conventionP8PJconsts(ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %7, ptr noundef %9, ptr noundef nonnull @.str.60)
-  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %10 to ptr
-  %.not20 = icmp eq i64 %10, 0
-  br i1 %.not20, label %.thread.sink.split, label %11
+  %11 = inttoptr i64 %10 to ptr
+  %.not21 = icmp eq i64 %10, 0
+  br i1 %.not21, label %.thread.sink.split, label %12
 
-11:                                               ; preds = %6
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(16) @.str.62) #12
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %17, label %14
+12:                                               ; preds = %6
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(16) @.str.62) #12
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %18, label %15
 
-14:                                               ; preds = %11
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(17) @.str.63) #12
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread.sink.split
+15:                                               ; preds = %12
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(17) @.str.63) #12
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %.thread.sink.split
 
-17:                                               ; preds = %14, %11
-  %.sink = phi i32 [ 1, %11 ], [ 0, %14 ]
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 316
-  store i32 %.sink, ptr %18, align 4, !tbaa !82
-  %19 = load ptr, ptr %8, align 8, !tbaa !40
-  %20 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %19, ptr noundef nonnull @.str.4)
-  %.not21 = icmp eq ptr %20, null
-  br i1 %.not21, label %.thread, label %21
+18:                                               ; preds = %15, %12
+  %.sink = phi i32 [ 1, %12 ], [ 0, %15 ]
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 316
+  store i32 %.sink, ptr %19, align 4, !tbaa !82
+  %20 = load ptr, ptr %8, align 8, !tbaa !40
+  %21 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %20, ptr noundef nonnull @.str.4)
+  %.not22 = icmp eq ptr %21, null
+  br i1 %.not22, label %.thread, label %22
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 316
-  %23 = load i32, ptr %22, align 4, !tbaa !82
-  %.not22 = icmp eq i32 %23, 0
-  br i1 %.not22, label %.thread.sink.split, label %.thread
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 316
+  %24 = load i32, ptr %23, align 4, !tbaa !82
+  %.not23 = icmp eq i32 %24, 0
+  br i1 %.not23, label %.thread.sink.split, label %.thread
 
-.thread.sink.split:                               ; preds = %21, %14, %6
-  %.str.64.sink = phi ptr [ @.str.61, %6 ], [ @.str.64, %14 ], [ @.str.65, %21 ]
-  %.sink26 = phi i32 [ 1026, %6 ], [ 1027, %14 ], [ 1027, %21 ]
+.thread.sink.split:                               ; preds = %22, %15, %6
+  %.str.64.sink = phi ptr [ @.str.61, %6 ], [ @.str.64, %15 ], [ @.str.65, %22 ]
+  %.sink27 = phi i32 [ 1026, %6 ], [ 1027, %15 ], [ 1027, %22 ]
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull %.str.64.sink)
-  %24 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef %.sink26)
+  %25 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef %.sink27)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %1, %17, %21
-  %.1 = phi ptr [ %0, %1 ], [ %0, %21 ], [ %0, %17 ], [ %24, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %1, %18, %22
+  %.1 = phi ptr [ %0, %1 ], [ %0, %22 ], [ %0, %18 ], [ %25, %.thread.sink.split ]
   ret ptr %.1
 }
 

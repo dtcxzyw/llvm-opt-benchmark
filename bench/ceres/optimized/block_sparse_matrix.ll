@@ -3873,27 +3873,27 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !30
   %39 = load ptr, ptr %36, align 8, !tbaa !33
-  %.not77 = icmp eq ptr %38, %39
-  br i1 %.not77, label %._crit_edge76, label %.lr.ph75
+  %.not78 = icmp eq ptr %38, %39
+  br i1 %.not78, label %._crit_edge77, label %.lr.ph76
 
-.lr.ph75:                                         ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
+.lr.ph76:                                         ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %41
 
-._crit_edge76:                                    ; preds = %._crit_edge, %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
+._crit_edge77:                                    ; preds = %._crit_edge, %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
   ret void
 
-41:                                               ; preds = %.lr.ph75, %._crit_edge
-  %42 = phi ptr [ %35, %.lr.ph75 ], [ %56, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next, %._crit_edge ]
-  %43 = phi ptr [ %39, %.lr.ph75 ], [ %60, %._crit_edge ]
+41:                                               ; preds = %.lr.ph76, %._crit_edge
+  %42 = phi ptr [ %35, %.lr.ph76 ], [ %56, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next, %._crit_edge ]
+  %43 = phi ptr [ %39, %.lr.ph76 ], [ %60, %._crit_edge ]
   %44 = getelementptr inbounds nuw %"struct.ceres::internal::CompressedList", ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !44
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !44
-  %.not6372 = icmp eq ptr %46, %48
-  br i1 %.not6372, label %._crit_edge, label %.lr.ph
+  %.not6473 = icmp eq ptr %46, %48
+  br i1 %.not6473, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %49 = load i32, ptr %44, align 8, !tbaa !37
@@ -3921,11 +3921,11 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   %63 = sub i64 %61, %62
   %64 = sdiv exact i64 %63, 40
   %65 = icmp ugt i64 %64, %indvars.iv.next
-  br i1 %65, label %41, label %._crit_edge76, !llvm.loop !174
+  br i1 %65, label %41, label %._crit_edge77, !llvm.loop !174
 
 66:                                               ; preds = %.lr.ph, %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit
-  %.sroa.034.073 = phi ptr [ %46, %.lr.ph ], [ %180, %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit ]
-  %67 = load i32, ptr %.sroa.034.073, align 4, !tbaa !47
+  %.sroa.034.074 = phi ptr [ %46, %.lr.ph ], [ %180, %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit ]
+  %67 = load i32, ptr %.sroa.034.074, align 4, !tbaa !47
   %68 = load ptr, ptr %34, align 8, !tbaa !25
   %69 = sext i32 %67 to i64
   %70 = load ptr, ptr %68, align 8, !tbaa !66
@@ -3934,7 +3934,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !97
   %75 = load ptr, ptr %40, align 8, !tbaa !60
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.034.073, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.034.074, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !82
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds double, ptr %75, i64 %78
@@ -4152,9 +4152,9 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9Transpose
   br i1 %179, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !179
 
 _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit: ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS2_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS4_INS5_IdLin1ELin1ELi1ELin1ELin1EEELi0ES8_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EE11assignCoeffEl.exit.i21.i, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS2_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS4_INS5_IdLin1ELin1ELi1ELin1ELin1EEELi0ES8_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EE11assignCoeffEl.exit.loopexit.us.i33.i, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS2_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS4_INS5_IdLin1ELin1ELi1ELin1ELin1EEELi0ES8_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EE11assignCoeffEl.exit.us.i35.i, %._crit_edge.i
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.034.073, i64 8
-  %.not63 = icmp eq ptr %180, %48
-  br i1 %.not63, label %._crit_edge.loopexit, label %66
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.034.074, i64 8
+  %.not64 = icmp eq ptr %180, %48
+  br i1 %.not64, label %._crit_edge.loopexit, label %66
 }
 
 ; Function Attrs: mustprogress uwtable

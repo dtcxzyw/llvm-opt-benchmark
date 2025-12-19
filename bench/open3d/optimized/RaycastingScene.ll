@@ -58718,8 +58718,8 @@ _ZN6open3d4core6Tensor10GetDataPtrIdEEPT_v.exit96: ; preds = %_ZN6open3d4core6Te
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i107:             ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i111
   %.0810.us.i.i.i.i.i.i.i.i.i.i108 = phi i64 [ %275, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i111 ], [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i ]
-  %.idx292 = shl nuw nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i108, 5
-  %268 = getelementptr i8, ptr %263, i64 %.idx292
+  %.idx293 = shl nuw nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i108, 5
+  %268 = getelementptr i8, ptr %263, i64 %.idx293
   %269 = getelementptr double, ptr %28, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i108
   br label %270
 

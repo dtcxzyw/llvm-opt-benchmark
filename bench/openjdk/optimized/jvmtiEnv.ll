@@ -8448,8 +8448,8 @@ _ZN16VM_GetOrSetLocalD2Ev.exit:                   ; preds = %73, %72, %60, %_ZN6
   call void @_ZN27JvmtiVTMSTransitionDisablerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   %74 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i29 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i29, label %76, label %75
+  %.not.i.i.i.i28 = icmp eq ptr %74, null
+  br i1 %.not.i.i.i.i28, label %76, label %75
 
 75:                                               ; preds = %_ZN16VM_GetOrSetLocalD2Ev.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %24) #19

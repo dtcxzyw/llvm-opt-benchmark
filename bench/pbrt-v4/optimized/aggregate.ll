@@ -11604,15 +11604,15 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZNK4pbrt12CPUAggregate17Inte
   %.sroa.12.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %122, i64 8
   store <2 x float> %.sroa.2.0.copyload.i.i.i.i11.i.i.i.i, ptr %.sroa.12.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
-  %198 = bitcast <2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i.i to i64
-  %199 = bitcast float %151 to i32
-  %200 = mul i64 %198, -4132994306676758123
+  %198 = bitcast float %151 to i32
+  %199 = bitcast <2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i.i to i64
+  %200 = mul i64 %199, -4132994306676758123
   %201 = lshr i64 %200, 47
   %202 = xor i64 %201, %200
   %203 = mul i64 %202, -4132994306676758123
   %204 = xor i64 %203, 5744300541007557372
   %205 = mul i64 %204, -4132994306676758123
-  %206 = zext i32 %199 to i64
+  %206 = zext i32 %198 to i64
   %207 = xor i64 %205, %206
   %208 = mul i64 %207, -4132994306676758123
   %209 = lshr i64 %208, 47
@@ -11620,15 +11620,15 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZNK4pbrt12CPUAggregate17Inte
   %211 = mul i64 %210, -4132994306676758123
   %212 = lshr i64 %211, 47
   %213 = xor i64 %212, %211
-  %214 = bitcast <2 x float> %.sroa.0.4.vec.insert.i13.i.i.i.i.i to i64
-  %215 = bitcast float %163 to i32
-  %216 = mul i64 %214, -4132994306676758123
+  %214 = bitcast float %163 to i32
+  %215 = bitcast <2 x float> %.sroa.0.4.vec.insert.i13.i.i.i.i.i to i64
+  %216 = mul i64 %215, -4132994306676758123
   %217 = lshr i64 %216, 47
   %218 = xor i64 %217, %216
   %219 = mul i64 %218, -4132994306676758123
   %220 = xor i64 %219, 5744300541007557372
   %221 = mul i64 %220, -4132994306676758123
-  %222 = zext i32 %215 to i64
+  %222 = zext i32 %214 to i64
   %223 = xor i64 %221, %222
   %224 = mul i64 %223, -4132994306676758123
   %225 = lshr i64 %224, 47
