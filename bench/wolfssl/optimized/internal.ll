@@ -21855,8 +21855,8 @@ AllocKey.exit60:                                  ; preds = %67
   store i32 %94, ptr %1, align 4, !tbaa !49
   br label %AllocKey.exit.thread
 
-AllocKey.exit.thread:                             ; preds = %64, %77, %73, %17, %30, %13, %26, %85, %FreeKey.exit, %42, %38, %7, %2, %AllocKey.exit60, %92, %47
-  %.0 = phi i32 [ %.1, %FreeKey.exit ], [ -410, %85 ], [ -317, %7 ], [ %40, %38 ], [ 0, %47 ], [ %25, %26 ], [ -409, %42 ], [ 0, %92 ], [ %83, %AllocKey.exit60 ], [ -317, %2 ], [ -125, %17 ], [ %25, %30 ], [ -192, %13 ], [ -125, %64 ], [ %72, %77 ], [ %72, %73 ]
+AllocKey.exit.thread:                             ; preds = %64, %73, %77, %17, %26, %13, %30, %85, %FreeKey.exit, %42, %38, %7, %2, %AllocKey.exit60, %92, %47
+  %.0 = phi i32 [ %.1, %FreeKey.exit ], [ -410, %85 ], [ -317, %7 ], [ %40, %38 ], [ 0, %47 ], [ %25, %30 ], [ -409, %42 ], [ 0, %92 ], [ %83, %AllocKey.exit60 ], [ -317, %2 ], [ -125, %17 ], [ %25, %26 ], [ -192, %13 ], [ -125, %64 ], [ %72, %73 ], [ %72, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
