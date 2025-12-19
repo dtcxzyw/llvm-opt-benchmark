@@ -82203,7 +82203,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
   br label %21
 
 zend_fetch_dimension_address_inner.exit:          ; preds = %.thread, %30, %37, %40, %43, %45
-  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ %44, %43 ], [ @executor_globals, %40 ], [ @executor_globals, %.thread ], [ @executor_globals, %45 ]
+  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ @executor_globals, %.thread ], [ @executor_globals, %40 ], [ %44, %43 ], [ @executor_globals, %45 ]
   %54 = getelementptr inbounds nuw i8, ptr %.058.i, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 65280
@@ -83378,7 +83378,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %54, %53, %44, %.thr
   br label %22
 
 zend_fetch_dimension_address_inner.exit:          ; preds = %.thread, %32, %39, %42, %_zend_handle_numeric_str.exit.thread, %60
-  %.058.i = phi ptr [ %40, %39 ], [ %35, %32 ], [ %59, %_zend_handle_numeric_str.exit.thread ], [ @executor_globals, %42 ], [ @executor_globals, %.thread ], [ @executor_globals, %60 ]
+  %.058.i = phi ptr [ %40, %39 ], [ %35, %32 ], [ @executor_globals, %.thread ], [ @executor_globals, %42 ], [ %59, %_zend_handle_numeric_str.exit.thread ], [ @executor_globals, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %69 = getelementptr inbounds nuw i8, ptr %.058.i, i64 8
   %70 = load i32, ptr %69, align 8
@@ -160427,7 +160427,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_RW_CONST(ptr noun
   br label %10
 
 zend_fetch_dimension_address_inner.exit:          ; preds = %.thread, %19, %26, %29, %33, %35
-  %.058.i = phi ptr [ %27, %26 ], [ %22, %19 ], [ %36, %35 ], [ %34, %33 ], [ %30, %29 ], [ null, %.thread ]
+  %.058.i = phi ptr [ %27, %26 ], [ %22, %19 ], [ %34, %33 ], [ %36, %35 ], [ %30, %29 ], [ null, %.thread ]
   ret ptr %.058.i
 }
 
@@ -167976,7 +167976,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   br label %20
 
 zend_fetch_dimension_address_inner.exit:          ; preds = %.thread, %30, %37, %40, %_zend_handle_numeric_str.exit.thread, %58
-  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ @executor_globals, %.thread ], [ @executor_globals, %40 ], [ %57, %_zend_handle_numeric_str.exit.thread ], [ @executor_globals, %58 ]
+  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ %57, %_zend_handle_numeric_str.exit.thread ], [ @executor_globals, %40 ], [ @executor_globals, %.thread ], [ @executor_globals, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = getelementptr inbounds nuw i8, ptr %.058.i, i64 8
   %68 = load i32, ptr %67, align 8
