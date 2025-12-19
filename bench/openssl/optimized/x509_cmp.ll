@@ -1076,7 +1076,7 @@ X509_get0_pubkey.exit.thread:                     ; preds = %16
   br label %check_suite_b.exit
 
 check_suite_b.exit:                               ; preds = %.thread102, %24, %26, %28, %30, %32, %34, %36
-  %.0.i57 = phi i32 [ 57, %24 ], [ 58, %28 ], [ 0, %36 ], [ 57, %26 ], [ 60, %32 ], [ 58, %30 ], [ 60, %34 ], [ 57, %.thread102 ]
+  %.0.i57 = phi i32 [ 57, %24 ], [ 58, %28 ], [ 0, %36 ], [ 58, %30 ], [ 60, %32 ], [ 57, %26 ], [ 60, %34 ], [ 57, %.thread102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %103
