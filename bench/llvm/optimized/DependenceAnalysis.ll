@@ -5955,8 +5955,8 @@ _ZN4llvm5APIntD2Ev.exit85:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %or.cond72 = or i1 %or.cond7, %or.cond9
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %260 = load ptr, ptr %259, align 8, !tbaa !166
-  %261 = getelementptr inbounds nuw %"struct.llvm::Dependence::DVEntry", ptr %260, i64 %.pre-phi
-  %262 = load i8, ptr %261, align 8
+  %260 = getelementptr inbounds nuw %"struct.llvm::Dependence::DVEntry", ptr %260, i64 %.pre-phi
+  %261 = load i8, ptr %260, align 8
   %.v = select i1 %or.cond72, i8 -4, i8 -8
   %263 = or disjoint i8 %.1, %.v
   %264 = and i8 %263, %262
@@ -18457,7 +18457,7 @@ define dso_local void @_ZNK4llvm14DependenceInfo15updateDirectionERNS_10Dependen
   %22 = load ptr, ptr %13, align 8, !tbaa !163
   %23 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %21, ptr noundef %22) #27
   %24 = load i8, ptr %1, align 8
-  %.v = select i1 %23, i8 -8, i8 -4
+  %.231 = select i1 %23, i8 -8, i8 -4
   %25 = or disjoint i8 %.130, %.v
   %26 = and i8 %24, %25
   store i8 %26, ptr %1, align 8
@@ -18468,7 +18468,7 @@ define dso_local void @_ZNK4llvm14DependenceInfo15updateDirectionERNS_10Dependen
   %spec.select.i = icmp eq i32 %28, 2
   br i1 %spec.select.i, label %29, label %33
 
-29:                                               ; preds = %27
+65:                                               ; preds = %27
   %30 = load i8, ptr %1, align 8
   %31 = and i8 %30, -9
   store i8 %31, ptr %1, align 8
@@ -18508,7 +18508,7 @@ _ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_
 _ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread: ; preds = %33, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit
   br label %53
 
-53:                                               ; preds = %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread
+70:                                               ; preds = %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread
   %54 = phi i8 [ %spec.select32, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit.thread ], [ %52, %_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_.exit ]
   %55 = load ptr, ptr %38, align 8, !tbaa !174
   %56 = load ptr, ptr %40, align 8, !tbaa !170

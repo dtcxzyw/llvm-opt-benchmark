@@ -751,9 +751,9 @@ define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 der
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i32 0, ptr %69, align 8, !tbaa !56
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %99
+  br label %101
 
-71:                                               ; preds = %99
+71:                                               ; preds = %101
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %73, align 8, !tbaa !59
@@ -770,7 +770,7 @@ define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 der
   store i8 0, ptr %75, align 1, !tbaa !4
   %76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %70, i64 noundef 6) #30
   %.not15.i = icmp eq i32 %76, 0
-  br i1 %.not15.i, label %77, label %98
+  br i1 %.not15.i, label %77, label %100
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 6
@@ -802,24 +802,24 @@ define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 der
   %.v.i = select i1 %96, i32 5, i32 1
   %97 = or i32 %93, %.v.i
   store i32 %97, ptr %69, align 8, !tbaa !56
-  br label %98
+  br label %100
 
-98:                                               ; preds = %84, %74
+100:                                              ; preds = %84, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6bParse5bFile11parseHeaderEv.exit
 
-_ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %71, %98
+_ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %71, %100
   ret void
 
-99:                                               ; preds = %4, %99
+101:                                              ; preds = %4, %101
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %99 ]
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %101 = load i8, ptr %100, align 1, !tbaa !4
-  %102 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
-  store i8 %101, ptr %102, align 1, !tbaa !4
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %103 = load i8, ptr %102, align 1, !tbaa !4
+  %104 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
+  store i8 %103, ptr %104, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %71, label %99, !llvm.loop !62
+  br i1 %exitcond.not, label %71, label %101, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -978,13 +978,13 @@ define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr noundef nonnull align
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !58
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %37, label %5
+  br i1 %.not, label %39, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !59
   %.not14 = icmp eq ptr %7, null
-  br i1 %.not14, label %37, label %8
+  br i1 %.not14, label %39, label %8
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1026,16 +1026,16 @@ define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr noundef nonnull align
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = icmp eq i8 %32, 86
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %.v = select i1 %33, i32 5, i32 1
-  %35 = or i32 %30, %.v
+  %35 = select i1 %33, i32 5, i32 1
+  %35 = or i32 %30, %35
   store i32 %35, ptr %34, align 8, !tbaa !56
   br label %36
 
 36:                                               ; preds = %8, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %37
+  br label %39
 
-37:                                               ; preds = %1, %5, %36
+39:                                               ; preds = %1, %5, %36
   ret void
 }
 

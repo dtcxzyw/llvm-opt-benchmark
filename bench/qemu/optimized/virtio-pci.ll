@@ -1200,8 +1200,8 @@ virtio_bus_get_device.exit:
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 168
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %.v = select i1 %7, i64 1073741824, i64 5368709120
-  %9 = or i64 %.pre, %.v
+  %9 = select i1 %7, i64 1073741824, i64 5368709120
+  %9 = or i64 %.pre, %9
   store i64 %9, ptr %8, align 8
   ret void
 }

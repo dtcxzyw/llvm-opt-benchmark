@@ -702,12 +702,12 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %21, ptr %22, align 4, !tbaa !59
   %23 = icmp eq i32 %3, 1
-  br i1 %23, label %._crit_edge103, label %24
+  br i1 %23, label %._crit_edge101, label %24
 
-._crit_edge103:                                   ; preds = %20
+._crit_edge101:                                   ; preds = %20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 904
   %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !56
-  %.pre104 = zext i16 %.pre to i32
+  %.pre102 = zext i16 %.pre to i32
   br label %48
 
 24:                                               ; preds = %20
@@ -746,8 +746,8 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %spec.select = sub nsw i32 %31, %47
   br label %48
 
-48:                                               ; preds = %._crit_edge103, %43, %39, %41
-  %.pre-phi = phi i32 [ %.pre104, %._crit_edge103 ], [ %34, %43 ], [ %34, %39 ], [ %34, %41 ]
+48:                                               ; preds = %._crit_edge101, %43, %39, %41
+  %.pre-phi = phi i32 [ %.pre102, %._crit_edge103 ], [ %34, %43 ], [ %34, %39 ], [ %34, %41 ]
   %.072 = phi i32 [ 0, %._crit_edge103 ], [ %spec.select, %43 ], [ %40, %39 ], [ %31, %41 ]
   %49 = add nsw i32 %.072, %.pre-phi
   store i32 %49, ptr %2, align 4, !tbaa !57
@@ -768,7 +768,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %56 = load i32, ptr %55, align 4, !tbaa !61
   %57 = shl nuw i32 1, %56
   %58 = icmp sgt i32 %57, 1
-  br i1 %58, label %59, label %69
+  br i1 %58, label %59, label %70
 
 59:                                               ; preds = %54
   %60 = add nsw i32 %57, -1
@@ -784,52 +784,52 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %65 = load i8, ptr %64, align 1, !tbaa !13
   %66 = zext i8 %65 to i32
   %.v = select i1 %.not11.i, i32 1, i32 9
-  %67 = or i32 %spec.select12.i, %.v
-  %68 = add nuw nsw i32 %67, %66
-  br label %69
+  %68 = or i32 %spec.select12.i, %.v
+  %69 = add nuw nsw i32 %68, %66
+  br label %70
 
-69:                                               ; preds = %54, %59
-  %70 = phi i32 [ %68, %59 ], [ 0, %54 ]
-  %.not86 = icmp sgt i32 %4, %70
-  br i1 %.not86, label %.critedge, label %71
+70:                                               ; preds = %54, %59
+  %71 = phi i32 [ %69, %59 ], [ 0, %54 ]
+  %.not86 = icmp sgt i32 %4, %71
+  br i1 %.not86, label %.critedge, label %72
 
-71:                                               ; preds = %69
-  %72 = icmp eq i32 %4, 0
-  br i1 %72, label %73, label %78
+72:                                               ; preds = %70
+  %73 = icmp eq i32 %4, 0
+  br i1 %73, label %74, label %79
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !59
-  %76 = add nsw i32 %75, %57
-  store i32 %76, ptr %2, align 4, !tbaa !57
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %77, align 4, !tbaa !60
-  store i32 %76, ptr %74, align 4, !tbaa !59
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !59
+  %77 = add nsw i32 %76, %57
+  store i32 %77, ptr %2, align 4, !tbaa !57
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 0, ptr %78, align 4, !tbaa !60
+  store i32 %77, ptr %75, align 4, !tbaa !59
   br label %.critedge
 
-78:                                               ; preds = %71
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %80 = load i32, ptr %79, align 4, !tbaa !60
-  %81 = add nsw i32 %80, 1
-  %82 = srem i32 %81, %57
-  store i32 %82, ptr %79, align 4, !tbaa !60
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.thread, label %87
+79:                                               ; preds = %72
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %81 = load i32, ptr %80, align 4, !tbaa !60
+  %82 = add nsw i32 %81, 1
+  %83 = srem i32 %82, %57
+  store i32 %83, ptr %80, align 4, !tbaa !60
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %.thread, label %88
 
-.thread:                                          ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !59
-  %86 = add nsw i32 %85, %57
-  store i32 %86, ptr %84, align 4, !tbaa !59
+.thread:                                          ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !59
+  %87 = add nsw i32 %86, %57
+  store i32 %87, ptr %85, align 4, !tbaa !59
   br label %.lr.ph.preheader
 
-87:                                               ; preds = %78
-  %.not.i88 = icmp ult i32 %82, 65536
-  %88 = lshr i32 %82, 16
-  %spec.select.i89 = select i1 %.not.i88, i32 %82, i32 %88
+88:                                               ; preds = %79
+  %.not.i88 = icmp ult i32 %83, 65536
+  %89 = lshr i32 %83, 16
+  %spec.select.i89 = select i1 %.not.i88, i32 %83, i32 %89
   %spec.select12.i90 = select i1 %.not.i88, i32 0, i32 16
   %.not11.i91 = icmp samesign ult i32 %spec.select.i89, 256
-  %89 = lshr i32 %spec.select.i89, 8
+  %90 = lshr i32 %spec.select.i89, 8
   %.110.i92 = select i1 %.not11.i91, i32 %spec.select.i89, i32 %89
   %90 = zext nneg i32 %.110.i92 to i64
   %91 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %90
@@ -845,24 +845,24 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.preheader
-  %97 = phi i32 [ %82, %.lr.ph.preheader ], [ %.be, %.lr.ph.backedge ]
-  %98 = add nsw i32 %97, 1
-  %99 = srem i32 %98, %57
-  store i32 %99, ptr %79, align 4, !tbaa !60
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.lr.ph.backedge, label %101
+  %99 = phi i32 [ %83, %.lr.ph.preheader ], [ %.be, %.lr.ph.backedge ]
+  %100 = add nsw i32 %99, 1
+  %101 = srem i32 %100, %57
+  store i32 %101, ptr %80, align 4, !tbaa !60
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %.lr.ph.backedge, label %103
 
-.lr.ph.backedge:                                  ; preds = %.lr.ph, %101
-  %.be = phi i32 [ 0, %.lr.ph ], [ %99, %101 ]
+.lr.ph.backedge:                                  ; preds = %.lr.ph, %103
+  %.be = phi i32 [ 0, %.lr.ph ], [ %101, %101 ]
   br label %.lr.ph, !llvm.loop !62
 
-101:                                              ; preds = %.lr.ph
-  %.not.i94 = icmp ult i32 %99, 65536
-  %102 = lshr i32 %99, 16
-  %spec.select.i95 = select i1 %.not.i94, i32 %99, i32 %102
+103:                                              ; preds = %.lr.ph
+  %.not.i94 = icmp ult i32 %101, 65536
+  %104 = lshr i32 %101, 16
+  %spec.select.i95 = select i1 %.not.i94, i32 %101, i32 %104
   %spec.select12.i96 = select i1 %.not.i94, i32 0, i32 16
   %.not11.i97 = icmp samesign ult i32 %spec.select.i95, 256
-  %103 = lshr i32 %spec.select.i95, 8
+  %105 = lshr i32 %spec.select.i95, 8
   %.110.i98 = select i1 %.not11.i97, i32 %spec.select.i95, i32 %103
   %104 = zext nneg i32 %.110.i98 to i64
   %105 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %104
@@ -877,7 +877,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
 ._crit_edge:                                      ; preds = %101, %87
   %111 = phi i32 [ %82, %87 ], [ %99, %101 ]
   %112 = sitofp i32 %57 to double
-  %113 = sitofp i32 %111 to double
+  %115 = sitofp i32 %111 to double
   %114 = tail call nsz double @llvm.fmuladd.f64(double %113, double 2.000000e+00, double 1.000000e+00)
   %115 = shl nuw i32 1, %4
   %116 = sitofp i32 %115 to double
@@ -891,7 +891,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   store i32 %123, ptr %2, align 4, !tbaa !57
   br label %.critedge
 
-.critedge:                                        ; preds = %48, %52, %73, %._crit_edge, %69, %11, %5
+.critedge:                                        ; preds = %48, %52, %74, %._crit_edge, %70, %11, %5
   %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %69 ], [ -1094995529, %5 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %52 ], [ 0, %48 ]
   ret i32 %.0
 }

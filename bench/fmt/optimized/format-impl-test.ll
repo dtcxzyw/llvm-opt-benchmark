@@ -53817,7 +53817,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %14, %21
   store i64 %.pre-phi.i, ptr %15, align 8, !tbaa !72
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %24
   store i8 48, ptr %26, align 1, !tbaa !38
-  br label %88
+  br label %89
 
 _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit: ; preds = %12
   %27 = zext nneg i32 %1 to i64
@@ -53841,7 +53841,7 @@ _ZN3fmt3v116detail6fill_nIciEEPT_S4_T0_c.exit:    ; preds = %31, %_ZN3fmt3v116de
   %37 = load ptr, ptr %4, align 8, !tbaa !70
   tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 48, i64 %27, i1 false)
   %38 = sub nsw i32 0, %1
-  br label %88
+  br label %89
 
 39:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -53852,53 +53852,53 @@ _ZN3fmt3v116detail6fill_nIciEEPT_S4_T0_c.exit:    ; preds = %31, %_ZN3fmt3v116de
   %44 = lshr exact i32 %42, 23
   %45 = add nsw i32 %44, -150
   %.0.i.i = select i1 %43, i32 -149, i32 %45
-  %.v = select i1 %43, i32 1, i32 8388609
+  %storemerge.i.i = select i1 %43, i32 1, i32 8388609
   %46 = or i32 %.v, %41
   %47 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %46, i1 true)
   %reass.sub = add nsw i32 %.0.i.i, 31
-  %48 = sub nsw i32 %reass.sub, %47
-  %49 = sitofp i32 %48 to double
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double 0x3FD34413509F79FF, double -1.000000e-10)
-  %51 = fptosi double %50 to i32
-  %52 = sitofp i32 %51 to double
-  %53 = fcmp ogt double %50, %52
-  %54 = zext i1 %53 to i32
-  %storemerge = add nsw i32 %54, %51
+  %49 = sub nsw i32 %reass.sub, %47
+  %50 = sitofp i32 %49 to double
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double 0x3FD34413509F79FF, double -1.000000e-10)
+  %52 = fptosi double %51 to i32
+  %53 = sitofp i32 %52 to double
+  %54 = fcmp ogt double %51, %53
+  %55 = zext i1 %54 to i32
+  %storemerge = add nsw i32 %55, %52
   store i32 %storemerge, ptr %6, align 4, !tbaa !54
-  %55 = zext nneg i32 %41 to i128
-  %56 = or disjoint i128 %55, 8388608
-  %storemerge.i = select i1 %43, i128 %55, i128 %56
-  %57 = icmp eq i32 %41, 0
-  %58 = icmp samesign ugt i32 %42, 16777215
-  %59 = and i1 %57, %58
-  %spec.select = select i1 %59, i32 3, i32 2
-  %60 = or disjoint i32 %spec.select, 4
-  %.1 = select i1 %10, i32 %60, i32 %spec.select
+  %56 = zext nneg i32 %41 to i128
+  %57 = or disjoint i128 %56, 8388608
+  %storemerge.i = select i1 %43, i128 %56, i128 %57
+  %58 = icmp eq i32 %41, 0
+  %59 = icmp samesign ugt i32 %42, 16777215
+  %60 = and i1 %58, %59
+  %spec.select = select i1 %60, i32 3, i32 2
+  %61 = or disjoint i32 %spec.select, 4
+  %.1 = select i1 %10, i32 %61, i32 %spec.select
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %1, i32 767)
   store i128 %storemerge.i, ptr %7, align 16, !tbaa !551
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %.0.i.i, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !54
   call void @_ZN3fmt3v116detail13format_dragonENS1_8basic_fpIoEEjiRNS1_6bufferIcEERi(ptr noundef nonnull byval(%"struct.fmt::v11::detail::basic_fp.94") align 16 %7, i32 noundef %.1, i32 noundef %spec.store.select, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br i1 %10, label %86, label %61
+  br i1 %10, label %87, label %62
 
-61:                                               ; preds = %39
-  %62 = load i32, ptr %2, align 4, !tbaa !337
-  %63 = and i32 %62, 8192
-  %.not45 = icmp eq i32 %63, 0
-  br i1 %.not45, label %64, label %86
+62:                                               ; preds = %39
+  %63 = load i32, ptr %2, align 4, !tbaa !337
+  %64 = and i32 %63, 8192
+  %.not45 = icmp eq i32 %64, 0
+  br i1 %.not45, label %65, label %87
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !72
-  %.not46 = icmp eq i64 %66, 0
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !72
+  %.not46 = icmp eq i64 %67, 0
   br i1 %.not46, label %.critedge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64
+.lr.ph:                                           ; preds = %65
   %.promoted = load i32, ptr %6, align 4
-  %67 = load ptr, ptr %4, align 8, !tbaa !70
+  %68 = load ptr, ptr %4, align 8, !tbaa !70
   br label %68
 
-68:                                               ; preds = %.lr.ph, %74
+75:                                               ; preds = %.lr.ph, %74
   %.047 = phi i64 [ %66, %.lr.ph ], [ %70, %74 ]
   %69 = phi i32 [ %.promoted, %.lr.ph ], [ %75, %74 ]
   %70 = add i64 %.047, -1
@@ -53919,32 +53919,32 @@ _ZN3fmt3v116detail6fill_nIciEEPT_S4_T0_c.exit:    ; preds = %31, %_ZN3fmt3v116de
   br label %_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41
 
 .critedge:                                        ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !71
-  %80 = icmp ugt i64 %.047, %79
-  br i1 %80, label %81, label %_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !71
+  %81 = icmp ugt i64 %.047, %80
+  br i1 %81, label %82, label %_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41
 
-81:                                               ; preds = %.critedge
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !68
+82:                                               ; preds = %.critedge
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %84 = load ptr, ptr %83, align 8, !tbaa !68
   call void %83(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.047)
-  %.pre.i40 = load i64, ptr %78, align 8, !tbaa !71
+  %.pre.i40 = load i64, ptr %79, align 8, !tbaa !71
   br label %_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41
 
-_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41: ; preds = %.critedge.thread, %.critedge, %81
+_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41: ; preds = %.critedge.thread, %.critedge, %82
   %.0.lcssa59 = phi i64 [ %.047, %.critedge ], [ %.047, %81 ], [ 0, %.critedge.thread ]
-  %84 = phi i64 [ %79, %.critedge ], [ %.pre.i40, %81 ], [ %77, %.critedge.thread ]
-  %85 = call noundef i64 @llvm.umin.i64(i64 %.0.lcssa59, i64 %84)
-  store i64 %85, ptr %65, align 8, !tbaa !72
-  br label %86
+  %85 = phi i64 [ %80, %.critedge ], [ %.pre.i40, %81 ], [ %77, %.critedge.thread ]
+  %86 = call noundef i64 @llvm.umin.i64(i64 %.0.lcssa59, i64 %85)
+  store i64 %86, ptr %66, align 8, !tbaa !72
+  br label %87
 
-86:                                               ; preds = %_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41, %61, %39
-  %87 = load i32, ptr %6, align 4, !tbaa !54
+87:                                               ; preds = %_ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit41, %62, %39
+  %88 = load i32, ptr %6, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %88
+  br label %89
 
-88:                                               ; preds = %86, %_ZN3fmt3v116detail6fill_nIciEEPT_S4_T0_c.exit, %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit
-  %.034 = phi i32 [ %38, %_ZN3fmt3v116detail6fill_nIciEEPT_S4_T0_c.exit ], [ 0, %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit ], [ %87, %86 ]
+89:                                               ; preds = %87, %_ZN3fmt3v116detail6fill_nIciEEPT_S4_T0_c.exit, %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit
+  %.034 = phi i32 [ %38, %_ZN3fmt3v116detail6fill_nIciEEPT_S4_T0_c.exit ], [ 0, %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit ], [ %88, %86 ]
   ret i32 %.034
 }
 

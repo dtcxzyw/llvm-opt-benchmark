@@ -10780,7 +10780,7 @@ define noundef i32 @_ZN6icu_778Calendar35handleGetExtendedYearFromWeekFieldsEiiR
   %6 = alloca i32, align 4
   %7 = load i32, ptr %3, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %108
+  br i1 %8, label %9, label %109
 
 9:                                                ; preds = %4
   %10 = tail call noundef i32 @_ZNK6icu_778Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @_ZN6icu_778Calendar15kDatePrecedenceE)
@@ -10817,7 +10817,7 @@ define noundef i32 @_ZN6icu_778Calendar35handleGetExtendedYearFromWeekFieldsEiiR
 _ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit.thread: ; preds = %22, %12
   store i32 1, ptr %3, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %108
+  br label %109
 
 _ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit: ; preds = %9, %12, %22
   %26 = load i32, ptr %5, align 4, !tbaa !12
@@ -10828,7 +10828,7 @@ _ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit: ; preds = %9, %12, %22
   %.pre = load i32, ptr %3, align 4, !tbaa !13
   %30 = icmp slt i32 %.pre, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %30, label %31, label %108
+  br i1 %30, label %31, label %109
 
 31:                                               ; preds = %_ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 153
@@ -10883,7 +10883,7 @@ _ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit: ; preds = %9, %12, %22
   %.not62 = icmp sge i32 %69, %68
   switch i32 %10, label %.thread [
     i32 3, label %70
-    i32 5, label %88
+    i32 5, label %89
   ]
 
 70:                                               ; preds = %53
@@ -10918,46 +10918,46 @@ _ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit: ; preds = %9, %12, %22
   %.5 = add nsw i32 %1, %87
   br label %.thread
 
-88:                                               ; preds = %53
-  %89 = load ptr, ptr %0, align 8, !tbaa !15
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 272
-  %91 = load ptr, ptr %90, align 8
-  %92 = call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %93 = load i32, ptr %3, align 4, !tbaa !13
-  %94 = icmp slt i32 %93, 1
-  br i1 %94, label %95, label %.thread
+89:                                               ; preds = %53
+  %90 = load ptr, ptr %0, align 8, !tbaa !15
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 272
+  %92 = load ptr, ptr %91, align 8
+  %93 = call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %94 = load i32, ptr %3, align 4, !tbaa !13
+  %95 = icmp slt i32 %94, 1
+  br i1 %95, label %96, label %.thread
 
-95:                                               ; preds = %88
-  %96 = icmp ne i32 %92, 0
-  br i1 %96, label %104, label %97
+96:                                               ; preds = %89
+  %97 = icmp ne i32 %93, 0
+  br i1 %97, label %105, label %98
 
-97:                                               ; preds = %95
-  %98 = load ptr, ptr %0, align 8, !tbaa !15
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 160
-  %100 = load ptr, ptr %99, align 8
-  %101 = call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 3)
-  %.not60 = icmp slt i32 %2, %101
-  br i1 %.not60, label %104, label %102
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %0, align 8, !tbaa !15
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 160
+  %101 = load ptr, ptr %100, align 8
+  %102 = call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 3)
+  %.not60 = icmp slt i32 %2, %102
+  br i1 %.not60, label %105, label %103
 
-102:                                              ; preds = %97
-  %103 = add nsw i32 %1, 1
+103:                                              ; preds = %98
+  %104 = add nsw i32 %1, 1
   br label %.thread
 
-104:                                              ; preds = %97, %95
-  %105 = icmp eq i32 %2, 1
-  br i1 %105, label %106, label %.thread
+105:                                              ; preds = %98, %96
+  %106 = icmp eq i32 %2, 1
+  br i1 %106, label %107, label %.thread
 
-106:                                              ; preds = %104
-  %107 = sext i1 %96 to i32
-  %spec.select66 = add nsw i32 %1, %107
+107:                                              ; preds = %105
+  %108 = sext i1 %97 to i32
+  %spec.select66 = add nsw i32 %1, %108
   br label %.thread
 
-.thread:                                          ; preds = %88, %102, %106, %104, %72, %44, %53, %75, %80, %43
-  %.2 = phi i32 [ 0, %43 ], [ 0, %44 ], [ %1, %75 ], [ %.5, %80 ], [ %1, %53 ], [ %spec.select67, %72 ], [ %1, %104 ], [ 0, %88 ], [ %103, %102 ], [ %spec.select66, %106 ]
+.thread:                                          ; preds = %89, %103, %107, %105, %72, %44, %53, %75, %80, %43
+  %.2 = phi i32 [ 0, %43 ], [ 0, %44 ], [ %1, %75 ], [ %.5, %80 ], [ %1, %53 ], [ %spec.select67, %72 ], [ %1, %104 ], [ 0, %88 ], [ %104, %102 ], [ %spec.select66, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %108
+  br label %109
 
-108:                                              ; preds = %_ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit.thread, %.thread, %_ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit, %4
+109:                                              ; preds = %_ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit.thread, %.thread, %_ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit, %4
   %.0 = phi i32 [ 0, %4 ], [ %.2, %.thread ], [ 0, %_ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit ], [ 0, %_ZN6icu_778Calendar11getLocalDOWER10UErrorCode.exit.thread ]
   ret i32 %.0
 }

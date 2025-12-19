@@ -946,14 +946,14 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 34359738360
   %30 = icmp eq i64 %29, 2048
-  br i1 %30, label %31, label %44
+  br i1 %30, label %31, label %43
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4332
   %33 = load i8, ptr %32, align 4
   %34 = icmp eq i8 %33, 0
   %35 = zext i1 %34 to i8
-  br label %44
+  br label %43
 
 36:                                               ; preds = %23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4752
@@ -967,26 +967,26 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %43 = or disjoint i32 %42, 2
   br label %55
 
-44:                                               ; preds = %31, %26
+43:                                               ; preds = %31, %26
   %.ph = phi i8 [ %35, %31 ], [ 0, %26 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4752
-  store i8 %.ph, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4320
-  store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp ne ptr %48, null
-  %50 = zext i1 %49 to i32
-  %51 = load i64, ptr %27, align 8
-  %52 = and i64 %51, 34359738360
-  %53 = icmp eq i64 %52, 2048
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4752
+  store i8 %.ph, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4320
+  store i32 0, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp ne ptr %47, null
+  %49 = zext i1 %48 to i32
+  %50 = load i64, ptr %27, align 8
+  %51 = and i64 %50, 34359738360
+  %52 = icmp eq i64 %51, 2048
   %.v = select i1 %53, i32 2, i32 6
   %54 = or disjoint i32 %.v, %50
   br label %55
 
-55:                                               ; preds = %36, %44
-  %56 = phi ptr [ %39, %36 ], [ %47, %44 ]
-  %57 = phi i32 [ %43, %36 ], [ %54, %44 ]
+55:                                               ; preds = %36, %43
+  %56 = phi ptr [ %39, %36 ], [ %46, %44 ]
+  %.in = phi i32 [ %43, %36 ], [ %54, %44 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4324
   store i32 %57, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4754

@@ -13245,23 +13245,23 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(pt
   br label %.thread10
 
 .thread10:                                        ; preds = %..thread10_crit_edge, %135, %95, %.thread5
-  %327 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %135 ], [ %85, %95 ], [ %85, %.thread5 ]
-  %328 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %135 ], [ %77, %95 ], [ %77, %.thread5 ]
-  %329 = icmp eq ptr %328, null
-  br i1 %329, label %331, label %330
-
-330:                                              ; preds = %.thread10
-  tail call void @ieee80211_free_txskb(ptr noundef %327, ptr noundef nonnull %328) #20
-  br label %.thread12
+  %328 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %135 ], [ %85, %95 ], [ %85, %.thread5 ]
+  %329 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %135 ], [ %77, %95 ], [ %77, %.thread5 ]
+  %330 = icmp eq ptr %329, null
+  br i1 %330, label %332, label %331
 
 331:                                              ; preds = %.thread10
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @ieee80211_purge_tx_queue(ptr noundef %327, ptr noundef nonnull %332) #20
+  tail call void @ieee80211_free_txskb(ptr noundef %328, ptr noundef nonnull %329) #20
   br label %.thread12
 
-.thread12:                                        ; preds = %325, %305, %237, %331, %330
-  %333 = phi i32 [ -1, %237 ], [ -1, %331 ], [ -1, %330 ], [ -1, %305 ], [ 0, %325 ]
-  ret i32 %333
+332:                                              ; preds = %.thread10
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @ieee80211_purge_tx_queue(ptr noundef %328, ptr noundef nonnull %333) #20
+  br label %.thread12
+
+.thread12:                                        ; preds = %325, %305, %237, %332, %331
+  %334 = phi i32 [ -1, %237 ], [ -1, %331 ], [ -1, %330 ], [ -1, %305 ], [ 0, %325 ]
+  ret i32 %334
 }
 
 ; Function Attrs: null_pointer_is_valid

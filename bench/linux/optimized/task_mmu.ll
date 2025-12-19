@@ -4310,41 +4310,41 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %56, label %61
 
-56:                                               ; preds = %44
-  %57 = add i32 %52, 1
-  %58 = load volatile i64, ptr %20, align 8
-  %59 = and i64 %58, 1
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %91, label %61, !prof !6
+57:                                               ; preds = %44
+  %58 = add i32 %52, 1
+  %59 = load volatile i64, ptr %20, align 8
+  %60 = and i64 %59, 1
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %91, label %62, !prof !6
 
-61:                                               ; preds = %56, %44
-  %62 = load volatile i64, ptr %20, align 8
-  %63 = and i64 %62, 1
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %68, label %65, !prof !6
+62:                                               ; preds = %57, %44
+  %63 = load volatile i64, ptr %20, align 8
+  %64 = and i64 %63, 1
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %69, label %66, !prof !6
 
-65:                                               ; preds = %61
-  %66 = add nsw i64 %62, -1
-  %67 = inttoptr i64 %66 to ptr
+66:                                               ; preds = %62
+  %67 = add nsw i64 %63, -1
+  %68 = inttoptr i64 %67 to ptr
   br label %85
 
-68:                                               ; preds = %61
+69:                                               ; preds = %62
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #13
           to label %85 [label %69], !srcloc !8
 
-69:                                               ; preds = %68
-  %70 = ptrtoint ptr %19 to i64
-  %71 = and i64 %70, 4095
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %84
+70:                                               ; preds = %69
+  %71 = ptrtoint ptr %19 to i64
+  %72 = and i64 %71, 4095
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %73, label %84
 
-73:                                               ; preds = %69
+92:                                               ; preds = %69
   %74 = load volatile i64, ptr %19, align 8
   %75 = and i64 %74, 64
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %84, label %77
+  br i1 %76, label %110, label %101
 
-77:                                               ; preds = %73
+101:                                              ; preds = %92
   %78 = getelementptr i8, ptr %19, i64 72
   %79 = load volatile i64, ptr %78, align 8
   %80 = and i64 %79, 1
@@ -4353,18 +4353,18 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   %83 = inttoptr i64 %82 to ptr
   br i1 %81, label %84, label %85
 
-84:                                               ; preds = %77, %73, %69
+110:                                              ; preds = %101, %73, %69
   br label %85
 
-85:                                               ; preds = %84, %77, %68, %65
-  %86 = phi ptr [ %67, %65 ], [ %83, %77 ], [ %19, %84 ], [ %19, %68 ]
+115:                                              ; preds = %110, %101, %68, %65
+  %116 = phi ptr [ %67, %65 ], [ %83, %77 ], [ %19, %84 ], [ %19, %68 ]
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %88 = load volatile i32, ptr %87, align 4
   %89 = add i32 %52, 2
   %90 = add i32 %89, %88
   br label %91
 
-91:                                               ; preds = %85, %56
+91:; preds = %85, %56
   %92 = phi i32 [ %90, %85 ], [ %57, %56 ]
   %93 = icmp eq i32 %92, 1
   %.v = select i1 %93, i64 -9151314442816847872, i64 -9223372036854775808
@@ -4375,11 +4375,11 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   %98 = icmp eq i8 %97, 0
   br i1 %98, label %104, label %99
 
-99:                                               ; preds = %91
+99:; preds = %91
   %100 = xor i64 %1, -1
   %101 = and i64 %2, %100
   %102 = lshr i64 %101, 12
-  %103 = add nuw nsw i64 %18, %102
+  %133 = add nuw nsw i64 %18, %102
   br label %104
 
 104:                                              ; preds = %99, %91, %5
@@ -4428,8 +4428,8 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %113, %.loopexit
-  %134 = phi i32 [ 0, %.loopexit ], [ 1, %113 ]
-  ret i32 %134
+  %136 = phi i32 [ 0, %.loopexit ], [ 1, %113 ]
+  ret i32 %136
 }
 
 ; Function Attrs: null_pointer_is_valid

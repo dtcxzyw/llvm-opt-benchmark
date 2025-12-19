@@ -9157,7 +9157,7 @@ get_limits.exit:                                  ; preds = %59, %66
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds i16, ptr %114, i64 %118
   store i16 %112, ptr %119, align 2, !tbaa !78
-  br label %624
+  br label %627
 
 120:                                              ; preds = %97, %get_limits.exit
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 4840
@@ -9989,7 +9989,7 @@ bidir_refine.exit:                                ; preds = %175, %530
   %602 = getelementptr inbounds nuw i8, ptr %582, i64 284
   %603 = load i32, ptr %602, align 4, !tbaa !150
   %604 = icmp sgt i32 %603, 0
-  br i1 %604, label %605, label %622
+  br i1 %604, label %605, label %625
 
 605:                                              ; preds = %581
   %.not169 = icmp eq i32 %.0143, 2147483647
@@ -9997,46 +9997,46 @@ bidir_refine.exit:                                ; preds = %175, %530
   %.not170 = icmp eq i32 %.0137, 2147483647
   %.7 = select i1 %.not169, i32 1264, i32 3824
   %.8 = select i1 %.not170, i32 %spec.select153, i32 %.7
-  %606 = icmp sgt i32 %.0136, 1048576
-  %607 = and i32 %.8, 3808
-  %.9 = select i1 %606, i32 %607, i32 %.8
-  %608 = load i32, ptr %94, align 4, !tbaa !126
-  %609 = icmp ne i32 %608, 12
-  %610 = and i32 %.9, 16
-  %.not149 = icmp eq i32 %610, 0
-  %or.cond154 = select i1 %609, i1 true, i1 %.not149
-  br i1 %or.cond154, label %622, label %611
+  %609 = icmp sgt i32 %.0136, 1048576
+  %610 = and i32 %.8, 3808
+  %.9 = select i1 %609, i32 %610, i32 %.8
+  %611 = load i32, ptr %94, align 4, !tbaa !126
+  %612 = icmp ne i32 %611, 12
+  %613 = and i32 %.9, 16
+  %.not149 = icmp eq i32 %613, 0
+  %or.cond154 = select i1 %612, i1 true, i1 %.not149
+  br i1 %or.cond154, label %625, label %614
 
-611:                                              ; preds = %605
-  %612 = getelementptr inbounds nuw i8, ptr %0, i64 4880
-  %613 = load i32, ptr %612, align 8, !tbaa !76
-  %614 = and i32 %613, 32
-  %.not150 = icmp eq i32 %614, 0
-  br i1 %.not150, label %622, label %615
+614:                                              ; preds = %605
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 4880
+  %616 = load i32, ptr %615, align 8, !tbaa !76
+  %617 = and i32 %616, 32
+  %.not150 = icmp eq i32 %617, 0
+  br i1 %.not150, label %625, label %618
 
-615:                                              ; preds = %611
-  %616 = getelementptr inbounds nuw i8, ptr %0, i64 6352
-  %617 = load ptr, ptr %616, align 8, !tbaa !173
-  %618 = sext i32 %51 to i64
-  %619 = getelementptr inbounds [2 x i16], ptr %617, i64 %618
-  %620 = load i32, ptr %619, align 4, !tbaa !58
-  %.not151 = icmp eq i32 %620, 0
-  %621 = or disjoint i32 %.9, 4096
-  %spec.select155 = select i1 %.not151, i32 %.9, i32 %621
-  br label %622
+618:                                              ; preds = %614
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  %620 = load ptr, ptr %619, align 8, !tbaa !173
+  %621 = sext i32 %51 to i64
+  %622 = getelementptr inbounds [2 x i16], ptr %620, i64 %621
+  %623 = load i32, ptr %622, align 4, !tbaa !58
+  %.not151 = icmp eq i32 %623, 0
+  %624 = or disjoint i32 %.9, 4096
+  %spec.select155 = select i1 %.not151, i32 %.9, i32 %624
+  br label %625
 
-622:                                              ; preds = %615, %605, %611, %581
+625:                                              ; preds = %618, %605, %614, %581
   %.5 = phi i32 [ %.9, %605 ], [ %spec.select155, %615 ], [ %.9, %611 ], [ %.4142, %581 ]
-  %623 = trunc nuw nsw i32 %.5 to i16
-  br label %624
+  %626 = trunc nuw nsw i32 %.5 to i16
+  br label %627
 
-624:                                              ; preds = %622, %103
+627:                                              ; preds = %625, %103
   %.sink183 = phi i64 [ %600, %622 ], [ %118, %103 ]
-  %.sink = phi i16 [ %623, %622 ], [ 4096, %103 ]
-  %625 = getelementptr inbounds nuw i8, ptr %0, i64 6472
-  %626 = load ptr, ptr %625, align 8, !tbaa !157
-  %627 = getelementptr inbounds i16, ptr %626, i64 %.sink183
-  store i16 %.sink, ptr %627, align 2, !tbaa !78
+  %.sink = phi i16 [ %626, %622 ], [ 4096, %103 ]
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 6472
+  %629 = load ptr, ptr %628, align 8, !tbaa !157
+  %630 = getelementptr inbounds i16, ptr %629, i64 %.sink183
+  store i16 %.sink, ptr %630, align 2, !tbaa !78
   ret void
 }
 

@@ -30,8 +30,8 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
 
 "_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit": ; preds = %1, %8
   %.0.i = phi i64 [ %13, %8 ], [ 0, %1 ]
-  %14 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
-  ret { i64, i64 } %14
+  %15 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -44,7 +44,7 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !12
   %7 = icmp ne i8 %6, 0
   %.not = select i1 %.not.i, i1 true, i1 %7
-  br i1 %.not, label %14, label %8
+  br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %1
   %9 = sub nuw nsw i32 %4, %2
@@ -56,7 +56,7 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   %13 = zext i32 %12 to i64
   br label %14
 
-14:                                               ; preds = %1, %8
+15:                                               ; preds = %1, %8
   %.0 = phi i64 [ %13, %8 ], [ 0, %1 ]
   ret i64 %.0
 }

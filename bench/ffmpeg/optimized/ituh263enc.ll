@@ -4997,11 +4997,11 @@ h263_pred_dc.exit:                                ; preds = %536, %552, %553
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 4860
   %608 = load i32, ptr %607, align 4, !tbaa !127
   %.not209 = icmp eq i32 %608, 0
-  br i1 %606, label %609, label %647
+  br i1 %606, label %610, label %647
 
-609:                                              ; preds = %.loopexit309
-  %610 = or disjoint i32 %603, 4
-  %spec.select219 = select i1 %.not209, i32 %603, i32 %610
+610:                                              ; preds = %.loopexit309
+  %611 = or disjoint i32 %603, 4
+  %spec.select219 = select i1 %.not209, i32 %603, i32 %611
   %611 = getelementptr inbounds nuw i8, ptr %0, i64 4808
   %612 = zext nneg i32 %spec.select219 to i64
   %613 = getelementptr inbounds nuw i8, ptr @ff_h263_intra_MCBPC_bits, i64 %612
@@ -5016,13 +5016,13 @@ h263_pred_dc.exit:                                ; preds = %536, %552, %553
   %622 = icmp sgt i32 %621, %615
   br i1 %622, label %623, label %627
 
-623:                                              ; preds = %609
+623:                                              ; preds = %610
   %624 = shl i32 %619, %615
   %625 = or i32 %624, %618
   %626 = sub nsw i32 %621, %615
   br label %put_bits.exit262
 
-627:                                              ; preds = %609
+627:                                              ; preds = %610
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   %629 = load ptr, ptr %628, align 8, !tbaa !12
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 4824

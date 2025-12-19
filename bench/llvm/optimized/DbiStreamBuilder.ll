@@ -3352,7 +3352,7 @@ define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8Arra
   br label %45
 
 ._crit_edge.loopexit:                             ; preds = %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit23"
-  %8 = trunc i32 %90 to i16
+  %8 = trunc i32 %91 to i16
   %9 = add i16 %8, 1
   br label %._crit_edge
 
@@ -3438,8 +3438,8 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cx
   ret void
 
 45:                                               ; preds = %.lr.ph, %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit23"
-  %.032 = phi ptr [ %1, %.lr.ph ], [ %91, %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit23" ]
-  %.02831 = phi i32 [ 0, %.lr.ph ], [ %90, %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit23" ]
+  %.032 = phi ptr [ %1, %.lr.ph ], [ %92, %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit23" ]
+  %.02831 = phi i32 [ 0, %.lr.ph ], [ %91, %"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv.exit23" ]
   %46 = load ptr, ptr %6, align 8, !tbaa !281
   %47 = load ptr, ptr %7, align 8, !tbaa !112
   %.not.i.i16 = icmp eq ptr %46, %47
@@ -3527,15 +3527,15 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cx
   %.not12.i = icmp eq i32 %85, 0
   %.v.i = select i1 %.not12.i, i16 264, i16 256
   %.2.i = or disjoint i16 %.v.i, %84
-  %86 = or disjoint i16 %.2.i, %.1.i
-  store i16 %86, ptr %72, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  %88 = getelementptr inbounds i8, ptr %71, i64 -4
-  %89 = load i32, ptr %87, align 1, !tbaa !119
-  store i32 %89, ptr %88, align 1, !tbaa !119
-  %90 = add nuw nsw i32 %.02831, 1
-  %91 = getelementptr inbounds nuw i8, ptr %.032, i64 40
-  %.not = icmp eq ptr %91, %4
+  %87 = or disjoint i16 %.2.i, %.1.i
+  store i16 %87, ptr %72, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %.032, i64 8
+  %89 = getelementptr inbounds i8, ptr %71, i64 -4
+  %90 = load i32, ptr %88, align 1, !tbaa !119
+  store i32 %90, ptr %89, align 1, !tbaa !119
+  %91 = add nuw nsw i32 %.02831, 1
+  %92 = getelementptr inbounds nuw i8, ptr %.032, i64 40
+  %.not = icmp eq ptr %92, %4
   br i1 %.not, label %._crit_edge.loopexit, label %45
 }
 

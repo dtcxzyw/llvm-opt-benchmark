@@ -2436,55 +2436,55 @@ _ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit: ; pre
 
 _ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread: ; preds = %2, %3, %5, %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit
   %.not.i9 = icmp eq ptr %0, null
-  br i1 %.not.i9, label %18, label %16
+  br i1 %.not.i9, label %19, label %17
 
-16:                                               ; preds = %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread
-  %17 = tail call noundef i32 @_ZN16java_lang_Thread17get_thread_statusEP7oopDesc(ptr noundef nonnull %0) #18
-  br label %18
+17:                                               ; preds = %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread
+  %18 = tail call noundef i32 @_ZN16java_lang_Thread17get_thread_statusEP7oopDesc(ptr noundef nonnull %0) #18
+  br label %19
 
-18:                                               ; preds = %16, %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread
-  %.0.i = phi i32 [ %17, %16 ], [ 0, %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread ]
-  br i1 %.not.i, label %_ZN12JvmtiEnvBase21get_thread_state_baseEP7oopDescP10JavaThread.exit, label %19
+19:                                               ; preds = %17, %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread
+  %.0.i = phi i32 [ %18, %16 ], [ 0, %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread ]
+  br i1 %.not.i, label %_ZN12JvmtiEnvBase21get_thread_state_baseEP7oopDescP10JavaThread.exit, label %20
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1092
-  %21 = load volatile i32, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1138
-  %23 = load volatile i8, ptr %22, align 2
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %35, label %25
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1092
+  %22 = load volatile i32, ptr %21, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1138
+  %24 = load volatile i8, ptr %23, align 2
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %35, label %26
 
-25:                                               ; preds = %19
-  %26 = tail call noundef ptr @_ZNK10JavaThread13jvmti_vthreadEv(ptr noundef nonnull align 8 dereferenceable(1800) %1) #18
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %31, label %28
+26:                                               ; preds = %20
+  %27 = tail call noundef ptr @_ZNK10JavaThread13jvmti_vthreadEv(ptr noundef nonnull align 8 dereferenceable(1800) %1) #18
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %32, label %29
 
-28:                                               ; preds = %25
-  %29 = tail call noundef ptr @_ZNK10JavaThread13jvmti_vthreadEv(ptr noundef nonnull align 8 dereferenceable(1800) %1) #18
-  %30 = icmp eq ptr %29, %0
-  br i1 %30, label %31, label %37
+29:                                               ; preds = %26
+  %30 = tail call noundef ptr @_ZNK10JavaThread13jvmti_vthreadEv(ptr noundef nonnull align 8 dereferenceable(1800) %1) #18
+  %31 = icmp eq ptr %30, %0
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %28, %25
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 1513
-  %33 = load volatile i8, ptr %32, align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %37
+32:                                               ; preds = %29, %26
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1513
+  %34 = load volatile i8, ptr %33, align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %35, label %37
 
 35:                                               ; preds = %31, %19
   %36 = or i32 %.0.i, 1048576
   br label %37
 
-37:                                               ; preds = %35, %31, %28
+36:                                               ; preds = %35, %32, %28
   %.2.i = phi i32 [ %36, %35 ], [ %.0.i, %31 ], [ %.0.i, %28 ]
   %38 = icmp eq i32 %21, 4
   %39 = or i32 %.2.i, 4194304
   %spec.select.i = select i1 %38, i32 %39, i32 %.2.i
-  %40 = tail call noundef zeroext i1 @_ZN10JavaThread14is_interruptedEb(ptr noundef nonnull align 8 dereferenceable(1800) %1, i1 noundef zeroext false) #18
+  %40 = tail call noundef zeroext i1 @_ZN10JavaThread14is_interruptedEb(ptr noundef nonnull align 8 dereferenceable(1800) %1, i1 noundef zeroext false) #19
   %41 = or i32 %spec.select.i, 2097152
   %spec.select17.i = select i1 %40, i32 %41, i32 %spec.select.i
   br label %_ZN12JvmtiEnvBase21get_thread_state_baseEP7oopDescP10JavaThread.exit
 
-_ZN12JvmtiEnvBase21get_thread_state_baseEP7oopDescP10JavaThread.exit: ; preds = %37, %18, %9
+_ZN12JvmtiEnvBase21get_thread_state_baseEP7oopDescP10JavaThread.exit: ; preds = %37, %19, %9
   %.1 = phi i32 [ %15, %9 ], [ %.0.i, %18 ], [ %spec.select17.i, %37 ]
   ret i32 %.1
 }

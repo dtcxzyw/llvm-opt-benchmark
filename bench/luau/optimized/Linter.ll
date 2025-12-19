@@ -12250,8 +12250,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %31, %32
   %61 = icmp ult i64 %60, %2
   %62 = icmp eq i8 %58, 37
   %or.cond = and i1 %61, %62
-  %.v = select i1 %or.cond, i64 2, i64 1
-  %63 = add i64 %.v, %.294207
+  %.395 = select i1 %or.cond, i64 2, i64 1
+  %63 = add i64 %.395, %.294207
   %64 = icmp ult i64 %63, %2
   br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !518
 

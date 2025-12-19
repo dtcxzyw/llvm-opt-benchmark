@@ -455,7 +455,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %20 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = zext i8 %21 to i32
-  %23 = add nsw i32 %spec.select11.i43.neg, 23
+  %.neg51 = add nsw i32 %spec.select11.i43.neg, 23
   %24 = or disjoint i32 %spec.select11.i43.neg, 15
   %.neg51 = select i1 %.not.i44, i32 %23, i32 %24
   %25 = add nsw i32 %.neg51, %.1.i
@@ -465,14 +465,14 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %29 = zext nneg i32 %.sroa.0.1 to i64
   br i1 %28, label %30, label %35
 
-30:                                               ; preds = %7
+30:; preds = %7
   %31 = zext nneg i32 %27 to i64
   %32 = shl nuw i64 1, %31
   %33 = zext nneg i32 %.sroa.14.0 to i64
   %34 = tail call i64 @av_rescale(i64 noundef %29, i64 noundef %32, i64 noundef %33) #9
   br label %41
 
-35:                                               ; preds = %7
+35:; preds = %7
   %36 = zext nneg i32 %.sroa.14.0 to i64
   %37 = sub nsw i32 0, %27
   %38 = zext nneg i32 %37 to i64
@@ -480,7 +480,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %40 = tail call i64 @av_rescale(i64 noundef %29, i64 noundef 1, i64 noundef %39) #9
   br label %41
 
-41:                                               ; preds = %35, %30
+41:; preds = %35, %30
   %.034 = phi i64 [ %34, %30 ], [ %40, %35 ]
   %42 = icmp sgt i64 %.034, 16777215
   %.neg = sext i1 %42 to i32
@@ -492,14 +492,14 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %48 = zext nneg i32 %.sroa.0.1 to i64
   br i1 %47, label %49, label %54
 
-49:                                               ; preds = %41
+49:; preds = %41
   %50 = zext nneg i32 %46 to i64
   %51 = shl nuw i64 1, %50
   %52 = zext nneg i32 %.sroa.14.0 to i64
   %53 = tail call i64 @av_rescale(i64 noundef %48, i64 noundef %51, i64 noundef %52) #9
   br label %60
 
-54:                                               ; preds = %41
+54:; preds = %41
   %55 = zext nneg i32 %.sroa.14.0 to i64
   %56 = sub nsw i32 0, %46
   %57 = zext nneg i32 %56 to i64
@@ -507,7 +507,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %59 = tail call i64 @av_rescale(i64 noundef %48, i64 noundef 1, i64 noundef %58) #9
   br label %60
 
-60:                                               ; preds = %54, %49
+60:; preds = %54, %49
   %.1 = phi i64 [ %53, %49 ], [ %59, %54 ]
   %61 = shl i32 %46, 23
   %62 = sub i32 1258291200, %61

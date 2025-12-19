@@ -14036,7 +14036,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ip6_nh_lookup_table(ptr no
   store i32 0, ptr %13, align 4
   %14 = tail call ptr @fib6_get_table(ptr noundef %0, i32 noundef %3) #22
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %33, label %16
+  br i1 %15, label %35, label %16
 
 16:                                               ; preds = %6
   %17 = load i64, ptr %12, align 8
@@ -14055,16 +14055,16 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ip6_nh_lookup_table(ptr no
   %29 = icmp eq ptr %26, %28
   br i1 %29, label %33, label %30
 
-30:                                               ; preds = %16
-  %31 = load i32, ptr %8, align 8
-  %32 = icmp ne i32 %31, 0
-  call void @fib6_select_path(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %31, i1 noundef zeroext %32, ptr noundef null, i32 noundef %22)
-  br label %33
+32:                                               ; preds = %16
+  %33 = load i32, ptr %8, align 8
+  %34 = icmp ne i32 %33, 0
+  call void @fib6_select_path(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %33, i1 noundef zeroext %34, ptr noundef null, i32 noundef %22)
+  br label %35
 
-33:                                               ; preds = %30, %16, %6
-  %34 = phi i32 [ -22, %6 ], [ 0, %30 ], [ 0, %16 ]
+35:                                               ; preds = %32, %16, %6
+  %36 = phi i32 [ -22, %6 ], [ 0, %30 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %34
+  ret i32 %36
 }
 
 ; Function Attrs: null_pointer_is_valid

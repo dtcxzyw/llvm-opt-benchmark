@@ -1386,7 +1386,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_init_gop_structure(ptr noundef captures
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 40, ptr noundef nonnull @.str.7) #8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 1, ptr %17, align 8, !tbaa !123
-  br label %60
+  br label %61
 
 18:                                               ; preds = %12
   %19 = icmp eq i32 %2, 0
@@ -1394,7 +1394,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_init_gop_structure(ptr noundef captures
 
 20:                                               ; preds = %18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.8) #8
-  br label %73
+  br label %74
 
 21:                                               ; preds = %18
   %22 = and i32 %4, 8
@@ -1424,7 +1424,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_init_gop_structure(ptr noundef captures
   store i32 2147483647, ptr %35, align 4, !tbaa !137
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   store i32 0, ptr %36, align 4, !tbaa !121
-  br label %60
+  br label %61
 
 37:                                               ; preds = %25
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1128
@@ -1442,7 +1442,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_init_gop_structure(ptr noundef captures
   store i32 %43, ptr %44, align 4, !tbaa !121
   %45 = and i32 %4, 16
   %.not61 = icmp eq i32 %45, 0
-  br i1 %.not61, label %58, label %46
+  br i1 %.not61, label %59, label %46
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1459,44 +1459,44 @@ define range(i32 -22, 1) i32 @ff_hw_base_init_gop_structure(ptr noundef captures
   %53 = load i8, ptr %52, align 1, !tbaa !139
   %54 = zext i8 %53 to i32
   %.v = select i1 %.not11.i, i32 1, i32 9
-  %55 = or disjoint i32 %spec.select12.i, %.v
-  %56 = add nuw nsw i32 %55, %54
-  %. = tail call i32 @llvm.smin.i32(i32 %48, i32 %56)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  store i32 %., ptr %57, align 8, !tbaa !140
-  br label %60
+  %56 = or disjoint i32 %spec.select12.i, %.v
+  %57 = add nuw nsw i32 %56, %54
+  %. = tail call i32 @llvm.smin.i32(i32 %48, i32 %57)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  store i32 %., ptr %58, align 8, !tbaa !140
+  br label %61
 
-58:                                               ; preds = %37
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  store i32 1, ptr %59, align 8, !tbaa !140
-  br label %60
+59:                                               ; preds = %37
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  store i32 1, ptr %60, align 8, !tbaa !140
+  br label %61
 
-60:                                               ; preds = %46, %58, %30, %16
-  %61 = and i32 %4, 32
-  %.not63 = icmp eq i32 %61, 0
-  br i1 %.not63, label %70, label %62
+61:                                               ; preds = %46, %59, %30, %16
+  %62 = and i32 %4, 32
+  %.not63 = icmp eq i32 %62, 0
+  br i1 %.not63, label %71, label %63
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %64 = load i32, ptr %63, align 8, !tbaa !42
-  %.lobit = lshr i32 %64, 31
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1092
-  store i32 %.lobit, ptr %65, align 4, !tbaa !118
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %67 = load i32, ptr %66, align 8, !tbaa !141
-  %68 = add nsw i32 %67, 1
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  store i32 %68, ptr %69, align 8, !tbaa !120
-  br label %73
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %65 = load i32, ptr %64, align 8, !tbaa !42
+  %.lobit = lshr i32 %65, 31
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1092
+  store i32 %.lobit, ptr %66, align 4, !tbaa !118
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %68 = load i32, ptr %67, align 8, !tbaa !141
+  %69 = add nsw i32 %68, 1
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  store i32 %69, ptr %70, align 8, !tbaa !120
+  br label %74
 
-70:                                               ; preds = %60
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1092
-  store i32 1, ptr %71, align 4, !tbaa !118
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  store i32 1, ptr %72, align 8, !tbaa !120
-  br label %73
+71:                                               ; preds = %61
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1092
+  store i32 1, ptr %72, align 4, !tbaa !118
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  store i32 1, ptr %73, align 8, !tbaa !120
+  br label %74
 
-73:                                               ; preds = %62, %70, %20
+74:                                               ; preds = %63, %71, %20
   %.0 = phi i32 [ -22, %20 ], [ 0, %70 ], [ 0, %62 ]
   ret i32 %.0
 }

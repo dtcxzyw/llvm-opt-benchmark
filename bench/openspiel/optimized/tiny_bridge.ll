@@ -4886,7 +4886,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           cleanup
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  br label %237
+  br label %240
 
 92:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %86, %73, %55
   store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel11tiny_bridge19TinyBridgePlayStateE, i64 16), ptr %6, align 8
@@ -5018,14 +5018,14 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit: ; preds = %134, %138
   %148 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #28
-  br label %238
+  br label %241
 
 149:                                              ; preds = %19
   %150 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #28
   call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 280) #31
-  br label %238
+  br label %241
 
 151:                                              ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
   %152 = landingpad { ptr, i32 }
@@ -5110,107 +5110,107 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit: ; preds = %134, %138
   %193 = mul nsw i32 %174, 10
   %194 = icmp eq i32 %183, 2
   %195 = icmp eq i64 %33, 2
-  %spec.select.v.i = select i1 %195, i32 15, i32 10
-  %spec.select.i = select i1 %194, i32 %spec.select.v.i, i32 0
-  %.1.i = add nsw i32 %spec.select.i, %193
+  %196 = select i1 %195, i32 15, i32 10
+  %spec.select.i = select i1 %194, i32 %196, i32 0
+  %198 = add nsw i32 %spec.select.i, %193
   %196 = zext i1 %180 to i32
   %197 = add nuw nsw i32 %196, %185
-  %198 = shl i32 %.1.i, %197
+  %198 = shl i32 %198, %197
   br label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit
 
 _ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit: ; preds = %187, %192
   %.018.i = phi i32 [ %191, %187 ], [ %198, %192 ]
-  %199 = icmp eq i32 %39, 0
-  %200 = sub nsw i32 0, %.018.i
-  %201 = select i1 %199, i32 %.018.i, i32 %200
+  %202 = icmp eq i32 %39, 0
+  %203 = sub nsw i32 0, %.018.i
+  %204 = select i1 %202, i32 %.018.i, i32 %203
   call void @_ZN10open_spiel11tiny_bridge19TinyBridgePlayStateD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #28
-  %202 = load ptr, ptr %42, align 8
-  %.not.i.i.i33 = icmp eq ptr %202, null
-  br i1 %.not.i.i.i33, label %_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit, label %203
+  %205 = load ptr, ptr %42, align 8
+  %.not.i.i.i33 = icmp eq ptr %205, null
+  br i1 %.not.i.i.i33, label %_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit, label %206
 
-203:                                              ; preds = %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit
-  %204 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  %205 = load atomic i64, ptr %204 acquire, align 8
-  %206 = icmp eq i64 %205, 4294967297
-  %207 = trunc i64 %205 to i32
-  br i1 %206, label %208, label %213
+206:                                              ; preds = %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  %208 = load atomic i64, ptr %207 acquire, align 8
+  %209 = icmp eq i64 %208, 4294967297
+  %210 = trunc i64 %208 to i32
+  br i1 %209, label %211, label %216
 
-208:                                              ; preds = %203
-  store i32 0, ptr %204, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %202, i64 12
-  store i32 0, ptr %209, align 4
-  %210 = load ptr, ptr %202, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  %212 = load ptr, ptr %211, align 8
-  call void %212(ptr noundef nonnull align 8 dereferenceable(16) %202) #28
+211:                                              ; preds = %206
+  store i32 0, ptr %207, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %205, i64 12
+  store i32 0, ptr %212, align 4
+  %213 = load ptr, ptr %205, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %215 = load ptr, ptr %214, align 8
+  call void %212(ptr noundef nonnull align 8 dereferenceable(16) %205) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38
 
-213:                                              ; preds = %203
-  %214 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i34 = icmp eq i8 %214, 0
-  br i1 %.not.i.i.i.i34, label %217, label %215
+216:                                              ; preds = %206
+  %217 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i34 = icmp eq i8 %217, 0
+  br i1 %.not.i.i.i.i34, label %220, label %218
 
-215:                                              ; preds = %213
-  %216 = add nsw i32 %207, -1
-  store i32 %216, ptr %204, align 4
-  br label %219
+218:                                              ; preds = %216
+  %219 = add nsw i32 %210, -1
+  store i32 %219, ptr %207, align 4
+  br label %222
 
-217:                                              ; preds = %213
-  %218 = atomicrmw volatile add ptr %204, i32 -1 acq_rel, align 4
-  br label %219
+220:                                              ; preds = %216
+  %221 = atomicrmw volatile add ptr %207, i32 -1 acq_rel, align 4
+  br label %222
 
-219:                                              ; preds = %217, %215
-  %.0.i.i.i.i35 = phi i32 [ %207, %215 ], [ %218, %217 ]
-  %220 = icmp eq i32 %.0.i.i.i.i35, 1
-  br i1 %220, label %221, label %_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit
+222:                                              ; preds = %220, %218
+  %.0.i.i.i.i35 = phi i32 [ %210, %215 ], [ %221, %217 ]
+  %223 = icmp eq i32 %.0.i.i.i.i35, 1
+  br i1 %223, label %224, label %_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit
 
-221:                                              ; preds = %219
-  %222 = load ptr, ptr %202, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 16
-  %224 = load ptr, ptr %223, align 8
-  call void %224(ptr noundef nonnull align 8 dereferenceable(16) %202) #28
-  %225 = getelementptr inbounds nuw i8, ptr %202, i64 12
-  %226 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i36 = icmp eq i8 %226, 0
-  br i1 %.not.i.i.i.i.i.i36, label %230, label %227
+224:                                              ; preds = %222
+  %225 = load ptr, ptr %205, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
+  %227 = load ptr, ptr %226, align 8
+  call void %224(ptr noundef nonnull align 8 dereferenceable(16) %205) #28
+  %228 = getelementptr inbounds nuw i8, ptr %205, i64 12
+  %229 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i36 = icmp eq i8 %229, 0
+  br i1 %.not.i.i.i.i.i.i36, label %233, label %230
 
-227:                                              ; preds = %221
-  %228 = load i32, ptr %225, align 4
-  %229 = add nsw i32 %228, -1
-  store i32 %229, ptr %225, align 4
-  br label %232
+230:                                              ; preds = %224
+  %231 = load i32, ptr %228, align 4
+  %232 = add nsw i32 %231, -1
+  store i32 %232, ptr %228, align 4
+  br label %235
 
-230:                                              ; preds = %221
-  %231 = atomicrmw volatile add ptr %225, i32 -1 acq_rel, align 4
-  br label %232
+233:                                              ; preds = %224
+  %234 = atomicrmw volatile add ptr %228, i32 -1 acq_rel, align 4
+  br label %235
 
-232:                                              ; preds = %230, %227
-  %.0.i.i.i.i.i.i37 = phi i32 [ %228, %227 ], [ %231, %230 ]
-  %233 = icmp eq i32 %.0.i.i.i.i.i.i37, 1
-  br i1 %233, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38, label %_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit
+235:                                              ; preds = %233, %230
+  %.0.i.i.i.i.i.i37 = phi i32 [ %231, %227 ], [ %234, %230 ]
+  %236 = icmp eq i32 %.0.i.i.i.i.i.i37, 1
+  br i1 %236, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38, label %_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38: ; preds = %232, %208
-  %234 = load ptr, ptr %202, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
-  %236 = load ptr, ptr %235, align 8
-  call void %236(ptr noundef nonnull align 8 dereferenceable(16) %202) #28
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38: ; preds = %235, %211
+  %237 = load ptr, ptr %205, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
+  %239 = load ptr, ptr %238, align 8
+  call void %236(ptr noundef nonnull align 8 dereferenceable(16) %205) #28
   br label %_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit32: ; preds = %155, %151, %169, %162, %160
   %.pn = phi { ptr, i32 } [ %170, %169 ], [ %161, %160 ], [ %163, %162 ], [ %152, %151 ], [ %152, %155 ]
   call void @_ZN10open_spiel11tiny_bridge19TinyBridgePlayStateD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #28
-  br label %237
+  br label %240
 
-237:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit32, %.body
+240:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit32, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit32 ], [ %91, %.body ]
   call void @_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #28
-  br label %238
+  br label %241
 
-_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38, %232, %219, %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ %201, %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit ], [ %201, %219 ], [ %201, %232 ], [ %201, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ]
+_ZNSt10shared_ptrIN10open_spiel4GameEED2Ev.exit:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38, %235, %222, %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit, %2
+  %.0 = phi i32 [ 0, %2 ], [ %204, %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_15ScoreEiibbi.exit ], [ %204, %219 ], [ %204, %232 ], [ %204, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ]
   ret i32 %.0
 
-238:                                              ; preds = %147, %149, %237
+241:                                              ; preds = %147, %149, %240
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %237 ], [ %150, %149 ], [ %148, %147 ]
   resume { ptr, i32 } %.pn.pn.pn
 }

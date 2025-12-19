@@ -8432,8 +8432,8 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   %51 = icmp eq i32 %50, 0
   %.v = select i1 %51, i8 1, i8 6
   %52 = add nuw nsw i8 %49, %.v
-  %53 = icmp ult i8 %37, %52
-  br i1 %53, label %67, label %.critedge
+  %.not = icmp ult i8 %37, %52
+  br i1 %.not, label %67, label %.critedge
 
 .critedge:                                        ; preds = %39, %42
   %54 = load ptr, ptr %21, align 8

@@ -1311,7 +1311,7 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
   %11 = add i32 %1, 64
   %12 = tail call ptr @__alloc_skb(i32 noundef %11, i32 noundef %2, i32 noundef 2, i32 noundef -1)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %63, label %54
+  br i1 %13, label %65, label %56
 
 14:                                               ; preds = %3
   %15 = add nuw nsw i32 %1, 127
@@ -1365,7 +1365,7 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
   %43 = phi ptr [ %32, %29 ], [ %39, %35 ]
   %44 = phi i8 [ %34, %29 ], [ %41, %35 ]
   %45 = icmp eq ptr %43, null
-  br i1 %45, label %63, label %46, !prof !6
+  br i1 %45, label %65, label %46, !prof !6
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr @skbuff_cache, align 8
@@ -1375,7 +1375,7 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
 
 50:                                               ; preds = %46
   call void @page_frag_free(ptr noundef nonnull %43) #23
-  br label %63
+  br label %65
 
 ._crit_edge:                                      ; preds = %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %48, i8 0, i64 184, i1 false)
@@ -1384,28 +1384,28 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %48, i64 126
   %.pre = load i8, ptr %.phi.trans.insert, align 2
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 126
-  %.v = select i1 %51, i8 32, i8 96
+  %53 = select i1 %51, i8 32, i8 96
   %53 = or i8 %.pre, %.v
   store i8 %53, ptr %52, align 2
   br label %54
 
-54:                                               ; preds = %._crit_edge, %10
-  %55 = phi ptr [ %12, %10 ], [ %48, %._crit_edge ]
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 200
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr i8, ptr %57, i64 64
-  store ptr %58, ptr %56, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 184
-  %60 = load i32, ptr %59, align 8
-  %61 = add i32 %60, 64
-  store i32 %61, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %0, ptr %62, align 8
-  br label %63
+56:                                               ; preds = %._crit_edge, %10
+  %57 = phi ptr [ %12, %10 ], [ %48, %._crit_edge ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 200
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr i8, ptr %59, i64 64
+  store ptr %60, ptr %58, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 184
+  %62 = load i32, ptr %61, align 8
+  %63 = add i32 %62, 64
+  store i32 %63, ptr %61, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store ptr %0, ptr %64, align 8
+  br label %65
 
-63:                                               ; preds = %54, %50, %42, %10
-  %64 = phi ptr [ null, %50 ], [ null, %42 ], [ %55, %54 ], [ null, %10 ]
-  ret ptr %64
+65:                                               ; preds = %56, %50, %42, %10
+  %66 = phi ptr [ null, %50 ], [ null, %42 ], [ %57, %54 ], [ null, %10 ]
+  ret ptr %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1420,7 +1420,7 @@ define dso_local ptr @__napi_alloc_skb(ptr noundef readonly captures(none) %0, i
 9:                                                ; preds = %3
   %10 = tail call ptr @__alloc_skb(i32 noundef %4, i32 noundef %2, i32 noundef 6, i32 noundef -1)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread6, label %88
+  br i1 %11, label %.thread6, label %90
 
 12:                                               ; preds = %3
   %13 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @napi_alloc_cache) #25, !srcloc !48
@@ -1537,30 +1537,30 @@ define dso_local ptr @__napi_alloc_skb(ptr noundef readonly captures(none) %0, i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %81, i64 126
   %.pre = load i8, ptr %.phi.trans.insert, align 2
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 126
-  %.v = select i1 %85, i8 32, i8 96
+  %87 = select i1 %85, i8 32, i8 96
   %87 = or i8 %.pre, %.v
   store i8 %87, ptr %86, align 2
   br label %88
 
-88:                                               ; preds = %._crit_edge, %9
-  %89 = phi ptr [ %10, %9 ], [ %81, %._crit_edge ]
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 200
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr i8, ptr %91, i64 64
-  store ptr %92, ptr %90, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 184
-  %94 = load i32, ptr %93, align 8
-  %95 = add i32 %94, 64
-  store i32 %95, ptr %93, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %97, ptr %98, align 8
+90:                                               ; preds = %._crit_edge, %9
+  %91 = phi ptr [ %10, %9 ], [ %81, %._crit_edge ]
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 200
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr i8, ptr %93, i64 64
+  store ptr %94, ptr %92, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 184
+  %96 = load i32, ptr %95, align 8
+  %97 = add i32 %96, 64
+  store i32 %97, ptr %95, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  store ptr %99, ptr %100, align 8
   br label %.thread6
 
-.thread6:                                         ; preds = %27, %88, %.thread7, %57, %9
-  %99 = phi ptr [ null, %.thread7 ], [ null, %57 ], [ %89, %88 ], [ null, %9 ], [ null, %27 ]
-  ret ptr %99
+.thread6:                                         ; preds = %27, %90, %.thread7, %57, %9
+  %101 = phi ptr [ null, %.thread7 ], [ null, %57 ], [ %91, %88 ], [ null, %9 ], [ null, %27 ]
+  ret ptr %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

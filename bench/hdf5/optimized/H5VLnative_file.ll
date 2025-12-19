@@ -98,32 +98,32 @@ define ptr @H5VL__native_file_create(ptr noundef %0, i32 noundef %1, i64 noundef
   br i1 %12, label %15, label %.thread
 
 .thread:                                          ; preds = %6
-  %13 = load ptr, ptr %7, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i8 1, ptr %14, align 8, !tbaa !8
-  br label %27
+  %14 = load ptr, ptr %7, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i8 1, ptr %15, align 8, !tbaa !8
+  br label %28
 
-15:                                               ; preds = %6
-  %16 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
-  %17 = load i64, ptr @H5E_CANTOPENFILE_g, align 8, !tbaa !16
-  %18 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_file_create, i32 noundef 94, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.1) #6
-  %19 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %27, label %20
+16:                                               ; preds = %6
+  %17 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
+  %18 = load i64, ptr @H5E_CANTOPENFILE_g, align 8, !tbaa !16
+  %19 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_file_create, i32 noundef 94, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.1) #6
+  %20 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %28, label %21
 
-20:                                               ; preds = %15
-  %21 = call i32 @H5F__close(ptr noundef nonnull %19) #6
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %27
+21:                                               ; preds = %16
+  %22 = call i32 @H5F__close(ptr noundef nonnull %20) #6
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %20
-  %24 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
-  %25 = load i64, ptr @H5E_CANTCLOSEFILE_g, align 8, !tbaa !16
-  %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_file_create, i32 noundef 102, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.2) #6
-  br label %27
+24:                                               ; preds = %21
+  %25 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
+  %26 = load i64, ptr @H5E_CANTCLOSEFILE_g, align 8, !tbaa !16
+  %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_file_create, i32 noundef 102, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.2) #6
+  br label %28
 
-27:                                               ; preds = %.thread, %20, %23, %15
-  %.1 = phi ptr [ null, %23 ], [ null, %20 ], [ null, %15 ], [ %13, %.thread ]
+28:                                               ; preds = %.thread, %21, %24, %16
+  %.1 = phi ptr [ null, %23 ], [ null, %20 ], [ null, %15 ], [ %14, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.1
 }

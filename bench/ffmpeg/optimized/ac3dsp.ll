@@ -1023,13 +1023,13 @@ define internal void @ac3_extract_exponents_c(ptr noundef writeonly captures(non
   %12 = zext nneg i32 %.110.i to i64
   %13 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !45
-  %15 = add nsw i8 %spec.select11.i.neg, 23
+  %.neg9 = add nsw i8 %spec.select11.i.neg, 23
   %16 = or disjoint i8 %spec.select11.i.neg, 15
   %.neg9 = select i1 %.not.i, i8 %15, i8 %16
   %17 = sub i8 %.neg9, %14
   br label %18
 
-18:                                               ; preds = %.lr.ph, %7
+18: ; preds = %.lr.ph, %7
   %19 = phi i8 [ %17, %7 ], [ 24, %.lr.ph ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %19, ptr %20, align 1, !tbaa !45

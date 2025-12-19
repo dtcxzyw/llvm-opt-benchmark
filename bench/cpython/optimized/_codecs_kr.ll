@@ -1200,7 +1200,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %129
   %7 = phi ptr [ %131, %129 ], [ %.pre, %.lr.ph.preheader ]
-  %.096134 = phi i64 [ %132, %129 ], [ %3, %.lr.ph.preheader ]
+  %.096133 = phi i64 [ %132, %129 ], [ %3, %.lr.ph.preheader ]
   %8 = load i8, ptr %7, align 1, !tbaa !34
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %10, label %14
@@ -1212,7 +1212,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   br i1 %13, label %.thread129, label %129, !llvm.loop !65
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp eq i64 %.096134, 1
+  %15 = icmp eq i64 %.096133, 1
   br i1 %15, label %.thread129, label %16
 
 16:                                               ; preds = %14
@@ -1340,8 +1340,8 @@ switch.early.test:                                ; preds = %90
   %or.cond15 = icmp slt i8 %.fr, -111
   %94 = and i8 %.fr, 127
   %95 = icmp eq i8 %94, 127
-  %or.cond119 = or i1 %or.cond15, %95
-  br i1 %or.cond119, label %.thread129, label %96
+  %or.cond118 = or i1 %or.cond15, %95
+  br i1 %or.cond118, label %.thread129, label %96
 
 96:                                               ; preds = %92
   %97 = icmp eq i8 %8, -38
@@ -1353,8 +1353,8 @@ switch.early.test:                                ; preds = %90
 100:                                              ; preds = %96
   %101 = icmp samesign ult i8 %8, -32
   %102 = shl nsw i8 %8, 1
-  %.v133 = select i1 %101, i8 78, i8 105
-  %103 = add nsw i8 %.v133, %102
+  %.v132 = select i1 %101, i8 78, i8 105
+  %103 = add nsw i8 %.v132, %102
   %.v = select i1 %93, i8 -49, i8 -67
   %104 = add i8 %.v, %.fr
   %105 = icmp ugt i8 %104, 93
@@ -1398,7 +1398,7 @@ switch.early.test:                                ; preds = %90
 
 129:                                              ; preds = %125, %63, %52, %55, %80, %73, %10
   %.sink190 = phi i64 [ 1, %10 ], [ 2, %63 ], [ 2, %73 ], [ 2, %80 ], [ 2, %55 ], [ 2, %52 ], [ 2, %125 ]
-  %.sink = phi i64 [ -1, %10 ], [ -2, %63 ], [ -2, %73 ], [ -2, %80 ], [ -2, %55 ], [ -2, %52 ], [ -2, %125 ]
+  %.sink189 = phi i64 [ -1, %10 ], [ -2, %63 ], [ -2, %73 ], [ -2, %80 ], [ -2, %55 ], [ -2, %52 ], [ -2, %125 ]
   %130 = load ptr, ptr %2, align 8, !tbaa !37
   %131 = getelementptr i8, ptr %130, i64 %.sink190
   store ptr %131, ptr %2, align 8, !tbaa !37

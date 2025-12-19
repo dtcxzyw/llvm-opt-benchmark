@@ -56,36 +56,36 @@ define noundef double @_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0
   %30 = bitcast i64 %29 to double
   br label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit
 
-31:                                               ; preds = %24
-  %32 = add nuw i64 %8, 1
-  %33 = bitcast i64 %32 to double
+33:                                               ; preds = %24
+  %34 = add nuw i64 %8, 1
+  %35 = bitcast i64 %34 to double
   br label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit
 
-34:                                               ; preds = %21
-  %35 = and i64 %8, 1
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit, label %37
+36:                                               ; preds = %21
+  %37 = and i64 %8, 1
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit, label %39
 
-37:                                               ; preds = %34
-  %38 = icmp slt i64 %8, 0
-  br i1 %38, label %39, label %44
-
-39:                                               ; preds = %37
-  %40 = fcmp oeq double %6, 0.000000e+00
-  br i1 %40, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit, label %41
+39:                                               ; preds = %36
+  %40 = icmp slt i64 %8, 0
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39
-  %42 = add nsw i64 %8, -1
-  %43 = bitcast i64 %42 to double
+  %42 = fcmp oeq double %6, 0.000000e+00
+  br i1 %42, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit, label %43
+
+43:                                               ; preds = %41
+  %44 = add nsw i64 %8, -1
+  %45 = bitcast i64 %44 to double
   br label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit
 
-44:                                               ; preds = %37
-  %45 = add nuw i64 %8, 1
-  %46 = bitcast i64 %45 to double
+46:                                               ; preds = %39
+  %47 = add nuw i64 %8, 1
+  %48 = bitcast i64 %47 to double
   br label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit
 
 _ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit: ; preds = %3, %44, %41, %39, %34, %31, %28, %26, %22, %7
-  %.0 = phi double [ %43, %41 ], [ %6, %34 ], [ %6, %7 ], [ 0x7FF0000000000000, %22 ], [ 0.000000e+00, %26 ], [ %33, %31 ], [ %30, %28 ], [ 0.000000e+00, %39 ], [ %46, %44 ], [ %6, %3 ]
+  %.0 = phi double [ %45, %41 ], [ %6, %34 ], [ %6, %7 ], [ 0x7FF0000000000000, %22 ], [ 0.000000e+00, %26 ], [ %35, %31 ], [ %30, %28 ], [ 0.000000e+00, %39 ], [ %48, %44 ], [ %6, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0
 }
@@ -669,7 +669,7 @@ _ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.e
   %34 = icmp eq i64 %33, 0
   %35 = shl i64 %32, 1
   %36 = and i64 %35, 9007199254740990
-  %.v.i.i = select i1 %34, i64 1, i64 9007199254740993
+  %.v.i.i = select i1 %36, i64 1, i64 9007199254740993
   %37 = or disjoint i64 %.v.i.i, %36
   %38 = lshr i64 %32, 52
   %39 = trunc nuw nsw i64 %38 to i32
@@ -678,7 +678,7 @@ _ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.e
   %42 = select i1 %34, i32 -1075, i32 %41
   %43 = call fastcc noundef i32 @_ZN14arrow_vendored17double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %.sroa.0.0, i32 %.sroa.6.0, i32 noundef %.0, i64 %37, i32 %42)
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %45
+  br i1 %46, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %45
 
 45:                                               ; preds = %31
   %.not.i = icmp eq i32 %43, 0
@@ -701,36 +701,36 @@ _ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.e
   %54 = bitcast i64 %53 to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-55:                                               ; preds = %48
-  %56 = add nuw i64 %32, 1
-  %57 = bitcast i64 %56 to double
+57:                                               ; preds = %48
+  %58 = add nuw i64 %32, 1
+  %59 = bitcast i64 %58 to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-58:                                               ; preds = %45
-  %59 = and i64 %32, 1
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %61
+60:                                               ; preds = %47
+  %61 = and i64 %32, 1
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %63
 
-61:                                               ; preds = %58
-  %62 = icmp slt i64 %32, 0
-  br i1 %62, label %63, label %68
-
-63:                                               ; preds = %61
-  %64 = fcmp oeq double %30, 0.000000e+00
-  br i1 %64, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %65
+63:                                               ; preds = %60
+  %64 = icmp slt i64 %32, 0
+  br i1 %64, label %65, label %70
 
 65:                                               ; preds = %63
-  %66 = add nsw i64 %32, -1
-  %67 = bitcast i64 %66 to double
+  %66 = fcmp oeq double %30, 0.000000e+00
+  br i1 %66, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %67
+
+67:                                               ; preds = %65
+  %68 = add nsw i64 %32, -1
+  %69 = bitcast i64 %68 to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-68:                                               ; preds = %61
-  %69 = add nuw i64 %32, 1
-  %70 = bitcast i64 %69 to double
+70:                                               ; preds = %63
+  %71 = add nuw i64 %32, 1
+  %72 = bitcast i64 %71 to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %46, %50, %52, %55, %58, %63, %65, %68
-  %.0.i = phi double [ %67, %65 ], [ %30, %58 ], [ %30, %31 ], [ 0x7FF0000000000000, %46 ], [ 0.000000e+00, %50 ], [ %57, %55 ], [ %54, %52 ], [ 0.000000e+00, %63 ], [ %70, %68 ], [ %30, %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
+_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %50, %52, %55, %58, %63, %65, %68
+  %.0.i = phi double [ %69, %65 ], [ %30, %58 ], [ %30, %31 ], [ 0x7FF0000000000000, %48 ], [ 0.000000e+00, %50 ], [ %59, %55 ], [ %54, %52 ], [ 0.000000e+00, %63 ], [ %70, %68 ], [ %30, %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %.0.i
@@ -943,7 +943,7 @@ _ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit58: ; preds = 
 
 54:                                               ; preds = %_ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit58
   %55 = fcmp oeq float %.0.i51, 0.000000e+00
-  br i1 %55, label %68, label %56
+  br i1 %55, label %70, label %56
 
 56:                                               ; preds = %54
   %57 = bitcast float %.0.i51 to i32
@@ -962,13 +962,13 @@ _ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit58: ; preds = 
 
 68:                                               ; preds = %54, %56
   %.sroa.064.0 = phi i64 [ %63, %56 ], [ 4503599627370496, %54 ]
-  %.sroa.6.0 = phi i32 [ %67, %56 ], [ -202, %54 ]
-  %69 = tail call fastcc noundef i32 @_ZN14arrow_vendored17double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %0, i32 %1, i32 noundef %2, i64 %.sroa.064.0, i32 %.sroa.6.0)
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %76, label %71
+  %.sroa.064.0 = phi i32 [ %67, %56 ], [ -202, %54 ]
+  %69 = tail call fastcc noundef i32 @_ZN14arrow_vendored17double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %0, i32 %1, i32 noundef %2, i64 %.sroa.064.0, i32 %.sroa.064.0)
+  %70 = icmp slt i32 %71, 0
+  br i1 %72, label %76, label %71
 
 71:                                               ; preds = %68
-  %.not = icmp eq i32 %69, 0
+  %.not = icmp eq i32 %71, 0
   br i1 %.not, label %72, label %76
 
 72:                                               ; preds = %71

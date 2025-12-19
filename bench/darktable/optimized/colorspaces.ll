@@ -3100,12 +3100,12 @@ _create_profile.exit290:                          ; preds = %420, %.split220, %4
   %.not.i293 = icmp eq ptr %432, null
   br i1 %.not.i293, label %_create_profile.exit294, label %433
 
-433:                                              ; preds = %_create_profile.exit290
+433:; preds = %_create_profile.exit290
   %spec.select240 = select i1 %.not226, i32 %.0210, i32 -1
   store i32 6, ptr %432, align 8, !tbaa !77
   %434 = getelementptr inbounds nuw i8, ptr %432, i64 516
   %435 = call i64 @g_strlcpy(ptr noundef nonnull %434, ptr noundef %430, i64 noundef 512) #23
-  %436 = getelementptr inbounds nuw i8, ptr %432, i64 1032
+  %435 = getelementptr inbounds nuw i8, ptr %432, i64 1032
   store ptr %429, ptr %436, align 8, !tbaa !85
   %437 = getelementptr inbounds nuw i8, ptr %432, i64 1040
   store i32 12, ptr %437, align 8, !tbaa !104
@@ -3116,52 +3116,52 @@ _create_profile.exit290:                          ; preds = %420, %.split220, %4
   br label %_create_profile.exit294
 
 _create_profile.exit294:                          ; preds = %_create_profile.exit290, %433
-  %440 = call ptr @g_list_append(ptr noundef %427, ptr noundef %432) #23
-  store ptr %440, ptr %10, align 8, !tbaa !103
-  %441 = call ptr @cmsBuildGamma(ptr noundef null, double noundef 1.000000e+00) #23
+  %441 = call ptr @g_list_append(ptr noundef %427, ptr noundef %432) #23
+  store ptr %441, ptr %10, align 8, !tbaa !103
+  %442 = call ptr @cmsBuildGamma(ptr noundef null, double noundef 1.000000e+00) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) @__const._colorspaces_create_linear_infrared_profile.BGR_Primaries, i64 72, i1 false)
-  %442 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.182, ptr noundef nonnull @D65xyY, ptr noundef nonnull %3, ptr noundef %441, i32 noundef 0)
-  call void @cmsFreeToneCurve(ptr noundef %441) #23
+  %443 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.182, ptr noundef nonnull @D65xyY, ptr noundef nonnull %3, ptr noundef %442, i32 noundef 0)
+  call void @cmsFreeToneCurve(ptr noundef %442) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %443 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #23
-  %444 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i295 = icmp eq ptr %444, null
-  br i1 %.not.i295, label %_create_profile.exit296, label %445
+  %444 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #23
+  %445 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i295 = icmp eq ptr %445, null
+  br i1 %.not.i295, label %_create_profile.exit296, label %446
 
-445:                                              ; preds = %_create_profile.exit294
-  store i32 7, ptr %444, align 8, !tbaa !77
-  %446 = getelementptr inbounds nuw i8, ptr %444, i64 516
-  %447 = call i64 @g_strlcpy(ptr noundef nonnull %446, ptr noundef %443, i64 noundef 512) #23
-  %448 = getelementptr inbounds nuw i8, ptr %444, i64 1032
-  store ptr %442, ptr %448, align 8, !tbaa !85
-  %449 = getelementptr inbounds nuw i8, ptr %444, i64 1040
-  store i32 13, ptr %449, align 8, !tbaa !104
-  %450 = getelementptr inbounds nuw i8, ptr %444, i64 1044
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %450, i8 -1, i64 20, i1 false)
+446:                                              ; preds = %_create_profile.exit294
+  store i32 7, ptr %445, align 8, !tbaa !77
+  %447 = getelementptr inbounds nuw i8, ptr %445, i64 516
+  %448 = call i64 @g_strlcpy(ptr noundef nonnull %447, ptr noundef %444, i64 noundef 512) #23
+  %449 = getelementptr inbounds nuw i8, ptr %445, i64 1032
+  store ptr %443, ptr %449, align 8, !tbaa !85
+  %450 = getelementptr inbounds nuw i8, ptr %445, i64 1040
+  store i32 13, ptr %450, align 8, !tbaa !104
+  %451 = getelementptr inbounds nuw i8, ptr %445, i64 1044
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %451, i8 -1, i64 20, i1 false)
   br label %_create_profile.exit296
 
-_create_profile.exit296:                          ; preds = %_create_profile.exit294, %445
-  %451 = call ptr @g_list_append(ptr noundef %440, ptr noundef %444) #23
-  store ptr %451, ptr %10, align 8, !tbaa !103
+_create_profile.exit296:                          ; preds = %_create_profile.exit294, %446
+  %452 = call ptr @g_list_append(ptr noundef %441, ptr noundef %445) #23
+  store ptr %452, ptr %10, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store double 2.400000e+00, ptr %1, align 16
-  %452 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double 0x3FEE54EDCD0AEB60, ptr %452, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double 0x3FAAB1232F514A03, ptr %453, align 16
-  %454 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double 0x3FB3D0722149B580, ptr %454, align 8
-  %455 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double 4.045000e-02, ptr %455, align 16
-  %456 = call ptr @cmsBuildParametricToneCurve(ptr noundef null, i32 noundef 4, ptr noundef nonnull %1) #23
+  %453 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double 0x3FEE54EDCD0AEB60, ptr %453, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double 0x3FAAB1232F514A03, ptr %454, align 16
+  %455 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store double 0x3FB3D0722149B580, ptr %455, align 8
+  %456 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store double 4.045000e-02, ptr %456, align 16
+  %457 = call ptr @cmsBuildParametricToneCurve(ptr noundef null, i32 noundef 4, ptr noundef nonnull %1) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) @__const._colorspaces_create_brg_profile.BRG_Primaries, i64 72, i1 false)
-  %457 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.183, ptr noundef nonnull @D65xyY, ptr noundef nonnull %2, ptr noundef %456, i32 noundef 1)
-  call void @cmsFreeToneCurve(ptr noundef %456) #23
+  %458 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.183, ptr noundef nonnull @D65xyY, ptr noundef nonnull %2, ptr noundef %457, i32 noundef 1)
+  call void @cmsFreeToneCurve(ptr noundef %457) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %458 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #23
+  %459 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #23
   %459 = zext i1 %.not226 to i32
   %460 = add nuw nsw i32 %.0210, %459
   %461 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
@@ -3171,9 +3171,9 @@ _create_profile.exit296:                          ; preds = %_create_profile.exi
 462:                                              ; preds = %_create_profile.exit296
   store i32 15, ptr %461, align 8, !tbaa !77
   %463 = getelementptr inbounds nuw i8, ptr %461, i64 516
-  %464 = call i64 @g_strlcpy(ptr noundef nonnull %463, ptr noundef %458, i64 noundef 512) #23
+  %464 = call i64 @g_strlcpy(ptr noundef nonnull %463, ptr noundef %459, i64 noundef 512) #23
   %465 = getelementptr inbounds nuw i8, ptr %461, i64 1032
-  store ptr %457, ptr %465, align 8, !tbaa !85
+  store ptr %458, ptr %465, align 8, !tbaa !85
   %466 = getelementptr inbounds nuw i8, ptr %461, i64 1040
   store i32 14, ptr %466, align 8, !tbaa !104
   %467 = getelementptr inbounds nuw i8, ptr %461, i64 1044
@@ -3189,7 +3189,7 @@ _create_profile.exit296:                          ; preds = %_create_profile.exi
   br label %_create_profile.exit298
 
 _create_profile.exit298:                          ; preds = %_create_profile.exit296, %462
-  %472 = call ptr @g_list_append(ptr noundef %451, ptr noundef %461) #23
+  %472 = call ptr @g_list_append(ptr noundef %452, ptr noundef %461) #23
   store ptr %472, ptr %10, align 8, !tbaa !103
   %473 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.41) #23
   %474 = getelementptr inbounds nuw i8, ptr %10, i64 108

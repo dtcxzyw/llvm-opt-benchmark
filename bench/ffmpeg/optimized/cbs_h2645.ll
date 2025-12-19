@@ -41271,117 +41271,117 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_ref_pic_list
   %16 = load i8, ptr %15, align 1, !tbaa !25
   %17 = zext i8 %16 to i32
   %.v = select i1 %.not11.i, i32 1, i32 9
-  %18 = or disjoint i32 %spec.select12.i, %.v
-  %19 = add nuw nsw i32 %18, %17
+  %19 = or disjoint i32 %spec.select12.i, %.v
+  %20 = add nuw nsw i32 %19, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %20 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.180, ptr noundef nonnull %5) #12
-  %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %22, label %.critedge
+  %21 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.180, ptr noundef nonnull %5) #12
+  %22 = icmp sgt i32 %21, -1
+  br i1 %22, label %23, label %.critedge
 
-22:                                               ; preds = %4
-  %23 = load i32, ptr %5, align 4, !tbaa !63
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 302
-  store i8 %24, ptr %25, align 2, !tbaa !1119
+23:                                               ; preds = %4
+  %24 = load i32, ptr %5, align 4, !tbaa !63
+  %25 = trunc i32 %24 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 302
+  store i8 %25, ptr %26, align 2, !tbaa !1119
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not = icmp eq i8 %24, 0
+  %.not = icmp eq i8 %25, 0
   br i1 %.not, label %.loopexit66, label %.preheader65
 
-.preheader65:                                     ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 300
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 303
-  br label %29
+.preheader65:                                     ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 300
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 303
+  br label %30
 
-29:                                               ; preds = %.preheader65, %34
-  %indvars.iv = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next, %34 ]
+30:                                               ; preds = %.preheader65, %35
+  %indvars.iv = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %7, align 4, !tbaa !63
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %30, ptr %27, align 4, !tbaa !63
-  %31 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %19, ptr noundef nonnull @.str.588, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %11) #12
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %34, label %33
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %31, ptr %28, align 4, !tbaa !63
+  %32 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %20, ptr noundef nonnull @.str.588, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %11) #12
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %35, label %34
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-34:                                               ; preds = %29
-  %35 = load i32, ptr %6, align 4, !tbaa !63
-  %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv
-  store i8 %36, ptr %37, align 1, !tbaa !25
+35:                                               ; preds = %30
+  %36 = load i32, ptr %6, align 4, !tbaa !63
+  %37 = trunc i32 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
+  store i8 %37, ptr %38, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load i8, ptr %26, align 4, !tbaa !284
-  %39 = zext i8 %38 to i64
-  %.not54.not = icmp samesign ult i64 %indvars.iv, %39
-  br i1 %.not54.not, label %29, label %.loopexit66, !llvm.loop !1120
+  %39 = load i8, ptr %27, align 4, !tbaa !284
+  %40 = zext i8 %39 to i64
+  %.not54.not = icmp samesign ult i64 %indvars.iv, %40
+  br i1 %.not54.not, label %30, label %.loopexit66, !llvm.loop !1120
 
-.loopexit66:                                      ; preds = %34, %22
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %41 = load i8, ptr %40, align 2, !tbaa !255
-  %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %.loopexit
+.loopexit66:                                      ; preds = %35, %23
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %42 = load i8, ptr %41, align 2, !tbaa !255
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %44, label %.loopexit
 
-43:                                               ; preds = %.loopexit66
+44:                                               ; preds = %.loopexit66
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %44 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.184, ptr noundef nonnull %8) #12
-  %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %47, label %46
+  %45 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.184, ptr noundef nonnull %8) #12
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %48, label %47
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %8, align 4, !tbaa !63
-  %49 = trunc i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 319
-  store i8 %49, ptr %50, align 1, !tbaa !1121
+48:                                               ; preds = %44
+  %49 = load i32, ptr %8, align 4, !tbaa !63
+  %50 = trunc i32 %49 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 319
+  store i8 %50, ptr %51, align 1, !tbaa !1121
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not55 = icmp eq i8 %49, 0
+  %.not55 = icmp eq i8 %50, 0
   br i1 %.not55, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 301
-  %52 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  br label %54
+.preheader:                                       ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 301
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 320
+  br label %55
 
-54:                                               ; preds = %.preheader, %59
-  %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %59 ]
+55:                                               ; preds = %.preheader, %60
+  %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %10, align 4, !tbaa !63
-  %55 = trunc nuw nsw i64 %indvars.iv74 to i32
-  store i32 %55, ptr %52, align 4, !tbaa !63
-  %56 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %19, ptr noundef nonnull @.str.589, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %11) #12
-  %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %59, label %58
+  %56 = trunc nuw nsw i64 %indvars.iv74 to i32
+  store i32 %56, ptr %53, align 4, !tbaa !63
+  %57 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %20, ptr noundef nonnull @.str.589, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %11) #12
+  %58 = icmp sgt i32 %57, -1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %54
+59:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %9, align 4, !tbaa !63
-  %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv74
-  store i8 %61, ptr %62, align 1, !tbaa !25
+60:                                               ; preds = %55
+  %61 = load i32, ptr %9, align 4, !tbaa !63
+  %62 = trunc i32 %61 to i8
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv74
+  store i8 %62, ptr %63, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %63 = load i8, ptr %51, align 1, !tbaa !285
-  %64 = zext i8 %63 to i64
-  %.not56.not = icmp samesign ult i64 %indvars.iv74, %64
-  br i1 %.not56.not, label %54, label %.loopexit, !llvm.loop !1122
+  %64 = load i8, ptr %52, align 1, !tbaa !285
+  %65 = zext i8 %64 to i64
+  %.not56.not = icmp samesign ult i64 %indvars.iv74, %65
+  br i1 %.not56.not, label %55, label %.loopexit, !llvm.loop !1122
 
 .critedge:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %58, %46, %33, %.loopexit66, %47, %.critedge
-  %.148 = phi i32 [ %31, %33 ], [ %56, %58 ], [ %20, %.critedge ], [ %44, %46 ], [ 0, %.loopexit66 ], [ 0, %47 ], [ 0, %59 ]
+.loopexit:                                        ; preds = %60, %59, %47, %34, %.loopexit66, %48, %.critedge
+  %.148 = phi i32 [ %32, %34 ], [ %57, %59 ], [ %21, %.critedge ], [ %45, %47 ], [ 0, %.loopexit66 ], [ 0, %48 ], [ 0, %60 ]
   ret i32 %.148
 }
 
@@ -46585,91 +46585,91 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_ref_pic_lis
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %.v = select i1 %.not11.i, i32 1, i32 9
-  %14 = or disjoint i32 %spec.select12.i, %.v
-  %15 = add nuw nsw i32 %14, %13
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 302
-  %17 = load i8, ptr %16, align 2, !tbaa !1119
-  %18 = zext i8 %17 to i32
-  %19 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.180, i32 noundef %18) #12
-  %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %21, label %.loopexit
+  %15 = or disjoint i32 %spec.select12.i, %.v
+  %16 = add nuw nsw i32 %15, %13
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 302
+  %18 = load i8, ptr %17, align 2, !tbaa !1119
+  %19 = zext i8 %18 to i32
+  %20 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.180, i32 noundef %19) #12
+  %21 = icmp sgt i32 %20, -1
+  br i1 %21, label %22, label %.loopexit
 
-21:                                               ; preds = %4
-  %22 = load i8, ptr %16, align 2, !tbaa !1119
-  %.not = icmp eq i8 %22, 0
+22:                                               ; preds = %4
+  %23 = load i8, ptr %17, align 2, !tbaa !1119
+  %.not = icmp eq i8 %23, 0
   br i1 %.not, label %.loopexit61, label %.preheader60
 
-.preheader60:                                     ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 300
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 303
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  br label %29
+.preheader60:                                     ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 300
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 303
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  br label %30
 
-26:                                               ; preds = %29
+27:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i8, ptr %23, align 4, !tbaa !284
-  %28 = zext i8 %27 to i64
-  %.not57.not = icmp samesign ult i64 %indvars.iv, %28
-  br i1 %.not57.not, label %29, label %.loopexit61, !llvm.loop !1170
+  %28 = load i8, ptr %24, align 4, !tbaa !284
+  %29 = zext i8 %28 to i64
+  %.not57.not = icmp samesign ult i64 %indvars.iv, %29
+  br i1 %.not57.not, label %30, label %.loopexit61, !llvm.loop !1170
 
-29:                                               ; preds = %.preheader60, %26
-  %indvars.iv = phi i64 [ 0, %.preheader60 ], [ %indvars.iv.next, %26 ]
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !25
-  %32 = zext i8 %31 to i32
+30:                                               ; preds = %.preheader60, %27
+  %indvars.iv = phi i64 [ 0, %.preheader60 ], [ %indvars.iv.next, %27 ]
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
+  %32 = load i8, ptr %31, align 1, !tbaa !25
+  %33 = zext i8 %32 to i32
   store i32 1, ptr %5, align 4, !tbaa !63
-  %33 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %33, ptr %25, align 4, !tbaa !63
-  %34 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef %15, ptr noundef nonnull @.str.588, ptr noundef nonnull %5, i32 noundef %32, i32 noundef 0, i32 noundef %7) #12
-  %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %26, label %.loopexit
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %34, ptr %26, align 4, !tbaa !63
+  %35 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef %16, ptr noundef nonnull @.str.588, ptr noundef nonnull %5, i32 noundef %33, i32 noundef 0, i32 noundef %7) #12
+  %36 = icmp sgt i32 %35, -1
+  br i1 %36, label %27, label %.loopexit
 
-.loopexit61:                                      ; preds = %26, %21
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %37 = load i8, ptr %36, align 2, !tbaa !255
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %.loopexit
+.loopexit61:                                      ; preds = %27, %22
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %38 = load i8, ptr %37, align 2, !tbaa !255
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %40, label %.loopexit
 
-39:                                               ; preds = %.loopexit61
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 319
-  %41 = load i8, ptr %40, align 1, !tbaa !1121
-  %42 = zext i8 %41 to i32
-  %43 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.184, i32 noundef %42) #12
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %45, label %.loopexit
+40:                                               ; preds = %.loopexit61
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 319
+  %42 = load i8, ptr %41, align 1, !tbaa !1121
+  %43 = zext i8 %42 to i32
+  %44 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.184, i32 noundef %43) #12
+  %45 = icmp sgt i32 %44, -1
+  br i1 %45, label %46, label %.loopexit
 
-45:                                               ; preds = %39
-  %46 = load i8, ptr %40, align 1, !tbaa !1121
-  %.not58 = icmp eq i8 %46, 0
+46:                                               ; preds = %40
+  %47 = load i8, ptr %41, align 1, !tbaa !1121
+  %.not58 = icmp eq i8 %47, 0
   br i1 %.not58, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 301
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  br label %53
+.preheader:                                       ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 320
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 301
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  br label %54
 
-50:                                               ; preds = %53
+51:                                               ; preds = %54
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %51 = load i8, ptr %48, align 1, !tbaa !285
-  %52 = zext i8 %51 to i64
-  %.not59.not = icmp samesign ult i64 %indvars.iv68, %52
-  br i1 %.not59.not, label %53, label %.loopexit, !llvm.loop !1171
+  %52 = load i8, ptr %49, align 1, !tbaa !285
+  %53 = zext i8 %52 to i64
+  %.not59.not = icmp samesign ult i64 %indvars.iv68, %53
+  br i1 %.not59.not, label %54, label %.loopexit, !llvm.loop !1171
 
-53:                                               ; preds = %.preheader, %50
-  %indvars.iv68 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next69, %50 ]
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv68
-  %55 = load i8, ptr %54, align 1, !tbaa !25
-  %56 = zext i8 %55 to i32
+54:                                               ; preds = %.preheader, %51
+  %indvars.iv68 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next69, %51 ]
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv68
+  %56 = load i8, ptr %55, align 1, !tbaa !25
+  %57 = zext i8 %56 to i32
   store i32 1, ptr %6, align 4, !tbaa !63
-  %57 = trunc nuw nsw i64 %indvars.iv68 to i32
-  store i32 %57, ptr %49, align 4, !tbaa !63
-  %58 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef %15, ptr noundef nonnull @.str.589, ptr noundef nonnull %6, i32 noundef %56, i32 noundef 0, i32 noundef %7) #12
-  %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %50, label %.loopexit
+  %58 = trunc nuw nsw i64 %indvars.iv68 to i32
+  store i32 %58, ptr %50, align 4, !tbaa !63
+  %59 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef %16, ptr noundef nonnull @.str.589, ptr noundef nonnull %6, i32 noundef %57, i32 noundef 0, i32 noundef %7) #12
+  %60 = icmp sgt i32 %59, -1
+  br i1 %60, label %51, label %.loopexit
 
-.loopexit:                                        ; preds = %29, %50, %53, %.loopexit61, %45, %39, %4
-  %.1 = phi i32 [ %58, %53 ], [ 0, %.loopexit61 ], [ %19, %4 ], [ %43, %39 ], [ 0, %45 ], [ 0, %50 ], [ %34, %29 ]
+.loopexit:                                        ; preds = %30, %51, %54, %.loopexit61, %46, %40, %4
+  %.1 = phi i32 [ %59, %54 ], [ 0, %.loopexit61 ], [ %20, %4 ], [ %44, %40 ], [ 0, %46 ], [ 0, %51 ], [ %35, %29 ]
   ret i32 %.1
 }
 
