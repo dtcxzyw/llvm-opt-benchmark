@@ -987,7 +987,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements17getSecondaryAfterEij(ptr
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
-  br label %23
+  br label %.preheader
 
 12:                                               ; preds = %3
   %13 = sext i32 %1 to i64
@@ -1002,32 +1002,32 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements17getSecondaryAfterEij(ptr
   %20 = load i32, ptr %19, align 4, !tbaa !10
   %21 = lshr i32 %20, 8
   %22 = and i32 %21, 65280
-  br label %23
+  br label %.preheader
 
-23:                                               ; preds = %12, %6
+.preheader:                                       ; preds = %12, %6
   %.pre-phi = phi i64 [ %13, %12 ], [ %9, %6 ]
-  %.014 = phi i32 [ %.0.i, %12 ], [ %11, %6 ]
-  %.013 = phi i32 [ %22, %12 ], [ 65536, %6 ]
-  br label %24
+  %.115.ph = phi i32 [ %.0.i, %12 ], [ %11, %6 ]
+  %.013.ph = phi i32 [ %22, %12 ], [ 65536, %6 ]
+  br label %27
 
-24:                                               ; preds = %27, %23
-  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ %.pre-phi, %23 ]
-  %.115 = phi i32 [ %29, %27 ], [ %.014, %23 ]
-  %25 = lshr i32 %.115, 16
-  %26 = icmp ugt i32 %25, %2
-  br i1 %26, label %.thread, label %27
-
-27:                                               ; preds = %24
+23:                                               ; preds = %27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
-  %29 = load i32, ptr %28, align 4, !tbaa !10
-  %30 = and i32 %29, 128
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.thread, label %24, !llvm.loop !22
+  %24 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %25 = load i32, ptr %24, align 4, !tbaa !10
+  %26 = and i32 %25, 128
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %.thread, label %27
 
-.thread:                                          ; preds = %24, %27
-  %.125 = phi i32 [ %.013, %27 ], [ %25, %24 ]
-  ret i32 %.125
+27:                                               ; preds = %.preheader, %23
+  %indvars.iv = phi i64 [ %.pre-phi, %.preheader ], [ %indvars.iv.next, %23 ]
+  %.115 = phi i32 [ %.115.ph, %.preheader ], [ %25, %23 ]
+  %28 = lshr i32 %.115, 16
+  %29 = icmp ugt i32 %28, %2
+  br i1 %29, label %.thread, label %23
+
+.thread:                                          ; preds = %27, %23
+  %.01224 = phi i32 [ %.013.ph, %23 ], [ %28, %27 ]
+  ret i32 %.01224
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -1092,7 +1092,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements16getT
 39:                                               ; preds = %43
   %40 = and i32 %45, -129
   %41 = icmp ugt i32 %40, %36
-  br i1 %41, label %._crit_edge, label %43, !llvm.loop !23
+  br i1 %41, label %._crit_edge, label %43, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %39, %33
   %.118.lcssa = phi i32 [ %.017, %33 ], [ %40, %39 ]
@@ -1149,4 +1149,3 @@ attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind specul
 !20 = distinct !{!20, !13}
 !21 = distinct !{!21, !13}
 !22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}

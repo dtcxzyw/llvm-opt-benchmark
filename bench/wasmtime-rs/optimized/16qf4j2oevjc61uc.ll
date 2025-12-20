@@ -22279,13 +22279,13 @@ define noundef i16 @_ZN17cranelift_codegen2ir11globalvalue15GlobalValueData11glo
   %5 = load i8, ptr %0, align 8, !range !1717, !noundef !4
   switch i8 %5, label %default.unreachable4 [
     i8 0, label %6
-    i8 1, label %14
-    i8 2, label %17
+    i8 1, label %12
+    i8 2, label %15
     i8 3, label %6
-    i8 4, label %20
+    i8 4, label %18
   ]
 
-default.unreachable4:                             ; preds = %20, %6, %3
+default.unreachable4:                             ; preds = %18, %6, %3
   unreachable
 
 6:                                                ; preds = %3, %3
@@ -22299,57 +22299,51 @@ default.unreachable4:                             ; preds = %20, %6, %3
   switch i8 %10, label %default.unreachable4 [
     i8 3, label %11
     i8 0, label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
-    i8 1, label %12
-    i8 2, label %13
+    i8 1, label %24
+    i8 2, label %25
   ]
 
 11:                                               ; preds = %6
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.44.llvm.6092180546091225645, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.46.llvm.6092180546091225645, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.829.llvm.6092180546091225645) #39, !noalias !3672
   unreachable
 
-12:                                               ; preds = %6
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %14 = load i16, ptr %13, align 2, !noundef !4
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-13:                                               ; preds = %6
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %17 = load i16, ptr %16, align 2, !noundef !4
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %16 = load i16, ptr %15, align 2, !noundef !4
-  br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
-
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %19 = load i16, ptr %18, align 2, !noundef !4
-  br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
-
-20:                                               ; preds = %3
+18:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3673)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3676)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3679)
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %22 = load ptr, ptr %21, align 8, !invariant.load !4, !alias.scope !3682, !nonnull !4
-  %23 = tail call noundef align 8 dereferenceable(40) ptr %22(ptr noundef nonnull align 1 %1), !noalias !3682
-  %24 = tail call noundef i8 @_ZN14target_lexicon6triple6Triple13pointer_width17h63d6a75f88923f76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %23), !range !568, !noalias !3682
-  switch i8 %24, label %default.unreachable4 [
-    i8 3, label %25
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %20 = load ptr, ptr %19, align 8, !invariant.load !4, !alias.scope !3682, !nonnull !4
+  %21 = tail call noundef align 8 dereferenceable(40) ptr %20(ptr noundef nonnull align 1 %1), !noalias !3682
+  %22 = tail call noundef i8 @_ZN14target_lexicon6triple6Triple13pointer_width17h63d6a75f88923f76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %21), !range !568, !noalias !3682
+  switch i8 %22, label %default.unreachable4 [
+    i8 3, label %23
     i8 0, label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
-    i8 1, label %26
-    i8 2, label %27
+    i8 1, label %24
+    i8 2, label %25
   ]
 
-25:                                               ; preds = %20
+23:                                               ; preds = %18
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.44.llvm.6092180546091225645, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.46.llvm.6092180546091225645, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.829.llvm.6092180546091225645) #39, !noalias !3682
   unreachable
 
-26:                                               ; preds = %20
+24:                                               ; preds = %6, %18
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-27:                                               ; preds = %20
+25:                                               ; preds = %6, %18
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit": ; preds = %27, %26, %20, %13, %12, %6, %17, %14
-  %.0 = phi i16 [ %16, %14 ], [ %19, %17 ], [ 119, %6 ], [ 121, %13 ], [ 120, %12 ], [ 121, %27 ], [ 120, %26 ], [ 119, %20 ]
+"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit": ; preds = %25, %24, %18, %6, %15, %12
+  %.0 = phi i16 [ %14, %12 ], [ %17, %15 ], [ 119, %6 ], [ 120, %24 ], [ 119, %18 ], [ 121, %25 ]
   ret i16 %.0
 }
 
@@ -28010,7 +28004,7 @@ switch.lookup1388:                                ; preds = %947
   br i1 %.not.i1109, label %993, label %510
 
 993:                                              ; preds = %731, %733, %201, %205, %209, %switch.lookup, %221, %switch.lookup1300, %258, %267, %296, %300, %316, %327, %331, %356, %360, %412, %449, %526, %544, %545, %558, %564, %566, %579, %switch.lookup1346, %653, %660, %switch.lookup1375, %692, %698, %763, %781, %792, %809, %829, %838, %857, %864, %871, %878, %905, %907, %917, %938, %948, %955, %989, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit", %598, %617, %641, %320, %767, %888, %894, %900, %968, %964, %970, %435, %975, %983, %505, %switch.lookup1315, %switch.lookup1305, %595, %switch.lookup1356, %switch.lookup1361, %switch.lookup1366, %235, %_ZN17cranelift_codegen8machinst5vcode14VCodeConstants3get17ha1df6b35c3651e96E.exit, %728, %706, %700, %926, %930, %936, %991, %510
-  %.1 = phi i8 [ %.3, %510 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %.5, %544 ], [ 11, %983 ], [ %.4, %526 ], [ %.0.i.i989, %545 ], [ %.6, %558 ], [ %565, %564 ], [ %567, %566 ], [ %.7, %579 ], [ %584, %switch.lookup1346 ], [ %504, %switch.lookup1315 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %595 ], [ 11, %598 ], [ 11, %switch.lookup1356 ], [ 11, %switch.lookup1361 ], [ 11, %617 ], [ %204, %201 ], [ %208, %205 ], [ %214, %209 ], [ %220, %switch.lookup ], [ %224, %221 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %.12, %653 ], [ 11, %switch.lookup1366 ], [ %251, %switch.lookup1300 ], [ %661, %660 ], [ %.0.i.i938, %258 ], [ %273, %267 ], [ %.13, %692 ], [ %681, %switch.lookup1375 ], [ %..i1035, %698 ], [ 11, %235 ], [ %299, %296 ], [ %303, %300 ], [ %.15, %763 ], [ %..i, %316 ], [ 11, %320 ], [ 11, %641 ], [ %330, %327 ], [ %..i942, %331 ], [ %..i1058, %871 ], [ %..i1060, %878 ], [ %..i1042, %781 ], [ %..i1046, %809 ], [ %..i1044, %792 ], [ %.0.i.i1050, %829 ], [ %..i944, %356 ], [ %..i1071, %907 ], [ %363, %360 ], [ %..i1052, %838 ], [ %..i1054, %857 ], [ %..i1056, %864 ], [ 11, %894 ], [ 11, %767 ], [ 11, %888 ], [ %906, %905 ], [ %..i1073, %917 ], [ 11, %700 ], [ 11, %926 ], [ 11, %930 ], [ %..i948, %412 ], [ %..i1089, %938 ], [ %..i1093, %955 ], [ %..i1091, %948 ], [ 11, %968 ], [ 11, %964 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %900 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %970 ], [ 11, %435 ], [ 11, %975 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %..i959, %449 ], [ %..i1108, %989 ], [ 11, %936 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %493, %switch.lookup1305 ], [ %508, %505 ], [ 11, %_ZN17cranelift_codegen8machinst5vcode14VCodeConstants3get17ha1df6b35c3651e96E.exit ], [ 11, %728 ], [ 11, %991 ], [ 11, %706 ], [ 11, %733 ], [ 11, %731 ]
+  %.1 = phi i8 [ %.3, %510 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %.5, %544 ], [ 11, %983 ], [ %.4, %526 ], [ %.0.i.i989, %545 ], [ %.6, %558 ], [ %565, %564 ], [ %567, %566 ], [ %.7, %579 ], [ %584, %switch.lookup1346 ], [ %504, %switch.lookup1315 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %595 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %switch.lookup1356 ], [ 11, %switch.lookup1361 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %204, %201 ], [ %208, %205 ], [ %214, %209 ], [ %220, %switch.lookup ], [ %224, %221 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %.12, %653 ], [ 11, %switch.lookup1366 ], [ %251, %switch.lookup1300 ], [ %661, %660 ], [ %.0.i.i938, %258 ], [ %273, %267 ], [ %.13, %692 ], [ %681, %switch.lookup1375 ], [ %..i1035, %698 ], [ 11, %235 ], [ %299, %296 ], [ %303, %300 ], [ %.15, %763 ], [ %..i, %316 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %330, %327 ], [ %..i942, %331 ], [ %..i1058, %871 ], [ %..i1060, %878 ], [ %..i1042, %781 ], [ %..i1046, %809 ], [ %..i1044, %792 ], [ %.0.i.i1050, %829 ], [ %..i944, %356 ], [ %..i1071, %907 ], [ %363, %360 ], [ %..i1052, %838 ], [ %..i1054, %857 ], [ %..i1056, %864 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %906, %905 ], [ %..i1073, %917 ], [ 11, %700 ], [ 11, %926 ], [ 11, %930 ], [ %..i948, %412 ], [ %..i1089, %938 ], [ %..i1093, %955 ], [ %..i1091, %948 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ 11, %936 ], [ 11, %"_ZN124_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$core..ops..index..Index$LT$regalloc2..index..Inst$GT$$GT$5index17h5cd7a864bcf29e99E.exit" ], [ %..i959, %449 ], [ %..i1108, %989 ], [ 11, %598 ], [ 11, %617 ], [ 11, %641 ], [ 11, %320 ], [ 11, %767 ], [ 11, %888 ], [ 11, %894 ], [ 11, %900 ], [ 11, %968 ], [ 11, %964 ], [ 11, %970 ], [ 11, %435 ], [ 11, %975 ], [ %493, %switch.lookup1305 ], [ %508, %505 ], [ 11, %_ZN17cranelift_codegen8machinst5vcode14VCodeConstants3get17ha1df6b35c3651e96E.exit ], [ 11, %728 ], [ 11, %991 ], [ 11, %706 ], [ 11, %733 ], [ 11, %731 ]
   ret i8 %.1
 }
 
@@ -36140,9 +36134,9 @@ define { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$
   %.19 = zext i1 %.not8.not.not.i.not to i32
   br label %80
 
-80:                                               ; preds = %2, %29, %25, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfd4d7f5b5886ccadE.exit", %43, %33, %36, %39
-  %.sroa.12.2 = phi i32 [ %1, %33 ], [ %48, %43 ], [ %1, %39 ], [ %1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfd4d7f5b5886ccadE.exit" ], [ %1, %36 ], [ undef, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit" ], [ undef, %25 ], [ undef, %29 ], [ undef, %2 ]
-  %.sroa.0.2 = phi i32 [ %.13, %33 ], [ %47, %43 ], [ %.17, %39 ], [ %.19, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfd4d7f5b5886ccadE.exit" ], [ %.15, %36 ], [ 0, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit" ], [ 0, %25 ], [ 0, %29 ], [ 0, %2 ]
+80:                                               ; preds = %43, %33, %36, %39, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfd4d7f5b5886ccadE.exit", %2, %29, %25, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit"
+  %.sroa.12.2 = phi i32 [ undef, %2 ], [ undef, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit" ], [ undef, %25 ], [ undef, %29 ], [ %48, %43 ], [ %1, %39 ], [ %1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfd4d7f5b5886ccadE.exit" ], [ %1, %36 ], [ %1, %33 ]
+  %.sroa.0.2 = phi i32 [ 0, %2 ], [ 0, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit" ], [ 0, %25 ], [ 0, %29 ], [ %47, %43 ], [ %.17, %39 ], [ %.19, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfd4d7f5b5886ccadE.exit" ], [ %.15, %36 ], [ %.13, %33 ]
   %81 = insertvalue { i32, i32 } poison, i32 %.sroa.0.2, 0
   %82 = insertvalue { i32, i32 } %81, i32 %.sroa.12.2, 1
   ret { i32, i32 } %82

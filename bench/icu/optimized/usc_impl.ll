@@ -230,17 +230,17 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   br label %43
 
 43:                                               ; preds = %43, %40
-  %.121.i = phi i32 [ %spec.select.i, %40 ], [ %spec.select19.i, %43 ]
+  %.021.i = phi i32 [ %spec.select.i, %40 ], [ %spec.select19.i, %43 ]
   %.01720.i = phi i32 [ 32, %40 ], [ %44, %43 ]
   %44 = lshr i32 %.01720.i, 1
-  %45 = add nsw i32 %44, %.121.i
+  %45 = add nsw i32 %44, %.021.i
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr @_ZL11pairedChars, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !22
   %.not18.i = icmp slt i32 %.071, %48
-  %spec.select19.i = select i1 %.not18.i, i32 %.121.i, i32 %45
+  %spec.select19.i = select i1 %.not18.i, i32 %.021.i, i32 %45
   %49 = icmp samesign ugt i32 %.01720.i, 3
-  br i1 %49, label %43, label %_ZL12getPairIndexi.exit, !llvm.loop !23
+  br i1 %49, label %43, label %_ZL12getPairIndexi.exit
 
 _ZL12getPairIndexi.exit:                          ; preds = %43
   %50 = sext i32 %spec.select19.i to i64
@@ -272,9 +272,9 @@ _ZL12getPairIndexi.exit:                          ; preds = %43
   store i32 %66, ptr %17, align 4, !tbaa !17
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds %struct.ParenStackEntry, ptr %16, i64 %67
-  store i32 %spec.store.select.i, ptr %68, align 4, !tbaa !25
+  store i32 %spec.store.select.i, ptr %68, align 4, !tbaa !23
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %59, ptr %69, align 4, !tbaa !27
+  store i32 %59, ptr %69, align 4, !tbaa !25
   br label %.critedge.thread
 
 70:                                               ; preds = %54
@@ -291,7 +291,7 @@ _ZL12getPairIndexi.exit:                          ; preds = %43
   %75 = phi i32 [ %57, %.lr.ph ], [ %84, %_ZL3popP10UScriptRun.exit ]
   %76 = sext i32 %74 to i64
   %77 = getelementptr inbounds %struct.ParenStackEntry, ptr %16, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !25
+  %78 = load i32, ptr %77, align 4, !tbaa !23
   %.not84 = icmp eq i32 %78, %71
   br i1 %.not84, label %.critedge, label %79
 
@@ -314,12 +314,12 @@ _ZL3popP10UScriptRun.exit:                        ; preds = %79, %82
   %spec.store.select.i95 = select i1 %87, i32 -1, i32 %86
   store i32 %spec.store.select.i95, ptr %17, align 4
   %88 = icmp slt i32 %75, 2
-  br i1 %88, label %.critedge.thread, label %73, !llvm.loop !28
+  br i1 %88, label %.critedge.thread, label %73, !llvm.loop !26
 
 .critedge:                                        ; preds = %73
   %89 = getelementptr %struct.ParenStackEntry, ptr %0, i64 %76
   %90 = getelementptr i8, ptr %89, i64 32
-  %91 = load i32, ptr %90, align 4, !tbaa !27
+  %91 = load i32, ptr %90, align 4, !tbaa !25
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZL3popP10UScriptRun.exit, %70, %.critedge, %58, %_ZL12getPairIndexi.exit
@@ -359,10 +359,10 @@ _ZL3popP10UScriptRun.exit:                        ; preds = %79, %82
   %109 = sext i32 %108 to i64
   %110 = getelementptr %struct.ParenStackEntry, ptr %0, i64 %109
   %111 = getelementptr i8, ptr %110, i64 32
-  store i32 %.072, ptr %111, align 4, !tbaa !27
+  store i32 %.072, ptr %111, align 4, !tbaa !25
   %112 = add nsw i32 %106, -1
   %.not.i96 = icmp eq i32 %106, 0
-  br i1 %.not.i96, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i96, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %.lr.ph.i, %99
   %.lcssa.i = phi i32 [ %101, %99 ], [ -1, %.lr.ph.i ]
@@ -417,7 +417,7 @@ _ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %.lr.ph.i, %99
   store i32 %137, ptr %8, align 4, !tbaa !15
   %138 = load i32, ptr %0, align 8, !tbaa !13
   %139 = icmp slt i32 %137, %138
-  br i1 %139, label %18, label %_ZL3popP10UScriptRun.exit98, !llvm.loop !30
+  br i1 %139, label %18, label %_ZL3popP10UScriptRun.exit98, !llvm.loop !29
 
 _ZL3popP10UScriptRun.exit98:                      ; preds = %135, %132, %130
   %140 = phi i32 [ %92, %130 ], [ %92, %132 ], [ %114, %135 ]
@@ -443,7 +443,7 @@ _ZL3popP10UScriptRun.exit98:                      ; preds = %135, %132, %130
   br i1 %.not89, label %148, label %147
 
 147:                                              ; preds = %146
-  store i32 %140, ptr %3, align 4, !tbaa !31
+  store i32 %140, ptr %3, align 4, !tbaa !30
   br label %148
 
 148:                                              ; preds = %146, %147, %4, %7
@@ -497,12 +497,11 @@ attributes #7 = { allocsize(0) }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"char16_t", !5, i64 0}
 !22 = !{!9, !9, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !9, i64 0}
-!26 = !{!"_ZTS15ParenStackEntry", !9, i64 0, !12, i64 4}
-!27 = !{!26, !12, i64 4}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = !{!12, !12, i64 0}
+!23 = !{!24, !9, i64 0}
+!24 = !{!"_ZTS15ParenStackEntry", !9, i64 0, !12, i64 4}
+!25 = !{!24, !12, i64 4}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.mustprogress"}
+!28 = distinct !{!28, !27}
+!29 = distinct !{!29, !27}
+!30 = !{!12, !12, i64 0}

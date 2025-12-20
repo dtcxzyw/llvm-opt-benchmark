@@ -1551,26 +1551,26 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not26.i.i40, label %.lr.ph.i.i47, label %.thread.i.i41
 
 .thread.i.i41:                                    ; preds = %.lr.ph.i.i47, %.preheader.i.i39
-  %.sroa.5.0.lcssa.i.i42 = phi i64 [ %66, %.preheader.i.i39 ], [ %79, %.lr.ph.i.i47 ]
+  %.sroa.5.1.lcssa.i.i42 = phi i64 [ %66, %.preheader.i.i39 ], [ %79, %.lr.ph.i.i47 ]
   %.lcssa.i.i44 = phi i16 [ %72, %.preheader.i.i39 ], [ %83, %.lr.ph.i.i47 ]
   %73 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i44, i1 true)
   %74 = zext nneg i16 %73 to i64
-  %75 = add i64 %.sroa.5.0.lcssa.i.i42, %74
+  %75 = add i64 %.sroa.5.1.lcssa.i.i42, %74
   %76 = and i64 %75, %61
   br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeImS6_EEE_clESN_.exit51
 
 .lr.ph.i.i47:                                     ; preds = %.preheader.i.i39, %.lr.ph.i.i47
-  %.sroa.12.028.i.i48 = phi i64 [ %77, %.lr.ph.i.i47 ], [ 0, %.preheader.i.i39 ]
-  %.sroa.5.027.i.i49 = phi i64 [ %79, %.lr.ph.i.i47 ], [ %66, %.preheader.i.i39 ]
-  %77 = add i64 %.sroa.12.028.i.i48, 16
-  %78 = add i64 %77, %.sroa.5.027.i.i49
+  %.sroa.12.128.i.i48 = phi i64 [ %77, %.lr.ph.i.i47 ], [ 0, %.preheader.i.i39 ]
+  %.sroa.5.127.i.i49 = phi i64 [ %79, %.lr.ph.i.i47 ], [ %66, %.preheader.i.i39 ]
+  %77 = add i64 %.sroa.12.128.i.i48, 16
+  %78 = add i64 %77, %.sroa.5.127.i.i49
   %79 = and i64 %78, %61
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 %79
   %81 = load <16 x i8>, ptr %80, align 1, !tbaa !27
   %82 = icmp slt <16 x i8> %81, splat (i8 -1)
   %83 = bitcast <16 x i1> %82 to i16
   %.not.i.i50 = icmp eq i16 %83, 0
-  br i1 %.not.i.i50, label %.lr.ph.i.i47, label %.thread.i.i41, !llvm.loop !109
+  br i1 %.not.i.i50, label %.lr.ph.i.i47, label %.thread.i.i41
 
 _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeImS6_EEE_clESN_.exit51: ; preds = %51, %.thread.i.i41
   %.sroa.011.0.i.i45 = phi i64 [ %76, %.thread.i.i41 ], [ %66, %51 ]
@@ -1609,7 +1609,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolic
   %105 = phi i64 [ %.pre, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeImS6_EEE_clESN_.exit51 ], [ %46, %.lr.ph ]
   %106 = add i64 %.070, 1
   %.not34 = icmp eq i64 %106, %105
-  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !110
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !109
 
 .loopexit:                                        ; preds = %104, %42
   %107 = phi i64 [ %43, %42 ], [ %105, %104 ]
@@ -1651,7 +1651,7 @@ _ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #28
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !111
+  store ptr %15, ptr %16, align 8, !tbaa !110
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 %10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %17, ptr %18, align 8, !tbaa !27
@@ -1661,7 +1661,7 @@ _ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   %22 = lshr i64 %21, 1
   %23 = add nuw i64 %19, %22
   %24 = sub i64 %7, %23
-  store i64 %24, ptr %14, align 8, !tbaa !112
+  store i64 %24, ptr %14, align 8, !tbaa !111
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !99
   %27 = icmp ult i64 %7, 17
@@ -1732,7 +1732,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072218container_internal18DeallocateStandardILm8EEEvRNS1_12CommonFieldsERKNS1_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #18 comdat personality ptr @__gxx_personality_v0 {
-  %3 = load i64, ptr %1, align 8, !tbaa !114
+  %3 = load i64, ptr %1, align 8, !tbaa !113
   %4 = load i64, ptr %0, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !27
@@ -1921,9 +1921,8 @@ attributes #28 = { builtin allocsize(0) }
 !107 = distinct !{!107, !108, !"_ZN4absl12lts_2024072218container_internal5probeERKNS1_12CommonFieldsEm: argument 0"}
 !108 = distinct !{!108, !"_ZN4absl12lts_2024072218container_internal5probeERKNS1_12CommonFieldsEm"}
 !109 = distinct !{!109, !36}
-!110 = distinct !{!110, !36}
-!111 = !{!6, !6, i64 0}
-!112 = !{!113, !22, i64 0}
-!113 = !{!"_ZTSN4absl12lts_2024072218container_internal10GrowthInfoE", !22, i64 0}
-!114 = !{!115, !22, i64 0}
-!115 = !{!"_ZTSN4absl12lts_2024072218container_internal15PolicyFunctionsE", !22, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
+!110 = !{!6, !6, i64 0}
+!111 = !{!112, !22, i64 0}
+!112 = !{!"_ZTSN4absl12lts_2024072218container_internal10GrowthInfoE", !22, i64 0}
+!113 = !{!114, !22, i64 0}
+!114 = !{!"_ZTSN4absl12lts_2024072218container_internal15PolicyFunctionsE", !22, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}

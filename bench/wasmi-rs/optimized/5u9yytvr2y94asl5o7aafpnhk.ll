@@ -6555,8 +6555,8 @@ default.unreachable162:                           ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %85, label %90, label %30
 
-90:                                               ; preds = %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E.exit, %197, %191, %184, %177, %170, %159, %116, %30, %130, %122, %108, %98, %91, %57, %79, %68, %164
-  %.sroa.0.0 = phi ptr [ %113, %108 ], [ %121, %116 ], [ %.sroa.0.1, %164 ], [ %160, %159 ], [ %174, %170 ], [ %181, %177 ], [ %188, %184 ], [ %196, %191 ], [ null, %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E.exit ], [ %134, %130 ], [ %31, %30 ], [ %198, %197 ], [ %127, %122 ], [ %76, %68 ], [ %87, %79 ], [ %65, %57 ], [ %95, %91 ], [ %103, %98 ]
+90:                                               ; preds = %197, %191, %184, %177, %170, %159, %116, %30, %130, %122, %108, %98, %91, %57, %79, %68, %199, %164
+  %.sroa.0.0 = phi ptr [ %113, %108 ], [ %121, %116 ], [ %.sroa.0.1, %164 ], [ %160, %159 ], [ %174, %170 ], [ %181, %177 ], [ %188, %184 ], [ %196, %191 ], [ null, %199 ], [ %134, %130 ], [ %31, %30 ], [ %198, %197 ], [ %127, %122 ], [ %76, %68 ], [ %87, %79 ], [ %65, %57 ], [ %95, %91 ], [ %103, %98 ]
   ret ptr %.sroa.0.0
 
 91:                                               ; preds = %5
@@ -6710,7 +6710,7 @@ _ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0f
   store i32 1, ptr %157, align 8, !alias.scope !592, !noalias !606
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %152, ptr %158, align 4, !alias.scope !592, !noalias !606
-  br label %90
+  br label %199
 
 159:                                              ; preds = %116
   %160 = tail call noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17hbd7d0983ef7051f4E(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 %119, i64 noundef %120)
@@ -6785,6 +6785,10 @@ _ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0f
 
 197:                                              ; preds = %191
   %198 = tail call noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder20encode_register_list17ha5087315a4175981E(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 8 dereferenceable(248) %1, ptr noalias noundef nonnull readonly align 8 %119, i64 noundef %120)
+  %.not152 = icmp eq ptr %198, null
+  br i1 %.not152, label %199, label %90
+
+199:                                              ; preds = %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E.exit, %197
   br label %90
 }
 

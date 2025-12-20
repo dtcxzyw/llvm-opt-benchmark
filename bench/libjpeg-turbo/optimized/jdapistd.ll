@@ -1849,11 +1849,11 @@ define range(i32 0, 2) i32 @jpeg_finish_output(ptr noundef %0) local_unnamed_add
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   tail call void %11(ptr noundef nonnull %0) #5
   store i32 208, ptr %2, align 4, !tbaa !3
-  br label %18
+  br label %.preheader
 
 12:                                               ; preds = %1
   %.not19 = icmp eq i32 %3, 208
-  br i1 %.not19, label %18, label %.thread
+  br i1 %.not19, label %.preheader, label %.thread
 
 .thread:                                          ; preds = %4, %12
   %13 = load ptr, ptr %0, align 8, !tbaa !44
@@ -1864,39 +1864,39 @@ define range(i32 0, 2) i32 @jpeg_finish_output(ptr noundef %0) local_unnamed_add
   %16 = load ptr, ptr %0, align 8, !tbaa !44
   %17 = load ptr, ptr %16, align 8, !tbaa !48
   tail call void %17(ptr noundef nonnull %0) #5
-  br label %18
+  br label %.preheader
 
-18:                                               ; preds = %12, %.thread, %7
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  br label %22
+.preheader:                                       ; preds = %12, %.thread, %7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  br label %29
 
-22:                                               ; preds = %29, %18
-  %23 = load i32, ptr %19, align 4, !tbaa !42
-  %24 = load i32, ptr %20, align 4, !tbaa !43
-  %.not20 = icmp sgt i32 %23, %24
-  br i1 %.not20, label %.critedge, label %25
+21:                                               ; preds = %29
+  %22 = load ptr, ptr %20, align 8, !tbaa !31
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
+  %24 = load i32, ptr %23, align 4, !tbaa !96
+  %.not21 = icmp eq i32 %24, 0
+  br i1 %.not21, label %25, label %.critedge
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %21, align 8, !tbaa !31
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
-  %28 = load i32, ptr %27, align 4, !tbaa !96
-  %.not21 = icmp eq i32 %28, 0
-  br i1 %.not21, label %29, label %.critedge
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %22, align 8, !tbaa !38
+  %27 = tail call i32 %26(ptr noundef nonnull %0) #5
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %.loopexit, label %29
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %26, align 8, !tbaa !38
-  %31 = tail call i32 %30(ptr noundef nonnull %0) #5
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.loopexit, label %22, !llvm.loop !141
+29:                                               ; preds = %.preheader, %25
+  %30 = load i32, ptr %18, align 4, !tbaa !42
+  %31 = load i32, ptr %19, align 4, !tbaa !43
+  %.not20 = icmp sgt i32 %30, %31
+  br i1 %.not20, label %.critedge, label %21
 
-.critedge:                                        ; preds = %22, %25
+.critedge:                                        ; preds = %29, %21
   store i32 207, ptr %2, align 4, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %29, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %29 ]
+.loopexit:                                        ; preds = %25, %.critedge
+  %.0 = phi i32 [ 1, %.critedge ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -2072,4 +2072,3 @@ attributes #5 = { nounwind }
 !138 = !{!122, !11, i64 76}
 !139 = distinct !{!139, !63}
 !140 = !{!123, !6, i64 24}
-!141 = distinct !{!141, !63}

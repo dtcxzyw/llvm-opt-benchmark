@@ -4665,64 +4665,64 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load i32, ptr %4, align 8, !tbaa !145
   %.not = icmp eq i32 %5, 2
-  br i1 %.not, label %9, label %6
+  br i1 %.not, label %.preheader, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load i32, ptr %7, align 8, !tbaa !145
-  %.not26 = icmp eq i32 %8, 2
-  br i1 %.not26, label %9, label %.critedge
+  %.not25 = icmp eq i32 %8, 2
+  br i1 %.not25, label %.preheader, label %.critedge
 
-9:                                                ; preds = %6, %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %11 = load i32, ptr %10, align 8, !tbaa !134
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %13 = load i32, ptr %12, align 8, !tbaa !134
-  %14 = icmp slt i32 %11, %13
-  %. = select i1 %14, ptr %2, ptr %1
-  %.29 = select i1 %14, ptr %1, ptr %2
-  %.022.in = getelementptr inbounds nuw i8, ptr %.29, i64 68
-  %.025.in = getelementptr inbounds nuw i8, ptr %., i64 108
-  %.025 = load i32, ptr %.025.in, align 4, !tbaa !139
-  %.12330 = load i32, ptr %.022.in, align 4, !tbaa !164
-  %.not2831 = icmp eq i32 %.12330, -1
-  br i1 %.not2831, label %.critedge, label %.lr.ph
+.preheader:                                       ; preds = %6, %3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %10 = load i32, ptr %9, align 8, !tbaa !134
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %12 = load i32, ptr %11, align 8, !tbaa !134
+  %13 = icmp slt i32 %10, %12
+  %spec.select = select i1 %13, ptr %2, ptr %1
+  %spec.select33 = select i1 %13, ptr %1, ptr %2
+  %.123.in.ph = getelementptr inbounds nuw i8, ptr %spec.select33, i64 68
+  %.024.ph.in = getelementptr inbounds nuw i8, ptr %spec.select, i64 108
+  %.024.ph = load i32, ptr %.024.ph.in, align 4, !tbaa !139
+  %.12327 = load i32, ptr %.123.in.ph, align 4, !tbaa !164
+  %.not2628 = icmp eq i32 %.12327, -1
+  br i1 %.not2628, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.val = load ptr, ptr %15, align 8, !tbaa !156
-  br label %16
+.lr.ph:                                           ; preds = %.preheader
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  %.val = load ptr, ptr %14, align 8, !tbaa !156
+  br label %15
 
-16:                                               ; preds = %.lr.ph, %31
-  %.12332 = phi i32 [ %.12330, %.lr.ph ], [ %.123, %31 ]
-  %17 = ashr i32 %.12332, 1
-  %18 = and i32 %.12332, 1
-  %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds %struct.b2Joint, ptr %.val, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 71
-  %22 = load i8, ptr %21, align 1, !tbaa !226, !range !75, !noundef !76
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %31
+15:                                               ; preds = %.lr.ph, %30
+  %.12329 = phi i32 [ %.12327, %.lr.ph ], [ %.123, %30 ]
+  %16 = ashr i32 %.12329, 1
+  %17 = and i32 %.12329, 1
+  %18 = sext i32 %16 to i64
+  %19 = getelementptr inbounds %struct.b2Joint, ptr %.val, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 71
+  %21 = load i8, ptr %20, align 1, !tbaa !226, !range !75, !noundef !76
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %30
 
-24:                                               ; preds = %16
-  %25 = xor i32 %18, 1
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %26, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !203
-  %30 = icmp eq i32 %29, %.025
-  br i1 %30, label %.critedge, label %31
+23:                                               ; preds = %15
+  %24 = xor i32 %17, 1
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %26 = zext nneg i32 %24 to i64
+  %27 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %25, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !203
+  %29 = icmp eq i32 %28, %.024.ph
+  br i1 %29, label %.critedge, label %30
 
-31:                                               ; preds = %24, %16
-  %32 = zext nneg i32 %18 to i64
-  %33 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %20, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 28
-  %.123 = load i32, ptr %34, align 4, !tbaa !164
-  %.not28 = icmp eq i32 %.123, -1
-  br i1 %.not28, label %.critedge, label %16, !llvm.loop !227
+30:                                               ; preds = %23, %15
+  %31 = zext nneg i32 %17 to i64
+  %32 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %19, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  %.123 = load i32, ptr %33, align 4, !tbaa !164
+  %.not26 = icmp eq i32 %.123, -1
+  br i1 %.not26, label %.critedge, label %15
 
-.critedge:                                        ; preds = %24, %31, %9, %6
-  %.021 = phi i1 [ false, %6 ], [ true, %9 ], [ false, %24 ], [ true, %31 ]
+.critedge:                                        ; preds = %23, %30, %.preheader, %6
+  %.021 = phi i1 [ false, %6 ], [ true, %.preheader ], [ false, %23 ], [ true, %30 ]
   ret i1 %.021
 }
 
@@ -4983,4 +4983,3 @@ attributes #10 = { nounwind }
 !224 = !{!202, !22, i64 68}
 !225 = distinct !{!225, !124}
 !226 = !{!202, !23, i64 71}
-!227 = distinct !{!227, !124}

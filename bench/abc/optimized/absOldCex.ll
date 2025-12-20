@@ -1374,9 +1374,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val64.pre = load i32, ptr %5, align 8, !tbaa !72
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %48, %56, %79, %Aig_ObjFaninId1.exit
-  %.val64 = phi i32 [ %.val64.pre, %48 ], [ %.val6485, %79 ], [ %.val6485, %56 ], [ %.val6485, %Aig_ObjFaninId1.exit ]
-  %.tr75.be = phi ptr [ %54, %48 ], [ %68, %79 ], [ %59, %56 ], [ %., %Aig_ObjFaninId1.exit ]
+tailrecurse.backedge:                             ; preds = %Aig_ObjFaninId1.exit, %56, %48, %95
+  %.val64 = phi i32 [ %.val64.pre, %48 ], [ %.val6485, %95 ], [ %.val6485, %56 ], [ %.val6485, %Aig_ObjFaninId1.exit ]
+  %.tr75.be = phi ptr [ %54, %48 ], [ %68, %95 ], [ %59, %56 ], [ %59, %Aig_ObjFaninId1.exit ]
   %55 = getelementptr i8, ptr %.tr75.be, i64 32
   %.val65 = load i32, ptr %55, align 8, !tbaa !73
   %.not = icmp eq i32 %.val65, %.val64
@@ -1411,7 +1411,7 @@ tailrecurse.backedge:                             ; preds = %48, %56, %79, %Aig_
 
 79:                                               ; preds = %56
   %or.cond3 = select i1 %75, i1 true, i1 %78
-  br i1 %or.cond3, label %80, label %tailrecurse.backedge
+  br i1 %or.cond3, label %80, label %95
 
 80:                                               ; preds = %79
   %.not.i = icmp eq ptr %.val58, null
@@ -1442,7 +1442,9 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %93 = getelementptr inbounds i32, ptr %.val53, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !12
   %.not52 = icmp sgt i32 %87, %94
-  %. = select i1 %.not52, ptr %68, ptr %59
+  br i1 %.not52, label %95, label %tailrecurse.backedge
+
+95:                                               ; preds = %79, %Aig_ObjFaninId1.exit
   br label %tailrecurse.backedge
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %8, %4, %Vec_IntPush.exit

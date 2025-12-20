@@ -306,7 +306,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   store i8 -128, ptr %28, align 1
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
 
 .loopexit.i:                                      ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -314,21 +314,21 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   store i8 -128, ptr %30, align 1
   tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %29)
   %.pre = load i32, ptr %3, align 4, !tbaa !8
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
 
-_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loopexit.i.thread
+_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader: ; preds = %.loopexit.i, %.loopexit.i.thread
   %31 = phi i32 [ %.pre, %.loopexit.i ], [ %19, %.loopexit.i.thread ]
   %32 = and i32 %31, 504
   %.not40 = icmp eq i32 %32, 448
   br i1 %.not40, label %.loopexit.i17, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
+.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 95
   br label %35
 
-35:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16
-  %36 = phi i32 [ %31, %.lr.ph ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16 ]
+35:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge
+  %36 = phi i32 [ %31, %.lr.ph ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge ]
   %37 = lshr i32 %36, 3
   %38 = and i32 %37, 63
   %39 = add i32 %36, 8
@@ -345,22 +345,22 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loop
   %45 = zext nneg i32 %38 to i64
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 %45
   store i8 0, ptr %46, align 1
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge
+
+_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge: ; preds = %.loopexit.i10.thread, %.loopexit.i10
+  %47 = phi i32 [ %39, %.loopexit.i10.thread ], [ %.pre48, %.loopexit.i10 ]
+  %48 = and i32 %47, 504
+  %.not = icmp eq i32 %48, 448
+  br i1 %.not, label %.loopexit.i17, label %35
 
 .loopexit.i10:                                    ; preds = %35
   store i8 0, ptr %34, align 1
   tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %33)
   %.pre48 = load i32, ptr %3, align 4, !tbaa !8
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge
 
-_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.loopexit.i10.thread
-  %47 = phi i32 [ %.pre48, %.loopexit.i10 ], [ %39, %.loopexit.i10.thread ]
-  %48 = and i32 %47, 504
-  %.not = icmp eq i32 %48, 448
-  br i1 %.not, label %.loopexit.i17, label %35, !llvm.loop !24
-
-.loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
-  %.lcssa = phi i32 [ %31, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16 ]
+.loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
+  %.lcssa = phi i32 [ %31, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge ]
   %49 = add i32 %.lcssa, 64
   store i32 %49, ptr %3, align 4, !tbaa !8
   %50 = icmp ugt i32 %.lcssa, -65
@@ -392,7 +392,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   store i8 %67, ptr %68, align 1, !tbaa !22
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 20
-  br i1 %exitcond47.not, label %69, label %58, !llvm.loop !25
+  br i1 %exitcond47.not, label %69, label %58, !llvm.loop !24
 
 69:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -429,9 +429,9 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
 
 9:                                                ; preds = %7, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %0, align 8, !tbaa !26
+  store ptr %10, ptr %0, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !29
+  store i64 0, ptr %11, align 8, !tbaa !28
   store i8 0, ptr %10, align 8, !tbaa !22
   %12 = load ptr, ptr %1, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -439,7 +439,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %9
-  %15 = load i64, ptr %11, align 8, !tbaa !29
+  %15 = load i64, ptr %11, align 8, !tbaa !28
   %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %15, ptr noundef nonnull %3, i64 noundef %16)
           to label %24 unwind label %18
@@ -447,7 +447,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %0, align 8, !tbaa !32
+  %20 = load ptr, ptr %0, align 8, !tbaa !31
   %21 = icmp eq ptr %20, %10
   br i1 %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -474,7 +474,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA113ReportHashStlE
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !29
+  %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
   %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %4, i64 noundef %9)
   br label %11
@@ -2356,10 +2356,10 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %14 = load i8, ptr %13, align 8, !tbaa !22
   %15 = zext i8 %14 to i32
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %15) #21
-  store ptr %4, ptr %5, align 8, !tbaa !33
+  store ptr %4, ptr %5, align 8, !tbaa !32
   %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %17, ptr %18, align 8, !tbaa !35
+  store i64 %17, ptr %18, align 8, !tbaa !34
   %19 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef 83) #21
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %12, label %.split.us, label %.split
@@ -2370,13 +2370,13 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %22 = load i8, ptr %21, align 1, !tbaa !22
   %23 = zext i8 %22 to i32
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.8, i32 noundef %23) #21
-  store ptr %4, ptr %6, align 8, !tbaa !33
+  store ptr %4, ptr %6, align 8, !tbaa !32
   %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
-  store i64 %25, ptr %20, align 8, !tbaa !35
+  store i64 %25, ptr %20, align 8, !tbaa !34
   %26 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #21
   %27 = add nuw nsw i64 %.01824.us, 1
   %exitcond28.not = icmp eq i64 %27, 20
-  br i1 %exitcond28.not, label %.loopexit, label %.split.us, !llvm.loop !36
+  br i1 %exitcond28.not, label %.loopexit, label %.split.us, !llvm.loop !35
 
 .split:                                           ; preds = %11, %.split
   %.01824 = phi i64 [ %34, %.split ], [ 1, %11 ]
@@ -2384,23 +2384,23 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %29 = load i8, ptr %28, align 1, !tbaa !22
   %30 = zext i8 %29 to i32
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %30) #21
-  store ptr %4, ptr %6, align 8, !tbaa !33
+  store ptr %4, ptr %6, align 8, !tbaa !32
   %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
-  store i64 %32, ptr %20, align 8, !tbaa !35
+  store i64 %32, ptr %20, align 8, !tbaa !34
   %33 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #21
   %34 = add nuw nsw i64 %.01824, 1
   %exitcond27.not = icmp eq i64 %34, 20
-  br i1 %exitcond27.not, label %.loopexit, label %.split, !llvm.loop !36
+  br i1 %exitcond27.not, label %.loopexit, label %.split, !llvm.loop !35
 
 35:                                               ; preds = %10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load i8, ptr %36, align 8, !tbaa !22
   %38 = zext i8 %37 to i32
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.9, i32 noundef %38) #21
-  store ptr %4, ptr %7, align 8, !tbaa !33
+  store ptr %4, ptr %7, align 8, !tbaa !32
   %40 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %40, ptr %41, align 8, !tbaa !35
+  store i64 %40, ptr %41, align 8, !tbaa !34
   %42 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 83) #21
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %44
@@ -2411,13 +2411,13 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %46 = load i8, ptr %45, align 1, !tbaa !22
   %47 = zext i8 %46 to i32
   %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.10, i32 noundef %47) #21
-  store ptr %4, ptr %8, align 8, !tbaa !33
+  store ptr %4, ptr %8, align 8, !tbaa !32
   %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
-  store i64 %49, ptr %43, align 8, !tbaa !35
+  store i64 %49, ptr %43, align 8, !tbaa !34
   %50 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %8, i64 noundef 83) #21
   %51 = add nuw nsw i64 %.023, 1
   %exitcond.not = icmp eq i64 %51, 20
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !36
 
 .loopexit:                                        ; preds = %44, %.split, %.split.us, %10
   %.1 = phi i1 [ false, %10 ], [ true, %.split.us ], [ true, %.split ], [ true, %44 ]
@@ -2512,16 +2512,15 @@ attributes #21 = { nounwind }
 !22 = !{!5, !5, i64 0}
 !23 = distinct !{!23, !21}
 !24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
-!28 = !{!"p1 omnipotent char", !7, i64 0}
-!29 = !{!30, !31, i64 8}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !31, i64 8, !5, i64 16}
-!31 = !{!"long", !5, i64 0}
-!32 = !{!30, !28, i64 0}
-!33 = !{!34, !28, i64 0}
-!34 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !28, i64 0, !31, i64 8}
-!35 = !{!34, !31, i64 8}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !27, i64 0}
+!27 = !{!"p1 omnipotent char", !7, i64 0}
+!28 = !{!29, !30, i64 8}
+!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !30, i64 8, !5, i64 16}
+!30 = !{!"long", !5, i64 0}
+!31 = !{!29, !27, i64 0}
+!32 = !{!33, !27, i64 0}
+!33 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !27, i64 0, !30, i64 8}
+!34 = !{!33, !30, i64 8}
+!35 = distinct !{!35, !21}
 !36 = distinct !{!36, !21}
-!37 = distinct !{!37, !21}

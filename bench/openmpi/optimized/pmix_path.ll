@@ -526,73 +526,78 @@ define noundef zeroext i1 @pmix_path_nfs(ptr noundef %0, ptr noundef writeonly c
   %16 = load i64, ptr %3, align 8, !tbaa !19
   %17 = tail call ptr @setmntent(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #14
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %22
+  br i1 %18, label %19, label %.preheader
 
 19:                                               ; preds = %14
   %20 = tail call ptr @setmntent(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10) #14
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit, label %22
+  br i1 %21, label %.loopexit, label %.preheader
 
-22:                                               ; preds = %19, %14
-  %.023 = phi ptr [ %20, %19 ], [ %17, %14 ]
-  %23 = call ptr @getmntent_r(ptr noundef nonnull %.023, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1024) #14
-  %.not3033 = icmp eq ptr %23, null
-  br i1 %.not3033, label %._crit_edge, label %.lr.ph
+.preheader:                                       ; preds = %19, %14
+  %.023.ph = phi ptr [ %17, %14 ], [ %20, %19 ]
+  %22 = call ptr @getmntent_r(ptr noundef nonnull %.023.ph, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1024) #14
+  %.not303537 = icmp eq ptr %22, null
+  br i1 %.not303537, label %._crit_edge, label %.lr.ph.lr.ph
 
-.lr.ph:                                           ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %25
+.lr.ph.lr.ph:                                     ; preds = %.preheader
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %.lr.ph
 
-25:                                               ; preds = %.lr.ph, %.backedge
-  %26 = load ptr, ptr %24, align 8, !tbaa !23
-  %27 = call i32 (ptr, i32, ...) @open(ptr noundef %26, i32 noundef 0) #14
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %.backedge, label %29
+.lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  %25 = call i32 (ptr, i32, ...) @open(ptr noundef %24, i32 noundef 0) #14
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %.loopexit33, label %28
 
-29:                                               ; preds = %25
-  %30 = call i32 @fstat(i32 noundef %27, ptr noundef nonnull %3) #14
-  %.not31 = icmp eq i32 %30, 0
-  %31 = load i64, ptr %3, align 8
-  %32 = icmp eq i64 %31, %16
-  %or.cond = select i1 %.not31, i1 %32, i1 false
-  br i1 %or.cond, label %35, label %.backedge.sink.split
+.loopexit33:                                      ; preds = %.lr.ph
+  %27 = call ptr @getmntent_r(ptr noundef nonnull %.023.ph, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1024) #14
+  %.not3035 = icmp eq ptr %27, null
+  br i1 %.not3035, label %._crit_edge, label %.lr.ph.backedge
 
-.backedge.sink.split:                             ; preds = %29
-  %33 = call i32 @close(i32 noundef %27) #14
-  br label %.backedge
+28:                                               ; preds = %.lr.ph
+  %29 = call i32 @fstat(i32 noundef %25, ptr noundef nonnull %3) #14
+  %.not31 = icmp eq i32 %29, 0
+  %30 = load i64, ptr %3, align 8
+  %31 = icmp eq i64 %30, %16
+  %or.cond = select i1 %.not31, i1 %31, i1 false
+  br i1 %or.cond, label %34, label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %25
-  %34 = call ptr @getmntent_r(ptr noundef nonnull %.023, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1024) #14
-  %.not30 = icmp eq ptr %34, null
-  br i1 %.not30, label %._crit_edge, label %25, !llvm.loop !25
+.backedge:                                        ; preds = %28
+  %32 = call i32 @close(i32 noundef %25) #14
+  %33 = call ptr @getmntent_r(ptr noundef nonnull %.023.ph, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1024) #14
+  %.not30 = icmp eq ptr %33, null
+  br i1 %.not30, label %._crit_edge, label %.lr.ph.backedge
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !26
-  %38 = call noalias ptr @strdup(ptr noundef %37) #14
-  store ptr %38, ptr %1, align 8, !tbaa !6
-  %39 = call i32 @close(i32 noundef %27) #14
-  %40 = call i32 @endmntent(ptr noundef nonnull %.023) #14
-  %41 = load ptr, ptr %36, align 8, !tbaa !26
-  br label %42
+.lr.ph.backedge:                                  ; preds = %.backedge, %.loopexit33
+  br label %.lr.ph, !llvm.loop !25
 
-42:                                               ; preds = %42, %35
-  %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr @__const.pmix_path_nfs.fs_types, i64 %indvars.iv
-  %44 = load ptr, ptr %43, align 8, !tbaa !6
-  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %41) #15
-  %46 = icmp eq i32 %45, 0
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !26
+  %37 = call noalias ptr @strdup(ptr noundef %36) #14
+  store ptr %37, ptr %1, align 8, !tbaa !6
+  %38 = call i32 @close(i32 noundef %25) #14
+  %39 = call i32 @endmntent(ptr noundef nonnull %.023.ph) #14
+  %40 = load ptr, ptr %35, align 8, !tbaa !26
+  br label %41
+
+41:                                               ; preds = %41, %34
+  %indvars.iv = phi i64 [ 0, %34 ], [ %indvars.iv.next, %41 ]
+  %42 = getelementptr inbounds nuw ptr, ptr @__const.pmix_path_nfs.fs_types, i64 %indvars.iv
+  %43 = load ptr, ptr %42, align 8, !tbaa !6
+  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %40) #15
+  %45 = icmp eq i32 %44, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not32 = icmp eq i64 %indvars.iv.next, 6
-  %or.cond45 = select i1 %46, i1 true, i1 %.not32
-  br i1 %or.cond45, label %.loopexit, label %42, !llvm.loop !27
+  %or.cond55 = select i1 %45, i1 true, i1 %.not32
+  br i1 %or.cond55, label %.loopexit, label %41, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.backedge, %22
-  %47 = call i32 @endmntent(ptr noundef nonnull %.023) #14
+._crit_edge:                                      ; preds = %.loopexit33, %.backedge, %.preheader
+  %46 = call i32 @endmntent(ptr noundef nonnull %.023.ph) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %19, %12, %8, %._crit_edge
-  %.0 = phi i1 [ false, %._crit_edge ], [ false, %8 ], [ false, %12 ], [ false, %19 ], [ %46, %42 ]
+.loopexit:                                        ; preds = %41, %19, %12, %8, %._crit_edge
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %8 ], [ false, %12 ], [ false, %19 ], [ %45, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

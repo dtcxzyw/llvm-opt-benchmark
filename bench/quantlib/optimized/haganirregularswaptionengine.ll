@@ -17356,22 +17356,15 @@ entry:
   %evaluationNumber_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %maxEvaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %.pre = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
-  br label %while.cond
+  br label %if.end23
 
-while.cond:                                       ; preds = %if.end14, %entry
-  %3 = phi i64 [ %.pre, %entry ], [ %inc, %if.end14 ]
-  %dx.1 = phi double [ %sub5, %entry ], [ %div, %if.end14 ]
-  %4 = load i64, ptr %maxEvaluations_, align 8, !tbaa !260
-  %cmp8.not = icmp ugt i64 %3, %4
-  br i1 %cmp8.not, label %do.body, label %while.body
-
-while.body:                                       ; preds = %while.cond
-  %div = fmul double %dx.1, 5.000000e-01
-  %5 = load double, ptr %this, align 8, !tbaa !297
-  %add = fadd double %div, %5
+while.body:                                       ; preds = %if.end23
+  %div = fmul double %dx.0, 5.000000e-01
+  %3 = load double, ptr %this, align 8, !tbaa !297
+  %add = fadd double %div, %3
   %call = tail call noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr noundef nonnull align 8 dereferenceable(152) %f, double noundef %add)
-  %6 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
-  %inc = add i64 %6, 1
+  %4 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
+  %inc = add i64 %4, 1
   store i64 %inc, ptr %evaluationNumber_, align 8, !tbaa !289
   %cmp11 = fcmp ugt double %call, 0.000000e+00
   br i1 %cmp11, label %if.end14, label %if.then12
@@ -17381,25 +17374,32 @@ if.then12:                                        ; preds = %while.body
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %while.body
-  %7 = tail call double @llvm.fabs.f64(double %div)
-  %cmp15 = fcmp olt double %7, %xAccuracy
+  %5 = tail call double @llvm.fabs.f64(double %div)
+  %cmp15 = fcmp olt double %5, %xAccuracy
   %cmp.i = fcmp oeq double %call, 0.000000e+00
   %or.cond = or i1 %cmp15, %cmp.i
-  %8 = tail call double @llvm.fabs.f64(double %call)
-  %cmp4.i = fcmp olt double %8, 0x3A1B900000000000
+  %6 = tail call double @llvm.fabs.f64(double %call)
+  %cmp4.i = fcmp olt double %6, 0x3A1B900000000000
   %or.cond50 = or i1 %or.cond, %cmp4.i
-  br i1 %or.cond50, label %if.then17, label %while.cond, !llvm.loop !336
+  br i1 %or.cond50, label %if.then17, label %if.end23
 
 if.then17:                                        ; preds = %if.end14
-  %9 = load double, ptr %this, align 8, !tbaa !297
-  %call19 = tail call noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr noundef nonnull align 8 dereferenceable(152) %f, double noundef %9)
-  %10 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
-  %inc21 = add i64 %10, 1
+  %7 = load double, ptr %this, align 8, !tbaa !297
+  %call19 = tail call noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr noundef nonnull align 8 dereferenceable(152) %f, double noundef %7)
+  %8 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
+  %inc21 = add i64 %8, 1
   store i64 %inc21, ptr %evaluationNumber_, align 8, !tbaa !289
-  %11 = load double, ptr %this, align 8, !tbaa !297
-  ret double %11
+  %9 = load double, ptr %this, align 8, !tbaa !297
+  ret double %9
 
-do.body:                                          ; preds = %while.cond
+if.end23:                                         ; preds = %entry, %if.end14
+  %10 = phi i64 [ %inc, %if.end14 ], [ %.pre, %entry ]
+  %dx.0 = phi double [ %div, %if.end14 ], [ %sub5, %entry ]
+  %11 = load i64, ptr %maxEvaluations_, align 8, !tbaa !260
+  %cmp8.not = icmp ugt i64 %10, %11
+  br i1 %cmp8.not, label %do.body, label %while.body
+
+do.body:                                          ; preds = %if.end23
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
   %call1.i11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, ptr noundef nonnull @.str.62, i64 noundef 40)
@@ -17990,4 +17990,3 @@ attributes #31 = { nounwind willreturn memory(read) }
 !333 = distinct !{!333, !78}
 !334 = !{!335, !24, i64 128}
 !335 = !{!"_ZTSN8QuantLib6HandleINS_5QuoteEE4LinkE", !269, i64 0, !270, i64 56, !139, i64 112, !24, i64 128}
-!336 = distinct !{!336, !78}

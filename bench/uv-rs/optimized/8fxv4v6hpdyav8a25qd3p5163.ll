@@ -205,15 +205,17 @@ define hidden noundef range(i8 0, 5) i8 @_ZN21uv_distribution_types10dist_error1
   %11 = load i64, ptr %10, align 8, !range !5, !noundef !3
   %.off = add nsw i64 %11, -2
   %switch = icmp ult i64 %.off, 3
-  br i1 %switch, label %13, label %12
+  br i1 %switch, label %13, label %15
 
-12:                                               ; preds = %9, %13, %7, %2
-  %.sroa.0.0 = phi i8 [ 3, %2 ], [ %., %7 ], [ 2, %9 ], [ %.1, %13 ]
+12:                                               ; preds = %13, %7, %2, %15
+  %.sroa.0.0 = phi i8 [ 3, %2 ], [ 2, %15 ], [ %., %7 ], [ 1, %13 ]
   ret i8 %.sroa.0.0
 
 13:                                               ; preds = %9
   %14 = tail call noundef zeroext i1 @_ZN21uv_distribution_types10SourceDist8is_local17hd656cee380149e64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %10)
-  %.1 = select i1 %14, i8 2, i8 1
+  br i1 %14, label %15, label %12
+
+15:                                               ; preds = %9, %13
   br label %12
 }
 

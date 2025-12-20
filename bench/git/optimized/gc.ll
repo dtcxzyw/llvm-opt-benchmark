@@ -2193,57 +2193,57 @@ define internal fastcc range(i32 0, 2) i32 @too_many_loose_objects(ptr noundef r
   %4 = load ptr, ptr %3, align 8, !tbaa !109
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !110
-  %7 = tail call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.102)
-  %8 = tail call ptr @opendir(ptr noundef %7)
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %28, label %9
+  %7 = add i64 %6, 4294967294
+  %8 = tail call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.102)
+  %9 = tail call ptr @opendir(ptr noundef %8)
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %29, label %10
 
-9:                                                ; preds = %1
-  %10 = add i64 %6, 4294967294
+10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !18
   %13 = add nsw i32 %12, 255
   %14 = sdiv i32 %13, 256
-  %15 = and i64 %10, 4294967295
-  %smax = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
-  br label %.outer
+  %15 = tail call ptr @readdir64(ptr noundef nonnull %9) #21
+  %.not1721 = icmp eq ptr %15, null
+  br i1 %.not1721, label %._crit_edge, label %.lr.ph
 
-.outer:                                           ; preds = %25, %9
-  %.012.ph = phi i32 [ %26, %25 ], [ 0, %9 ]
-  %16 = tail call ptr @readdir64(ptr noundef nonnull %8) #21
-  %.not1722 = icmp eq ptr %16, null
-  br i1 %.not1722, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %10
+  %16 = and i64 %7, 4294967295
+  br label %17
 
-.lr.ph:                                           ; preds = %.outer, %23
-  %17 = phi ptr [ %24, %23 ], [ %16, %.outer ]
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 19
-  %19 = tail call i64 @strspn(ptr noundef nonnull %18, ptr noundef nonnull @.str.103) #25
-  %.not18 = icmp eq i64 %19, %15
-  br i1 %.not18, label %20, label %23
+17:                                               ; preds = %.lr.ph, %26
+  %18 = phi ptr [ %15, %.lr.ph ], [ %27, %26 ]
+  %.01222 = phi i32 [ 0, %.lr.ph ], [ %.1, %26 ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 19
+  %20 = tail call i64 @strspn(ptr noundef nonnull %19, ptr noundef nonnull @.str.103) #25
+  %.not18 = icmp eq i64 %20, %16
+  br i1 %.not18, label %21, label %26
 
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %15
-  %22 = load i8, ptr %21, align 1, !tbaa !102
-  %.not19 = icmp eq i8 %22, 0
-  br i1 %.not19, label %25, label %23
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %16
+  %23 = load i8, ptr %22, align 1, !tbaa !102
+  %.not19 = icmp eq i8 %23, 0
+  br i1 %.not19, label %24, label %26
 
-23:                                               ; preds = %20, %.lr.ph
-  %24 = tail call ptr @readdir64(ptr noundef nonnull %8) #21
-  %.not17 = icmp eq ptr %24, null
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !113
+24:                                               ; preds = %21
+  %25 = add nsw i32 %.01222, 1
+  %.not20 = icmp slt i32 %.01222, %14
+  br i1 %.not20, label %26, label %._crit_edge
 
-25:                                               ; preds = %20
-  %26 = add nuw nsw i32 %.012.ph, 1
-  %exitcond.not = icmp eq i32 %.012.ph, %smax
-  br i1 %exitcond.not, label %.loopexit, label %.outer, !llvm.loop !113
+26:                                               ; preds = %17, %21, %24
+  %.1 = phi i32 [ %.01222, %17 ], [ %.01222, %21 ], [ %25, %24 ]
+  %27 = tail call ptr @readdir64(ptr noundef nonnull %9) #21
+  %.not17 = icmp eq ptr %27, null
+  br i1 %.not17, label %._crit_edge, label %17, !llvm.loop !113
 
-.loopexit:                                        ; preds = %25, %.outer, %23
-  %.011 = phi i32 [ 0, %23 ], [ 1, %25 ], [ 0, %.outer ]
-  %27 = tail call i32 @closedir(ptr noundef nonnull %8)
-  br label %28
+._crit_edge:                                      ; preds = %26, %24, %10
+  %.011 = phi i32 [ 0, %10 ], [ 1, %24 ], [ 0, %26 ]
+  %28 = tail call i32 @closedir(ptr noundef nonnull %9)
+  br label %29
 
-28:                                               ; preds = %1, %.loopexit
-  %.0 = phi i32 [ %.011, %.loopexit ], [ 0, %1 ]
+29:                                               ; preds = %1, %._crit_edge
+  %.0 = phi i32 [ %.011, %._crit_edge ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -6175,9 +6175,6 @@ declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #19

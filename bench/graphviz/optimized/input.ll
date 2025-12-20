@@ -2443,7 +2443,7 @@ declare i32 @late_int(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @maptoken(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #3 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca i8, align 1
@@ -2453,7 +2453,7 @@ define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1
   store i8 0, ptr %6, align 1, !tbaa !41
   %7 = tail call ptr @agget(ptr noundef %0, ptr noundef %1) #24
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %34, label %8
+  br i1 %.not, label %38, label %8
 
 8:                                                ; preds = %3
   %9 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.154, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #24
@@ -2464,7 +2464,7 @@ define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1
   %13 = load double, ptr %5, align 8
   %14 = fcmp ogt double %13, 0.000000e+00
   %or.cond3 = select i1 %or.cond, i1 %14, i1 false
-  br i1 %or.cond3, label %15, label %22
+  br i1 %or.cond3, label %15, label %26
 
 15:                                               ; preds = %8
   %16 = call double @llvm.fmuladd.f64(double %11, double 7.200000e+01, double 5.000000e-01)
@@ -2474,34 +2474,37 @@ define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1
   %19 = call double @llvm.fmuladd.f64(double %13, double 7.200000e+01, double 5.000000e-01)
   %20 = fptosi double %19 to i32
   %21 = sitofp i32 %20 to double
-  br label %.sink.split
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %21, ptr %22, align 8, !tbaa !120
+  %23 = load i8, ptr %6, align 1, !tbaa !41
+  %24 = icmp eq i8 %23, 33
+  br i1 %24, label %25, label %38
 
-22:                                               ; preds = %8
+25:                                               ; preds = %31, %15
+  br label %38
+
+26:                                               ; preds = %8
   store i8 0, ptr %6, align 1, !tbaa !41
-  %23 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.155, ptr noundef nonnull %4, ptr noundef nonnull %6) #24
-  %24 = icmp sgt i32 %23, 0
-  %25 = load double, ptr %4, align 8
-  %26 = fcmp ogt double %25, 0.000000e+00
-  %or.cond5 = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond5, label %27, label %34
+  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.155, ptr noundef nonnull %4, ptr noundef nonnull %6) #24
+  %28 = icmp sgt i32 %27, 0
+  %29 = load double, ptr %4, align 8
+  %30 = fcmp ogt double %29, 0.000000e+00
+  %or.cond5 = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond5, label %31, label %38
 
-27:                                               ; preds = %22
-  %28 = call double @llvm.fmuladd.f64(double %25, double 7.200000e+01, double 5.000000e-01)
-  %29 = fptosi double %28 to i32
-  %30 = sitofp i32 %29 to double
-  store double %30, ptr %2, align 8, !tbaa !119
-  br label %.sink.split
+31:                                               ; preds = %26
+  %32 = call double @llvm.fmuladd.f64(double %29, double 7.200000e+01, double 5.000000e-01)
+  %33 = fptosi double %32 to i32
+  %34 = sitofp i32 %33 to double
+  store double %34, ptr %2, align 8, !tbaa !119
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %34, ptr %35, align 8, !tbaa !120
+  %36 = load i8, ptr %6, align 1, !tbaa !41
+  %37 = icmp eq i8 %36, 33
+  br i1 %37, label %25, label %38
 
-.sink.split:                                      ; preds = %27, %15
-  %.sink = phi double [ %21, %15 ], [ %30, %27 ]
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %.sink, ptr %31, align 8, !tbaa !120
-  %32 = load i8, ptr %6, align 1, !tbaa !41
-  %33 = icmp eq i8 %32, 33
-  br label %34
-
-34:                                               ; preds = %.sink.split, %22, %3
-  %.0 = phi i1 [ false, %22 ], [ false, %3 ], [ %33, %.sink.split ]
+38:                                               ; preds = %25, %15, %31, %26, %3
+  %.0 = phi i1 [ true, %25 ], [ false, %15 ], [ false, %3 ], [ false, %31 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

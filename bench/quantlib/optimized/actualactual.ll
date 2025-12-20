@@ -2420,10 +2420,7 @@ if.then27:                                        ; preds = %while.end
   %8 = load i64, ptr %d1, align 8
   %cmp.i23 = icmp sle i64 %8, %6
   %or.cond = select i1 %cmp.i22, i1 %cmp.i23, i1 false
-  br i1 %or.cond, label %if.then33, label %if.end48
-
-if.then33:                                        ; preds = %if.then27
-  br label %if.end48
+  br i1 %or.cond, label %if.then44, label %if.end48
 
 if.else:                                          ; preds = %while.end
   %call36 = call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
@@ -2448,14 +2445,16 @@ if.then38:                                        ; preds = %if.else
   %or.cond27 = select i1 %cmp.i24, i1 %cmp.i25, i1 false
   br i1 %or.cond27, label %if.then44, label %if.end48
 
-if.then44:                                        ; preds = %if.then38
+if.then44:                                        ; preds = %if.then38, %if.then27
+  %12 = phi i64 [ %11, %if.then38 ], [ %8, %if.then27 ]
+  %13 = phi i64 [ %10, %if.then38 ], [ %7, %if.then27 ]
   br label %if.end48
 
-if.end48:                                         ; preds = %if.else.if.end48_crit_edge, %if.then44, %if.then38, %if.then27, %if.then33
-  %12 = phi i64 [ %8, %if.then33 ], [ %.pre30, %if.else.if.end48_crit_edge ], [ %8, %if.then27 ], [ %11, %if.then44 ], [ %11, %if.then38 ]
-  %13 = phi i64 [ %7, %if.then33 ], [ %.pre, %if.else.if.end48_crit_edge ], [ %7, %if.then27 ], [ %10, %if.then44 ], [ %10, %if.then38 ]
-  %den.0 = phi double [ 3.660000e+02, %if.then33 ], [ 3.650000e+02, %if.else.if.end48_crit_edge ], [ 3.650000e+02, %if.then27 ], [ 3.660000e+02, %if.then44 ], [ 3.650000e+02, %if.then38 ]
-  %sub.i.i26 = sub nsw i64 %13, %12
+if.end48:                                         ; preds = %if.else.if.end48_crit_edge, %if.then44, %if.then38, %if.then27
+  %14 = phi i64 [ %.pre30, %if.else.if.end48_crit_edge ], [ %11, %if.then38 ], [ %8, %if.then27 ], [ %12, %if.then44 ]
+  %15 = phi i64 [ %.pre, %if.else.if.end48_crit_edge ], [ %10, %if.then38 ], [ %7, %if.then27 ], [ %13, %if.then44 ]
+  %den.0 = phi double [ 3.650000e+02, %if.else.if.end48_crit_edge ], [ 3.650000e+02, %if.then38 ], [ 3.650000e+02, %if.then27 ], [ 3.660000e+02, %if.then44 ]
+  %sub.i.i26 = sub nsw i64 %15, %14
   %conv.i = sitofp i64 %sub.i.i26 to double
   %div = fdiv double %conv.i, %den.0
   %add50 = fadd double %sum.0.lcssa, %div

@@ -4427,8 +4427,8 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$hir_def..hir..type_ref..TypeRef$u20
     i8 11, label %283
   ]
 
-.critedge:                                        ; preds = %tailrecurse, %.lr.ph, %277, %.preheader.split.i.i28, %266, %.preheader.split.i.i23, %232, %229, %224, %_ZN4core3cmp9PartialEq2ne17h1bb4b7aaf7f1b392E.llvm.17395978385996932917.exit, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h41bf42a20c82dfacE.llvm.17395978385996932917.exit.i", %66, %.preheader.split.i.i18, %19, %.preheader.split.i.i, %201, %195, %189, %186, %177, %171, %165, %159, %153, %152, %150, %134, %252, %2, %207, %272, %261, %118, %87, %84, %79, %72, %61, %54, %48, %46, %44, %37, %24, %14, %283, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h69af1a8673cef6ccE.exit", %246, %128, %122, %120, %105, %119, %93, %289, %259, %99
-  %.0 = phi i1 [ false, %61 ], [ false, %283 ], [ false, %134 ], [ %104, %99 ], [ %86, %84 ], [ false, %93 ], [ %206, %201 ], [ false, %119 ], [ false, %261 ], [ %exitcond.not.i.i30, %277 ], [ %260, %259 ], [ %188, %186 ], [ false, %128 ], [ false, %118 ], [ false, %2 ], [ %294, %289 ], [ %.mux, %252 ], [ %exitcond.not.i.i, %19 ], [ %.mux17.i, %72 ], [ false, %48 ], [ false, %46 ], [ false, %150 ], [ false, %79 ], [ false, %44 ], [ %92, %87 ], [ %.mux.i, %54 ], [ false, %37 ], [ %127, %122 ], [ false, %120 ], [ false, %105 ], [ false, %246 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h69af1a8673cef6ccE.exit" ], [ false, %14 ], [ false, %272 ], [ false, %24 ], [ false, %207 ], [ %194, %189 ], [ false, %177 ], [ %exitcond.not.i.i25, %266 ], [ %176, %171 ], [ %170, %165 ], [ %164, %159 ], [ %158, %153 ], [ %exitcond.not.i.i20, %66 ], [ false, %232 ], [ false, %195 ], [ true, %152 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i20, %.preheader.split.i.i18 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h41bf42a20c82dfacE.llvm.17395978385996932917.exit.i" ], [ false, %_ZN4core3cmp9PartialEq2ne17h1bb4b7aaf7f1b392E.llvm.17395978385996932917.exit ], [ false, %224 ], [ false, %229 ], [ %exitcond.not.i.i25, %.preheader.split.i.i23 ], [ %exitcond.not.i.i30, %.preheader.split.i.i28 ], [ true, %.lr.ph ], [ false, %tailrecurse ]
+.critedge:                                        ; preds = %tailrecurse, %.lr.ph, %277, %.preheader.split.i.i28, %266, %.preheader.split.i.i23, %232, %229, %224, %_ZN4core3cmp9PartialEq2ne17h1bb4b7aaf7f1b392E.llvm.17395978385996932917.exit, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h41bf42a20c82dfacE.llvm.17395978385996932917.exit.i", %66, %.preheader.split.i.i18, %19, %.preheader.split.i.i, %201, %195, %189, %186, %177, %171, %165, %159, %153, %152, %150, %134, %252, %2, %207, %272, %261, %118, %87, %84, %79, %72, %61, %54, %48, %46, %44, %37, %24, %14, %283, %246, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h69af1a8673cef6ccE.exit", %128, %93, %122, %120, %105, %119, %289, %99, %259
+  %.0 = phi i1 [ false, %61 ], [ false, %283 ], [ false, %134 ], [ %104, %99 ], [ %86, %84 ], [ false, %48 ], [ %206, %201 ], [ false, %119 ], [ false, %261 ], [ %exitcond.not.i.i30, %277 ], [ %260, %259 ], [ false, %120 ], [ false, %105 ], [ false, %118 ], [ false, %2 ], [ %294, %289 ], [ %127, %122 ], [ %188, %186 ], [ %.mux17.i, %72 ], [ false, %37 ], [ false, %46 ], [ %exitcond.not.i.i, %19 ], [ false, %79 ], [ false, %44 ], [ %92, %87 ], [ %.mux.i, %54 ], [ %.mux, %252 ], [ false, %93 ], [ false, %128 ], [ false, %150 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h69af1a8673cef6ccE.exit" ], [ false, %246 ], [ false, %14 ], [ false, %272 ], [ false, %24 ], [ false, %207 ], [ %194, %189 ], [ false, %177 ], [ %exitcond.not.i.i25, %266 ], [ %176, %171 ], [ %170, %165 ], [ %164, %159 ], [ %158, %153 ], [ %exitcond.not.i.i20, %66 ], [ false, %232 ], [ false, %195 ], [ true, %152 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i20, %.preheader.split.i.i18 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h41bf42a20c82dfacE.llvm.17395978385996932917.exit.i" ], [ false, %_ZN4core3cmp9PartialEq2ne17h1bb4b7aaf7f1b392E.llvm.17395978385996932917.exit ], [ false, %224 ], [ false, %229 ], [ %exitcond.not.i.i25, %.preheader.split.i.i23 ], [ %exitcond.not.i.i30, %.preheader.split.i.i28 ], [ false, %tailrecurse ], [ true, %.lr.ph ]
   ret i1 %.0
 
 tailrecurse:                                      ; preds = %.lr.ph
@@ -11337,7 +11337,7 @@ define noundef zeroext i1 @"_ZN60_$LT$ide_ssr..MatchDebugInfo$u20$as$u20$core..f
   %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %29, label %39, label %30
+  br i1 %29, label %61, label %30
 
 30:                                               ; preds = %22, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -11373,10 +11373,10 @@ define noundef zeroext i1 @"_ZN60_$LT$ide_ssr..MatchDebugInfo$u20$as$u20$core..f
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %38, label %39, label %40
+  br i1 %38, label %61, label %40
 
-39:                                               ; preds = %46, %30, %22, %55, %40, %16
-  %.0 = phi i1 [ true, %40 ], [ %60, %55 ], [ true, %30 ], [ true, %16 ], [ true, %22 ], [ true, %46 ]
+39:                                               ; preds = %46, %55, %16, %61
+  %.0 = phi i1 [ false, %55 ], [ true, %61 ], [ true, %16 ], [ true, %46 ]
   ret i1 %.0
 
 40:                                               ; preds = %30
@@ -11392,7 +11392,7 @@ define noundef zeroext i1 @"_ZN60_$LT$ide_ssr..MatchDebugInfo$u20$as$u20$core..f
   store i64 0, ptr %44, align 8
   %45 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %45, label %39, label %46
+  br i1 %45, label %61, label %46
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -11443,6 +11443,9 @@ define noundef zeroext i1 @"_ZN60_$LT$ide_ssr..MatchDebugInfo$u20$as$u20$core..f
   store i64 0, ptr %59, align 8
   %60 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %60, label %61, label %39
+
+61:                                               ; preds = %22, %30, %55, %40
   br label %39
 }
 

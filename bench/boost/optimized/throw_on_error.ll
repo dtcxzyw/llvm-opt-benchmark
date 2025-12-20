@@ -3590,7 +3590,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   store i32 %10, ptr %6, align 4, !tbaa !49
   %11 = call i64 @write(i32 noundef %1, ptr noundef nonnull %3, i64 noundef 8)
   %12 = icmp eq i64 %11, -1
-  br i1 %12, label %.lr.ph, label %.thread17
+  br i1 %12, label %.lr.ph, label %.loopexit.backedge
 
 .lr.ph:                                           ; preds = %2
   %13 = tail call ptr @__errno_location() #35
@@ -3598,7 +3598,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
 
 14:                                               ; preds = %.lr.ph, %16
   %15 = load i32, ptr %13, align 4, !tbaa !49
-  switch i32 %15, label %.thread17 [
+  switch i32 %15, label %.loopexit.backedge [
     i32 9, label %.thread
     i32 11, label %16
     i32 4, label %16
@@ -3607,34 +3607,24 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
 16:                                               ; preds = %14, %14
   %17 = call i64 @write(i32 noundef %1, ptr noundef nonnull %3, i64 noundef 8)
   %18 = icmp eq i64 %17, -1
-  br i1 %18, label %14, label %.thread17
+  br i1 %18, label %14, label %.loopexit.backedge
 
-.thread17:                                        ; preds = %16, %14, %2
-  %19 = load ptr, ptr %7, align 8, !tbaa !30
-  %20 = load i64, ptr %8, align 8, !tbaa !40
-  %21 = tail call i64 @write(i32 noundef %1, ptr noundef nonnull %19, i64 noundef %20)
-  %22 = icmp eq i64 %21, -1
-  br i1 %22, label %.lr.ph24, label %.thread
-
-.lr.ph24:                                         ; preds = %.thread17
-  %23 = tail call ptr @__errno_location() #35
-  br label %24
-
-24:                                               ; preds = %.lr.ph24, %26
-  %25 = load i32, ptr %23, align 4, !tbaa !49
-  switch i32 %25, label %.thread [
-    i32 4, label %26
-    i32 11, label %26
+19:                                               ; preds = %.loopexit.backedge
+  %20 = tail call ptr @__errno_location() #35
+  %21 = load i32, ptr %20, align 4, !tbaa !49
+  switch i32 %21, label %.thread [
+    i32 4, label %.loopexit.backedge
+    i32 11, label %.loopexit.backedge
   ]
 
-26:                                               ; preds = %24, %24
-  %27 = load ptr, ptr %7, align 8, !tbaa !30
-  %28 = load i64, ptr %8, align 8, !tbaa !40
-  %29 = tail call i64 @write(i32 noundef %1, ptr noundef nonnull %27, i64 noundef %28)
-  %30 = icmp eq i64 %29, -1
-  br i1 %30, label %24, label %.thread
+.loopexit.backedge:                               ; preds = %2, %16, %14, %19, %19
+  %22 = load ptr, ptr %7, align 8, !tbaa !30
+  %23 = load i64, ptr %8, align 8, !tbaa !40
+  %24 = tail call i64 @write(i32 noundef %1, ptr noundef nonnull %22, i64 noundef %23)
+  %25 = icmp eq i64 %24, -1
+  br i1 %25, label %19, label %.thread
 
-.thread:                                          ; preds = %14, %26, %24, %.thread17
+.thread:                                          ; preds = %14, %19, %.loopexit.backedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

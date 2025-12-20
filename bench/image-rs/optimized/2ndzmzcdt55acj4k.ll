@@ -28991,43 +28991,43 @@ define { i64, i64 } @"_ZN82_$LT$image..codecs..farbfeld..FarbfeldReader$LT$R$GT$
   %4 = load i64, ptr %2, align 8, !range !2996, !noundef !15
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !15
-  switch i64 %4, label %default.unreachable46 [
+  switch i64 %4, label %default.unreachable44 [
     i64 0, label %7
     i64 1, label %9
     i64 2, label %12
   ]
 
-default.unreachable46:                            ; preds = %3
+default.unreachable44:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
   %8 = or i64 %6, %0
   %or.cond = icmp sgt i64 %8, -1
-  br i1 %or.cond, label %15, label %19
+  br i1 %or.cond, label %15, label %28
 
 9:                                                ; preds = %3
   %10 = icmp sgt i64 %1, -1
   %spec.select = select i1 %10, i64 %1, i64 9223372036854775807
   %11 = icmp slt i64 %6, %spec.select
-  br i1 %11, label %19, label %22
+  br i1 %11, label %28, label %22
 
 12:                                               ; preds = %3
   %13 = icmp sgt i64 %0, -1
-  %spec.select38 = select i1 %13, i64 %0, i64 9223372036854775807
-  %14 = icmp sge i64 %6, %spec.select38
-  br label %19
+  %spec.select36 = select i1 %13, i64 %0, i64 9223372036854775807
+  %14 = icmp slt i64 %6, %spec.select36
+  br i1 %14, label %28, label %19
 
 15:                                               ; preds = %7
   %16 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %6, i64 %0)
   %17 = extractvalue { i64, i1 } %16, 0
   %18 = extractvalue { i64, i1 } %16, 1
   %not. = xor i1 %18, true
+  %. = zext i1 %not. to i64
   br label %19
 
-19:                                               ; preds = %22, %7, %12, %9, %15
-  %.sroa.11.1 = phi i64 [ %17, %15 ], [ %6, %12 ], [ undef, %7 ], [ %26, %22 ], [ undef, %9 ]
-  %.sroa.0.2.shrunk = phi i1 [ %not., %15 ], [ %14, %12 ], [ false, %7 ], [ %or.cond43, %22 ], [ false, %9 ]
-  %.sroa.0.2 = zext i1 %.sroa.0.2.shrunk to i64
+19:                                               ; preds = %12, %28, %26, %15
+  %.sroa.11.1 = phi i64 [ %17, %15 ], [ %27, %26 ], [ undef, %28 ], [ %6, %12 ]
+  %.sroa.0.2 = phi i64 [ %., %15 ], [ 1, %26 ], [ 0, %28 ], [ 1, %12 ]
   %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %21 = insertvalue { i64, i64 } %20, i64 %.sroa.11.1, 1
   ret { i64, i64 } %21
@@ -29036,8 +29036,14 @@ default.unreachable46:                            ; preds = %3
   %23 = sub i64 %1, %0
   %24 = icmp uge i64 %1, %0
   %25 = icmp sgt i64 %23, -1
-  %or.cond43 = and i1 %24, %25
-  %26 = add i64 %6, %23
+  %or.cond41 = and i1 %24, %25
+  br i1 %or.cond41, label %26, label %28
+
+26:                                               ; preds = %22
+  %27 = add nuw i64 %6, %23
+  br label %19
+
+28:                                               ; preds = %7, %22, %9, %12
   br label %19
 }
 
@@ -30014,7 +30020,7 @@ common.resume:                                    ; preds = %416, %397, %347, %3
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34
   unreachable
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit126.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit114", %309, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit", %.thread202, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit118", %408, %401, %389, %382, %378, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit126"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit126.thread": ; preds = %309, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit114", %.thread202, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit118", %401, %408, %382, %389, %378, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit126"
   store i8 10, ptr %0, align 8
   br label %421
 

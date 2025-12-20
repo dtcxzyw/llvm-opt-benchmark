@@ -931,26 +931,26 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
   br i1 %.not26.i.i, label %.lr.ph.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.sroa.5.0.lcssa.i.i = phi i64 [ %54, %.preheader.i.i ], [ %67, %.lr.ph.i.i ]
+  %.sroa.5.1.lcssa.i.i = phi i64 [ %54, %.preheader.i.i ], [ %67, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %60, %.preheader.i.i ], [ %71, %.lr.ph.i.i ]
   %61 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %62 = zext nneg i16 %61 to i64
-  %63 = add i64 %.sroa.5.0.lcssa.i.i, %62
+  %63 = add i64 %.sroa.5.1.lcssa.i.i, %62
   %64 = and i64 %63, %36
   br label %72
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.sroa.12.028.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %.sroa.5.027.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %54, %.preheader.i.i ]
-  %65 = add i64 %.sroa.12.028.i.i, 16
-  %66 = add i64 %65, %.sroa.5.027.i.i
+  %.sroa.12.128.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %.sroa.5.127.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %54, %.preheader.i.i ]
+  %65 = add i64 %.sroa.12.128.i.i, 16
+  %66 = add i64 %65, %.sroa.5.127.i.i
   %67 = and i64 %66, %36
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 %67
   %69 = load <16 x i8>, ptr %68, align 1, !tbaa !14
   %70 = icmp slt <16 x i8> %69, splat (i8 -1)
   %71 = bitcast <16 x i1> %70 to i16
   %.not.i.i = icmp eq i16 %71, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !67
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i
 
 72:                                               ; preds = %.thread.i.i, %43
   %.sroa.011.0.i.i = phi i64 [ %64, %.thread.i.i ], [ %54, %43 ]
@@ -970,11 +970,11 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
 81:                                               ; preds = %38, %72
   %82 = add nuw i64 %.045, 1
   %.not = icmp eq i64 %82, %29
-  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %81, %33
   %83 = load ptr, ptr %4, align 8, !tbaa !14
-  %84 = load i8, ptr %21, align 8, !tbaa !59, !range !69, !noundef !46
+  %84 = load i8, ptr %21, align 8, !tbaa !59, !range !68, !noundef !46
   %85 = trunc nuw i8 %84 to i1
   call void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef nonnull %6, i64 noundef %29, ptr noundef %83, i64 noundef 8, i64 noundef 8, i1 noundef zeroext %85)
   br label %_ZN4absl18container_internal19HashSetResizeHelper13DeallocateOldILm8ESaIcEEEvT0_m.exit
@@ -987,15 +987,15 @@ _ZN4absl18container_internal19HashSetResizeHelper13DeallocateOldILm8ESaIcEEEvT0_
 
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsILm8ELb1ELb1EEEbRNS0_12CommonFieldsEPvmmmRKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(56) %6) local_unnamed_addr #15 comdat align 2 {
-  %8 = load i32, ptr %6, align 8, !tbaa !70
+  %8 = load i32, ptr %6, align 8, !tbaa !69
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !72
+  %11 = load i32, ptr %10, align 4, !tbaa !71
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  %14 = load i8, ptr %13, align 1, !tbaa !62, !range !69, !noundef !46
+  %14 = load i8, ptr %13, align 1, !tbaa !62, !range !68, !noundef !46
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i8, ptr %15, align 4, !tbaa !63, !range !69, !noundef !46
+  %16 = load i8, ptr %15, align 4, !tbaa !63, !range !68, !noundef !46
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = and i8 %16, %14
   %spec.select.i.not = icmp eq i8 %18, 0
@@ -1012,26 +1012,26 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19
   %24 = sub nsw i64 0, %12
   %25 = and i64 %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !73
+  %27 = load ptr, ptr %26, align 8, !tbaa !72
   %28 = mul i64 %21, %9
   %29 = add i64 %28, %25
   %30 = tail call noundef ptr %27(ptr noundef %2, i64 noundef %29)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %34 = load i8, ptr %33, align 1, !tbaa !60, !range !69, !noundef !46
+  %34 = load i8, ptr %33, align 1, !tbaa !60, !range !68, !noundef !46
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %61
 
 36:                                               ; preds = %20
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %38 = load i8, ptr %37, align 2, !tbaa !61, !range !69, !noundef !46
+  %38 = load i8, ptr %37, align 2, !tbaa !61, !range !68, !noundef !46
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %46, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %31, ptr %41, align 8, !tbaa !74
+  store ptr %31, ptr %41, align 8, !tbaa !73
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %32, ptr %42, align 8, !tbaa !14
   %43 = load i64, ptr %1, align 8, !tbaa !4
@@ -1061,7 +1061,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load i64, ptr %57, align 8
   store i64 %58, ptr %56, align 1
-  store ptr %31, ptr %57, align 8, !tbaa !74
+  store ptr %31, ptr %57, align 8, !tbaa !73
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %32, ptr %59, align 8, !tbaa !14
   br label %79
@@ -1078,7 +1078,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19
   store ptr %.sroa.0.0.copyload.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
-  store ptr %31, ptr %62, align 8, !tbaa !74
+  store ptr %31, ptr %62, align 8, !tbaa !73
   store ptr %32, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !14
   %63 = load i64, ptr %17, align 8, !tbaa !56
   %64 = icmp ult i64 %21, 17
@@ -1089,11 +1089,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19
 67:                                               ; preds = %61
   tail call void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9)
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %69 = load ptr, ptr %68, align 8, !tbaa !75
+  %69 = load ptr, ptr %68, align 8, !tbaa !74
   %70 = load i64, ptr %17, align 8, !tbaa !56
   %71 = load ptr, ptr %0, align 8, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = load i8, ptr %72, align 8, !tbaa !59, !range !69, !noundef !46
+  %73 = load i8, ptr %72, align 8, !tbaa !59, !range !68, !noundef !46
   %74 = trunc nuw i8 %73 to i1
   tail call void %69(ptr noundef %2, i64 noundef %70, ptr noundef %71, i64 noundef %9, i64 noundef %12, i1 noundef zeroext %74)
   br label %79
@@ -1118,7 +1118,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19
   %87 = lshr i64 %86, 1
   %88 = add nuw i64 %84, %87
   %89 = sub i64 %83, %88
-  store i64 %89, ptr %82, align 8, !tbaa !76
+  store i64 %89, ptr %82, align 8, !tbaa !75
   %90 = and i64 %86, -2
   store i64 %90, ptr %85, align 8, !tbaa !9
   ret i1 %.0.shrunk
@@ -1137,7 +1137,7 @@ declare noundef ptr @_ZN4absl18container_internal24GetHashRefForEmptyHasherERKNS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl18container_internal31TypeErasedDerefAndApplyToSlotFnINS_13hash_internal4HashIiEEiEEmPKvPv(ptr noundef %0, ptr noundef %1) #17 comdat {
-  %3 = load ptr, ptr %1, align 8, !tbaa !78
+  %3 = load ptr, ptr %1, align 8, !tbaa !77
   %4 = load i32, ptr %3, align 4, !tbaa !19
   %5 = zext i32 %4 to i64
   %6 = xor i64 %5, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -1334,15 +1334,14 @@ attributes #28 = { noreturn }
 !65 = distinct !{!65, !66, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: argument 0"}
 !66 = distinct !{!66, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
 !67 = distinct !{!67, !16}
-!68 = distinct !{!68, !16}
-!69 = !{i8 0, i8 2}
-!70 = !{!71, !20, i64 0}
-!71 = !{!"_ZTSN4absl18container_internal15PolicyFunctionsE", !20, i64 0, !20, i64 4, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
-!72 = !{!71, !20, i64 4}
-!73 = !{!71, !13, i64 32}
-!74 = !{!13, !13, i64 0}
-!75 = !{!71, !13, i64 40}
-!76 = !{!77, !6, i64 0}
-!77 = !{!"_ZTSN4absl18container_internal10GrowthInfoE", !6, i64 0}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"p1 int", !13, i64 0}
+!68 = !{i8 0, i8 2}
+!69 = !{!70, !20, i64 0}
+!70 = !{!"_ZTSN4absl18container_internal15PolicyFunctionsE", !20, i64 0, !20, i64 4, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
+!71 = !{!70, !20, i64 4}
+!72 = !{!70, !13, i64 32}
+!73 = !{!13, !13, i64 0}
+!74 = !{!70, !13, i64 40}
+!75 = !{!76, !6, i64 0}
+!76 = !{!"_ZTSN4absl18container_internal10GrowthInfoE", !6, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 int", !13, i64 0}

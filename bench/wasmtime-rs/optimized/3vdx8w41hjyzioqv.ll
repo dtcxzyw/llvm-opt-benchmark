@@ -4138,17 +4138,17 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.i = load i64, ptr %6, align 8, !alias.scope !934, !noalias !937, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val20.i = load i64, ptr %7, align 8, !alias.scope !934, !noalias !937
+  %.val18.i = load i64, ptr %7, align 8, !alias.scope !934, !noalias !937
   %8 = icmp eq i64 %.val.i, 0
   br i1 %8, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit.i", label %9
 
 9:                                                ; preds = %5
-  %10 = icmp eq i64 %.val20.i, 0
+  %10 = icmp eq i64 %.val18.i, 0
   br i1 %10, label %15, label %11, !prof !5
 
 11:                                               ; preds = %9
-  %12 = udiv i64 %.val.i, %.val20.i
-  %13 = urem i64 %.val.i, %.val20.i
+  %12 = udiv i64 %.val.i, %.val18.i
+  %13 = urem i64 %.val.i, %.val18.i
   %.not.i.i.i = icmp ne i64 %13, 0
   %14 = zext i1 %.not.i.i.i to i64
   %.0.i.i.i = add i64 %12, %14
@@ -21489,17 +21489,17 @@ define hidden void @"_ZN99_$LT$core..char..decode..DecodeUtf16$LT$I$GT$$u20$as$u
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i64, ptr %3, align 8, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val20 = load i64, ptr %4, align 8
+  %.val18 = load i64, ptr %4, align 8
   %5 = icmp eq i64 %.val, 0
   br i1 %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = icmp eq i64 %.val20, 0
+  %7 = icmp eq i64 %.val18, 0
   br i1 %7, label %12, label %8, !prof !5
 
 8:                                                ; preds = %6
-  %9 = udiv i64 %.val, %.val20
-  %10 = urem i64 %.val, %.val20
+  %9 = udiv i64 %.val, %.val18
+  %10 = urem i64 %.val, %.val18
   %.not.i.i = icmp ne i64 %10, 0
   %11 = zext i1 %.not.i.i to i64
   %.0.i.i = add i64 %9, %11
@@ -21514,36 +21514,34 @@ define hidden void @"_ZN99_$LT$core..char..decode..DecodeUtf16$LT$I$GT$$u20$as$u
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i16, ptr %13, align 8, !range !933, !noundef !4
   %trunc = trunc nuw i16 %14 to i1
-  br i1 %trunc, label %15, label %21
+  br i1 %trunc, label %15, label %20
 
 15:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %17 = load i16, ptr %16, align 2, !noundef !4
   %18 = and i16 %17, -2048
-  %.011 = icmp eq i16 %18, -10240
-  br i1 %.011, label %19, label %21
+  %.011 = icmp ne i16 %18, -10240
+  %19 = icmp eq i64 %.0.sink1.i.i, 0
+  %or.cond = select i1 %.011, i1 true, i1 %19
+  %spec.select19 = zext i1 %or.cond to i64
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = icmp eq i64 %.0.sink1.i.i, 0
-  %spec.select19 = zext i1 %20 to i64
-  br label %21
-
-21:                                               ; preds = %19, %15, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit"
-  %.010 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ %spec.select19, %19 ], [ 1, %15 ]
-  %.0 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ 1, %19 ], [ 1, %15 ]
-  %22 = lshr i64 %.0.sink1.i.i, 1
-  %.0.i = sub i64 %.0.sink1.i.i, %22
-  %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.sink1.i.i, i64 %.0)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
-  %not. = xor i1 %24, true
+20:                                               ; preds = %15, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit"
+  %.010 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ %spec.select19, %15 ]
+  %.0 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ 1, %15 ]
+  %21 = lshr i64 %.0.sink1.i.i, 1
+  %.0.i = sub i64 %.0.sink1.i.i, %21
+  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.sink1.i.i, i64 %.0)
+  %23 = extractvalue { i64, i1 } %22, 1
+  %24 = extractvalue { i64, i1 } %22, 0
+  %not. = xor i1 %23, true
   %spec.select = zext i1 %not. to i64
-  %26 = add nuw i64 %.0.i, %.010
-  store i64 %26, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %25, ptr %28, align 8
+  %25 = add nuw i64 %.0.i, %.010
+  store i64 %25, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %spec.select, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %24, ptr %27, align 8
   ret void
 }
 
@@ -27185,7 +27183,7 @@ _ZN8wasmtime7runtime4trap9FrameInfo13module_offset17h626567730e6efa21E.exit: ; p
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %154, label %.lr.ph
 
-.loopexit165:                                     ; preds = %154, %174, %_ZN16wasmtime_environ10demangling31demangle_function_name_or_index17h4b5888fbf275b99cE.exit, %147, %136, %201, %186, %188, %_ZN16wasmtime_environ10demangling31demangle_function_name_or_index17h4b5888fbf275b99cE.exit146, %204, %.loopexit166
+.loopexit165:                                     ; preds = %154, %174, %_ZN16wasmtime_environ10demangling31demangle_function_name_or_index17h4b5888fbf275b99cE.exit, %147, %136, %201, %186, %204, %_ZN16wasmtime_environ10demangling31demangle_function_name_or_index17h4b5888fbf275b99cE.exit146, %188, %.loopexit166
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.loopexit167
 
@@ -33132,8 +33130,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.mux488.le = and i1 %236, %238
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit661", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit663", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit665", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit667", %37, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106", %41, %43, %220, %193, %244, %.preheader.split.i.i, %.preheader139.split, %188, %171, %.preheader136.split, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i", %.preheader.split, %157, %126, %110, %293, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i", %282, %276, %270, %264, %258, %255, %249, %239, %209, %206, %179, %162, %148, %144, %141, %47, %45, %39, %35, %33, %31, %29, %27, %133, %119, %131, %25, %117, %103, %115, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %135, %97, %91, %85, %79, %73, %67, %61, %55, %49
-  %.0 = phi i1 [ %54, %49 ], [ false, %45 ], [ %60, %55 ], [ false, %5 ], [ %66, %61 ], [ false, %7 ], [ %72, %67 ], [ false, %9 ], [ %78, %73 ], [ false, %11 ], [ %84, %79 ], [ false, %13 ], [ %90, %85 ], [ false, %15 ], [ %96, %91 ], [ false, %17 ], [ %102, %97 ], [ false, %19 ], [ false, %23 ], [ false, %21 ], [ false, %25 ], [ false, %115 ], [ %140, %135 ], [ false, %131 ], [ false, %47 ], [ false, %27 ], [ false, %141 ], [ false, %29 ], [ false, %282 ], [ false, %31 ], [ false, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i" ], [ false, %33 ], [ false, %162 ], [ false, %35 ], [ %298, %293 ], [ false, %239 ], [ false, %255 ], [ false, %39 ], [ false, %206 ], [ false, %249 ], [ false, %264 ], [ %exitcond302.not, %.preheader.split ], [ false, %179 ], [ true, %110 ], [ %118, %117 ], [ true, %103 ], [ true, %126 ], [ %134, %133 ], [ true, %119 ], [ %exitcond301.not, %171 ], [ %212, %209 ], [ %exitcond.not, %.preheader139.split ], [ %exitcond.not.i.i, %244 ], [ false, %276 ], [ %147, %144 ], [ false, %270 ], [ false, %148 ], [ false, %258 ], [ %exitcond302.not, %157 ], [ %exitcond301.not, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i" ], [ %exitcond301.not, %.preheader136.split ], [ %exitcond.not, %188 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ false, %37 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106" ], [ %.mux488.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit667" ], [ false, %41 ], [ %.mux.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit661" ], [ false, %43 ], [ false, %220 ], [ %.mux484.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit663" ], [ %.mux486.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit665" ], [ false, %193 ]
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit": ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit661", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit663", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit665", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit667", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106", %37, %41, %43, %220, %193, %244, %.preheader.split.i.i, %.preheader139.split, %188, %171, %.preheader136.split, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i", %.preheader.split, %157, %126, %110, %293, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i", %282, %276, %270, %264, %258, %255, %249, %239, %209, %206, %179, %162, %148, %144, %141, %47, %45, %39, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %133, %119, %131, %117, %103, %115, %5, %135, %97, %91, %85, %79, %73, %67, %61, %55, %49
+  %.0 = phi i1 [ %54, %49 ], [ false, %162 ], [ %60, %55 ], [ false, %5 ], [ %66, %61 ], [ false, %249 ], [ %72, %67 ], [ false, %276 ], [ %78, %73 ], [ %exitcond302.not, %.preheader.split ], [ %84, %79 ], [ false, %239 ], [ %90, %85 ], [ false, %206 ], [ %96, %91 ], [ false, %255 ], [ %102, %97 ], [ false, %179 ], [ %298, %293 ], [ false, %264 ], [ true, %103 ], [ false, %115 ], [ %140, %135 ], [ false, %131 ], [ false, %47 ], [ true, %119 ], [ false, %141 ], [ %134, %133 ], [ false, %282 ], [ true, %126 ], [ false, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.i" ], [ %118, %117 ], [ true, %110 ], [ %exitcond301.not, %171 ], [ false, %7 ], [ false, %9 ], [ false, %11 ], [ false, %13 ], [ false, %15 ], [ false, %17 ], [ false, %19 ], [ false, %21 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %31 ], [ false, %33 ], [ false, %35 ], [ %exitcond.not, %.preheader139.split ], [ false, %39 ], [ %212, %209 ], [ %exitcond.not.i.i, %244 ], [ false, %45 ], [ %147, %144 ], [ false, %270 ], [ false, %148 ], [ false, %258 ], [ %exitcond302.not, %157 ], [ %exitcond301.not, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h173042c017832674E.llvm.14851531119274094909.exit.i" ], [ %exitcond301.not, %.preheader136.split ], [ %exitcond.not, %188 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %.mux488.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit667" ], [ false, %37 ], [ false, %41 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit106" ], [ %.mux484.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit663" ], [ false, %43 ], [ %.mux486.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit665" ], [ %.mux.le, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit495.split.loop.exit661" ], [ false, %220 ], [ false, %193 ]
   ret i1 %.0
 
 55:                                               ; preds = %7

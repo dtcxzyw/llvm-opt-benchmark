@@ -232,29 +232,23 @@ if.end:                                           ; preds = %if.then8
   %5 = load i8, ptr %after, align 1
   %conv = sext i8 %5 to i32
   switch i8 %5, label %if.end24 [
-    i8 32, label %do.body.i25.preheader
-    i8 13, label %do.body.i25.preheader
-    i8 10, label %do.body.i25.preheader
-    i8 9, label %do.body.i25.preheader
+    i8 32, label %do.body.backedge.i27.backedge.backedge.backedge
+    i8 13, label %do.body.backedge.i27.backedge.backedge.backedge
+    i8 10, label %do.body.backedge.i27.backedge.backedge.backedge
+    i8 9, label %do.body.backedge.i27.backedge.backedge.backedge
   ]
 
-do.body.i25.preheader:                            ; preds = %if.end, %if.end, %if.end, %if.end
-  br label %do.body.i25
-
-do.body.i25:                                      ; preds = %do.body.i25.backedge, %do.body.i25.preheader
+do.body.backedge.i27.backedge.backedge.backedge:  ; preds = %if.end, %if.end, %if.end, %if.end, %do.body.backedge.i27.backedge.backedge.backedge, %do.body.backedge.i27.backedge.backedge.backedge, %do.body.backedge.i27.backedge.backedge.backedge, %do.body.backedge.i27.backedge.backedge.backedge
   %call.i26 = call i32 @fgetc(ptr noundef %input)
   switch i32 %call.i26, label %if.end24 [
-    i32 32, label %do.body.i25.backedge
-    i32 13, label %do.body.i25.backedge
-    i32 10, label %do.body.i25.backedge
-    i32 9, label %do.body.i25.backedge
+    i32 32, label %do.body.backedge.i27.backedge.backedge.backedge
+    i32 13, label %do.body.backedge.i27.backedge.backedge.backedge
+    i32 10, label %do.body.backedge.i27.backedge.backedge.backedge
+    i32 9, label %do.body.backedge.i27.backedge.backedge.backedge
   ]
 
-do.body.i25.backedge:                             ; preds = %do.body.i25, %do.body.i25, %do.body.i25, %do.body.i25
-  br label %do.body.i25
-
-if.end24:                                         ; preds = %do.body.i, %do.body.i25, %if.end
-  %c.0 = phi i32 [ %call.i26, %do.body.i25 ], [ %conv, %if.end ], [ %call.i24, %do.body.i ]
+if.end24:                                         ; preds = %do.body.i, %do.body.backedge.i27.backedge.backedge.backedge, %if.end
+  %c.0 = phi i32 [ %call.i26, %do.body.backedge.i27.backedge.backedge.backedge ], [ %conv, %if.end ], [ %call.i24, %do.body.i ]
   %cmp2536 = icmp eq i32 %c.0, 123
   br i1 %cmp2536, label %for.body, label %for.end
 
@@ -352,24 +346,24 @@ if.end6:                                          ; preds = %if.else, %if.then
   %y.i9.i = getelementptr inbounds nuw i8, ptr %p, i64 40
   %arrayidx103 = getelementptr inbounds nuw i8, ptr %p, i64 48
   %agg.tmp102.sroa.2.0.arrayidx103.sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 56
-  br label %do.body.i35
+  br label %do.body.backedge.i37
 
 default.unreachable:                              ; preds = %if.end71
   unreachable
 
-do.body.i35:                                      ; preds = %do.body.i35.backedge, %if.end6
+do.body.backedge.i37:                             ; preds = %do.body.backedge.i37.backedge, %if.end6
   %call.i36 = call i32 @fgetc(ptr noundef %input)
   switch i32 %call.i36, label %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 [
-    i32 32, label %do.body.i35.backedge
-    i32 13, label %do.body.i35.backedge
-    i32 10, label %do.body.i35.backedge
-    i32 9, label %do.body.i35.backedge
+    i32 32, label %do.body.backedge.i37.backedge
+    i32 13, label %do.body.backedge.i37.backedge
+    i32 10, label %do.body.backedge.i37.backedge
+    i32 9, label %do.body.backedge.i37.backedge
   ]
 
-do.body.i35.backedge:                             ; preds = %do.body.i35, %do.body.i35, %do.body.i35, %do.body.i35, %invoke.cont, %invoke.cont33, %invoke.cont79, %invoke.cont91, %invoke.cont105
-  br label %do.body.i35, !llvm.loop !9
+do.body.backedge.i37.backedge:                    ; preds = %do.body.backedge.i37, %do.body.backedge.i37, %do.body.backedge.i37, %do.body.backedge.i37, %invoke.cont105, %invoke.cont91, %invoke.cont79, %invoke.cont33, %invoke.cont
+  br label %do.body.backedge.i37, !llvm.loop !9
 
-_ZN7msdfgen9readCharFEP8_IO_FILE.exit38:          ; preds = %do.body.i35
+_ZN7msdfgen9readCharFEP8_IO_FILE.exit38:          ; preds = %do.body.backedge.i37
   %cmp9.not = icmp eq i32 %call.i36, %terminator
   %cmp10.not = icmp ne i32 %call.i36, 59
   %or.cond.not = or i1 %cmp10.not, %cmp9.not
@@ -395,7 +389,7 @@ if.then17:                                        ; preds = %if.end12
 invoke.cont:                                      ; preds = %if.then17
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14, i64 16, i1 false)
-  br label %do.body.i35.backedge
+  br label %do.body.backedge.i37.backedge
 
 lpad:                                             ; preds = %if.then17
   %0 = landingpad { ptr, i32 }
@@ -437,7 +431,7 @@ invoke.cont33:                                    ; preds = %sw.bb
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28) #13
   store double %start.sroa.0.0.copyload, ptr %p, align 16
   store double %start.sroa.5.0.copyload, ptr %start.sroa.5.0.p.sroa_idx, align 8
-  br label %do.body.i35.backedge
+  br label %do.body.backedge.i37.backedge
 
 lpad32:                                           ; preds = %sw.bb
   %1 = landingpad { ptr, i32 }
@@ -597,7 +591,7 @@ sw.bb72:                                          ; preds = %if.end71
 invoke.cont79:                                    ; preds = %sw.bb72
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14, i64 16, i1 false)
-  br label %do.body.i35.backedge
+  br label %do.body.backedge.i37.backedge
 
 lpad78:                                           ; preds = %sw.bb72
   %4 = landingpad { ptr, i32 }
@@ -615,7 +609,7 @@ sw.bb82:                                          ; preds = %if.end71
 invoke.cont91:                                    ; preds = %sw.bb82
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, i64 16, i1 false)
-  br label %do.body.i35.backedge
+  br label %do.body.backedge.i37.backedge
 
 lpad90:                                           ; preds = %sw.bb82
   %5 = landingpad { ptr, i32 }
@@ -635,7 +629,7 @@ sw.bb94:                                          ; preds = %if.end71
 invoke.cont105:                                   ; preds = %sw.bb94
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx103, i64 16, i1 false)
-  br label %do.body.i35.backedge
+  br label %do.body.backedge.i37.backedge
 
 lpad104:                                          ; preds = %sw.bb94
   %6 = landingpad { ptr, i32 }
@@ -1321,8 +1315,8 @@ do.body.i35.i.backedge:                           ; preds = %do.body.i35.i, %do.
   br label %do.body.i35.i
 
 sw.epilog50:                                      ; preds = %do.body.i35.i, %do.body.i.i, %do.body.i26.i
-  %input.promoted.i81 = phi ptr [ %incdec.ptr.i8.i, %do.body.i.i ], [ %incdec.ptr.i28.i, %do.body.i26.i ], [ %incdec.ptr.i37.i, %do.body.i35.i ]
-  %retval.0.i80 = phi i32 [ 1, %do.body.i.i ], [ 2, %do.body.i26.i ], [ 0, %do.body.i35.i ]
+  %input.promoted.i81 = phi ptr [ %incdec.ptr.i28.i, %do.body.i26.i ], [ %incdec.ptr.i8.i, %do.body.i.i ], [ %incdec.ptr.i37.i, %do.body.i35.i ]
+  %retval.0.i80 = phi i32 [ 2, %do.body.i26.i ], [ 1, %do.body.i.i ], [ 0, %do.body.i35.i ]
   br label %do.body.i82
 
 do.body.i82:                                      ; preds = %do.body.i82.backedge, %sw.epilog50

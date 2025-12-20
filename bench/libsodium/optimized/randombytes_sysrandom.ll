@@ -254,45 +254,45 @@ randombytes_linux_getrandom.exit:                 ; preds = %_randombytes_linux_
 18:                                               ; preds = %randombytes_sysrandom_stir_if_needed.exit
   %19 = load i32, ptr @stream.0, align 4
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %37, label %.preheader8
+  br i1 %20, label %37, label %.critedge2.outer.i
 
-.preheader8:                                      ; preds = %18, %30
-  %.017.i = phi i64 [ %31, %30 ], [ %1, %18 ]
-  %.016.i = phi ptr [ %32, %30 ], [ %0, %18 ]
-  %21 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.i, i64 noundef %.017.i) #10
+.critedge2.outer.i:                               ; preds = %18, %30
+  %.017.ph.i = phi i64 [ %31, %30 ], [ %1, %18 ]
+  %.016.ph.i = phi ptr [ %32, %30 ], [ %0, %18 ]
+  %21 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.ph.i, i64 noundef %.017.ph.i) #10
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %.lr.ph.i, label %.critedge22.i
 
-.lr.ph.i:                                         ; preds = %.preheader8
+.lr.ph.i:                                         ; preds = %.critedge2.outer.i
   %23 = tail call ptr @__errno_location() #9
   br label %24
 
-24:                                               ; preds = %.critedge2.i, %.lr.ph.i
-  %25 = phi i64 [ %21, %.lr.ph.i ], [ %27, %.critedge2.i ]
+24:                                               ; preds = %.critedge2.backedge.i, %.lr.ph.i
+  %25 = phi i64 [ %21, %.lr.ph.i ], [ %27, %.critedge2.backedge.i ]
   %26 = load i32, ptr %23, align 4
   switch i32 %26, label %safe_read.exit [
-    i32 4, label %.critedge2.i
-    i32 11, label %.critedge2.i
+    i32 4, label %.critedge2.backedge.i
+    i32 11, label %.critedge2.backedge.i
   ]
 
-.critedge2.i:                                     ; preds = %24, %24
-  %27 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.i, i64 noundef %.017.i) #10
+.critedge2.backedge.i:                            ; preds = %24, %24
+  %27 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.ph.i, i64 noundef %.017.ph.i) #10
   %28 = icmp slt i64 %27, 0
-  br i1 %28, label %24, label %.critedge22.i, !llvm.loop !7
+  br i1 %28, label %24, label %.critedge22.i
 
-.critedge22.i:                                    ; preds = %.critedge2.i, %.preheader8
-  %.lcssa.i = phi i64 [ %21, %.preheader8 ], [ %27, %.critedge2.i ]
+.critedge22.i:                                    ; preds = %.critedge2.backedge.i, %.critedge2.outer.i
+  %.lcssa.i = phi i64 [ %21, %.critedge2.outer.i ], [ %27, %.critedge2.backedge.i ]
   %29 = icmp eq i64 %.lcssa.i, 0
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %.critedge22.i
-  %31 = sub i64 %.017.i, %.lcssa.i
-  %32 = getelementptr i8, ptr %.016.i, i64 %.lcssa.i
+  %31 = sub i64 %.017.ph.i, %.lcssa.i
+  %32 = getelementptr i8, ptr %.016.ph.i, i64 %.lcssa.i
   %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %33, label %.preheader8, !llvm.loop !8
+  br i1 %.not.i, label %33, label %.critedge2.outer.i, !llvm.loop !7
 
 33:                                               ; preds = %30, %.critedge22.i
-  %.1.i = phi ptr [ %.016.i, %.critedge22.i ], [ %32, %30 ]
+  %.1.i = phi ptr [ %.016.ph.i, %.critedge22.i ], [ %32, %30 ]
   %34 = ptrtoint ptr %.1.i to i64
   %35 = ptrtoint ptr %0 to i64
   %36 = sub i64 %34, %35
@@ -389,4 +389,3 @@ attributes #11 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

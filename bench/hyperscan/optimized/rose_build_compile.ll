@@ -8836,9 +8836,8 @@ _ZN3ue211edges_rangeINS_9RoseGraphEEEDTcl10pair_rangecl5edgesfp_EEERKT_.exit.i: 
 2295:                                             ; preds = %2292
   %2296 = getelementptr inbounds nuw i8, ptr %.sroa.9.028.i, i64 68
   %2297 = load i32, ptr %2296, align 4
-  %.not64.i.i105 = icmp ne i32 %2297, -1
-  %spec.select.i.i = zext i1 %.not64.i.i105 to i32
-  br label %_ZN3ue2L17findHistorySchemeERKNS_13RoseBuildImplERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i
+  %.not64.i.i105 = icmp eq i32 %2297, -1
+  br i1 %.not64.i.i105, label %2327, label %_ZN3ue2L17findHistorySchemeERKNS_13RoseBuildImplERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i
 
 2298:                                             ; preds = %2277
   %2299 = getelementptr inbounds nuw i8, ptr %2283, i64 56
@@ -8891,11 +8890,11 @@ _ZN3ue211edges_rangeINS_9RoseGraphEEEDTcl10pair_rangecl5edgesfp_EEERKT_.exit.i: 
   %.not62.i.i = icmp eq i32 %2326, -1
   br i1 %.not62.i.i, label %2327, label %_ZN3ue2L17findHistorySchemeERKNS_13RoseBuildImplERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i
 
-2327:                                             ; preds = %2324, %2318
+2327:                                             ; preds = %2324, %2318, %2295
   br label %_ZN3ue2L17findHistorySchemeERKNS_13RoseBuildImplERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i
 
 _ZN3ue2L17findHistorySchemeERKNS_13RoseBuildImplERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i: ; preds = %2327, %2324, %2321, %2316, %2314, %2311, %2309, %2302, %2295, %2292, %2288
-  %.0.i.i = phi i32 [ 0, %2288 ], [ 1, %2324 ], [ 2, %2314 ], [ %spec.select.i.i, %2295 ], [ 0, %2316 ], [ 0, %2327 ], [ 1, %2292 ], [ 1, %2321 ], [ 0, %2309 ], [ 0, %2302 ], [ 1, %2311 ]
+  %.0.i.i = phi i32 [ 0, %2288 ], [ 1, %2324 ], [ 2, %2314 ], [ 1, %2295 ], [ 0, %2316 ], [ 0, %2327 ], [ 1, %2292 ], [ 1, %2321 ], [ 0, %2309 ], [ 0, %2302 ], [ 1, %2311 ]
   store i32 %.0.i.i, ptr %2274, align 8
   br label %2328
 

@@ -154146,24 +154146,28 @@ define noundef range(i8 0, 3) i8 @_ZN11polars_core13chunked_array3ops6gather26_u
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %2
-  switch i8 %0, label %default.unreachable2 [
+  switch i8 %0, label %default.unreachable1 [
     i8 0, label %6
-    i8 1, label %7
+    i8 1, label %8
     i8 2, label %5
   ]
 
-5:                                                ; preds = %4, %7, %6, %2
-  %.sroa.0.0 = phi i8 [ %.1, %7 ], [ %0, %4 ], [ %1, %6 ], [ 2, %2 ]
+5:                                                ; preds = %8, %6, %4, %2, %10
+  %.sroa.0.0 = phi i8 [ 2, %2 ], [ %0, %4 ], [ 1, %10 ], [ 0, %6 ], [ 0, %8 ]
   ret i8 %.sroa.0.0
 
-default.unreachable2:                             ; preds = %4
+default.unreachable1:                             ; preds = %4
   unreachable
 
 6:                                                ; preds = %4
-  br label %5
+  %7 = trunc nuw i8 %1 to i1
+  br i1 %7, label %10, label %5
 
-7:                                                ; preds = %4
-  %.1 = xor i8 %1, 1
+8:                                                ; preds = %4
+  %9 = trunc nuw i8 %1 to i1
+  br i1 %9, label %5, label %10
+
+10:                                               ; preds = %6, %8
   br label %5
 }
 

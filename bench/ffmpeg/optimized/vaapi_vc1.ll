@@ -907,21 +907,16 @@ vc1_get_TTFRM.exit:                               ; preds = %465, %switch.lookup
 542:                                              ; preds = %538
   %543 = getelementptr inbounds nuw i8, ptr %7, i64 10416
   %544 = load i32, ptr %543, align 8, !tbaa !101
-  switch i32 %544, label %546 [
-    i32 1, label %vc1_get_INTCOMPFIELD.exit
-    i32 2, label %545
-  ]
-
-545:                                              ; preds = %542
+  %switch.selectcmp.i = icmp eq i32 %544, 2
+  %switch.selectcmp5.i = icmp eq i32 %544, 1
+  %545 = select i1 %switch.selectcmp.i, i8 2, i8 0
+  %546 = select i1 %switch.selectcmp5.i, i8 1, i8 %545
   br label %vc1_get_INTCOMPFIELD.exit
 
-546:                                              ; preds = %542
-  br label %vc1_get_INTCOMPFIELD.exit
-
-vc1_get_INTCOMPFIELD.exit:                        ; preds = %512, %526, %vc1_get_TTFRM.exit, %538, %542, %545, %546
-  %547 = phi i8 [ %.0.i301.ph.ph, %542 ], [ 0, %vc1_get_TTFRM.exit ], [ %.0.i301.ph.ph, %545 ], [ %.0.i301.ph.ph, %538 ], [ %.0.i301.ph.ph, %546 ], [ 0, %512 ], [ 0, %526 ]
-  %548 = phi i8 [ %.0.i299.ph, %542 ], [ 0, %vc1_get_TTFRM.exit ], [ %.0.i299.ph, %545 ], [ %.0.i299.ph, %538 ], [ %.0.i299.ph, %546 ], [ 0, %512 ], [ %.0.i299.ph, %526 ]
-  %.0.i303 = phi i8 [ 1, %542 ], [ 0, %vc1_get_TTFRM.exit ], [ 2, %545 ], [ 0, %538 ], [ 0, %546 ], [ 0, %512 ], [ 0, %526 ]
+vc1_get_INTCOMPFIELD.exit:                        ; preds = %512, %526, %vc1_get_TTFRM.exit, %538, %542
+  %547 = phi i8 [ %.0.i301.ph.ph, %542 ], [ %.0.i301.ph.ph, %538 ], [ 0, %vc1_get_TTFRM.exit ], [ 0, %512 ], [ 0, %526 ]
+  %548 = phi i8 [ %.0.i299.ph, %542 ], [ %.0.i299.ph, %538 ], [ 0, %vc1_get_TTFRM.exit ], [ 0, %512 ], [ %.0.i299.ph, %526 ]
+  %.0.i303 = phi i8 [ %546, %542 ], [ 0, %538 ], [ 0, %vc1_get_TTFRM.exit ], [ 0, %512 ], [ 0, %526 ]
   %.sroa.179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.179.0..sroa_idx, i8 0, i64 28, i1 false)
   store i32 -1, ptr %5, align 4, !tbaa !90

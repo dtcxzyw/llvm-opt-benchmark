@@ -18182,17 +18182,16 @@ default.unreachable21:                            ; preds = %21
   ]
 
 24:                                               ; preds = %26, %3, %21, %25
-  %.sroa.02.0 = phi ptr [ %6, %3 ], [ %6, %21 ], [ %7, %25 ], [ %spec.select, %26 ]
+  %.sroa.02.0 = phi ptr [ %6, %3 ], [ %6, %21 ], [ %7, %25 ], [ %6, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %27 unwind label %12
 
-25:                                               ; preds = %21
+25:                                               ; preds = %26, %21
   br label %24
 
 26:                                               ; preds = %21
-  %spec.select = select i1 %2, ptr %7, ptr %6
-  br label %24
+  br i1 %2, label %25, label %24
 
 27:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2755)

@@ -1149,21 +1149,21 @@ define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_i
 define hidden range(i32 0, 2) i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %5
+  br label %8
 
-5:                                                ; preds = %6, %3
-  %.1 = phi i32 [ %spec.select, %3 ], [ %7, %6 ]
-  %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %9, label %6
+5:                                                ; preds = %8
+  %6 = add i32 %.05, -1
+  %7 = tail call fastcc i32 @bio_io(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1, i64 noundef 16, i32 noundef 3, ptr noundef nonnull %4)
+  %.not8 = icmp eq i32 %7, 1
+  br i1 %.not8, label %8, label %9
 
-6:                                                ; preds = %5
-  %7 = add i32 %.1, -1
-  %8 = tail call fastcc i32 @bio_io(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1, i64 noundef 16, i32 noundef 3, ptr noundef nonnull %4)
-  %.not8 = icmp eq i32 %8, 1
-  br i1 %.not8, label %5, label %9, !llvm.loop !40
+8:                                                ; preds = %3, %5
+  %.05 = phi i32 [ %spec.select, %3 ], [ %6, %5 ]
+  %.not = icmp eq i32 %.05, 0
+  br i1 %.not, label %9, label %5
 
-9:                                                ; preds = %5, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %5 ]
+9:                                                ; preds = %8, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -1199,9 +1199,9 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   br i1 %.not, label %8, label %bio_read_all.exit.thread
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr %5, align 2, !tbaa !41
+  %9 = load i8, ptr %5, align 2, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !41
+  %11 = load i8, ptr %10, align 1, !tbaa !40
   %12 = zext i8 %9 to i32
   %13 = and i32 %12, 31
   %14 = icmp eq i32 %13, 31
@@ -1350,12 +1350,12 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   %73 = shl i32 %.05788, 8
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
-  %76 = load i8, ptr %75, align 1, !tbaa !41
+  %76 = load i8, ptr %75, align 1, !tbaa !40
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %73, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %79 = icmp ult i32 %78, 128
@@ -1490,6 +1490,5 @@ attributes #20 = { nounwind allocsize(1) }
 !37 = !{!7, !15, i64 72}
 !38 = distinct !{!38, !24}
 !39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24}
-!41 = !{!10, !10, i64 0}
-!42 = distinct !{!42, !24}
+!40 = !{!10, !10, i64 0}
+!41 = distinct !{!41, !24}

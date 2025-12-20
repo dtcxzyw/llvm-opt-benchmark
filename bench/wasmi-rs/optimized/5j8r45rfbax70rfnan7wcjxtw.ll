@@ -2635,7 +2635,7 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17hf47b87df24da61e8E(
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hdefe27c558adca29E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hdefe27c558adca29E.exit": ; preds = %27, %25, %20, %17, %15
-  %.sroa.012.0.i.i.pn = phi ptr [ %22, %20 ], [ %16, %15 ], [ %19, %17 ], [ %26, %25 ], [ %29, %27 ]
+  %.sroa.012.0.i.i.pn = phi ptr [ %22, %20 ], [ %19, %17 ], [ %16, %15 ], [ %26, %25 ], [ %29, %27 ]
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
@@ -10279,10 +10279,9 @@ define noundef range(i8 0, 12) i8 @_ZN5wasmi5error5Error12as_trap_code17h2cfe97f
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !11, !alias.scope !858, !noundef !10
   %19 = trunc nuw i64 %18 to i1
-  %spec.select = select i1 %19, i8 9, i8 11
-  br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
+  br i1 %19, label %20, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-20:                                               ; preds = %1
+20:                                               ; preds = %16, %1
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
 switch.lookup:                                    ; preds = %8
@@ -10298,8 +10297,8 @@ switch.lookup2:                                   ; preds = %12
   %switch.masked5 = trunc i56 %switch.downshift4 to i8
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %16, %switch.lookup2, %12, %switch.lookup, %8, %1, %5, %20
-  %.sroa.0.0.i = phi i8 [ 11, %1 ], [ %spec.select, %16 ], [ 11, %12 ], [ 11, %8 ], [ %7, %5 ], [ 9, %20 ], [ %switch.masked5, %switch.lookup2 ], [ %switch.masked, %switch.lookup ]
+_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %switch.lookup2, %12, %switch.lookup, %8, %1, %5, %16, %20
+  %.sroa.0.0.i = phi i8 [ 11, %1 ], [ 11, %16 ], [ 11, %12 ], [ 11, %8 ], [ %7, %5 ], [ %switch.masked, %switch.lookup ], [ %switch.masked5, %switch.lookup2 ], [ 9, %20 ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -10497,10 +10496,9 @@ define noundef range(i8 0, 12) i8 @_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !range !11, !noundef !10
   %18 = trunc nuw i64 %17 to i1
-  %spec.select = select i1 %18, i8 9, i8 11
-  br label %20
+  br i1 %18, label %19, label %20
 
-19:                                               ; preds = %1
+19:                                               ; preds = %1, %15
   br label %20
 
 switch.lookup:                                    ; preds = %7
@@ -10516,8 +10514,8 @@ switch.lookup3:                                   ; preds = %11
   %switch.masked6 = trunc i56 %switch.downshift5 to i8
   br label %20
 
-20:                                               ; preds = %15, %switch.lookup3, %11, %switch.lookup, %7, %4, %1, %19
-  %.sroa.0.0 = phi i8 [ 11, %1 ], [ %spec.select, %15 ], [ 11, %11 ], [ 11, %7 ], [ %6, %4 ], [ 9, %19 ], [ %switch.masked6, %switch.lookup3 ], [ %switch.masked, %switch.lookup ]
+20:                                               ; preds = %switch.lookup3, %11, %switch.lookup, %7, %4, %19, %1, %15
+  %.sroa.0.0 = phi i8 [ 11, %1 ], [ 11, %15 ], [ 11, %11 ], [ 11, %7 ], [ %6, %4 ], [ %switch.masked, %switch.lookup ], [ %switch.masked6, %switch.lookup3 ], [ 9, %19 ]
   ret i8 %.sroa.0.0
 }
 

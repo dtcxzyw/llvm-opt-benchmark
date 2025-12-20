@@ -1529,23 +1529,23 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not103 = icmp eq ptr %0, null
-  br i1 %.not103, label %108, label %14
+  br i1 %.not103, label %109, label %14
 
 14:                                               ; preds = %7
   %15 = load i32, ptr %0, align 8, !tbaa !7
   %16 = icmp eq i32 %15, 764702
-  br i1 %16, label %17, label %108
+  br i1 %16, label %17, label %109
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 649
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 4
   %.not104 = icmp eq i8 %20, 0
-  br i1 %.not104, label %21, label %108
+  br i1 %.not104, label %21, label %109
 
 21:                                               ; preds = %17
   %22 = icmp slt i32 %3, 0
-  br i1 %22, label %108, label %23
+  br i1 %22, label %109, label %23
 
 23:                                               ; preds = %21
   call void @Curl_pollfds_init(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 10) #19
@@ -1681,72 +1681,72 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %82
 
-82:                                               ; preds = %.backedge, %81
-  %83 = phi i32 [ %.pre, %.backedge ], [ %72, %81 ]
+82:                                               ; preds = %92, %81
+  %83 = phi i32 [ %.pre, %92 ], [ %72, %81 ]
   %84 = call i64 @read(i32 noundef %83, ptr noundef nonnull %12, i64 noundef 64) #19
   %85 = icmp slt i64 %84, 1
-  br i1 %85, label %86, label %.backedge
+  br i1 %85, label %86, label %92
 
 86:                                               ; preds = %82
   %87 = icmp slt i64 %84, 0
-  br i1 %87, label %88, label %92
+  br i1 %87, label %88, label %93
 
 88:                                               ; preds = %86
   %89 = tail call ptr @__errno_location() #20
   %90 = load i32, ptr %89, align 4, !tbaa !28
   %91 = icmp eq i32 %90, 4
-  br i1 %91, label %.backedge, label %92
+  br i1 %91, label %92, label %93
 
-.backedge:                                        ; preds = %88, %82
+92:                                               ; preds = %88, %82
   %.pre = load i32, ptr %71, align 8, !tbaa !28
   br label %82
 
-92:                                               ; preds = %86, %88
-  %93 = add nsw i32 %59, -1
+93:                                               ; preds = %86, %88
+  %94 = add nsw i32 %59, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-.thread:                                          ; preds = %61, %73, %92, %70, %._crit_edge138, %49
-  %.081 = phi i32 [ 0, %49 ], [ 0, %61 ], [ %59, %._crit_edge138 ], [ %59, %70 ], [ %59, %73 ], [ %93, %92 ]
+.thread:                                          ; preds = %61, %73, %93, %70, %._crit_edge138, %49
+  %.081 = phi i32 [ 0, %49 ], [ 0, %61 ], [ %59, %._crit_edge138 ], [ %59, %70 ], [ %59, %73 ], [ %94, %93 ]
   %.not116 = icmp eq ptr %4, null
-  br i1 %.not116, label %95, label %94
+  br i1 %.not116, label %96, label %95
 
-94:                                               ; preds = %.thread
+95:                                               ; preds = %.thread
   store i32 %.081, ptr %4, align 4, !tbaa !28
-  br label %95
+  br label %96
 
-95:                                               ; preds = %94, %.thread
-  %96 = load i32, ptr %34, align 8
-  %97 = icmp eq i32 %96, 0
-  %or.cond.not = select i1 %5, i1 %97, i1 false
-  br i1 %or.cond.not, label %98, label %.loopexit
+96:                                               ; preds = %95, %.thread
+  %97 = load i32, ptr %34, align 8
+  %98 = icmp eq i32 %97, 0
+  %or.cond.not = select i1 %5, i1 %98, i1 false
+  br i1 %or.cond.not, label %99, label %.loopexit
 
-98:                                               ; preds = %95
+99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !115
-  %99 = call i32 @curl_multi_timeout(ptr noundef nonnull %0, ptr noundef nonnull %13)
-  %100 = icmp eq i32 %99, 0
-  %101 = load i64, ptr %13, align 8
-  %102 = icmp ne i64 %101, 0
-  %or.cond4 = select i1 %100, i1 %102, i1 false
-  br i1 %or.cond4, label %103, label %107
+  %100 = call i32 @curl_multi_timeout(ptr noundef nonnull %0, ptr noundef nonnull %13)
+  %101 = icmp eq i32 %100, 0
+  %102 = load i64, ptr %13, align 8
+  %103 = icmp ne i64 %102, 0
+  %or.cond4 = select i1 %101, i1 %103, i1 false
+  br i1 %or.cond4, label %104, label %108
 
-103:                                              ; preds = %98
-  %104 = zext nneg i32 %.075 to i64
-  %105 = call i64 @llvm.umin.i64(i64 %101, i64 %104)
-  %106 = call i32 @Curl_wait_ms(i64 noundef %105) #19
-  br label %107
+104:                                              ; preds = %99
+  %105 = zext nneg i32 %.075 to i64
+  %106 = call i64 @llvm.umin.i64(i64 %102, i64 %105)
+  %107 = call i32 @Curl_wait_ms(i64 noundef %106) #19
+  br label %108
 
-107:                                              ; preds = %103, %98
+108:                                              ; preds = %104, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph134, %56, %47, %._crit_edge, %95, %107
-  %.290 = phi i32 [ 3, %.lr.ph134 ], [ 3, %47 ], [ 12, %56 ], [ 3, %._crit_edge ], [ 0, %95 ], [ 0, %107 ], [ 3, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph134, %56, %47, %._crit_edge, %96, %108
+  %.290 = phi i32 [ 3, %.lr.ph134 ], [ 3, %47 ], [ 12, %56 ], [ 3, %._crit_edge ], [ 0, %96 ], [ 0, %108 ], [ 3, %.lr.ph ]
   call void @Curl_pollfds_cleanup(ptr noundef nonnull %11) #19
-  br label %108
+  br label %109
 
-108:                                              ; preds = %21, %17, %7, %14, %.loopexit
+109:                                              ; preds = %21, %17, %7, %14, %.loopexit
   %.0 = phi i32 [ 1, %7 ], [ 8, %17 ], [ 1, %14 ], [ %.290, %.loopexit ], [ 10, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -6796,8 +6796,8 @@ define internal fastcc range(i32 0, 12) i32 @multi_run_expired(ptr noundef nonnu
   %12 = call ptr @Curl_splaygetbest(i64 %10, i32 %11, ptr noundef %9, ptr noundef nonnull %4) #19
   store ptr %12, ptr %7, align 8, !tbaa !137
   %13 = load ptr, ptr %4, align 8, !tbaa !165
-  %.not3234 = icmp eq ptr %13, null
-  br i1 %.not3234, label %.loopexit, label %.lr.ph.lr.ph
+  %.not3537 = icmp eq ptr %13, null
+  br i1 %.not3537, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 536
@@ -6809,14 +6809,14 @@ define internal fastcc range(i32 0, 12) i32 @multi_run_expired(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %19 = phi ptr [ %13, %.lr.ph.lr.ph ], [ %64, %.outer ]
-  %.0.ph35 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %55, %.outer ]
+  %.0.ph38 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2, %.outer ]
   br label %20
 
-20:                                               ; preds = %.lr.ph, %.backedge
-  %21 = phi ptr [ %19, %.lr.ph ], [ %33, %.backedge ]
+20:                                               ; preds = %.lr.ph, %28
+  %21 = phi ptr [ %19, %.lr.ph ], [ %33, %28 ]
   %22 = call ptr @Curl_splayget(ptr noundef nonnull %21) #19
   %.not26 = icmp eq ptr %22, null
-  br i1 %.not26, label %.backedge, label %23
+  br i1 %.not26, label %.outer, label %23
 
 23:                                               ; preds = %20
   %24 = load i64, ptr %6, align 8
@@ -6828,9 +6828,6 @@ define internal fastcc range(i32 0, 12) i32 @multi_run_expired(ptr noundef nonnu
 
 28:                                               ; preds = %23
   store i8 1, ptr %15, align 8, !tbaa !229
-  br label %.backedge
-
-.backedge:                                        ; preds = %28, %20
   %29 = load ptr, ptr %7, align 8, !tbaa !137
   %30 = load i64, ptr %6, align 8
   %31 = load i32, ptr %8, align 8
@@ -6905,18 +6902,19 @@ singlesocket.exit:                                ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.outer:                                           ; preds = %singlesocket.exit.thread, %sigpipe_apply.exit
+.outer:                                           ; preds = %20, %singlesocket.exit.thread, %sigpipe_apply.exit
+  %.2 = phi i32 [ 0, %singlesocket.exit.thread ], [ %55, %sigpipe_apply.exit ], [ %.0.ph38, %20 ]
   %60 = load ptr, ptr %7, align 8, !tbaa !137
   %61 = load i64, ptr %6, align 8
   %62 = load i32, ptr %8, align 8
   %63 = call ptr @Curl_splaygetbest(i64 %61, i32 %62, ptr noundef %60, ptr noundef nonnull %4) #19
   store ptr %63, ptr %7, align 8, !tbaa !137
   %64 = load ptr, ptr %4, align 8, !tbaa !165
-  %.not32 = icmp eq ptr %64, null
-  br i1 %.not32, label %.loopexit, label %.lr.ph
+  %.not35 = icmp eq ptr %64, null
+  br i1 %.not35, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.outer, %.backedge, %1, %singlesocket.exit
-  %.1 = phi i32 [ %59, %singlesocket.exit ], [ %.0.ph35, %.backedge ], [ 0, %1 ], [ %55, %.outer ]
+.loopexit:                                        ; preds = %.outer, %28, %1, %singlesocket.exit
+  %.1 = phi i32 [ %59, %singlesocket.exit ], [ %.0.ph38, %28 ], [ 0, %1 ], [ %.2, %.outer ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

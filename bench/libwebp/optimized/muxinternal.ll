@@ -784,7 +784,7 @@ define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr noundef captures(none) 
   %3 = icmp eq i32 %1, 0
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !43
   %.not18.i.i = icmp eq ptr %.pre.i, null
-  br i1 %3, label %4, label %MuxImageCount.exit.i
+  br i1 %3, label %4, label %MuxImageCount.exit.preheader.i
 
 4:                                                ; preds = %2
   br i1 %.not18.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.i
@@ -798,26 +798,26 @@ define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr noundef captures(none) 
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %.lr.ph.preheader.i, label %.lr.ph.i.i, !llvm.loop !42
 
-MuxImageCount.exit.i:                             ; preds = %2
+MuxImageCount.exit.preheader.i:                   ; preds = %2
   br i1 %.not18.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i, %MuxImageCount.exit.i
-  %.01833.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %5, %.lr.ph.i.i ]
-  %.not22.i8 = icmp eq i32 %.01833.i, 1
-  br i1 %.not22.i8, label %SearchImageToGetOrDelete.exit, label %.lr.ph
+.lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i, %MuxImageCount.exit.preheader.i
+  %.018.ph32.i = phi i32 [ %1, %MuxImageCount.exit.preheader.i ], [ %5, %.lr.ph.i.i ]
+  %.not22.i8 = icmp eq i32 %.018.ph32.i, 1
+  br i1 %.not22.i8, label %SearchImageToGetOrDelete.exit, label %MuxImageCount.exit.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph
+.lr.ph.i:                                         ; preds = %MuxImageCount.exit.i
   %8 = add i32 %9, 1
-  %.not22.i = icmp eq i32 %8, %.01833.i
-  br i1 %.not22.i, label %SearchImageToGetOrDelete.exit.loopexit, label %.lr.ph, !llvm.loop !45
+  %.not22.i = icmp eq i32 %8, %.018.ph32.i
+  br i1 %.not22.i, label %SearchImageToGetOrDelete.exit.loopexit, label %MuxImageCount.exit.i
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
+MuxImageCount.exit.i:                             ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %9 = phi i32 [ %8, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i
 
 SearchImageToGetOrDelete.exit.loopexit:           ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -831,8 +831,8 @@ SearchImageToGetOrDelete.exit:                    ; preds = %SearchImageToGetOrD
   store ptr %15, ptr %.03.lcssa, align 8, !tbaa !43
   br label %SearchImageToGetOrDelete.exit.thread
 
-SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCount.exit.i, %4, %SearchImageToGetOrDelete.exit
-  %.0 = phi i32 [ 1, %SearchImageToGetOrDelete.exit ], [ 0, %4 ], [ 0, %MuxImageCount.exit.i ], [ 0, %.lr.ph ]
+SearchImageToGetOrDelete.exit.thread:             ; preds = %MuxImageCount.exit.i, %MuxImageCount.exit.preheader.i, %4, %SearchImageToGetOrDelete.exit
+  %.0 = phi i32 [ 1, %SearchImageToGetOrDelete.exit ], [ 0, %4 ], [ 0, %MuxImageCount.exit.preheader.i ], [ 0, %MuxImageCount.exit.i ]
   ret i32 %.0
 }
 
@@ -841,7 +841,7 @@ define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(
   %4 = icmp eq i32 %1, 0
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !43
   %.not18.i.i = icmp eq ptr %.pre.i, null
-  br i1 %4, label %5, label %MuxImageCount.exit.i
+  br i1 %4, label %5, label %MuxImageCount.exit.preheader.i
 
 5:                                                ; preds = %3
   br i1 %.not18.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.i
@@ -855,40 +855,40 @@ define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %.lr.ph.preheader.i, label %.lr.ph.i.i, !llvm.loop !42
 
-MuxImageCount.exit.i:                             ; preds = %3
+MuxImageCount.exit.preheader.i:                   ; preds = %3
   br i1 %.not18.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i, %MuxImageCount.exit.i
-  %.01833.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %6, %.lr.ph.i.i ]
-  %.not22.i7 = icmp eq i32 %.01833.i, 1
-  br i1 %.not22.i7, label %SearchImageToGetOrDelete.exit, label %.lr.ph
+.lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i, %MuxImageCount.exit.preheader.i
+  %.018.ph32.i = phi i32 [ %1, %MuxImageCount.exit.preheader.i ], [ %6, %.lr.ph.i.i ]
+  %.not22.i7 = icmp eq i32 %.018.ph32.i, 1
+  br i1 %.not22.i7, label %SearchImageToGetOrDelete.exit, label %MuxImageCount.exit.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph
+.lr.ph.i:                                         ; preds = %MuxImageCount.exit.i
   %9 = add i32 %10, 1
-  %.not22.i = icmp eq i32 %9, %.01833.i
-  br i1 %.not22.i, label %SearchImageToGetOrDelete.exit, label %.lr.ph, !llvm.loop !45
+  %.not22.i = icmp eq i32 %9, %.018.ph32.i
+  br i1 %.not22.i, label %SearchImageToGetOrDelete.exit, label %MuxImageCount.exit.i
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
+MuxImageCount.exit.i:                             ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %10 = phi i32 [ %9, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
   %11 = phi ptr [ %13, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !43
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i
 
 SearchImageToGetOrDelete.exit:                    ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %14 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
   store ptr %14, ptr %2, align 8, !tbaa !43
   br label %SearchImageToGetOrDelete.exit.thread
 
-SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCount.exit.i, %5, %SearchImageToGetOrDelete.exit
-  %.0 = phi i32 [ 1, %SearchImageToGetOrDelete.exit ], [ 0, %5 ], [ 0, %MuxImageCount.exit.i ], [ 0, %.lr.ph ]
+SearchImageToGetOrDelete.exit.thread:             ; preds = %MuxImageCount.exit.i, %MuxImageCount.exit.preheader.i, %5, %SearchImageToGetOrDelete.exit
+  %.0 = phi i32 [ 1, %SearchImageToGetOrDelete.exit ], [ 0, %5 ], [ 0, %MuxImageCount.exit.preheader.i ], [ 0, %MuxImageCount.exit.i ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !46
+  %2 = load ptr, ptr %0, align 8, !tbaa !45
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
@@ -903,7 +903,7 @@ define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) loca
 8:                                                ; preds = %3, %1
   %.0 = phi i64 [ %7, %3 ], [ 0, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %17, label %11
 
@@ -919,7 +919,7 @@ define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) loca
 17:                                               ; preds = %11, %8
   %.1 = phi i64 [ %16, %11 ], [ %.0, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !47
   %.not17 = icmp eq ptr %19, null
   br i1 %.not17, label %26, label %20
 
@@ -935,7 +935,7 @@ define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) loca
 26:                                               ; preds = %20, %17
   %.2 = phi i64 [ %25, %20 ], [ %.1, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !49
+  %28 = load ptr, ptr %27, align 8, !tbaa !48
   %.not18 = icmp eq ptr %28, null
   br i1 %.not18, label %37, label %.lr.ph.i
 
@@ -964,7 +964,7 @@ ChunkListDiskSize.exit:                           ; preds = %.lr.ph.i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #10 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !46
+  %3 = load ptr, ptr %0, align 8, !tbaa !45
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %52, label %4
 
@@ -975,7 +975,7 @@ define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noun
   %7 = and i64 %6, 4294967294
   %8 = add nuw nsw i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %.not16.i = icmp eq ptr %10, null
   br i1 %.not16.i, label %17, label %11
 
@@ -991,7 +991,7 @@ define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noun
 17:                                               ; preds = %11, %4
   %.1.i = phi i64 [ %16, %11 ], [ %8, %4 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !47
   %.not17.i = icmp eq ptr %19, null
   br i1 %.not17.i, label %26, label %20
 
@@ -1007,7 +1007,7 @@ define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noun
 26:                                               ; preds = %20, %17
   %.2.i = phi i64 [ %25, %20 ], [ %.1.i, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !49
+  %28 = load ptr, ptr %27, align 8, !tbaa !48
   %.not18.i = icmp eq ptr %28, null
   br i1 %.not18.i, label %MuxImageDiskSize.exit, label %.lr.ph.i.i
 
@@ -1062,7 +1062,7 @@ ChunkEmitSpecial.exit:                            ; preds = %MuxImageDiskSize.ex
 52:                                               ; preds = %ChunkEmitSpecial.exit, %2
   %.0 = phi ptr [ %51, %ChunkEmitSpecial.exit ], [ %1, %2 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !47
+  %54 = load ptr, ptr %53, align 8, !tbaa !46
   %.not18 = icmp eq ptr %54, null
   br i1 %.not18, label %72, label %55
 
@@ -1099,7 +1099,7 @@ ChunkEmit.exit:                                   ; preds = %55, %65
 72:                                               ; preds = %ChunkEmit.exit, %52
   %.1 = phi ptr [ %71, %ChunkEmit.exit ], [ %.0, %52 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !48
+  %74 = load ptr, ptr %73, align 8, !tbaa !47
   %.not19 = icmp eq ptr %74, null
   br i1 %.not19, label %92, label %75
 
@@ -1136,7 +1136,7 @@ ChunkEmit.exit27:                                 ; preds = %75, %85
 92:                                               ; preds = %ChunkEmit.exit27, %72
   %.2 = phi ptr [ %91, %ChunkEmit.exit27 ], [ %.1, %72 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !49
+  %94 = load ptr, ptr %93, align 8, !tbaa !48
   %.not20 = icmp eq ptr %94, null
   br i1 %.not20, label %ChunkListEmit.exit, label %.lr.ph.i
 
@@ -1188,7 +1188,7 @@ define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(add
 .lr.ph:                                           ; preds = %1, %4
   %.06 = phi ptr [ %6, %4 ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.06, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !50
+  %3 = load i32, ptr %2, align 8, !tbaa !49
   %.not4 = icmp eq i32 %3, 0
   br i1 %.not4, label %4, label %._crit_edge
 
@@ -1196,7 +1196,7 @@ define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(add
   %5 = getelementptr inbounds nuw i8, ptr %.06, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %1
   %.03 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 1, %.lr.ph ]
@@ -1257,7 +1257,7 @@ define hidden i32 @MuxValidate(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %11, label %.critedge81, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %0, align 8, !tbaa !52
+  %13 = load ptr, ptr %0, align 8, !tbaa !51
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge81, label %15
 
@@ -1356,7 +1356,7 @@ ValidateChunk.exit92:                             ; preds = %46
   br i1 %or.cond4, label %.critedge81, label %60
 
 60:                                               ; preds = %.critedge
-  %61 = load ptr, ptr %0, align 8, !tbaa !52
+  %61 = load ptr, ptr %0, align 8, !tbaa !51
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.critedge81, label %63
 
@@ -1368,21 +1368,21 @@ ValidateChunk.exit92:                             ; preds = %46
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %68 = load i32, ptr %67, align 8, !tbaa !54
+  %68 = load i32, ptr %67, align 8, !tbaa !53
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %.critedge78
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %72 = load i32, ptr %71, align 8, !tbaa !55
+  %72 = load i32, ptr %71, align 8, !tbaa !54
   %.not70 = icmp eq i32 %72, %68
   br i1 %.not70, label %73, label %.critedge81
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 36
-  %75 = load i32, ptr %74, align 4, !tbaa !56
+  %75 = load i32, ptr %74, align 4, !tbaa !55
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %77 = load i32, ptr %76, align 4, !tbaa !57
+  %77 = load i32, ptr %76, align 4, !tbaa !56
   %.not71 = icmp eq i32 %75, %77
   br i1 %.not71, label %.critedge78, label %.critedge81
 
@@ -1410,14 +1410,14 @@ ValidateChunk.exit98:                             ; preds = %79
   br i1 %or.cond6, label %.critedge81, label %88
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %0, align 8, !tbaa !52
+  %89 = load ptr, ptr %0, align 8, !tbaa !51
   %.not5.i = icmp eq ptr %89, null
   br i1 %.not5.i, label %MuxHasAlpha.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %88, %92
   %.06.i = phi ptr [ %94, %92 ], [ %89, %88 ]
   %90 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
-  %91 = load i32, ptr %90, align 8, !tbaa !50
+  %91 = load i32, ptr %90, align 8, !tbaa !49
   %.not4.i = icmp eq i32 %91, 0
   br i1 %.not4.i, label %92, label %MuxHasAlpha.exit
 
@@ -1425,7 +1425,7 @@ ValidateChunk.exit98:                             ; preds = %79
   %93 = getelementptr inbounds nuw i8, ptr %.06.i, i64 48
   %94 = load ptr, ptr %93, align 8, !tbaa !39
   %.not.i102 = icmp eq ptr %94, null
-  br i1 %.not.i102, label %MuxHasAlpha.exit.thread, label %.lr.ph.i, !llvm.loop !51
+  br i1 %.not.i102, label %MuxHasAlpha.exit.thread, label %.lr.ph.i, !llvm.loop !50
 
 MuxHasAlpha.exit:                                 ; preds = %.lr.ph.i
   %95 = icmp sgt i32 %84, 0
@@ -1540,16 +1540,15 @@ attributes #13 = { nounwind }
 !42 = distinct !{!42, !18}
 !43 = !{!41, !41, i64 0}
 !44 = !{i64 0, i64 8, !28, i64 8, i64 8, !28, i64 16, i64 8, !28, i64 24, i64 8, !28, i64 32, i64 4, !30, i64 36, i64 4, !30, i64 40, i64 4, !30, i64 44, i64 4, !30, i64 48, i64 8, !43}
-!45 = distinct !{!45, !18}
-!46 = !{!40, !12, i64 0}
-!47 = !{!40, !12, i64 8}
-!48 = !{!40, !12, i64 16}
-!49 = !{!40, !12, i64 24}
-!50 = !{!40, !5, i64 40}
-!51 = distinct !{!51, !18}
-!52 = !{!53, !41, i64 0}
-!53 = !{!"WebPMux", !41, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !5, i64 56, !5, i64 60}
-!54 = !{!53, !5, i64 56}
-!55 = !{!40, !5, i64 32}
-!56 = !{!40, !5, i64 36}
-!57 = !{!53, !5, i64 60}
+!45 = !{!40, !12, i64 0}
+!46 = !{!40, !12, i64 8}
+!47 = !{!40, !12, i64 16}
+!48 = !{!40, !12, i64 24}
+!49 = !{!40, !5, i64 40}
+!50 = distinct !{!50, !18}
+!51 = !{!52, !41, i64 0}
+!52 = !{!"WebPMux", !41, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !5, i64 56, !5, i64 60}
+!53 = !{!52, !5, i64 56}
+!54 = !{!40, !5, i64 32}
+!55 = !{!40, !5, i64 36}
+!56 = !{!52, !5, i64 60}
