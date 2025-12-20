@@ -474,8 +474,8 @@ get_faces.exit83.i:                               ; preds = %.loopexit.i79.i, %1
   unreachable
 
 strview_str.exit.i:                               ; preds = %102, %130, %.thread101.i, %.thread98.i, %.thread89.i, %gv_calloc.exit.split
-  %.sink194.i = phi ptr [ %131, %130 ], [ null, %.thread89.i ], [ null, %gv_calloc.exit.split ], [ null, %.thread101.i ], [ null, %.thread98.i ], [ null, %102 ]
-  %.sink.i = phi i32 [ %.5.i, %130 ], [ 0, %.thread89.i ], [ 0, %gv_calloc.exit.split ], [ 0, %.thread101.i ], [ 0, %.thread98.i ], [ 0, %102 ]
+  %.sink194.i = phi ptr [ %131, %130 ], [ null, %.thread89.i ], [ null, %gv_calloc.exit.split ], [ null, %.thread98.i ], [ null, %.thread101.i ], [ null, %102 ]
+  %.sink.i = phi i32 [ %.5.i, %130 ], [ 0, %.thread89.i ], [ 0, %gv_calloc.exit.split ], [ 0, %.thread98.i ], [ 0, %.thread101.i ], [ 0, %102 ]
   %137 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.sink194.i, ptr %137, align 8, !tbaa !19, !alias.scope !8
   %138 = getelementptr inbounds nuw i8, ptr %30, i64 16

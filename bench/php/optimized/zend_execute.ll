@@ -82918,7 +82918,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CONST_HANDLER(ptr noundef 
   br label %21
 
 zend_fetch_dimension_address_inner.exit:          ; preds = %.thread, %30, %37, %40, %43, %45
-  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ @executor_globals, %.thread ], [ @executor_globals, %40 ], [ %44, %43 ], [ @executor_globals, %45 ]
+  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ %44, %43 ], [ @executor_globals, %40 ], [ @executor_globals, %.thread ], [ @executor_globals, %45 ]
   %54 = getelementptr inbounds nuw i8, ptr %.058.i, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 65280
@@ -167976,7 +167976,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   br label %20
 
 zend_fetch_dimension_address_inner.exit:          ; preds = %.thread, %30, %37, %40, %_zend_handle_numeric_str.exit.thread, %58
-  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ %57, %_zend_handle_numeric_str.exit.thread ], [ @executor_globals, %40 ], [ @executor_globals, %.thread ], [ @executor_globals, %58 ]
+  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ @executor_globals, %.thread ], [ @executor_globals, %40 ], [ %57, %_zend_handle_numeric_str.exit.thread ], [ @executor_globals, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = getelementptr inbounds nuw i8, ptr %.058.i, i64 8
   %68 = load i32, ptr %67, align 8
@@ -170165,7 +170165,7 @@ _zend_handle_numeric_str.exit.i.thread:           ; preds = %_zend_handle_numeri
   br label %36
 
 zend_fetch_dimension_address_inner.exit.i:        ; preds = %_zend_handle_numeric_str.exit.i.thread, %.thread, %56, %53, %46
-  %.058.i.i = phi ptr [ %54, %53 ], [ %49, %46 ], [ %spec.select, %_zend_handle_numeric_str.exit.i.thread ], [ @executor_globals, %56 ], [ @executor_globals, %.thread ]
+  %.058.i.i = phi ptr [ %54, %53 ], [ %49, %46 ], [ @executor_globals, %.thread ], [ @executor_globals, %56 ], [ %spec.select, %_zend_handle_numeric_str.exit.i.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %81
 
