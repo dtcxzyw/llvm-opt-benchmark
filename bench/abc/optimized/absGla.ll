@@ -1682,12 +1682,12 @@ Vec_PtrPush.exit41:                               ; preds = %2, %7
   store ptr %23, ptr %24, align 8, !tbaa !75
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %25, align 8, !tbaa !76
-  %calloc64 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  store ptr %calloc64, ptr %23, align 8, !tbaa !77
   %calloc65 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  store ptr %calloc65, ptr %23, align 8, !tbaa !77
+  %calloc66 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   store i32 2, ptr %22, align 4, !tbaa !78
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %calloc65, ptr %26, align 8, !tbaa !77
+  store ptr %calloc66, ptr %26, align 8, !tbaa !77
   %27 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %27, align 8, !tbaa !39
   %28 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
