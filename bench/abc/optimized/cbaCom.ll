@@ -365,9 +365,9 @@ Cba_ManAlloc.exit.i:                              ; preds = %101, %97
   %107 = getelementptr inbounds nuw i8, ptr %76, i64 1568
   %108 = zext nneg i32 %.val22.i to i64
   %109 = shl nuw nsw i64 %108, 3
-  %.sink55.i.i = select i1 %.not.i31.not.i.i, i64 128, i64 %109
+  %.sink54.i.i = select i1 %.not.i31.not.i.i, i64 128, i64 %109
   %.sink.i.i = select i1 %.not.i31.not.i.i, i32 16, i32 %.val22.i
-  %110 = tail call noalias ptr @malloc(i64 noundef %.sink55.i.i) #23
+  %110 = tail call noalias ptr @malloc(i64 noundef %.sink54.i.i) #23
   store ptr %110, ptr %107, align 8, !tbaa !29
   store i32 %.sink.i.i, ptr %106, align 8, !tbaa !30
   %111 = getelementptr inbounds nuw i8, ptr %76, i64 1564

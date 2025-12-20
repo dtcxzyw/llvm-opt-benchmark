@@ -645,25 +645,25 @@ define noundef ptr @Map_ManCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br label %101
 
 7:                                                ; preds = %3
-  %calloc49 = tail call dereferenceable_or_null(1928) ptr @calloc(i64 1, i64 1928)
+  %calloc48 = tail call dereferenceable_or_null(1928) ptr @calloc(i64 1, i64 1928)
   %8 = tail call ptr (...) @Abc_FrameReadLibSuper() #24
-  %9 = getelementptr inbounds nuw i8, ptr %calloc49, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %calloc48, i64 176
   store ptr %8, ptr %9, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !82
-  %12 = getelementptr inbounds nuw i8, ptr %calloc49, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %calloc48, i64 112
   store i32 %11, ptr %12, align 8, !tbaa !83
-  %13 = getelementptr inbounds nuw i8, ptr %calloc49, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %calloc48, i64 120
   store i32 %2, ptr %13, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw i8, ptr %calloc49, i64 132
+  %14 = getelementptr inbounds nuw i8, ptr %calloc48, i64 132
   store float 0x3F50624DE0000000, ptr %14, align 4, !tbaa !84
   %15 = icmp eq i32 %11, 5
   br i1 %15, label %16, label %.critedge.i.i.preheader
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %calloc49, i64 1792
-  %18 = getelementptr inbounds nuw i8, ptr %calloc49, i64 1800
-  %19 = getelementptr inbounds nuw i8, ptr %calloc49, i64 1808
+  %17 = getelementptr inbounds nuw i8, ptr %calloc48, i64 1792
+  %18 = getelementptr inbounds nuw i8, ptr %calloc48, i64 1800
+  %19 = getelementptr inbounds nuw i8, ptr %calloc48, i64 1808
   tail call void @Extra_Truth4VarN(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef 8) #24
   br label %.critedge.i.i.preheader
 
@@ -697,23 +697,23 @@ define noundef ptr @Map_ManCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %26, label %.critedge.i.i.backedge, label %22
 
 Map_TableCreate.exit:                             ; preds = %.preheader.i.i, %22
-  %27 = getelementptr inbounds nuw i8, ptr %calloc49, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %calloc48, i64 8
   store i32 %20, ptr %27, align 8, !tbaa !87
   %28 = sext i32 %20 to i64
   %29 = shl nsw i64 %28, 3
   %calloc.i = tail call ptr @calloc(i64 1, i64 %29)
-  store ptr %calloc.i, ptr %calloc49, align 8, !tbaa !88
-  %30 = getelementptr inbounds nuw i8, ptr %calloc49, i64 44
+  store ptr %calloc.i, ptr %calloc48, align 8, !tbaa !88
+  %30 = getelementptr inbounds nuw i8, ptr %calloc48, i64 44
   store i32 0, ptr %30, align 4, !tbaa !89
-  %31 = getelementptr inbounds nuw i8, ptr %calloc49, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %calloc48, i64 184
   tail call void @Map_MappingSetupTruthTables(ptr noundef nonnull %31) #24
-  %32 = getelementptr inbounds nuw i8, ptr %calloc49, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %calloc48, i64 232
   tail call void @Map_MappingSetupTruthTablesLarge(ptr noundef nonnull %32) #24
   %33 = tail call ptr @Extra_MmFixedStart(i32 noundef 184) #24
-  %34 = getelementptr inbounds nuw i8, ptr %calloc49, i64 1776
+  %34 = getelementptr inbounds nuw i8, ptr %calloc48, i64 1776
   store ptr %33, ptr %34, align 8, !tbaa !90
   %35 = tail call ptr @Extra_MmFixedStart(i32 noundef 160) #24
-  %36 = getelementptr inbounds nuw i8, ptr %calloc49, i64 1784
+  %36 = getelementptr inbounds nuw i8, ptr %calloc48, i64 1784
   store ptr %35, ptr %36, align 8, !tbaa !91
   store i32 -1, ptr %30, align 4, !tbaa !89
   %37 = load ptr, ptr %34, align 8, !tbaa !90
@@ -734,7 +734,7 @@ Map_TableCreate.exit:                             ; preds = %.preheader.i.i, %22
   store float 0x47B9999980000000, ptr %43, align 4, !tbaa !94
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  store ptr %calloc49, ptr %38, align 8, !tbaa !59
+  store ptr %calloc48, ptr %38, align 8, !tbaa !59
   %47 = load i32, ptr %30, align 4, !tbaa !89
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %30, align 4, !tbaa !89
@@ -744,7 +744,7 @@ Map_TableCreate.exit:                             ; preds = %.preheader.i.i, %22
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %Map_TableCreate.exit
-  %52 = getelementptr inbounds nuw i8, ptr %calloc49, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %calloc48, i64 56
   %53 = load ptr, ptr %52, align 8, !tbaa !95
   tail call void @Map_NodeVecPush(ptr noundef %53, ptr noundef nonnull %38) #24
   br label %Map_NodeCreate.exit
@@ -761,23 +761,23 @@ Map_NodeCreate.exit:                              ; preds = %51, %54
   %59 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store float -1.000000e+00, ptr %59, align 4, !tbaa !81
   store float -1.000000e+00, ptr %58, align 4, !tbaa !81
-  %60 = getelementptr inbounds nuw i8, ptr %calloc49, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %calloc48, i64 48
   store ptr %38, ptr %60, align 8, !tbaa !31
   %61 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #24
-  %62 = getelementptr inbounds nuw i8, ptr %calloc49, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %calloc48, i64 56
   store ptr %61, ptr %62, align 8, !tbaa !95
   %63 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #24
-  %64 = getelementptr inbounds nuw i8, ptr %calloc49, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %calloc48, i64 64
   store ptr %63, ptr %64, align 8, !tbaa !23
   %65 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #24
-  %66 = getelementptr inbounds nuw i8, ptr %calloc49, i64 1768
+  %66 = getelementptr inbounds nuw i8, ptr %calloc48, i64 1768
   store ptr %65, ptr %66, align 8, !tbaa !96
-  %67 = getelementptr inbounds nuw i8, ptr %calloc49, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %calloc48, i64 24
   store i32 %0, ptr %67, align 8, !tbaa !3
   %68 = sext i32 %0 to i64
   %69 = shl nsw i64 %68, 3
   %70 = tail call noalias ptr @malloc(i64 noundef %69) #26
-  %71 = getelementptr inbounds nuw i8, ptr %calloc49, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %calloc48, i64 16
   store ptr %70, ptr %71, align 8, !tbaa !24
   %72 = icmp sgt i32 %0, 0
   br i1 %72, label %.lr.ph.preheader, label %._crit_edge
@@ -806,7 +806,7 @@ Map_NodeCreate.exit:                              ; preds = %51, %54
   store float 0x47B9999980000000, ptr %79, align 4, !tbaa !94
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
-  store ptr %calloc49, ptr %74, align 8, !tbaa !59
+  store ptr %calloc48, ptr %74, align 8, !tbaa !59
   %83 = load i32, ptr %30, align 4, !tbaa !89
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %30, align 4, !tbaa !89
@@ -840,17 +840,17 @@ Map_NodeCreate.exit40:                            ; preds = %87, %89
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %Map_NodeCreate.exit40, %Map_NodeCreate.exit
-  %97 = getelementptr inbounds nuw i8, ptr %calloc49, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %calloc48, i64 40
   store i32 %1, ptr %97, align 8, !tbaa !22
   %98 = sext i32 %1 to i64
   %99 = shl nsw i64 %98, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %99)
-  %100 = getelementptr inbounds nuw i8, ptr %calloc49, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %calloc48, i64 32
   store ptr %calloc, ptr %100, align 8, !tbaa !25
   br label %101
 
 101:                                              ; preds = %._crit_edge, %6
-  %.039 = phi ptr [ null, %6 ], [ %calloc49, %._crit_edge ]
+  %.039 = phi ptr [ null, %6 ], [ %calloc48, %._crit_edge ]
   ret ptr %.039
 }
 
@@ -1613,12 +1613,12 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %76
   br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %84, %.lr.ph.i
-  %.sink60.i = phi ptr [ %88, %.lr.ph.i ], [ %86, %84 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 8
+  %.sink59.i = phi ptr [ %88, %.lr.ph.i ], [ %86, %84 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sink59.i, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !128
-  %89 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %.sink59.i, i64 64
   %90 = load ptr, ptr %89, align 8, !tbaa !27
-  %91 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %.sink59.i, i64 72
   %92 = load ptr, ptr %91, align 8, !tbaa !65
   %93 = ptrtoint ptr %90 to i64
   %94 = ptrtoint ptr %92 to i64
@@ -1629,7 +1629,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %76
   %99 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !26
   store ptr %100, ptr %87, align 8, !tbaa !128
-  store ptr %.sink60.i, ptr %99, align 8, !tbaa !26
+  store ptr %.sink59.i, ptr %99, align 8, !tbaa !26
   %.not39.i = icmp eq ptr %88, null
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !129
 

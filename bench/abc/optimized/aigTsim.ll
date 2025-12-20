@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Aig_TsiStart(ptr noundef %0) local_unnamed_addr #0 {
-  %calloc19 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  store ptr %0, ptr %calloc19, align 8, !tbaa !3
+  %calloc18 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
+  store ptr %0, ptr %calloc18, align 8, !tbaa !3
   %2 = getelementptr i8, ptr %0, i64 104
   %.val = load i32, ptr %2, align 8, !tbaa !13
   %3 = ashr i32 %.val, 4
@@ -21,7 +21,7 @@ define noalias noundef ptr @Aig_TsiStart(ptr noundef %0) local_unnamed_addr #0 {
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
   %7 = add nsw i32 %3, %6
-  %8 = getelementptr inbounds nuw i8, ptr %calloc19, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %calloc18, i64 8
   store i32 %7, ptr %8, align 8, !tbaa !24
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -30,12 +30,12 @@ define noalias noundef ptr @Aig_TsiStart(ptr noundef %0) local_unnamed_addr #0 {
   %11 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #16
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw i8, ptr %calloc19, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %calloc18, i64 16
   store ptr %9, ptr %13, align 8, !tbaa !29
   %14 = shl nsw i32 %7, 2
   %15 = add nsw i32 %14, 8
   %16 = tail call ptr @Aig_MmFixedStart(i32 noundef %15, i32 noundef 10000) #17
-  %17 = getelementptr inbounds nuw i8, ptr %calloc19, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %calloc18, i64 24
   store ptr %16, ptr %17, align 8, !tbaa !30
   br label %.critedge.i
 
@@ -66,14 +66,14 @@ define noalias noundef ptr @Aig_TsiStart(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %24, label %.critedge.i.backedge, label %20
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %20
-  %25 = getelementptr inbounds nuw i8, ptr %calloc19, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %calloc18, i64 40
   store i32 %18, ptr %25, align 8, !tbaa !33
   %26 = sext i32 %18 to i64
   %27 = shl nsw i64 %26, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %27)
-  %28 = getelementptr inbounds nuw i8, ptr %calloc19, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %calloc18, i64 32
   store ptr %calloc, ptr %28, align 8, !tbaa !34
-  ret ptr %calloc19
+  ret ptr %calloc18
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

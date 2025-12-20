@@ -1484,21 +1484,21 @@ Vec_FltGrow.exit.i:                               ; preds = %53, %Vec_IntFill.ex
 
 Vec_FltFill.exit:                                 ; preds = %Vec_FltGrow.exit.i.thread, %Vec_FltGrow.exit.i, %.lr.ph.i49
   %63 = phi i1 [ false, %Vec_FltGrow.exit.i.thread ], [ false, %Vec_FltGrow.exit.i ], [ true, %.lr.ph.i49 ]
-  %.val458991 = phi i32 [ %.val42, %Vec_FltGrow.exit.i.thread ], [ %.val44.pre, %Vec_FltGrow.exit.i ], [ %.val44.pre, %.lr.ph.i49 ]
+  %.val458890 = phi i32 [ %.val42, %Vec_FltGrow.exit.i.thread ], [ %.val44.pre, %Vec_FltGrow.exit.i ], [ %.val44.pre, %.lr.ph.i49 ]
   %64 = getelementptr inbounds nuw i8, ptr %25, i64 92
-  store i32 %.val458991, ptr %64, align 4, !tbaa !104
+  store i32 %.val458890, ptr %64, align 4, !tbaa !104
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %66 = load i32, ptr %65, align 8, !tbaa !35
-  %.not.i.i51 = icmp slt i32 %66, %.val458991
+  %.not.i.i51 = icmp slt i32 %66, %.val458890
   br i1 %.not.i.i51, label %67, label %Vec_IntGrow.exit.i52
 
 67:                                               ; preds = %Vec_FltFill.exit
   %68 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  %69 = sext i32 %.val458991 to i64
+  %69 = sext i32 %.val458890 to i64
   %70 = shl nsw i64 %69, 2
   %71 = call noalias ptr @malloc(i64 noundef %70) #25
   store ptr %71, ptr %68, align 8, !tbaa !30
-  store i32 %.val458991, ptr %65, align 8, !tbaa !35
+  store i32 %.val458890, ptr %65, align 8, !tbaa !35
   br label %Vec_IntGrow.exit.i52
 
 Vec_IntGrow.exit.i52:                             ; preds = %67, %Vec_FltFill.exit
@@ -1506,14 +1506,14 @@ Vec_IntGrow.exit.i52:                             ; preds = %67, %Vec_FltFill.ex
   br i1 %63, label %.lr.ph.i53, label %Vec_IntFill.exit59
 
 .lr.ph.i53:                                       ; preds = %Vec_IntGrow.exit.i52
-  %wide.trip.count.i54 = zext nneg i32 %.val458991 to i64
+  %wide.trip.count.i54 = zext nneg i32 %.val458890 to i64
   %73 = shl nuw nsw i64 %wide.trip.count.i54, 2
   call void @llvm.memset.p0.i64(ptr align 4 %72, i8 0, i64 %73, i1 false), !tbaa !31
   br label %Vec_IntFill.exit59
 
 Vec_IntFill.exit59:                               ; preds = %.lr.ph.i53, %Vec_IntGrow.exit.i52
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 108
-  store i32 %.val458991, ptr %74, align 4, !tbaa !29
+  store i32 %.val458890, ptr %74, align 4, !tbaa !29
   %75 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   %76 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #27
   store i32 1, ptr %76, align 8, !tbaa !46

@@ -1724,7 +1724,7 @@ Prs_NtkAddVerilogDirectives.exit:                 ; preds = %67
   br label %.preheader.i.i.i19
 
 .preheader.i.i.i19:                               ; preds = %.preheader.i.i.i19.backedge, %.preheader.i.i.i19.preheader
-  %83 = phi ptr [ %.promoted21.i.i.i100, %.preheader.i.i.i19.preheader ], [ %.be379, %.preheader.i.i.i19.backedge ]
+  %83 = phi ptr [ %.promoted21.i.i.i100, %.preheader.i.i.i19.preheader ], [ %.be378, %.preheader.i.i.i19.backedge ]
   %84 = load i8, ptr %83, align 1, !tbaa !25
   switch i8 %84, label %Prs_ManUtilSkipSpaces.exit.i.i.preheader [
     i8 32, label %Prs_CharIsSpace.exit.thread.i.i.i
@@ -1741,7 +1741,7 @@ Prs_CharIsSpace.exit.thread.i.i.i:                ; preds = %.preheader.i.i.i19,
   br label %.preheader.i.i.i19.backedge
 
 .preheader.i.i.i19.backedge:                      ; preds = %Prs_CharIsSpace.exit.thread.i.i.i, %Prs_ManUtilSkipComments.exit.i.i.i
-  %.be379 = phi ptr [ %85, %Prs_CharIsSpace.exit.thread.i.i.i ], [ %.sink.i.i.i.i, %Prs_ManUtilSkipComments.exit.i.i.i ]
+  %.be378 = phi ptr [ %85, %Prs_CharIsSpace.exit.thread.i.i.i ], [ %.sink.i.i.i.i, %Prs_ManUtilSkipComments.exit.i.i.i ]
   br label %.preheader.i.i.i19, !llvm.loop !27
 
 86:                                               ; preds = %.preheader.i.i.i19
@@ -1985,7 +1985,7 @@ Prs_ManReadName.exit.thread.i.i:                  ; preds = %Prs_ManReadName.exi
   br i1 %150, label %.preheader.i153.i.i, label %Prs_ManUtilSkipSpaces.exit171.i.i
 
 .preheader.i153.i.i:                              ; preds = %148, %.preheader.i153.i.i.backedge
-  %151 = phi ptr [ %.be376, %.preheader.i153.i.i.backedge ], [ %.promoted21.i150.i.i, %148 ]
+  %151 = phi ptr [ %.be375, %.preheader.i153.i.i.backedge ], [ %.promoted21.i150.i.i, %148 ]
   %152 = load i8, ptr %151, align 1, !tbaa !25
   switch i8 %152, label %.loopexit.i.i [
     i8 32, label %Prs_CharIsSpace.exit.thread.i170.i.i
@@ -2002,7 +2002,7 @@ Prs_CharIsSpace.exit.thread.i170.i.i:             ; preds = %.preheader.i153.i.i
   br label %.preheader.i153.i.i.backedge
 
 .preheader.i153.i.i.backedge:                     ; preds = %Prs_CharIsSpace.exit.thread.i170.i.i, %Prs_ManUtilSkipComments.exit.i163.i.i
-  %.be376 = phi ptr [ %153, %Prs_CharIsSpace.exit.thread.i170.i.i ], [ %.sink.i.i164.i.i, %Prs_ManUtilSkipComments.exit.i163.i.i ]
+  %.be375 = phi ptr [ %153, %Prs_CharIsSpace.exit.thread.i170.i.i ], [ %.sink.i.i164.i.i, %Prs_ManUtilSkipComments.exit.i163.i.i ]
   br label %.preheader.i153.i.i, !llvm.loop !27
 
 154:                                              ; preds = %.preheader.i153.i.i
@@ -12768,9 +12768,9 @@ Cba_ManAlloc.exit:                                ; preds = %39, %43
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 1568
   %51 = zext nneg i32 %49 to i64
   %52 = shl nuw nsw i64 %51, 3
-  %.sink55.i = select i1 %.not.i31.not.i, i64 128, i64 %52
+  %.sink54.i = select i1 %.not.i31.not.i, i64 128, i64 %52
   %.sink.i = select i1 %.not.i31.not.i, i32 16, i32 %49
-  %53 = tail call noalias ptr @malloc(i64 noundef %.sink55.i) #32
+  %53 = tail call noalias ptr @malloc(i64 noundef %.sink54.i) #32
   store ptr %53, ptr %50, align 8, !tbaa !56
   store i32 %.sink.i, ptr %48, align 8, !tbaa !55
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 1564

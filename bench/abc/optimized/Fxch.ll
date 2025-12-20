@@ -645,9 +645,9 @@ Vec_IntPush.exit99.i.sink.split:                  ; preds = %Vec_IntPush.exit92.
   %266 = shl nuw nsw i32 %262, 1
   %267 = zext nneg i32 %266 to i64
   %268 = shl nuw nsw i64 %267, 2
-  %.sink231 = select i1 %265, i64 64, i64 %268
+  %.sink229 = select i1 %265, i64 64, i64 %268
   %.sink = select i1 %265, i32 16, i32 %266
-  %269 = tail call ptr @realloc(ptr noundef nonnull %257, i64 noundef %.sink231) #21
+  %269 = tail call ptr @realloc(ptr noundef nonnull %257, i64 noundef %.sink229) #21
   store ptr %269, ptr %93, align 8, !tbaa !11
   store i32 %.sink, ptr %90, align 8, !tbaa !10
   br label %Vec_IntPush.exit99.i
@@ -680,11 +680,11 @@ Vec_IntPush.exit106.i.sink.split:                 ; preds = %.lr.ph131.i
   %283 = shl nuw nsw i32 %279, 1
   %284 = zext nneg i32 %283 to i64
   %285 = shl nuw nsw i64 %284, 2
-  %.sink234 = select i1 %282, i64 64, i64 %285
-  %.sink232 = select i1 %282, i32 16, i32 %283
-  %286 = tail call ptr @realloc(ptr noundef nonnull %276, i64 noundef %.sink234) #21
+  %.sink232 = select i1 %282, i64 64, i64 %285
+  %.sink230 = select i1 %282, i32 16, i32 %283
+  %286 = tail call ptr @realloc(ptr noundef nonnull %276, i64 noundef %.sink232) #21
   store ptr %286, ptr %93, align 8, !tbaa !11
-  store i32 %.sink232, ptr %90, align 8, !tbaa !10
+  store i32 %.sink230, ptr %90, align 8, !tbaa !10
   br label %Vec_IntPush.exit106.i
 
 Vec_IntPush.exit106.i:                            ; preds = %Vec_IntPush.exit106.i.sink.split, %.lr.ph131.i
@@ -719,11 +719,11 @@ Vec_IntPush.exit113.i.sink.split:                 ; preds = %295
   %300 = shl nuw nsw i32 %296, 1
   %301 = zext nneg i32 %300 to i64
   %302 = shl nuw nsw i64 %301, 2
-  %.sink237 = select i1 %299, i64 64, i64 %302
-  %.sink235 = select i1 %299, i32 16, i32 %300
-  %303 = tail call ptr @realloc(ptr noundef nonnull %293, i64 noundef %.sink237) #21
+  %.sink235 = select i1 %299, i64 64, i64 %302
+  %.sink233 = select i1 %299, i32 16, i32 %300
+  %303 = tail call ptr @realloc(ptr noundef nonnull %293, i64 noundef %.sink235) #21
   store ptr %303, ptr %93, align 8, !tbaa !11
-  store i32 %.sink235, ptr %90, align 8, !tbaa !10
+  store i32 %.sink233, ptr %90, align 8, !tbaa !10
   br label %Vec_IntPush.exit113.i
 
 Vec_IntPush.exit113.i:                            ; preds = %Vec_IntPush.exit113.i.sink.split, %295

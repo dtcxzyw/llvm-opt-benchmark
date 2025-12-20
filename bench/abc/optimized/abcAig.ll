@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Abc_AigAlloc(ptr noundef %0) local_unnamed_addr #0 {
-  %calloc24 = tail call dereferenceable_or_null(104) ptr @calloc(i64 1, i64 104)
+  %calloc23 = tail call dereferenceable_or_null(104) ptr @calloc(i64 1, i64 104)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %1
@@ -57,12 +57,12 @@ define noalias noundef ptr @Abc_AigAlloc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %8, label %.critedge.i.backedge, label %4
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
-  %9 = getelementptr inbounds nuw i8, ptr %calloc24, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %calloc23, i64 24
   store i32 %2, ptr %9, align 8, !tbaa !5
   %10 = sext i32 %2 to i64
   %11 = shl nsw i64 %10, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %11)
-  %12 = getelementptr inbounds nuw i8, ptr %calloc24, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %calloc23, i64 16
   store ptr %calloc, ptr %12, align 8, !tbaa !16
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -71,7 +71,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
   %15 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw i8, ptr %calloc24, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %calloc23, i64 32
   store ptr %13, ptr %17, align 8, !tbaa !21
   %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -80,7 +80,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
   %20 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !25
-  %22 = getelementptr inbounds nuw i8, ptr %calloc24, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %calloc23, i64 56
   store ptr %18, ptr %22, align 8, !tbaa !26
   %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -89,7 +89,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
   %25 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i8, ptr %calloc24, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %calloc23, i64 64
   store ptr %23, ptr %27, align 8, !tbaa !27
   %28 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -98,7 +98,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
   %30 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8, !tbaa !20
-  %32 = getelementptr inbounds nuw i8, ptr %calloc24, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %calloc23, i64 40
   store ptr %28, ptr %32, align 8, !tbaa !28
   %33 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -107,10 +107,10 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
   %35 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %35, ptr %36, align 8, !tbaa !20
-  %37 = getelementptr inbounds nuw i8, ptr %calloc24, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %calloc23, i64 48
   store ptr %33, ptr %37, align 8, !tbaa !29
   %38 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #23
-  %39 = getelementptr inbounds nuw i8, ptr %calloc24, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %calloc23, i64 8
   store ptr %38, ptr %39, align 8, !tbaa !30
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %41 = load i32, ptr %40, align 4
@@ -121,8 +121,8 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
   %45 = load i32, ptr %44, align 4, !tbaa !31
   %46 = add nsw i32 %45, -1
   store i32 %46, ptr %44, align 4, !tbaa !31
-  store ptr %0, ptr %calloc24, align 8, !tbaa !32
-  ret ptr %calloc24
+  store ptr %0, ptr %calloc23, align 8, !tbaa !32
+  ret ptr %calloc23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -1886,11 +1886,11 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
-  %.sink66.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %32, %30 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sink66.i.i, i64 8
+  %.sink65.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %32, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sink65.i.i, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !67
-  %.val.i.i.i = load ptr, ptr %.sink66.i.i, align 8, !tbaa !49
-  %35 = getelementptr i8, ptr %.sink66.i.i, i64 32
+  %.val.i.i.i = load ptr, ptr %.sink65.i.i, align 8, !tbaa !49
+  %35 = getelementptr i8, ptr %.sink65.i.i, i64 32
   %.val2.i.i.i = load ptr, ptr %35, align 8, !tbaa !50
   %36 = getelementptr i8, ptr %.val.i.i.i, i64 32
   %.val.val.i.i.i = load ptr, ptr %36, align 8, !tbaa !51
@@ -1900,7 +1900,7 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %38 = sext i32 %.val2.val.i.i.i to i64
   %39 = getelementptr inbounds ptr, ptr %.val.val.val.i.i.i, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !35
-  %41 = getelementptr i8, ptr %.sink66.i.i, i64 20
+  %41 = getelementptr i8, ptr %.sink65.i.i, i64 20
   %.val3.i.i.i = load i32, ptr %41, align 4
   %42 = lshr i32 %.val3.i.i.i, 10
   %43 = ptrtoint ptr %40 to i64
@@ -1937,7 +1937,7 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %73 = getelementptr inbounds nuw ptr, ptr %calloc.i.i, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !38
   store ptr %74, ptr %33, align 8, !tbaa !67
-  store ptr %.sink66.i.i, ptr %73, align 8, !tbaa !38
+  store ptr %.sink65.i.i, ptr %73, align 8, !tbaa !38
   %.not38.i.i = icmp eq ptr %34, null
   br i1 %.not38.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !85
 

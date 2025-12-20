@@ -511,12 +511,12 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %59
-  %.sink83 = phi ptr [ %63, %59 ], [ %27, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink83, i64 12
+  %.sink82 = phi ptr [ %63, %59 ], [ %27, %23 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink82, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !63
-  %30 = getelementptr inbounds nuw i8, ptr %.sink83, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.sink82, i64 12
   store i32 0, ptr %30, align 4, !tbaa !63
-  %31 = getelementptr inbounds nuw i8, ptr %.sink83, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.sink82, i64 16
   %32 = load i32, ptr %19, align 4, !tbaa !35
   %33 = load i32, ptr %4, align 8, !tbaa !45
   %34 = icmp sgt i32 %32, 0
@@ -579,7 +579,7 @@ Gia_ManEraHashFind.exit.loopexit:                 ; preds = %.lr.ph.i43, %53
 
 Gia_ManEraHashFind.exit:                          ; preds = %Gia_ManEraHashFind.exit.loopexit, %Gia_ManEraStateHash.exit.i, %46
   %.023.i = phi ptr [ %44, %46 ], [ %44, %Gia_ManEraStateHash.exit.i ], [ %57, %Gia_ManEraHashFind.exit.loopexit ]
-  %58 = load i32, ptr %.sink83, align 4, !tbaa !59
+  %58 = load i32, ptr %.sink82, align 4, !tbaa !59
   store i32 %58, ptr %.023.i, align 4, !tbaa !50
   %.not39 = icmp eq i32 %29, 0
   br i1 %.not39, label %._crit_edge, label %59

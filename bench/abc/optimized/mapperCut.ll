@@ -166,7 +166,7 @@ Abc_Clock.exit:                                   ; preds = %1, %10
   %37 = load i32, ptr %36, align 8, !tbaa !47
   %38 = load ptr, ptr @stdout, align 8, !tbaa !49
   %39 = call ptr @Extra_ProgressBarStart(ptr noundef %38, i32 noundef %37) #18
-  %calloc6.i = call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
+  %calloc5.i = call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %._crit_edge
@@ -196,29 +196,29 @@ Abc_Clock.exit:                                   ; preds = %1, %10
   br i1 %46, label %.critedge.i.i.backedge, label %42
 
 Map_CutTableStart.exit:                           ; preds = %.preheader.i.i, %42
-  %47 = getelementptr inbounds nuw i8, ptr %calloc6.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %calloc5.i, i64 8
   store i32 %40, ptr %47, align 8, !tbaa !52
   %48 = sext i32 %40 to i64
   %49 = shl nsw i64 %48, 3
   %calloc.i = call ptr @calloc(i64 1, i64 %49)
-  store ptr %calloc.i, ptr %calloc6.i, align 8, !tbaa !55
+  store ptr %calloc.i, ptr %calloc5.i, align 8, !tbaa !55
   %50 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #19
-  %51 = getelementptr inbounds nuw i8, ptr %calloc6.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %calloc5.i, i64 16
   store ptr %50, ptr %51, align 8, !tbaa !56
   %52 = call noalias dereferenceable_or_null(16000) ptr @malloc(i64 noundef 16000) #19
-  %53 = getelementptr inbounds nuw i8, ptr %calloc6.i, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %calloc5.i, i64 32
   store ptr %52, ptr %53, align 8, !tbaa !57
   %54 = call noalias dereferenceable_or_null(16000) ptr @malloc(i64 noundef 16000) #19
-  %55 = getelementptr inbounds nuw i8, ptr %calloc6.i, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %calloc5.i, i64 40
   store ptr %54, ptr %55, align 8, !tbaa !58
   %56 = call noalias dereferenceable_or_null(16000) ptr @malloc(i64 noundef 16000) #19
-  %57 = getelementptr inbounds nuw i8, ptr %calloc6.i, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %calloc5.i, i64 48
   store ptr %56, ptr %57, align 8, !tbaa !59
   %58 = icmp sgt i32 %37, 0
   br i1 %58, label %.lr.ph67, label %._crit_edge68
 
 .lr.ph67:                                         ; preds = %Map_CutTableStart.exit
-  %59 = getelementptr inbounds nuw i8, ptr %calloc6.i, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %calloc5.i, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1784
   %.not.i37 = icmp eq ptr %39, null
@@ -347,7 +347,7 @@ Map_CutList2Array.exit194.i.i:                    ; preds = %._crit_edge.loopexi
   br i1 %114, label %.lr.ph.i195.i.i, label %Map_CutTableRestart.exit.i.i
 
 .lr.ph.i195.i.i:                                  ; preds = %112
-  %115 = load ptr, ptr %calloc6.i, align 8, !tbaa !55
+  %115 = load ptr, ptr %calloc5.i, align 8, !tbaa !55
   %116 = load ptr, ptr %51, align 8, !tbaa !56
   %wide.trip.count.i.i.i = zext nneg i32 %113 to i64
   br label %117
@@ -439,7 +439,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   br i1 %156, label %176, label %157
 
 157:                                              ; preds = %154
-  %158 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc6.i, ptr noundef %4, i32 noundef %155)
+  %158 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef %4, i32 noundef %155)
   %159 = icmp eq ptr %158, null
   br i1 %159, label %176, label %160
 
@@ -526,7 +526,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   br i1 %203, label %223, label %204
 
 204:                                              ; preds = %201
-  %205 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc6.i, ptr noundef %4, i32 noundef %202)
+  %205 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef %4, i32 noundef %202)
   %206 = icmp eq ptr %205, null
   br i1 %206, label %223, label %207
 
@@ -599,7 +599,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   br i1 %249, label %269, label %250
 
 250:                                              ; preds = %247
-  %251 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc6.i, ptr noundef %4, i32 noundef %248)
+  %251 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef %4, i32 noundef %248)
   %252 = icmp eq ptr %251, null
   br i1 %252, label %269, label %253
 
@@ -677,7 +677,7 @@ Map_CutMergeLists.exit.i:                         ; preds = %276, %.loopexit.i.i
   %.0148.lcssa.i.i = phi ptr [ %5, %.loopexit.i.i ], [ %.1149.i.i, %276 ]
   store ptr null, ptr %.0148.lcssa.i.i, align 8, !tbaa !24
   %.0..0..0..0..0..0..0..0..i.i = load ptr, ptr %5, align 8, !tbaa !24
-  %277 = call fastcc ptr @Map_CutSortCuts(ptr noundef nonnull %0, ptr noundef nonnull %calloc6.i, ptr noundef %.0..0..0..0..0..0..0..0..i.i)
+  %277 = call fastcc ptr @Map_CutSortCuts(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef %.0..0..0..0..0..0..0..0..i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -950,7 +950,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %333, %329, %78
   br label %343
 
 343:                                              ; preds = %342, %340
-  %344 = load ptr, ptr %calloc6.i, align 8, !tbaa !55
+  %344 = load ptr, ptr %calloc5.i, align 8, !tbaa !55
   %.not23.i = icmp eq ptr %344, null
   br i1 %.not23.i, label %346, label %345
 
@@ -968,7 +968,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %333, %329, %78
   br label %Map_CutTableStop.exit
 
 Map_CutTableStop.exit:                            ; preds = %346, %348
-  call void @free(ptr noundef nonnull %calloc6.i) #18
+  call void @free(ptr noundef nonnull %calloc5.i) #18
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %350 = load i32, ptr %349, align 8, !tbaa !92
   %.not = icmp eq i32 %350, 0
