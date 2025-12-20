@@ -1370,7 +1370,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
   %61 = tail call i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 30)
   %switch.selectcmp = icmp ugt i32 %61, 15
   %62 = icmp ugt i32 %59, -4097
-  %or.cond = select i1 %switch.selectcmp, i1 %62, i1 false
+  %or.cond = and i1 %62, %switch.selectcmp
   br i1 %or.cond, label %.thread13, label %63
 
 63:                                               ; preds = %57, %51, %38, %34, %30, %26, %24

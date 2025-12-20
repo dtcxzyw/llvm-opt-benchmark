@@ -24830,7 +24830,7 @@ get_destination_insn.exit852:                     ; preds = %get_destination_ins
 859:                                              ; preds = %845, %850, %844, %855, %857
   %.0563.in = phi i1 [ %858, %857 ], [ %856, %855 ], [ %849, %845 ], [ %854, %850 ], [ false, %844 ]
   %860 = icmp eq i32 %841, 27
-  %or.cond = select i1 %.not630, i1 %860, i1 false
+  %or.cond = and i1 %.not630, %860
   br i1 %or.cond, label %870, label %861
 
 861:                                              ; preds = %859
