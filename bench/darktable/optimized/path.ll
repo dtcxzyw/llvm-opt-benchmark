@@ -2616,7 +2616,7 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   br i1 %exitcond351.not.i, label %_path_crop_to_roi.exit, label %.preheader.i
 
 _path_crop_to_roi.exit:                           ; preds = %266, %.thread295.i, %246
-  %.not320 = phi i1 [ true, %246 ], [ false, %.thread295.i ], [ true, %266 ]
+  %.not320 = phi i1 [ false, %.thread295.i ], [ true, %246 ], [ true, %266 ]
   %465 = icmp ne i32 %.0263, 0
   %466 = or i1 %465, %.not320
   %467 = zext i1 %466 to i32
