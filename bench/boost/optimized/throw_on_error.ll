@@ -3590,7 +3590,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   store i32 %10, ptr %6, align 4, !tbaa !49
   %11 = call i64 @write(i32 noundef %1, ptr noundef nonnull %3, i64 noundef 8)
   %12 = icmp eq i64 %11, -1
-  br i1 %12, label %.lr.ph, label %.loopexit.backedge
+  br i1 %12, label %.lr.ph, label %26
 
 .lr.ph:                                           ; preds = %2
   %13 = tail call ptr @__errno_location() #35
@@ -3607,24 +3607,24 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
 16:                                               ; preds = %14, %14
   %17 = call i64 @write(i32 noundef %1, ptr noundef nonnull %3, i64 noundef 8)
   %18 = icmp eq i64 %17, -1
-  br i1 %18, label %14, label %.loopexit.backedge
+  br i1 %18, label %14, label %26
 
-19:                                               ; preds = %.loopexit.backedge
+.thread17:                                        ; preds = %26
   %20 = tail call ptr @__errno_location() #35
-  %21 = load i32, ptr %20, align 4, !tbaa !49
+  %20 = load i32, ptr %20, align 4, !tbaa !49
   switch i32 %21, label %.thread [
-    i32 4, label %.loopexit.backedge
+    i32 4, label %26
     i32 11, label %.loopexit.backedge
   ]
 
-.loopexit.backedge:                               ; preds = %2, %16, %14, %19, %19
-  %22 = load ptr, ptr %7, align 8, !tbaa !30
-  %23 = load i64, ptr %8, align 8, !tbaa !40
-  %24 = tail call i64 @write(i32 noundef %1, ptr noundef nonnull %22, i64 noundef %23)
-  %25 = icmp eq i64 %24, -1
-  br i1 %25, label %19, label %.thread
+26:                                               ; preds = %2, %16, %14, %19, %19
+  %27 = load ptr, ptr %7, align 8, !tbaa !30
+  %28 = load i64, ptr %8, align 8, !tbaa !40
+  %29 = tail call i64 @write(i32 noundef %1, ptr noundef nonnull %27, i64 noundef %28)
+  %30 = icmp eq i64 %29, -1
+  br i1 %30, label %19, label %.thread
 
-.thread:                                          ; preds = %14, %19, %.loopexit.backedge
+.thread:                                          ; preds = %14, %.thread17, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

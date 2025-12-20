@@ -5435,7 +5435,7 @@ define internal ptr @property_get___isabstractmethod__(ptr noundef readonly capt
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %5 = tail call i32 @_PyObject_IsAbstract(ptr noundef %4) #9
   switch i32 %5, label %14 [
-    i32 -1, label %15
+    i32 -1, label %16
     i32 0, label %6
   ]
 
@@ -5448,7 +5448,7 @@ define internal ptr @property_get___isabstractmethod__(ptr noundef readonly capt
     i32 0, label %10
   ]
 
-10:                                               ; preds = %6
+11:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !155
   %13 = tail call i32 @_PyObject_IsAbstract(ptr noundef %12) #9
@@ -5456,12 +5456,12 @@ define internal ptr @property_get___isabstractmethod__(ptr noundef readonly capt
   %switch.select = select i1 %switch.selectcmp, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %switch.selectcmp15 = icmp eq i32 %13, -1
   %switch.select16 = select i1 %switch.selectcmp15, ptr null, ptr %switch.select
-  br label %15
+  br label %16
 
 14:                                               ; preds = %2, %6
   br label %15
 
-15:                                               ; preds = %10, %6, %2, %14
+16:                                               ; preds = %10, %6, %2, %14
   %.0 = phi ptr [ %switch.select16, %10 ], [ null, %6 ], [ null, %2 ], [ @_Py_TrueStruct, %14 ]
   ret ptr %.0
 }

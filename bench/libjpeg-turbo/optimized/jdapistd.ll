@@ -1849,11 +1849,11 @@ define range(i32 0, 2) i32 @jpeg_finish_output(ptr noundef %0) local_unnamed_add
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   tail call void %11(ptr noundef nonnull %0) #5
   store i32 208, ptr %2, align 4, !tbaa !3
-  br label %.preheader
+  br label %25
 
 12:                                               ; preds = %1
   %.not19 = icmp eq i32 %3, 208
-  br i1 %.not19, label %.preheader, label %.thread
+  br i1 %.not19, label %25, label %.thread
 
 .thread:                                          ; preds = %4, %12
   %13 = load ptr, ptr %0, align 8, !tbaa !44
@@ -1864,11 +1864,11 @@ define range(i32 0, 2) i32 @jpeg_finish_output(ptr noundef %0) local_unnamed_add
   %16 = load ptr, ptr %0, align 8, !tbaa !44
   %17 = load ptr, ptr %16, align 8, !tbaa !48
   tail call void %17(ptr noundef nonnull %0) #5
-  br label %.preheader
+  br label %25
 
-.preheader:                                       ; preds = %12, %.thread, %7
+25:                                               ; preds = %12, %.thread, %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 576
   br label %29
 
@@ -1876,10 +1876,10 @@ define range(i32 0, 2) i32 @jpeg_finish_output(ptr noundef %0) local_unnamed_add
   %22 = load ptr, ptr %20, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !96
-  %.not21 = icmp eq i32 %24, 0
-  br i1 %.not21, label %25, label %.critedge
+  %32 = icmp eq i32 %24, 0
+  br i1 %32, label %.critedge, label %.critedge
 
-25:                                               ; preds = %21
+.critedge:                                        ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !38
   %27 = tail call i32 %26(ptr noundef nonnull %0) #5
   %28 = icmp eq i32 %27, 0

@@ -986,16 +986,16 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc41
   br i1 %20, label %.lr.ph.i.i.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %15, %select.unfold.i.i.i.i
-  %.110.i.i.in.in.i.i = phi i64 [ %.110.i.i.i.i, %select.unfold.i.i.i.i ], [ %19, %15 ]
-  %.110.i.i.in.i.i = add nuw nsw i64 %.110.i.i.in.in.i.i, 1
-  %.110.i.i.i.i = lshr i64 %.110.i.i.in.i.i, 1
-  %21 = shl nuw nsw i64 %.110.i.i.i.i, 2
+  %.010.i.i.in.in.i.i = phi i64 [ %.010.i.i.i.i, %select.unfold.i.i.i.i ], [ %19, %15 ]
+  %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
+  %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
+  %21 = shl nuw nsw i64 %.010.i.i.i.i, 2
   %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #28
   %.not.i.i.i.i42 = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i42, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %23 = icmp eq i64 %.110.i.i.i.i, 1
+  %23 = icmp eq i64 %.010.i.i.i.i, 1
   br i1 %23, label %.loopexit.i.i, label %.lr.ph.i.i.i.i
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %15
@@ -1003,7 +1003,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
           to label %24 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit44
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EEEvT_SM_T0_T1_T2_"(ptr nonnull %9, ptr %.0.i.i.i.i.i.ph, ptr noundef nonnull %22, i64 noundef %.110.i.i.i.i, ptr %2)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EEEvT_SM_T0_T1_T2_"(ptr nonnull %9, ptr %.0.i.i.i.i.i.ph, ptr noundef nonnull %22, i64 noundef %.010.i.i.i.i, ptr %2)
           to label %24 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit44
 
 24:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i

@@ -1322,7 +1322,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.i89: ; pred
 
 792:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %.not.i.i114 = icmp ult i64 %7, 8
-  br i1 %.not.i.i114, label %.thread240.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i115
+  br i1 %.not.i.i114, label %.thread234.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i115
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i115: ; preds = %792
   %bcmp.i.i.i116 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) @.str.2, i64 8)
@@ -1332,13 +1332,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i115: ; preds = %792
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i121: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i115
   %bcmp.i.i.i122 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) @.str.3, i64 8)
   %794 = icmp eq i32 %bcmp.i.i.i122, 0
-  br i1 %794, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit118, label %.thread242
+  br i1 %794, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit118, label %.thread236
 
-.thread242:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i121
+.thread236:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i121
   %795 = icmp sgt i64 %7, 3
-  br i1 %795, label %.thread240.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128
+  br i1 %795, label %.thread234.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128
 
-.thread240.thread:                                ; preds = %792, %.thread242
+.thread234.thread:                                ; preds = %792, %.thread236
   %796 = load i8, ptr %5, align 1, !tbaa !22
   %797 = sext i8 %796 to i32
   %798 = tail call i32 @isprint(i32 noundef %797) #24
@@ -1348,7 +1348,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i121: ; preds = %_ZNSt11char_tr
   %spec.select.i.i125 = or i1 %801, %799
   br i1 %spec.select.i.i125, label %802, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128
 
-802:                                              ; preds = %.thread240.thread
+802:                                              ; preds = %.thread234.thread
   %803 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %804 = load i8, ptr %803, align 1, !tbaa !22
   %805 = sext i8 %804 to i32
@@ -1381,7 +1381,7 @@ _ZN4moldL12is_text_fileEPNS_10MappedFileE.exit:   ; preds = %810
   %spec.select.i8.i = or i1 %824, %822
   br i1 %spec.select.i8.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit118, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128: ; preds = %_ZN4moldL12is_text_fileEPNS_10MappedFileE.exit, %810, %802, %.thread240.thread, %.thread242
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128: ; preds = %_ZN4moldL12is_text_fileEPNS_10MappedFileE.exit, %810, %802, %.thread234.thread, %.thread236
   %bcmp.i.i.i129 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %5, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %825 = icmp eq i32 %bcmp.i.i.i129, 0
   br i1 %825, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit118, label %_ZN4moldL12is_text_fileEPNS_10MappedFileE.exit.thread

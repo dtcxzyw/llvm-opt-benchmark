@@ -477,7 +477,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 8, !tbaa !35
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %59, label %6
+  br i1 %5, label %60, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -552,42 +552,42 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nounde
 42:                                               ; preds = %40, %.loopexit
   %43 = load i32, ptr %10, align 8, !tbaa !20
   %.not39 = icmp eq i32 %43, -1
-  br i1 %.not39, label %.preheader.preheader, label %44
+  br i1 %.not39, label %.preheader, label %44
 
 44:                                               ; preds = %42
   %45 = tail call i32 @close(i32 noundef %43) #12
-  br label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %44, %42
   br label %.preheader
+
+.preheader:                                       ; preds = %44, %42
+  br label %50
 
 46:                                               ; preds = %.preheader
   %47 = tail call ptr @__errno_location() #16
   %48 = load i32, ptr %47, align 4, !tbaa !36
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.preheader, label %.critedge2
+  br i1 %49, label %50, label %.critedge2
 
-.preheader:                                       ; preds = %.preheader.preheader, %46
+50:                                               ; preds = %50, %46
   %50 = load i32, ptr %1, align 8, !tbaa !35
   %51 = call i32 @waitpid(i32 noundef %50, ptr noundef nonnull %3, i32 noundef 0) #12
-  %52 = icmp eq i32 %51, -1
-  br i1 %52, label %46, label %.critedge2
+  %53 = icmp eq i32 %51, -1
+  br i1 %53, label %46, label %.critedge2
 
-.critedge2:                                       ; preds = %.preheader, %46
+.critedge2:                                       ; preds = %50, %46
   store i32 0, ptr %1, align 8, !tbaa !35
-  %53 = load i32, ptr %3, align 4, !tbaa !36
-  %.not40 = icmp eq i32 %53, 0
-  br i1 %.not40, label %59, label %54
+  %54 = load i32, ptr %3, align 4, !tbaa !36
+  %.not40 = icmp eq i32 %54, 0
+  br i1 %.not40, label %60, label %55
 
-54:                                               ; preds = %.critedge2
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !34
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %58 = load ptr, ptr %57, align 8, !tbaa !21
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %56, i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef %58) #12
-  br label %59
+55:                                               ; preds = %.critedge2
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !34
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %59 = load ptr, ptr %58, align 8, !tbaa !21
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %57, i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef %59) #12
+  br label %60
 
-59:                                               ; preds = %.critedge2, %54, %2
+60:                                               ; preds = %.critedge2, %55, %2
   %.0 = phi i32 [ 0, %2 ], [ -30, %54 ], [ %.1, %.critedge2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

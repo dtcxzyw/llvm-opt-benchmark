@@ -29386,7 +29386,7 @@ tailrecurse:                                      ; preds = %40, %1
   %.tr = phi ptr [ %0, %1 ], [ %41, %40 ]
   %2 = load i8, ptr %.tr, align 8, !range !5260, !noundef !8
   switch i8 %2, label %default.unreachable21 [
-    i8 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit"
+    i8 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit.loopexit36"
     i8 1, label %3
     i8 2, label %.loopexit
     i8 3, label %6
@@ -29395,11 +29395,11 @@ tailrecurse:                                      ; preds = %40, %1
     i8 6, label %30
     i8 7, label %40
     i8 8, label %40
-    i8 9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit"
+    i8 9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit.loopexit36"
     i8 10, label %.loopexit
     i8 11, label %.loopexit
-    i8 12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit"
-    i8 13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit"
+    i8 12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit.loopexit36"
+    i8 13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit.loopexit36"
     i8 14, label %40
     i8 15, label %.loopexit
   ]
@@ -29468,7 +29468,7 @@ default.unreachable21:                            ; preds = %tailrecurse
   %34 = icmp ult i64 %33, 2
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit": ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h021ea2b9a4bd67baE.exit", %.loopexit, %35, %30, %3
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c70694aa68dce22E.exit.loopexit36": ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h021ea2b9a4bd67baE.exit", %.loopexit, %35, %30, %3
   %.0.shrunk = phi i1 [ %.not, %3 ], [ %39, %35 ], [ false, %.loopexit ], [ %26, %25 ], [ %34, %30 ], [ %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h021ea2b9a4bd67baE.exit" ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
   ret i1 %.0.shrunk
 

@@ -203,15 +203,15 @@ define noundef zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$
   %.sroa.812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 3, ptr %.sroa.812.0..sroa_idx, align 8
   store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.7, ptr %5, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %3, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 1, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 2, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %3, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 1, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %60, align 8
   %61 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %5)
   br i1 %61, label %62, label %47

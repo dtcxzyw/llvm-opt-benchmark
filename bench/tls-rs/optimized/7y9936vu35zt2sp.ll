@@ -6684,7 +6684,7 @@ define void @_ZN6rustls4msgs8deframer15MessageDeframer3pop17hfac2e1b197d90ca0E(p
     i8 19, label %88
   ]
 
-default.unreachable609:                           ; preds = %232, %158, %22
+default.unreachable608:                           ; preds = %232, %158, %22
   unreachable
 
 23:                                               ; preds = %22
@@ -6844,12 +6844,12 @@ default.unreachable609:                           ; preds = %232, %158, %22
   store i8 %20, ptr %97, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %.sroa.23.0, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx1038 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %.sroa.28.0, ptr %.sroa.4.0..sroa_idx1038, align 2
-  %.sroa.51041.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.31251.0, ptr %.sroa.51041.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx1042 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.38.0, ptr %.sroa.6.0..sroa_idx1042, align 8
+  %.sroa.4.0..sroa_idx1037 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %.sroa.28.0, ptr %.sroa.4.0..sroa_idx1037, align 2
+  %.sroa.51040.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.31251.0, ptr %.sroa.51040.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx1041 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.38.0, ptr %.sroa.6.0..sroa_idx1041, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.43.0, ptr %.sroa.7.0..sroa_idx, align 8
   br label %322
@@ -7014,13 +7014,13 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer14filled_get_mut17h0ea181965779f6c
 160:                                              ; preds = %155
   %161 = load i8, ptr %118, align 8, !range !1837
   %162 = trunc nuw i8 %161 to i1
-  %or.cond287 = select i1 %117, i1 true, i1 %162
-  br i1 %or.cond287, label %.thread259, label %164
+  %or.cond286 = select i1 %117, i1 true, i1 %162
+  br i1 %or.cond286, label %.thread259, label %164
 
 163:                                              ; preds = %155
   %.old = load i64, ptr %1, align 8, !range !2443, !noundef !4
   %.not203.old = icmp eq i64 %.old, 2
-  br i1 %.not203.old, label %169, label %.thread259
+  br i1 %.not203.old, label %169, label %165
 
 164:                                              ; preds = %160
   %165 = icmp ne ptr %.sroa.0238.0.copyload, null
@@ -7031,7 +7031,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer14filled_get_mut17h0ea181965779f6c
   %or.cond = select i1 %166, i1 %.not203, i1 false
   br i1 %or.cond, label %169, label %.thread259
 
-.thread259:                                       ; preds = %160, %164, %155, %163
+165:                                              ; preds = %160, %164, %155, %163
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.sroa.0238.0.copyload, ptr %14, align 8
@@ -7279,13 +7279,13 @@ _ZN6rustls4msgs8deframer19DeframerSliceBuffer25raw_slice_to_filled_range17h1685f
   unreachable
 
 .loopexit.thread:                                 ; preds = %146, %.loopexit
-  %.0195611 = phi i64 [ %234, %.loopexit ], [ %147, %146 ]
+  %.0195610 = phi i64 [ %234, %.loopexit ], [ %147, %146 ]
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %241 = load i16, ptr %240, align 8, !range !2491, !noundef !4
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %243 = load i16, ptr %242, align 2
   %244 = load i64, ptr %110, align 8, !noundef !4
-  %245 = add i64 %244, %.0195611
+  %245 = add i64 %244, %.0195610
   call void @llvm.experimental.noalias.scope.decl(metadata !2492)
   call void @llvm.experimental.noalias.scope.decl(metadata !2495)
   %246 = load i64, ptr %99, align 8, !alias.scope !2498, !noundef !4
@@ -7316,7 +7316,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   %258 = getelementptr inbounds i8, ptr %257, i64 %244
   %.val211 = load i64, ptr %111, align 8, !alias.scope !2463, !noalias !2460, !noundef !4
   %spec.select.i.i217 = call noundef i64 @llvm.usub.sat.i64(i64 %.val211, i64 %244)
-  %259 = icmp ule i64 %spec.select.i.i217, %.0195611
+  %259 = icmp ule i64 %spec.select.i.i217, %.0195610
   br i1 %259, label %260, label %263
 
 260:                                              ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
@@ -7354,7 +7354,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   br label %298
 
 279:                                              ; preds = %298, %260
-  %280 = phi ptr [ %.pre572, %298 ], [ %256, %260 ]
+  %280 = phi ptr [ %.pre571, %298 ], [ %256, %260 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2510)
   %.not.i218 = icmp ult ptr %258, %280
   br i1 %.not.i218, label %281, label %282
@@ -7367,7 +7367,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   %283 = ptrtoint ptr %280 to i64
   %284 = ptrtoint ptr %258 to i64
   %285 = sub i64 %284, %283
-  %286 = add i64 %285, %.0195611
+  %286 = add i64 %285, %.0195610
   %287 = load i64, ptr %99, align 8, !alias.scope !2510, !noundef !4
   store ptr @anon.c43cdfa0e8c33ad4539906867d1667f9.6, ptr %5, align 8, !alias.scope !2510
   store i64 0, ptr %99, align 8, !alias.scope !2510
@@ -7399,7 +7399,7 @@ _ZN6rustls4msgs8deframer19DeframerSliceBuffer4take17h341a93816d54b6acE.exit221: 
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %295, ptr %297, align 8
   %.sroa.4144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0195611, ptr %.sroa.4144.0..sroa_idx, align 8
+  store i64 %.0195610, ptr %.sroa.4144.0..sroa_idx, align 8
   %.sroa.5145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 2, ptr %.sroa.5145.0..sroa_idx, align 8
   %.sroa.7147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -7420,7 +7420,7 @@ _ZN6rustls4msgs8deframer19DeframerSliceBuffer4take17h341a93816d54b6acE.exit221: 
   %.sroa.12247.0.ph = phi i64 [ undef, %263 ], [ %278, %277 ]
   store i64 %.sroa.7245.0.ph, ptr %1, align 8
   store i64 %.sroa.12247.0.ph, ptr %109, align 8
-  %.pre572 = load ptr, ptr %5, align 8, !alias.scope !2510
+  %.pre571 = load ptr, ptr %5, align 8, !alias.scope !2510
   br label %279
 
 299:                                              ; preds = %267

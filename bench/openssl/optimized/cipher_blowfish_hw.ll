@@ -186,21 +186,21 @@ define internal noundef i32 @cipher_hw_blowfish_cfb64_cipher(ptr noundef %0, ptr
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
-  %.033 = phi ptr [ %1, %.lr.ph ], [ %18, %11 ]
-  %.02332 = phi i64 [ %spec.select, %.lr.ph ], [ %spec.select29, %11 ]
-  %.02431 = phi i64 [ %3, %.lr.ph ], [ %16, %11 ]
-  %.02530 = phi ptr [ %2, %.lr.ph ], [ %17, %11 ]
+  %.032 = phi ptr [ %1, %.lr.ph ], [ %18, %11 ]
+  %.131 = phi i64 [ %spec.select, %.lr.ph ], [ %spec.select28, %11 ]
+  %.02430 = phi i64 [ %3, %.lr.ph ], [ %16, %11 ]
+  %.02529 = phi ptr [ %2, %.lr.ph ], [ %17, %11 ]
   %12 = load i8, ptr %10, align 4
   %13 = lshr i8 %12, 1
   %14 = and i8 %13, 1
   %15 = zext nneg i8 %14 to i32
-  call void @BF_cfb64_encrypt(ptr noundef %.02530, ptr noundef %.033, i64 noundef %.02332, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %5, i32 noundef %15) #5
-  %16 = sub nuw i64 %.02431, %.02332
-  %17 = getelementptr inbounds nuw i8, ptr %.02530, i64 %.02332
-  %18 = getelementptr inbounds nuw i8, ptr %.033, i64 %.02332
-  %spec.select29 = call i64 @llvm.umin.i64(i64 %16, i64 %.02332)
-  %.not34 = icmp eq i64 %16, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %11
+  call void @BF_cfb64_encrypt(ptr noundef %.02529, ptr noundef %.032, i64 noundef %.131, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %5, i32 noundef %15) #5
+  %16 = sub nuw i64 %.02430, %.131
+  %17 = getelementptr inbounds nuw i8, ptr %.02529, i64 %.131
+  %18 = getelementptr inbounds nuw i8, ptr %.032, i64 %.131
+  %spec.select28 = call i64 @llvm.umin.i64(i64 %16, i64 %.131)
+  %.not33 = icmp eq i64 %16, 0
+  br i1 %.not33, label %._crit_edge.loopexit, label %11
 
 ._crit_edge.loopexit:                             ; preds = %11
   %.pre = load i32, ptr %5, align 4, !tbaa !17

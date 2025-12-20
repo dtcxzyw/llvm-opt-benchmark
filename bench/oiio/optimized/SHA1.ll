@@ -306,7 +306,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   store i8 -128, ptr %28, align 1
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
 
 .loopexit.i:                                      ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -314,15 +314,15 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   store i8 -128, ptr %30, align 1
   tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %29)
   %.pre = load i32, ptr %3, align 4, !tbaa !8
-  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
 
-_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader: ; preds = %.loopexit.i, %.loopexit.i.thread
+_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loopexit.i.thread
   %31 = phi i32 [ %.pre, %.loopexit.i ], [ %19, %.loopexit.i.thread ]
   %32 = and i32 %31, 504
   %.not40 = icmp eq i32 %32, 448
   br i1 %.not40, label %.loopexit.i17, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
+.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 95
   br label %35
@@ -359,7 +359,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge: ; preds = %.loopexit.
   %.pre48 = load i32, ptr %3, align 4, !tbaa !8
   br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge
 
-.loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader
+.loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %.lcssa = phi i32 [ %31, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.preheader ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16.backedge ]
   %49 = add i32 %.lcssa, 64
   store i32 %49, ptr %3, align 4, !tbaa !8

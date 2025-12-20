@@ -1441,14 +1441,14 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef nonnull %
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8, !tbaa !22
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, i32 noundef %1) #26
-  br label %53
+  br label %52
 
 8:                                                ; preds = %2
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %10 = add i64 %9, 15
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #25
   %.not47 = icmp eq ptr %11, null
-  br i1 %.not47, label %52, label %12
+  br i1 %.not47, label %51, label %12
 
 12:                                               ; preds = %8
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %10, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, i32 noundef %1) #23
@@ -1459,7 +1459,7 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef nonnull %
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8, !tbaa !22
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.11, ptr noundef nonnull %11) #26
-  br label %51
+  br label %50
 
 .preheader:                                       ; preds = %12, %.preheader
   %.0 = phi i32 [ %19, %.preheader ], [ 0, %12 ]
@@ -1481,7 +1481,7 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef nonnull %
   %26 = load ptr, ptr @stderr, align 8, !tbaa !22
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.12, i32 noundef %.0, i32 noundef %1) #26
   %28 = call i32 @fclose(ptr noundef nonnull %14)
-  br label %51
+  br label %50
 
 29:                                               ; preds = %20
   %30 = call i32 @fseek(ptr noundef nonnull %14, i64 noundef 0, i32 noundef 0)
@@ -1489,7 +1489,7 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef nonnull %
   %.not5152 = icmp eq ptr %31, null
   br i1 %.not5152, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %48
+.lr.ph: ; preds = %29, %48
   %.154 = phi i32 [ %.2, %48 ], [ 0, %29 ]
   %.04253 = phi ptr [ %.143, %48 ], [ %23, %29 ]
   %32 = load i8, ptr %3, align 16, !tbaa !25
@@ -1503,40 +1503,40 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef nonnull %
   %38 = getelementptr inbounds nuw i8, ptr %.04253, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.04253, i64 20
   %40 = getelementptr inbounds nuw i8, ptr %.04253, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %.04253, i64 28
-  %42 = getelementptr inbounds nuw i8, ptr %.04253, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.04253, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %.04253, i64 32
   %43 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef %.04253, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %42) #23
   %44 = icmp eq i32 %43, 9
   br i1 %44, label %45, label %48
 
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds nuw i8, ptr %.04253, i64 36
+45: ; preds = %34
+  %44 = getelementptr inbounds nuw i8, ptr %.04253, i64 36
   %47 = add i32 %.154, 1
   br label %48
 
-48:                                               ; preds = %.lr.ph, %45, %34
+48: ; preds = %.lr.ph, %45, %34
   %.143 = phi ptr [ %.04253, %.lr.ph ], [ %46, %45 ], [ %.04253, %34 ]
   %.2 = phi i32 [ %.154, %.lr.ph ], [ %47, %45 ], [ %.154, %34 ]
   %49 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 128, ptr noundef nonnull %14)
   %.not51 = icmp eq ptr %49, null
   br i1 %.not51, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 
-._crit_edge:                                      ; preds = %48, %29
+._crit_edge:; preds = %48, %29
   %.1.lcssa = phi i32 [ 0, %29 ], [ %.2, %48 ]
   store i32 %.1.lcssa, ptr %4, align 8, !tbaa !72
   %50 = call i32 @fclose(ptr noundef nonnull %14)
   call void @free(ptr noundef %11) #23
-  br label %53
-
-51:                                               ; preds = %25, %15
-  call void @free(ptr noundef nonnull %11) #23
   br label %52
 
-52:                                               ; preds = %8, %51
-  call void @free(ptr noundef nonnull %4) #23
-  br label %53
+50:                                               ; preds = %25, %15
+  call void @free(ptr noundef nonnull %11) #23
+  br label %51
 
-53:                                               ; preds = %5, %52, %._crit_edge
+51:                                               ; preds = %8, %50
+  call void @free(ptr noundef nonnull %4) #23
+  br label %52
+
+52:                                               ; preds = %5, %51, %._crit_edge
   %.041 = phi ptr [ %4, %._crit_edge ], [ null, %52 ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.041

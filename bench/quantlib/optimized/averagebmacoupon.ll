@@ -965,7 +965,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i: ; preds = %.noexc46, %w
           to label %call1.i.noexc unwind label %lpad30.loopexit.split-lp.loopexit.split-lp
 
 call1.i.noexc:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i
-  br i1 %call1.i47, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader, label %land.rhs.i
+  br i1 %call1.i47, label %while.cond.preheader, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %call1.i.noexc
   %call2.i48 = invoke i64 @_ZN8QuantLib4Date7minDateEv()
@@ -974,9 +974,9 @@ land.rhs.i:                                       ; preds = %call1.i.noexc
 call2.i.noexc:                                    ; preds = %land.rhs.i
   %41 = load i64, ptr %fixingStart, align 8, !tbaa !91
   %cmp.i.i = icmp sgt i64 %41, %call2.i48
-  br i1 %cmp.i.i, label %while.body.i, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader
+  br i1 %cmp.i.i, label %while.body.i, label %while.cond.preheader
 
-_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader: ; preds = %call1.i.noexc67, %call2.i.noexc69, %call1.i.noexc, %call2.i.noexc
+while.cond.preheader:                             ; preds = %call1.i.noexc67, %call2.i.noexc69, %call1.i.noexc, %call2.i.noexc
   %42 = load ptr, ptr %index, align 8, !tbaa !49
   %cmp.not.i50 = icmp eq ptr %42, null
   br i1 %cmp.not.i50, label %cond.false.i51, label %invoke.cont34, !prof !51
@@ -985,7 +985,7 @@ while.body.i:                                     ; preds = %call2.i.noexc
   %call4.i49 = invoke i64 @_ZN8QuantLib4DatemmEi(ptr noundef nonnull align 8 dereferenceable(8) %fixingStart, i32 noundef 0)
           to label %while.cond.i unwind label %lpad30.loopexit.split-lp.loopexit.split-lp, !llvm.loop !92
 
-cond.false.i51:                                   ; preds = %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader
+while.cond.loopexit:                              ; preds = %while.cond.preheader
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
           to label %.noexc53 unwind label %lpad33
 
@@ -993,7 +993,7 @@ cond.false.i51:                                   ; preds = %_ZN8QuantLib12_GLOB
   %.pre.i52 = load ptr, ptr %index, align 8, !tbaa !49
   br label %invoke.cont34
 
-invoke.cont34:                                    ; preds = %.noexc53, %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader
+invoke.cont34:                                    ; preds = %.noexc53, %while.cond.preheader
   %43 = phi ptr [ %42, %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader ], [ %.pre.i52, %.noexc53 ]
   %vtable36 = load ptr, ptr %43, align 8, !tbaa !32
   %vfn37 = getelementptr inbounds nuw i8, ptr %vtable36, i64 80
@@ -1041,7 +1041,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i58: ; preds = %.noexc66, 
           to label %call1.i.noexc67 unwind label %lpad30.loopexit
 
 call1.i.noexc67:                                  ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i58
-  br i1 %call1.i68, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader, label %land.rhs.i61
+  br i1 %call1.i68, label %while.cond.preheader, label %land.rhs.i61
 
 land.rhs.i61:                                     ; preds = %call1.i.noexc67
   %call2.i70 = invoke i64 @_ZN8QuantLib4Date7minDateEv()
@@ -1050,7 +1050,7 @@ land.rhs.i61:                                     ; preds = %call1.i.noexc67
 call2.i.noexc69:                                  ; preds = %land.rhs.i61
   %50 = load i64, ptr %call51, align 8, !tbaa !91
   %cmp.i.i62 = icmp sgt i64 %50, %call2.i70
-  br i1 %cmp.i.i62, label %while.body.i63, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit73.preheader.preheader.preheader
+  br i1 %cmp.i.i62, label %while.body.i63, label %while.cond.preheader
 
 while.body.i63:                                   ; preds = %call2.i.noexc69
   %call4.i72 = invoke i64 @_ZN8QuantLib4DatemmEi(ptr noundef nonnull align 8 dereferenceable(8) %call51, i32 noundef 0)
@@ -2291,7 +2291,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i: ; preds = %.noexc51, %w
           to label %call1.i.noexc unwind label %lpad28.loopexit.split-lp.loopexit.split-lp
 
 call1.i.noexc:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i
-  br i1 %call1.i52, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader, label %land.rhs.i
+  br i1 %call1.i52, label %while.cond.preheader, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %call1.i.noexc
   %call2.i53 = invoke i64 @_ZN8QuantLib4Date7minDateEv()
@@ -2300,9 +2300,9 @@ land.rhs.i:                                       ; preds = %call1.i.noexc
 call2.i.noexc:                                    ; preds = %land.rhs.i
   %37 = load i64, ptr %fixingStart, align 8, !tbaa !91
   %cmp.i.i = icmp sgt i64 %37, %call2.i53
-  br i1 %cmp.i.i, label %while.body.i, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader
+  br i1 %cmp.i.i, label %while.body.i, label %while.cond.preheader
 
-_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader: ; preds = %call1.i.noexc72, %call2.i.noexc74, %call1.i.noexc, %call2.i.noexc
+while.cond.preheader:                             ; preds = %call1.i.noexc72, %call2.i.noexc74, %call1.i.noexc, %call2.i.noexc
   %38 = load ptr, ptr %index, align 8, !tbaa !49
   %cmp.not.i55 = icmp eq ptr %38, null
   br i1 %cmp.not.i55, label %cond.false.i56, label %invoke.cont32, !prof !51
@@ -2311,7 +2311,7 @@ while.body.i:                                     ; preds = %call2.i.noexc
   %call4.i54 = invoke i64 @_ZN8QuantLib4DatemmEi(ptr noundef nonnull align 8 dereferenceable(8) %fixingStart, i32 noundef 0)
           to label %while.cond.i unwind label %lpad28.loopexit.split-lp.loopexit.split-lp, !llvm.loop !92
 
-cond.false.i56:                                   ; preds = %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader
+while.cond.loopexit:                              ; preds = %while.cond.preheader
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
           to label %.noexc58 unwind label %lpad31
 
@@ -2319,7 +2319,7 @@ cond.false.i56:                                   ; preds = %_ZN8QuantLib12_GLOB
   %.pre.i57 = load ptr, ptr %index, align 8, !tbaa !49
   br label %invoke.cont32
 
-invoke.cont32:                                    ; preds = %.noexc58, %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader
+invoke.cont32:                                    ; preds = %.noexc58, %while.cond.preheader
   %39 = phi ptr [ %38, %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader ], [ %.pre.i57, %.noexc58 ]
   %vtable34 = load ptr, ptr %39, align 8, !tbaa !32
   %vfn35 = getelementptr inbounds nuw i8, ptr %vtable34, i64 80
@@ -2367,7 +2367,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i63: ; preds = %.noexc71, 
           to label %call1.i.noexc72 unwind label %lpad28.loopexit
 
 call1.i.noexc72:                                  ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8BMAIndexEEptEv.exit.i63
-  br i1 %call1.i73, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader, label %land.rhs.i66
+  br i1 %call1.i73, label %while.cond.preheader, label %land.rhs.i66
 
 land.rhs.i66:                                     ; preds = %call1.i.noexc72
   %call2.i75 = invoke i64 @_ZN8QuantLib4Date7minDateEv()
@@ -2376,7 +2376,7 @@ land.rhs.i66:                                     ; preds = %call1.i.noexc72
 call2.i.noexc74:                                  ; preds = %land.rhs.i66
   %46 = load i64, ptr %call49, align 8, !tbaa !91
   %cmp.i.i67 = icmp sgt i64 %46, %call2.i75
-  br i1 %cmp.i.i67, label %while.body.i68, label %_ZN8QuantLib12_GLOBAL__N_131adjustToPreviousValidFixingDateERNS_4DateERKN5boost10shared_ptrINS_8BMAIndexEEE.exit78.preheader.preheader.preheader
+  br i1 %cmp.i.i67, label %while.body.i68, label %while.cond.preheader
 
 while.body.i68:                                   ; preds = %call2.i.noexc74
   %call4.i77 = invoke i64 @_ZN8QuantLib4DatemmEi(ptr noundef nonnull align 8 dereferenceable(8) %call49, i32 noundef 0)

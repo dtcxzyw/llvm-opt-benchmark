@@ -2451,10 +2451,10 @@ if.then44:                                        ; preds = %if.then38, %if.then
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else.if.end48_crit_edge, %if.then44, %if.then38, %if.then27
-  %14 = phi i64 [ %.pre30, %if.else.if.end48_crit_edge ], [ %11, %if.then38 ], [ %8, %if.then27 ], [ %12, %if.then44 ]
-  %15 = phi i64 [ %.pre, %if.else.if.end48_crit_edge ], [ %10, %if.then38 ], [ %7, %if.then27 ], [ %13, %if.then44 ]
+  %12 = phi i64 [ %.pre30, %if.else.if.end48_crit_edge ], [ %11, %if.then38 ], [ %8, %if.then27 ], [ %12, %if.then44 ]
+  %13 = phi i64 [ %.pre, %if.else.if.end48_crit_edge ], [ %10, %if.then38 ], [ %7, %if.then27 ], [ %13, %if.then44 ]
   %den.0 = phi double [ 3.650000e+02, %if.else.if.end48_crit_edge ], [ 3.650000e+02, %if.then38 ], [ 3.650000e+02, %if.then27 ], [ 3.660000e+02, %if.then44 ]
-  %sub.i.i26 = sub nsw i64 %15, %14
+  %sub.i.i26 = sub nsw i64 %13, %12
   %conv.i = sitofp i64 %sub.i.i26 to double
   %div = fdiv double %conv.i, %den.0
   %add50 = fadd double %sum.0.lcssa, %div

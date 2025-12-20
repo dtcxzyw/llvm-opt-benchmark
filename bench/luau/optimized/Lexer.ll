@@ -5974,7 +5974,7 @@ define dso_local void @_ZN4Luau5Lexer20fixupMultilineStringERNSt7__cxx1112basic_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !20
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %28, label %5
+  br i1 %4, label %30, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !24
@@ -5986,19 +5986,19 @@ define dso_local void @_ZN4Luau5Lexer20fixupMultilineStringERNSt7__cxx1112basic_
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !15
   %12 = icmp eq i8 %11, 10
-  br i1 %12, label %.preheader, label %13
+  br i1 %12, label %18, label %13
 
 13:                                               ; preds = %9, %5
   %14 = icmp eq i8 %7, 10
   %spec.select.idx = zext i1 %14 to i64
-  br label %.preheader
+  br label %18
 
-.preheader:                                       ; preds = %9, %13
+18:                                               ; preds = %9, %13
   %.sink = phi i64 [ %spec.select.idx, %13 ], [ 2, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink
   br label %21
 
-16:                                               ; preds = %21
+22:                                               ; preds = %21
   %17 = getelementptr inbounds nuw i8, ptr %.019, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = icmp eq i8 %18, 10
@@ -6006,17 +6006,17 @@ define dso_local void @_ZN4Luau5Lexer20fixupMultilineStringERNSt7__cxx1112basic_
   %spec.select23 = select i1 %19, i64 2, i64 1
   br label %.backedge
 
-.backedge:                                        ; preds = %16, %21
+23:                                               ; preds = %16, %21
   %.sink22 = phi i8 [ %spec.select, %16 ], [ %22, %21 ]
-  %.sink21 = phi i64 [ %spec.select23, %16 ], [ 1, %21 ]
+  %.sink = phi i64 [ %spec.select23, %16 ], [ 1, %21 ]
   store i8 %.sink22, ptr %.0, align 1, !tbaa !15
-  %20 = getelementptr inbounds nuw i8, ptr %.019, i64 %.sink21
-  %.0.be = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.019, i64 %.sink
+  %.1 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %21
 
-21:                                               ; preds = %.backedge, %.preheader
-  %.019 = phi ptr [ %15, %.preheader ], [ %20, %.backedge ]
-  %.0 = phi ptr [ %6, %.preheader ], [ %.0.be, %.backedge ]
+25:                                               ; preds = %23, %18
+  %.019 = phi ptr [ %15, %.preheader ], [ %24, %.backedge ]
+  %.0 = phi ptr [ %6, %.preheader ], [ %.1, %.backedge ]
   %22 = load i8, ptr %.019, align 1, !tbaa !15
   switch i8 %22, label %.backedge [
     i8 0, label %23
@@ -6031,7 +6031,7 @@ define dso_local void @_ZN4Luau5Lexer20fixupMultilineStringERNSt7__cxx1112basic_
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %27, i8 noundef signext 0)
   br label %28
 
-28:                                               ; preds = %1, %23
+30:                                               ; preds = %1, %23
   ret void
 }
 

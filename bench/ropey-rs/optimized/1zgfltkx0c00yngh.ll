@@ -10211,8 +10211,8 @@ define internal fastcc noundef zeroext i1 @_ZN5ropey9str_utils20ends_with_line_b
   br i1 %3, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit34", label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.sroa.02.062 = add i64 %1, -1
-  %4 = icmp eq i64 %.sroa.02.062, 0
+  %.sroa.02.063 = add i64 %1, -1
+  %4 = icmp eq i64 %.sroa.02.063, 0
   br i1 %4, label %.loopexit, label %.lr.ph
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit34": ; preds = %.thread51, %22, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit14", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit18", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit22", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit26", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit30", %2
@@ -10220,35 +10220,35 @@ define internal fastcc noundef zeroext i1 @_ZN5ropey9str_utils20ends_with_line_b
   ret i1 %.sroa.0.0
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
-  %.sroa.02.063 = phi i64 [ %.sroa.02.0, %.backedge ], [ %.sroa.02.062, %.preheader ]
-  %.not.i = icmp ult i64 %.sroa.02.063, %1
+  %.sroa.02.064 = phi i64 [ %.sroa.02.0, %.backedge ], [ %.sroa.02.063, %.preheader ]
+  %.not.i = icmp ult i64 %.sroa.02.064, %1
   br i1 %.not.i, label %5, label %.backedge
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.063
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.064
   %7 = load i8, ptr %6, align 1, !alias.scope !926, !noundef !4
   %8 = icmp sgt i8 %7, -65
   br i1 %8, label %split, label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph, %5
-  %.sroa.02.0 = add i64 %.sroa.02.063, -1
+  %.sroa.02.0 = add i64 %.sroa.02.064, -1
   %9 = icmp eq i64 %.sroa.02.0, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 
 split:                                            ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.063
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.064
   %11 = load i8, ptr %10, align 1, !alias.scope !929, !noundef !4
   %12 = icmp sgt i8 %11, -65
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %split
-  tail call void @_ZN4core3str16slice_error_fail17h11278fc6a58fee91E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.sroa.02.063, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0af39fb153e068bd13e1f7a668b8d778.166) #16
+  tail call void @_ZN4core3str16slice_error_fail17h11278fc6a58fee91E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.sroa.02.064, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0af39fb153e068bd13e1f7a668b8d778.166) #16
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %split
-  %.sroa.02.061 = phi i64 [ %.sroa.02.063, %split ], [ 0, %.preheader ], [ 0, %.backedge ]
-  %14 = sub nuw i64 %1, %.sroa.02.061
-  %15 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.061
+  %.sroa.02.062 = phi i64 [ %.sroa.02.064, %split ], [ 0, %.preheader ], [ 0, %.backedge ]
+  %14 = sub nuw i64 %1, %.sroa.02.062
+  %15 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.062
   switch i64 %14, label %.thread51 [
     i64 1, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit"
     i64 2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit26"
@@ -10261,18 +10261,18 @@ split:                                            ; preds = %5
   br i1 %16, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit34", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit14"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit14": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit"
-  %lhsc65 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %lhsc65, 11
+  %lhsc66 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %lhsc66, 11
   br i1 %17, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit34", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit18"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit18": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit14"
-  %lhsc66 = load i8, ptr %15, align 1
-  %18 = icmp eq i8 %lhsc66, 12
+  %lhsc67 = load i8, ptr %15, align 1
+  %18 = icmp eq i8 %lhsc67, 12
   br i1 %18, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit34", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit22"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit22": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit18"
-  %lhsc67 = load i8, ptr %15, align 1
-  %19 = icmp eq i8 %lhsc67, 13
+  %lhsc68 = load i8, ptr %15, align 1
+  %19 = icmp eq i8 %lhsc68, 13
   br i1 %19, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit34", label %.thread51
 
 .thread51:                                        ; preds = %.loopexit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit26", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit22"

@@ -7433,9 +7433,9 @@ if.end18:                                         ; preds = %if.end12
   %ticket_key_aes_20 = getelementptr inbounds nuw i8, ptr %call1, i64 96
   %call22 = tail call i32 @EVP_DecryptInit_ex(ptr noundef %ectx, ptr noundef %call19, ptr noundef null, ptr noundef nonnull %ticket_key_aes_20, ptr noundef %iv) #20
   %cmp23 = icmp slt i32 %call22, 1
-  br i1 %cmp23, label %return, label %lor.lhs.false24
+  br i1 %cmp23, label %return, label %return.sink.split
 
-lor.lhs.false24:                                  ; preds = %if.end18
+return.sink.split:                                ; preds = %if.end18
   %ticket_key_hmac_25 = getelementptr inbounds nuw i8, ptr %call1, i64 112
   %call27 = tail call ptr @EVP_sha256() #20
   %call28 = tail call i32 @HMAC_Init_ex(ptr noundef %hctx, ptr noundef nonnull %ticket_key_hmac_25, i32 noundef 16, ptr noundef %call27, ptr noundef null) #20
@@ -7445,7 +7445,7 @@ lor.lhs.false24:                                  ; preds = %if.end18
 if.end31:                                         ; preds = %lor.rhs, %lor.lhs.false24
   br label %return
 
-return:                                           ; preds = %if.end18, %lor.lhs.false24, %if.end12, %lor.rhs, %if.then, %lor.lhs.false, %if.end31
+return:                                           ; preds = %if.end18, %return.sink.split, %if.end12, %lor.rhs, %if.then, %lor.lhs.false, %if.end31
   %retval.0 = phi i32 [ 1, %if.end31 ], [ -1, %if.end18 ], [ -1, %lor.rhs ], [ 0, %if.end12 ], [ -1, %lor.lhs.false ], [ -1, %if.then ], [ -1, %lor.lhs.false24 ]
   ret i32 %retval.0
 }

@@ -987,7 +987,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements17getSecondaryAfterEij(ptr
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
-  br label %.preheader
+  br label %23
 
 12:                                               ; preds = %3
   %13 = sext i32 %1 to i64
@@ -1002,25 +1002,25 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements17getSecondaryAfterEij(ptr
   %20 = load i32, ptr %19, align 4, !tbaa !10
   %21 = lshr i32 %20, 8
   %22 = and i32 %21, 65280
-  br label %.preheader
+  br label %23
 
-.preheader:                                       ; preds = %12, %6
+23:                                               ; preds = %12, %6
   %.pre-phi = phi i64 [ %13, %12 ], [ %9, %6 ]
-  %.115.ph = phi i32 [ %.0.i, %12 ], [ %11, %6 ]
-  %.013.ph = phi i32 [ %22, %12 ], [ 65536, %6 ]
+  %.014 = phi i32 [ %.0.i, %12 ], [ %11, %6 ]
+  %.013 = phi i32 [ %22, %12 ], [ 65536, %6 ]
   br label %27
 
-23:                                               ; preds = %27
+24:                                               ; preds = %27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
-  %25 = load i32, ptr %24, align 4, !tbaa !10
-  %26 = and i32 %25, 128
-  %.not = icmp eq i32 %26, 0
+  %28 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %30 = and i32 %29, 128
+  %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.thread, label %27
 
-27:                                               ; preds = %.preheader, %23
-  %indvars.iv = phi i64 [ %.pre-phi, %.preheader ], [ %indvars.iv.next, %23 ]
-  %.115 = phi i32 [ %.115.ph, %.preheader ], [ %25, %23 ]
+.thread:                                          ; preds = %24, %23
+  %.125 = phi i64 [ %.pre-phi, %.preheader ], [ %indvars.iv.next, %23 ]
+  %.115 = phi i32 [ %.014, %.preheader ], [ %25, %23 ]
   %28 = lshr i32 %.115, 16
   %29 = icmp ugt i32 %28, %2
   br i1 %29, label %.thread, label %23

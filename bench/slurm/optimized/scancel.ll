@@ -2931,14 +2931,14 @@ _build_jobid_str.exit:                            ; preds = %56, %60, %62
   %72 = load i8, ptr %6, align 16
   %73 = and i8 %72, -33
   switch i8 %73, label %.split.split.backedge [
-    i8 89, label %.fold.split.loopexit44
+    i8 89, label %.fold.split.loopexit41
     i8 78, label %.fold.split
   ]
 
-.split.split.backedge:                            ; preds = %71, %_build_jobid_str.exit
+.fold.split.loopexit38:                           ; preds = %71, %_build_jobid_str.exit
   br label %.split.split, !llvm.loop !32
 
-.fold.split.loopexit44:                           ; preds = %22, %33, %52, %71
+.fold.split.loopexit41:                           ; preds = %22, %33, %52, %71
   br label %.fold.split
 
 .fold.split:                                      ; preds = %22, %33, %52, %71, %.fold.split.loopexit44

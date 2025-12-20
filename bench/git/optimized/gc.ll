@@ -2199,21 +2199,21 @@ define internal fastcc range(i32 0, 2) i32 @too_many_loose_objects(ptr noundef r
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %29, label %10
 
-10:                                               ; preds = %1
+9:                                                ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !18
   %13 = add nsw i32 %12, 255
   %14 = sdiv i32 %13, 256
   %15 = tail call ptr @readdir64(ptr noundef nonnull %9) #21
   %.not1721 = icmp eq ptr %15, null
-  br i1 %.not1721, label %._crit_edge, label %.lr.ph
+  br i1 %.not1721, label %._crit_edge, label %25
 
-.lr.ph:                                           ; preds = %10
+25:                                               ; preds = %10
   %16 = and i64 %7, 4294967295
   br label %17
 
-17:                                               ; preds = %.lr.ph, %26
-  %18 = phi ptr [ %15, %.lr.ph ], [ %27, %26 ]
+.loopexit:                                        ; preds = %25, %26
+  %.011 = phi ptr [ %15, %.lr.ph ], [ %27, %26 ]
   %.01222 = phi i32 [ 0, %.lr.ph ], [ %.1, %26 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 19
   %20 = tail call i64 @strspn(ptr noundef nonnull %19, ptr noundef nonnull @.str.103) #25
@@ -2242,7 +2242,7 @@ define internal fastcc range(i32 0, 2) i32 @too_many_loose_objects(ptr noundef r
   %28 = tail call i32 @closedir(ptr noundef nonnull %9)
   br label %29
 
-29:                                               ; preds = %1, %._crit_edge
+28:                                               ; preds = %1, %._crit_edge
   %.0 = phi i32 [ %.011, %._crit_edge ], [ 0, %1 ]
   ret i32 %.0
 }

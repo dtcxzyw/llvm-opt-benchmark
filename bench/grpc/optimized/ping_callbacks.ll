@@ -1551,19 +1551,19 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not26.i.i40, label %.lr.ph.i.i47, label %.thread.i.i41
 
 .thread.i.i41:                                    ; preds = %.lr.ph.i.i47, %.preheader.i.i39
-  %.sroa.5.1.lcssa.i.i42 = phi i64 [ %66, %.preheader.i.i39 ], [ %79, %.lr.ph.i.i47 ]
+  %.sroa.5.0.lcssa.i.i42 = phi i64 [ %66, %.preheader.i.i39 ], [ %79, %.lr.ph.i.i47 ]
   %.lcssa.i.i44 = phi i16 [ %72, %.preheader.i.i39 ], [ %83, %.lr.ph.i.i47 ]
   %73 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i44, i1 true)
   %74 = zext nneg i16 %73 to i64
-  %75 = add i64 %.sroa.5.1.lcssa.i.i42, %74
+  %75 = add i64 %.sroa.5.0.lcssa.i.i42, %74
   %76 = and i64 %75, %61
   br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeImS6_EEE_clESN_.exit51
 
 .lr.ph.i.i47:                                     ; preds = %.preheader.i.i39, %.lr.ph.i.i47
-  %.sroa.12.128.i.i48 = phi i64 [ %77, %.lr.ph.i.i47 ], [ 0, %.preheader.i.i39 ]
-  %.sroa.5.127.i.i49 = phi i64 [ %79, %.lr.ph.i.i47 ], [ %66, %.preheader.i.i39 ]
-  %77 = add i64 %.sroa.12.128.i.i48, 16
-  %78 = add i64 %77, %.sroa.5.127.i.i49
+  %.sroa.12.028.i.i48 = phi i64 [ %77, %.lr.ph.i.i47 ], [ 0, %.preheader.i.i39 ]
+  %.sroa.5.027.i.i49 = phi i64 [ %79, %.lr.ph.i.i47 ], [ %66, %.preheader.i.i39 ]
+  %77 = add i64 %.sroa.12.028.i.i48, 16
+  %78 = add i64 %77, %.sroa.5.027.i.i49
   %79 = and i64 %78, %61
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 %79
   %81 = load <16 x i8>, ptr %80, align 1, !tbaa !27

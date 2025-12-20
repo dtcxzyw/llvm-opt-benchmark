@@ -230,15 +230,15 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   br label %43
 
 43:                                               ; preds = %43, %40
-  %.021.i = phi i32 [ %spec.select.i, %40 ], [ %spec.select19.i, %43 ]
+  %.121.i = phi i32 [ %spec.select.i, %40 ], [ %spec.select19.i, %43 ]
   %.01720.i = phi i32 [ 32, %40 ], [ %44, %43 ]
   %44 = lshr i32 %.01720.i, 1
-  %45 = add nsw i32 %44, %.021.i
+  %45 = add nsw i32 %44, %.121.i
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr @_ZL11pairedChars, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !22
   %.not18.i = icmp slt i32 %.071, %48
-  %spec.select19.i = select i1 %.not18.i, i32 %.021.i, i32 %45
+  %spec.select19.i = select i1 %.not18.i, i32 %.121.i, i32 %45
   %49 = icmp samesign ugt i32 %.01720.i, 3
   br i1 %49, label %43, label %_ZL12getPairIndexi.exit
 

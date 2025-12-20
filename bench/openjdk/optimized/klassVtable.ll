@@ -495,7 +495,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us: ; preds = %81
 _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %104, %105
   %107 = phi ptr [ %106, %105 ], [ null, %104 ]
   %108 = tail call noundef zeroext i1 @_ZNK13InstanceKlass21is_same_class_packageEP7oopDescPK6Symbol(ptr noundef nonnull align 8 dereferenceable(464) %99, ptr noundef %107, ptr noundef %3) #15
-  br i1 %108, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread.critedge
+  br i1 %108, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread, label %114
 
 .split58.us:                                      ; preds = %85, %.split.us.split, %64, %.split.us.split.us
   %.us-phi = phi i1 [ %.2.us.us, %64 ], [ %.03355.us.us, %.split.us.split.us ], [ %.2.us, %85 ], [ %.03355.us, %.split.us.split ]
@@ -506,17 +506,17 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %104, %105
   %110 = load i16, ptr %109, align 2
   %111 = and i16 %110, 4096
   %.not54 = icmp eq i16 %111, 0
-  br i1 %.not54, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread.critedge, label %112
+  br i1 %.not54, label %114, label %112
 
 112:                                              ; preds = %.critedge
   %113 = tail call noundef ptr @_ZNK13InstanceKlass31lookup_method_in_all_interfacesEP6SymbolS1_N5Klass18DefaultsLookupModeE(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %23, ptr noundef %44, i32 noundef 0) #15
   %.not37 = icmp eq ptr %113, null
-  br i1 %.not37, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread.critedge, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread
+  br i1 %.not37, label %114, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread
 
-_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread.critedge: ; preds = %.critedge, %112, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit
+114:                                              ; preds = %.critedge, %112, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit
   br label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread
 
-_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread: ; preds = %81, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us, %61, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit, %102, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread.critedge, %28, %112, %.split58.us, %35, %8, %10, %13, %6
+_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread: ; preds = %81, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us, %61, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit, %102, %114, %28, %112, %.split58.us, %35, %8, %10, %13, %6
   %.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %28 ], [ true, %35 ], [ false, %10 ], [ true, %.split58.us ], [ false, %61 ], [ false, %112 ], [ false, %13 ], [ true, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread.critedge ], [ false, %102 ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ false, %81 ]
   ret i1 %.0
 }

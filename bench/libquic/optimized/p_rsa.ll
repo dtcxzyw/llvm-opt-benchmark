@@ -349,19 +349,19 @@ setup_tbuf.exit.thread:                           ; preds = %23, %setup_tbuf.exi
 40:                                               ; preds = %5
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !28
-  %.not.i44 = icmp eq ptr %42, null
-  br i1 %.not.i44, label %setup_tbuf.exit48, label %setup_tbuf.exit48.thread
+  %.not.i45 = icmp eq ptr %42, null
+  br i1 %.not.i45, label %setup_tbuf.exit49, label %setup_tbuf.exit49.thread
 
-setup_tbuf.exit48:                                ; preds = %40
+setup_tbuf.exit49:                                ; preds = %40
   %43 = load ptr, ptr %9, align 8, !tbaa !29
   %44 = tail call i32 @EVP_PKEY_size(ptr noundef %43) #9
   %45 = sext i32 %44 to i64
   %46 = tail call noalias ptr @malloc(i64 noundef %45) #10
   store ptr %46, ptr %41, align 8, !tbaa !28
-  %.not4.i46.not = icmp eq ptr %46, null
-  br i1 %.not4.i46.not, label %56, label %setup_tbuf.exit48.thread
+  %.not4.i47.not = icmp eq ptr %46, null
+  br i1 %.not4.i47.not, label %56, label %setup_tbuf.exit49.thread
 
-setup_tbuf.exit48.thread:                         ; preds = %40, %setup_tbuf.exit48
+setup_tbuf.exit49.thread:                         ; preds = %40, %setup_tbuf.exit49
   %47 = phi ptr [ %42, %40 ], [ %46, %setup_tbuf.exit48 ]
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !16
@@ -372,7 +372,7 @@ setup_tbuf.exit48.thread:                         ; preds = %40, %setup_tbuf.exi
   %or.cond = select i1 %.not38, i1 %.not39, i1 false
   br i1 %or.cond, label %52, label %56
 
-52:                                               ; preds = %setup_tbuf.exit48.thread
+52:                                               ; preds = %setup_tbuf.exit49.thread
   %53 = load ptr, ptr %41, align 8, !tbaa !28
   %54 = call i32 @CRYPTO_memcmp(ptr noundef %3, ptr noundef %53, i64 noundef %4) #9
   %.not40 = icmp eq i32 %54, 0

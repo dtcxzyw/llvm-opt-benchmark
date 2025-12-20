@@ -931,19 +931,19 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
   br i1 %.not26.i.i, label %.lr.ph.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.sroa.5.1.lcssa.i.i = phi i64 [ %54, %.preheader.i.i ], [ %67, %.lr.ph.i.i ]
+  %.sroa.5.0.lcssa.i.i = phi i64 [ %54, %.preheader.i.i ], [ %67, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %60, %.preheader.i.i ], [ %71, %.lr.ph.i.i ]
   %61 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %62 = zext nneg i16 %61 to i64
-  %63 = add i64 %.sroa.5.1.lcssa.i.i, %62
+  %63 = add i64 %.sroa.5.0.lcssa.i.i, %62
   %64 = and i64 %63, %36
   br label %72
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.sroa.12.128.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %.sroa.5.127.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %54, %.preheader.i.i ]
-  %65 = add i64 %.sroa.12.128.i.i, 16
-  %66 = add i64 %65, %.sroa.5.127.i.i
+  %.sroa.12.028.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %.sroa.5.027.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %54, %.preheader.i.i ]
+  %65 = add i64 %.sroa.12.028.i.i, 16
+  %66 = add i64 %65, %.sroa.5.027.i.i
   %67 = and i64 %66, %36
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 %67
   %69 = load <16 x i8>, ptr %68, align 1, !tbaa !14

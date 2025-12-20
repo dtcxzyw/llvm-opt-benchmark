@@ -17358,13 +17358,13 @@ entry:
   %.pre = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
   br label %if.end23
 
-while.body:                                       ; preds = %if.end23
+while.cond:                                       ; preds = %if.end23
   %div = fmul double %dx.0, 5.000000e-01
   %3 = load double, ptr %this, align 8, !tbaa !297
   %add = fadd double %div, %3
   %call = tail call noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr noundef nonnull align 8 dereferenceable(152) %f, double noundef %add)
-  %4 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
-  %inc = add i64 %4, 1
+  %6 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
+  %inc = add i64 %6, 1
   store i64 %inc, ptr %evaluationNumber_, align 8, !tbaa !289
   %cmp11 = fcmp ugt double %call, 0.000000e+00
   br i1 %cmp11, label %if.end14, label %if.then12
@@ -17374,23 +17374,23 @@ if.then12:                                        ; preds = %while.body
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %while.body
-  %5 = tail call double @llvm.fabs.f64(double %div)
-  %cmp15 = fcmp olt double %5, %xAccuracy
+  %7 = tail call double @llvm.fabs.f64(double %div)
+  %cmp15 = fcmp olt double %7, %xAccuracy
   %cmp.i = fcmp oeq double %call, 0.000000e+00
   %or.cond = or i1 %cmp15, %cmp.i
-  %6 = tail call double @llvm.fabs.f64(double %call)
-  %cmp4.i = fcmp olt double %6, 0x3A1B900000000000
+  %8 = tail call double @llvm.fabs.f64(double %call)
+  %cmp4.i = fcmp olt double %8, 0x3A1B900000000000
   %or.cond50 = or i1 %or.cond, %cmp4.i
   br i1 %or.cond50, label %if.then17, label %if.end23
 
 if.then17:                                        ; preds = %if.end14
-  %7 = load double, ptr %this, align 8, !tbaa !297
-  %call19 = tail call noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr noundef nonnull align 8 dereferenceable(152) %f, double noundef %7)
-  %8 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
-  %inc21 = add i64 %8, 1
-  store i64 %inc21, ptr %evaluationNumber_, align 8, !tbaa !289
   %9 = load double, ptr %this, align 8, !tbaa !297
-  ret double %9
+  %call19 = tail call noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr noundef nonnull align 8 dereferenceable(152) %f, double noundef %9)
+  %10 = load i64, ptr %evaluationNumber_, align 8, !tbaa !289
+  %inc21 = add i64 %10, 1
+  store i64 %inc21, ptr %evaluationNumber_, align 8, !tbaa !289
+  %11 = load double, ptr %this, align 8, !tbaa !297
+  ret double %11
 
 if.end23:                                         ; preds = %entry, %if.end14
   %10 = phi i64 [ %inc, %if.end14 ], [ %.pre, %entry ]

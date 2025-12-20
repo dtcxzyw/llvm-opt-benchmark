@@ -1151,13 +1151,13 @@ define hidden range(i32 0, 2) i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %8
 
-5:                                                ; preds = %8
+5:                                                ; preds = %6
   %6 = add i32 %.05, -1
   %7 = tail call fastcc i32 @bio_io(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1, i64 noundef 16, i32 noundef 3, ptr noundef nonnull %4)
   %.not8 = icmp eq i32 %7, 1
   br i1 %.not8, label %8, label %9
 
-8:                                                ; preds = %3, %5
+6:                                                ; preds = %3, %5
   %.05 = phi i32 [ %spec.select, %3 ], [ %6, %5 ]
   %.not = icmp eq i32 %.05, 0
   br i1 %.not, label %9, label %5

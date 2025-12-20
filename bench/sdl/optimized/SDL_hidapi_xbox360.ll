@@ -187,7 +187,7 @@ define internal zeroext i1 @HIDAPI_DriverXbox360_UpdateDevice(ptr noundef %0) #0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %8, label %104
+  br i1 %7, label %8, label %103
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -214,19 +214,19 @@ define internal zeroext i1 @HIDAPI_DriverXbox360_UpdateDevice(ptr noundef %0) #0
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not, label %.backedge.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+.backedge.us:                                     ; preds = %.lr.ph, %.backedge.us
   %28 = load ptr, ptr %13, align 8
   %29 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %28, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !5
+  br i1 %30, label %.backedge.us, label %._crit_edge, !llvm.loop !5
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %94
-  %31 = phi i32 [ %96, %94 ], [ %15, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
+  %31 = phi i32 [ %95, %94 ], [ %15, %.lr.ph ]
   %32 = load i8, ptr %2, align 16
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %34, label %94
+  br i1 %33, label %34, label %.backedge
 
 34:                                               ; preds = %.lr.ph.split
   %35 = call i64 @SDL_GetTicksNS_REAL() #9
@@ -320,31 +320,31 @@ HIDAPI_DriverXbox360_HandleStatePacket.exit:      ; preds = %55, %58
   %92 = call i32 @llvm.umin.i32(i32 range(i32 1, -2147483648) %31, i32 64)
   %93 = zext nneg i32 %92 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull readonly align 16 dereferenceable(1) %2, i64 %93, i1 false)
-  br label %94
+  br label %.backedge
 
-94:                                               ; preds = %.lr.ph.split, %HIDAPI_DriverXbox360_HandleStatePacket.exit
-  %95 = load ptr, ptr %13, align 8
-  %96 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %95, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
-  %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
+.backedge:                                        ; preds = %.lr.ph.split, %HIDAPI_DriverXbox360_HandleStatePacket.exit
+  %94 = load ptr, ptr %13, align 8
+  %95 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %94, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
+  %96 = icmp sgt i32 %95, 0
+  br i1 %96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %94, %.lr.ph.split.us, %8
-  %.lcssa = phi i32 [ %15, %8 ], [ %29, %.lr.ph.split.us ], [ %96, %94 ]
-  %98 = icmp slt i32 %.lcssa, 0
-  br i1 %98, label %99, label %102
+._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %8
+  %.lcssa = phi i32 [ %15, %8 ], [ %29, %.lr.ph.split.us ], [ %95, %94 ]
+  %97 = icmp slt i32 %.lcssa, 0
+  br i1 %97, label %98, label %101
 
-99:                                               ; preds = %._crit_edge
-  %100 = load ptr, ptr %9, align 8
-  %101 = load i32, ptr %100, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %101) #9
-  br label %102
+98:                                               ; preds = %._crit_edge
+  %99 = load ptr, ptr %9, align 8
+  %100 = load i32, ptr %99, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %100) #9
+  br label %101
 
-102:                                              ; preds = %99, %._crit_edge
-  %103 = icmp eq i32 %.lcssa, 0
-  br label %104
+101:                                              ; preds = %98, %._crit_edge
+  %102 = icmp eq i32 %.lcssa, 0
+  br label %103
 
-104:                                              ; preds = %1, %102
-  %.0 = phi i1 [ %103, %102 ], [ false, %1 ]
+103:                                              ; preds = %1, %101
+  %.0 = phi i1 [ %102, %102 ], [ false, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }

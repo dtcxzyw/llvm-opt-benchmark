@@ -1209,13 +1209,13 @@ if.then.i.i.i:                                    ; preds = %if.end
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  br label %if.end85.preheader
+  br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
 if.else.i.i.i:                                    ; preds = %if.end
   call void @_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %stack_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4)
-  br label %if.end85.preheader
+  br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
-if.end85.preheader:                               ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %max_visits_ = getelementptr inbounds nuw i8, ptr %this, i64 92
@@ -1226,7 +1226,7 @@ if.end85.preheader:                               ; preds = %if.then.i.i.i, %if.
   %child_args.i58 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 16
   br label %for.cond, !llvm.loop !14
 
-for.cond:                                         ; preds = %for.cond.backedge, %if.end85.preheader
+for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !15
   %6 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !15
   %cmp.i.i.i = icmp eq ptr %5, %6
@@ -1301,11 +1301,11 @@ if.then34:                                        ; preds = %if.end26
   %conv36 = zext i16 %18 to i64
   %call37 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv36) #19
   store ptr %call37, ptr %child_args, align 8
-  %.pre93.pre = load i32, ptr %n, align 8
+  %.pre80.pre = load i32, ptr %n, align 8
   br label %sw.default
 
 sw.default:                                       ; preds = %if.end26, %if.then29, %if.then34, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit
-  %.pre93 = phi i32 [ 0, %if.end26 ], [ 0, %if.then29 ], [ %.pre93.pre, %if.then34 ], [ %11, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
+  %.pre80 = phi i32 [ 0, %if.end26 ], [ 0, %if.then29 ], [ %.pre80.pre, %if.then34 ], [ %11, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
   %nsub_41 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %19 = load i16, ptr %nsub_41, align 2
   %cmp43.not = icmp ne i16 %19, 0
@@ -1314,27 +1314,27 @@ sw.default:                                       ; preds = %if.end26, %if.then2
   %or.cond117 = select i1 %cmp43.not, i1 %cmp49, i1 false
   br i1 %or.cond117, label %if.then50, label %if.end87
 
-if.then50:                                        ; preds = %sw.default
+if.then44:                                        ; preds = %sw.default
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load ptr, ptr %20, align 8
   %cmp.i.le = icmp eq i16 %19, 1
   %retval.0.i.le = select i1 %cmp.i.le, ptr %20, ptr %21
-  %cmp53 = icmp sgt i32 %.pre93, 0
+  %cmp49 = icmp sgt i32 %.pre80, 0
   %or.cond = and i1 %use_copy, %cmp53
   br i1 %or.cond, label %land.lhs.true54, label %if.then50.if.else77_crit_edge
 
 if.then50.if.else77_crit_edge:                    ; preds = %if.then50
-  %idxprom81.phi.trans.insert = sext i32 %.pre93 to i64
+  %idxprom81.phi.trans.insert = sext i32 %.pre80 to i64
   %arrayidx82.phi.trans.insert = getelementptr inbounds ptr, ptr %retval.0.i.le, i64 %idxprom81.phi.trans.insert
   %.pre = load ptr, ptr %arrayidx82.phi.trans.insert, align 8
   br label %if.else77
 
 land.lhs.true54:                                  ; preds = %if.then50
-  %sub56 = add nsw i32 %.pre93, -1
+  %sub56 = add nsw i32 %.pre80, -1
   %idxprom = zext nneg i32 %sub56 to i64
   %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i.le, i64 %idxprom
   %22 = load ptr, ptr %arrayidx, align 8
-  %idxprom58 = zext nneg i32 %.pre93 to i64
+  %idxprom58 = zext nneg i32 %.pre80 to i64
   %arrayidx59 = getelementptr inbounds nuw ptr, ptr %retval.0.i.le, i64 %idxprom58
   %23 = load ptr, ptr %arrayidx59, align 8
   %cmp60 = icmp eq ptr %22, %23
@@ -1399,7 +1399,7 @@ if.end87:                                         ; preds = %sw.default
   %vtable94 = load ptr, ptr %this, align 8
   %vfn95 = getelementptr inbounds nuw i8, ptr %vtable94, i64 24
   %38 = load ptr, ptr %vfn95, align 8
-  %call96 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i1 noundef zeroext %tobool89, i1 noundef zeroext %tobool91, ptr noundef %37, i32 noundef %.pre93)
+  %call96 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i1 noundef zeroext %tobool89, i1 noundef zeroext %tobool91, ptr noundef %37, i32 noundef %.pre80)
   %39 = load i16, ptr %nsub_41, align 2
   %cmp100 = icmp ugt i16 %39, 1
   br i1 %cmp100, label %if.then101, label %sw.epilog
@@ -1439,8 +1439,8 @@ _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread: ; preds 
   %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 480
   store ptr %add.ptr8.i.i.i, ptr %_M_finish.i.i.i, align 8
   %46 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i70107 = icmp eq ptr %add.ptr8.i.i.i, %46
-  br i1 %cmp.i.i.i70107, label %return, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
+  %cmp.i.i.i7094 = icmp eq ptr %add.ptr8.i.i.i, %46
+  br i1 %cmp.i.i.i7094, label %return, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
 
 if.end109:                                        ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
   %47 = icmp eq ptr %incdec.ptr.i.i, %42

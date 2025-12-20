@@ -25080,46 +25080,46 @@ define noundef align 8 ptr @_ZN5wasmi6engine10translator5stack14register_alloc13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %5 = load i8, ptr %4, align 2, !range !40, !noundef !3
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %16, !prof !450
+  br i1 %6, label %7, label %17, !prof !450
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = icmp ult i32 %1, 65536
-  br i1 %9, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread
+  br i1 %9, label %12, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread
 
-_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit: ; preds = %7
+12:                                               ; preds = %7
   %10 = load i16, ptr %8, align 8, !noundef !3
   %11 = trunc nuw i32 %1 to i16
-  %12 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %10, i16 %11)
+  %12 = tail call { i17, i1 } @llvm.uadd.with.overflow.i16(i16 %10, i16 %11)
   %13 = extractvalue { i16, i1 } %12, 1
   %14 = add nuw i16 %10, %11
   %15 = icmp ugt i16 %14, 32765
   %or.cond.i.not = select i1 %13, i1 true, i1 %15
   br i1 %or.cond.i.not, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread, label %17
 
-16:                                               ; preds = %2
+17:                                               ; preds = %2
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.864, i64 noundef 56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.866) #18
   unreachable
 
-17:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit
+18:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit
   store i16 %14, ptr %8, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i16 %14, ptr %18, align 2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i16 %14, ptr %19, align 4
-  br label %22
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 74
+  store i16 %14, ptr %19, align 2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i16 %14, ptr %20, align 4
+  br label %23
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread: ; preds = %7, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i64 7, ptr %20, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i64 7, ptr %21, align 4
   store i8 21, ptr %3, align 8
-  %21 = call noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %3)
+  %22 = call noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread, %17
-  %.sroa.0.0 = phi ptr [ null, %17 ], [ %21, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread ]
+23:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread, %18
+  %.sroa.0.0 = phi ptr [ null, %17 ], [ %22, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread ]
   ret ptr %.sroa.0.0
 }
 

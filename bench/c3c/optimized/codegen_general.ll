@@ -297,10 +297,10 @@ define dso_local zeroext i1 @type_is_homogenous_base_type(ptr noundef readonly c
     i32 3, label %17
     i32 4, label %22
     i32 6, label %27
-    i32 0, label %34
-    i32 5, label %34
-    i32 7, label %34
-    i32 9, label %34
+    i32 0, label %36
+    i32 5, label %36
+    i32 7, label %36
+    i32 9, label %36
   ]
 
 5:                                                ; preds = %1
@@ -315,24 +315,24 @@ define dso_local zeroext i1 @type_is_homogenous_base_type(ptr noundef readonly c
 7:                                                ; preds = %5
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %34
+  br i1 %9, label %10, label %36
 
 10:                                               ; preds = %7, %5, %5
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %12 = trunc i8 %11 to i1
   %13 = xor i1 %12, true
-  br label %34
+  br label %36
 
 14:                                               ; preds = %5
   %15 = tail call i32 @type_size(ptr noundef nonnull %3) #4
   %16 = icmp eq i32 %15, 16
-  br label %34
+  br label %36
 
 17:                                               ; preds = %1, %1, %1
   %18 = load i32, ptr %3, align 8
   switch i32 %18, label %32 [
-    i32 16, label %34
-    i32 15, label %34
+    i32 16, label %36
+    i32 15, label %36
     i32 37, label %19
   ]
 
@@ -348,38 +348,38 @@ define dso_local zeroext i1 @type_is_homogenous_base_type(ptr noundef readonly c
     i32 14, label %34
     i32 13, label %34
     i32 15, label %34
-    i32 16, label %34
-    i32 17, label %34
+    i32 16, label %36
+    i32 17, label %36
     i32 37, label %24
   ]
 
-24:                                               ; preds = %22
-  %25 = tail call i32 @type_size(ptr noundef nonnull %3) #4
-  %26 = add i32 %25, -8
-  %switch.and = and i32 %26, -9
+25:                                               ; preds = %22
+  %26 = tail call i32 @type_size(ptr noundef nonnull %3) #4
+  %27 = add i32 %26, -8
+  %switch.and = and i32 %27, -9
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  br label %34
+  br label %36
 
-27:                                               ; preds = %1
+28:                                               ; preds = %1
   %28 = load i32, ptr %3, align 8
   switch i32 %28, label %32 [
     i32 15, label %34
     i32 16, label %34
     i32 17, label %34
-    i32 37, label %29
+    i32 37, label %31
   ]
 
-29:                                               ; preds = %27
-  %30 = tail call i32 @type_size(ptr noundef nonnull %3) #4
-  %31 = add i32 %30, -8
-  %switch.and10 = and i32 %31, -9
+31:                                               ; preds = %27
+  %32 = tail call i32 @type_size(ptr noundef nonnull %3) #4
+  %33 = add i32 %32, -8
+  %switch.and10 = and i32 %33, -9
   %switch.selectcmp11 = icmp eq i32 %switch.and10, 0
-  br label %34
+  br label %36
 
-32:                                               ; preds = %19, %17, %22, %27
-  br label %34
+34:                                               ; preds = %19, %17, %22, %27
+  br label %36
 
-33:                                               ; preds = %1
+35:                                               ; preds = %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_is_homogenous_base_type, ptr noundef nonnull @.str.6, i32 noundef 131) #5
   unreachable
 
@@ -387,9 +387,9 @@ switch.lookup:                                    ; preds = %19
   %switch.cast = zext nneg i32 %switch.tableidx to i49
   %switch.downshift = lshr i49 -281474976645119, %switch.cast
   %switch.masked = trunc i49 %switch.downshift to i1
-  br label %34
+  br label %36
 
-34:                                               ; preds = %switch.lookup, %1, %1, %1, %1, %29, %27, %27, %27, %24, %22, %22, %22, %22, %22, %17, %17, %5, %7, %32, %14, %10
+36:                                               ; preds = %switch.lookup, %1, %1, %1, %1, %31, %27, %27, %27, %25, %22, %22, %22, %22, %22, %17, %17, %5, %7, %32, %14, %10
   %.0 = phi i1 [ false, %7 ], [ %13, %10 ], [ true, %27 ], [ %16, %14 ], [ false, %1 ], [ false, %5 ], [ false, %1 ], [ true, %17 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ true, %22 ], [ %switch.selectcmp, %24 ], [ false, %32 ], [ true, %22 ], [ %switch.selectcmp11, %29 ], [ true, %17 ], [ false, %1 ], [ true, %27 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %27 ]
   ret i1 %.0
 }

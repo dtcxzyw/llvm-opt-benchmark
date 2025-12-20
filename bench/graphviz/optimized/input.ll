@@ -2480,30 +2480,30 @@ define internal fastcc noundef zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr no
   %24 = icmp eq i8 %23, 33
   br i1 %24, label %25, label %38
 
-25:                                               ; preds = %31, %15
+22:                                               ; preds = %31, %15
   br label %38
 
 26:                                               ; preds = %8
   store i8 0, ptr %6, align 1, !tbaa !41
-  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.155, ptr noundef nonnull %4, ptr noundef nonnull %6) #24
-  %28 = icmp sgt i32 %27, 0
-  %29 = load double, ptr %4, align 8
-  %30 = fcmp ogt double %29, 0.000000e+00
-  %or.cond5 = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond5, label %31, label %38
+  %23 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.155, ptr noundef nonnull %4, ptr noundef nonnull %6) #24
+  %24 = icmp sgt i32 %23, 0
+  %25 = load double, ptr %4, align 8
+  %26 = fcmp ogt double %25, 0.000000e+00
+  %or.cond5 = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond5, label %27, label %38
 
-31:                                               ; preds = %26
-  %32 = call double @llvm.fmuladd.f64(double %29, double 7.200000e+01, double 5.000000e-01)
-  %33 = fptosi double %32 to i32
-  %34 = sitofp i32 %33 to double
-  store double %34, ptr %2, align 8, !tbaa !119
+27:                                               ; preds = %26
+  %28 = call double @llvm.fmuladd.f64(double %25, double 7.200000e+01, double 5.000000e-01)
+  %29 = fptosi double %28 to i32
+  %30 = sitofp i32 %29 to double
+  store double %30, ptr %2, align 8, !tbaa !119
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %34, ptr %35, align 8, !tbaa !120
   %36 = load i8, ptr %6, align 1, !tbaa !41
   %37 = icmp eq i8 %36, 33
   br i1 %37, label %25, label %38
 
-38:                                               ; preds = %25, %15, %31, %26, %3
+38:; preds = %25, %15, %31, %26, %3
   %.0 = phi i1 [ true, %25 ], [ false, %15 ], [ false, %3 ], [ false, %31 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
