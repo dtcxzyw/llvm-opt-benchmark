@@ -533,8 +533,8 @@ define dso_local void @_ZN4Luau7CodeGen3X6420callBarrierTableFastERNS1_13IrRegAl
   store i32 -1, ptr %9, align 4, !tbaa !9
   %.sroa.3.0.insert.ext.i = zext i8 %2 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 16
-  %.sroa.048.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift.i, 4580212737
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.048.0.insert.insert, i64 17456726018)
+  %.sroa.044.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift.i, 4580212737
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.044.0.insert.insert, i64 17456726018)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %1, i8 noundef zeroext 22, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4Luau7CodeGen3X6412ScopedSpillsC1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(256) %0)
@@ -617,10 +617,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6410callStepGcERNS1_13IrRegAllocX64ERNS
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.010.0.copyload = load i8, ptr %11, align 8, !tbaa !10
-  %.sroa.385.0.insert.ext = zext i8 %.sroa.010.0.copyload to i64
-  %.sroa.385.0.insert.shift = shl nuw nsw i64 %.sroa.385.0.insert.ext, 16
-  %.sroa.284.0.insert.insert = or disjoint i64 %.sroa.385.0.insert.shift, 268468224
-  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.284.0.insert.insert, i64 103422918657)
+  %.sroa.371.0.insert.ext = zext i8 %.sroa.010.0.copyload to i64
+  %.sroa.371.0.insert.shift = shl nuw nsw i64 %.sroa.371.0.insert.ext, 16
+  %.sroa.270.0.insert.insert = or disjoint i64 %.sroa.371.0.insert.shift, 268468224
+  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.270.0.insert.insert, i64 103422918657)
           to label %12 unwind label %25
 
 12:                                               ; preds = %10
@@ -629,11 +629,11 @@ define dso_local void @_ZN4Luau7CodeGen3X6410callStepGcERNS1_13IrRegAllocX64ERNS
   %.sroa.05.0.copyload = load i8, ptr %11, align 8, !tbaa !10
   %.sroa.3.0.insert.ext.i = zext i8 %.sroa.05.0.copyload to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 16
-  %.sroa.060.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift.i, 309573222401
-  %.sroa.372.0.insert.ext = zext i8 %.sroa.07.0.copyload to i64
-  %.sroa.372.0.insert.shift = shl nuw nsw i64 %.sroa.372.0.insert.ext, 16
-  %.sroa.271.0.insert.insert = or disjoint i64 %.sroa.372.0.insert.shift, 268468224
-  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.271.0.insert.insert, i64 %.sroa.060.0.insert.insert)
+  %.sroa.056.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift.i, 309573222401
+  %.sroa.362.0.insert.ext = zext i8 %.sroa.07.0.copyload to i64
+  %.sroa.362.0.insert.shift = shl nuw nsw i64 %.sroa.362.0.insert.ext, 16
+  %.sroa.261.0.insert.insert = or disjoint i64 %.sroa.362.0.insert.shift, 268468224
+  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.261.0.insert.insert, i64 %.sroa.056.0.insert.insert)
           to label %14 unwind label %27
 
 14:                                               ; preds = %12
@@ -642,10 +642,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6410callStepGcERNS1_13IrRegAllocX64ERNS
   %.sroa.3.0.insert.ext.i32 = zext i8 %.sroa.02.0.copyload to i64
   %.sroa.3.0.insert.shift.i33 = shl nuw nsw i64 %.sroa.3.0.insert.ext.i32, 16
   %.sroa.047.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift.i33, 275213484033
-  %.sroa.357.0.insert.ext = zext i8 %.sroa.04.0.copyload to i64
-  %.sroa.357.0.insert.shift = shl nuw nsw i64 %.sroa.357.0.insert.ext, 16
-  %.sroa.256.0.insert.insert = or disjoint i64 %.sroa.357.0.insert.shift, 268468224
-  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643cmpENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.256.0.insert.insert, i64 %.sroa.047.0.insert.insert)
+  %.sroa.353.0.insert.ext = zext i8 %.sroa.04.0.copyload to i64
+  %.sroa.353.0.insert.shift = shl nuw nsw i64 %.sroa.353.0.insert.ext, 16
+  %.sroa.252.0.insert.insert = or disjoint i64 %.sroa.353.0.insert.shift, 268468224
+  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643cmpENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.252.0.insert.insert, i64 %.sroa.047.0.insert.insert)
           to label %15 unwind label %29
 
 15:                                               ; preds = %14
@@ -830,16 +830,16 @@ define dso_local void @_ZN4Luau7CodeGen3X6412emitFallbackERNS1_13IrRegAllocX64ER
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %5, ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(252) %1, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 noundef zeroext 4, i64 276594688, i32 0)
   %7 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427suggestNextArgumentRegisterENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 noundef zeroext 4)
-  %.sroa.339.0.insert.ext = zext i8 %7 to i64
-  %.sroa.339.0.insert.shift = shl nuw nsw i64 %.sroa.339.0.insert.ext, 16
-  %.sroa.238.0.insert.insert = or disjoint i64 %.sroa.339.0.insert.shift, 268468224
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.238.0.insert.insert, i64 240856104961)
+  %.sroa.336.0.insert.ext = zext i8 %7 to i64
+  %.sroa.336.0.insert.shift = shl nuw nsw i64 %.sroa.336.0.insert.ext, 16
+  %.sroa.235.0.insert.insert = or disjoint i64 %.sroa.336.0.insert.shift, 268468224
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.235.0.insert.insert, i64 240856104961)
   %8 = shl i32 %3, 2
-  %.sroa.736.0.insert.ext = zext i32 %8 to i64
-  %.sroa.736.0.insert.shift = shl nuw i64 %.sroa.736.0.insert.ext, 32
-  %.sroa.534.0.extract.trunc = or disjoint i64 %.sroa.339.0.insert.shift, %.sroa.736.0.insert.shift
-  %.sroa.033.0.insert.insert = or disjoint i64 %.sroa.534.0.extract.trunc, 268468225
-  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 noundef zeroext 4, i64 %.sroa.033.0.insert.insert, i32 0)
+  %.sroa.733.0.insert.ext = zext i32 %8 to i64
+  %.sroa.733.0.insert.shift = shl nuw i64 %.sroa.733.0.insert.ext, 32
+  %.sroa.531.0.extract.trunc = or disjoint i64 %.sroa.336.0.insert.shift, %.sroa.733.0.insert.shift
+  %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.531.0.extract.trunc, 268468225
+  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 noundef zeroext 4, i64 %.sroa.030.0.insert.insert, i32 0)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 noundef zeroext 4, i64 276070400, i32 0)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 noundef zeroext 4, i64 275021824, i32 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

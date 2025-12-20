@@ -1971,16 +1971,18 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !327
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   store i64 1, ptr %6, align 8, !noalias !327
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %12, align 8, !noalias !327
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 0, ptr %.sroa.511.0..sroa_idx, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %11, align 8, !noalias !327
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %12, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %.sroa.511.0..sroa_idx, align 8
+  %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 0, ptr %.sroa.612.0..sroa_idx, align 8
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !330
   %14 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef range(i64 16, 265) 56, i64 noundef 8) #20, !noalias !330
   %15 = icmp eq ptr %14, null
@@ -2020,16 +2022,18 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !327
   store ptr %14, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !333
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %22, i8 0, i64 9, i1 false)
   store i64 1, ptr %5, align 8, !noalias !333
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %23, align 8, !noalias !333
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %.sroa.413.0..sroa_idx, align 8
-  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 0, ptr %.sroa.515.0..sroa_idx, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %22, align 8, !noalias !333
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %23, align 8
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i8 0, ptr %.sroa.414.0..sroa_idx, align 8
+  %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %.sroa.516.0..sroa_idx, align 8
+  %.sroa.618.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i64 0, ptr %.sroa.618.0..sroa_idx, align 8
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !336
   %25 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef range(i64 16, 265) 56, i64 noundef 8) #20, !noalias !336
   %26 = icmp eq ptr %25, null
@@ -2062,16 +2066,18 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false), !noalias !333
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !333
   store ptr %25, ptr %7, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !339
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %33, i8 0, i64 9, i1 false)
   store i64 1, ptr %4, align 8, !noalias !339
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %34, align 8, !noalias !339
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %.sroa.417.0..sroa_idx, align 8
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %33, align 8, !noalias !339
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %34, align 8
+  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %.sroa.522.0..sroa_idx, align 8
+  %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i64 0, ptr %.sroa.624.0..sroa_idx, align 8
   %35 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !342
   %36 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef range(i64 16, 265) 56, i64 noundef 8) #20, !noalias !342
   %37 = icmp eq ptr %36, null

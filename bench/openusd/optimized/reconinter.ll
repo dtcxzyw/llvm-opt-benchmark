@@ -2053,25 +2053,25 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   br label %278
 
 278:                                              ; preds = %346, %217
-  %indvars.iv131.i = phi i64 [ 0, %217 ], [ %indvars.iv.next132.i, %346 ]
+  %indvars.iv132.i = phi i64 [ 0, %217 ], [ %indvars.iv.next133.i, %346 ]
   br i1 %.not92.i, label %279, label %282
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv131.i
+  %280 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv132.i
   %281 = load ptr, ptr %280, align 8
   br label %282
 
 282:                                              ; preds = %279, %278
   %283 = phi ptr [ %281, %279 ], [ %260, %278 ]
-  %284 = getelementptr inbounds nuw %struct.buf_2d, ptr %240, i64 %indvars.iv131.i
+  %284 = getelementptr inbounds nuw %struct.buf_2d, ptr %240, i64 %indvars.iv132.i
   %285 = select i1 %.not92.i, ptr %284, ptr %194
-  %286 = getelementptr inbounds nuw %union.int_mv, ptr %241, i64 %indvars.iv131.i
+  %286 = getelementptr inbounds nuw %union.int_mv, ptr %241, i64 %indvars.iv132.i
   %287 = load i32, ptr %286, align 4
   store i32 %287, ptr %13, align 4
-  %288 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv131.i
+  %288 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv132.i
   %289 = load i32, ptr %288, align 4
   %290 = load i8, ptr %242, align 8
-  %.not126.i = icmp eq i8 %290, 2
+  %.not127.i = icmp eq i8 %290, 2
   %291 = load i32, ptr %218, align 4
   %292 = load i32, ptr %220, align 8
   %293 = load i32, ptr %243, align 16
@@ -2132,7 +2132,7 @@ av1_init_inter_params.exit.i:                     ; preds = %301, %282
   %.sroa.12.0.i = select i1 %.inv.i, i32 11, i32 %309
   %310 = call i32 @llvm.smax.i32(i32 %293, i32 10)
   %.sroa.8.0.i = add nsw i32 %310, -7
-  %311 = trunc nuw nsw i64 %indvars.iv131.i to i32
+  %311 = trunc nuw nsw i64 %indvars.iv132.i to i32
   store i32 %311, ptr %265, align 8
   store ptr %308, ptr %.sroa.4105.0..sroa_idx106.i, align 8
   store i32 128, ptr %.sroa.6.0..sroa_idx108.i, align 8
@@ -2150,7 +2150,7 @@ av1_init_inter_params.exit.i:                     ; preds = %301, %282
   %312 = load ptr, ptr %264, align 8
   %313 = call i32 @llvm.smax.i32(i32 %293, i32 10)
   %spec.select.i = add nsw i32 %313, -7
-  %314 = trunc nuw nsw i64 %indvars.iv131.i to i32
+  %314 = trunc nuw nsw i64 %indvars.iv132.i to i32
   store i32 %314, ptr %265, align 8
   store ptr %312, ptr %.sroa.4105.0..sroa_idx106.i, align 8
   store i32 128, ptr %.sroa.6.0..sroa_idx108.i, align 8
@@ -2161,17 +2161,17 @@ av1_init_inter_params.exit.i:                     ; preds = %301, %282
   store i32 0, ptr %.sroa.19.0..sroa_idx118.i, align 4
   call void @av1_dist_wtd_comp_weight_assign(ptr noundef %0, ptr noundef nonnull readonly %3, i32 noundef 0, ptr noundef nonnull %266, ptr noundef nonnull %267, ptr noundef nonnull %.sroa.19.0..sroa_idx118.i, i32 noundef 1)
   %.pre.i = load i32, ptr %247, align 4
-  %.pre136.i = load i32, ptr %246, align 8
+  %.pre137.i = load i32, ptr %246, align 8
   br label %315
 
 315:                                              ; preds = %.split87.i, %.split.i
-  %316 = phi i32 [ %5, %.split.i ], [ %.pre136.i, %.split87.i ]
+  %316 = phi i32 [ %5, %.split.i ], [ %.pre137.i, %.split87.i ]
   %317 = phi i32 [ %6, %.split.i ], [ %.pre.i, %.split87.i ]
   %318 = icmp slt i32 %317, 8
-  %or.cond123.i = select i1 %.not90.not.i, i1 true, i1 %318
+  %or.cond124.i = select i1 %.not90.not.i, i1 true, i1 %318
   %319 = icmp slt i32 %316, 8
-  %or.cond125.i = select i1 %or.cond123.i, i1 true, i1 %319
-  br i1 %or.cond125.i, label %av1_init_warp_params.exit.i, label %320
+  %or.cond126.i = select i1 %or.cond124.i, i1 true, i1 %319
+  br i1 %or.cond126.i, label %av1_init_warp_params.exit.i, label %320
 
 320:                                              ; preds = %315
   %321 = load i32, ptr %268, align 8
@@ -2180,7 +2180,7 @@ av1_init_inter_params.exit.i:                     ; preds = %301, %282
 
 322:                                              ; preds = %320
   %323 = load ptr, ptr %196, align 8
-  %324 = getelementptr inbounds nuw i8, ptr %198, i64 %indvars.iv131.i
+  %324 = getelementptr inbounds nuw i8, ptr %198, i64 %indvars.iv132.i
   %325 = load i8, ptr %324, align 1
   %326 = sext i8 %325 to i64
   %327 = getelementptr inbounds %struct.WarpedMotionParams, ptr %323, i64 %326
@@ -2203,7 +2203,7 @@ av1_is_valid_scale.exit.i.i.i.i:                  ; preds = %322
 
 av1_is_scaled.exit.thread.i.i.i:                  ; preds = %332, %av1_is_valid_scale.exit.i.i.i.i, %322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %269, ptr noundef nonnull align 4 dereferenceable(44) @default_warp_params, i64 44, i1 false)
-  br i1 %.not126.i, label %333, label %335
+  br i1 %.not127.i, label %333, label %335
 
 333:                                              ; preds = %av1_is_scaled.exit.thread.i.i.i
   %334 = load i8, ptr %270, align 1
@@ -2229,14 +2229,14 @@ av1_allow_warp.exit.thread13.i.i:                 ; preds = %336, %333
 av1_init_warp_params.exit.i:                      ; preds = %av1_allow_warp.exit.thread13.i.i, %336, %335, %332, %320, %315
   %339 = load i8, ptr %272, align 1
   %340 = and i8 %339, -2
-  %.not127.i = icmp eq i8 %340, 2
-  br i1 %.not127.i, label %341, label %346
+  %.not128.i = icmp eq i8 %340, 2
+  br i1 %.not128.i, label %341, label %346
 
 341:                                              ; preds = %av1_init_warp_params.exit.i
   %342 = load i8, ptr %3, align 8
   store i8 %342, ptr %274, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %275, ptr noundef nonnull readonly align 8 dereferenceable(16) %273, i64 16, i1 false)
-  %343 = icmp eq i64 %indvars.iv131.i, 1
+  %343 = icmp eq i64 %indvars.iv132.i, 1
   br i1 %343, label %344, label %345
 
 344:                                              ; preds = %341
@@ -2250,11 +2250,11 @@ av1_init_warp_params.exit.i:                      ; preds = %av1_allow_warp.exit
 
 346:                                              ; preds = %345, %av1_init_warp_params.exit.i
   %347 = load i32, ptr %277, align 8
-  %348 = trunc nuw nsw i64 %indvars.iv131.i to i32
+  %348 = trunc nuw nsw i64 %indvars.iv132.i to i32
   call void @av1_build_one_inter_predictor(ptr noundef %195, i32 noundef %347, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %1, i32 noundef %7, i32 noundef %8, i32 noundef %348, ptr noundef %9, ptr noundef readonly %10)
-  %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
-  %exitcond135.not.i = icmp eq i64 %indvars.iv.next132.i, %wide.trip.count.i
-  br i1 %exitcond135.not.i, label %build_inter_predictors_8x8_and_bigger.exit, label %278, !llvm.loop !35
+  %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
+  %exitcond136.not.i = icmp eq i64 %indvars.iv.next133.i, %wide.trip.count.i
+  br i1 %exitcond136.not.i, label %build_inter_predictors_8x8_and_bigger.exit, label %278, !llvm.loop !35
 
 build_inter_predictors_8x8_and_bigger.exit:       ; preds = %346
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

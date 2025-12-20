@@ -176639,14 +176639,17 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit:     ; preds = %_ZNK4llvm10IRPositi
   %.sroa.6.0.extract.shift8 = lshr i16 %19, 8
   %.sroa.6.0.v = select i1 %or.cond, i16 %.sroa.6.0.extract.shift8, i16 %.sroa.6.0.extract.shift
   %.sroa.0.0 = select i1 %or.cond, i16 %19, i16 %20
+  %.sroa.0.0.insert.ext = zext i16 %19 to i32
   %.sroa.6.0.insert.shift = shl nuw i16 %.sroa.6.0.v, 8
-  %.sroa.0.0.insert.ext = and i16 %.sroa.0.0, 255
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext
+  %.sroa.0.0.insert.ext6 = and i16 %.sroa.0.0, 255
+  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext6
+  %.sroa.0.2.insert.ext = zext i16 %.sroa.0.0.insert.insert to i32
+  %.sroa.0.2.insert.shift = shl nuw i32 %.sroa.0.2.insert.ext, 16
+  %.sroa.0.2.insert.insert = or disjoint i32 %.sroa.0.2.insert.shift, %.sroa.0.0.insert.ext
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i16 %19, ptr %24, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i16 %.sroa.0.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 2
-  %.not.i = icmp ne i16 %.sroa.6.0.extract.shift8, 3
+  store i32 %.sroa.0.2.insert.insert, ptr %24, align 8
+  %.mask = and i16 %19, -256
+  %.not.i = icmp ne i16 %.mask, 768
   %25 = and i16 %19, 255
   %.not1.i = icmp ne i16 %25, 3
   %or.cond.i.not15 = and i1 %.not.i, %.not1.i

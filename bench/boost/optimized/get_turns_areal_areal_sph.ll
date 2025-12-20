@@ -172803,15 +172803,15 @@ _ZNK5boost8geometry13segment_ratioIfEltERKS2_.exit: ; preds = %126
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %167 = load i64, ptr %165, align 8, !tbaa !24
-  %168 = load i64, ptr %166, align 8, !tbaa !24
-  store i64 %168, ptr %165, align 8, !tbaa !24
-  store i64 %167, ptr %166, align 8, !tbaa !24
+  %.sroa.0.0.copyload.i = load i64, ptr %165, align 8, !tbaa !24
+  %167 = load i64, ptr %166, align 8, !tbaa !24
+  store i64 %167, ptr %165, align 8, !tbaa !24
+  store i64 %.sroa.0.0.copyload.i, ptr %166, align 8, !tbaa !24
   br label %_ZN5boost8geometry6detail13segment_ratio4lessIfLb0EE5applyINS0_13segment_ratioIfEEEEbRKT_SA_.exit.i.thread
 
 _ZN5boost8geometry6detail13segment_ratio4lessIfLb0EE5applyINS0_13segment_ratioIfEEEEbRKT_SA_.exit.i.thread: ; preds = %134, %_ZN5boost8geometry6detail13segment_ratio4lessIfLb0EE5applyINS0_13segment_ratioIfEEEEbRKT_SA_.exit.i, %162, %_ZNK5boost8geometry13segment_ratioIfEltERKS2_.exit, %124
-  %169 = zext nneg i32 %.3 to i64
-  store i64 %169, ptr %0, align 8, !tbaa !2774
+  %168 = zext nneg i32 %.3 to i64
+  store i64 %168, ptr %0, align 8, !tbaa !2774
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }

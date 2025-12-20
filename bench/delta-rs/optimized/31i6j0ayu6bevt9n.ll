@@ -834,12 +834,10 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %"_ZN6chron
   store i64 1, ptr %17, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i32 0, ptr %.sroa.5.0..sroa_idx10, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 20
-  store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 %37, ptr %.sroa.711.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx11, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i64 %37, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %17
 }

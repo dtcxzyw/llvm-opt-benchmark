@@ -61,39 +61,37 @@ define noundef i64 @_ZN11duckdb_zstd31ZDICT_trainFromBuffer_fastCoverEPvmPKvPKmj
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !12
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 1)
-  %.sroa.049.0.copyload = load i32, ptr %5, align 8, !tbaa !10
-  %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.250.0.copyload = load i32, ptr %.sroa.250.0..sroa_idx, align 4, !tbaa !10
-  %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.sroa.451.0.copyload = load i32, ptr %.sroa.451.0..sroa_idx, align 4, !tbaa !10
-  %.sroa.552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.552.0.copyload = load i32, ptr %.sroa.552.0..sroa_idx, align 8, !tbaa !10
-  %.sroa.956.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %.sroa.956.0.copyload = load i32, ptr %.sroa.956.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.056.0.copyload = load i32, ptr %5, align 8, !tbaa !10
+  %.sroa.257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.257.0.copyload = load i32, ptr %.sroa.257.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.sroa.459.0.copyload = load i64, ptr %.sroa.459.0..sroa_idx, align 4
+  %.sroa.964.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %.sroa.964.0.copyload = load i32, ptr %.sroa.964.0..sroa_idx, align 4, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.16.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
-  %20 = icmp eq i32 %.sroa.250.0.copyload, 0
-  %21 = icmp eq i32 %.sroa.049.0.copyload, 0
+  %20 = icmp eq i32 %.sroa.257.0.copyload, 0
+  %21 = icmp eq i32 %.sroa.056.0.copyload, 0
   %or.cond.i = select i1 %20, i1 true, i1 %21
   br i1 %or.cond.i, label %_ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.thread, label %22
 
 22:                                               ; preds = %6
-  switch i32 %.sroa.250.0.copyload, label %_ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.thread [
+  switch i32 %.sroa.257.0.copyload, label %_ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.thread [
     i32 8, label %23
     i32 6, label %23
   ]
 
 23:                                               ; preds = %22, %22
-  %24 = zext i32 %.sroa.049.0.copyload to i64
+  %24 = zext i32 %.sroa.056.0.copyload to i64
   %25 = icmp ult i64 %1, %24
-  %26 = icmp ugt i32 %.sroa.250.0.copyload, %.sroa.049.0.copyload
+  %26 = icmp ugt i32 %.sroa.257.0.copyload, %.sroa.056.0.copyload
   %or.cond20.i = or i1 %26, %25
   %27 = add i32 %15, -32
   %or.cond7.i = icmp ult i32 %27, -31
   %or.cond21.i = or i1 %or.cond7.i, %or.cond20.i
   %or.cond12.i = icmp ugt i32 %17, 10
-  %or.cond59 = select i1 %or.cond21.i, i1 true, i1 %or.cond12.i
-  br i1 %or.cond59, label %_ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.thread, label %34
+  %or.cond67 = select i1 %or.cond21.i, i1 true, i1 %or.cond12.i
+  br i1 %or.cond67, label %_ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.thread, label %34
 
 _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.thread: ; preds = %23, %22, %6
   %28 = icmp sgt i32 %11, 0
@@ -140,7 +138,7 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.
   %53 = zext nneg i32 %18 to i64
   %54 = getelementptr inbounds nuw %"struct.duckdb_zstd::FASTCOVER_accel_t", ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 %53
   %.sroa.011.0.copyload = load i64, ptr %54, align 8
-  %55 = call fastcc noundef i64 @_ZN11duckdb_zstdL18FASTCOVER_ctx_initEPNS_15FASTCOVER_ctx_tEPKvPKmjjdjNS_17FASTCOVER_accel_tE(ptr noundef %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.sroa.250.0.copyload, double noundef 1.000000e+00, i32 noundef %15, i64 %.sroa.011.0.copyload)
+  %55 = call fastcc noundef i64 @_ZN11duckdb_zstdL18FASTCOVER_ctx_initEPNS_15FASTCOVER_ctx_tEPKvPKmjjdjNS_17FASTCOVER_accel_tE(ptr noundef %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.sroa.257.0.copyload, double noundef 1.000000e+00, i32 noundef %15, i64 %.sroa.011.0.copyload)
   %56 = icmp ult i64 %55, -119
   br i1 %56, label %.critedge, label %57
 
@@ -178,17 +176,15 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.
   %78 = tail call noalias ptr @calloc(i64 noundef %77, i64 noundef 2) #14
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !23
-  store i32 %.sroa.049.0.copyload, ptr %8, align 8, !tbaa !10
+  store i32 %.sroa.056.0.copyload, ptr %8, align 8, !tbaa !10
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %.sroa.250.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !10
+  store i32 %.sroa.257.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !10
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sroa.451.0.copyload, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !10
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %.sroa.552.0.copyload, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !10
+  store i64 %.sroa.459.0.copyload, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double 1.000000e+00, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !24
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %.sroa.956.0.copyload, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !10
+  store i32 %.sroa.964.0.copyload, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !10
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 0, ptr %.sroa.16.0..sroa_idx, align 4, !tbaa !10
   %.sroa.16.sroa.4.0..sroa.16.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32

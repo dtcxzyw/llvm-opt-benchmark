@@ -16544,8 +16544,8 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.sroa.0.0.copyload.i.i = load i64, ptr %21, align 8, !alias.scope !4769, !noalias !4771
-  %22 = tail call fastcc noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h06fc6b615d9809d5E"(i64 %.sroa.0.sroa.0.0.copyload.i.i), !noalias !4774
+  %.sroa.0.0.copyload.i.i = load i64, ptr %21, align 8, !alias.scope !4769, !noalias !4771
+  %22 = tail call fastcc noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h06fc6b615d9809d5E"(i64 %.sroa.0.0.copyload.i.i), !noalias !4774
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8, !alias.scope !4775, !noalias !4776
   store ptr null, ptr %0, align 8, !alias.scope !4775, !noalias !4776
@@ -16576,8 +16576,8 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.sroa.0.0.copyload.i.i.i = load i64, ptr %33, align 8, !alias.scope !4790, !noalias !4792
-  %34 = tail call fastcc noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h06fc6b615d9809d5E"(i64 %.sroa.0.sroa.0.0.copyload.i.i.i), !noalias !4795
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %33, align 8, !alias.scope !4790, !noalias !4792
+  %34 = tail call fastcc noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h06fc6b615d9809d5E"(i64 %.sroa.0.0.copyload.i.i.i), !noalias !4795
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %35, align 8, !alias.scope !4796, !noalias !4797
   store ptr null, ptr %0, align 8, !alias.scope !4796, !noalias !4797
@@ -26472,23 +26472,27 @@ define hidden void @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7
   %6 = load atomic i64, ptr %5 acquire, align 8, !noalias !7166
   %7 = and i64 %6, 2251799813685244
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %13
+  br i1 %8, label %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$4init17hd35c86ee3fc7a513E.exit", label %12
 
-9:                                                ; preds = %4
-  %10 = and i64 %6, -2251799813685248
-  %11 = and i64 %2, 2251799813685247
-  %12 = or disjoint i64 %10, %11
-  store i64 %12, ptr %0, align 8
+"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$4init17hd35c86ee3fc7a513E.exit": ; preds = %4
+  %9 = and i64 %6, -2251799813685248
+  %10 = and i64 %2, 2251799813685247
+  %11 = or disjoint i64 %9, %10
+  store i64 %11, ptr %0, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.414.sroa.4.0..sroa.414.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %.sroa.414.sroa.4.0..sroa.414.0..sroa_idx.sroa_idx, align 8
-  br label %13
+  %.sroa.414.sroa.5.0..sroa.414.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %.sroa.414.sroa.5.0..sroa.414.0..sroa_idx.sroa_idx, align 8
+  br label %14
 
-13:                                               ; preds = %4, %9
-  %.sink = phi i8 [ 0, %9 ], [ 2, %4 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink, ptr %14, align 8
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 2, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %12, %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$4init17hd35c86ee3fc7a513E.exit"
   ret void
 }
 
@@ -35494,23 +35498,27 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %6 = load atomic i64, ptr %5 acquire, align 8, !noalias !8380
   %7 = and i64 %6, 2251799813685244
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h127c3c86a70a31ddE.llvm.13625555649392560756.exit"
+  br i1 %8, label %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$4init17hd35c86ee3fc7a513E.exit.i", label %12
 
-9:                                                ; preds = %4
-  %10 = and i64 %6, -2251799813685248
-  %11 = and i64 %2, 2251799813685247
-  %12 = or disjoint i64 %10, %11
-  store i64 %12, ptr %0, align 8, !alias.scope !8377
+"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$4init17hd35c86ee3fc7a513E.exit.i": ; preds = %4
+  %9 = and i64 %6, -2251799813685248
+  %10 = and i64 %2, 2251799813685247
+  %11 = or disjoint i64 %9, %10
+  store i64 %11, ptr %0, align 8, !alias.scope !8377
   %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %.sroa.414.0..sroa_idx.i, align 8, !alias.scope !8377
   %.sroa.414.sroa.4.0..sroa.414.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %.sroa.414.sroa.4.0..sroa.414.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !8377
+  %.sroa.414.sroa.5.0..sroa.414.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %.sroa.414.sroa.5.0..sroa.414.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !8377
   br label %"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h127c3c86a70a31ddE.llvm.13625555649392560756.exit"
 
-"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h127c3c86a70a31ddE.llvm.13625555649392560756.exit": ; preds = %4, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 2, %4 ]
+12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink.i, ptr %13, align 8, !alias.scope !8377
+  store i8 2, ptr %13, align 8, !alias.scope !8377
+  br label %"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h127c3c86a70a31ddE.llvm.13625555649392560756.exit"
+
+"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h127c3c86a70a31ddE.llvm.13625555649392560756.exit": ; preds = %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$4init17hd35c86ee3fc7a513E.exit.i", %12
   ret void
 }
 

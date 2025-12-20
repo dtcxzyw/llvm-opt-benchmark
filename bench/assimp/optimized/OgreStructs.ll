@@ -985,8 +985,8 @@ define hidden void @_ZNK6Assimp4Ogre11IVertexData24BoneAssignmentsForVertexEjjRS
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %.not15 = icmp eq ptr %6, %8
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq ptr %6, %8
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -997,81 +997,81 @@ define hidden void @_ZNK6Assimp4Ogre11IVertexData24BoneAssignmentsForVertexEjjRS
   ret void
 
 11:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit
-  %.sroa.012.016 = phi ptr [ %6, %.lr.ph ], [ %41, %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit ]
-  %12 = load i32, ptr %.sroa.012.016, align 4
+  %.sroa.014.018 = phi ptr [ %6, %.lr.ph ], [ %40, %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit ]
+  %12 = load i32, ptr %.sroa.014.018, align 4
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit
 
 14:                                               ; preds = %11
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 4
-  %15 = load i64, ptr %.sroa.6.0..sroa_idx, align 4
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %10, align 8
-  %.not.i = icmp eq ptr %16, %17
-  br i1 %.not.i, label %21, label %18
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 4
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %.not.i = icmp eq ptr %15, %16
+  br i1 %.not.i, label %20, label %17
 
-18:                                               ; preds = %14
-  store i32 %2, ptr %16, align 4
-  %.sroa.6.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i64 %15, ptr %.sroa.6.0..sroa_idx9, align 4
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store ptr %20, ptr %9, align 8
+17:                                               ; preds = %14
+  store i32 %2, ptr %15, align 4
+  %.sroa.6.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx9, align 4
+  %18 = load ptr, ptr %9, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  store ptr %19, ptr %9, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %3, align 8
-  %23 = ptrtoint ptr %16 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = icmp eq i64 %25, 9223372036854775800
-  br i1 %26, label %27, label %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %3, align 8
+  %22 = ptrtoint ptr %15 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = icmp eq i64 %24, 9223372036854775800
+  br i1 %25, label %26, label %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-27:                                               ; preds = %21
+26:                                               ; preds = %20
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.56) #31
   unreachable
 
-_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %21
-  %28 = sdiv exact i64 %25, 12
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
-  %29 = add nsw i64 %.sroa.speculated.i.i.i, %28
-  %30 = icmp ult i64 %29, %28
-  %31 = tail call i64 @llvm.umin.i64(i64 %29, i64 768614336404564650)
-  %32 = select i1 %30, i64 768614336404564650, i64 %31
-  %.not.i.i.i = icmp ne i64 %32, 0
+_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %20
+  %27 = sdiv exact i64 %24, 12
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
+  %28 = add nsw i64 %.sroa.speculated.i.i.i, %27
+  %29 = icmp ult i64 %28, %27
+  %30 = tail call i64 @llvm.umin.i64(i64 %28, i64 768614336404564650)
+  %31 = select i1 %29, i64 768614336404564650, i64 %30
+  %.not.i.i.i = icmp ne i64 %31, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %33 = mul nuw nsw i64 %32, 12
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #32
-  %35 = getelementptr inbounds i8, ptr %34, i64 %25
-  store i32 %2, ptr %35, align 4
-  %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i64 %15, ptr %.sroa.6.0..sroa_idx10, align 4
-  %36 = icmp sgt i64 %25, 0
-  br i1 %36, label %37, label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  %32 = mul nuw nsw i64 %31, 12
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #32
+  %34 = getelementptr inbounds i8, ptr %33, i64 %24
+  store i32 %2, ptr %34, align 4
+  %.sroa.6.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx11, align 4
+  %35 = icmp sgt i64 %24, 0
+  br i1 %35, label %36, label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-37:                                               ; preds = %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %34, ptr align 4 %22, i64 %25, i1 false)
+36:                                               ; preds = %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %33, ptr align 4 %21, i64 %24, i1 false)
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %37, %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %.not.i17.i.i = icmp eq ptr %22, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %39
+_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %36, %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %.not.i17.i.i = icmp eq ptr %21, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %38
 
-39:                                               ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %25) #33
+38:                                               ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %24) #33
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %34, ptr %3, align 8
-  store ptr %38, ptr %9, align 8
-  %40 = getelementptr inbounds nuw %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %34, i64 %32
-  store ptr %40, ptr %10, align 8
+_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %33, ptr %3, align 8
+  store ptr %37, ptr %9, align 8
+  %39 = getelementptr inbounds nuw %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %33, i64 %31
+  store ptr %39, ptr %10, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %18, %11
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 12
-  %.not = icmp eq ptr %41, %8
+_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %17, %11
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 12
+  %.not = icmp eq ptr %40, %8
   br i1 %.not, label %._crit_edge, label %11
 }
 
