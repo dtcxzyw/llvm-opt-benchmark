@@ -217265,7 +217265,7 @@ define linkonce_odr void @_ZN6open3d4core21Open3DDLManagedTensorC2ERKNS0_6Tensor
   call void @free(ptr noundef %17) #38
   br label %common.resume
 
-common.resume:                                    ; preds = %15, %20, %90
+common.resume:                                    ; preds = %15, %20, %92
   %common.resume.op = phi { ptr, i32 } [ %.pn15.pn.pn, %90 ], [ %16, %20 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
@@ -217307,12 +217307,12 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %2
 31:                                               ; preds = %_ZN6open3d4core6TensorC2Ev.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %92
 
 33:                                               ; preds = %27
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %89
+  br label %91
 
 35:                                               ; preds = %28
   br label %48
@@ -217351,84 +217351,84 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %39
   %.pn15 = phi { ptr, i32 } [ %40, %39 ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %89
+  br label %91
 
 48:                                               ; preds = %28, %35
   %.013 = phi i64 [ 2, %35 ], [ 1, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !tbaa.struct !73
   %49 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
-          to label %.noexc19 unwind label %84
+          to label %.noexc19 unwind label %86
 
 .noexc19:                                         ; preds = %48
   br i1 %49, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %50
 
 50:                                               ; preds = %.noexc19
   %51 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float64E)
-          to label %.noexc20 unwind label %84
+          to label %.noexc20 unwind label %86
 
 .noexc20:                                         ; preds = %50
   br i1 %51, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %52
 
 52:                                               ; preds = %.noexc20
   %53 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core4Int8E)
-          to label %.noexc21 unwind label %84
+          to label %.noexc21 unwind label %86
 
 .noexc21:                                         ; preds = %52
   br i1 %53, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %54
 
 54:                                               ; preds = %.noexc21
   %55 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Int16E)
-          to label %.noexc22 unwind label %84
+          to label %.noexc22 unwind label %86
 
 .noexc22:                                         ; preds = %54
   br i1 %55, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %56
 
 56:                                               ; preds = %.noexc22
   %57 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Int32E)
-          to label %.noexc23 unwind label %84
+          to label %.noexc23 unwind label %86
 
 .noexc23:                                         ; preds = %56
   br i1 %57, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %58
 
 58:                                               ; preds = %.noexc23
   %59 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Int64E)
-          to label %.noexc24 unwind label %84
+          to label %.noexc24 unwind label %86
 
 .noexc24:                                         ; preds = %58
   br i1 %59, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %60
 
 60:                                               ; preds = %.noexc24
   %61 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5UInt8E)
-          to label %.noexc25 unwind label %84
+          to label %.noexc25 unwind label %86
 
 .noexc25:                                         ; preds = %60
   br i1 %61, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %62
 
 62:                                               ; preds = %.noexc25
   %63 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core6UInt16E)
-          to label %.noexc26 unwind label %84
+          to label %.noexc26 unwind label %86
 
 .noexc26:                                         ; preds = %62
   br i1 %63, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %64
 
 64:                                               ; preds = %.noexc26
   %65 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core6UInt32E)
-          to label %.noexc27 unwind label %84
+          to label %.noexc27 unwind label %86
 
 .noexc27:                                         ; preds = %64
   br i1 %65, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %66
 
 66:                                               ; preds = %.noexc27
   %67 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core6UInt64E)
-          to label %.noexc28 unwind label %84
+          to label %.noexc28 unwind label %86
 
 .noexc28:                                         ; preds = %66
   br i1 %67, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %68
 
 68:                                               ; preds = %.noexc28
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE, ptr noundef nonnull @.str.117) #40
-          to label %.noexc29 unwind label %84
+          to label %.noexc29 unwind label %86
 
 .noexc29:                                         ; preds = %68
   unreachable
@@ -217440,7 +217440,7 @@ _ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit: ; preds = %.noexc28,
   %71 = load ptr, ptr %21, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6open3d4core10SizeVectorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %_ZNK6open3d4core6Tensor8GetShapeEv.exit unwind label %86
+          to label %_ZNK6open3d4core6Tensor8GetShapeEv.exit unwind label %88
 
 _ZNK6open3d4core6Tensor8GetShapeEv.exit:          ; preds = %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -217456,17 +217456,17 @@ _ZNK6open3d4core6Tensor8GetShapeEv.exit:          ; preds = %_ZN6open3d4coreL21D
 
 _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit, %77
   %.sroa.55.0.insert.shift = and i64 %.sroa.0.0.copyload.i.i, -4294967296
-  %.tr = trunc i64 %70 to i32
-  %78 = shl i32 %.tr, 11
+  %79 = trunc i64 %70 to i32
+  %78 = shl i32 %79, 11
   %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.55.0.insert.shift, %.013
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.sroa.52.0.insert.ext = and i32 %78, 63488
+  %.sroa.52.0.insert.ext = and i32 %78, 63490
   %.sroa.01.0.insert.insert = or disjoint i32 %.0.i, %.sroa.52.0.insert.ext
   %79 = load ptr, ptr %11, align 8, !tbaa !19
   %80 = load ptr, ptr %13, align 8, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %0, ptr %82, align 8, !tbaa !3234
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr %0, ptr %85, align 8, !tbaa !3234
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @_ZN6open3d4core21Open3DDLManagedTensor7DeleterEP15DLManagedTensor, ptr %83, align 8, !tbaa !3241
   store ptr %71, ptr %81, align 8, !tbaa !120
@@ -217486,28 +217486,28 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %_ZNK6open3d4core6Te
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-84:                                               ; preds = %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  br label %88
-
-86:                                               ; preds = %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit
+86:                                               ; preds = %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %88
-
-88:                                               ; preds = %86, %84
-  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %89
-
-89:                                               ; preds = %88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %33
-  %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %88 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %90
 
-90:                                               ; preds = %89, %31
+88:                                               ; preds = %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %90
+
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %86 ], [ %87, %84 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %91
+
+91:                                               ; preds = %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %33
+  %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %88 ], [ %34, %33 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %92
+
+92:                                               ; preds = %91, %31
   %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %89 ], [ %32, %31 ]
   call void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #38
   br label %common.resume

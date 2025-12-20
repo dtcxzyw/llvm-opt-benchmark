@@ -3666,8 +3666,8 @@ _ZN7walkdir7WalkDir3new17hd7db67eb644640c8E.exit.i.i: ; preds = %111
   br label %125
 
 125:                                              ; preds = %123, %_ZN7walkdir7WalkDir3new17hd7db67eb644640c8E.exit.i.i
-  %.039.i.i = phi i8 [ %124, %123 ], [ 1, %_ZN7walkdir7WalkDir3new17hd7db67eb644640c8E.exit.i.i ]
-  store i8 %.039.i.i, ptr %42, align 8, !noalias !778
+  %.038.i.i = phi i8 [ %124, %123 ], [ 1, %_ZN7walkdir7WalkDir3new17hd7db67eb644640c8E.exit.i.i ]
+  store i8 %.038.i.i, ptr %42, align 8, !noalias !778
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(72) %14, i64 72, i1 false), !noalias !778
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !778
   %126 = load ptr, ptr %43, align 8, !alias.scope !825, !noalias !826, !nonnull !4, !align !5, !noundef !4
@@ -3693,8 +3693,8 @@ _ZN7walkdir7WalkDir3new17hd7db67eb644640c8E.exit.i.i: ; preds = %111
 
 134:                                              ; preds = %132, %125
   %135 = load i64, ptr %45, align 8, !range !447, !alias.scope !825, !noalias !826, !noundef !4
-  %.not41.i.i = icmp eq i64 %135, 2
-  br i1 %.not41.i.i, label %143, label %136
+  %.not40.i.i = icmp eq i64 %135, 2
+  br i1 %.not40.i.i, label %143, label %136
 
 136:                                              ; preds = %134
   call void @llvm.experimental.noalias.scope.decl(metadata !827)

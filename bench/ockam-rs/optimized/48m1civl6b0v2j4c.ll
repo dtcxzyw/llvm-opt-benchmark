@@ -1973,12 +1973,12 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !327
   store i64 1, ptr %6, align 8, !noalias !327
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %11, align 8, !noalias !327
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %12, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %12, align 8, !noalias !327
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 0, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -2024,12 +2024,12 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !333
   store i64 1, ptr %5, align 8, !noalias !333
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %22, align 8, !noalias !333
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %23, align 8
-  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 0, ptr %.sroa.414.0..sroa_idx, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %23, align 8, !noalias !333
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %.sroa.413.0..sroa_idx, align 8
+  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i8 0, ptr %.sroa.515.0..sroa_idx, align 8
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.516.0..sroa_idx, align 8
   %.sroa.618.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -2068,12 +2068,12 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   store ptr %25, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !339
   store i64 1, ptr %4, align 8, !noalias !339
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %33, align 8, !noalias !339
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %34, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 0, ptr %.sroa.420.0..sroa_idx, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !noalias !339
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %.sroa.417.0..sroa_idx, align 8
+  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %.sroa.522.0..sroa_idx, align 8
   %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48

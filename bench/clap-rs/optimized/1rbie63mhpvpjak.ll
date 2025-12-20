@@ -4820,50 +4820,50 @@ define void @_ZN12clap_builder7builder7styling6Styles6styled17he682868d076945ffE
   store i32 256, ptr %2, align 2
   %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i32 3, ptr %.sroa.01.sroa.3.0..sroa_idx, align 2
-  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i32 3, ptr %.sroa.01.sroa.4.0..sroa_idx, align 2
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i32 3, ptr %.sroa.01.sroa.5.0..sroa_idx, align 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 1, ptr %.sroa.5.0..sroa_idx, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 3, ptr %3, align 2
-  %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 3, ptr %.sroa.08.sroa.3.0..sroa_idx, align 2
-  %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 3, ptr %.sroa.08.sroa.4.0..sroa_idx, align 2
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i16 9, ptr %.sroa.49.0..sroa_idx, align 2
+  %.sroa.013.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 3, ptr %.sroa.013.sroa.3.0..sroa_idx, align 2
+  %.sroa.013.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 3, ptr %.sroa.013.sroa.4.0..sroa_idx, align 2
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i16 9, ptr %.sroa.414.0..sroa_idx, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 3, ptr %4, align 2
-  %.sroa.010.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 46
-  store i32 3, ptr %.sroa.010.sroa.3.0..sroa_idx, align 2
-  %.sroa.010.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i32 3, ptr %.sroa.010.sroa.4.0..sroa_idx, align 2
-  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i16 1, ptr %.sroa.411.0..sroa_idx, align 2
+  %.sroa.015.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 46
+  store i32 3, ptr %.sroa.015.sroa.3.0..sroa_idx, align 2
+  %.sroa.015.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 50
+  store i32 3, ptr %.sroa.015.sroa.4.0..sroa_idx, align 2
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 54
+  store i16 1, ptr %.sroa.416.0..sroa_idx, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 3, ptr %5, align 2
-  %.sroa.012.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 3, ptr %.sroa.012.sroa.5.0..sroa_idx, align 2
-  %.sroa.012.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 3, ptr %.sroa.012.sroa.6.0..sroa_idx, align 2
+  %.sroa.017.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 3, ptr %.sroa.017.sroa.5.0..sroa_idx, align 2
+  %.sroa.017.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 3, ptr %.sroa.017.sroa.6.0..sroa_idx, align 2
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i16 0, ptr %.sroa.6.0..sroa_idx, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 70
   store i32 512, ptr %6, align 2
-  %.sroa.013.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i32 3, ptr %.sroa.013.sroa.3.0..sroa_idx, align 2
-  %.sroa.013.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 78
-  store i32 3, ptr %.sroa.013.sroa.4.0..sroa_idx, align 2
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 82
-  store i16 0, ptr %.sroa.514.0..sroa_idx, align 2
+  %.sroa.018.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 74
+  store i32 3, ptr %.sroa.018.sroa.3.0..sroa_idx, align 2
+  %.sroa.018.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 78
+  store i32 3, ptr %.sroa.018.sroa.5.0..sroa_idx, align 2
+  %.sroa.018.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 82
+  store i16 0, ptr %.sroa.018.sroa.6.0..sroa_idx, align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 768, ptr %7, align 2
-  %.sroa.021.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 3, ptr %.sroa.021.sroa.3.0..sroa_idx, align 2
-  %.sroa.021.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 3, ptr %.sroa.021.sroa.4.0..sroa_idx, align 2
-  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i16 0, ptr %.sroa.522.0..sroa_idx, align 2
+  %.sroa.031.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 3, ptr %.sroa.031.sroa.3.0..sroa_idx, align 2
+  %.sroa.031.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 3, ptr %.sroa.031.sroa.5.0..sroa_idx, align 2
+  %.sroa.031.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i16 0, ptr %.sroa.031.sroa.6.0..sroa_idx, align 2
   ret void
 }
 
@@ -4880,50 +4880,50 @@ define void @"_ZN81_$LT$clap_builder..builder..styling..Styles$u20$as$u20$core..
   store i32 256, ptr %2, align 2, !alias.scope !884
   %.sroa.01.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i32 3, ptr %.sroa.01.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.01.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i32 3, ptr %.sroa.01.sroa.4.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.01.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i32 3, ptr %.sroa.01.sroa.5.0..sroa_idx.i, align 2, !alias.scope !884
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 1, ptr %.sroa.5.0..sroa_idx.i, align 2, !alias.scope !884
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 3, ptr %3, align 2, !alias.scope !884
-  %.sroa.08.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 3, ptr %.sroa.08.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.08.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 3, ptr %.sroa.08.sroa.4.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i16 9, ptr %.sroa.49.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.013.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 3, ptr %.sroa.013.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.013.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 3, ptr %.sroa.013.sroa.4.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i16 9, ptr %.sroa.414.0..sroa_idx.i, align 2, !alias.scope !884
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 3, ptr %4, align 2, !alias.scope !884
-  %.sroa.010.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 46
-  store i32 3, ptr %.sroa.010.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.010.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i32 3, ptr %.sroa.010.sroa.4.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i16 1, ptr %.sroa.411.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.015.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 46
+  store i32 3, ptr %.sroa.015.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.015.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 50
+  store i32 3, ptr %.sroa.015.sroa.4.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 54
+  store i16 1, ptr %.sroa.416.0..sroa_idx.i, align 2, !alias.scope !884
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 3, ptr %5, align 2, !alias.scope !884
-  %.sroa.012.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 3, ptr %.sroa.012.sroa.5.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.012.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 3, ptr %.sroa.012.sroa.6.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.017.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 3, ptr %.sroa.017.sroa.5.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.017.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 3, ptr %.sroa.017.sroa.6.0..sroa_idx.i, align 2, !alias.scope !884
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i16 0, ptr %.sroa.6.0..sroa_idx.i, align 2, !alias.scope !884
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 70
   store i32 512, ptr %6, align 2, !alias.scope !884
-  %.sroa.013.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i32 3, ptr %.sroa.013.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.013.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 78
-  store i32 3, ptr %.sroa.013.sroa.4.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 82
-  store i16 0, ptr %.sroa.514.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.018.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 74
+  store i32 3, ptr %.sroa.018.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.018.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 78
+  store i32 3, ptr %.sroa.018.sroa.5.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.018.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 82
+  store i16 0, ptr %.sroa.018.sroa.6.0..sroa_idx.i, align 2, !alias.scope !884
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 768, ptr %7, align 2, !alias.scope !884
-  %.sroa.021.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 3, ptr %.sroa.021.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.021.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 3, ptr %.sroa.021.sroa.4.0..sroa_idx.i, align 2, !alias.scope !884
-  %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i16 0, ptr %.sroa.522.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.031.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 3, ptr %.sroa.031.sroa.3.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.031.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 3, ptr %.sroa.031.sroa.5.0..sroa_idx.i, align 2, !alias.scope !884
+  %.sroa.031.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i16 0, ptr %.sroa.031.sroa.6.0..sroa_idx.i, align 2, !alias.scope !884
   ret void
 }
 

@@ -11459,7 +11459,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h54838a743b09b6
   %.sroa.12.0..sroa_idx13.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.sroa.52.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.sroa.565.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sroa.563.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.fca.1.gep.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -11709,9 +11709,9 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   br i1 %.not.i.i.i.i, label %159, label %167
 
 159:                                              ; preds = %176, %167, %158
-  %160 = phi i64 [ %.pre90.i.i.i.i, %176 ], [ %89, %158 ], [ %89, %167 ]
+  %160 = phi i64 [ %.pre88.i.i.i.i, %176 ], [ %89, %158 ], [ %89, %167 ]
   %161 = phi i64 [ %.pre.i.i.i.i, %176 ], [ %88, %158 ], [ %88, %167 ]
-  %.sroa.8.0.i.i.i.i = phi i64 [ %.sroa.565.0.copyload.i.i.i.i, %176 ], [ %155, %158 ], [ %155, %167 ]
+  %.sroa.8.0.i.i.i.i = phi i64 [ %.sroa.563.0.copyload.i.i.i.i, %176 ], [ %155, %158 ], [ %155, %167 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3413)
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !3416
   store i64 %.sroa.8.0.i.i.i.i, ptr %18, align 8, !noalias !3416
@@ -11747,10 +11747,10 @@ _ZN14regex_automata4util6search5Input8set_span17hd305cc554220db07E.exit.i.i.i.i:
 
 167:                                              ; preds = %158
   %168 = load i64, ptr %29, align 8, !range !108, !alias.scope !3425, !noalias !3424, !noundef !4
-  %.not76.i.i.i.i = icmp ne i64 %168, 0
+  %.not74.i.i.i.i = icmp ne i64 %168, 0
   %169 = load i64, ptr %42, align 8, !alias.scope !3425, !noalias !3424
   %170 = icmp eq i64 %155, %169
-  %.0.i.i.i.i = select i1 %.not76.i.i.i.i, i1 %170, i1 false
+  %.0.i.i.i.i = select i1 %.not74.i.i.i.i, i1 %170, i1 false
   br i1 %.0.i.i.i.i, label %171, label %159
 
 171:                                              ; preds = %167
@@ -11774,14 +11774,14 @@ _ZN14regex_automata4util6search5Input8set_span17hd305cc554220db07E.exit.i.i.i.i:
   br i1 %173, label %181, label %174
 
 174:                                              ; preds = %.noexc4
-  %.sroa.565.0.copyload.i.i.i.i = load i64, ptr %.sroa.565.0..sroa_idx.i.i.i.i, align 8, !noalias !3412
+  %.sroa.563.0.copyload.i.i.i.i = load i64, ptr %.sroa.563.0..sroa_idx.i.i.i.i, align 8, !noalias !3412
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !3412
   %175 = icmp eq i64 %172, 1
   br i1 %175, label %176, label %_ZN14regex_automata4util4iter8Searcher7advance17h3afe9dd2f905436cE.exit.i.i
 
 176:                                              ; preds = %174
   %.pre.i.i.i.i = load i64, ptr %39, align 8, !alias.scope !3425, !noalias !3424
-  %.pre90.i.i.i.i = load i64, ptr %40, align 8, !alias.scope !3423, !noalias !3424
+  %.pre88.i.i.i.i = load i64, ptr %40, align 8, !alias.scope !3423, !noalias !3424
   br label %159
 
 177:                                              ; preds = %181

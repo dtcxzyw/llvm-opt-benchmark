@@ -1382,19 +1382,19 @@ define void @lv_point_precise_set(ptr noundef writeonly captures(none) initializ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @lv_point_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
-  %.sroa.0.0.copyload = load i64, ptr %0, align 4
-  %3 = load i64, ptr %1, align 4
-  store i64 %3, ptr %0, align 4
-  store i64 %.sroa.0.0.copyload, ptr %1, align 4
+  %3 = load i64, ptr %0, align 4
+  %4 = load i64, ptr %1, align 4
+  store i64 %4, ptr %0, align 4
+  store i64 %3, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @lv_point_precise_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
-  %.sroa.0.0.copyload = load i64, ptr %0, align 4
-  %3 = load i64, ptr %1, align 4
-  store i64 %3, ptr %0, align 4
-  store i64 %.sroa.0.0.copyload, ptr %1, align 4
+  %3 = load i64, ptr %0, align 4
+  %4 = load i64, ptr %1, align 4
+  store i64 %4, ptr %0, align 4
+  store i64 %3, ptr %1, align 4
   ret void
 }
 

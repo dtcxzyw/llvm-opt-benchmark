@@ -6781,7 +6781,7 @@ define noundef nonnull ptr @"_ZN164_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
           to label %.noexc13.i unwind label %9, !noalias !726
 
-.noexc13.i:                                       ; preds = %8
+.noexc14.i:                                       ; preds = %8
   unreachable
 
 9:                                                ; preds = %8, %1
@@ -6844,7 +6844,7 @@ define noundef nonnull ptr @"_ZN155_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
           to label %.noexc13.i.i unwind label %14, !noalias !729
 
-.noexc13.i.i:                                     ; preds = %13
+.noexc14.i.i:                                     ; preds = %13
   unreachable
 
 14:                                               ; preds = %13, %2
@@ -6899,7 +6899,7 @@ define noundef nonnull ptr @"_ZN156_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
           to label %.noexc13.i unwind label %9, !noalias !734
 
-.noexc13.i:                                       ; preds = %8
+.noexc14.i:                                       ; preds = %8
   unreachable
 
 9:                                                ; preds = %8, %1
@@ -6962,7 +6962,7 @@ define noundef nonnull ptr @"_ZN142_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
           to label %.noexc13.i.i unwind label %14, !noalias !737
 
-.noexc13.i.i:                                     ; preds = %13
+.noexc14.i.i:                                     ; preds = %13
   unreachable
 
 14:                                               ; preds = %13, %2
@@ -7015,7 +7015,7 @@ define noundef nonnull ptr @"_ZN11wasi_common4pipe73WritePipe$LT$std..io..cursor
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
           to label %.noexc13.i unwind label %8, !noalias !742
 
-.noexc13.i:                                       ; preds = %7
+.noexc14.i:                                       ; preds = %7
   unreachable
 
 8:                                                ; preds = %7, %0

@@ -18060,8 +18060,8 @@ define internal fastcc void @cf2_stack_roll(ptr noundef nonnull readonly capture
   %6 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %6, align 8, !tbaa !615
   %7 = getelementptr i8, ptr %0, i64 24
-  %.val44 = load ptr, ptr %7, align 8, !tbaa !617
-  %8 = ptrtoint ptr %.val44 to i64
+  %.val40 = load ptr, ptr %7, align 8, !tbaa !617
+  %8 = ptrtoint ptr %.val40 to i64
   %9 = ptrtoint ptr %.val to i64
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 3
@@ -18099,49 +18099,49 @@ define internal fastcc void @cf2_stack_roll(ptr noundef nonnull readonly capture
   br label %28
 
 28:                                               ; preds = %26, %22
-  %.0 = phi i32 [ %25, %22 ], [ %27, %26 ]
-  %.not49 = icmp eq i32 %.0, 0
-  br i1 %.not49, label %cf2_setError.exit, label %.lr.ph
+  %.034 = phi i32 [ %25, %22 ], [ %27, %26 ]
+  %.not45 = icmp eq i32 %.034, 0
+  br i1 %.not45, label %cf2_setError.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
   %29 = sub nsw i32 0, %1
   br label %30
 
-30:                                               ; preds = %.lr.ph, %36
-  %.03548 = phi i32 [ 0, %.lr.ph ], [ %42, %36 ]
-  %.03647 = phi i32 [ -1, %.lr.ph ], [ %.2, %36 ]
-  %.03746 = phi i32 [ -1, %.lr.ph ], [ %.138, %36 ]
-  %.sroa.015.045 = phi i64 [ 8589934592, %.lr.ph ], [ %.sroa.0.0.copyload, %36 ]
-  %31 = icmp eq i32 %.03746, %.03647
+30:                                               ; preds = %.lr.ph, %37
+  %.044 = phi i32 [ 0, %.lr.ph ], [ %44, %36 ]
+  %.03143 = phi i32 [ -1, %.lr.ph ], [ %.2, %36 ]
+  %.03242 = phi i32 [ -1, %.lr.ph ], [ %.133, %36 ]
+  %.sroa.0.041 = phi i64 [ 8589934592, %.lr.ph ], [ %43, %36 ]
+  %31 = icmp eq i32 %.03242, %.03143
   %.pre = load ptr, ptr %6, align 8, !tbaa !615
-  br i1 %31, label %32, label %36
+  br i1 %31, label %32, label %37
 
 32:                                               ; preds = %30
-  %33 = add nsw i32 %.03647, 1
+  %33 = add nsw i32 %.03143, 1
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds %struct.CF2_StackNumber_, ptr %.pre, i64 %34
-  %.sroa.015.0.copyload16 = load i64, ptr %35, align 4
-  br label %36
+  %36 = load i64, ptr %35, align 4
+  br label %37
 
-36:                                               ; preds = %32, %30
-  %.sroa.015.1 = phi i64 [ %.sroa.015.0.copyload16, %32 ], [ %.sroa.015.045, %30 ]
-  %.138 = phi i32 [ %33, %32 ], [ %.03746, %30 ]
-  %.1 = phi i32 [ %33, %32 ], [ %.03647, %30 ]
-  %37 = add nsw i32 %.1, %.0
-  %.not = icmp slt i32 %37, %1
-  %38 = icmp slt i32 %37, 0
-  %39 = select i1 %38, i32 %1, i32 0
-  %.2.p = select i1 %.not, i32 %39, i32 %29
-  %.2 = add i32 %.2.p, %37
-  %40 = sext i32 %.2 to i64
-  %41 = getelementptr inbounds %struct.CF2_StackNumber_, ptr %.pre, i64 %40
-  %.sroa.0.0.copyload = load i64, ptr %41, align 4
-  store i64 %.sroa.015.1, ptr %41, align 4
-  %42 = add nuw nsw i32 %.03548, 1
-  %exitcond.not = icmp eq i32 %42, %1
+37:                                               ; preds = %32, %30
+  %.sroa.0.1 = phi i64 [ %36, %32 ], [ %.sroa.0.041, %30 ]
+  %.133 = phi i32 [ %33, %32 ], [ %.03242, %30 ]
+  %.1 = phi i32 [ %33, %32 ], [ %.03143, %30 ]
+  %38 = add nsw i32 %.1, %.034
+  %.not = icmp slt i32 %38, %1
+  %39 = icmp slt i32 %38, 0
+  %40 = select i1 %39, i32 %1, i32 0
+  %.2.p = select i1 %.not, i32 %40, i32 %29
+  %.2 = add i32 %.2.p, %38
+  %41 = sext i32 %.2 to i64
+  %42 = getelementptr inbounds %struct.CF2_StackNumber_, ptr %.pre, i64 %41
+  %43 = load i64, ptr %42, align 4
+  store i64 %.sroa.0.1, ptr %42, align 4
+  %44 = add nuw nsw i32 %.044, 1
+  %exitcond.not = icmp eq i32 %44, %1
   br i1 %exitcond.not, label %cf2_setError.exit, label %30, !llvm.loop !710
 
-cf2_setError.exit:                                ; preds = %36, %19, %17, %14, %28, %3
+cf2_setError.exit:                                ; preds = %37, %19, %17, %14, %28, %3
   ret void
 }
 

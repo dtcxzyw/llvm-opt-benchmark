@@ -766,7 +766,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload5 = load ptr, ptr %.sroa.6.0..sroa_idx4, align 8, !alias.scope !132, !nonnull !4, !noundef !4
   %.sroa.7.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.7.0.copyload7 = load i64, ptr %.sroa.7.0..sroa_idx6, align 8, !alias.scope !132
+  %3 = load i64, ptr %.sroa.7.0..sroa_idx6, align 8, !alias.scope !132
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %.sroa.0.0.copyload1, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -774,7 +774,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.sroa.6.0.copyload5, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %.sroa.7.0.copyload7, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %3, ptr %.sroa.7.0..sroa_idx, align 8
   call void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h69f13b3475241910E.llvm.10703666274263625563"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -811,7 +811,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload5.i = load ptr, ptr %.sroa.6.0..sroa_idx4.i, align 8, !alias.scope !139, !noalias !143, !nonnull !4, !noundef !4
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.7.0.copyload7.i = load i64, ptr %.sroa.7.0..sroa_idx6.i, align 8, !alias.scope !139, !noalias !143
+  %5 = load i64, ptr %.sroa.7.0..sroa_idx6.i, align 8, !alias.scope !139, !noalias !143
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !145
   store i64 %.sroa.0.0.copyload1.i, ptr %3, align 8, !noalias !145
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -819,30 +819,30 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.6.0.copyload5.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !145
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.7.0.copyload7.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !145
+  store i64 %5, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !145
   invoke void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h69f13b3475241910E.llvm.10703666274263625563"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %7 unwind label %5
+          to label %7 unwind label %6
 
-5:                                                ; preds = %2
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %2
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e7dfff613927991E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #15
-          to label %10 unwind label %8
+          to label %10 unwind label %9
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-8:                                                ; preds = %5
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %6
+  %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
-10:                                               ; preds = %5
-  resume { ptr, i32 } %6
+11:                                               ; preds = %6
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: nonlazybind uwtable

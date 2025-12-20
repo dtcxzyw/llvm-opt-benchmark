@@ -32695,8 +32695,8 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE7reserveEm.exit: ;
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %33 = load ptr, ptr %32, align 8
-  %.not29 = icmp eq ptr %31, %33
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq ptr %31, %33
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE7reserveEm.exit
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32704,15 +32704,15 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE7reserveEm.exit: ;
 
 35:                                               ; preds = %.lr.ph, %.loopexit
   %36 = phi ptr [ %33, %.lr.ph ], [ %83, %.loopexit ]
-  %.sroa.019.030 = phi ptr [ %31, %.lr.ph ], [ %84, %.loopexit ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.019.030, i64 32
+  %.sroa.018.029 = phi ptr [ %31, %.lr.ph ], [ %84, %.loopexit ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.018.029, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
-  %.not26 = icmp eq i32 %39, 0
-  br i1 %.not26, label %.preheader, label %.loopexit
+  %.not25 = icmp eq i32 %39, 0
+  br i1 %.not25, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.019.030, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.018.029, i64 8
   br label %41
 
 41:                                               ; preds = %.preheader, %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit
@@ -32724,11 +32724,11 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE7reserveEm.exit: ;
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = shl nuw nsw i32 262144, %44
   %46 = and i32 %43, %45
-  %.not27 = icmp eq i32 %46, 0
-  br i1 %.not27, label %_ZN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeC2EP6CFaceOi.exit, label %._ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit_crit_edge
+  %.not26 = icmp eq i32 %46, 0
+  br i1 %.not26, label %_ZN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeC2EP6CFaceOi.exit, label %._ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit_crit_edge
 
 ._ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit_crit_edge: ; preds = %42
-  %.pre32 = add nuw nsw i64 %indvars.iv, 1
+  %.pre31 = add nuw nsw i64 %indvars.iv, 1
   br label %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit
 
 _ZN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeC2EP6CFaceOi.exit: ; preds = %42, %41
@@ -32742,18 +32742,18 @@ _ZN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeC2EP6CFaceOi.exit: ; preds = %42, %41
   %54 = load ptr, ptr %53, align 8
   %55 = icmp ugt ptr %48, %54
   %spec.select = select i1 %55, ptr %48, ptr %54
-  %spec.select25 = select i1 %55, ptr %54, ptr %48
+  %spec.select24 = select i1 %55, ptr %54, ptr %48
   %56 = load ptr, ptr %34, align 8
   %57 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %56, %57
   br i1 %.not.i.i, label %62, label %58
 
 58:                                               ; preds = %_ZN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeC2EP6CFaceOi.exit
-  store ptr %spec.select25, ptr %56, align 8
+  store ptr %spec.select24, ptr %56, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %spec.select, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %.sroa.019.030, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.018.029, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 24
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %59, ptr %.sroa.7.0..sroa_idx, align 8
@@ -32786,11 +32786,11 @@ _ZNKSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE12_M_check_lenEmP
   %74 = shl nuw nsw i64 %73, 5
   %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #32
   %76 = getelementptr inbounds i8, ptr %75, i64 %66
-  store ptr %spec.select25, ptr %76, align 8
+  store ptr %spec.select24, ptr %76, align 8
   %.sroa.4.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %spec.select, ptr %.sroa.4.0..sroa_idx10, align 8
   %.sroa.6.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store ptr %.sroa.019.030, ptr %.sroa.6.0..sroa_idx12, align 8
+  store ptr %.sroa.018.029, ptr %.sroa.6.0..sroa_idx12, align 8
   %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %77 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %77, ptr %.sroa.7.0..sroa_idx14, align 8
@@ -32824,7 +32824,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE17_M_realloc_inser
   br label %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit: ; preds = %._ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit_crit_edge, %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %58
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre32, %._ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit_crit_edge ], [ %49, %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %49, %58 ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre31, %._ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.exit_crit_edge ], [ %49, %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %49, %58 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
   br i1 %exitcond.not, label %.loopexit.loopexit, label %41, !llvm.loop !356
 
@@ -32834,7 +32834,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE9push_backEOS5_.ex
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35
   %83 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %36, %35 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.019.030, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.018.029, i64 48
   %.not = icmp eq ptr %84, %83
   br i1 %.not, label %._crit_edge, label %35, !llvm.loop !357
 

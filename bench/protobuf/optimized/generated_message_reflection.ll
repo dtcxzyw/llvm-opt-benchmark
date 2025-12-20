@@ -38656,8 +38656,8 @@ entry:
   %0 = load ptr, ptr %aux_entries, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %table_info, i64 56
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not16 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not16, label %for.end, label %for.body.lr.ph
+  %cmp.i.not17 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not17, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %sizeof_split_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -38666,10 +38666,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %field_aux.addr.019 = phi ptr [ %field_aux, %for.body.lr.ph ], [ %field_aux.addr.1, %for.inc ]
-  %ref.tmp24.sroa.3.018 = phi i8 [ undef, %for.body.lr.ph ], [ %ref.tmp24.sroa.3.1, %for.inc ]
-  %__begin2.sroa.0.017 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %2 = load i32, ptr %__begin2.sroa.0.017, align 8
+  %field_aux.addr.020 = phi ptr [ %field_aux, %for.body.lr.ph ], [ %field_aux.addr.1, %for.inc ]
+  %ref.tmp24.sroa.3.019 = phi i8 [ undef, %for.body.lr.ph ], [ %ref.tmp24.sroa.3.1, %for.inc ]
+  %__begin2.sroa.0.018 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %2 = load i32, ptr %__begin2.sroa.0.018, align 8
   switch i32 %2, label %for.inc [
     i32 0, label %sw.bb
     i32 1, label %sw.bb6
@@ -38687,26 +38687,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store i64 0, ptr %field_aux.addr.019, align 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store i64 0, ptr %field_aux.addr.020, align 8
   br label %for.inc
 
 sw.bb6:                                           ; preds = %for.body
   %3 = load i32, ptr %inlined_string_donated_offset_, align 8
-  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store i32 %3, ptr %field_aux.addr.019, align 8
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store i32 %3, ptr %field_aux.addr.020, align 8
   br label %for.inc
 
 sw.bb8:                                           ; preds = %for.body
   %4 = load i32, ptr %split_offset_.i, align 4
-  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store i32 %4, ptr %field_aux.addr.019, align 8
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store i32 %4, ptr %field_aux.addr.020, align 8
   br label %for.inc
 
 sw.bb12:                                          ; preds = %for.body
   %5 = load i32, ptr %sizeof_split_.i, align 8
-  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store i32 %5, ptr %field_aux.addr.019, align 8
+  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store i32 %5, ptr %field_aux.addr.020, align 8
   br label %for.inc
 
 sw.bb16:                                          ; preds = %for.body, %for.body, %for.body, %for.body
@@ -38725,31 +38725,31 @@ lpad:                                             ; preds = %sw.bb16
   unreachable
 
 sw.bb23:                                          ; preds = %for.body
-  %bf.clear35 = and i8 %ref.tmp24.sroa.3.018, -32
-  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store i16 0, ptr %field_aux.addr.019, align 8
-  %ref.tmp24.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 2
+  %bf.clear35 = and i8 %ref.tmp24.sroa.3.019, -32
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store i16 0, ptr %field_aux.addr.020, align 8
+  %ref.tmp24.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 2
   store i8 %bf.clear35, ptr %ref.tmp24.sroa.3.0..sroa_idx, align 2
-  %ref.tmp24.sroa.131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 4
+  %ref.tmp24.sroa.131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 4
   store i32 0, ptr %ref.tmp24.sroa.131.0..sroa_idx, align 4
   br label %for.inc
 
 sw.bb38:                                          ; preds = %for.body
-  %7 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018, i64 8
   %8 = load ptr, ptr %7, align 8
   %call39 = tail call noundef ptr @_ZNK6google8protobuf10Reflection25GetDefaultMessageInstanceEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %8)
-  %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store ptr %call39, ptr %field_aux.addr.019, align 8
+  %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store ptr %call39, ptr %field_aux.addr.020, align 8
   br label %for.inc
 
 sw.bb41:                                          ; preds = %for.body
-  %9 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018, i64 8
   %10 = load i16, ptr %9, align 8
-  %size = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 10
+  %size = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018, i64 10
   %11 = load i16, ptr %size, align 2
-  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store i16 %10, ptr %field_aux.addr.019, align 8
-  %ref.tmp42.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 2
+  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store i16 %10, ptr %field_aux.addr.020, align 8
+  %ref.tmp42.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 2
   store i16 %11, ptr %ref.tmp42.sroa.2.0..sroa_idx, align 2
   br label %for.inc
 
@@ -38769,16 +38769,16 @@ lpad48:                                           ; preds = %sw.bb45
   unreachable
 
 sw.bb54:                                          ; preds = %for.body
-  %13 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018, i64 8
   %14 = load i32, ptr %13, align 8
-  %incdec.ptr55 = getelementptr inbounds nuw i8, ptr %field_aux.addr.019, i64 8
-  store i32 %14, ptr %field_aux.addr.019, align 8
+  %incdec.ptr55 = getelementptr inbounds nuw i8, ptr %field_aux.addr.020, i64 8
+  store i32 %14, ptr %field_aux.addr.020, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %sw.bb, %sw.bb6, %sw.bb8, %sw.bb12, %sw.bb23, %sw.bb38, %sw.bb41, %sw.bb54
-  %ref.tmp24.sroa.3.1 = phi i8 [ %ref.tmp24.sroa.3.018, %for.body ], [ %ref.tmp24.sroa.3.018, %sw.bb ], [ %ref.tmp24.sroa.3.018, %sw.bb6 ], [ %ref.tmp24.sroa.3.018, %sw.bb8 ], [ %ref.tmp24.sroa.3.018, %sw.bb12 ], [ %bf.clear35, %sw.bb23 ], [ %ref.tmp24.sroa.3.018, %sw.bb38 ], [ %ref.tmp24.sroa.3.018, %sw.bb41 ], [ %ref.tmp24.sroa.3.018, %sw.bb54 ]
-  %field_aux.addr.1 = phi ptr [ %field_aux.addr.019, %for.body ], [ %incdec.ptr, %sw.bb ], [ %incdec.ptr7, %sw.bb6 ], [ %incdec.ptr11, %sw.bb8 ], [ %incdec.ptr15, %sw.bb12 ], [ %incdec.ptr37, %sw.bb23 ], [ %incdec.ptr40, %sw.bb38 ], [ %incdec.ptr44, %sw.bb41 ], [ %incdec.ptr55, %sw.bb54 ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 16
+  %ref.tmp24.sroa.3.1 = phi i8 [ %ref.tmp24.sroa.3.019, %for.body ], [ %ref.tmp24.sroa.3.019, %sw.bb ], [ %ref.tmp24.sroa.3.019, %sw.bb6 ], [ %ref.tmp24.sroa.3.019, %sw.bb8 ], [ %ref.tmp24.sroa.3.019, %sw.bb12 ], [ %bf.clear35, %sw.bb23 ], [ %ref.tmp24.sroa.3.019, %sw.bb38 ], [ %ref.tmp24.sroa.3.019, %sw.bb41 ], [ %ref.tmp24.sroa.3.019, %sw.bb54 ]
+  %field_aux.addr.1 = phi ptr [ %field_aux.addr.020, %for.body ], [ %incdec.ptr, %sw.bb ], [ %incdec.ptr7, %sw.bb6 ], [ %incdec.ptr11, %sw.bb8 ], [ %incdec.ptr15, %sw.bb12 ], [ %incdec.ptr37, %sw.bb23 ], [ %incdec.ptr40, %sw.bb38 ], [ %incdec.ptr44, %sw.bb41 ], [ %incdec.ptr55, %sw.bb54 ]
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 

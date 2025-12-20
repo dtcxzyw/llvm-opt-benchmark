@@ -38042,12 +38042,12 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
 661:                                              ; preds = %660
   %662 = getelementptr inbounds nuw i8, ptr %659, i64 8
   %.sroa.0.0.copyload.i365 = load i64, ptr %662, align 8
-  %.sroa.4378.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i365, 8
-  %.sroa.5379.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i365, 32
-  %.sroa.5379.0.extract.trunc = trunc nuw i64 %.sroa.5379.0.extract.shift to i32
-  %narrow.i.i = call i32 @llvm.smax.i32(i32 %.sroa.5379.0.extract.trunc, i32 1)
+  %.sroa.4.0.extract.shift378 = lshr i64 %.sroa.0.0.copyload.i365, 8
+  %.sroa.5380.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i365, 32
+  %.sroa.5380.0.extract.trunc = trunc nuw i64 %.sroa.5380.0.extract.shift to i32
+  %narrow.i.i = call i32 @llvm.smax.i32(i32 %.sroa.5380.0.extract.trunc, i32 1)
   %spec.select.i.i366 = zext nneg i32 %narrow.i.i to i64
-  %663 = and i64 %.sroa.4378.0.extract.shift, 255
+  %663 = and i64 %.sroa.4.0.extract.shift378, 255
   %664 = mul nuw nsw i64 %663, %spec.select.i.i366
   %665 = load i32, ptr %36, align 4, !tbaa !565
   %narrow.i.i367 = call i32 @llvm.smax.i32(i32 %665, i32 1)

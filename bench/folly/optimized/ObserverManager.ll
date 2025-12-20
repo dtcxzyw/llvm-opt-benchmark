@@ -18829,7 +18829,7 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function13DispatchSmall4execIZ
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !tbaa !466
-  br label %19
+  br label %20
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %1, align 8, !tbaa !685
@@ -18851,67 +18851,67 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function13DispatchSmall4execIZ
   store ptr %15, ptr %12, align 8, !tbaa !689
   store ptr null, ptr %13, align 8, !tbaa !689
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %14, align 8
-  %17 = load i32, ptr %16, align 8
-  store i32 %17, ptr %14, align 8
-  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %16, align 8
-  %18 = trunc i32 %.sroa.0.0.copyload.i.i.i.i to i16
-  br label %19
+  %17 = load i32, ptr %14, align 8
+  %18 = load i32, ptr %16, align 8
+  store i32 %18, ptr %14, align 8
+  store i32 %17, ptr %16, align 8
+  %19 = trunc i32 %17 to i16
+  br label %20
 
-19:                                               ; preds = %._crit_edge, %4
-  %20 = phi i16 [ %.pre, %._crit_edge ], [ %18, %4 ]
-  %.not.i.i = icmp eq i16 %20, 0
-  br i1 %.not.i.i, label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i, label %21
+20:                                               ; preds = %._crit_edge, %4
+  %21 = phi i16 [ %.pre, %._crit_edge ], [ %19, %4 ]
+  %.not.i.i = icmp eq i16 %21, 0
+  br i1 %.not.i.i, label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i, label %22
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !680
-  invoke void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 2 dereferenceable(4) %22)
-          to label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i unwind label %25
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !680
+  invoke void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 2 dereferenceable(4) %23)
+          to label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i unwind label %26
 
-25:                                               ; preds = %21
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %22
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #42
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #42
   unreachable
 
-_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i: ; preds = %21, %19
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !688
-  %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %_ZZN5folly15observer_detail15ObserverManager15scheduleRefreshESt10shared_ptrINS0_4CoreEEmENUlvE_D2Ev.exit, label %30
+_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i: ; preds = %22, %20
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !688
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZZN5folly15observer_detail15ObserverManager15scheduleRefreshESt10shared_ptrINS0_4CoreEEmENUlvE_D2Ev.exit, label %31
 
-30:                                               ; preds = %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %32 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !112
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %36, label %33
+31:                                               ; preds = %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %33 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !112
+  %.not.i.i.i.i = icmp eq i8 %33, 0
+  br i1 %.not.i.i.i.i, label %37, label %34
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %31, align 4, !tbaa !23
-  %35 = add nsw i32 %34, -1
-  store i32 %35, ptr %31, align 4, !tbaa !23
+34:                                               ; preds = %31
+  %35 = load i32, ptr %32, align 4, !tbaa !23
+  %36 = add nsw i32 %35, -1
+  store i32 %36, ptr %32, align 4, !tbaa !23
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-36:                                               ; preds = %30
-  %37 = atomicrmw volatile add ptr %31, i32 -1 acq_rel, align 4
+37:                                               ; preds = %31
+  %38 = atomicrmw volatile add ptr %32, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %36, %33
-  %.0.i.i.i.i.i = phi i32 [ %34, %33 ], [ %37, %36 ]
-  %38 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %38, label %39, label %_ZZN5folly15observer_detail15ObserverManager15scheduleRefreshESt10shared_ptrINS0_4CoreEEmENUlvE_D2Ev.exit
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %37, %34
+  %.0.i.i.i.i.i = phi i32 [ %35, %33 ], [ %38, %36 ]
+  %39 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %39, label %40, label %_ZZN5folly15observer_detail15ObserverManager15scheduleRefreshESt10shared_ptrINS0_4CoreEEmENUlvE_D2Ev.exit
 
-39:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %40 = load ptr, ptr %29, align 8, !tbaa !35
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
+40:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  %41 = load ptr, ptr %30, align 8, !tbaa !35
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
   br label %_ZZN5folly15observer_detail15ObserverManager15scheduleRefreshESt10shared_ptrINS0_4CoreEEmENUlvE_D2Ev.exit
 
-_ZZN5folly15observer_detail15ObserverManager15scheduleRefreshESt10shared_ptrINS0_4CoreEEmENUlvE_D2Ev.exit: ; preds = %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i, %3
+_ZZN5folly15observer_detail15ObserverManager15scheduleRefreshESt10shared_ptrINS0_4CoreEEmENUlvE_D2Ev.exit: ; preds = %40, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb1EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit.i, %3
   ret i64 0
 }
 

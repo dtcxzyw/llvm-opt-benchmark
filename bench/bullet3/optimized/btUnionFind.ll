@@ -363,7 +363,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btElementE17quick
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %39, %4
+tailrecurse:                                      ; preds = %40, %4
   %.tr36 = phi i32 [ %2, %4 ], [ %.230, %39 ]
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = add nsw i32 %.tr36, %3
@@ -374,7 +374,7 @@ tailrecurse:                                      ; preds = %39, %4
   %.sroa.0.0.extract.trunc = trunc i64 %11 to i32
   br label %12
 
-12:                                               ; preds = %35, %tailrecurse
+12:                                               ; preds = %36, %tailrecurse
   %.028 = phi i32 [ %.tr36, %tailrecurse ], [ %.230, %35 ]
   %.0 = phi i32 [ %3, %tailrecurse ], [ %.2, %35 ]
   %13 = load ptr, ptr %5, align 8, !tbaa !4
@@ -406,39 +406,39 @@ tailrecurse:                                      ; preds = %39, %4
   %26 = trunc nsw i64 %indvars.iv to i32
   %27 = trunc nsw i64 %indvars.iv45 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv45
-  br i1 %.not, label %35, label %28
+  br i1 %.not, label %36, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
-  %.sroa.0.0.copyload.i = load i64, ptr %19, align 4
-  %30 = load i64, ptr %29, align 4
-  store i64 %30, ptr %19, align 4
-  %31 = load ptr, ptr %5, align 8, !tbaa !4
-  %32 = getelementptr inbounds %struct.btElement, ptr %31, i64 %indvars.iv45
-  store i64 %.sroa.0.0.copyload.i, ptr %32, align 4
-  %33 = add nsw i32 %26, 1
-  %34 = add nsw i32 %27, -1
-  br label %35
+  %30 = load i64, ptr %19, align 4
+  %31 = load i64, ptr %29, align 4
+  store i64 %31, ptr %19, align 4
+  %32 = load ptr, ptr %5, align 8, !tbaa !4
+  %33 = getelementptr inbounds %struct.btElement, ptr %32, i64 %indvars.iv45
+  store i64 %30, ptr %33, align 4
+  %34 = add nsw i32 %26, 1
+  %35 = add nsw i32 %27, -1
+  br label %36
 
-35:                                               ; preds = %25, %28
-  %.230 = phi i32 [ %33, %28 ], [ %26, %25 ]
-  %.2 = phi i32 [ %34, %28 ], [ %27, %25 ]
+36:                                               ; preds = %25, %28
+  %.230 = phi i32 [ %34, %28 ], [ %26, %25 ]
+  %.2 = phi i32 [ %35, %28 ], [ %27, %25 ]
   %.not33 = icmp sgt i32 %.230, %.2
-  br i1 %.not33, label %36, label %12, !llvm.loop !28
+  br i1 %.not33, label %37, label %12, !llvm.loop !28
 
-36:                                               ; preds = %35
-  %37 = icmp slt i32 %.tr36, %.2
-  br i1 %37, label %38, label %39
+37:                                               ; preds = %36
+  %38 = icmp slt i32 %.tr36, %.2
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   tail call void @_ZN20btAlignedObjectArrayI9btElementE17quickSortInternalI31btUnionFindElementSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %.tr36, i32 noundef %.2)
-  br label %39
+  br label %40
 
-39:                                               ; preds = %38, %36
-  %40 = icmp slt i32 %.230, %3
-  br i1 %40, label %tailrecurse, label %41
+40:                                               ; preds = %39, %37
+  %41 = icmp slt i32 %.230, %3
+  br i1 %41, label %tailrecurse, label %42
 
-41:                                               ; preds = %39
+42:                                               ; preds = %40
   ret void
 }
 

@@ -2837,15 +2837,15 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hfcf3e076f37f893bE.exit
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 104
   %72 = load ptr, ptr %71, align 8, !invariant.load !20, !noalias !715, !nonnull !20
   call void %72(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef align 1 %70, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15), !noalias !716
-  %.sroa.080.0.copyload.pr.i.i = load i64, ptr %6, align 8, !noalias !717
+  %.sroa.078.0.copyload.pr.i.i = load i64, ptr %6, align 8, !noalias !717
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !717
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !717
+  %.sroa.6.0..sroa_idx79.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.6.0.copyload80.i.i = load i64, ptr %.sroa.6.0..sroa_idx79.i.i, align 8, !noalias !717
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.7.0.copyload.i.i = load i64, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !717
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !682
-  switch i64 %.sroa.080.0.copyload.pr.i.i, label %default.unreachable.i.i [
+  switch i64 %.sroa.078.0.copyload.pr.i.i, label %default.unreachable.i.i [
     i64 2, label %.thread.i.i
     i64 1, label %74
     i64 0, label %115
@@ -2861,13 +2861,13 @@ default.unreachable.i.i:                          ; preds = %"_ZN99_$LT$regex_au
 
 74:                                               ; preds = %"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hcabf23e13f59f33fE.exit.i.i"
   %75 = ptrtoint ptr %.sroa.4.0.copyload.i.i to i64
-  %.not.i.i = icmp ugt i64 %.sroa.6.0.copyload.i.i, %75
+  %.not.i.i = icmp ugt i64 %.sroa.6.0.copyload80.i.i, %75
   br i1 %.not.i.i, label %76, label %88
 
 76:                                               ; preds = %100, %88, %74
   %77 = phi i64 [ %.pre109.i.i, %100 ], [ %33, %74 ], [ %33, %88 ]
   %78 = phi i64 [ %.pre.i.i, %100 ], [ %31, %74 ], [ %31, %88 ]
-  %.sroa.8.0.i.i = phi i64 [ %.sroa.565.0.copyload.i.i, %100 ], [ %.sroa.6.0.copyload.i.i, %74 ], [ %.sroa.6.0.copyload.i.i, %88 ]
+  %.sroa.8.0.i.i = phi i64 [ %.sroa.563.0.copyload.i.i, %100 ], [ %.sroa.6.0.copyload80.i.i, %74 ], [ %.sroa.6.0.copyload80.i.i, %88 ]
   %.sroa.0.0.i.i = phi i64 [ %101, %100 ], [ %75, %74 ], [ %75, %88 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !721
@@ -2906,11 +2906,11 @@ default.unreachable.i.i:                          ; preds = %"_ZN99_$LT$regex_au
 
 88:                                               ; preds = %74
   %89 = load i64, ptr %14, align 8, !range !132, !alias.scope !729, !noalias !730, !noundef !20
-  %.not76.i.i = icmp ne i64 %89, 0
+  %.not74.i.i = icmp ne i64 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %91 = load i64, ptr %90, align 8, !alias.scope !729, !noalias !730
-  %92 = icmp eq i64 %.sroa.6.0.copyload.i.i, %91
-  %.0.i.i = select i1 %.not76.i.i, i1 %92, i1 false
+  %92 = icmp eq i64 %.sroa.6.0.copyload80.i.i, %91
+  %.0.i.i = select i1 %.not74.i.i, i1 %92, i1 false
   br i1 %.0.i.i, label %93, label %76
 
 93:                                               ; preds = %88
@@ -2918,7 +2918,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN99_$LT$regex_au
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !731
   store i64 %75, ptr %7, align 8, !noalias !731
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.6.0.copyload.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 8, !noalias !731
+  store i64 %.sroa.6.0.copyload80.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 8, !noalias !731
   %.sroa.12.0..sroa_idx13.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.7.0.copyload.i.i, ptr %.sroa.12.0..sroa_idx13.i.i, align 8, !noalias !731
   call void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17h64c7172696967bdfE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !732
@@ -2934,8 +2934,8 @@ default.unreachable.i.i:                          ; preds = %"_ZN99_$LT$regex_au
   br label %106
 
 98:                                               ; preds = %93
-  %.sroa.565.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.565.0.copyload.i.i = load i64, ptr %.sroa.565.0..sroa_idx.i.i, align 8, !noalias !731
+  %.sroa.563.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.563.0.copyload.i.i = load i64, ptr %.sroa.563.0..sroa_idx.i.i, align 8, !noalias !731
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !731
   %99 = icmp eq i64 %94, 1
   br i1 %99, label %100, label %115
