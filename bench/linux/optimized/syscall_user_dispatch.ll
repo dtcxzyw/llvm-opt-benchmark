@@ -178,7 +178,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_syscall_user_dispatch(i64 no
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 -33, ptr nonnull elementtype(i8) %27) #7, !srcloc !13
   br label %28
 
-28:                                               ; preds = %25, %19, %17, %12, %7, %4
+28: ; preds = %25, %19, %17, %12, %7, %4
   %29 = phi i32 [ -22, %7 ], [ -22, %12 ], [ -22, %4 ], [ 0, %25 ], [ 0, %19 ], [ -14, %17 ]
   ret i32 %29
 }

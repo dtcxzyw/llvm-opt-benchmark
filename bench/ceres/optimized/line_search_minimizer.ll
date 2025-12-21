@@ -3523,85 +3523,85 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.thread: ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %32
 
-8:                                                ; preds = %3
+8:; preds = %3
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i, label %18
 
-_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %8
+_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i:; preds = %8
   %10 = shl nuw nsw i64 %5, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #34
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5
 
-13:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
+13:  ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
   %14 = tail call ptr @__cxa_allocate_exception(i64 8) #29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %14, align 8, !tbaa !49
-  invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
+  invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
           to label %.noexc3.i unwind label %16
 
-.noexc3.i:                                        ; preds = %13
+.noexc3.i: ; preds = %13
   unreachable
 
-common.resume:                                    ; preds = %.body, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %30, %.body ]
-  %15 = load ptr, ptr %4, align 8, !tbaa !70
-  tail call void @free(ptr noundef %15) #29
+common.resume:                                    ; preds = %.body, %17
+  %common.resume.op = phi { ptr, i32 } [ %18, %16 ], [ %31, %.body ]
+  %16 = load ptr, ptr %4, align 8, !tbaa !70
+  tail call void @free(ptr noundef %16) #29
   resume { ptr, i32 } %common.resume.op
 
-16:                                               ; preds = %13
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %5, ptr %19, align 8, !tbaa !74
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double 0.000000e+00, ptr %20, align 8, !tbaa !89
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %5, ptr %20, align 8, !tbaa !74
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double 0.000000e+00, ptr %21, align 8, !tbaa !89
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i3
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
   store ptr %11, ptr %4, align 8, !tbaa !70
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %5, ptr %22, align 8, !tbaa !74
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double 0.000000e+00, ptr %23, align 8, !tbaa !89
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %25 = tail call noalias ptr @malloc(i64 noundef %10) #34
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %.sink.split.i.i.i.i3
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %5, ptr %23, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double 0.000000e+00, ptr %24, align 8, !tbaa !89
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %26 = tail call noalias ptr @malloc(i64 noundef %10) #34
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %.sink.split.i.i.i.i3
 
-27:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5
-  %28 = tail call ptr @__cxa_allocate_exception(i64 8) #29
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %28, align 8, !tbaa !49
-  invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
+28:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5
+  %29 = tail call ptr @__cxa_allocate_exception(i64 8) #29
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %29, align 8, !tbaa !49
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %.noexc3.i6 unwind label %.body
 
-.noexc3.i6:                                       ; preds = %27
+.noexc3.i6:                                       ; preds = %28
   unreachable
 
-.sink.split.i.i.i.i3:                             ; preds = %18, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5
-  %29 = phi ptr [ %24, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5 ], [ %21, %18 ]
-  %.sink.i.i.i.i4 = phi ptr [ %25, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5 ], [ null, %18 ]
-  store ptr %.sink.i.i.i.i4, ptr %29, align 8, !tbaa !70
-  br label %32
+.sink.split.i.i.i.i3:                             ; preds = %19, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5
+  %30 = phi ptr [ %25, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5 ], [ %22, %18 ]
+  %.sink.i.i.i.i4 = phi ptr [ %26, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i5 ], [ null, %18 ]
+  store ptr %.sink.i.i.i.i4, ptr %30, align 8, !tbaa !70
+  br label %33
 
-.body:                                            ; preds = %27
-  %30 = landingpad { ptr, i32 }
+.body:                                            ; preds = %28
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %24, align 8, !tbaa !70
-  tail call void @free(ptr noundef %31) #29
+  %32 = load ptr, ptr %25, align 8, !tbaa !70
+  tail call void @free(ptr noundef %32) #29
   br label %common.resume
 
-32:                                               ; preds = %.sink.split.i.i.i.i3, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.thread
-  %33 = phi ptr [ %7, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.thread ], [ %29, %.sink.split.i.i.i.i3 ]
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 %5, ptr %34, align 8, !tbaa !74
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+33:                                               ; preds = %.sink.split.i.i.i.i3, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.thread
+  %34 = phi ptr [ %7, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.thread ], [ %30, %.sink.split.i.i.i.i3 ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 %5, ptr %35, align 8, !tbaa !74
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   ret void
 }
 

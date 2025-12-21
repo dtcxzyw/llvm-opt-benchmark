@@ -45754,7 +45754,7 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE5clearEv.exit: ; preds = %7,
           to label %41 unwind label %54
 
 41:                                               ; preds = %37
-  %.pre92 = load ptr, ptr %35, align 8, !tbaa !631
+  %.pre93 = load ptr, ptr %35, align 8, !tbaa !631
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %42
 
 42:                                               ; preds = %41
@@ -45785,8 +45785,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusaSEOS0_.exit
 
 _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %41, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
-  %49 = phi ptr [ %.pre92, %41 ], [ %.pre, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ]
-  %50 = phi ptr [ %38, %41 ], [ %.pre92, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ]
+  %49 = phi ptr [ %.pre93, %41 ], [ %.pre, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ]
+  %50 = phi ptr [ %38, %41 ], [ %.pre93, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ]
   %51 = phi i8 [ 0, %41 ], [ %43, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ]
   %.not.i.i31 = icmp eq ptr %49, null
   br i1 %.not.i.i31, label %_ZN7rocksdb6StatusaSEOS0_.exit.thread, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -45797,10 +45797,10 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %42, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   %52 = phi i8 [ %51, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %51, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %43, %42 ]
-  %53 = phi ptr [ %50, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %50, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %.pre92, %42 ]
+  %53 = phi ptr [ %50, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %50, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %.pre93, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not.not164 = icmp ne i8 %52, 0
-  br i1 %.not.not164, label %87, label %56
+  %.not.not165 = icmp ne i8 %52, 0
+  br i1 %.not.not165, label %87, label %56
 
 54:                                               ; preds = %37
   %55 = landingpad { ptr, i32 }
@@ -45934,7 +45934,7 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE17_M_realloc_insertIJRKS2_EE
 
 94:                                               ; preds = %90
   %.not.i.i35 = icmp eq ptr %0, %10
-  %or.cond.i = or i1 %.not.i.i35, %.not.not164
+  %or.cond.i = or i1 %.not.i.i35, %.not.not165
   br i1 %or.cond.i, label %_ZN7rocksdb6Status10UpdateIfOkEOS0_.exit, label %95
 
 95:                                               ; preds = %94

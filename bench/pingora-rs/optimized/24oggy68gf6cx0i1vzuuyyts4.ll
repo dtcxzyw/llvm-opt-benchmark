@@ -1370,8 +1370,8 @@ _ZN6brotli3enc6encode17EnsureInitialized17h5272514e7070790bE.exit33.i: ; preds =
   %247 = load i64, ptr %39, align 8, !alias.scope !57, !noalias !58, !noundef !7
   %248 = icmp eq i64 %247, 0
   %.pre.i.i.i = load i64, ptr %26, align 8, !alias.scope !85, !noalias !88
-  %.pre1028.i.i.i = load i64, ptr %27, align 8, !alias.scope !85, !noalias !88
-  %249 = sub i64 %.pre.i.i.i, %.pre1028.i.i.i
+  %.pre1100.i.i.i = load i64, ptr %27, align 8, !alias.scope !85, !noalias !88
+  %249 = sub i64 %.pre.i.i.i, %.pre1100.i.i.i
   br i1 %248, label %250, label %._crit_edge.i.i.i
 
 250:                                              ; preds = %246
@@ -10174,7 +10174,7 @@ define hidden noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17he1badbc6f98e989
   %21 = load i8, ptr %9, align 8
   %22 = and i8 %21, 4
   %23 = icmp eq i8 %22, 0
-  %.promoted561 = load ptr, ptr %6, align 8
+  %.promoted567 = load ptr, ptr %6, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.outer, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit147"
@@ -10423,10 +10423,10 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit147": ; preds = %27
   store i8 3, ptr %4, align 8
-  store ptr %.promoted561, ptr %6, align 8
+  store ptr %.promoted567, ptr %6, align 8
   br label %.backedge
 
-._crit_edge263:                                   ; preds = %136
+._crit_edge263:                                   ; preds = %137
   store i64 %137, ptr %8, align 8, !alias.scope !692, !noalias !697
   store ptr %134, ptr %1, align 8, !alias.scope !692, !noalias !697
   br label %106
@@ -10497,7 +10497,7 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge
   %.ph.be = phi i8 [ 6, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit184" ], [ 5, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit182" ], [ 4, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit164" ], [ 3, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit156" ], [ 1, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit" ], [ 2, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h77d570f0cf352d8fE.exit" ]
   br label %.backedge.outer
 
-.lr.ph262:                                        ; preds = %.preheader, %136
+.lr.ph262:                                        ; preds = %.preheader, %137
   %125 = phi i64 [ %137, %136 ], [ %.promoted277397.ph, %.preheader ]
   %126 = phi i8 [ %139, %136 ], [ %.promoted260, %.preheader ]
   %127 = phi ptr [ %134, %136 ], [ %.lcssa368387.ph, %.preheader ]
@@ -10524,9 +10524,9 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge
 _ZN6flate22gz9read_into17h92829966677ffbd2E.exit154: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc5472714370cf0e9E.exit.i.i151", %132
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 %.sroa.0.0.sroa.speculated.i.i.i150
   %135 = icmp eq i64 %125, 0
-  br i1 %135, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208, label %136
+  br i1 %135, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208, label %137
 
-136:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit154
+137:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit154
   %137 = sub nuw i64 %125, %.sroa.0.0.sroa.speculated.i.i.i150
   %138 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i150 to i8
   %139 = add nuw nsw i8 %126, %138
@@ -10783,7 +10783,7 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit180: ; preds = %.lr.ph.i172
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val133, i64 noundef 24, i64 noundef 8) #26
   br label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit184"
 
-._crit_edge:                                      ; preds = %240
+._crit_edge:                                      ; preds = %241
   store i64 %241, ptr %8, align 8, !alias.scope !708, !noalias !713
   store ptr %238, ptr %1, align 8, !alias.scope !708, !noalias !713
   %.pre315 = load ptr, ptr %6, align 8
@@ -10804,7 +10804,7 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit180: ; preds = %.lr.ph.i172
   %228 = tail call noundef nonnull ptr @_ZN6flate22gz7corrupt17hf0ab082921a22769E()
   br label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread
 
-.lr.ph:                                           ; preds = %.preheader211, %240
+.lr.ph:                                           ; preds = %.preheader211, %241
   %229 = phi i64 [ %241, %240 ], [ %.promoted277397.ph, %.preheader211 ]
   %230 = phi i8 [ %243, %240 ], [ %.promoted, %.preheader211 ]
   %231 = phi ptr [ %238, %240 ], [ %.lcssa368387.ph, %.preheader211 ]
@@ -10831,9 +10831,9 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit180: ; preds = %.lr.ph.i172
 _ZN6flate22gz9read_into17h92829966677ffbd2E.exit189: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc5472714370cf0e9E.exit.i.i186", %236
   %238 = getelementptr inbounds nuw i8, ptr %231, i64 %.sroa.0.0.sroa.speculated.i.i.i185
   %239 = icmp eq i64 %229, 0
-  br i1 %239, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212, label %240
+  br i1 %239, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212, label %241
 
-240:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit189
+241:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit189
   %241 = sub nuw i64 %229, %.sroa.0.0.sroa.speculated.i.i.i185
   %242 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i185 to i8
   %243 = add nuw nsw i8 %230, %242

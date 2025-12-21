@@ -168,18 +168,18 @@ for.body54.preheader:                             ; preds = %if.then49
   %scevgep = getelementptr i8, ptr %18, i64 2
   br label %while.cond59.preheader
 
-while.cond59.preheader:                           ; preds = %for.body54.preheader, %if.then49
-  %b.addr.7.ph = phi ptr [ %b.addr.643, %if.then49 ], [ %scevgep, %for.body54.preheader ]
+for.body54:                                       ; preds = %for.body54.preheader, %if.then49
+  %19 = phi ptr [ %b.addr.643, %if.then49 ], [ %scevgep, %for.body54.preheader ]
   br label %while.cond59
 
 while.cond59:                                     ; preds = %while.cond59.preheader, %while.cond59
   %s.2 = phi ptr [ %incdec.ptr60, %while.cond59 ], [ %call1, %while.cond59.preheader ]
   %b.addr.7 = phi ptr [ %incdec.ptr61, %while.cond59 ], [ %b.addr.7.ph, %while.cond59.preheader ]
   %incdec.ptr60 = getelementptr inbounds nuw i8, ptr %s.2, i64 1
-  %19 = load i8, ptr %s.2, align 1
+  %20 = load i8, ptr %s.2, align 1
   %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %b.addr.7, i64 1
-  store i8 %19, ptr %b.addr.7, align 1
-  %tobool62.not = icmp eq i8 %19, 0
+  store i8 %20, ptr %b.addr.7, align 1
+  %tobool62.not = icmp eq i8 %20, 0
   br i1 %tobool62.not, label %done0, label %while.cond59, !llvm.loop !8
 
 while.body69:                                     ; preds = %while.cond66.preheader, %if.end78
@@ -187,8 +187,8 @@ while.body69:                                     ; preds = %while.cond66.prehea
   %b.addr.838 = phi ptr [ %b.addr.9, %if.end78 ], [ %b.addr.0, %while.cond66.preheader ]
   %incdec.ptr6739 = getelementptr inbounds nuw i8, ptr %incdec.ptr6739.pn, i64 1
   %incdec.ptr70 = getelementptr inbounds nuw i8, ptr %b.addr.838, i64 1
-  %20 = load i32, ptr %decpt, align 4
-  %dec71 = add nsw i32 %20, -1
+  %21 = load i32, ptr %decpt, align 4
+  %dec71 = add nsw i32 %21, -1
   store i32 %dec71, ptr %decpt, align 4
   %cmp72 = icmp eq i32 %dec71, 0
   %.pre62 = load i8, ptr %incdec.ptr6739, align 1
@@ -209,17 +209,17 @@ if.then76:                                        ; preds = %land.lhs.true
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then76, %while.body69
-  %21 = phi i8 [ %.pre, %if.then76 ], [ %.pre62, %while.body69 ]
+  %22 = phi i8 [ %.pre, %if.then76 ], [ %.pre62, %while.body69 ]
   %b.addr.9 = phi ptr [ %incdec.ptr77, %if.then76 ], [ %incdec.ptr70, %while.body69 ]
-  store i8 %21, ptr %b.addr.9, align 1
-  %tobool68.not = icmp eq i8 %21, 0
+  store i8 %22, ptr %b.addr.9, align 1
+  %tobool68.not = icmp eq i8 %22, 0
   br i1 %tobool68.not, label %for.cond80thread-pre-split, label %while.body69, !llvm.loop !9
 
 for.cond80thread-pre-split:                       ; preds = %if.end78, %if.end78.thread
   %b.addr.968 = phi ptr [ %incdec.ptr70, %if.end78.thread ], [ %b.addr.9, %if.end78 ]
   %.pr34.pre = load i32, ptr %decpt, align 4
-  %22 = icmp sgt i32 %.pr34.pre, 0
-  br i1 %22, label %for.body83.preheader, label %done0.sink.split
+  %23 = icmp sgt i32 %.pr34.pre, 0
+  br i1 %23, label %for.body83.preheader, label %done0.sink.split
 
 for.body83.preheader:                             ; preds = %while.cond66.preheader, %for.cond80thread-pre-split
   %b.addr.1041.ph = phi ptr [ %b.addr.0, %while.cond66.preheader ], [ %b.addr.968, %for.cond80thread-pre-split ]
@@ -229,10 +229,10 @@ for.body83:                                       ; preds = %for.body83.preheade
   %b.addr.1041 = phi ptr [ %incdec.ptr84, %for.body83 ], [ %b.addr.1041.ph, %for.body83.preheader ]
   %incdec.ptr84 = getelementptr inbounds nuw i8, ptr %b.addr.1041, i64 1
   store i8 48, ptr %b.addr.1041, align 1
-  %23 = load i32, ptr %decpt, align 4
-  %dec86 = add nsw i32 %23, -1
+  %24 = load i32, ptr %decpt, align 4
+  %dec86 = add nsw i32 %24, -1
   store i32 %dec86, ptr %decpt, align 4
-  %cmp81 = icmp sgt i32 %23, 1
+  %cmp81 = icmp sgt i32 %24, 1
   br i1 %cmp81, label %for.body83, label %done0.sink.split, !llvm.loop !10
 
 done0.sink.split:                                 ; preds = %for.body83, %if.end41, %for.cond80thread-pre-split, %for.cond33.preheader

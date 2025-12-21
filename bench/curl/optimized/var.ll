@@ -513,26 +513,26 @@ varfunc.exit:                                     ; preds = %142
 .thread196:                                       ; preds = %25, %152
   br i1 %.0127, label %154, label %159
 
-154:                                              ; preds = %.thread196
-  %155 = load i8, ptr %.0115, align 1, !tbaa !23
-  %.not163 = icmp eq i8 %155, 0
-  br i1 %.not163, label %158, label %156
+155:                                              ; preds = %.thread196
+  %156 = load i8, ptr %.0115, align 1, !tbaa !23
+  %.not163 = icmp eq i8 %156, 0
+  br i1 %.not163, label %159, label %157
 
-156:                                              ; preds = %154
-  %157 = call i32 @curlx_dyn_add(ptr noundef %2, ptr noundef nonnull %.0115) #13
-  %.not164 = icmp eq i32 %157, 0
-  br i1 %.not164, label %158, label %.loopexit
+157:                                              ; preds = %155
+  %158 = call i32 @curlx_dyn_add(ptr noundef %2, ptr noundef nonnull %.0115) #13
+  %.not164 = icmp eq i32 %158, 0
+  br i1 %.not164, label %159, label %.loopexit
 
-158:                                              ; preds = %156, %154
+159:                                              ; preds = %157, %155
   store i8 1, ptr %3, align 1, !tbaa !22
   br label %.loopexit
 
-159:                                              ; preds = %.thread196
+160:                                              ; preds = %.thread196
   store i8 0, ptr %3, align 1, !tbaa !22
   call void @curlx_dyn_free(ptr noundef %2) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %23, %17, %158, %.thread186, %159, %156
+.loopexit:                                        ; preds = %23, %17, %159, %.thread186, %160, %157
   %.1 = phi i32 [ %.2.ph, %.thread186 ], [ 0, %158 ], [ 0, %159 ], [ 15, %156 ], [ 15, %17 ], [ 15, %23 ]
   ret i32 %.1
 }

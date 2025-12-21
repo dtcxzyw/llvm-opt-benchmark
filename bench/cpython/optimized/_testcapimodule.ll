@@ -2276,7 +2276,7 @@ define internal ptr @py_buildvalue_ints(ptr readnone captures(none) %0, ptr noun
 define internal ptr @test_buildvalue_N(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyList_New(i64 noundef 0) #17
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %48, label %5
+  br i1 %4, label %49, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 8, !tbaa !24
@@ -2291,7 +2291,7 @@ define internal ptr @test_buildvalue_N(ptr noundef %0, ptr readnone captures(non
 Py_INCREF.exit:                                   ; preds = %5, %8
   %10 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.179, ptr noundef nonnull %3) #17
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %48, label %12
+  br i1 %11, label %49, label %12
 
 12:                                               ; preds = %Py_INCREF.exit
   %.not = icmp eq ptr %10, %3
@@ -2309,7 +2309,7 @@ Py_INCREF.exit:                                   ; preds = %5, %8
 raiseTestError.exit:                              ; preds = %13
   %16 = load ptr, ptr %14, align 8, !tbaa !27
   %17 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.180) #17
-  br label %48
+  br label %49
 
 18:                                               ; preds = %12
   %.val = load i32, ptr %3, align 8, !tbaa !24
@@ -2328,69 +2328,69 @@ raiseTestError.exit:                              ; preds = %13
 raiseTestError.exit24:                            ; preds = %19
   %22 = load ptr, ptr %20, align 8, !tbaa !27
   %23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.181) #17
-  br label %48
+  br label %49
 
 24:                                               ; preds = %18
   %25 = load i32, ptr %10, align 8, !tbaa !24
   %.not.i = icmp sgt i32 %25, -1
-  br i1 %.not.i, label %26, label %.thread
+  br i1 %.not.i, label %27, label %.thread
 
 .thread:                                          ; preds = %24
   store i32 1, ptr %3, align 8, !tbaa !24
   br label %Py_DECREF.exit21
 
-26:                                               ; preds = %24
-  %27 = add nsw i32 %25, -1
-  store i32 %27, ptr %10, align 8, !tbaa !24
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %Py_DECREF.exit
+27:                                               ; preds = %24
+  %28 = add nsw i32 %25, -1
+  store i32 %28, ptr %10, align 8, !tbaa !24
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %Py_DECREF.exit
 
-29:                                               ; preds = %26
+30:                                               ; preds = %27
   tail call void @_Py_Dealloc(ptr noundef nonnull %10) #17
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %26, %29
+Py_DECREF.exit:                                   ; preds = %27, %30
   %.pr = load i32, ptr %3, align 8, !tbaa !24
   %.not.i20 = icmp sgt i32 %.pr, -1
-  br i1 %.not.i20, label %30, label %Py_DECREF.exit21
+  br i1 %.not.i20, label %31, label %Py_DECREF.exit21
 
-30:                                               ; preds = %Py_DECREF.exit
-  %31 = add nsw i32 %.pr, -1
-  store i32 %31, ptr %3, align 8, !tbaa !24
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %Py_DECREF.exit21
+31:                                               ; preds = %Py_DECREF.exit
+  %32 = add nsw i32 %.pr, -1
+  store i32 %32, ptr %3, align 8, !tbaa !24
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %Py_DECREF.exit21
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   tail call void @_Py_Dealloc(ptr noundef nonnull %3) #17
   br label %Py_DECREF.exit21
 
-Py_DECREF.exit21:                                 ; preds = %.thread, %Py_DECREF.exit, %30, %33
-  %34 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.182)
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %48, label %36
+Py_DECREF.exit21:                                 ; preds = %.thread, %Py_DECREF.exit, %31, %34
+  %35 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.182)
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %49, label %37
 
-36:                                               ; preds = %Py_DECREF.exit21
-  %37 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.183)
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %48, label %39
+37:                                               ; preds = %Py_DECREF.exit21
+  %38 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.183)
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %49, label %40
 
-39:                                               ; preds = %36
-  %40 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.184)
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %48, label %42
+40:                                               ; preds = %37
+  %41 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.184)
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %49, label %43
 
-42:                                               ; preds = %39
-  %43 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.185)
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %48, label %45
+43:                                               ; preds = %40
+  %44 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.185)
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %49, label %46
 
-45:                                               ; preds = %42
-  %46 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.186)
-  %47 = icmp slt i32 %46, 0
-  %._Py_NoneStruct = select i1 %47, ptr null, ptr @_Py_NoneStruct
-  br label %48
+46:                                               ; preds = %43
+  %47 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef %0, ptr noundef nonnull @.str.186)
+  %48 = icmp slt i32 %47, 0
+  %._Py_NoneStruct = select i1 %48, ptr null, ptr @_Py_NoneStruct
+  br label %49
 
-48:                                               ; preds = %45, %42, %39, %36, %Py_DECREF.exit21, %Py_INCREF.exit, %2, %raiseTestError.exit24, %raiseTestError.exit
+49:                                               ; preds = %46, %43, %40, %37, %Py_DECREF.exit21, %Py_INCREF.exit, %2, %raiseTestError.exit24, %raiseTestError.exit
   %.0 = phi ptr [ null, %42 ], [ null, %2 ], [ null, %raiseTestError.exit ], [ null, %raiseTestError.exit24 ], [ null, %Py_INCREF.exit ], [ null, %Py_DECREF.exit21 ], [ null, %36 ], [ null, %39 ], [ %._Py_NoneStruct, %45 ]
   ret ptr %.0
 }

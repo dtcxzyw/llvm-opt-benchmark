@@ -7596,9 +7596,9 @@ define dso_local range(i32 -1, 7) i32 @repo_config_set_multivar_in_file_gently(p
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, i8 0, i64 88, i1 false)
   %.not.i = icmp eq ptr %5, null
-  %.sink237.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink237.sroa.gep242 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink237.sroa.gep243 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink239.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink239.sroa.gep244 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink239.sroa.gep245 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i, label %validate_comment_string.exit, label %16
 
 16:                                               ; preds = %7
@@ -7739,14 +7739,14 @@ _.exit158:                                        ; preds = %47, %49
   %70 = load i8, ptr %4, align 1, !tbaa !4
   %71 = icmp eq i8 %70, 33
   %spec.select = zext i1 %71 to i32
-  %spec.select235.idx = zext i1 %71 to i64
-  %spec.select235 = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select235.idx
+  %spec.select237.idx = zext i1 %71 to i64
+  %spec.select237 = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select237.idx
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %spec.select, ptr %72, align 8, !tbaa !136
   %73 = call ptr @xmalloc(i64 noundef 64) #31
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %73, ptr %74, align 8, !tbaa !137
-  %75 = call i32 @regcomp(ptr noundef %73, ptr noundef nonnull %spec.select235, i32 noundef 1) #31
+  %75 = call i32 @regcomp(ptr noundef %73, ptr noundef nonnull %spec.select237, i32 noundef 1) #31
   %.not134 = icmp eq i32 %75, 0
   br i1 %.not134, label %82, label %76
 
@@ -7761,25 +7761,25 @@ _.exit158:                                        ; preds = %47, %49
 
 _.exit161:                                        ; preds = %76, %78
   %.0.i160 = phi ptr [ %79, %78 ], [ @.str.65, %76 ]
-  %80 = call i32 (ptr, ...) @error(ptr noundef %.0.i160, ptr noundef nonnull %spec.select235) #31
+  %80 = call i32 (ptr, ...) @error(ptr noundef %.0.i160, ptr noundef nonnull %spec.select237) #31
   %81 = load ptr, ptr %74, align 8, !tbaa !137
   call void @free(ptr noundef %81) #31
   store ptr null, ptr %74, align 8, !tbaa !137
   br label %.thread186
 
 .sink.split:                                      ; preds = %67, %65, %66
-  %.sink237.sroa.phi = phi ptr [ %.sink237.sroa.gep, %66 ], [ %.sink237.sroa.gep242, %65 ], [ %.sink237.sroa.gep243, %67 ]
+  %.sink239.sroa.phi = phi ptr [ %.sink239.sroa.gep, %66 ], [ %.sink239.sroa.gep244, %65 ], [ %.sink239.sroa.gep245, %67 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %66 ], [ null, %65 ], [ %4, %67 ]
-  store ptr %.sink, ptr %.sink237.sroa.phi, align 8, !tbaa !96
+  store ptr %.sink, ptr %.sink239.sroa.phi, align 8, !tbaa !96
   br label %82
 
 82:                                               ; preds = %.sink.split, %69
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %84 = load i32, ptr %83, align 4, !tbaa !138
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %._crit_edge210
+  br i1 %85, label %86, label %._crit_edge212
 
-._crit_edge210:                                   ; preds = %82
+._crit_edge212:                                   ; preds = %82
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !139
   br label %90
@@ -7792,7 +7792,7 @@ _.exit161:                                        ; preds = %76, %78
   store ptr %89, ptr %87, align 8, !tbaa !139
   br label %90
 
-90:                                               ; preds = %._crit_edge210, %86
+90:                                               ; preds = %._crit_edge212, %86
   %91 = phi ptr [ %.pre, %._crit_edge210 ], [ %89, %86 ]
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -7993,17 +7993,17 @@ _.exit173:                                        ; preds = %150, %152
   %189 = getelementptr i8, ptr %188, i64 -1
   %190 = load i8, ptr %189, align 1, !tbaa !4
   %.not141 = icmp eq i8 %190, 10
-  br i1 %.not141, label %.thread230, label %191
+  br i1 %.not141, label %.thread232, label %191
 
 191:                                              ; preds = %187
   %192 = load i8, ptr %188, align 1, !tbaa !4
   %193 = icmp eq i8 %192, 10
-  br i1 %193, label %194, label %.thread230
+  br i1 %193, label %194, label %.thread232
 
 194:                                              ; preds = %191
   %195 = add nuw nsw i64 %184, 1
   store i64 %195, ptr %12, align 8, !tbaa !16
-  br label %.thread230
+  br label %.thread232
 
 196:                                              ; preds = %173
   store i64 %184, ptr %15, align 8, !tbaa !16
@@ -8038,13 +8038,13 @@ _.exit173:                                        ; preds = %150, %152
   %210 = icmp ne i8 %209, 0
   %211 = icmp ne i8 %205, 10
   %or.cond7 = and i1 %211, %210
-  br i1 %or.cond7, label %200, label %.thread228
+  br i1 %or.cond7, label %200, label %.thread230
 
-.thread228:                                       ; preds = %.lr.ph
+.thread230:                                       ; preds = %.lr.ph
   store i64 %202, ptr %12, align 8
   br label %.thread179
 
-.thread230:                                       ; preds = %194, %191, %187
+.thread232:                                       ; preds = %194, %191, %187
   %.ph = phi i64 [ %184, %187 ], [ %184, %191 ], [ %195, %194 ]
   store i64 %.ph, ptr %15, align 8, !tbaa !16
   br label %.thread179
@@ -8058,7 +8058,7 @@ _.exit173:                                        ; preds = %150, %152
   store i64 0, ptr %12, align 8
   br label %.thread179.thread
 
-.thread179:                                       ; preds = %212, %.thread228, %.thread230
+.thread179:                                       ; preds = %212, %.thread230, %.thread232
   %213 = phi i64 [ %202, %.thread228 ], [ %184, %212 ], [ %.ph, %.thread230 ]
   %214 = getelementptr i8, ptr %124, i64 %213
   %215 = getelementptr i8, ptr %214, i64 -1

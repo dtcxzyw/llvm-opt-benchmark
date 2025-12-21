@@ -5578,8 +5578,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br label %26
 
 26:                                               ; preds = %23, %.thread
-  %.120931 = phi ptr [ %20, %23 ], [ %.2, %.thread ]
-  %.121130 = phi i64 [ %.236, %23 ], [ %.2212, %.thread ]
+  %.120936 = phi ptr [ %20, %23 ], [ %.2, %.thread ]
+  %.121135 = phi i64 [ %.236, %23 ], [ %.2212, %.thread ]
   %27 = load ptr, ptr %0, align 8, !tbaa !73
   %28 = call i64 @iconv(ptr noundef %27, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %11) #16
   %29 = icmp eq i64 %28, -1
@@ -5626,17 +5626,17 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
 
 .thread.thread:                                   ; preds = %35
   store i64 0, ptr %13, align 8, !tbaa !14
-  br label %.loopexit71
+  br label %.loopexit76
 
 47:                                               ; preds = %30
-  %48 = shl i64 %.121130, 1
-  %49 = icmp slt i64 %.121130, 0
+  %48 = shl i64 %.121135, 1
+  %49 = icmp slt i64 %.121135, 0
   br i1 %49, label %50, label %62
 
 50:                                               ; preds = %47
   %51 = load i64, ptr %11, align 8, !tbaa !14
-  %52 = sub i64 %.121130, %51
-  %53 = call ptr @php_stream_bucket_new(ptr noundef %1, ptr noundef %.120931, i64 noundef %52, i8 noundef zeroext 1, i8 noundef zeroext %25) #16
+  %52 = sub i64 %.121135, %51
+  %53 = call ptr @php_stream_bucket_new(ptr noundef %1, ptr noundef %.120936, i64 noundef %52, i8 noundef zeroext 1, i8 noundef zeroext %25) #16
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.loopexit, label %55
 
@@ -5662,52 +5662,52 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br i1 %.not, label %65, label %63
 
 63:                                               ; preds = %62
-  %64 = call ptr @__zend_realloc(ptr noundef %.120931, i64 noundef %48) #20
+  %64 = call ptr @__zend_realloc(ptr noundef %.120936, i64 noundef %48) #20
   br label %67
 
 65:                                               ; preds = %62
-  %66 = call ptr @_erealloc(ptr noundef %.120931, i64 noundef %48) #20
+  %66 = call ptr @_erealloc(ptr noundef %.120936, i64 noundef %48) #20
   br label %67
 
 67:                                               ; preds = %65, %63
   %68 = phi ptr [ %64, %63 ], [ %66, %65 ]
   %69 = load ptr, ptr %9, align 8, !tbaa !7
   %70 = ptrtoint ptr %69 to i64
-  %71 = ptrtoint ptr %.120931 to i64
+  %71 = ptrtoint ptr %.120936 to i64
   %72 = sub i64 %70, %71
   %73 = getelementptr inbounds i8, ptr %68, i64 %72
   store ptr %73, ptr %9, align 8, !tbaa !7
   %74 = load i64, ptr %11, align 8, !tbaa !14
-  %75 = add i64 %74, %.121130
+  %75 = add i64 %74, %.121135
   store i64 %75, ptr %11, align 8, !tbaa !14
   br label %.threadthread-pre-split
 
 .threadthread-pre-split:                          ; preds = %26, %67, %60
-  %.2212.ph = phi i64 [ %.236, %60 ], [ %48, %67 ], [ %.121130, %26 ]
-  %.2.ph = phi ptr [ %61, %60 ], [ %68, %67 ], [ %.120931, %26 ]
+  %.2212.ph = phi i64 [ %.236, %60 ], [ %48, %67 ], [ %.121135, %26 ]
+  %.2.ph = phi ptr [ %61, %60 ], [ %68, %67 ], [ %.120936, %26 ]
   %.pr.pr = load i64, ptr %13, align 8, !tbaa !14
   br label %.thread
 
 .thread:                                          ; preds = %.threadthread-pre-split, %40
   %.pr = phi i64 [ %.pr.pr, %.threadthread-pre-split ], [ %46, %40 ]
-  %.2212 = phi i64 [ %.2212.ph, %.threadthread-pre-split ], [ %.121130, %40 ]
-  %.2 = phi ptr [ %.2.ph, %.threadthread-pre-split ], [ %.120931, %40 ]
+  %.2212 = phi i64 [ %.2212.ph, %.threadthread-pre-split ], [ %.121135, %40 ]
+  %.2 = phi ptr [ %.2.ph, %.threadthread-pre-split ], [ %.120936, %40 ]
   %.not231 = icmp eq i64 %.pr, 0
-  br i1 %.not231, label %.loopexit71, label %26
+  br i1 %.not231, label %.loopexit76, label %26
 
-.loopexit71:                                      ; preds = %.thread, %.thread.thread
-  %.265 = phi ptr [ %.120931, %.thread.thread ], [ %.2, %.thread ]
-  %.221264 = phi i64 [ %.121130, %.thread.thread ], [ %.2212, %.thread ]
+.loopexit76:                                      ; preds = %.thread, %.thread.thread
+  %.270 = phi ptr [ %.120936, %.thread.thread ], [ %.2, %.thread ]
+  %.221269 = phi i64 [ %.121135, %.thread.thread ], [ %.2212, %.thread ]
   store i64 0, ptr %21, align 8, !tbaa !75
   %.pre = load i64, ptr %12, align 8, !tbaa !14
   br label %76
 
-76:                                               ; preds = %.loopexit71, %19
+76:                                               ; preds = %.loopexit76, %19
   %77 = phi i64 [ %.pre, %.loopexit71 ], [ %., %19 ]
-  %.0210 = phi i64 [ %.221264, %.loopexit71 ], [ %.236, %19 ]
-  %.0208 = phi ptr [ %.265, %.loopexit71 ], [ %20, %19 ]
-  %.not23232 = icmp eq i64 %77, 0
-  br i1 %.not23232, label %._crit_edge, label %.lr.ph
+  %.0210 = phi i64 [ %.221269, %.loopexit71 ], [ %.236, %19 ]
+  %.0208 = phi ptr [ %.270, %.loopexit71 ], [ %20, %19 ]
+  %.not23237 = icmp eq i64 %77, 0
+  br i1 %.not23237, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %76
   %78 = trunc nuw nsw i32 %6 to i8
@@ -5715,8 +5715,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br label %80
 
 80:                                               ; preds = %.lr.ph, %.thread5
-  %.634 = phi ptr [ %.0208, %.lr.ph ], [ %.9.ph, %.thread5 ]
-  %.521533 = phi i64 [ %.0210, %.lr.ph ], [ %.8218.ph, %.thread5 ]
+  %.639 = phi ptr [ %.0208, %.lr.ph ], [ %.9.ph, %.thread5 ]
+  %.521538 = phi i64 [ %.0210, %.lr.ph ], [ %.8218.ph, %.thread5 ]
   %81 = load ptr, ptr %8, align 8, !tbaa !7
   %82 = icmp eq ptr %81, null
   %83 = load ptr, ptr %0, align 8, !tbaa !73
@@ -5763,14 +5763,14 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br label %._crit_edge
 
 100:                                              ; preds = %91
-  %101 = shl i64 %.521533, 1
-  %102 = icmp slt i64 %.521533, 0
+  %101 = shl i64 %.521538, 1
+  %102 = icmp slt i64 %.521538, 0
   br i1 %102, label %103, label %115
 
 103:                                              ; preds = %100
   %104 = load i64, ptr %11, align 8, !tbaa !14
-  %105 = sub i64 %.521533, %104
-  %106 = call ptr @php_stream_bucket_new(ptr noundef %1, ptr noundef %.634, i64 noundef %105, i8 noundef zeroext 1, i8 noundef zeroext %78) #16
+  %105 = sub i64 %.521538, %104
+  %106 = call ptr @php_stream_bucket_new(ptr noundef %1, ptr noundef %.639, i64 noundef %105, i8 noundef zeroext 1, i8 noundef zeroext %78) #16
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.loopexit, label %108
 
@@ -5796,23 +5796,23 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br i1 %.not, label %118, label %116
 
 116:                                              ; preds = %115
-  %117 = call ptr @__zend_realloc(ptr noundef %.634, i64 noundef %101) #20
+  %117 = call ptr @__zend_realloc(ptr noundef %.639, i64 noundef %101) #20
   br label %120
 
 118:                                              ; preds = %115
-  %119 = call ptr @_erealloc(ptr noundef %.634, i64 noundef %101) #20
+  %119 = call ptr @_erealloc(ptr noundef %.639, i64 noundef %101) #20
   br label %120
 
 120:                                              ; preds = %118, %116
   %121 = phi ptr [ %117, %116 ], [ %119, %118 ]
   %122 = load ptr, ptr %9, align 8, !tbaa !7
   %123 = ptrtoint ptr %122 to i64
-  %124 = ptrtoint ptr %.634 to i64
+  %124 = ptrtoint ptr %.639 to i64
   %125 = sub i64 %123, %124
   %126 = getelementptr inbounds i8, ptr %121, i64 %125
   store ptr %126, ptr %9, align 8, !tbaa !7
   %127 = load i64, ptr %11, align 8, !tbaa !14
-  %128 = add i64 %127, %.521533
+  %128 = add i64 %127, %.521538
   store i64 %128, ptr %11, align 8, !tbaa !14
   br label %.thread5
 
@@ -5822,15 +5822,15 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br i1 %131, label %._crit_edge, label %.thread5
 
 .thread5:                                         ; preds = %113, %120, %129
-  %.8218.ph = phi i64 [ %.236, %113 ], [ %101, %120 ], [ %.521533, %129 ]
-  %.9.ph = phi ptr [ %114, %113 ], [ %121, %120 ], [ %.634, %129 ]
-  %.pr66 = load i64, ptr %12, align 8, !tbaa !14
-  %.not232 = icmp eq i64 %.pr66, 0
+  %.8218.ph = phi i64 [ %.236, %113 ], [ %101, %120 ], [ %.521538, %129 ]
+  %.9.ph = phi ptr [ %114, %113 ], [ %121, %120 ], [ %.639, %129 ]
+  %.pr71 = load i64, ptr %12, align 8, !tbaa !14
+  %.not232 = icmp eq i64 %.pr71, 0
   br i1 %.not232, label %._crit_edge, label %80
 
 ._crit_edge:                                      ; preds = %.thread5, %129, %.thread5.thread, %76
-  %.5215.lcssa = phi i64 [ %.0210, %76 ], [ %.521533, %.thread5.thread ], [ %.521533, %129 ], [ %.8218.ph, %.thread5 ]
-  %.6.lcssa = phi ptr [ %.0208, %76 ], [ %.634, %.thread5.thread ], [ %.634, %129 ], [ %.9.ph, %.thread5 ]
+  %.5215.lcssa = phi i64 [ %.0210, %76 ], [ %.521538, %.thread5.thread ], [ %.521538, %129 ], [ %.8218.ph, %.thread5 ]
+  %.6.lcssa = phi ptr [ %.0208, %76 ], [ %.639, %.thread5.thread ], [ %.639, %129 ], [ %.9.ph, %.thread5 ]
   %132 = load i64, ptr %11, align 8, !tbaa !14
   %133 = icmp ugt i64 %.5215.lcssa, %132
   br i1 %133, label %134, label %140
@@ -5865,15 +5865,15 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   store i64 %147, ptr %5, align 8, !tbaa !14
   br label %154
 
-.loopexit.sink.split.loopexit113:                 ; preds = %91
+.loopexit.sink.split.loopexit118:                 ; preds = %91
   br label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit122:                 ; preds = %30
+.loopexit.sink.split.loopexit127:                 ; preds = %30
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %33, %37, %30, %91, %.loopexit.sink.split.loopexit122, %.loopexit.sink.split.loopexit113, %94, %96
+.loopexit.sink.split:                             ; preds = %33, %37, %30, %91, %.loopexit.sink.split.loopexit127, %.loopexit.sink.split.loopexit118, %94, %96
   %.str.104.sink = phi ptr [ @.str.104, %.loopexit.sink.split.loopexit113 ], [ @.str.103, %96 ], [ @.str.105, %94 ], [ @.str.102, %30 ], [ @.str.102, %91 ], [ @.str.102, %33 ], [ @.str.103, %37 ], [ @.str.104, %.loopexit.sink.split.loopexit122 ]
-  %.3.ph = phi ptr [ %.634, %.loopexit.sink.split.loopexit113 ], [ %.634, %96 ], [ %.634, %94 ], [ %.120931, %30 ], [ %.634, %91 ], [ %.120931, %37 ], [ %.120931, %33 ], [ %.120931, %.loopexit.sink.split.loopexit122 ]
+  %.3.ph = phi ptr [ %.639, %.loopexit.sink.split.loopexit113 ], [ %.639, %96 ], [ %.639, %94 ], [ %.120936, %30 ], [ %.639, %91 ], [ %.120936, %37 ], [ %.120936, %33 ], [ %.120936, %.loopexit.sink.split.loopexit122 ]
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %149 = load ptr, ptr %148, align 8, !tbaa !71
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5882,7 +5882,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %103, %.loopexit.sink.split, %134
-  %.3 = phi ptr [ %.634, %103 ], [ %.6.lcssa, %134 ], [ %.3.ph, %.loopexit.sink.split ], [ %.120931, %50 ]
+  %.3 = phi ptr [ %.639, %103 ], [ %.6.lcssa, %134 ], [ %.3.ph, %.loopexit.sink.split ], [ %.120936, %50 ]
   br i1 %.not, label %153, label %152
 
 152:                                              ; preds = %.loopexit

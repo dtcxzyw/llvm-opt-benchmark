@@ -8607,45 +8607,45 @@ default.unreachable:                              ; preds = %186
   br label %229
 
 229:                                              ; preds = %226, %200
-  %.sink72.i = phi i64 [ %228, %226 ], [ %.sroa.028.0.i, %200 ]
-  %230 = tail call i64 @llvm.umax.i64(i64 %.sink72.i, i64 %.sink)
+  %.sink.i = phi i64 [ %228, %226 ], [ %.sroa.028.0.i, %200 ]
+  %.sroa.3.0.i54.i = tail call i64 @llvm.umax.i64(i64 %.sink.i, i64 %.sink)
   store i64 1, ptr %36, align 8, !alias.scope !566, !noalias !576
-  store i64 %230, ptr %38, align 8, !alias.scope !566, !noalias !576
-  %231 = trunc nuw i8 %.sroa.0.0 to i1
-  br i1 %231, label %232, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27
+  store i64 %.sroa.3.0.i54.i, ptr %38, align 8, !alias.scope !566, !noalias !576
+  %230 = trunc nuw i8 %.sroa.0.0 to i1
+  br i1 %230, label %231, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27
 
-232:                                              ; preds = %229
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %234 = load i64, ptr %233, align 8, !alias.scope !566, !noalias !576
+231:                                              ; preds = %229
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %233 = load i64, ptr %232, align 8, !alias.scope !566, !noalias !576
   store i64 0, ptr %183, align 8, !alias.scope !566, !noalias !576
-  %235 = getelementptr inbounds nuw i8, ptr %6, i64 156
-  %236 = load float, ptr %235, align 4, !alias.scope !571, !noalias !574, !noundef !3
-  %237 = fsub float 1.000000e+00, %236
-  %238 = tail call noundef i64 @"_ZN91_$LT$quiche..recovery..bandwidth..Bandwidth$u20$as$u20$core..ops..arith..Mul$LT$f32$GT$$GT$3mul17h7291689c601231d9E"(i64 noundef %234, float noundef %237), !noalias !580
-  %.sroa.3.0.i57.i = tail call i64 @llvm.umax.i64(i64 %238, i64 %230)
+  %234 = getelementptr inbounds nuw i8, ptr %6, i64 156
+  %235 = load float, ptr %234, align 4, !alias.scope !571, !noalias !574, !noundef !3
+  %236 = fsub float 1.000000e+00, %235
+  %237 = tail call noundef i64 @"_ZN91_$LT$quiche..recovery..bandwidth..Bandwidth$u20$as$u20$core..ops..arith..Mul$LT$f32$GT$$GT$3mul17h7291689c601231d9E"(i64 noundef %233, float noundef %236), !noalias !580
+  %.sroa.3.0.i57.i = tail call i64 @llvm.umax.i64(i64 %237, i64 %.sroa.3.0.i54.i)
   store i64 1, ptr %36, align 8, !alias.scope !566, !noalias !576
   store i64 %.sroa.3.0.i57.i, ptr %38, align 8, !alias.scope !566, !noalias !576
   br label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread
 
 _ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit: ; preds = %149, %157, %176
-  %239 = trunc nuw i8 %.sroa.0.0 to i1
-  br i1 %239, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27
+  %238 = trunc nuw i8 %.sroa.0.0 to i1
+  br i1 %238, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27
 
-_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread: ; preds = %232, %161, %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit
-  br i1 %60, label %240, label %241
+_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread: ; preds = %231, %161, %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit
+  br i1 %60, label %239, label %240
 
-_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27: ; preds = %229, %241, %242, %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit
+_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27: ; preds = %229, %240, %241, %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit
   ret void
 
-240:                                              ; preds = %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread
+239:                                              ; preds = %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread
   store i64 %123, ptr %120, align 8
-  br label %241
+  br label %240
 
-241:                                              ; preds = %240, %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread
+240:                                              ; preds = %239, %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread
   %.not19 = icmp eq i64 %138, 0
-  br i1 %.not19, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27, label %242
+  br i1 %.not19, label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27, label %241
 
-242:                                              ; preds = %241
+241:                                              ; preds = %240
   store i64 %138, ptr %139, align 8
   br label %_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18adapt_lower_bounds17hbfb145c700ee71efE.exit.thread27
 }

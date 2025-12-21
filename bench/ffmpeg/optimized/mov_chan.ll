@@ -51,8 +51,8 @@ define range(i32 -38, 1) i32 @ff_mov_get_channel_layout_tag(ptr noundef %0, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = load i32, ptr %14, align 4, !tbaa !20
-  %.not5180 = icmp eq i32 %15, 0
-  br i1 %.not5180, label %.sink.split, label %.lr.ph
+  %.not5183 = icmp eq i32 %15, 0
+  br i1 %.not5183, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -60,7 +60,7 @@ define range(i32 -38, 1) i32 @ff_mov_get_channel_layout_tag(ptr noundef %0, ptr 
   br label %18
 
 18:                                               ; preds = %.lr.ph, %find_layout_map.exit.thread.i
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %find_layout_map.exit.thread.i ]
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next98, %find_layout_map.exit.thread.i ]
   %19 = phi i32 [ %15, %.lr.ph ], [ %41, %find_layout_map.exit.thread.i ]
   %20 = load i32, ptr %17, align 4, !tbaa !21
   %21 = and i32 %19, 65535
@@ -122,14 +122,14 @@ find_layout_map.exit.i:                           ; preds = %.lr.ph.i.i, %22
   br i1 %.not22.i, label %.loopexit, label %find_layout_map.exit.thread.i
 
 find_layout_map.exit.thread.i:                    ; preds = %.lr.ph.i, %find_layout_map.exit.i, %._crit_edge.i, %18
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next94
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next98
   %41 = load i32, ptr %40, align 4, !tbaa !20
   %.not51 = icmp eq i32 %41, 0
   br i1 %.not51, label %.sink.split, label %18, !llvm.loop !25
 
 .loopexit:                                        ; preds = %._crit_edge.i, %39
-  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv93
+  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv97
   %.pr = load i32, ptr %42, align 4, !tbaa !20
   store i32 %.pr, ptr %1, align 4, !tbaa !20
   store i32 0, ptr %2, align 4, !tbaa !20
@@ -175,16 +175,16 @@ find_layout_map.exit.thread.i:                    ; preds = %.lr.ph.i, %find_lay
 .preheader:                                       ; preds = %.thread62
   %58 = load i32, ptr %54, align 4, !tbaa !29
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph83, label %._crit_edge
+  br i1 %59, label %.lr.ph86, label %._crit_edge
 
-.lr.ph83:                                         ; preds = %.preheader, %73
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %73 ], [ 0, %.preheader ]
-  %60 = trunc nuw nsw i64 %indvars.iv96 to i32
+.lr.ph86:                                         ; preds = %.preheader, %73
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %73 ], [ 0, %.preheader ]
+  %60 = trunc nuw nsw i64 %indvars.iv100 to i32
   %61 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %45, i32 noundef %60) #3
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %69, label %63
 
-63:                                               ; preds = %.lr.ph83
+63:                                               ; preds = %.lr.ph86
   %64 = icmp samesign ult i32 %61, 18
   br i1 %64, label %65, label %67
 
@@ -201,8 +201,8 @@ find_layout_map.exit.thread.i:                    ; preds = %.lr.ph.i, %find_lay
   %or.cond = select i1 %68, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %69
 
-69:                                               ; preds = %67, %.lr.ph83
-  %70 = and i64 %indvars.iv96, 4294967295
+69:                                               ; preds = %67, %.lr.ph86
+  %70 = and i64 %indvars.iv100, 4294967295
   %71 = getelementptr inbounds nuw i32, ptr %57, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !20
   tail call void @av_free(ptr noundef nonnull %57) #3
@@ -216,13 +216,13 @@ switch.lookup:                                    ; preds = %67
 
 73:                                               ; preds = %switch.lookup, %65
   %.0.i.ph = phi i32 [ %switch.load, %switch.lookup ], [ %66, %65 ]
-  %74 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv96
+  %74 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv100
   store i32 %.0.i.ph, ptr %74, align 4, !tbaa !20
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %75 = load i32, ptr %54, align 4, !tbaa !29
   %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next97, %76
-  br i1 %77, label %.lr.ph83, label %._crit_edge, !llvm.loop !30
+  %77 = icmp slt i64 %indvars.iv.next101, %76
+  br i1 %77, label %.lr.ph86, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %73, %.preheader
   store ptr %57, ptr %3, align 8, !tbaa !26

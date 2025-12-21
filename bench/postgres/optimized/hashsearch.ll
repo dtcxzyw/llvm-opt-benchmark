@@ -191,8 +191,8 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %33 = tail call zeroext i16 @_hash_binsearch_last(ptr noundef nonnull %23, i32 noundef %32) #5
   %34 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef nonnull %23, i16 noundef zeroext %33, i32 noundef %1)
   %35 = and i32 %34, 65535
-  %.not.not7 = icmp eq i32 %35, 408
-  br i1 %.not.not7, label %.lr.ph, label %._crit_edge
+  %.not.not9 = icmp eq i32 %35, 408
+  br i1 %.not.not9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader3
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -204,16 +204,16 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %39 = tail call zeroext i16 @_hash_binsearch(ptr noundef nonnull %23, i32 noundef %32) #5
   %40 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef nonnull %23, i16 noundef zeroext %39, i32 noundef 1)
   %41 = and i32 %40, 65535
-  %.not.not789 = icmp eq i32 %41, 0
-  br i1 %.not.not789, label %.lr.ph10, label %._crit_edge11
+  %.not.not7811 = icmp eq i32 %41, 0
+  br i1 %.not.not7811, label %.lr.ph12, label %._crit_edge13
 
-.lr.ph10:                                         ; preds = %.preheader
+.lr.ph12:                                         ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %45
 
-45:                                               ; preds = %.lr.ph10, %61
+45:                                               ; preds = %.lr.ph12, %61
   %46 = load i32, ptr %42, align 8
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %49
@@ -255,7 +255,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %66 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %63, i16 noundef zeroext %65, i32 noundef 1)
   %67 = and i32 %66, 65535
   %.not.not78 = icmp eq i32 %67, 0
-  br i1 %.not.not78, label %45, label %._crit_edge11
+  br i1 %.not.not78, label %45, label %._crit_edge13
 
 .thread:                                          ; preds = %59
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -265,7 +265,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   store i32 0, ptr %28, align 4
   br label %199
 
-._crit_edge11:                                    ; preds = %61, %.preheader
+._crit_edge13:                                    ; preds = %61, %.preheader
   %.lcssa = phi i32 [ %41, %.preheader ], [ %67, %61 ]
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 0, ptr %70, align 4
@@ -275,7 +275,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 72:                                               ; preds = %.lr.ph, %166
   %73 = phi i32 [ %.0.val, %.lr.ph ], [ %164, %166 ]
   %74 = phi ptr [ %27, %.lr.ph ], [ %165, %166 ]
-  %.08 = phi i32 [ -1, %.lr.ph ], [ %.1, %166 ]
+  %.010 = phi i32 [ -1, %.lr.ph ], [ %.1, %166 ]
   %75 = load i32, ptr %36, align 8
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %77, label %78
@@ -301,7 +301,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br label %88
 
 88:                                               ; preds = %85, %82
-  %.1 = phi i32 [ %87, %85 ], [ %.08, %82 ]
+  %.1 = phi i32 [ %87, %85 ], [ %.010, %82 ]
   %89 = load ptr, ptr %6, align 8
   %90 = load ptr, ptr %8, align 8
   %91 = load i32, ptr %74, align 4
@@ -474,37 +474,37 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   br label %199
 
 ._crit_edge:                                      ; preds = %166, %.preheader3
-  %.lcssa5 = phi i32 [ %35, %.preheader3 ], [ %172, %166 ]
+  %.lcssa6 = phi i32 [ %35, %.preheader3 ], [ %172, %166 ]
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i32 %.lcssa5, ptr %175, align 4
+  store i32 %.lcssa6, ptr %175, align 4
   br label %176
 
-176:                                              ; preds = %._crit_edge, %._crit_edge11
-  %.sink42 = phi i32 [ 407, %._crit_edge ], [ %71, %._crit_edge11 ]
+176:                                              ; preds = %._crit_edge, %._crit_edge13
+  %.sink48 = phi i32 [ 407, %._crit_edge ], [ %71, %._crit_edge11 ]
   %.sink = phi i32 [ 407, %._crit_edge ], [ 0, %._crit_edge11 ]
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %.sink42, ptr %177, align 4
+  store i32 %.sink48, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %.sink, ptr %178, align 4
   %179 = load i32, ptr %28, align 4
   %180 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %179, %181
-  br i1 %182, label %._crit_edge17, label %183
+  br i1 %182, label %._crit_edge23, label %183
 
-._crit_edge17:                                    ; preds = %176
-  %.pre18 = load ptr, ptr %5, align 8
+._crit_edge23:                                    ; preds = %176
+  %.pre24 = load ptr, ptr %5, align 8
   br label %187
 
 183:                                              ; preds = %176
   %184 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %185 = load i32, ptr %184, align 8
   %186 = icmp eq i32 %179, %185
-  %.pre19 = load ptr, ptr %5, align 8
+  %.pre25 = load ptr, ptr %5, align 8
   br i1 %186, label %187, label %193
 
-187:                                              ; preds = %._crit_edge17, %183
-  %188 = phi ptr [ %.pre18, %._crit_edge17 ], [ %.pre19, %183 ]
+187:                                              ; preds = %._crit_edge23, %183
+  %188 = phi ptr [ %.pre24, %._crit_edge17 ], [ %.pre25, %183 ]
   %189 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 -1, ptr %189, align 4
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 4
@@ -515,10 +515,10 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   br label %199
 
 193:                                              ; preds = %183
-  %194 = load i32, ptr %.pre19, align 4
+  %194 = load i32, ptr %.pre25, align 4
   %195 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %194, ptr %195, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %.pre19, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %.pre25, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 %197, ptr %198, align 4

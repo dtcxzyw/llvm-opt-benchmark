@@ -10971,8 +10971,8 @@ _ZN3ue29verify_u8ItEEhT_.exit:                    ; preds = %78
   br i1 %brmerge58.not, label %.sink.split, label %91
 
 .sink.split:                                      ; preds = %89, %_ZN3ue210verify_u16ImEEtT_.exit
-  %.sink65 = phi i32 [ 2, %_ZN3ue210verify_u16ImEEtT_.exit ], [ 4, %89 ]
-  store i32 %.sink65, ptr %23, align 8
+  %.sink66 = phi i32 [ 2, %_ZN3ue210verify_u16ImEEtT_.exit ], [ 4, %89 ]
+  store i32 %.sink66, ptr %23, align 8
   store i32 %.sink65, ptr %24, align 4
   br label %91
 

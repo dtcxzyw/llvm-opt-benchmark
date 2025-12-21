@@ -7451,47 +7451,47 @@ define range(i32 -1, 1) i32 @hwloc_topology_set_cache_types_filter(ptr noundef c
   %4 = load i64, ptr %3, align 8, !tbaa !90
   %5 = and i64 %4, 8
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %8, label %.preheader
+  br i1 %.not, label %9, label %.preheader
 
 .preheader:                                       ; preds = %2
   %.not21.i = icmp eq i32 %1, 0
   %6 = icmp eq i32 %1, 3
   %spec.store.select.i = select i1 %6, i32 0, i32 %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br i1 %.not21.i, label %hwloc__topology_set_type_filter.exit.us.preheader, label %.preheader.split
+  br i1 %.not21.i, label %hwloc__topology_set_type_filter.exit.us, label %.preheader.split
 
-hwloc__topology_set_type_filter.exit.us.preheader: ; preds = %.preheader
+hwloc__topology_set_type_filter.exit.us:          ; preds = %.preheader
   %scevgep = getelementptr i8, ptr %0, i64 140
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false), !tbaa !31
   br label %.loopexit
 
-8:                                                ; preds = %2
-  %9 = tail call ptr @__errno_location() #39
-  store i32 16, ptr %9, align 4, !tbaa !31
+9:                                                ; preds = %2
+  %10 = tail call ptr @__errno_location() #39
+  store i32 16, ptr %10, align 4, !tbaa !31
   br label %.loopexit
 
 .preheader.split:                                 ; preds = %.preheader, %hwloc__topology_set_type_filter.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %hwloc__topology_set_type_filter.exit ], [ 5, %.preheader ]
-  %10 = and i64 %indvars.iv, 11
-  %.not8 = icmp eq i64 %10, 0
-  br i1 %.not8, label %11, label %13
+  %11 = and i64 %indvars.iv, 11
+  %.not8 = icmp eq i64 %11, 0
+  br i1 %.not8, label %12, label %14
 
-11:                                               ; preds = %.preheader.split
-  %12 = tail call ptr @__errno_location() #39
-  store i32 22, ptr %12, align 4, !tbaa !31
+12:                                               ; preds = %.preheader.split
+  %13 = tail call ptr @__errno_location() #39
+  store i32 22, ptr %13, align 4, !tbaa !31
   br label %hwloc__topology_set_type_filter.exit
 
-13:                                               ; preds = %.preheader.split
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  store i32 %spec.store.select.i, ptr %14, align 4, !tbaa !31
+14:                                               ; preds = %.preheader.split
+  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  store i32 %spec.store.select.i, ptr %15, align 4, !tbaa !31
   br label %hwloc__topology_set_type_filter.exit
 
-hwloc__topology_set_type_filter.exit:             ; preds = %11, %13
+hwloc__topology_set_type_filter.exit:             ; preds = %12, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !191
 
-.loopexit:                                        ; preds = %hwloc__topology_set_type_filter.exit, %hwloc__topology_set_type_filter.exit.us.preheader, %8
+.loopexit:                                        ; preds = %hwloc__topology_set_type_filter.exit, %hwloc__topology_set_type_filter.exit.us, %9
   %.06 = phi i32 [ -1, %8 ], [ 0, %hwloc__topology_set_type_filter.exit.us.preheader ], [ 0, %hwloc__topology_set_type_filter.exit ]
   ret i32 %.06
 }
@@ -7502,34 +7502,34 @@ define range(i32 -1, 1) i32 @hwloc_topology_set_icache_types_filter(ptr noundef 
   %4 = load i64, ptr %3, align 8, !tbaa !90
   %5 = and i64 %4, 8
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %8, label %.preheader
+  br i1 %.not, label %9, label %.preheader
 
 .preheader:                                       ; preds = %2
   %.not21.i = icmp eq i32 %1, 0
   %6 = icmp eq i32 %1, 3
   %spec.store.select.i = select i1 %6, i32 0, i32 %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br i1 %.not21.i, label %hwloc__topology_set_type_filter.exit.us.preheader, label %hwloc__topology_set_type_filter.exit
+  br i1 %.not21.i, label %hwloc__topology_set_type_filter.exit.us, label %hwloc__topology_set_type_filter.exit
 
-hwloc__topology_set_type_filter.exit.us.preheader: ; preds = %.preheader
+hwloc__topology_set_type_filter.exit.us:          ; preds = %.preheader
   %scevgep = getelementptr i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, i8 0, i64 12, i1 false), !tbaa !31
   br label %.loopexit
 
-8:                                                ; preds = %2
-  %9 = tail call ptr @__errno_location() #39
-  store i32 16, ptr %9, align 4, !tbaa !31
+9:                                                ; preds = %2
+  %10 = tail call ptr @__errno_location() #39
+  store i32 16, ptr %10, align 4, !tbaa !31
   br label %.loopexit
 
 hwloc__topology_set_type_filter.exit:             ; preds = %.preheader, %hwloc__topology_set_type_filter.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %hwloc__topology_set_type_filter.exit ], [ 10, %.preheader ]
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  store i32 %spec.store.select.i, ptr %10, align 4, !tbaa !31
+  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  store i32 %spec.store.select.i, ptr %11, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %.loopexit, label %hwloc__topology_set_type_filter.exit, !llvm.loop !192
 
-.loopexit:                                        ; preds = %hwloc__topology_set_type_filter.exit, %hwloc__topology_set_type_filter.exit.us.preheader, %8
+.loopexit:                                        ; preds = %hwloc__topology_set_type_filter.exit, %hwloc__topology_set_type_filter.exit.us, %9
   %.06 = phi i32 [ -1, %8 ], [ 0, %hwloc__topology_set_type_filter.exit.us.preheader ], [ 0, %hwloc__topology_set_type_filter.exit ]
   ret i32 %.06
 }

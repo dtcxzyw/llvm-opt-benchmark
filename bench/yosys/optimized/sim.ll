@@ -98086,7 +98086,7 @@ define linkonce_odr i32 @_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL8IdStringEi
 _ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit:    ; preds = %.thread, %24, %28, %35
   %39 = phi i32 [ %5, %.thread ], [ %25, %24 ], [ %25, %28 ], [ %25, %35 ]
   %40 = phi i32 [ %5, %.thread ], [ %15, %24 ], [ %15, %28 ], [ %15, %35 ]
-  %.sroa.3.07 = phi i32 [ %4, %.thread ], [ %13, %24 ], [ %13, %28 ], [ %13, %35 ]
+  %.sroa.3.06 = phi i32 [ %4, %.thread ], [ %13, %24 ], [ %13, %28 ], [ %13, %35 ]
   %41 = mul i32 %2, 33
   %42 = xor i32 %41, %40
   %43 = xor i32 %42, 5381
@@ -98095,7 +98095,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit:    ; preds = %.thread, %24, %28, 
   %46 = lshr i32 %45, 17
   %47 = xor i32 %46, %45
   %48 = shl i32 %47, 5
-  %49 = mul i32 %.sroa.3.07, 33
+  %49 = mul i32 %.sroa.3.06, 33
   %50 = xor i32 %39, %49
   %51 = xor i32 %50, %48
   %52 = xor i32 %51, %47
@@ -111322,7 +111322,7 @@ define linkonce_odr i32 @_ZN5Yosys7hashlib8hash_opsISt6vectorINS_5RTLIL8IdString
 
 .lr.ph:                                           ; preds = %2, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %.sroa.07.014 = phi i32 [ %37, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %20, %2 ]
-  %.sroa.04.013 = phi ptr [ %66, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %5, %2 ]
+  %.sroa.04.013 = phi ptr [ %65, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %5, %2 ]
   %21 = load i32, ptr %.sroa.04.013, align 4, !tbaa !121
   %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.thread, label %22
@@ -111385,30 +111385,30 @@ _ZN5Yosys7hashlib11HasherDJB323eatIRNS_5RTLIL8IdStringEEEvOT_.exit: ; preds = %.
   %or.cond.i.i = and i1 %54, %53
   br i1 %or.cond.i.i, label %55, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-55:                                               ; preds = %_ZN5Yosys7hashlib11HasherDJB323eatIRNS_5RTLIL8IdStringEEEvOT_.exit
-  %56 = sext i32 %21 to i64
-  %57 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !128
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %56
-  %59 = load i32, ptr %58, align 4, !tbaa !130
-  %60 = add nsw i32 %59, -1
-  store i32 %60, ptr %58, align 4, !tbaa !130
-  %61 = icmp sgt i32 %59, 1
-  br i1 %61, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, label %62
+54:                                               ; preds = %_ZN5Yosys7hashlib11HasherDJB323eatIRNS_5RTLIL8IdStringEEEvOT_.exit
+  %55 = sext i32 %21 to i64
+  %56 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !128
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %55
+  %58 = load i32, ptr %57, align 4, !tbaa !130
+  %59 = add nsw i32 %58, -1
+  store i32 %59, ptr %57, align 4, !tbaa !130
+  %60 = icmp sgt i32 %58, 1
+  br i1 %60, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, label %61
 
-62:                                               ; preds = %55
+61:                                               ; preds = %54
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %21)
-          to label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit unwind label %63
+          to label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit unwind label %62
 
-63:                                               ; preds = %62
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %61
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #36
+  %64 = extractvalue { ptr, i32 } %63, 0
+  tail call void @__clang_call_terminate(ptr %64) #36
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys7hashlib11HasherDJB323eatIRNS_5RTLIL8IdStringEEEvOT_.exit, %55, %62
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.04.013, i64 4
-  %.not = icmp eq ptr %66, %4
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys7hashlib11HasherDJB323eatIRNS_5RTLIL8IdStringEEEvOT_.exit, %54, %61
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.04.013, i64 4
+  %.not = icmp eq ptr %65, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

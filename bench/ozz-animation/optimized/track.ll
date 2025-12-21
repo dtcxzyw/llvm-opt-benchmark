@@ -744,16 +744,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i: ; preds = %40
 
 _ZN3ozz9animation8internal5TrackIfE8AllocateEmm.exit: ; preds = %40, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i
   %.pre-phi = phi i64 [ %.idx.i.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i ], [ 0, %40 ]
-  %.sink58.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i ], [ null, %40 ]
-  %.sink56.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i ], [ null, %40 ]
+  %.sink56.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i ], [ null, %40 ]
+  %.sink.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i ], [ null, %40 ]
   %.sroa.036.2.i = phi ptr [ %76, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i ], [ %73, %40 ]
   %.sroa.04.0.i22.i = phi ptr [ %spec.select54.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19.i ], [ null, %40 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink58.i, ptr %77, align 8, !tbaa !10
+  store ptr %.sink56.i, ptr %77, align 8, !tbaa !10
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %60, ptr %78, align 8, !tbaa !13
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink56.i, ptr %79, align 8, !tbaa !10
+  store ptr %.sink.i, ptr %79, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %60, ptr %80, align 8, !tbaa !13
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -768,7 +768,7 @@ _ZN3ozz9animation8internal5TrackIfE8AllocateEmm.exit: ; preds = %40, %_ZN3ozz9fi
   %87 = load ptr, ptr %86, align 8, !tbaa !22
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink56.i, i64 noundef %.pre-phi)
+  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink.i, i64 noundef %.pre-phi)
   %91 = load i8, ptr %46, align 8, !tbaa !66, !range !29, !noundef !30
   %92 = trunc nuw i8 %91 to i1
   %.not9.i.i = icmp ne i32 %50, 0
@@ -777,7 +777,7 @@ _ZN3ozz9animation8internal5TrackIfE8AllocateEmm.exit: ; preds = %40, %_ZN3ozz9fi
 
 .lr.ph.i.i:                                       ; preds = %_ZN3ozz9animation8internal5TrackIfE8AllocateEmm.exit, %.lr.ph.i.i
   %.0.i6.i.i = phi i64 [ %101, %.lr.ph.i.i ], [ 0, %_ZN3ozz9animation8internal5TrackIfE8AllocateEmm.exit ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 %.0.i6.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %.0.i6.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %95 = load i8, ptr %93, align 1, !tbaa !38
   %96 = load i8, ptr %94, align 1, !tbaa !38
@@ -887,16 +887,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19: ; preds = %3
   br label %_ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit
 
 _ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19
-  %.sink58 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19 ], [ null, %3 ]
-  %.sink56 = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19 ], [ null, %3 ]
+  %.sink56 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19 ], [ null, %3 ]
+  %.sink = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19 ], [ null, %3 ]
   %.sroa.036.2 = phi ptr [ %18, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19 ], [ %15, %3 ]
   %.sroa.04.0.i22 = phi ptr [ %spec.select54, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit19 ], [ null, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink58, ptr %19, align 8, !tbaa !10
+  store ptr %.sink56, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %20, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink56, ptr %21, align 8, !tbaa !10
+  store ptr %.sink, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1431,16 +1431,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i: ; preds = %40
 
 _ZN3ozz9animation8internal5TrackINS_4math6Float2EE8AllocateEmm.exit: ; preds = %40, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i
   %.pre-phi = phi i64 [ %.idx.i14.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ 0, %40 ]
-  %.sink57.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
-  %.sink55.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink55.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %.sroa.035.2.i = phi ptr [ %76, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ %73, %40 ]
   %.sroa.04.0.i21.i = phi ptr [ %spec.select53.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57.i, ptr %77, align 8, !tbaa !70
+  store ptr %.sink55.i, ptr %77, align 8, !tbaa !70
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %60, ptr %78, align 8, !tbaa !72
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55.i, ptr %79, align 8, !tbaa !10
+  store ptr %.sink.i, ptr %79, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %60, ptr %80, align 8, !tbaa !13
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1455,7 +1455,7 @@ _ZN3ozz9animation8internal5TrackINS_4math6Float2EE8AllocateEmm.exit: ; preds = %
   %87 = load ptr, ptr %86, align 8, !tbaa !22
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink55.i, i64 noundef %.pre-phi)
+  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink.i, i64 noundef %.pre-phi)
   %91 = load i8, ptr %46, align 8, !tbaa !66, !range !29, !noundef !30
   %92 = trunc nuw i8 %91 to i1
   %.not9.i.i = icmp ne i32 %50, 0
@@ -1464,7 +1464,7 @@ _ZN3ozz9animation8internal5TrackINS_4math6Float2EE8AllocateEmm.exit: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %_ZN3ozz9animation8internal5TrackINS_4math6Float2EE8AllocateEmm.exit, %.lr.ph.i.i
   %.0.i6.i.i = phi i64 [ %101, %.lr.ph.i.i ], [ 0, %_ZN3ozz9animation8internal5TrackINS_4math6Float2EE8AllocateEmm.exit ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 %.0.i6.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %.0.i6.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %95 = load i8, ptr %93, align 1, !tbaa !38
   %96 = load i8, ptr %94, align 1, !tbaa !38
@@ -1540,16 +1540,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3
   br label %_ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit
 
 _ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit
-  %.sink57 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
-  %.sink55 = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink55 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %.sroa.035.2 = phi ptr [ %18, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ %15, %3 ]
   %.sroa.04.0.i21 = phi ptr [ %spec.select53, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57, ptr %19, align 8, !tbaa !70
+  store ptr %.sink55, ptr %19, align 8, !tbaa !70
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %20, align 8, !tbaa !72
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55, ptr %21, align 8, !tbaa !10
+  store ptr %.sink, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2082,16 +2082,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i: ; preds = %40
 
 _ZN3ozz9animation8internal5TrackINS_4math6Float3EE8AllocateEmm.exit: ; preds = %40, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i
   %.pre-phi = phi i64 [ %.idx.i14.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ 0, %40 ]
-  %.sink57.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
-  %.sink55.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink55.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %.sroa.035.2.i = phi ptr [ %76, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ %73, %40 ]
   %.sroa.04.0.i21.i = phi ptr [ %spec.select53.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57.i, ptr %77, align 8, !tbaa !78
+  store ptr %.sink55.i, ptr %77, align 8, !tbaa !78
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %60, ptr %78, align 8, !tbaa !80
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55.i, ptr %79, align 8, !tbaa !10
+  store ptr %.sink.i, ptr %79, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %60, ptr %80, align 8, !tbaa !13
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2106,7 +2106,7 @@ _ZN3ozz9animation8internal5TrackINS_4math6Float3EE8AllocateEmm.exit: ; preds = %
   %87 = load ptr, ptr %86, align 8, !tbaa !22
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink55.i, i64 noundef %.pre-phi)
+  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink.i, i64 noundef %.pre-phi)
   %91 = load i8, ptr %46, align 8, !tbaa !66, !range !29, !noundef !30
   %92 = trunc nuw i8 %91 to i1
   %.not9.i.i = icmp ne i32 %50, 0
@@ -2115,7 +2115,7 @@ _ZN3ozz9animation8internal5TrackINS_4math6Float3EE8AllocateEmm.exit: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %_ZN3ozz9animation8internal5TrackINS_4math6Float3EE8AllocateEmm.exit, %.lr.ph.i.i
   %.0.i6.i.i = phi i64 [ %101, %.lr.ph.i.i ], [ 0, %_ZN3ozz9animation8internal5TrackINS_4math6Float3EE8AllocateEmm.exit ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 %.0.i6.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %.0.i6.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %95 = load i8, ptr %93, align 1, !tbaa !38
   %96 = load i8, ptr %94, align 1, !tbaa !38
@@ -2191,16 +2191,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3
   br label %_ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit
 
 _ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit
-  %.sink57 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
-  %.sink55 = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink55 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %.sroa.035.2 = phi ptr [ %18, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ %15, %3 ]
   %.sroa.04.0.i21 = phi ptr [ %spec.select53, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57, ptr %19, align 8, !tbaa !78
+  store ptr %.sink55, ptr %19, align 8, !tbaa !78
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %20, align 8, !tbaa !80
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55, ptr %21, align 8, !tbaa !10
+  store ptr %.sink, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2733,16 +2733,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i: ; preds = %40
 
 _ZN3ozz9animation8internal5TrackINS_4math6Float4EE8AllocateEmm.exit: ; preds = %40, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i
   %.pre-phi = phi i64 [ %.idx.i14.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ 0, %40 ]
-  %.sink57.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
-  %.sink55.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink55.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %.sroa.035.2.i = phi ptr [ %76, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ %73, %40 ]
   %.sroa.04.0.i21.i = phi ptr [ %spec.select53.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57.i, ptr %77, align 8, !tbaa !86
+  store ptr %.sink55.i, ptr %77, align 8, !tbaa !86
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %60, ptr %78, align 8, !tbaa !88
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55.i, ptr %79, align 8, !tbaa !10
+  store ptr %.sink.i, ptr %79, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %60, ptr %80, align 8, !tbaa !13
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2757,7 +2757,7 @@ _ZN3ozz9animation8internal5TrackINS_4math6Float4EE8AllocateEmm.exit: ; preds = %
   %87 = load ptr, ptr %86, align 8, !tbaa !22
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink55.i, i64 noundef %.pre-phi)
+  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink.i, i64 noundef %.pre-phi)
   %91 = load i8, ptr %46, align 8, !tbaa !66, !range !29, !noundef !30
   %92 = trunc nuw i8 %91 to i1
   %.not9.i.i = icmp ne i32 %50, 0
@@ -2766,7 +2766,7 @@ _ZN3ozz9animation8internal5TrackINS_4math6Float4EE8AllocateEmm.exit: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %_ZN3ozz9animation8internal5TrackINS_4math6Float4EE8AllocateEmm.exit, %.lr.ph.i.i
   %.0.i6.i.i = phi i64 [ %101, %.lr.ph.i.i ], [ 0, %_ZN3ozz9animation8internal5TrackINS_4math6Float4EE8AllocateEmm.exit ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 %.0.i6.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %.0.i6.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %95 = load i8, ptr %93, align 1, !tbaa !38
   %96 = load i8, ptr %94, align 1, !tbaa !38
@@ -2842,16 +2842,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3
   br label %_ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit
 
 _ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit
-  %.sink57 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
-  %.sink55 = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink55 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %.sroa.035.2 = phi ptr [ %18, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ %15, %3 ]
   %.sroa.04.0.i21 = phi ptr [ %spec.select53, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57, ptr %19, align 8, !tbaa !86
+  store ptr %.sink55, ptr %19, align 8, !tbaa !86
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %20, align 8, !tbaa !88
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55, ptr %21, align 8, !tbaa !10
+  store ptr %.sink, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3384,16 +3384,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i: ; preds = %40
 
 _ZN3ozz9animation8internal5TrackINS_4math10QuaternionEE8AllocateEmm.exit: ; preds = %40, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i
   %.pre-phi = phi i64 [ %.idx.i14.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ 0, %40 ]
-  %.sink57.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
-  %.sink55.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink55.i = phi ptr [ %73, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
+  %.sink.i = phi ptr [ %74, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %.sroa.035.2.i = phi ptr [ %76, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ %73, %40 ]
   %.sroa.04.0.i21.i = phi ptr [ %spec.select53.i, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit.i ], [ null, %40 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57.i, ptr %77, align 8, !tbaa !94
+  store ptr %.sink55.i, ptr %77, align 8, !tbaa !94
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %60, ptr %78, align 8, !tbaa !96
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55.i, ptr %79, align 8, !tbaa !10
+  store ptr %.sink.i, ptr %79, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %60, ptr %80, align 8, !tbaa !13
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3408,7 +3408,7 @@ _ZN3ozz9animation8internal5TrackINS_4math10QuaternionEE8AllocateEmm.exit: ; pred
   %87 = load ptr, ptr %86, align 8, !tbaa !22
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink55.i, i64 noundef %.pre-phi)
+  %90 = call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %.sink.i, i64 noundef %.pre-phi)
   %91 = load i8, ptr %46, align 8, !tbaa !66, !range !29, !noundef !30
   %92 = trunc nuw i8 %91 to i1
   %.not9.i.i = icmp ne i32 %50, 0
@@ -3417,7 +3417,7 @@ _ZN3ozz9animation8internal5TrackINS_4math10QuaternionEE8AllocateEmm.exit: ; pred
 
 .lr.ph.i.i:                                       ; preds = %_ZN3ozz9animation8internal5TrackINS_4math10QuaternionEE8AllocateEmm.exit, %.lr.ph.i.i
   %.0.i6.i.i = phi i64 [ %101, %.lr.ph.i.i ], [ 0, %_ZN3ozz9animation8internal5TrackINS_4math10QuaternionEE8AllocateEmm.exit ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 %.0.i6.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %.0.i6.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %95 = load i8, ptr %93, align 1, !tbaa !38
   %96 = load i8, ptr %94, align 1, !tbaa !38
@@ -3493,16 +3493,16 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3
   br label %_ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit
 
 _ZN3ozz9fill_spanIhEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit
-  %.sink57 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
-  %.sink55 = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink55 = phi ptr [ %15, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+  %.sink = phi ptr [ %16, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %.sroa.035.2 = phi ptr [ %18, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ %15, %3 ]
   %.sroa.04.0.i21 = phi ptr [ %spec.select53, %_ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink57, ptr %19, align 8, !tbaa !94
+  store ptr %.sink55, ptr %19, align 8, !tbaa !94
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %20, align 8, !tbaa !96
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink55, ptr %21, align 8, !tbaa !10
+  store ptr %.sink, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40

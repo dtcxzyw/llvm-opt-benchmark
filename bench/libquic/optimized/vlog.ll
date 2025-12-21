@@ -648,14 +648,14 @@ define noundef zeroext i1 @_ZN7logging16MatchVlogPatternERKN4base16BasicStringPi
   %6 = icmp eq i64 %.promoted, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !31
-  br i1 %6, label %._crit_edge62, label %.lr.ph
+  br i1 %6, label %._crit_edge64, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.promoted18 = load ptr, ptr %4, align 8
   %.promoted14 = load ptr, ptr %3, align 8
   %7 = sub i64 %.promoted, %.pre
   %scevgep = getelementptr i8, ptr %.promoted14, i64 %.pre
-  %scevgep55 = getelementptr i8, ptr %.promoted18, i64 %.pre
+  %scevgep57 = getelementptr i8, ptr %.promoted18, i64 %.pre
   %8 = sub i64 %.pre, %.promoted
   br label %9
 
@@ -694,26 +694,26 @@ define noundef zeroext i1 @_ZN7logging16MatchVlogPatternERKN4base16BasicStringPi
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %25 = add i64 %10, -1
   %26 = icmp eq i64 %23, 0
-  br i1 %26, label %._crit_edge62, label %9, !llvm.loop !48
+  br i1 %26, label %._crit_edge64, label %9, !llvm.loop !48
 
 .lr.ph31.preheader:                               ; preds = %9, %15
-  %.lcssa46 = phi i64 [ %11, %15 ], [ %7, %9 ]
-  %.lcssa43 = phi ptr [ %12, %15 ], [ %scevgep, %9 ]
-  %.promoted34 = phi ptr [ %13, %15 ], [ %scevgep55, %9 ]
+  %.lcssa47 = phi i64 [ %11, %15 ], [ %7, %9 ]
+  %.lcssa44 = phi ptr [ %12, %15 ], [ %scevgep, %9 ]
+  %.promoted34 = phi ptr [ %13, %15 ], [ %scevgep57, %9 ]
   store i64 %10, ptr %.phi.trans.insert, align 8
-  store i64 %.lcssa46, ptr %5, align 8
-  store ptr %.lcssa43, ptr %3, align 8
+  store i64 %.lcssa47, ptr %5, align 8
+  store ptr %.lcssa44, ptr %3, align 8
   store ptr %.promoted34, ptr %4, align 8
   br label %.lr.ph31
 
-._crit_edge62:                                    ; preds = %21, %2
+._crit_edge64:                                    ; preds = %21, %2
   %27 = phi i64 [ %.pre, %2 ], [ %8, %21 ]
   %28 = icmp eq i64 %27, 0
   br label %.critedge2.thread
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %34
-  %29 = phi i64 [ %36, %34 ], [ %.lcssa46, %.lr.ph31.preheader ]
-  %30 = phi ptr [ %35, %34 ], [ %.lcssa43, %.lr.ph31.preheader ]
+  %29 = phi i64 [ %36, %34 ], [ %.lcssa47, %.lr.ph31.preheader ]
+  %30 = phi ptr [ %35, %34 ], [ %.lcssa44, %.lr.ph31.preheader ]
   %31 = load i8, ptr %30, align 1, !tbaa !14
   %32 = icmp eq i8 %31, 42
   br i1 %32, label %34, label %.critedge2.preheader
@@ -744,7 +744,7 @@ define noundef zeroext i1 @_ZN7logging16MatchVlogPatternERKN4base16BasicStringPi
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %.critedge2.thread, label %.lr.ph35, !llvm.loop !50
 
-.critedge2.thread:                                ; preds = %17, %19, %34, %.lr.ph35, %.critedge2, %.critedge2.preheader, %._crit_edge62
+.critedge2.thread:                                ; preds = %17, %19, %34, %.lr.ph35, %.critedge2, %.critedge2.preheader, %._crit_edge64
   %.0 = phi i1 [ %28, %._crit_edge62 ], [ %40, %.lr.ph35 ], [ true, %34 ], [ false, %.critedge2.preheader ], [ %40, %.critedge2 ], [ false, %19 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
