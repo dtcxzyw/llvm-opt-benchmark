@@ -1370,8 +1370,8 @@ _ZN6brotli3enc6encode17EnsureInitialized17h5272514e7070790bE.exit33.i: ; preds =
   %247 = load i64, ptr %39, align 8, !alias.scope !57, !noalias !58, !noundef !7
   %248 = icmp eq i64 %247, 0
   %.pre.i.i.i = load i64, ptr %26, align 8, !alias.scope !85, !noalias !88
-  %.pre1100.i.i.i = load i64, ptr %27, align 8, !alias.scope !85, !noalias !88
-  %249 = sub i64 %.pre.i.i.i, %.pre1100.i.i.i
+  %.pre1028.i.i.i = load i64, ptr %27, align 8, !alias.scope !85, !noalias !88
+  %249 = sub i64 %.pre.i.i.i, %.pre1028.i.i.i
   br i1 %248, label %250, label %._crit_edge.i.i.i
 
 250:                                              ; preds = %246
@@ -10174,7 +10174,7 @@ define hidden noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17he1badbc6f98e989
   %21 = load i8, ptr %9, align 8
   %22 = and i8 %21, 4
   %23 = icmp eq i8 %22, 0
-  %.promoted567 = load ptr, ptr %6, align 8
+  %.promoted561 = load ptr, ptr %6, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.outer, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit147"
@@ -10403,8 +10403,8 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit: ; preds = %
   br label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread
 
 _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208: ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit154
-  store i64 %134, ptr %8, align 8, !alias.scope !692, !noalias !697
-  store ptr %135, ptr %1, align 8, !alias.scope !692, !noalias !697
+  store i64 0, ptr %8, align 8, !alias.scope !692, !noalias !697
+  store ptr %134, ptr %1, align 8, !alias.scope !692, !noalias !697
   br label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread
 
 _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit210: ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit161
@@ -10413,8 +10413,8 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit210: ; preds 
   br label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread
 
 _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212: ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit189
-  store i64 %238, ptr %8, align 8, !alias.scope !708, !noalias !713
-  store ptr %239, ptr %1, align 8, !alias.scope !708, !noalias !713
+  store i64 0, ptr %8, align 8, !alias.scope !708, !noalias !713
+  store ptr %238, ptr %1, align 8, !alias.scope !708, !noalias !713
   br label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread
 
 _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit210, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit, %._crit_edge.i177, %215, %._crit_edge.i, %189, %227, %58, %65, %86
@@ -10423,17 +10423,17 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit147": ; preds = %27
   store i8 3, ptr %4, align 8
-  store ptr %.promoted567, ptr %6, align 8
+  store ptr %.promoted561, ptr %6, align 8
   br label %.backedge
 
-._crit_edge263:                                   ; preds = %137
-  store i64 %134, ptr %8, align 8, !alias.scope !692, !noalias !697
-  store ptr %135, ptr %1, align 8, !alias.scope !692, !noalias !697
+._crit_edge263:                                   ; preds = %136
+  store i64 %137, ptr %8, align 8, !alias.scope !692, !noalias !697
+  store ptr %134, ptr %1, align 8, !alias.scope !692, !noalias !697
   br label %106
 
 106:                                              ; preds = %._crit_edge263, %.preheader
-  %.promoted277395 = phi i64 [ %134, %._crit_edge263 ], [ %.promoted277397.ph, %.preheader ]
-  %.lcssa368385 = phi ptr [ %135, %._crit_edge263 ], [ %.lcssa368387.ph, %.preheader ]
+  %.promoted277395 = phi i64 [ %137, %._crit_edge263 ], [ %.promoted277397.ph, %.preheader ]
+  %.lcssa368385 = phi ptr [ %134, %._crit_edge263 ], [ %.lcssa368387.ph, %.preheader ]
   %107 = load ptr, ptr %6, align 8, !align !8, !noundef !7
   %.not128 = icmp eq ptr %107, null
   br i1 %.not128, label %109, label %108
@@ -10497,10 +10497,10 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge
   %.ph.be = phi i8 [ 6, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit184" ], [ 5, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit182" ], [ 4, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit164" ], [ 3, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit156" ], [ 1, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit" ], [ 2, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h77d570f0cf352d8fE.exit" ]
   br label %.backedge.outer
 
-.lr.ph262:                                        ; preds = %.preheader, %137
-  %125 = phi i64 [ %134, %137 ], [ %.promoted277397.ph, %.preheader ]
-  %126 = phi i8 [ %139, %137 ], [ %.promoted260, %.preheader ]
-  %127 = phi ptr [ %135, %137 ], [ %.lcssa368387.ph, %.preheader ]
+.lr.ph262:                                        ; preds = %.preheader, %136
+  %125 = phi i64 [ %137, %136 ], [ %.promoted277397.ph, %.preheader ]
+  %126 = phi i8 [ %139, %136 ], [ %.promoted260, %.preheader ]
+  %127 = phi ptr [ %134, %136 ], [ %.lcssa368387.ph, %.preheader ]
   %128 = zext nneg i8 %126 to i64
   %129 = sub nuw nsw i64 2, %128
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 %128
@@ -10522,12 +10522,12 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge
   br label %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit154
 
 _ZN6flate22gz9read_into17h92829966677ffbd2E.exit154: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc5472714370cf0e9E.exit.i.i151", %132
-  %134 = sub nuw i64 %125, %.sroa.0.0.sroa.speculated.i.i.i150
-  %135 = getelementptr inbounds nuw i8, ptr %127, i64 %.sroa.0.0.sroa.speculated.i.i.i150
-  %136 = icmp eq i64 %125, 0
-  br i1 %136, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208, label %137
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 %.sroa.0.0.sroa.speculated.i.i.i150
+  %135 = icmp eq i64 %125, 0
+  br i1 %135, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208, label %136
 
-137:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit154
+136:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit154
+  %137 = sub nuw i64 %125, %.sroa.0.0.sroa.speculated.i.i.i150
   %138 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i150 to i8
   %139 = add nuw nsw i8 %126, %138
   store i8 %139, ptr %7, align 1
@@ -10783,15 +10783,15 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit180: ; preds = %.lr.ph.i172
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val133, i64 noundef 24, i64 noundef 8) #26
   br label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit184"
 
-._crit_edge:                                      ; preds = %241
-  store i64 %238, ptr %8, align 8, !alias.scope !708, !noalias !713
-  store ptr %239, ptr %1, align 8, !alias.scope !708, !noalias !713
+._crit_edge:                                      ; preds = %240
+  store i64 %241, ptr %8, align 8, !alias.scope !708, !noalias !713
+  store ptr %238, ptr %1, align 8, !alias.scope !708, !noalias !713
   %.pre315 = load ptr, ptr %6, align 8
   br label %223
 
 223:                                              ; preds = %._crit_edge, %.preheader211
-  %.promoted277389 = phi i64 [ %238, %._crit_edge ], [ %.promoted277397.ph, %.preheader211 ]
-  %.lcssa368379 = phi ptr [ %239, %._crit_edge ], [ %.lcssa368387.ph, %.preheader211 ]
+  %.promoted277389 = phi i64 [ %241, %._crit_edge ], [ %.promoted277397.ph, %.preheader211 ]
+  %.lcssa368379 = phi ptr [ %238, %._crit_edge ], [ %.lcssa368387.ph, %.preheader211 ]
   %.val133 = phi ptr [ %.pre315, %._crit_edge ], [ %45, %.preheader211 ]
   %.sroa.0109.0.copyload = load i16, ptr %5, align 2
   %224 = getelementptr inbounds nuw i8, ptr %.val133, i64 4
@@ -10804,10 +10804,10 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit180: ; preds = %.lr.ph.i172
   %228 = tail call noundef nonnull ptr @_ZN6flate22gz7corrupt17hf0ab082921a22769E()
   br label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread
 
-.lr.ph:                                           ; preds = %.preheader211, %241
-  %229 = phi i64 [ %238, %241 ], [ %.promoted277397.ph, %.preheader211 ]
-  %230 = phi i8 [ %243, %241 ], [ %.promoted, %.preheader211 ]
-  %231 = phi ptr [ %239, %241 ], [ %.lcssa368387.ph, %.preheader211 ]
+.lr.ph:                                           ; preds = %.preheader211, %240
+  %229 = phi i64 [ %241, %240 ], [ %.promoted277397.ph, %.preheader211 ]
+  %230 = phi i8 [ %243, %240 ], [ %.promoted, %.preheader211 ]
+  %231 = phi ptr [ %238, %240 ], [ %.lcssa368387.ph, %.preheader211 ]
   %232 = zext nneg i8 %230 to i64
   %233 = sub nuw nsw i64 2, %232
   %234 = getelementptr inbounds nuw i8, ptr %5, i64 %232
@@ -10829,12 +10829,12 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit180: ; preds = %.lr.ph.i172
   br label %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit189
 
 _ZN6flate22gz9read_into17h92829966677ffbd2E.exit189: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc5472714370cf0e9E.exit.i.i186", %236
-  %238 = sub nuw i64 %229, %.sroa.0.0.sroa.speculated.i.i.i185
-  %239 = getelementptr inbounds nuw i8, ptr %231, i64 %.sroa.0.0.sroa.speculated.i.i.i185
-  %240 = icmp eq i64 %229, 0
-  br i1 %240, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212, label %241
+  %238 = getelementptr inbounds nuw i8, ptr %231, i64 %.sroa.0.0.sroa.speculated.i.i.i185
+  %239 = icmp eq i64 %229, 0
+  br i1 %239, label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212, label %240
 
-241:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit189
+240:                                              ; preds = %_ZN6flate22gz9read_into17h92829966677ffbd2E.exit189
+  %241 = sub nuw i64 %229, %.sroa.0.0.sroa.speculated.i.i.i185
   %242 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i185 to i8
   %243 = add nuw nsw i8 %230, %242
   store i8 %243, ptr %7, align 1

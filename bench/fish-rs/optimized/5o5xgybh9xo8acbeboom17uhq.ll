@@ -11266,8 +11266,8 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   br i1 %45, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %56
-  %.sroa.05.0378 = phi i1 [ true, %56 ], [ false, %44 ]
-  %.sroa.055.2377 = phi i64 [ %57, %56 ], [ %.sroa.055.1213, %44 ]
+  %.sroa.05.0372 = phi i1 [ true, %56 ], [ false, %44 ]
+  %.sroa.055.2371 = phi i64 [ %57, %56 ], [ %.sroa.055.1213, %44 ]
   %46 = phi ptr [ %47, %56 ], [ %.sroa.0.2, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %46, align 4, !noalias !1878, !noundef !17
@@ -11289,14 +11289,14 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   br i1 %54, label %56, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit"
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit": ; preds = %52, %56, %44
-  %.sroa.055.2.lcssa = phi i64 [ %.sroa.055.1213, %44 ], [ %.sroa.055.2377, %52 ], [ %57, %56 ]
-  %.sroa.05.0.lcssa = phi i1 [ false, %44 ], [ %.sroa.05.0378, %52 ], [ true, %56 ]
+  %.sroa.055.2.lcssa = phi i64 [ %.sroa.055.1213, %44 ], [ %.sroa.055.2371, %52 ], [ %57, %56 ]
+  %.sroa.05.0.lcssa = phi i1 [ false, %44 ], [ %.sroa.05.0372, %52 ], [ true, %56 ]
   %55 = phi ptr [ %.sroa.0.2, %44 ], [ %47, %56 ], [ %47, %52 ]
   %storemerge19.i = phi i32 [ 1114112, %44 ], [ %48, %52 ], [ 1114112, %56 ]
   br label %59
 
 56:                                               ; preds = %52
-  %57 = add i64 %.sroa.055.2377, 1
+  %57 = add i64 %.sroa.055.2371, 1
   %58 = icmp eq ptr %47, %2
   br i1 %58, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit", label %.lr.ph
 
@@ -11321,9 +11321,9 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   %66 = xor i32 %65, 55296
   %67 = add i32 %66, -1114112
   %68 = icmp ult i32 %67, -1112064
-  br i1 %68, label %.split.i.i.i148, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread339"
+  br i1 %68, label %.split.i.i.i148, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread333"
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread339": ; preds = %64
+"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread333": ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 4
   br label %70
 
@@ -11333,9 +11333,9 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.cf6b743a34a7c76188724518d33b37d2.67, i64 noundef 43, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.cf6b743a34a7c76188724518d33b37d2.73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf6b743a34a7c76188724518d33b37d2.133) #36, !noalias !1884
   unreachable
 
-70:                                               ; preds = %59, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread339"
-  %71 = phi i32 [ %65, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread339" ], [ %61, %59 ]
-  %72 = phi ptr [ %69, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread339" ], [ %60, %59 ]
+70:                                               ; preds = %59, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread333"
+  %71 = phi i32 [ %65, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread333" ], [ %61, %59 ]
+  %72 = phi ptr [ %69, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread333" ], [ %60, %59 ]
   %73 = icmp samesign ugt i32 %71, 57
   %74 = add nsw i32 %71, -65
   %75 = and i32 %74, -33
@@ -11347,7 +11347,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
 
 .critedge:                                        ; preds = %59, %62, %70
   %79 = phi ptr [ %60, %59 ], [ %72, %70 ], [ %60, %62 ]
-  %.lcssa300 = phi i32 [ %61, %59 ], [ %71, %70 ], [ 1114112, %62 ]
+  %.lcssa294 = phi i32 [ %61, %59 ], [ %71, %70 ], [ 1114112, %62 ]
   %80 = sub i64 %.sroa.055.3, %.sroa.055.2.lcssa
   %81 = icmp ugt i64 %80, 2147483647
   br i1 %81, label %94, label %91
@@ -11372,22 +11372,22 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
 
 94:                                               ; preds = %.critedge, %91
   %..sroa.5.0 = phi { i32, i1 } [ %93, %91 ], [ { i32 -4, i1 true }, %.critedge ]
-  %95 = icmp eq i32 %.lcssa300, %3
+  %95 = icmp eq i32 %.lcssa294, %3
   br i1 %95, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader", label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread"
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader": ; preds = %94
-  %.sroa.055.4387 = add i64 %.sroa.055.3, 1
+  %.sroa.055.4381 = add i64 %.sroa.055.3, 1
   %96 = icmp eq ptr %79, %2
-  br i1 %96, label %.critedge129, label %.lr.ph392
+  br i1 %96, label %.critedge129, label %.lr.ph386
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread": ; preds = %94
   br i1 %.sroa.05.1, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181", label %204
 
-.lr.ph392:                                        ; preds = %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader"
-  %.sroa.055.4391 = phi i64 [ %.sroa.055.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.055.4387, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
-  %.sroa.05.2390 = phi i1 [ true, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.05.1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
-  %.sroa.06.2389 = phi i64 [ %.sroa.06.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
-  %.sroa.016.2388 = phi i32 [ %.sroa.016.3, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.016.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
+.lr.ph386:                                        ; preds = %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader"
+  %.sroa.055.4385 = phi i64 [ %.sroa.055.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.055.4381, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
+  %.sroa.05.2384 = phi i1 [ true, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.05.1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
+  %.sroa.06.2383 = phi i64 [ %.sroa.06.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
+  %.sroa.016.2382 = phi i32 [ %.sroa.016.3, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %.sroa.016.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
   %97 = phi ptr [ %103, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %79, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ]
   %98 = load i32, ptr %97, align 4, !noalias !1892, !noundef !17
   %99 = xor i32 %98, 55296
@@ -11395,13 +11395,13 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   %101 = icmp ult i32 %100, -1112064
   br i1 %101, label %.split.i.i.i168, label %102
 
-.split.i.i.i168:                                  ; preds = %.lr.ph392
+.split.i.i.i168:                                  ; preds = %.lr.ph386
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1892
   store i32 %98, ptr %7, align 4, !noalias !1892
   call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.cf6b743a34a7c76188724518d33b37d2.67, i64 noundef 43, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.cf6b743a34a7c76188724518d33b37d2.73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf6b743a34a7c76188724518d33b37d2.133) #36, !noalias !1892
   unreachable
 
-102:                                              ; preds = %.lr.ph392
+102:                                              ; preds = %.lr.ph386
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %104 = icmp ult i32 %98, 1114112
   tail call void @llvm.assume(i1 %104)
@@ -11416,28 +11416,28 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader": ; preds = %102
   %111 = zext nneg i32 %.sroa.02.0.i170 to i64
-  %112 = icmp sgt i32 %.sroa.016.2388, 0
-  %113 = add nsw i32 %.sroa.016.2388, -4
+  %112 = icmp sgt i32 %.sroa.016.2382, 0
+  %113 = add nsw i32 %.sroa.016.2382, -4
   %114 = and i32 %113, 63
   %115 = zext nneg i32 %114 to i64
   %116 = shl i64 %111, %115
-  %.sroa.016.3 = select i1 %112, i32 %113, i32 %.sroa.016.2388
+  %.sroa.016.3 = select i1 %112, i32 %113, i32 %.sroa.016.2382
   %117 = select i1 %112, i64 %116, i64 0
-  %.sroa.06.4 = or i64 %117, %.sroa.06.2389
-  %.sroa.055.4 = add i64 %.sroa.055.4391, 1
+  %.sroa.06.4 = or i64 %117, %.sroa.06.2383
+  %.sroa.055.4 = add i64 %.sroa.055.4385, 1
   %118 = icmp eq ptr %103, %2
-  br i1 %118, label %.critedge129, label %.lr.ph392
+  br i1 %118, label %.critedge129, label %.lr.ph386
 
 .critedge129:                                     ; preds = %102, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader"
-  %.sroa.06.2.lcssa = phi i64 [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %.sroa.06.2389, %102 ], [ %.sroa.06.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
-  %.sroa.05.2.lcssa = phi i1 [ %.sroa.05.1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %.sroa.05.2390, %102 ], [ true, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
-  %.sroa.055.4.lcssa = phi i64 [ %.sroa.055.4387, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %.sroa.055.4391, %102 ], [ %.sroa.055.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
+  %.sroa.06.2.lcssa = phi i64 [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %.sroa.06.2383, %102 ], [ %.sroa.06.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
+  %.sroa.05.2.lcssa = phi i1 [ %.sroa.05.1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %.sroa.05.2384, %102 ], [ true, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
+  %.sroa.055.4.lcssa = phi i64 [ %.sroa.055.4381, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %.sroa.055.4385, %102 ], [ %.sroa.055.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
   %119 = phi ptr [ %79, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %103, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ], [ %103, %102 ]
-  %.lcssa290 = phi i32 [ 1114112, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %98, %102 ], [ 1114112, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
+  %.lcssa286 = phi i32 [ 1114112, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader.preheader" ], [ %98, %102 ], [ 1114112, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.preheader" ]
   br i1 %.sroa.05.2.lcssa, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181", label %204
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181": ; preds = %.critedge129, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread"
-  %.sroa.29.1 = phi i32 [ %.lcssa300, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread" ], [ %.lcssa290, %.critedge129 ]
+  %.sroa.29.1 = phi i32 [ %.lcssa294, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread" ], [ %.lcssa286, %.critedge129 ]
   %.sroa.0.6 = phi ptr [ %79, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread" ], [ %119, %.critedge129 ]
   %.sroa.055.5224232 = phi i64 [ %.sroa.055.3, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread" ], [ %.sroa.055.4.lcssa, %.critedge129 ]
   %.sroa.06.3225231 = phi i64 [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread" ], [ %.sroa.06.2.lcssa, %.critedge129 ]
@@ -11506,9 +11506,9 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   %142 = xor i32 %141, 55296
   %143 = add i32 %142, -1114112
   %144 = icmp ult i32 %143, -1112064
-  br i1 %144, label %.split.i.i.i192, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread343"
+  br i1 %144, label %.split.i.i.i192, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread337"
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread343": ; preds = %140
+"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread337": ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %136, i64 4
   br label %146
 
@@ -11518,9 +11518,9 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.cf6b743a34a7c76188724518d33b37d2.67, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.cf6b743a34a7c76188724518d33b37d2.73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf6b743a34a7c76188724518d33b37d2.133) #36, !noalias !1908
   unreachable
 
-146:                                              ; preds = %135, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread343"
-  %147 = phi i32 [ %141, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread343" ], [ %137, %135 ]
-  %148 = phi ptr [ %145, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread343" ], [ %136, %135 ]
+146:                                              ; preds = %135, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread337"
+  %147 = phi i32 [ %141, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread337" ], [ %137, %135 ]
+  %148 = phi ptr [ %145, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit193.thread337" ], [ %136, %135 ]
   %149 = add nsw i32 %147, -48
   %150 = icmp ult i32 %149, 10
   br i1 %150, label %151, label %.critedge131
@@ -11622,9 +11622,9 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   br label %.sink.split
 
 .sink.split:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit", %165, %200
-  %.sink361 = phi double [ %201, %200 ], [ %166, %165 ], [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ]
+  %.sink355 = phi double [ %201, %200 ], [ %166, %165 ], [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink361, ptr %202, align 8
+  store double %.sink355, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.055.6, ptr %203, align 8
   br label %204

@@ -855,9 +855,9 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load atomic i8, ptr %159 monotonic, align 1
   %161 = trunc i8 %160 to i1
-  br i1 %161, label %.thread55.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold13compute_crc32EjPhlE5ShardSt6vectorISD_SaISD_EEEEZNSB_13compute_crc32EjSC_lE3$_0SD_EEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
+  br i1 %161, label %.thread54.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPZN4mold13compute_crc32EjPhlE5ShardSt6vectorISD_SaISD_EEEEZNSB_13compute_crc32EjSC_lE3$_0SD_EEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-.thread55.i.i:                                    ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.thread.i.i
+.thread54.i.i:                                    ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.thread.i.i
   %162 = add i8 %118, 1
   store i8 %162, ptr %96, align 4, !tbaa !78
   br label %.thread.i.i
@@ -868,9 +868,9 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %165 = icmp ugt i8 %152, 1
   br i1 %165, label %.thread.i.i, label %195
 
-.thread.i.i:                                      ; preds = %163, %.thread55.i.i
-  %166 = phi i8 [ 8, %.thread55.i.i ], [ %152, %163 ]
-  %167 = phi i8 [ %137, %.thread55.i.i ], [ %153, %163 ]
+.thread.i.i:                                      ; preds = %163, %.thread54.i.i
+  %166 = phi i8 [ 8, %.thread54.i.i ], [ %152, %163 ]
+  %167 = phi i8 [ %137, %.thread54.i.i ], [ %153, %163 ]
   %168 = zext nneg i8 %115 to i64
   %169 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %111, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %110, i64 %168

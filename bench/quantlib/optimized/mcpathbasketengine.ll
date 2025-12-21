@@ -615,9 +615,7 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %for.body.i.i.i.i, %
 
 for.cond.cleanup.thread:                          ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %values)
-  store ptr null, ptr %values, align 8, !tbaa !28
-  %n_5.i = getelementptr inbounds nuw i8, ptr %values, i64 8
-  store i64 %sub.ptr.div.i, ptr %n_5.i, align 8, !tbaa !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %values, i8 0, i64 16, i1 false)
   br label %invoke.cont94
 
 for.body.us:                                      ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit, %for.cond74.for.cond.cleanup76_crit_edge.us
@@ -639,12 +637,12 @@ invoke.cont83.us:                                 ; preds = %for.body.us, %invok
   store double %46, ptr %gep.us, align 8, !tbaa !44
   %inc.us = add nuw i64 %j.0141.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i
-  br i1 %exitcond.not, label %for.cond74.for.cond.cleanup76_crit_edge.us, label %invoke.cont83.us, !llvm.loop !50
+  br i1 %exitcond.not, label %for.cond74.for.cond.cleanup76_crit_edge.us, label %invoke.cont83.us, !llvm.loop !48
 
 for.cond74.for.cond.cleanup76_crit_edge.us:       ; preds = %invoke.cont83.us
   %inc88.us = add nuw i64 %i.0143.us, 1
   %exitcond146.not = icmp eq i64 %inc88.us, %sub.ptr.div.i
-  br i1 %exitcond146.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !51
+  br i1 %exitcond146.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !49
 
 for.cond.cleanup:                                 ; preds = %for.cond74.for.cond.cleanup76_crit_edge.us
   call void @llvm.lifetime.start.p0(ptr nonnull %values)
@@ -656,7 +654,7 @@ for.cond.cleanup:                                 ; preds = %for.cond74.for.cond
 call.i71.noexc:                                   ; preds = %for.cond.cleanup
   store ptr %call.i7178, ptr %values, align 8, !tbaa !28
   %n_.i = getelementptr inbounds nuw i8, ptr %values, i64 8
-  store i64 %sub.ptr.div.i, ptr %n_.i, align 8, !tbaa !48
+  store i64 %sub.ptr.div.i, ptr %n_.i, align 8, !tbaa !50
   %49 = add i64 %sub.ptr.lhs.cast.i, -8
   %50 = sub i64 %49, %sub.ptr.rhs.cast.i
   %51 = and i64 %50, -8
@@ -844,9 +842,9 @@ entry:
   %ref.tmp19 = alloca %"class.std::allocator.8", align 1
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %n_.i = getelementptr inbounds nuw i8, ptr %v1, i64 8
-  %0 = load i64, ptr %n_.i, align 8, !tbaa !48
+  %0 = load i64, ptr %n_.i, align 8, !tbaa !50
   %n_.i10 = getelementptr inbounds nuw i8, ptr %v2, i64 8
-  %1 = load i64, ptr %n_.i10, align 8, !tbaa !48
+  %1 = load i64, ptr %n_.i10, align 8, !tbaa !50
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.end, label %if.then
 
@@ -857,7 +855,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %2 = load i64, ptr %n_.i, align 8, !tbaa !48
+  %2 = load i64, ptr %n_.i, align 8, !tbaa !50
   %call.i13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, i64 noundef %2)
           to label %invoke.cont5 unwind label %lpad
 
@@ -866,7 +864,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %3 = load i64, ptr %n_.i10, align 8, !tbaa !48
+  %3 = load i64, ptr %n_.i10, align 8, !tbaa !50
   %call.i18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i13, i64 noundef %3)
           to label %invoke.cont11 unwind label %lpad
 
@@ -1343,10 +1341,10 @@ attributes #22 = { builtin allocsize(0) }
 !45 = !{!"double", !6, i64 0}
 !46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!49, !9, i64 8}
-!49 = !{!"_ZTSN8QuantLib5ArrayE", !37, i64 0, !9, i64 8}
-!50 = distinct !{!50, !47}
-!51 = distinct !{!51, !47}
+!48 = distinct !{!48, !47}
+!49 = distinct !{!49, !47}
+!50 = !{!51, !9, i64 8}
+!51 = !{!"_ZTSN8QuantLib5ArrayE", !37, i64 0, !9, i64 8}
 !52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !53 = !{!54, !5, i64 0}
 !54 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}

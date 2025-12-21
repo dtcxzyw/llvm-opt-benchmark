@@ -41617,7 +41617,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
 .noexc:                                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
   store i64 128, ptr %5, align 8
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %8, ptr %.sroa.4.0..sroa_idx28, align 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx28, align 8
   %.sroa.5.0..sroa_idx1729 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr inttoptr (i64 128 to ptr), ptr %.sroa.5.0..sroa_idx1729, align 8
   %.sroa.6.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -41772,7 +41772,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
 .noexc:                                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
   store i64 128, ptr %5, align 8
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %8, ptr %.sroa.4.0..sroa_idx28, align 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx28, align 8
   %.sroa.5.0..sroa_idx1729 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr inttoptr (i64 128 to ptr), ptr %.sroa.5.0..sroa_idx1729, align 8
   %.sroa.6.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -41927,7 +41927,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
 .noexc:                                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
   store i64 128, ptr %5, align 8
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %8, ptr %.sroa.4.0..sroa_idx28, align 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx28, align 8
   %.sroa.5.0..sroa_idx1729 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr inttoptr (i64 128 to ptr), ptr %.sroa.5.0..sroa_idx1729, align 8
   %.sroa.6.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -42082,7 +42082,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
 .noexc:                                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
   store i64 128, ptr %5, align 8
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %8, ptr %.sroa.4.0..sroa_idx28, align 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx28, align 8
   %.sroa.5.0..sroa_idx1729 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr inttoptr (i64 128 to ptr), ptr %.sroa.5.0..sroa_idx1729, align 8
   %.sroa.6.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %5, i64 24

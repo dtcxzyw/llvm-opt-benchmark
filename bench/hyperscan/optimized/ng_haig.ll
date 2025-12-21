@@ -2433,14 +2433,13 @@ _ZNSt10unique_ptrIN3ue211raw_som_dfaESt14default_deleteIS1_EED2Ev.exit: ; preds 
 
 .thread.i.i.i:                                    ; preds = %.noexc.i17
   %813 = getelementptr inbounds nuw i8, ptr %19, i64 1264
-  store i64 %812, ptr %813, align 8, !alias.scope !67
   %814 = getelementptr inbounds nuw i8, ptr %19, i64 1272
   %815 = getelementptr inbounds nuw i8, ptr %19, i64 1296
   %816 = getelementptr inbounds nuw i8, ptr %19, i64 1304
   %817 = getelementptr inbounds nuw i8, ptr %19, i64 1336
   %818 = getelementptr inbounds nuw i8, ptr %19, i64 1368
   %819 = getelementptr inbounds nuw i8, ptr %19, i64 1400
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %814, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %813, i8 0, i64 160, i1 false)
   br label %877
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i181.i: ; preds = %.noexc.i17

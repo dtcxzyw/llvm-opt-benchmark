@@ -9687,17 +9687,16 @@ _ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit: ; preds = %cond.false.
   %jMin_.i.i.i = getelementptr i8, ptr %4, i64 -12
   %6 = load i32, ptr %jMin_.i.i.i, align 4, !tbaa !130
   %sub.i.i.i = add i32 %5, 1
-  %add.i.i.i = sub i32 %sub.i.i.i, %6
-  %conv.i.i.i = sext i32 %add.i.i.i to i64
   %cmp.not.i = icmp eq i32 %sub.i.i.i, %6
   br i1 %cmp.not.i, label %cond.end.thread.i, label %for.body.i.i.i.preheader.i
 
 cond.end.thread.i:                                ; preds = %_ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit
-  store ptr null, ptr %ref.tmp, align 8, !tbaa !18
-  store i64 %conv.i.i.i, ptr %n_.i, align 8, !tbaa !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   br label %_ZN8QuantLib5ArrayC2Emd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit
+  %add.i.i.i = sub i32 %sub.i.i.i, %6
+  %conv.i.i.i = sext i32 %add.i.i.i to i64
   %7 = icmp slt i32 %add.i.i.i, 0
   %8 = shl nsw i64 %conv.i.i.i, 3
   %9 = select i1 %7, i64 -1, i64 %8

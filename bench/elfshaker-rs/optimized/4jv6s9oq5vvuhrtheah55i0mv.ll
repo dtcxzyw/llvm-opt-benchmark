@@ -1067,8 +1067,8 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.sroa.6.sroa.0.124 = phi i32 [ %.sroa.6.sroa.0.0.copyload17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h400e7f63b685fe93E.exit.thread" ], [ %.sroa.5.sroa.0.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h400e7f63b685fe93E.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.6.sroa.6, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.sroa.6)
-  %.not37 = icmp eq ptr %13, %4
-  br i1 %.not37, label %17, label %15
+  %.not36 = icmp eq ptr %13, %4
+  br i1 %.not36, label %17, label %15
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h400e7f63b685fe93E.exit.thread25": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h400e7f63b685fe93E.exit", %8
   store i64 2, ptr %1, align 8

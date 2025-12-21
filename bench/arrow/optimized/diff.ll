@@ -67298,7 +67298,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
   %14 = ashr exact i64 %sext, 32
   %15 = mul nsw i64 %14, 86400
   %.not = icmp slt i64 %.sroa.0.0.copyload.i.i, %15
-  br i1 %.not, label %52, label %16
+  br i1 %.not, label %57, label %16
 
 16:                                               ; preds = %._crit_edge.i.i
   %17 = add nsw i32 %10, 719468
@@ -67344,120 +67344,130 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
   %.sroa.030.0.insert.ext.i.i = and i32 %45, 65535
   %.sroa.030.0.insert.insert.i.i = or disjoint i32 %.sroa.2.0.insert.insert.i.i, %.sroa.030.0.insert.ext.i.i
   %47 = sub nsw i64 %.sroa.0.0.copyload.i.i, %15
-  br label %84
+  %48 = udiv i64 %47, 3600
+  %49 = udiv i64 %47, 60
+  %.neg.i.i21 = mul nsw i64 %48, -60
+  %50 = add nsw i64 %.neg.i.i21, %49
+  %.neg.i5.i = mul nsw i64 %48, -3600
+  %51 = add nsw i64 %.neg.i5.i, %47
+  %.neg.i6.i = mul nsw i64 %50, -60
+  %52 = add i64 %51, %.neg.i6.i
+  br label %95
 
-48:                                               ; preds = %84
-  %49 = landingpad { ptr, i32 }
+53:                                               ; preds = %95
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %50 = load ptr, ptr %3, align 8, !tbaa !154
-  %51 = icmp eq ptr %50, %6
-  br i1 %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
+  %55 = load ptr, ptr %3, align 8, !tbaa !154
+  %56 = icmp eq ptr %55, %6
+  br i1 %56, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
 
-52:                                               ; preds = %._crit_edge.i.i
-  %53 = add nsw i32 %10, 719467
-  %54 = icmp sgt i32 %10, -719468
-  %55 = add nsw i32 %10, 573371
-  %56 = select i1 %54, i32 %53, i32 %55
-  %57 = sdiv i32 %56, 146097
-  %.neg.i.i23 = mul nsw i32 %57, -146097
-  %58 = add i32 %.neg.i.i23, %53
-  %59 = udiv i32 %58, 1460
-  %60 = udiv i32 %58, 36524
-  %61 = udiv i32 %58, 146096
-  %.neg92 = add i32 %60, %58
-  %62 = add nuw nsw i32 %61, %59
-  %63 = sub i32 %.neg92, %62
-  %64 = udiv i32 %63, 365
-  %65 = mul nsw i32 %57, 400
-  %66 = add nsw i32 %64, %65
-  %67 = udiv i32 %63, 1460
-  %68 = udiv i32 %63, 36500
-  %.neg36.i.i25 = mul i32 %64, -365
-  %.neg37.i.i26 = sub i32 %58, %67
-  %.neg25.i.i27 = add i32 %.neg37.i.i26, %68
-  %69 = add i32 %.neg25.i.i27, %.neg36.i.i25
-  %70 = mul i32 %69, 5
-  %71 = add i32 %70, 2
-  %72 = udiv i32 %71, 153
-  %73 = mul nuw i32 %72, 153
-  %74 = add nuw i32 %73, 2
-  %75 = udiv i32 %74, 5
-  %76 = sub i32 %69, %75
-  %77 = icmp ult i32 %71, 1530
-  %.v.i.i28 = select i1 %77, i32 3, i32 -9
-  %78 = add nsw i32 %.v.i.i28, %72
-  %79 = icmp ult i32 %78, 3
-  %80 = zext i1 %79 to i32
-  %81 = add nsw i32 %66, %80
-  %82 = shl i32 %76, 24
-  %.sroa.3.0.insert.ext.i.i29 = add i32 %82, 16777216
-  %.sroa.2.0.insert.ext.i.i30 = shl i32 %78, 16
+57:                                               ; preds = %._crit_edge.i.i
+  %58 = add nsw i32 %10, 719467
+  %59 = icmp sgt i32 %10, -719468
+  %60 = add nsw i32 %10, 573371
+  %61 = select i1 %59, i32 %58, i32 %60
+  %62 = sdiv i32 %61, 146097
+  %.neg.i.i23 = mul nsw i32 %62, -146097
+  %63 = add i32 %.neg.i.i23, %58
+  %64 = udiv i32 %63, 1460
+  %65 = udiv i32 %63, 36524
+  %66 = udiv i32 %63, 146096
+  %.neg92 = add i32 %65, %63
+  %67 = add nuw nsw i32 %66, %64
+  %68 = sub i32 %.neg92, %67
+  %69 = udiv i32 %68, 365
+  %70 = mul nsw i32 %62, 400
+  %71 = add nsw i32 %69, %70
+  %72 = udiv i32 %68, 1460
+  %73 = udiv i32 %68, 36500
+  %.neg36.i.i25 = mul i32 %69, -365
+  %.neg37.i.i26 = sub i32 %63, %72
+  %.neg25.i.i27 = add i32 %.neg37.i.i26, %73
+  %74 = add i32 %.neg25.i.i27, %.neg36.i.i25
+  %75 = mul i32 %74, 5
+  %76 = add i32 %75, 2
+  %77 = udiv i32 %76, 153
+  %78 = mul nuw i32 %77, 153
+  %79 = add nuw i32 %78, 2
+  %80 = udiv i32 %79, 5
+  %81 = sub i32 %74, %80
+  %82 = icmp ult i32 %76, 1530
+  %.v.i.i28 = select i1 %82, i32 3, i32 -9
+  %83 = add nsw i32 %.v.i.i28, %77
+  %84 = icmp ult i32 %83, 3
+  %85 = zext i1 %84 to i32
+  %86 = add nsw i32 %71, %85
+  %87 = shl i32 %81, 24
+  %.sroa.3.0.insert.ext.i.i29 = add i32 %87, 16777216
+  %.sroa.2.0.insert.ext.i.i30 = shl i32 %83, 16
   %.sroa.2.0.insert.shift.i.i31 = and i32 %.sroa.2.0.insert.ext.i.i30, 16711680
   %.sroa.2.0.insert.insert.i.i32 = or disjoint i32 %.sroa.3.0.insert.ext.i.i29, %.sroa.2.0.insert.shift.i.i31
-  %.sroa.030.0.insert.ext.i.i33 = and i32 %81, 65535
+  %.sroa.030.0.insert.ext.i.i33 = and i32 %86, 65535
   %.sroa.030.0.insert.insert.i.i34 = or disjoint i32 %.sroa.2.0.insert.insert.i.i32, %.sroa.030.0.insert.ext.i.i33
   %.neg = sub i64 %.sroa.0.0.copyload.i.i, %15
-  %83 = add i64 %.neg, 86400
-  %spec.select.i.i38 = call i64 @llvm.abs.i64(i64 %83, i1 true)
-  br label %84
+  %88 = add i64 %.neg, 86400
+  %spec.select.i.i38 = call i64 @llvm.abs.i64(i64 %88, i1 true)
+  %89 = udiv i64 %spec.select.i.i38, 3600
+  %90 = udiv i64 %spec.select.i.i38, 60
+  %.neg.i.i39 = mul nsw i64 %89, -60
+  %91 = add nsw i64 %.neg.i.i39, %90
+  %.neg.i5.i40 = mul nsw i64 %89, -3600
+  %92 = add nsw i64 %.neg.i5.i40, %spec.select.i.i38
+  %.neg.i6.i41 = mul nsw i64 %91, -60
+  %93 = add i64 %92, %.neg.i6.i41
+  %.lobit.i42 = lshr i64 %88, 63
+  %94 = trunc nuw nsw i64 %.lobit.i42 to i8
+  br label %95
 
-84:                                               ; preds = %52, %16
-  %spec.select.i.i38.sink107 = phi i64 [ %spec.select.i.i38, %52 ], [ %47, %16 ]
-  %.sroa.030.0.insert.insert.i.i34.sink = phi i32 [ %.sroa.030.0.insert.insert.i.i34, %52 ], [ %.sroa.030.0.insert.insert.i.i, %16 ]
-  %.sink.in.in = phi i64 [ %83, %52 ], [ %47, %16 ]
-  %85 = udiv i64 %spec.select.i.i38.sink107, 3600
-  %86 = udiv i64 %spec.select.i.i38.sink107, 60
-  %.neg.i.i39 = mul nsw i64 %85, -60
-  %87 = add nsw i64 %.neg.i.i39, %86
-  %.neg.i5.i40 = mul nsw i64 %85, -3600
-  %88 = add nsw i64 %.neg.i5.i40, %spec.select.i.i38.sink107
-  %.neg.i6.i41 = mul nsw i64 %87, -60
-  %89 = add i64 %88, %.neg.i6.i41
+95:                                               ; preds = %57, %16
+  %.sroa.030.0.insert.insert.i.i34.sink = phi i32 [ %.sroa.030.0.insert.insert.i.i34, %57 ], [ %.sroa.030.0.insert.insert.i.i, %16 ]
+  %.sink100 = phi i64 [ %89, %57 ], [ %48, %16 ]
+  %.sink99 = phi i64 [ %91, %57 ], [ %50, %16 ]
+  %.sink94 = phi i64 [ %93, %57 ], [ %52, %16 ]
+  %.sink = phi i8 [ %94, %57 ], [ 0, %16 ]
   store i32 %.sroa.030.0.insert.insert.i.i34.sink, ptr %5, align 8
   store i8 8, ptr %11, align 4, !tbaa !95
-  store i64 %85, ptr %12, align 8, !tbaa !101
+  store i64 %.sink100, ptr %12, align 8, !tbaa !101
   %.sroa.654.sroa.5.0..sroa.654.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %87, ptr %.sroa.654.sroa.5.0..sroa.654.0..sroa_idx.sroa_idx, align 8, !tbaa !101
-  %.sink.in = lshr i64 %.sink.in.in, 63
-  %.sink = trunc nuw nsw i64 %.sink.in to i8
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %89, ptr %90, align 8, !tbaa !101
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 0, ptr %91, align 8, !tbaa !101
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 %.sink, ptr %92, align 8, !tbaa !220
+  store i64 %.sink99, ptr %.sroa.654.sroa.5.0..sroa.654.0..sroa_idx.sroa_idx, align 8, !tbaa !101
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sink94, ptr %96, align 8, !tbaa !101
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 0, ptr %97, align 8, !tbaa !101
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i8 %.sink, ptr %98, align 8, !tbaa !220
   store i8 1, ptr %13, align 8, !tbaa !220
-  %93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
-          to label %94 unwind label %48
+  %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
+          to label %100 unwind label %53
 
-94:                                               ; preds = %84
+100:                                              ; preds = %95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %95 = load ptr, ptr %3, align 8, !tbaa !154
-  %96 = icmp eq ptr %95, %6
-  br i1 %96, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %101 = load ptr, ptr %3, align 8, !tbaa !154
+  %102 = icmp eq ptr %101, %6
+  br i1 %102, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %94
-  %97 = load i64, ptr %6, align 8, !tbaa !95
-  %98 = add i64 %97, 1
-  call void @_ZdlPvm(ptr noundef %95, i64 noundef %98) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %100
+  %103 = load i64, ptr %6, align 8, !tbaa !95
+  %104 = add i64 %103, 1
+  call void @_ZdlPvm(ptr noundef %101, i64 noundef %104) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %93
+  ret ptr %99
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43: ; preds = %48
-  %99 = load i64, ptr %6, align 8, !tbaa !95
-  %100 = add i64 %99, 1
-  call void @_ZdlPvm(ptr noundef %50, i64 noundef %100) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43: ; preds = %53
+  %105 = load i64, ptr %6, align 8, !tbaa !95
+  %106 = add i64 %105, 1
+  call void @_ZdlPvm(ptr noundef %55, i64 noundef %106) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %48, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress uwtable

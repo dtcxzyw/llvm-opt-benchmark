@@ -1591,7 +1591,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   store ptr %.017.le.i, ptr %14, align 8, !alias.scope !4
   store i64 %.lcssa84.sink, ptr %15, align 8, !alias.scope !4
   %79 = getelementptr inbounds nuw i8, ptr %.017.le.i, i64 8
-  %80 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %79, i64 %22
+  %80 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %79, i64 %.lcssa84.sink
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 128
   %82 = load atomic i64, ptr %81 acquire, align 8, !noalias !9
   %83 = and i64 %82, 1
@@ -1632,7 +1632,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   %.sroa.436.0.copyload = load i64, ptr %.sroa.436.0..sroa_idx, align 8, !noalias !9
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.537, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.537.0..sroa_idx, i64 112, i1 false)
-  %94 = add nuw nsw i64 %22, 1
+  %94 = add nuw nsw i64 %.lcssa84.sink, 1
   %95 = icmp eq i64 %94, 31
   br i1 %95, label %.lr.ph.i4.i, label %96
 
@@ -1663,7 +1663,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %exitcond.not.i.i15, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h404cd6b530ba00f0E.exit.sink.split.i", label %.lr.ph.i4.i
 
 111:                                              ; preds = %96
-  %112 = icmp samesign ult i64 %22, 29
+  %112 = icmp samesign ult i64 %.lcssa84.sink, 29
   br i1 %112, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h404cd6b530ba00f0E.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %111, %123
@@ -2059,7 +2059,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   %.lcssa79.sink = phi i64 [ 30, %.thread37 ], [ %22, %55 ]
   store ptr %.017.le.i, ptr %14, align 8, !alias.scope !50
   store i64 %.lcssa79.sink, ptr %15, align 8, !alias.scope !50
-  %81 = getelementptr inbounds nuw { { { [15 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %22
+  %81 = getelementptr inbounds nuw { { { [15 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.lcssa79.sink
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 120
   %83 = load atomic i64, ptr %82 acquire, align 8, !noalias !53
   %84 = and i64 %83, 1
@@ -2098,7 +2098,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   %.sroa.032.0.copyload = load i64, ptr %81, align 8, !noalias !53
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.433, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.433.0..sroa_idx, i64 112, i1 false)
-  %95 = add nuw nsw i64 %22, 1
+  %95 = add nuw nsw i64 %.lcssa79.sink, 1
   %96 = icmp eq i64 %95, 31
   br i1 %96, label %.lr.ph.i4.i, label %97
 
@@ -2129,7 +2129,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %exitcond.not.i.i15, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hcfedde6b197fcfcaE.exit.sink.split.i", label %.lr.ph.i4.i
 
 112:                                              ; preds = %97
-  %113 = icmp samesign ult i64 %22, 29
+  %113 = icmp samesign ult i64 %.lcssa79.sink, 29
   br i1 %113, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hcfedde6b197fcfcaE.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %112, %124
@@ -2524,9 +2524,10 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread38", label %129
 
 81:                                               ; preds = %56, %.thread32
+  %storemerge54 = phi i64 [ 30, %.thread32 ], [ %22, %56 ]
   store ptr %.017.le.i, ptr %14, align 8, !alias.scope !93
-  store i64 %22, ptr %15, align 8, !alias.scope !93
-  %82 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.017.le.i, i64 %22
+  store i64 %storemerge54, ptr %15, align 8, !alias.scope !93
+  %82 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.017.le.i, i64 %storemerge54
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load atomic i64, ptr %83 acquire, align 8
   %85 = and i64 %84, 1
@@ -2563,7 +2564,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19: ; pr
 
 "_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hef983171fdfda653E.exit.i": ; preds = %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19, %81
   %96 = load ptr, ptr %82, align 8
-  %97 = add nuw nsw i64 %22, 1
+  %97 = add nuw nsw i64 %storemerge54, 1
   %98 = icmp eq i64 %97, 31
   br i1 %98, label %.lr.ph.i3.i, label %99
 
@@ -2594,7 +2595,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19: ; pr
   br i1 %exitcond.not.i.i16, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h260f4543353eb387E.exit.sink.split.i", label %.lr.ph.i3.i
 
 114:                                              ; preds = %99
-  %115 = icmp samesign ult i64 %22, 29
+  %115 = icmp samesign ult i64 %storemerge54, 29
   br i1 %115, label %.lr.ph.i5.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h260f4543353eb387E.exit.sink.split.i"
 
 .lr.ph.i5.i:                                      ; preds = %114, %126

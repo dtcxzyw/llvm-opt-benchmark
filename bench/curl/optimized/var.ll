@@ -58,7 +58,7 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
   br label %10
 
 10:                                               ; preds = %153, %4
-  %.0127 = phi i8 [ 0, %4 ], [ %.5132, %153 ]
+  %.0127 = phi i1 [ false, %4 ], [ %.5132, %153 ]
   %.0115 = phi ptr [ %1, %4 ], [ %.3118, %153 ]
   %11 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(1) @.str) #14
   %12 = icmp ugt ptr %11, %.0115
@@ -490,7 +490,7 @@ varfunc.exit:                                     ; preds = %142
   br i1 %.not157, label %.thread191, label %.thread186
 
 .thread191:                                       ; preds = %37, %.thread179, %54
-  %.2129 = phi i8 [ %.0127, %37 ], [ %.0127, %54 ], [ 1, %.thread179 ]
+  %.2129 = phi i1 [ %.0127, %37 ], [ %.0127, %54 ], [ true, %.thread179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %153
 
@@ -505,36 +505,35 @@ varfunc.exit:                                     ; preds = %142
   br label %.thread196
 
 153:                                              ; preds = %23, %.thread191
-  %.5132 = phi i8 [ %.2129, %.thread191 ], [ %.0127, %23 ]
+  %.5132 = phi i1 [ %.2129, %.thread191 ], [ %.0127, %23 ]
   %.pn = phi ptr [ %26, %.thread191 ], [ %11, %23 ]
   %.3118 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   br label %10, !llvm.loop !33
 
 .thread196:                                       ; preds = %25, %152
-  %154 = trunc nuw i8 %.0127 to i1
-  br i1 %154, label %155, label %160
+  br i1 %.0127, label %154, label %159
 
-155:                                              ; preds = %.thread196
-  %156 = load i8, ptr %.0115, align 1, !tbaa !23
-  %.not163 = icmp eq i8 %156, 0
-  br i1 %.not163, label %159, label %157
+154:                                              ; preds = %.thread196
+  %155 = load i8, ptr %.0115, align 1, !tbaa !23
+  %.not163 = icmp eq i8 %155, 0
+  br i1 %.not163, label %158, label %156
 
-157:                                              ; preds = %155
-  %158 = call i32 @curlx_dyn_add(ptr noundef %2, ptr noundef nonnull %.0115) #13
-  %.not164 = icmp eq i32 %158, 0
-  br i1 %.not164, label %159, label %.loopexit
+156:                                              ; preds = %154
+  %157 = call i32 @curlx_dyn_add(ptr noundef %2, ptr noundef nonnull %.0115) #13
+  %.not164 = icmp eq i32 %157, 0
+  br i1 %.not164, label %158, label %.loopexit
 
-159:                                              ; preds = %157, %155
+158:                                              ; preds = %156, %154
   store i8 1, ptr %3, align 1, !tbaa !22
   br label %.loopexit
 
-160:                                              ; preds = %.thread196
+159:                                              ; preds = %.thread196
   store i8 0, ptr %3, align 1, !tbaa !22
   call void @curlx_dyn_free(ptr noundef %2) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %23, %17, %159, %.thread186, %160, %157
-  %.1 = phi i32 [ %.2.ph, %.thread186 ], [ 0, %159 ], [ 0, %160 ], [ 15, %157 ], [ 15, %17 ], [ 15, %23 ]
+.loopexit:                                        ; preds = %23, %17, %158, %.thread186, %159, %156
+  %.1 = phi i32 [ %.2.ph, %.thread186 ], [ 0, %158 ], [ 0, %159 ], [ 15, %156 ], [ 15, %17 ], [ 15, %23 ]
   ret i32 %.1
 }
 

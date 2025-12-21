@@ -3364,31 +3364,31 @@ _ZN4pstd6vectorIPKN4pbrt12TriangleMeshENS_3pmr21polymorphic_allocatorIS4_EEE9pus
   store i64 %43, ptr %9, align 8, !tbaa !95
   %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN4pbrt8Triangle15CreateTrianglesEPKNS_12TriangleMeshEN4pstd3pmr21polymorphic_allocatorISt4byteEEE13allMeshesLock) #32
   %45 = load i32, ptr %1, align 8, !tbaa !106
-  %46 = sext i32 %45 to i64
-  %47 = ptrtoint ptr %2 to i64
-  store i64 %47, ptr %0, align 8, !tbaa !87
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = ptrtoint ptr %2 to i64
+  store i64 %46, ptr %0, align 8, !tbaa !87
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.not.i.i = icmp eq i32 %45, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   br i1 %.not.i.not.i.i, label %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit.thread, label %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit
 
 _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit.thread: ; preds = %_ZN4pstd6vectorIPKN4pbrt12TriangleMeshENS_3pmr21polymorphic_allocatorIS4_EEE9push_backERKS4_.exit
-  store i64 %46, ptr %49, align 8, !tbaa !113
+  store i64 0, ptr %48, align 8, !tbaa !113
   br label %._crit_edge
 
 _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit: ; preds = %_ZN4pstd6vectorIPKN4pbrt12TriangleMeshENS_3pmr21polymorphic_allocatorIS4_EEE9push_backERKS4_.exit
+  %49 = sext i32 %45 to i64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = shl nsw i64 %46, 3
+  %51 = shl nsw i64 %49, 3
   %52 = load ptr, ptr %2, align 8, !tbaa !56
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %51, i64 noundef 8)
   %.pre.pre = load i32, ptr %1, align 8, !tbaa !106
-  store i64 %46, ptr %50, align 8, !tbaa !117
-  store ptr %55, ptr %48, align 8, !tbaa !118
+  store i64 %49, ptr %50, align 8, !tbaa !117
+  store ptr %55, ptr %47, align 8, !tbaa !118
   tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %51, i1 false), !tbaa !119
-  store i64 %46, ptr %49, align 8, !tbaa !113
+  store i64 %49, ptr %48, align 8, !tbaa !113
   %56 = icmp eq i32 %.pre.pre, 0
   br i1 %56, label %._crit_edge, label %57
 
@@ -12340,31 +12340,31 @@ _ZN4pstd6vectorIPKN4pbrt17BilinearPatchMeshENS_3pmr21polymorphic_allocatorIS4_EE
   %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN4pbrt13BilinearPatch13CreatePatchesEPKNS_17BilinearPatchMeshEN4pstd3pmr21polymorphic_allocatorISt4byteEEE13allMeshesLock) #32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !357
-  %47 = sext i32 %46 to i64
-  %48 = ptrtoint ptr %2 to i64
-  store i64 %48, ptr %0, align 8, !tbaa !87
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = ptrtoint ptr %2 to i64
+  store i64 %47, ptr %0, align 8, !tbaa !87
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.not.i.i = icmp eq i32 %46, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   br i1 %.not.i.not.i.i, label %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit.thread, label %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit
 
 _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit.thread: ; preds = %_ZN4pstd6vectorIPKN4pbrt17BilinearPatchMeshENS_3pmr21polymorphic_allocatorIS4_EEE9push_backERKS4_.exit
-  store i64 %47, ptr %50, align 8, !tbaa !113
+  store i64 0, ptr %49, align 8, !tbaa !113
   br label %._crit_edge
 
 _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit: ; preds = %_ZN4pstd6vectorIPKN4pbrt17BilinearPatchMeshENS_3pmr21polymorphic_allocatorIS4_EEE9push_backERKS4_.exit
+  %50 = sext i32 %46 to i64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = shl nsw i64 %47, 3
+  %52 = shl nsw i64 %50, 3
   %53 = load ptr, ptr %2, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %52, i64 noundef 8)
   %.pre.pre = load i32, ptr %45, align 4, !tbaa !357
-  store i64 %47, ptr %51, align 8, !tbaa !117
-  store ptr %56, ptr %49, align 8, !tbaa !118
+  store i64 %50, ptr %51, align 8, !tbaa !117
+  store ptr %56, ptr %48, align 8, !tbaa !118
   tail call void @llvm.memset.p0.i64(ptr align 8 %56, i8 0, i64 %52, i1 false), !tbaa !119
-  store i64 %47, ptr %50, align 8, !tbaa !113
+  store i64 %50, ptr %49, align 8, !tbaa !113
   %57 = icmp eq i32 %.pre.pre, 0
   br i1 %57, label %._crit_edge, label %58
 

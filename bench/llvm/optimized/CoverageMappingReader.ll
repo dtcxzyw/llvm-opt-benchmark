@@ -19452,7 +19452,8 @@ _ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us:     ; preds = %_ZL22isCoverageMapp
   br i1 %.not95.i.us, label %.critedge24.thread.i.us.sink.split, label %.critedge24.thread.i.us
 
 .critedge24.thread.i.us.sink.split:               ; preds = %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us, %_ZN4llvm5ErrorD2Ev.exit40.i.us, %71
-  store i64 %46, ptr %66, align 8, !tbaa !1024, !noalias !1974
+  %.sink = phi i64 [ %46, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ %46, %71 ], [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ]
+  store i64 %.sink, ptr %66, align 8, !tbaa !1024, !noalias !1974
   store ptr %.04050.us, ptr %68, align 8, !tbaa !48, !noalias !1974
   store i64 %39, ptr %.sroa.25.0..sroa_idx.i.us, align 8, !tbaa !49, !noalias !1974
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 48
@@ -20268,7 +20269,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %144, label %.critedge24.thread.i, label %.critedge24.thread.i.sink.split
 
 .critedge24.thread.i.sink.split:                  ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %140, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %44, ptr %133, align 8, !tbaa !1024, !noalias !2053
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %44, %140 ], [ %44, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %133, align 8, !tbaa !1024, !noalias !2053
   store ptr %.04048, ptr %135, align 8, !tbaa !48, !noalias !2053
   store i64 %31, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !2053
   %145 = getelementptr inbounds nuw i8, ptr %132, i64 48
@@ -20870,7 +20872,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %144, label %.critedge24.thread.i, label %.critedge24.thread.i.sink.split
 
 .critedge24.thread.i.sink.split:                  ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %140, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %44, ptr %133, align 8, !tbaa !1024, !noalias !2125
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %44, %140 ], [ %44, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %133, align 8, !tbaa !1024, !noalias !2125
   store ptr %.04048, ptr %135, align 8, !tbaa !48, !noalias !2125
   store i64 %31, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !2125
   %145 = getelementptr inbounds nuw i8, ptr %132, i64 48
@@ -21625,7 +21628,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !2206
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !2206
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !2206
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !2206
   %194 = and i64 %79, 4294967295
@@ -22381,7 +22385,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !2289
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !2289
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !2289
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !2289
   %194 = and i64 %79, 4294967295
@@ -23137,7 +23142,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !2372
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !2372
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !2372
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !2372
   %194 = and i64 %79, 4294967295
@@ -23893,7 +23899,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !2455
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !2455
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !2455
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !2455
   %194 = and i64 %79, 4294967295
@@ -29147,7 +29154,8 @@ _ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us:     ; preds = %_ZL22isCoverageMapp
   br i1 %.not95.i.us, label %.critedge24.thread.i.us.sink.split, label %.critedge24.thread.i.us
 
 .critedge24.thread.i.us.sink.split:               ; preds = %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us, %_ZN4llvm5ErrorD2Ev.exit40.i.us, %71
-  store i64 %46, ptr %66, align 8, !tbaa !1024, !noalias !3077
+  %.sink = phi i64 [ %46, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ %46, %71 ], [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ]
+  store i64 %.sink, ptr %66, align 8, !tbaa !1024, !noalias !3077
   store ptr %.04050.us, ptr %68, align 8, !tbaa !48, !noalias !3077
   store i64 %39, ptr %.sroa.25.0..sroa_idx.i.us, align 8, !tbaa !49, !noalias !3077
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 48
@@ -29965,7 +29973,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %144, label %.critedge24.thread.i, label %.critedge24.thread.i.sink.split
 
 .critedge24.thread.i.sink.split:                  ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %140, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %44, ptr %133, align 8, !tbaa !1024, !noalias !3156
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %44, %140 ], [ %44, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %133, align 8, !tbaa !1024, !noalias !3156
   store ptr %.04048, ptr %135, align 8, !tbaa !48, !noalias !3156
   store i64 %31, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !3156
   %145 = getelementptr inbounds nuw i8, ptr %132, i64 48
@@ -30567,7 +30576,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %144, label %.critedge24.thread.i, label %.critedge24.thread.i.sink.split
 
 .critedge24.thread.i.sink.split:                  ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %140, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %44, ptr %133, align 8, !tbaa !1024, !noalias !3228
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %44, %140 ], [ %44, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %133, align 8, !tbaa !1024, !noalias !3228
   store ptr %.04048, ptr %135, align 8, !tbaa !48, !noalias !3228
   store i64 %31, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !3228
   %145 = getelementptr inbounds nuw i8, ptr %132, i64 48
@@ -31322,7 +31332,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !3309
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !3309
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !3309
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !3309
   %194 = and i64 %79, 4294967295
@@ -32078,7 +32089,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !3392
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !3392
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !3392
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !3392
   %194 = and i64 %79, 4294967295
@@ -32834,7 +32846,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !3475
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !3475
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !3475
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !3475
   %194 = and i64 %79, 4294967295
@@ -33590,7 +33603,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br i1 %193, label %.critedge24.thread.i.sink.split, label %.critedge24.thread.i.sink.split.sink.split
 
 .critedge24.thread.i.sink.split.sink.split:       ; preds = %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm5ErrorD2Ev.exit38.i.thread, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  store i64 %91, ptr %182, align 8, !tbaa !1024, !noalias !3558
+  %.sink = phi i64 [ 0, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit38.i ]
+  store i64 %.sink, ptr %182, align 8, !tbaa !1024, !noalias !3558
   store ptr %28, ptr %184, align 8, !tbaa !48, !noalias !3558
   store i64 %32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !49, !noalias !3558
   %194 = and i64 %79, 4294967295

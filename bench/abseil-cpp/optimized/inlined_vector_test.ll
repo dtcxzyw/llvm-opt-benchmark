@@ -14830,7 +14830,7 @@ define internal void @_ZN12_GLOBAL__N_127IntVec_ReverseIterator_Test8TestBodyEv(
 
 ._crit_edge.thread:                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i64 %.031215, ptr %10, align 8, !tbaa !43
+  store i64 0, ptr %10, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !130

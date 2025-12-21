@@ -3705,11 +3705,11 @@ define range(i32 -5, 1) i32 @MOZ_Z_inflateSync(ptr noundef captures(address_is_n
 16:                                               ; preds = %12, %8
   %17 = load i32, ptr %6, align 8, !tbaa !18
   %.not = icmp eq i32 %17, 31
-  br i1 %.not, label %._crit_edge62, label %18
+  br i1 %.not, label %._crit_edge61, label %18
 
-._crit_edge62:                                    ; preds = %16
+._crit_edge61:                                    ; preds = %16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 132
-  %.pre63 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !98
+  %.pre62 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !98
   br label %45
 
 18:                                               ; preds = %16
@@ -3776,9 +3776,9 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %.pre = load i32, ptr %9, align 8, !tbaa !42
   br label %45
 
-45:                                               ; preds = %._crit_edge62, %syncsearch.exit
-  %46 = phi i32 [ %.014.lcssa.i, %syncsearch.exit ], [ %.pre63, %._crit_edge62 ]
-  %47 = phi i32 [ %.pre, %syncsearch.exit ], [ %10, %._crit_edge62 ]
+45:                                               ; preds = %._crit_edge61, %syncsearch.exit
+  %46 = phi i32 [ %.014.lcssa.i, %syncsearch.exit ], [ %.pre62, %._crit_edge61 ]
+  %47 = phi i32 [ %.pre, %syncsearch.exit ], [ %10, %._crit_edge61 ]
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 132
   %49 = load ptr, ptr %0, align 8, !tbaa !41
   %50 = icmp ne i32 %47, 0

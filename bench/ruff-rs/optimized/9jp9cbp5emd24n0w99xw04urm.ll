@@ -35740,7 +35740,9 @@ define noundef zeroext i1 @"_ZN96_$LT$ty_python_semantic..types..subclass_of..Su
   br i1 %5, label %8, label %9
 
 8:                                                ; preds = %7
-  store i64 %1, ptr %0, align 4
+  store i32 2, ptr %0, align 4
+  %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.4.0.extract.trunc.i, ptr %.sroa.6.0..sroa_idx5.i, align 4
   br label %"_ZN97_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd8cecb98d7018124E.exit"
 
 9:                                                ; preds = %7
@@ -35779,7 +35781,9 @@ define noundef zeroext i1 @"_ZN97_$LT$ty_python_semantic..types..subclass_of..Su
   br i1 %5, label %8, label %9
 
 8:                                                ; preds = %7
-  store i64 %1, ptr %0, align 4
+  store i32 2, ptr %0, align 4
+  %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.6.0..sroa_idx5, align 4
   br label %11
 
 9:                                                ; preds = %7

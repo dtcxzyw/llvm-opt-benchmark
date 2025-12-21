@@ -7321,7 +7321,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   store i64 0, ptr %16, align 8, !alias.scope !1330, !noalias !1329
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1325
   store i8 1, ptr %14, align 8, !alias.scope !1331, !noalias !1332
-  store i8 %23, ptr %19, align 1, !alias.scope !1331, !noalias !1332
+  store i8 10, ptr %19, align 1, !alias.scope !1331, !noalias !1332
   br label %.loopexit
 
 .thread:                                          ; preds = %20
@@ -8955,7 +8955,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 0, ptr %8, align 8, !alias.scope !1700, !noalias !1699
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1695
   store i8 1, ptr %6, align 8, !alias.scope !1701, !noalias !1702
-  store i8 %15, ptr %11, align 1, !alias.scope !1701, !noalias !1702
+  store i8 10, ptr %11, align 1, !alias.scope !1701, !noalias !1702
   br label %.loopexit
 
 .thread:                                          ; preds = %12
@@ -10152,7 +10152,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   store i64 0, ptr %20, align 8, !alias.scope !2086, !noalias !2085
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !2081
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  store i8 %18, ptr %29, align 1, !alias.scope !2087, !noalias !2088
+  store i8 10, ptr %29, align 1, !alias.scope !2087, !noalias !2088
   br label %.thread88
 
 30:                                               ; preds = %16
@@ -10519,7 +10519,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 0, ptr %13, align 8, !alias.scope !2173, !noalias !2172
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2168
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  store i8 %11, ptr %22, align 1, !alias.scope !2174, !noalias !2175
+  store i8 10, ptr %22, align 1, !alias.scope !2174, !noalias !2175
   br label %.thread47
 
 23:                                               ; preds = %9
@@ -15050,7 +15050,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 0, ptr %12, align 8, !alias.scope !3264, !noalias !3263
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3259
   store i8 1, ptr %9, align 8, !alias.scope !3265, !noalias !3266
-  store i8 %51, ptr %15, align 1, !alias.scope !3265, !noalias !3266
+  store i8 10, ptr %15, align 1, !alias.scope !3265, !noalias !3266
   br label %60
 
 59:                                               ; preds = %50
@@ -56943,7 +56943,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as
   store i64 0, ptr %14, align 8, !alias.scope !13739, !noalias !13738
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13734
   store i8 1, ptr %11, align 8, !alias.scope !13740, !noalias !13741
-  store i8 %53, ptr %17, align 1, !alias.scope !13740, !noalias !13741
+  store i8 10, ptr %17, align 1, !alias.scope !13740, !noalias !13741
   br label %62
 
 61:                                               ; preds = %52
@@ -57986,7 +57986,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$ser
   store i64 0, ptr %22, align 8, !alias.scope !13994, !noalias !13993
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !13989
   store i8 1, ptr %19, align 8, !alias.scope !13995, !noalias !13996
-  store i8 %64, ptr %25, align 1, !alias.scope !13995, !noalias !13996
+  store i8 10, ptr %25, align 1, !alias.scope !13995, !noalias !13996
   br label %73
 
 72:                                               ; preds = %63
@@ -87876,7 +87876,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %25, align 8, !alias.scope !21176, !noalias !21175
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !21165
   store i8 1, ptr %22, align 8, !alias.scope !21177, !noalias !21178
-  store i8 %72, ptr %28, align 1, !alias.scope !21177, !noalias !21178
+  store i8 10, ptr %28, align 1, !alias.scope !21177, !noalias !21178
   br label %81
 
 80:                                               ; preds = %71
@@ -89535,7 +89535,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %23, align 8, !alias.scope !21710, !noalias !21709
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !21698
   store i8 1, ptr %20, align 8, !alias.scope !21711, !noalias !21712
-  store i8 %70, ptr %26, align 1, !alias.scope !21711, !noalias !21712
+  store i8 10, ptr %26, align 1, !alias.scope !21711, !noalias !21712
   br label %79
 
 78:                                               ; preds = %69
@@ -99706,7 +99706,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %47, align 8, !alias.scope !24471, !noalias !24470
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !24465
   store i8 1, ptr %44, align 8, !alias.scope !24472, !noalias !24473
-  store i8 %99, ptr %50, align 1, !alias.scope !24472, !noalias !24473
+  store i8 10, ptr %50, align 1, !alias.scope !24472, !noalias !24473
   br label %109
 
 107:                                              ; preds = %98
@@ -121470,7 +121470,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %42, align 8, !alias.scope !30145, !noalias !30144
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !30138
   store i8 1, ptr %39, align 8, !alias.scope !30146, !noalias !30147
-  store i8 %94, ptr %45, align 1, !alias.scope !30146, !noalias !30147
+  store i8 10, ptr %45, align 1, !alias.scope !30146, !noalias !30147
   br label %103
 
 102:                                              ; preds = %93

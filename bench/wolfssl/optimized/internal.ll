@@ -10757,8 +10757,8 @@ DecodeSigAlg.exit..thread233_crit_edge:           ; preds = %DecodeSigAlg.exit
 .thread233:                                       ; preds = %DecodeSigAlg.exit..thread233_crit_edge, %283, %287
   %291 = phi i8 [ %288, %287 ], [ %275, %DecodeSigAlg.exit..thread233_crit_edge ], [ %284, %283 ]
   %292 = phi i8 [ %289, %287 ], [ %.pre, %DecodeSigAlg.exit..thread233_crit_edge ], [ %285, %283 ]
-  %.0226232 = phi i8 [ 10, %287 ], [ %282, %DecodeSigAlg.exit..thread233_crit_edge ], [ 8, %283 ]
-  %.not178 = icmp eq i8 %.0226232, %292
+  %.0225231 = phi i8 [ 10, %287 ], [ %282, %DecodeSigAlg.exit..thread233_crit_edge ], [ 8, %283 ]
+  %.not178 = icmp eq i8 %.0225231, %292
   br i1 %.not178, label %293, label %GetDhPublicKey.exit.thread
 
 .sink.split:                                      ; preds = %287, %283
@@ -21409,7 +21409,7 @@ define range(i32 -501, 1) i32 @PickHashSigAlgo(ptr noundef captures(none) %0, pt
 MinHashAlgo.exit:                                 ; preds = %4
   %19 = icmp eq i16 %7, 3
   %20 = icmp ugt i16 %6, 1023
-  %.not7.i.not100 = and i1 %20, %19
+  %.not7.i.not99 = and i1 %20, %19
   %21 = icmp ugt i16 %6, 767
   %or.cond.i = and i1 %21, %8
   %.0.i = select i1 %or.cond.i, i8 4, i8 2
@@ -21528,8 +21528,8 @@ SupportedHashSigAlgo.exit:                        ; preds = %.lr.ph.i, %46
   %67 = icmp ult i8 %switch.tableidx, 5
   %switch.shifted = lshr i8 29, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond102 = select i1 %67, i1 %switch.lobit, i1 false
-  br i1 %or.cond102, label %switch.lookup, label %SupportedHashSigAlgo.exit.thread
+  %or.cond101 = select i1 %67, i1 %switch.lobit, i1 false
+  br i1 %or.cond101, label %switch.lookup, label %SupportedHashSigAlgo.exit.thread
 
 switch.lookup:                                    ; preds = %66
   %68 = load i32, ptr %25, align 4, !tbaa !153
@@ -21554,9 +21554,9 @@ switch.lookup:                                    ; preds = %66
 75:                                               ; preds = %72
   %76 = icmp ne i8 %28, 3
   %brmerge = or i1 %76, %26
-  %brmerge98 = or i1 %brmerge, %.not7.i.not100
+  %brmerge97 = or i1 %brmerge, %.not7.i.not99
   %.mux.mux = select i1 %brmerge, i8 %28, i8 %11
-  br i1 %brmerge98, label %IsAtLeastTLSv1_2.exit.thread, label %77
+  br i1 %brmerge97, label %IsAtLeastTLSv1_2.exit.thread, label %77
 
 77:                                               ; preds = %75
   %78 = load i64, ptr %24, align 8
@@ -21855,8 +21855,8 @@ AllocKey.exit60:                                  ; preds = %67
   store i32 %94, ptr %1, align 4, !tbaa !49
   br label %AllocKey.exit.thread
 
-AllocKey.exit.thread:                             ; preds = %64, %77, %73, %17, %26, %13, %30, %85, %FreeKey.exit, %42, %38, %7, %2, %AllocKey.exit60, %92, %47
-  %.0 = phi i32 [ %.1, %FreeKey.exit ], [ -410, %85 ], [ -317, %7 ], [ %40, %38 ], [ 0, %47 ], [ %25, %30 ], [ -409, %42 ], [ 0, %92 ], [ %83, %AllocKey.exit60 ], [ -317, %2 ], [ -125, %17 ], [ %25, %26 ], [ -192, %13 ], [ -125, %64 ], [ %72, %77 ], [ %72, %73 ]
+AllocKey.exit.thread:                             ; preds = %64, %73, %77, %17, %26, %13, %30, %85, %FreeKey.exit, %42, %38, %7, %2, %AllocKey.exit60, %92, %47
+  %.0 = phi i32 [ %.1, %FreeKey.exit ], [ -410, %85 ], [ -317, %7 ], [ %40, %38 ], [ 0, %47 ], [ %25, %30 ], [ -409, %42 ], [ 0, %92 ], [ %83, %AllocKey.exit60 ], [ -317, %2 ], [ -125, %17 ], [ %25, %26 ], [ -192, %13 ], [ -125, %64 ], [ %72, %73 ], [ %72, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

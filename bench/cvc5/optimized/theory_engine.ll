@@ -26466,11 +26466,11 @@ define hidden void @_ZN4cvc58internal12TheoryEngine15entailmentCheckENS0_7option
   %45 = load ptr, ptr %44, align 8, !tbaa !487, !noalias !901
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %45, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre301 = trunc i64 %.pre to i32
+  %.pre293 = trunc i64 %.pre to i32
   br label %46
 
 46:                                               ; preds = %4, %39
-  %.pre-phi = phi i32 [ %36, %4 ], [ %.pre301, %39 ]
+  %.pre-phi = phi i32 [ %36, %4 ], [ %.pre293, %39 ]
   %.sroa.0266.0 = phi ptr [ %33, %4 ], [ %45, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0266.0, i64 8
   %48 = and i32 %.pre-phi, 1023
@@ -26862,11 +26862,11 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
           to label %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit_crit_edge unwind label %276
 
 ._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit_crit_edge: ; preds = %246
-  %.pre299 = load i64, ptr %232, align 8
+  %.pre291 = load i64, ptr %232, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit_crit_edge, %244, %238
-  %248 = phi i64 [ %.pre299, %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit_crit_edge ], [ %233, %244 ], [ %243, %238 ]
+  %248 = phi i64 [ %.pre291, %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit_crit_edge ], [ %233, %244 ], [ %243, %238 ]
   store i8 0, ptr %0, align 8, !tbaa !910
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %232, ptr %249, align 8, !tbaa !488
@@ -26896,11 +26896,11 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %._ZN4cvc58internal
           to label %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit_crit_edge unwind label %278
 
 ._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit_crit_edge: ; preds = %262
-  %.pre300 = load i64, ptr %232, align 8
+  %.pre292 = load i64, ptr %232, align 8
   br label %_ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit
 
 _ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit: ; preds = %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit_crit_edge, %260, %254
-  %264 = phi i64 [ %.pre300, %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit_crit_edge ], [ %248, %260 ], [ %259, %254 ]
+  %264 = phi i64 [ %.pre292, %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit_crit_edge ], [ %248, %260 ], [ %259, %254 ]
   %265 = and i64 %264, 1152920405095219200
   %.not.i.i149 = icmp eq i64 %265, 1152920405095219200
   br i1 %.not.i.i149, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit151, label %266, !prof !438
@@ -27247,11 +27247,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166: ; preds = %_ZNSt4pairIbN4cvc5
           to label %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168_crit_edge unwind label %425
 
 ._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168_crit_edge: ; preds = %395
-  %.pre297 = load i64, ptr %381, align 8
+  %.pre289 = load i64, ptr %381, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168: ; preds = %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168_crit_edge, %393, %387
-  %397 = phi i64 [ %.pre297, %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168_crit_edge ], [ %382, %393 ], [ %392, %387 ]
+  %397 = phi i64 [ %.pre289, %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168_crit_edge ], [ %382, %393 ], [ %392, %387 ]
   store i8 0, ptr %0, align 8, !tbaa !910
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %381, ptr %398, align 8, !tbaa !488
@@ -27281,11 +27281,11 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit168: ; preds = %._ZN4cvc58inter
           to label %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit170_crit_edge unwind label %427
 
 ._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit170_crit_edge: ; preds = %411
-  %.pre298 = load i64, ptr %381, align 8
+  %.pre290 = load i64, ptr %381, align 8
   br label %_ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit170
 
 _ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit170: ; preds = %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit170_crit_edge, %409, %403
-  %413 = phi i64 [ %.pre298, %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit170_crit_edge ], [ %397, %409 ], [ %408, %403 ]
+  %413 = phi i64 [ %.pre290, %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit170_crit_edge ], [ %397, %409 ], [ %408, %403 ]
   %414 = and i64 %413, 1152920405095219200
   %.not.i.i171 = icmp eq i64 %414, 1152920405095219200
   br i1 %.not.i.i171, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit173, label %415, !prof !438
@@ -27428,11 +27428,11 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
 .noexc178:                                        ; preds = %468
   %470 = load i32, ptr %469, align 4, !tbaa !790
   %471 = icmp eq i32 %470, 2
-  %.pre294 = load ptr, ptr %19, align 8, !tbaa !612
+  %.pre286 = load ptr, ptr %19, align 8, !tbaa !612
   br label %.critedge133
 
 .critedge133:                                     ; preds = %462, %.noexc178
-  %472 = phi ptr [ %.pre294, %.noexc178 ], [ %463, %462 ]
+  %472 = phi ptr [ %.pre286, %.noexc178 ], [ %463, %462 ]
   %.ph = phi i1 [ %471, %.noexc178 ], [ false, %462 ]
   %473 = load i64, ptr %472, align 8
   %474 = and i64 %473, 1152920405095219200
@@ -27501,7 +27501,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
 501:                                              ; preds = %.critedge135.thread, %790
   %502 = phi i1 [ false, %.critedge135.thread ], [ true, %790 ]
   %503 = phi i1 [ true, %.critedge135.thread ], [ false, %790 ]
-  %.074289 = phi i64 [ 1, %.critedge135.thread ], [ 2, %790 ]
+  %.074285 = phi i64 [ 1, %.critedge135.thread ], [ 2, %790 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %504 = load i64, ptr %47, align 8, !noalias !926
   %505 = trunc i64 %504 to i32
@@ -27686,7 +27686,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit194: ; preds = %_ZN4cvc58internal1
 
 594:                                              ; preds = %587
   %595 = icmp eq i32 %590, 26
-  %596 = select i1 %595, i64 %.074289, i64 1
+  %596 = select i1 %595, i64 %.074285, i64 1
   %597 = icmp eq i32 %593, 2
   %598 = zext i1 %597 to i64
   %599 = getelementptr inbounds nuw ptr, ptr %488, i64 %596
@@ -28183,11 +28183,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit226: ; preds = %_ZNSt4pairIbN4cvc5
           to label %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228_crit_edge unwind label %837
 
 ._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228_crit_edge: ; preds = %808
-  %.pre295 = load i64, ptr %794, align 8
+  %.pre287 = load i64, ptr %794, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228: ; preds = %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228_crit_edge, %806, %800
-  %810 = phi i64 [ %.pre295, %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228_crit_edge ], [ %795, %806 ], [ %805, %800 ]
+  %810 = phi i64 [ %.pre287, %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228_crit_edge ], [ %795, %806 ], [ %805, %800 ]
   store i8 0, ptr %0, align 8, !tbaa !910
   store ptr %794, ptr %493, align 8, !tbaa !488
   %811 = lshr i64 %810, 40
@@ -28216,11 +28216,11 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit228: ; preds = %._ZN4cvc58inter
           to label %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit230_crit_edge unwind label %839
 
 ._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit230_crit_edge: ; preds = %823
-  %.pre296 = load i64, ptr %794, align 8
+  %.pre288 = load i64, ptr %794, align 8
   br label %_ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit230
 
 _ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit230: ; preds = %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit230_crit_edge, %821, %815
-  %825 = phi i64 [ %.pre296, %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit230_crit_edge ], [ %810, %821 ], [ %820, %815 ]
+  %825 = phi i64 [ %.pre288, %._ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEEC2IbS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit230_crit_edge ], [ %810, %821 ], [ %820, %815 ]
   %826 = and i64 %825, 1152920405095219200
   %.not.i.i231 = icmp eq i64 %826, 1152920405095219200
   br i1 %.not.i.i231, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit233, label %827, !prof !438

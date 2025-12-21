@@ -4868,11 +4868,9 @@ define internal void @_ZN6open3d9pipelines9color_map20RunNonRigidOptimizerERKNS_
   br i1 %133, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.thread.i, label %134
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.thread.i: ; preds = %120
-  store i64 %132, ptr %58, align 8, !tbaa !273, !noalias !270
-  store i64 %132, ptr %59, align 8, !tbaa !275, !noalias !270
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !270
-  store i64 0, ptr %21, align 8, !noalias !270
-  store i64 %132, ptr %60, align 8, !tbaa !241, !noalias !270
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !270
   store double 0.000000e+00, ptr %22, align 8, !tbaa !129, !noalias !270
   br label %151
@@ -4903,9 +4901,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i: ; preds = %138
   br i1 %143, label %.noexc.i.i.invoke, label %144
 
 144:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i
-  store ptr %142, ptr %20, align 8, !tbaa !276, !noalias !270
-  store i64 %132, ptr %58, align 8, !tbaa !273, !noalias !270
-  store i64 %132, ptr %59, align 8, !tbaa !275, !noalias !270
+  store ptr %142, ptr %20, align 8, !tbaa !273, !noalias !270
+  store i64 %132, ptr %58, align 8, !tbaa !275, !noalias !270
+  store i64 %132, ptr %59, align 8, !tbaa !276, !noalias !270
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !270
   %145 = icmp sgt i32 %117, -3
   br i1 %145, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i.thread
@@ -5012,8 +5010,8 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %151, %160
   %188 = getelementptr inbounds nuw %"class.open3d::pipelines::color_map::ImageWarpingField", ptr %187, i64 %167
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load ptr, ptr %189, align 8, !tbaa !239
-  %191 = load ptr, ptr %32, align 8, !tbaa !276
-  %192 = load i64, ptr %61, align 8, !tbaa !273
+  %191 = load ptr, ptr %32, align 8, !tbaa !273
+  %192 = load i64, ptr %61, align 8, !tbaa !275
   %smax = call i32 @llvm.smax.i32(i32 %118, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %193
@@ -5258,7 +5256,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_12CwiseUnaryOpINS_8internal18scal
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @free(ptr noundef nonnull %232) #6
   call void @free(ptr noundef %153) #6
-  %317 = load ptr, ptr %32, align 8, !tbaa !276
+  %317 = load ptr, ptr %32, align 8, !tbaa !273
   call void @free(ptr noundef %317) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -38712,11 +38710,11 @@ _ZNKSt8functionIFviRN5Eigen6MatrixIdLi14ELi1ELi0ELi14ELi1EEERdRNS1_IiLi14ELi1ELi
 84:                                               ; preds = %._crit_edge, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.thread
   %.033 = phi double [ %.1.lcssa, %._crit_edge ], [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.thread ]
   call void @__kmpc_critical(ptr nonnull @2, i32 %.pre, ptr nonnull @.gomp_critical_user_ComputeJTJandJTrNonRigid.var)
-  %85 = load ptr, ptr %5, align 8, !tbaa !276
+  %85 = load ptr, ptr %5, align 8, !tbaa !273
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !273
+  %87 = load i64, ptr %86, align 8, !tbaa !275
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %89 = load i64, ptr %88, align 8, !tbaa !275
+  %89 = load i64, ptr %88, align 8, !tbaa !276
   %90 = mul nsw i64 %89, %87
   %91 = sdiv i64 %90, 2
   %92 = shl nsw i64 %91, 1
@@ -39737,10 +39735,10 @@ attributes #43 = { nounwind willreturn memory(read) }
 !270 = !{!271}
 !271 = distinct !{!271, !272, !"_ZN6open3d9pipelines9color_mapL24ComputeJTJandJTrNonRigidIN5Eigen6MatrixIdLi14ELi1ELi0ELi14ELi1EEENS4_IiLi14ELi1ELi0ELi14ELi1EEENS4_IdLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi1ELi0ELin1ELi1EEEEESt5tupleIJT1_T2_dEESt8functionIFviRT_RdRT0_EEiib: argument 0"}
 !272 = distinct !{!272, !"_ZN6open3d9pipelines9color_mapL24ComputeJTJandJTrNonRigidIN5Eigen6MatrixIdLi14ELi1ELi0ELi14ELi1EEENS4_IiLi14ELi1ELi0ELi14ELi1EEENS4_IdLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi1ELi0ELin1ELi1EEEEESt5tupleIJT1_T2_dEESt8functionIFviRT_RdRT0_EEiib"}
-!273 = !{!274, !24, i64 8}
+!273 = !{!274, !185, i64 0}
 !274 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEE", !185, i64 0, !24, i64 8, !24, i64 16}
-!275 = !{!274, !24, i64 16}
-!276 = !{!274, !185, i64 0}
+!275 = !{!274, !24, i64 8}
+!276 = !{!274, !24, i64 16}
 !277 = !{!278, !271}
 !278 = distinct !{!278, !279, !"_ZSt10make_tupleIJN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS1_IdLin1ELi1ELi0ELin1ELi1EEERdEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS8_: argument 0"}
 !279 = distinct !{!279, !"_ZSt10make_tupleIJN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS1_IdLin1ELi1ELi0ELin1ELi1EEERdEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS8_"}

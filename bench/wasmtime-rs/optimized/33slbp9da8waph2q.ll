@@ -11572,8 +11572,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h07acca7a72f9bd
   %6 = alloca i16, align 2
   %7 = load i16, ptr %0, align 2, !alias.scope !1759, !noalias !1766, !noundef !5
   %8 = and i16 %7, 1
-  %.not64.not = icmp eq i16 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i16 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i16 %7, -2
@@ -11581,7 +11581,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h07acca7a72f9bd
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i16 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i16 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -11595,7 +11595,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h07acca7a72f9bd
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i16 %.sroa.13.0, 1
   %.not4.i = icmp eq i16 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -11605,7 +11605,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h07acca7a72f9bd
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.72.llvm.5040841037904929774, i64 noundef 19)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i16 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %.sroa.13.051.ph, ptr %6, align 2
@@ -11621,7 +11621,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h07acca7a72f9bd
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 
@@ -11779,8 +11779,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h1acfd3d00fcf6d
   %6 = alloca i32, align 4
   %7 = load i32, ptr %0, align 4, !alias.scope !1806, !noalias !1813, !noundef !5
   %8 = and i32 %7, 1
-  %.not64.not = icmp eq i32 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i32 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i32 %7, -2
@@ -11788,7 +11788,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h1acfd3d00fcf6d
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i32 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i32 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -11802,7 +11802,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h1acfd3d00fcf6d
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i32 %.sroa.13.0, 1
   %.not4.i = icmp eq i32 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -11812,7 +11812,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h1acfd3d00fcf6d
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.101.llvm.5040841037904929774, i64 noundef 14)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i32 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.sroa.13.051.ph, ptr %6, align 4
@@ -11828,7 +11828,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h1acfd3d00fcf6d
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 
@@ -11876,8 +11876,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h427bdcc068d37a
   %6 = alloca i16, align 2
   %7 = load i16, ptr %0, align 2, !alias.scope !1826, !noalias !1833, !noundef !5
   %8 = and i16 %7, 1
-  %.not64.not = icmp eq i16 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i16 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i16 %7, -2
@@ -11885,7 +11885,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h427bdcc068d37a
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i16 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i16 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -11899,7 +11899,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h427bdcc068d37a
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i16 %.sroa.13.0, 1
   %.not4.i = icmp eq i16 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -11909,7 +11909,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h427bdcc068d37a
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.72.llvm.5040841037904929774, i64 noundef 19)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i16 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %.sroa.13.051.ph, ptr %6, align 2
@@ -11925,7 +11925,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h427bdcc068d37a
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 
@@ -12193,8 +12193,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5f3d3497a34278
   %6 = alloca i16, align 2
   %7 = load i16, ptr %0, align 2, !alias.scope !1900, !noalias !1907, !noundef !5
   %8 = and i16 %7, 1
-  %.not64.not = icmp eq i16 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i16 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i16 %7, -2
@@ -12202,7 +12202,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5f3d3497a34278
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i16 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i16 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -12216,7 +12216,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5f3d3497a34278
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i16 %.sroa.13.0, 1
   %.not4.i = icmp eq i16 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -12226,7 +12226,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5f3d3497a34278
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.103.llvm.5040841037904929774, i64 noundef 26)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i16 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %.sroa.13.051.ph, ptr %6, align 2
@@ -12242,7 +12242,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5f3d3497a34278
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 
@@ -12730,8 +12730,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a444c3aea9ede
   %6 = alloca i32, align 4
   %7 = load i32, ptr %0, align 4, !alias.scope !2028, !noalias !2035, !noundef !5
   %8 = and i32 %7, 1
-  %.not64.not = icmp eq i32 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i32 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i32 %7, -2
@@ -12739,7 +12739,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a444c3aea9ede
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i32 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i32 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -12753,7 +12753,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a444c3aea9ede
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i32 %.sroa.13.0, 1
   %.not4.i = icmp eq i32 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -12763,7 +12763,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a444c3aea9ede
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.101.llvm.5040841037904929774, i64 noundef 14)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i32 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.sroa.13.051.ph, ptr %6, align 4
@@ -12779,7 +12779,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a444c3aea9ede
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 
@@ -12827,8 +12827,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a561e680880ae
   %6 = alloca i16, align 2
   %7 = load i16, ptr %0, align 2, !alias.scope !2048, !noalias !2055, !noundef !5
   %8 = and i16 %7, 1
-  %.not64.not = icmp eq i16 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i16 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i16 %7, -2
@@ -12836,7 +12836,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a561e680880ae
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i16 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i16 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -12850,7 +12850,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a561e680880ae
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i16 %.sroa.13.0, 1
   %.not4.i = icmp eq i16 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -12860,7 +12860,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a561e680880ae
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.40.llvm.5040841037904929774, i64 noundef 19)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i16 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %.sroa.13.051.ph, ptr %6, align 2
@@ -12876,7 +12876,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7a561e680880ae
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 
@@ -12924,8 +12924,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h8136322163f87e
   %6 = alloca i16, align 2
   %7 = load i16, ptr %0, align 2, !alias.scope !2068, !noalias !2075, !noundef !5
   %8 = and i16 %7, 1
-  %.not64.not = icmp eq i16 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i16 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i16 %7, -2
@@ -12933,7 +12933,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h8136322163f87e
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i16 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i16 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -12947,7 +12947,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h8136322163f87e
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i16 %.sroa.13.0, 1
   %.not4.i = icmp eq i16 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -12957,7 +12957,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h8136322163f87e
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.103.llvm.5040841037904929774, i64 noundef 26)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i16 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %.sroa.13.051.ph, ptr %6, align 2
@@ -12973,7 +12973,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h8136322163f87e
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 
@@ -13677,8 +13677,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hc30d933d937f47
   %6 = alloca i16, align 2
   %7 = load i16, ptr %0, align 2, !alias.scope !2250, !noalias !2257, !noundef !5
   %8 = and i16 %7, 1
-  %.not64.not = icmp eq i16 %8, 0
-  br i1 %.not64.not, label %.lr.ph.i.us, label %.split.preheader
+  %.not63.not = icmp eq i16 %8, 0
+  br i1 %.not63.not, label %.lr.ph.i.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %2
   %9 = and i16 %7, -2
@@ -13686,7 +13686,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hc30d933d937f47
 
 .lr.ph.i.us:                                      ; preds = %2
   %10 = icmp eq i16 %7, 0
-  br i1 %10, label %.thread, label %.thread73
+  br i1 %10, label %.thread, label %.thread72
 
 .split:                                           ; preds = %.split.preheader, %13
   %.sroa.13.0 = phi i16 [ %9, %13 ], [ %7, %.split.preheader ]
@@ -13700,7 +13700,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hc30d933d937f47
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %12 = and i16 %.sroa.13.0, 1
   %.not4.i = icmp eq i16 %12, 0
-  br i1 %.not4.i, label %.thread73, label %13
+  br i1 %.not4.i, label %.thread72, label %13
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -13710,7 +13710,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hc30d933d937f47
   %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4eeeaa3f7ebbc960ad39c067640e9a74.40.llvm.5040841037904929774, i64 noundef 19)
   br i1 %14, label %.loopexit43, label %.split
 
-.thread73:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
+.thread72:                                        ; preds = %.lr.ph.split.i.preheader, %.lr.ph.i.us
   %.sroa.13.051.ph = phi i16 [ %7, %.lr.ph.i.us ], [ %.sroa.13.0, %.lr.ph.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %.sroa.13.051.ph, ptr %6, align 2
@@ -13726,7 +13726,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hc30d933d937f47
   %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.91, i64 noundef 3)
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %.thread73, %15
+17:                                               ; preds = %.thread72, %15
   %18 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.90, i64 noundef 2)
   br i1 %18, label %19, label %20
 

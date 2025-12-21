@@ -2123,90 +2123,88 @@ define dso_local void @_ZN3ozz9animation11SamplingJob7Context6ResizeEi(ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %15, ptr %16, align 4, !tbaa !33
   %17 = zext nneg i32 %15 to i64
-  %18 = add nuw nsw i64 %17, 7
-  %19 = lshr i64 %18, 3
-  %20 = mul nuw nsw i64 %17, 464
-  %21 = mul nuw nsw i64 %19, 3
-  %22 = add nuw nsw i64 %21, %20
-  %23 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %24 = load ptr, ptr %23, align 8, !tbaa !122
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %22, i64 noundef 16)
-  store ptr %27, ptr %8, align 8, !tbaa !121
+  %18 = shl nuw nsw i64 %17, 2
+  %19 = add nuw nsw i64 %17, 7
+  %20 = lshr i64 %19, 3
+  %21 = mul nuw nsw i64 %17, 464
+  %22 = mul nuw nsw i64 %20, 3
+  %23 = add nuw nsw i64 %22, %21
+  %24 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+  %25 = load ptr, ptr %24, align 8, !tbaa !122
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %23, i64 noundef 16)
+  store ptr %28, ptr %8, align 8, !tbaa !121
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit, label %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32
 
 _ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32: ; preds = %2
   %.idx.i = shl nuw nsw i64 %17, 7
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %27, ptr %29, align 8, !tbaa !75
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %17, ptr %30, align 8, !tbaa !124
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %28, ptr %30, align 8, !tbaa !75
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i64 %17, ptr %31, align 8, !tbaa !124
   %.idx.i21 = mul nuw nsw i64 %17, 160
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i21
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %28, ptr %32, align 8, !tbaa !86
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i21
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %29, ptr %33, align 8, !tbaa !86
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
   %.idx.i34 = shl nuw nsw i64 %17, 4
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i34
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i34
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i34
   br label %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit52
 
 _ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr null, ptr %37, align 8, !tbaa !75
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %17, ptr %38, align 8, !tbaa !124
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr null, ptr %39, align 8, !tbaa !86
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   br label %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit52
 
 _ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit52: ; preds = %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32
-  %.sink153 = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %31, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
-  %.sink152 = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %33, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
-  %.sink = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %34, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
-  %.sroa.086.5 = phi ptr [ %27, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %36, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
-  %.sroa.04.0.i49 = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %35, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
-  %40 = shl nuw nsw i64 %17, 2
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 %17, ptr %41, align 8, !tbaa !125
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %.sink153, ptr %42, align 8, !tbaa !75
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 %17, ptr %43, align 8, !tbaa !124
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sink157 = phi i64 [ 0, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %17, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
+  %.sink156 = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %32, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
+  %.sink154 = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %34, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
+  %.sink153 = phi i64 [ 0, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %18, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
+  %.sink152 = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %35, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
+  %.sroa.086.5 = phi ptr [ %28, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %37, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
+  %.sroa.04.0.i49 = phi ptr [ null, %_ZN3ozz9fill_spanIjEENS_4spanIT_EERNS1_IhEEm.exit ], [ %36, %_ZN3ozz9fill_spanINS_9animation8internal15InterpSoaFloat3EEENS_4spanIT_EERNS4_IhEEm.exit32 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i64 %.sink157, ptr %39, align 8, !tbaa !125
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %.sink156, ptr %40, align 8, !tbaa !75
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i64 %.sink157, ptr %41, align 8, !tbaa !124
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sink154, ptr %42, align 8, !tbaa !57
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sink153, ptr %43, align 8, !tbaa !58
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink152, ptr %44, align 8, !tbaa !57
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %40, ptr %45, align 8, !tbaa !58
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %.sink, ptr %46, align 8, !tbaa !57
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %40, ptr %47, align 8, !tbaa !58
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %.sroa.04.0.i49, ptr %48, align 8, !tbaa !57
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %40, ptr %49, align 8, !tbaa !58
-  %.not.i53 = icmp eq i64 %19, 0
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.086.5, i64 %19
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %19
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %.sink153, ptr %45, align 8, !tbaa !58
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %.sroa.04.0.i49, ptr %46, align 8, !tbaa !57
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %18, ptr %47, align 8, !tbaa !58
+  %.not.i53 = icmp eq i64 %20, 0
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.086.5, i64 %20
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %20
   %.sroa.086.5.sink = select i1 %.not.i53, ptr null, ptr %.sroa.086.5
-  %.sink154 = select i1 %.not.i53, ptr null, ptr %50
-  %.sroa.04.0.i66 = select i1 %.not.i53, ptr null, ptr %51
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sroa.086.5.sink, ptr %52, align 8, !tbaa !52
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %19, ptr %53, align 8, !tbaa !54
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.sink154, ptr %54, align 8, !tbaa !52
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %19, ptr %55, align 8, !tbaa !54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %.sroa.04.0.i66, ptr %56, align 8, !tbaa !52
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %19, ptr %57, align 8, !tbaa !54
+  %.sink159 = select i1 %.not.i53, ptr null, ptr %48
+  %.sroa.04.0.i66 = select i1 %.not.i53, ptr null, ptr %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.sroa.086.5.sink, ptr %50, align 8, !tbaa !52
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %20, ptr %51, align 8, !tbaa !54
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %.sink159, ptr %52, align 8, !tbaa !52
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %20, ptr %53, align 8, !tbaa !54
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %.sroa.04.0.i66, ptr %54, align 8, !tbaa !52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 %20, ptr %55, align 8, !tbaa !54
   ret void
 }
 

@@ -3389,9 +3389,9 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit.i: 
   br i1 %.not.i, label %.critedge.i85.thread, label %115
 
 .critedge.i85.thread:                             ; preds = %.critedge.i
-  store i64 %111, ptr %112, align 8
+  store i64 0, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %111, ptr %113, align 8
+  store i64 0, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %142
 
@@ -11987,7 +11987,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not.i, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IliEERKT_RKT0_.exit.thread, label %14
 
 _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IliEERKT_RKT0_.exit.thread: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
-  store i64 %8, ptr %12, align 8
+  store i64 0, ptr %12, align 8
   store i64 3, ptr %13, align 8
   br label %._crit_edge
 
@@ -24559,25 +24559,25 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br i1 %.not.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i72.thread, label %42
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i72.thread: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i
-  store i64 %33, ptr %34, align 8
+  store i64 0, ptr %34, align 8
   store i64 0, ptr %24, align 8
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %33, ptr %35, align 8
+  store i64 0, ptr %35, align 8
   store i64 0, ptr %25, align 8
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %33, ptr %36, align 8
+  store i64 0, ptr %36, align 8
   store i64 0, ptr %26, align 8
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %33, ptr %37, align 8
+  store i64 0, ptr %37, align 8
   store i64 0, ptr %27, align 8
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 %33, ptr %38, align 8
+  store i64 0, ptr %38, align 8
   store i64 0, ptr %28, align 8
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %33, ptr %39, align 8
+  store i64 0, ptr %39, align 8
   store i64 0, ptr %29, align 8
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 %33, ptr %40, align 8
+  store i64 0, ptr %40, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %136
@@ -28265,9 +28265,9 @@ define linkonce_odr void @_ZN3igl20massmatrix_intrinsicIN5Eigen6MatrixIdLin1ELi3
   br i1 %.not.i, label %.critedge.i52.thread, label %75
 
 .critedge.i52.thread:                             ; preds = %.critedge.i
-  store i64 %71, ptr %72, align 8
+  store i64 0, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 %71, ptr %73, align 8
+  store i64 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %96
 
@@ -28560,9 +28560,9 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   br i1 %.not.i235, label %.critedge.i61.thread, label %199
 
 .critedge.i61.thread:                             ; preds = %.critedge.i55
-  store i64 %195, ptr %196, align 8
+  store i64 0, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 %195, ptr %197, align 8
+  store i64 0, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %220
 
@@ -28822,7 +28822,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit80: ; preds = %.lr.ph.i.i.
   br i1 %.not.i259, label %.thread1943, label %305
 
 .thread1943:                                      ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit80
-  store i64 %226, ptr %302, align 8
+  store i64 0, ptr %302, align 8
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %304 = load i64, ptr %303, align 8, !noalias !1088
   br label %.loopexit1853
@@ -33175,7 +33175,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %49, %53
   br i1 %.not.i102, label %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread, label %57
 
 _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread: ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit
-  store i64 %55, ptr %56, align 8
+  store i64 0, ptr %56, align 8
   br label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit
 
 57:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit
@@ -35220,7 +35220,7 @@ define linkonce_odr void @_ZN3igl7repdiagIdEEvRKN5Eigen12SparseMatrixIT_Li0EiEEi
   br i1 %.not.i48, label %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread, label %16
 
 _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread: ; preds = %3
-  store i64 %14, ptr %15, align 8
+  store i64 0, ptr %15, align 8
   br label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit
 
 16:                                               ; preds = %3
@@ -54046,7 +54046,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit134: ; p
   br i1 %.not.i205, label %.thread425, label %246
 
 .thread425:                                       ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit134
-  store i64 %199, ptr %244, align 8
+  store i64 0, ptr %244, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %245 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %277
@@ -54082,16 +54082,16 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit134: ; p
   br label %.body135
 
 258:                                              ; preds = %208
-  store i64 %115, ptr %209, align 8
+  store i64 0, ptr %209, align 8
   store i64 0, ptr %4, align 8
   %259 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %115, ptr %259, align 8
+  store i64 0, ptr %259, align 8
   store i64 0, ptr %5, align 8
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %115, ptr %260, align 8
+  store i64 0, ptr %260, align 8
   store i64 0, ptr %6, align 8
   %261 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %199, ptr %261, align 8
+  store i64 0, ptr %261, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %262 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %277
@@ -54148,7 +54148,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit134: ; p
   br i1 %.not.i217, label %.thread435, label %282
 
 .thread435:                                       ; preds = %277
-  store i64 %117, ptr %281, align 8
+  store i64 0, ptr %281, align 8
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit146
 
 282:                                              ; preds = %277
@@ -54317,7 +54317,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.
   br i1 %.not.i234, label %.noexc161.thread, label %332
 
 .noexc161.thread:                                 ; preds = %325
-  store i64 %.sroa.speculated.i, ptr %331, align 8
+  store i64 0, ptr %331, align 8
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit162
 
 332:                                              ; preds = %325
@@ -54362,7 +54362,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit1
   br i1 %.not.i240, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i.thread, label %343
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i.thread: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit162
-  store i64 %341, ptr %342, align 8
+  store i64 0, ptr %342, align 8
   br label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 343:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit162

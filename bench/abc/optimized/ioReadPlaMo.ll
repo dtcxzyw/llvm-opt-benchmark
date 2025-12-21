@@ -926,9 +926,10 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
 
 Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.exit.i
   %calloc.sink = phi ptr [ %calloc, %Vec_IntAlloc.exit.i ], [ null, %1 ]
+  %storemerge = phi i32 [ %4, %Vec_IntAlloc.exit.i ], [ 0, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %calloc.sink, ptr %9, align 8, !tbaa !25
-  store i32 %4, ptr %6, align 4, !tbaa !21
+  store i32 %storemerge, ptr %6, align 4, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr i8, ptr %11, i64 4

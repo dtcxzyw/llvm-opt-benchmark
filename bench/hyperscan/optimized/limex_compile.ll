@@ -22594,9 +22594,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8
   br i1 %.not.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.thread.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i349
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.thread.i: ; preds = %209
-  store i64 %113, ptr %114, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
-  store i64 %113, ptr %125, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %114, i8 0, i64 40, i1 false)
   store i32 -1, ptr %126, align 8
   store i32 0, ptr %127, align 4
   store i32 0, ptr %128, align 8

@@ -311,8 +311,8 @@ define dso_local range(i32 0, 2) i32 @read_scan_script(ptr noundef %0, ptr nound
 .lr.ph113:                                        ; preds = %.preheader71, %122
   %.0112 = phi ptr [ %123, %122 ], [ %5, %.preheader71 ]
   %.053111 = phi i32 [ %124, %122 ], [ 0, %.preheader71 ]
-  %exitcond141 = icmp eq i32 %.053111, 100
-  br i1 %exitcond141, label %12, label %16
+  %exitcond140 = icmp eq i32 %.053111, 100
+  br i1 %exitcond140, label %12, label %16
 
 12:                                               ; preds = %.lr.ph113
   %13 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -572,8 +572,8 @@ read_scan_integer.exit.thread:                    ; preds = %117, %103, %95, %87
 
 ._crit_edge114.thread:                            ; preds = %.preheader71
   %127 = load i32, ptr %3, align 4, !tbaa !11
-  %.not56149 = icmp eq i32 %127, -1
-  br i1 %.not56149, label %.thread151, label %128
+  %.not56148 = icmp eq i32 %127, -1
+  br i1 %.not56148, label %.thread150, label %128
 
 128:                                              ; preds = %._crit_edge114.thread, %._crit_edge114
   %129 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -593,14 +593,14 @@ read_scan_integer.exit.thread:                    ; preds = %117, %103, %95, %87
   store ptr %138, ptr %139, align 8, !tbaa !49
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %124, ptr %140, align 8, !tbaa !50
-  br label %.thread151
+  br label %.thread150
 
-.thread151:                                       ; preds = %._crit_edge114.thread, %132
+.thread150:                                       ; preds = %._crit_edge114.thread, %132
   %141 = tail call i32 @fclose(ptr noundef nonnull %6)
   br label %142
 
-142:                                              ; preds = %.thread151, %128, %read_scan_integer.exit.thread, %21, %12, %9
-  %.054 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %21 ], [ 0, %read_scan_integer.exit.thread ], [ 0, %128 ], [ 1, %.thread151 ]
+142:                                              ; preds = %.thread150, %128, %read_scan_integer.exit.thread, %21, %12, %9
+  %.054 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %21 ], [ 0, %read_scan_integer.exit.thread ], [ 0, %128 ], [ 1, %.thread150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

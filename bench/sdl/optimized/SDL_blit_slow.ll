@@ -151,23 +151,23 @@ GetPixelAccessMethod.exit:                        ; preds = %39, %49, %50, %swit
 71:                                               ; preds = %70
   %72 = lshr i32 %55, 20
   %73 = and i32 %72, 15
-  %switch.tableidx799 = add nsw i32 %73, -2
-  %74 = icmp ult i32 %switch.tableidx799, 5
-  br i1 %74, label %switch.lookup800, label %GetPixelAccessMethod.exit643.thread
+  %switch.tableidx798 = add nsw i32 %73, -2
+  %74 = icmp ult i32 %switch.tableidx798, 5
+  br i1 %74, label %switch.lookup799, label %GetPixelAccessMethod.exit643.thread
 
 GetPixelAccessMethod.exit643:                     ; preds = %59
   %75 = tail call zeroext i8 @SDL_LookupRGBAColor(ptr noundef %25, i32 noundef 0, ptr noundef %23) #5
   br label %GetPixelAccessMethod.exit643.thread
 
-switch.lookup800:                                 ; preds = %71
-  %76 = zext nneg i32 %switch.tableidx799 to i64
-  %switch.gep801 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_Blit_Slow_Float, i64 %76
-  %switch.load802 = load i32, ptr %switch.gep801, align 4
+switch.lookup799:                                 ; preds = %71
+  %76 = zext nneg i32 %switch.tableidx798 to i64
+  %switch.gep800 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_Blit_Slow_Float, i64 %76
+  %switch.load801 = load i32, ptr %switch.gep800, align 4
   br label %GetPixelAccessMethod.exit643.thread
 
-GetPixelAccessMethod.exit643.thread:              ; preds = %61, %70, %71, %switch.lookup800, %65, %.critedge.i633, %GetPixelAccessMethod.exit, %GetPixelAccessMethod.exit643
-  %.0.i636645 = phi i32 [ 0, %GetPixelAccessMethod.exit643 ], [ %69, %65 ], [ %switch.load802, %switch.lookup800 ], [ 4, %GetPixelAccessMethod.exit ], [ 3, %.critedge.i633 ], [ 1, %71 ], [ 1, %70 ], [ 1, %61 ]
-  %.0577 = phi i8 [ %75, %GetPixelAccessMethod.exit643 ], [ 0, %65 ], [ 0, %switch.lookup800 ], [ 0, %GetPixelAccessMethod.exit ], [ 0, %.critedge.i633 ], [ 0, %71 ], [ 0, %70 ], [ 0, %61 ]
+GetPixelAccessMethod.exit643.thread:              ; preds = %61, %70, %71, %switch.lookup799, %65, %.critedge.i633, %GetPixelAccessMethod.exit, %GetPixelAccessMethod.exit643
+  %.0.i636645 = phi i32 [ 0, %GetPixelAccessMethod.exit643 ], [ %69, %65 ], [ %switch.load801, %switch.lookup799 ], [ 4, %GetPixelAccessMethod.exit ], [ 3, %.critedge.i633 ], [ 1, %71 ], [ 1, %70 ], [ 1, %61 ]
+  %.0577 = phi i8 [ %75, %GetPixelAccessMethod.exit643 ], [ 0, %65 ], [ 0, %switch.lookup799 ], [ 0, %GetPixelAccessMethod.exit ], [ 0, %.critedge.i633 ], [ 0, %71 ], [ 0, %70 ], [ 0, %61 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
@@ -760,15 +760,15 @@ GetPixelAccessMethod.exit643.thread:              ; preds = %61, %70, %71, %swit
   br i1 %112, label %..thread661_crit_edge, label %543
 
 ..thread661_crit_edge:                            ; preds = %531
-  %.pre771 = load i8, ptr %101, align 4
-  %.pre772 = load i8, ptr %104, align 1
-  %.pre773 = load i8, ptr %107, align 2
+  %.pre770 = load i8, ptr %101, align 4
+  %.pre771 = load i8, ptr %104, align 1
+  %.pre772 = load i8, ptr %107, align 2
   br label %.thread661
 
 .thread661:                                       ; preds = %..thread661_crit_edge, %.thread
-  %532 = phi i8 [ %.pre773, %..thread661_crit_edge ], [ %525, %.thread ]
-  %533 = phi i8 [ %.pre772, %..thread661_crit_edge ], [ %519, %.thread ]
-  %534 = phi i8 [ %.pre771, %..thread661_crit_edge ], [ %513, %.thread ]
+  %532 = phi i8 [ %.pre772, %..thread661_crit_edge ], [ %525, %.thread ]
+  %533 = phi i8 [ %.pre771, %..thread661_crit_edge ], [ %519, %.thread ]
+  %534 = phi i8 [ %.pre770, %..thread661_crit_edge ], [ %513, %.thread ]
   %.2573652674 = phi i32 [ %.2573, %..thread661_crit_edge ], [ 255, %.thread ]
   %.2567654671 = phi i32 [ %.2567, %..thread661_crit_edge ], [ %530, %.thread ]
   %.2561656669 = phi i32 [ %.2561, %..thread661_crit_edge ], [ %524, %.thread ]
@@ -2132,8 +2132,8 @@ GetPixelAccessMethod.exit163.thread:              ; preds = %113, %119, %119, %1
 187:                                              ; preds = %.lr.ph
   %188 = load float, ptr %2, align 4
   %189 = fmul float %.sroa.10169.0, %188
-  %.pre197 = load float, ptr %3, align 4
-  %.pre198 = load float, ptr %4, align 4
+  %.pre196 = load float, ptr %3, align 4
+  %.pre197 = load float, ptr %4, align 4
   br label %TonemapChrome.exit.sink.split.i
 
 190:                                              ; preds = %.lr.ph
@@ -2162,8 +2162,8 @@ GetPixelAccessMethod.exit163.thread:              ; preds = %113, %119, %119, %1
   br label %TonemapChrome.exit.sink.split.i
 
 TonemapChrome.exit.sink.split.i:                  ; preds = %200, %187
-  %205 = phi float [ %195, %200 ], [ %.pre198, %187 ]
-  %206 = phi float [ %194, %200 ], [ %.pre197, %187 ]
+  %205 = phi float [ %195, %200 ], [ %.pre197, %187 ]
+  %206 = phi float [ %194, %200 ], [ %.pre196, %187 ]
   %.sink.i = phi float [ %204, %200 ], [ %189, %187 ]
   %.sink17.i = phi float [ %203, %200 ], [ %.sroa.10169.0, %187 ]
   store float %.sink.i, ptr %2, align 4
@@ -2213,17 +2213,17 @@ ApplyTonemap.exit:                                ; preds = %.lr.ph, %TonemapChr
   br label %224
 
 224:                                              ; preds = %214, %213
-  %.pre199 = load float, ptr %5, align 4
+  %.pre198 = load float, ptr %5, align 4
   br i1 %.not146, label %228, label %225
 
 225:                                              ; preds = %224
-  %226 = fmul float %.pre199, %152
+  %226 = fmul float %.pre198, %152
   %227 = fdiv float %226, 2.550000e+02
   store float %227, ptr %5, align 4
   br label %228
 
 228:                                              ; preds = %225, %224
-  %229 = phi float [ %227, %225 ], [ %.pre199, %224 ]
+  %229 = phi float [ %227, %225 ], [ %.pre198, %224 ]
   %230 = fcmp olt float %229, 1.000000e+00
   %or.cond = select i1 %154, i1 %230, i1 false
   br i1 %or.cond, label %231, label %238
@@ -3443,13 +3443,13 @@ WriteFloatPixel.exit:                             ; preds = %1007, %1002, %float
   br i1 %.not141, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %WriteFloatPixel.exit
-  %.pre200 = load ptr, ptr %141, align 8
-  %.pre201 = load i32, ptr %128, align 4
+  %.pre199 = load ptr, ptr %141, align 8
+  %.pre200 = load i32, ptr %128, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph192.split
-  %1011 = phi i32 [ %174, %.lr.ph192.split ], [ %.pre201, %._crit_edge.loopexit ]
-  %1012 = phi ptr [ %175, %.lr.ph192.split ], [ %.pre200, %._crit_edge.loopexit ]
+  %1011 = phi i32 [ %174, %.lr.ph192.split ], [ %.pre200, %._crit_edge.loopexit ]
+  %1012 = phi ptr [ %175, %.lr.ph192.split ], [ %.pre199, %._crit_edge.loopexit ]
   %.2128.lcssa = phi i8 [ %.1127189, %.lr.ph192.split ], [ %.4, %._crit_edge.loopexit ]
   %.1125.lcssa = phi i32 [ %.0124190, %.lr.ph192.split ], [ %.3, %._crit_edge.loopexit ]
   %1013 = add i64 %.0191, %131

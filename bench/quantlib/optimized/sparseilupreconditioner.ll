@@ -3819,17 +3819,15 @@ entry:
   %0 = load i64, ptr %n_.i, align 8, !tbaa !79
   %conv = trunc i64 %0 to i32
   %sext = shl i64 %0, 32
-  %conv2 = ashr exact i64 %sext, 32
   %cmp.not.i = icmp eq i64 %sext, 0
   br i1 %cmp.not.i, label %cond.end.thread.i, label %for.body.i.i.i.preheader.i
 
 cond.end.thread.i:                                ; preds = %entry
-  store ptr null, ptr %agg.result, align 8, !tbaa !56
-  %n_5.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %conv2, ptr %n_5.i, align 8, !tbaa !79
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   br label %_ZN8QuantLib5ArrayC2Emd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %entry
+  %conv2 = ashr exact i64 %sext, 32
   %1 = icmp ugt i64 %conv2, 2305843009213693951
   %2 = ashr exact i64 %sext, 29
   %3 = select i1 %1, i64 -1, i64 %2

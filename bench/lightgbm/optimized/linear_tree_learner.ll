@@ -6516,11 +6516,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN8LightGBM4Tree13
   br i1 %166, label %.thread, label %167
 
 .thread:                                          ; preds = %164
-  store i64 %165, ptr %33, align 8, !tbaa !376
-  store i64 %165, ptr %34, align 8, !tbaa !378
+  store i64 0, ptr %33, align 8, !tbaa !376
+  store i64 0, ptr %34, align 8, !tbaa !378
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
-  store i64 %165, ptr %35, align 8, !tbaa !376
+  store i64 0, ptr %35, align 8, !tbaa !376
   store i64 1, ptr %36, align 8, !tbaa !378
   br label %._crit_edge
 
@@ -20045,11 +20045,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN8LightGBM4Tree13
   br i1 %166, label %.thread, label %167
 
 .thread:                                          ; preds = %164
-  store i64 %165, ptr %33, align 8, !tbaa !376
-  store i64 %165, ptr %34, align 8, !tbaa !378
+  store i64 0, ptr %33, align 8, !tbaa !376
+  store i64 0, ptr %34, align 8, !tbaa !378
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
-  store i64 %165, ptr %35, align 8, !tbaa !376
+  store i64 0, ptr %35, align 8, !tbaa !376
   store i64 1, ptr %36, align 8, !tbaa !378
   br label %._crit_edge
 
@@ -26282,11 +26282,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN8LightGBM4Tree13
   br i1 %166, label %.thread, label %167
 
 .thread:                                          ; preds = %164
-  store i64 %165, ptr %33, align 8, !tbaa !376
-  store i64 %165, ptr %34, align 8, !tbaa !378
+  store i64 0, ptr %33, align 8, !tbaa !376
+  store i64 0, ptr %34, align 8, !tbaa !378
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
-  store i64 %165, ptr %35, align 8, !tbaa !376
+  store i64 0, ptr %35, align 8, !tbaa !376
   store i64 1, ptr %36, align 8, !tbaa !378
   br label %._crit_edge
 
@@ -27962,11 +27962,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN8LightGBM4Tree13
   br i1 %166, label %.thread, label %167
 
 .thread:                                          ; preds = %164
-  store i64 %165, ptr %33, align 8, !tbaa !376
-  store i64 %165, ptr %34, align 8, !tbaa !378
+  store i64 0, ptr %33, align 8, !tbaa !376
+  store i64 0, ptr %34, align 8, !tbaa !378
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
-  store i64 %165, ptr %35, align 8, !tbaa !376
+  store i64 0, ptr %35, align 8, !tbaa !376
   store i64 1, ptr %36, align 8, !tbaa !378
   br label %._crit_edge
 

@@ -27437,10 +27437,11 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit.i.i: ; pred
   br i1 %exitcond, label %130, label %124
 
 82:                                               ; preds = %58, %.thread37
+  %storemerge = phi i64 [ 30, %.thread37 ], [ %23, %58 ]
   store ptr %.014.le.i, ptr %13, align 8, !alias.scope !4142
-  store i64 %23, ptr %14, align 8, !alias.scope !4142
+  store i64 %storemerge, ptr %14, align 8, !alias.scope !4142
   %83 = getelementptr inbounds nuw i8, ptr %.014.le.i, i64 8
-  %84 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %83, i64 %23
+  %84 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %83, i64 %storemerge
   %85 = load atomic i64, ptr %84 acquire, align 8
   %86 = and i64 %85, 1
   %87 = icmp eq i64 %86, 0
@@ -27476,7 +27477,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit.i.i16: ; pr
   br i1 %95, label %.lr.ph.i.i13, label %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hea5648ff4e80b6a4E.exit.i"
 
 "_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hea5648ff4e80b6a4E.exit.i": ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit.i.i16, %82
-  %96 = add nuw nsw i64 %23, 1
+  %96 = add nuw nsw i64 %storemerge, 1
   %97 = icmp eq i64 %96, 31
   br i1 %97, label %.preheader.i, label %98
 
@@ -27510,7 +27511,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit.i.i16: ; pr
   br i1 %exitcond.not.i.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h417cd09698b86fe0E.exit.sink.split.i", label %.preheader.i
 
 112:                                              ; preds = %98
-  %113 = icmp samesign ult i64 %23, 29
+  %113 = icmp samesign ult i64 %storemerge, 29
   br i1 %113, label %.lr.ph.i5.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h417cd09698b86fe0E.exit.sink.split.i"
 
 .lr.ph.i5.i:                                      ; preds = %112, %123

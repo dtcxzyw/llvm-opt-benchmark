@@ -135,7 +135,7 @@ define internal fastcc void @trigger_sigsys(ptr noundef readonly captures(none) 
 define dso_local noundef range(i32 -22, 1) i32 @set_syscall_user_dispatch(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  switch i64 %0, label %31 [
+  switch i64 %0, label %28 [
     i64 0, label %7
     i64 1, label %12
   ]
@@ -145,18 +145,18 @@ define dso_local noundef range(i32 -22, 1) i32 @set_syscall_user_dispatch(i64 no
   %9 = icmp ne i64 %8, 0
   %10 = icmp ne ptr %3, null
   %11 = or i1 %9, %10
-  br i1 %11, label %31, label %25
+  br i1 %11, label %28, label %25
 
 12:                                               ; preds = %4
   %13 = icmp eq i64 %1, 0
   %14 = add i64 %2, %1
   %15 = icmp ugt i64 %14, %1
   %16 = or i1 %13, %15
-  br i1 %16, label %17, label %31
+  br i1 %16, label %17, label %28
 
 17:                                               ; preds = %12
   %18 = icmp sgt ptr %3, inttoptr (i64 -1 to ptr)
-  br i1 %18, label %19, label %31, !prof !11
+  br i1 %18, label %19, label %28, !prof !11
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2008
@@ -169,24 +169,18 @@ define dso_local noundef range(i32 -22, 1) i32 @set_syscall_user_dispatch(i64 no
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %24, i32 32, ptr nonnull elementtype(i8) %24) #7, !srcloc !12
-  br label %31
+  br label %28
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2008
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2016
-  store i64 %1, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 2024
-  store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 2032
-  store i8 0, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i32 -33, ptr nonnull elementtype(i8) %30) #7, !srcloc !13
-  br label %31
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %26, i8 0, i64 25, i1 false)
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 -33, ptr nonnull elementtype(i8) %27) #7, !srcloc !13
+  br label %28
 
-31:                                               ; preds = %25, %19, %17, %12, %7, %4
-  %32 = phi i32 [ -22, %7 ], [ -22, %12 ], [ -22, %4 ], [ 0, %25 ], [ 0, %19 ], [ -14, %17 ]
-  ret i32 %32
+28:                                               ; preds = %25, %19, %17, %12, %7, %4
+  %29 = phi i32 [ -22, %7 ], [ -22, %12 ], [ -22, %4 ], [ 0, %25 ], [ 0, %19 ], [ -14, %17 ]
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

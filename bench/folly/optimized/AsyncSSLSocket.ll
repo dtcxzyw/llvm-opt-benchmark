@@ -18743,12 +18743,12 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit145: ; preds = 
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150_crit_edge: ; preds = %145
   %.pre = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre423 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre448 = ptrtoint ptr %.pre423 to i64
+  %.pre422 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre447 = ptrtoint ptr %.pre422 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150_crit_edge, %143
-  %.pre-phi = phi i64 [ %.pre448, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150_crit_edge ], [ %123, %143 ]
+  %.pre-phi = phi i64 [ %.pre447, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150_crit_edge ], [ %123, %143 ]
   %147 = phi ptr [ %.pre, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150_crit_edge ], [ %144, %143 ]
   %.0.i148 = phi i8 [ %146, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150_crit_edge ], [ %.0.copyload.i.i147, %143 ]
   %148 = ptrtoint ptr %147 to i64
@@ -18767,18 +18767,18 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit150: ; preds =
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge unwind label %191
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge: ; preds = %152
-  %.pre424 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre425 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre449 = ptrtoint ptr %.pre425 to i64
+  %.pre423 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre424 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre448 = ptrtoint ptr %.pre424 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge, %150
-  %.pre-phi450 = phi i64 [ %.pre449, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge ], [ %.pre-phi, %150 ]
-  %154 = phi ptr [ %.pre424, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge ], [ %151, %150 ]
+  %.pre-phi449 = phi i64 [ %.pre448, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge ], [ %.pre-phi, %150 ]
+  %154 = phi ptr [ %.pre423, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge ], [ %151, %150 ]
   %.0.i153 = phi i8 [ %153, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155_crit_edge ], [ %.0.copyload.i.i152, %150 ]
   %155 = ptrtoint ptr %154 to i64
   %156 = add i64 %155, 1
-  %.not.i156 = icmp ugt i64 %156, %.pre-phi450
+  %.not.i156 = icmp ugt i64 %156, %.pre-phi449
   br i1 %.not.i156, label %159, label %157, !prof !260
 
 157:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit155
@@ -18913,21 +18913,21 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i187: ; preds = %189
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge unwind label %191
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge: ; preds = %201
-  %.pre426 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre427 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre451 = ptrtoint ptr %.pre427 to i64
+  %.pre425 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre426 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre450 = ptrtoint ptr %.pre426 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge, %199
-  %.pre-phi452 = phi i64 [ %.pre451, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge ], [ %178, %199 ]
-  %203 = phi ptr [ %.pre426, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge ], [ %200, %199 ]
+  %.pre-phi451 = phi i64 [ %.pre450, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge ], [ %178, %199 ]
+  %203 = phi ptr [ %.pre425, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge ], [ %200, %199 ]
   %.0.i191 = phi i8 [ %202, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193_crit_edge ], [ %.0.copyload.i.i190, %199 ]
   %204 = load ptr, ptr %39, align 8, !tbaa !414
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 64
   store i8 %.0.i191, ptr %205, align 8, !tbaa !651
   %206 = ptrtoint ptr %203 to i64
   %207 = add i64 %206, 1
-  %.not.i194 = icmp ugt i64 %207, %.pre-phi452
+  %.not.i194 = icmp ugt i64 %207, %.pre-phi451
   br i1 %.not.i194, label %210, label %208, !prof !260
 
 208:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193
@@ -18941,22 +18941,22 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit193: ; preds =
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge unwind label %191
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge: ; preds = %210
-  %.pre428 = load ptr, ptr %39, align 8, !tbaa !414
-  %.pre429 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre430 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre453 = ptrtoint ptr %.pre430 to i64
+  %.pre427 = load ptr, ptr %39, align 8, !tbaa !414
+  %.pre428 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre429 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre452 = ptrtoint ptr %.pre429 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge, %208
-  %.pre-phi454 = phi i64 [ %.pre453, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge ], [ %.pre-phi452, %208 ]
-  %212 = phi ptr [ %.pre429, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge ], [ %209, %208 ]
-  %213 = phi ptr [ %.pre428, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge ], [ %204, %208 ]
+  %.pre-phi453 = phi i64 [ %.pre452, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge ], [ %.pre-phi451, %208 ]
+  %212 = phi ptr [ %.pre428, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge ], [ %209, %208 ]
+  %213 = phi ptr [ %.pre427, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge ], [ %204, %208 ]
   %.0.i196 = phi i8 [ %211, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198_crit_edge ], [ %.0.copyload.i.i195, %208 ]
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 65
   store i8 %.0.i196, ptr %214, align 1, !tbaa !668
   %215 = ptrtoint ptr %212 to i64
   %216 = add i64 %215, 4
-  %217 = icmp ult i64 %216, %.pre-phi454
+  %217 = icmp ult i64 %216, %.pre-phi453
   br i1 %217, label %218, label %220, !prof !487
 
 218:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198
@@ -18969,17 +18969,17 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit198: ; preds =
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge unwind label %191
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge: ; preds = %220
-  %.pre431 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre432 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre455 = ptrtoint ptr %.pre432 to i64
+  %.pre430 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre431 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre454 = ptrtoint ptr %.pre431 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge, %218
-  %.pre-phi456 = phi i64 [ %.pre455, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %.pre-phi454, %218 ]
-  %221 = phi ptr [ %.pre431, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %219, %218 ]
+  %.pre-phi455 = phi i64 [ %.pre454, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %.pre-phi453, %218 ]
+  %221 = phi ptr [ %.pre430, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %219, %218 ]
   %222 = ptrtoint ptr %221 to i64
   %223 = add i64 %222, 28
-  %224 = icmp ult i64 %223, %.pre-phi456
+  %224 = icmp ult i64 %223, %.pre-phi455
   br i1 %224, label %225, label %227, !prof !487
 
 225:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit
@@ -18992,17 +18992,17 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit: ; preds = %._ZN5f
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201_crit_edge unwind label %191
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201_crit_edge: ; preds = %227
-  %.pre433 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre434 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre457 = ptrtoint ptr %.pre434 to i64
+  %.pre432 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre433 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre456 = ptrtoint ptr %.pre433 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201_crit_edge, %225
-  %.pre-phi458 = phi i64 [ %.pre457, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201_crit_edge ], [ %.pre-phi456, %225 ]
-  %228 = phi ptr [ %.pre433, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201_crit_edge ], [ %226, %225 ]
+  %.pre-phi457 = phi i64 [ %.pre456, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201_crit_edge ], [ %.pre-phi455, %225 ]
+  %228 = phi ptr [ %.pre432, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201_crit_edge ], [ %226, %225 ]
   %229 = ptrtoint ptr %228 to i64
   %230 = add i64 %229, 1
-  %.not.i202 = icmp ugt i64 %230, %.pre-phi458
+  %.not.i202 = icmp ugt i64 %230, %.pre-phi457
   br i1 %.not.i202, label %233, label %231, !prof !260
 
 231:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201
@@ -19016,19 +19016,19 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit201: ; preds = %._Z
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge unwind label %191
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge: ; preds = %233
-  %.pre435 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre436 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre459 = ptrtoint ptr %.pre436 to i64
+  %.pre434 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre435 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre458 = ptrtoint ptr %.pre435 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge, %231
-  %.pre-phi460 = phi i64 [ %.pre459, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge ], [ %.pre-phi458, %231 ]
-  %235 = phi ptr [ %.pre435, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge ], [ %232, %231 ]
+  %.pre-phi459 = phi i64 [ %.pre458, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge ], [ %.pre-phi457, %231 ]
+  %235 = phi ptr [ %.pre434, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge ], [ %232, %231 ]
   %.0.i204 = phi i8 [ %234, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206_crit_edge ], [ %.0.copyload.i.i203, %231 ]
   %236 = zext i8 %.0.i204 to i64
   %237 = ptrtoint ptr %235 to i64
   %238 = add i64 %237, %236
-  %239 = icmp ult i64 %238, %.pre-phi460
+  %239 = icmp ult i64 %238, %.pre-phi459
   br i1 %239, label %240, label %242, !prof !487
 
 240:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206
@@ -19041,17 +19041,17 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIhEET_v.exit206: ; preds =
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208_crit_edge unwind label %191
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208_crit_edge: ; preds = %242
-  %.pre437 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre438 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre461 = ptrtoint ptr %.pre438 to i64
+  %.pre436 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre437 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre460 = ptrtoint ptr %.pre437 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208_crit_edge, %240
-  %.pre-phi462 = phi i64 [ %.pre461, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208_crit_edge ], [ %.pre-phi460, %240 ]
-  %243 = phi ptr [ %.pre437, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208_crit_edge ], [ %241, %240 ]
+  %.pre-phi461 = phi i64 [ %.pre460, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208_crit_edge ], [ %.pre-phi459, %240 ]
+  %243 = phi ptr [ %.pre436, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208_crit_edge ], [ %241, %240 ]
   %244 = ptrtoint ptr %243 to i64
   %245 = add i64 %244, 2
-  %.not.i.i209 = icmp ugt i64 %245, %.pre-phi462
+  %.not.i.i209 = icmp ugt i64 %245, %.pre-phi461
   br i1 %.not.i.i209, label %248, label %246, !prof !260
 
 246:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit208
@@ -19560,18 +19560,18 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit268: ; preds = %428
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge unwind label %484
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge: ; preds = %439
-  %.pre446 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre447 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre463 = ptrtoint ptr %.pre447 to i64
+  %.pre445 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre446 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre462 = ptrtoint ptr %.pre446 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge, %437
-  %.pre-phi464 = phi i64 [ %.pre463, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge ], [ %436, %437 ]
-  %441 = phi ptr [ %.pre446, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge ], [ %438, %437 ]
+  %.pre-phi463 = phi i64 [ %.pre462, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge ], [ %436, %437 ]
+  %441 = phi ptr [ %.pre445, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge ], [ %438, %437 ]
   %.0.i.i271 = phi i8 [ %440, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273_crit_edge ], [ %.0.copyload.i.i.i270, %437 ]
   %442 = ptrtoint ptr %441 to i64
   %443 = add i64 %442, 1
-  %.not.i.i274 = icmp ugt i64 %443, %.pre-phi464
+  %.not.i.i274 = icmp ugt i64 %443, %.pre-phi463
   br i1 %.not.i.i274, label %446, label %444, !prof !260
 
 444:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit273
@@ -19876,7 +19876,7 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit303: ; preds = %544
   br label %.lr.ph392
 
 .lr.ph392:                                        ; preds = %.lr.ph392.preheader, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321
-  %.pre445550 = phi i16 [ %639, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321 ], [ %.promoted, %.lr.ph392.preheader ]
+  %.pre444549 = phi i16 [ %639, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321 ], [ %.promoted, %.lr.ph392.preheader ]
   %548 = phi i16 [ %639, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321 ], [ %547, %.lr.ph392.preheader ]
   %549 = load ptr, ptr %80, align 8, !tbaa !455
   %550 = ptrtoint ptr %549 to i64
@@ -19897,18 +19897,18 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit303: ; preds = %544
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge unwind label %622
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge: ; preds = %556
-  %.pre439 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre440 = load ptr, ptr %83, align 8, !tbaa !456
-  %.pre465 = ptrtoint ptr %.pre440 to i64
+  %.pre438 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre439 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre464 = ptrtoint ptr %.pre439 to i64
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge, %554
-  %.pre-phi466 = phi i64 [ %.pre465, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge ], [ %553, %554 ]
-  %558 = phi ptr [ %.pre439, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge ], [ %555, %554 ]
+  %.pre-phi465 = phi i64 [ %.pre464, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge ], [ %553, %554 ]
+  %558 = phi ptr [ %.pre438, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge ], [ %555, %554 ]
   %.0.i.i306 = phi i8 [ %557, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308_crit_edge ], [ %.0.copyload.i.i.i305, %554 ]
   %559 = ptrtoint ptr %558 to i64
   %560 = add i64 %559, 2
-  %.not.i.i309 = icmp ugt i64 %560, %.pre-phi466
+  %.not.i.i309 = icmp ugt i64 %560, %.pre-phi465
   br i1 %.not.i.i309, label %563, label %561, !prof !260
 
 561:                                              ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308
@@ -19928,8 +19928,8 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308: ; preds
   br i1 %567, label %568, label %._ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread_crit_edge
 
 ._ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread_crit_edge: ; preds = %565
-  %.pre441 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre443 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre440 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre442 = load ptr, ptr %83, align 8, !tbaa !456
   br label %_ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread
 
 568:                                              ; preds = %565
@@ -19937,16 +19937,16 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit308: ; preds
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 200
   %571 = load i64, ptr %570, align 8, !tbaa !221
   %572 = icmp eq i64 %571, 0
-  %.pre442 = load ptr, ptr %80, align 8, !tbaa !455
-  %.pre444 = load ptr, ptr %83, align 8, !tbaa !456
+  %.pre441 = load ptr, ptr %80, align 8, !tbaa !455
+  %.pre443 = load ptr, ptr %83, align 8, !tbaa !456
   br i1 %572, label %573, label %_ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread
 
 573:                                              ; preds = %568
   %574 = zext i16 %566 to i64
   %575 = load i64, ptr %78, align 8, !tbaa !453
   %.not14.i314 = icmp eq i64 %575, -1
-  %.pre17.i = ptrtoint ptr %.pre444 to i64
-  %.pre18.i = ptrtoint ptr %.pre442 to i64
+  %.pre17.i = ptrtoint ptr %.pre443 to i64
+  %.pre18.i = ptrtoint ptr %.pre441 to i64
   br i1 %.not14.i314, label %._crit_edge.i, label %576
 
 576:                                              ; preds = %573
@@ -20080,27 +20080,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %623 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  store i16 %.pre445550, ptr %12, align 2
+  store i16 %.pre444549, ptr %12, align 2
   br label %652
 
 624:                                              ; preds = %637, %563
   %625 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  store i16 %.pre445550, ptr %12, align 2
+  store i16 %.pre444549, ptr %12, align 2
   br label %652
 
 626:                                              ; preds = %_ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit
   %627 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  store i16 %.pre445550, ptr %12, align 2
+  store i16 %.pre444549, ptr %12, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %652
 
 _ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread: ; preds = %584, %._ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread_crit_edge, %576, %568
-  %628 = phi ptr [ %.pre443, %._ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread_crit_edge ], [ %.pre444, %568 ], [ %.pre444, %576 ], [ %.pre444, %584 ]
-  %629 = phi ptr [ %.pre441, %._ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread_crit_edge ], [ %.pre442, %568 ], [ %.pre442, %576 ], [ %.pre442, %584 ]
+  %628 = phi ptr [ %.pre442, %._ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread_crit_edge ], [ %.pre443, %568 ], [ %.pre443, %576 ], [ %.pre443, %584 ]
+  %629 = phi ptr [ %.pre440, %._ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread_crit_edge ], [ %.pre441, %568 ], [ %.pre441, %576 ], [ %.pre441, %584 ]
   %630 = zext i16 %566 to i64
   %631 = ptrtoint ptr %629 to i64
   %632 = add i64 %631, %630
@@ -20118,11 +20118,11 @@ _ZNK5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE10canAdvanceEm.exit.thread: ; 
           to label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321 unwind label %624
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321: ; preds = %635, %637, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %638 = phi i16 [ %548, %635 ], [ %548, %637 ], [ %.pre445550, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %638 = phi i16 [ %548, %635 ], [ %548, %637 ], [ %.pre444549, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %reass.sub = sub i16 %638, %566
   %639 = add i16 %reass.sub, -3
   %.not95 = icmp eq i16 %639, 0
-  br i1 %.not95, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323.loopexit543, label %.lr.ph392, !llvm.loop !691
+  br i1 %.not95, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323.loopexit542, label %.lr.ph392, !llvm.loop !691
 
 640:                                              ; preds = %417
   invoke void @_ZN5folly14AsyncSSLSocket16parseClientAlpnsEPS0_RNS_2io6CursorERt(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 2 dereferenceable(2) %12)
@@ -20147,11 +20147,11 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321: ; preds = %635
   invoke void @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE8skipSlowEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %642)
           to label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323 unwind label %482
 
-_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323.loopexit543: ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321
+_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323.loopexit542: ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit321
   store i16 %639, ptr %12, align 2
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323
 
-_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323: ; preds = %_ZNSt6vectorItSaItEE9push_backEOt.exit301, %_ZNSt6vectorISt4pairIN5folly3ssl13HashAlgorithmENS2_18SignatureAlgorithmEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323.loopexit543, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit286, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit268, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit303, %649, %651, %640
+_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323: ; preds = %_ZNSt6vectorItSaItEE9push_backEOt.exit301, %_ZNSt6vectorISt4pairIN5folly3ssl13HashAlgorithmENS2_18SignatureAlgorithmEESaIS5_EE12emplace_backIJRS3_RS4_EEERS5_DpOT_.exit, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit323.loopexit542, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit286, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit268, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit303, %649, %651, %640
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not94 = icmp eq i16 %420, 0
   br i1 %.not94, label %.loopexit368, label %368, !llvm.loop !692

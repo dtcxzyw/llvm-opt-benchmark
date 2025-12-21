@@ -32718,26 +32718,26 @@ _ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt
 _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE13_M_deallocateEPSF_m.exit.i, %29
   %.sroa.21.2 = phi ptr [ %32, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE13_M_deallocateEPSF_m.exit.i ], [ null, %29 ]
   %.sroa.10.2 = phi ptr [ %31, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE13_M_deallocateEPSF_m.exit.i ], [ null, %29 ]
-  %.not115163 = icmp eq ptr %13, %12
-  br i1 %.not115163, label %._crit_edge, label %.lr.ph
+  %.not115161 = icmp eq ptr %13, %12
+  br i1 %.not115161, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit
-  %.sroa.0109.1167 = phi ptr [ %.sroa.0109.5, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %.sroa.10.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
-  %.sroa.10.0166 = phi ptr [ %.sroa.10.3, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %.sroa.10.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
-  %.sroa.21.0165 = phi ptr [ %.sroa.21.3, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %.sroa.21.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
-  %.sroa.0106.0164 = phi ptr [ %53, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %13, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
-  %.not.i.i = icmp eq ptr %.sroa.10.0166, %.sroa.21.0165
+  %.sroa.0109.1165 = phi ptr [ %.sroa.0109.5, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %.sroa.10.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
+  %.sroa.10.0164 = phi ptr [ %.sroa.10.3, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %.sroa.10.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
+  %.sroa.21.0163 = phi ptr [ %.sroa.21.3, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %.sroa.21.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
+  %.sroa.0106.0162 = phi ptr [ %53, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit ], [ %13, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ]
+  %.not.i.i = icmp eq ptr %.sroa.10.0164, %.sroa.21.0163
   br i1 %.not.i.i, label %34, label %33
 
 33:                                               ; preds = %.lr.ph
-  store ptr %.sroa.0106.0164, ptr %.sroa.10.0166, align 8
-  %.sroa.3102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10.0166, i64 8
+  store ptr %.sroa.0106.0162, ptr %.sroa.10.0164, align 8
+  %.sroa.3102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10.0164, i64 8
   store i64 0, ptr %.sroa.3102.0..sroa_idx, align 8
   br label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit
 
 34:                                               ; preds = %.lr.ph
-  %35 = ptrtoint ptr %.sroa.10.0166 to i64
-  %36 = ptrtoint ptr %.sroa.0109.1167 to i64
+  %35 = ptrtoint ptr %.sroa.10.0164 to i64
+  %36 = ptrtoint ptr %.sroa.0109.1165 to i64
   %37 = sub i64 %35, %36
   %38 = icmp eq i64 %37, 9223372036854775792
   br i1 %38, label %39, label %_ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -32751,7 +32751,7 @@ _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_
 
 _ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %34
   %40 = ashr exact i64 %37, 4
-  %41 = icmp eq ptr %.sroa.10.0166, %.sroa.0109.1167
+  %41 = icmp eq ptr %.sroa.10.0164, %.sroa.0109.1165
   %.sroa.speculated.i.i.i.i = select i1 %41, i64 1, i64 %40
   %42 = add nsw i64 %.sroa.speculated.i.i.i.i, %40
   %43 = icmp ult i64 %42, %40
@@ -32765,27 +32765,27 @@ _ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char
 
 .noexc36:                                         ; preds = %_ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE12_M_check_lenEmPKc.exit.i.i.i
   %48 = getelementptr inbounds i8, ptr %47, i64 %37
-  store ptr %.sroa.0106.0164, ptr %48, align 8
+  store ptr %.sroa.0106.0162, ptr %48, align 8
   %.sroa.3102.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 0, ptr %.sroa.3102.0..sroa_idx103, align 8
   br i1 %41, label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc36, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i ], [ %47, %.noexc36 ]
-  %.092.i.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0109.1167, %.noexc36 ]
+  %.092.i.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0109.1165, %.noexc36 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !415
   %49 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %49, %.sroa.10.0166
+  %.not.i.i.i.i.i.i = icmp eq ptr %49, %.sroa.10.0164
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !419
 
 _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc36
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %47, %.noexc36 ], [ %50, %.lr.ph.i.i.i.i.i.i ]
-  %.not.i27.i.i.i = icmp eq ptr %.sroa.0109.1167, null
+  %.not.i27.i.i.i = icmp eq ptr %.sroa.0109.1165, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, label %51
 
 51:                                               ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0109.1167) #59
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0109.1165) #59
   br label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %51, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i
@@ -32793,11 +32793,11 @@ _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_
   br label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit
 
 _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit: ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, %33
-  %.sroa.21.3 = phi ptr [ %52, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i ], [ %.sroa.21.0165, %33 ]
-  %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i ], [ %.sroa.10.0166, %33 ]
-  %.sroa.0109.5 = phi ptr [ %47, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i ], [ %.sroa.0109.1167, %33 ]
+  %.sroa.21.3 = phi ptr [ %52, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i ], [ %.sroa.21.0163, %33 ]
+  %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i ], [ %.sroa.10.0164, %33 ]
+  %.sroa.0109.5 = phi ptr [ %47, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i ], [ %.sroa.0109.1165, %33 ]
   %.sroa.10.3 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0164, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0162, i64 120
   %.not115 = icmp eq ptr %53, %12
   br i1 %.not115, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -32811,43 +32811,43 @@ _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_
           cleanup
   br label %.loopexit.split-lp123
 
-.loopexit.split-lp123.loopexit.split-lp:          ; preds = %78, %62, %39, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i, %28, %._crit_edge177
-  %.sroa.0109.0.ph.ph = phi ptr [ %.sroa.0109.1167, %39 ], [ null, %28 ], [ %.sroa.0109.3174, %62 ], [ null, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i ], [ %.sroa.0109.3.lcssa.fr, %78 ], [ %.sroa.0109.3.lcssa.fr, %._crit_edge177 ]
+.loopexit.split-lp123.loopexit.split-lp:          ; preds = %78, %62, %39, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i, %28, %._crit_edge175
+  %.sroa.0109.0.ph.ph = phi ptr [ %.sroa.0109.1165, %39 ], [ null, %28 ], [ %.sroa.0109.3172, %62 ], [ null, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i ], [ %.sroa.0109.3.lcssa.fr, %78 ], [ %.sroa.0109.3.lcssa.fr, %._crit_edge175 ]
   %lpad.loopexit.split-lp127 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp123
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit
   %.pre = load ptr, ptr %18, align 8
-  %.pre203 = load ptr, ptr %19, align 8
+  %.pre198 = load ptr, ptr %19, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit
-  %54 = phi ptr [ %20, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ], [ %.pre203, %._crit_edge.loopexit ]
+  %54 = phi ptr [ %20, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ], [ %.pre198, %._crit_edge.loopexit ]
   %55 = phi ptr [ %21, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ], [ %.pre, %._crit_edge.loopexit ]
   %.sroa.21.0.lcssa = phi ptr [ %.sroa.21.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ], [ %.sroa.21.3, %._crit_edge.loopexit ]
   %.sroa.10.0.lcssa = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ], [ %.sroa.10.3, %._crit_edge.loopexit ]
   %.sroa.0109.1.lcssa = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE7reserveEm.exit ], [ %.sroa.0109.5, %._crit_edge.loopexit ]
-  %.not116170 = icmp eq ptr %55, %54
-  br i1 %.not116170, label %._crit_edge177, label %.lr.ph176
+  %.not116168 = icmp eq ptr %55, %54
+  br i1 %.not116168, label %._crit_edge175, label %.lr.ph174
 
-.lr.ph176:                                        ; preds = %._crit_edge, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52
-  %.sroa.0109.3174 = phi ptr [ %.sroa.0109.6, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %.sroa.0109.1.lcssa, %._crit_edge ]
-  %.sroa.10.1173 = phi ptr [ %.sroa.10.4, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %.sroa.10.0.lcssa, %._crit_edge ]
-  %.sroa.21.1172 = phi ptr [ %.sroa.21.4, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %.sroa.21.0.lcssa, %._crit_edge ]
-  %.sroa.097.0171 = phi ptr [ %76, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %55, %._crit_edge ]
-  %.not.i.i37 = icmp eq ptr %.sroa.10.1173, %.sroa.21.1172
+.lr.ph174:                                        ; preds = %._crit_edge, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52
+  %.sroa.0109.3172 = phi ptr [ %.sroa.0109.6, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %.sroa.0109.1.lcssa, %._crit_edge ]
+  %.sroa.10.1171 = phi ptr [ %.sroa.10.4, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %.sroa.10.0.lcssa, %._crit_edge ]
+  %.sroa.21.1170 = phi ptr [ %.sroa.21.4, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %.sroa.21.0.lcssa, %._crit_edge ]
+  %.sroa.097.0169 = phi ptr [ %76, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ], [ %55, %._crit_edge ]
+  %.not.i.i37 = icmp eq ptr %.sroa.10.1171, %.sroa.21.1170
   br i1 %.not.i.i37, label %57, label %56
 
-56:                                               ; preds = %.lr.ph176
-  store ptr %.sroa.097.0171, ptr %.sroa.10.1173, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10.1173, i64 8
+56:                                               ; preds = %.lr.ph174
+  store ptr %.sroa.097.0169, ptr %.sroa.10.1171, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10.1171, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   br label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52
 
-57:                                               ; preds = %.lr.ph176
-  %58 = ptrtoint ptr %.sroa.10.1173 to i64
-  %59 = ptrtoint ptr %.sroa.0109.3174 to i64
+57:                                               ; preds = %.lr.ph174
+  %58 = ptrtoint ptr %.sroa.10.1171 to i64
+  %59 = ptrtoint ptr %.sroa.0109.3172 to i64
   %60 = sub i64 %58, %59
   %61 = icmp eq i64 %60, 9223372036854775792
   br i1 %61, label %62, label %_ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE12_M_check_lenEmPKc.exit.i.i.i39
@@ -32861,7 +32861,7 @@ _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_
 
 _ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE12_M_check_lenEmPKc.exit.i.i.i39: ; preds = %57
   %63 = ashr exact i64 %60, 4
-  %64 = icmp eq ptr %.sroa.10.1173, %.sroa.0109.3174
+  %64 = icmp eq ptr %.sroa.10.1171, %.sroa.0109.3172
   %.sroa.speculated.i.i.i.i40 = select i1 %64, i64 1, i64 %63
   %65 = add nsw i64 %.sroa.speculated.i.i.i.i40, %63
   %66 = icmp ult i64 %65, %63
@@ -32875,27 +32875,27 @@ _ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char
 
 .noexc51:                                         ; preds = %_ZNKSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE12_M_check_lenEmPKc.exit.i.i.i39
   %71 = getelementptr inbounds i8, ptr %70, i64 %60
-  store ptr %.sroa.097.0171, ptr %71, align 8
+  store ptr %.sroa.097.0169, ptr %71, align 8
   %.sroa.3.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx94, align 8
   br i1 %64, label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i46, label %.lr.ph.i.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i.i42:                             ; preds = %.noexc51, %.lr.ph.i.i.i.i.i.i42
   %.03.i.i.i.i.i.i43 = phi ptr [ %73, %.lr.ph.i.i.i.i.i.i42 ], [ %70, %.noexc51 ]
-  %.092.i.i.i.i.i.i44 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i42 ], [ %.sroa.0109.3174, %.noexc51 ]
+  %.092.i.i.i.i.i.i44 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i42 ], [ %.sroa.0109.3172, %.noexc51 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i43, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i44, i64 16, i1 false), !alias.scope !420
   %72 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i44, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i43, i64 16
-  %.not.i.i.i.i.i.i45 = icmp eq ptr %72, %.sroa.10.1173
+  %.not.i.i.i.i.i.i45 = icmp eq ptr %72, %.sroa.10.1171
   br i1 %.not.i.i.i.i.i.i45, label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i46, label %.lr.ph.i.i.i.i.i.i42, !llvm.loop !419
 
 _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i46: ; preds = %.lr.ph.i.i.i.i.i.i42, %.noexc51
   %.0.lcssa.i.i.i.i.i.i47 = phi ptr [ %70, %.noexc51 ], [ %73, %.lr.ph.i.i.i.i.i.i42 ]
-  %.not.i27.i.i.i48 = icmp eq ptr %.sroa.0109.3174, null
+  %.not.i27.i.i.i48 = icmp eq ptr %.sroa.0109.3172, null
   br i1 %.not.i27.i.i.i48, label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49, label %74
 
 74:                                               ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i46
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0109.3174) #59
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0109.3172) #59
   br label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49
 
 _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49: ; preds = %74, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26.i.i.i46
@@ -32903,15 +32903,15 @@ _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_
   br label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52
 
 _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52: ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49, %56
-  %.sroa.21.4 = phi ptr [ %75, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49 ], [ %.sroa.21.1172, %56 ]
-  %.0.lcssa.i.i.i.i.i.i47.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i47, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49 ], [ %.sroa.10.1173, %56 ]
-  %.sroa.0109.6 = phi ptr [ %70, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49 ], [ %.sroa.0109.3174, %56 ]
+  %.sroa.21.4 = phi ptr [ %75, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49 ], [ %.sroa.21.1170, %56 ]
+  %.0.lcssa.i.i.i.i.i.i47.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i47, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49 ], [ %.sroa.10.1171, %56 ]
+  %.sroa.0109.6 = phi ptr [ %70, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i49 ], [ %.sroa.0109.3172, %56 ]
   %.sroa.10.4 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i47.pn, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.097.0171, i64 96
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.097.0169, i64 96
   %.not116 = icmp eq ptr %76, %54
-  br i1 %.not116, label %._crit_edge177, label %.lr.ph176
+  br i1 %.not116, label %._crit_edge175, label %.lr.ph174
 
-._crit_edge177:                                   ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52, %._crit_edge
+._crit_edge175:                                   ; preds = %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52, %._crit_edge
   %.sroa.10.1.lcssa = phi ptr [ %.sroa.10.0.lcssa, %._crit_edge ], [ %.sroa.10.4, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ]
   %.sroa.0109.3.lcssa = phi ptr [ %.sroa.0109.1.lcssa, %._crit_edge ], [ %.sroa.0109.6, %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE9push_backEOSF_.exit52 ]
   %.sroa.10.1.lcssa.fr = freeze ptr %.sroa.10.1.lcssa
@@ -32920,7 +32920,7 @@ _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_
   invoke void @_ZN5Catch5Clara7ExeName3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Clara::Detail::BasicResult.147") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %78 unwind label %.loopexit.split-lp123.loopexit.split-lp
 
-78:                                               ; preds = %._crit_edge177
+78:                                               ; preds = %._crit_edge175
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i64 16), ptr %5, align 8
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #57
@@ -32981,14 +32981,14 @@ _ZSt8_DestroyIPN5Catch5Clara6Detail5TokenES3_EvT_S5_RSaIT0_E.exit.i.i.i: ; preds
 _ZN5Catch5Clara6Detail10ParseStateD2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5Catch5Clara6Detail5TokenES3_EvT_S5_RSaIT0_E.exit.i.i.i, %96
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not117180 = icmp eq ptr %.sroa.0109.3.lcssa.fr, %.sroa.10.1.lcssa.fr
+  %.not117178 = icmp eq ptr %.sroa.0109.3.lcssa.fr, %.sroa.10.1.lcssa.fr
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  br i1 %.not117180, label %_ZN5Catch5Clara6Detail10ParseStateD2Ev.exit.split.us, label %_ZN5Catch5Clara6Detail10ParseStateD2Ev.exit.split
+  br i1 %.not117178, label %_ZN5Catch5Clara6Detail10ParseStateD2Ev.exit.split.us, label %_ZN5Catch5Clara6Detail10ParseStateD2Ev.exit.split
 
 _ZN5Catch5Clara6Detail10ParseStateD2Ev.exit.split.us: ; preds = %_ZN5Catch5Clara6Detail10ParseStateD2Ev.exit
   %105 = load ptr, ptr %6, align 8
@@ -33010,7 +33010,7 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit.us: ; p
 _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73.us: ; preds = %.preheader.us
   %115 = load i32, ptr %84, align 8
   %116 = icmp eq i32 %115, 2
-  br i1 %116, label %.split186.us, label %.split189.us
+  br i1 %116, label %.split184.us, label %.split186.us
 
 .preheader.us:                                    ; preds = %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit.us
   %117 = load ptr, ptr %6, align 8
@@ -33042,8 +33042,8 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit: ; pred
   br i1 %129, label %.preheader, label %.split.us
 
 .preheader:                                       ; preds = %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit, %197
-  %.sroa.091.0181 = phi ptr [ %198, %197 ], [ %.sroa.0109.3.lcssa.fr, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit ]
-  %130 = load ptr, ptr %.sroa.091.0181, align 8
+  %.sroa.091.0179 = phi ptr [ %198, %197 ], [ %.sroa.0109.3.lcssa.fr, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit ]
+  %130 = load ptr, ptr %.sroa.091.0179, align 8
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
@@ -33055,9 +33055,9 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit: ; pred
   br i1 %136, label %147, label %137
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.091.0181, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.091.0179, i64 8
   %139 = load i64, ptr %138, align 8
-  %140 = load ptr, ptr %.sroa.091.0181, align 8
+  %140 = load ptr, ptr %.sroa.091.0179, align 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %143 = load ptr, ptr %142, align 8
@@ -33069,7 +33069,7 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit: ; pred
   br i1 %146, label %147, label %197
 
 147:                                              ; preds = %145, %135
-  %148 = load ptr, ptr %.sroa.091.0181, align 8
+  %148 = load ptr, ptr %.sroa.091.0179, align 8
   %149 = load ptr, ptr %6, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
@@ -33193,7 +33193,7 @@ _ZN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEC2EOS4_.exit: ; preds = %_
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %224, %.split189.us, %207, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit77
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %224, %.split186.us, %207, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit77
   %lpad.loopexit.split-lp120 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -33217,14 +33217,14 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit71: ; pr
   br i1 %.not, label %197, label %193
 
 193:                                              ; preds = %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit71
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.091.0181, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.091.0179, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, 1
   store i64 %196, ptr %194, align 8
   br label %..loopexit_crit_edge
 
 197:                                              ; preds = %145, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit71
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.091.0181, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.091.0179, i64 16
   %.not117 = icmp eq ptr %198, %.sroa.10.1.lcssa.fr
   br i1 %.not117, label %..loopexit_crit_edge, label %.preheader
 
@@ -33239,9 +33239,9 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit71: ; pr
 _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73: ; preds = %..loopexit_crit_edge
   %202 = load i32, ptr %84, align 8
   %203 = icmp eq i32 %202, 2
-  br i1 %203, label %.split186.us, label %212
+  br i1 %203, label %.split184.us, label %212
 
-.split186.us:                                     ; preds = %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73.us
+.split184.us:                                     ; preds = %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73.us
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %205 = load i32, ptr %83, align 8
   store i32 %205, ptr %204, align 8
@@ -33249,7 +33249,7 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73: ; pr
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %_ZN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEC2EOS4_.exit75
 
-207:                                              ; preds = %.split186.us
+207:                                              ; preds = %.split184.us
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %208, align 8
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -33258,23 +33258,23 @@ _ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73: ; pr
   invoke void @_ZNSt6vectorIN5Catch5Clara6Detail5TokenESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %210, ptr noundef nonnull align 8 dereferenceable(24) %87)
           to label %_ZN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEC2EOS4_.exit75 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEC2EOS4_.exit75: ; preds = %207, %.split186.us
+_ZN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEC2EOS4_.exit75: ; preds = %207, %.split184.us
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i64 16), ptr %0, align 8
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(32) %89) #57
   br label %230
 
 212:                                              ; preds = %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73
-  br i1 %.not117133, label %.split189.us, label %_ZN5Catch5Clara6Detail10ParseStateD2Ev.exit.split, !llvm.loop !427
+  br i1 %.not117133, label %.split186.us, label %_ZN5Catch5Clara6Detail10ParseStateD2Ev.exit.split, !llvm.loop !427
 
-.split189.us:                                     ; preds = %212, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73.us
+.split186.us:                                     ; preds = %212, %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit73.us
   %213 = load ptr, ptr %6, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load ptr, ptr %214, align 8
   invoke void %215(ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit77: ; preds = %.split189.us
+_ZNK5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEE5valueEv.exit77: ; preds = %.split186.us
   %216 = load ptr, ptr %87, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.82, ptr noundef nonnull align 8 dereferenceable(32) %217)
@@ -33365,7 +33365,7 @@ _ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_
   br label %.loopexit.split-lp123
 
 .loopexit.split-lp123:                            ; preds = %.loopexit122, %.loopexit.split-lp123.loopexit.split-lp, %.loopexit.split-lp123.loopexit, %.loopexit.split-lp, %184
-  %.sroa.0109.2 = phi ptr [ %.sroa.0109.3.lcssa.fr, %184 ], [ %.sroa.0109.3.lcssa.fr, %.loopexit.split-lp ], [ %.sroa.0109.3174, %.loopexit122 ], [ %.sroa.0109.1167, %.loopexit.split-lp123.loopexit ], [ %.sroa.0109.0.ph.ph, %.loopexit.split-lp123.loopexit.split-lp ]
+  %.sroa.0109.2 = phi ptr [ %.sroa.0109.3.lcssa.fr, %184 ], [ %.sroa.0109.3.lcssa.fr, %.loopexit.split-lp ], [ %.sroa.0109.3172, %.loopexit122 ], [ %.sroa.0109.1165, %.loopexit.split-lp123.loopexit ], [ %.sroa.0109.0.ph.ph, %.loopexit.split-lp123.loopexit.split-lp ]
   %.pn23 = phi { ptr, i32 } [ %185, %184 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit124, %.loopexit122 ], [ %lpad.loopexit126, %.loopexit.split-lp123.loopexit ], [ %lpad.loopexit.split-lp127, %.loopexit.split-lp123.loopexit.split-lp ]
   %.not.i.i.i89 = icmp eq ptr %.sroa.0109.2, null
   br i1 %.not.i.i.i89, label %_ZNSt6vectorIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EED2Ev.exit90, label %241

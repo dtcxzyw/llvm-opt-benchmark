@@ -3532,7 +3532,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   store i64 0, ptr %17, align 8, !alias.scope !760, !noalias !759
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !737
   store i8 1, ptr %14, align 8, !alias.scope !761, !noalias !762
-  store i8 %31, ptr %20, align 1, !alias.scope !761, !noalias !762
+  store i8 10, ptr %20, align 1, !alias.scope !761, !noalias !762
   br label %.loopexit
 
 .thread:                                          ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b9421d6f5db5c2dE.exit.i.i.i"
@@ -4726,7 +4726,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 0, ptr %9, align 8, !alias.scope !1114, !noalias !1113
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1091
   store i8 1, ptr %6, align 8, !alias.scope !1115, !noalias !1116
-  store i8 %23, ptr %12, align 1, !alias.scope !1115, !noalias !1116
+  store i8 10, ptr %12, align 1, !alias.scope !1115, !noalias !1116
   br label %.loopexit
 
 .thread:                                          ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b9421d6f5db5c2dE.exit.i.i.i"
@@ -5706,7 +5706,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   store i64 0, ptr %28, align 8, !alias.scope !1488, !noalias !1487
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1465
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 97
-  store i8 %26, ptr %37, align 1, !alias.scope !1489, !noalias !1490
+  store i8 10, ptr %37, align 1, !alias.scope !1489, !noalias !1490
   br label %.thread100
 
 38:                                               ; preds = %25
@@ -6145,7 +6145,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 0, ptr %21, align 8, !alias.scope !1629, !noalias !1628
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1606
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 97
-  store i8 %19, ptr %30, align 1, !alias.scope !1630, !noalias !1631
+  store i8 10, ptr %30, align 1, !alias.scope !1630, !noalias !1631
   br label %.thread66
 
 31:                                               ; preds = %18
@@ -8715,7 +8715,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 0, ptr %13, align 8, !alias.scope !2395, !noalias !2394
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2373
   store i8 1, ptr %10, align 8, !alias.scope !2396, !noalias !2397
-  store i8 %61, ptr %16, align 1, !alias.scope !2396, !noalias !2397
+  store i8 10, ptr %16, align 1, !alias.scope !2396, !noalias !2397
   br label %72
 
 69:                                               ; preds = %60
@@ -26286,7 +26286,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$ser
   store i64 %75, ptr %16, align 8, !alias.scope !6337, !noalias !6336
   store i64 0, ptr %14, align 8, !alias.scope !6337, !noalias !6336
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6314
-  store i8 %68, ptr %17, align 1, !alias.scope !6338, !noalias !6339
+  store i8 10, ptr %17, align 1, !alias.scope !6338, !noalias !6339
   br label %77
 
 76:                                               ; preds = %67
@@ -34145,7 +34145,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %41, align 8, !alias.scope !8023, !noalias !8022
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !7997
   store i8 1, ptr %38, align 8, !alias.scope !8024, !noalias !8025
-  store i8 %101, ptr %44, align 1, !alias.scope !8024, !noalias !8025
+  store i8 10, ptr %44, align 1, !alias.scope !8024, !noalias !8025
   br label %111
 
 109:                                              ; preds = %100

@@ -3036,26 +3036,26 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i.i.i: ;
   br i1 %197, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread.i.i, label %198
 
 198:                                              ; preds = %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i.i.i
-  %199 = shl nuw nsw i64 2, %191
-  %200 = icmp eq i64 %191, 26
-  br i1 %200, label %201, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i
+  %199 = icmp eq i64 %191, 26
+  br i1 %199, label %200, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i
 
-201:                                              ; preds = %198
+200:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !525
-  store i64 %199, ptr %8, align 8, !noalias !525
+  store i64 134217728, ptr %8, align 8, !noalias !525
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %201, %194
-  %202 = phi ptr [ %8, %201 ], [ %9, %194 ]
-  %203 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.83, %201 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %194 ]
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %202, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %203) #28
+.invoke.i.i:                                      ; preds = %200, %194
+  %201 = phi ptr [ %8, %200 ], [ %9, %194 ]
+  %202 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.83, %200 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %194 ]
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %201, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %202) #28
           to label %.cont.i.i unwind label %.body.thread85.loopexit.split-lp.i.i, !noalias !463
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i: ; preds = %198
-  %204 = trunc nuw nsw i64 %199 to i32
+  %203 = shl nuw nsw i64 2, %191
+  %204 = trunc nuw nsw i64 %203 to i32
   %205 = or disjoint i32 %204, 536870912
   %206 = icmp eq i32 %spec.select.i.i, %205
   br i1 %206, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread.i.i, label %.preheader.i
@@ -3845,26 +3845,26 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i.i.i.i:
   br i1 %216, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread.i.i.i, label %217
 
 217:                                              ; preds = %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i.i.i.i
-  %218 = shl nuw nsw i64 2, %210
-  %219 = icmp eq i64 %210, 26
-  br i1 %219, label %220, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i.i
+  %218 = icmp eq i64 %210, 26
+  br i1 %218, label %219, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i.i
 
-220:                                              ; preds = %217
+219:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !761
-  store i64 %218, ptr %10, align 8, !noalias !761
+  store i64 134217728, ptr %10, align 8, !noalias !761
   br label %.invoke.i.i.i
 
-.invoke.i.i.i:                                    ; preds = %220, %213
-  %221 = phi ptr [ %10, %220 ], [ %11, %213 ]
-  %222 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.83, %220 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %213 ]
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %221, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %222) #28
+.invoke.i.i.i:                                    ; preds = %219, %213
+  %220 = phi ptr [ %10, %219 ], [ %11, %213 ]
+  %221 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.83, %219 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %213 ]
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %220, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %221) #28
           to label %.cont.i.i.i unwind label %.body.thread87.loopexit.split-lp.i.i.i, !noalias !698
 
 .cont.i.i.i:                                      ; preds = %.invoke.i.i.i
   unreachable
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i.i: ; preds = %217
-  %223 = trunc nuw nsw i64 %218 to i32
+  %222 = shl nuw nsw i64 2, %210
+  %223 = trunc nuw nsw i64 %222 to i32
   %224 = or disjoint i32 %223, 536870912
   %225 = icmp eq i32 %spec.select.i.i.i, %224
   br i1 %225, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread.i.i.i, label %.preheader.i.i
@@ -4580,26 +4580,26 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i: ; pre
   br i1 %70, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread, label %71
 
 71:                                               ; preds = %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i
-  %72 = shl nuw nsw i64 2, %64
-  %73 = icmp eq i64 %64, 26
-  br i1 %73, label %74, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit
+  %72 = icmp eq i64 %64, 26
+  br i1 %72, label %73, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit
 
-74:                                               ; preds = %71
+73:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !942
-  store i64 %72, ptr %7, align 8, !noalias !942
+  store i64 134217728, ptr %7, align 8, !noalias !942
   br label %.invoke123
 
-.invoke123:                                       ; preds = %67, %74
-  %75 = phi ptr [ %7, %74 ], [ %8, %67 ]
-  %76 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.83, %74 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %67 ]
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %76) #28
+.invoke123:                                       ; preds = %67, %73
+  %74 = phi ptr [ %7, %73 ], [ %8, %67 ]
+  %75 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.83, %73 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %67 ]
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %75) #28
           to label %.cont124 unwind label %272
 
 .cont124:                                         ; preds = %.invoke123
   unreachable
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit: ; preds = %71
-  %77 = trunc nuw nsw i64 %72 to i32
+  %76 = shl nuw nsw i64 2, %64
+  %77 = trunc nuw nsw i64 %76 to i32
   %78 = or disjoint i32 %77, 536870912
   %79 = icmp eq i32 %.sroa.4.0.copyload.i, %78
   br i1 %79, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread, label %80
@@ -4789,9 +4789,9 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit: ;
   store i64 %180, ptr %4, align 8, !noalias !1006
   br label %.invoke
 
-.invoke:                                          ; preds = %191, %182
-  %183 = phi ptr [ %4, %182 ], [ %3, %191 ]
-  %184 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %182 ], [ @anon.227420ea47fcf415024a4301e123f38b.83, %191 ]
+.invoke:                                          ; preds = %190, %182
+  %183 = phi ptr [ %4, %182 ], [ %3, %190 ]
+  %184 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %182 ], [ @anon.227420ea47fcf415024a4301e123f38b.83, %190 ]
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %183, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #28
           to label %.cont unwind label %.body39.thread88.loopexit.split-lp
 
@@ -4805,17 +4805,17 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i42: ; p
   br i1 %187, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47.thread, label %188
 
 188:                                              ; preds = %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i42
-  %189 = shl nuw nsw i64 2, %179
-  %190 = icmp eq i64 %179, 26
-  br i1 %190, label %191, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47
+  %189 = icmp eq i64 %179, 26
+  br i1 %189, label %190, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47
 
-191:                                              ; preds = %188
+190:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1010
-  store i64 %189, ptr %3, align 8, !noalias !1010
+  store i64 134217728, ptr %3, align 8, !noalias !1010
   br label %.invoke
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47: ; preds = %188
-  %192 = trunc nuw nsw i64 %189 to i32
+  %191 = shl nuw nsw i64 2, %179
+  %192 = trunc nuw nsw i64 %191 to i32
   %193 = or disjoint i32 %192, 536870912
   %194 = icmp eq i32 %spec.select.i, %193
   br i1 %194, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47.thread, label %.preheader.preheader
@@ -6067,9 +6067,9 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit290
   store i64 %497, ptr %4, align 8, !noalias !1323
   br label %.invoke458
 
-.invoke458:                                       ; preds = %508, %499
-  %500 = phi ptr [ %4, %499 ], [ %3, %508 ]
-  %501 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %499 ], [ @anon.227420ea47fcf415024a4301e123f38b.83, %508 ]
+.invoke458:                                       ; preds = %507, %499
+  %500 = phi ptr [ %4, %499 ], [ %3, %507 ]
+  %501 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %499 ], [ @anon.227420ea47fcf415024a4301e123f38b.83, %507 ]
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %500, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %501) #28
           to label %.cont459 unwind label %.body249.thread378.loopexit.split-lp
 
@@ -6083,17 +6083,17 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i262: ; 
   br i1 %504, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267.thread, label %505
 
 505:                                              ; preds = %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i262
-  %506 = shl nuw nsw i64 2, %496
-  %507 = icmp eq i64 %496, 26
-  br i1 %507, label %508, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267
+  %506 = icmp eq i64 %496, 26
+  br i1 %506, label %507, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267
 
-508:                                              ; preds = %505
+507:                                              ; preds = %505
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1327
-  store i64 %506, ptr %3, align 8, !noalias !1327
+  store i64 134217728, ptr %3, align 8, !noalias !1327
   br label %.invoke458
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267: ; preds = %505
-  %509 = trunc nuw nsw i64 %506 to i32
+  %508 = shl nuw nsw i64 2, %496
+  %509 = trunc nuw nsw i64 %508 to i32
   %510 = or disjoint i32 %509, 536870912
   %511 = icmp eq i32 %spec.select.i116, %510
   br i1 %511, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267.thread, label %.preheader.preheader
@@ -6243,10 +6243,10 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit290
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.invoke
 
-.invoke:                                          ; preds = %595, %221, %586, %396, %571
-  %572 = phi ptr [ %2, %571 ], [ %2, %396 ], [ %16, %586 ], [ %2, %221 ], [ %15, %595 ]
-  %573 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.13, %571 ], [ @anon.227420ea47fcf415024a4301e123f38b.13, %396 ], [ @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, %586 ], [ @anon.227420ea47fcf415024a4301e123f38b.13, %221 ], [ @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, %595 ]
-  %574 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.59, %571 ], [ @anon.227420ea47fcf415024a4301e123f38b.58, %396 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %586 ], [ @anon.227420ea47fcf415024a4301e123f38b.57, %221 ], [ @anon.227420ea47fcf415024a4301e123f38b.83, %595 ]
+.invoke:                                          ; preds = %594, %221, %586, %396, %571
+  %572 = phi ptr [ %2, %571 ], [ %2, %396 ], [ %16, %586 ], [ %2, %221 ], [ %15, %594 ]
+  %573 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.13, %571 ], [ @anon.227420ea47fcf415024a4301e123f38b.13, %396 ], [ @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, %586 ], [ @anon.227420ea47fcf415024a4301e123f38b.13, %221 ], [ @anon.227420ea47fcf415024a4301e123f38b.16.llvm.4719928553755522418, %594 ]
+  %574 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.59, %571 ], [ @anon.227420ea47fcf415024a4301e123f38b.58, %396 ], [ @anon.227420ea47fcf415024a4301e123f38b.82.llvm.4719928553755522418, %586 ], [ @anon.227420ea47fcf415024a4301e123f38b.57, %221 ], [ @anon.227420ea47fcf415024a4301e123f38b.83, %594 ]
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.227420ea47fcf415024a4301e123f38b.15.llvm.4719928553755522418, i64 noundef 43, ptr noundef nonnull align 1 %572, ptr noalias noundef readonly align 8 dereferenceable(24) %573, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %574) #28
           to label %.cont unwind label %.body.thread333.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6307,27 +6307,27 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit290
 592:                                              ; preds = %587
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %593 = shl nuw nsw i64 2, %583
-  %594 = icmp eq i64 %583, 26
-  br i1 %594, label %595, label %596
+  %593 = icmp eq i64 %583, 26
+  br i1 %593, label %594, label %595
 
-595:                                              ; preds = %592
+594:                                              ; preds = %592
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1373
-  store i64 %593, ptr %15, align 8, !noalias !1373
+  store i64 134217728, ptr %15, align 8, !noalias !1373
   br label %.invoke
 
-596:                                              ; preds = %592
-  %597 = trunc nuw nsw i64 %593 to i32
+595:                                              ; preds = %592
+  %596 = shl nuw nsw i64 2, %583
+  %597 = trunc nuw nsw i64 %596 to i32
   %598 = or disjoint i32 %597, 536870912
   store i32 %598, ptr %21, align 4
   %599 = icmp eq i32 %spec.select.i116, %598
   br i1 %599, label %601, label %600
 
-600:                                              ; preds = %596
+600:                                              ; preds = %595
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br label %.invoke452
 
-601:                                              ; preds = %596
+601:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %602 = getelementptr inbounds nuw i8, ptr %.val33, i64 392
   call void @llvm.lifetime.start.p0(ptr nonnull %14)

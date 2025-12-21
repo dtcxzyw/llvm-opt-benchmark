@@ -10968,26 +10968,25 @@ _ZN3ue29verify_u8ItEEhT_.exit:                    ; preds = %78
 89:                                               ; preds = %_ZN3ue210verify_u16ImEEtT_.exit
   %90 = icmp eq i64 %0, 2
   %brmerge58.not = and i1 %90, %.not49
-  br i1 %brmerge58.not, label %.sink.split, label %92
+  br i1 %brmerge58.not, label %.sink.split, label %91
 
 .sink.split:                                      ; preds = %89, %_ZN3ue210verify_u16ImEEtT_.exit
-  %.sink66 = phi i32 [ 1, %_ZN3ue210verify_u16ImEEtT_.exit ], [ 2, %89 ]
-  %91 = add nuw nsw i32 %.sink66, %22
-  store i32 %91, ptr %23, align 8
-  store i32 %91, ptr %24, align 4
-  br label %92
+  %.sink65 = phi i32 [ 2, %_ZN3ue210verify_u16ImEEtT_.exit ], [ 4, %89 ]
+  store i32 %.sink65, ptr %23, align 8
+  store i32 %.sink65, ptr %24, align 4
+  br label %91
 
-92:                                               ; preds = %.sink.split, %89
-  br i1 %7, label %93, label %97
+91:                                               ; preds = %.sink.split, %89
+  br i1 %7, label %92, label %96
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %8, i64 97
-  %95 = load i8, ptr %94, align 1
-  %96 = or i8 %95, 1
-  store i8 %96, ptr %94, align 1
-  br label %97
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 97
+  %94 = load i8, ptr %93, align 1
+  %95 = or i8 %94, 1
+  store i8 %95, ptr %93, align 1
+  br label %96
 
-97:                                               ; preds = %93, %92
+96:                                               ; preds = %92, %91
   ret void
 }
 

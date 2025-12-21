@@ -14351,23 +14351,23 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.10220.0..sroa_idx223.promoted = load i64, ptr %.sroa.10220.0..sroa_idx223, align 8
   %250 = getelementptr inbounds i64, ptr %27, i64 %249
   %251 = load i64, ptr %250, align 8, !tbaa !20
-  %.not1.i.i340 = icmp eq i64 %251, 0
-  br i1 %.not1.i.i340, label %.lr.ph341, label %._crit_edge
+  %.not1.i.i339 = icmp eq i64 %251, 0
+  br i1 %.not1.i.i339, label %.lr.ph340, label %._crit_edge
 
-252:                                              ; preds = %.lr.ph341
+252:                                              ; preds = %.lr.ph340
   %253 = getelementptr inbounds i64, ptr %27, i64 %256
   %254 = load i64, ptr %253, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %254, 0
-  br i1 %.not1.i.i, label %.lr.ph341, label %._crit_edge, !llvm.loop !51
+  br i1 %.not1.i.i, label %.lr.ph340, label %._crit_edge, !llvm.loop !51
 
-.lr.ph341:                                        ; preds = %.lr.ph.i.i, %252
+.lr.ph340:                                        ; preds = %.lr.ph.i.i, %252
   %255 = phi i64 [ %256, %252 ], [ %249, %.lr.ph.i.i ]
   %256 = add i64 %255, 1
   %.not.i.i172 = icmp eq i64 %256, 9
   br i1 %.not.i.i172, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread329, label %252, !llvm.loop !51
 
-_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread329: ; preds = %.lr.ph341
-  store i64 %256, ptr %.sroa.10220.0..sroa_idx223, align 8
+_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread329: ; preds = %.lr.ph340
+  store i64 9, ptr %.sroa.10220.0..sroa_idx223, align 8
   br label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread
 
 _ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread: ; preds = %248, %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit.thread329
@@ -16135,27 +16135,27 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.10308.0..sroa_idx311.promoted = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
   %262 = getelementptr inbounds i64, ptr %37, i64 %261
   %263 = load i64, ptr %262, align 8, !tbaa !20
-  %.not1.i.i457 = icmp eq i64 %263, 0
-  br i1 %.not1.i.i457, label %.lr.ph458, label %.loopexit363.loopexit
+  %.not1.i.i456 = icmp eq i64 %263, 0
+  br i1 %.not1.i.i456, label %.lr.ph457, label %.loopexit363.loopexit
 
-264:                                              ; preds = %.lr.ph458
+264:                                              ; preds = %.lr.ph457
   %265 = getelementptr inbounds i64, ptr %37, i64 %268
   %266 = load i64, ptr %265, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %266, 0
-  br i1 %.not1.i.i, label %.lr.ph458, label %.loopexit363.loopexit, !llvm.loop !51
+  br i1 %.not1.i.i, label %.lr.ph457, label %.loopexit363.loopexit, !llvm.loop !51
 
-.lr.ph458:                                        ; preds = %.lr.ph.i.i, %264
+.lr.ph457:                                        ; preds = %.lr.ph.i.i, %264
   %267 = phi i64 [ %268, %264 ], [ %261, %.lr.ph.i.i ]
   %268 = add i64 %267, 1
   %.not.i.i196 = icmp eq i64 %268, 9
-  br i1 %.not.i.i196, label %..loopexit363.loopexit_crit_edge460, label %264, !llvm.loop !51
+  br i1 %.not.i.i196, label %..loopexit363.loopexit_crit_edge459, label %264, !llvm.loop !51
 
-..loopexit363.loopexit_crit_edge460:              ; preds = %.lr.ph458
+..loopexit363.loopexit_crit_edge459:              ; preds = %.lr.ph457
   br label %.loopexit363.loopexit, !llvm.loop !51
 
-.loopexit363.loopexit:                            ; preds = %264, %..loopexit363.loopexit_crit_edge460, %.lr.ph.i.i
-  %269 = phi i64 [ %268, %..loopexit363.loopexit_crit_edge460 ], [ %.sroa.10308.0..sroa_idx311.promoted, %.lr.ph.i.i ], [ %268, %264 ]
-  %.ph448 = phi i64 [ 9, %..loopexit363.loopexit_crit_edge460 ], [ %261, %.lr.ph.i.i ], [ %268, %264 ]
+.loopexit363.loopexit:                            ; preds = %264, %..loopexit363.loopexit_crit_edge459, %.lr.ph.i.i
+  %269 = phi i64 [ %268, %..loopexit363.loopexit_crit_edge459 ], [ %.sroa.10308.0..sroa_idx311.promoted, %.lr.ph.i.i ], [ %268, %264 ]
+  %.ph448 = phi i64 [ 9, %..loopexit363.loopexit_crit_edge459 ], [ %261, %.lr.ph.i.i ], [ %268, %264 ]
   store i64 %269, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %.loopexit363
 
@@ -16338,27 +16338,27 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.10308.0..sroa_idx311.promoted450 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
   %326 = getelementptr inbounds i64, ptr %37, i64 %325
   %327 = load i64, ptr %326, align 8, !tbaa !20
-  %.not1.i.i224463 = icmp eq i64 %327, 0
-  br i1 %.not1.i.i224463, label %.lr.ph464, label %.loopexit.loopexit
+  %.not1.i.i224462 = icmp eq i64 %327, 0
+  br i1 %.not1.i.i224462, label %.lr.ph463, label %.loopexit.loopexit
 
-328:                                              ; preds = %.lr.ph464
+328:                                              ; preds = %.lr.ph463
   %329 = getelementptr inbounds i64, ptr %37, i64 %332
   %330 = load i64, ptr %329, align 8, !tbaa !20
   %.not1.i.i224 = icmp eq i64 %330, 0
-  br i1 %.not1.i.i224, label %.lr.ph464, label %.loopexit.loopexit, !llvm.loop !51
+  br i1 %.not1.i.i224, label %.lr.ph463, label %.loopexit.loopexit, !llvm.loop !51
 
-.lr.ph464:                                        ; preds = %.lr.ph.i.i223, %328
+.lr.ph463:                                        ; preds = %.lr.ph.i.i223, %328
   %331 = phi i64 [ %332, %328 ], [ %325, %.lr.ph.i.i223 ]
   %332 = add i64 %331, 1
   %.not.i.i225 = icmp eq i64 %332, 9
-  br i1 %.not.i.i225, label %..loopexit.loopexit_crit_edge467, label %328, !llvm.loop !51
+  br i1 %.not.i.i225, label %..loopexit.loopexit_crit_edge466, label %328, !llvm.loop !51
 
-..loopexit.loopexit_crit_edge467:                 ; preds = %.lr.ph464
+..loopexit.loopexit_crit_edge466:                 ; preds = %.lr.ph463
   br label %.loopexit.loopexit, !llvm.loop !51
 
-.loopexit.loopexit:                               ; preds = %328, %..loopexit.loopexit_crit_edge467, %.lr.ph.i.i223
-  %333 = phi i64 [ %332, %..loopexit.loopexit_crit_edge467 ], [ %.sroa.10308.0..sroa_idx311.promoted450, %.lr.ph.i.i223 ], [ %332, %328 ]
-  %.ph = phi i64 [ 9, %..loopexit.loopexit_crit_edge467 ], [ %325, %.lr.ph.i.i223 ], [ %332, %328 ]
+.loopexit.loopexit:                               ; preds = %328, %..loopexit.loopexit_crit_edge466, %.lr.ph.i.i223
+  %333 = phi i64 [ %332, %..loopexit.loopexit_crit_edge466 ], [ %.sroa.10308.0..sroa_idx311.promoted450, %.lr.ph.i.i223 ], [ %332, %328 ]
+  %.ph = phi i64 [ 9, %..loopexit.loopexit_crit_edge466 ], [ %325, %.lr.ph.i.i223 ], [ %332, %328 ]
   store i64 %333, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %.loopexit
 
@@ -16541,23 +16541,23 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.10308.0..sroa_idx311.promoted451 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
   %390 = getelementptr inbounds i64, ptr %37, i64 %389
   %391 = load i64, ptr %390, align 8, !tbaa !20
-  %.not1.i.i254470 = icmp eq i64 %391, 0
-  br i1 %.not1.i.i254470, label %.lr.ph471, label %._crit_edge
+  %.not1.i.i254469 = icmp eq i64 %391, 0
+  br i1 %.not1.i.i254469, label %.lr.ph470, label %._crit_edge
 
-392:                                              ; preds = %.lr.ph471
+392:                                              ; preds = %.lr.ph470
   %393 = getelementptr inbounds i64, ptr %37, i64 %396
   %394 = load i64, ptr %393, align 8, !tbaa !20
   %.not1.i.i254 = icmp eq i64 %394, 0
-  br i1 %.not1.i.i254, label %.lr.ph471, label %._crit_edge, !llvm.loop !51
+  br i1 %.not1.i.i254, label %.lr.ph470, label %._crit_edge, !llvm.loop !51
 
-.lr.ph471:                                        ; preds = %.lr.ph.i.i253, %392
+.lr.ph470:                                        ; preds = %.lr.ph.i.i253, %392
   %395 = phi i64 [ %396, %392 ], [ %389, %.lr.ph.i.i253 ]
   %396 = add i64 %395, 1
   %.not.i.i255 = icmp eq i64 %396, 9
   br i1 %.not.i.i255, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread443, label %392, !llvm.loop !51
 
-_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread443: ; preds = %.lr.ph471
-  store i64 %396, ptr %.sroa.10308.0..sroa_idx311, align 8
+_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread443: ; preds = %.lr.ph470
+  store i64 9, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread
 
 _ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread: ; preds = %388, %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit256.thread443

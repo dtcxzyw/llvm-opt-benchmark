@@ -208,7 +208,7 @@ get_bprint_line.exit:                             ; preds = %read_line_to_bprint
   %61 = add nsw i32 %.027.i.i, 1
   %62 = sext i32 %.027.i.i to i64
   %63 = getelementptr inbounds i8, ptr %2, i64 %62
-  store i8 %56, ptr %63, align 1, !tbaa !26
+  store i8 92, ptr %63, align 1, !tbaa !26
   br label %64
 
 64:                                               ; preds = %60, %58
@@ -294,7 +294,7 @@ get_line.exit.i:                                  ; preds = %79, %._crit_edge.i.
   %91 = add nsw i32 %.027.i18.i, 1
   %92 = sext i32 %.027.i18.i to i64
   %93 = getelementptr inbounds i8, ptr %2, i64 %92
-  store i8 %86, ptr %93, align 1, !tbaa !26
+  store i8 92, ptr %93, align 1, !tbaa !26
   br label %94
 
 94:                                               ; preds = %90, %88
@@ -403,7 +403,7 @@ get_line.exit31.i:                                ; preds = %109, %._crit_edge.i
   %134 = add nsw i32 %.027.i34.i, 1
   %135 = sext i32 %.027.i34.i to i64
   %136 = getelementptr inbounds i8, ptr %2, i64 %135
-  store i8 %129, ptr %136, align 1, !tbaa !26
+  store i8 92, ptr %136, align 1, !tbaa !26
   br label %137
 
 137:                                              ; preds = %133, %131

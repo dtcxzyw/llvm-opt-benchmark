@@ -24355,11 +24355,11 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.
   br label %thread-pre-split.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.thread:               ; preds = %216
-  store i64 %47, ptr %217, align 8, !tbaa !511
+  store i64 0, ptr %217, align 8, !tbaa !511
   %234 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %47, ptr %234, align 8, !tbaa !511
+  store i64 0, ptr %234, align 8, !tbaa !511
   %235 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %47, ptr %235, align 8, !tbaa !511
+  store i64 0, ptr %235, align 8, !tbaa !511
   %236 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
@@ -37958,9 +37958,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i108: ; preds = %_Z
   unreachable
 
 ._crit_edge.i.i.i.i.i.i.i.i.thread:               ; preds = %281
-  store i64 %41, ptr %282, align 8, !tbaa !511
+  store i64 0, ptr %282, align 8, !tbaa !511
   %295 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %41, ptr %295, align 8, !tbaa !511
+  store i64 0, ptr %295, align 8, !tbaa !511
   %296 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
@@ -50323,9 +50323,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i108: ; preds = %_Z
   unreachable
 
 ._crit_edge.i.i.i.i.i.i.i.i.thread:               ; preds = %285
-  store i64 %70, ptr %286, align 8, !tbaa !511
+  store i64 0, ptr %286, align 8, !tbaa !511
   %299 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %70, ptr %299, align 8, !tbaa !511
+  store i64 0, ptr %299, align 8, !tbaa !511
   %300 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
@@ -63713,11 +63713,11 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.
   br label %thread-pre-split.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.thread:               ; preds = %235
-  store i64 %54, ptr %236, align 8, !tbaa !511
+  store i64 0, ptr %236, align 8, !tbaa !511
   %253 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %54, ptr %253, align 8, !tbaa !511
+  store i64 0, ptr %253, align 8, !tbaa !511
   %254 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %54, ptr %254, align 8, !tbaa !511
+  store i64 0, ptr %254, align 8, !tbaa !511
   %255 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
