@@ -1105,7 +1105,7 @@ define noundef float @_Z11GetVelocityN3vcg6Point3IfEES1_P6CFaceOS1_ff(<2 x float
   %19 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %18)
   %20 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %19)
   %21 = fcmp oeq float %20, 0.000000e+00
-  br i1 %21, label %40, label %22
+  br i1 %21, label %41, label %22
 
 22:                                               ; preds = %9
   %23 = fsub float %1, %3
@@ -1130,12 +1130,12 @@ define noundef float @_Z11GetVelocityN3vcg6Point3IfEES1_P6CFaceOS1_ff(<2 x float
   %36 = fmul float %sqrt.i.i, %35
   %37 = fpext float %36 to double
   %38 = fadd double %square, %37
-  %sqrt = tail call double @llvm.sqrt.f64(double %38)
-  %39 = fptrunc double %sqrt to float
-  br label %40
+  %39 = tail call double @llvm.sqrt.f64(double %38)
+  %40 = fptrunc double %39 to float
+  br label %41
 
-40:                                               ; preds = %9, %22
-  %.0 = phi float [ %39, %22 ], [ 0.000000e+00, %9 ]
+41:                                               ; preds = %9, %22
+  %.0 = phi float [ %40, %22 ], [ 0.000000e+00, %9 ]
   ret float %.0
 }
 
@@ -28105,8 +28105,8 @@ attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(argm
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { cold noreturn }
 attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

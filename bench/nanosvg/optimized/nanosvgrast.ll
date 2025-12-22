@@ -6320,7 +6320,7 @@ define internal fastcc void @nsvg__rasterizeSortedEdges(ptr noundef captures(non
 
 28:                                               ; preds = %.lr.ph165, %nsvg__scanlineSolid.exit
   %.0.173 = phi ptr [ null, %.lr.ph165 ], [ %.027.i150.lcssa, %nsvg__scanlineSolid.exit ]
-  %.081164 = phi i32 [ 0, %.lr.ph165 ], [ %524, %nsvg__scanlineSolid.exit ]
+  %.081164 = phi i32 [ 0, %.lr.ph165 ], [ %526, %nsvg__scanlineSolid.exit ]
   %.084163 = phi i32 [ 0, %.lr.ph165 ], [ %.2.lcssa, %nsvg__scanlineSolid.exit ]
   %29 = load ptr, ptr %11, align 8, !tbaa !112
   %30 = load i32, ptr %12, align 8, !tbaa !114
@@ -7144,12 +7144,12 @@ nsvg__fillActiveEdges.exit:                       ; preds = %nsvg__fillScanline.
   %515 = add nuw nsw i32 %514, %476
   %516 = trunc i32 %494 to i8
   store i8 %516, ptr %.2173.i, align 1, !tbaa !4
-  %517 = trunc i32 %501 to i8
-  store i8 %517, ptr %495, align 1, !tbaa !4
-  %518 = trunc i32 %508 to i8
-  store i8 %518, ptr %502, align 1, !tbaa !4
-  %519 = trunc i32 %515 to i8
-  store i8 %519, ptr %509, align 1, !tbaa !4
+  %518 = trunc i32 %501 to i8
+  store i8 %518, ptr %495, align 1, !tbaa !4
+  %519 = trunc i32 %508 to i8
+  store i8 %519, ptr %502, align 1, !tbaa !4
+  %520 = trunc i32 %515 to i8
+  store i8 %520, ptr %509, align 1, !tbaa !4
   %520 = getelementptr inbounds nuw i8, ptr %.2161172.i, i64 1
   %521 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 4
   %522 = fadd float %21, %.0165171.i
@@ -7158,10 +7158,10 @@ nsvg__fillActiveEdges.exit:                       ; preds = %nsvg__fillScanline.
   br i1 %exitcond.not.i, label %nsvg__scanlineSolid.exit, label %443, !llvm.loop !202
 
 nsvg__scanlineSolid.exit:                         ; preds = %443, %362, %305, %280, %277
-  %524 = add nuw nsw i32 %.081164, 1
-  %525 = load i32, ptr %8, align 4, !tbaa !115
-  %526 = icmp slt i32 %524, %525
-  br i1 %526, label %28, label %._crit_edge, !llvm.loop !203
+  %526 = add nuw nsw i32 %.081164, 1
+  %527 = load i32, ptr %8, align 4, !tbaa !115
+  %528 = icmp slt i32 %526, %527
+  br i1 %528, label %28, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %nsvg__scanlineSolid.exit, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

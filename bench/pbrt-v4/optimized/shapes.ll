@@ -6227,7 +6227,7 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
 
 26:                                               ; preds = %28
   %27 = icmp eq i64 %7, 2
-  br i1 %27, label %31, label %88
+  br i1 %27, label %31, label %90
 
 28:                                               ; preds = %25, %28
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %28 ]
@@ -6288,7 +6288,7 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
   %54 = fadd float %51, %53
   %55 = tail call noundef float @llvm.fma.f32(float %37, float %46, float %54)
   %56 = fcmp olt float %55, 0.000000e+00
-  br i1 %56, label %57, label %71
+  br i1 %56, label %57, label %72
 
 57:                                               ; preds = %31
   %58 = fadd float %37, %46
@@ -6308,10 +6308,10 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
   %70 = fsub float 0x400921FB60000000, %69
   br label %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit
 
-71:                                               ; preds = %31
-  %72 = fsub float %46, %37
-  %73 = fsub float %47, %38
-  %74 = fsub float %48, %39
+72:                                               ; preds = %31
+  %73 = fsub float %46, %37
+  %74 = fsub float %47, %38
+  %75 = fsub float %48, %39
   %75 = fmul float %72, %72
   %76 = fmul float %73, %73
   %77 = fadd float %75, %76
@@ -6325,21 +6325,21 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
   %83 = fmul float %82, 2.000000e+00
   br label %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit
 
-_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit: ; preds = %57, %71
+_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit: ; preds = %57, %72
   %.0.i = phi float [ %70, %57 ], [ %83, %71 ]
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store float %.0.i, ptr %84, align 4, !tbaa !216
-  %85 = tail call noundef float @sinf(float noundef %.0.i) #32, !tbaa !15
-  %86 = fdiv float 1.000000e+00, %85
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store float %86, ptr %87, align 8, !tbaa !217
-  br label %88
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store float %.0.i, ptr %86, align 4, !tbaa !216
+  %87 = tail call noundef float @sinf(float noundef %.0.i) #32, !tbaa !15
+  %88 = fdiv float 1.000000e+00, %87
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store float %88, ptr %89, align 8, !tbaa !217
+  br label %90
 
-88:                                               ; preds = %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit, %26
-  %89 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL7nCurvesE)
-  %90 = load i64, ptr %89, align 8, !tbaa !59
-  %91 = add nsw i64 %90, 1
-  store i64 %91, ptr %89, align 8, !tbaa !59
+90:                                               ; preds = %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit, %26
+  %91 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL7nCurvesE)
+  %92 = load i64, ptr %91, align 8, !tbaa !59
+  %93 = add nsw i64 %92, 1
+  store i64 %93, ptr %91, align 8, !tbaa !59
   ret void
 }
 
@@ -26107,11 +26107,11 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt12AngleBetweenIfEEfNS_7Vect
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %4
-  %foldExtExtBinop48 = fadd <2 x float> %0, %2
+  %foldExtExtBinop49 = fadd <2 x float> %0, %2
   %12 = fadd float %.sroa.04.4.vec.extract.i, %.sroa.01.4.vec.extract.i
   %13 = fadd float %1, %3
-  %foldExtExtBinop50 = fmul <2 x float> %foldExtExtBinop48, %foldExtExtBinop48
-  %14 = extractelement <2 x float> %foldExtExtBinop50, i64 0
+  %foldExtExtBinop51 = fmul <2 x float> %foldExtExtBinop49, %foldExtExtBinop49
+  %14 = extractelement <2 x float> %foldExtExtBinop51, i64 0
   %15 = fmul float %12, %12
   %16 = fadd float %14, %15
   %17 = fmul float %13, %13
@@ -26125,16 +26125,16 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt12AngleBetweenIfEEfNS_7Vect
   %23 = fsub float 0x400921FB60000000, %22
   br label %36
 
-24:                                               ; preds = %4
+24:; preds = %4
   %foldExtExtBinop52 = fsub <2 x float> %2, %0
   %25 = fsub float %.sroa.01.4.vec.extract.i, %.sroa.04.4.vec.extract.i
-  %26 = fsub float %3, %1
+  %foldExtExtBinop53 = fsub float %3, %1
   %foldExtExtBinop54 = fmul <2 x float> %foldExtExtBinop52, %foldExtExtBinop52
   %27 = extractelement <2 x float> %foldExtExtBinop54, i64 0
-  %28 = fmul float %25, %25
-  %29 = fadd float %27, %28
-  %30 = fmul float %26, %26
-  %31 = fadd float %30, %29
+  %foldExtExtBinop55 = fmul float %25, %25
+  %29 = fadd float %27, %foldExtExtBinop55
+  %29 = fmul float %26, %26
+  %30 = fadd float %29, %29
   %sqrt.i41 = tail call noundef float @llvm.sqrt.f32(float %31)
   %32 = fmul float %sqrt.i41, 5.000000e-01
   %33 = fcmp ogt float %32, 1.000000e+00
@@ -26143,7 +26143,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt12AngleBetweenIfEEfNS_7Vect
   %35 = fmul float %34, 2.000000e+00
   br label %36
 
-36:                                               ; preds = %24, %11
+36:; preds = %24, %11
   %.0 = phi float [ %23, %11 ], [ %35, %24 ]
   ret float %.0
 }

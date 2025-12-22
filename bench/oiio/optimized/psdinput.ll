@@ -6869,10 +6869,10 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIt
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %11
 
-._crit_edge:                                      ; preds = %57, %7
+._crit_edge:                                      ; preds = %63, %7
   ret void
 
-11:                                               ; preds = %.lr.ph, %57
+11:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %12 = mul i64 %3, %indvars.iv
   %13 = getelementptr i16, ptr %1, i64 %12
@@ -6898,9 +6898,9 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIt
   %33 = fadd float %32, 5.000000e-01
   %.inv.i.i = fcmp oge float %33, 0.000000e+00
   %.0.i.i.i = select i1 %.inv.i.i, float %33, float 0.000000e+00
-  %34 = fcmp ogt float %.0.i.i.i, 6.553500e+04
-  %.1.i.i.i = select i1 %34, float 6.553500e+04, float %.0.i.i.i
-  %35 = fptoui float %.1.i.i.i to i16
+  %.inv.i.i = fcmp ogt float %.0.i.i.i, 6.553500e+04
+  %.0.i.i.i = select i1 %.inv.i.i, float 6.553500e+04, float %.0.i.i.i
+  %35 = fptoui float %.0.i.i.i to i16
   %36 = mul i64 %6, %indvars.iv
   %37 = getelementptr i16, ptr %4, i64 %36
   store i16 %35, ptr %37, align 2, !tbaa !24
@@ -6922,9 +6922,9 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIt
   %46 = fptoui float %.1.i.i.i34 to i16
   %47 = getelementptr i8, ptr %37, i64 4
   store i16 %46, ptr %47, align 2, !tbaa !24
-  br i1 %or.cond, label %48, label %57
+  br i1 %or.cond, label %48, label %63
 
-48:                                               ; preds = %11
+48:; preds = %11
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %50 = load i16, ptr %49, align 2, !tbaa !24
   %51 = uitofp i16 %50 to float
@@ -6937,7 +6937,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIt
   store i16 %55, ptr %56, align 2, !tbaa !24
   br label %57
 
-57:                                               ; preds = %48, %11
+63:                                               ; preds = %48, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !332
@@ -6955,10 +6955,10 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %11
 
-._crit_edge:                                      ; preds = %57, %7
+._crit_edge:                                      ; preds = %63, %7
   ret void
 
-11:                                               ; preds = %.lr.ph, %57
+11:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %12 = mul i64 %3, %indvars.iv
   %13 = getelementptr i8, ptr %1, i64 %12
@@ -6984,9 +6984,9 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
   %33 = fadd float %32, 5.000000e-01
   %.inv.i.i = fcmp oge float %33, 0.000000e+00
   %.0.i.i.i = select i1 %.inv.i.i, float %33, float 0.000000e+00
-  %34 = fcmp ogt float %.0.i.i.i, 2.550000e+02
-  %.1.i.i.i = select i1 %34, float 2.550000e+02, float %.0.i.i.i
-  %35 = fptoui float %.1.i.i.i to i8
+  %.inv.i.i = fcmp ogt float %.0.i.i.i, 2.550000e+02
+  %.0.i.i.i = select i1 %.inv.i.i, float 2.550000e+02, float %.0.i.i.i
+  %35 = fptoui float %.0.i.i.i to i8
   %36 = mul i64 %6, %indvars.iv
   %37 = getelementptr i8, ptr %4, i64 %36
   store i8 %35, ptr %37, align 1, !tbaa !12
@@ -7008,9 +7008,9 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
   %46 = fptoui float %.1.i.i.i34 to i8
   %47 = getelementptr i8, ptr %37, i64 2
   store i8 %46, ptr %47, align 1, !tbaa !12
-  br i1 %or.cond, label %48, label %57
+  br i1 %or.cond, label %48, label %63
 
-48:                                               ; preds = %11
+48:; preds = %11
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %50 = load i8, ptr %49, align 1, !tbaa !12
   %51 = uitofp i8 %50 to float
@@ -7023,7 +7023,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
   store i8 %55, ptr %56, align 1, !tbaa !12
   br label %57
 
-57:                                               ; preds = %48, %11
+63:                                               ; preds = %48, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !333

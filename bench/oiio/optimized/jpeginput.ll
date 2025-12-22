@@ -5029,9 +5029,9 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11cmyk_to_rgbEiPKhmPhm(i32 
   %23 = fadd float %22, 5.000000e-01
   %.inv.i.i = fcmp oge float %23, 0.000000e+00
   %.0.i.i.i = select i1 %.inv.i.i, float %23, float 0.000000e+00
-  %24 = fcmp ogt float %.0.i.i.i, 2.550000e+02
-  %.1.i.i.i = select i1 %24, float 2.550000e+02, float %.0.i.i.i
-  %25 = fptoui float %.1.i.i.i to i8
+  %.inv.i.i = fcmp ogt float %.0.i.i.i, 2.550000e+02
+  %.0.i.i.i = select i1 %.inv.i.i, float 2.550000e+02, float %.0.i.i.i
+  %25 = fptoui float %.0.i.i.i to i8
   store i8 %25, ptr %.01929, align 1, !tbaa !14
   %26 = fmul float %20, 2.550000e+02
   %27 = fadd float %26, 5.000000e-01

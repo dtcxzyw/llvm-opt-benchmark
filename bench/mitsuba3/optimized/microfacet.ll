@@ -2366,10 +2366,10 @@ _ZNK5drjit9ArrayBaseIfLb0ENS_5ArrayIfLm2EEEE4mul_ERKS2_.exit.critedge:
   %13 = tail call contract noundef float @llvm.fabs.f32(float %7)
   %14 = fcmp contract ole float %13, 0x3E90000000000000
   %15 = select i1 %14, i1 true, i1 %11
-  %16 = select i1 %15, float 1.000000e+00, float %9
+  %..i.i22.i.c = select i1 %15, float 1.000000e+00, float %9
   %.sroa.speculated = select i1 %14, float 0.000000e+00, float %..i.i.i.c
   %17 = insertelement <2 x float> poison, float %.sroa.speculated, i64 0
-  %.sroa.0116.4.vec.insert = insertelement <2 x float> %17, float %16, i64 1
+  %.sroa.0116.4.vec.insert = insertelement <2 x float> %17, float %..i.i22.i.c, i64 1
   ret <2 x float> %.sroa.0116.4.vec.insert
 }
 

@@ -2017,16 +2017,16 @@ if.else264:                                       ; preds = %if.else245
   %87 = call noundef float @llvm.floor.f32(float %add.i.i.i414)
   %conv.i.i415 = fptosi float %87 to i32
   %mul12.i422 = fmul float %conv11.i378, 0x3FC99999A0000000
-  %add.i.i36.i423 = fadd float %mul12.i422, 5.000000e-01
-  %88 = call noundef float @llvm.floor.f32(float %add.i.i36.i423)
+  %88 = fadd float %mul12.i422, 5.000000e-01
+  %88 = call noundef float @llvm.floor.f32(float %88)
   %conv.i37.i424 = fptosi float %88 to i32
   %mul18.i431 = fmul float %conv17.i387, 0x3FC99999A0000000
-  %add.i.i42.i432 = fadd float %mul18.i431, 5.000000e-01
-  %89 = call noundef float @llvm.floor.f32(float %add.i.i42.i432)
+  %90 = fadd float %mul18.i431, 5.000000e-01
+  %89 = call noundef float @llvm.floor.f32(float %90)
   %conv.i43.i433 = fptosi float %89 to i32
   %mul24.i438 = fmul float %conv23.i394, 0x3FC99999A0000000
-  %add.i.i46.i439 = fadd float %mul24.i438, 5.000000e-01
-  %90 = call noundef float @llvm.floor.f32(float %add.i.i46.i439)
+  %92 = fadd float %mul24.i438, 5.000000e-01
+  %90 = call noundef float @llvm.floor.f32(float %92)
   %conv.i47.i440 = fptosi float %90 to i32
   %and.i48.i441 = shl i32 %conv.i.i415, 24
   %and2.i.i442 = shl i32 %conv.i37.i424, 16
@@ -2037,11 +2037,11 @@ if.else264:                                       ; preds = %if.else245
   %or6.i.i447 = or disjoint i32 %or.i.i444, %shl5.i.i446
   %and7.i.i448 = and i32 %conv.i47.i440, 255
   %or8.i.i449 = or disjoint i32 %or6.i.i447, %and7.i.i448
-  %91 = load ptr, ptr %Driver, align 8, !tbaa !20
-  %vtable279 = load ptr, ptr %91, align 8, !tbaa !3
+  %94 = load ptr, ptr %Driver, align 8, !tbaa !20
+  %vtable279 = load ptr, ptr %94, align 8, !tbaa !3
   %vfn280 = getelementptr inbounds nuw i8, ptr %vtable279, i64 416
-  %92 = load ptr, ptr %vfn280, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 4 dereferenceable(16) %retval, i32 %titleBarColor.coerce, i32 %or8.i.i449, i32 %titleBarColor.coerce, i32 %or8.i.i449, ptr noundef %clip) #15
+  %95 = load ptr, ptr %vfn280, align 8
+  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 4 dereferenceable(16) %retval, i32 %titleBarColor.coerce, i32 %or8.i.i449, i32 %titleBarColor.coerce, i32 %or8.i.i449, ptr noundef %clip) #15
   br label %return
 
 return:                                           ; preds = %if.else264, %if.then248, %if.then240, %if.end218, %if.end

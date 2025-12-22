@@ -12524,7 +12524,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RK
   %31 = uitofp i64 %.sroa.017.0.copyload to double
   %32 = fadd double %30, %31
   %33 = fmul double %32, %.0.i.i
-  br label %67
+  br label %70
 
 34:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -12539,11 +12539,11 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RK
   %.sroa.515.0.copyload = load i64, ptr %.sroa.515.0..sroa_idx, align 8
   %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.616.0.copyload = load i64, ptr %.sroa.616.0..sroa_idx, align 8
-  %35 = uitofp i64 %.sroa.616.0.copyload to double
-  %36 = fmul double %35, 0x4BF0000000000000
+  %36 = uitofp i64 %.sroa.616.0.copyload to double
+  %37 = fmul double %36, 0x4BF0000000000000
   %37 = uitofp i64 %.sroa.515.0.copyload to double
   %38 = fmul double %37, 0x47F0000000000000
-  %39 = fadd double %38, %36
+  %39 = fadd double %38, %37
   %40 = uitofp i64 %.sroa.414.0.copyload to double
   %41 = fmul double %40, 0x43F0000000000000
   %42 = fadd double %41, %39
@@ -12556,26 +12556,26 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RK
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %45 = sub nsw i32 0, %1
-  %46 = icmp samesign ult i32 %1, 77
-  br i1 %46, label %47, label %52, !prof !28
+  %47 = sub nsw i32 0, %1
+  %48 = icmp samesign ult i32 %1, 77
+  br i1 %48, label %49, label %54, !prof !28
 
-47:                                               ; preds = %34
-  %48 = sext i32 %45 to i64
-  %49 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %48
-  %50 = getelementptr i8, ptr %49, i64 608
-  %51 = load double, ptr %50, align 8, !tbaa !79
+49:                                               ; preds = %34
+  %50 = sext i32 %47 to i64
+  %51 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 608
+  %53 = load double, ptr %52, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12
 
-52:                                               ; preds = %34
-  %53 = sitofp i32 %45 to double
-  %54 = call double @pow(double noundef 1.000000e+01, double noundef %53) #26, !tbaa !63
+54:                                               ; preds = %34
+  %55 = sitofp i32 %47 to double
+  %56 = call double @pow(double noundef 1.000000e+01, double noundef %55) #26, !tbaa !63
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12
 
-_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12: ; preds = %47, %52
-  %.0.i.i11 = phi double [ %51, %47 ], [ %54, %52 ]
-  %55 = uitofp i64 %.sroa.6.0.copyload to double
-  %56 = fmul double %55, 0x4BF0000000000000
+_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12: ; preds = %49, %54
+  %.0.i.i11 = phi double [ %53, %47 ], [ %56, %52 ]
+  %57 = uitofp i64 %.sroa.6.0.copyload to double
+  %58 = fmul double %57, 0x4BF0000000000000
   %57 = uitofp i64 %.sroa.5.0.copyload to double
   %58 = fmul double %57, 0x47F0000000000000
   %59 = fadd double %58, %56
@@ -12588,9 +12588,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RK
   %66 = fadd double %44, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %67
+  br label %70
 
-67:                                               ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
+70:                                               ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
   %.0 = phi double [ %33, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit ], [ %66, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12 ]
   ret double %.0
 }

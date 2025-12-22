@@ -8452,58 +8452,58 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 .thread35:                                        ; preds = %.thread, %.thread36..thread35_crit_edge
   %.sink = phi i32 [ %spec.select, %.thread ], [ %.pre54, %.thread36..thread35_crit_edge ]
-  %32 = uitofp nneg i32 %.sink to double
-  %33 = load ptr, ptr %0, align 8, !tbaa !85
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load double, ptr %34, align 8, !tbaa !12
-  %36 = fsub double 1.000000e+00, %35
-  %37 = fmul double %36, %32
-  %38 = fptosi double %37 to i32
+  %38 = uitofp nneg i32 %.sink to double
+  %39 = load ptr, ptr %0, align 8, !tbaa !85
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = load double, ptr %40, align 8, !tbaa !12
+  %42 = fsub double 1.000000e+00, %41
+  %43 = fmul double %42, %38
+  %44 = fptosi double %43 to i32
   %.val31 = load i32, ptr %1, align 8, !tbaa !121
   %.not50 = icmp eq i32 %.val31, 0
-  br i1 %.not50, label %.thread45, label %39
+  br i1 %.not50, label %47, label %45
 
-39:                                               ; preds = %.thread35
-  %40 = call i32 @Ivy_FraigSetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %38, i32 noundef %.sink)
-  br label %.thread45
+45:                                               ; preds = %.thread35
+  %46 = call i32 @Ivy_FraigSetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %44, i32 noundef %.sink)
+  br label %47
 
-.thread45:                                        ; preds = %39, %.thread35
+47:                                               ; preds = %45, %.thread35
   br i1 %.not, label %.thread47, label %.thread48
 
-.thread48:                                        ; preds = %21, %.thread57, %.thread45
-  %41 = phi i32 [ %.sink, %.thread45 ], [ %20, %.thread57 ], [ 0, %21 ]
-  %42 = phi i32 [ %38, %.thread45 ], [ %28, %.thread57 ], [ 0, %21 ]
+.thread48:                                        ; preds = %21, %.thread57, %47
+  %50 = phi i32 [ %.sink, %.thread45 ], [ %20, %.thread57 ], [ 0, %21 ]
+  %51 = phi i32 [ %38, %.thread45 ], [ %28, %.thread57 ], [ 0, %21 ]
   %.val = load i32, ptr %2, align 8, !tbaa !121
   %.not51 = icmp eq i32 %.val, 0
-  br i1 %.not51, label %.thread47, label %43
+  br i1 %.not51, label %.thread47, label %52
 
-43:                                               ; preds = %.thread48
-  %44 = call i32 @Ivy_FraigSetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %42, i32 noundef %41)
+52:                                               ; preds = %.thread48
+  %53 = call i32 @Ivy_FraigSetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %51, i32 noundef %50)
   br label %.thread47
 
-.thread47:                                        ; preds = %.thread36, %43, %.thread48, %.thread45
+.thread47:                                        ; preds = %.thread36, %52, %.thread48, %47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #28
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %Abc_Clock.exit33, label %47
+  %54 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #28
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %Abc_Clock.exit33, label %56
 
-47:                                               ; preds = %.thread47
-  %48 = load i64, ptr %4, align 8, !tbaa !35
-  %49 = mul nsw i64 %48, 1000000
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %51 = load i64, ptr %50, align 8, !tbaa !37
-  %52 = sdiv i64 %51, 1000
-  %53 = add nsw i64 %52, %49
+56:                                               ; preds = %.thread47
+  %57 = load i64, ptr %4, align 8, !tbaa !35
+  %58 = mul nsw i64 %57, 1000000
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !37
+  %61 = sdiv i64 %60, 1000
+  %62 = add nsw i64 %61, %58
   br label %Abc_Clock.exit33
 
-Abc_Clock.exit33:                                 ; preds = %.thread47, %47
-  %.0.i32 = phi i64 [ %53, %47 ], [ -1, %.thread47 ]
+Abc_Clock.exit33:                                 ; preds = %.thread47, %56
+  %.0.i32 = phi i64 [ %62, %47 ], [ -1, %.thread47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %54 = add i64 %.0.i32, %.0.i.neg
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %56 = load i64, ptr %55, align 8, !tbaa !152
-  %57 = add nsw i64 %54, %56
-  store i64 %57, ptr %55, align 8, !tbaa !152
+  %63 = add i64 %.0.i32, %.0.i.neg
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %65 = load i64, ptr %64, align 8, !tbaa !152
+  %66 = add nsw i64 %63, %65
+  store i64 %66, ptr %64, align 8, !tbaa !152
   ret void
 }
 

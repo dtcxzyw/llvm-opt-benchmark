@@ -8420,7 +8420,7 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl12init_weightsEv(ptr noun
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %._crit_edge62, label %.preheader.us.us.us, !llvm.loop !190
 
-.preheader:                                       ; preds = %.preheader.preheader, %78
+.preheader:                                       ; preds = %.preheader.preheader, %79
   %indvars.iv79 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next80, %78 ]
   %.lcssa65 = phi i64 [ %.promoted63, %.preheader.preheader ], [ %57, %78 ]
   %invariant.gep = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv79
@@ -8454,44 +8454,44 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl12init_weightsEv(ptr noun
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !191
 
 ._crit_edge:                                      ; preds = %47
-  br i1 %33, label %.lr.ph58.preheader, label %78
+  br i1 %33, label %.lr.ph58.preheader, label %79
 
 .lr.ph58.preheader:                               ; preds = %._crit_edge
-  %66 = fsub double %65, %64
-  %67 = fdiv double 1.000000e+00, %66
+  %67 = fsub double %65, %64
+  %68 = fdiv double 1.000000e+00, %67
   %invariant.gep109 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv79
   br label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv74 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next75, %.lr.ph58 ]
-  %68 = mul nuw nsw i64 %indvars.iv74, %36
-  %gep110 = getelementptr inbounds nuw double, ptr %invariant.gep109, i64 %68
-  %69 = load double, ptr %gep110, align 8, !tbaa !97
-  %70 = fmul double %67, %69
-  store double %70, ptr %gep110, align 8, !tbaa !97
+  %69 = mul nuw nsw i64 %indvars.iv74, %36
+  %gep110 = getelementptr inbounds nuw double, ptr %invariant.gep109, i64 %69
+  %70 = load double, ptr %gep110, align 8, !tbaa !97
+  %71 = fmul double %68, %70
+  store double %71, ptr %gep110, align 8, !tbaa !97
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
   br i1 %exitcond78.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !192
 
 ._crit_edge59:                                    ; preds = %.lr.ph58
   %indvars.iv79.tr = trunc i64 %indvars.iv79 to i32
-  %71 = shl i32 %indvars.iv79.tr, 1
-  %72 = uitofp i32 %71 to double
-  %73 = fdiv double %72, %34
-  %74 = fadd double %73, -1.000000e+00
-  %75 = fmul double %31, %74
+  %72 = shl i32 %indvars.iv79.tr, 1
+  %73 = uitofp i32 %72 to double
+  %74 = fdiv double %73, %34
+  %75 = fadd double %74, -1.000000e+00
+  %76 = fmul double %31, %75
   %gep112 = getelementptr inbounds nuw double, ptr %invariant.gep111, i64 %indvars.iv79
-  %76 = load double, ptr %gep112, align 8, !tbaa !97
-  %77 = fmul double %75, %76
-  store double %77, ptr %gep112, align 8, !tbaa !97
-  br label %78
+  %77 = load double, ptr %gep112, align 8, !tbaa !97
+  %78 = fmul double %76, %77
+  store double %78, ptr %gep112, align 8, !tbaa !97
+  br label %79
 
-78:                                               ; preds = %._crit_edge59, %._crit_edge
+79:                                               ; preds = %._crit_edge59, %._crit_edge
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %36
   br i1 %exitcond83.not, label %._crit_edge62.split, label %.preheader, !llvm.loop !190
 
-._crit_edge62.split:                              ; preds = %78
+._crit_edge62.split:                              ; preds = %79
   store i64 %57, ptr %14, align 8, !tbaa !193
   br label %._crit_edge62
 

@@ -3096,52 +3096,52 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %62 = call double @llvm.fmuladd.f64(double %54, double %54, double %61)
   %63 = call double @llvm.fmuladd.f64(double %60, double %60, double %62)
   %64 = fmul double %63, 2.500000e-01
-  %sqrt = call double @llvm.sqrt.f64(double %64)
-  %65 = load double, ptr %6, align 8, !tbaa !14
-  %66 = load double, ptr %24, align 8, !tbaa !14
-  %67 = fadd double %65, %66
-  %68 = load double, ptr %36, align 8, !tbaa !14
-  %69 = fadd double %67, %68
-  %70 = fadd double %69, -1.000000e+00
-  %71 = fmul double %70, 5.000000e-01
-  %72 = fcmp ogt double %71, 1.000000e+00
-  %73 = fcmp olt double %71, -1.000000e+00
-  %74 = select i1 %73, double -1.000000e+00, double %71
-  %75 = select i1 %72, double 1.000000e+00, double %74
-  %76 = call double @acos(double noundef %75) #23, !tbaa !100
-  %77 = fcmp olt double %sqrt, 1.000000e-05
-  br i1 %77, label %78, label %115
+  %65 = call double @llvm.sqrt.f64(double %64)
+  %66 = load double, ptr %6, align 8, !tbaa !14
+  %67 = load double, ptr %24, align 8, !tbaa !14
+  %68 = fadd double %66, %67
+  %69 = load double, ptr %36, align 8, !tbaa !14
+  %70 = fadd double %68, %69
+  %71 = fadd double %70, -1.000000e+00
+  %72 = fmul double %71, 5.000000e-01
+  %73 = fcmp ogt double %72, 1.000000e+00
+  %74 = fcmp olt double %72, -1.000000e+00
+  %75 = select i1 %74, double -1.000000e+00, double %72
+  %76 = select i1 %73, double 1.000000e+00, double %75
+  %77 = call double @acos(double noundef %76) #23, !tbaa !100
+  %78 = fcmp olt double %65, 1.000000e-05
+  br i1 %78, label %79, label %116
 
-78:                                               ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
-  %79 = fcmp ogt double %75, 0.000000e+00
-  br i1 %79, label %122, label %80
+79:                                               ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
+  %80 = fcmp ogt double %76, 0.000000e+00
+  br i1 %80, label %123, label %81
 
-80:                                               ; preds = %78
-  %81 = fadd double %65, 1.000000e+00
-  %82 = fmul double %81, 5.000000e-01
-  %83 = fcmp olt double %82, 0.000000e+00
-  %.sroa.speculated67 = select i1 %83, double 0.000000e+00, double %82
-  %sqrt74 = call double @llvm.sqrt.f64(double %.sroa.speculated67)
-  %84 = fadd double %66, 1.000000e+00
-  %85 = fmul double %84, 5.000000e-01
-  %86 = fcmp olt double %85, 0.000000e+00
-  %.sroa.speculated63 = select i1 %86, double 0.000000e+00, double %85
-  %sqrt73 = call double @llvm.sqrt.f64(double %.sroa.speculated63)
-  %87 = fcmp olt double %59, 0.000000e+00
-  %88 = fneg double %sqrt73
-  %89 = select i1 %87, double %88, double %sqrt73
-  %90 = fadd double %68, 1.000000e+00
-  %91 = fmul double %90, 5.000000e-01
-  %92 = fcmp olt double %91, 0.000000e+00
-  %.sroa.speculated = select i1 %92, double 0.000000e+00, double %91
-  %sqrt72 = call double @llvm.sqrt.f64(double %.sroa.speculated)
-  %93 = fcmp olt double %55, 0.000000e+00
-  %94 = fneg double %sqrt72
-  %95 = select i1 %93, double %94, double %sqrt72
+81:                                               ; preds = %79
+  %82 = fadd double %66, 1.000000e+00
+  %83 = fmul double %82, 5.000000e-01
+  %84 = fcmp olt double %83, 0.000000e+00
+  %.sroa.speculated67 = select i1 %84, double 0.000000e+00, double %83
+  %sqrt73 = call double @llvm.sqrt.f64(double %.sroa.speculated67)
+  %85 = fadd double %67, 1.000000e+00
+  %86 = fmul double %85, 5.000000e-01
+  %87 = fcmp olt double %86, 0.000000e+00
+  %.sroa.speculated63 = select i1 %87, double 0.000000e+00, double %86
+  %sqrt72 = call double @llvm.sqrt.f64(double %.sroa.speculated63)
+  %88 = fcmp olt double %59, 0.000000e+00
+  %89 = fneg double %sqrt72
+  %90 = select i1 %88, double %89, double %sqrt72
+  %91 = fadd double %69, 1.000000e+00
+  %92 = fmul double %91, 5.000000e-01
+  %93 = fcmp olt double %92, 0.000000e+00
+  %.sroa.speculated = select i1 %93, double 0.000000e+00, double %92
+  %sqrt = call double @llvm.sqrt.f64(double %.sroa.speculated)
+  %94 = fcmp olt double %55, 0.000000e+00
+  %95 = fneg double %sqrt
+  %96 = select i1 %94, double %95, double %sqrt
   %96 = call double @llvm.fabs.f64(double %sqrt74)
   %97 = call double @llvm.fabs.f64(double %sqrt73)
   %98 = fcmp olt double %96, %97
-  %99 = call double @llvm.fabs.f64(double %sqrt72)
+  %99 = call double @llvm.fabs.f64(double %65)
   %100 = fcmp olt double %96, %99
   %or.cond = and i1 %98, %100
   br i1 %or.cond, label %101, label %107
@@ -3157,36 +3157,36 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %106 = fneg double %95
   br label %107
 
-107:                                              ; preds = %105, %101, %80
-  %.049 = phi double [ %106, %105 ], [ %95, %101 ], [ %95, %80 ]
-  %108 = fmul double %89, %89
-  %109 = call double @llvm.fmuladd.f64(double %sqrt74, double %sqrt74, double %108)
-  %110 = call double @llvm.fmuladd.f64(double %.049, double %.049, double %109)
-  %sqrt75 = call double @llvm.sqrt.f64(double %110)
-  %111 = fdiv double %76, %sqrt75
-  %112 = fmul double %sqrt74, %111
-  %113 = fmul double %89, %111
-  %114 = fmul double %.049, %111
-  br label %122
+108:                                              ; preds = %105, %101, %81
+  %.049 = phi double [ %106, %105 ], [ %96, %101 ], [ %96, %80 ]
+  %109 = fmul double %90, %90
+  %110 = call double @llvm.fmuladd.f64(double %sqrt73, double %sqrt73, double %109)
+  %111 = call double @llvm.fmuladd.f64(double %.049, double %.049, double %110)
+  %sqrt74 = call double @llvm.sqrt.f64(double %111)
+  %112 = fdiv double %77, %sqrt74
+  %113 = fmul double %sqrt73, %112
+  %114 = fmul double %90, %112
+  %115 = fmul double %.049, %112
+  br label %123
 
-115:                                              ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
-  %116 = fmul double %sqrt, 2.000000e+00
-  %117 = fdiv double 1.000000e+00, %116
-  %118 = fmul double %76, %117
-  %119 = fmul double %54, %118
-  %120 = fmul double %57, %118
-  %121 = fmul double %60, %118
-  br label %122
+116:                                              ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
+  %117 = fmul double %65, 2.000000e+00
+  %118 = fdiv double 1.000000e+00, %117
+  %119 = fmul double %76, %117
+  %120 = fmul double %54, %119
+  %121 = fmul double %57, %119
+  %122 = fmul double %60, %119
+  br label %123
 
-122:                                              ; preds = %78, %107, %115
-  %.052 = phi double [ %119, %115 ], [ %112, %107 ], [ 0.000000e+00, %78 ]
-  %.051 = phi double [ %120, %115 ], [ %113, %107 ], [ 0.000000e+00, %78 ]
-  %.150 = phi double [ %121, %115 ], [ %114, %107 ], [ 0.000000e+00, %78 ]
+123:                                              ; preds = %79, %108, %116
+  %.052 = phi double [ %120, %115 ], [ %113, %107 ], [ 0.000000e+00, %78 ]
+  %.051 = phi double [ %121, %115 ], [ %114, %107 ], [ 0.000000e+00, %78 ]
+  %.150 = phi double [ %122, %115 ], [ %115, %107 ], [ 0.000000e+00, %78 ]
   store double %.052, ptr %0, align 8, !tbaa !14
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.051, ptr %123, align 8, !tbaa !14
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.150, ptr %124, align 8, !tbaa !14
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.051, ptr %124, align 8, !tbaa !14
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %.150, ptr %125, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

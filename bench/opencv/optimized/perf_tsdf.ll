@@ -2848,7 +2848,7 @@ define internal void @_ZNK11opencv_test12_GLOBAL__N_113RenderInvokerINS0_15Semis
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph90.split
   %66 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %59, %.lr.ph90.split ]
-  %67 = phi i32 [ %172, %._crit_edge.loopexit ], [ %60, %.lr.ph90.split ]
+  %67 = phi i32 [ %173, %._crit_edge.loopexit ], [ %60, %.lr.ph90.split ]
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
   %68 = sext i32 %66 to i64
   %69 = icmp slt i64 %indvars.iv.next97, %68
@@ -2981,9 +2981,9 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %123
 
-123:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %165
-  %.04686 = phi float [ 0.000000e+00, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %166, %165 ]
-  %.04885 = phi i32 [ 0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %167, %165 ]
+123:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %166
+  %.04686 = phi float [ 0.000000e+00, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %167, %165 ]
+  %.04885 = phi i32 [ 0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %168, %165 ]
   %124 = fmul float %120, %.04686
   %125 = fmul float %122, %.04686
   %126 = fadd float %71, %124
@@ -3045,33 +3045,33 @@ _ZSt3minIfET_St16initializer_listIS0_E.exit.i:    ; preds = %.lr.ph.i.i.i
 _ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit: ; preds = %123, %_ZSt3minIfET_St16initializer_listIS0_E.exit.i
   %.0.i = phi float [ %158, %_ZSt3minIfET_St16initializer_listIS0_E.exit.i ], [ %140, %123 ]
   %159 = fcmp uge float %.0.i, 0x3EB0C6F7A0000000
-  br i1 %159, label %165, label %160
+  br i1 %159, label %166, label %160
 
 160:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
   %161 = fmul float %.04686, %.04686
   %162 = fmul float %119, %161
-  %sqrt = tail call float @llvm.sqrt.f32(float %162)
-  %163 = load float, ptr %55, align 8, !tbaa !137
-  %164 = fmul float %sqrt, %163
+  %163 = tail call float @llvm.sqrt.f32(float %162)
+  %164 = load float, ptr %55, align 8, !tbaa !137
+  %165 = fmul float %163, %164
   br label %.loopexit
 
-165:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
-  %166 = fadd float %.04686, %.0.i
-  %167 = add nuw nsw i32 %.04885, 1
-  %168 = icmp samesign ult i32 %.04885, 255
-  %169 = fcmp olt float %166, 2.000000e+01
-  %170 = select i1 %168, i1 %169, i1 false
-  br i1 %170, label %123, label %.loopexit, !llvm.loop !251
+166:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
+  %167 = fadd float %.04686, %.0.i
+  %168 = add nuw nsw i32 %.04885, 1
+  %169 = icmp samesign ult i32 %.04885, 255
+  %170 = fcmp olt float %167, 2.000000e+01
+  %171 = select i1 %169, i1 %170, i1 false
+  br i1 %171, label %123, label %.loopexit, !llvm.loop !251
 
-.loopexit:                                        ; preds = %165, %160
-  %.1 = phi float [ %164, %160 ], [ 0.000000e+00, %165 ]
-  %171 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
-  store float %.1, ptr %171, align 4, !tbaa !117
+.loopexit:                                        ; preds = %166, %160
+  %.1 = phi float [ %165, %160 ], [ 0.000000e+00, %165 ]
+  %172 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
+  store float %.1, ptr %172, align 4, !tbaa !117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %172 = load i32, ptr %20, align 4, !tbaa !218
-  %173 = sext i32 %172 to i64
-  %174 = icmp slt i64 %indvars.iv.next, %173
-  br i1 %174, label %70, label %._crit_edge.loopexit, !llvm.loop !252
+  %173 = load i32, ptr %20, align 4, !tbaa !218
+  %174 = sext i32 %173 to i64
+  %175 = icmp slt i64 %indvars.iv.next, %174
+  br i1 %175, label %70, label %._crit_edge.loopexit, !llvm.loop !252
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
