@@ -20249,8 +20249,8 @@ method_entry_resolve_refinement.exit:             ; preds = %45, %._crit_edge.i.
   %.0.i = phi ptr [ null, %._crit_edge.i.i.i.i.cont ], [ null, %16 ], [ %.1.i.i.i.i, %search_method_protect.exit.thread.fold.split.i ], [ null, %19 ], [ %spec.select, %resolve_refined_method.exit.thread12.thread ], [ null, %resolve_refined_method.exit ], [ null, %resolve_refined_method.exit.thread12 ], [ null, %28 ], [ null, %._crit_edge.i.i.i44.us.i.us ], [ null, %45 ]
   br i1 %.not, label %method_entry_resolve_refinement.exit.cont, label %method_entry_resolve_refinement.exit.else
 
-method_entry_resolve_refinement.exit.else:        ; preds = %58, %._crit_edge.i.i.i44.us.i, %78, %method_entry_resolve_refinement.exit
-  %.0.i92 = phi ptr [ %.0.i, %method_entry_resolve_refinement.exit ], [ null, %78 ], [ null, %._crit_edge.i.i.i44.us.i ], [ null, %58 ]
+method_entry_resolve_refinement.exit.else:        ; preds = %._crit_edge.i.i.i44.us.i, %58, %78, %method_entry_resolve_refinement.exit
+  %.0.i92 = phi ptr [ %.0.i, %method_entry_resolve_refinement.exit ], [ null, %78 ], [ null, %58 ], [ null, %._crit_edge.i.i.i44.us.i ]
   %.else.val = load i64, ptr %2, align 8, !tbaa !7
   br label %method_entry_resolve_refinement.exit.cont
 
