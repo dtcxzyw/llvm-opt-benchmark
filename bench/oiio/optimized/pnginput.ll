@@ -3880,7 +3880,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
 51:                                               ; preds = %7
   %52 = fcmp une float %6, 1.000000e+00
   %or.cond70 = select i1 %52, i1 %10, i1 false
-  br i1 %or.cond70, label %78, label %.preheader101
+  br i1 %or.cond70, label %76, label %.preheader101
 
 .preheader101:                                    ; preds = %51
   %53 = icmp sgt i32 %2, 0
@@ -3907,16 +3907,16 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %62 = fcmp une float %61, 1.000000e+00
   br i1 %62, label %.preheader99.us, label %..loopexit100_crit_edge.us
 
-..loopexit100_crit_edge.us:                       ; preds = %77, %.lr.ph107.split.us
+..loopexit100_crit_edge.us:                       ; preds = %75, %.lr.ph107.split.us
   %63 = add nuw nsw i32 %.055104.us, 1
   %64 = getelementptr inbounds nuw i16, ptr %.2105.us, i64 %56
   %exitcond124.not = icmp eq i32 %63, %2
   br i1 %exitcond124.not, label %.loopexit95, label %.lr.ph107.split.us, !llvm.loop !162
 
-.preheader99.us:                                  ; preds = %.lr.ph107.split.us, %77
-  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.lr.ph107.split.us ]
+.preheader99.us:                                  ; preds = %.lr.ph107.split.us, %75
+  %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph107.split.us ]
   %.not.us = icmp eq i64 %indvars.iv, %57
-  br i1 %.not.us, label %77, label %65
+  br i1 %.not.us, label %75, label %65
 
 65:                                               ; preds = %.preheader99.us
   %66 = getelementptr inbounds nuw i16, ptr %.2105.us, i64 %indvars.iv
@@ -3925,85 +3925,83 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %69 = fmul float %68, 0x3EF0001000000000
   %70 = fmul float %61, %69
   %71 = fmul float %70, 6.553500e+04
-  %72 = fcmp olt float %71, 0.000000e+00
-  %73 = select i1 %72, float -5.000000e-01, float 5.000000e-01
-  %74 = fadd float %71, %73
-  %.inv.i.i.i74.us = fcmp oge float %74, 0.000000e+00
-  %.0.i.i.i.i75.us = select i1 %.inv.i.i.i74.us, float %74, float 0.000000e+00
-  %75 = fcmp ogt float %.0.i.i.i.i75.us, 6.553500e+04
-  %.1.i.i.i.i76.us = select i1 %75, float 6.553500e+04, float %.0.i.i.i.i75.us
-  %76 = fptoui float %.1.i.i.i.i76.us to i16
-  store i16 %76, ptr %66, align 2, !tbaa !130
-  br label %77
+  %72 = fadd float %71, 5.000000e-01
+  %.inv.i.i.i74.us = fcmp oge float %72, 0.000000e+00
+  %.0.i.i.i.i75.us = select i1 %.inv.i.i.i74.us, float %72, float 0.000000e+00
+  %73 = fcmp ogt float %.0.i.i.i.i75.us, 6.553500e+04
+  %.1.i.i.i.i76.us = select i1 %73, float 6.553500e+04, float %.0.i.i.i.i75.us
+  %74 = fptoui float %.1.i.i.i.i76.us to i16
+  store i16 %74, ptr %66, align 2, !tbaa !130
+  br label %75
 
-77:                                               ; preds = %65, %.preheader99.us
+75:                                               ; preds = %65, %.preheader99.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit100_crit_edge.us, label %.preheader99.us, !llvm.loop !163
 
-78:                                               ; preds = %51
-  %79 = fdiv float 1.000000e+00, %6
-  %80 = icmp sgt i32 %2, 0
-  br i1 %80, label %.lr.ph112, label %.loopexit95
+76:                                               ; preds = %51
+  %77 = fdiv float 1.000000e+00, %6
+  %78 = icmp sgt i32 %2, 0
+  br i1 %78, label %.lr.ph112, label %.loopexit95
 
-.lr.ph112:                                        ; preds = %78
-  %81 = sext i32 %4 to i64
-  %82 = icmp sgt i32 %3, 0
-  %83 = sext i32 %3 to i64
-  br i1 %82, label %.lr.ph112.split.us.preheader, label %.loopexit95
+.lr.ph112:                                        ; preds = %76
+  %79 = sext i32 %4 to i64
+  %80 = icmp sgt i32 %3, 0
+  %81 = sext i32 %3 to i64
+  br i1 %80, label %.lr.ph112.split.us.preheader, label %.loopexit95
 
 .lr.ph112.split.us.preheader:                     ; preds = %.lr.ph112
-  %84 = zext i32 %4 to i64
+  %82 = zext i32 %4 to i64
   %wide.trip.count128 = zext nneg i32 %3 to i64
   br label %.lr.ph112.split.us
 
 .lr.ph112.split.us:                               ; preds = %.lr.ph112.split.us.preheader, %..loopexit97_crit_edge.us
-  %.1110.us = phi ptr [ %91, %..loopexit97_crit_edge.us ], [ %1, %.lr.ph112.split.us.preheader ]
-  %.058109.us = phi i32 [ %90, %..loopexit97_crit_edge.us ], [ 0, %.lr.ph112.split.us.preheader ]
-  %85 = getelementptr inbounds i16, ptr %.1110.us, i64 %81
-  %86 = load i16, ptr %85, align 2, !tbaa !130
-  %87 = uitofp i16 %86 to float
-  %88 = fmul float %87, 0x3EF0001000000000
-  %89 = fcmp une float %88, 1.000000e+00
-  br i1 %89, label %.preheader96.us, label %..loopexit97_crit_edge.us
+  %.1110.us = phi ptr [ %89, %..loopexit97_crit_edge.us ], [ %1, %.lr.ph112.split.us.preheader ]
+  %.058109.us = phi i32 [ %88, %..loopexit97_crit_edge.us ], [ 0, %.lr.ph112.split.us.preheader ]
+  %83 = getelementptr inbounds i16, ptr %.1110.us, i64 %79
+  %84 = load i16, ptr %83, align 2, !tbaa !130
+  %85 = uitofp i16 %84 to float
+  %86 = fmul float %85, 0x3EF0001000000000
+  %87 = fcmp une float %86, 1.000000e+00
+  br i1 %87, label %.preheader96.us, label %..loopexit97_crit_edge.us
 
-..loopexit97_crit_edge.us:                        ; preds = %106, %.lr.ph112.split.us
-  %90 = add nuw nsw i32 %.058109.us, 1
-  %91 = getelementptr inbounds nuw i16, ptr %.1110.us, i64 %83
-  %exitcond130.not = icmp eq i32 %90, %2
+..loopexit97_crit_edge.us:                        ; preds = %104, %.lr.ph112.split.us
+  %88 = add nuw nsw i32 %.058109.us, 1
+  %89 = getelementptr inbounds nuw i16, ptr %.1110.us, i64 %81
+  %exitcond130.not = icmp eq i32 %88, %2
   br i1 %exitcond130.not, label %.loopexit95, label %.lr.ph112.split.us, !llvm.loop !164
 
-.preheader96.us:                                  ; preds = %.lr.ph112.split.us, %106
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %106 ], [ 0, %.lr.ph112.split.us ]
-  %.not64.us = icmp eq i64 %indvars.iv125, %84
-  br i1 %.not64.us, label %106, label %92
+.preheader96.us:                                  ; preds = %.lr.ph112.split.us, %104
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %104 ], [ 0, %.lr.ph112.split.us ]
+  %.not64.us = icmp eq i64 %indvars.iv125, %82
+  br i1 %.not64.us, label %104, label %90
 
-92:                                               ; preds = %.preheader96.us
-  %93 = getelementptr inbounds nuw i16, ptr %.1110.us, i64 %indvars.iv125
-  %94 = load i16, ptr %93, align 2, !tbaa !130
-  %95 = uitofp i16 %94 to float
-  %96 = fmul float %95, 0x3EF0001000000000
-  %97 = tail call float @llvm.pow.f32(float %96, float %6)
-  %98 = fmul float %88, %97
-  %99 = tail call float @llvm.pow.f32(float %98, float %79)
-  %100 = fmul float %99, 6.553500e+04
-  %101 = fcmp olt float %100, 0.000000e+00
-  %102 = select i1 %101, float -5.000000e-01, float 5.000000e-01
-  %103 = fadd float %100, %102
-  %.inv.i.i.i71.us = fcmp oge float %103, 0.000000e+00
-  %.0.i.i.i.i72.us = select i1 %.inv.i.i.i71.us, float %103, float 0.000000e+00
-  %104 = fcmp ogt float %.0.i.i.i.i72.us, 6.553500e+04
-  %.1.i.i.i.i73.us = select i1 %104, float 6.553500e+04, float %.0.i.i.i.i72.us
-  %105 = fptoui float %.1.i.i.i.i73.us to i16
-  store i16 %105, ptr %93, align 2, !tbaa !130
-  br label %106
+90:                                               ; preds = %.preheader96.us
+  %91 = getelementptr inbounds nuw i16, ptr %.1110.us, i64 %indvars.iv125
+  %92 = load i16, ptr %91, align 2, !tbaa !130
+  %93 = uitofp i16 %92 to float
+  %94 = fmul float %93, 0x3EF0001000000000
+  %95 = tail call float @llvm.pow.f32(float %94, float %6)
+  %96 = fmul float %86, %95
+  %97 = tail call float @llvm.pow.f32(float %96, float %77)
+  %98 = fmul float %97, 6.553500e+04
+  %99 = fcmp olt float %98, 0.000000e+00
+  %100 = select i1 %99, float -5.000000e-01, float 5.000000e-01
+  %101 = fadd float %98, %100
+  %.inv.i.i.i71.us = fcmp oge float %101, 0.000000e+00
+  %.0.i.i.i.i72.us = select i1 %.inv.i.i.i71.us, float %101, float 0.000000e+00
+  %102 = fcmp ogt float %.0.i.i.i.i72.us, 6.553500e+04
+  %.1.i.i.i.i73.us = select i1 %102, float 6.553500e+04, float %.0.i.i.i.i72.us
+  %103 = fptoui float %.1.i.i.i.i73.us to i16
+  store i16 %103, ptr %91, align 2, !tbaa !130
+  br label %104
 
-106:                                              ; preds = %92, %.preheader96.us
+104:                                              ; preds = %90, %.preheader96.us
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %..loopexit97_crit_edge.us, label %.preheader96.us, !llvm.loop !165
 
-.loopexit95:                                      ; preds = %..loopexit100_crit_edge.us, %..loopexit97_crit_edge.us, %..loopexit_crit_edge.us, %.lr.ph112, %.lr.ph107, %.lr.ph117, %.preheader101, %78, %.preheader94
+.loopexit95:                                      ; preds = %..loopexit100_crit_edge.us, %..loopexit97_crit_edge.us, %..loopexit_crit_edge.us, %.lr.ph112, %.lr.ph107, %.lr.ph117, %.preheader101, %76, %.preheader94
   ret void
 }
 
@@ -4106,7 +4104,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
 51:                                               ; preds = %7
   %52 = fcmp une float %6, 1.000000e+00
   %or.cond70 = select i1 %52, i1 %10, i1 false
-  br i1 %or.cond70, label %78, label %.preheader101
+  br i1 %or.cond70, label %76, label %.preheader101
 
 .preheader101:                                    ; preds = %51
   %53 = icmp sgt i32 %2, 0
@@ -4133,16 +4131,16 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %62 = fcmp une float %61, 1.000000e+00
   br i1 %62, label %.preheader99.us, label %..loopexit100_crit_edge.us
 
-..loopexit100_crit_edge.us:                       ; preds = %77, %.lr.ph107.split.us
+..loopexit100_crit_edge.us:                       ; preds = %75, %.lr.ph107.split.us
   %63 = add nuw nsw i32 %.055104.us, 1
   %64 = getelementptr inbounds nuw i8, ptr %.2105.us, i64 %56
   %exitcond124.not = icmp eq i32 %63, %2
   br i1 %exitcond124.not, label %.loopexit95, label %.lr.ph107.split.us, !llvm.loop !168
 
-.preheader99.us:                                  ; preds = %.lr.ph107.split.us, %77
-  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.lr.ph107.split.us ]
+.preheader99.us:                                  ; preds = %.lr.ph107.split.us, %75
+  %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph107.split.us ]
   %.not.us = icmp eq i64 %indvars.iv, %57
-  br i1 %.not.us, label %77, label %65
+  br i1 %.not.us, label %75, label %65
 
 65:                                               ; preds = %.preheader99.us
   %66 = getelementptr inbounds nuw i8, ptr %.2105.us, i64 %indvars.iv
@@ -4151,85 +4149,83 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %69 = fmul float %68, 0x3F70101020000000
   %70 = fmul float %61, %69
   %71 = fmul float %70, 2.550000e+02
-  %72 = fcmp olt float %71, 0.000000e+00
-  %73 = select i1 %72, float -5.000000e-01, float 5.000000e-01
-  %74 = fadd float %71, %73
-  %.inv.i.i.i74.us = fcmp oge float %74, 0.000000e+00
-  %.0.i.i.i.i75.us = select i1 %.inv.i.i.i74.us, float %74, float 0.000000e+00
-  %75 = fcmp ogt float %.0.i.i.i.i75.us, 2.550000e+02
-  %.1.i.i.i.i76.us = select i1 %75, float 2.550000e+02, float %.0.i.i.i.i75.us
-  %76 = fptoui float %.1.i.i.i.i76.us to i8
-  store i8 %76, ptr %66, align 1, !tbaa !14
-  br label %77
+  %72 = fadd float %71, 5.000000e-01
+  %.inv.i.i.i74.us = fcmp oge float %72, 0.000000e+00
+  %.0.i.i.i.i75.us = select i1 %.inv.i.i.i74.us, float %72, float 0.000000e+00
+  %73 = fcmp ogt float %.0.i.i.i.i75.us, 2.550000e+02
+  %.1.i.i.i.i76.us = select i1 %73, float 2.550000e+02, float %.0.i.i.i.i75.us
+  %74 = fptoui float %.1.i.i.i.i76.us to i8
+  store i8 %74, ptr %66, align 1, !tbaa !14
+  br label %75
 
-77:                                               ; preds = %65, %.preheader99.us
+75:                                               ; preds = %65, %.preheader99.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit100_crit_edge.us, label %.preheader99.us, !llvm.loop !169
 
-78:                                               ; preds = %51
-  %79 = fdiv float 1.000000e+00, %6
-  %80 = icmp sgt i32 %2, 0
-  br i1 %80, label %.lr.ph112, label %.loopexit95
+76:                                               ; preds = %51
+  %77 = fdiv float 1.000000e+00, %6
+  %78 = icmp sgt i32 %2, 0
+  br i1 %78, label %.lr.ph112, label %.loopexit95
 
-.lr.ph112:                                        ; preds = %78
-  %81 = sext i32 %4 to i64
-  %82 = icmp sgt i32 %3, 0
-  %83 = sext i32 %3 to i64
-  br i1 %82, label %.lr.ph112.split.us.preheader, label %.loopexit95
+.lr.ph112:                                        ; preds = %76
+  %79 = sext i32 %4 to i64
+  %80 = icmp sgt i32 %3, 0
+  %81 = sext i32 %3 to i64
+  br i1 %80, label %.lr.ph112.split.us.preheader, label %.loopexit95
 
 .lr.ph112.split.us.preheader:                     ; preds = %.lr.ph112
-  %84 = zext i32 %4 to i64
+  %82 = zext i32 %4 to i64
   %wide.trip.count128 = zext nneg i32 %3 to i64
   br label %.lr.ph112.split.us
 
 .lr.ph112.split.us:                               ; preds = %.lr.ph112.split.us.preheader, %..loopexit97_crit_edge.us
-  %.1110.us = phi ptr [ %91, %..loopexit97_crit_edge.us ], [ %1, %.lr.ph112.split.us.preheader ]
-  %.058109.us = phi i32 [ %90, %..loopexit97_crit_edge.us ], [ 0, %.lr.ph112.split.us.preheader ]
-  %85 = getelementptr inbounds i8, ptr %.1110.us, i64 %81
-  %86 = load i8, ptr %85, align 1, !tbaa !14
-  %87 = uitofp i8 %86 to float
-  %88 = fmul float %87, 0x3F70101020000000
-  %89 = fcmp une float %88, 1.000000e+00
-  br i1 %89, label %.preheader96.us, label %..loopexit97_crit_edge.us
+  %.1110.us = phi ptr [ %89, %..loopexit97_crit_edge.us ], [ %1, %.lr.ph112.split.us.preheader ]
+  %.058109.us = phi i32 [ %88, %..loopexit97_crit_edge.us ], [ 0, %.lr.ph112.split.us.preheader ]
+  %83 = getelementptr inbounds i8, ptr %.1110.us, i64 %79
+  %84 = load i8, ptr %83, align 1, !tbaa !14
+  %85 = uitofp i8 %84 to float
+  %86 = fmul float %85, 0x3F70101020000000
+  %87 = fcmp une float %86, 1.000000e+00
+  br i1 %87, label %.preheader96.us, label %..loopexit97_crit_edge.us
 
-..loopexit97_crit_edge.us:                        ; preds = %106, %.lr.ph112.split.us
-  %90 = add nuw nsw i32 %.058109.us, 1
-  %91 = getelementptr inbounds nuw i8, ptr %.1110.us, i64 %83
-  %exitcond130.not = icmp eq i32 %90, %2
+..loopexit97_crit_edge.us:                        ; preds = %104, %.lr.ph112.split.us
+  %88 = add nuw nsw i32 %.058109.us, 1
+  %89 = getelementptr inbounds nuw i8, ptr %.1110.us, i64 %81
+  %exitcond130.not = icmp eq i32 %88, %2
   br i1 %exitcond130.not, label %.loopexit95, label %.lr.ph112.split.us, !llvm.loop !170
 
-.preheader96.us:                                  ; preds = %.lr.ph112.split.us, %106
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %106 ], [ 0, %.lr.ph112.split.us ]
-  %.not64.us = icmp eq i64 %indvars.iv125, %84
-  br i1 %.not64.us, label %106, label %92
+.preheader96.us:                                  ; preds = %.lr.ph112.split.us, %104
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %104 ], [ 0, %.lr.ph112.split.us ]
+  %.not64.us = icmp eq i64 %indvars.iv125, %82
+  br i1 %.not64.us, label %104, label %90
 
-92:                                               ; preds = %.preheader96.us
-  %93 = getelementptr inbounds nuw i8, ptr %.1110.us, i64 %indvars.iv125
-  %94 = load i8, ptr %93, align 1, !tbaa !14
-  %95 = uitofp i8 %94 to float
-  %96 = fmul float %95, 0x3F70101020000000
-  %97 = tail call float @llvm.pow.f32(float %96, float %6)
-  %98 = fmul float %88, %97
-  %99 = tail call float @llvm.pow.f32(float %98, float %79)
-  %100 = fmul float %99, 2.550000e+02
-  %101 = fcmp olt float %100, 0.000000e+00
-  %102 = select i1 %101, float -5.000000e-01, float 5.000000e-01
-  %103 = fadd float %100, %102
-  %.inv.i.i.i71.us = fcmp oge float %103, 0.000000e+00
-  %.0.i.i.i.i72.us = select i1 %.inv.i.i.i71.us, float %103, float 0.000000e+00
-  %104 = fcmp ogt float %.0.i.i.i.i72.us, 2.550000e+02
-  %.1.i.i.i.i73.us = select i1 %104, float 2.550000e+02, float %.0.i.i.i.i72.us
-  %105 = fptoui float %.1.i.i.i.i73.us to i8
-  store i8 %105, ptr %93, align 1, !tbaa !14
-  br label %106
+90:                                               ; preds = %.preheader96.us
+  %91 = getelementptr inbounds nuw i8, ptr %.1110.us, i64 %indvars.iv125
+  %92 = load i8, ptr %91, align 1, !tbaa !14
+  %93 = uitofp i8 %92 to float
+  %94 = fmul float %93, 0x3F70101020000000
+  %95 = tail call float @llvm.pow.f32(float %94, float %6)
+  %96 = fmul float %86, %95
+  %97 = tail call float @llvm.pow.f32(float %96, float %77)
+  %98 = fmul float %97, 2.550000e+02
+  %99 = fcmp olt float %98, 0.000000e+00
+  %100 = select i1 %99, float -5.000000e-01, float 5.000000e-01
+  %101 = fadd float %98, %100
+  %.inv.i.i.i71.us = fcmp oge float %101, 0.000000e+00
+  %.0.i.i.i.i72.us = select i1 %.inv.i.i.i71.us, float %101, float 0.000000e+00
+  %102 = fcmp ogt float %.0.i.i.i.i72.us, 2.550000e+02
+  %.1.i.i.i.i73.us = select i1 %102, float 2.550000e+02, float %.0.i.i.i.i72.us
+  %103 = fptoui float %.1.i.i.i.i73.us to i8
+  store i8 %103, ptr %91, align 1, !tbaa !14
+  br label %104
 
-106:                                              ; preds = %92, %.preheader96.us
+104:                                              ; preds = %90, %.preheader96.us
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %..loopexit97_crit_edge.us, label %.preheader96.us, !llvm.loop !171
 
-.loopexit95:                                      ; preds = %..loopexit100_crit_edge.us, %..loopexit97_crit_edge.us, %..loopexit_crit_edge.us, %.lr.ph112, %.lr.ph107, %.lr.ph117, %.preheader101, %78, %.preheader94
+.loopexit95:                                      ; preds = %..loopexit100_crit_edge.us, %..loopexit97_crit_edge.us, %..loopexit_crit_edge.us, %.lr.ph112, %.lr.ph107, %.lr.ph117, %.preheader101, %76, %.preheader94
   ret void
 }
 

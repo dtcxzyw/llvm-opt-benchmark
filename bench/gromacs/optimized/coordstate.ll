@@ -225,7 +225,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
 
 39:                                               ; preds = %38
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElllENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 122) #16
-          to label %.noexc20.i unwind label %132
+          to label %.noexc20.i unwind label %130
 
 .noexc20.i:                                       ; preds = %39
   unreachable
@@ -306,59 +306,58 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
   %113 = uitofp i64 %112 to float
   %114 = fmul float %113, 0x3BF0000000000000
   %115 = fcmp oeq float %114, 1.000000e+00
-  %116 = fadd float %114, 0.000000e+00
-  %117 = select i1 %115, float 0.000000e+00, float %116
-  %118 = fpext float %117 to double
-  %119 = ptrtoint ptr %28 to i64
-  %120 = ptrtoint ptr %20 to i64
-  %121 = sub i64 %119, %120
-  %122 = ashr exact i64 %121, 3
-  %123 = icmp sgt i64 %122, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit
+  %.013.i.i.i.i = select i1 %115, float 0.000000e+00, float %114
+  %116 = fpext float %.013.i.i.i.i to double
+  %117 = ptrtoint ptr %28 to i64
+  %118 = ptrtoint ptr %20 to i64
+  %119 = sub i64 %117, %118
+  %120 = ashr exact i64 %119, 3
+  %121 = icmp sgt i64 %120, 0
+  br i1 %121, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i: ; preds = %40, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i
-  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %122, %40 ]
+  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %120, %40 ]
   %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %20, %40 ]
-  %124 = lshr i64 %.013.i.i.i, 1
-  %125 = getelementptr inbounds nuw double, ptr %.sroa.011.012.i.i.i, i64 %124
-  %126 = load double, ptr %125, align 8, !tbaa !28
-  %127 = fcmp ogt double %126, %118
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %129 = xor i64 %124, -1
-  %130 = add nsw i64 %.013.i.i.i, %129
-  %.sroa.011.1.i.i.i = select i1 %127, ptr %.sroa.011.012.i.i.i, ptr %128
-  %.1.i.i.i = select i1 %127, i64 %124, i64 %130
-  %131 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i, !llvm.loop !35
+  %122 = lshr i64 %.013.i.i.i, 1
+  %123 = getelementptr inbounds nuw double, ptr %.sroa.011.012.i.i.i, i64 %122
+  %124 = load double, ptr %123, align 8, !tbaa !28
+  %125 = fcmp ogt double %124, %116
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %127 = xor i64 %122, -1
+  %128 = add nsw i64 %.013.i.i.i, %127
+  %.sroa.011.1.i.i.i = select i1 %125, ptr %.sroa.011.012.i.i.i, ptr %126
+  %.1.i.i.i = select i1 %125, i64 %122, i64 %128
+  %129 = icmp sgt i64 %.1.i.i.i, 0
+  br i1 %129, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i, !llvm.loop !35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i:         ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i
   %.pre.i = ptrtoint ptr %.sroa.011.1.i.i.i to i64
   br label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit
 
-132:                                              ; preds = %39
-  %133 = landingpad { ptr, i32 }
+130:                                              ; preds = %39
+  %131 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit26.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %132, %31
-  %.pn.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %32, %31 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %130, %31
+  %.pn.pn.i = phi { ptr, i32 } [ %131, %130 ], [ %32, %31 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #18
   resume { ptr, i32 } %.pn.pn.i
 
 _ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit: ; preds = %40, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i ], [ %120, %40 ]
-  %134 = sext i32 %2 to i64
-  %135 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %134
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
-  %137 = sub i64 %.pre-phi.i, %120
+  %.pre-phi.i = phi i64 [ %.pre.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i ], [ %118, %40 ]
+  %132 = sext i32 %2 to i64
+  %133 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
+  %135 = sub i64 %.pre-phi.i, %118
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #18
-  %sext = shl i64 %137, 29
-  %138 = ashr i64 %sext, 32
-  %139 = load ptr, ptr %136, align 8, !tbaa !36
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %138
-  %141 = load i32, ptr %140, align 4, !tbaa !39
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %141, ptr %142, align 4, !tbaa !14
+  %sext = shl i64 %135, 29
+  %136 = ashr i64 %sext, 32
+  %137 = load ptr, ptr %134, align 8, !tbaa !36
+  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %136
+  %139 = load i32, ptr %138, align 4, !tbaa !39
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %139, ptr %140, align 4, !tbaa !14
   ret void
 }
 

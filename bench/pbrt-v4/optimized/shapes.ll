@@ -6227,7 +6227,7 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
 
 26:                                               ; preds = %28
   %27 = icmp eq i64 %7, 2
-  br i1 %27, label %31, label %90
+  br i1 %27, label %31, label %88
 
 28:                                               ; preds = %25, %28
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %28 ]
@@ -6288,7 +6288,7 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
   %54 = fadd float %51, %53
   %55 = tail call noundef float @llvm.fma.f32(float %37, float %46, float %54)
   %56 = fcmp olt float %55, 0.000000e+00
-  br i1 %56, label %57, label %72
+  br i1 %56, label %57, label %71
 
 57:                                               ; preds = %31
   %58 = fadd float %37, %46
@@ -6301,49 +6301,45 @@ define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS
   %65 = fadd float %64, %63
   %sqrt.i.i48 = tail call noundef float @llvm.sqrt.f32(float %65)
   %66 = fmul float %sqrt.i.i48, 5.000000e-01
-  %67 = fcmp olt float %66, -1.000000e+00
-  %68 = fcmp ogt float %66, 1.000000e+00
-  %..i.i.i = select i1 %68, float 1.000000e+00, float %66
-  %.0.i.i.i = select i1 %67, float -1.000000e+00, float %..i.i.i
-  %69 = tail call noundef float @asinf(float noundef %.0.i.i.i) #32, !tbaa !15
-  %70 = fmul float %69, 2.000000e+00
-  %71 = fsub float 0x400921FB60000000, %70
+  %67 = fcmp ogt float %66, 1.000000e+00
+  %..i.i.i = select i1 %67, float 1.000000e+00, float %66
+  %68 = tail call noundef float @asinf(float noundef %..i.i.i) #32, !tbaa !15
+  %69 = fmul float %68, 2.000000e+00
+  %70 = fsub float 0x400921FB60000000, %69
   br label %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit
 
-72:                                               ; preds = %31
-  %73 = fsub float %46, %37
-  %74 = fsub float %47, %38
-  %75 = fsub float %48, %39
+71:                                               ; preds = %31
+  %72 = fsub float %46, %37
+  %73 = fsub float %47, %38
+  %74 = fsub float %48, %39
+  %75 = fmul float %72, %72
   %76 = fmul float %73, %73
-  %77 = fmul float %74, %74
-  %78 = fadd float %76, %77
-  %79 = fmul float %75, %75
-  %80 = fadd float %79, %78
-  %sqrt.i41.i = tail call noundef float @llvm.sqrt.f32(float %80)
-  %81 = fmul float %sqrt.i41.i, 5.000000e-01
-  %82 = fcmp olt float %81, -1.000000e+00
-  %83 = fcmp ogt float %81, 1.000000e+00
-  %..i.i42.i = select i1 %83, float 1.000000e+00, float %81
-  %.0.i.i43.i = select i1 %82, float -1.000000e+00, float %..i.i42.i
-  %84 = tail call noundef float @asinf(float noundef %.0.i.i43.i) #32, !tbaa !15
-  %85 = fmul float %84, 2.000000e+00
+  %77 = fadd float %75, %76
+  %78 = fmul float %74, %74
+  %79 = fadd float %78, %77
+  %sqrt.i41.i = tail call noundef float @llvm.sqrt.f32(float %79)
+  %80 = fmul float %sqrt.i41.i, 5.000000e-01
+  %81 = fcmp ogt float %80, 1.000000e+00
+  %..i.i42.i = select i1 %81, float 1.000000e+00, float %80
+  %82 = tail call noundef float @asinf(float noundef %..i.i42.i) #32, !tbaa !15
+  %83 = fmul float %82, 2.000000e+00
   br label %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit
 
-_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit: ; preds = %57, %72
-  %.0.i = phi float [ %71, %57 ], [ %85, %72 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store float %.0.i, ptr %86, align 4, !tbaa !216
-  %87 = tail call noundef float @sinf(float noundef %.0.i) #32, !tbaa !15
-  %88 = fdiv float 1.000000e+00, %87
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store float %88, ptr %89, align 8, !tbaa !217
-  br label %90
+_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit: ; preds = %57, %71
+  %.0.i = phi float [ %70, %57 ], [ %83, %71 ]
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store float %.0.i, ptr %84, align 4, !tbaa !216
+  %85 = tail call noundef float @sinf(float noundef %.0.i) #32, !tbaa !15
+  %86 = fdiv float 1.000000e+00, %85
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store float %86, ptr %87, align 8, !tbaa !217
+  br label %88
 
-90:                                               ; preds = %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit, %26
-  %91 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL7nCurvesE)
-  %92 = load i64, ptr %91, align 8, !tbaa !59
-  %93 = add nsw i64 %92, 1
-  store i64 %93, ptr %91, align 8, !tbaa !59
+88:                                               ; preds = %_ZN4pbrt12AngleBetweenIfEEfNS_7Normal3IT_EES3_.exit, %26
+  %89 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL7nCurvesE)
+  %90 = load i64, ptr %89, align 8, !tbaa !59
+  %91 = add nsw i64 %90, 1
+  store i64 %91, ptr %89, align 8, !tbaa !59
   ret void
 }
 
@@ -26108,51 +26104,47 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt12AngleBetweenIfEEfNS_7Vect
   %8 = fmul float %1, %3
   %9 = fadd float %8, %7
   %10 = fcmp olt float %9, 0.000000e+00
-  br i1 %10, label %11, label %25
+  br i1 %10, label %11, label %24
 
 11:                                               ; preds = %4
-  %foldExtExtBinop49 = fadd <2 x float> %0, %2
+  %foldExtExtBinop48 = fadd <2 x float> %0, %2
   %12 = fadd float %.sroa.04.4.vec.extract.i, %.sroa.01.4.vec.extract.i
   %13 = fadd float %1, %3
-  %foldExtExtBinop51 = fmul <2 x float> %foldExtExtBinop49, %foldExtExtBinop49
-  %14 = extractelement <2 x float> %foldExtExtBinop51, i64 0
+  %foldExtExtBinop50 = fmul <2 x float> %foldExtExtBinop48, %foldExtExtBinop48
+  %14 = extractelement <2 x float> %foldExtExtBinop50, i64 0
   %15 = fmul float %12, %12
   %16 = fadd float %14, %15
   %17 = fmul float %13, %13
   %18 = fadd float %17, %16
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %18)
   %19 = fmul float %sqrt.i, 5.000000e-01
-  %20 = fcmp olt float %19, -1.000000e+00
-  %21 = fcmp ogt float %19, 1.000000e+00
-  %..i.i = select i1 %21, float 1.000000e+00, float %19
-  %.0.i.i = select i1 %20, float -1.000000e+00, float %..i.i
-  %22 = tail call noundef float @asinf(float noundef %.0.i.i) #32, !tbaa !15
-  %23 = fmul float %22, 2.000000e+00
-  %24 = fsub float 0x400921FB60000000, %23
-  br label %38
+  %20 = fcmp ogt float %19, 1.000000e+00
+  %..i.i = select i1 %20, float 1.000000e+00, float %19
+  %21 = tail call noundef float @asinf(float noundef %..i.i) #32, !tbaa !15
+  %22 = fmul float %21, 2.000000e+00
+  %23 = fsub float 0x400921FB60000000, %22
+  br label %36
 
-25:                                               ; preds = %4
-  %foldExtExtBinop53 = fsub <2 x float> %2, %0
-  %26 = fsub float %.sroa.01.4.vec.extract.i, %.sroa.04.4.vec.extract.i
-  %27 = fsub float %3, %1
-  %foldExtExtBinop55 = fmul <2 x float> %foldExtExtBinop53, %foldExtExtBinop53
-  %28 = extractelement <2 x float> %foldExtExtBinop55, i64 0
-  %29 = fmul float %26, %26
-  %30 = fadd float %28, %29
-  %31 = fmul float %27, %27
-  %32 = fadd float %31, %30
-  %sqrt.i41 = tail call noundef float @llvm.sqrt.f32(float %32)
-  %33 = fmul float %sqrt.i41, 5.000000e-01
-  %34 = fcmp olt float %33, -1.000000e+00
-  %35 = fcmp ogt float %33, 1.000000e+00
-  %..i.i42 = select i1 %35, float 1.000000e+00, float %33
-  %.0.i.i43 = select i1 %34, float -1.000000e+00, float %..i.i42
-  %36 = tail call noundef float @asinf(float noundef %.0.i.i43) #32, !tbaa !15
-  %37 = fmul float %36, 2.000000e+00
-  br label %38
+24:                                               ; preds = %4
+  %foldExtExtBinop52 = fsub <2 x float> %2, %0
+  %25 = fsub float %.sroa.01.4.vec.extract.i, %.sroa.04.4.vec.extract.i
+  %26 = fsub float %3, %1
+  %foldExtExtBinop54 = fmul <2 x float> %foldExtExtBinop52, %foldExtExtBinop52
+  %27 = extractelement <2 x float> %foldExtExtBinop54, i64 0
+  %28 = fmul float %25, %25
+  %29 = fadd float %27, %28
+  %30 = fmul float %26, %26
+  %31 = fadd float %30, %29
+  %sqrt.i41 = tail call noundef float @llvm.sqrt.f32(float %31)
+  %32 = fmul float %sqrt.i41, 5.000000e-01
+  %33 = fcmp ogt float %32, 1.000000e+00
+  %..i.i42 = select i1 %33, float 1.000000e+00, float %32
+  %34 = tail call noundef float @asinf(float noundef %..i.i42) #32, !tbaa !15
+  %35 = fmul float %34, 2.000000e+00
+  br label %36
 
-38:                                               ; preds = %25, %11
-  %.0 = phi float [ %24, %11 ], [ %37, %25 ]
+36:                                               ; preds = %24, %11
+  %.0 = phi float [ %23, %11 ], [ %35, %24 ]
   ret float %.0
 }
 

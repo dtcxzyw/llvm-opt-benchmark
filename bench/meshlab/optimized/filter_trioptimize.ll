@@ -16084,140 +16084,142 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlipNS_9MeanC
   %137 = fpext float %136 to double
   %138 = fmul double %137, 1.250000e-01
   %139 = fsub double %132, %138
-  br label %163
+  br label %166
 
 140:                                              ; preds = %90
   %141 = fcmp ult double %102, 0x3FF921FB54442D18
-  br i1 %141, label %147, label %142
+  br i1 %141, label %148, label %142
 
 142:                                              ; preds = %140
   %143 = tail call noundef float @tanf(float noundef %.010.i) #27
   %144 = fmul float %110, %143
   %145 = fpext float %144 to double
   %146 = fmul double %145, 1.250000e-01
-  br label %163
+  %147 = fadd double %146, 0.000000e+00
+  br label %166
 
-147:                                              ; preds = %140
-  %148 = fpext float %104 to double
-  %149 = fcmp ult double %148, 0x3FF921FB54442D18
-  br i1 %149, label %155, label %150
+148:                                              ; preds = %140
+  %149 = fpext float %104 to double
+  %150 = fcmp ult double %149, 0x3FF921FB54442D18
+  br i1 %150, label %157, label %151
 
-150:                                              ; preds = %147
-  %151 = tail call noundef float @tanf(float noundef %.010.i) #27
-  %152 = fmul float %116, %151
-  %153 = fpext float %152 to double
-  %154 = fmul double %153, 1.250000e-01
-  br label %163
+151:                                              ; preds = %148
+  %152 = tail call noundef float @tanf(float noundef %.010.i) #27
+  %153 = fmul float %116, %152
+  %154 = fpext float %153 to double
+  %155 = fmul double %154, 1.250000e-01
+  %156 = fadd double %155, 0.000000e+00
+  br label %166
 
-155:                                              ; preds = %147
-  %156 = tail call noundef float @tanf(float noundef %.010.i70) #27
-  %157 = fdiv float %116, %156
-  %158 = tail call noundef float @tanf(float noundef %104) #27
-  %159 = fdiv float %110, %158
-  %160 = fadd float %157, %159
-  %161 = fpext float %160 to double
-  %162 = fmul double %161, 1.250000e-01
-  br label %163
+157:                                              ; preds = %148
+  %158 = tail call noundef float @tanf(float noundef %.010.i70) #27
+  %159 = fdiv float %116, %158
+  %160 = tail call noundef float @tanf(float noundef %104) #27
+  %161 = fdiv float %110, %160
+  %162 = fadd float %159, %161
+  %163 = fpext float %162 to double
+  %164 = fmul double %163, 1.250000e-01
+  %165 = fadd double %164, 0.000000e+00
+  br label %166
 
-163:                                              ; preds = %142, %155, %150, %118
-  %.sink = phi double [ %146, %142 ], [ %162, %155 ], [ %154, %150 ], [ %139, %118 ]
-  %164 = fadd double %.sink, 0.000000e+00
-  %165 = fptrunc double %164 to float
-  store float %165, ptr %7, align 8
+166:                                              ; preds = %142, %157, %151, %118
+  %.sink122 = phi double [ %147, %142 ], [ %165, %157 ], [ %156, %151 ], [ %139, %118 ]
+  %167 = fptrunc double %.sink122 to float
+  store float %167, ptr %7, align 8
   store float %.010.i, ptr %9, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.091.0.vec.extract = extractelement <2 x float> %4, i64 0
   %.sroa.091.4.vec.extract = extractelement <2 x float> %4, i64 1
-  %167 = fmul float %.sroa.091.4.vec.extract, %.sroa.091.4.vec.extract
-  %168 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %.sroa.091.0.vec.extract, float %167)
-  %169 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %168)
-  %sqrt.i.i72 = tail call noundef float @llvm.sqrt.f32(float %169)
-  %170 = load float, ptr %166, align 4
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %172 = load float, ptr %171, align 4
-  %173 = fmul float %172, %172
-  %174 = tail call float @llvm.fmuladd.f32(float %170, float %170, float %173)
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %176 = load float, ptr %175, align 4
-  %177 = tail call float @llvm.fmuladd.f32(float %176, float %176, float %174)
-  %sqrt.i13.i73 = tail call noundef float @llvm.sqrt.f32(float %177)
-  %178 = fmul float %sqrt.i.i72, %sqrt.i13.i73
-  %179 = fcmp oeq float %178, 0.000000e+00
-  br i1 %179, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76, label %180
+  %169 = fmul float %.sroa.091.4.vec.extract, %.sroa.091.4.vec.extract
+  %170 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %.sroa.091.0.vec.extract, float %169)
+  %171 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %170)
+  %sqrt.i.i72 = tail call noundef float @llvm.sqrt.f32(float %171)
+  %172 = load float, ptr %168, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %174 = load float, ptr %173, align 4
+  %175 = fmul float %174, %174
+  %176 = tail call float @llvm.fmuladd.f32(float %172, float %172, float %175)
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %178 = load float, ptr %177, align 4
+  %179 = tail call float @llvm.fmuladd.f32(float %178, float %178, float %176)
+  %sqrt.i13.i73 = tail call noundef float @llvm.sqrt.f32(float %179)
+  %180 = fmul float %sqrt.i.i72, %sqrt.i13.i73
+  %181 = fcmp oeq float %180, 0.000000e+00
+  br i1 %181, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76, label %182
 
-180:                                              ; preds = %163
-  %181 = fmul float %.sroa.091.4.vec.extract, %172
-  %182 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %170, float %181)
-  %183 = tail call noundef float @llvm.fmuladd.f32(float %5, float %176, float %182)
-  %184 = fdiv float %183, %178
-  %185 = fcmp ogt float %184, 1.000000e+00
-  br i1 %185, label %189, label %186
+182:                                              ; preds = %166
+  %183 = fmul float %.sroa.091.4.vec.extract, %174
+  %184 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %172, float %183)
+  %185 = tail call noundef float @llvm.fmuladd.f32(float %5, float %178, float %184)
+  %186 = fdiv float %185, %180
+  %187 = fcmp ogt float %186, 1.000000e+00
+  br i1 %187, label %191, label %188
 
-186:                                              ; preds = %180
-  %187 = fcmp olt float %184, -1.000000e+00
-  br i1 %187, label %188, label %189
+188:                                              ; preds = %182
+  %189 = fcmp olt float %186, -1.000000e+00
+  br i1 %189, label %190, label %191
 
-188:                                              ; preds = %186
-  br label %189
+190:                                              ; preds = %188
+  br label %191
 
-189:                                              ; preds = %188, %186, %180
-  %.0.i74 = phi float [ %184, %186 ], [ -1.000000e+00, %188 ], [ 1.000000e+00, %180 ]
-  %190 = tail call noundef float @acosf(float noundef %.0.i74) #27
-  %191 = tail call float @llvm.fabs.f32(float %190)
-  %192 = fpext float %191 to double
+191:                                              ; preds = %190, %188, %182
+  %.0.i74 = phi float [ %186, %188 ], [ -1.000000e+00, %190 ], [ 1.000000e+00, %182 ]
+  %192 = tail call noundef float @acosf(float noundef %.0.i74) #27
+  %193 = tail call float @llvm.fabs.f32(float %192)
+  %194 = fpext float %193 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %189, %163
-  %.010.i75 = phi double [ %192, %189 ], [ 1.000000e+00, %163 ]
-  %193 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %194 = load float, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 28
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %191, %166
+  %.010.i75 = phi double [ %194, %191 ], [ 1.000000e+00, %166 ]
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %196 = load float, ptr %195, align 4
-  %197 = fmul float %196, %196
-  %198 = tail call float @llvm.fmuladd.f32(float %194, float %194, float %197)
-  %199 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %200 = load float, ptr %199, align 4
-  %201 = tail call float @llvm.fmuladd.f32(float %200, float %200, float %198)
-  %sqrt.i13.i78 = tail call noundef float @llvm.sqrt.f32(float %201)
-  %202 = fmul float %sqrt.i.i72, %sqrt.i13.i78
-  %203 = fcmp oeq float %202, 0.000000e+00
-  br i1 %203, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81, label %204
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %198 = load float, ptr %197, align 4
+  %199 = fmul float %198, %198
+  %200 = tail call float @llvm.fmuladd.f32(float %196, float %196, float %199)
+  %201 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %202 = load float, ptr %201, align 4
+  %203 = tail call float @llvm.fmuladd.f32(float %202, float %202, float %200)
+  %sqrt.i13.i78 = tail call noundef float @llvm.sqrt.f32(float %203)
+  %204 = fmul float %sqrt.i.i72, %sqrt.i13.i78
+  %205 = fcmp oeq float %204, 0.000000e+00
+  br i1 %205, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81, label %206
 
-204:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
-  %205 = fmul float %.sroa.091.4.vec.extract, %196
-  %206 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %194, float %205)
-  %207 = tail call noundef float @llvm.fmuladd.f32(float %5, float %200, float %206)
-  %208 = fdiv float %207, %202
-  %209 = fcmp ogt float %208, 1.000000e+00
-  br i1 %209, label %213, label %210
+206:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
+  %207 = fmul float %.sroa.091.4.vec.extract, %198
+  %208 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %196, float %207)
+  %209 = tail call noundef float @llvm.fmuladd.f32(float %5, float %202, float %208)
+  %210 = fdiv float %209, %204
+  %211 = fcmp ogt float %210, 1.000000e+00
+  br i1 %211, label %215, label %212
 
-210:                                              ; preds = %204
-  %211 = fcmp olt float %208, -1.000000e+00
-  br i1 %211, label %212, label %213
+212:                                              ; preds = %206
+  %213 = fcmp olt float %210, -1.000000e+00
+  br i1 %213, label %214, label %215
 
-212:                                              ; preds = %210
-  br label %213
+214:                                              ; preds = %212
+  br label %215
 
-213:                                              ; preds = %212, %210, %204
-  %.0.i79 = phi float [ %208, %210 ], [ -1.000000e+00, %212 ], [ 1.000000e+00, %204 ]
-  %214 = tail call noundef float @acosf(float noundef %.0.i79) #27
-  %215 = tail call float @llvm.fabs.f32(float %214)
-  %216 = fpext float %215 to double
+215:                                              ; preds = %214, %212, %206
+  %.0.i79 = phi float [ %210, %212 ], [ -1.000000e+00, %214 ], [ 1.000000e+00, %206 ]
+  %216 = tail call noundef float @acosf(float noundef %.0.i79) #27
+  %217 = tail call float @llvm.fabs.f32(float %216)
+  %218 = fpext float %217 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81:  ; preds = %213, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
-  %.010.i80 = phi double [ %216, %213 ], [ 1.000000e+00, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76 ]
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81:  ; preds = %215, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
+  %.010.i80 = phi double [ %218, %215 ], [ 1.000000e+00, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76 ]
   %sqrt97 = tail call float @llvm.sqrt.f32(float %110)
-  %217 = fpext float %sqrt97 to double
-  %218 = fmul double %217, 5.000000e-01
-  %sqrt = tail call float @llvm.sqrt.f32(float %116)
-  %219 = fpext float %sqrt to double
+  %219 = fpext float %sqrt97 to double
   %220 = fmul double %219, 5.000000e-01
-  %221 = fmul double %220, %.010.i80
-  %222 = tail call double @llvm.fmuladd.f64(double %218, double %.010.i75, double %221)
-  %223 = fadd double %222, 0.000000e+00
-  %224 = fptrunc double %223 to float
-  store float %224, ptr %8, align 4
+  %sqrt = tail call float @llvm.sqrt.f32(float %116)
+  %221 = fpext float %sqrt to double
+  %222 = fmul double %221, 5.000000e-01
+  %223 = fmul double %222, %.010.i80
+  %224 = tail call double @llvm.fmuladd.f64(double %220, double %.010.i75, double %223)
+  %225 = fadd double %224, 0.000000e+00
+  %226 = fptrunc double %225 to float
+  store float %226, ptr %8, align 4
   ret void
 }
 
@@ -19751,140 +19753,142 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9NSMCEFlipNS_8NSMCEva
   %137 = fpext float %136 to double
   %138 = fmul double %137, 1.250000e-01
   %139 = fsub double %132, %138
-  br label %163
+  br label %166
 
 140:                                              ; preds = %90
   %141 = fcmp ult double %102, 0x3FF921FB54442D18
-  br i1 %141, label %147, label %142
+  br i1 %141, label %148, label %142
 
 142:                                              ; preds = %140
   %143 = tail call noundef float @tanf(float noundef %.010.i) #27
   %144 = fmul float %110, %143
   %145 = fpext float %144 to double
   %146 = fmul double %145, 1.250000e-01
-  br label %163
+  %147 = fadd double %146, 0.000000e+00
+  br label %166
 
-147:                                              ; preds = %140
-  %148 = fpext float %104 to double
-  %149 = fcmp ult double %148, 0x3FF921FB54442D18
-  br i1 %149, label %155, label %150
+148:                                              ; preds = %140
+  %149 = fpext float %104 to double
+  %150 = fcmp ult double %149, 0x3FF921FB54442D18
+  br i1 %150, label %157, label %151
 
-150:                                              ; preds = %147
-  %151 = tail call noundef float @tanf(float noundef %.010.i) #27
-  %152 = fmul float %116, %151
-  %153 = fpext float %152 to double
-  %154 = fmul double %153, 1.250000e-01
-  br label %163
+151:                                              ; preds = %148
+  %152 = tail call noundef float @tanf(float noundef %.010.i) #27
+  %153 = fmul float %116, %152
+  %154 = fpext float %153 to double
+  %155 = fmul double %154, 1.250000e-01
+  %156 = fadd double %155, 0.000000e+00
+  br label %166
 
-155:                                              ; preds = %147
-  %156 = tail call noundef float @tanf(float noundef %.010.i70) #27
-  %157 = fdiv float %116, %156
-  %158 = tail call noundef float @tanf(float noundef %104) #27
-  %159 = fdiv float %110, %158
-  %160 = fadd float %157, %159
-  %161 = fpext float %160 to double
-  %162 = fmul double %161, 1.250000e-01
-  br label %163
+157:                                              ; preds = %148
+  %158 = tail call noundef float @tanf(float noundef %.010.i70) #27
+  %159 = fdiv float %116, %158
+  %160 = tail call noundef float @tanf(float noundef %104) #27
+  %161 = fdiv float %110, %160
+  %162 = fadd float %159, %161
+  %163 = fpext float %162 to double
+  %164 = fmul double %163, 1.250000e-01
+  %165 = fadd double %164, 0.000000e+00
+  br label %166
 
-163:                                              ; preds = %142, %155, %150, %118
-  %.sink = phi double [ %146, %142 ], [ %162, %155 ], [ %154, %150 ], [ %139, %118 ]
-  %164 = fadd double %.sink, 0.000000e+00
-  %165 = fptrunc double %164 to float
-  store float %165, ptr %7, align 8
+166:                                              ; preds = %142, %157, %151, %118
+  %.sink122 = phi double [ %147, %142 ], [ %165, %157 ], [ %156, %151 ], [ %139, %118 ]
+  %167 = fptrunc double %.sink122 to float
+  store float %167, ptr %7, align 8
   store float %.010.i, ptr %9, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.091.0.vec.extract = extractelement <2 x float> %4, i64 0
   %.sroa.091.4.vec.extract = extractelement <2 x float> %4, i64 1
-  %167 = fmul float %.sroa.091.4.vec.extract, %.sroa.091.4.vec.extract
-  %168 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %.sroa.091.0.vec.extract, float %167)
-  %169 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %168)
-  %sqrt.i.i72 = tail call noundef float @llvm.sqrt.f32(float %169)
-  %170 = load float, ptr %166, align 4
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %172 = load float, ptr %171, align 4
-  %173 = fmul float %172, %172
-  %174 = tail call float @llvm.fmuladd.f32(float %170, float %170, float %173)
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %176 = load float, ptr %175, align 4
-  %177 = tail call float @llvm.fmuladd.f32(float %176, float %176, float %174)
-  %sqrt.i13.i73 = tail call noundef float @llvm.sqrt.f32(float %177)
-  %178 = fmul float %sqrt.i.i72, %sqrt.i13.i73
-  %179 = fcmp oeq float %178, 0.000000e+00
-  br i1 %179, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76, label %180
+  %169 = fmul float %.sroa.091.4.vec.extract, %.sroa.091.4.vec.extract
+  %170 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %.sroa.091.0.vec.extract, float %169)
+  %171 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %170)
+  %sqrt.i.i72 = tail call noundef float @llvm.sqrt.f32(float %171)
+  %172 = load float, ptr %168, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %174 = load float, ptr %173, align 4
+  %175 = fmul float %174, %174
+  %176 = tail call float @llvm.fmuladd.f32(float %172, float %172, float %175)
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %178 = load float, ptr %177, align 4
+  %179 = tail call float @llvm.fmuladd.f32(float %178, float %178, float %176)
+  %sqrt.i13.i73 = tail call noundef float @llvm.sqrt.f32(float %179)
+  %180 = fmul float %sqrt.i.i72, %sqrt.i13.i73
+  %181 = fcmp oeq float %180, 0.000000e+00
+  br i1 %181, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76, label %182
 
-180:                                              ; preds = %163
-  %181 = fmul float %.sroa.091.4.vec.extract, %172
-  %182 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %170, float %181)
-  %183 = tail call noundef float @llvm.fmuladd.f32(float %5, float %176, float %182)
-  %184 = fdiv float %183, %178
-  %185 = fcmp ogt float %184, 1.000000e+00
-  br i1 %185, label %189, label %186
+182:                                              ; preds = %166
+  %183 = fmul float %.sroa.091.4.vec.extract, %174
+  %184 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %172, float %183)
+  %185 = tail call noundef float @llvm.fmuladd.f32(float %5, float %178, float %184)
+  %186 = fdiv float %185, %180
+  %187 = fcmp ogt float %186, 1.000000e+00
+  br i1 %187, label %191, label %188
 
-186:                                              ; preds = %180
-  %187 = fcmp olt float %184, -1.000000e+00
-  br i1 %187, label %188, label %189
+188:                                              ; preds = %182
+  %189 = fcmp olt float %186, -1.000000e+00
+  br i1 %189, label %190, label %191
 
-188:                                              ; preds = %186
-  br label %189
+190:                                              ; preds = %188
+  br label %191
 
-189:                                              ; preds = %188, %186, %180
-  %.0.i74 = phi float [ %184, %186 ], [ -1.000000e+00, %188 ], [ 1.000000e+00, %180 ]
-  %190 = tail call noundef float @acosf(float noundef %.0.i74) #27
-  %191 = tail call float @llvm.fabs.f32(float %190)
-  %192 = fpext float %191 to double
+191:                                              ; preds = %190, %188, %182
+  %.0.i74 = phi float [ %186, %188 ], [ -1.000000e+00, %190 ], [ 1.000000e+00, %182 ]
+  %192 = tail call noundef float @acosf(float noundef %.0.i74) #27
+  %193 = tail call float @llvm.fabs.f32(float %192)
+  %194 = fpext float %193 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %189, %163
-  %.010.i75 = phi double [ %192, %189 ], [ 1.000000e+00, %163 ]
-  %193 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %194 = load float, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 28
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %191, %166
+  %.010.i75 = phi double [ %194, %191 ], [ 1.000000e+00, %166 ]
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %196 = load float, ptr %195, align 4
-  %197 = fmul float %196, %196
-  %198 = tail call float @llvm.fmuladd.f32(float %194, float %194, float %197)
-  %199 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %200 = load float, ptr %199, align 4
-  %201 = tail call float @llvm.fmuladd.f32(float %200, float %200, float %198)
-  %sqrt.i13.i78 = tail call noundef float @llvm.sqrt.f32(float %201)
-  %202 = fmul float %sqrt.i.i72, %sqrt.i13.i78
-  %203 = fcmp oeq float %202, 0.000000e+00
-  br i1 %203, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81, label %204
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %198 = load float, ptr %197, align 4
+  %199 = fmul float %198, %198
+  %200 = tail call float @llvm.fmuladd.f32(float %196, float %196, float %199)
+  %201 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %202 = load float, ptr %201, align 4
+  %203 = tail call float @llvm.fmuladd.f32(float %202, float %202, float %200)
+  %sqrt.i13.i78 = tail call noundef float @llvm.sqrt.f32(float %203)
+  %204 = fmul float %sqrt.i.i72, %sqrt.i13.i78
+  %205 = fcmp oeq float %204, 0.000000e+00
+  br i1 %205, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81, label %206
 
-204:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
-  %205 = fmul float %.sroa.091.4.vec.extract, %196
-  %206 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %194, float %205)
-  %207 = tail call noundef float @llvm.fmuladd.f32(float %5, float %200, float %206)
-  %208 = fdiv float %207, %202
-  %209 = fcmp ogt float %208, 1.000000e+00
-  br i1 %209, label %213, label %210
+206:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
+  %207 = fmul float %.sroa.091.4.vec.extract, %198
+  %208 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %196, float %207)
+  %209 = tail call noundef float @llvm.fmuladd.f32(float %5, float %202, float %208)
+  %210 = fdiv float %209, %204
+  %211 = fcmp ogt float %210, 1.000000e+00
+  br i1 %211, label %215, label %212
 
-210:                                              ; preds = %204
-  %211 = fcmp olt float %208, -1.000000e+00
-  br i1 %211, label %212, label %213
+212:                                              ; preds = %206
+  %213 = fcmp olt float %210, -1.000000e+00
+  br i1 %213, label %214, label %215
 
-212:                                              ; preds = %210
-  br label %213
+214:                                              ; preds = %212
+  br label %215
 
-213:                                              ; preds = %212, %210, %204
-  %.0.i79 = phi float [ %208, %210 ], [ -1.000000e+00, %212 ], [ 1.000000e+00, %204 ]
-  %214 = tail call noundef float @acosf(float noundef %.0.i79) #27
-  %215 = tail call float @llvm.fabs.f32(float %214)
-  %216 = fpext float %215 to double
+215:                                              ; preds = %214, %212, %206
+  %.0.i79 = phi float [ %210, %212 ], [ -1.000000e+00, %214 ], [ 1.000000e+00, %206 ]
+  %216 = tail call noundef float @acosf(float noundef %.0.i79) #27
+  %217 = tail call float @llvm.fabs.f32(float %216)
+  %218 = fpext float %217 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81:  ; preds = %213, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
-  %.010.i80 = phi double [ %216, %213 ], [ 1.000000e+00, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76 ]
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81:  ; preds = %215, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
+  %.010.i80 = phi double [ %218, %215 ], [ 1.000000e+00, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76 ]
   %sqrt97 = tail call float @llvm.sqrt.f32(float %110)
-  %217 = fpext float %sqrt97 to double
-  %218 = fmul double %217, 5.000000e-01
-  %sqrt = tail call float @llvm.sqrt.f32(float %116)
-  %219 = fpext float %sqrt to double
+  %219 = fpext float %sqrt97 to double
   %220 = fmul double %219, 5.000000e-01
-  %221 = fmul double %220, %.010.i80
-  %222 = tail call double @llvm.fmuladd.f64(double %218, double %.010.i75, double %221)
-  %223 = fadd double %222, 0.000000e+00
-  %224 = fptrunc double %223 to float
-  store float %224, ptr %8, align 4
+  %sqrt = tail call float @llvm.sqrt.f32(float %116)
+  %221 = fpext float %sqrt to double
+  %222 = fmul double %221, 5.000000e-01
+  %223 = fmul double %222, %.010.i80
+  %224 = tail call double @llvm.fmuladd.f64(double %220, double %.010.i75, double %223)
+  %225 = fadd double %224, 0.000000e+00
+  %226 = fptrunc double %225 to float
+  store float %226, ptr %8, align 4
   ret void
 }
 
@@ -22557,140 +22561,142 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9AbsCEFlipNS_8AbsCEva
   %137 = fpext float %136 to double
   %138 = fmul double %137, 1.250000e-01
   %139 = fsub double %132, %138
-  br label %163
+  br label %166
 
 140:                                              ; preds = %90
   %141 = fcmp ult double %102, 0x3FF921FB54442D18
-  br i1 %141, label %147, label %142
+  br i1 %141, label %148, label %142
 
 142:                                              ; preds = %140
   %143 = tail call noundef float @tanf(float noundef %.010.i) #27
   %144 = fmul float %110, %143
   %145 = fpext float %144 to double
   %146 = fmul double %145, 1.250000e-01
-  br label %163
+  %147 = fadd double %146, 0.000000e+00
+  br label %166
 
-147:                                              ; preds = %140
-  %148 = fpext float %104 to double
-  %149 = fcmp ult double %148, 0x3FF921FB54442D18
-  br i1 %149, label %155, label %150
+148:                                              ; preds = %140
+  %149 = fpext float %104 to double
+  %150 = fcmp ult double %149, 0x3FF921FB54442D18
+  br i1 %150, label %157, label %151
 
-150:                                              ; preds = %147
-  %151 = tail call noundef float @tanf(float noundef %.010.i) #27
-  %152 = fmul float %116, %151
-  %153 = fpext float %152 to double
-  %154 = fmul double %153, 1.250000e-01
-  br label %163
+151:                                              ; preds = %148
+  %152 = tail call noundef float @tanf(float noundef %.010.i) #27
+  %153 = fmul float %116, %152
+  %154 = fpext float %153 to double
+  %155 = fmul double %154, 1.250000e-01
+  %156 = fadd double %155, 0.000000e+00
+  br label %166
 
-155:                                              ; preds = %147
-  %156 = tail call noundef float @tanf(float noundef %.010.i70) #27
-  %157 = fdiv float %116, %156
-  %158 = tail call noundef float @tanf(float noundef %104) #27
-  %159 = fdiv float %110, %158
-  %160 = fadd float %157, %159
-  %161 = fpext float %160 to double
-  %162 = fmul double %161, 1.250000e-01
-  br label %163
+157:                                              ; preds = %148
+  %158 = tail call noundef float @tanf(float noundef %.010.i70) #27
+  %159 = fdiv float %116, %158
+  %160 = tail call noundef float @tanf(float noundef %104) #27
+  %161 = fdiv float %110, %160
+  %162 = fadd float %159, %161
+  %163 = fpext float %162 to double
+  %164 = fmul double %163, 1.250000e-01
+  %165 = fadd double %164, 0.000000e+00
+  br label %166
 
-163:                                              ; preds = %142, %155, %150, %118
-  %.sink = phi double [ %146, %142 ], [ %162, %155 ], [ %154, %150 ], [ %139, %118 ]
-  %164 = fadd double %.sink, 0.000000e+00
-  %165 = fptrunc double %164 to float
-  store float %165, ptr %7, align 8
+166:                                              ; preds = %142, %157, %151, %118
+  %.sink122 = phi double [ %147, %142 ], [ %165, %157 ], [ %156, %151 ], [ %139, %118 ]
+  %167 = fptrunc double %.sink122 to float
+  store float %167, ptr %7, align 8
   store float %.010.i, ptr %9, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.091.0.vec.extract = extractelement <2 x float> %4, i64 0
   %.sroa.091.4.vec.extract = extractelement <2 x float> %4, i64 1
-  %167 = fmul float %.sroa.091.4.vec.extract, %.sroa.091.4.vec.extract
-  %168 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %.sroa.091.0.vec.extract, float %167)
-  %169 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %168)
-  %sqrt.i.i72 = tail call noundef float @llvm.sqrt.f32(float %169)
-  %170 = load float, ptr %166, align 4
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %172 = load float, ptr %171, align 4
-  %173 = fmul float %172, %172
-  %174 = tail call float @llvm.fmuladd.f32(float %170, float %170, float %173)
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %176 = load float, ptr %175, align 4
-  %177 = tail call float @llvm.fmuladd.f32(float %176, float %176, float %174)
-  %sqrt.i13.i73 = tail call noundef float @llvm.sqrt.f32(float %177)
-  %178 = fmul float %sqrt.i.i72, %sqrt.i13.i73
-  %179 = fcmp oeq float %178, 0.000000e+00
-  br i1 %179, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76, label %180
+  %169 = fmul float %.sroa.091.4.vec.extract, %.sroa.091.4.vec.extract
+  %170 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %.sroa.091.0.vec.extract, float %169)
+  %171 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %170)
+  %sqrt.i.i72 = tail call noundef float @llvm.sqrt.f32(float %171)
+  %172 = load float, ptr %168, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %174 = load float, ptr %173, align 4
+  %175 = fmul float %174, %174
+  %176 = tail call float @llvm.fmuladd.f32(float %172, float %172, float %175)
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %178 = load float, ptr %177, align 4
+  %179 = tail call float @llvm.fmuladd.f32(float %178, float %178, float %176)
+  %sqrt.i13.i73 = tail call noundef float @llvm.sqrt.f32(float %179)
+  %180 = fmul float %sqrt.i.i72, %sqrt.i13.i73
+  %181 = fcmp oeq float %180, 0.000000e+00
+  br i1 %181, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76, label %182
 
-180:                                              ; preds = %163
-  %181 = fmul float %.sroa.091.4.vec.extract, %172
-  %182 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %170, float %181)
-  %183 = tail call noundef float @llvm.fmuladd.f32(float %5, float %176, float %182)
-  %184 = fdiv float %183, %178
-  %185 = fcmp ogt float %184, 1.000000e+00
-  br i1 %185, label %189, label %186
+182:                                              ; preds = %166
+  %183 = fmul float %.sroa.091.4.vec.extract, %174
+  %184 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %172, float %183)
+  %185 = tail call noundef float @llvm.fmuladd.f32(float %5, float %178, float %184)
+  %186 = fdiv float %185, %180
+  %187 = fcmp ogt float %186, 1.000000e+00
+  br i1 %187, label %191, label %188
 
-186:                                              ; preds = %180
-  %187 = fcmp olt float %184, -1.000000e+00
-  br i1 %187, label %188, label %189
+188:                                              ; preds = %182
+  %189 = fcmp olt float %186, -1.000000e+00
+  br i1 %189, label %190, label %191
 
-188:                                              ; preds = %186
-  br label %189
+190:                                              ; preds = %188
+  br label %191
 
-189:                                              ; preds = %188, %186, %180
-  %.0.i74 = phi float [ %184, %186 ], [ -1.000000e+00, %188 ], [ 1.000000e+00, %180 ]
-  %190 = tail call noundef float @acosf(float noundef %.0.i74) #27
-  %191 = tail call float @llvm.fabs.f32(float %190)
-  %192 = fpext float %191 to double
+191:                                              ; preds = %190, %188, %182
+  %.0.i74 = phi float [ %186, %188 ], [ -1.000000e+00, %190 ], [ 1.000000e+00, %182 ]
+  %192 = tail call noundef float @acosf(float noundef %.0.i74) #27
+  %193 = tail call float @llvm.fabs.f32(float %192)
+  %194 = fpext float %193 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %189, %163
-  %.010.i75 = phi double [ %192, %189 ], [ 1.000000e+00, %163 ]
-  %193 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %194 = load float, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 28
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %191, %166
+  %.010.i75 = phi double [ %194, %191 ], [ 1.000000e+00, %166 ]
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %196 = load float, ptr %195, align 4
-  %197 = fmul float %196, %196
-  %198 = tail call float @llvm.fmuladd.f32(float %194, float %194, float %197)
-  %199 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %200 = load float, ptr %199, align 4
-  %201 = tail call float @llvm.fmuladd.f32(float %200, float %200, float %198)
-  %sqrt.i13.i78 = tail call noundef float @llvm.sqrt.f32(float %201)
-  %202 = fmul float %sqrt.i.i72, %sqrt.i13.i78
-  %203 = fcmp oeq float %202, 0.000000e+00
-  br i1 %203, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81, label %204
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %198 = load float, ptr %197, align 4
+  %199 = fmul float %198, %198
+  %200 = tail call float @llvm.fmuladd.f32(float %196, float %196, float %199)
+  %201 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %202 = load float, ptr %201, align 4
+  %203 = tail call float @llvm.fmuladd.f32(float %202, float %202, float %200)
+  %sqrt.i13.i78 = tail call noundef float @llvm.sqrt.f32(float %203)
+  %204 = fmul float %sqrt.i.i72, %sqrt.i13.i78
+  %205 = fcmp oeq float %204, 0.000000e+00
+  br i1 %205, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81, label %206
 
-204:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
-  %205 = fmul float %.sroa.091.4.vec.extract, %196
-  %206 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %194, float %205)
-  %207 = tail call noundef float @llvm.fmuladd.f32(float %5, float %200, float %206)
-  %208 = fdiv float %207, %202
-  %209 = fcmp ogt float %208, 1.000000e+00
-  br i1 %209, label %213, label %210
+206:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
+  %207 = fmul float %.sroa.091.4.vec.extract, %198
+  %208 = tail call float @llvm.fmuladd.f32(float %.sroa.091.0.vec.extract, float %196, float %207)
+  %209 = tail call noundef float @llvm.fmuladd.f32(float %5, float %202, float %208)
+  %210 = fdiv float %209, %204
+  %211 = fcmp ogt float %210, 1.000000e+00
+  br i1 %211, label %215, label %212
 
-210:                                              ; preds = %204
-  %211 = fcmp olt float %208, -1.000000e+00
-  br i1 %211, label %212, label %213
+212:                                              ; preds = %206
+  %213 = fcmp olt float %210, -1.000000e+00
+  br i1 %213, label %214, label %215
 
-212:                                              ; preds = %210
-  br label %213
+214:                                              ; preds = %212
+  br label %215
 
-213:                                              ; preds = %212, %210, %204
-  %.0.i79 = phi float [ %208, %210 ], [ -1.000000e+00, %212 ], [ 1.000000e+00, %204 ]
-  %214 = tail call noundef float @acosf(float noundef %.0.i79) #27
-  %215 = tail call float @llvm.fabs.f32(float %214)
-  %216 = fpext float %215 to double
+215:                                              ; preds = %214, %212, %206
+  %.0.i79 = phi float [ %210, %212 ], [ -1.000000e+00, %214 ], [ 1.000000e+00, %206 ]
+  %216 = tail call noundef float @acosf(float noundef %.0.i79) #27
+  %217 = tail call float @llvm.fabs.f32(float %216)
+  %218 = fpext float %217 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81:  ; preds = %213, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
-  %.010.i80 = phi double [ %216, %213 ], [ 1.000000e+00, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76 ]
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit81:  ; preds = %215, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
+  %.010.i80 = phi double [ %218, %215 ], [ 1.000000e+00, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76 ]
   %sqrt97 = tail call float @llvm.sqrt.f32(float %110)
-  %217 = fpext float %sqrt97 to double
-  %218 = fmul double %217, 5.000000e-01
-  %sqrt = tail call float @llvm.sqrt.f32(float %116)
-  %219 = fpext float %sqrt to double
+  %219 = fpext float %sqrt97 to double
   %220 = fmul double %219, 5.000000e-01
-  %221 = fmul double %220, %.010.i80
-  %222 = tail call double @llvm.fmuladd.f64(double %218, double %.010.i75, double %221)
-  %223 = fadd double %222, 0.000000e+00
-  %224 = fptrunc double %223 to float
-  store float %224, ptr %8, align 4
+  %sqrt = tail call float @llvm.sqrt.f32(float %116)
+  %221 = fpext float %sqrt to double
+  %222 = fmul double %221, 5.000000e-01
+  %223 = fmul double %222, %.010.i80
+  %224 = tail call double @llvm.fmuladd.f64(double %220, double %.010.i75, double %223)
+  %225 = fadd double %224, 0.000000e+00
+  %226 = fptrunc double %225 to float
+  store float %226, ptr %8, align 4
   ret void
 }
 
