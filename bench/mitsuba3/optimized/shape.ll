@@ -2633,8 +2633,8 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %126 = load ptr, ptr %125, align 8
   %127 = call i8 %126(ptr noundef nonnull align 16 dereferenceable(403) %71, ptr noundef nonnull align 16 dereferenceable(144) %12, i32 noundef %73, i8 %79)
   %128 = bitcast i8 %127 to <8 x i1>
-  %129 = and <8 x i1> %78, %128
-  %130 = shufflevector <8 x i1> %129, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %129 = shufflevector <8 x i1> %128, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %130 = and <4 x i1> %77, %129
   %131 = select contract <4 x i1> %130, <4 x float> splat (float 0xFFF0000000000000), <4 x float> %104
   call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 16) ]
   store <4 x float> %131, ptr %103, align 16
