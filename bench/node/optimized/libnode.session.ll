@@ -7480,7 +7480,7 @@ if.then:                                          ; preds = %sw.bb
     i32 1, label %sw.bb17
   ]
 
-sw.bb17:                                          ; preds = %if.then
+sw.bb17:                                          ; preds = %if.else41, %if.then
   br label %sw.epilog52.sink.split
 
 if.else:                                          ; preds = %sw.bb
@@ -7489,7 +7489,7 @@ if.else:                                          ; preds = %sw.bb
     i32 1, label %sw.bb25
   ]
 
-sw.bb25:                                          ; preds = %if.else
+sw.bb25:                                          ; preds = %if.then31, %if.else
   br label %sw.epilog52.sink.split
 
 sw.bb29:                                          ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EEaSERKS3_.exit
@@ -7503,23 +7503,17 @@ sw.bb29:                                          ; preds = %_ZN4node17BaseObjec
 if.then31:                                        ; preds = %sw.bb29
   switch i32 %call33, label %sw.epilog52 [
     i32 0, label %sw.epilog52.sink.split
-    i32 1, label %sw.bb37
+    i32 1, label %sw.bb25
   ]
-
-sw.bb37:                                          ; preds = %if.then31
-  br label %sw.epilog52.sink.split
 
 if.else41:                                        ; preds = %sw.bb29
   switch i32 %call33, label %sw.epilog52 [
     i32 0, label %sw.epilog52.sink.split
-    i32 1, label %sw.bb47
+    i32 1, label %sw.bb17
   ]
 
-sw.bb47:                                          ; preds = %if.else41
-  br label %sw.epilog52.sink.split
-
-sw.epilog52.sink.split:                           ; preds = %if.else41, %if.then31, %if.else, %if.then, %sw.bb25, %sw.bb17, %sw.bb47, %sw.bb37
-  %.sink36 = phi i64 [ 88, %sw.bb37 ], [ 72, %if.else ], [ 80, %sw.bb47 ], [ 72, %if.then31 ], [ 80, %sw.bb17 ], [ 64, %if.then ], [ 88, %sw.bb25 ], [ 64, %if.else41 ]
+sw.epilog52.sink.split:                           ; preds = %if.else41, %if.then31, %if.else, %if.then, %sw.bb25, %sw.bb17
+  %.sink36 = phi i64 [ 64, %if.else41 ], [ 72, %if.else ], [ 88, %sw.bb25 ], [ 72, %if.then31 ], [ 80, %sw.bb17 ], [ 64, %if.then ]
   %ptr_.i24 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %13 = load ptr, ptr %ptr_.i24, align 8
   %memptr.offset.i25 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink36

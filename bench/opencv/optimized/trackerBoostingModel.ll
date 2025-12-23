@@ -635,9 +635,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit:         ; preds = %_ZNSt6vectorIN2cv3M
   %42 = getelementptr inbounds nuw %"class.cv::Mat", ptr %41, i64 %.01353
   call void @_ZNK2cv3Mat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
   %43 = load i32, ptr %22, align 8, !tbaa !6
-  %44 = add i32 %43, -1
-  %switch.and = and i32 %44, -3
-  %switch.selectcmp = icmp eq i32 %switch.and, 0
+  %44 = and i32 %43, -3
+  %.012 = icmp eq i32 %44, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %45 = load ptr, ptr %1, align 8, !tbaa !65
   %46 = trunc i64 %.01353 to i32
@@ -685,7 +684,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit:         ; preds = %_ZNSt6vectorIN2cv3M
   %64 = load i32, ptr %63, align 4, !tbaa !87
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !95
-  invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateC1ERKNS_6Point_IfEEiibRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(128) %48, ptr noundef nonnull align 4 dereferenceable(8) %12, i32 noundef %64, i32 noundef %66, i1 noundef zeroext %switch.selectcmp, ptr noundef nonnull align 8 dereferenceable(96) %10)
+  invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateC1ERKNS_6Point_IfEEiibRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(128) %48, ptr noundef nonnull align 4 dereferenceable(8) %12, i32 noundef %64, i32 noundef %66, i1 noundef zeroext %.012, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %67 unwind label %.loopexit
 
 67:                                               ; preds = %61

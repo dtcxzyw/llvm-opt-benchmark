@@ -484,11 +484,10 @@ define internal range(i32 -1, 2) i32 @icuCollationColl(ptr noundef %0, i32 nound
   %6 = sdiv i32 %1, 2
   %7 = sdiv i32 %3, 2
   %8 = tail call i32 @ucol_strcoll_70(ptr noundef %0, ptr noundef %2, i32 noundef %6, ptr noundef %4, i32 noundef %7) #3
-  %switch.selectcmp = icmp eq i32 %8, 1
-  %switch.select = zext i1 %switch.selectcmp to i32
-  %switch.selectcmp7 = icmp eq i32 %8, -1
-  %switch.select8 = select i1 %switch.selectcmp7, i32 -1, i32 %switch.select
-  ret i32 %switch.select8
+  %switch.tableidx = add i32 %8, 1
+  %9 = icmp ult i32 %switch.tableidx, 3
+  %.0 = select i1 %9, i32 %8, i32 0
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -7415,20 +7415,16 @@ define internal { ptr, ptr } @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..val
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit: ; preds = %1
-  %9 = icmp eq i64 %.val.i.i, 2
-  %spec.select.i4.i.i = select i1 %9, i64 undef, i64 %.val1.i.i
-  %10 = icmp eq i64 %.val2.i.i, 2
-  %spec.select.i.i.i = select i1 %10, i64 undef, i64 %.val3.i.i
   store i64 %.val2.i.i, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %spec.select.i.i.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.val3.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.val.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %spec.select.i4.i.i, ptr %.sroa.6.0..sroa_idx, align 8
-  %11 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr @anon.da8d344b7fd5eccca9cd8154b3d01c2e.95, 1
-  ret { ptr, ptr } %12
+  store i64 %.val1.i.i, ptr %.sroa.6.0..sroa_idx, align 8
+  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr @anon.da8d344b7fd5eccca9cd8154b3d01c2e.95, 1
+  ret { ptr, ptr } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

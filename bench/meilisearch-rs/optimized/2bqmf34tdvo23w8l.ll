@@ -11690,10 +11690,10 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
 5:                                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h3d00f6ed3a31b8d9E.exit, %2
   %.sroa.0.0 = phi i32 [ 0, %2 ], [ %15, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h3d00f6ed3a31b8d9E.exit ]
   %6 = load atomic i64, ptr %4 acquire, align 8
-  switch i64 %6, label %.split.us [
+  switch i64 %6, label %.split.us.loopexit4 [
     i64 0, label %7
-    i64 1, label %.split.us.loopexit18
-    i64 2, label %.split.us.loopexit18
+    i64 1, label %.split.us.loopexit26
+    i64 2, label %.split.us
   ]
 
 7:                                                ; preds = %5
@@ -11706,10 +11706,10 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
 
 .preheader.split.us:                              ; preds = %.preheader, %.backedge.us
   %9 = load atomic i64, ptr %4 acquire, align 8
-  switch i64 %9, label %.split.us [
+  switch i64 %9, label %.split.us.loopexit4 [
     i64 0, label %.backedge.us
     i64 1, label %.split.us.loopexit
-    i64 2, label %.split.us.loopexit
+    i64 2, label %.split.us
   ]
 
 .backedge.us:                                     ; preds = %.preheader.split.us
@@ -11738,10 +11738,10 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h3d00f6ed3a31b8d9E.exit: ; preds = 
 
 .preheader.split:                                 ; preds = %.preheader, %.backedge
   %16 = load atomic i64, ptr %4 acquire, align 8
-  switch i64 %16, label %.split.us [
+  switch i64 %16, label %.split.us.loopexit4 [
     i64 0, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-    i64 1, label %.split.us.loopexit15
-    i64 2, label %.split.us.loopexit15
+    i64 1, label %.split.us.loopexit20
+    i64 2, label %.split.us
   ]
 
 "_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit": ; preds = %.preheader.split
@@ -11769,17 +11769,20 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h3d00f6ed3a31b8d9E.exit: ; preds = 
   tail call void @_ZN3std6thread12park_timeout17he7d2e2ad568ae1c5E(i64 noundef %26, i32 noundef %27)
   br label %.preheader.split
 
-.split.us.loopexit:                               ; preds = %.preheader.split.us, %.preheader.split.us
+.split.us.loopexit4:                              ; preds = %5, %.preheader.split, %.preheader.split.us
   br label %.split.us
 
-.split.us.loopexit15:                             ; preds = %.preheader.split, %.preheader.split
+.split.us.loopexit:                               ; preds = %.preheader.split.us
   br label %.split.us
 
-.split.us.loopexit18:                             ; preds = %5, %5
+.split.us.loopexit20:                             ; preds = %.preheader.split
   br label %.split.us
 
-.split.us:                                        ; preds = %5, %.preheader.split, %.preheader.split.us, %.split.us.loopexit18, %.split.us.loopexit15, %.split.us.loopexit, %23
-  %.sroa.02.1 = phi i64 [ %9, %.split.us.loopexit ], [ %16, %.split.us.loopexit15 ], [ %.sroa.02.0, %23 ], [ %6, %.split.us.loopexit18 ], [ 3, %.preheader.split ], [ 3, %.preheader.split.us ], [ 3, %5 ]
+.split.us.loopexit26:                             ; preds = %5
+  br label %.split.us
+
+.split.us:                                        ; preds = %.preheader.split.us, %.preheader.split, %5, %.split.us.loopexit26, %.split.us.loopexit20, %.split.us.loopexit, %.split.us.loopexit4, %23
+  %.sroa.02.1 = phi i64 [ 3, %.split.us.loopexit4 ], [ %6, %.split.us.loopexit26 ], [ %.sroa.02.0, %23 ], [ %16, %.split.us.loopexit20 ], [ %9, %.split.us.loopexit ], [ 2, %5 ], [ 2, %.preheader.split ], [ 2, %.preheader.split.us ]
   ret i64 %.sroa.02.1
 }
 
@@ -17091,8 +17094,8 @@ define hidden void @_ZN17meilisearch_types7star_or12OptionStarOr5Other17hfd09089
 define hidden noundef zeroext i1 @"_ZN17meilisearch_types7star_or21OptionStarOr$LT$T$GT$7is_some17h0826e1aa2e797328E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %3 = load i8, ptr %2, align 1, !range !2648, !noundef !9
-  %4 = icmp eq i8 %3, 0
-  ret i1 %4
+  %switch.selectcmp = icmp eq i8 %3, 0
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -17384,29 +17387,29 @@ define hidden void @"_ZN17meilisearch_types7star_or25OptionStarOrList$LT$T$GT$3m
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN17meilisearch_types7star_or25OptionStarOrList$LT$T$GT$7is_some17h5fc4f2e105f474b1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #14 {
   %2 = load i64, ptr %0, align 8, !range !10, !noundef !9
-  %3 = icmp sgt i64 %2, -9223372036854775807
-  ret i1 %3
+  %switch.selectcmp = icmp sgt i64 %2, -9223372036854775807
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN17meilisearch_types7star_or25OptionStarOrList$LT$T$GT$7is_some17hc8531c7709683263E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #14 {
   %2 = load i64, ptr %0, align 8, !range !10, !noundef !9
-  %3 = icmp sgt i64 %2, -9223372036854775807
-  ret i1 %3
+  %switch.selectcmp = icmp sgt i64 %2, -9223372036854775807
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN17meilisearch_types7star_or25OptionStarOrList$LT$T$GT$7is_some17he1c4566aec0531a3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #14 {
   %2 = load i64, ptr %0, align 8, !range !10, !noundef !9
-  %3 = icmp sgt i64 %2, -9223372036854775807
-  ret i1 %3
+  %switch.selectcmp = icmp sgt i64 %2, -9223372036854775807
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN17meilisearch_types7star_or25OptionStarOrList$LT$T$GT$7is_some17he8e8addb5111110eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #14 {
   %2 = load i64, ptr %0, align 8, !range !10, !noundef !9
-  %3 = icmp sgt i64 %2, -9223372036854775807
-  ret i1 %3
+  %switch.selectcmp = icmp sgt i64 %2, -9223372036854775807
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

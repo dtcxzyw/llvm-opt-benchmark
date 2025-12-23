@@ -14793,10 +14793,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_25UsdImagi
   %104 = load i64, ptr %103, align 8
   %105 = urem i64 %104, %83
   %.not17.i.i.i.i36 = icmp eq i64 %105, %84
-  br i1 %.not17.i.i.i.i36, label %96, label %..loopexit_crit_edge22.i.i.i.i37, !llvm.loop !112
-
-..loopexit_crit_edge22.i.i.i.i37:                 ; preds = %102
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit, !llvm.loop !112
+  br i1 %.not17.i.i.i.i36, label %96, label %..loopexit_crit_edge22.i.i.i.i102, !llvm.loop !112
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_25UsdImagingInstanceAdapter10_ProtoPrimENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit: ; preds = %96, %65, %88
   %.sroa.06.1.i.i38 = phi ptr [ %.sroa.06.0.i.i42, %65 ], [ %89, %88 ], [ %101, %96 ]
@@ -14966,10 +14963,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i: ; preds = %
   %205 = load i64, ptr %204, align 8
   %206 = urem i64 %205, %184
   %.not17.i.i.i.i68 = icmp eq i64 %206, %185
-  br i1 %.not17.i.i.i.i68, label %197, label %..loopexit_crit_edge22.i.i.i.i69, !llvm.loop !69
-
-..loopexit_crit_edge22.i.i.i.i69:                 ; preds = %203
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit, !llvm.loop !69
+  br i1 %.not17.i.i.i.i68, label %197, label %..loopexit_crit_edge22.i.i.i.i102, !llvm.loop !69
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE4findERS6_.exit: ; preds = %197, %166, %189
   %.0.copyload.i.i.i.i.i.i105 = phi i64 [ %.0.copyload.i.i.i.i.i.i72, %166 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i63, %189 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i63, %197 ]
@@ -15048,10 +15042,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_4HashES
   %249 = load i64, ptr %248, align 8
   %250 = urem i64 %249, %228
   %.not17.i.i.i.i84 = icmp eq i64 %250, %229
-  br i1 %.not17.i.i.i.i84, label %241, label %..loopexit_crit_edge22.i.i.i.i85, !llvm.loop !109
-
-..loopexit_crit_edge22.i.i.i.i85:                 ; preds = %247
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit, !llvm.loop !109
+  br i1 %.not17.i.i.i.i84, label %241, label %..loopexit_crit_edge22.i.i.i.i102, !llvm.loop !109
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_25UsdImagingInstanceAdapter14_InstancerDataENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit93: ; preds = %241, %211, %233
   %.in315.in = phi i64 [ %.0.copyload.i.i.i.i.i.i88, %211 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i79, %233 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i79, %241 ]
@@ -15131,7 +15122,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_25UsdImagi
   %.not17.i.i.i.i101 = icmp eq i64 %294, %273
   br i1 %.not17.i.i.i.i101, label %285, label %..loopexit_crit_edge22.i.i.i.i102, !llvm.loop !112
 
-..loopexit_crit_edge22.i.i.i.i102:                ; preds = %291
+..loopexit_crit_edge22.i.i.i.i102:                ; preds = %102, %203, %247, %291
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit, !llvm.loop !112
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_25UsdImagingInstanceAdapter10_ProtoPrimENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit110: ; preds = %285, %258, %277
@@ -15505,12 +15496,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %494(ptr noundef nonnull align 8 dereferenceable(16) %460) #27
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i33, %64, %.lr.ph.i.i.i.i65, %165, %.lr.ph.i.i.i.i81, %210, %.lr.ph.i.i.i.i98, %257, %261, %..loopexit_crit_edge22.i.i.i.i102, %214, %..loopexit_crit_edge22.i.i.i.i85, %169, %..loopexit_crit_edge22.i.i.i.i69, %68, %..loopexit_crit_edge22.i.i.i.i37, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164, %477, %490, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %.sroa.0275.0 = phi i32 [ 0, %165 ], [ 0, %210 ], [ 0, %..loopexit_crit_edge22.i.i.i.i37 ], [ %.sroa.0275.3, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0275.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0275.3, %490 ], [ %.sroa.0275.3, %477 ], [ 0, %261 ], [ 0, %.lr.ph.i.i.i.i98 ], [ 0, %..loopexit_crit_edge22.i.i.i.i102 ], [ 0, %214 ], [ 0, %.lr.ph.i.i.i.i81 ], [ 0, %..loopexit_crit_edge22.i.i.i.i85 ], [ 0, %169 ], [ 0, %.lr.ph.i.i.i.i65 ], [ 0, %..loopexit_crit_edge22.i.i.i.i69 ], [ 0, %64 ], [ 0, %68 ], [ 0, %257 ], [ 0, %.lr.ph.i.i.i.i33 ]
-  %.sroa.0269.0 = phi i32 [ 0, %165 ], [ 0, %210 ], [ 0, %..loopexit_crit_edge22.i.i.i.i37 ], [ %.sroa.0269.3, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0269.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0269.3, %490 ], [ %.sroa.0269.3, %477 ], [ 0, %261 ], [ 0, %.lr.ph.i.i.i.i98 ], [ 0, %..loopexit_crit_edge22.i.i.i.i102 ], [ 0, %214 ], [ 0, %.lr.ph.i.i.i.i81 ], [ 0, %..loopexit_crit_edge22.i.i.i.i85 ], [ 0, %169 ], [ 0, %.lr.ph.i.i.i.i65 ], [ 0, %..loopexit_crit_edge22.i.i.i.i69 ], [ 0, %64 ], [ 0, %68 ], [ 0, %257 ], [ 0, %.lr.ph.i.i.i.i33 ]
-  %.sroa.0265.0 = phi ptr [ null, %165 ], [ null, %210 ], [ null, %..loopexit_crit_edge22.i.i.i.i37 ], [ %.sroa.0265.2, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0265.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0265.2, %490 ], [ %.sroa.0265.2, %477 ], [ null, %261 ], [ null, %.lr.ph.i.i.i.i98 ], [ null, %..loopexit_crit_edge22.i.i.i.i102 ], [ null, %214 ], [ null, %.lr.ph.i.i.i.i81 ], [ null, %..loopexit_crit_edge22.i.i.i.i85 ], [ null, %169 ], [ null, %.lr.ph.i.i.i.i65 ], [ null, %..loopexit_crit_edge22.i.i.i.i69 ], [ null, %64 ], [ null, %68 ], [ null, %257 ], [ null, %.lr.ph.i.i.i.i33 ]
-  %.sroa.0261.0 = phi ptr [ null, %165 ], [ null, %210 ], [ null, %..loopexit_crit_edge22.i.i.i.i37 ], [ %.sroa.0261.1, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0261.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0261.1, %490 ], [ %.sroa.0261.1, %477 ], [ null, %261 ], [ null, %.lr.ph.i.i.i.i98 ], [ null, %..loopexit_crit_edge22.i.i.i.i102 ], [ null, %214 ], [ null, %.lr.ph.i.i.i.i81 ], [ null, %..loopexit_crit_edge22.i.i.i.i85 ], [ null, %169 ], [ null, %.lr.ph.i.i.i.i65 ], [ null, %..loopexit_crit_edge22.i.i.i.i69 ], [ null, %64 ], [ null, %68 ], [ null, %257 ], [ null, %.lr.ph.i.i.i.i33 ]
-  %.0 = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %165 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %210 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %..loopexit_crit_edge22.i.i.i.i37 ], [ %.027, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.027, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.027, %490 ], [ %.027, %477 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %261 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i98 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %..loopexit_crit_edge22.i.i.i.i102 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %214 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i81 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %..loopexit_crit_edge22.i.i.i.i85 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %169 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i65 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %..loopexit_crit_edge22.i.i.i.i69 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %64 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %68 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %257 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i33 ]
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i33, %64, %.lr.ph.i.i.i.i65, %165, %.lr.ph.i.i.i.i81, %210, %.lr.ph.i.i.i.i98, %257, %261, %..loopexit_crit_edge22.i.i.i.i102, %214, %169, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164, %477, %490, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+  %.sroa.0275.0 = phi i32 [ 0, %165 ], [ 0, %210 ], [ 0, %.lr.ph.i.i.i.i81 ], [ %.sroa.0275.3, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0275.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0275.3, %490 ], [ %.sroa.0275.3, %477 ], [ 0, %261 ], [ 0, %.lr.ph.i.i.i.i98 ], [ 0, %..loopexit_crit_edge22.i.i.i.i102 ], [ 0, %214 ], [ 0, %64 ], [ 0, %68 ], [ 0, %169 ], [ 0, %.lr.ph.i.i.i.i65 ], [ 0, %257 ], [ 0, %.lr.ph.i.i.i.i33 ]
+  %.sroa.0269.0 = phi i32 [ 0, %165 ], [ 0, %210 ], [ 0, %.lr.ph.i.i.i.i81 ], [ %.sroa.0269.3, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0269.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0269.3, %490 ], [ %.sroa.0269.3, %477 ], [ 0, %261 ], [ 0, %.lr.ph.i.i.i.i98 ], [ 0, %..loopexit_crit_edge22.i.i.i.i102 ], [ 0, %214 ], [ 0, %64 ], [ 0, %68 ], [ 0, %169 ], [ 0, %.lr.ph.i.i.i.i65 ], [ 0, %257 ], [ 0, %.lr.ph.i.i.i.i33 ]
+  %.sroa.0265.0 = phi ptr [ null, %165 ], [ null, %210 ], [ null, %.lr.ph.i.i.i.i81 ], [ %.sroa.0265.2, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0265.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0265.2, %490 ], [ %.sroa.0265.2, %477 ], [ null, %261 ], [ null, %.lr.ph.i.i.i.i98 ], [ null, %..loopexit_crit_edge22.i.i.i.i102 ], [ null, %214 ], [ null, %64 ], [ null, %68 ], [ null, %169 ], [ null, %.lr.ph.i.i.i.i65 ], [ null, %257 ], [ null, %.lr.ph.i.i.i.i33 ]
+  %.sroa.0261.0 = phi ptr [ null, %165 ], [ null, %210 ], [ null, %.lr.ph.i.i.i.i81 ], [ %.sroa.0261.1, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.sroa.0261.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.sroa.0261.1, %490 ], [ %.sroa.0261.1, %477 ], [ null, %261 ], [ null, %.lr.ph.i.i.i.i98 ], [ null, %..loopexit_crit_edge22.i.i.i.i102 ], [ null, %214 ], [ null, %64 ], [ null, %68 ], [ null, %169 ], [ null, %.lr.ph.i.i.i.i65 ], [ null, %257 ], [ null, %.lr.ph.i.i.i.i33 ]
+  %.0 = phi ptr [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %165 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %210 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i81 ], [ %.027, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit164 ], [ %.027, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ %.027, %490 ], [ %.027, %477 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %261 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i98 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %..loopexit_crit_edge22.i.i.i.i102 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %214 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %64 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %68 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %169 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i65 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %257 ], [ @_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter13_GetProtoPrimERKNS_7SdfPathES3_PNS_26UsdImagingInstancerContextEE5EMPTY, %.lr.ph.i.i.i.i33 ]
   %495 = ptrtoint ptr %.sroa.0261.0 to i64
   %496 = and i64 %495, 7
   %.not.i.i168 = icmp eq i64 %496, 0
@@ -40325,10 +40316,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit96: ; preds = %_ZN32pxrInt
   %471 = load i64, ptr %470, align 8
   %472 = urem i64 %471, %450
   %.not17.i.i.i.i.i104 = icmp eq i64 %472, %451
-  br i1 %.not17.i.i.i.i.i104, label %463, label %..loopexit_crit_edge22.i.i.i.i.i105, !llvm.loop !69
-
-..loopexit_crit_edge22.i.i.i.i.i105:              ; preds = %469
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit141, !llvm.loop !69
+  br i1 %.not17.i.i.i.i.i104, label %463, label %..loopexit_crit_edge22.i.i.i.i.i121, !llvm.loop !69
 
 .loopexit161:                                     ; preds = %463, %432, %455
   %.sroa.06.1.i.i.i107 = phi ptr [ %.sroa.06.0.i.i.i110, %432 ], [ %456, %455 ], [ %468, %463 ]
@@ -40411,7 +40399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit96: ; preds = %_ZN32pxrInt
   %.not17.i.i.i.i.i120 = icmp eq i64 %519, %498
   br i1 %.not17.i.i.i.i.i120, label %510, label %..loopexit_crit_edge22.i.i.i.i.i121, !llvm.loop !109
 
-..loopexit_crit_edge22.i.i.i.i.i121:              ; preds = %516
+..loopexit_crit_edge22.i.i.i.i.i121:              ; preds = %469, %516
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit141, !llvm.loop !109
 
 .loopexit157:                                     ; preds = %510, %479, %502
@@ -40578,8 +40566,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i138: ; preds = %573, %
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #27
   br label %593
 
-_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit141: ; preds = %.lr.ph.i.i.i.i.i101, %431, %.lr.ph.i.i.i.i.i117, %478, %482, %..loopexit_crit_edge22.i.i.i.i.i121, %435, %..loopexit_crit_edge22.i.i.i.i.i105, %582, %579, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i138, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit96
-  %.2 = phi i1 [ %.0, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit96 ], [ false, %431 ], [ %549, %582 ], [ %549, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i138 ], [ %549, %579 ], [ false, %..loopexit_crit_edge22.i.i.i.i.i105 ], [ false, %.lr.ph.i.i.i.i.i117 ], [ false, %435 ], [ false, %..loopexit_crit_edge22.i.i.i.i.i121 ], [ false, %478 ], [ false, %482 ], [ false, %.lr.ph.i.i.i.i.i101 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit141: ; preds = %.lr.ph.i.i.i.i.i101, %431, %.lr.ph.i.i.i.i.i117, %478, %482, %..loopexit_crit_edge22.i.i.i.i.i121, %435, %582, %579, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i138, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit96
+  %.2 = phi i1 [ %.0, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit96 ], [ false, %482 ], [ %549, %582 ], [ %549, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i138 ], [ %549, %579 ], [ false, %431 ], [ false, %.lr.ph.i.i.i.i.i117 ], [ false, %435 ], [ false, %..loopexit_crit_edge22.i.i.i.i.i121 ], [ false, %478 ], [ false, %.lr.ph.i.i.i.i.i101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %25, label %591, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 

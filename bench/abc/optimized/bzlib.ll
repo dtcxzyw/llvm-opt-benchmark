@@ -271,7 +271,7 @@ define range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captures(addres
   switch i32 %.promoted, label %isempty_RL.exit.thread [
     i32 1, label %isempty_RL.exit.thread.loopexit
     i32 2, label %.split68.us
-    i32 3, label %.split62.us.thread
+    i32 3, label %.split65.us.thread
     i32 4, label %.split65.us.thread
   ]
 
@@ -309,7 +309,7 @@ define range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captures(addres
   switch i32 %.promoted, label %isempty_RL.exit.thread [
     i32 1, label %isempty_RL.exit.thread.loopexit
     i32 2, label %17
-    i32 3, label %.split62.us.thread
+    i32 3, label %.split65.us.thread
     i32 4, label %.split65.us.thread
   ]
 
@@ -320,9 +320,6 @@ define range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captures(addres
   %18 = tail call fastcc zeroext i8 @handle_compress(ptr nonnull %6)
   %.not48 = icmp eq i8 %18, 0
   %19 = select i1 %.not48, i32 -2, i32 1
-  br label %isempty_RL.exit.thread
-
-.split62.us.thread:                               ; preds = %.preheader.split, %.preheader.split.us
   br label %isempty_RL.exit.thread
 
 .split62.us:                                      ; preds = %.preheader.split.us77, %.preheader.split.us69
@@ -366,7 +363,7 @@ isempty_RL.exit:                                  ; preds = %31, %27
   store i32 2, ptr %10, align 8, !tbaa !22
   br label %isempty_RL.exit.thread
 
-.split65.us.thread:                               ; preds = %.preheader.split, %.preheader.split.us
+.split65.us.thread:                               ; preds = %.preheader.split.us, %.preheader.split, %.preheader.split, %.preheader.split.us
   br label %isempty_RL.exit.thread
 
 .split65.us:                                      ; preds = %.preheader.split.us77, %.preheader.split.us69
@@ -418,8 +415,8 @@ isempty_RL.exit.thread.loopexit:                  ; preds = %.preheader.split.us
   %.us-phi = phi i32 [ -1, %.preheader.split.us ], [ -1, %.preheader.split ], [ -1, %.preheader.split.us69 ], [ -2, %17 ], [ -1, %.preheader.split.us77 ]
   br label %isempty_RL.exit.thread
 
-isempty_RL.exit.thread:                           ; preds = %.preheader.split.us77, %.preheader.split.us69, %.split65.us.thread, %.split62.us.thread, %.preheader.split.us, %.preheader.split, %isempty_RL.exit.thread.loopexit, %53, %31, %47, %isempty_RL.exit52, %45, %41, %.split65.us, %24, %isempty_RL.exit, %20, %.split62.us, %8, %4, %2, %62, %40, %.split68.us
-  %.0 = phi i32 [ -1, %41 ], [ -2, %2 ], [ -2, %4 ], [ %.us-phi, %isempty_RL.exit.thread.loopexit ], [ -2, %8 ], [ %19, %.split68.us ], [ 2, %31 ], [ 3, %53 ], [ -1, %.split62.us ], [ -1, %20 ], [ 1, %40 ], [ 2, %24 ], [ -1, %.split65.us ], [ -1, %45 ], [ 4, %62 ], [ 2, %isempty_RL.exit ], [ 3, %47 ], [ 3, %isempty_RL.exit52 ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split ], [ -1, %.split65.us.thread ], [ 0, %.preheader.split.us69 ], [ -1, %.split62.us.thread ], [ 0, %.preheader.split.us77 ]
+isempty_RL.exit.thread:                           ; preds = %.preheader.split.us77, %.preheader.split.us69, %.split65.us.thread, %.preheader.split.us, %.preheader.split, %isempty_RL.exit.thread.loopexit, %53, %31, %47, %isempty_RL.exit52, %45, %41, %.split65.us, %24, %isempty_RL.exit, %20, %.split62.us, %8, %4, %2, %62, %40, %.split68.us
+  %.0 = phi i32 [ -1, %41 ], [ -2, %2 ], [ -2, %4 ], [ %.us-phi, %isempty_RL.exit.thread.loopexit ], [ -2, %8 ], [ %19, %.split68.us ], [ 2, %31 ], [ 3, %53 ], [ -1, %.split62.us ], [ -1, %20 ], [ 1, %40 ], [ 2, %24 ], [ -1, %.split65.us ], [ -1, %45 ], [ 4, %62 ], [ 2, %isempty_RL.exit ], [ 3, %47 ], [ 3, %isempty_RL.exit52 ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split ], [ -1, %.split65.us.thread ], [ 0, %.preheader.split.us69 ], [ 0, %.preheader.split.us77 ]
   ret i32 %.0
 }
 
@@ -2775,8 +2772,8 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
   %.not48.i = icmp eq i8 %45, 0
   br i1 %.not48.i, label %select.unfold.loopexit, label %BZ2_bzCompress.exit
 
-select.unfold.loopexit:                           ; preds = %.preheader.i, %42, %39, %.split68.us.i
-  %.0.i.ph.ph = phi i32 [ -2, %39 ], [ -2, %42 ], [ 0, %.preheader.i ], [ -2, %.split68.us.i ]
+select.unfold.loopexit:                           ; preds = %42, %39, %.preheader.i, %.split68.us.i
+  %.0.i.ph.ph = phi i32 [ -2, %.split68.us.i ], [ 0, %.preheader.i ], [ -2, %39 ], [ -2, %42 ]
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %select.unfold.loopexit
@@ -2958,12 +2955,12 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   store ptr %39, ptr %40, align 8, !tbaa !89
   %45 = load ptr, ptr %41, align 8, !tbaa !32
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %isempty_RL.exit.thread.loopexit.i, label %47
+  br i1 %46, label %.split62.us.i, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %45, align 8, !tbaa !14
   %.not.i = icmp eq ptr %48, %42
-  br i1 %.not.i, label %.preheader.i, label %isempty_RL.exit.thread.loopexit.i
+  br i1 %.not.i, label %.preheader.i, label %.split62.us.i
 
 .preheader.i:                                     ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2973,10 +2970,10 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
 
 .preheader.split.us77.i:                          ; preds = %.backedge.us78.i, %.preheader.i
   %51 = phi i32 [ 4, %.backedge.us78.i ], [ %.promoted.i, %.preheader.i ]
-  switch i32 %51, label %isempty_RL.exit.thread.loopexit.i.loopexit133 [
-    i32 1, label %isempty_RL.exit.thread.loopexit.i
+  switch i32 %51, label %.split62.us.i.loopexit133 [
+    i32 1, label %.split62.us.i
     i32 2, label %.backedge.us78.i
-    i32 3, label %isempty_RL.exit.thread.loopexit.i
+    i32 3, label %.split62.us.i
     i32 4, label %.split65.us.i
   ]
 
@@ -2991,12 +2988,12 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !45
   %.not40.i = icmp eq i32 %53, %55
-  br i1 %.not40.i, label %56, label %isempty_RL.exit.thread.loopexit.i
+  br i1 %.not40.i, label %56, label %.split62.us.i
 
 56:                                               ; preds = %.split65.us.i
   %57 = tail call fastcc zeroext i8 @handle_compress(ptr nonnull %45)
   %.not41.i = icmp eq i8 %57, 0
-  br i1 %.not41.i, label %isempty_RL.exit.thread.loopexit.i, label %58
+  br i1 %.not41.i, label %.split62.us.i, label %58
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %50, align 8, !tbaa !46
@@ -3027,19 +3024,19 @@ isempty_RL.exit52.i:                              ; preds = %64, %60
   store i32 1, ptr %49, align 8, !tbaa !22
   br label %76
 
-isempty_RL.exit.thread.loopexit.i.loopexit133:    ; preds = %.preheader.split.us77.i
-  br label %isempty_RL.exit.thread.loopexit.i
+.split62.us.i.loopexit133:                        ; preds = %.preheader.split.us77.i
+  br label %.split62.us.i
 
-isempty_RL.exit.thread.loopexit.i:                ; preds = %.split65.us.i, %44, %47, %56, %.preheader.split.us77.i, %.preheader.split.us77.i, %isempty_RL.exit.thread.loopexit.i.loopexit133
-  %.0.i.ph = phi i32 [ -1, %.preheader.split.us77.i ], [ 0, %isempty_RL.exit.thread.loopexit.i.loopexit133 ], [ -1, %.preheader.split.us77.i ], [ -1, %56 ], [ -1, %.split65.us.i ], [ -2, %47 ], [ -2, %44 ]
+.split62.us.i:                                    ; preds = %.split65.us.i, %44, %47, %56, %.preheader.split.us77.i, %.preheader.split.us77.i, %.split62.us.i.loopexit133
+  %.0.i.ph = phi i32 [ 0, %.split62.us.i.loopexit133 ], [ -1, %.preheader.split.us77.i ], [ -1, %.preheader.split.us77.i ], [ -2, %47 ], [ -1, %56 ], [ -2, %44 ], [ -1, %.split65.us.i ]
   %.not99 = icmp eq ptr %0, null
   br i1 %.not99, label %75, label %74
 
-74:                                               ; preds = %isempty_RL.exit.thread.loopexit.i
+74:                                               ; preds = %.split62.us.i
   store i32 %.0.i.ph, ptr %0, align 4, !tbaa !50
   br label %75
 
-75:                                               ; preds = %isempty_RL.exit.thread.loopexit.i, %74
+75:                                               ; preds = %.split62.us.i, %74
   store i32 %.0.i.ph, ptr %35, align 8, !tbaa !80
   br label %157
 
@@ -3851,7 +3848,7 @@ define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr nounde
 38:                                               ; preds = %.split65.us.i
   %39 = call fastcc zeroext i8 @handle_compress(ptr nonnull %28)
   %.not41.i = icmp eq i8 %39, 0
-  br i1 %.not41.i, label %isempty_RL.exit.thread.loopexit.i, label %40
+  br i1 %.not41.i, label %.split62.us.i, label %40
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %33, align 8, !tbaa !46
@@ -3963,7 +3960,7 @@ isempty_RL.exit52.i:                              ; preds = %46, %42
   %.not28.i47 = icmp eq ptr %97, null
   br i1 %.not28.i47, label %BZ2_bzCompressEnd.exit.sink.split, label %BZ2_bzCompressEnd.exit.sink.split.sink.split
 
-isempty_RL.exit.thread.loopexit.i:                ; preds = %38
+.split62.us.i:                                    ; preds = %38
   %.pr.pre = load ptr, ptr %27, align 8, !tbaa !32
   %98 = icmp eq ptr %.pr.pre, null
   br i1 %98, label %BZ2_bzCompressEnd.exit, label %.thread62
@@ -3971,9 +3968,9 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %38
 .thread62.loopexit:                               ; preds = %.preheader.split.us77.i
   br label %.thread62
 
-.thread62:                                        ; preds = %.preheader.split.us77.i, %.preheader.split.us77.i, %.thread62.loopexit, %.split65.us.i, %isempty_RL.exit.thread.loopexit.i
-  %.0.i.ph.ph87 = phi i32 [ -1, %isempty_RL.exit.thread.loopexit.i ], [ -1, %.split65.us.i ], [ 0, %.thread62.loopexit ], [ -1, %.preheader.split.us77.i ], [ -1, %.preheader.split.us77.i ]
-  %.pr86 = phi ptr [ %.pr.pre, %isempty_RL.exit.thread.loopexit.i ], [ %28, %.split65.us.i ], [ %28, %.thread62.loopexit ], [ %28, %.preheader.split.us77.i ], [ %28, %.preheader.split.us77.i ]
+.thread62:                                        ; preds = %.preheader.split.us77.i, %.preheader.split.us77.i, %.thread62.loopexit, %.split65.us.i, %.split62.us.i
+  %.0.i.ph.ph87 = phi i32 [ -1, %.split62.us.i ], [ -1, %.split65.us.i ], [ 0, %.thread62.loopexit ], [ -1, %.preheader.split.us77.i ], [ -1, %.preheader.split.us77.i ]
+  %.pr86 = phi ptr [ %.pr.pre, %.split62.us.i ], [ %28, %.split65.us.i ], [ %28, %.thread62.loopexit ], [ %28, %.preheader.split.us77.i ], [ %28, %.preheader.split.us77.i ]
   %.pre = load ptr, ptr %.pr86, align 8, !tbaa !14
   %99 = icmp eq ptr %.pre, %8
   br i1 %99, label %100, label %BZ2_bzCompressEnd.exit
@@ -4024,8 +4021,8 @@ BZ2_bzCompressEnd.exit.sink.split:                ; preds = %BZ2_bzCompressEnd.e
   call void %117(ptr noundef %118, ptr noundef %119) #23
   br label %BZ2_bzCompressEnd.exit
 
-BZ2_bzCompressEnd.exit:                           ; preds = %BZ2_bzCompressEnd.exit.sink.split, %30, %22, %.thread62, %isempty_RL.exit.thread.loopexit.i, %81, %78, %61, %55, %16, %7
-  %.0 = phi i32 [ %21, %16 ], [ -2, %7 ], [ %.0.i.ph.ph87, %.thread62 ], [ -2, %22 ], [ 0, %55 ], [ 0, %61 ], [ -8, %78 ], [ -8, %81 ], [ -2, %30 ], [ -1, %isempty_RL.exit.thread.loopexit.i ], [ %.0.ph, %BZ2_bzCompressEnd.exit.sink.split ]
+BZ2_bzCompressEnd.exit:                           ; preds = %BZ2_bzCompressEnd.exit.sink.split, %30, %22, %.thread62, %.split62.us.i, %81, %78, %61, %55, %16, %7
+  %.0 = phi i32 [ %21, %16 ], [ -2, %7 ], [ %.0.i.ph.ph87, %.thread62 ], [ -2, %22 ], [ 0, %55 ], [ 0, %61 ], [ -8, %78 ], [ -8, %81 ], [ -2, %30 ], [ -1, %.split62.us.i ], [ %.0.ph, %BZ2_bzCompressEnd.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

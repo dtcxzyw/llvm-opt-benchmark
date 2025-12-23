@@ -46620,10 +46620,10 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
 5:                                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ %14, %_ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit ]
   %6 = load atomic i64, ptr %4 acquire, align 8
-  switch i64 %6, label %.thread [
+  switch i64 %6, label %.thread.loopexit4 [
     i64 0, label %7
-    i64 1, label %.thread.loopexit18
-    i64 2, label %.thread.loopexit18
+    i64 1, label %.thread.loopexit26
+    i64 2, label %.thread
   ]
 
 7:                                                ; preds = %5
@@ -46636,10 +46636,10 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
 
 .preheader.split.us:                              ; preds = %.preheader, %.backedge.us
   %8 = load atomic i64, ptr %4 acquire, align 8
-  switch i64 %8, label %.thread [
+  switch i64 %8, label %.thread.loopexit4 [
     i64 0, label %.backedge.us
-    i64 1, label %.thread.loopexit13
-    i64 2, label %.thread.loopexit13
+    i64 1, label %.thread.loopexit
+    i64 2, label %.thread
   ]
 
 .backedge.us:                                     ; preds = %.preheader.split.us
@@ -46668,10 +46668,10 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit: ; preds = 
 
 .preheader.split:                                 ; preds = %.preheader, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread"
   %15 = load atomic i64, ptr %4 acquire, align 8
-  switch i64 %15, label %.thread [
+  switch i64 %15, label %.thread.loopexit4 [
     i64 0, label %16
-    i64 1, label %.thread.loopexit15
-    i64 2, label %.thread.loopexit15
+    i64 1, label %.thread.loopexit20
+    i64 2, label %.thread
   ]
 
 16:                                               ; preds = %.preheader.split
@@ -46702,17 +46702,20 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit: ; preds = 
   tail call void @_ZN3std6thread12park_timeout17he1a973a8c2115a06E(i64 noundef %24, i32 noundef %25)
   br label %.preheader.split
 
-.thread.loopexit13:                               ; preds = %.preheader.split.us, %.preheader.split.us
+.thread.loopexit4:                                ; preds = %5, %.preheader.split, %.preheader.split.us
   br label %.thread
 
-.thread.loopexit15:                               ; preds = %.preheader.split, %.preheader.split
+.thread.loopexit:                                 ; preds = %.preheader.split.us
   br label %.thread
 
-.thread.loopexit18:                               ; preds = %5, %5
+.thread.loopexit20:                               ; preds = %.preheader.split
   br label %.thread
 
-.thread:                                          ; preds = %5, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17"
-  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ %8, %.thread.loopexit13 ], [ %15, %.thread.loopexit15 ], [ %6, %.thread.loopexit18 ], [ 3, %.preheader.split ], [ 3, %.preheader.split.us ], [ 3, %5 ]
+.thread.loopexit26:                               ; preds = %5
+  br label %.thread
+
+.thread:                                          ; preds = %.preheader.split.us, %.preheader.split, %5, %.thread.loopexit26, %.thread.loopexit20, %.thread.loopexit, %.thread.loopexit4, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17"
+  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ 3, %.thread.loopexit4 ], [ %6, %.thread.loopexit26 ], [ %15, %.thread.loopexit20 ], [ %8, %.thread.loopexit ], [ 2, %5 ], [ 2, %.preheader.split ], [ 2, %.preheader.split.us ]
   ret i64 %.sroa.02.1
 }
 
@@ -55097,7 +55100,7 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
   %18 = load i32, ptr %17, align 4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i8, ptr %19, align 4, !range !855, !noundef !4
-  %.027 = zext nneg i8 %20 to i32
+  %.36 = zext nneg i8 %20 to i32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %22 = load i8, ptr %21, align 1, !range !855, !noundef !4
   %.028 = zext nneg i8 %22 to i32
@@ -55111,7 +55114,7 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %18, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 %.027, ptr %25, align 4
+  store i32 %.36, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %.028, ptr %26, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -55200,9 +55203,9 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
 
 .noexc:                                           ; preds = %48
   invoke void @_ZN3lz46liblz411check_error17hc5db508cf5c64401E(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %5, i64 noundef %55)
-          to label %.noexc41 unwind label %.loopexit.split-lp
+          to label %.noexc42 unwind label %.loopexit.split-lp
 
-.noexc41:                                         ; preds = %.noexc
+.noexc42:                                         ; preds = %.noexc
   %56 = load i64, ptr %5, align 8, !range !423, !noalias !7320, !noundef !4
   %trunc.i = trunc nuw i64 %56 to i1
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -55210,7 +55213,7 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7320
   br i1 %trunc.i, label %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit", label %59
 
-59:                                               ; preds = %.noexc41
+59:                                               ; preds = %.noexc42
   store i64 %58, ptr %.sroa.611.0..sroa_idx, align 8, !alias.scope !7317, !noalias !7322
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !7317, !noalias !7322
   %60 = icmp eq i64 %58, 0
@@ -55231,7 +55234,7 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
   %66 = xor i64 %65, -1
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %66, i64 %.sroa.4.03.i.i)
   %.not17.i.i.i.i = icmp eq i64 %65, -1
-  br i1 %.not17.i.i.i.i, label %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread47", label %.lr.ph.i.i.i.i
+  br i1 %.not17.i.i.i.i, label %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread48", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %64
   %.pre.i.i.i.i = load i64, ptr %63, align 8, !alias.scope !7335, !noalias !7338
@@ -55247,23 +55250,23 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
 
 71:                                               ; preds = %67
   invoke void @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h975fe1e8a019eeabE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i, i64 noundef 64)
-          to label %.noexc42 unwind label %.loopexit
+          to label %.noexc43 unwind label %.loopexit
 
-.noexc42:                                         ; preds = %71
+.noexc43:                                         ; preds = %71
   %.pre.i.i.i.i.i.i = load i64, ptr %62, align 8, !alias.scope !7335, !noalias !7338
   %.pre3.i.i.i.i.i.i = load i64, ptr %63, align 8, !alias.scope !7335, !noalias !7338
   br label %72
 
-72:                                               ; preds = %.noexc42, %67
-  %73 = phi i64 [ %.pre3.i.i.i.i.i.i, %.noexc42 ], [ %69, %67 ]
-  %74 = phi i64 [ %.pre.i.i.i.i.i.i, %.noexc42 ], [ %68, %67 ]
+72:                                               ; preds = %.noexc43, %67
+  %73 = phi i64 [ %.pre3.i.i.i.i.i.i, %.noexc43 ], [ %69, %67 ]
+  %74 = phi i64 [ %.pre.i.i.i.i.i.i, %.noexc43 ], [ %68, %67 ]
   %75 = load ptr, ptr %.val.i, align 8, !alias.scope !7335, !noalias !7338, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   %77 = sub i64 %73, %74
   %78 = invoke { ptr, i64 } @"_ZN165_$LT$$RF$mut$u20$bytes..buf..uninit_slice..UninitSlice$u20$as$u20$core..convert..From$LT$$RF$mut$u20$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$u8$GT$$u5d$$GT$$GT$4from17h2954af6527388501E"(ptr noalias noundef nonnull align 1 %76, i64 noundef %77)
-          to label %.noexc43 unwind label %.loopexit
+          to label %.noexc44 unwind label %.loopexit
 
-.noexc43:                                         ; preds = %72
+.noexc44:                                         ; preds = %72
   %79 = extractvalue { ptr, i64 } %78, 1
   %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.4.018.i.i.i.i, i64 %79)
   %80 = extractvalue { ptr, i64 } %78, 0
@@ -55274,14 +55277,14 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
   %84 = icmp ugt i64 %.0.sroa.speculated.i.i.i.i.i, %83
   br i1 %84, label %85, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4361df63f577aee7E.exit.i.i.i.i"
 
-85:                                               ; preds = %.noexc43
+85:                                               ; preds = %.noexc44
   invoke void @_ZN5bytes13panic_advance17h8487c271e482e75dE(i64 noundef %.0.sroa.speculated.i.i.i.i.i, i64 noundef %83) #54
-          to label %.noexc44 unwind label %.loopexit.split-lp
+          to label %.noexc45 unwind label %.loopexit.split-lp
 
-.noexc44:                                         ; preds = %85
+.noexc45:                                         ; preds = %85
   unreachable
 
-"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4361df63f577aee7E.exit.i.i.i.i": ; preds = %.noexc43
+"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4361df63f577aee7E.exit.i.i.i.i": ; preds = %.noexc44
   %86 = add i64 %82, %.0.sroa.speculated.i.i.i.i.i
   store i64 %86, ptr %62, align 8, !alias.scope !7343, !noalias !7338
   %87 = sub nuw i64 %.sroa.4.018.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
@@ -55310,36 +55313,36 @@ define hidden void @_ZN3lz47encoder14EncoderBuilder5build17hacd5034c2c12bd6bE(pt
   invoke void @"_ZN4core3ptr122drop_in_place$LT$lz4..encoder..Encoder$LT$bytes..buf..writer..Writer$LT$$RF$mut$u20$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17h41c316064c127a38E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9) #52
           to label %common.resume unwind label %110
 
-"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit": ; preds = %.noexc41
+"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit": ; preds = %.noexc42
   %94 = inttoptr i64 %58 to ptr
   %95 = icmp eq i64 %58, 0
-  br i1 %95, label %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread", label %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread47"
+  br i1 %95, label %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread", label %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread48"
 
 "_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread": ; preds = %89, %59, %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   br label %109
 
-"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread47": ; preds = %64, %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit"
-  %.0.i49 = phi ptr [ %94, %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit" ], [ @anon.e229703e6de9cc80bf05c236c76a4379.476, %64 ]
+"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread48": ; preds = %64, %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit"
+  %.0.i50 = phi ptr [ %94, %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit" ], [ @anon.e229703e6de9cc80bf05c236c76a4379.476, %64 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i49, ptr %96, align 8
+  store ptr %.0.i50, ptr %96, align 8
   store ptr null, ptr %0, align 8
   invoke void @"_ZN70_$LT$lz4..encoder..EncoderContext$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc0a3e67ca038b3dfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %51)
           to label %"_ZN4core3ptr49drop_in_place$LT$lz4..encoder..EncoderContext$GT$17haaa455d307fb9595E.exit.i" unwind label %97
 
-97:                                               ; preds = %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread47"
+97:                                               ; preds = %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread48"
   %98 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54) #52
           to label %common.resume unwind label %107
 
-"_ZN4core3ptr49drop_in_place$LT$lz4..encoder..EncoderContext$GT$17haaa455d307fb9595E.exit.i": ; preds = %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread47"
+"_ZN4core3ptr49drop_in_place$LT$lz4..encoder..EncoderContext$GT$17haaa455d307fb9595E.exit.i": ; preds = %"_ZN3lz47encoder16Encoder$LT$W$GT$12write_header17h64aa5dcb68bfeb53E.exit.thread48"
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7346
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54)
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %100 = load i64, ptr %99, align 8, !range !379, !noalias !7346, !noundef !4
-  %.not.i.i.i.i45 = icmp eq i64 %100, 0
-  br i1 %.not.i.i.i.i45, label %"_ZN4core3ptr122drop_in_place$LT$lz4..encoder..Encoder$LT$bytes..buf..writer..Writer$LT$$RF$mut$u20$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17h41c316064c127a38E.exit", label %101
+  %.not.i.i.i.i46 = icmp eq i64 %100, 0
+  br i1 %.not.i.i.i.i46, label %"_ZN4core3ptr122drop_in_place$LT$lz4..encoder..Encoder$LT$bytes..buf..writer..Writer$LT$$RF$mut$u20$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17h41c316064c127a38E.exit", label %101
 
 101:                                              ; preds = %"_ZN4core3ptr49drop_in_place$LT$lz4..encoder..EncoderContext$GT$17haaa455d307fb9595E.exit.i"
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -92302,7 +92305,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   store i64 4, ptr %0, align 8
   br label %33
 
-33:                                               ; preds = %66, %68, %46, %51, %25, %30
+33:                                               ; preds = %66, %68, %51, %46, %25, %30
   ret void
 
 34:                                               ; preds = %12
@@ -92535,7 +92538,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   store i64 4, ptr %0, align 8
   br label %33
 
-33:                                               ; preds = %66, %68, %46, %51, %25, %30
+33:                                               ; preds = %66, %68, %51, %46, %25, %30
   ret void
 
 34:                                               ; preds = %12
@@ -92692,7 +92695,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   store i8 10, ptr %.sroa.35.0..sroa_idx, align 8
   br label %36
 
-36:                                               ; preds = %69, %71, %49, %54, %27, %33
+36:                                               ; preds = %69, %71, %54, %49, %27, %33
   ret void
 
 37:                                               ; preds = %13

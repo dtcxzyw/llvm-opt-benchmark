@@ -15306,8 +15306,8 @@ _ZN3exr4meta9attribute4Text15write_i32_sized17he0526279b8546ddeE.exit.i.i: ; pre
   %433 = load i8, ptr %432, align 8, !range !342, !alias.scope !3332, !noalias !3333, !noundef !4
   %434 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %435 = load i8, ptr %434, align 1, !range !369, !alias.scope !3332, !noalias !3333, !noundef !4
-  %spec.select.i.i = shl nuw nsw i8 %435, 4
-  %436 = or disjoint i8 %spec.select.i.i, %433
+  %..i.i = shl nuw nsw i8 %435, 4
+  %436 = or disjoint i8 %..i.i, %433
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.542.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !3358
   store i8 %436, ptr %47, align 1, !noalias !3358
@@ -36783,26 +36783,26 @@ _ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit: ; pr
   br i1 %spec.select.i, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread, label %40
 
 40:                                               ; preds = %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit
-  switch i8 %1, label %default.unreachable19.i [
-    i8 0, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
-    i8 1, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
-    i8 2, label %.critedge
-    i8 3, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
+  switch i8 %1, label %default.unreachable17.i [
     i8 4, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
+    i8 1, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
+    i8 3, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
+    i8 0, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
+    i8 2, label %.critedge
   ]
 
-default.unreachable19.i:                          ; preds = %40
+default.unreachable17.i:                          ; preds = %40
   unreachable
 
 "_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit": ; preds = %40, %40, %40
   %41 = icmp eq i64 %7, 1
-  br i1 %41, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
+  br i1 %41, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
-"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55": ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
-  %cond = icmp eq i8 %1, 1
-  br i1 %cond, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread, label %.critedge
+"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56": ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
+  %switch = icmp samesign ult i8 %1, 2
+  br i1 %switch, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %40, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55"
+.critedge:                                        ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56", %40
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7098
   store i64 %7, ptr %4, align 8, !noalias !7098
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -36834,11 +36834,11 @@ _ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7098
   %51 = icmp eq i64 %47, 1
   %.not23 = icmp eq i64 %.sroa.5.0.copyload, %48
-  %or.cond69 = select i1 %51, i1 %.not23, i1 false
+  %or.cond68 = select i1 %51, i1 %.not23, i1 false
   %52 = mul i64 %.sroa.7.0.copyload, %48
   %.not24 = icmp eq i64 %52, %49
-  %or.cond70 = select i1 %or.cond69, i1 %.not24, i1 false
-  br i1 %or.cond70, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
+  %or.cond69 = select i1 %or.cond68, i1 %.not24, i1 false
+  br i1 %or.cond69, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
 "_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40": ; preds = %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit
   switch i8 %1, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread [
@@ -36850,18 +36850,18 @@ _ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit: ;
   %.not26 = icmp eq i64 %11, %9
   %53 = mul nuw nsw i64 %11, %14
   %.not27 = icmp eq i64 %53, %16
-  %or.cond71 = select i1 %.not26, i1 %.not27, i1 false
+  %or.cond70 = select i1 %.not26, i1 %.not27, i1 false
   br label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
 .critedge34:                                      ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40"
   %.not29 = icmp eq i64 %16, %9
   %54 = mul nuw nsw i64 %16, %19
   %.not30 = icmp eq i64 %54, %11
-  %or.cond72 = select i1 %.not29, i1 %.not30, i1 false
+  %or.cond71 = select i1 %.not29, i1 %.not30, i1 false
   br label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
-_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread: ; preds = %.critedge32, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40", %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55", %40, %.critedge34, %32, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit", %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit
-  %.0 = phi i1 [ false, %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit ], [ %or.cond72, %.critedge34 ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i ], [ false, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit" ], [ %or.cond71, %.critedge32 ], [ false, %32 ], [ true, %40 ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread55" ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40" ]
+_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread: ; preds = %.critedge32, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56", %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40", %40, %.critedge34, %32, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit", %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit
+  %.0 = phi i1 [ false, %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit ], [ %or.cond71, %.critedge34 ], [ false, %_ZN5image4flat12SampleLayout22increasing_stride_dims17ha5e890988dc661afE.exit.i ], [ false, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit" ], [ true, %40 ], [ false, %32 ], [ %or.cond70, %.critedge32 ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56" ], [ true, %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit40" ]
   ret i1 %.0
 }
 
@@ -37261,7 +37261,7 @@ switch.lookup:                                    ; preds = %2
 define noundef range(i8 -1, 3) i8 @"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #17 {
   %3 = load i8, ptr %0, align 1, !range !5739, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !5739, !noundef !4
-  switch i8 %3, label %default.unreachable19 [
+  switch i8 %3, label %default.unreachable17 [
     i8 0, label %5
     i8 1, label %7
     i8 2, label %8
@@ -37269,7 +37269,7 @@ define noundef range(i8 -1, 3) i8 @"_ZN65_$LT$image..flat..NormalForm$u20$as$u20
     i8 4, label %10
   ]
 
-default.unreachable19:                            ; preds = %10, %9, %8, %7, %2
+default.unreachable17:                            ; preds = %10, %9, %8, %7, %2
   unreachable
 
 5:                                                ; preds = %2
@@ -37278,66 +37278,59 @@ default.unreachable19:                            ; preds = %10, %9, %8, %7, %2
   br label %11
 
 7:                                                ; preds = %2
-  switch i8 %4, label %default.unreachable19 [
+  switch i8 %4, label %default.unreachable17 [
     i8 1, label %11
-    i8 0, label %12
-    i8 2, label %15
-    i8 3, label %17
-    i8 4, label %19
+    i8 0, label %16
+    i8 2, label %.thread15
+    i8 3, label %12
+    i8 4, label %14
   ]
 
+.thread15:                                        ; preds = %8, %7
+  br label %11
+
 8:                                                ; preds = %2
-  switch i8 %4, label %default.unreachable19 [
+  switch i8 %4, label %default.unreachable17 [
     i8 2, label %11
-    i8 0, label %12
-    i8 1, label %13
-    i8 3, label %17
-    i8 4, label %19
+    i8 0, label %16
+    i8 1, label %.thread15
+    i8 3, label %12
+    i8 4, label %14
   ]
 
 9:                                                ; preds = %2
-  switch i8 %4, label %default.unreachable19 [
+  switch i8 %4, label %default.unreachable17 [
     i8 3, label %11
-    i8 0, label %12
-    i8 1, label %13
-    i8 2, label %15
-    i8 4, label %19
+    i8 0, label %16
+    i8 1, label %16
+    i8 2, label %16
+    i8 4, label %14
   ]
 
 10:                                               ; preds = %2
-  switch i8 %4, label %default.unreachable19 [
+  switch i8 %4, label %default.unreachable17 [
     i8 4, label %11
-    i8 0, label %12
-    i8 1, label %13
-    i8 2, label %15
-    i8 3, label %17
+    i8 0, label %16
+    i8 1, label %16
+    i8 2, label %16
+    i8 3, label %12
   ]
 
-11:                                               ; preds = %19, %17, %15, %13, %10, %9, %8, %7, %5, %12
-  %.0 = phi i8 [ %., %5 ], [ 0, %9 ], [ 0, %8 ], [ 1, %12 ], [ %.18, %19 ], [ %.16, %17 ], [ %.14, %15 ], [ %.12, %13 ], [ 0, %10 ], [ 0, %7 ]
+11:                                               ; preds = %.thread15, %14, %12, %10, %9, %8, %7, %5, %16
+  %.0 = phi i8 [ %., %5 ], [ 0, %9 ], [ 0, %8 ], [ %spec.select, %12 ], [ 0, %10 ], [ %spec.select13, %14 ], [ 0, %7 ], [ 1, %16 ], [ 2, %.thread15 ]
   ret i8 %.0
 
-12:                                               ; preds = %10, %9, %8, %7
+12:                                               ; preds = %10, %8, %7
+  %13 = icmp eq i8 %3, 4
+  %spec.select = select i1 %13, i8 2, i8 -1
   br label %11
 
-13:                                               ; preds = %10, %9, %8
-  %14 = icmp eq i8 %3, 2
-  %.12 = select i1 %14, i8 2, i8 1
+14:                                               ; preds = %9, %8, %7
+  %15 = icmp eq i8 %3, 3
+  %spec.select13 = select i1 %15, i8 2, i8 -1
   br label %11
 
-15:                                               ; preds = %10, %9, %7
-  %16 = icmp eq i8 %3, 1
-  %.14 = select i1 %16, i8 2, i8 1
-  br label %11
-
-17:                                               ; preds = %10, %8, %7
-  %18 = icmp eq i8 %3, 4
-  %.16 = select i1 %18, i8 2, i8 -1
-  br label %11
-
-19:                                               ; preds = %9, %8, %7
-  %20 = icmp eq i8 %3, 3
-  %.18 = select i1 %20, i8 2, i8 -1
+16:                                               ; preds = %7, %8, %9, %10, %9, %10, %9, %10
   br label %11
 }
 
