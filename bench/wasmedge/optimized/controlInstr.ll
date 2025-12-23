@@ -1294,11 +1294,11 @@ switch.lookup:                                    ; preds = %40
   %switch.tableidx = add nsw i8 %47, -94
   %48 = and i8 %switch.tableidx, 6
   %switch.masked = icmp eq i8 %48, 0
-  %switch.cast80 = zext i8 %switch.tableidx to i24
-  %switch.shiftamt81 = shl nuw nsw i24 %switch.cast80, 3
-  %switch.downshift82 = lshr i24 7367530, %switch.shiftamt81
-  %switch.masked83 = trunc i24 %switch.downshift82 to i8
-  %49 = icmp eq i8 %20, %switch.masked83
+  %switch.cast81 = zext i8 %switch.tableidx to i24
+  %switch.shiftamt82 = shl nuw nsw i24 %switch.cast81, 3
+  %switch.downshift83 = lshr i24 7367530, %switch.shiftamt82
+  %switch.masked84 = trunc i24 %switch.downshift83 to i8
+  %49 = icmp eq i8 %20, %switch.masked84
   br i1 %49, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit, label %50
 
 50:                                               ; preds = %switch.lookup
@@ -1314,56 +1314,56 @@ switch.lookup:                                    ; preds = %40
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
 _ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40:    ; preds = %18, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %55 = load i32, ptr %54, align 4
-  switch i8 %53, label %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 [
-    i8 115, label %56
-    i8 114, label %56
-    i8 113, label %56
-    i8 112, label %56
-    i8 111, label %56
-    i8 110, label %56
-    i8 109, label %56
-    i8 108, label %56
-    i8 107, label %56
-    i8 106, label %56
-    i8 105, label %56
-    i8 -128, label %56
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %55 = load i8, ptr %54, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %57 = load i32, ptr %56, align 4
+  switch i8 %55, label %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 [
+    i8 115, label %58
+    i8 114, label %58
+    i8 113, label %58
+    i8 112, label %58
+    i8 111, label %58
+    i8 110, label %58
+    i8 109, label %58
+    i8 108, label %58
+    i8 107, label %58
+    i8 106, label %58
+    i8 105, label %58
+    i8 -128, label %58
   ]
 
-56:                                               ; preds = %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40
-  %57 = zext i32 %55 to i64
-  %.not = icmp ugt i64 %1, %57
+58:                                               ; preds = %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40
+  %59 = zext i32 %57 to i64
+  %.not = icmp ugt i64 %1, %59
   br i1 %.not, label %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
-_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49: ; preds = %56
-  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load i8, ptr %60, align 8
-  %62 = icmp eq i8 %61, 96
-  switch i8 %53, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit [
-    i8 113, label %63
-    i8 115, label %64
+_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49: ; preds = %58
+  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %63 = load i8, ptr %62, align 8
+  %64 = icmp eq i8 %63, 96
+  switch i8 %55, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit [
+    i8 113, label %65
+    i8 115, label %66
   ]
 
-63:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
-  %not. = xor i1 %62, true
+65:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
+  %not. = xor i1 %64, true
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
-64:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
+66:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
 _ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47:    ; preds = %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_j(ptr %0, i64 %1, i32 noundef %55, ptr %3, i64 %4, i32 noundef %66) #20
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_j(ptr %0, i64 %1, i32 noundef %57, ptr %3, i64 %4, i32 noundef %68) #20
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
-_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit: ; preds = %51, %63, %11, %64, %15, %switch.lookup, %50, %50, %39, %37, %35, %34, %33, %33, %31, %29, %29, %27, %24, %14, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49, %56, %40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47
-  %.0 = phi i1 [ false, %50 ], [ false, %15 ], [ true, %34 ], [ false, %40 ], [ false, %56 ], [ false, %50 ], [ %or.cond75, %51 ], [ %62, %64 ], [ %67, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 ], [ %or.cond, %11 ], [ false, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49 ], [ false, %14 ], [ false, %33 ], [ %28, %27 ], [ true, %24 ], [ %32, %31 ], [ false, %29 ], [ false, %39 ], [ %36, %35 ], [ %38, %37 ], [ false, %29 ], [ false, %33 ], [ %not., %63 ], [ true, %switch.lookup ]
+_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit: ; preds = %51, %65, %11, %66, %15, %switch.lookup, %50, %50, %39, %37, %35, %34, %33, %33, %31, %29, %29, %27, %24, %14, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49, %58, %40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47
+  %.0 = phi i1 [ false, %50 ], [ false, %15 ], [ true, %34 ], [ false, %40 ], [ false, %56 ], [ false, %50 ], [ %or.cond75, %51 ], [ %62, %64 ], [ %69, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 ], [ %or.cond, %11 ], [ false, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49 ], [ false, %14 ], [ false, %33 ], [ %28, %27 ], [ true, %24 ], [ %32, %31 ], [ false, %29 ], [ false, %39 ], [ %36, %35 ], [ %38, %37 ], [ false, %29 ], [ false, %33 ], [ %not., %63 ], [ true, %switch.lookup ]
   ret i1 %.0
 }
 

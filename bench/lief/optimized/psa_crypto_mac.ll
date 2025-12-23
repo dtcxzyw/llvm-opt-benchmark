@@ -134,11 +134,11 @@ mac_init.exit:                                    ; preds = %12
   store i64 %3, ptr %6, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %32, label %33 [
-    i32 33554435, label %.thread93.i
+    i32 33554435, label %.thread84.i
     i32 33554436, label %.fold.split82.i
     i32 33554437, label %.fold.split82.i
-    i32 33554440, label %.thread93.i
-    i32 33554441, label %.thread93.i
+    i32 33554440, label %.thread84.i
+    i32 33554441, label %.thread84.i
     i32 33554442, label %.fold.split81.i
     i32 33554443, label %.fold.split81.i
     i32 33554444, label %.fold.split81.i
@@ -180,10 +180,10 @@ switch.lookup:                                    ; preds = %33
   %36 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.psa_mac_setup, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %.thread93.i
+  br label %.thread84.i
 
-.thread93.i:                                      ; preds = %switch.lookup, %.fold.split81.i, %.fold.split79.i, %.fold.split78.i, %.fold.split77.i, %switch.edge80.i, %30, %30, %30
-  %.ph92.i = phi i64 [ %switch.load, %switch.lookup ], [ 128, %.fold.split81.i ], [ 72, %switch.edge80.i ], [ 104, %.fold.split79.i ], [ 64, %30 ], [ 64, %30 ], [ 64, %30 ], [ 136, %.fold.split78.i ], [ 144, %.fold.split77.i ]
+.thread84.i:                                      ; preds = %switch.lookup, %.fold.split81.i, %.fold.split79.i, %.fold.split78.i, %.fold.split77.i, %switch.edge80.i, %30, %30, %30
+  %.ph83.i = phi i64 [ %switch.load, %switch.lookup ], [ 128, %.fold.split81.i ], [ 72, %switch.edge80.i ], [ 104, %.fold.split79.i ], [ 64, %30 ], [ 64, %30 ], [ 64, %30 ], [ 136, %.fold.split78.i ], [ 144, %.fold.split77.i ]
   store i32 %32, ptr %31, align 8, !tbaa !15
   br label %38
 
@@ -191,8 +191,8 @@ switch.lookup:                                    ; preds = %33
   store i32 %32, ptr %31, align 8, !tbaa !15
   br i1 %34, label %psa_hmac_setup_internal.exit, label %38
 
-38:                                               ; preds = %37, %.thread93.i
-  %39 = phi i64 [ %.ph92.i, %.thread93.i ], [ 0, %37 ]
+38:                                               ; preds = %37, %.thread84.i
+  %39 = phi i64 [ %.ph83.i, %.thread93.i ], [ 0, %37 ]
   %40 = icmp ugt i64 %3, %39
   br i1 %40, label %41, label %43
 
@@ -203,34 +203,34 @@ switch.lookup:                                    ; preds = %33
 
 43:                                               ; preds = %38
   %.not.i21 = icmp eq i64 %3, 0
-  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread110.i
+  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread101.i
 
-.thread110.i:                                     ; preds = %43
+.thread101.i:                                     ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
   br label %.lr.ph.preheader.i
 
 44:                                               ; preds = %41
   %.pre.i = load i64, ptr %6, align 8, !tbaa !13
-  %.not99.i = icmp eq i64 %.pre.i, 0
-  br i1 %.not99.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  %.not90.i = icmp eq i64 %.pre.i, 0
+  br i1 %.not90.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %44, %.thread110.i
+.lr.ph.preheader.i:                               ; preds = %44, %.thread101.i
   %45 = phi i64 [ %3, %.thread110.i ], [ %.pre.i, %44 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05594.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 %.05594.i
+  %.05585.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 %.05585.i
   %47 = load i8, ptr %46, align 1, !tbaa !18
   %48 = xor i8 %47, 54
   store i8 %48, ptr %46, align 1, !tbaa !18
-  %49 = add nuw i64 %.05594.i, 1
+  %49 = add nuw i64 %.05585.i, 1
   %exitcond.not.i = icmp eq i64 %49, %45
   br i1 %exitcond.not.i, label %._crit_edge.i22, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.thread.i:                             ; preds = %44, %43
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 54, i64 %39, i1 false)
-  br label %._crit_edge98.i
+  br label %._crit_edge89.i
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 %45
@@ -240,17 +240,17 @@ switch.lookup:                                    ; preds = %33
   br label %53
 
 53:                                               ; preds = %53, %._crit_edge.i22
-  %.195.i = phi i64 [ 0, %._crit_edge.i22 ], [ %58, %53 ]
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 %.195.i
+  %.186.i = phi i64 [ 0, %._crit_edge.i22 ], [ %58, %53 ]
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 %.186.i
   %55 = load i8, ptr %54, align 1, !tbaa !18
   %56 = xor i8 %55, 106
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %.195.i
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %.186.i
   store i8 %56, ptr %57, align 1, !tbaa !18
-  %58 = add nuw i64 %.195.i, 1
-  %exitcond101.not.i = icmp eq i64 %58, %45
-  br i1 %exitcond101.not.i, label %._crit_edge98.i, label %53, !llvm.loop !21
+  %58 = add nuw i64 %.186.i, 1
+  %exitcond92.not.i = icmp eq i64 %58, %45
+  br i1 %exitcond92.not.i, label %._crit_edge89.i, label %53, !llvm.loop !21
 
-._crit_edge98.i:                                  ; preds = %53, %._crit_edge.thread.i
+._crit_edge89.i:                                  ; preds = %53, %._crit_edge.thread.i
   %59 = phi i64 [ %39, %._crit_edge.thread.i ], [ %51, %53 ]
   %60 = phi i64 [ 0, %._crit_edge.thread.i ], [ %45, %53 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -261,11 +261,11 @@ switch.lookup:                                    ; preds = %33
   %.not65.i = icmp eq i32 %64, 0
   br i1 %.not65.i, label %65, label %67
 
-65:                                               ; preds = %._crit_edge98.i
+65:                                               ; preds = %._crit_edge89.i
   %66 = call i32 @psa_hash_update(ptr noundef nonnull %63, ptr noundef nonnull %7, i64 noundef %39) #5
   br label %67
 
-67:                                               ; preds = %65, %._crit_edge98.i, %41
+67:                                               ; preds = %65, %._crit_edge89.i, %41
   %.0.i23 = phi i32 [ %42, %41 ], [ %64, %._crit_edge98.i ], [ %66, %65 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 144) #5
   br label %psa_hmac_setup_internal.exit

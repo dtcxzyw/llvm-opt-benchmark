@@ -8123,17 +8123,17 @@ switch.lookup40:                                  ; preds = %20
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   br label %dissect_gtpv2_s1ap_cause.exit
 
-.sink.split:                                      ; preds = %19, %9, %18
+28:                                               ; preds = %19, %9, %18
   %.str.1828.sink = phi ptr [ @.str.1827, %19 ], [ @.str.1827, %9 ], [ @.str.1828, %18 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull %.str.1828.sink)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.sink.split, %8, %19, %9
-  %29 = zext i16 %4 to i32
-  %30 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %29)
+29:                                               ; preds = %.sink.split, %8, %19, %9
+  %30 = zext i16 %4 to i32
+  %31 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %30)
   br label %dissect_gtpv2_s1ap_cause.exit
 
-dissect_gtpv2_s1ap_cause.exit:                    ; preds = %20, %10, %switch.lookup40, %switch.lookup, %28
+dissect_gtpv2_s1ap_cause.exit:                    ; preds = %20, %10, %switch.lookup40, %switch.lookup, %29
   ret void
 }
 

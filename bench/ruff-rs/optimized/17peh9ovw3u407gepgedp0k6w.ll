@@ -7422,9 +7422,9 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit: ; preds = %1
   store i64 %.val.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %.val1.i.i, ptr %.sroa.6.0..sroa_idx, align 8
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr @anon.da8d344b7fd5eccca9cd8154b3d01c2e.95, 1
-  ret { ptr, ptr } %10
+  %11 = insertvalue { ptr, ptr } poison, ptr %6, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr @anon.da8d344b7fd5eccca9cd8154b3d01c2e.95, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -804,10 +804,10 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 33:                                               ; preds = %30
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %14, %18, %22, %26, %30
+.fold.split:                                      ; preds = %14, %18, %22, %26, %30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %30, %26, %22, %18, %25, %33, %29, %21
+.fold.split38:                                    ; preds = %14, %.fold.split, %30, %26, %22, %18, %25, %33, %29, %21
   %.128 = phi i32 [ 5, %33 ], [ 8, %21 ], [ 7, %18 ], [ 6, %30 ], [ 3, %25 ], [ 2, %22 ], [ %.02747, %.loopexit.loopexit ], [ 4, %29 ], [ 9, %26 ], [ 10, %14 ]
   %34 = trunc i32 %.128 to i8
   %35 = load i32, ptr %5, align 4, !tbaa !12
