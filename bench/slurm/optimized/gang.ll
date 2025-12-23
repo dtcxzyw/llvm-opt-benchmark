@@ -1698,7 +1698,7 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
   %.not4356 = icmp eq ptr %27, null
   br i1 %.not4356, label %._crit_edge, label %.lr.ph57
 
-..loopexit52_crit_edge:                           ; preds = %80, %55
+..loopexit_crit_edge:                             ; preds = %80, %55
   br label %.backedge, !llvm.loop !17
 
 .lr.ph57:                                         ; preds = %_get_gr_type.exit, %.backedge
@@ -1721,9 +1721,9 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
 
 35:                                               ; preds = %.lr.ph55, %55
   %36 = phi i32 [ %33, %.lr.ph55 ], [ %56, %55 ]
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next63, %55 ]
+  %indvars.iv61 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next62, %55 ]
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv62
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv61
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i16, ptr %40, align 8
@@ -1757,10 +1757,10 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
 
 55:                                               ; preds = %35, %43, %53
   %56 = phi i32 [ %36, %35 ], [ %36, %43 ], [ %.pre, %53 ]
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %57 = zext i32 %56 to i64
-  %58 = icmp samesign ult i64 %indvars.iv.next63, %57
-  br i1 %58, label %35, label %..loopexit52_crit_edge, !llvm.loop !18
+  %58 = icmp samesign ult i64 %indvars.iv.next62, %57
+  br i1 %58, label %35, label %..loopexit_crit_edge, !llvm.loop !18
 
 59:                                               ; preds = %.lr.ph57
   br i1 %.not59, label %.backedge, label %.lr.ph

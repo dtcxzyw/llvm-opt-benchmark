@@ -250,8 +250,8 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE5clearEv.exit: ;
   tail call void @_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %37, i64 noundef %69)
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !40
-  %.not144 = icmp eq i64 %71, 0
-  br i1 %.not144, label %.loopexit70, label %.preheader68.us
+  %.not145 = icmp eq i64 %71, 0
+  br i1 %.not145, label %.loopexit70, label %.preheader68.us
 
 .preheader.us:                                    ; preds = %60, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us
   %.04785.us = phi i64 [ %80, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us ], [ 0, %60 ]
@@ -286,8 +286,8 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us:   ; preds = %.loopexit67.us
   %90 = getelementptr inbounds nuw i64, ptr %96, i64 %85
   store i64 %89, ptr %90, align 8, !tbaa !39
   %91 = add nuw i64 %.04283.us, 1
-  %exitcond122.not = icmp eq i64 %91, %75
-  br i1 %exitcond122.not, label %.loopexit67.us, label %83, !llvm.loop !46
+  %exitcond123.not = icmp eq i64 %91, %75
+  br i1 %exitcond123.not, label %.loopexit67.us, label %83, !llvm.loop !46
 
 .loopexit67.us:                                   ; preds = %88, %.preheader.us
   %92 = load ptr, ptr %2, align 8, !tbaa !43

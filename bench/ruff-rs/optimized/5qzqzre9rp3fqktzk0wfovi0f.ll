@@ -535,7 +535,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %.sroa.1263.0232 = phi i64 [ undef, %.lr.ph ], [ %.sroa.1263.2123.ph, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread" ]
   %.sroa.962.0231 = phi ptr [ undef, %.lr.ph ], [ %.sroa.962.2121.ph, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread" ]
   %.sroa.0.079230 = phi ptr [ %61, %.lr.ph ], [ %80, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread" ]
-  %.sroa.077.1229 = phi i64 [ 0, %.lr.ph ], [ %.sroa.077.7119.ph, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread" ]
+  %.sroa.077.1229 = phi i64 [ 0, %.lr.ph ], [ %.sroa.077.5119.ph, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread" ]
   %.sroa.975.0226 = phi i64 [ 0, %.lr.ph ], [ %205, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread" ]
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.079230, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.0)
@@ -889,7 +889,7 @@ common.resume:                                    ; preds = %352, %.body.thread,
           to label %common.resume unwind label %134, !noalias !70
 
 _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i.thread: ; preds = %89, %86, %.thread, %83, %92, %97, %95, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i
-  %.sroa.077.690 = phi i64 [ 0, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.077.1229, %.thread ], [ 0, %86 ], [ %96, %95 ], [ %98, %97 ], [ %.sroa.077.1229, %83 ], [ %.sroa.077.1229, %92 ], [ %spec.select, %89 ]
+  %.sroa.077.490 = phi i64 [ 0, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.077.1229, %.thread ], [ 0, %86 ], [ %96, %95 ], [ %98, %97 ], [ %.sroa.077.1229, %83 ], [ %.sroa.077.1229, %92 ], [ %spec.select, %89 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !70
   store i64 0, ptr %7, align 8, !noalias !70
   store ptr inttoptr (i64 8 to ptr), ptr %75, align 8, !noalias !70
@@ -966,7 +966,7 @@ _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8ea
           to label %common.resume unwind label %134, !noalias !70
 
 "_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit": ; preds = %127, %182, %197
-  %.sroa.077.7 = phi i64 [ %.sroa.077.690, %197 ], [ %.sroa.077.1229, %182 ], [ %.sroa.077.1229, %127 ]
+  %.sroa.077.5 = phi i64 [ %.sroa.077.490, %197 ], [ %.sroa.077.1229, %182 ], [ %.sroa.077.1229, %127 ]
   %.sroa.058.1 = phi i64 [ %.sroa.04.i.sroa.0.0.copyload, %197 ], [ %.sroa.058.0, %182 ], [ %.sroa.0.i.sroa.0.0.copyload, %127 ]
   %.sroa.962.2 = phi ptr [ %200, %197 ], [ %.sroa.962.1, %182 ], [ %130, %127 ]
   %.sroa.1263.2 = phi i64 [ %199, %197 ], [ %.sroa.1263.1, %182 ], [ %129, %127 ]
@@ -976,7 +976,7 @@ _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8ea
 "_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread": ; preds = %85, %86, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit"
   %.sroa.1263.2123.ph = phi i64 [ %.sroa.1263.2, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ %.sroa.1263.0232, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.1263.0232, %86 ], [ %.sroa.1263.0232, %85 ]
   %.sroa.962.2121.ph = phi ptr [ %.sroa.962.2, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ %.sroa.962.0231, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.962.0231, %86 ], [ %.sroa.962.0231, %85 ]
-  %.sroa.077.7119.ph = phi i64 [ %.sroa.077.7, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ 0, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ 0, %86 ], [ 0, %85 ]
+  %.sroa.077.5119.ph = phi i64 [ %.sroa.077.5, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ 0, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ 0, %86 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %205 = add nuw nsw i64 %.sroa.975.0226, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.557.sroa.0)
@@ -1054,7 +1054,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30: ; preds = %"_ZN
 
 231:                                              ; preds = %.lr.ph236, %.backedge
   %.sroa.020.0235 = phi ptr [ %.sroa.962.2, %.lr.ph236 ], [ %232, %.backedge ]
-  %.sroa.077.0234 = phi i64 [ %.sroa.077.7, %.lr.ph236 ], [ %.sroa.077.0.be, %.backedge ]
+  %.sroa.077.0234 = phi i64 [ %.sroa.077.5, %.lr.ph236 ], [ %.sroa.077.0.be, %.backedge ]
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.020.0235, i64 24
   %.not.i34 = icmp eq i64 %.sroa.077.0234, 0
   %233 = load i8, ptr %.sroa.020.0235, align 8, !range !9, !noundef !10
@@ -1492,7 +1492,7 @@ define noundef zeroext i1 @_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = tail call noundef zeroext i1 @_ZN14ruff_formatter14format_element9PrintMode11is_expanded17h0415feecf1f150cfE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %17)
-  br i1 %18, label %.sink.split, label %22
+  br i1 %18, label %24, label %22
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1502,17 +1502,17 @@ define noundef zeroext i1 @_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState
     i8 11, label %25
   ]
 
-.sink.split:                                      ; preds = %16, %25, %23
+24:                                               ; preds = %16, %25, %23
   %.sink = phi i64 [ %26, %25 ], [ %24, %23 ], [ 1, %16 ]
   store i64 %.sink, ptr %0, align 8
   br label %22
 
-22:                                               ; preds = %.sink.split, %12, %16, %19, %5
+28:                                               ; preds = %24, %12, %16, %19, %5
   br label %15
 
-23:                                               ; preds = %19
+29:                                               ; preds = %19
   %24 = tail call i64 @llvm.uadd.sat.i64(i64 %3, i64 1)
-  br label %.sink.split
+  br label %24
 
 25:                                               ; preds = %19
   %26 = add i64 %3, -1

@@ -149,7 +149,7 @@ define internal range(i32 0, 2) i32 @disambiguate_commit_only(ptr noundef %0, pt
 define internal range(i32 0, 2) i32 @disambiguate_committish_only(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr noundef null) #20
   switch i32 %4, label %12 [
-    i32 1, label %13
+    i32 1, label %14
     i32 4, label %5
   ]
 
@@ -159,16 +159,16 @@ define internal range(i32 0, 2) i32 @disambiguate_committish_only(ptr noundef %0
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %12, label %8
 
-8:                                                ; preds = %5
+6:                                                ; preds = %5
   %9 = load i32, ptr %7, align 4
   %10 = and i32 %9, 14
-  %11 = icmp eq i32 %10, 2
-  br i1 %11, label %13, label %12
+  %.not11 = icmp eq i32 %10, 2
+  br i1 %.not11, label %13, label %9
 
-12:                                               ; preds = %3, %8, %5
-  br label %13
+9:                                                ; preds = %3, %6, %5
+  br label %14
 
-13:                                               ; preds = %8, %3, %12
+14:                                               ; preds = %8, %3, %12
   %.0 = phi i32 [ 0, %12 ], [ 1, %8 ], [ %4, %3 ]
   ret i32 %.0
 }

@@ -2368,9 +2368,9 @@ mbedtls_ecp_get_type.exit:                        ; preds = %6
   br i1 %.not14, label %28, label %mbedtls_ecp_get_type.exit17.thread
 
 mbedtls_ecp_get_type.exit17:                      ; preds = %6
-  %22 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %1, i64 noundef 1) #20
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %mbedtls_ecp_get_type.exit17.thread, label %24
+  %23 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %1, i64 noundef 1) #20
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %mbedtls_ecp_get_type.exit17.thread, label %24
 
 24:                                               ; preds = %mbedtls_ecp_get_type.exit17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2378,7 +2378,7 @@ mbedtls_ecp_get_type.exit17:                      ; preds = %6
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %mbedtls_ecp_get_type.exit17.thread, label %28
 
-28:                                               ; preds = %18, %20, %24
+25:                                               ; preds = %18, %20, %24
   br label %mbedtls_ecp_get_type.exit17.thread
 
 mbedtls_ecp_get_type.exit17.thread:               ; preds = %2, %mbedtls_ecp_get_type.exit17, %24, %20, %mbedtls_ecp_get_type.exit, %11, %13, %28

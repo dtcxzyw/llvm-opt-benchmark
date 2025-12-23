@@ -779,8 +779,8 @@ define noundef signext range(i16 0, 4) i16 @_ZN5arrow3ipc8internal16ToFlatbuffer
 switch.lookup:
   %1 = icmp ult i32 %0, 4
   %switch.idx.cast = trunc i32 %0 to i16
-  %spec.select = select i1 %1, i16 %switch.idx.cast, i16 0
-  ret i16 %spec.select
+  %.0 = select i1 %1, i16 %switch.idx.cast, i16 0
+  ret i16 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -22375,13 +22375,13 @@ _ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt64
   store i8 18, ptr %483, align 8, !tbaa !913, !noalias !1085
   %484 = icmp ult i32 %.val, 4
   %switch.idx.cast.i.i = trunc i32 %.val to i16
-  %spec.select.i.i = select i1 %484, i16 %switch.idx.cast.i.i, i16 0
+  %.0.i.i = select i1 %484, i16 %switch.idx.cast.i.i, i16 0
   %485 = load ptr, ptr %2, align 8, !tbaa !892, !noalias !1085
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 96
   store i8 1, ptr %486, align 8, !tbaa !303, !noalias !1085
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 48
   %488 = load i32, ptr %487, align 8, !tbaa !299, !noalias !1085
-  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %485, i16 noundef zeroext 4, i16 noundef signext %spec.select.i.i, i16 noundef signext 1), !noalias !1085
+  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %485, i16 noundef zeroext 4, i16 noundef signext %.0.i.i, i16 noundef signext 1), !noalias !1085
   %489 = tail call noundef i32 @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE8EndTableEj(ptr noundef nonnull align 8 dereferenceable(128) %485, i32 noundef %488), !noalias !1085
   %490 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %489, ptr %490, align 4, !tbaa !13, !noalias !1085
@@ -22524,8 +22524,8 @@ _ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13Time
   %555 = phi ptr [ %513, %.thread.i ], [ %523, %517 ], [ %523, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i.i.i.i ]
   %556 = icmp ult i32 %510, 4
   %switch.idx.cast.i.i166 = trunc i32 %510 to i16
-  %spec.select.i.i167 = select i1 %556, i16 %switch.idx.cast.i.i166, i16 0
-  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %555, i16 noundef zeroext 4, i16 noundef signext %spec.select.i.i167, i16 noundef signext 0), !noalias !1103
+  %.0.i.i167 = select i1 %556, i16 %switch.idx.cast.i.i166, i16 0
+  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %555, i16 noundef zeroext 4, i16 noundef signext %.0.i.i167, i16 noundef signext 0), !noalias !1103
   %557 = tail call noundef i32 @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE8EndTableEj(ptr noundef nonnull align 8 dereferenceable(128) %555, i32 noundef %554), !noalias !1103
   %558 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %557, ptr %558, align 4, !tbaa !13, !noalias !1103
@@ -22541,13 +22541,13 @@ _ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13Time
   %562 = load ptr, ptr %2, align 8, !tbaa !892, !noalias !1113
   %563 = icmp ult i32 %.val91, 4
   %switch.idx.cast.i.i169 = trunc i32 %.val91 to i16
-  %spec.select.i.i170 = select i1 %563, i16 %switch.idx.cast.i.i169, i16 0
+  %.0.i.i170 = select i1 %563, i16 %switch.idx.cast.i.i169, i16 0
   %564 = getelementptr inbounds nuw i8, ptr %562, i64 96
   store i8 1, ptr %564, align 8, !tbaa !303, !noalias !1113
   %565 = getelementptr inbounds nuw i8, ptr %562, i64 48
   %566 = load i32, ptr %565, align 8, !tbaa !299, !noalias !1113
   tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIiEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %562, i16 noundef zeroext 6, i32 noundef 32, i32 noundef 32), !noalias !1113
-  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %562, i16 noundef zeroext 4, i16 noundef signext %spec.select.i.i170, i16 noundef signext 1), !noalias !1113
+  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %562, i16 noundef zeroext 4, i16 noundef signext %.0.i.i170, i16 noundef signext 1), !noalias !1113
   %567 = tail call noundef i32 @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE8EndTableEj(ptr noundef nonnull align 8 dereferenceable(128) %562, i32 noundef %566), !noalias !1113
   %568 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %567, ptr %568, align 4, !tbaa !13, !noalias !1113
@@ -22563,13 +22563,13 @@ _ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13Time
   %572 = load ptr, ptr %2, align 8, !tbaa !892, !noalias !1119
   %573 = icmp ult i32 %.val92, 4
   %switch.idx.cast.i.i171 = trunc i32 %.val92 to i16
-  %spec.select.i.i172 = select i1 %573, i16 %switch.idx.cast.i.i171, i16 0
+  %.0.i.i172 = select i1 %573, i16 %switch.idx.cast.i.i171, i16 0
   %574 = getelementptr inbounds nuw i8, ptr %572, i64 96
   store i8 1, ptr %574, align 8, !tbaa !303, !noalias !1119
   %575 = getelementptr inbounds nuw i8, ptr %572, i64 48
   %576 = load i32, ptr %575, align 8, !tbaa !299, !noalias !1119
   tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIiEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %572, i16 noundef zeroext 6, i32 noundef 64, i32 noundef 32), !noalias !1119
-  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %572, i16 noundef zeroext 4, i16 noundef signext %spec.select.i.i172, i16 noundef signext 1), !noalias !1119
+  tail call void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIsEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %572, i16 noundef zeroext 4, i16 noundef signext %.0.i.i172, i16 noundef signext 1), !noalias !1119
   %577 = tail call noundef i32 @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE8EndTableEj(ptr noundef nonnull align 8 dereferenceable(128) %572, i32 noundef %576), !noalias !1119
   %578 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %577, ptr %578, align 4, !tbaa !13, !noalias !1119

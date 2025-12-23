@@ -1613,10 +1613,10 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val34 = load ptr, ptr %34, align 8, !alias.scope !273, !nonnull !7, !noundef !7
+  %.val35 = load ptr, ptr %34, align 8, !alias.scope !273, !nonnull !7, !noundef !7
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val35 = load i64, ptr %35, align 8, !alias.scope !273, !noundef !7
-  %36 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr nonnull %16, ptr nonnull %.val34, i64 %.val35)
+  %.val36 = load i64, ptr %35, align 8, !alias.scope !273, !noundef !7
+  %36 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr nonnull %16, ptr nonnull %.val35, i64 %.val36)
   br i1 %36, label %18, label %37
 
 37:                                               ; preds = %33

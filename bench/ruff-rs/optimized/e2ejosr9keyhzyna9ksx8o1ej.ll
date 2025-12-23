@@ -76603,7 +76603,7 @@ define hidden noundef range(i8 0, 34) i8 @_ZN11ruff_linter5rules12flake8_async7h
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit74": ; preds = %33
   %bcmp.i73 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %35, ptr noundef nonnull dereferenceable(7) @anon.b051c46de04d2cc9e5a94505cde81379.486, i64 7), !alias.scope !8439
   %41 = icmp eq i32 %bcmp.i73, 0
-  %spec.select507 = select i1 %41, i8 11, i8 33
+  %spec.select510 = select i1 %41, i8 11, i8 33
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit54.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit78": ; preds = %33
@@ -76664,8 +76664,8 @@ define hidden noundef range(i8 0, 34) i8 @_ZN11ruff_linter5rules12flake8_async7h
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit122": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit86"
   %bcmp.i121 = tail call i32 @bcmp(ptr nonnull readonly align 1 %35, ptr nonnull @anon.b051c46de04d2cc9e5a94505cde81379.498, i64 %37), !alias.scope !8487
-  %.not508 = icmp eq i32 %bcmp.i121, 0
-  %.mux = select i1 %.not508, i8 26, i8 33
+  %.not511 = icmp eq i32 %bcmp.i121, 0
+  %.mux = select i1 %.not511, i8 26, i8 33
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit54.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit126": ; preds = %33

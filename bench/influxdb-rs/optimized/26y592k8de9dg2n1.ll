@@ -1593,7 +1593,7 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   %6 = load atomic i64, ptr %4 acquire, align 8
   switch i64 %6, label %.loopexit28.loopexit4 [
     i64 0, label %7
-    i64 1, label %.loopexit28.loopexit26
+    i64 1, label %.split.us
     i64 2, label %.loopexit28
   ]
 
@@ -1609,7 +1609,7 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   %8 = load atomic i64, ptr %4 acquire, align 8
   switch i64 %8, label %.loopexit28.loopexit4 [
     i64 0, label %9
-    i64 1, label %.loopexit28.loopexit
+    i64 1, label %.split.us.loopexit15
     i64 2, label %.loopexit28
   ]
 
@@ -1641,7 +1641,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit: ; preds = 
   %16 = load atomic i64, ptr %4 acquire, align 8
   switch i64 %16, label %.loopexit28.loopexit4 [
     i64 0, label %17
-    i64 1, label %.loopexit28.loopexit20
+    i64 1, label %.split.us.loopexit18
     i64 2, label %.loopexit28
   ]
 
@@ -1673,16 +1673,16 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit: ; preds = 
   tail call void @_ZN3std6thread12park_timeout17h16b05452e96afd8dE(i64 noundef %25, i32 noundef %26)
   br label %.preheader.split
 
-.loopexit28.loopexit4:                            ; preds = %5, %.preheader.split, %.preheader.split.us
+.split.us.loopexit:                               ; preds = %5, %.preheader.split, %.preheader.split.us
   br label %.loopexit28
 
-.loopexit28.loopexit:                             ; preds = %.preheader.split.us
+.split.us.loopexit15:                             ; preds = %.preheader.split.us
   br label %.loopexit28
 
-.loopexit28.loopexit20:                           ; preds = %.preheader.split
+.split.us.loopexit18:                             ; preds = %.preheader.split
   br label %.loopexit28
 
-.loopexit28.loopexit26:                           ; preds = %5
+.split.us:                                        ; preds = %5
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %.preheader.split.us, %.preheader.split, %5, %.loopexit28.loopexit26, %.loopexit28.loopexit20, %.loopexit28.loopexit, %.loopexit28.loopexit4, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread26"

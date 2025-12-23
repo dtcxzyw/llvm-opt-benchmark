@@ -733,18 +733,18 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
   %.0 = phi ptr [ %12, %11 ], [ %3, %.preheader ]
   %10 = load i8, ptr %.0, align 1, !tbaa !51
   %.not37 = icmp eq i8 %10, 0
-  br i1 %.not37, label %.preheader69, label %11
+  br i1 %.not37, label %.preheader70, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %13 = icmp eq i8 %10, 61
-  br i1 %13, label %.preheader69, label %9, !llvm.loop !52
+  br i1 %13, label %.preheader70, label %9, !llvm.loop !52
 
-.preheader69:                                     ; preds = %11, %9
+.preheader70:                                     ; preds = %11, %9
   %.2.ph = phi ptr [ %.0, %9 ], [ %12, %11 ]
   br label %14
 
-14:                                               ; preds = %.preheader69, %16
+14:                                               ; preds = %.preheader70, %16
   %.2 = phi ptr [ %17, %16 ], [ %.2.ph, %.preheader69 ]
   %15 = load i8, ptr %.2, align 1, !tbaa !51
   switch i8 %15, label %.loopexit [
@@ -804,10 +804,10 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 33:                                               ; preds = %30
   br label %.loopexit48
 
-.loopexit:                                        ; preds = %14, %30, %26, %22, %18
+.fold.split:                                      ; preds = %14, %30, %26, %22, %18
   br label %.loopexit48
 
-.loopexit48:                                      ; preds = %14, %.loopexit, %30, %26, %22, %18, %25, %33, %29, %21
+.fold.split38:                                    ; preds = %14, %.loopexit, %30, %26, %22, %18, %25, %33, %29, %21
   %.128 = phi i32 [ 5, %33 ], [ 8, %21 ], [ 7, %18 ], [ 6, %30 ], [ 3, %25 ], [ 2, %22 ], [ %.02747, %.loopexit ], [ 4, %29 ], [ 9, %26 ], [ 10, %14 ]
   %34 = trunc i32 %.128 to i8
   %35 = load i32, ptr %5, align 4, !tbaa !12

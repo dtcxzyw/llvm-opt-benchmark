@@ -28997,7 +28997,7 @@ define { i64, i64 } @"_ZN82_$LT$image..codecs..farbfeld..FarbfeldReader$LT$R$GT$
     i64 2, label %12
   ]
 
-default.unreachable44:                            ; preds = %3
+default.unreachable46:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -29013,8 +29013,8 @@ default.unreachable44:                            ; preds = %3
 
 12:                                               ; preds = %3
   %13 = icmp sgt i64 %0, -1
-  %spec.select36 = select i1 %13, i64 %0, i64 9223372036854775807
-  %14 = icmp slt i64 %6, %spec.select36
+  %spec.select38 = select i1 %13, i64 %0, i64 9223372036854775807
+  %14 = icmp slt i64 %6, %spec.select38
   br i1 %14, label %28, label %19
 
 15:                                               ; preds = %7
@@ -29027,7 +29027,7 @@ default.unreachable44:                            ; preds = %3
 
 19:                                               ; preds = %12, %28, %26, %15
   %.sroa.11.1 = phi i64 [ %17, %15 ], [ %27, %26 ], [ undef, %28 ], [ %6, %12 ]
-  %.sroa.0.2 = phi i64 [ %., %15 ], [ 1, %26 ], [ 0, %28 ], [ 1, %12 ]
+  %.sroa.0.2.shrunk = phi i64 [ %., %15 ], [ 1, %26 ], [ 0, %28 ], [ 1, %12 ]
   %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %21 = insertvalue { i64, i64 } %20, i64 %.sroa.11.1, 1
   ret { i64, i64 } %21
@@ -29036,7 +29036,7 @@ default.unreachable44:                            ; preds = %3
   %23 = sub i64 %1, %0
   %24 = icmp uge i64 %1, %0
   %25 = icmp sgt i64 %23, -1
-  %or.cond41 = and i1 %24, %25
+  %or.cond43 = and i1 %24, %25
   br i1 %or.cond41, label %26, label %28
 
 26:                                               ; preds = %22

@@ -4368,7 +4368,7 @@ define internal i32 @normal_getAtts(ptr noundef readonly captures(none) %0, ptr 
 122:                                              ; preds = %121
   ret i32 %.092
 
-.fold.split102:                                   ; preds = %91, %114
+.fold.split:                                      ; preds = %91, %114
   br label %.backedge
 }
 
@@ -9594,7 +9594,7 @@ unicode_byte_type.exit115:                        ; preds = %103, %103, %103, %1
 127:                                              ; preds = %126
   ret i32 %.0100
 
-.fold.split112:                                   ; preds = %88, %119
+.fold.split:                                      ; preds = %88, %119
   br label %unicode_byte_type.exit115.thread.backedge
 }
 
@@ -15589,7 +15589,7 @@ unicode_byte_type.exit115:                        ; preds = %107, %107, %107, %1
 132:                                              ; preds = %131
   ret i32 %.0100
 
-.fold.split112:                                   ; preds = %91, %124
+.fold.split:                                      ; preds = %91, %124
   br label %unicode_byte_type.exit115.thread.backedge
 }
 

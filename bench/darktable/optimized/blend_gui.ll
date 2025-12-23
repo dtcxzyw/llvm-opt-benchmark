@@ -6560,7 +6560,7 @@ define internal float @magnifier_scale_callback(ptr readnone captures(none) %0, 
   %21 = fcmp reassoc nsz arcp contract afn ugt double %19, 0x3F1A36E2EFFFFFFF
   %.0 = select nsz i1 %21, float %20, float 0.000000e+00
   %22 = fcmp reassoc nsz arcp contract afn ult float %.0, 0x3FEFFF2E40000000
-  br i1 %22, label %39, label %38
+  br i1 %22, label %40, label %38
 
 23:                                               ; preds = %3
   %24 = fcmp reassoc nsz arcp contract afn ogt float %1, 0x3FEFFFFDE0000000
@@ -6568,11 +6568,11 @@ define internal float @magnifier_scale_callback(ptr readnone captures(none) %0, 
   %26 = select reassoc nsz arcp contract afn i1 %25, float 0x3EB0C6F7A0000000, float %1
   %27 = fmul reassoc nsz arcp contract afn float %26, 2.000000e+00
   %28 = fadd reassoc nsz arcp contract afn float %27, -1.000000e+00
-  %29 = select i1 %24, float 0x3FEFFFFBC0000000, float %28
-  %30 = fmul reassoc nsz arcp contract afn float %29, %5
-  %31 = fpext reassoc nsz arcp contract afn float %30 to double
+  %27 = select i1 %24, float 0x3FEFFFFBC0000000, float %28
+  %28 = fmul reassoc nsz arcp contract afn float %27, %5
+  %31 = fpext reassoc nsz arcp contract afn float %28 to double
   %32 = tail call reassoc nsz arcp contract afn double @atanh(double noundef %31) #19
-  %33 = fmul reassoc nsz arcp contract afn double %32, 0x3FC5555560000000
+  %31 = fmul reassoc nsz arcp contract afn double %32, 0x3FC5555560000000
   %34 = fadd reassoc nsz arcp contract afn double %33, 5.000000e-01
   %35 = fptrunc reassoc nsz arcp contract afn double %34 to float
   %36 = fcmp reassoc nsz arcp contract afn ugt double %34, 0x3F1A36E2EFFFFFFF
@@ -6580,10 +6580,10 @@ define internal float @magnifier_scale_callback(ptr readnone captures(none) %0, 
   %37 = fcmp reassoc nsz arcp contract afn ult float %.2, 0x3FEFFF2E40000000
   br i1 %37, label %39, label %38
 
-38:                                               ; preds = %6, %23
+38:; preds = %6, %23
   br label %39
 
-39:                                               ; preds = %3, %23, %38, %6
+40:                                               ; preds = %3, %23, %38, %6
   %.1 = phi nsz float [ %.2, %23 ], [ %1, %3 ], [ %.0, %6 ], [ 1.000000e+00, %38 ]
   ret float %.1
 }

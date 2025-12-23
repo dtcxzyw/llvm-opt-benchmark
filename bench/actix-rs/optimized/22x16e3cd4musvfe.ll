@@ -1764,7 +1764,7 @@ define internal fastcc noundef range(i32 -3, 3) i32 @_ZN19brotli_decompressor6de
     i8 7, label %35
   ]
 
-default.unreachable56:                            ; preds = %13
+default.unreachable60:                            ; preds = %13
   unreachable
 
 15:                                               ; preds = %13
@@ -1784,15 +1784,15 @@ default.unreachable56:                            ; preds = %13
   %23 = load i8, ptr %7, align 1, !noundef !12
   %24 = zext i8 %23 to i32
   %25 = icmp slt i32 %22, %24
-  br i1 %25, label %.lr.ph41, label %.backedge
+  br i1 %25, label %.lr.ph47, label %.backedge
 
 26:                                               ; preds = %13
   %27 = load i8, ptr %11, align 2, !noundef !12
   %28 = icmp eq i8 %27, 0
   %29 = load i8, ptr %10, align 8
   %30 = icmp eq i8 %29, 0
-  %or.cond6 = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond6, label %72, label %77
+  %or.cond7 = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond7, label %72, label %77
 
 31:                                               ; preds = %13
   %32 = call noundef zeroext i1 @_ZN19brotli_decompressor10bit_reader18BrotliSafeReadBits17hb995025403fb0150E(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 1, ptr noalias noundef nonnull align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -1818,7 +1818,7 @@ default.unreachable56:                            ; preds = %13
   store i8 0, ptr %10, align 8
   %43 = icmp eq i8 %42, 0
   %spec.select = select i1 %43, i8 2, i8 1
-  %spec.select63 = select i1 %43, i8 2, i8 1
+  %spec.select67 = select i1 %43, i8 2, i8 1
   br label %.backedge
 
 .loopexit:                                        ; preds = %33, %31, %19, %17, %80, %15, %96, %62, %72, %90, %56, %86, %77, %48
@@ -1828,7 +1828,7 @@ default.unreachable56:                            ; preds = %13
 
 .backedge:                                        ; preds = %99, %65, %40, %35, %80, %21, %49, %45, %54, %87
   %.sink = phi i8 [ 4, %35 ], [ 6, %80 ], [ %spec.select, %40 ], [ 5, %54 ], [ 2, %45 ], [ 3, %49 ], [ 4, %21 ], [ 7, %87 ], [ 4, %65 ], [ 4, %99 ]
-  %44 = phi i8 [ 4, %35 ], [ 6, %80 ], [ %spec.select63, %40 ], [ 5, %54 ], [ 2, %45 ], [ 3, %49 ], [ 4, %21 ], [ 7, %87 ], [ 4, %65 ], [ 4, %99 ]
+  %44 = phi i8 [ 4, %35 ], [ 6, %80 ], [ %spec.select67, %40 ], [ 5, %54 ], [ 2, %45 ], [ 3, %49 ], [ 4, %21 ], [ 7, %87 ], [ 4, %65 ], [ 4, %99 ]
   store i8 %.sink, ptr %5, align 1
   br label %13
 
@@ -1854,24 +1854,24 @@ default.unreachable56:                            ; preds = %13
   store i8 1, ptr %10, align 8
   br label %.backedge
 
-.lr.ph41:                                         ; preds = %21, %65
-  %.01739 = phi i32 [ %58, %65 ], [ %22, %21 ]
+.lr.ph47:                                         ; preds = %21, %65
+  %.02345 = phi i32 [ %58, %65 ], [ %22, %21 ]
   %55 = call noundef zeroext i1 @_ZN19brotli_decompressor10bit_reader18BrotliSafeReadBits17hb995025403fb0150E(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 4, ptr noalias noundef nonnull align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br i1 %55, label %57, label %56
 
-56:                                               ; preds = %.lr.ph41
-  store i32 %.01739, ptr %6, align 8
+56:                                               ; preds = %.lr.ph47
+  store i32 %.02345, ptr %6, align 8
   br label %.loopexit
 
-57:                                               ; preds = %.lr.ph41
-  %58 = add nsw i32 %.01739, 1
+57:                                               ; preds = %.lr.ph47
+  %58 = add nsw i32 %.02345, 1
   %59 = load i8, ptr %7, align 1, !noundef !12
   %60 = zext i8 %59 to i32
   %61 = icmp eq i32 %58, %60
   %.pre50 = load i32, ptr %4, align 4
   br i1 %61, label %62, label %65
 
-62:                                               ; preds = %57
+62:; preds = %57
   %63 = icmp ugt i8 %59, 4
   %64 = icmp eq i32 %.pre50, 0
   %or.cond = select i1 %63, i1 %64, i1 false
@@ -1885,7 +1885,7 @@ default.unreachable56:                            ; preds = %13
   %70 = or i32 %69, %68
   store i32 %70, ptr %9, align 8
   %71 = icmp slt i32 %58, %60
-  br i1 %71, label %.lr.ph41, label %.backedge
+  br i1 %71, label %.lr.ph47, label %.backedge
 
 72:                                               ; preds = %26
   %73 = call noundef zeroext i1 @_ZN19brotli_decompressor10bit_reader18BrotliSafeReadBits17hb995025403fb0150E(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 1, ptr noalias noundef nonnull align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -1924,23 +1924,23 @@ default.unreachable56:                            ; preds = %13
   br label %.backedge
 
 .lr.ph:                                           ; preds = %35, %99
-  %.01838 = phi i32 [ %92, %99 ], [ %36, %35 ]
+  %.02444 = phi i32 [ %92, %99 ], [ %36, %35 ]
   %89 = call noundef zeroext i1 @_ZN19brotli_decompressor10bit_reader18BrotliSafeReadBits17hb995025403fb0150E(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 8, ptr noalias noundef nonnull align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br i1 %89, label %91, label %90
 
 90:                                               ; preds = %.lr.ph
-  store i32 %.01838, ptr %6, align 8
+  store i32 %.02444, ptr %6, align 8
   br label %.loopexit
 
 91:                                               ; preds = %.lr.ph
-  %92 = add nsw i32 %.01838, 1
+  %92 = add nsw i32 %.02444, 1
   %93 = load i8, ptr %7, align 1, !noundef !12
   %94 = zext i8 %93 to i32
   %95 = icmp eq i32 %92, %94
   %.pre49 = load i32, ptr %4, align 4
   br i1 %95, label %96, label %99
 
-96:                                               ; preds = %91
+96:; preds = %91
   %97 = icmp ugt i8 %93, 1
   %98 = icmp eq i32 %.pre49, 0
   %or.cond3 = select i1 %97, i1 %98, i1 false

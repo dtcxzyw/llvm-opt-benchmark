@@ -2798,7 +2798,7 @@ _build_jobid_str.exit.us.us:                      ; preds = %.split.us, %_build_
   %23 = load i8, ptr %6, align 16
   %24 = and i8 %23, -33
   switch i8 %24, label %_build_jobid_str.exit.us.us.backedge [
-    i8 89, label %.fold.split.loopexit45
+    i8 89, label %.fold.split.loopexit38
     i8 78, label %.fold.split
   ]
 
@@ -2826,7 +2826,7 @@ _build_jobid_str.exit.us:                         ; preds = %.split.us, %_build_
   %34 = load i8, ptr %6, align 16
   %35 = and i8 %34, -33
   switch i8 %35, label %_build_jobid_str.exit.us.backedge [
-    i8 89, label %.fold.split.loopexit45
+    i8 89, label %.fold.split.loopexit38
     i8 78, label %.fold.split
   ]
 
@@ -2938,10 +2938,10 @@ _build_jobid_str.exit:                            ; preds = %56, %60, %62
     i8 78, label %.fold.split
   ]
 
-.fold.split.loopexit45:                           ; preds = %22, %33, %52, %71
+.fold.split.loopexit38:                           ; preds = %22, %33, %52, %71
   br label %.fold.split
 
-.fold.split:                                      ; preds = %22, %33, %52, %71, %.fold.split.loopexit45
+.fold.split.loopexit39:                           ; preds = %22, %33, %52, %71, %.fold.split.loopexit45
   %.0 = phi i32 [ 0, %22 ], [ 0, %33 ], [ 0, %52 ], [ 1, %.fold.split.loopexit45 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

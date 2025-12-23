@@ -6327,18 +6327,18 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
 
 32:                                               ; preds = %19
   %33 = icmp eq i32 %16, 10
-  br i1 %33, label %.preheader220.outer.outer, label %.loopexit222
+  br i1 %33, label %.preheader221.outer.outer, label %.loopexit223
 
-.preheader220.outer.outer:                        ; preds = %32, %51
+.preheader221.outer.outer:                        ; preds = %32, %51
   %.ph.ph = phi i8 [ %43, %51 ], [ %13, %32 ]
   %.2170.ph.ph = phi i32 [ %47, %51 ], [ %17, %32 ]
   %.3162.ph.ph = phi i64 [ 0, %51 ], [ %.0159.ph, %32 ]
   %.3146.ph.ph = phi i64 [ %52, %51 ], [ %.0143, %32 ]
   %.1137.ph.ph = phi i64 [ %.1137.ph, %51 ], [ 0, %32 ]
   %.3.ph.ph = phi ptr [ %.4, %51 ], [ %.1, %32 ]
-  br label %.preheader220.outer
+  br label %.preheader221.outer
 
-.preheader220.outer:                              ; preds = %.preheader220.outer.outer, %54
+.preheader221.outer:                              ; preds = %.preheader221.outer.outer, %54
   %.ph = phi i8 [ %43, %54 ], [ %.ph.ph, %.preheader220.outer.outer ]
   %.2170.ph = phi i32 [ %47, %54 ], [ %.2170.ph.ph, %.preheader220.outer.outer ]
   %.3162.ph = phi i64 [ %58, %54 ], [ %.3162.ph.ph, %.preheader220.outer.outer ]
@@ -6348,16 +6348,16 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   %35 = icmp slt i64 %.3162.ph, 214748364
   %36 = icmp slt i64 %.1137.ph, 9
   %or.cond5 = select i1 %35, i1 %36, i1 false
-  br label %.preheader220
+  br label %.preheader221
 
-.preheader220:                                    ; preds = %.preheader220.outer, %53
+.preheader221:                                    ; preds = %.preheader221.outer, %53
   %37 = phi i8 [ %43, %53 ], [ %.ph, %.preheader220.outer ]
   %.2170 = phi i32 [ %47, %53 ], [ %.2170.ph, %.preheader220.outer ]
   %.3 = phi ptr [ %.4, %53 ], [ %.3.ph, %.preheader220.outer ]
   %.not195 = icmp eq i32 %.2170, 0
   br i1 %.not195, label %42, label %38
 
-38:                                               ; preds = %.preheader220
+38:                                               ; preds = %.preheader221
   %39 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %40 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %41 = icmp ule ptr %40, %1
@@ -6369,7 +6369,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   %.pre = load i8, ptr %39, align 1, !tbaa !167
   br label %42
 
-42:                                               ; preds = %._crit_edge, %.preheader220
+42:                                               ; preds = %._crit_edge, %.preheader221
   %43 = phi i8 [ %37, %.preheader220 ], [ %.pre, %._crit_edge ]
   %.4 = phi ptr [ %.3, %.preheader220 ], [ %39, %._crit_edge ]
   %44 = zext i8 %43 to i32
@@ -6377,7 +6377,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   %46 = and i32 %45, 15
   %47 = sub nuw nsw i32 4, %.2170
   %48 = icmp samesign ugt i32 %46, 9
-  br i1 %48, label %.loopexit222, label %49
+  br i1 %48, label %.loopexit223, label %49
 
 49:                                               ; preds = %42
   %50 = icmp ne i32 %46, 0
@@ -6386,19 +6386,19 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
 
 51:                                               ; preds = %49
   %52 = add nsw i64 %.3146.ph.ph, -1
-  br label %.preheader220.outer.outer
+  br label %.preheader221.outer.outer
 
 53:                                               ; preds = %49
-  br i1 %or.cond5, label %54, label %.preheader220
+  br i1 %or.cond5, label %54, label %.preheader221
 
 54:                                               ; preds = %53
   %55 = add nsw i64 %.1137.ph, 1
   %56 = mul nsw i64 %.3162.ph, 10
   %57 = zext nneg i32 %46 to i64
   %58 = add nsw i64 %56, %57
-  br label %.preheader220.outer
+  br label %.preheader221.outer
 
-.loopexit222:                                     ; preds = %42, %32
+.loopexit223:                                     ; preds = %42, %32
   %59 = phi i8 [ %13, %32 ], [ %43, %42 ]
   %.1169 = phi i32 [ %17, %32 ], [ %47, %42 ]
   %.2161 = phi i64 [ %.0159.ph, %32 ], [ %.3162.ph, %42 ]
@@ -6411,7 +6411,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   %61 = icmp ult i32 %60, 2
   br i1 %61, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %.loopexit222, %73
+.preheader:                                       ; preds = %.loopexit223, %73
   %62 = phi i8 [ %68, %73 ], [ %59, %.loopexit222 ]
   %.3171 = phi i32 [ %74, %73 ], [ %.1169, %.loopexit222 ]
   %.1155 = phi i64 [ %.2156, %73 ], [ 0, %.loopexit222 ]
@@ -6455,27 +6455,27 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   %.not201 = icmp eq i64 %.2161, 0
   br i1 %.not201, label %.loopexit, label %80
 
-.thread:                                          ; preds = %.loopexit222
-  %.not201212 = icmp eq i64 %.2161, 0
-  br i1 %.not201212, label %.loopexit, label %.thread215
+.thread:                                          ; preds = %.loopexit223
+  %.not201213 = icmp eq i64 %.2161, 0
+  br i1 %.not201213, label %.loopexit, label %.thread216
 
 80:                                               ; preds = %79
   %81 = sub nsw i64 0, %.1155
   %spec.select208 = select i1 %.not200.not, i64 %81, i64 %.1155
   %.not202 = icmp eq i32 %.1149, 0
-  br i1 %.not202, label %.thread215, label %82
+  br i1 %.not202, label %.thread216, label %82
 
 82:                                               ; preds = %80
   %spec.select = select i1 %.not200.not, i64 0, i64 2147483647
   br label %.loopexit
 
-.thread215:                                       ; preds = %.thread, %80
-  %.0154213219 = phi i64 [ %spec.select208, %80 ], [ 0, %.thread ]
+.thread216:                                       ; preds = %.thread, %80
+  %.0154214220 = phi i64 [ %spec.select208, %80 ], [ 0, %.thread ]
   %83 = add nsw i64 %.2145, %2
-  %84 = add nsw i64 %83, %.0154213219
+  %84 = add nsw i64 %83, %.0154214220
   br i1 %.not, label %129, label %85
 
-85:                                               ; preds = %.thread215
+85:                                               ; preds = %.thread216
   %86 = add nsw i64 %.0136, %.0141.ph.ph
   %87 = add nsw i64 %84, %.0141.ph.ph
   %88 = icmp slt i64 %86, 6
@@ -6552,7 +6552,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   store i64 %128, ptr %3, align 8, !tbaa !133
   br label %.loopexit
 
-129:                                              ; preds = %.thread215
+129:                                              ; preds = %.thread216
   %130 = add nsw i64 %84, %.0141.ph.ph
   %131 = sub nsw i64 %.0136, %84
   %132 = icmp sgt i64 %130, 5
@@ -6602,15 +6602,15 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   %158 = mul nsw i64 %157, %.8
   %159 = icmp sgt i64 %158, 32767
   %160 = shl i64 %158, 16
-  %spec.select209 = select i1 %159, i64 2147483647, i64 %160
+  %spec.select210 = select i1 %159, i64 2147483647, i64 %160
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %38, %63, %82, %133, %.thread, %154, %129, %121, %126, %91, %113, %152, %147, %79
   %.0166 = phi i64 [ 0, %.thread ], [ %spec.select, %82 ], [ 0, %79 ], [ %92, %91 ], [ %114, %113 ], [ %124, %121 ], [ %127, %126 ], [ 0, %147 ], [ %153, %152 ], [ 2147483647, %129 ], [ %spec.select209, %154 ], [ 0, %63 ], [ 0, %38 ], [ 0, %133 ], [ 0, %8 ]
   %.not204 = icmp eq i32 %.0152.ph324, 0
   %161 = sub nsw i64 0, %.0166
-  %.1167 = select i1 %.not204, i64 %.0166, i64 %161
-  ret i64 %.1167
+  %spec.select209 = select i1 %.not204, i64 %.0166, i64 %161
+  ret i64 %spec.select209
 }
 
 declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #8

@@ -2407,8 +2407,8 @@ _ZNKSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_
 
 .critedge79.us:                                   ; preds = %.loopexit146.us, %.loopexit145.us.us, %._crit_edge.us
   %80 = add nuw nsw i64 %.070178.us, 1
-  %exitcond196.not = icmp eq i64 %80, %1
-  br i1 %exitcond196.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !114
+  %exitcond197.not = icmp eq i64 %80, %1
+  br i1 %exitcond197.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !114
 
 .lr.ph177.us:                                     ; preds = %_ZNKSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit.us, %.critedge.us
   %.061176.us = phi i64 [ %114, %.critedge.us ], [ %.067152.us, %_ZNKSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit.us ]
@@ -2538,14 +2538,14 @@ _ZNKSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt
 
 .loopexit145.us.us:                               ; preds = %126
   %131 = add nuw nsw i64 %.067165.us.us, 1
-  %exitcond195.not = icmp eq i64 %131, %3
-  br i1 %exitcond195.not, label %.critedge79.us, label %.lr.ph.split.us.us, !llvm.loop !119
+  %exitcond196.not = icmp eq i64 %131, %3
+  br i1 %exitcond196.not, label %.critedge79.us, label %.lr.ph.split.us.us, !llvm.loop !119
 
 .loopexit:                                        ; preds = %.critedge79.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %.idx = shl nuw nsw i64 %3, 2
   tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %.idx) #27
-  %.idx257 = shl nuw nsw i64 %3, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %.idx257) #27
+  %.idx259 = shl nuw nsw i64 %3, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %.idx259) #27
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit
