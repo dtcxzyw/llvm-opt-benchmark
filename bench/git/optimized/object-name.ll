@@ -148,31 +148,28 @@ define internal range(i32 0, 2) i32 @disambiguate_commit_only(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @disambiguate_committish_only(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr noundef null) #20
-  switch i32 %4, label %5 [
-    i32 1, label %14
-    i32 4, label %6
+  switch i32 %4, label %12 [
+    i32 1, label %13
+    i32 4, label %5
   ]
 
 5:                                                ; preds = %3
-  br label %14
+  %6 = tail call ptr @parse_object(ptr noundef %0, ptr noundef %1) #20
+  %7 = tail call ptr @deref_tag(ptr noundef %0, ptr noundef %6, ptr noundef null, i32 noundef 0) #20
+  %.not11 = icmp eq ptr %7, null
+  br i1 %.not11, label %12, label %8
 
-6:                                                ; preds = %3
-  %7 = tail call ptr @parse_object(ptr noundef %0, ptr noundef %1) #20
-  %8 = tail call ptr @deref_tag(ptr noundef %0, ptr noundef %7, ptr noundef null, i32 noundef 0) #20
-  %.not11 = icmp eq ptr %8, null
-  br i1 %.not11, label %13, label %9
+8:                                                ; preds = %5
+  %9 = load i32, ptr %7, align 4
+  %10 = and i32 %9, 14
+  %11 = icmp eq i32 %10, 2
+  br i1 %11, label %13, label %12
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr %8, align 4
-  %11 = and i32 %10, 14
-  %12 = icmp eq i32 %11, 2
-  br i1 %12, label %14, label %13
+12:                                               ; preds = %3, %8, %5
+  br label %13
 
-13:                                               ; preds = %9, %6
-  br label %14
-
-14:                                               ; preds = %9, %3, %13, %5
-  %.0 = phi i32 [ 0, %13 ], [ 0, %5 ], [ %4, %3 ], [ 1, %9 ]
+13:                                               ; preds = %8, %3, %12
+  %.0 = phi i32 [ 0, %12 ], [ 1, %8 ], [ %4, %3 ]
   ret i32 %.0
 }
 

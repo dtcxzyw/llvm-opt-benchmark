@@ -32106,25 +32106,27 @@ define noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17h
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration11months_only17h1c1dc2f873eba75eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !noundef !3
-  %3 = icmp ne i64 %2, 0
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = icmp eq i64 %5, 0
-  %or.cond = select i1 %3, i1 %6, i1 false
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8
-  %9 = icmp eq i64 %8, 0
-  %or.cond5 = select i1 %or.cond, i1 %9, i1 false
-  br i1 %or.cond5, label %10, label %14
+  %3 = icmp eq i64 %2, 0
+  br i1 %3, label %15, label %4
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = icmp eq i64 %12, 0
-  br label %14
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !noundef !3
+  %7 = icmp eq i64 %6, 0
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp eq i64 %9, 0
+  %or.cond = select i1 %7, i1 %10, i1 false
+  br i1 %or.cond, label %11, label %15
 
-14:                                               ; preds = %1, %10
-  %.sroa.0.0 = phi i1 [ %13, %10 ], [ false, %1 ]
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = icmp eq i64 %13, 0
+  br label %15
+
+15:                                               ; preds = %1, %4, %11
+  %.sroa.0.0 = phi i1 [ %14, %11 ], [ false, %4 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 

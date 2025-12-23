@@ -2360,30 +2360,29 @@ mbedtls_ecp_get_type.exit:                        ; preds = %6
 
 18:                                               ; preds = %13
   %19 = icmp eq i64 %15, 254
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %28
 
 20:                                               ; preds = %18
   %21 = tail call i32 @mbedtls_mpi_get_bit(ptr noundef %1, i64 noundef 2) #20
   %.not14 = icmp eq i32 %21, 0
-  br i1 %.not14, label %22, label %mbedtls_ecp_get_type.exit17.thread
-
-22:                                               ; preds = %20, %18
-  br label %mbedtls_ecp_get_type.exit17.thread
+  br i1 %.not14, label %28, label %mbedtls_ecp_get_type.exit17.thread
 
 mbedtls_ecp_get_type.exit17:                      ; preds = %6
-  %23 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %1, i64 noundef 1) #20
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %mbedtls_ecp_get_type.exit17.thread, label %25
+  %22 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %1, i64 noundef 1) #20
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %mbedtls_ecp_get_type.exit17.thread, label %24
 
-25:                                               ; preds = %mbedtls_ecp_get_type.exit17
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %27 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef %1, ptr noundef nonnull %26) #20
-  %.inv = icmp slt i32 %27, 0
-  %spec.select = select i1 %.inv, i32 0, i32 -19584
+24:                                               ; preds = %mbedtls_ecp_get_type.exit17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %26 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef %1, ptr noundef nonnull %25) #20
+  %27 = icmp sgt i32 %26, -1
+  br i1 %27, label %mbedtls_ecp_get_type.exit17.thread, label %28
+
+28:                                               ; preds = %18, %20, %24
   br label %mbedtls_ecp_get_type.exit17.thread
 
-mbedtls_ecp_get_type.exit17.thread:               ; preds = %2, %25, %mbedtls_ecp_get_type.exit17, %20, %mbedtls_ecp_get_type.exit, %11, %13, %22
-  %.0 = phi i32 [ -19584, %mbedtls_ecp_get_type.exit17 ], [ -19584, %mbedtls_ecp_get_type.exit ], [ 0, %22 ], [ -19584, %20 ], [ %spec.select, %25 ], [ -19584, %13 ], [ -19584, %11 ], [ -20352, %2 ]
+mbedtls_ecp_get_type.exit17.thread:               ; preds = %2, %mbedtls_ecp_get_type.exit17, %24, %20, %mbedtls_ecp_get_type.exit, %11, %13, %28
+  %.0 = phi i32 [ -19584, %mbedtls_ecp_get_type.exit17 ], [ -19584, %mbedtls_ecp_get_type.exit ], [ -19584, %24 ], [ -19584, %20 ], [ 0, %28 ], [ -19584, %13 ], [ -19584, %11 ], [ -20352, %2 ]
   ret i32 %.0
 }
 

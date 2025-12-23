@@ -304,7 +304,7 @@ define internal i32 @pkey_rsa_verify(ptr noundef readonly captures(none) %0, ptr
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !16
-  switch i32 %19, label %55 [
+  switch i32 %19, label %56 [
     i32 1, label %20
     i32 6, label %23
   ]
@@ -312,7 +312,7 @@ define internal i32 @pkey_rsa_verify(ptr noundef readonly captures(none) %0, ptr
 20:                                               ; preds = %17
   %21 = tail call i32 @EVP_MD_type(ptr noundef nonnull %16) #9
   %22 = tail call i32 @RSA_verify(i32 noundef %21, ptr noundef %3, i64 noundef %4, ptr noundef %1, i64 noundef %2, ptr noundef %12) #9
-  br label %55
+  br label %56
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -327,13 +327,13 @@ setup_tbuf.exit:                                  ; preds = %23
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #10
   store ptr %29, ptr %24, align 8, !tbaa !28
   %.not4.i.not = icmp eq ptr %29, null
-  br i1 %.not4.i.not, label %55, label %setup_tbuf.exit.thread
+  br i1 %.not4.i.not, label %56, label %setup_tbuf.exit.thread
 
 setup_tbuf.exit.thread:                           ; preds = %23, %setup_tbuf.exit
   %30 = phi ptr [ %25, %23 ], [ %29, %setup_tbuf.exit ]
   %31 = call i32 @RSA_verify_raw(ptr noundef %12, ptr noundef nonnull %6, ptr noundef nonnull %30, i64 noundef %14, ptr noundef %1, i64 noundef %2, i32 noundef 3) #9
   %.not42 = icmp eq i32 %31, 0
-  br i1 %.not42, label %55, label %32
+  br i1 %.not42, label %56, label %32
 
 32:                                               ; preds = %setup_tbuf.exit.thread
   %33 = load ptr, ptr %15, align 8, !tbaa !24
@@ -343,27 +343,26 @@ setup_tbuf.exit.thread:                           ; preds = %23, %setup_tbuf.exi
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %38 = load i32, ptr %37, align 8, !tbaa !17
   %39 = call i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %12, ptr noundef %3, ptr noundef %33, ptr noundef %35, ptr noundef %36, i32 noundef %38) #9
-  %.not43 = icmp ne i32 %39, 0
-  %spec.select = zext i1 %.not43 to i32
-  br label %55
+  %.not43 = icmp eq i32 %39, 0
+  br i1 %.not43, label %56, label %55
 
 40:                                               ; preds = %5
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !28
-  %.not.i45 = icmp eq ptr %42, null
-  br i1 %.not.i45, label %setup_tbuf.exit49, label %setup_tbuf.exit49.thread
+  %.not.i44 = icmp eq ptr %42, null
+  br i1 %.not.i44, label %setup_tbuf.exit48, label %setup_tbuf.exit48.thread
 
-setup_tbuf.exit49:                                ; preds = %40
+setup_tbuf.exit48:                                ; preds = %40
   %43 = load ptr, ptr %9, align 8, !tbaa !29
   %44 = tail call i32 @EVP_PKEY_size(ptr noundef %43) #9
   %45 = sext i32 %44 to i64
   %46 = tail call noalias ptr @malloc(i64 noundef %45) #10
   store ptr %46, ptr %41, align 8, !tbaa !28
-  %.not4.i47.not = icmp eq ptr %46, null
-  br i1 %.not4.i47.not, label %55, label %setup_tbuf.exit49.thread
+  %.not4.i46.not = icmp eq ptr %46, null
+  br i1 %.not4.i46.not, label %56, label %setup_tbuf.exit48.thread
 
-setup_tbuf.exit49.thread:                         ; preds = %40, %setup_tbuf.exit49
-  %47 = phi ptr [ %42, %40 ], [ %46, %setup_tbuf.exit49 ]
+setup_tbuf.exit48.thread:                         ; preds = %40, %setup_tbuf.exit48
+  %47 = phi ptr [ %42, %40 ], [ %46, %setup_tbuf.exit48 ]
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !16
   %50 = call i32 @RSA_verify_raw(ptr noundef %12, ptr noundef nonnull %6, ptr noundef nonnull %47, i64 noundef %14, ptr noundef %1, i64 noundef %2, i32 noundef %49) #9
@@ -371,17 +370,19 @@ setup_tbuf.exit49.thread:                         ; preds = %40, %setup_tbuf.exi
   %51 = load i64, ptr %6, align 8
   %.not39 = icmp eq i64 %51, %4
   %or.cond = select i1 %.not38, i1 %.not39, i1 false
-  br i1 %or.cond, label %52, label %55
+  br i1 %or.cond, label %52, label %56
 
-52:                                               ; preds = %setup_tbuf.exit49.thread
+52:                                               ; preds = %setup_tbuf.exit48.thread
   %53 = load ptr, ptr %41, align 8, !tbaa !28
   %54 = call i32 @CRYPTO_memcmp(ptr noundef %3, ptr noundef %53, i64 noundef %4) #9
   %.not40 = icmp eq i32 %54, 0
-  %spec.select44 = zext i1 %.not40 to i32
-  br label %55
+  br i1 %.not40, label %55, label %56
 
-55:                                               ; preds = %52, %32, %setup_tbuf.exit49, %setup_tbuf.exit49.thread, %17, %setup_tbuf.exit, %setup_tbuf.exit.thread, %20
-  %.0 = phi i32 [ 0, %setup_tbuf.exit ], [ %22, %20 ], [ 0, %setup_tbuf.exit49 ], [ 0, %setup_tbuf.exit49.thread ], [ 0, %17 ], [ %spec.select, %32 ], [ 0, %setup_tbuf.exit.thread ], [ %spec.select44, %52 ]
+55:                                               ; preds = %32, %52
+  br label %56
+
+56:                                               ; preds = %setup_tbuf.exit48, %setup_tbuf.exit48.thread, %52, %17, %setup_tbuf.exit, %setup_tbuf.exit.thread, %32, %55, %20
+  %.0 = phi i32 [ 0, %setup_tbuf.exit ], [ %22, %20 ], [ 0, %setup_tbuf.exit48 ], [ 1, %55 ], [ 0, %17 ], [ 0, %32 ], [ 0, %setup_tbuf.exit.thread ], [ 0, %52 ], [ 0, %setup_tbuf.exit48.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

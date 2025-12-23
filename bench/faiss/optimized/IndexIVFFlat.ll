@@ -2382,10 +2382,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %68 = load i64, ptr %67, align 8, !tbaa !36
   %69 = urem i64 %68, %53
   %.not19.i.i.i.i.us = icmp eq i64 %69, %57
-  br i1 %.not19.i.i.i.i.us, label %70, label %..loopexit_crit_edge21.i.i.i.i.us, !llvm.loop !113
-
-..loopexit_crit_edge21.i.i.i.i.us:                ; preds = %66
-  br label %.loopexit146.us, !llvm.loop !113
+  br i1 %.not19.i.i.i.i.us, label %70, label %.loopexit146.us, !llvm.loop !113
 
 70:                                               ; preds = %66
   %71 = icmp eq i64 %56, %68
@@ -2410,8 +2407,8 @@ _ZNKSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_
 
 .critedge79.us:                                   ; preds = %.loopexit146.us, %.loopexit145.us.us, %._crit_edge.us
   %80 = add nuw nsw i64 %.070178.us, 1
-  %exitcond197.not = icmp eq i64 %80, %1
-  br i1 %exitcond197.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !114
+  %exitcond196.not = icmp eq i64 %80, %1
+  br i1 %exitcond196.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !114
 
 .lr.ph177.us:                                     ; preds = %_ZNKSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit.us, %.critedge.us
   %.061176.us = phi i64 [ %114, %.critedge.us ], [ %.067152.us, %_ZNKSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit.us ]
@@ -2445,10 +2442,7 @@ _ZNKSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_
   %95 = load i64, ptr %94, align 8, !tbaa !36
   %96 = urem i64 %95, %53
   %.not19.i.i.i.i.i.us = icmp eq i64 %96, %84
-  br i1 %.not19.i.i.i.i.i.us, label %97, label %..loopexit_crit_edge21.i.i.i.i.i.us, !llvm.loop !113
-
-..loopexit_crit_edge21.i.i.i.i.i.us:              ; preds = %93
-  br label %.loopexit.us, !llvm.loop !113
+  br i1 %.not19.i.i.i.i.i.us, label %97, label %.loopexit.us, !llvm.loop !113
 
 97:                                               ; preds = %93
   %98 = icmp eq i64 %82, %95
@@ -2482,9 +2476,9 @@ _ZNKSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt
   %107 = icmp eq i64 %82, %106
   br i1 %107, label %103, label %.loopexit.us, !llvm.loop !116
 
-.loopexit.us:                                     ; preds = %.lr.ph.i.i.i.i.i.us, %.preheader, %103, %104, %..loopexit_crit_edge21.i.i.i.i.i.us, %83
-  %.sroa.07.0.i.i.us = phi ptr [ %.sroa.06.1.i.i.i.us, %103 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.us ], [ null, %.preheader ], [ null, %83 ], [ %.sroa.06.1.i.i.i.us, %104 ], [ null, %.lr.ph.i.i.i.i.i.us ]
-  %.sroa.3.0.i.i.us = phi ptr [ null, %103 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.us ], [ null, %.preheader ], [ null, %83 ], [ %.sroa.03.0.i.i.us, %104 ], [ null, %.lr.ph.i.i.i.i.i.us ]
+.loopexit.us:                                     ; preds = %.lr.ph.i.i.i.i.i.us, %93, %.preheader, %103, %104, %83
+  %.sroa.07.0.i.i.us = phi ptr [ null, %.preheader ], [ %.sroa.06.1.i.i.i.us, %103 ], [ null, %83 ], [ %.sroa.06.1.i.i.i.us, %104 ], [ null, %93 ], [ null, %.lr.ph.i.i.i.i.i.us ]
+  %.sroa.3.0.i.i.us = phi ptr [ null, %.preheader ], [ null, %103 ], [ null, %83 ], [ %.sroa.03.0.i.i.us, %104 ], [ null, %93 ], [ null, %.lr.ph.i.i.i.i.i.us ]
   %108 = getelementptr inbounds nuw float, ptr %51, i64 %.061176.us
   %109 = load float, ptr %108, align 4, !tbaa !112
   %110 = getelementptr inbounds nuw i64, ptr %36, i64 %.168175.us
@@ -2519,7 +2513,7 @@ _ZNKSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt
   %or.cond.us = select i1 %121, i1 %122, i1 false
   br i1 %or.cond.us, label %.lr.ph174.us, label %.critedge.us, !llvm.loop !118
 
-.loopexit146.us:                                  ; preds = %.lr.ph.i.i.i.i.us, %..loopexit_crit_edge21.i.i.i.i.us, %.lr.ph.split.us183
+.loopexit146.us:                                  ; preds = %.lr.ph.i.i.i.i.us, %66, %.lr.ph.split.us183
   %123 = add nuw nsw i64 %.067165.us181, 1
   %exitcond.not = icmp eq i64 %123, %3
   br i1 %exitcond.not, label %.critedge79.us, label %.lr.ph.split.us183, !llvm.loop !119
@@ -2544,14 +2538,14 @@ _ZNKSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt
 
 .loopexit145.us.us:                               ; preds = %126
   %131 = add nuw nsw i64 %.067165.us.us, 1
-  %exitcond196.not = icmp eq i64 %131, %3
-  br i1 %exitcond196.not, label %.critedge79.us, label %.lr.ph.split.us.us, !llvm.loop !119
+  %exitcond195.not = icmp eq i64 %131, %3
+  br i1 %exitcond195.not, label %.critedge79.us, label %.lr.ph.split.us.us, !llvm.loop !119
 
 .loopexit:                                        ; preds = %.critedge79.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %.idx = shl nuw nsw i64 %3, 2
   tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %.idx) #27
-  %.idx259 = shl nuw nsw i64 %3, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %.idx259) #27
+  %.idx257 = shl nuw nsw i64 %3, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %.idx257) #27
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit

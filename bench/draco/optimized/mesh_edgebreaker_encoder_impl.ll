@@ -5913,16 +5913,13 @@ _ZN5draco31MeshEdgebreakerTraversalEncoder12EncodeSymbolENS_29EdgebreakerTopolog
   %246 = sext i32 %245 to i64
   %247 = urem i64 %246, %232
   %.not19.i.i.i.i.us = icmp eq i64 %247, %233
-  br i1 %.not19.i.i.i.i.us, label %248, label %..loopexit_crit_edge21.i.i.i.i.us, !llvm.loop !314
-
-..loopexit_crit_edge21.i.i.i.i.us:                ; preds = %243
-  br label %.loopexit.i.i.us, !llvm.loop !314
+  br i1 %.not19.i.i.i.i.us, label %248, label %.loopexit.i.i.us, !llvm.loop !314
 
 248:                                              ; preds = %243
   %249 = icmp eq i32 %.sroa.02.0.i21.us, %245
   br i1 %249, label %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEixEOi.exit.us, label %.lr.ph.i.i.i.i.us, !llvm.loop !314
 
-.loopexit.i.i.us:                                 ; preds = %.lr.ph.i.i.i.i.us, %..loopexit_crit_edge21.i.i.i.i.us, %229
+.loopexit.i.i.us:                                 ; preds = %.lr.ph.i.i.i.i.us, %243, %229
   %250 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %250, align 8, !tbaa !113
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
@@ -12041,16 +12038,13 @@ _ZNK5draco26MeshEdgebreakerEncoderImplINS_41MeshEdgebreakerTraversalPredictiveEn
   %222 = sext i32 %221 to i64
   %223 = urem i64 %222, %208
   %.not19.i.i.i.i.us = icmp eq i64 %223, %209
-  br i1 %.not19.i.i.i.i.us, label %224, label %..loopexit_crit_edge21.i.i.i.i.us, !llvm.loop !314
-
-..loopexit_crit_edge21.i.i.i.i.us:                ; preds = %219
-  br label %.loopexit.i.i.us, !llvm.loop !314
+  br i1 %.not19.i.i.i.i.us, label %224, label %.loopexit.i.i.us, !llvm.loop !314
 
 224:                                              ; preds = %219
   %225 = icmp eq i32 %.sroa.02.0.i21.us, %221
   br i1 %225, label %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEixEOi.exit.us, label %.lr.ph.i.i.i.i.us, !llvm.loop !314
 
-.loopexit.i.i.us:                                 ; preds = %.lr.ph.i.i.i.i.us, %..loopexit_crit_edge21.i.i.i.i.us, %205
+.loopexit.i.i.us:                                 ; preds = %.lr.ph.i.i.i.i.us, %219, %205
   %226 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %226, align 8, !tbaa !113
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
@@ -18561,16 +18555,13 @@ _ZNK5draco26MeshEdgebreakerEncoderImplINS_38MeshEdgebreakerTraversalValenceEncod
   %222 = sext i32 %221 to i64
   %223 = urem i64 %222, %208
   %.not19.i.i.i.i.us = icmp eq i64 %223, %209
-  br i1 %.not19.i.i.i.i.us, label %224, label %..loopexit_crit_edge21.i.i.i.i.us, !llvm.loop !314
-
-..loopexit_crit_edge21.i.i.i.i.us:                ; preds = %219
-  br label %.loopexit.i.i.us, !llvm.loop !314
+  br i1 %.not19.i.i.i.i.us, label %224, label %.loopexit.i.i.us, !llvm.loop !314
 
 224:                                              ; preds = %219
   %225 = icmp eq i32 %.sroa.02.0.i21.us, %221
   br i1 %225, label %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEixEOi.exit.us, label %.lr.ph.i.i.i.i.us, !llvm.loop !314
 
-.loopexit.i.i.us:                                 ; preds = %.lr.ph.i.i.i.i.us, %..loopexit_crit_edge21.i.i.i.i.us, %205
+.loopexit.i.i.us:                                 ; preds = %.lr.ph.i.i.i.i.us, %219, %205
   %226 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %226, align 8, !tbaa !113
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8

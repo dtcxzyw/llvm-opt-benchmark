@@ -1628,7 +1628,7 @@ define internal void @pgoutput_stream_abort(ptr noundef %0, ptr noundef readonly
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit.i, label %.lr.ph.i
+  br i1 %27, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -1694,7 +1694,7 @@ define internal void @pgoutput_stream_commit(ptr noundef %0, ptr noundef %1, i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 5
   %15 = load ptr, ptr %13, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit.i, label %.lr.ph.i
+  br i1 %16, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -1781,7 +1781,7 @@ define internal void @publication_invalidation_cb(i64 %0, i32 %1, i32 %2) #2 {
   store i8 0, ptr %10, align 4
   %11 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %rel_sync_cache_publication_cb.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %rel_sync_cache_publication_cb.exit, label %.lr.ph.i, !llvm.loop !10
 
 rel_sync_cache_publication_cb.exit:               ; preds = %.lr.ph.i, %3, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1832,7 +1832,7 @@ define internal void @rel_sync_cache_publication_cb(i64 %0, i32 %1, i32 %2) #2 {
   store i8 0, ptr %10, align 4
   %11 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1883,7 +1883,7 @@ define internal void @rel_sync_cache_relation_cb(i64 %0, i32 noundef %1) #2 {
   store i8 0, ptr %15, align 4
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
   %.not5 = icmp eq ptr %16, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2472,7 +2472,7 @@ init_tuple_slot.exit:                             ; preds = %168, %181
 286:                                              ; preds = %283, %279
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next119.i, 3
-  br i1 %exitcond.not.i, label %287, label %279, !llvm.loop !11
+  br i1 %exitcond.not.i, label %287, label %279, !llvm.loop !12
 
 287:                                              ; preds = %286
   br i1 %.178.i, label %288, label %pgoutput_row_filter_init.exit
@@ -2563,7 +2563,7 @@ pgoutput_ensure_entry_cxt.exit.i:                 ; preds = %292, %288
   %335 = load i32, ptr %325, align 4
   %336 = sext i32 %335 to i64
   %.not92.i = icmp slt i64 %indvars.iv.next122.i, %336
-  br i1 %.not92.i, label %328, label %.critedge94.i, !llvm.loop !12
+  br i1 %.not92.i, label %328, label %.critedge94.i, !llvm.loop !13
 
 .critedge94.i:                                    ; preds = %328, %.preheader.i
   %.079.lcssa.i = phi ptr [ null, %.preheader.i ], [ %334, %328 ]
@@ -2577,7 +2577,7 @@ pgoutput_ensure_entry_cxt.exit.i:                 ; preds = %292, %288
 341:                                              ; preds = %.critedge94.i, %321
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %exitcond127.not.i = icmp eq i64 %indvars.iv.next125.i, 3
-  br i1 %exitcond127.not.i, label %342, label %321, !llvm.loop !13
+  br i1 %exitcond127.not.i, label %342, label %321, !llvm.loop !14
 
 342:                                              ; preds = %341
   store ptr %302, ptr @CurrentMemoryContext, align 8
@@ -2604,7 +2604,7 @@ pgoutput_row_filter_init.exit:                    ; preds = %287, %342
 352:                                              ; preds = %353
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i161, 1
   %exitcond.not.i164 = icmp eq i64 %indvars.iv.next.i163, %349
-  br i1 %exitcond.not.i164, label %.critedge2.i, label %353, !llvm.loop !14
+  br i1 %exitcond.not.i164, label %.critedge2.i, label %353, !llvm.loop !15
 
 353:                                              ; preds = %352, %.lr.ph.i160
   %indvars.iv.i161 = phi i64 [ 0, %.lr.ph.i160 ], [ %indvars.iv.next.i163, %352 ]
@@ -3092,7 +3092,7 @@ define internal fastcc void @send_relation_and_attrs(ptr noundef %0, i32 noundef
   %25 = load i32, ptr %5, align 8
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %9, label %._crit_edge, !llvm.loop !15
+  br i1 %27, label %9, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %24, %3
   tail call void @OutputPluginPrepareWrite(ptr noundef %2, i1 noundef zeroext false) #12
@@ -3172,3 +3172,4 @@ attributes #15 = { nounwind willreturn memory(none) }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

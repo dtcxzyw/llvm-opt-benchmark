@@ -51972,7 +51972,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %204, ptr %61, align 8, !tbaa !786
   br label %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.backedge
 
-_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.backedge: ; preds = %.backedge.sink.split, %614, %440
+_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.backedge: ; preds = %.backedge.sink.split, %440, %614
   br label %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
 205:                                              ; preds = %.critedge482
@@ -55764,7 +55764,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %210, ptr %61, align 8, !tbaa !786
   br label %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.backedge
 
-_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.backedge: ; preds = %.backedge.sink.split, %620, %443
+_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.backedge: ; preds = %.backedge.sink.split, %443, %620
   br label %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
 211:                                              ; preds = %.critedge484
@@ -72210,10 +72210,10 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_integral_
 
 17:                                               ; preds = %.lr.ph
   %18 = icmp ugt i64 %.0112282, %1
-  br i1 %18, label %19, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit
+  br i1 %18, label %19, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191
 
 19:                                               ; preds = %17
-  switch i8 %15, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit [
+  switch i8 %15, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 [
     i8 125, label %.thread248
     i8 93, label %.thread248
     i8 59, label %.thread248
@@ -72225,9 +72225,6 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_integral_
     i8 9, label %.thread248
     i8 0, label %.thread248
   ]
-
-_ZN2c415basic_substringIKcE14_is_delim_charEc.exit: ; preds = %19, %17
-  br label %.thread248
 
 20:                                               ; preds = %.lr.ph
   %21 = add i64 %.0112282, 1
@@ -72276,10 +72273,10 @@ switch.early.test:                                ; preds = %.lr.ph291
 
 31:                                               ; preds = %switch.early.test
   %32 = icmp ugt i64 %.0113290, %27
-  br i1 %32, label %33, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188
+  br i1 %32, label %33, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191
 
 33:                                               ; preds = %31
-  switch i8 %.fr, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 [
+  switch i8 %.fr, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 [
     i8 125, label %.thread248
     i8 93, label %.thread248
     i8 59, label %.thread248
@@ -72291,9 +72288,6 @@ switch.early.test:                                ; preds = %.lr.ph291
     i8 9, label %.thread248
     i8 0, label %.thread248
   ]
-
-_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188: ; preds = %33, %31
-  br label %.thread248
 
 _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph291
   %34 = add i64 %.0113290, 1
@@ -72315,10 +72309,10 @@ _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early
 
 40:                                               ; preds = %.lr.ph288
   %41 = icmp ugt i64 %.0111287, %36
-  br i1 %41, label %42, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189
+  br i1 %41, label %42, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191
 
 42:                                               ; preds = %40
-  switch i8 %38, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189 [
+  switch i8 %38, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 [
     i8 125, label %.thread248
     i8 93, label %.thread248
     i8 59, label %.thread248
@@ -72330,9 +72324,6 @@ _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early
     i8 9, label %.thread248
     i8 0, label %.thread248
   ]
-
-_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189: ; preds = %42, %40
-  br label %.thread248
 
 43:                                               ; preds = %.lr.ph288
   %44 = add i64 %.0111287, 1
@@ -72354,10 +72345,10 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit189: ; preds = %42, %40
 
 50:                                               ; preds = %.lr.ph285
   %51 = icmp ugt i64 %.0109284, %46
-  br i1 %51, label %52, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190
+  br i1 %51, label %52, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191
 
 52:                                               ; preds = %50
-  switch i8 %48, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190 [
+  switch i8 %48, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 [
     i8 125, label %.thread248
     i8 93, label %.thread248
     i8 59, label %.thread248
@@ -72369,9 +72360,6 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit189: ; preds = %42, %40
     i8 9, label %.thread248
     i8 0, label %.thread248
   ]
-
-_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190: ; preds = %52, %50
-  br label %.thread248
 
 53:                                               ; preds = %.lr.ph285
   %54 = add i64 %.0109284, 1
@@ -72408,7 +72396,7 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit190: ; preds = %52, %50
     i8 0, label %.thread248
   ]
 
-_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191: ; preds = %61, %59
+_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191: ; preds = %50, %52, %42, %40, %33, %31, %19, %17, %61, %59
   br label %.thread248
 
 62:                                               ; preds = %.lr.ph293
@@ -72416,9 +72404,9 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit191: ; preds = %61, %59
   %exitcond312.not = icmp eq i64 %63, %4
   br i1 %exitcond312.not, label %.thread248, label %.lr.ph293, !llvm.loop !1101
 
-.thread248:                                       ; preds = %53, %43, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, %62, %.thread216, %45, %35, %26, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %6
-  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %.sroa.0.0.copyload102.pre.pre, %43 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ %.sroa.0.0.copyload102.pre.pre, %26 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189 ], [ %.sroa.0.0.copyload102.pre.pre, %35 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %45 ], [ %.sroa.0.0.copyload102.pre.pre, %.thread216 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.sroa.0.0.copyload102.pre.pre, %62 ], [ %.sroa.0.0.copyload102.pre.pre, %53 ]
-  %.sroa.16.0 = phi i64 [ 0, %6 ], [ %4, %43 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ %4, %26 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189 ], [ %4, %35 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %4, %45 ], [ %4, %.thread216 ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %4, %62 ], [ %4, %53 ]
+.thread248:                                       ; preds = %53, %43, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, %62, %.thread216, %45, %35, %26, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %6
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %.sroa.0.0.copyload102.pre.pre, %62 ], [ %.sroa.0.0.copyload102.pre.pre, %43 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 ], [ %.sroa.0.0.copyload102.pre.pre, %26 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %35 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %45 ], [ %.sroa.0.0.copyload102.pre.pre, %.thread216 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.sroa.0.0.copyload102.pre.pre, %53 ]
+  %.sroa.16.0 = phi i64 [ 0, %6 ], [ %4, %62 ], [ %4, %43 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 ], [ %4, %26 ], [ %.0292, %61 ], [ %4, %35 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %4, %45 ], [ %4, %.thread216 ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %4, %53 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.16.0, 1
   ret { ptr, i64 } %.fca.1.insert

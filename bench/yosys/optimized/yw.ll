@@ -263,8 +263,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i:         ; preds = %.lr.ph._crit_edge
 36:                                               ; preds = %.critedge.i
   %37 = load i8, ptr %35, align 1, !tbaa !15
   %.not45.i = icmp eq i8 %37, 0
-  %spec.select.i = select i1 %.not45.i, ptr %27, ptr %24
-  br label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
+  br i1 %.not45.i, label %.loopexit4.i, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
 
 38:                                               ; preds = %26
   %39 = add i8 %28, -97
@@ -296,18 +295,18 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i:         ; preds = %.lr.ph._crit_edge
 50:                                               ; preds = %44
   switch i8 %45, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit [
     i8 95, label %.critedge2.i
-    i8 0, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit
+    i8 0, label %.loopexit4.i
   ]
 
 .critedge2.i:                                     ; preds = %50, %44
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   br label %44, !llvm.loop !33
 
-_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit: ; preds = %50
+.loopexit4.i:                                     ; preds = %50, %36
   br label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
 
-_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit:     ; preds = %50, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit, %40, %36, %.critedge.i, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i
-  %.034.i = phi ptr [ %24, %.critedge.i ], [ %24, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %spec.select.i, %36 ], [ %24, %40 ], [ %27, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit ], [ %24, %50 ]
+_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit:     ; preds = %50, %.loopexit4.i, %40, %36, %.critedge.i, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i
+  %.034.i = phi ptr [ %24, %.critedge.i ], [ %24, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %24, %36 ], [ %24, %40 ], [ %27, %.loopexit4.i ], [ %24, %50 ]
   %52 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !34, !range !36, !noundef !37
   %53 = trunc nuw i8 %52 to i1
   %54 = icmp ne i32 %9, 0

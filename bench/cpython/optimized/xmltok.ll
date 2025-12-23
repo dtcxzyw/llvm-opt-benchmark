@@ -2730,8 +2730,8 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %185, label %135, label %normal_scanLt.exit, !llvm.loop !67
 
 .loopexit.sink.split.i.i:                         ; preds = %162, %159, %154, %151, %146, %143, %135, %.lr.ph133.i.i, %179, %173, %120, %116, %110, %106, %100, %96, %89
-  %.1123.lcssa.sink.i.i = phi ptr [ %.3132.i.i, %.lr.ph133.i.i ], [ %180, %179 ], [ %85, %120 ], [ %174, %173 ], [ %85, %110 ], [ %85, %100 ], [ %85, %96 ], [ %85, %89 ], [ %85, %116 ], [ %85, %106 ], [ %.1123.i.i, %135 ], [ %.1123.i.i, %143 ], [ %.1123.i.i, %146 ], [ %.1123.i.i, %151 ], [ %.1123.i.i, %154 ], [ %.1123.i.i, %159 ], [ %.1123.i.i, %162 ]
-  %.0.ph.i.i = phi i32 [ 0, %.lr.ph133.i.i ], [ 5, %179 ], [ 0, %120 ], [ 5, %173 ], [ 0, %110 ], [ 0, %100 ], [ 0, %96 ], [ 0, %89 ], [ 0, %116 ], [ 0, %106 ], [ 0, %135 ], [ 0, %143 ], [ 0, %146 ], [ 0, %151 ], [ 0, %154 ], [ 0, %159 ], [ 0, %162 ]
+  %.1123.lcssa.sink.i.i = phi ptr [ %.3132.i.i, %.lr.ph133.i.i ], [ %180, %179 ], [ %85, %120 ], [ %174, %173 ], [ %85, %110 ], [ %85, %100 ], [ %85, %89 ], [ %85, %96 ], [ %85, %116 ], [ %85, %106 ], [ %.1123.i.i, %135 ], [ %.1123.i.i, %143 ], [ %.1123.i.i, %146 ], [ %.1123.i.i, %151 ], [ %.1123.i.i, %154 ], [ %.1123.i.i, %159 ], [ %.1123.i.i, %162 ]
+  %.0.ph.i.i = phi i32 [ 0, %.lr.ph133.i.i ], [ 5, %179 ], [ 0, %120 ], [ 5, %173 ], [ 0, %110 ], [ 0, %100 ], [ 0, %89 ], [ 0, %96 ], [ 0, %116 ], [ 0, %106 ], [ 0, %135 ], [ 0, %143 ], [ 0, %146 ], [ 0, %151 ], [ 0, %154 ], [ 0, %159 ], [ 0, %162 ]
   store ptr %.1123.lcssa.sink.i.i, ptr %3, align 8, !tbaa !3
   br label %normal_scanLt.exit
 
@@ -4294,7 +4294,7 @@ define internal i32 @normal_getAtts(ptr noundef readonly captures(none) %0, ptr 
   br label %.backedge
 
 91:                                               ; preds = %6
-  switch i32 %.094, label %.fold.split [
+  switch i32 %.094, label %.fold.split102 [
     i32 1, label %.backedge
     i32 2, label %92
   ]
@@ -4343,11 +4343,11 @@ define internal i32 @normal_getAtts(ptr noundef readonly captures(none) %0, ptr 
     i32 2, label %115
   ]
 
-.backedge:                                        ; preds = %114, %.fold.split102, %91, %.fold.split, %68, %70, %50, %52, %43, %45, %19, %29, %39, %41, %57, %65, %75, %83, %87, %85, %92, %94, %107, %113, %115, %117, %121, %6
-  %.pn.be = phi ptr [ %.096, %6 ], [ %20, %19 ], [ %30, %29 ], [ %40, %39 ], [ %.096, %121 ], [ %.096, %41 ], [ %.096, %43 ], [ %.096, %65 ], [ %.096, %57 ], [ %.096, %50 ], [ %.096, %83 ], [ %.096, %75 ], [ %.096, %87 ], [ %.096, %85 ], [ %.096, %68 ], [ %.096, %113 ], [ %.096, %107 ], [ %.096, %94 ], [ %.096, %92 ], [ %.096, %91 ], [ %.096, %.fold.split ], [ %.096, %117 ], [ %.096, %115 ], [ %.096, %114 ], [ %.096, %45 ], [ %.096, %52 ], [ %.096, %70 ], [ %.096, %.fold.split102 ]
-  %.094.be = phi i32 [ %.094, %6 ], [ %.195, %19 ], [ %.2, %29 ], [ %.3, %39 ], [ 2, %121 ], [ %.094, %41 ], [ 1, %43 ], [ 0, %65 ], [ 2, %57 ], [ 2, %50 ], [ 0, %83 ], [ 2, %75 ], [ %.094, %87 ], [ %.094, %85 ], [ 2, %68 ], [ 2, %113 ], [ 2, %107 ], [ 2, %94 ], [ 2, %92 ], [ 0, %91 ], [ %.094, %.fold.split ], [ 2, %117 ], [ 2, %115 ], [ 0, %114 ], [ 1, %45 ], [ 2, %52 ], [ 2, %70 ], [ %.094, %.fold.split102 ]
-  %.092.be = phi i32 [ %.092, %6 ], [ %.092, %19 ], [ %.092, %29 ], [ %.092, %39 ], [ %.092, %121 ], [ %.092, %41 ], [ %.092, %43 ], [ %66, %65 ], [ %.092, %57 ], [ %.092, %50 ], [ %84, %83 ], [ %.092, %75 ], [ %.092, %87 ], [ %.092, %85 ], [ %.092, %68 ], [ %.092, %113 ], [ %.092, %107 ], [ %.092, %94 ], [ %.092, %92 ], [ %.092, %91 ], [ %.092, %.fold.split ], [ %.092, %117 ], [ %.092, %115 ], [ %.092, %114 ], [ %.092, %45 ], [ %.092, %52 ], [ %.092, %70 ], [ %.092, %.fold.split102 ]
-  %.0.be = phi i32 [ %.0, %6 ], [ %.0, %19 ], [ %.0, %29 ], [ %.0, %39 ], [ %.0, %121 ], [ %.0, %41 ], [ %.0, %43 ], [ 12, %65 ], [ %.0, %57 ], [ 12, %50 ], [ 13, %83 ], [ %.0, %75 ], [ %.0, %87 ], [ %.0, %85 ], [ 13, %68 ], [ %.0, %113 ], [ %.0, %107 ], [ %.0, %94 ], [ %.0, %92 ], [ %.0, %91 ], [ %.0, %.fold.split ], [ %.0, %117 ], [ %.0, %115 ], [ %.0, %114 ], [ %.0, %45 ], [ 12, %52 ], [ 13, %70 ], [ %.0, %.fold.split102 ]
+.backedge:                                        ; preds = %114, %.fold.split102, %91, %68, %70, %50, %52, %43, %45, %19, %29, %39, %41, %57, %65, %75, %83, %87, %85, %92, %94, %107, %113, %115, %117, %121, %6
+  %.pn.be = phi ptr [ %.096, %6 ], [ %20, %19 ], [ %30, %29 ], [ %40, %39 ], [ %.096, %121 ], [ %.096, %41 ], [ %.096, %43 ], [ %.096, %65 ], [ %.096, %57 ], [ %.096, %50 ], [ %.096, %83 ], [ %.096, %75 ], [ %.096, %87 ], [ %.096, %85 ], [ %.096, %68 ], [ %.096, %113 ], [ %.096, %107 ], [ %.096, %94 ], [ %.096, %92 ], [ %.096, %91 ], [ %.096, %.fold.split102 ], [ %.096, %117 ], [ %.096, %115 ], [ %.096, %114 ], [ %.096, %45 ], [ %.096, %52 ], [ %.096, %70 ]
+  %.094.be = phi i32 [ %.094, %6 ], [ %.195, %19 ], [ %.2, %29 ], [ %.3, %39 ], [ 2, %121 ], [ %.094, %41 ], [ 1, %43 ], [ 0, %65 ], [ 2, %57 ], [ 2, %50 ], [ 0, %83 ], [ 2, %75 ], [ %.094, %87 ], [ %.094, %85 ], [ 2, %68 ], [ 2, %113 ], [ 2, %107 ], [ 2, %94 ], [ 2, %92 ], [ 0, %91 ], [ %.094, %.fold.split102 ], [ 2, %117 ], [ 2, %115 ], [ 0, %114 ], [ 1, %45 ], [ 2, %52 ], [ 2, %70 ]
+  %.092.be = phi i32 [ %.092, %6 ], [ %.092, %19 ], [ %.092, %29 ], [ %.092, %39 ], [ %.092, %121 ], [ %.092, %41 ], [ %.092, %43 ], [ %66, %65 ], [ %.092, %57 ], [ %.092, %50 ], [ %84, %83 ], [ %.092, %75 ], [ %.092, %87 ], [ %.092, %85 ], [ %.092, %68 ], [ %.092, %113 ], [ %.092, %107 ], [ %.092, %94 ], [ %.092, %92 ], [ %.092, %91 ], [ %.092, %.fold.split102 ], [ %.092, %117 ], [ %.092, %115 ], [ %.092, %114 ], [ %.092, %45 ], [ %.092, %52 ], [ %.092, %70 ]
+  %.0.be = phi i32 [ %.0, %6 ], [ %.0, %19 ], [ %.0, %29 ], [ %.0, %39 ], [ %.0, %121 ], [ %.0, %41 ], [ %.0, %43 ], [ 12, %65 ], [ %.0, %57 ], [ 12, %50 ], [ 13, %83 ], [ %.0, %75 ], [ %.0, %87 ], [ %.0, %85 ], [ 13, %68 ], [ %.0, %113 ], [ %.0, %107 ], [ %.0, %94 ], [ %.0, %92 ], [ %.0, %91 ], [ %.0, %.fold.split102 ], [ %.0, %117 ], [ %.0, %115 ], [ %.0, %114 ], [ %.0, %45 ], [ 12, %52 ], [ 13, %70 ]
   br label %6
 
 115:                                              ; preds = %114
@@ -4368,10 +4368,7 @@ define internal i32 @normal_getAtts(ptr noundef readonly captures(none) %0, ptr 
 122:                                              ; preds = %121
   ret i32 %.092
 
-.fold.split:                                      ; preds = %91
-  br label %.backedge
-
-.fold.split102:                                   ; preds = %114
+.fold.split102:                                   ; preds = %91, %114
   br label %.backedge
 }
 
@@ -5533,16 +5530,16 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
-  switch i8 %14, label %45 [
-    i8 30, label %.loopexit.sink.split
+  switch i8 %14, label %.loopexit.sink.split [
+    i8 30, label %45
     i8 22, label %46
     i8 24, label %46
     i8 5, label %15
     i8 6, label %25
     i8 7, label %35
-    i8 21, label %.loopexit.sink.split
-    i8 10, label %.loopexit.sink.split
-    i8 9, label %.loopexit.sink.split
+    i8 21, label %45
+    i8 10, label %45
+    i8 9, label %45
   ]
 
 15:                                               ; preds = %9
@@ -5599,7 +5596,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %.not91 = icmp eq i32 %44, 0
   br i1 %.not91, label %.loopexit.sink.split, label %46
 
-45:                                               ; preds = %9
+45:                                               ; preds = %9, %9, %9, %9
   br label %.loopexit.sink.split
 
 46:                                               ; preds = %41, %31, %21, %9, %9
@@ -5698,9 +5695,9 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %93 = icmp sgt i64 %92, 0
   br i1 %93, label %57, label %.loopexit, !llvm.loop !88
 
-.loopexit.sink.split:                             ; preds = %57, %81, %84, %73, %76, %65, %68, %9, %9, %9, %9, %37, %41, %27, %31, %17, %21, %45, %87
-  %.1108.lcssa.sink = phi ptr [ %1, %9 ], [ %88, %87 ], [ %1, %9 ], [ %1, %9 ], [ %1, %41 ], [ %1, %9 ], [ %1, %45 ], [ %1, %37 ], [ %1, %27 ], [ %1, %17 ], [ %1, %21 ], [ %1, %31 ], [ %.1108, %68 ], [ %.1108, %65 ], [ %.1108, %76 ], [ %.1108, %73 ], [ %.1108, %84 ], [ %.1108, %81 ], [ %.1108, %57 ]
-  %.0.ph = phi i32 [ 22, %9 ], [ 28, %87 ], [ 22, %9 ], [ 22, %9 ], [ 0, %41 ], [ 22, %9 ], [ 0, %45 ], [ 0, %37 ], [ 0, %27 ], [ 0, %17 ], [ 0, %21 ], [ 0, %31 ], [ 0, %68 ], [ 0, %65 ], [ 0, %76 ], [ 0, %73 ], [ 0, %84 ], [ 0, %81 ], [ 0, %57 ]
+.loopexit.sink.split:                             ; preds = %57, %81, %84, %73, %76, %65, %68, %9, %37, %41, %27, %31, %17, %21, %45, %87
+  %.1108.lcssa.sink = phi ptr [ %1, %41 ], [ %88, %87 ], [ %1, %31 ], [ %1, %21 ], [ %1, %9 ], [ %1, %17 ], [ %1, %37 ], [ %1, %45 ], [ %1, %27 ], [ %.1108, %68 ], [ %.1108, %65 ], [ %.1108, %76 ], [ %.1108, %73 ], [ %.1108, %84 ], [ %.1108, %81 ], [ %.1108, %57 ]
+  %.0.ph = phi i32 [ 0, %41 ], [ 28, %87 ], [ 0, %31 ], [ 0, %21 ], [ 0, %9 ], [ 0, %17 ], [ 0, %37 ], [ 22, %45 ], [ 0, %27 ], [ 0, %68 ], [ 0, %65 ], [ 0, %76 ], [ 0, %73 ], [ 0, %84 ], [ 0, %81 ], [ 0, %57 ]
   store ptr %.1108.lcssa.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -5887,8 +5884,8 @@ define internal fastcc range(i32 -20, 21) i32 @normal_scanPoundName(ptr noundef 
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %56, %80, %83, %72, %75, %64, %67, %.loopexit.sink.split.loopexit132, %9, %37, %41, %27, %31, %17, %21
-  %.1106.lcssa.sink = phi ptr [ %.1106, %.loopexit.sink.split.loopexit132 ], [ %1, %41 ], [ %1, %31 ], [ %1, %21 ], [ %1, %17 ], [ %1, %9 ], [ %1, %37 ], [ %1, %27 ], [ %.1106, %67 ], [ %.1106, %64 ], [ %.1106, %75 ], [ %.1106, %72 ], [ %.1106, %83 ], [ %.1106, %80 ], [ %.1106, %56 ]
-  %.0.ph = phi i32 [ 20, %.loopexit.sink.split.loopexit132 ], [ 0, %41 ], [ 0, %31 ], [ 0, %21 ], [ 0, %17 ], [ 0, %9 ], [ 0, %37 ], [ 0, %27 ], [ 0, %67 ], [ 0, %64 ], [ 0, %75 ], [ 0, %72 ], [ 0, %83 ], [ 0, %80 ], [ 0, %56 ]
+  %.1106.lcssa.sink = phi ptr [ %.1106, %.loopexit.sink.split.loopexit132 ], [ %1, %41 ], [ %1, %31 ], [ %1, %21 ], [ %1, %9 ], [ %1, %17 ], [ %1, %37 ], [ %1, %27 ], [ %.1106, %67 ], [ %.1106, %64 ], [ %.1106, %75 ], [ %.1106, %72 ], [ %.1106, %83 ], [ %.1106, %80 ], [ %.1106, %56 ]
+  %.0.ph = phi i32 [ 20, %.loopexit.sink.split.loopexit132 ], [ 0, %41 ], [ 0, %31 ], [ 0, %21 ], [ 0, %9 ], [ 0, %17 ], [ 0, %37 ], [ 0, %27 ], [ 0, %67 ], [ 0, %64 ], [ 0, %75 ], [ 0, %72 ], [ 0, %83 ], [ 0, %80 ], [ 0, %56 ]
   store ptr %.1106.lcssa.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -6350,8 +6347,8 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %138, label %102, label %normal_scanCharRef.exit, !llvm.loop !93
 
 normal_scanCharRef.exit.sink.split:               ; preds = %102, %126, %129, %118, %121, %110, %113, %84, %.lr.ph.i.i, %9, %58, %71, %77, %89, %37, %41, %27, %31, %17, %21, %132
-  %.01623.lcssa.sink.i.sink.i.sink = phi ptr [ %1, %37 ], [ %.01623.i.i, %.lr.ph.i.i ], [ %133, %132 ], [ %72, %71 ], [ %54, %58 ], [ %90, %89 ], [ %1, %9 ], [ %.021.i, %84 ], [ %1, %27 ], [ %1, %17 ], [ %1, %21 ], [ %1, %31 ], [ %1, %41 ], [ %46, %77 ], [ %.1121, %113 ], [ %.1121, %110 ], [ %.1121, %121 ], [ %.1121, %118 ], [ %.1121, %129 ], [ %.1121, %126 ], [ %.1121, %102 ]
-  %.0.ph = phi i32 [ 0, %37 ], [ 0, %.lr.ph.i.i ], [ 9, %132 ], [ 10, %71 ], [ 0, %58 ], [ 10, %89 ], [ 0, %9 ], [ 0, %84 ], [ 0, %27 ], [ 0, %17 ], [ 0, %21 ], [ 0, %31 ], [ 0, %41 ], [ 0, %77 ], [ 0, %113 ], [ 0, %110 ], [ 0, %121 ], [ 0, %118 ], [ 0, %129 ], [ 0, %126 ], [ 0, %102 ]
+  %.01623.lcssa.sink.i.sink.i.sink = phi ptr [ %1, %37 ], [ %.01623.i.i, %.lr.ph.i.i ], [ %133, %132 ], [ %72, %71 ], [ %54, %58 ], [ %90, %89 ], [ %46, %77 ], [ %.021.i, %84 ], [ %1, %27 ], [ %1, %17 ], [ %1, %9 ], [ %1, %21 ], [ %1, %31 ], [ %1, %41 ], [ %.1121, %113 ], [ %.1121, %110 ], [ %.1121, %121 ], [ %.1121, %118 ], [ %.1121, %129 ], [ %.1121, %126 ], [ %.1121, %102 ]
+  %.0.ph = phi i32 [ 0, %37 ], [ 0, %.lr.ph.i.i ], [ 9, %132 ], [ 10, %71 ], [ 0, %58 ], [ 10, %89 ], [ 0, %77 ], [ 0, %84 ], [ 0, %27 ], [ 0, %17 ], [ 0, %9 ], [ 0, %21 ], [ 0, %31 ], [ 0, %41 ], [ 0, %113 ], [ 0, %110 ], [ 0, %121 ], [ 0, %118 ], [ 0, %129 ], [ 0, %126 ], [ 0, %102 ]
   store ptr %.01623.lcssa.sink.i.sink.i.sink, ptr %3, align 8, !tbaa !3
   br label %normal_scanCharRef.exit
 
@@ -9319,11 +9316,11 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
     i8 -1, label %8
   ]
 
-unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %8, %103, %115, %119, %.fold.split112, %88, %.fold.split, %65, %67, %47, %49, %40, %42, %23, %27, %25, %15, %19, %17, %38, %unicode_byte_type.exit.thread123, %54, %62, %72, %80, %84, %82, %89, %91, %unicode_byte_type.exit115, %.critedge, %120, %122, %126, %unicode_byte_type.exit
-  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %126 ], [ %.0104, %15 ], [ %39, %38 ], [ %6, %23 ], [ %.0104, %unicode_byte_type.exit.thread123 ], [ %.0104, %40 ], [ %.0104, %62 ], [ %.0104, %54 ], [ %.0104, %47 ], [ %.0104, %80 ], [ %.0104, %72 ], [ %.0104, %84 ], [ %.0104, %82 ], [ %.0104, %65 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %91 ], [ %.0104, %89 ], [ %.0104, %88 ], [ %.0104, %.fold.split ], [ %.0104, %122 ], [ %.0104, %120 ], [ %.0104, %119 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %6, %25 ], [ %6, %27 ], [ %.0104, %42 ], [ %.0104, %49 ], [ %.0104, %67 ], [ %.0104, %.fold.split112 ], [ %.0104, %115 ], [ %.0104, %103 ], [ %.0104, %8 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
-  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %126 ], [ %.0102, %15 ], [ %.3, %38 ], [ %.0102, %23 ], [ %.0102, %unicode_byte_type.exit.thread123 ], [ 1, %40 ], [ 0, %62 ], [ 2, %54 ], [ 2, %47 ], [ 0, %80 ], [ 2, %72 ], [ %.0102, %84 ], [ %.0102, %82 ], [ 2, %65 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %91 ], [ 2, %89 ], [ 0, %88 ], [ %.0102, %.fold.split ], [ 2, %122 ], [ 2, %120 ], [ 0, %119 ], [ 1, %17 ], [ 1, %19 ], [ 1, %25 ], [ 1, %27 ], [ 1, %42 ], [ 2, %49 ], [ 2, %67 ], [ %.0102, %.fold.split112 ], [ 2, %115 ], [ 2, %103 ], [ %.0102, %8 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
-  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %126 ], [ %.0100, %15 ], [ %.0100, %38 ], [ %.0100, %23 ], [ %.0100, %unicode_byte_type.exit.thread123 ], [ %.0100, %40 ], [ %63, %62 ], [ %.0100, %54 ], [ %.0100, %47 ], [ %81, %80 ], [ %.0100, %72 ], [ %.0100, %84 ], [ %.0100, %82 ], [ %.0100, %65 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %91 ], [ %.0100, %89 ], [ %.0100, %88 ], [ %.0100, %.fold.split ], [ %.0100, %122 ], [ %.0100, %120 ], [ %.0100, %119 ], [ %.0100, %17 ], [ %.0100, %19 ], [ %.0100, %25 ], [ %.0100, %27 ], [ %.0100, %42 ], [ %.0100, %49 ], [ %.0100, %67 ], [ %.0100, %.fold.split112 ], [ %.0100, %115 ], [ %.0100, %103 ], [ %.0100, %8 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
-  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %126 ], [ %.0, %15 ], [ %.0, %38 ], [ %.0, %23 ], [ %.0, %unicode_byte_type.exit.thread123 ], [ %.0, %40 ], [ 12, %62 ], [ %.0, %54 ], [ 12, %47 ], [ 13, %80 ], [ %.0, %72 ], [ %.0, %84 ], [ %.0, %82 ], [ 13, %65 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %91 ], [ %.0, %89 ], [ %.0, %88 ], [ %.0, %.fold.split ], [ %.0, %122 ], [ %.0, %120 ], [ %.0, %119 ], [ %.0, %17 ], [ %.0, %19 ], [ %.0, %25 ], [ %.0, %27 ], [ %.0, %42 ], [ 12, %49 ], [ 13, %67 ], [ %.0, %.fold.split112 ], [ %.0, %115 ], [ %.0, %103 ], [ %.0, %8 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
+unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %8, %103, %115, %119, %.fold.split112, %88, %65, %67, %47, %49, %40, %42, %23, %27, %25, %15, %19, %17, %38, %unicode_byte_type.exit.thread123, %54, %62, %72, %80, %84, %82, %89, %91, %unicode_byte_type.exit115, %.critedge, %120, %122, %126, %unicode_byte_type.exit
+  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %126 ], [ %.0104, %15 ], [ %39, %38 ], [ %6, %23 ], [ %.0104, %unicode_byte_type.exit.thread123 ], [ %.0104, %40 ], [ %.0104, %62 ], [ %.0104, %54 ], [ %.0104, %47 ], [ %.0104, %80 ], [ %.0104, %72 ], [ %.0104, %84 ], [ %.0104, %82 ], [ %.0104, %65 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %91 ], [ %.0104, %89 ], [ %.0104, %88 ], [ %.0104, %.fold.split112 ], [ %.0104, %122 ], [ %.0104, %120 ], [ %.0104, %119 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %6, %25 ], [ %6, %27 ], [ %.0104, %42 ], [ %.0104, %49 ], [ %.0104, %67 ], [ %.0104, %115 ], [ %.0104, %103 ], [ %.0104, %8 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
+  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %126 ], [ %.0102, %15 ], [ %.3, %38 ], [ %.0102, %23 ], [ %.0102, %unicode_byte_type.exit.thread123 ], [ 1, %40 ], [ 0, %62 ], [ 2, %54 ], [ 2, %47 ], [ 0, %80 ], [ 2, %72 ], [ %.0102, %84 ], [ %.0102, %82 ], [ 2, %65 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %91 ], [ 2, %89 ], [ 0, %88 ], [ %.0102, %.fold.split112 ], [ 2, %122 ], [ 2, %120 ], [ 0, %119 ], [ 1, %17 ], [ 1, %19 ], [ 1, %25 ], [ 1, %27 ], [ 1, %42 ], [ 2, %49 ], [ 2, %67 ], [ 2, %115 ], [ 2, %103 ], [ %.0102, %8 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
+  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %126 ], [ %.0100, %15 ], [ %.0100, %38 ], [ %.0100, %23 ], [ %.0100, %unicode_byte_type.exit.thread123 ], [ %.0100, %40 ], [ %63, %62 ], [ %.0100, %54 ], [ %.0100, %47 ], [ %81, %80 ], [ %.0100, %72 ], [ %.0100, %84 ], [ %.0100, %82 ], [ %.0100, %65 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %91 ], [ %.0100, %89 ], [ %.0100, %88 ], [ %.0100, %.fold.split112 ], [ %.0100, %122 ], [ %.0100, %120 ], [ %.0100, %119 ], [ %.0100, %17 ], [ %.0100, %19 ], [ %.0100, %25 ], [ %.0100, %27 ], [ %.0100, %42 ], [ %.0100, %49 ], [ %.0100, %67 ], [ %.0100, %115 ], [ %.0100, %103 ], [ %.0100, %8 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
+  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %126 ], [ %.0, %15 ], [ %.0, %38 ], [ %.0, %23 ], [ %.0, %unicode_byte_type.exit.thread123 ], [ %.0, %40 ], [ 12, %62 ], [ %.0, %54 ], [ 12, %47 ], [ 13, %80 ], [ %.0, %72 ], [ %.0, %84 ], [ %.0, %82 ], [ 13, %65 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %91 ], [ %.0, %89 ], [ %.0, %88 ], [ %.0, %.fold.split112 ], [ %.0, %122 ], [ %.0, %120 ], [ %.0, %119 ], [ %.0, %17 ], [ %.0, %19 ], [ %.0, %25 ], [ %.0, %27 ], [ %.0, %42 ], [ 12, %49 ], [ 13, %67 ], [ %.0, %115 ], [ %.0, %103 ], [ %.0, %8 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
   br label %unicode_byte_type.exit115.thread
 
 8:                                                ; preds = %unicode_byte_type.exit115.thread
@@ -9506,7 +9503,7 @@ unicode_byte_type.exit.thread123:                 ; preds = %unicode_byte_type.e
   br label %unicode_byte_type.exit115.thread.backedge
 
 88:                                               ; preds = %unicode_byte_type.exit
-  switch i32 %.0102, label %.fold.split [
+  switch i32 %.0102, label %.fold.split112 [
     i32 1, label %unicode_byte_type.exit115.thread.backedge
     i32 2, label %89
   ]
@@ -9597,10 +9594,7 @@ unicode_byte_type.exit115:                        ; preds = %103, %103, %103, %1
 127:                                              ; preds = %126
   ret i32 %.0100
 
-.fold.split:                                      ; preds = %88
-  br label %unicode_byte_type.exit115.thread.backedge
-
-.fold.split112:                                   ; preds = %119
+.fold.split112:                                   ; preds = %88, %119
   br label %unicode_byte_type.exit115.thread.backedge
 }
 
@@ -15308,11 +15302,11 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
     i8 -1, label %7
   ]
 
-unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %7, %107, %119, %124, %.fold.split112, %91, %.fold.split, %68, %70, %50, %52, %43, %45, %16, %20, %18, %32, %41, %unicode_byte_type.exit.thread123, %57, %65, %75, %83, %87, %85, %92, %94, %unicode_byte_type.exit115, %.critedge, %125, %127, %131, %unicode_byte_type.exit
-  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %131 ], [ %33, %32 ], [ %42, %41 ], [ %.0104, %16 ], [ %.0104, %unicode_byte_type.exit.thread123 ], [ %.0104, %43 ], [ %.0104, %65 ], [ %.0104, %57 ], [ %.0104, %50 ], [ %.0104, %83 ], [ %.0104, %75 ], [ %.0104, %87 ], [ %.0104, %85 ], [ %.0104, %68 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %94 ], [ %.0104, %92 ], [ %.0104, %91 ], [ %.0104, %.fold.split ], [ %.0104, %127 ], [ %.0104, %125 ], [ %.0104, %124 ], [ %.0104, %18 ], [ %.0104, %20 ], [ %.0104, %45 ], [ %.0104, %52 ], [ %.0104, %70 ], [ %.0104, %.fold.split112 ], [ %.0104, %119 ], [ %.0104, %107 ], [ %.0104, %7 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
-  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %131 ], [ %.2, %32 ], [ %.3, %41 ], [ %.0102, %16 ], [ %.0102, %unicode_byte_type.exit.thread123 ], [ 1, %43 ], [ 0, %65 ], [ 2, %57 ], [ 2, %50 ], [ 0, %83 ], [ 2, %75 ], [ %.0102, %87 ], [ %.0102, %85 ], [ 2, %68 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %94 ], [ 2, %92 ], [ 0, %91 ], [ %.0102, %.fold.split ], [ 2, %127 ], [ 2, %125 ], [ 0, %124 ], [ 1, %18 ], [ 1, %20 ], [ 1, %45 ], [ 2, %52 ], [ 2, %70 ], [ %.0102, %.fold.split112 ], [ 2, %119 ], [ 2, %107 ], [ %.0102, %7 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
-  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %131 ], [ %.0100, %32 ], [ %.0100, %41 ], [ %.0100, %16 ], [ %.0100, %unicode_byte_type.exit.thread123 ], [ %.0100, %43 ], [ %66, %65 ], [ %.0100, %57 ], [ %.0100, %50 ], [ %84, %83 ], [ %.0100, %75 ], [ %.0100, %87 ], [ %.0100, %85 ], [ %.0100, %68 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %94 ], [ %.0100, %92 ], [ %.0100, %91 ], [ %.0100, %.fold.split ], [ %.0100, %127 ], [ %.0100, %125 ], [ %.0100, %124 ], [ %.0100, %18 ], [ %.0100, %20 ], [ %.0100, %45 ], [ %.0100, %52 ], [ %.0100, %70 ], [ %.0100, %.fold.split112 ], [ %.0100, %119 ], [ %.0100, %107 ], [ %.0100, %7 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
-  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %131 ], [ %.0, %32 ], [ %.0, %41 ], [ %.0, %16 ], [ %.0, %unicode_byte_type.exit.thread123 ], [ %.0, %43 ], [ 12, %65 ], [ %.0, %57 ], [ 12, %50 ], [ 13, %83 ], [ %.0, %75 ], [ %.0, %87 ], [ %.0, %85 ], [ 13, %68 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %94 ], [ %.0, %92 ], [ %.0, %91 ], [ %.0, %.fold.split ], [ %.0, %127 ], [ %.0, %125 ], [ %.0, %124 ], [ %.0, %18 ], [ %.0, %20 ], [ %.0, %45 ], [ 12, %52 ], [ 13, %70 ], [ %.0, %.fold.split112 ], [ %.0, %119 ], [ %.0, %107 ], [ %.0, %7 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
+unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %7, %107, %119, %124, %.fold.split112, %91, %68, %70, %50, %52, %43, %45, %16, %20, %18, %32, %41, %unicode_byte_type.exit.thread123, %57, %65, %75, %83, %87, %85, %92, %94, %unicode_byte_type.exit115, %.critedge, %125, %127, %131, %unicode_byte_type.exit
+  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %131 ], [ %33, %32 ], [ %42, %41 ], [ %.0104, %16 ], [ %.0104, %unicode_byte_type.exit.thread123 ], [ %.0104, %43 ], [ %.0104, %65 ], [ %.0104, %57 ], [ %.0104, %50 ], [ %.0104, %83 ], [ %.0104, %75 ], [ %.0104, %87 ], [ %.0104, %85 ], [ %.0104, %68 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %94 ], [ %.0104, %92 ], [ %.0104, %91 ], [ %.0104, %.fold.split112 ], [ %.0104, %127 ], [ %.0104, %125 ], [ %.0104, %124 ], [ %.0104, %18 ], [ %.0104, %20 ], [ %.0104, %45 ], [ %.0104, %52 ], [ %.0104, %70 ], [ %.0104, %119 ], [ %.0104, %107 ], [ %.0104, %7 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
+  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %131 ], [ %.2, %32 ], [ %.3, %41 ], [ %.0102, %16 ], [ %.0102, %unicode_byte_type.exit.thread123 ], [ 1, %43 ], [ 0, %65 ], [ 2, %57 ], [ 2, %50 ], [ 0, %83 ], [ 2, %75 ], [ %.0102, %87 ], [ %.0102, %85 ], [ 2, %68 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %94 ], [ 2, %92 ], [ 0, %91 ], [ %.0102, %.fold.split112 ], [ 2, %127 ], [ 2, %125 ], [ 0, %124 ], [ 1, %18 ], [ 1, %20 ], [ 1, %45 ], [ 2, %52 ], [ 2, %70 ], [ 2, %119 ], [ 2, %107 ], [ %.0102, %7 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
+  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %131 ], [ %.0100, %32 ], [ %.0100, %41 ], [ %.0100, %16 ], [ %.0100, %unicode_byte_type.exit.thread123 ], [ %.0100, %43 ], [ %66, %65 ], [ %.0100, %57 ], [ %.0100, %50 ], [ %84, %83 ], [ %.0100, %75 ], [ %.0100, %87 ], [ %.0100, %85 ], [ %.0100, %68 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %94 ], [ %.0100, %92 ], [ %.0100, %91 ], [ %.0100, %.fold.split112 ], [ %.0100, %127 ], [ %.0100, %125 ], [ %.0100, %124 ], [ %.0100, %18 ], [ %.0100, %20 ], [ %.0100, %45 ], [ %.0100, %52 ], [ %.0100, %70 ], [ %.0100, %119 ], [ %.0100, %107 ], [ %.0100, %7 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
+  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %131 ], [ %.0, %32 ], [ %.0, %41 ], [ %.0, %16 ], [ %.0, %unicode_byte_type.exit.thread123 ], [ %.0, %43 ], [ 12, %65 ], [ %.0, %57 ], [ 12, %50 ], [ 13, %83 ], [ %.0, %75 ], [ %.0, %87 ], [ %.0, %85 ], [ 13, %68 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %94 ], [ %.0, %92 ], [ %.0, %91 ], [ %.0, %.fold.split112 ], [ %.0, %127 ], [ %.0, %125 ], [ %.0, %124 ], [ %.0, %18 ], [ %.0, %20 ], [ %.0, %45 ], [ 12, %52 ], [ 13, %70 ], [ %.0, %119 ], [ %.0, %107 ], [ %.0, %7 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
   br label %unicode_byte_type.exit115.thread
 
 7:                                                ; preds = %unicode_byte_type.exit115.thread
@@ -15502,7 +15496,7 @@ unicode_byte_type.exit.thread123:                 ; preds = %unicode_byte_type.e
   br label %unicode_byte_type.exit115.thread.backedge
 
 91:                                               ; preds = %unicode_byte_type.exit
-  switch i32 %.0102, label %.fold.split [
+  switch i32 %.0102, label %.fold.split112 [
     i32 1, label %unicode_byte_type.exit115.thread.backedge
     i32 2, label %92
   ]
@@ -15595,10 +15589,7 @@ unicode_byte_type.exit115:                        ; preds = %107, %107, %107, %1
 132:                                              ; preds = %131
   ret i32 %.0100
 
-.fold.split:                                      ; preds = %91
-  br label %unicode_byte_type.exit115.thread.backedge
-
-.fold.split112:                                   ; preds = %124
+.fold.split112:                                   ; preds = %91, %124
   br label %unicode_byte_type.exit115.thread.backedge
 }
 

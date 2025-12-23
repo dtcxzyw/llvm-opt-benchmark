@@ -1519,7 +1519,7 @@ default.unreachable:                              ; preds = %89, %13
   br label %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit"
 
 "_ZN12regex_syntax3ast5print15Writer$LT$W$GT$15fmt_class_ascii17h1e1238903b006308E.exit": ; preds = %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %106, %103, %10, %2, %2, %100, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$14fmt_class_perl17hb4b336a417117999E.llvm.16653392013706621149.exit", %87, %8
-  %.0.shrunk = phi i1 [ false, %2 ], [ %9, %8 ], [ true, %103 ], [ %108, %106 ], [ true, %10 ], [ false, %2 ], [ %102, %100 ], [ %88, %87 ], [ %99, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$14fmt_class_perl17hb4b336a417117999E.llvm.16653392013706621149.exit" ], [ %34, %33 ], [ %32, %31 ], [ %38, %37 ], [ %36, %35 ], [ %42, %41 ], [ %40, %39 ], [ %46, %45 ], [ %44, %43 ], [ %50, %49 ], [ %48, %47 ], [ %54, %53 ], [ %52, %51 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %66, %65 ], [ %64, %63 ], [ %70, %69 ], [ %68, %67 ], [ %74, %73 ], [ %72, %71 ], [ %78, %77 ], [ %76, %75 ], [ %82, %81 ], [ %80, %79 ], [ %86, %85 ], [ %84, %83 ]
+  %.0.shrunk = phi i1 [ false, %2 ], [ %9, %8 ], [ %108, %106 ], [ true, %103 ], [ true, %10 ], [ false, %2 ], [ %102, %100 ], [ %88, %87 ], [ %99, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$14fmt_class_perl17hb4b336a417117999E.llvm.16653392013706621149.exit" ], [ %34, %33 ], [ %32, %31 ], [ %38, %37 ], [ %36, %35 ], [ %42, %41 ], [ %40, %39 ], [ %46, %45 ], [ %44, %43 ], [ %50, %49 ], [ %48, %47 ], [ %54, %53 ], [ %52, %51 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %66, %65 ], [ %64, %63 ], [ %70, %69 ], [ %68, %67 ], [ %74, %73 ], [ %72, %71 ], [ %78, %77 ], [ %76, %75 ], [ %82, %81 ], [ %80, %79 ], [ %86, %85 ], [ %84, %83 ]
   ret i1 %.0.shrunk
 
 103:                                              ; preds = %10
@@ -1582,8 +1582,8 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
   %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.14, i64 noundef 2), !noalias !252
   br i1 %17, label %18, label %33
 
-18:                                               ; preds = %.split, %37, %31, %33, %24, %21, %15, %8
-  %.0 = phi i1 [ %10, %8 ], [ true, %24 ], [ true, %15 ], [ true, %21 ], [ %38, %37 ], [ true, %33 ], [ %32, %31 ], [ true, %.split ]
+18:                                               ; preds = %.split, %37, %33, %31, %24, %21, %15, %39, %8
+  %.0 = phi i1 [ %10, %8 ], [ true, %33 ], [ false, %39 ], [ true, %15 ], [ true, %21 ], [ true, %24 ], [ true, %31 ], [ true, %37 ], [ true, %.split ]
   ret i1 %.0
 
 .split:                                           ; preds = %11
@@ -1609,18 +1609,21 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
 
 31:                                               ; preds = %24
   %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.13, i64 noundef 1), !noalias !270
-  br label %18
+  br i1 %32, label %18, label %39
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val35 = load ptr, ptr %34, align 8, !alias.scope !273, !nonnull !7, !noundef !7
+  %.val34 = load ptr, ptr %34, align 8, !alias.scope !273, !nonnull !7, !noundef !7
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val36 = load i64, ptr %35, align 8, !alias.scope !273, !noundef !7
-  %36 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr nonnull %16, ptr nonnull %.val35, i64 %.val36)
+  %.val35 = load i64, ptr %35, align 8, !alias.scope !273, !noundef !7
+  %36 = tail call fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$9fmt_flags17hd76d09c600af0f84E"(ptr nonnull %16, ptr nonnull %.val34, i64 %.val35)
   br i1 %36, label %18, label %37
 
 37:                                               ; preds = %33
   %38 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.15, i64 noundef 1), !noalias !276
+  br i1 %38, label %18, label %39
+
+39:                                               ; preds = %37, %31
   br label %18
 }
 
@@ -1775,7 +1778,7 @@ default.unreachable1.i:                           ; preds = %27
   br label %65
 
 65:                                               ; preds = %38, %29, %82, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit", %78, %75, %72, %69, %66, %62, %59
-  %.0.shrunk = phi i1 [ %64, %62 ], [ %61, %59 ], [ %71, %69 ], [ %68, %66 ], [ %77, %75 ], [ %74, %72 ], [ true, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit" ], [ %83, %82 ], [ false, %78 ], [ true, %29 ], [ true, %38 ]
+  %.0.shrunk = phi i1 [ %64, %62 ], [ %61, %59 ], [ %71, %69 ], [ %68, %66 ], [ %77, %75 ], [ %74, %72 ], [ true, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit" ], [ false, %78 ], [ %83, %82 ], [ true, %29 ], [ true, %38 ]
   ret i1 %.0.shrunk
 
 66:                                               ; preds = %19

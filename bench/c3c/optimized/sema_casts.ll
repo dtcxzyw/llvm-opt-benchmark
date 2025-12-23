@@ -2782,7 +2782,7 @@ cast_is_allowed.exit:                             ; preds = %91, %81, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2794,15 +2794,15 @@ define internal zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %
   %12 = load ptr, ptr %11, align 8
   %.val24 = load ptr, ptr %0, align 8
   %13 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val24, ptr noundef %10, ptr noundef %12, i1 noundef zeroext %1) #10
-  switch i32 %13, label %28 [
-    i32 1, label %.critedge22
+  switch i32 %13, label %27 [
+    i32 1, label %41
     i32 2, label %14
-    i32 -1, label %27
+    i32 -1, label %.critedge22
     i32 0, label %.critedge
   ]
 
 14:                                               ; preds = %3
-  br i1 %1, label %.critedge22, label %15
+  br i1 %1, label %41, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2818,48 +2818,47 @@ define internal zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %26 = icmp eq i16 %25, 6
-  %brmerge = or i1 %2, %26
-  br i1 %brmerge, label %.critedge22, label %29
+  br i1 %26, label %41, label %.critedge
 
 27:                                               ; preds = %3
-  br label %.critedge22
-
-28:                                               ; preds = %3
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.rule_sa_to_ptr, ptr noundef nonnull @.str.4, i32 noundef 864) #11
   unreachable
 
-.critedge:                                        ; preds = %3, %15
-  br i1 %2, label %.critedge22, label %29
+.critedge:                                        ; preds = %3, %22, %15
+  br i1 %2, label %.critedge22, label %28
 
-29:                                               ; preds = %22, %.critedge
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @type_get_ptr(ptr noundef %34) #10
-  %36 = load ptr, ptr %11, align 8
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr @type_get_ptr(ptr noundef %33) #10
+  %35 = load ptr, ptr %11, align 8
   %.val24.i = load ptr, ptr %0, align 8
-  %37 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val24.i, ptr noundef %35, ptr noundef %36, i1 noundef zeroext true) #10
-  %switch.tableidx = add i32 %37, 1
-  %38 = icmp ult i32 %switch.tableidx, 4
-  br i1 %38, label %switch.lookup, label %39
+  %36 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val24.i, ptr noundef %34, ptr noundef %35, i1 noundef zeroext true) #10
+  %switch.tableidx = add i32 %36, 1
+  %37 = icmp ult i32 %switch.tableidx, 4
+  br i1 %37, label %switch.lookup, label %38
 
-39:                                               ; preds = %29
+38:                                               ; preds = %28
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.rule_sa_to_ptr, ptr noundef nonnull @.str.4, i32 noundef 864) #11
   unreachable
 
-switch.lookup:                                    ; preds = %29
+switch.lookup:                                    ; preds = %28
   %switch.masked = icmp ugt i32 %switch.tableidx, 1
-  %40 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %40, align 8
-  %41 = getelementptr i8, ptr %0, i64 24
-  %.val23 = load ptr, ptr %41, align 8
+  %39 = getelementptr i8, ptr %0, i64 8
+  %.val = load ptr, ptr %39, align 8
+  %40 = getelementptr i8, ptr %0, i64 24
+  %.val23 = load ptr, ptr %40, align 8
   tail call fastcc void @report_cast_error(ptr %.val, ptr %.val23, i1 noundef zeroext %switch.masked)
-  br label %.critedge22
+  br label %41
 
-.critedge22:                                      ; preds = %22, %.critedge, %switch.lookup, %14, %3, %27
-  %.020 = phi i1 [ false, %27 ], [ true, %3 ], [ true, %14 ], [ %26, %22 ], [ false, %switch.lookup ], [ false, %.critedge ]
+.critedge22:                                      ; preds = %3, %.critedge
+  br label %41
+
+41:                                               ; preds = %switch.lookup, %.critedge22, %14, %22, %3
+  %.020 = phi i1 [ false, %switch.lookup ], [ true, %3 ], [ true, %14 ], [ true, %22 ], [ false, %.critedge22 ]
   ret i1 %.020
 }
 
@@ -5140,48 +5139,47 @@ type_flatten.exit32:                              ; preds = %type_flatten.exit, 
 41:                                               ; preds = %type_flatten.exit32
   %42 = load i32, ptr %.025, align 8
   %43 = icmp eq i32 %42, 23
-  br i1 %43, label %44, label %52
+  br i1 %43, label %44, label %51
 
 44:                                               ; preds = %41
   %45 = load i32, ptr %.024, align 8
   %46 = icmp eq i32 %45, 23
-  br i1 %46, label %47, label %52
+  br i1 %46, label %47, label %51
 
 47:                                               ; preds = %44
   %.val28 = load ptr, ptr %0, align 8
   %48 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val28, ptr noundef nonnull %.025, ptr noundef nonnull %.024, i1 noundef zeroext %1) #10
-  switch i32 %48, label %51 [
+  switch i32 %48, label %50 [
     i32 1, label %common.ret51
     i32 2, label %49
-    i32 -1, label %50
-    i32 0, label %52
+    i32 -1, label %.critedge
+    i32 0, label %51
   ]
 
 49:                                               ; preds = %47
-  %brmerge = or i1 %1, %2
-  br i1 %brmerge, label %common.ret51, label %53
+  br i1 %1, label %common.ret51, label %51
 
 50:                                               ; preds = %47
-  br label %common.ret51
-
-51:                                               ; preds = %47
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.rule_arrptr_to_sa, ptr noundef nonnull @.str.4, i32 noundef 776) #11
   unreachable
 
-52:                                               ; preds = %47, %44, %41
-  br i1 %2, label %common.ret51, label %53
+51:                                               ; preds = %49, %47, %44, %41
+  br i1 %2, label %.critedge, label %52
 
-common.ret51:                                     ; preds = %49, %52, %47, %type_flatten.exit32, %50, %53
-  %common.ret51.op = phi i1 [ false, %53 ], [ false, %52 ], [ false, %50 ], [ true, %type_flatten.exit32 ], [ true, %47 ], [ %1, %49 ]
+common.ret51:                                     ; preds = %.critedge, %49, %47, %type_flatten.exit32, %52
+  %common.ret51.op = phi i1 [ false, %52 ], [ true, %49 ], [ false, %.critedge ], [ true, %type_flatten.exit32 ], [ true, %47 ]
   ret i1 %common.ret51.op
 
-53:                                               ; preds = %49, %52
-  %54 = tail call zeroext i1 @rule_arrptr_to_sa(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext true)
-  %55 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %55, align 8
-  %56 = getelementptr i8, ptr %0, i64 24
-  %.val27 = load ptr, ptr %56, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val27, i1 noundef zeroext %54)
+52:                                               ; preds = %51
+  %53 = tail call zeroext i1 @rule_arrptr_to_sa(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext true)
+  %54 = getelementptr i8, ptr %0, i64 8
+  %.val = load ptr, ptr %54, align 8
+  %55 = getelementptr i8, ptr %0, i64 24
+  %.val27 = load ptr, ptr %55, align 8
+  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val27, i1 noundef zeroext %53)
+  br label %common.ret51
+
+.critedge:                                        ; preds = %47, %51
   br label %common.ret51
 }
 

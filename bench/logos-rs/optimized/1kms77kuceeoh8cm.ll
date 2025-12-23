@@ -59,7 +59,7 @@ define void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..range..Range$GT$3fmt17h5f533fb28572539aE"(ptr readonly align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..range..Range$GT$3fmt17h5f533fb28572539aE"(ptr readonly align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [56 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -157,17 +157,35 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
   br i1 %42, label %47, label %45
 
 44:                                               ; preds = %40
-  br i1 %42, label %55, label %48
+  br i1 %42, label %48, label %55
 
 45:                                               ; preds = %43
   %46 = call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.37a3b4148d053cfa9d2f87adc22d9941.5, i64 1)
-  br label %47
+  br i1 %46, label %62, label %47
 
-47:                                               ; preds = %48, %55, %26, %45, %43, %33, %22
-  %.sroa.0.0 = phi i1 [ true, %33 ], [ false, %43 ], [ %46, %45 ], [ true, %22 ], [ true, %26 ], [ %61, %55 ], [ %54, %48 ]
+47:                                               ; preds = %48, %26, %43, %45, %55, %33, %22, %62
+  %.sroa.0.0 = phi i1 [ true, %33 ], [ true, %62 ], [ false, %43 ], [ true, %22 ], [ false, %55 ], [ false, %45 ], [ true, %26 ], [ false, %48 ]
   ret i1 %.sroa.0.0
 
 48:                                               ; preds = %44
+  %49 = zext i8 %19 to i32
+  store i32 %49, ptr %6, align 4
+  store ptr %6, ptr %7, align 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h568540cda8c5fc99E", ptr %.sroa.232.0..sroa_idx, align 8
+  store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.7, ptr %8, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 2, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %7, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 1, ptr %53, align 8
+  %54 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %8)
+  br i1 %54, label %62, label %47
+
+55:                                               ; preds = %44
   store ptr %15, ptr %4, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h064d9aa35fb4156aE", ptr %.sroa.228.0..sroa_idx, align 8
@@ -185,40 +203,25 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
   %.sroa.812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 3, ptr %.sroa.812.0..sroa_idx, align 8
   store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.7, ptr %5, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 2, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %3, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 1, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %53, align 8
-  %54 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %5)
-  br label %47
-
-55:                                               ; preds = %44
-  %56 = zext i8 %19 to i32
-  store i32 %56, ptr %6, align 4
-  store ptr %6, ptr %7, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h568540cda8c5fc99E", ptr %.sroa.232.0..sroa_idx, align 8
-  store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.7, ptr %8, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 2, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %7, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 2, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %3, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 1, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %60, align 8
-  %61 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %8)
+  %61 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %5)
+  br i1 %61, label %62, label %47
+
+62:                                               ; preds = %48, %45, %55
   br label %47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug83_$LT$impl$u20$core..fmt..Display$u20$for$u20$logos_codegen..graph..range..Range$GT$3fmt17hc0c4ffc7db787802E"(ptr readonly align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN13logos_codegen5graph5impls5debug83_$LT$impl$u20$core..fmt..Display$u20$for$u20$logos_codegen..graph..range..Range$GT$3fmt17hc0c4ffc7db787802E"(ptr readonly align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..range..Range$GT$3fmt17h5f533fb28572539aE"(ptr align 1 %0, ptr align 8 %1)
   ret i1 %3
 }

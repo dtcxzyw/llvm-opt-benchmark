@@ -73713,10 +73713,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %22
   %.not17.i.i.i.i.i = icmp eq i64 %44, %23
-  br i1 %.not17.i.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !522
-
-..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %40
-  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !522
+  br i1 %.not17.i.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i23.i, !llvm.loop !522
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i: ; preds = %37, %15
   %45 = add nsw i32 %5, 1
@@ -73729,7 +73726,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit._crit_edge.i: ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.0.val, i64 1480
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
-  %.pre45.i = load ptr, ptr %2, align 8
+  %.pre49.i = load ptr, ptr %2, align 8
   br label %57
 
 50:                                               ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i
@@ -73749,7 +73746,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   br i1 %56, label %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.i, label %52, !llvm.loop !537
 
 57:                                               ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit._crit_edge.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread16.i
-  %58 = phi ptr [ %24, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread16.i ], [ %.pre45.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit._crit_edge.i ]
+  %58 = phi ptr [ %24, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread16.i ], [ %.pre49.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit._crit_edge.i ]
   %59 = phi i64 [ %22, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread16.i ], [ %.pre.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit._crit_edge.i ]
   %60 = phi ptr [ %36, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread16.i ], [ %49, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit._crit_edge.i ]
   %61 = ptrtoint ptr %60 to i64
@@ -73793,10 +73790,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %84 = ptrtoint ptr %83 to i64
   %85 = urem i64 %84, %59
   %.not17.i.i.i.i10.i = icmp eq i64 %85, %62
-  br i1 %.not17.i.i.i.i10.i, label %78, label %..loopexit_crit_edge21.i.i.i.i11.i, !llvm.loop !522
-
-..loopexit_crit_edge21.i.i.i.i11.i:               ; preds = %81
-  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !522
+  br i1 %.not17.i.i.i.i10.i, label %78, label %..loopexit_crit_edge21.i.i.i.i23.i, !llvm.loop !522
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.i: ; preds = %78, %53
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -73810,9 +73804,9 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   br i1 %.not.not.i.i.i, label %94, label %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i: ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.i
-  %.phi.trans.insert46.i = getelementptr inbounds nuw i8, ptr %.0.val, i64 1480
-  %.pre47.i = load i64, ptr %.phi.trans.insert46.i, align 8
-  %.pre48.i = load ptr, ptr %2, align 8
+  %.phi.trans.insert50.i = getelementptr inbounds nuw i8, ptr %.0.val, i64 1480
+  %.pre51.i = load i64, ptr %.phi.trans.insert50.i, align 8
+  %.pre52.i = load ptr, ptr %2, align 8
   br label %101
 
 94:                                               ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.i
@@ -73832,8 +73826,8 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   br i1 %100, label %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.i, label %96, !llvm.loop !537
 
 101:                                              ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i
-  %102 = phi ptr [ %58, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i ], [ %.pre48.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i ]
-  %103 = phi i64 [ %59, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i ], [ %.pre47.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i ]
+  %102 = phi ptr [ %58, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i ], [ %.pre52.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i ]
+  %103 = phi i64 [ %59, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i ], [ %.pre51.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i ]
   %104 = phi ptr [ %77, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i ], [ %93, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i ]
   %105 = phi ptr [ %74, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i ], [ %90, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i ]
   %106 = phi i32 [ %73, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.thread19.i ], [ %89, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16._crit_edge.i ]
@@ -73877,7 +73871,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.not17.i.i.i.i22.i = icmp eq i64 %128, %108
   br i1 %.not17.i.i.i.i22.i, label %121, label %..loopexit_crit_edge21.i.i.i.i23.i, !llvm.loop !522
 
-..loopexit_crit_edge21.i.i.i.i23.i:               ; preds = %124
+..loopexit_crit_edge21.i.i.i.i23.i:               ; preds = %40, %81, %124
   br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !522
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.i: ; preds = %121, %97
@@ -73891,9 +73885,9 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   br i1 %.not.not.i.i.i, label %136, label %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i: ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.i
-  %.phi.trans.insert49.i = getelementptr inbounds nuw i8, ptr %.0.val, i64 1480
-  %.pre50.i = load i64, ptr %.phi.trans.insert49.i, align 8
-  %.pre51.i = load ptr, ptr %2, align 8
+  %.phi.trans.insert53.i = getelementptr inbounds nuw i8, ptr %.0.val, i64 1480
+  %.pre54.i = load i64, ptr %.phi.trans.insert53.i, align 8
+  %.pre55.i = load ptr, ptr %2, align 8
   br label %143
 
 136:                                              ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.i
@@ -73913,8 +73907,8 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   br i1 %142, label %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i, label %138, !llvm.loop !537
 
 143:                                              ; preds = %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.thread23.i
-  %144 = phi ptr [ %102, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.thread23.i ], [ %.pre51.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i ]
-  %145 = phi i64 [ %103, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.thread23.i ], [ %.pre50.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i ]
+  %144 = phi ptr [ %102, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.thread23.i ], [ %.pre55.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i ]
+  %145 = phi i64 [ %103, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.thread23.i ], [ %.pre54.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i ]
   %146 = phi ptr [ %120, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.thread23.i ], [ %135, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28._crit_edge.i ]
   %147 = ptrtoint ptr %146 to i64
   %148 = urem i64 %147, %145
@@ -73956,8 +73950,8 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %164 = icmp ne ptr %.sroa.06.1.i.i36.i, null
   br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit"
 
-"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit": ; preds = %.lr.ph.i.i.i.i.i, %14, %.lr.ph.i.i.i.i7.i, %52, %.lr.ph.i.i.i.i19.i, %96, %19, %..loopexit_crit_edge21.i.i.i.i.i, %57, %..loopexit_crit_edge21.i.i.i.i11.i, %101, %..loopexit_crit_edge21.i.i.i.i23.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i
-  %165 = phi i1 [ false, %52 ], [ false, %14 ], [ %164, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i7.i ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i11.i ], [ false, %.lr.ph.i.i.i.i19.i ], [ false, %57 ], [ false, %..loopexit_crit_edge21.i.i.i.i23.i ], [ false, %96 ], [ false, %101 ], [ false, %.lr.ph.i.i.i.i.i ]
+"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit": ; preds = %.lr.ph.i.i.i.i.i, %14, %.lr.ph.i.i.i.i7.i, %52, %.lr.ph.i.i.i.i19.i, %96, %19, %57, %101, %..loopexit_crit_edge21.i.i.i.i23.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i
+  %165 = phi i1 [ false, %52 ], [ false, %14 ], [ %164, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i ], [ false, %96 ], [ false, %.lr.ph.i.i.i.i7.i ], [ false, %19 ], [ false, %101 ], [ false, %.lr.ph.i.i.i.i19.i ], [ false, %57 ], [ false, %..loopexit_crit_edge21.i.i.i.i23.i ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %165
 }
 

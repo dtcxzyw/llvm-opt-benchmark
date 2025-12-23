@@ -850,7 +850,7 @@ define internal fastcc noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyl
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %88 = load i32, ptr %87, align 4, !range !165, !noundef !5
   %trunc15 = trunc nuw i32 %88 to i1
-  br i1 %trunc14, label %107, label %105
+  br i1 %trunc14, label %106, label %105
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -877,18 +877,20 @@ define internal fastcc noundef zeroext i1 @"_ZN68_$LT$gpui..style..HighlightStyl
   %103 = tail call noundef zeroext i1 @"_ZN58_$LT$gpui..color..Hsla$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1d1dd0500c72fffE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %101, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %102)
   br i1 %103, label %84, label %104
 
-104:                                              ; preds = %107, %105, %99, %98, %71, %70, %40, %39, %17, %16, %12, %24, %48, %72, %100, %30, %32, %52, %53, %78, %61, %82, %83, %89, %5, %6, %108
-  %.sroa.0.0 = phi i1 [ %106, %105 ], [ false, %24 ], [ false, %12 ], [ %113, %108 ], [ false, %6 ], [ false, %5 ], [ false, %99 ], [ false, %98 ], [ false, %89 ], [ false, %83 ], [ false, %82 ], [ false, %71 ], [ false, %70 ], [ false, %61 ], [ false, %78 ], [ false, %53 ], [ false, %52 ], [ false, %40 ], [ false, %39 ], [ false, %32 ], [ false, %30 ], [ false, %17 ], [ false, %16 ], [ false, %100 ], [ false, %72 ], [ false, %48 ], [ false, %107 ]
+104:                                              ; preds = %105, %99, %98, %71, %70, %40, %39, %17, %16, %12, %24, %48, %72, %100, %83, %82, %53, %52, %32, %30, %61, %78, %89, %5, %6, %107, %108
+  %.sroa.0.0 = phi i1 [ false, %24 ], [ false, %107 ], [ true, %105 ], [ %113, %108 ], [ false, %6 ], [ false, %5 ], [ false, %99 ], [ false, %98 ], [ false, %89 ], [ false, %78 ], [ false, %61 ], [ false, %40 ], [ false, %39 ], [ false, %17 ], [ false, %16 ], [ false, %30 ], [ false, %32 ], [ false, %52 ], [ false, %53 ], [ false, %70 ], [ false, %71 ], [ false, %82 ], [ false, %83 ], [ false, %100 ], [ false, %72 ], [ false, %48 ], [ false, %12 ]
   ret i1 %.sroa.0.0
 
 105:                                              ; preds = %84
-  %106 = xor i1 %trunc15, true
+  br i1 %trunc15, label %107, label %104
+
+106:                                              ; preds = %84
+  br i1 %trunc15, label %108, label %107
+
+107:                                              ; preds = %106, %105
   br label %104
 
-107:                                              ; preds = %84
-  br i1 %trunc15, label %108, label %104
-
-108:                                              ; preds = %107
+108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %110 = load float, ptr %109, align 4, !noundef !5
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 52

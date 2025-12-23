@@ -733,27 +733,27 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
   %.0 = phi ptr [ %12, %11 ], [ %3, %.preheader ]
   %10 = load i8, ptr %.0, align 1, !tbaa !51
   %.not37 = icmp eq i8 %10, 0
-  br i1 %.not37, label %.preheader70, label %11
+  br i1 %.not37, label %.preheader69, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %13 = icmp eq i8 %10, 61
-  br i1 %13, label %.preheader70, label %9, !llvm.loop !52
+  br i1 %13, label %.preheader69, label %9, !llvm.loop !52
 
-.preheader70:                                     ; preds = %11, %9
+.preheader69:                                     ; preds = %11, %9
   %.2.ph = phi ptr [ %.0, %9 ], [ %12, %11 ]
   br label %14
 
-14:                                               ; preds = %.preheader70, %16
-  %.2 = phi ptr [ %17, %16 ], [ %.2.ph, %.preheader70 ]
+14:                                               ; preds = %.preheader69, %16
+  %.2 = phi ptr [ %17, %16 ], [ %.2.ph, %.preheader69 ]
   %15 = load i8, ptr %.2, align 1, !tbaa !51
-  switch i8 %15, label %.loopexit.loopexit [
+  switch i8 %15, label %.loopexit [
     i8 32, label %16
     i8 76, label %18
     i8 80, label %22
     i8 66, label %26
     i8 83, label %30
-    i8 68, label %.loopexit
+    i8 68, label %.loopexit48
   ]
 
 16:                                               ; preds = %14
@@ -763,75 +763,63 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.2, i64 3
   %20 = load i8, ptr %19, align 1, !tbaa !51
-  switch i8 %20, label %.fold.split [
-    i8 52, label %.loopexit
+  switch i8 %20, label %.loopexit [
+    i8 52, label %.loopexit48
     i8 54, label %21
   ]
 
 21:                                               ; preds = %18
-  br label %.loopexit
+  br label %.loopexit48
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !51
-  switch i8 %24, label %.fold.split38 [
-    i8 73, label %.loopexit
+  switch i8 %24, label %.loopexit [
+    i8 73, label %.loopexit48
     i8 79, label %25
   ]
 
 25:                                               ; preds = %22
-  br label %.loopexit
+  br label %.loopexit48
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !51
-  switch i8 %28, label %.fold.split39 [
-    i8 111, label %.loopexit
+  switch i8 %28, label %.loopexit [
+    i8 111, label %.loopexit48
     i8 97, label %29
   ]
 
 29:                                               ; preds = %26
-  br label %.loopexit
+  br label %.loopexit48
 
 30:                                               ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !51
-  switch i8 %32, label %.fold.split40 [
-    i8 108, label %.loopexit
+  switch i8 %32, label %.loopexit [
+    i8 108, label %.loopexit48
     i8 113, label %33
   ]
 
 33:                                               ; preds = %30
-  br label %.loopexit
+  br label %.loopexit48
 
-.fold.split:                                      ; preds = %18
-  br label %.loopexit
+.loopexit:                                        ; preds = %14, %30, %26, %22, %18
+  br label %.loopexit48
 
-.fold.split38:                                    ; preds = %22
-  br label %.loopexit
-
-.fold.split39:                                    ; preds = %26
-  br label %.loopexit
-
-.fold.split40:                                    ; preds = %30
-  br label %.loopexit
-
-.loopexit.loopexit:                               ; preds = %14
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %30, %.fold.split40, %26, %.fold.split39, %22, %.fold.split38, %18, %.fold.split, %25, %33, %29, %21
-  %.128 = phi i32 [ %.02747, %.fold.split40 ], [ 8, %21 ], [ 7, %18 ], [ %.02747, %.fold.split ], [ 3, %25 ], [ 2, %22 ], [ %.02747, %.fold.split38 ], [ 4, %29 ], [ 9, %26 ], [ %.02747, %.fold.split39 ], [ 5, %33 ], [ 6, %30 ], [ %.02747, %.loopexit.loopexit ], [ 10, %14 ]
+.loopexit48:                                      ; preds = %14, %.loopexit, %30, %26, %22, %18, %25, %33, %29, %21
+  %.128 = phi i32 [ 5, %33 ], [ 8, %21 ], [ 7, %18 ], [ 6, %30 ], [ 3, %25 ], [ 2, %22 ], [ %.02747, %.loopexit ], [ 4, %29 ], [ 9, %26 ], [ 10, %14 ]
   %34 = trunc i32 %.128 to i8
   %35 = load i32, ptr %5, align 4, !tbaa !12
   %36 = load i32, ptr %4, align 8, !tbaa !16
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %.Vec_StrGrow.exit10_crit_edge.i
 
-.Vec_StrGrow.exit10_crit_edge.i:                  ; preds = %.loopexit
+.Vec_StrGrow.exit10_crit_edge.i:                  ; preds = %.loopexit48
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !17
   br label %Vec_StrPush.exit
 
-38:                                               ; preds = %.loopexit
+38:                                               ; preds = %.loopexit48
   %39 = icmp slt i32 %35, 16
   br i1 %39, label %40, label %47
 

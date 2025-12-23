@@ -7098,10 +7098,10 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.6872
   br i1 %83, label %.critedge, label %85
 
 .critedge:                                        ; preds = %87, %60, %60, %60, %60, %60, %60, %.critedge62.thread, %.critedge62, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit, %95
-  %.168 = phi i8 [ 0, %95 ], [ %.067120, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ %.067120, %.critedge62 ], [ %.067120, %.critedge62.thread ], [ %.067120, %60 ], [ %.067120, %60 ], [ %.067120, %60 ], [ %.067120, %60 ], [ %.067120, %60 ], [ %.067120, %60 ], [ 1, %87 ]
-  %.153 = phi i1 [ false, %95 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ false, %.critedge62 ], [ false, %.critedge62.thread ], [ true, %60 ], [ true, %60 ], [ true, %60 ], [ true, %60 ], [ true, %60 ], [ true, %60 ], [ false, %87 ]
-  %.147 = phi i8 [ %.046122, %95 ], [ %.046122, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ 0, %.critedge62 ], [ %.046122, %.critedge62.thread ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %87 ]
-  %.1 = phi i8 [ 1, %95 ], [ %.0124, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ %.0124, %.critedge62 ], [ %.0124, %.critedge62.thread ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %87 ]
+  %.168 = phi i8 [ 0, %95 ], [ %.067120, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ %.067120, %.critedge62 ], [ %.067120, %60 ], [ %.067120, %.critedge62.thread ], [ %.067120, %60 ], [ %.067120, %60 ], [ %.067120, %60 ], [ %.067120, %60 ], [ %.067120, %60 ], [ 1, %87 ]
+  %.153 = phi i1 [ false, %95 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ false, %.critedge62 ], [ true, %60 ], [ false, %.critedge62.thread ], [ true, %60 ], [ true, %60 ], [ true, %60 ], [ true, %60 ], [ true, %60 ], [ false, %87 ]
+  %.147 = phi i8 [ %.046122, %95 ], [ %.046122, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ 0, %.critedge62 ], [ %.046122, %60 ], [ %.046122, %.critedge62.thread ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %60 ], [ %.046122, %87 ]
+  %.1 = phi i8 [ 1, %95 ], [ %.0124, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.687266931824691263.exit ], [ %.0124, %.critedge62 ], [ %.0124, %60 ], [ %.0124, %.critedge62.thread ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %60 ], [ %.0124, %87 ]
   %84 = icmp eq ptr %.sink, %5
   br i1 %84, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.loopexit", label %11
 
@@ -7421,10 +7421,10 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit37: ; preds = %_ZN
 121:                                              ; preds = %119
   %122 = load i64, ptr %9, align 8, !noalias !1378, !noundef !4
   %123 = load i64, ptr %14, align 8, !noalias !1378, !noundef !4
-  %124 = icmp eq i64 %122, %123
-  %or.cond.i = or i1 %21, %124
-  %or.cond1.i = or i1 %69, %or.cond.i
-  br i1 %or.cond1.i, label %125, label %128
+  %.not37.i = icmp eq i64 %122, %123
+  %124 = or i1 %69, %.not37.i
+  %or.cond = or i1 %124, %21
+  br i1 %or.cond, label %125, label %128
 
 125:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1378
@@ -7440,11 +7440,11 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit37: ; preds = %_ZN
 128:                                              ; preds = %121
   %129 = icmp slt i64 %122, %123
   %spec.select.i = select i1 %129, i8 -1, i8 1
-  br label %235
+  br label %236
 
-130:                                              ; preds = %234, %125
-  %131 = phi ptr [ %220, %234 ], [ %10, %125 ]
-  %132 = phi ptr [ %176, %234 ], [ %5, %125 ]
+130:                                              ; preds = %235, %125
+  %131 = phi ptr [ %220, %235 ], [ %10, %125 ]
+  %132 = phi ptr [ %176, %235 ], [ %5, %125 ]
   %133 = icmp eq ptr %132, %20
   br i1 %133, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit, label %.lr.ph
 
@@ -7606,15 +7606,15 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit49: ; pr
   %224 = icmp eq i32 %.0.i45, 1114112
   br i1 %224, label %228, label %230
 
-.thread66:                                        ; preds = %230, %234, %232, %228, %227, %225, %222
-  %.0.i = phi i8 [ 1, %228 ], [ 0, %222 ], [ -1, %227 ], [ %spec.select40.i, %232 ], [ 0, %225 ], [ -1, %230 ], [ 1, %234 ]
+.thread66:                                        ; preds = %230, %235, %234, %232, %228, %227, %222
+  %.0.i = phi i8 [ 1, %228 ], [ 0, %222 ], [ -1, %227 ], [ 0, %234 ], [ 1, %232 ], [ -1, %230 ], [ 1, %235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1378
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1378
-  br label %235
+  br label %236
 
 225:                                              ; preds = %222
   %226 = call fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h600167b6e8807ba6E(ptr noalias noundef align 8 dereferenceable(16) %3)
-  br i1 %226, label %227, label %.thread66
+  br i1 %226, label %227, label %234
 
 227:                                              ; preds = %225, %222
   br label %.thread66
@@ -7625,33 +7625,35 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit49: ; pr
 
 230:                                              ; preds = %223
   %231 = icmp samesign ult i32 %.0.i38, %.0.i45
-  br i1 %231, label %.thread66, label %234
+  br i1 %231, label %.thread66, label %235
 
 232:                                              ; preds = %228
   %233 = call fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbccaa155900b24daE(ptr noalias noundef align 8 dereferenceable(16) %4)
-  %spec.select40.i = zext i1 %233 to i8
+  br i1 %233, label %.thread66, label %234
+
+234:                                              ; preds = %232, %225
   br label %.thread66
 
-234:                                              ; preds = %230
+235:                                              ; preds = %230
   %.not68.not = icmp eq i32 %.0.i38, %.0.i45
   br i1 %.not68.not, label %130, label %.thread66
 
-235:                                              ; preds = %.thread66, %128
+236:                                              ; preds = %.thread66, %128
   %.1.i = phi i8 [ %.0.i, %.thread66 ], [ %spec.select.i, %128 ]
-  %236 = icmp eq i8 %16, 0
+  %237 = icmp eq i8 %16, 0
   %switch.offset = sub nsw i8 0, %.1.i
-  %spec.select140 = select i1 %236, i8 %switch.offset, i8 %.1.i
+  %spec.select140 = select i1 %237, i8 %switch.offset, i8 %.1.i
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit
 
 .thread63:                                        ; preds = %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit37, %119
   %spec.select = phi i8 [ -1, %119 ], [ 1, %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit37 ]
   %.01865 = phi i8 [ 1, %119 ], [ -1, %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit37 ]
-  %237 = icmp eq i8 %16, 0
-  %spec.select69 = select i1 %237, i8 %spec.select, i8 %.01865
+  %238 = icmp eq i8 %16, 0
+  %spec.select69 = select i1 %238, i8 %spec.select, i8 %.01865
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit
 
-_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit: ; preds = %235, %.thread63, %117
-  %.1 = phi i8 [ %.3, %117 ], [ %spec.select140, %235 ], [ %spec.select69, %.thread63 ]
+_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit: ; preds = %236, %.thread63, %117
+  %.1 = phi i8 [ %.3, %117 ], [ %spec.select140, %236 ], [ %spec.select69, %.thread63 ]
   ret i8 %.1
 }
 

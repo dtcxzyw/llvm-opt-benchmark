@@ -6970,26 +6970,25 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4ab
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %bcmp.i4 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.4, i64 %sub.i)
   %cmp.i.i5 = icmp eq i32 %bcmp.i4, 0
-  %spec.select = zext i1 %cmp.i.i5 to i32
+  br i1 %cmp.i.i5, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
+
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i162, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i82, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %bcmp.i13 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.5, i64 %sub.i)
   %cmp.i.i14 = icmp eq i32 %bcmp.i13, 0
-  %spec.select194 = select i1 %cmp.i.i14, i32 5, i32 0
-  br label %return
+  br i1 %cmp.i.i14, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i22: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %bcmp.i23 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.6, i64 %sub.i)
   %cmp.i.i24 = icmp eq i32 %bcmp.i23, 0
-  %spec.select195 = select i1 %cmp.i.i24, i32 3, i32 0
-  br label %return
+  br i1 %cmp.i.i24, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %bcmp.i33 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.7, i64 %sub.i)
   %cmp.i.i34 = icmp eq i32 %bcmp.i33, 0
-  %spec.select196 = select i1 %cmp.i.i34, i32 8, i32 0
-  br label %return
+  br i1 %cmp.i.i34, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i42: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %bcmp.i43 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.8, i64 %sub.i)
@@ -7014,8 +7013,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i72: ; preds = %_ZNSt11char_traitsI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i82: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i72
   %bcmp.i83 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.12, i64 %sub.i)
   %cmp.i.i84 = icmp eq i32 %bcmp.i83, 0
-  %spec.select197 = select i1 %cmp.i.i84, i32 9, i32 0
-  br label %return
+  br i1 %cmp.i.i84, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i92: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %bcmp.i93 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.13, i64 %sub.i)
@@ -7035,8 +7033,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i112: ; preds = %_ZNSt11char_traits
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i112
   %bcmp.i123 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.16, i64 %sub.i)
   %cmp.i.i124 = icmp eq i32 %bcmp.i123, 0
-  %spec.select198 = select i1 %cmp.i.i124, i32 2, i32 0
-  br label %return
+  br i1 %cmp.i.i124, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %bcmp.i133 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.17, i64 %sub.i)
@@ -7056,11 +7053,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i152: ; preds = %_ZNSt11char_traits
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i162: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i152
   %bcmp.i163 = tail call i32 @bcmp(ptr nonnull %add.ptr.i, ptr nonnull @.str.20, i64 %sub.i)
   %cmp.i.i164 = icmp eq i32 %bcmp.i163, 0
-  %spec.select199 = select i1 %cmp.i.i164, i32 2, i32 0
-  br label %return
+  br i1 %cmp.i.i164, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i162, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i82, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %lor.rhs.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i152, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i112, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i102, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i92, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i72, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i52, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i42, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
-  %retval.0 = phi i32 [ %spec.select197, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i82 ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %spec.select199, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i162 ], [ 0, %lor.rhs.i ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %spec.select194, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i42 ], [ 6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i52 ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62 ], [ 7, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i72 ], [ %spec.select195, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i22 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i112 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i102 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i92 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i152 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132 ], [ %spec.select196, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32 ], [ %spec.select198, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122 ]
+return:                                           ; preds = %lor.rhs.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i162, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i152, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i112, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i102, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i92, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i82, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i72, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i52, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i42, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
+  %retval.0 = phi i32 [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i162 ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 5, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ], [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i22 ], [ 8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i42 ], [ 6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i52 ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62 ], [ 7, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i72 ], [ 9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i82 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i112 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i102 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i92 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i152 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122 ], [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ], [ 0, %lor.rhs.i ]
   ret i32 %retval.0
 }
 
