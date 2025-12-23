@@ -540,7 +540,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %116 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %117 = load i64, ptr %116, align 8, !tbaa !41
   %118 = icmp eq i64 %115, %117
-  br i1 %118, label %.sink.split92, label %133
+  br i1 %118, label %140, label %133
 
 119:                                              ; preds = %12, %8, %3
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 192
@@ -552,16 +552,16 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
 
 125:                                              ; preds = %119
   %126 = icmp eq i64 %121, %123
-  br i1 %126, label %.sink.split92, label %133
+  br i1 %126, label %140, label %133
 
-.sink.split:                                      ; preds = %.sink.split92, %119, %21, %27, %35, %47, %65, %89
+.sink.split:; preds = %140, %119, %21, %27, %35, %47, %65, %89
   store ptr %4, ptr %1, align 8, !tbaa !4
   store ptr %.pre, ptr %0, align 8, !tbaa !4
-  %127 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 1, ptr %127, align 4, !tbaa !29
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  store i32 1, ptr %139, align 4, !tbaa !29
   br label %133
 
-.sink.split92:                                    ; preds = %125, %113
+140:                                              ; preds = %125, %113
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %129 = load i64, ptr %128, align 8, !tbaa !43
   %130 = getelementptr inbounds nuw i8, ptr %.pre, i64 48

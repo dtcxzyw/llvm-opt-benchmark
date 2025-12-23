@@ -5848,7 +5848,7 @@ define internal fastcc noundef ptr @_ZN5uu_wc11print_stats17ha16bc49428a6943fE(p
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h5c8e41c755edcf68E.exit", label %.backedge
 
-.backedge:                                        ; preds = %71, %149
+.backedge:                                        ; preds = %71, %150
   br label %69
 
 .loopexit:                                        ; preds = %88, %91
@@ -5942,7 +5942,7 @@ select.unfold:                                    ; preds = %80
   br i1 %86, label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74.sink.split86", label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74"
 
 87:                                               ; preds = %80
-  br i1 %.not.i, label %149, label %88
+  br i1 %.not.i, label %150, label %88
 
 88:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1493
@@ -5960,7 +5960,7 @@ select.unfold:                                    ; preds = %80
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i": ; preds = %91, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1493
-  br label %149
+  br label %150
 
 92:                                               ; preds = %78
   %93 = landingpad { ptr, i32 }
@@ -5999,10 +5999,10 @@ select.unfold:                                    ; preds = %80
 
 105:                                              ; preds = %103
   %spec.select.i59 = select i1 %.not.i58, ptr @anon.b084d23753e41b113ba075e48fa28938.3.llvm.15812483133845673217, ptr %104
-  br label %145
+  br label %149
 
 106:                                              ; preds = %103
-  br i1 %.not.i58, label %145, label %107
+  br i1 %.not.i58, label %149, label %107
 
 107:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1510
@@ -6021,7 +6021,7 @@ select.unfold:                                    ; preds = %80
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i56": ; preds = %110, %.noexc60
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1510
-  br label %145
+  br label %149
 
 112:                                              ; preds = %101
   %113 = landingpad { ptr, i32 }
@@ -6110,7 +6110,7 @@ select.unfold:                                    ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %139
 
-139:                                              ; preds = %145, %138
+139:                                              ; preds = %149, %138
   %.054 = phi ptr [ %.08.i66, %138 ], [ %.08.i57, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -6125,18 +6125,18 @@ select.unfold:                                    ; preds = %80
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74.sink.split86", label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74"
 
-145:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i56", %106, %105
+149:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i56", %106, %105
   %.08.i57 = phi ptr [ %spec.select.i59, %105 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i56" ], [ null, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1505
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %139
 
-"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74.sink.split": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74.sink.split86"
+"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74.sink.split": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74"
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %146), !noalias !16
   br label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74"
 
-"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74.sink.split86": ; preds = %139, %select.unfold
-  %.sink92 = phi ptr [ %82, %select.unfold ], [ %140, %139 ]
+"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit74": ; preds = %139, %select.unfold
+  %.1 = phi ptr [ %82, %select.unfold ], [ %140, %139 ]
   %.1.ph87 = phi ptr [ %spec.select, %select.unfold ], [ %.054, %139 ]
   call void @_ZN4core4sync6atomic12atomic_store17h72f9b8894de98353E.llvm.15698352527914270608(ptr noundef nonnull %.sink92, i64 noundef 0, i8 noundef 0), !noalias !16
   %146 = getelementptr inbounds nuw i8, ptr %.sink92, i64 48
@@ -6149,7 +6149,7 @@ select.unfold:                                    ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret ptr %.1
 
-149:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i", %87
+150:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i", %87
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1478
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -6159,13 +6159,13 @@ select.unfold:                                    ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.backedge
 
-150:                                              ; preds = %.body
+151:                                              ; preds = %.body
   %151 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
   unreachable
 
-152:                                              ; preds = %.body
+157:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

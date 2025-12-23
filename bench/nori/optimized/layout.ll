@@ -1945,11 +1945,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit23:                  ; preds = %48, %52
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7nanogui18AdvancedGridLayout14compute_layoutEP10NVGcontextPKNS_6WidgetEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0265 = alloca i32, align 4
+  %.sroa.0261 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
   %5 = alloca %"struct.std::pair", align 8
   %.sroa.0 = alloca i32, align 8
-  %.sroa.2261 = alloca i32, align 4
+  %.sroa.2257 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1979,7 +1979,7 @@ define hidden void @_ZNK7nanogui18AdvancedGridLayout14compute_layoutEP10NVGconte
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %15, %17
   %20 = phi i32 [ %19, %17 ], [ %.sroa.3.0.extract.trunc, %15 ]
-  store i32 %16, ptr %.sroa.0265, align 4
+  store i32 %16, ptr %.sroa.0261, align 4
   store i32 %20, ptr %.sroa.4, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %22 = load i32, ptr %21, align 8
@@ -2006,9 +2006,9 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %15, %17
 
 _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %25, %28
   %.sroa.2.0 = phi i32 [ %23, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ %23, %25 ], [ %35, %28 ]
-  %.sroa.0265.0..sroa.0265.0. = load i32, ptr %.sroa.0265, align 4
-  %36 = sub nsw i32 %.sroa.0265.0..sroa.0265.0., %23
-  store i32 %36, ptr %.sroa.0265, align 4
+  %.sroa.0261.0..sroa.0261.0. = load i32, ptr %.sroa.0261, align 4
+  %36 = sub nsw i32 %.sroa.0261.0..sroa.0261.0., %23
+  store i32 %36, ptr %.sroa.0261, align 4
   %.sroa.4.0..sroa.4.4. = load i32, ptr %.sroa.4, align 4
   %37 = sub nsw i32 %.sroa.4.0..sroa.4.4., %.sroa.2.0
   store i32 %37, ptr %.sroa.4, align 4
@@ -2019,8 +2019,8 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
 
 41:                                               ; preds = %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread
   %42 = phi i1 [ true, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ false, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
-  %indvars.iv212.sroa.phi = phi ptr [ %.sroa.0, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.2261, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
-  %indvars.iv212.sroa.phi263 = phi ptr [ %.sroa.0265, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.4, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
+  %indvars.iv212.sroa.phi = phi ptr [ %.sroa.0, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.2257, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
+  %indvars.iv212.sroa.phi259 = phi ptr [ %.sroa.0261, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.4, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
   %indvars.iv212 = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ 1, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
   %43 = getelementptr inbounds nuw %"class.std::vector.5", ptr %3, i64 %indvars.iv212
   %.v = select i1 %42, i64 16, i64 40
@@ -2075,9 +2075,9 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
   %68 = tail call i64 %67(ptr noundef nonnull align 8 dereferenceable(140) %54, ptr noundef %1)
   %.sroa.0.0.extract.trunc = trunc i64 %68 to i32
   store i32 %.sroa.0.0.extract.trunc, ptr %.sroa.0, align 8
-  %.sroa.2261.0.extract.shift = lshr i64 %68, 32
-  %.sroa.2261.0.extract.trunc = trunc nuw i64 %.sroa.2261.0.extract.shift to i32
-  store i32 %.sroa.2261.0.extract.trunc, ptr %.sroa.2261, align 4
+  %.sroa.2257.0.extract.shift = lshr i64 %68, 32
+  %.sroa.2257.0.extract.trunc = trunc nuw i64 %.sroa.2257.0.extract.shift to i32
+  store i32 %.sroa.2257.0.extract.trunc, ptr %.sroa.2257, align 4
   %69 = load i32, ptr %indvars.iv212.sroa.phi, align 4
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv212
@@ -2139,7 +2139,7 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
   %.0112 = phi i1 [ false, %92 ], [ true, %91 ]
   %96 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split244
+  br label %197
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %108
   %97 = phi i8 [ %61, %.lr.ph.preheader ], [ %109, %108 ]
@@ -2230,7 +2230,7 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
   %.0119 = phi i1 [ false, %130 ], [ true, %129 ]
   %134 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split244
+  br label %197
 
 135:                                              ; preds = %124
   %136 = sub nsw i32 %73, %114
@@ -2309,7 +2309,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S
   br i1 %.not.i144, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit, label %.lr.ph.i141, !llvm.loop !22
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit: ; preds = %.lr.ph.i141
-  %171 = load i32, ptr %indvars.iv212.sroa.phi263, align 4
+  %171 = load i32, ptr %indvars.iv212.sroa.phi259, align 4
   %172 = icmp sge i32 %.0.lcssa.i, %171
   %173 = fcmp oeq float %169, 0.000000e+00
   %or.cond = or i1 %173, %172
@@ -2350,14 +2350,14 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_
 196:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread
   ret void
 
-.sink.split:                                      ; preds = %.sink.split244, %.thread166, %.thread170, %.thread, %.thread163
+.sink.split:                                      ; preds = %197, %.thread166, %.thread170, %.thread, %.thread163
   %.sink = phi ptr [ %126, %.thread166 ], [ %88, %.thread163 ], [ %88, %.thread ], [ %126, %.thread170 ], [ %.sink.ph, %.sink.split244 ]
   %.pn135.pn.pn.ph = phi { ptr, i32 } [ %131, %.thread166 ], [ %94, %.thread163 ], [ %93, %.thread ], [ %132, %.thread170 ], [ %.pn135.pn.pn.ph.ph, %.sink.split244 ]
   call void @__cxa_free_exception(ptr %.sink) #19
   br label %197
 
-.sink.split244:                                   ; preds = %95, %133
-  %.sink247 = phi ptr [ %8, %133 ], [ %6, %95 ]
+197:                                              ; preds = %95, %133
+  %.pn135.pn.pn = phi ptr [ %8, %133 ], [ %6, %95 ]
   %.sink246 = phi ptr [ %9, %133 ], [ %7, %95 ]
   %.0119.sink = phi i1 [ %.0119, %133 ], [ %.0112, %95 ]
   %.sink.ph = phi ptr [ %126, %133 ], [ %88, %95 ]

@@ -1596,7 +1596,7 @@ define range(i32 -18, 1) i32 @arkRwtSet(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %26 = load i32, ptr %25, align 8, !tbaa !97
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit.sink.split26
+  br i1 %.not.i, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit
 
 27:                                               ; preds = %14
   %28 = load ptr, ptr %7, align 8, !tbaa !91
@@ -1605,19 +1605,19 @@ define range(i32 -18, 1) i32 @arkRwtSet(ptr noundef %0, ptr noundef %1, ptr noun
   %30 = load double, ptr %29, align 8, !tbaa !85
   %31 = load ptr, ptr %7, align 8, !tbaa !91
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %33 = load ptr, ptr %32, align 8, !tbaa !103
-  tail call void @N_VLinearSum(double noundef %30, ptr noundef %31, double noundef 1.000000e+00, ptr noundef %33, ptr noundef %31) #16
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %35 = load i32, ptr %34, align 8, !tbaa !97
+  %32 = load ptr, ptr %32, align 8, !tbaa !103
+  tail call void @N_VLinearSum(double noundef %30, ptr noundef %31, double noundef 1.000000e+00, ptr noundef %32, ptr noundef %31) #16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %34 = load i32, ptr %33, align 8, !tbaa !97
   %.not.i24 = icmp eq i32 %35, 0
-  br i1 %.not.i24, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit.sink.split26
+  br i1 %.not.i24, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit
 
-arkRwtSetSS.exit.sink.split:                      ; preds = %arkRwtSetSS.exit.sink.split26, %27, %17
+arkRwtSetSS.exit.sink.split: ; preds = %arkRwtSetSS.exit, %27, %17
   %36 = load ptr, ptr %7, align 8, !tbaa !91
   tail call void @N_VInv(ptr noundef %36, ptr noundef %1) #16
   br label %arkRwtSetSS.exit
 
-arkRwtSetSS.exit.sink.split26:                    ; preds = %27, %17
+arkRwtSetSS.exit:                                 ; preds = %27, %17
   %37 = load ptr, ptr %7, align 8, !tbaa !91
   %38 = tail call double @N_VMin(ptr noundef %37) #16
   %39 = fcmp ugt double %38, 0.000000e+00

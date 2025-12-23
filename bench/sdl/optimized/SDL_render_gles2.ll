@@ -946,12 +946,12 @@ define internal noundef zeroext i1 @GLES2_SupportsBlendMode(ptr noundef readonly
 11:                                               ; preds = %2
   %12 = and i32 %7, 6
   %switch48 = icmp eq i32 %12, 4
-  br i1 %switch48, label %GetBlendFunc.exit.sink.split, label %13
+  br i1 %switch48, label %GetBlendFunc.exit, label %16
 
-13:                                               ; preds = %11, %GetBlendFunc.exit.sink.split
+16:                                               ; preds = %11, %GetBlendFunc.exit
   br label %GetBlendFunc.exit
 
-GetBlendFunc.exit.sink.split:                     ; preds = %11
+GetBlendFunc.exit:                                ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %15 = load i8, ptr %14, align 2, !range !5, !noundef !6
   %16 = trunc nuw i8 %15 to i1

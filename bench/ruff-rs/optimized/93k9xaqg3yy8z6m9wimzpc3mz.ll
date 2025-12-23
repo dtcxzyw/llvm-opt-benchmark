@@ -28724,7 +28724,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   %.sroa.09.1 = phi i8 [ %.sroa.09.0, %13 ], [ %.sroa.09.2.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %eh.lpad-body, %.body ]
   %12 = trunc nuw i8 %.sroa.09.1 to i1
-  br i1 %12, label %47, label %46
+  br i1 %12, label %50, label %49
 
 13:                                               ; preds = %38, %36, %1
   %.sroa.09.0 = phi i8 [ %.sroa.09.4, %38 ], [ %.sroa.09.3, %36 ], [ 1, %1 ]
@@ -28836,18 +28836,18 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   %41 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h7a5d88d7865c867eE"(ptr noalias noundef nonnull align 8 %18)
           to label %38 unwind label %30
 
-.sink.split:                                      ; preds = %.sink.split21
+42:                                               ; preds = %45
   call void @"_ZN4core3ptr94drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$17hd1cd3f1e142f32fcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
   br label %43
 
-.sink.split21:                                    ; preds = %36, %38
+45:                                               ; preds = %36, %38
   %.sroa.09.3.sink = phi i8 [ %.sroa.09.4, %38 ], [ %.sroa.09.3, %36 ]
   %.sroa.0.1.ph22 = phi ptr [ %.sroa.0.0, %38 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %42 = trunc nuw i8 %.sroa.09.3.sink to i1
-  br i1 %42, label %.sink.split, label %43
+  %46 = trunc nuw i8 %.sroa.09.3.sink to i1
+  br i1 %46, label %.sink.split, label %43
 
-43:                                               ; preds = %.sink.split21, %.sink.split
+47:                                               ; preds = %45, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.sroa.0.1.ph22
 
@@ -28857,10 +28857,10 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-46:                                               ; preds = %47, %11
+49:                                               ; preds = %50, %11
   resume { ptr, i32 } %.pn
 
-47:                                               ; preds = %11
+50:                                               ; preds = %11
   invoke void @"_ZN4core3ptr94drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$17hd1cd3f1e142f32fcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #25
           to label %46 unwind label %44
 }

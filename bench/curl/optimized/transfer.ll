@@ -90,31 +90,31 @@ define hidden noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i64 n
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %18 = load ptr, ptr %17, align 8, !tbaa !82
   %.not26 = icmp eq ptr %18, null
-  br i1 %.not26, label %.sink.split.sink.split, label %.sink.split.sink.split37
+  br i1 %.not26, label %.sink.split.sink.split, label %.sink.split
 
 19:                                               ; preds = %8
   %.not27 = icmp slt i64 %1, %6
-  br i1 %.not27, label %33, label %20
+  br i1 %.not27, label %33, label %24
 
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %22 = load i64, ptr %21, align 2
-  %23 = and i64 %22, 2147483648
-  %.not29 = icmp eq i64 %23, 0
-  br i1 %.not29, label %.sink.split, label %24
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %26 = load i64, ptr %25, align 2
+  %27 = and i64 %26, 2147483648
+  %.not29 = icmp eq i64 %27, 0
+  br i1 %.not29, label %.sink.split, label %28
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %26 = load ptr, ptr %25, align 8, !tbaa !82
-  %.not30 = icmp eq ptr %26, null
-  br i1 %.not30, label %.sink.split.sink.split, label %.sink.split.sink.split37
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %30 = load ptr, ptr %29, align 8, !tbaa !82
+  %.not30 = icmp eq ptr %30, null
+  br i1 %.not30, label %.sink.split.sink.split, label %.sink.split
 
-.sink.split.sink.split:                           ; preds = %.sink.split.sink.split37, %24, %16
+31:                                               ; preds = %.sink.split, %28, %16
   %.str.1.sink = phi ptr [ @.str, %16 ], [ @.str.1, %24 ], [ %.str.1.sink.ph, %.sink.split.sink.split37 ]
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.1.sink) #6
   br label %.sink.split
 
-.sink.split.sink.split37:                         ; preds = %24, %16
+.sink.split:                                      ; preds = %24, %16
   %.sink39 = phi ptr [ %18, %16 ], [ %26, %24 ]
   %.str.1.sink.ph = phi ptr [ @.str, %16 ], [ @.str.1, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i64 n
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.sink.split.sink.split, label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split37, %.sink.split.sink.split, %20, %12
+.sink.split: ; preds = %.sink.split, %31, %20, %12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5292
   %31 = load i8, ptr %30, align 4
   %32 = or i8 %31, 1

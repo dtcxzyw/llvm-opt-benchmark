@@ -1121,16 +1121,16 @@ Py_DECREF.exit145.i:                              ; preds = %349, %346, %345
   br i1 %.not.i146.i, label %Py_DECREF.exit149.sink.split56.i, label %_locale_localeconv_impl.exit
 
 Py_DECREF.exit.i:                                 ; preds = %362, %359, %358, %Py_DECREF.exit145.i, %344, %341, %340, %329, %326, %Py_DECREF.exit137.i, %312, %303, %300, %299, %Py_DECREF.exit131.i, %284, %281, %280, %Py_DECREF.exit127.i, %265, %262, %261, %Py_DECREF.exit123.i, %246, %243, %242, %Py_DECREF.exit119.i, %227, %224, %223, %Py_DECREF.exit115.i, %208, %205, %204, %Py_DECREF.exit111.i, %189, %186, %185, %Py_DECREF.exit107.i, %170, %167, %166, %Py_DECREF.exit103.i, %151, %148, %147, %Py_DECREF.exit99.i, %133, %130, %129, %Py_DECREF.exit95.i, %115, %112, %111, %102, %locale_decode_monetary.exit.i, %40, %36
-  %364 = load i32, ptr %5, align 8, !tbaa !11
-  %.not.i150.i = icmp sgt i32 %364, -1
+  %367 = load i32, ptr %5, align 8, !tbaa !11
+  %.not.i150.i = icmp sgt i32 %367, -1
   br i1 %.not.i150.i, label %Py_DECREF.exit149.sink.split56.i, label %_locale_localeconv_impl.exit
 
-Py_DECREF.exit149.sink.split.i:                   ; preds = %Py_DECREF.exit149.sink.split56.i
+368:                                              ; preds = %Py_DECREF.exit149.sink.split56.i
   call void @_Py_Dealloc(ptr noundef nonnull %.sink61.i) #8
   br label %_locale_localeconv_impl.exit
 
-Py_DECREF.exit149.sink.split56.i:                 ; preds = %Py_DECREF.exit.i, %363
-  %.sink62.i = phi i32 [ %357, %363 ], [ %364, %Py_DECREF.exit.i ]
+_locale_localeconv_impl.exit:                     ; preds = %Py_DECREF.exit.i, %363
+  %.0.i = phi i32 [ %357, %363 ], [ %364, %Py_DECREF.exit.i ]
   %.sink61.i = phi ptr [ %352, %363 ], [ %5, %Py_DECREF.exit.i ]
   %.0.ph57.i = phi ptr [ %5, %363 ], [ null, %Py_DECREF.exit.i ]
   %365 = add nsw i32 %.sink62.i, -1

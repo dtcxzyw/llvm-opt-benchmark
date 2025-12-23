@@ -7519,7 +7519,7 @@ pmix_pointer_array_get_item.exit317:              ; preds = %167
   %.14397 = phi i32 [ %179, %..thread394_crit_edge ], [ -16, %pmix_pointer_array_get_item.exit317 ], [ -16, %167 ]
   %181 = load i64, ptr %163, align 8, !tbaa !149
   call void @PMIx_Disk_stats_free(ptr noundef %180, i64 noundef %181) #10
-  br label %.loopexit.sink.split492
+  br label %.loopexit
 
 182:                                              ; preds = %176, %165
   store i32 1, ptr %6, align 4, !tbaa !3
@@ -7582,22 +7582,22 @@ pmix_pointer_array_get_item.exit323:              ; preds = %195
   %.16408 = phi i32 [ %207, %..thread405_crit_edge ], [ -16, %pmix_pointer_array_get_item.exit323 ], [ -16, %195 ]
   %209 = load i64, ptr %191, align 8, !tbaa !154
   call void @PMIx_Net_stats_free(ptr noundef %208, i64 noundef %209) #10
-  br label %.loopexit.sink.split492
+  br label %.loopexit
 
 210:                                              ; preds = %193, %204
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !156
 
-.loopexit.sink.split:                             ; preds = %188, %pmix_pointer_array_get_item.exit320, %182, %160, %pmix_pointer_array_get_item.exit314, %154, %149, %pmix_pointer_array_get_item.exit311, %143, %138, %pmix_pointer_array_get_item.exit308, %132, %127, %pmix_pointer_array_get_item.exit305, %121, %116, %pmix_pointer_array_get_item.exit302, %110, %105, %pmix_pointer_array_get_item.exit299, %99, %94, %pmix_pointer_array_get_item.exit296, %88, %83, %pmix_pointer_array_get_item.exit293, %77, %72, %pmix_pointer_array_get_item.exit290, %66, %61, %pmix_pointer_array_get_item.exit287, %55, %50, %pmix_pointer_array_get_item.exit284, %44, %39, %pmix_pointer_array_get_item.exit281, %33, %28, %pmix_pointer_array_get_item.exit278, %22, %17, %pmix_pointer_array_get_item.exit, %11, %.loopexit.sink.split492
+.loopexit.sink.split:                             ; preds = %188, %pmix_pointer_array_get_item.exit320, %182, %160, %pmix_pointer_array_get_item.exit314, %154, %149, %pmix_pointer_array_get_item.exit311, %143, %138, %pmix_pointer_array_get_item.exit308, %132, %127, %pmix_pointer_array_get_item.exit305, %121, %116, %pmix_pointer_array_get_item.exit302, %110, %105, %pmix_pointer_array_get_item.exit299, %99, %94, %pmix_pointer_array_get_item.exit296, %88, %83, %pmix_pointer_array_get_item.exit293, %77, %72, %pmix_pointer_array_get_item.exit290, %66, %61, %pmix_pointer_array_get_item.exit287, %55, %50, %pmix_pointer_array_get_item.exit284, %44, %39, %pmix_pointer_array_get_item.exit281, %33, %28, %pmix_pointer_array_get_item.exit278, %22, %17, %pmix_pointer_array_get_item.exit, %11, %.loopexit
   %.16408.sink = phi i32 [ %.16408.sink493, %.loopexit.sink.split492 ], [ -16, %182 ], [ -16, %pmix_pointer_array_get_item.exit320 ], [ -16, %154 ], [ -16, %143 ], [ -16, %132 ], [ -16, %121 ], [ -16, %110 ], [ -16, %99 ], [ -16, %88 ], [ -16, %77 ], [ -16, %66 ], [ -16, %55 ], [ -16, %44 ], [ -16, %33 ], [ -16, %22 ], [ -16, %11 ], [ %21, %17 ], [ -16, %pmix_pointer_array_get_item.exit ], [ %32, %28 ], [ -16, %pmix_pointer_array_get_item.exit278 ], [ %43, %39 ], [ -16, %pmix_pointer_array_get_item.exit281 ], [ %54, %50 ], [ -16, %pmix_pointer_array_get_item.exit284 ], [ %65, %61 ], [ -16, %pmix_pointer_array_get_item.exit287 ], [ %76, %72 ], [ -16, %pmix_pointer_array_get_item.exit290 ], [ %87, %83 ], [ -16, %pmix_pointer_array_get_item.exit293 ], [ %98, %94 ], [ -16, %pmix_pointer_array_get_item.exit296 ], [ %109, %105 ], [ -16, %pmix_pointer_array_get_item.exit299 ], [ %120, %116 ], [ -16, %pmix_pointer_array_get_item.exit302 ], [ %131, %127 ], [ -16, %pmix_pointer_array_get_item.exit305 ], [ %142, %138 ], [ -16, %pmix_pointer_array_get_item.exit308 ], [ %153, %149 ], [ -16, %pmix_pointer_array_get_item.exit311 ], [ %164, %160 ], [ -16, %pmix_pointer_array_get_item.exit314 ], [ %192, %188 ]
   %.sink491 = phi i32 [ %.sink491.ph, %.loopexit.sink.split492 ], [ 2316, %182 ], [ 2316, %pmix_pointer_array_get_item.exit320 ], [ 2300, %154 ], [ 2294, %143 ], [ 2288, %132 ], [ 2282, %121 ], [ 2276, %110 ], [ 2270, %99 ], [ 2264, %88 ], [ 2258, %77 ], [ 2252, %66 ], [ 2246, %55 ], [ 2240, %44 ], [ 2234, %33 ], [ 2228, %22 ], [ 2222, %11 ], [ 2222, %17 ], [ 2222, %pmix_pointer_array_get_item.exit ], [ 2228, %28 ], [ 2228, %pmix_pointer_array_get_item.exit278 ], [ 2234, %39 ], [ 2234, %pmix_pointer_array_get_item.exit281 ], [ 2240, %50 ], [ 2240, %pmix_pointer_array_get_item.exit284 ], [ 2246, %61 ], [ 2246, %pmix_pointer_array_get_item.exit287 ], [ 2252, %72 ], [ 2252, %pmix_pointer_array_get_item.exit290 ], [ 2258, %83 ], [ 2258, %pmix_pointer_array_get_item.exit293 ], [ 2264, %94 ], [ 2264, %pmix_pointer_array_get_item.exit296 ], [ 2270, %105 ], [ 2270, %pmix_pointer_array_get_item.exit299 ], [ 2276, %116 ], [ 2276, %pmix_pointer_array_get_item.exit302 ], [ 2282, %127 ], [ 2282, %pmix_pointer_array_get_item.exit305 ], [ 2288, %138 ], [ 2288, %pmix_pointer_array_get_item.exit308 ], [ 2294, %149 ], [ 2294, %pmix_pointer_array_get_item.exit311 ], [ 2300, %160 ], [ 2300, %pmix_pointer_array_get_item.exit314 ], [ 2316, %188 ]
   %211 = call ptr @PMIx_Error_string(i32 noundef %.16408.sink) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %211, ptr noundef nonnull @.str.7, i32 noundef %.sink491) #10
   br label %.loopexit
 
-.loopexit.sink.split492:                          ; preds = %.thread394, %.thread405
-  %.sink = phi ptr [ %198, %.thread405 ], [ %170, %.thread394 ]
+.loopexit:                                        ; preds = %.thread394, %.thread405
+  %.0 = phi ptr [ %198, %.thread405 ], [ %170, %.thread394 ]
   %.16408.sink493 = phi i32 [ %.16408, %.thread405 ], [ %.14397, %.thread394 ]
   %.sink491.ph = phi i32 [ 2325, %.thread405 ], [ 2309, %.thread394 ]
   store ptr null, ptr %.sink, align 8, !tbaa !31

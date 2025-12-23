@@ -30322,9 +30322,9 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit
-  %13 = phi i64 [ %9, %.lr.ph ], [ %31, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit ]
+  %13 = phi i64 [ %9, %.lr.ph ], [ %34, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit ]
   %.020 = phi i64 [ %2, %.lr.ph ], [ %21, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit ]
-  %storemerge19 = phi ptr [ %1, %.lr.ph ], [ %28, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit ]
+  %storemerge19 = phi ptr [ %1, %.lr.ph ], [ %31, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit ]
   %14 = icmp eq i64 %.020, 0
   br i1 %14, label %15, label %20
 
@@ -30358,7 +30358,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorI
   %26 = tail call noundef zeroext i1 @_ZNK5vcpkg8AbiEntryltERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %..i.i, ptr noundef nonnull align 8 dereferenceable(64) %24)
   br i1 %26, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit, label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %20
+.sink.split.i.i:; preds = %20
   %.33.i.i = select i1 %25, ptr %11, ptr %23
   %27 = tail call noundef zeroext i1 @_ZNK5vcpkg8AbiEntryltERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.33.i.i, ptr noundef nonnull align 8 dereferenceable(64) %24)
   %.26.i.i = select i1 %27, ptr %24, ptr %.33.i.i
@@ -30367,13 +30367,13 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorI
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit: ; preds = %20, %.sink.split.i.i
   %.sink.i.i = phi ptr [ %.26.i.i, %.sink.split.i.i ], [ %..i.i, %20 ]
   tail call void @_ZSt4swapIN5vcpkg8AbiEntryEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sink.i.i) #31
-  %28 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_SE_T0_(ptr nonnull %11, ptr nonnull %storemerge19, ptr nonnull %0)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_T1_(ptr %28, ptr nonnull %storemerge19, i64 noundef %21)
-  %29 = ptrtoint ptr %28 to i64
-  %30 = sub i64 %29, %6
-  %31 = ashr exact i64 %30, 6
-  %32 = icmp sgt i64 %31, 16
-  br i1 %32, label %12, label %.loopexit, !llvm.loop !959
+  %31 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_SE_T0_(ptr nonnull %11, ptr nonnull %storemerge19, ptr nonnull %0)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_T1_(ptr %31, ptr nonnull %storemerge19, i64 noundef %21)
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %6
+  %34 = ashr exact i64 %33, 6
+  %35 = icmp sgt i64 %34, 16
+  br i1 %35, label %12, label %.loopexit, !llvm.loop !959
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEET_SE_SE_T0_.exit, %3, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg8AbiEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_SE_T0_.exit
   ret void

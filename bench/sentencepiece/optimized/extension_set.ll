@@ -11525,19 +11525,19 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitia
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.not2028 = icmp eq ptr %9, %10
-  br i1 %.not2028, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph31
+  %.not2031 = icmp eq ptr %9, %10
+  br i1 %.not2031, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph34
 
-.lr.ph31:                                         ; preds = %6, %13
-  %.sroa.016.029 = phi ptr [ %14, %13 ], [ %9, %6 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.016.029, i64 40
+.lr.ph34:                                         ; preds = %6, %13
+  %.sroa.016.032 = phi ptr [ %14, %13 ], [ %9, %6 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.016.032, i64 40
   %12 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
   br i1 %12, label %13, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread
 
-13:                                               ; preds = %.lr.ph31
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.029) #33
+13:                                               ; preds = %.lr.ph34
+  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.032) #33
   %.not20 = icmp eq ptr %14, %10
-  br i1 %.not20, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph31
+  br i1 %.not20, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph34
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -11600,17 +11600,17 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitia
   %51 = getelementptr inbounds nuw i8, ptr %.025, i64 18
   %52 = load i8, ptr %51, align 2
   %53 = trunc i8 %52 to i1
-  br i1 %53, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, label %.loopexit.sink.split.i
+  br i1 %53, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, label %54
 
-.loopexit.sink.split.i:                           ; preds = %50
-  %54 = and i8 %52, 16
-  %.not.i = icmp eq i8 %54, 0
-  %55 = load ptr, ptr %19, align 8, !tbaa !34
-  %56 = load ptr, ptr %55, align 8, !tbaa !48
+54:                                               ; preds = %50
+  %55 = and i8 %52, 16
+  %.not.i = icmp eq i8 %55, 0
+  %56 = load ptr, ptr %19, align 8, !tbaa !34
+  %57 = load ptr, ptr %56, align 8, !tbaa !48
   %..i = select i1 %.not.i, i64 48, i64 72
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %..i
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(8) %56)
   br i1 %59, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread
 
 _ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit: ; preds = %34, %.loopexit.sink.split.i, %50, %.preheader.i, %.lr.ph
@@ -11622,7 +11622,7 @@ _ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit: ; p
   %.not = icmp eq ptr %60, %64
   br i1 %.not, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph, !llvm.loop !167
 
-_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread: ; preds = %.loopexit.sink.split.i, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, %.lr.ph.i, %13, %.lr.ph31, %15, %6
+_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread: ; preds = %54, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, %.lr.ph.i, %13, %.lr.ph34, %15, %6
   %.3 = phi i1 [ true, %15 ], [ false, %.lr.ph.i ], [ true, %6 ], [ %12, %13 ], [ %12, %.lr.ph31 ], [ false, %.loopexit.sink.split.i ], [ true, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit ]
   ret i1 %.3
 }
@@ -11677,23 +11677,23 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet9Extension
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %34 = load i8, ptr %33, align 2
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %.thread, label %.loopexit.sink.split
+  br i1 %35, label %.thread, label %36
 
-.loopexit.sink.split:                             ; preds = %32
-  %36 = and i8 %34, 16
-  %.not = icmp eq i8 %36, 0
-  %37 = load ptr, ptr %0, align 8, !tbaa !34
-  %38 = load ptr, ptr %37, align 8, !tbaa !48
+36:                                               ; preds = %32
+  %37 = and i8 %34, 16
+  %.not = icmp eq i8 %37, 0
+  %38 = load ptr, ptr %0, align 8, !tbaa !34
+  %39 = load ptr, ptr %38, align 8, !tbaa !48
   %. = select i1 %.not, i64 48, i64 72
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(8) %37)
   br i1 %41, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %16, %.loopexit.sink.split, %.preheader, %32, %1
+.thread:; preds = %16, %.loopexit.sink.split, %.preheader, %32, %1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.thread
+.loopexit:                                        ; preds = %.lr.ph, %36, %.thread
   %.1 = phi i1 [ true, %.thread ], [ false, %.loopexit.sink.split ], [ false, %.lr.ph ]
   ret i1 %.1
 }

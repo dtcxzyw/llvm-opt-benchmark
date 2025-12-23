@@ -288,22 +288,22 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !12
   %.not98.i = icmp eq ptr %125, null
-  br i1 %.not98.i, label %126, label %128
+  br i1 %.not98.i, label %126, label %129
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %72, align 8, !tbaa !13
-  br label %.sink.split.i
-
-128:                                              ; preds = %123
-  %129 = load i8, ptr %125, align 1, !tbaa !11
-  %.not100.i = icmp eq i8 %129, 0
-  br i1 %.not100.i, label %parse_refspec.exit, label %.sink.split.i
-
-130:                                              ; preds = %.sink.split.i, %.critedge.i
   br label %parse_refspec.exit
 
-.sink.split.i:                                    ; preds = %128, %126
-  %.sink135.i = phi ptr [ %127, %126 ], [ %125, %128 ]
+129:                                              ; preds = %123
+  %130 = load i8, ptr %125, align 1, !tbaa !11
+  %.not100.i = icmp eq i8 %130, 0
+  br i1 %.not100.i, label %parse_refspec.exit, label %.sink.split.i
+
+131:                                              ; preds = %.sink.split.i, %.critedge.i
+  br label %parse_refspec.exit
+
+parse_refspec.exit:                               ; preds = %128, %126
+  %.0.i = phi ptr [ %127, %126 ], [ %125, %128 ]
   %131 = tail call i32 @check_refname_format(ptr noundef %.sink135.i, i32 noundef %74) #15
   %.not101.i = icmp eq i32 %131, 0
   br i1 %.not101.i, label %130, label %parse_refspec.exit

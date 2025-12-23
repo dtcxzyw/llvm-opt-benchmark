@@ -2059,7 +2059,7 @@ define hidden void @"_ZN186_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
     i8 115, label %16
   ]
 
-7:                                                ; preds = %.sink.split, %33, %29, %20, %16, %12, %8, %5, %3
+7:                                                ; preds = %24, %33, %29, %20, %16, %12, %8, %5, %3
   br label %27
 
 8:                                                ; preds = %5
@@ -2072,7 +2072,7 @@ define hidden void @"_ZN186_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !noundef !3
   %15 = icmp eq i8 %14, 97
-  br i1 %15, label %29, label %7
+  br i1 %15, label %30, label %7
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -2084,9 +2084,9 @@ define hidden void @"_ZN186_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %22 = load i8, ptr %21, align 1, !noundef !3
   %23 = icmp eq i8 %22, 116
-  br i1 %23, label %.sink.split, label %7
+  br i1 %23, label %24, label %7
 
-.sink.split:                                      ; preds = %20, %33, %29
+24:                                               ; preds = %20, %33, %29
   %.sink4 = phi i8 [ 101, %33 ], [ 104, %29 ], [ 104, %20 ]
   %.sink.ph = phi i8 [ 2, %33 ], [ 1, %29 ], [ 0, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 3
@@ -2094,24 +2094,24 @@ define hidden void @"_ZN186_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   %26 = icmp eq i8 %25, %.sink4
   br i1 %26, label %27, label %7
 
-27:                                               ; preds = %.sink.split, %7
+27: ; preds = %24, %7
   %.sink = phi i8 [ 3, %7 ], [ %.sink.ph, %.sink.split ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %28, align 8
   store i64 2, ptr %0, align 8
   ret void
 
-29:                                               ; preds = %12
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %31 = load i8, ptr %30, align 1, !noundef !3
-  %32 = icmp eq i8 %31, 115
-  br i1 %32, label %.sink.split, label %7
+30:                                               ; preds = %12
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %32 = load i8, ptr %31, align 1, !noundef !3
+  %33 = icmp eq i8 %32, 115
+  br i1 %33, label %24, label %7
 
-33:                                               ; preds = %16
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %35 = load i8, ptr %34, align 1, !noundef !3
-  %36 = icmp eq i8 %35, 122
-  br i1 %36, label %.sink.split, label %7
+34:                                               ; preds = %16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %36 = load i8, ptr %35, align 1, !noundef !3
+  %37 = icmp eq i8 %36, 122
+  br i1 %37, label %24, label %7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -1215,7 +1215,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit4
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48: ; preds = %3
   %bcmp.i49 = tail call i32 @bcmp(ptr %5, ptr nonnull @.str.3, i64 %7)
   %.not.i.i50 = icmp eq i32 %bcmp.i49, 0
-  br i1 %.not.i.i50, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit52, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread.sink.split
+  br i1 %.not.i.i50, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit52, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread
 
 _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit52: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48
   %37 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
@@ -1268,7 +1268,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit5
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i63: ; preds = %3
   %bcmp.i64 = tail call i32 @bcmp(ptr %5, ptr nonnull @.str.6, i64 %7)
   %.not.i.i65 = icmp eq i32 %bcmp.i64, 0
-  br i1 %.not.i.i65, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit67, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread.sink.split
+  br i1 %.not.i.i65, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit67, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread
 
 _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit67: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i63
   %59 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
@@ -1347,7 +1347,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit7
   store float %91, ptr %90, align 4, !tbaa !87
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread
 
-_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit92: ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread.sink.split
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i88: ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread
   %92 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   %93 = fcmp ogt float %1, 0.000000e+00
   %94 = select i1 %93, float %1, float 6.000000e+00
@@ -1541,8 +1541,8 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit1
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11OpenImageIO6v3_1_014FilterRifman2DE, i64 16), ptr %168, align 8, !tbaa !25
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread
 
-_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread.sink.split: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i63
-  %.str.19.sink = phi ptr [ @.str.18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i63 ], [ @.str.19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48 ]
+_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i63
+  %.0 = phi ptr [ @.str.18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i63 ], [ @.str.19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48 ]
   %bcmp.i94 = tail call i32 @bcmp(ptr %5, ptr nonnull %.str.19.sink, i64 %7)
   %.not.i.i95 = icmp eq i32 %bcmp.i94, 0
   br i1 %.not.i.i95, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit92, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread

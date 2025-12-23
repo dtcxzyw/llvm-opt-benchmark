@@ -1743,7 +1743,7 @@ CEscape.exit239.thread:                           ; preds = %CEscape.exit239
 
 CEscape.exit239.thread.thread396:                 ; preds = %.thread, %251, %153, %104, %51, %202, %.thread335, %489, %482, %.thread310, %347, %437, %293, %396, %.thread328, %CEscape.exit239.thread393, %CEscape.exit239.thread
   %.6257347388 = phi i32 [ %483, %CEscape.exit239.thread393 ], [ %.3, %CEscape.exit239.thread ], [ %.0252.lcssa, %293 ], [ %.4255.ph, %396 ], [ %.5256.ph325, %.thread328 ], [ %.3, %.thread335 ], [ %.3, %482 ], [ %485, %489 ], [ %.4255.ph, %.thread310 ], [ %.12.ph, %347 ], [ %.4255.ph, %437 ], [ %.9.ph, %202 ], [ %.0252355, %51 ], [ %.7.ph, %104 ], [ %.8258.ph, %153 ], [ %.10.ph, %251 ], [ %.10.ph, %.thread ]
-  %spec.select = phi i32 [ 0, %CEscape.exit239.thread393 ], [ 0, %CEscape.exit239.thread ], [ -132, %293 ], [ -132, %396 ], [ -132, %.thread328 ], [ -132, %.thread335 ], [ -132, %482 ], [ 0, %489 ], [ -132, %.thread310 ], [ -132, %347 ], [ -132, %437 ], [ -132, %202 ], [ -132, %51 ], [ -132, %104 ], [ -132, %153 ], [ -132, %251 ], [ -132, %.thread ]
+  %.8348386 = phi i32 [ 0, %CEscape.exit239.thread393 ], [ 0, %CEscape.exit239.thread ], [ -132, %293 ], [ -132, %396 ], [ -132, %.thread328 ], [ -132, %.thread335 ], [ -132, %482 ], [ 0, %489 ], [ -132, %.thread310 ], [ -132, %347 ], [ -132, %437 ], [ -132, %202 ], [ -132, %51 ], [ -132, %104 ], [ -132, %153 ], [ -132, %251 ], [ -132, %.thread ]
   %500 = load i32, ptr %3, align 4, !tbaa !3
   %501 = icmp ugt i32 %500, %.6257347388
   br i1 %501, label %502, label %.sink.split419
@@ -1754,9 +1754,9 @@ CEscape.exit239.thread.thread396:                 ; preds = %.thread, %251, %153
   store i8 0, ptr %504, align 1, !tbaa !7
   br label %.sink.split419
 
-.sink.split419:                                   ; preds = %502, %CEscape.exit239.thread.thread396, %CEscape.exit239.thread399, %488, %CEscape.exit239.thread
+.sink.split419:; preds = %502, %CEscape.exit239.thread.thread396, %CEscape.exit239.thread399, %488, %CEscape.exit239.thread
   %.6257347388.sink = phi i32 [ %483, %CEscape.exit239.thread399 ], [ %485, %488 ], [ %.3, %CEscape.exit239.thread ], [ %.6257347388, %CEscape.exit239.thread.thread396 ], [ %.6257347388, %502 ]
-  %.0.ph = phi i32 [ -202, %CEscape.exit239.thread399 ], [ -202, %488 ], [ -202, %CEscape.exit239.thread ], [ %spec.select, %CEscape.exit239.thread.thread396 ], [ %spec.select, %502 ]
+  %.0.ph = phi i32 [ -202, %CEscape.exit239.thread399 ], [ -202, %488 ], [ -202, %CEscape.exit239.thread ], [ %.8348386, %CEscape.exit239.thread.thread396 ], [ %.8348386, %502 ]
   store i32 %.6257347388.sink, ptr %3, align 4, !tbaa !3
   br label %505
 

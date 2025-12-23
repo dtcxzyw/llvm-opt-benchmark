@@ -7357,7 +7357,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
   %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !52
@@ -7382,23 +7382,23 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
   %40 = load ptr, ptr %39, align 8, !tbaa !38
   br label %.sink.split32
 
-.sink.split:                                      ; preds = %.sink.split32
-  tail call void @Abc_NtkNodeSupport_rec(ptr noundef nonnull %.sink34, ptr noundef nonnull %24)
-  br label %42
+42:                                               ; preds = %42
+  tail call void @Abc_NtkNodeSupport_rec(ptr noundef nonnull %.sink, ptr noundef nonnull %24)
+  br label %44
 
-.sink.split32:                                    ; preds = %.lr.ph, %34
-  %.sink34 = phi ptr [ %40, %34 ], [ %30, %.lr.ph ]
-  %41 = getelementptr i8, ptr %.sink34, i64 28
+.sink.split:                                      ; preds = %.lr.ph, %34
+  %.sink = phi ptr [ %40, %34 ], [ %30, %.lr.ph ]
+  %41 = getelementptr i8, ptr %.sink, i64 28
   %.val21 = load i32, ptr %41, align 4, !tbaa !33
   %.not18 = icmp eq i32 %.val21, 0
   br i1 %.not18, label %42, label %.sink.split
 
-42:                                               ; preds = %.sink.split32, %.sink.split
+44:                                               ; preds = %.sink.split32, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
-._crit_edge:                                      ; preds = %42, %Abc_NtkIncrementTravId.exit
+._crit_edge:                                      ; preds = %44, %Abc_NtkIncrementTravId.exit
   ret ptr %24
 }
 

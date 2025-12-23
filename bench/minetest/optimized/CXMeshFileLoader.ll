@@ -10645,10 +10645,10 @@ if.else72:                                        ; preds = %if.else61.thread62,
   call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.77, ptr noundef nonnull %63, i32 noundef 2) #22
   br label %cleanup82.sink.split
 
-if.end81:                                         ; preds = %_ZN3irr5video9SMaterialD2Ev.exit, %cleanup82.sink.split, %if.else69.tail, %if.then.i.i.i148
+if.end81:                                         ; preds = %_ZN3irr5video9SMaterialD2Ev.exit, %cleanup82, %if.else69.tail, %if.then.i.i.i148
   br label %cleanup82
 
-cleanup82.sink.split:                             ; preds = %_ZN3irr5video9SMaterialD2Ev.exit231, %if.else72
+cleanup82:                                        ; preds = %_ZN3irr5video9SMaterialD2Ev.exit231, %if.else72
   %call74 = call noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader22parseUnknownDataObjectEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
   br i1 %call74, label %if.end81, label %cleanup82
 

@@ -6399,9 +6399,9 @@ _ZN3refI15model_converterED2Ev.exit:              ; preds = %50, %._ZN3refI15mod
 64:                                               ; preds = %_ZNK14sat_smt_solver15is_internalizedEv.exit
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %66 = load ptr, ptr %65, align 8, !tbaa !245, !noalias !626
-  br label %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22
+  br label %_ZN3refI15model_converterEC2ERKS1_.exit7
 
-_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split: ; preds = %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22, %_ZN3refI15model_converterEC2ERKS1_.exit
+_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split: ; preds = %_ZN3refI15model_converterEC2ERKS1_.exit7, %_ZN3refI15model_converterEC2ERKS1_.exit
   %.sink21 = phi ptr [ %5, %_ZN3refI15model_converterEC2ERKS1_.exit ], [ %.sink23, %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22 ]
   %67 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !243
@@ -6409,7 +6409,7 @@ _ZN3refI15model_converterEC2ERKS1_.exit7.sink.split: ; preds = %_ZN3refI15model_
   store i32 %69, ptr %67, align 8, !tbaa !243
   br label %_ZN3refI15model_converterEC2ERKS1_.exit7
 
-_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22: ; preds = %_ZN3refI15model_converterED2Ev.exit, %64
+_ZN3refI15model_converterEC2ERKS1_.exit7:         ; preds = %_ZN3refI15model_converterED2Ev.exit, %64
   %.sink23 = phi ptr [ %66, %64 ], [ %61, %_ZN3refI15model_converterED2Ev.exit ]
   store ptr %.sink23, ptr %0, align 8, !tbaa !245
   %.not.i.i.i8 = icmp eq ptr %.sink23, null

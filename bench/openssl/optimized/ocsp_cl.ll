@@ -402,14 +402,14 @@ define range(i32 0, 2) i32 @OCSP_resp_get1_id(ptr noundef readonly captures(none
   store ptr %9, ptr %2, align 8, !tbaa !71
   br label %.thread12.sink.split
 
-10:                                               ; preds = %3
+10: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !69
   %13 = tail call ptr @ASN1_OCTET_STRING_dup(ptr noundef %12) #8
   store ptr %13, ptr %1, align 8, !tbaa !72
   br label %.thread12.sink.split
 
-.thread12.sink.split:                             ; preds = %10, %6
+.thread12.sink.split:; preds = %10, %6
   %.sink = phi ptr [ %1, %6 ], [ %2, %10 ]
   %.sink13 = phi ptr [ %9, %6 ], [ %13, %10 ]
   store ptr null, ptr %.sink, align 8, !tbaa !70

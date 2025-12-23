@@ -619,7 +619,7 @@ malloc_mutex_lock.exit:                           ; preds = %16, %22
   %34 = load i64, ptr %1, align 8, !tbaa !37
   %35 = call i32 @pthread_join(i64 noundef %34, ptr noundef nonnull %3) #12
   %.not = icmp ne i32 %35, 0
-  br i1 %.not, label %post_reentrancy.exit17.sink.split19, label %42
+  br i1 %.not, label %post_reentrancy.exit17, label %42
 
 .critedge:                                        ; preds = %malloc_mutex_lock.exit
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -639,13 +639,13 @@ malloc_mutex_lock.exit:                           ; preds = %16, %22
   %43 = load i64, ptr @je_n_background_threads, align 8, !tbaa !17
   %44 = add i64 %43, -1
   store i64 %44, ptr @je_n_background_threads, align 8, !tbaa !17
-  br label %post_reentrancy.exit17.sink.split19
+  br label %post_reentrancy.exit17
 
 post_reentrancy.exit17.sink.split:                ; preds = %post_reentrancy.exit17.sink.split19
   call void @je_tsd_slow_update(ptr noundef nonnull %0) #12
   br label %post_reentrancy.exit17
 
-post_reentrancy.exit17.sink.split19:              ; preds = %29, %42
+post_reentrancy.exit17:                           ; preds = %29, %42
   %45 = load i8, ptr %7, align 1, !tbaa !25
   %46 = add i8 %45, -1
   store i8 %46, ptr %7, align 1, !tbaa !25

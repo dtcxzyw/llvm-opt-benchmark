@@ -1860,7 +1860,7 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identi
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %8 = icmp eq ptr %7, %6
-  br i1 %8, label %30, label %9
+  br i1 %8, label %31, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1909,7 +1909,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %24
   %spec.select = select i1 %.sink, ptr %6, ptr %7
   br label %30
 
-30:                                               ; preds = %.sink.split, %2
+31:                                               ; preds = %.sink.split, %2
   %.sroa.0.0 = phi ptr [ %spec.select, %.sink.split ], [ %6, %2 ]
   ret ptr %.sroa.0.0
 }

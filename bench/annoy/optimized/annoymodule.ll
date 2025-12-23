@@ -743,34 +743,34 @@ define noundef ptr @_Z17get_nns_to_pythonRKSt6vectorIiSaIiEERKS_IfSaIfEEi(ptr no
   %61 = add i64 %60, -1
   store i64 %61, ptr %11, align 8, !tbaa !21
   %.not.i.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i, label %62, label %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
+  br i1 %.not.i.i, label %62, label %_ZL11_Py_XDECREFP7_object.exit53
 
 62:                                               ; preds = %59
   tail call void @_Py_Dealloc(ptr noundef nonnull %11)
-  br label %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
+  br label %_ZL11_Py_XDECREFP7_object.exit53
 
 .thread67:                                        ; preds = %.lr.ph, %.lr.ph79, %30, %._crit_edge80
   %.03969 = phi ptr [ null, %30 ], [ %38, %._crit_edge80 ], [ %38, %.lr.ph79 ], [ null, %.lr.ph ]
-  %63 = load i64, ptr %11, align 8, !tbaa !21
-  %64 = add i64 %63, -1
-  store i64 %64, ptr %11, align 8, !tbaa !21
-  %.not.i.i55 = icmp eq i64 %64, 0
-  br i1 %.not.i.i55, label %65, label %_ZL11_Py_XDECREFP7_object.exit56
+  %65 = load i64, ptr %11, align 8, !tbaa !21
+  %66 = add i64 %65, -1
+  store i64 %66, ptr %11, align 8, !tbaa !21
+  %.not.i.i55 = icmp eq i64 %66, 0
+  br i1 %.not.i.i55, label %67, label %_ZL11_Py_XDECREFP7_object.exit56
 
-65:                                               ; preds = %.thread67
+67:                                               ; preds = %.thread67
   tail call void @_Py_Dealloc(ptr noundef nonnull %11)
   br label %_ZL11_Py_XDECREFP7_object.exit56
 
-_ZL11_Py_XDECREFP7_object.exit56:                 ; preds = %.thread67, %65
+_ZL11_Py_XDECREFP7_object.exit56:                 ; preds = %.thread67, %67
   %.not.i57 = icmp eq ptr %.03969, null
-  br i1 %.not.i57, label %_ZL11_Py_XDECREFP7_object.exit53, label %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
+  br i1 %.not.i57, label %_ZL11_Py_XDECREFP7_object.exit53, label %_ZL11_Py_XDECREFP7_object.exit53
 
-_ZL11_Py_XDECREFP7_object.exit53.sink.split:      ; preds = %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
+68:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit53
   tail call void @_Py_Dealloc(ptr noundef nonnull %.03969.sink99)
   br label %_ZL11_Py_XDECREFP7_object.exit53
 
-_ZL11_Py_XDECREFP7_object.exit53.sink.split94:    ; preds = %_ZL11_Py_XDECREFP7_object.exit56, %59, %62
-  %.03969.sink99 = phi ptr [ %38, %59 ], [ %38, %62 ], [ %.03969, %_ZL11_Py_XDECREFP7_object.exit56 ]
+_ZL11_Py_XDECREFP7_object.exit53:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit56, %59, %62
+  %.0 = phi ptr [ %38, %59 ], [ %38, %62 ], [ %.03969, %_ZL11_Py_XDECREFP7_object.exit56 ]
   %.0.ph95 = phi ptr [ %57, %59 ], [ %57, %62 ], [ null, %_ZL11_Py_XDECREFP7_object.exit56 ]
   %66 = load i64, ptr %.03969.sink99, align 8, !tbaa !21
   %67 = add i64 %66, -1

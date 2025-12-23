@@ -1572,7 +1572,7 @@ if.then159:                                       ; preds = %if.end156
   %call179 = call noundef ptr @_ZN4node12signo_stringEi(i32 noundef %27) #25
   %call180 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %31, ptr noundef %call179, i32 noundef 0, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call180, null
-  br i1 %cmp.i.i, label %if.then.i514, label %if.end237.sink.split58
+  br i1 %cmp.i.i, label %if.then.i514, label %if.end237
 
 if.then.i514:                                     ; preds = %if.then159
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #25
@@ -1588,7 +1588,7 @@ if.end237.sink.split:                             ; preds = %if.end237.sink.spli
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %if.end237
 
-if.end237.sink.split58:                           ; preds = %if.then159, %if.then.i514, %if.else202
+if.end237:                                        ; preds = %if.then159, %if.then.i514, %if.else202
   %.sink = phi ptr [ %33, %if.else202 ], [ %call180, %if.then.i514 ], [ %call180, %if.then159 ]
   %call236 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call9, ptr %call2.i, ptr %30, ptr %.sink) #25
   %tobool.i700 = trunc i16 %call236 to i1
@@ -1616,11 +1616,11 @@ if.else273:                                       ; preds = %if.end237
   %40 = inttoptr i64 %add1.i543 to ptr
   br label %if.end308.sink.split59
 
-if.end308.sink.split:                             ; preds = %if.end308.sink.split59
+if.end308.sink.split:                             ; preds = %if.end308
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %if.end308
 
-if.end308.sink.split59:                           ; preds = %if.then240, %if.else273
+if.end308:                                        ; preds = %if.then240, %if.else273
   %.sink60 = phi ptr [ %40, %if.else273 ], [ %call256, %if.then240 ]
   %call307 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call9, ptr %call2.i, ptr %37, ptr %.sink60) #25
   %tobool.i706 = trunc i16 %call307 to i1

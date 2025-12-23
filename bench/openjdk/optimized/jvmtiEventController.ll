@@ -2999,23 +2999,23 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %13, %19, %21
 
 _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %43, %41, %7
   %44 = load i32, ptr %.0, align 4
-  br i1 %1, label %45, label %47
+  br i1 %1, label %45, label %48
 
 45:                                               ; preds = %_ZN16SafeResourceMarkD2Ev.exit
   %46 = add nsw i32 %44, 1
   br label %.sink.split16
 
-47:                                               ; preds = %_ZN16SafeResourceMarkD2Ev.exit
-  %48 = icmp sgt i32 %44, 0
-  br i1 %48, label %49, label %52
+48:                                               ; preds = %_ZN16SafeResourceMarkD2Ev.exit
+  %49 = icmp sgt i32 %44, 0
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %47
-  %50 = add nsw i32 %44, -1
+50:                                               ; preds = %48
+  %51 = add nsw i32 %44, -1
   br label %.sink.split16
 
 .sink.split:                                      ; preds = %.sink.split16
   tail call void @_ZN27JvmtiEventControllerPrivate17recompute_enabledEv()
-  br label %52
+  br label %53
 
 .sink.split16:                                    ; preds = %45, %49
   %.sink = phi i32 [ %50, %49 ], [ %46, %45 ]
@@ -3024,7 +3024,7 @@ _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %43, %41, %7
   %51 = icmp eq i32 %.sink17, 0
   br i1 %51, label %.sink.split, label %52
 
-52:                                               ; preds = %.sink.split16, %.sink.split, %47, %2
+53:                                               ; preds = %.sink.split16, %.sink.split, %48, %2
   ret void
 }
 

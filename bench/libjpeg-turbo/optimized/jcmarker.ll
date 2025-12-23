@@ -1064,11 +1064,11 @@ emit_2bytes.exit35.i:                             ; preds = %549, %545, %emit_by
   %561 = add i64 %560, -1
   store i64 %561, ptr %558, align 8, !tbaa !43
   %562 = icmp eq i64 %561, 0
-  br i1 %562, label %emit_byte.exit37.sink.split44.i, label %emit_adobe_app14.exit
+  br i1 %562, label %576, label %emit_adobe_app14.exit
 
 563:                                              ; preds = %emit_2bytes.exit35.i
   store i8 2, ptr %556, align 1, !tbaa !42
-  %564 = load i64, ptr %558, align 8, !tbaa !43
+  %565 = load i64, ptr %558, align 8, !tbaa !43
   %565 = add i64 %564, -1
   store i64 %565, ptr %558, align 8, !tbaa !43
   %566 = icmp eq i64 %565, 0
@@ -1080,9 +1080,9 @@ emit_2bytes.exit35.i:                             ; preds = %549, %545, %emit_by
   %569 = add i64 %568, -1
   store i64 %569, ptr %558, align 8, !tbaa !43
   %570 = icmp eq i64 %569, 0
-  br i1 %570, label %emit_byte.exit37.sink.split44.i, label %emit_adobe_app14.exit
+  br i1 %570, label %575, label %emit_adobe_app14.exit
 
-emit_byte.exit37.sink.split.i:                    ; preds = %emit_byte.exit37.sink.split44.i
+571:                                              ; preds = %575
   %571 = load ptr, ptr %0, align 8, !tbaa !45
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 40
   store i32 24, ptr %572, align 8, !tbaa !46
@@ -1090,14 +1090,14 @@ emit_byte.exit37.sink.split.i:                    ; preds = %emit_byte.exit37.si
   tail call void %573(ptr noundef nonnull %0) #3
   br label %emit_adobe_app14.exit
 
-emit_byte.exit37.sink.split44.i:                  ; preds = %567, %563, %559
+575:                                              ; preds = %567, %563, %559
   %574 = getelementptr inbounds nuw i8, ptr %555, i64 24
-  %575 = load ptr, ptr %574, align 8, !tbaa !44
+  %576 = load ptr, ptr %574, align 8, !tbaa !44
   %576 = tail call i32 %575(ptr noundef nonnull %0) #3
   %.not.i40.i = icmp eq i32 %576, 0
   br i1 %.not.i40.i, label %emit_byte.exit37.sink.split.i, label %emit_adobe_app14.exit
 
-emit_adobe_app14.exit:                            ; preds = %emit_byte.exit37.sink.split44.i, %emit_byte.exit37.sink.split.i, %567, %563, %559, %emit_jfif_app0.exit
+emit_byte.exit37.sink.split.i:                    ; preds = %575, %571, %567, %563, %559, %emit_jfif_app0.exit
   ret void
 }
 

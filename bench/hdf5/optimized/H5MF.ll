@@ -1028,13 +1028,13 @@ H5MF__alloc_to_fs_type.exit27:                    ; preds = %45, %43, %50, %54, 
   %.049 = phi i32 [ 13, %H5MF__alloc_to_fs_type.exit ], [ %.28.i21, %54 ], [ %..i26, %50 ], [ %spec.select51, %45 ], [ 7, %43 ]
   %58 = load i32, ptr %10, align 8, !tbaa !16
   %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %.sink.split59
+  br i1 %59, label %60, label %123
 
 60:                                               ; preds = %H5MF__alloc_to_fs_type.exit27
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %62 = load i64, ptr %61, align 8, !tbaa !40
   %.not = icmp eq i64 %62, 0
-  br i1 %.not, label %.sink.split59, label %63
+  br i1 %.not, label %123, label %63
 
 63:                                               ; preds = %60
   %64 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1130,9 +1130,9 @@ H5MF__alloc_to_fs_type.exit41:                    ; preds = %95, %93, %100, %104
   %115 = getelementptr inbounds nuw ptr, ptr %108, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !49
   %117 = icmp eq ptr %1, %116
-  br i1 %117, label %128, label %.sink.split59
+  br i1 %117, label %128, label %123
 
-.sink.split:                                      ; preds = %.sink.split59
+118:                                              ; preds = %123
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %119 = zext i32 %.047.sink.ph to i64
   %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %119
@@ -1140,17 +1140,17 @@ H5MF__alloc_to_fs_type.exit41:                    ; preds = %95, %93, %100, %104
   %122 = icmp eq ptr %1, %121
   br label %128
 
-.sink.split59:                                    ; preds = %H5MF__alloc_to_fs_type.exit27, %60, %113
+123:                                              ; preds = %H5MF__alloc_to_fs_type.exit27, %60, %113
   %.048.sink = phi i32 [ %.048, %113 ], [ %.28.sink.i, %60 ], [ %.28.sink.i, %H5MF__alloc_to_fs_type.exit27 ]
   %.047.sink.ph = phi i32 [ %.047, %113 ], [ %.049, %60 ], [ %.049, %H5MF__alloc_to_fs_type.exit27 ]
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1712
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %124 = zext i32 %.048.sink to i64
   %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !49
   %127 = icmp eq ptr %1, %126
-  br i1 %127, label %128, label %.sink.split
+  br i1 %127, label %128, label %118
 
-128:                                              ; preds = %.sink.split59, %.sink.split, %H5MF__alloc_to_fs_type.exit41, %113, %2
+128: ; preds = %123, %118, %H5MF__alloc_to_fs_type.exit41, %113, %2
   %.0 = phi i1 [ true, %H5MF__alloc_to_fs_type.exit41 ], [ false, %2 ], [ %122, %.sink.split ], [ true, %113 ], [ true, %.sink.split59 ]
   ret i1 %.0
 }

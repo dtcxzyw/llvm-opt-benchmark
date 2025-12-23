@@ -4630,7 +4630,7 @@ define hidden noundef align 8 ptr @_ZN5quinn8endpoint13EndpointInner5retry17h6f5
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h741546456d46718aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #21
-          to label %65 unwind label %86
+          to label %65 unwind label %88
 
 37:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4708,7 +4708,7 @@ define hidden noundef align 8 ptr @_ZN5quinn8endpoint13EndpointInner5retry17h6f5
 65:                                               ; preds = %66, %35
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %36, %35 ]
   invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE"(ptr nonnull %28, i8 %30) #21
-          to label %.thread unwind label %86
+          to label %.thread unwind label %88
 
 66:                                               ; preds = %64, %42
   %67 = landingpad { ptr, i32 }
@@ -4734,12 +4734,12 @@ define hidden noundef align 8 ptr @_ZN5quinn8endpoint13EndpointInner5retry17h6f5
   store atomic i8 1, ptr %69 monotonic, align 4
   br label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit.sink.split46"
 
-"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit.sink.split": ; preds = %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit.sink.split46"
+_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit"
   call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hd721f493096dd565E(ptr noundef nonnull align 4 %28)
   br label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit"
 
-"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit.sink.split46": ; preds = %68, %70, %.noexc25, %75, %78, %80, %.noexc28, %85
-  %.sroa.0.0.ph47 = phi ptr [ %41, %78 ], [ %41, %85 ], [ %41, %.noexc28 ], [ %41, %80 ], [ null, %75 ], [ null, %.noexc25 ], [ null, %70 ], [ null, %68 ]
+"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit": ; preds = %68, %70, %.noexc25, %75, %78, %80, %.noexc28, %85
+  %.sroa.0.0 = phi ptr [ %41, %78 ], [ %41, %85 ], [ %41, %.noexc28 ], [ %41, %80 ], [ null, %75 ], [ null, %.noexc25 ], [ null, %70 ], [ null, %68 ]
   %76 = atomicrmw xchg ptr %28, i32 0 release, align 4
   %77 = icmp eq i32 %76, 2
   br i1 %77, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit.sink.split", label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit"
@@ -4766,8 +4766,8 @@ define hidden noundef align 8 ptr @_ZN5quinn8endpoint13EndpointInner5retry17h6f5
   store atomic i8 1, ptr %79 monotonic, align 4
   br label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit.sink.split46"
 
-86:                                               ; preds = %65, %.thread37, %35
-  %87 = landingpad { ptr, i32 }
+88:                                               ; preds = %65, %.thread37, %35
+  %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
@@ -4779,7 +4779,7 @@ define hidden noundef align 8 ptr @_ZN5quinn8endpoint13EndpointInner5retry17h6f5
 .thread37:                                        ; preds = %21, %11
   %eh.lpad-body40 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %11 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$quinn_proto..endpoint..Incoming$GT$17hd2665237a7efefadE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %1) #21
-          to label %.thread unwind label %86
+          to label %.thread unwind label %88
 }
 
 ; Function Attrs: nonlazybind uwtable

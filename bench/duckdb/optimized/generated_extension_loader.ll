@@ -1444,7 +1444,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPv(ptr noundef %12) #18
   br label %.sink.split.i
 
-15:                                               ; preds = %.sink.split.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
+15:; preds = %.sink.split.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
   %.pn9.i = phi { ptr, i32 } [ %9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %11, %.sink.split.i ]
   call void @__cxa_free_exception(ptr %6) #17
   br label %16
@@ -1454,8 +1454,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.i, label %15, label %16
 
-16:                                               ; preds = %.sink.split.i, %15
-  %.pn8.i = phi { ptr, i32 } [ %.pn9.i, %15 ], [ %11, %.sink.split.i ]
+15:                                               ; preds = %.sink.split.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %.pn9.i = phi { ptr, i32 } [ %.pn9.i, %15 ], [ %11, %.sink.split.i ]
   resume { ptr, i32 } %.pn8.i
 
 17:                                               ; preds = %8

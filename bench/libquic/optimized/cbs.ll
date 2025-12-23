@@ -677,14 +677,14 @@ CBS_get_bytes.exit.i:                             ; preds = %CBS_get_bytes.exit.
   %57 = sub nuw i64 %53, %.031.i
   br label %CBS_get_bytes.exit53.sink.split108.i
 
-CBS_get_bytes.exit53.sink.split.i:                ; preds = %CBS_get_bytes.exit53.sink.split108.i
+CBS_get_bytes.exit53.sink.split.i:                ; preds = %cbs_get_any_asn1_element.exit
   store ptr %.sroa.067.0.copyload.i, ptr %1, align 8, !tbaa !6
   %.sroa.gep54.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sink107.ph.i, ptr %.sroa.gep54.i, align 8, !tbaa !13
   br label %cbs_get_any_asn1_element.exit
 
-CBS_get_bytes.exit53.sink.split108.i:             ; preds = %55, %.thread.i
-  %.sink109.i = phi i64 [ %.pre-phi, %.thread.i ], [ %57, %55 ]
+cbs_get_any_asn1_element.exit:                    ; preds = %55, %.thread.i
+  %.0.i = phi i64 [ %.pre-phi, %.thread.i ], [ %57, %55 ]
   %.sink107.ph.i = phi i64 [ 2, %.thread.i ], [ %.031.i, %55 ]
   store i64 %.sink109.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !13
   br i1 %5, label %cbs_get_any_asn1_element.exit, label %CBS_get_bytes.exit53.sink.split.i

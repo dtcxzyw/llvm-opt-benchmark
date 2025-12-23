@@ -29130,22 +29130,22 @@ define hidden void @"_ZN197_$LT$tokenizers..processors..bert.._..$LT$impl$u20$se
     i8 99, label %12
   ]
 
-7:                                                ; preds = %.sink.split, %12, %8, %5, %3
+7:                                                ; preds = %16, %12, %8, %5, %3
   br label %19
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1, !noundef !14
   %11 = icmp eq i8 %10, 101
-  br i1 %11, label %.sink.split, label %7
+  br i1 %11, label %16, label %7
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !noundef !14
   %15 = icmp eq i8 %14, 108
-  br i1 %15, label %.sink.split, label %7
+  br i1 %15, label %16, label %7
 
-.sink.split:                                      ; preds = %8, %12
+16:                                               ; preds = %8, %12
   %.sink4 = phi i8 [ 115, %12 ], [ 112, %8 ]
   %.sink.ph = phi i8 [ 1, %12 ], [ 0, %8 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -29153,7 +29153,7 @@ define hidden void @"_ZN197_$LT$tokenizers..processors..bert.._..$LT$impl$u20$se
   %18 = icmp eq i8 %17, %.sink4
   br i1 %18, label %19, label %7
 
-19:                                               ; preds = %.sink.split, %7
+19: ; preds = %16, %7
   %.sink = phi i8 [ 2, %7 ], [ %.sink.ph, %.sink.split ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %20, align 1

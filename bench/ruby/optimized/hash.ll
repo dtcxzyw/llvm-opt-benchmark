@@ -10450,17 +10450,17 @@ rb_num2long_inline.exit:                          ; preds = %21, %23
   %46 = load i64, ptr %11, align 8, !tbaa !11
   %47 = or i64 %46, 16384
   store i64 %47, ptr %11, align 8, !tbaa !11
-  br label %set_proc_default.exit.sink.split27
+  br label %set_proc_default.exit
 
-48:                                               ; preds = %.thread
+48:; preds = %.thread
   %49 = select i1 %36, i64 4, i64 %4
-  br label %set_proc_default.exit.sink.split27
+  br label %set_proc_default.exit
 
-set_proc_default.exit.sink.split:                 ; preds = %set_proc_default.exit.sink.split27
+set_proc_default.exit.sink.split:                 ; preds = %set_proc_default.exit
   tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %.sink34) #28
   br label %set_proc_default.exit
 
-set_proc_default.exit.sink.split27:               ; preds = %45, %48
+set_proc_default.exit:                            ; preds = %45, %48
   %.sink34 = phi i64 [ %49, %48 ], [ %5, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %.sink34, ptr %50, align 8, !tbaa !7
