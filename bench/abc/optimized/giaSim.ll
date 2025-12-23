@@ -4644,7 +4644,7 @@ define range(i32 0, 2) i32 @Gia_ManObjCheckSat_rec(ptr noundef %0, i32 noundef %
   %13 = xor i32 %1, %12
   %14 = and i32 %13, 1
   %15 = xor i32 %14, 1
-  br label %84
+  br label %83
 
 16:                                               ; preds = %3
   %17 = and i32 %1, 1
@@ -4726,7 +4726,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %55 = and i64 %.val29, 536870911
   %56 = icmp eq i64 %55, 536870911
   %narrow.i.not = or i1 %.not.i, %56
-  br i1 %narrow.i.not, label %83, label %57
+  br i1 %narrow.i.not, label %81, label %57
 
 57:                                               ; preds = %Vec_IntPush.exit
   %58 = and i64 %.val29, 4611686018427387904
@@ -4738,12 +4738,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %64 = and i32 %63, 1
   %65 = shl nsw i32 %62, 1
   %66 = or disjoint i32 %65, %64
-  br i1 %59, label %67, label %80
+  br i1 %59, label %67, label %79
 
 67:                                               ; preds = %57
   %68 = tail call i32 @Gia_ManObjCheckSat_rec(ptr noundef nonnull %0, i32 noundef %66, ptr noundef nonnull %2)
   %.not27 = icmp eq i32 %68, 0
-  br i1 %.not27, label %84, label %69
+  br i1 %.not27, label %83, label %69
 
 69:                                               ; preds = %67
   %.val32 = load i64, ptr %7, align 4
@@ -4756,21 +4756,23 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %76 = and i32 %75, 1
   %77 = shl nsw i32 %73, 1
   %78 = or disjoint i32 %77, %76
-  %79 = tail call i32 @Gia_ManObjCheckSat_rec(ptr noundef nonnull %0, i32 noundef %78, ptr noundef nonnull %2)
-  %.not28 = icmp eq i32 %79, 0
-  br i1 %.not28, label %84, label %83
+  br label %.sink.split
 
-80:                                               ; preds = %57
-  %81 = xor i32 %66, 1
-  %82 = tail call i32 @Gia_ManObjCheckSat_rec(ptr noundef nonnull %0, i32 noundef %81, ptr noundef nonnull %2)
+79:                                               ; preds = %57
+  %80 = xor i32 %66, 1
+  br label %.sink.split
+
+81:                                               ; preds = %.sink.split, %Vec_IntPush.exit
+  br label %83
+
+.sink.split:                                      ; preds = %69, %79
+  %.sink37 = phi i32 [ %80, %79 ], [ %78, %69 ]
+  %82 = tail call i32 @Gia_ManObjCheckSat_rec(ptr noundef nonnull %0, i32 noundef %.sink37, ptr noundef nonnull %2)
   %.not26 = icmp eq i32 %82, 0
-  br i1 %.not26, label %84, label %83
+  br i1 %.not26, label %83, label %81
 
-83:                                               ; preds = %69, %80, %Vec_IntPush.exit
-  br label %84
-
-84:                                               ; preds = %80, %69, %67, %83, %10
-  %.0 = phi i32 [ %15, %10 ], [ 1, %83 ], [ 0, %67 ], [ 0, %69 ], [ 0, %80 ]
+83:                                               ; preds = %.sink.split, %67, %81, %10
+  %.0 = phi i32 [ %15, %10 ], [ 1, %81 ], [ 0, %67 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

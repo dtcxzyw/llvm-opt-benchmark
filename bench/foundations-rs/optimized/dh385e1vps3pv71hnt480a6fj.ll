@@ -11393,28 +11393,25 @@ define noundef nonnull align 8 ptr @_ZN11foundations9telemetry7tracing8internal1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %3, label %7, label %10
+  br i1 %3, label %.sink.split4, label %7
 
 7:                                                ; preds = %1
-  %8 = cmpxchg weak ptr %6, i64 0, i64 8 acquire monotonic, align 8
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %16, label %.sink.split, !prof !556
+  %8 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br label %.sink.split4
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = cmpxchg weak ptr %12, i64 0, i64 8 acquire monotonic, align 8
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %16, label %.sink.split, !prof !556
+.sink.split:                                      ; preds = %.sink.split4
+  %10 = tail call noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17h41f782b7d5006fc0E(ptr noundef nonnull align 8 %.sink7, i64 undef, i32 noundef 1000000000)
+  br label %13
 
-.sink.split:                                      ; preds = %10, %7
-  %.sink = phi ptr [ %6, %7 ], [ %12, %10 ]
-  %15 = tail call noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17h41f782b7d5006fc0E(ptr noundef nonnull align 8 %.sink, i64 undef, i32 noundef 1000000000)
-  br label %16
+.sink.split4:                                     ; preds = %1, %7
+  %.sink7 = phi ptr [ %9, %7 ], [ %6, %1 ]
+  %11 = cmpxchg weak ptr %.sink7, i64 0, i64 8 acquire monotonic, align 8
+  %12 = extractvalue { i64, i1 } %11, 1
+  br i1 %12, label %13, label %.sink.split
 
-16:                                               ; preds = %.sink.split, %7, %10
-  %.sroa.0.0 = phi ptr [ %6, %7 ], [ %12, %10 ], [ %.sink, %.sink.split ]
-  ret ptr %.sroa.0.0
+13:                                               ; preds = %.sink.split4, %.sink.split
+  ret ptr %.sink7
 }
 
 ; Function Attrs: nonlazybind uwtable

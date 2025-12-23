@@ -811,29 +811,20 @@ define hidden void @_ZN5ZHeap10keep_aliveEP7oopDesc(ptr noundef nonnull readnone
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %19, label %14
+  %_ZN11ZGeneration6_youngE.val.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %_ZN11ZGeneration4_oldE.val.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %14 = select i1 %.not.i, ptr %_ZN11ZGeneration6_youngE.val.i, ptr %_ZN11ZGeneration4_oldE.val.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3216
+  %16 = load i32, ptr %15, align 16
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %_ZN11ZGeneration21mark_object_if_activeILb1ELb0ELb1ELb0EEEv8zaddress.exit.sink.split.i, label %_ZN8ZBarrier4markILb1ELb0ELb1ELb0EEEv8zaddress.exit
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 3216
-  %17 = load i32, ptr %16, align 16
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %_ZN11ZGeneration21mark_object_if_activeILb1ELb0ELb1ELb0EEEv8zaddress.exit.sink.split.i, label %_ZN8ZBarrier4markILb1ELb0ELb1ELb0EEEv8zaddress.exit
-
-19:                                               ; preds = %2
-  %20 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 3216
-  %22 = load i32, ptr %21, align 16
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %_ZN11ZGeneration21mark_object_if_activeILb1ELb0ELb1ELb0EEEv8zaddress.exit.sink.split.i, label %_ZN8ZBarrier4markILb1ELb0ELb1ELb0EEEv8zaddress.exit
-
-_ZN11ZGeneration21mark_object_if_activeILb1ELb0ELb1ELb0EEEv8zaddress.exit.sink.split.i: ; preds = %19, %14
-  %.sink4.i = phi ptr [ %15, %14 ], [ %20, %19 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 256
-  tail call void @_ZN5ZMark11mark_objectILb1ELb0ELb1ELb0EEEv8zaddress(ptr noundef nonnull align 64 dereferenceable(2652) %24, i64 noundef %3)
+_ZN11ZGeneration21mark_object_if_activeILb1ELb0ELb1ELb0EEEv8zaddress.exit.sink.split.i: ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 256
+  tail call void @_ZN5ZMark11mark_objectILb1ELb0ELb1ELb0EEEv8zaddress(ptr noundef nonnull align 64 dereferenceable(2652) %18, i64 noundef %3)
   br label %_ZN8ZBarrier4markILb1ELb0ELb1ELb0EEEv8zaddress.exit
 
-_ZN8ZBarrier4markILb1ELb0ELb1ELb0EEEv8zaddress.exit: ; preds = %14, %19, %_ZN11ZGeneration21mark_object_if_activeILb1ELb0ELb1ELb0EEEv8zaddress.exit.sink.split.i
+_ZN8ZBarrier4markILb1ELb0ELb1ELb0EEEv8zaddress.exit: ; preds = %2, %_ZN11ZGeneration21mark_object_if_activeILb1ELb0ELb1ELb0EEEv8zaddress.exit.sink.split.i
   ret void
 }
 

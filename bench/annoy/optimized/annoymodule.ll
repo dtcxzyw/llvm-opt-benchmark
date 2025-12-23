@@ -743,50 +743,43 @@ define noundef ptr @_Z17get_nns_to_pythonRKSt6vectorIiSaIiEERKS_IfSaIfEEi(ptr no
   %61 = add i64 %60, -1
   store i64 %61, ptr %11, align 8, !tbaa !21
   %.not.i.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i, label %62, label %_ZL11_Py_XDECREFP7_object.exit
+  br i1 %.not.i.i, label %62, label %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
 
 62:                                               ; preds = %59
   tail call void @_Py_Dealloc(ptr noundef nonnull %11)
-  br label %_ZL11_Py_XDECREFP7_object.exit
-
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %62, %59
-  %63 = load i64, ptr %38, align 8, !tbaa !21
-  %64 = add i64 %63, -1
-  store i64 %64, ptr %38, align 8, !tbaa !21
-  %.not.i.i52 = icmp eq i64 %64, 0
-  br i1 %.not.i.i52, label %_ZL11_Py_XDECREFP7_object.exit53.sink.split, label %_ZL11_Py_XDECREFP7_object.exit53
+  br label %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
 
 .thread67:                                        ; preds = %.lr.ph, %.lr.ph79, %30, %._crit_edge80
   %.03969 = phi ptr [ null, %30 ], [ %38, %._crit_edge80 ], [ %38, %.lr.ph79 ], [ null, %.lr.ph ]
-  %65 = load i64, ptr %11, align 8, !tbaa !21
-  %66 = add i64 %65, -1
-  store i64 %66, ptr %11, align 8, !tbaa !21
-  %.not.i.i55 = icmp eq i64 %66, 0
-  br i1 %.not.i.i55, label %67, label %_ZL11_Py_XDECREFP7_object.exit56
+  %63 = load i64, ptr %11, align 8, !tbaa !21
+  %64 = add i64 %63, -1
+  store i64 %64, ptr %11, align 8, !tbaa !21
+  %.not.i.i55 = icmp eq i64 %64, 0
+  br i1 %.not.i.i55, label %65, label %_ZL11_Py_XDECREFP7_object.exit56
 
-67:                                               ; preds = %.thread67
+65:                                               ; preds = %.thread67
   tail call void @_Py_Dealloc(ptr noundef nonnull %11)
   br label %_ZL11_Py_XDECREFP7_object.exit56
 
-_ZL11_Py_XDECREFP7_object.exit56:                 ; preds = %.thread67, %67
+_ZL11_Py_XDECREFP7_object.exit56:                 ; preds = %.thread67, %65
   %.not.i57 = icmp eq ptr %.03969, null
-  br i1 %.not.i57, label %_ZL11_Py_XDECREFP7_object.exit53, label %68
+  br i1 %.not.i57, label %_ZL11_Py_XDECREFP7_object.exit53, label %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
 
-68:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit56
-  %69 = load i64, ptr %.03969, align 8, !tbaa !21
-  %70 = add i64 %69, -1
-  store i64 %70, ptr %.03969, align 8, !tbaa !21
-  %.not.i.i58 = icmp eq i64 %70, 0
-  br i1 %.not.i.i58, label %_ZL11_Py_XDECREFP7_object.exit53.sink.split, label %_ZL11_Py_XDECREFP7_object.exit53
-
-_ZL11_Py_XDECREFP7_object.exit53.sink.split:      ; preds = %68, %_ZL11_Py_XDECREFP7_object.exit
-  %.03969.sink = phi ptr [ %38, %_ZL11_Py_XDECREFP7_object.exit ], [ %.03969, %68 ]
-  %.0.ph = phi ptr [ %57, %_ZL11_Py_XDECREFP7_object.exit ], [ null, %68 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.03969.sink)
+_ZL11_Py_XDECREFP7_object.exit53.sink.split:      ; preds = %_ZL11_Py_XDECREFP7_object.exit53.sink.split94
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.03969.sink99)
   br label %_ZL11_Py_XDECREFP7_object.exit53
 
-_ZL11_Py_XDECREFP7_object.exit53:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit53.sink.split, %3, %68, %_ZL11_Py_XDECREFP7_object.exit56, %_ZL11_Py_XDECREFP7_object.exit, %._crit_edge
-  %.0 = phi ptr [ null, %68 ], [ %11, %._crit_edge ], [ %57, %_ZL11_Py_XDECREFP7_object.exit ], [ null, %3 ], [ null, %_ZL11_Py_XDECREFP7_object.exit56 ], [ %.0.ph, %_ZL11_Py_XDECREFP7_object.exit53.sink.split ]
+_ZL11_Py_XDECREFP7_object.exit53.sink.split94:    ; preds = %_ZL11_Py_XDECREFP7_object.exit56, %59, %62
+  %.03969.sink99 = phi ptr [ %38, %59 ], [ %38, %62 ], [ %.03969, %_ZL11_Py_XDECREFP7_object.exit56 ]
+  %.0.ph95 = phi ptr [ %57, %59 ], [ %57, %62 ], [ null, %_ZL11_Py_XDECREFP7_object.exit56 ]
+  %66 = load i64, ptr %.03969.sink99, align 8, !tbaa !21
+  %67 = add i64 %66, -1
+  store i64 %67, ptr %.03969.sink99, align 8, !tbaa !21
+  %.not.i.i58 = icmp eq i64 %67, 0
+  br i1 %.not.i.i58, label %_ZL11_Py_XDECREFP7_object.exit53.sink.split, label %_ZL11_Py_XDECREFP7_object.exit53
+
+_ZL11_Py_XDECREFP7_object.exit53:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit53.sink.split94, %_ZL11_Py_XDECREFP7_object.exit53.sink.split, %3, %_ZL11_Py_XDECREFP7_object.exit56, %._crit_edge
+  %.0 = phi ptr [ null, %_ZL11_Py_XDECREFP7_object.exit56 ], [ %11, %._crit_edge ], [ %.0.ph95, %_ZL11_Py_XDECREFP7_object.exit53.sink.split ], [ null, %3 ], [ %.0.ph95, %_ZL11_Py_XDECREFP7_object.exit53.sink.split94 ]
   ret ptr %.0
 }
 

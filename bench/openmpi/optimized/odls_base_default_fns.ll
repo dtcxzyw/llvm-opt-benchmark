@@ -5042,7 +5042,7 @@ define internal fastcc i32 @setup_path(ptr noundef %0, ptr noundef nonnull write
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %4, i16 noundef zeroext 6, ptr noundef null, i16 noundef zeroext 1) #16
-  br i1 %5, label %6, label %17
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -5050,39 +5050,34 @@ define internal fastcc i32 @setup_path(ptr noundef %0, ptr noundef nonnull write
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 424
   %10 = load ptr, ptr %9, align 8, !tbaa !204
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %27, label %12
+  br i1 %11, label %23, label %12
 
 12:                                               ; preds = %6
   %13 = tail call i32 @chdir(ptr noundef nonnull %10) #16
   %.not18 = icmp eq i32 %13, 0
-  br i1 %.not18, label %14, label %27
+  br i1 %.not18, label %.sink.split21, label %23
 
-14:                                               ; preds = %12
-  %15 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4096) #16
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %27, label %.sink.split
+14:                                               ; preds = %2
+  %15 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %4, i16 noundef zeroext 5, ptr noundef null, i16 noundef zeroext 1) #16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %17 = tail call i32 @pmix_util_check_context_cwd(ptr noundef nonnull %16, i1 noundef zeroext true, i1 noundef zeroext %15) #16
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %.sink.split21, label %23
 
-17:                                               ; preds = %2
-  %18 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %4, i16 noundef zeroext 5, ptr noundef null, i16 noundef zeroext 1) #16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %20 = tail call i32 @pmix_util_check_context_cwd(ptr noundef nonnull %19, i1 noundef zeroext true, i1 noundef zeroext %18) #16
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %27
+.sink.split:                                      ; preds = %.sink.split21
+  %18 = call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  store ptr %18, ptr %1, align 8, !tbaa !49
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %20 = call i32 @PMIx_Setenv(ptr noundef nonnull @.str.80, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %19) #16
+  br label %23
 
-21:                                               ; preds = %17
-  %22 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4096) #16
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %27, label %.sink.split
+.sink.split21:                                    ; preds = %14, %12
+  %21 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4096) #16
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %.sink.split
 
-.sink.split:                                      ; preds = %21, %14
-  %24 = call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  store ptr %24, ptr %1, align 8, !tbaa !49
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %26 = call i32 @PMIx_Setenv(ptr noundef nonnull @.str.80, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %25) #16
-  br label %27
-
-27:                                               ; preds = %.sink.split, %17, %21, %14, %12, %6
-  %.0 = phi i32 [ -2, %14 ], [ -1, %6 ], [ -1, %12 ], [ -2, %21 ], [ %20, %17 ], [ 0, %.sink.split ]
+23:                                               ; preds = %.sink.split21, %.sink.split, %14, %12, %6
+  %.0 = phi i32 [ 0, %.sink.split ], [ -1, %6 ], [ -1, %12 ], [ %17, %14 ], [ -2, %.sink.split21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -28724,7 +28724,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   %.sroa.09.1 = phi i8 [ %.sroa.09.0, %13 ], [ %.sroa.09.2.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %eh.lpad-body, %.body ]
   %12 = trunc nuw i8 %.sroa.09.1 to i1
-  br i1 %12, label %50, label %49
+  br i1 %12, label %47, label %46
 
 13:                                               ; preds = %38, %36, %1
   %.sroa.09.0 = phi i8 [ %.sroa.09.4, %38 ], [ %.sroa.09.3, %36 ], [ 1, %1 ]
@@ -28795,7 +28795,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   %.sroa.09.2.lpad-body = phi i8 [ %.sroa.09.2, %30 ], [ 0, %19 ]
   %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %20, %19 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$ruff..version..VersionInfo$GT$17h42945ca1bcdff4d8E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %6) #25
-          to label %11 unwind label %47
+          to label %11 unwind label %44
 
 32:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -28814,7 +28814,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
 36:                                               ; preds = %39, %35
   %.sroa.09.3 = phi i8 [ 1, %35 ], [ 0, %39 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$ruff..version..VersionInfo$GT$17h42945ca1bcdff4d8E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %6)
-          to label %42 unwind label %13
+          to label %.sink.split21 unwind label %13
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -28825,7 +28825,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   %.sroa.09.4 = phi i8 [ 1, %37 ], [ 0, %40 ]
   %.sroa.0.0 = phi ptr [ %34, %37 ], [ %41, %40 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$ruff..version..VersionInfo$GT$17h42945ca1bcdff4d8E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %6)
-          to label %45 unwind label %13
+          to label %.sink.split21 unwind label %13
 
 39:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !774
@@ -28836,38 +28836,33 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   %41 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h7a5d88d7865c867eE"(ptr noalias noundef nonnull align 8 %18)
           to label %38 unwind label %30
 
-42:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %43 = trunc nuw i8 %.sroa.09.3 to i1
-  br i1 %43, label %.sink.split, label %44
-
-.sink.split:                                      ; preds = %42, %45
-  %.sroa.0.1.ph = phi ptr [ %.sroa.0.0, %45 ], [ null, %42 ]
+.sink.split:                                      ; preds = %.sink.split21
   call void @"_ZN4core3ptr94drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$17hd1cd3f1e142f32fcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
-  br label %44
+  br label %43
 
-44:                                               ; preds = %.sink.split, %42, %45
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %45 ], [ null, %42 ], [ %.sroa.0.1.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret ptr %.sroa.0.1
-
-45:                                               ; preds = %38
+.sink.split21:                                    ; preds = %36, %38
+  %.sroa.09.3.sink = phi i8 [ %.sroa.09.4, %38 ], [ %.sroa.09.3, %36 ]
+  %.sroa.0.1.ph22 = phi ptr [ %.sroa.0.0, %38 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %46 = trunc nuw i8 %.sroa.09.4 to i1
-  br i1 %46, label %.sink.split, label %44
+  %42 = trunc nuw i8 %.sroa.09.3.sink to i1
+  br i1 %42, label %.sink.split, label %43
 
-47:                                               ; preds = %50, %.body
-  %48 = landingpad { ptr, i32 }
+43:                                               ; preds = %.sink.split21, %.sink.split
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  ret ptr %.sroa.0.1.ph22
+
+44:                                               ; preds = %47, %.body
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-49:                                               ; preds = %50, %11
+46:                                               ; preds = %47, %11
   resume { ptr, i32 } %.pn
 
-50:                                               ; preds = %11
+47:                                               ; preds = %11
   invoke void @"_ZN4core3ptr94drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$17hd1cd3f1e142f32fcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #25
-          to label %49 unwind label %47
+          to label %46 unwind label %44
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

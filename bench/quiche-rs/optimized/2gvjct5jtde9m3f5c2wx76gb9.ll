@@ -5651,50 +5651,51 @@ define noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c0
   %19 = tail call { ptr, i64 } @_ZN6octets9OctetsMut6put_u817h54d84031fecbdc9aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i8 noundef %18)
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.sink.split, label %28
+  br i1 %21, label %.sink.split, label %25
 
 22:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hcaabea011d786ee3E.exit"
   %23 = trunc i64 %0 to i8
   %24 = or i8 %1, %23
-  %25 = tail call { ptr, i64 } @_ZN6octets9OctetsMut6put_u817h54d84031fecbdc9aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i8 noundef %24)
-  %26 = extractvalue { ptr, i64 } %25, 0
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %.sink.split, label %41
+  br label %.sink.split38
 
-28:                                               ; preds = %16
-  %29 = sub i64 %0, %.sroa.08.0.i
-  %30 = icmp ugt i64 %29, 127
-  br i1 %30, label %.lr.ph, label %._crit_edge
+25:                                               ; preds = %16
+  %26 = sub i64 %0, %.sroa.08.0.i
+  %27 = icmp ugt i64 %26, 127
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %42, %28
-  %.sroa.0.0.lcssa = phi i64 [ %29, %28 ], [ %43, %42 ]
-  %31 = trunc nuw nsw i64 %.sroa.0.0.lcssa to i8
-  %32 = tail call { ptr, i64 } @_ZN6octets9OctetsMut6put_u817h54d84031fecbdc9aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i8 noundef %31)
-  %33 = extractvalue { ptr, i64 } %32, 0
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.sink.split, label %41
+._crit_edge:                                      ; preds = %39, %25
+  %.sroa.0.0.lcssa = phi i64 [ %26, %25 ], [ %40, %39 ]
+  %28 = trunc nuw nsw i64 %.sroa.0.0.lcssa to i8
+  br label %.sink.split38
 
-.lr.ph:                                           ; preds = %28, %42
-  %.sroa.0.029 = phi i64 [ %43, %42 ], [ %29, %28 ]
-  %35 = trunc i64 %.sroa.0.029 to i8
-  %36 = or i8 %35, -128
-  %37 = tail call { ptr, i64 } @_ZN6octets9OctetsMut6put_u817h54d84031fecbdc9aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i8 noundef %36)
-  %38 = extractvalue { ptr, i64 } %37, 0
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %.sink.split, label %42
+.lr.ph:                                           ; preds = %25, %39
+  %.sroa.0.029 = phi i64 [ %40, %39 ], [ %26, %25 ]
+  %29 = trunc i64 %.sroa.0.029 to i8
+  %30 = or i8 %29, -128
+  %31 = tail call { ptr, i64 } @_ZN6octets9OctetsMut6put_u817h54d84031fecbdc9aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i8 noundef %30)
+  %32 = extractvalue { ptr, i64 } %31, 0
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.sink.split, label %39
 
-.sink.split:                                      ; preds = %.lr.ph, %._crit_edge, %16, %22
-  %40 = tail call noundef i8 @"_ZN99_$LT$quiche..h3..qpack..Error$u20$as$u20$core..convert..From$LT$octets..BufferTooShortError$GT$$GT$4from17hcccc1a3a5a90db25E"()
-  br label %41
+.sink.split:                                      ; preds = %.lr.ph, %.sink.split38, %16
+  %34 = tail call noundef i8 @"_ZN99_$LT$quiche..h3..qpack..Error$u20$as$u20$core..convert..From$LT$octets..BufferTooShortError$GT$$GT$4from17hcccc1a3a5a90db25E"()
+  br label %38
 
-41:                                               ; preds = %.sink.split, %22, %._crit_edge
-  %.sroa.07.0 = phi i8 [ 6, %22 ], [ 6, %._crit_edge ], [ %40, %.sink.split ]
+.sink.split38:                                    ; preds = %._crit_edge, %22
+  %.sink40 = phi i8 [ %24, %22 ], [ %28, %._crit_edge ]
+  %35 = tail call { ptr, i64 } @_ZN6octets9OctetsMut6put_u817h54d84031fecbdc9aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i8 noundef %.sink40)
+  %36 = extractvalue { ptr, i64 } %35, 0
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.sink.split, label %38
+
+38:                                               ; preds = %.sink.split38, %.sink.split
+  %.sroa.07.0 = phi i8 [ %34, %.sink.split ], [ 6, %.sink.split38 ]
   ret i8 %.sroa.07.0
 
-42:                                               ; preds = %.lr.ph
-  %43 = lshr i64 %.sroa.0.029, 7
-  %44 = icmp ugt i64 %.sroa.0.029, 16383
-  br i1 %44, label %.lr.ph, label %._crit_edge
+39:                                               ; preds = %.lr.ph
+  %40 = lshr i64 %.sroa.0.029, 7
+  %41 = icmp ugt i64 %.sroa.0.029, 16383
+  br i1 %41, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable

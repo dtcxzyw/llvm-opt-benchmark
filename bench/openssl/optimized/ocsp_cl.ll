@@ -392,7 +392,7 @@ define range(i32 0, 2) i32 @OCSP_resp_get1_id(ptr noundef readonly captures(none
   %5 = load i32, ptr %4, align 8, !tbaa !68
   switch i32 %5, label %.thread12 [
     i32 0, label %6
-    i32 1, label %11
+    i32 1, label %10
   ]
 
 6:                                                ; preds = %3
@@ -400,24 +400,25 @@ define range(i32 0, 2) i32 @OCSP_resp_get1_id(ptr noundef readonly captures(none
   %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = tail call ptr @X509_NAME_dup(ptr noundef %8) #8
   store ptr %9, ptr %2, align 8, !tbaa !71
-  store ptr null, ptr %1, align 8, !tbaa !72
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread12, label %16
+  br label %.thread12.sink.split
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !69
-  %14 = tail call ptr @ASN1_OCTET_STRING_dup(ptr noundef %13) #8
-  store ptr %14, ptr %1, align 8, !tbaa !72
-  store ptr null, ptr %2, align 8, !tbaa !71
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread12, label %16
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !69
+  %13 = tail call ptr @ASN1_OCTET_STRING_dup(ptr noundef %12) #8
+  store ptr %13, ptr %1, align 8, !tbaa !72
+  br label %.thread12.sink.split
 
-16:                                               ; preds = %11, %6
+.thread12.sink.split:                             ; preds = %10, %6
+  %.sink = phi ptr [ %1, %6 ], [ %2, %10 ]
+  %.sink13 = phi ptr [ %9, %6 ], [ %13, %10 ]
+  store ptr null, ptr %.sink, align 8, !tbaa !70
+  %14 = icmp ne ptr %.sink13, null
+  %spec.select = zext i1 %14 to i32
   br label %.thread12
 
-.thread12:                                        ; preds = %6, %11, %3, %16
-  %.0 = phi i32 [ 0, %3 ], [ 1, %16 ], [ 0, %11 ], [ 0, %6 ]
+.thread12:                                        ; preds = %.thread12.sink.split, %3
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %.thread12.sink.split ]
   ret i32 %.0
 }
 

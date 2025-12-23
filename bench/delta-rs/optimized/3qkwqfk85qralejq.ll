@@ -3473,12 +3473,12 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %95 = load ptr, ptr %8, align 8, !alias.scope !754, !nonnull !16, !noundef !16
   %96 = atomicrmw sub ptr %95, i64 1 release, align 8, !noalias !754
   %97 = icmp eq i64 %96, 1
-  br i1 %97, label %98, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47"
+  br i1 %97, label %98, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
 
 98:                                               ; preds = %94
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1ee1024baaf549b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47" unwind label %103
+          to label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63" unwind label %103
 
 "_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit": ; preds = %87, %91, %103, %43
   %.pn32 = phi { ptr, i32 } [ %104, %103 ], [ %44, %43 ], [ %.pn30, %91 ], [ %.pn30, %87 ]
@@ -3496,17 +3496,17 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit"
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47": ; preds = %94, %98
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
+  call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17he85b9095cacd7c1bE(ptr noundef nonnull align 8 %29)
+  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
+
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63": ; preds = %98, %94, %110
   %105 = atomicrmw sub ptr %29, i64 16 release, align 8
   %106 = and i64 %105, -14
   %107 = icmp eq i64 %106, 18
   br i1 %107, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
 
-"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split": ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47", %110
-  call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17he85b9095cacd7c1bE(ptr noundef nonnull align 8 %29)
-  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
-
-"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47", %110
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63", %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split"
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
@@ -3520,10 +3520,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !723
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %111 = atomicrmw sub ptr %29, i64 16 release, align 8
-  %112 = and i64 %111, -14
-  %113 = icmp eq i64 %112, 18
-  br i1 %113, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
+  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
 
 "_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit", %102, %12
   %.pn32.pn = phi { ptr, i32 } [ %.pn, %12 ], [ %.pn32, %102 ], [ %.pn32, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit" ]
@@ -4346,12 +4343,12 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %92 = load ptr, ptr %8, align 8, !alias.scope !852, !nonnull !16, !noundef !16
   %93 = atomicrmw sub ptr %92, i64 1 release, align 8, !noalias !852
   %94 = icmp eq i64 %93, 1
-  br i1 %94, label %95, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47"
+  br i1 %94, label %95, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
 
 95:                                               ; preds = %91
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1ee1024baaf549b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47" unwind label %100
+          to label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63" unwind label %100
 
 "_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit": ; preds = %84, %88, %100, %43
   %.pn32 = phi { ptr, i32 } [ %101, %100 ], [ %44, %43 ], [ %.pn30, %88 ], [ %.pn30, %84 ]
@@ -4369,17 +4366,17 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit"
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47": ; preds = %91, %95
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
+  call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17he85b9095cacd7c1bE(ptr noundef nonnull align 8 %29)
+  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
+
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63": ; preds = %95, %91, %107
   %102 = atomicrmw sub ptr %29, i64 16 release, align 8
   %103 = and i64 %102, -14
   %104 = icmp eq i64 %103, 18
   br i1 %104, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
 
-"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split": ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47", %107
-  call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17he85b9095cacd7c1bE(ptr noundef nonnull align 8 %29)
-  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
-
-"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47", %107
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63", %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split"
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
@@ -4393,10 +4390,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !821
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %108 = atomicrmw sub ptr %29, i64 16 release, align 8
-  %109 = and i64 %108, -14
-  %110 = icmp eq i64 %109, 18
-  br i1 %110, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
+  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
 
 "_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit", %99, %12
   %.pn32.pn = phi { ptr, i32 } [ %.pn, %12 ], [ %.pn32, %99 ], [ %.pn32, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit" ]
@@ -4627,12 +4621,12 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   %92 = load ptr, ptr %8, align 8, !alias.scope !884, !nonnull !16, !noundef !16
   %93 = atomicrmw sub ptr %92, i64 1 release, align 8, !noalias !884
   %94 = icmp eq i64 %93, 1
-  br i1 %94, label %95, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47"
+  br i1 %94, label %95, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
 
 95:                                               ; preds = %91
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1ee1024baaf549b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47" unwind label %100
+          to label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63" unwind label %100
 
 "_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit": ; preds = %84, %88, %100, %43
   %.pn32 = phi { ptr, i32 } [ %101, %100 ], [ %44, %43 ], [ %.pn30, %88 ], [ %.pn30, %84 ]
@@ -4650,17 +4644,17 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit"
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47": ; preds = %91, %95
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
+  call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17he85b9095cacd7c1bE(ptr noundef nonnull align 8 %29)
+  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
+
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63": ; preds = %95, %91, %107
   %102 = atomicrmw sub ptr %29, i64 16 release, align 8
   %103 = and i64 %102, -14
   %104 = icmp eq i64 %103, 18
   br i1 %104, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
 
-"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split": ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47", %107
-  call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17he85b9095cacd7c1bE(ptr noundef nonnull align 8 %29)
-  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
-
-"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit47", %107
+"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50": ; preds = %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63", %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split"
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
@@ -4674,10 +4668,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !853
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %108 = atomicrmw sub ptr %29, i64 16 release, align 8
-  %109 = and i64 %108, -14
-  %110 = icmp eq i64 %109, 18
-  br i1 %110, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split", label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50"
+  br label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit50.sink.split63"
 
 "_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$datafusion..execution..context..SessionState$GT$$GT$17h9a97c27e28af8e46E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit", %99, %12
   %.pn32.pn = phi { ptr, i32 } [ %.pn, %12 ], [ %.pn32, %99 ], [ %.pn32, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$17hebab4c3a5ca92511E.exit" ]

@@ -856,18 +856,10 @@ if.then:                                          ; preds = %entry
   store i64 %2, ptr %agg.tmp, align 8
   store ptr null, ptr %authRequest, align 8
   invoke void @_ZN4fizz21ExportedAuthenticator16getAuthenticatorERKNS_13AsyncFizzBaseENS_9DirectionERKNS_8SelfCertESt10unique_ptrIN5folly5IOBufESt14default_deleteISA_EE(ptr nonnull sret(%"class.std::unique_ptr.12") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(576) %transport, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %agg.tmp)
-          to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit unwind label %lpad
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then
-  %3 = load ptr, ptr %ref.tmp, align 8
-  store ptr %3, ptr %authenticator, align 8
-  %.pre22 = load ptr, ptr %agg.tmp, align 8
-  store ptr null, ptr %ref.tmp, align 8
-  %cmp.not.i3 = icmp eq ptr %.pre22, null
-  br i1 %cmp.not.i3, label %invoke.cont12, label %invoke.cont12.sink.split
+          to label %invoke.cont12.sink.split25 unwind label %lpad
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #17
   br label %ehcleanup
@@ -876,34 +868,31 @@ if.else:                                          ; preds = %entry
   store i64 %2, ptr %agg.tmp6, align 8
   store ptr null, ptr %authRequest, align 8
   invoke void @_ZN4fizz21ExportedAuthenticator16getAuthenticatorERKNS_13AsyncFizzBaseENS_9DirectionERKNS_8SelfCertESt10unique_ptrIN5folly5IOBufESt14default_deleteISA_EE(ptr nonnull sret(%"class.std::unique_ptr.12") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(576) %transport, i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %agg.tmp6)
-          to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 unwind label %lpad7
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11: ; preds = %if.else
-  %5 = load ptr, ptr %ref.tmp3, align 8
-  store ptr %5, ptr %authenticator, align 8
-  %.pre = load ptr, ptr %agg.tmp6, align 8
-  store ptr null, ptr %ref.tmp3, align 8
-  %cmp.not.i12 = icmp eq ptr %.pre, null
-  br i1 %cmp.not.i12, label %invoke.cont12, label %invoke.cont12.sink.split
+          to label %invoke.cont12.sink.split25 unwind label %lpad7
 
 lpad7:                                            ; preds = %if.else
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6) #17
   br label %ehcleanup
 
-invoke.cont12.sink.split:                         ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %.pre.sink24 = phi ptr [ %.pre22, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %.pre, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ]
-  %agg.tmp.sink.ph = phi ptr [ %agg.tmp, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %agg.tmp6, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ]
-  %.in.ph = phi ptr [ %3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ]
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pre.sink24) #17
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre.sink24) #17
+invoke.cont12.sink.split:                         ; preds = %invoke.cont12.sink.split25
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pre22) #17
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre22) #17
   br label %invoke.cont12
 
-invoke.cont12:                                    ; preds = %invoke.cont12.sink.split, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %agg.tmp.sink = phi ptr [ %agg.tmp6, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ], [ %agg.tmp, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %agg.tmp.sink.ph, %invoke.cont12.sink.split ]
-  %.in = phi ptr [ %5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ], [ %3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %.in.ph, %invoke.cont12.sink.split ]
-  store ptr null, ptr %agg.tmp.sink, align 8
+invoke.cont12.sink.split25:                       ; preds = %if.else, %if.then
+  %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp3, %if.else ]
+  %agg.tmp.sink28 = phi ptr [ %agg.tmp, %if.then ], [ %agg.tmp6, %if.else ]
+  %5 = load ptr, ptr %ref.tmp.sink, align 8
+  store ptr %5, ptr %authenticator, align 8
+  %.pre22 = load ptr, ptr %agg.tmp.sink28, align 8
+  store ptr null, ptr %ref.tmp.sink, align 8
+  %cmp.not.i12 = icmp eq ptr %.pre22, null
+  br i1 %cmp.not.i12, label %invoke.cont12, label %invoke.cont12.sink.split
+
+invoke.cont12:                                    ; preds = %invoke.cont12.sink.split25, %invoke.cont12.sink.split
+  store ptr null, ptr %agg.tmp.sink28, align 8
   %retval.sroa.2.0.insert.ext.i = zext i16 %0 to i32
   %retval.sroa.2.0.insert.shift.i = shl nuw i32 %retval.sroa.2.0.insert.ext.i, 16
   %retval.sroa.0.0.insert.ext.i = zext i16 %requestId to i32
@@ -914,19 +903,19 @@ invoke.cont12:                                    ; preds = %invoke.cont12.sink.
           to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit17 unwind label %lpad11
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit17: ; preds = %invoke.cont12
-  %7 = ptrtoint ptr %.in to i64
+  %6 = ptrtoint ptr %5 to i64
   store i16 %0, ptr %agg.result, align 8, !alias.scope !20
   %second.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %7, ptr %second.i.i, align 8, !alias.scope !20
+  store i64 %6, ptr %second.i.i, align 8, !alias.scope !20
   ret void
 
 lpad11:                                           ; preds = %invoke.cont12
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad11 ], [ %4, %lpad ], [ %6, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %3, %lpad ], [ %4, %lpad7 ]
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %authenticator) #17
   resume { ptr, i32 } %.pn
 }

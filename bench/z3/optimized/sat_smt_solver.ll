@@ -6387,9 +6387,7 @@ _ZNK6solver19get_model_converterEv.exit:          ; preds = %25, %28
 _ZN3refI15model_converterED2Ev.exit:              ; preds = %50, %._ZN3refI15model_converterED2Ev.exitthread-pre-split_crit_edge, %49
   %61 = phi ptr [ %33, %49 ], [ %.pr.pre, %._ZN3refI15model_converterED2Ev.exitthread-pre-split_crit_edge ], [ %33, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %61, ptr %0, align 8, !tbaa !245
-  %.not.i.i6 = icmp eq ptr %61, null
-  br i1 %.not.i.i6, label %_ZN3refI15model_converterEC2ERKS1_.exit7, label %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split
+  br label %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22
 
 62:                                               ; preds = %46, %_ZNK6solver19get_model_converterEv.exit
   %63 = landingpad { ptr, i32 }
@@ -6399,22 +6397,25 @@ _ZN3refI15model_converterED2Ev.exit:              ; preds = %50, %._ZN3refI15mod
   resume { ptr, i32 } %63
 
 64:                                               ; preds = %_ZNK14sat_smt_solver15is_internalizedEv.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !626)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %66 = load ptr, ptr %65, align 8, !tbaa !245, !noalias !626
-  store ptr %66, ptr %0, align 8, !tbaa !245, !alias.scope !626
-  %.not.i.i.i8 = icmp eq ptr %66, null
-  br i1 %.not.i.i.i8, label %_ZN3refI15model_converterEC2ERKS1_.exit7, label %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split
+  br label %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22
 
-_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split: ; preds = %64, %_ZN3refI15model_converterED2Ev.exit, %_ZN3refI15model_converterEC2ERKS1_.exit
-  %.sink21 = phi ptr [ %61, %_ZN3refI15model_converterED2Ev.exit ], [ %5, %_ZN3refI15model_converterEC2ERKS1_.exit ], [ %66, %64 ]
+_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split: ; preds = %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22, %_ZN3refI15model_converterEC2ERKS1_.exit
+  %.sink21 = phi ptr [ %5, %_ZN3refI15model_converterEC2ERKS1_.exit ], [ %.sink23, %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22 ]
   %67 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !243
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 8, !tbaa !243
   br label %_ZN3refI15model_converterEC2ERKS1_.exit7
 
-_ZN3refI15model_converterEC2ERKS1_.exit7:         ; preds = %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split, %64, %_ZN3refI15model_converterED2Ev.exit
+_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22: ; preds = %_ZN3refI15model_converterED2Ev.exit, %64
+  %.sink23 = phi ptr [ %66, %64 ], [ %61, %_ZN3refI15model_converterED2Ev.exit ]
+  store ptr %.sink23, ptr %0, align 8, !tbaa !245
+  %.not.i.i.i8 = icmp eq ptr %.sink23, null
+  br i1 %.not.i.i.i8, label %_ZN3refI15model_converterEC2ERKS1_.exit7, label %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split
+
+_ZN3refI15model_converterEC2ERKS1_.exit7:         ; preds = %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split22, %_ZN3refI15model_converterEC2ERKS1_.exit7.sink.split
   ret void
 }
 

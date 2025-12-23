@@ -10416,7 +10416,7 @@ rb_num2long_inline.exit:                          ; preds = %21, %23
 .thread:                                          ; preds = %26, %rb_num2long_inline.exit, %29, %rb_hash_modify.exit
   %35 = icmp eq i64 %5, 4
   %36 = icmp eq i64 %3, 20
-  br i1 %35, label %53, label %37
+  br i1 %35, label %48, label %37
 
 37:                                               ; preds = %.thread
   br i1 %36, label %39, label %38
@@ -10450,30 +10450,27 @@ rb_num2long_inline.exit:                          ; preds = %21, %23
   %46 = load i64, ptr %11, align 8, !tbaa !11
   %47 = or i64 %46, 16384
   store i64 %47, ptr %11, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %5, ptr %48, align 8, !tbaa !7
-  %49 = icmp eq i64 %5, 0
-  %50 = and i64 %5, 7
-  %51 = icmp ne i64 %50, 0
-  %52 = or i1 %49, %51
-  br i1 %52, label %set_proc_default.exit, label %set_proc_default.exit.sink.split
+  br label %set_proc_default.exit.sink.split27
 
-53:                                               ; preds = %.thread
-  %54 = select i1 %36, i64 4, i64 %4
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %54, ptr %55, align 8, !tbaa !7
-  %56 = icmp eq i64 %54, 0
-  %57 = and i64 %54, 7
-  %58 = icmp ne i64 %57, 0
-  %59 = or i1 %56, %58
-  br i1 %59, label %set_proc_default.exit, label %set_proc_default.exit.sink.split
+48:                                               ; preds = %.thread
+  %49 = select i1 %36, i64 4, i64 %4
+  br label %set_proc_default.exit.sink.split27
 
-set_proc_default.exit.sink.split:                 ; preds = %53, %45
-  %.sink = phi i64 [ %5, %45 ], [ %54, %53 ]
-  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %.sink) #28
+set_proc_default.exit.sink.split:                 ; preds = %set_proc_default.exit.sink.split27
+  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %.sink34) #28
   br label %set_proc_default.exit
 
-set_proc_default.exit:                            ; preds = %set_proc_default.exit.sink.split, %53, %45
+set_proc_default.exit.sink.split27:               ; preds = %45, %48
+  %.sink34 = phi i64 [ %49, %48 ], [ %5, %45 ]
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 %.sink34, ptr %50, align 8, !tbaa !7
+  %51 = icmp eq i64 %.sink34, 0
+  %52 = and i64 %.sink34, 7
+  %53 = icmp ne i64 %52, 0
+  %54 = or i1 %51, %53
+  br i1 %54, label %set_proc_default.exit, label %set_proc_default.exit.sink.split
+
+set_proc_default.exit:                            ; preds = %set_proc_default.exit.sink.split27, %set_proc_default.exit.sink.split
   ret i64 %1
 }
 

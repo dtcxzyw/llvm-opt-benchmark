@@ -2911,7 +2911,7 @@ declare noundef i32 @_ZN14JvmtiFramePops8clear_toER13JvmtiFramePop(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiEventControllerPrivate18change_field_watchE10jvmtiEventb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
-  switch i32 %0, label %53 [
+  switch i32 %0, label %52 [
     i32 64, label %3
     i32 63, label %5
   ]
@@ -2999,29 +2999,32 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %13, %19, %21
 
 _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %43, %41, %7
   %44 = load i32, ptr %.0, align 4
-  br i1 %1, label %45, label %48
+  br i1 %1, label %45, label %47
 
 45:                                               ; preds = %_ZN16SafeResourceMarkD2Ev.exit
   %46 = add nsw i32 %44, 1
-  store i32 %46, ptr %.0, align 4
-  %47 = icmp eq i32 %44, 0
-  br i1 %47, label %.sink.split, label %53
+  br label %.sink.split16
 
-48:                                               ; preds = %_ZN16SafeResourceMarkD2Ev.exit
-  %49 = icmp sgt i32 %44, 0
-  br i1 %49, label %50, label %53
+47:                                               ; preds = %_ZN16SafeResourceMarkD2Ev.exit
+  %48 = icmp sgt i32 %44, 0
+  br i1 %48, label %49, label %52
 
-50:                                               ; preds = %48
-  %51 = add nsw i32 %44, -1
-  store i32 %51, ptr %.0, align 4
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.sink.split, label %53
+49:                                               ; preds = %47
+  %50 = add nsw i32 %44, -1
+  br label %.sink.split16
 
-.sink.split:                                      ; preds = %50, %45
+.sink.split:                                      ; preds = %.sink.split16
   tail call void @_ZN27JvmtiEventControllerPrivate17recompute_enabledEv()
-  br label %53
+  br label %52
 
-53:                                               ; preds = %.sink.split, %50, %48, %45, %2
+.sink.split16:                                    ; preds = %45, %49
+  %.sink = phi i32 [ %50, %49 ], [ %46, %45 ]
+  %.sink17 = phi i32 [ %50, %49 ], [ %44, %45 ]
+  store i32 %.sink, ptr %.0, align 4
+  %51 = icmp eq i32 %.sink17, 0
+  br i1 %51, label %.sink.split, label %52
+
+52:                                               ; preds = %.sink.split16, %.sink.split, %47, %2
   ret void
 }
 

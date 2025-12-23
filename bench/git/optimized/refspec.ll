@@ -267,7 +267,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
 
 .critedge.i:                                      ; preds = %115, %113, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %133
+  br label %130
 
 117:                                              ; preds = %115, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -288,29 +288,28 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !12
   %.not98.i = icmp eq ptr %125, null
-  br i1 %.not98.i, label %126, label %129
+  br i1 %.not98.i, label %126, label %128
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %72, align 8, !tbaa !13
-  %128 = tail call i32 @check_refname_format(ptr noundef %127, i32 noundef %74) #15
-  %.not99.i = icmp eq i32 %128, 0
-  br i1 %.not99.i, label %133, label %parse_refspec.exit
+  br label %.sink.split.i
 
-129:                                              ; preds = %123
-  %130 = load i8, ptr %125, align 1, !tbaa !11
-  %.not100.i = icmp eq i8 %130, 0
-  br i1 %.not100.i, label %parse_refspec.exit, label %131
+128:                                              ; preds = %123
+  %129 = load i8, ptr %125, align 1, !tbaa !11
+  %.not100.i = icmp eq i8 %129, 0
+  br i1 %.not100.i, label %parse_refspec.exit, label %.sink.split.i
 
-131:                                              ; preds = %129
-  %132 = tail call i32 @check_refname_format(ptr noundef nonnull %125, i32 noundef %74) #15
-  %.not101.i = icmp eq i32 %132, 0
-  br i1 %.not101.i, label %133, label %parse_refspec.exit
-
-133:                                              ; preds = %131, %126, %.critedge.i
+130:                                              ; preds = %.sink.split.i, %.critedge.i
   br label %parse_refspec.exit
 
-parse_refspec.exit:                               ; preds = %._crit_edge.i, %24, %49, %52, %55, %91, %117, %121, %126, %129, %131, %133
-  %.0.i = phi i32 [ 1, %24 ], [ %.1.i, %91 ], [ 1, %133 ], [ 0, %117 ], [ 0, %55 ], [ 0, %129 ], [ 0, %126 ], [ 0, %121 ], [ 0, %._crit_edge.i ], [ 0, %49 ], [ 0, %52 ], [ 0, %131 ]
+.sink.split.i:                                    ; preds = %128, %126
+  %.sink135.i = phi ptr [ %127, %126 ], [ %125, %128 ]
+  %131 = tail call i32 @check_refname_format(ptr noundef %.sink135.i, i32 noundef %74) #15
+  %.not101.i = icmp eq i32 %131, 0
+  br i1 %.not101.i, label %130, label %parse_refspec.exit
+
+parse_refspec.exit:                               ; preds = %._crit_edge.i, %24, %49, %52, %55, %91, %117, %121, %128, %130, %.sink.split.i
+  %.0.i = phi i32 [ 1, %24 ], [ %.1.i, %91 ], [ 1, %130 ], [ 0, %117 ], [ 0, %55 ], [ 0, %128 ], [ 0, %52 ], [ 0, %121 ], [ 0, %._crit_edge.i ], [ 0, %49 ], [ 0, %.sink.split.i ]
   ret i32 %.0.i
 }
 

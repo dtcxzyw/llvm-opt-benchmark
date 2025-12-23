@@ -2689,7 +2689,7 @@ _ZNK6evmone10EOF1Header8get_codeESt17basic_string_viewIhN4evmc11byte_traitsIhEEE
 
 .critedge.preheader.i.i:                          ; preds = %.loopexit.i180.i
   %669 = icmp eq ptr %.sroa.0.2246.i.i, %.sroa.9.2248.i.i
-  br i1 %669, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.thread.i, label %.lr.ph205.i.i
+  br i1 %669, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split530, label %.lr.ph205.i.i
 
 .lr.ph.i177.i:                                    ; preds = %.loopexit.i180.i, %.lr.ph.preheader.i.i
   %.054199.i.i = phi i64 [ %791, %.loopexit.i180.i ], [ 0, %.lr.ph.preheader.i.i ]
@@ -2950,7 +2950,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us.i.i.i.i.i.i:    ; preds = %"_ZZN6evmone12_GLOB
 .critedge.i.i:                                    ; preds = %.lr.ph205.i.i
   %792 = getelementptr inbounds nuw i8, ptr %.sroa.095.0204.i.i, i64 8
   %793 = icmp eq ptr %792, %.sroa.9.2248.i.i
-  br i1 %793, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.thread, label %.lr.ph205.i.i
+  br i1 %793, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split530, label %.lr.ph205.i.i
 
 .lr.ph205.i.i:                                    ; preds = %.critedge.preheader.i.i, %.critedge.i.i
   %.sroa.095.0204.i.i = phi ptr [ %792, %.critedge.i.i ], [ %.sroa.0.2246.i.i, %.critedge.preheader.i.i ]
@@ -2970,16 +2970,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i:         ; preds = %690, %678, %.lr.ph2
   call void @_ZdlPvm(ptr noundef nonnull %668, i64 noundef %667) #17
   %.not.i.i.i93.i.i = icmp eq ptr %.sroa.0.5159.i.i, null
   br i1 %.not.i.i.i93.i.i, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.i, label %801
-
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.thread:  ; preds = %.critedge.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %668, i64 noundef %667) #17
-  %.not.i.i.i93.i.i7 = icmp eq ptr %.sroa.0.2246.i.i, null
-  br i1 %.not.i.i.i93.i.i7, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split
-
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.thread.i:  ; preds = %.critedge.preheader.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %668, i64 noundef %667) #17
-  %.not.i.i.i93.i944.i = icmp eq ptr %.sroa.9.2248.i.i, null
-  br i1 %.not.i.i.i93.i944.i, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split
 
 801:                                              ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i
   %802 = ptrtoint ptr %.sroa.16.5161.i.i to i64
@@ -3149,15 +3139,20 @@ _ZNSt5dequeItSaItEE9push_backERKt.exit.i:         ; preds = %_ZNSt5dequeItSaItEE
   %.not423.i = icmp eq ptr %880, null
   br i1 %.not423.i, label %._crit_edge661.i, label %805
 
-_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.thread.i, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.thread
-  %.sroa.0.2246.i.i.lcssa.sink = phi ptr [ %.sroa.0.2246.i.i, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.thread ], [ %.sroa.9.2248.i.i, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.thread.i ]
+_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split: ; preds = %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split530
   %881 = ptrtoint ptr %.sroa.16.2250.i.i to i64
-  %882 = ptrtoint ptr %.sroa.0.2246.i.i.lcssa.sink to i64
+  %882 = ptrtoint ptr %.sroa.0.2246.i.i.lcssa.sink531 to i64
   %883 = sub i64 %881, %882
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2246.i.i, i64 noundef %883) #17
   br label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i
 
-_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i: ; preds = %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.thread, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.thread.i, %_ZNK6evmone10EOF1Header8get_codeESt17basic_string_viewIhN4evmc11byte_traitsIhEEEm.exit.i
+_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split530: ; preds = %.critedge.i.i, %.critedge.preheader.i.i
+  %.sroa.0.2246.i.i.lcssa.sink531 = phi ptr [ %.sroa.9.2248.i.i, %.critedge.preheader.i.i ], [ %.sroa.0.2246.i.i, %.critedge.i.i ]
+  call void @_ZdlPvm(ptr noundef nonnull %668, i64 noundef %667) #17
+  %.not.i.i.i93.i.i7 = icmp eq ptr %.sroa.0.2246.i.i.lcssa.sink531, null
+  br i1 %.not.i.i.i93.i.i7, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i, label %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split
+
+_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i: ; preds = %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split530, %_ZN6evmone12_GLOBAL__N_127validate_rjump_destinationsESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit.thread.i.sink.split, %_ZNK6evmone10EOF1Header8get_codeESt17basic_string_viewIhN4evmc11byte_traitsIhEEEm.exit.i
   %.sroa.037.0.copyload.i = load i64, ptr %.val.i163, align 8, !tbaa !56
   %884 = load ptr, ptr %47, align 8, !tbaa !9
   %885 = getelementptr inbounds nuw i16, ptr %884, i64 %410

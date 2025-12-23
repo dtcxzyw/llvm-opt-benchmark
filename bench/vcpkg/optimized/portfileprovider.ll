@@ -11432,49 +11432,38 @@ _ZN5vcpkg4PathaSEOS0_.exit18:                     ; preds = %56, %_ZNSt7__cxx111
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_SE_SE_T0_(ptr %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %5 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %6 = extractvalue { ptr, i64 } %5, 0
-  %7 = extractvalue { ptr, i64 } %5, 1
-  %8 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  %9 = extractvalue { ptr, i64 } %8, 0
-  %10 = extractvalue { ptr, i64 } %8, 1
-  %11 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %6, i64 %7, ptr %9, i64 %10) #26
-  br i1 %11, label %12, label %20
+.sink.split38:
+  %4 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  %5 = extractvalue { ptr, i64 } %4, 0
+  %6 = extractvalue { ptr, i64 } %4, 1
+  %7 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
+  %8 = extractvalue { ptr, i64 } %7, 0
+  %9 = extractvalue { ptr, i64 } %7, 1
+  %10 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %5, i64 %6, ptr %8, i64 %9) #26
+  %. = select i1 %10, ptr %2, ptr %1
+  %11 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %.) #26
+  %12 = extractvalue { ptr, i64 } %11, 0
+  %13 = extractvalue { ptr, i64 } %11, 1
+  %14 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
+  %15 = extractvalue { ptr, i64 } %14, 0
+  %16 = extractvalue { ptr, i64 } %14, 1
+  %17 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %12, i64 %13, ptr %15, i64 %16) #26
+  br i1 %17, label %25, label %.sink.split
 
-12:                                               ; preds = %4
-  %13 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %14, i64 %15, ptr %17, i64 %18) #26
-  br i1 %19, label %35, label %.sink.split
-
-20:                                               ; preds = %4
-  %21 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+.sink.split:                                      ; preds = %.sink.split38
+  %.49 = select i1 %10, ptr %1, ptr %2
+  %18 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %.49) #26
+  %19 = extractvalue { ptr, i64 } %18, 0
+  %20 = extractvalue { ptr, i64 } %18, 1
+  %21 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
-  %24 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  %25 = extractvalue { ptr, i64 } %24, 0
-  %26 = extractvalue { ptr, i64 } %24, 1
-  %27 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %22, i64 %23, ptr %25, i64 %26) #26
-  br i1 %27, label %35, label %.sink.split
+  %24 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %19, i64 %20, ptr %22, i64 %23) #26
+  %.26 = select i1 %24, ptr %3, ptr %.49
+  br label %25
 
-.sink.split:                                      ; preds = %20, %12
-  %.sink37 = phi ptr [ %1, %12 ], [ %2, %20 ]
-  %28 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink37) #26
-  %29 = extractvalue { ptr, i64 } %28, 0
-  %30 = extractvalue { ptr, i64 } %28, 1
-  %31 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  %32 = extractvalue { ptr, i64 } %31, 0
-  %33 = extractvalue { ptr, i64 } %31, 1
-  %34 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %29, i64 %30, ptr %32, i64 %33) #26
-  %.26 = select i1 %34, ptr %3, ptr %.sink37
-  br label %35
-
-35:                                               ; preds = %.sink.split, %20, %12
-  %.sink = phi ptr [ %2, %12 ], [ %1, %20 ], [ %.26, %.sink.split ]
+25:                                               ; preds = %.sink.split38, %.sink.split
+  %.sink = phi ptr [ %.26, %.sink.split ], [ %., %.sink.split38 ]
   tail call void @_ZSt4swapIN5vcpkg4PathEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26
   ret void
 }

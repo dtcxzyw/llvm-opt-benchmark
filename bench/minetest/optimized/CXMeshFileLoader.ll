@@ -10629,8 +10629,7 @@ delete.notnull.i.3.i230:                          ; preds = %_ZN3irr5video14SMat
 
 _ZN3irr5video9SMaterialD2Ev.exit231:              ; preds = %delete.notnull.i.3.i230, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i227
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp65)
-  %call66 = call noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader22parseUnknownDataObjectEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
-  br i1 %call66, label %if.end81, label %cleanup82
+  br label %cleanup82.sink.split
 
 sub_024:                                          ; preds = %if.else61
   %.not30 = icmp eq i8 %64, 59
@@ -10644,14 +10643,17 @@ if.else69.tail:                                   ; preds = %sub_024
 
 if.else72:                                        ; preds = %if.else61.thread62, %if.else61.thread, %sub_024, %if.else69.tail
   call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.77, ptr noundef nonnull %63, i32 noundef 2) #22
+  br label %cleanup82.sink.split
+
+if.end81:                                         ; preds = %_ZN3irr5video9SMaterialD2Ev.exit, %cleanup82.sink.split, %if.else69.tail, %if.then.i.i.i148
+  br label %cleanup82
+
+cleanup82.sink.split:                             ; preds = %_ZN3irr5video9SMaterialD2Ev.exit231, %if.else72
   %call74 = call noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader22parseUnknownDataObjectEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
   br i1 %call74, label %if.end81, label %cleanup82
 
-if.end81:                                         ; preds = %_ZN3irr5video9SMaterialD2Ev.exit, %if.else72, %if.else69.tail, %_ZN3irr5video9SMaterialD2Ev.exit231, %if.then.i.i.i148
-  br label %cleanup82
-
-cleanup82:                                        ; preds = %if.end81, %if.else72, %_ZN3irr5video9SMaterialD2Ev.exit231, %if.else.tail, %_ZN3irr4core6stringIcED2Ev.exit132
-  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN3irr4core6stringIcED2Ev.exit132 ], [ 0, %if.end81 ], [ 13, %if.else.tail ], [ 1, %_ZN3irr5video9SMaterialD2Ev.exit231 ], [ 1, %if.else72 ]
+cleanup82:                                        ; preds = %cleanup82.sink.split, %if.end81, %if.else.tail, %_ZN3irr4core6stringIcED2Ev.exit132
+  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN3irr4core6stringIcED2Ev.exit132 ], [ 0, %if.end81 ], [ 13, %if.else.tail ], [ 1, %cleanup82.sink.split ]
   %90 = load ptr, ptr %objectName, align 8, !tbaa !29
   %cmp.i.i.i.i234 = icmp eq ptr %90, %57
   br i1 %cmp.i.i.i.i234, label %_ZN3irr4core6stringIcED2Ev.exit239, label %if.then.i.i.i235

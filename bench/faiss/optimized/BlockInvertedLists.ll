@@ -449,24 +449,23 @@ define void @_ZN5faiss18BlockInvertedLists14update_entriesEmmmPKlPKh(ptr nonnull
           cleanup
   %14 = load ptr, ptr %6, align 8, !tbaa !29
   %15 = icmp eq ptr %14, %8
-  br i1 %15, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  br i1 %15, label %.sink.split, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %12
   %16 = load i64, ptr %8, align 8, !tbaa !28
   %17 = add i64 %16, 1
   call void @_ZdlPvm(ptr noundef %14, i64 noundef %17) #25
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %18, label %19
+  br label %.sink.split
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %18, label %19
-
-18:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+18:                                               ; preds = %.sink.split
   call void @__cxa_free_exception(ptr nonnull %7) #18
   br label %19
 
-19:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %18
+.sink.split:                                      ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %.0, label %18, label %19
+
+19:                                               ; preds = %.sink.split, %18
   resume { ptr, i32 } %13
 
 20:                                               ; preds = %11

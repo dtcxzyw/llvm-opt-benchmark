@@ -7357,8 +7357,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
   %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !52
   %31 = getelementptr i8, ptr %30, i64 20
@@ -7366,7 +7366,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
   %32 = and i32 %.val27, 15
   %33 = add nsw i32 %32, -5
   %narrow.i = icmp ult i32 %33, -2
-  br i1 %narrow.i, label %42, label %34
+  br i1 %narrow.i, label %.sink.split32, label %34
 
 34:                                               ; preds = %.lr.ph
   %.val24 = load ptr, ptr %30, align 8, !tbaa !3
@@ -7380,28 +7380,25 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
   %38 = sext i32 %.val25.val to i64
   %39 = getelementptr inbounds ptr, ptr %.val24.val.val, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !38
-  %41 = getelementptr i8, ptr %40, i64 28
+  br label %.sink.split32
+
+.sink.split:                                      ; preds = %.sink.split32
+  tail call void @Abc_NtkNodeSupport_rec(ptr noundef nonnull %.sink34, ptr noundef nonnull %24)
+  br label %42
+
+.sink.split32:                                    ; preds = %.lr.ph, %34
+  %.sink34 = phi ptr [ %40, %34 ], [ %30, %.lr.ph ]
+  %41 = getelementptr i8, ptr %.sink34, i64 28
   %.val21 = load i32, ptr %41, align 4, !tbaa !33
   %.not18 = icmp eq i32 %.val21, 0
-  br i1 %.not18, label %44, label %.sink.split
+  br i1 %.not18, label %42, label %.sink.split
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr i8, ptr %30, i64 28
-  %.val = load i32, ptr %43, align 4, !tbaa !33
-  %.not20 = icmp eq i32 %.val, 0
-  br i1 %.not20, label %44, label %.sink.split
-
-.sink.split:                                      ; preds = %42, %34
-  %.sink = phi ptr [ %40, %34 ], [ %30, %42 ]
-  tail call void @Abc_NtkNodeSupport_rec(ptr noundef nonnull %.sink, ptr noundef nonnull %24)
-  br label %44
-
-44:                                               ; preds = %.sink.split, %34, %42
+42:                                               ; preds = %.sink.split32, %.sink.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
-._crit_edge:                                      ; preds = %44, %Abc_NtkIncrementTravId.exit
+._crit_edge:                                      ; preds = %42, %Abc_NtkIncrementTravId.exit
   ret ptr %24
 }
 

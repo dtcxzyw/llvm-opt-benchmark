@@ -568,7 +568,7 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE"(ptr %22) #22
-          to label %75 unwind label %73
+          to label %69 unwind label %67
 
 21:                                               ; preds = %_ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit, %18, %_ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit.thread
   %22 = tail call fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17h8d056f4666271b3fE()
@@ -576,7 +576,7 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
   %24 = load atomic i64, ptr %23 acquire, align 8
   %25 = sub i64 %24, %5
   %26 = icmp slt i64 %25, 1
-  br i1 %26, label %61, label %27
+  br i1 %26, label %60, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -600,13 +600,13 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
 
 "_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4load17he73fb95165d35feeE.exit8": ; preds = %30
   %.not = icmp eq i64 %42, %29
-  br i1 %.not, label %43, label %61
+  br i1 %.not, label %43, label %60
 
 43:                                               ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4load17he73fb95165d35feeE.exit8"
   %44 = add i64 %5, 1
   %45 = cmpxchg ptr %4, i64 %5, i64 %44 seq_cst monotonic, align 8
   %46 = extractvalue { i64, i1 } %45, 1
-  br i1 %46, label %47, label %61
+  br i1 %46, label %47, label %60
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -623,52 +623,44 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
   %54 = add i64 %53, -1
   store i64 %54, ptr %52, align 8
   %55 = icmp eq i64 %53, 1
-  br i1 %55, label %56, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
+  br i1 %55, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split14", label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw i8, ptr %22, i64 2176
-  store atomic i64 0, ptr %57 release, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %22, i64 2080
-  %59 = load i64, ptr %58, align 8, !noundef !9
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split", label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
-
-"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split": ; preds = %56, %68
+"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split": ; preds = %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split14"
   tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17h63b198663ed08730E(ptr noundef nonnull align 128 %22)
   br label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split", %68, %63, %61, %56, %51, %47
+"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split14": ; preds = %51, %62
+  %56 = getelementptr inbounds nuw i8, ptr %22, i64 2176
+  store atomic i64 0, ptr %56 release, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %22, i64 2080
+  %58 = load i64, ptr %57, align 8, !noundef !9
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split", label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
+
+"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split14", %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split", %62, %60, %51, %47
   ret void
 
-61:                                               ; preds = %43, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4load17he73fb95165d35feeE.exit8", %21
+60:                                               ; preds = %43, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4load17he73fb95165d35feeE.exit8", %21
   %storemerge = phi i64 [ 0, %21 ], [ 2, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4load17he73fb95165d35feeE.exit8" ], [ 2, %43 ]
   store i64 %storemerge, ptr %0, align 8
-  %62 = icmp eq ptr %22, null
-  br i1 %62, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit", label %63
+  %61 = icmp eq ptr %22, null
+  br i1 %61, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit", label %62
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %22, i64 2072
-  %65 = load i64, ptr %64, align 8, !noundef !9
-  %66 = add i64 %65, -1
-  store i64 %66, ptr %64, align 8
-  %67 = icmp eq i64 %65, 1
-  br i1 %67, label %68, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %22, i64 2072
+  %64 = load i64, ptr %63, align 8, !noundef !9
+  %65 = add i64 %64, -1
+  store i64 %65, ptr %63, align 8
+  %66 = icmp eq i64 %64, 1
+  br i1 %66, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split14", label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %22, i64 2176
-  store atomic i64 0, ptr %69 release, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %22, i64 2080
-  %71 = load i64, ptr %70, align 8, !noundef !9
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split", label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
-
-73:                                               ; preds = %19
-  %74 = landingpad { ptr, i32 }
+67:                                               ; preds = %19
+  %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-75:                                               ; preds = %19
+69:                                               ; preds = %19
   resume { ptr, i32 } %20
 }
 

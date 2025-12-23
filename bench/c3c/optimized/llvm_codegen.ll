@@ -6794,44 +6794,33 @@ declare i32 @LLVMABIAlignmentOfType(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @llvm_emit_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
-  %7 = icmp ult i64 %5, 4294967296
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load ptr, ptr %8, align 8
-  br i1 %7, label %10, label %16
+.sink.split47:
+  %6 = icmp ult i64 %5, 4294967296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = load ptr, ptr %7, align 8
+  %type_uint.val = load ptr, ptr @type_uint, align 8
+  %type_ulong.val = load ptr, ptr @type_ulong, align 8
+  %9 = select i1 %6, ptr %type_uint.val, ptr %type_ulong.val
+  %10 = tail call fastcc ptr @type_lowering(ptr noundef %9)
+  %11 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %10) #10
+  %12 = load i32, ptr %10, align 8
+  %13 = icmp eq i32 %12, 31
+  br i1 %13, label %.sink.split, label %17
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr @type_uint, align 8
-  %12 = tail call fastcc ptr @type_lowering(ptr noundef %11)
-  %13 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %12) #10
-  %14 = load i32, ptr %12, align 8
-  %15 = icmp eq i32 %14, 31
-  br i1 %15, label %.sink.split, label %25
+.sink.split:                                      ; preds = %.sink.split47
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %15, align 8
+  br label %17
 
-16:                                               ; preds = %6
-  %17 = load ptr, ptr @type_ulong, align 8
-  %18 = tail call fastcc ptr @type_lowering(ptr noundef %17)
-  %19 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %18) #10
-  %20 = load i32, ptr %18, align 8
-  %21 = icmp eq i32 %20, 31
-  br i1 %21, label %.sink.split, label %25
-
-.sink.split:                                      ; preds = %16, %10
-  %.sink = phi ptr [ %12, %10 ], [ %18, %16 ]
-  %.sink43.ph = phi ptr [ %13, %10 ], [ %19, %16 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %23, align 8
-  br label %25
-
-25:                                               ; preds = %.sink.split, %16, %10
-  %.0.sink = phi i32 [ %14, %10 ], [ %20, %16 ], [ %24, %.sink.split ]
-  %.sink43 = phi ptr [ %13, %10 ], [ %19, %16 ], [ %.sink43.ph, %.sink.split ]
-  %26 = add i32 %.0.sink, -3
-  %27 = icmp ult i32 %26, 5
-  %28 = zext i1 %27 to i32
-  %29 = tail call ptr @LLVMConstInt(ptr noundef %.sink43, i64 noundef %5, i32 noundef %28) #10
-  %30 = tail call ptr @LLVMBuildMemCpy(ptr noundef %9, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %29) #10
-  ret ptr %30
+17:                                               ; preds = %.sink.split47, %.sink.split
+  %.0.sink = phi i32 [ %16, %.sink.split ], [ %12, %.sink.split47 ]
+  %18 = add i32 %.0.sink, -3
+  %19 = icmp ult i32 %18, 5
+  %20 = zext i1 %19 to i32
+  %21 = tail call ptr @LLVMConstInt(ptr noundef %11, i64 noundef %5, i32 noundef %20) #10
+  %22 = tail call ptr @LLVMBuildMemCpy(ptr noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %21) #10
+  ret ptr %22
 }
 
 declare ptr @LLVMBuildMemCpy(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -6856,8 +6845,29 @@ define dso_local void @llvm_emit_memcpy_to_decl(ptr noundef %0, ptr noundef read
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @type_size(ptr noundef %16) #10
-  %18 = zext i32 %17 to i64
-  %19 = tail call ptr @llvm_emit_memcpy(ptr noundef %0, ptr noundef %12, i32 noundef %14, ptr noundef %2, i32 noundef %.0, i64 noundef %18)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %type_uint.val.i = load ptr, ptr @type_uint, align 8
+  %20 = tail call fastcc ptr @type_lowering(ptr noundef %type_uint.val.i)
+  %21 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %20) #10
+  %22 = load i32, ptr %20, align 8
+  %23 = icmp eq i32 %22, 31
+  br i1 %23, label %.sink.split.i, label %llvm_emit_memcpy.exit
+
+.sink.split.i:                                    ; preds = %10
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %25, align 8
+  br label %llvm_emit_memcpy.exit
+
+llvm_emit_memcpy.exit:                            ; preds = %10, %.sink.split.i
+  %.0.sink.i = phi i32 [ %26, %.sink.split.i ], [ %22, %10 ]
+  %27 = zext i32 %17 to i64
+  %28 = add i32 %.0.sink.i, -3
+  %29 = icmp ult i32 %28, 5
+  %30 = zext i1 %29 to i32
+  %31 = tail call ptr @LLVMConstInt(ptr noundef %21, i64 noundef %27, i32 noundef %30) #10
+  %32 = tail call ptr @LLVMBuildMemCpy(ptr noundef %19, ptr noundef %12, i32 noundef %14, ptr noundef %2, i32 noundef %.0, ptr noundef %31) #10
   ret void
 }
 

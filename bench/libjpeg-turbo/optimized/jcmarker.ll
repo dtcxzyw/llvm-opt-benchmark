@@ -1053,9 +1053,9 @@ emit_2bytes.exit35.i:                             ; preds = %549, %545, %emit_by
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 1
   store ptr %557, ptr %555, align 8, !tbaa !39
   %558 = getelementptr inbounds nuw i8, ptr %555, i64 8
-  switch i32 %554, label %575 [
+  switch i32 %554, label %567 [
     i32 3, label %559
-    i32 5, label %567
+    i32 5, label %563
   ]
 
 559:                                              ; preds = %emit_2bytes.exit35.i
@@ -1064,54 +1064,40 @@ emit_2bytes.exit35.i:                             ; preds = %549, %545, %emit_by
   %561 = add i64 %560, -1
   store i64 %561, ptr %558, align 8, !tbaa !43
   %562 = icmp eq i64 %561, 0
-  br i1 %562, label %563, label %emit_adobe_app14.exit
+  br i1 %562, label %emit_byte.exit37.sink.split44.i, label %emit_adobe_app14.exit
 
-563:                                              ; preds = %559
-  %564 = getelementptr inbounds nuw i8, ptr %555, i64 24
-  %565 = load ptr, ptr %564, align 8, !tbaa !44
-  %566 = tail call i32 %565(ptr noundef nonnull %0) #3
-  %.not.i36.i = icmp eq i32 %566, 0
-  br i1 %.not.i36.i, label %emit_byte.exit37.sink.split.i, label %emit_adobe_app14.exit
+563:                                              ; preds = %emit_2bytes.exit35.i
+  store i8 2, ptr %556, align 1, !tbaa !42
+  %564 = load i64, ptr %558, align 8, !tbaa !43
+  %565 = add i64 %564, -1
+  store i64 %565, ptr %558, align 8, !tbaa !43
+  %566 = icmp eq i64 %565, 0
+  br i1 %566, label %emit_byte.exit37.sink.split44.i, label %emit_adobe_app14.exit
 
 567:                                              ; preds = %emit_2bytes.exit35.i
-  store i8 2, ptr %556, align 1, !tbaa !42
+  store i8 0, ptr %556, align 1, !tbaa !42
   %568 = load i64, ptr %558, align 8, !tbaa !43
   %569 = add i64 %568, -1
   store i64 %569, ptr %558, align 8, !tbaa !43
   %570 = icmp eq i64 %569, 0
-  br i1 %570, label %571, label %emit_adobe_app14.exit
+  br i1 %570, label %emit_byte.exit37.sink.split44.i, label %emit_adobe_app14.exit
 
-571:                                              ; preds = %567
-  %572 = getelementptr inbounds nuw i8, ptr %555, i64 24
-  %573 = load ptr, ptr %572, align 8, !tbaa !44
-  %574 = tail call i32 %573(ptr noundef nonnull %0) #3
-  %.not.i38.i = icmp eq i32 %574, 0
-  br i1 %.not.i38.i, label %emit_byte.exit37.sink.split.i, label %emit_adobe_app14.exit
-
-575:                                              ; preds = %emit_2bytes.exit35.i
-  store i8 0, ptr %556, align 1, !tbaa !42
-  %576 = load i64, ptr %558, align 8, !tbaa !43
-  %577 = add i64 %576, -1
-  store i64 %577, ptr %558, align 8, !tbaa !43
-  %578 = icmp eq i64 %577, 0
-  br i1 %578, label %579, label %emit_adobe_app14.exit
-
-579:                                              ; preds = %575
-  %580 = getelementptr inbounds nuw i8, ptr %555, i64 24
-  %581 = load ptr, ptr %580, align 8, !tbaa !44
-  %582 = tail call i32 %581(ptr noundef nonnull %0) #3
-  %.not.i40.i = icmp eq i32 %582, 0
-  br i1 %.not.i40.i, label %emit_byte.exit37.sink.split.i, label %emit_adobe_app14.exit
-
-emit_byte.exit37.sink.split.i:                    ; preds = %579, %571, %563
-  %583 = load ptr, ptr %0, align 8, !tbaa !45
-  %584 = getelementptr inbounds nuw i8, ptr %583, i64 40
-  store i32 24, ptr %584, align 8, !tbaa !46
-  %585 = load ptr, ptr %583, align 8, !tbaa !49
-  tail call void %585(ptr noundef nonnull %0) #3
+emit_byte.exit37.sink.split.i:                    ; preds = %emit_byte.exit37.sink.split44.i
+  %571 = load ptr, ptr %0, align 8, !tbaa !45
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 40
+  store i32 24, ptr %572, align 8, !tbaa !46
+  %573 = load ptr, ptr %571, align 8, !tbaa !49
+  tail call void %573(ptr noundef nonnull %0) #3
   br label %emit_adobe_app14.exit
 
-emit_adobe_app14.exit:                            ; preds = %emit_byte.exit37.sink.split.i, %579, %575, %571, %567, %563, %559, %emit_jfif_app0.exit
+emit_byte.exit37.sink.split44.i:                  ; preds = %567, %563, %559
+  %574 = getelementptr inbounds nuw i8, ptr %555, i64 24
+  %575 = load ptr, ptr %574, align 8, !tbaa !44
+  %576 = tail call i32 %575(ptr noundef nonnull %0) #3
+  %.not.i40.i = icmp eq i32 %576, 0
+  br i1 %.not.i40.i, label %emit_byte.exit37.sink.split.i, label %emit_adobe_app14.exit
+
+emit_adobe_app14.exit:                            ; preds = %emit_byte.exit37.sink.split44.i, %emit_byte.exit37.sink.split.i, %567, %563, %559, %emit_jfif_app0.exit
   ret void
 }
 

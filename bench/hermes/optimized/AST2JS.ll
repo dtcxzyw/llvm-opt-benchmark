@@ -2627,23 +2627,29 @@ if.end:                                           ; preds = %entry, %tailrecurse
     i32 24, label %if.then8
     i32 25, label %return.loopexit
     i32 26, label %if.then45
-    i32 28, label %if.then52
+    i32 28, label %tailrecurse.backedge.sink.split77
     i32 67, label %if.then8
-    i32 29, label %if.then67
+    i32 29, label %tailrecurse.backedge.sink.split77
     i32 74, label %return.loopexit
   ]
 
 if.then8:                                         ; preds = %if.end, %if.end, %if.end
   br label %tailrecurse.backedge.sink.split
 
-tailrecurse.backedge.sink.split:                  ; preds = %if.then67, %if.then52, %if.end, %if.end, %if.then45, %if.then28, %if.then8
-  %.sink = phi i64 [ 56, %if.then52 ], [ 72, %if.end ], [ 56, %if.then8 ], [ 64, %if.then45 ], [ 72, %if.end ], [ 80, %if.then28 ], [ 56, %if.then67 ]
+tailrecurse.backedge.sink.split:                  ; preds = %tailrecurse.backedge.sink.split77, %if.end, %if.end, %if.then45, %if.then28, %if.then8
+  %.sink = phi i64 [ 64, %if.then45 ], [ 72, %if.end ], [ 56, %if.then8 ], [ 56, %tailrecurse.backedge.sink.split77 ], [ 72, %if.end ], [ 80, %if.then28 ]
   %_consequent = getelementptr inbounds nuw i8, ptr %node.tr67, i64 %.sink
   %1 = load ptr, ptr %_consequent, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %if.then67, %if.then52
-  %node.tr.be = phi ptr [ %2, %if.then52 ], [ %3, %if.then67 ], [ %1, %tailrecurse.backedge.sink.split ]
+tailrecurse.backedge.sink.split77:                ; preds = %if.end, %if.end
+  %_alternate = getelementptr inbounds nuw i8, ptr %node.tr67, i64 64
+  %2 = load ptr, ptr %_alternate, align 8
+  %tobool68.not = icmp eq ptr %2, null
+  br i1 %tobool68.not, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
+
+tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split77, %tailrecurse.backedge.sink.split
+  %node.tr.be = phi ptr [ %1, %tailrecurse.backedge.sink.split ], [ %2, %tailrecurse.backedge.sink.split77 ]
   %tobool.not = icmp eq ptr %node.tr.be, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -2652,18 +2658,6 @@ if.then28:                                        ; preds = %if.end
 
 if.then45:                                        ; preds = %if.end
   br label %tailrecurse.backedge.sink.split
-
-if.then52:                                        ; preds = %if.end
-  %_finalizer = getelementptr inbounds nuw i8, ptr %node.tr67, i64 64
-  %2 = load ptr, ptr %_finalizer, align 8
-  %tobool53.not = icmp eq ptr %2, null
-  br i1 %tobool53.not, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
-
-if.then67:                                        ; preds = %if.end
-  %_alternate = getelementptr inbounds nuw i8, ptr %node.tr67, i64 64
-  %3 = load ptr, ptr %_alternate, align 8
-  %tobool68.not = icmp eq ptr %3, null
-  br i1 %tobool68.not, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
 
 return.loopexit:                                  ; preds = %if.end, %if.end, %if.end, %if.end
   br label %return

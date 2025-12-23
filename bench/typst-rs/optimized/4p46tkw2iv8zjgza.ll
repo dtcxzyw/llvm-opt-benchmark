@@ -408,23 +408,25 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
   store i16 %.4.extract.trunc, ptr %.sroa.13.8..sroa_idx253, align 1, !noalias !128
   %.sroa.14.8..sroa_idx255 = getelementptr inbounds nuw i8, ptr %61, i64 5
   store i8 %.sroa.3.sroa.0.0.extract.trunc, ptr %.sroa.14.8..sroa_idx255, align 1, !noalias !128
-  %62 = add i64 %.promoted.i.i, 7
-  %63 = load i64, ptr %21, align 8, !alias.scope !126, !noalias !127, !noundef !7
+  br label %.sink.split307
+
+.sink.split:                                      ; preds = %.sink.split307
+  store i64 %62, ptr %21, align 8, !noalias !7
+  br label %65
+
+.sink.split307:                                   ; preds = %59, %101
+  %.sink311 = phi i64 [ 7, %59 ], [ 18, %101 ]
+  %62 = add i64 %.promoted.i.i, %.sink311
+  %63 = load i64, ptr %21, align 8, !noalias !7, !noundef !7
   %64 = icmp ugt i64 %62, %63
   br i1 %64, label %.sink.split, label %65
 
-.sink.split:                                      ; preds = %59, %101
-  %.sink = phi i64 [ %104, %101 ], [ %62, %59 ]
-  store i64 %.sink, ptr %21, align 8, !noalias !7
-  br label %65
-
-65:                                               ; preds = %.sink.split, %101, %59
-  %storemerge = phi i64 [ %62, %59 ], [ %104, %101 ], [ %.sink, %.sink.split ]
-  %.pre19.i.i159 = phi i64 [ %63, %59 ], [ %105, %101 ], [ %.sink, %.sink.split ]
-  store i64 %storemerge, ptr %20, align 8, !noalias !7
+65:                                               ; preds = %.sink.split307, %.sink.split
+  %.pre19.i.i159 = phi i64 [ %62, %.sink.split ], [ %63, %.sink.split307 ]
+  store i64 %62, ptr %20, align 8, !noalias !7
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  %66 = call i64 @llvm.uadd.sat.i64(i64 %storemerge, i64 range(i64 1, 0) 1)
+  %66 = call i64 @llvm.uadd.sat.i64(i64 %62, i64 range(i64 1, 0) 1)
   %67 = load i64, ptr %10, align 8, !alias.scope !134, !noalias !141, !noundef !7
   %68 = icmp ugt i64 %66, %67
   br i1 %68, label %69, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i160"
@@ -442,22 +444,22 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i160": ; preds = %73, %69, %65
   %74 = phi i64 [ %.pre.i.i162, %73 ], [ %.pre19.i.i159, %69 ], [ %.pre19.i.i159, %65 ]
-  %75 = icmp ugt i64 %storemerge, %74
+  %75 = icmp ugt i64 %62, %74
   br i1 %75, label %.lr.ph.preheader.i.i.i.i.us.i.i161, label %79
 
 .lr.ph.preheader.i.i.i.i.us.i.i161:               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i160"
-  %76 = sub nuw i64 %storemerge, %74
+  %76 = sub nuw i64 %62, %74
   %77 = load ptr, ptr %22, align 8, !alias.scope !151, !noalias !141, !nonnull !7, !noundef !7
   %78 = getelementptr inbounds i8, ptr %77, i64 %74
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %78, i8 0, i64 %76, i1 false), !alias.scope !154, !noalias !141
-  store i64 %storemerge, ptr %21, align 8, !alias.scope !134, !noalias !141
+  store i64 %62, ptr %21, align 8, !alias.scope !134, !noalias !141
   br label %79
 
 79:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us.i.i161, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i160"
   %80 = load ptr, ptr %22, align 8, !alias.scope !157, !noalias !158, !nonnull !7, !noundef !7
-  %81 = getelementptr inbounds i8, ptr %80, i64 %storemerge
+  %81 = getelementptr inbounds i8, ptr %80, i64 %62
   store i8 0, ptr %81, align 1, !noalias !159
-  %82 = add i64 %storemerge, 1
+  %82 = add i64 %62, 1
   %83 = load i64, ptr %21, align 8, !alias.scope !157, !noalias !158, !noundef !7
   %84 = icmp ugt i64 %82, %83
   br i1 %84, label %85, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280.exit163"
@@ -518,10 +520,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
   store i8 1, ptr %.sroa.15267.8..sroa_idx268, align 1, !noalias !195
   %.sroa.16.8..sroa_idx270 = getelementptr inbounds nuw i8, ptr %103, i64 15
   store i16 %.4.extract.trunc., ptr %.sroa.16.8..sroa_idx270, align 1, !noalias !195
-  %104 = add i64 %.promoted.i.i, 18
-  %105 = load i64, ptr %21, align 8, !alias.scope !193, !noalias !194, !noundef !7
-  %106 = icmp ugt i64 %104, %105
-  br i1 %106, label %.sink.split, label %65
+  br label %.sink.split307
 }
 
 ; Function Attrs: nonlazybind uwtable

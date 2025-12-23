@@ -12650,7 +12650,7 @@ define hidden void @_ZN7Compile23cleanup_expensive_nodesER12PhaseIterGVN(ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %136, label %6
+  br i1 %5, label %135, label %6
 
 6:                                                ; preds = %2
   tail call void @_ZN7Compile20sort_expensive_nodesEv(ptr noundef nonnull align 8 dereferenceable(2316) %0)
@@ -12809,8 +12809,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   %94 = sext i32 %.1 to i64
   %95 = getelementptr inbounds ptr, ptr %91, i64 %94
   store ptr %93, ptr %95, align 8
-  store i32 %89, ptr %3, align 8
-  br i1 %.129, label %135, label %136
+  br label %.sink.split
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge.thread71, %._crit_edge
   %.lcssa63 = phi i32 [ %81, %._crit_edge.thread71 ], [ %71, %._crit_edge ], [ %7, %6 ]
@@ -12818,7 +12817,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   %.028.lcssa61 = phi i1 [ %.02841.ph, %._crit_edge.thread71 ], [ %.129, %._crit_edge ], [ false, %6 ]
   %.031.lcssa59 = phi i64 [ %85, %._crit_edge.thread71 ], [ %87, %._crit_edge ], [ 0, %6 ]
   %96 = icmp sgt i32 %.lcssa63, 0
-  br i1 %96, label %97, label %134
+  br i1 %96, label %97, label %.sink.split
 
 97:                                               ; preds = %._crit_edge.thread
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -12883,17 +12882,19 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i36:           ; preds = %128, %122
   %133 = load ptr, ptr %102, align 8
   tail call void @_ZN8NodeHash11hash_insertEP4Node(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull %101) #17
   store i32 %.0.lcssa62, ptr %3, align 8
+  br label %134
+
+134:                                              ; preds = %.sink.split, %.thread
+  tail call void @_ZN12PhaseIterGVN8optimizeEv(ptr noundef nonnull align 8 dereferenceable(2416) %1) #17
   br label %135
 
-134:                                              ; preds = %._crit_edge.thread
-  store i32 %.0.lcssa62, ptr %3, align 8
-  br i1 %.028.lcssa61, label %135, label %136
+.sink.split:                                      ; preds = %._crit_edge.thread, %88
+  %.sink = phi i32 [ %89, %88 ], [ %.0.lcssa62, %._crit_edge.thread ]
+  %.129.lcssa.sink = phi i1 [ %.129, %88 ], [ %.028.lcssa61, %._crit_edge.thread ]
+  store i32 %.sink, ptr %3, align 8
+  br i1 %.129.lcssa.sink, label %134, label %135
 
-135:                                              ; preds = %88, %.thread, %134
-  tail call void @_ZN12PhaseIterGVN8optimizeEv(ptr noundef nonnull align 8 dereferenceable(2416) %1) #17
-  br label %136
-
-136:                                              ; preds = %88, %2, %135, %134
+135:                                              ; preds = %.sink.split, %2, %134
   ret void
 }
 

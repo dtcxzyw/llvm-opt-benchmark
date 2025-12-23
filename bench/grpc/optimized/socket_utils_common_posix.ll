@@ -1436,24 +1436,19 @@ _ZN4absl12lts_202407226StatusD2Ev.exit14:         ; preds = %41
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_Z31config_default_tcp_user_timeoutbib(i1 noundef zeroext %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #9 {
-  %4 = zext i1 %0 to i8
-  %5 = icmp sgt i32 %1, 0
-  br i1 %2, label %6, label %7
+.sink.split7:
+  %3 = zext i1 %0 to i8
+  %4 = icmp sgt i32 %1, 0
+  %_ZL41g_default_client_tcp_user_timeout_enabled._ZL41g_default_server_tcp_user_timeout_enabled = select i1 %2, ptr @_ZL41g_default_client_tcp_user_timeout_enabled, ptr @_ZL41g_default_server_tcp_user_timeout_enabled
+  store i8 %3, ptr %_ZL41g_default_client_tcp_user_timeout_enabled._ZL41g_default_server_tcp_user_timeout_enabled, align 1, !tbaa !103
+  br i1 %4, label %.sink.split, label %5
 
-6:                                                ; preds = %3
-  store i8 %4, ptr @_ZL41g_default_client_tcp_user_timeout_enabled, align 1, !tbaa !103
-  br i1 %5, label %.sink.split, label %8
+.sink.split:                                      ; preds = %.sink.split7
+  %_ZL36g_default_client_tcp_user_timeout_ms._ZL36g_default_server_tcp_user_timeout_ms = select i1 %2, ptr @_ZL36g_default_client_tcp_user_timeout_ms, ptr @_ZL36g_default_server_tcp_user_timeout_ms
+  store i32 %1, ptr %_ZL36g_default_client_tcp_user_timeout_ms._ZL36g_default_server_tcp_user_timeout_ms, align 4, !tbaa !3
+  br label %5
 
-7:                                                ; preds = %3
-  store i8 %4, ptr @_ZL41g_default_server_tcp_user_timeout_enabled, align 1, !tbaa !103
-  br i1 %5, label %.sink.split, label %8
-
-.sink.split:                                      ; preds = %7, %6
-  %_ZL36g_default_server_tcp_user_timeout_ms.sink = phi ptr [ @_ZL36g_default_client_tcp_user_timeout_ms, %6 ], [ @_ZL36g_default_server_tcp_user_timeout_ms, %7 ]
-  store i32 %1, ptr %_ZL36g_default_server_tcp_user_timeout_ms.sink, align 4, !tbaa !3
-  br label %8
-
-8:                                                ; preds = %.sink.split, %7, %6
+5:                                                ; preds = %.sink.split7, %.sink.split
   ret void
 }
 

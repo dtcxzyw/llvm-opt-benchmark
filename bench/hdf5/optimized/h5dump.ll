@@ -3576,32 +3576,29 @@ define internal fastcc range(i32 -1, 4) i32 @set_binary_form(ptr noundef nonnull
 sub_0:                                            ; preds = %7
   %10 = load i8, ptr %0, align 1
   switch i8 %10, label %.tail5 [
-    i8 76, label %sub_1
+    i8 76, label %.tail5.sink.split18
     i8 66, label %sub_17
   ]
 
-sub_1:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %12 = load i8, ptr %11, align 1
-  %.not10 = icmp eq i8 %12, 69
-  br i1 %.not10, label %.tail5.sink.split, label %.tail5
-
 sub_17:                                           ; preds = %sub_0
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %14 = load i8, ptr %13, align 1
-  %.not12 = icmp eq i8 %14, 69
-  br i1 %.not12, label %.tail5.sink.split, label %.tail5
+  br label %.tail5.sink.split18
 
-.tail5.sink.split:                                ; preds = %sub_17, %sub_1
-  %.sink16 = phi i32 [ 2, %sub_1 ], [ 3, %sub_17 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %16, 0
-  %spec.select = select i1 %17, i32 %.sink16, i32 -1
+.tail5.sink.split:                                ; preds = %.tail5.sink.split18
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  %spec.select = select i1 %13, i32 %.sink16.ph, i32 -1
   br label %.tail5
 
-.tail5:                                           ; preds = %.tail5.sink.split, %sub_0, %sub_1, %sub_17, %7, %1, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ 1, %7 ], [ -1, %sub_1 ], [ -1, %sub_0 ], [ -1, %sub_17 ], [ %spec.select, %.tail5.sink.split ]
+.tail5.sink.split18:                              ; preds = %sub_0, %sub_17
+  %.sink16.ph = phi i32 [ 3, %sub_17 ], [ 2, %sub_0 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %15 = load i8, ptr %14, align 1
+  %.not10 = icmp eq i8 %15, 69
+  br i1 %.not10, label %.tail5.sink.split, label %.tail5
+
+.tail5:                                           ; preds = %.tail5.sink.split18, %.tail5.sink.split, %sub_0, %7, %1, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ 1, %7 ], [ %spec.select, %.tail5.sink.split ], [ -1, %sub_0 ], [ -1, %.tail5.sink.split18 ]
   ret i32 %.0
 }
 

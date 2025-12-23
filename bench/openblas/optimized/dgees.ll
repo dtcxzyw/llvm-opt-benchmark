@@ -174,17 +174,17 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   %91 = sub nsw i32 0, %90
   store i32 %91, ptr %16, align 4, !tbaa !3
   %92 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %16, i32 noundef 6) #5
-  br label %287
+  br label %283
 
 93:                                               ; preds = %.thread
-  br i1 %42, label %287, label %94
+  br i1 %42, label %283, label %94
 
 94:                                               ; preds = %93
   br i1 %87, label %95, label %96
 
 95:                                               ; preds = %94
   store i32 0, ptr %6, align 4, !tbaa !3
-  br label %287
+  br label %283
 
 96:                                               ; preds = %94
   %97 = call double @dlamch_(ptr noundef nonnull @.str.7) #5
@@ -535,60 +535,56 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   %266 = call i32 (ptr, ptr, ...) %2(ptr noundef nonnull %264, ptr noundef nonnull %265) #5
   %267 = load double, ptr %265, align 8, !tbaa !7
   %268 = fcmp oeq double %267, 0.000000e+00
-  br i1 %268, label %269, label %273
+  br i1 %268, label %269, label %270
 
 269:                                              ; preds = %.lr.ph404
   %.not362 = icmp eq i32 %266, 0
-  br i1 %.not362, label %.thread375, label %270
+  br i1 %.not362, label %.thread375, label %.thread375.sink.split430
 
-270:                                              ; preds = %269
-  %271 = load i32, ptr %6, align 4, !tbaa !3
-  %272 = add nsw i32 %271, 1
-  store i32 %272, ptr %6, align 4, !tbaa !3
-  %.not383 = icmp eq i32 %.0321402, 0
-  br i1 %.not383, label %.thread375.sink.split, label %.thread375
+270:                                              ; preds = %.lr.ph404
+  %271 = icmp eq i32 %.0323401, 1
+  br i1 %271, label %272, label %.thread375
 
-273:                                              ; preds = %.lr.ph404
-  %274 = icmp eq i32 %.0323401, 1
-  br i1 %274, label %275, label %.thread375
+272:                                              ; preds = %270
+  %273 = icmp ne i32 %266, 0
+  %274 = icmp ne i32 %.0321402, 0
+  %275 = select i1 %273, i1 true, i1 %274
+  br i1 %275, label %.thread375.sink.split430, label %.thread375
 
-275:                                              ; preds = %273
-  %276 = icmp ne i32 %266, 0
-  %277 = icmp ne i32 %.0321402, 0
-  %278 = select i1 %276, i1 true, i1 %277
-  br i1 %278, label %279, label %.thread375
-
-279:                                              ; preds = %275
-  %280 = load i32, ptr %6, align 4, !tbaa !3
-  %281 = add nsw i32 %280, 2
-  store i32 %281, ptr %6, align 4, !tbaa !3
-  %282 = icmp eq i32 %.0326400, 0
-  br i1 %282, label %.thread375.sink.split, label %.thread375
-
-.thread375.sink.split:                            ; preds = %279, %270
-  %.0329.ph = phi i32 [ %266, %270 ], [ 1, %279 ]
-  %.1324.ph = phi i32 [ 0, %270 ], [ -1, %279 ]
-  %.1322.ph = phi i32 [ 0, %270 ], [ 1, %279 ]
-  %283 = load i32, ptr %3, align 4, !tbaa !3
-  %284 = add nsw i32 %283, 2
-  store i32 %284, ptr %14, align 4, !tbaa !3
+.thread375.sink.split:                            ; preds = %.thread375.sink.split430
+  %276 = load i32, ptr %3, align 4, !tbaa !3
+  %277 = add nsw i32 %276, 2
+  store i32 %277, ptr %14, align 4, !tbaa !3
   br label %.thread375
 
-.thread375:                                       ; preds = %.thread375.sink.split, %275, %269, %273, %279, %270
-  %.0329 = phi i32 [ %266, %270 ], [ 0, %269 ], [ 1, %279 ], [ 0, %275 ], [ %266, %273 ], [ %.0329.ph, %.thread375.sink.split ]
-  %.1324 = phi i32 [ 0, %270 ], [ 0, %269 ], [ -1, %279 ], [ -1, %275 ], [ 1, %273 ], [ %.1324.ph, %.thread375.sink.split ]
-  %.1322 = phi i32 [ %.0321402, %270 ], [ %.0321402, %269 ], [ 1, %279 ], [ 0, %275 ], [ %.0321402, %273 ], [ %.1322.ph, %.thread375.sink.split ]
+.thread375.sink.split430:                         ; preds = %272, %269
+  %.sink437 = phi i32 [ 1, %269 ], [ 2, %272 ]
+  %.0326400.sink = phi i32 [ %.0321402, %269 ], [ %.0326400, %272 ]
+  %.0329.ph431 = phi i32 [ %266, %269 ], [ 1, %272 ]
+  %.1324.ph432 = phi i32 [ 0, %269 ], [ -1, %272 ]
+  %.1322.ph433 = phi i32 [ %.0321402, %269 ], [ 1, %272 ]
+  %.1322.ph.ph = phi i32 [ 0, %269 ], [ 1, %272 ]
+  %278 = load i32, ptr %6, align 4, !tbaa !3
+  %279 = add nsw i32 %278, %.sink437
+  store i32 %279, ptr %6, align 4, !tbaa !3
+  %280 = icmp eq i32 %.0326400.sink, 0
+  br i1 %280, label %.thread375.sink.split, label %.thread375
+
+.thread375:                                       ; preds = %.thread375.sink.split430, %.thread375.sink.split, %272, %269, %270
+  %.0329 = phi i32 [ %266, %270 ], [ 0, %269 ], [ %.0329.ph431, %.thread375.sink.split ], [ 0, %272 ], [ %.0329.ph431, %.thread375.sink.split430 ]
+  %.1324 = phi i32 [ 1, %270 ], [ 0, %269 ], [ %.1324.ph432, %.thread375.sink.split ], [ -1, %272 ], [ %.1324.ph432, %.thread375.sink.split430 ]
+  %.1322 = phi i32 [ %.0321402, %270 ], [ %.0321402, %269 ], [ %.1322.ph.ph, %.thread375.sink.split ], [ 0, %272 ], [ %.1322.ph433, %.thread375.sink.split430 ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
-  %285 = load i32, ptr %16, align 4, !tbaa !3
-  %286 = sext i32 %285 to i64
-  %.not360.not = icmp slt i64 %indvars.iv409, %286
+  %281 = load i32, ptr %16, align 4, !tbaa !3
+  %282 = sext i32 %281 to i64
+  %.not360.not = icmp slt i64 %indvars.iv409, %282
   br i1 %.not360.not, label %.lr.ph404, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.thread375, %262, %259, %258
   store double %.1, ptr %11, align 8, !tbaa !7
-  br label %287
+  br label %283
 
-287:                                              ; preds = %93, %.loopexit, %95, %.thread367
+283:                                              ; preds = %93, %.loopexit, %95, %.thread367
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
