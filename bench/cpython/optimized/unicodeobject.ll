@@ -13702,7 +13702,7 @@ _PyUnicode_DATA.exit:                             ; preds = %67, %69
   unreachable
 
 findchar.exit:                                    ; preds = %79, %85, %95, %109, %116
-  %.0.i43 = phi i64 [ %113, %109 ], [ %88, %85 ], [ %120, %116 ], [ %99, %95 ], [ %82, %79 ]
+  %.0.i43 = phi i64 [ %113, %109 ], [ %99, %95 ], [ %120, %116 ], [ %88, %85 ], [ %82, %79 ]
   %125 = icmp sgt i64 %.0.i43, -1
   br i1 %125, label %126, label %findchar.exit.thread
 
