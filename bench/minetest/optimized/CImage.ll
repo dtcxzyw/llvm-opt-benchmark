@@ -3824,9 +3824,6 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   br i1 %6, label %for.body.us.preheader.split.us, label %for.body.us.preheader.split
 
 for.body.us.preheader.split.us:                   ; preds = %for.body.us.preheader
-  %mul11.us.epil.us = fmul float %4, 0.000000e+00
-  %conv12.us.epil.us = fptoui float %mul11.us.epil.us to i32
-  %idxprom.us.epil.us = zext i32 %conv12.us.epil.us to i64
   br i1 %lcmp.mod.not, label %if.end, label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.preheader.split.us, %for.body.us.us
@@ -3840,8 +3837,7 @@ for.body.us.us:                                   ; preds = %for.body.us.prehead
   %mul5.us.us = mul i32 %8, %conv3.us.us
   %idx.ext.us.us = zext i32 %mul5.us.us to i64
   %add.ptr.us.us = getelementptr inbounds nuw i8, ptr %7, i64 %idx.ext.us.us
-  %arrayidx.us.epil.us = getelementptr inbounds nuw i32, ptr %add.ptr.us.us, i64 %idxprom.us.epil.us
-  %9 = load i32, ptr %arrayidx.us.epil.us, align 4, !tbaa !15
+  %9 = load i32, ptr %add.ptr.us.us, align 4, !tbaa !15
   %shr.us.epil.us = lshr i32 %9, 16
   %conv16.us.epil.us = trunc i32 %shr.us.epil.us to i8
   %incdec.ptr.us.epil.us = getelementptr inbounds nuw i8, ptr %dst.0114.us.us, i64 1

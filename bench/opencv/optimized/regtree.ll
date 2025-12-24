@@ -218,12 +218,11 @@ _ZN2cv3RNG7uniformEii.exit11:                     ; preds = %_ZN2cv3RNG7uniformE
   %65 = or disjoint i64 %64, %60
   %66 = uitofp i64 %65 to double
   %67 = fmul double %66, 0x3BF0000000000000
-  %68 = fadd double %67, 0.000000e+00
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double 2.560000e+02, double -1.280000e+02)
-  %70 = fmul double %69, 5.000000e-01
-  %71 = fptrunc double %70 to float
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %71, ptr %72, align 8, !tbaa !43
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double 2.560000e+02, double -1.280000e+02)
+  %69 = fmul double %68, 5.000000e-01
+  %70 = fptrunc double %69 to float
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %70, ptr %71, align 8, !tbaa !43
   ret void
 }
 

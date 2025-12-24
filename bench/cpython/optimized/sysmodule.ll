@@ -7893,21 +7893,8 @@ define internal ptr @sys_getswitchinterval(ptr readnone captures(none) %0, ptr r
   %3 = tail call i64 @_PyEval_GetSwitchInterval() #15
   %4 = uitofp i64 %3 to double
   %5 = fmul double %4, 0x3EB0C6F7A0B5ED8D
-  %6 = fcmp oeq double %5, -1.000000e+00
-  br i1 %6, label %7, label %9
-
-7:                                                ; preds = %2
-  %8 = tail call ptr @PyErr_Occurred() #15
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %11
-
-9:                                                ; preds = %7, %2
-  %10 = tail call ptr @PyFloat_FromDouble(double noundef %5) #15
-  br label %11
-
-11:                                               ; preds = %7, %9
-  %.0 = phi ptr [ null, %7 ], [ %10, %9 ]
-  ret ptr %.0
+  %6 = tail call ptr @PyFloat_FromDouble(double noundef %5) #15
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable

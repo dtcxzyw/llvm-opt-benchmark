@@ -2361,19 +2361,15 @@ _ZNK5drjit9ArrayBaseIfLb0ENS_5ArrayIfLm2EEEE4mul_ERKS2_.exit.critedge:
   %9 = fmul contract float %4, %8
   %10 = fmul contract float %5, %8
   %11 = fcmp contract ogt float %9, 1.000000e+00
-  %..i.i.i = select contract i1 %11, float 1.000000e+00, float %9
   %12 = fcmp contract ogt float %10, 1.000000e+00
   %..i.i.i.c = select contract i1 %12, float 1.000000e+00, float %10
-  %13 = fcmp contract olt float %..i.i.i, -1.000000e+00
-  %..i.i22.i = select contract i1 %13, float -1.000000e+00, float %..i.i.i
-  %14 = fcmp contract olt float %..i.i.i.c, -1.000000e+00
-  %..i.i22.i.c = select contract i1 %14, float -1.000000e+00, float %..i.i.i.c
-  %15 = tail call contract noundef float @llvm.fabs.f32(float %7)
-  %16 = fcmp contract ole float %15, 0x3E90000000000000
-  %17 = select i1 %16, float 1.000000e+00, float %..i.i22.i
-  %.sroa.speculated = select i1 %16, float 0.000000e+00, float %..i.i22.i.c
-  %18 = insertelement <2 x float> poison, float %.sroa.speculated, i64 0
-  %.sroa.0116.4.vec.insert = insertelement <2 x float> %18, float %17, i64 1
+  %13 = tail call contract noundef float @llvm.fabs.f32(float %7)
+  %14 = fcmp contract ole float %13, 0x3E90000000000000
+  %15 = select i1 %14, i1 true, i1 %11
+  %16 = select i1 %15, float 1.000000e+00, float %9
+  %.sroa.speculated = select i1 %14, float 0.000000e+00, float %..i.i.i.c
+  %17 = insertelement <2 x float> poison, float %.sroa.speculated, i64 0
+  %.sroa.0116.4.vec.insert = insertelement <2 x float> %17, float %16, i64 1
   ret <2 x float> %.sroa.0116.4.vec.insert
 }
 

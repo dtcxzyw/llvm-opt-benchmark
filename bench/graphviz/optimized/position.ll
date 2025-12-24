@@ -3380,8 +3380,8 @@ define internal fastcc void @adjustRanks(ptr noundef %0, i32 noundef %1) unnamed
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load double, ptr %116, align 8, !tbaa !146
   %118 = sitofp i32 %1 to double
-  %119 = fsub double %117, %118
-  %120 = fsub double %113, %119
+  %119 = fsub double %118, %117
+  %120 = fadd double %113, %119
   %121 = fcmp ogt double %120, 0.000000e+00
   br i1 %121, label %.preheader51.i, label %140
 

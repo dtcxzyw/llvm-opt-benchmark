@@ -6320,7 +6320,7 @@ define internal fastcc void @nsvg__rasterizeSortedEdges(ptr noundef captures(non
 
 28:                                               ; preds = %.lr.ph165, %nsvg__scanlineSolid.exit
   %.0.173 = phi ptr [ null, %.lr.ph165 ], [ %.027.i150.lcssa, %nsvg__scanlineSolid.exit ]
-  %.081164 = phi i32 [ 0, %.lr.ph165 ], [ %526, %nsvg__scanlineSolid.exit ]
+  %.081164 = phi i32 [ 0, %.lr.ph165 ], [ %524, %nsvg__scanlineSolid.exit ]
   %.084163 = phi i32 [ 0, %.lr.ph165 ], [ %.2.lcssa, %nsvg__scanlineSolid.exit ]
   %29 = load ptr, ptr %11, align 8, !tbaa !112
   %30 = load i32, ptr %12, align 8, !tbaa !114
@@ -7065,10 +7065,10 @@ nsvg__fillActiveEdges.exit:                       ; preds = %nsvg__fillScanline.
   br label %443
 
 443:                                              ; preds = %443, %.lr.ph.i
-  %.2173.i = phi ptr [ %288, %.lr.ph.i ], [ %523, %443 ]
-  %.2161172.i = phi ptr [ %292, %.lr.ph.i ], [ %522, %443 ]
-  %.0165171.i = phi float [ %442, %.lr.ph.i ], [ %524, %443 ]
-  %.0166170.i = phi i32 [ 0, %.lr.ph.i ], [ %525, %443 ]
+  %.2173.i = phi ptr [ %288, %.lr.ph.i ], [ %521, %443 ]
+  %.2161172.i = phi ptr [ %292, %.lr.ph.i ], [ %520, %443 ]
+  %.0165171.i = phi float [ %442, %.lr.ph.i ], [ %522, %443 ]
+  %.0166170.i = phi i32 [ 0, %.lr.ph.i ], [ %523, %443 ]
   %444 = load float, ptr %20, align 4, !tbaa !28
   %445 = load float, ptr %22, align 4, !tbaa !28
   %446 = fmul float %439, %445
@@ -7085,85 +7085,83 @@ nsvg__fillActiveEdges.exit:                       ; preds = %nsvg__fillScanline.
   %457 = tail call float @llvm.fmuladd.f32(float %449, float %449, float %456)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %457)
   %458 = fmul float %sqrt.i, 2.550000e+02
-  %459 = fcmp olt float %458, 0.000000e+00
-  %460 = fcmp ogt float %458, 2.550000e+02
-  %461 = select i1 %460, float 2.550000e+02, float %458
-  %462 = select i1 %459, float 0.000000e+00, float %461
-  %463 = fptosi float %462 to i32
-  %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds i32, ptr %27, i64 %464
-  %466 = load i32, ptr %465, align 4, !tbaa !88
+  %459 = fcmp ogt float %458, 2.550000e+02
+  %460 = select i1 %459, float 2.550000e+02, float %458
+  %461 = fptosi float %460 to i32
+  %462 = sext i32 %461 to i64
+  %463 = getelementptr inbounds i32, ptr %27, i64 %462
+  %464 = load i32, ptr %463, align 4, !tbaa !88
+  %465 = and i32 %464, 255
+  %466 = lshr i32 %464, 8
   %467 = and i32 %466, 255
-  %468 = lshr i32 %466, 8
+  %468 = lshr i32 %464, 16
   %469 = and i32 %468, 255
-  %470 = lshr i32 %466, 16
-  %471 = and i32 %470, 255
-  %472 = lshr i32 %466, 24
-  %473 = load i8, ptr %.2161172.i, align 1, !tbaa !4
-  %474 = zext i8 %473 to i32
-  %475 = mul nuw nsw i32 %472, 257
-  %476 = mul nuw nsw i32 %475, %474
-  %477 = add nuw nsw i32 %476, 257
-  %478 = lshr i32 %477, 16
-  %479 = xor i32 %478, 255
-  %480 = mul nuw nsw i32 %478, 257
-  %481 = mul nuw nsw i32 %480, %467
-  %482 = add nuw nsw i32 %481, 257
-  %483 = lshr i32 %482, 16
-  %484 = mul nuw nsw i32 %480, %469
-  %485 = add nuw nsw i32 %484, 257
-  %486 = lshr i32 %485, 16
-  %487 = mul nuw nsw i32 %480, %471
-  %488 = add nuw nsw i32 %487, 257
-  %489 = lshr i32 %488, 16
-  %490 = load i8, ptr %.2173.i, align 1, !tbaa !4
-  %491 = zext i8 %490 to i32
-  %492 = mul nuw nsw i32 %479, 257
-  %493 = mul nuw nsw i32 %492, %491
-  %494 = add nuw nsw i32 %493, 257
-  %495 = lshr i32 %494, 16
-  %496 = add nuw nsw i32 %495, %483
-  %497 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 1
-  %498 = load i8, ptr %497, align 1, !tbaa !4
-  %499 = zext i8 %498 to i32
-  %500 = mul nuw nsw i32 %492, %499
-  %501 = add nuw nsw i32 %500, 257
-  %502 = lshr i32 %501, 16
-  %503 = add nuw nsw i32 %502, %486
-  %504 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 2
-  %505 = load i8, ptr %504, align 1, !tbaa !4
-  %506 = zext i8 %505 to i32
-  %507 = mul nuw nsw i32 %492, %506
-  %508 = add nuw nsw i32 %507, 257
-  %509 = lshr i32 %508, 16
-  %510 = add nuw nsw i32 %509, %489
-  %511 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 3
-  %512 = load i8, ptr %511, align 1, !tbaa !4
-  %513 = zext i8 %512 to i32
-  %514 = mul nuw nsw i32 %492, %513
-  %515 = add nuw nsw i32 %514, 257
-  %516 = lshr i32 %515, 16
-  %517 = add nuw nsw i32 %516, %478
-  %518 = trunc i32 %496 to i8
-  store i8 %518, ptr %.2173.i, align 1, !tbaa !4
-  %519 = trunc i32 %503 to i8
-  store i8 %519, ptr %497, align 1, !tbaa !4
-  %520 = trunc i32 %510 to i8
-  store i8 %520, ptr %504, align 1, !tbaa !4
-  %521 = trunc i32 %517 to i8
-  store i8 %521, ptr %511, align 1, !tbaa !4
-  %522 = getelementptr inbounds nuw i8, ptr %.2161172.i, i64 1
-  %523 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 4
-  %524 = fadd float %21, %.0165171.i
-  %525 = add nuw nsw i32 %.0166170.i, 1
+  %470 = lshr i32 %464, 24
+  %471 = load i8, ptr %.2161172.i, align 1, !tbaa !4
+  %472 = zext i8 %471 to i32
+  %473 = mul nuw nsw i32 %470, 257
+  %474 = mul nuw nsw i32 %473, %472
+  %475 = add nuw nsw i32 %474, 257
+  %476 = lshr i32 %475, 16
+  %477 = xor i32 %476, 255
+  %478 = mul nuw nsw i32 %476, 257
+  %479 = mul nuw nsw i32 %478, %465
+  %480 = add nuw nsw i32 %479, 257
+  %481 = lshr i32 %480, 16
+  %482 = mul nuw nsw i32 %478, %467
+  %483 = add nuw nsw i32 %482, 257
+  %484 = lshr i32 %483, 16
+  %485 = mul nuw nsw i32 %478, %469
+  %486 = add nuw nsw i32 %485, 257
+  %487 = lshr i32 %486, 16
+  %488 = load i8, ptr %.2173.i, align 1, !tbaa !4
+  %489 = zext i8 %488 to i32
+  %490 = mul nuw nsw i32 %477, 257
+  %491 = mul nuw nsw i32 %490, %489
+  %492 = add nuw nsw i32 %491, 257
+  %493 = lshr i32 %492, 16
+  %494 = add nuw nsw i32 %493, %481
+  %495 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 1
+  %496 = load i8, ptr %495, align 1, !tbaa !4
+  %497 = zext i8 %496 to i32
+  %498 = mul nuw nsw i32 %490, %497
+  %499 = add nuw nsw i32 %498, 257
+  %500 = lshr i32 %499, 16
+  %501 = add nuw nsw i32 %500, %484
+  %502 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 2
+  %503 = load i8, ptr %502, align 1, !tbaa !4
+  %504 = zext i8 %503 to i32
+  %505 = mul nuw nsw i32 %490, %504
+  %506 = add nuw nsw i32 %505, 257
+  %507 = lshr i32 %506, 16
+  %508 = add nuw nsw i32 %507, %487
+  %509 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 3
+  %510 = load i8, ptr %509, align 1, !tbaa !4
+  %511 = zext i8 %510 to i32
+  %512 = mul nuw nsw i32 %490, %511
+  %513 = add nuw nsw i32 %512, 257
+  %514 = lshr i32 %513, 16
+  %515 = add nuw nsw i32 %514, %476
+  %516 = trunc i32 %494 to i8
+  store i8 %516, ptr %.2173.i, align 1, !tbaa !4
+  %517 = trunc i32 %501 to i8
+  store i8 %517, ptr %495, align 1, !tbaa !4
+  %518 = trunc i32 %508 to i8
+  store i8 %518, ptr %502, align 1, !tbaa !4
+  %519 = trunc i32 %515 to i8
+  store i8 %519, ptr %509, align 1, !tbaa !4
+  %520 = getelementptr inbounds nuw i8, ptr %.2161172.i, i64 1
+  %521 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 4
+  %522 = fadd float %21, %.0165171.i
+  %523 = add nuw nsw i32 %.0166170.i, 1
   %exitcond.not.i = icmp eq i32 %.0166170.i, %289
   br i1 %exitcond.not.i, label %nsvg__scanlineSolid.exit, label %443, !llvm.loop !202
 
 nsvg__scanlineSolid.exit:                         ; preds = %443, %362, %305, %280, %277
-  %526 = add nuw nsw i32 %.081164, 1
-  %527 = load i32, ptr %8, align 4, !tbaa !115
-  %528 = icmp slt i32 %526, %527
-  br i1 %528, label %28, label %._crit_edge, !llvm.loop !203
+  %524 = add nuw nsw i32 %.081164, 1
+  %525 = load i32, ptr %8, align 4, !tbaa !115
+  %526 = icmp slt i32 %524, %525
+  br i1 %526, label %28, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %nsvg__scanlineSolid.exit, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

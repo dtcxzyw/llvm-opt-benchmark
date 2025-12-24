@@ -13034,18 +13034,18 @@ _ZNSt6vectorIN3vcg9Triangle2IfEESaIS2_EED2Ev.exit: ; preds = %.loopexit1389, %.l
   %922 = uitofp nneg i32 %spec.select665 to double
   %923 = fmul double %922, 5.000000e-01
   %924 = fptrunc double %923 to float
+  %925 = call float @llvm.sqrt.f32(float %924)
+  %926 = call float @llvm.ceil.f32(float %925)
+  %927 = fptosi float %926 to i32
   br label %._crit_edge1487
 
 ._crit_edge1487:                                  ; preds = %._crit_edge1487.loopexit, %907
-  %.0531.lcssa = phi float [ 0.000000e+00, %907 ], [ %924, %._crit_edge1487.loopexit ]
-  %925 = call float @sqrtf(float noundef %.0531.lcssa) #36
-  %926 = call float @llvm.ceil.f32(float %925)
-  %927 = fptosi float %926 to i32
+  %.0531.lcssa = phi i32 [ 0, %907 ], [ %927, %._crit_edge1487.loopexit ]
   %928 = icmp eq i32 %316, 0
   br i1 %928, label %946, label %929
 
 929:                                              ; preds = %._crit_edge1487
-  %930 = icmp slt i32 %316, %927
+  %930 = icmp slt i32 %316, %.0531.lcssa
   br i1 %930, label %931, label %946
 
 931:                                              ; preds = %929
@@ -13055,7 +13055,7 @@ _ZNSt6vectorIN3vcg9Triangle2IfEESaIS2_EED2Ev.exit: ; preds = %.loopexit1389, %.l
 
 934:                                              ; preds = %931
   store ptr %933, ptr %46, align 8
-  invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %47, i32 noundef %927, i32 noundef 10)
+  invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %47, i32 noundef %.0531.lcssa, i32 noundef 10)
           to label %935 unwind label %.thread1270
 
 935:                                              ; preds = %934
@@ -13106,7 +13106,7 @@ _ZNSt6vectorIN3vcg9Triangle2IfEESaIS2_EED2Ev.exit: ; preds = %.loopexit1389, %.l
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit797
 
 946:                                              ; preds = %._crit_edge1487, %929
-  %.0484 = phi i32 [ %316, %929 ], [ %927, %._crit_edge1487 ]
+  %.0484 = phi i32 [ %316, %929 ], [ %.0531.lcssa, %._crit_edge1487 ]
   %947 = uitofp nneg i32 %330 to float
   %948 = uitofp nneg i32 %323 to float
   %949 = fdiv float %947, %948

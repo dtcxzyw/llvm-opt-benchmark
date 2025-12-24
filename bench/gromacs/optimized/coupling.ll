@@ -3192,8 +3192,8 @@ define void @_Z15andersen_tcouplPK10t_inputreclPK9t_commreciN3gmx8ArrayRefIKtEEN
   br label %34
 
 34:                                               ; preds = %.lr.ph, %.loopexit
-  %35 = phi i64 [ 20480, %.lr.ph ], [ %260, %.loopexit ]
-  %36 = phi i64 [ %21, %.lr.ph ], [ %261, %.loopexit ]
+  %35 = phi i64 [ 20480, %.lr.ph ], [ %258, %.loopexit ]
+  %36 = phi i64 [ %21, %.lr.ph ], [ %259, %.loopexit ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next57, %.loopexit ]
   %.02653 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %.sroa.6.052 = phi i64 [ 0, %.lr.ph ], [ %.sroa.6.1, %.loopexit ]
@@ -3324,166 +3324,165 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
   %139 = uitofp i64 %120 to float
   %140 = fmul float %139, 0x3BF0000000000000
   %141 = fcmp oeq float %140, 1.000000e+00
-  %142 = fadd float %140, 0.000000e+00
-  %143 = select i1 %141, float 0.000000e+00, float %142
-  %144 = fcmp olt float %143, %8
-  br i1 %144, label %.critedge, label %.loopexit
+  %.013.i.i.i = select i1 %141, float 0.000000e+00, float %140
+  %142 = fcmp olt float %.013.i.i.i, %8
+  br i1 %142, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %136, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
-  %145 = phi i32 [ 0, %136 ], [ 1, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %146 = getelementptr inbounds nuw float, ptr %29, i64 %128
+  %143 = phi i32 [ 0, %136 ], [ 1, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %144 = getelementptr inbounds nuw float, ptr %29, i64 %128
+  %145 = load float, ptr %144, align 4, !tbaa !114
+  %146 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv56
   %147 = load float, ptr %146, align 4, !tbaa !114
-  %148 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv56
-  %149 = load float, ptr %148, align 4, !tbaa !114
-  %150 = fmul float %147, %149
-  %151 = call noundef float @sqrtf(float noundef %150) #21, !tbaa !134
-  %152 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %33, i64 %indvars.iv56
-  br label %153
+  %148 = fmul float %145, %147
+  %149 = call noundef float @sqrtf(float noundef %148) #21, !tbaa !134
+  %150 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %33, i64 %indvars.iv56
+  br label %151
 
-153:                                              ; preds = %.critedge, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
-  %154 = phi i32 [ %145, %.critedge ], [ %248, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %155 = phi i64 [ %35, %.critedge ], [ %249, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %156 = phi i64 [ %36, %.critedge ], [ %250, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+151:                                              ; preds = %.critedge, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
+  %152 = phi i32 [ %143, %.critedge ], [ %246, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %153 = phi i64 [ %35, %.critedge ], [ %247, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %154 = phi i64 [ %36, %.critedge ], [ %248, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
   %indvars.iv = phi i64 [ 0, %.critedge ], [ %indvars.iv.next, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %.sroa.9.050 = phi i32 [ 0, %.critedge ], [ %251, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %.sroa.6.249 = phi i64 [ %.sroa.6.052, %.critedge ], [ %256, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %157 = icmp ult i32 %.sroa.9.050, 14
-  br i1 %157, label %159, label %._crit_edge.i.i
+  %.sroa.9.050 = phi i32 [ 0, %.critedge ], [ %249, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %.sroa.6.249 = phi i64 [ %.sroa.6.052, %.critedge ], [ %254, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %155 = icmp ult i32 %.sroa.9.050, 14
+  br i1 %155, label %157, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %153
-  %158 = add nsw i32 %.sroa.9.050, -14
+._crit_edge.i.i:                                  ; preds = %151
+  %156 = add nsw i32 %.sroa.9.050, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
 
-159:                                              ; preds = %153
-  %160 = icmp ugt i32 %154, 1
-  br i1 %160, label %162, label %._crit_edge.i.i.i
+157:                                              ; preds = %151
+  %158 = icmp ugt i32 %152, 1
+  br i1 %158, label %160, label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %159
-  %.phi.trans.insert1.i.i.i = zext nneg i32 %154 to i64
+._crit_edge.i.i.i:                                ; preds = %157
+  %.phi.trans.insert1.i.i.i = zext nneg i32 %152 to i64
   %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw i64, ptr %23, i64 %.phi.trans.insert1.i.i.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i, align 8, !tbaa !144
-  %161 = add nuw nsw i32 %154, 1
+  %159 = add nuw nsw i32 %152, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
 
-162:                                              ; preds = %159
+160:                                              ; preds = %157
   call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj0EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull %22)
   %.sroa.024.0.copyload.i39 = load i64, ptr %22, align 8
   %.sroa.74.0.copyload.i41 = load i64, ptr %.sroa.74.0..sroa_idx.i, align 8, !tbaa !147
-  %163 = load i64, ptr %12, align 8, !tbaa !144
-  %164 = add i64 %163, %.sroa.024.0.copyload.i39
-  %165 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !144
-  %166 = xor i64 %163, %165
-  %167 = xor i64 %166, 2004413935125273122
-  %168 = add i64 %165, %.sroa.74.0.copyload.i41
-  %169 = add i64 %164, %168
-  %170 = call i64 @llvm.fshl.i64(i64 %168, i64 %168, i64 16)
-  %171 = xor i64 %170, %169
-  %172 = add i64 %171, %169
-  %173 = call i64 @llvm.fshl.i64(i64 %171, i64 %171, i64 42)
-  %174 = xor i64 %173, %172
-  %175 = add i64 %174, %172
-  %176 = call i64 @llvm.fshl.i64(i64 %174, i64 %174, i64 12)
-  %177 = xor i64 %176, %175
-  %178 = add i64 %177, %175
-  %179 = call i64 @llvm.fshl.i64(i64 %177, i64 %177, i64 31)
-  %180 = xor i64 %179, %178
-  %181 = add i64 %178, %165
-  %182 = add i64 %167, 1
-  %183 = add i64 %182, %180
-  %184 = add i64 %181, %183
-  %185 = call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 16)
-  %186 = xor i64 %185, %184
-  %187 = add i64 %186, %184
-  %188 = call i64 @llvm.fshl.i64(i64 %186, i64 %186, i64 32)
-  %189 = xor i64 %188, %187
-  %190 = add i64 %189, %187
-  %191 = call i64 @llvm.fshl.i64(i64 %189, i64 %189, i64 24)
-  %192 = xor i64 %191, %190
-  %193 = add i64 %192, %190
-  %194 = call i64 @llvm.fshl.i64(i64 %192, i64 %192, i64 21)
-  %195 = xor i64 %194, %193
-  %196 = add i64 %193, %167
-  %197 = add i64 %163, 2
-  %198 = add i64 %197, %195
-  %199 = add i64 %196, %198
-  %200 = call i64 @llvm.fshl.i64(i64 %198, i64 %198, i64 16)
-  %201 = xor i64 %200, %199
-  %202 = add i64 %201, %199
-  %203 = call i64 @llvm.fshl.i64(i64 %201, i64 %201, i64 42)
-  %204 = xor i64 %203, %202
-  %205 = add i64 %204, %202
-  %206 = call i64 @llvm.fshl.i64(i64 %204, i64 %204, i64 12)
-  %207 = xor i64 %206, %205
-  %208 = add i64 %207, %205
-  %209 = call i64 @llvm.fshl.i64(i64 %207, i64 %207, i64 31)
-  %210 = xor i64 %209, %208
-  %211 = add i64 %208, %163
-  %212 = add i64 %165, 3
-  %213 = add i64 %212, %210
-  %214 = add i64 %211, %213
-  %215 = call i64 @llvm.fshl.i64(i64 %213, i64 %213, i64 16)
-  %216 = xor i64 %215, %214
-  %217 = add i64 %216, %214
-  %218 = call i64 @llvm.fshl.i64(i64 %216, i64 %216, i64 32)
-  %219 = xor i64 %218, %217
-  %220 = add i64 %219, %217
-  %221 = call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 24)
-  %222 = xor i64 %221, %220
-  %223 = add i64 %222, %220
-  %224 = call i64 @llvm.fshl.i64(i64 %222, i64 %222, i64 21)
-  %225 = xor i64 %224, %223
-  %226 = add i64 %223, %165
-  %227 = add i64 %167, 4
-  %228 = add i64 %227, %225
-  %229 = add i64 %226, %228
-  %230 = call i64 @llvm.fshl.i64(i64 %228, i64 %228, i64 16)
-  %231 = xor i64 %230, %229
-  %232 = add i64 %231, %229
-  %233 = call i64 @llvm.fshl.i64(i64 %231, i64 %231, i64 42)
-  %234 = xor i64 %233, %232
-  %235 = add i64 %234, %232
-  %236 = call i64 @llvm.fshl.i64(i64 %234, i64 %234, i64 12)
-  %237 = xor i64 %236, %235
-  %238 = add i64 %237, %235
-  %239 = call i64 @llvm.fshl.i64(i64 %237, i64 %237, i64 31)
-  %240 = xor i64 %239, %238
-  %241 = add i64 %238, %167
-  %242 = add i64 %163, 5
-  %243 = add i64 %242, %240
-  store i64 %241, ptr %23, align 8
-  store i64 %243, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !147
+  %161 = load i64, ptr %12, align 8, !tbaa !144
+  %162 = add i64 %161, %.sroa.024.0.copyload.i39
+  %163 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !144
+  %164 = xor i64 %161, %163
+  %165 = xor i64 %164, 2004413935125273122
+  %166 = add i64 %163, %.sroa.74.0.copyload.i41
+  %167 = add i64 %162, %166
+  %168 = call i64 @llvm.fshl.i64(i64 %166, i64 %166, i64 16)
+  %169 = xor i64 %168, %167
+  %170 = add i64 %169, %167
+  %171 = call i64 @llvm.fshl.i64(i64 %169, i64 %169, i64 42)
+  %172 = xor i64 %171, %170
+  %173 = add i64 %172, %170
+  %174 = call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 12)
+  %175 = xor i64 %174, %173
+  %176 = add i64 %175, %173
+  %177 = call i64 @llvm.fshl.i64(i64 %175, i64 %175, i64 31)
+  %178 = xor i64 %177, %176
+  %179 = add i64 %176, %163
+  %180 = add i64 %165, 1
+  %181 = add i64 %180, %178
+  %182 = add i64 %179, %181
+  %183 = call i64 @llvm.fshl.i64(i64 %181, i64 %181, i64 16)
+  %184 = xor i64 %183, %182
+  %185 = add i64 %184, %182
+  %186 = call i64 @llvm.fshl.i64(i64 %184, i64 %184, i64 32)
+  %187 = xor i64 %186, %185
+  %188 = add i64 %187, %185
+  %189 = call i64 @llvm.fshl.i64(i64 %187, i64 %187, i64 24)
+  %190 = xor i64 %189, %188
+  %191 = add i64 %190, %188
+  %192 = call i64 @llvm.fshl.i64(i64 %190, i64 %190, i64 21)
+  %193 = xor i64 %192, %191
+  %194 = add i64 %191, %165
+  %195 = add i64 %161, 2
+  %196 = add i64 %195, %193
+  %197 = add i64 %194, %196
+  %198 = call i64 @llvm.fshl.i64(i64 %196, i64 %196, i64 16)
+  %199 = xor i64 %198, %197
+  %200 = add i64 %199, %197
+  %201 = call i64 @llvm.fshl.i64(i64 %199, i64 %199, i64 42)
+  %202 = xor i64 %201, %200
+  %203 = add i64 %202, %200
+  %204 = call i64 @llvm.fshl.i64(i64 %202, i64 %202, i64 12)
+  %205 = xor i64 %204, %203
+  %206 = add i64 %205, %203
+  %207 = call i64 @llvm.fshl.i64(i64 %205, i64 %205, i64 31)
+  %208 = xor i64 %207, %206
+  %209 = add i64 %206, %161
+  %210 = add i64 %163, 3
+  %211 = add i64 %210, %208
+  %212 = add i64 %209, %211
+  %213 = call i64 @llvm.fshl.i64(i64 %211, i64 %211, i64 16)
+  %214 = xor i64 %213, %212
+  %215 = add i64 %214, %212
+  %216 = call i64 @llvm.fshl.i64(i64 %214, i64 %214, i64 32)
+  %217 = xor i64 %216, %215
+  %218 = add i64 %217, %215
+  %219 = call i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 24)
+  %220 = xor i64 %219, %218
+  %221 = add i64 %220, %218
+  %222 = call i64 @llvm.fshl.i64(i64 %220, i64 %220, i64 21)
+  %223 = xor i64 %222, %221
+  %224 = add i64 %221, %163
+  %225 = add i64 %165, 4
+  %226 = add i64 %225, %223
+  %227 = add i64 %224, %226
+  %228 = call i64 @llvm.fshl.i64(i64 %226, i64 %226, i64 16)
+  %229 = xor i64 %228, %227
+  %230 = add i64 %229, %227
+  %231 = call i64 @llvm.fshl.i64(i64 %229, i64 %229, i64 42)
+  %232 = xor i64 %231, %230
+  %233 = add i64 %232, %230
+  %234 = call i64 @llvm.fshl.i64(i64 %232, i64 %232, i64 12)
+  %235 = xor i64 %234, %233
+  %236 = add i64 %235, %233
+  %237 = call i64 @llvm.fshl.i64(i64 %235, i64 %235, i64 31)
+  %238 = xor i64 %237, %236
+  %239 = add i64 %236, %165
+  %240 = add i64 %161, 5
+  %241 = add i64 %240, %238
+  store i64 %239, ptr %23, align 8
+  store i64 %241, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !147
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
 
-_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i: ; preds = %162, %._crit_edge.i.i.i
-  %244 = phi i64 [ %165, %162 ], [ %155, %._crit_edge.i.i.i ]
-  %245 = phi i64 [ %163, %162 ], [ %156, %._crit_edge.i.i.i ]
-  %246 = phi i64 [ %241, %162 ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
-  %247 = phi i32 [ 1, %162 ], [ %161, %._crit_edge.i.i.i ]
-  store i32 %247, ptr %24, align 8, !tbaa !290
+_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i: ; preds = %160, %._crit_edge.i.i.i
+  %242 = phi i64 [ %163, %160 ], [ %153, %._crit_edge.i.i.i ]
+  %243 = phi i64 [ %161, %160 ], [ %154, %._crit_edge.i.i.i ]
+  %244 = phi i64 [ %239, %160 ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
+  %245 = phi i32 [ 1, %160 ], [ %159, %._crit_edge.i.i.i ]
+  store i32 %245, ptr %24, align 8, !tbaa !290
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
 
 _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; preds = %._crit_edge.i.i, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
-  %248 = phi i32 [ %154, %._crit_edge.i.i ], [ %247, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %249 = phi i64 [ %155, %._crit_edge.i.i ], [ %244, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %250 = phi i64 [ %156, %._crit_edge.i.i ], [ %245, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %251 = phi i32 [ %158, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %252 = phi i64 [ %.sroa.6.249, %._crit_edge.i.i ], [ %246, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %253 = and i64 %252, 16383
-  %254 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %253
-  %255 = load float, ptr %254, align 4, !tbaa !114
-  %256 = lshr i64 %252, 14
-  %257 = fadd float %255, 0.000000e+00
-  %258 = fmul float %151, %257
-  %259 = getelementptr inbounds nuw float, ptr %152, i64 %indvars.iv
-  store float %258, ptr %259, align 4, !tbaa !114
+  %246 = phi i32 [ %152, %._crit_edge.i.i ], [ %245, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %247 = phi i64 [ %153, %._crit_edge.i.i ], [ %242, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %248 = phi i64 [ %154, %._crit_edge.i.i ], [ %243, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %249 = phi i32 [ %156, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %250 = phi i64 [ %.sroa.6.249, %._crit_edge.i.i ], [ %244, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %251 = and i64 %250, 16383
+  %252 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %251
+  %253 = load float, ptr %252, align 4, !tbaa !114
+  %254 = lshr i64 %250, 14
+  %255 = fadd float %253, 0.000000e+00
+  %256 = fmul float %149, %255
+  %257 = getelementptr inbounds nuw float, ptr %150, i64 %indvars.iv
+  store float %256, ptr %257, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %153, !llvm.loop !295
+  br i1 %exitcond.not, label %.loopexit, label %151, !llvm.loop !295
 
 .loopexit:                                        ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %127
-  %260 = phi i64 [ %35, %127 ], [ %35, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %249, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %261 = phi i64 [ %36, %127 ], [ %36, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %250, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.052, %127 ], [ %.sroa.6.052, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %256, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %258 = phi i64 [ %35, %127 ], [ %35, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %247, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %259 = phi i64 [ %36, %127 ], [ %36, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %248, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.052, %127 ], [ %.sroa.6.052, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %254, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond59.not, label %._crit_edge, label %34, !llvm.loop !296

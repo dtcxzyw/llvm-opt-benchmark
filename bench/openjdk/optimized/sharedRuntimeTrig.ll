@@ -156,9 +156,9 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   %84 = fmul double %70, 5.000000e-01
   %85 = fmul double %70, %81
   %86 = fmul double %33, %63
-  %87 = fsub double %85, %86
-  %88 = fsub double %87, %84
-  %89 = fadd double %88, 1.000000e+00
+  %87 = fsub double %86, %85
+  %88 = fadd double %84, %87
+  %89 = fsub double 1.000000e+00, %88
   br label %_ZL12__kernel_sinddi.exit
 
 90:                                               ; preds = %69
@@ -173,9 +173,9 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   %96 = fsub double 1.000000e+00, %.029.i
   %97 = fmul double %70, %81
   %98 = fmul double %33, %63
-  %99 = fsub double %97, %98
-  %100 = fsub double %99, %95
-  %101 = fadd double %96, %100
+  %99 = fsub double %98, %97
+  %100 = fadd double %95, %99
+  %101 = fsub double %96, %100
   br label %_ZL12__kernel_sinddi.exit
 
 102:                                              ; preds = %30
@@ -251,9 +251,9 @@ default.unreachable30:                            ; preds = %30
   %153 = fmul double %139, 5.000000e-01
   %154 = fmul double %139, %150
   %155 = fmul double %33, %132
-  %156 = fsub double %154, %155
-  %157 = fsub double %156, %153
-  %158 = fadd double %157, 1.000000e+00
+  %156 = fsub double %155, %154
+  %157 = fadd double %153, %156
+  %158 = fsub double 1.000000e+00, %157
   br label %_ZL12__kernel_cosdd.exit26
 
 159:                                              ; preds = %138
@@ -268,9 +268,9 @@ default.unreachable30:                            ; preds = %30
   %165 = fsub double 1.000000e+00, %.029.i24
   %166 = fmul double %139, %150
   %167 = fmul double %33, %132
-  %168 = fsub double %166, %167
-  %169 = fsub double %168, %164
-  %170 = fadd double %165, %169
+  %168 = fsub double %167, %166
+  %169 = fadd double %164, %168
+  %170 = fsub double %165, %169
   br label %_ZL12__kernel_cosdd.exit26
 
 _ZL12__kernel_cosdd.exit26:                       ; preds = %130, %152, %159
@@ -1227,9 +1227,9 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %25 = fmul double %11, 5.000000e-01
   %26 = fmul double %11, %22
   %27 = fmul double %0, 0.000000e+00
-  %28 = fsub double %26, %27
-  %29 = fsub double %28, %25
-  %30 = fadd double %29, 1.000000e+00
+  %28 = fsub double %27, %26
+  %29 = fadd double %25, %28
+  %30 = fsub double 1.000000e+00, %29
   br label %_ZL12__kernel_cosdd.exit
 
 31:                                               ; preds = %10
@@ -1244,9 +1244,9 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %37 = fsub double 1.000000e+00, %.029.i
   %38 = fmul double %11, %22
   %39 = fmul double %0, 0.000000e+00
-  %40 = fsub double %38, %39
-  %41 = fsub double %40, %36
-  %42 = fadd double %37, %41
+  %40 = fsub double %39, %38
+  %41 = fadd double %36, %40
+  %42 = fsub double %37, %41
   br label %_ZL12__kernel_cosdd.exit
 
 43:                                               ; preds = %1
@@ -1301,9 +1301,9 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %74 = fmul double %60, 5.000000e-01
   %75 = fmul double %60, %71
   %76 = fmul double %50, %53
-  %77 = fsub double %75, %76
-  %78 = fsub double %77, %74
-  %79 = fadd double %78, 1.000000e+00
+  %77 = fsub double %76, %75
+  %78 = fadd double %74, %77
+  %79 = fsub double 1.000000e+00, %78
   br label %_ZL12__kernel_cosdd.exit
 
 80:                                               ; preds = %59
@@ -1318,9 +1318,9 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %86 = fsub double 1.000000e+00, %.029.i16
   %87 = fmul double %60, %71
   %88 = fmul double %50, %53
-  %89 = fsub double %87, %88
-  %90 = fsub double %89, %85
-  %91 = fadd double %86, %90
+  %89 = fsub double %88, %87
+  %90 = fadd double %85, %89
+  %91 = fsub double %86, %90
   br label %_ZL12__kernel_cosdd.exit
 
 92:                                               ; preds = %47
@@ -1393,9 +1393,9 @@ _ZL12__kernel_sinddi.exit:                        ; preds = %92, %98
   %143 = fmul double %129, 5.000000e-01
   %144 = fmul double %129, %140
   %145 = fmul double %50, %122
-  %146 = fsub double %144, %145
-  %147 = fsub double %146, %143
-  %148 = fadd double %147, 1.000000e+00
+  %146 = fsub double %145, %144
+  %147 = fadd double %143, %146
+  %148 = fsub double 1.000000e+00, %147
   br label %_ZL12__kernel_cosdd.exit28
 
 149:                                              ; preds = %128
@@ -1410,9 +1410,9 @@ _ZL12__kernel_sinddi.exit:                        ; preds = %92, %98
   %155 = fsub double 1.000000e+00, %.029.i26
   %156 = fmul double %129, %140
   %157 = fmul double %50, %122
-  %158 = fsub double %156, %157
-  %159 = fsub double %158, %154
-  %160 = fadd double %155, %159
+  %158 = fsub double %157, %156
+  %159 = fadd double %154, %158
+  %160 = fsub double %155, %159
   br label %_ZL12__kernel_cosdd.exit28
 
 _ZL12__kernel_cosdd.exit28:                       ; preds = %120, %142, %149

@@ -538,13 +538,7 @@ define hidden void @_ZN22XRelocationSetSelectorC2Ev(ptr noundef nonnull writeonl
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 2, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %26 = fmul double %7, 0.000000e+00
-  %27 = fptoui double %26 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  store i64 %27, ptr %25, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %24, i8 0, i64 112, i1 false)
   ret void
 }
 

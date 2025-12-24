@@ -7650,8 +7650,8 @@ do.body222:                                       ; preds = %do.body222, %if.end
   %call1.i = call noundef double @_ZNK8QuantLib30MaddockInverseCumulativeNormalclEd(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, double noundef %div.i213)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %90 = call double @llvm.fmuladd.f64(double %call1.i, double %call1.i, double %mul.i)
-  %call3.i = call double @sqrt(double noundef %90) #24, !tbaa !18
-  %add4.i = fadd double %call1.i, %call3.i
+  %sqrt.i = call double @llvm.sqrt.f64(double %90)
+  %add4.i = fadd double %call1.i, %sqrt.i
   %sub229 = fsub double 1.000000e+00, %div226
   %mul230 = fmul double %vkp1.0, %sub229
   %91 = call double @llvm.fmuladd.f64(double %div226, double %add4.i, double %mul230)

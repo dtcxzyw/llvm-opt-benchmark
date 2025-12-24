@@ -5004,9 +5004,9 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11cmyk_to_rgbEiPKhmPhm(i32 
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.031 = phi i32 [ %42, %.lr.ph ], [ %0, %3 ]
-  %.01830 = phi ptr [ %43, %.lr.ph ], [ %1, %3 ]
-  %.01929 = phi ptr [ %44, %.lr.ph ], [ %2, %3 ]
+  %.031 = phi i32 [ %36, %.lr.ph ], [ %0, %3 ]
+  %.01830 = phi ptr [ %37, %.lr.ph ], [ %1, %3 ]
+  %.01929 = phi ptr [ %38, %.lr.ph ], [ %2, %3 ]
   %4 = load i8, ptr %.01830, align 1, !tbaa !14
   %5 = uitofp i8 %4 to float
   %6 = fmul float %5, 0x3F70101020000000
@@ -5026,41 +5026,35 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11cmyk_to_rgbEiPKhmPhm(i32 
   %20 = fmul float %10, %18
   %21 = fmul float %14, %18
   %22 = fmul float %19, 2.550000e+02
-  %23 = fcmp olt float %22, 0.000000e+00
-  %24 = select i1 %23, float -5.000000e-01, float 5.000000e-01
-  %25 = fadd float %22, %24
-  %.inv.i.i = fcmp oge float %25, 0.000000e+00
-  %.0.i.i.i = select i1 %.inv.i.i, float %25, float 0.000000e+00
-  %26 = fcmp ogt float %.0.i.i.i, 2.550000e+02
-  %.1.i.i.i = select i1 %26, float 2.550000e+02, float %.0.i.i.i
-  %27 = fptoui float %.1.i.i.i to i8
-  store i8 %27, ptr %.01929, align 1, !tbaa !14
-  %28 = fmul float %20, 2.550000e+02
-  %29 = fcmp olt float %28, 0.000000e+00
-  %30 = select i1 %29, float -5.000000e-01, float 5.000000e-01
-  %31 = fadd float %28, %30
-  %.inv.i.i20 = fcmp oge float %31, 0.000000e+00
-  %.0.i.i.i21 = select i1 %.inv.i.i20, float %31, float 0.000000e+00
-  %32 = fcmp ogt float %.0.i.i.i21, 2.550000e+02
-  %.1.i.i.i22 = select i1 %32, float 2.550000e+02, float %.0.i.i.i21
-  %33 = fptoui float %.1.i.i.i22 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %.01929, i64 1
-  store i8 %33, ptr %34, align 1, !tbaa !14
-  %35 = fmul float %21, 2.550000e+02
-  %36 = fcmp olt float %35, 0.000000e+00
-  %37 = select i1 %36, float -5.000000e-01, float 5.000000e-01
-  %38 = fadd float %35, %37
-  %.inv.i.i23 = fcmp oge float %38, 0.000000e+00
-  %.0.i.i.i24 = select i1 %.inv.i.i23, float %38, float 0.000000e+00
-  %39 = fcmp ogt float %.0.i.i.i24, 2.550000e+02
-  %.1.i.i.i25 = select i1 %39, float 2.550000e+02, float %.0.i.i.i24
-  %40 = fptoui float %.1.i.i.i25 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %.01929, i64 2
-  store i8 %40, ptr %41, align 1, !tbaa !14
-  %42 = add nsw i32 %.031, -1
-  %43 = getelementptr inbounds nuw i8, ptr %.01830, i64 4
-  %44 = getelementptr inbounds nuw i8, ptr %.01929, i64 3
-  %.not = icmp eq i32 %42, 0
+  %23 = fadd float %22, 5.000000e-01
+  %.inv.i.i = fcmp oge float %23, 0.000000e+00
+  %.0.i.i.i = select i1 %.inv.i.i, float %23, float 0.000000e+00
+  %24 = fcmp ogt float %.0.i.i.i, 2.550000e+02
+  %.1.i.i.i = select i1 %24, float 2.550000e+02, float %.0.i.i.i
+  %25 = fptoui float %.1.i.i.i to i8
+  store i8 %25, ptr %.01929, align 1, !tbaa !14
+  %26 = fmul float %20, 2.550000e+02
+  %27 = fadd float %26, 5.000000e-01
+  %.inv.i.i20 = fcmp oge float %27, 0.000000e+00
+  %.0.i.i.i21 = select i1 %.inv.i.i20, float %27, float 0.000000e+00
+  %28 = fcmp ogt float %.0.i.i.i21, 2.550000e+02
+  %.1.i.i.i22 = select i1 %28, float 2.550000e+02, float %.0.i.i.i21
+  %29 = fptoui float %.1.i.i.i22 to i8
+  %30 = getelementptr inbounds nuw i8, ptr %.01929, i64 1
+  store i8 %29, ptr %30, align 1, !tbaa !14
+  %31 = fmul float %21, 2.550000e+02
+  %32 = fadd float %31, 5.000000e-01
+  %.inv.i.i23 = fcmp oge float %32, 0.000000e+00
+  %.0.i.i.i24 = select i1 %.inv.i.i23, float %32, float 0.000000e+00
+  %33 = fcmp ogt float %.0.i.i.i24, 2.550000e+02
+  %.1.i.i.i25 = select i1 %33, float 2.550000e+02, float %.0.i.i.i24
+  %34 = fptoui float %.1.i.i.i25 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %.01929, i64 2
+  store i8 %34, ptr %35, align 1, !tbaa !14
+  %36 = add nsw i32 %.031, -1
+  %37 = getelementptr inbounds nuw i8, ptr %.01830, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.01929, i64 3
+  %.not = icmp eq i32 %36, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
