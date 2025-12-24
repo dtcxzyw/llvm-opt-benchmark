@@ -2793,8 +2793,8 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
   %313 = sub nsw i64 %.fr.i.i.i.i.i, %.sroa.028.0.copyload.us.i.i.i.i.i
   %.sroa.speculated230.us.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.0223.0301.us.i.i.i.i.i)
   %.sroa.speculated163.us.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.sroa.0204.0300.us.i.i.i.i.i, i64 %313)
-  %reass.sub14 = sub i64 %.sroa.speculated163.us.i.i.i.i.i, %.sroa.speculated230.us.i.i.i.i.i
-  %314 = add i64 %reass.sub14, 43199
+  %314 = sub i64 %.sroa.speculated163.us.i.i.i.i.i, %.sroa.speculated230.us.i.i.i.i.i
+  %314 = add i64 %314, 43199
   %315 = icmp ult i64 %314, 86399
   br i1 %315, label %316, label %322
 
@@ -2840,8 +2840,8 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
   %.sroa.0204.0300.i.i.i.i.i = phi i64 [ %361, %358 ], [ %200, %.lr.ph.i.i.i.i.i ]
   %.sroa.speculated230.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.0223.0301.i.i.i.i.i)
   %.sroa.speculated163.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.sroa.0204.0300.i.i.i.i.i, i64 %.fr.i.i.i.i.i)
-  %reass.sub = sub i64 %.sroa.speculated163.i.i.i.i.i, %.sroa.speculated230.i.i.i.i.i
-  %332 = add i64 %reass.sub, 43199
+  %332 = sub i64 %.sroa.speculated163.i.i.i.i.i, %.sroa.speculated230.i.i.i.i.i
+  %332 = add i64 %332, 43199
   %333 = icmp ult i64 %332, 86399
   br i1 %333, label %334, label %339
 

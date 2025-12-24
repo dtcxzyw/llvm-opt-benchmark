@@ -3079,11 +3079,11 @@ if.end:                                           ; preds = %if.end.i, %if.then.
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %os, i64 noundef %2) #21
   %OutBufEnd.i5.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
+  %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %OutBufCur.i6.i = getelementptr inbounds nuw i8, ptr %call4, i64 24
-  %5 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
+  %4 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
   %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
@@ -3093,9 +3093,9 @@ if.then.i.i:                                      ; preds = %if.then3
   br label %return
 
 if.then4.i.i:                                     ; preds = %if.then3
-  store i16 16928, ptr %5, align 1
-  %6 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i16 16928, ptr %4, align 1
+  %5 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %add.ptr.i.i, ptr %OutBufCur.i6.i, align 8
   br label %return
 
@@ -3113,9 +3113,9 @@ if.then10:                                        ; preds = %if.end6
   unreachable
 
 if.end12:                                         ; preds = %if.end6
-  %7 = getelementptr i8, ptr @.str.33, i64 %conv
-  %arrayidx = getelementptr i8, ptr %7, i64 -1
-  %8 = load i8, ptr %arrayidx, align 1
+  %6 = getelementptr i8, ptr @.str.33, i64 %conv
+  %arrayidx = getelementptr i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx, align 1
   %conv1.i = uitofp nneg i64 %conv to double
   %mul = fmul double %conv1.i, 1.000000e+01
   %exp2 = tail call double @exp2(double %mul) #21
@@ -3124,9 +3124,9 @@ if.end12:                                         ; preds = %if.end6
   store ptr @.str.34, ptr %Fmt.i.i.i, align 8, !alias.scope !37
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJdcEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !37
   %Vals.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store i8 %8, ptr %Vals.i.i, align 8, !alias.scope !37
-  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store double %div16, ptr %9, align 8, !alias.scope !37
+  store i8 %7, ptr %Vals.i.i, align 8, !alias.scope !37
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  store double %div16, ptr %8, align 8, !alias.scope !37
   %call17 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
   br label %return
 

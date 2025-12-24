@@ -635,17 +635,17 @@ define i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef readonly captures(none) %
   %or.cond3 = and i1 %38, %37
   br i1 %or.cond3, label %39, label %45
 
-39:                                               ; preds = %15
+39:; preds = %15
   %40 = add nuw nsw i32 %34, 8
   %41 = select i1 %33, i32 %40, i32 8
   %42 = icmp samesign ult i32 %4, %41
   br i1 %42, label %43, label %45
 
-43:                                               ; preds = %39
+43:; preds = %39
   %44 = add nuw nsw i32 %4, 65
   br label %50
 
-45:                                               ; preds = %39, %15
+45:; preds = %39, %15
   %46 = icmp sgt i32 %.034, %.033
   %47 = icmp slt i32 %4, 67
   %or.cond5 = and i1 %47, %46
@@ -655,7 +655,7 @@ define i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef readonly captures(none) %
   %spec.select = select i1 %or.cond37, i32 %49, i32 %4
   br label %50
 
-50:                                               ; preds = %45, %43
+50:; preds = %45, %43
   %.0 = phi i32 [ %44, %43 ], [ %spec.select, %45 ]
   ret i32 %.0
 }

@@ -1873,85 +1873,85 @@ Vec_IntPush.exit185:                              ; preds = %70
   %90 = load ptr, ptr %89, align 8, !tbaa !16
   %91 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %90, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %.val170 = load ptr, ptr %74, align 8, !tbaa !29
-  %92 = sext i32 %87 to i64
-  %93 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val170, i64 %92
-  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %93, ptr noundef nonnull %83) #21
-  %94 = load i32, ptr %84, align 4, !tbaa !25
-  %95 = add nsw i32 %94, -2
-  store i32 %95, ptr %84, align 4, !tbaa !25
+  %91 = sext i32 %87 to i64
+  %92 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val170, i64 %91
+  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %92, ptr noundef nonnull %83) #21
+  %93 = load i32, ptr %84, align 4, !tbaa !25
+  %94 = add nsw i32 %93, -2
+  store i32 %94, ptr %84, align 4, !tbaa !25
   call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %83, i32 noundef %82, i32 noundef 31)
-  %96 = call i32 @Wlc_ObjAlloc(ptr noundef nonnull %0, i32 noundef 22, i32 noundef 0, i32 noundef %82, i32 noundef 31) #21
-  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %96) #21
-  %98 = load ptr, ptr %89, align 8, !tbaa !16
-  %99 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %98, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
+  %95 = call i32 @Wlc_ObjAlloc(ptr noundef nonnull %0, i32 noundef 22, i32 noundef 0, i32 noundef %82, i32 noundef 31) #21
+  %96 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %95) #21
+  %97 = load ptr, ptr %89, align 8, !tbaa !16
+  %98 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %97, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %.val171 = load ptr, ptr %74, align 8, !tbaa !29
-  %100 = sext i32 %96 to i64
-  %101 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val171, i64 %100
-  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %101, ptr noundef nonnull %83) #21
-  %102 = load ptr, ptr %86, align 8, !tbaa !23
-  %103 = load i32, ptr %84, align 4, !tbaa !25
-  %104 = add nsw i32 %103, -2
-  store i32 %104, ptr %84, align 4, !tbaa !25
-  store i32 %96, ptr %102, align 4, !tbaa !24
-  %105 = call i32 @Wlc_ObjAlloc(ptr noundef nonnull %0, i32 noundef 38, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
-  %106 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %105) #21
-  %107 = load ptr, ptr %89, align 8, !tbaa !16
-  %108 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %107, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
+  %99 = sext i32 %95 to i64
+  %100 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val171, i64 %99
+  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %100, ptr noundef nonnull %83) #21
+  %101 = load ptr, ptr %86, align 8, !tbaa !23
+  %102 = load i32, ptr %84, align 4, !tbaa !25
+  %103 = add nsw i32 %102, -2
+  store i32 %103, ptr %84, align 4, !tbaa !25
+  store i32 %95, ptr %101, align 4, !tbaa !24
+  %104 = call i32 @Wlc_ObjAlloc(ptr noundef nonnull %0, i32 noundef 38, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
+  %105 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %104) #21
+  %106 = load ptr, ptr %89, align 8, !tbaa !16
+  %107 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %106, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %.val172 = load ptr, ptr %74, align 8, !tbaa !29
-  %109 = sext i32 %105 to i64
-  %110 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val172, i64 %109
-  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %110, ptr noundef nonnull %83) #21
+  %108 = sext i32 %104 to i64
+  %109 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val172, i64 %108
+  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %109, ptr noundef nonnull %83) #21
   %.val162 = load ptr, ptr %86, align 8, !tbaa !23
-  store i32 %105, ptr %.val162, align 4, !tbaa !24
-  %111 = load i32, ptr %84, align 4, !tbaa !25
-  %112 = load i32, ptr %83, align 8, !tbaa !26
-  %113 = icmp eq i32 %111, %112
-  br i1 %113, label %Vec_IntPush.exit192.sink.split, label %Vec_IntPush.exit192
+  store i32 %104, ptr %.val162, align 4, !tbaa !24
+  %110 = load i32, ptr %84, align 4, !tbaa !25
+  %111 = load i32, ptr %83, align 8, !tbaa !26
+  %112 = icmp eq i32 %110, %111
+  br i1 %112, label %Vec_IntPush.exit192.sink.split, label %Vec_IntPush.exit192
 
 Vec_IntPush.exit192.sink.split:                   ; preds = %Vec_IntPush.exit185
-  %114 = icmp slt i32 %111, 16
-  %115 = shl nuw nsw i32 %111, 1
-  %116 = zext nneg i32 %115 to i64
-  %117 = shl nuw nsw i64 %116, 2
-  %.sink207 = select i1 %114, i64 64, i64 %117
-  %.sink = select i1 %114, i32 16, i32 %115
-  %118 = call ptr @realloc(ptr noundef nonnull %.val162, i64 noundef %.sink207) #24
-  store ptr %118, ptr %86, align 8, !tbaa !23
+  %113 = icmp slt i32 %110, 16
+  %114 = shl nuw nsw i32 %110, 1
+  %115 = zext nneg i32 %114 to i64
+  %116 = shl nuw nsw i64 %115, 2
+  %.sink208 = select i1 %113, i64 64, i64 %116
+  %.sink = select i1 %113, i32 16, i32 %114
+  %117 = call ptr @realloc(ptr noundef nonnull %.val162, i64 noundef %.sink208) #24
+  store ptr %117, ptr %86, align 8, !tbaa !23
   store i32 %.sink, ptr %83, align 8, !tbaa !26
   br label %Vec_IntPush.exit192
 
 Vec_IntPush.exit192:                              ; preds = %Vec_IntPush.exit192.sink.split, %Vec_IntPush.exit185
-  %119 = phi ptr [ %.val162, %Vec_IntPush.exit185 ], [ %118, %Vec_IntPush.exit192.sink.split ]
-  %120 = load i32, ptr %84, align 4, !tbaa !25
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %84, align 4, !tbaa !25
-  %122 = sext i32 %120 to i64
-  %123 = getelementptr inbounds i32, ptr %119, i64 %122
-  store i32 %87, ptr %123, align 4, !tbaa !24
-  %124 = call i32 @Wlc_ObjAlloc(ptr noundef nonnull %0, i32 noundef 23, i32 noundef 0, i32 noundef 31, i32 noundef 0) #21
-  %125 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %124) #21
-  %126 = load ptr, ptr %89, align 8, !tbaa !16
-  %127 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %126, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
+  %118 = phi ptr [ %.val162, %Vec_IntPush.exit185 ], [ %117, %Vec_IntPush.exit192.sink.split ]
+  %119 = load i32, ptr %84, align 4, !tbaa !25
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %84, align 4, !tbaa !25
+  %121 = sext i32 %119 to i64
+  %122 = getelementptr inbounds i32, ptr %118, i64 %121
+  store i32 %87, ptr %122, align 4, !tbaa !24
+  %123 = call i32 @Wlc_ObjAlloc(ptr noundef nonnull %0, i32 noundef 23, i32 noundef 0, i32 noundef 31, i32 noundef 0) #21
+  %124 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %123) #21
+  %125 = load ptr, ptr %89, align 8, !tbaa !16
+  %126 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %125, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %.val173 = load ptr, ptr %74, align 8, !tbaa !29
-  %128 = sext i32 %124 to i64
-  %129 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val173, i64 %128
-  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %129, ptr noundef nonnull %83) #21
+  %127 = sext i32 %123 to i64
+  %128 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val173, i64 %127
+  call void @Wlc_ObjAddFanins(ptr noundef nonnull %0, ptr noundef %128, ptr noundef nonnull %83) #21
   %.val163 = load ptr, ptr %71, align 8, !tbaa !23
-  %130 = getelementptr inbounds nuw i8, ptr %.val163, i64 4
-  store i32 %124, ptr %130, align 4, !tbaa !24
-  %131 = load ptr, ptr %86, align 8, !tbaa !23
-  %.not.i193 = icmp eq ptr %131, null
+  %129 = getelementptr inbounds nuw i8, ptr %.val163, i64 4
+  store i32 %123, ptr %129, align 4, !tbaa !24
+  %130 = load ptr, ptr %86, align 8, !tbaa !23
+  %.not.i193 = icmp eq ptr %130, null
   br i1 %.not.i193, label %Vec_IntFree.exit194, label %132
 
-132:                                              ; preds = %Vec_IntPush.exit192
+Vec_IntFree.exit194:                              ; preds = %Vec_IntPush.exit192
   call void @free(ptr noundef nonnull %131) #21
-  br label %Vec_IntFree.exit194
+  br label %132
 
-Vec_IntFree.exit194:                              ; preds = %Vec_IntPush.exit192, %132
+132:                                              ; preds = %Vec_IntPush.exit192, %132
   call void @free(ptr noundef nonnull %83) #21
   br label %133
 
-133:                                              ; preds = %70, %Vec_IntFree.exit194, %Vec_IntFree.exit
+133:; preds = %70, %Vec_IntFree.exit194, %Vec_IntFree.exit
   %134 = add nsw i32 %3, -1
   %135 = call i32 @Wlc_ObjAlloc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %134, i32 noundef 0) #21
   %136 = icmp eq ptr %5, null
@@ -1974,7 +1974,7 @@ Vec_IntFree.exit194:                              ; preds = %Vec_IntPush.exit192
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %154, label %146
 
-146:                                              ; preds = %139
+136:                                              ; preds = %139
   %.val175 = load ptr, ptr %143, align 8, !tbaa !29
   %147 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val175, i64 %144
   %148 = trunc i32 %2 to i16
@@ -1986,7 +1986,7 @@ Vec_IntFree.exit194:                              ; preds = %Vec_IntPush.exit192
   store i16 %153, ptr %147, align 8
   br label %154
 
-154:                                              ; preds = %146, %139
+138:                                              ; preds = %136, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %135

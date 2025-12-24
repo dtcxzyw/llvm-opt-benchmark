@@ -604,25 +604,25 @@ define internal fastcc i32 @get_rrp(i32 noundef %0) unnamed_addr #3 {
   %4 = icmp ult i32 %3, 22117
   br i1 %4, label %5, label %7
 
-5:                                                ; preds = %1
+5:; preds = %1
   %6 = shl nuw i32 %2, 1
   br label %15
 
-7:                                                ; preds = %1
+7:; preds = %1
   %8 = add i32 %0, 20069
   %9 = icmp ult i32 %8, 40139
   br i1 %9, label %10, label %12
 
-10:                                               ; preds = %7
+10:; preds = %7
   %11 = add nuw nsw i32 %2, 11059
   br label %15
 
-12:                                               ; preds = %7
+12:; preds = %7
   %13 = lshr i32 %2, 2
   %14 = add nuw nsw i32 %13, 26112
   br label %15
 
-15:                                               ; preds = %10, %12, %5
+15:; preds = %10, %12, %5
   %.0 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %14, %12 ]
   %16 = icmp slt i32 %0, 0
   %17 = sub nsw i32 0, %.0

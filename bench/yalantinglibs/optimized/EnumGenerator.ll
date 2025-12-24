@@ -3094,18 +3094,18 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i32 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i32 %rem.i, 1
   %div.i = udiv i32 %__val.addr.016.i, 100
-  %8 = zext nneg i32 %mul.i to i64
-  %9 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %8
-  %arrayidx.i9 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %10 = load i8, ptr %arrayidx.i9, align 1
+  %7 = zext nneg i32 %mul.i to i64
+  %8 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %7
+  %arrayidx.i9 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %9 = load i8, ptr %arrayidx.i9, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 %idxprom1.i
-  store i8 %10, ptr %arrayidx2.i, align 1
-  %11 = load i8, ptr %9, align 2
+  store i8 %9, ptr %arrayidx2.i, align 1
+  %10 = load i8, ptr %8, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 %idxprom6.i
-  store i8 %11, ptr %arrayidx7.i, align 1
+  store i8 %10, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
   %cmp.i10 = icmp ugt i32 %__val.addr.016.i, 9999
   br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !12
@@ -3117,22 +3117,22 @@ while.end.i:                                      ; preds = %while.body.i, %invo
 
 if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
-  %12 = zext nneg i32 %mul11.i to i64
-  %13 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %12
-  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %14 = load i8, ptr %arrayidx14.i, align 1
+  %11 = zext nneg i32 %mul11.i to i64
+  %12 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %11
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %13 = load i8, ptr %arrayidx14.i, align 1
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
-  store i8 %14, ptr %arrayidx15.i, align 1
-  %15 = load i8, ptr %13, align 2
+  store i8 %13, ptr %arrayidx15.i, align 1
+  %14 = load i8, ptr %12, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %16 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %16, 48
+  %15 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %15, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %15, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %14, %if.then.i ]
   store i8 %storemerge.i, ptr %arrayidx.i, align 1
   ret void
 }

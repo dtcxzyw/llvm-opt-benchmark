@@ -1409,7 +1409,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_n
   %46 = fcmp oeq double %.sroa.08.024.i.i, 0.000000e+00
   br i1 %46, label %.loopexit.i.i, label %51
 
-._crit_edge.i.loopexit.i:                         ; preds = %53
+._crit_edge.i.i:                                  ; preds = %53
   %.sroa.07.0.i.le.i = tail call i32 @llvm.abs.i32(i32 %55, i1 true)
   br label %._crit_edge.i.i
 
@@ -1431,7 +1431,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_n
   %54 = fdiv double %.sroa.08.024.i.i, 1.000000e+308
   %55 = add nsw i32 %.sroa.0.025.i.i, 308
   %56 = icmp samesign ugt i32 %.sroa.0.025.i.i, -617
-  br i1 %56, label %._crit_edge.i.loopexit.i, label %.lr.ph.i.i
+  br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 57:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !106
@@ -1584,11 +1584,11 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   call void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e7c47e632ee824E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(40) %13), !noalias !122
   %18 = load i8, ptr %12, align 8, !range !24, !noalias !120, !noundef !3
   switch i8 %18, label %19 [
-    i8 2, label %.thread90
+    i8 2, label %.thread88
     i8 0, label %24
   ], !prof !25
 
-.thread90:                                        ; preds = %17
+.thread88:                                        ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !120
   br label %.loopexit
 
@@ -1611,7 +1611,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %or.cond = icmp ult i8 %26, 10
   br i1 %or.cond, label %28, label %.loopexit
 
-.loopexit:                                        ; preds = %24, %.thread90
+.loopexit:                                        ; preds = %24, %.thread88
   %27 = icmp eq i32 %.sroa.09.0, 0
   br i1 %27, label %31, label %38
 
@@ -1753,7 +1753,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %74 = fcmp oeq double %.sroa.08.010.i, 0.000000e+00
   br i1 %74, label %.loopexit.i, label %79
 
-._crit_edge.i.loopexit:                           ; preds = %81
+._crit_edge.i:                                    ; preds = %81
   %.sroa.07.0.i.le = tail call i32 @llvm.abs.i32(i32 %83, i1 true)
   br label %._crit_edge.i
 
@@ -1775,7 +1775,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %82 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %83 = add nsw i32 %.sroa.0.011.i, 308
   %84 = icmp samesign ugt i32 %.sroa.0.011.i, -617
-  br i1 %84, label %._crit_edge.i.loopexit, label %.lr.ph.i
+  br i1 %84, label %._crit_edge.i, label %.lr.ph.i
 
 85:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !150
@@ -2957,7 +2957,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %56 = fcmp oeq double %.sroa.08.024.i, 0.000000e+00
   br i1 %56, label %.loopexit.i, label %61
 
-._crit_edge.i.loopexit:                           ; preds = %63
+._crit_edge.i:                                    ; preds = %63
   %.sroa.07.0.i.le = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
   br label %._crit_edge.i
 
@@ -2979,7 +2979,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %64 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %65 = add nsw i32 %.sroa.0.025.i, 308
   %66 = icmp samesign ugt i32 %.sroa.0.025.i, -617
-  br i1 %66, label %._crit_edge.i.loopexit, label %.lr.ph.i
+  br i1 %66, label %._crit_edge.i, label %.lr.ph.i
 
 67:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !394
@@ -3078,19 +3078,19 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   store i8 %23, ptr %24, align 1, !alias.scope !400, !noalias !405
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !403
   switch i8 %23, label %.thread99 [
-    i8 43, label %.thread95
+    i8 43, label %.thread93
     i8 45, label %26
   ]
 
-.thread99:                                        ; preds = %21
+.thread97:                                        ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 57
   store i8 0, ptr %14, align 8, !alias.scope !406, !noalias !409
   br label %.thread61
 
 26:                                               ; preds = %21
-  br label %.thread95
+  br label %.thread93
 
-.thread95:                                        ; preds = %21, %26
+.thread93:                                        ; preds = %21, %26
   %.sroa.07.0.ph = phi i1 [ false, %26 ], [ true, %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 57
   store i8 0, ptr %14, align 8, !alias.scope !411, !noalias !409
@@ -3100,16 +3100,16 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !403
   %.pre = load i8, ptr %14, align 8, !range !6, !alias.scope !413, !noalias !409
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 57
-  %.pre92 = load i8, ptr %.phi.trans.insert, align 1, !alias.scope !413, !noalias !409
+  %.pre90 = load i8, ptr %.phi.trans.insert, align 1, !alias.scope !413, !noalias !409
   %29 = trunc nuw i8 %.pre to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 57
   store i8 0, ptr %14, align 8, !alias.scope !413, !noalias !409
   br i1 %29, label %.thread61, label %31
 
-31:                                               ; preds = %.thread95, %28
+31:                                               ; preds = %.thread93, %28
   %32 = phi ptr [ %27, %.thread95 ], [ %30, %28 ]
-  %.sroa.07.097 = phi i1 [ %.sroa.07.0.ph, %.thread95 ], [ true, %28 ]
+  %.sroa.07.095 = phi i1 [ %.sroa.07.0.ph, %.thread95 ], [ true, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !415
   call void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e7c47e632ee824E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %13), !noalias !409
   %33 = load i8, ptr %11, align 8, !range !24, !noalias !415, !noundef !3
@@ -3131,10 +3131,10 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !415
   br label %46
 
-.thread61:                                        ; preds = %.thread99, %28, %.thread65
+.thread61:                                        ; preds = %.thread97, %28, %.thread65
   %40 = phi ptr [ %32, %.thread65 ], [ %30, %28 ], [ %25, %.thread99 ]
-  %.sroa.07.098 = phi i1 [ %.sroa.07.097, %.thread65 ], [ true, %28 ], [ true, %.thread99 ]
-  %.sroa.10.15464 = phi i8 [ %35, %.thread65 ], [ %.pre92, %28 ], [ %23, %.thread99 ]
+  %.sroa.07.096 = phi i1 [ %.sroa.07.095, %.thread65 ], [ true, %28 ], [ true, %.thread99 ]
+  %.sroa.10.15464 = phi i8 [ %35, %.thread65 ], [ %.pre90, %28 ], [ %23, %.thread99 ]
   %41 = add i8 %.sroa.10.15464, -48
   %or.cond = icmp ult i8 %41, 10
   br i1 %or.cond, label %53, label %48, !prof !181
@@ -3177,8 +3177,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 53:                                               ; preds = %.thread61
   %54 = zext nneg i8 %41 to i32
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.pre93 = load i8, ptr %14, align 8, !range !6, !alias.scope !428, !noalias !431
-  %56 = trunc nuw i8 %.pre93 to i1
+  %.pre91 = load i8, ptr %14, align 8, !range !6, !alias.scope !428, !noalias !431
+  %56 = trunc nuw i8 %.pre91 to i1
   br label %58
 
 57:                                               ; preds = %65, %116, %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17hda6517d5089ef0c3E.exit", %48, %46, %16
@@ -3231,7 +3231,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br i1 %or.cond1, label %73, label %72
 
 72:                                               ; preds = %70
-  br i1 %.sroa.07.098, label %78, label %76
+  br i1 %.sroa.07.096, label %78, label %76
 
 73:                                               ; preds = %70
   store i8 0, ptr %14, align 8, !alias.scope !434
@@ -3265,7 +3265,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %85 = fcmp oeq double %.sroa.08.010.i, 0.000000e+00
   br i1 %85, label %.loopexit.i, label %90
 
-._crit_edge.i.loopexit:                           ; preds = %92
+._crit_edge.i:                                    ; preds = %92
   %.sroa.07.0.i.le = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
   br label %._crit_edge.i
 
@@ -3287,7 +3287,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %93 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %94 = add nsw i32 %.sroa.0.011.i, 308
   %95 = icmp samesign ugt i32 %.sroa.0.011.i, -617
-  br i1 %95, label %._crit_edge.i.loopexit, label %.lr.ph.i
+  br i1 %95, label %._crit_edge.i, label %.lr.ph.i
 
 96:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !440
@@ -3343,7 +3343,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 116:                                              ; preds = %110
   %117 = icmp eq i64 %3, 0
-  tail call void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17h79df836ce87e3d3dE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %117, i1 noundef zeroext %.sroa.07.098)
+  tail call void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17h79df836ce87e3d3dE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %117, i1 noundef zeroext %.sroa.07.096)
   br label %57
 }
 
@@ -4225,7 +4225,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h72
   %35 = fcmp oeq double %.sroa.08.010.i, 0.000000e+00
   br i1 %35, label %.loopexit.i, label %40
 
-._crit_edge.i.loopexit:                           ; preds = %42
+._crit_edge.i:                                    ; preds = %42
   %.sroa.07.0.i.le = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
   br label %._crit_edge.i
 
@@ -4247,7 +4247,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h72
   %43 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %44 = add nsw i32 %.sroa.0.011.i, 308
   %45 = icmp samesign ugt i32 %.sroa.0.011.i, -617
-  br i1 %45, label %._crit_edge.i.loopexit, label %.lr.ph.i
+  br i1 %45, label %._crit_edge.i, label %.lr.ph.i
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !593
@@ -4525,7 +4525,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   %51 = fcmp oeq double %.sroa.08.010.i, 0.000000e+00
   br i1 %51, label %.loopexit.i, label %56
 
-._crit_edge.i.loopexit:                           ; preds = %58
+._crit_edge.i:                                    ; preds = %58
   %.sroa.07.0.i.le = tail call i32 @llvm.abs.i32(i32 %60, i1 true)
   br label %._crit_edge.i
 
@@ -4547,7 +4547,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   %59 = fdiv double %.sroa.08.010.i, 1.000000e+308
   %60 = add nsw i32 %.sroa.0.011.i, 308
   %61 = icmp samesign ugt i32 %.sroa.0.011.i, -617
-  br i1 %61, label %._crit_edge.i.loopexit, label %.lr.ph.i
+  br i1 %61, label %._crit_edge.i, label %.lr.ph.i
 
 62:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !652

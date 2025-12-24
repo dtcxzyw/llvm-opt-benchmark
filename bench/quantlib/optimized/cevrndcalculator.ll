@@ -15729,95 +15729,95 @@ cond.false:                                       ; preds = %if.end
 cond.end:                                         ; preds = %if.end, %cond.false
   %cond = phi x86_fp80 [ %call.i, %cond.false ], [ 0xK40008000000000000000, %if.end ]
   call void @llvm.lifetime.start.p0(ptr nonnull %f_current)
-  %8 = load x86_fp80, ptr %f0, align 16, !tbaa !36
-  store x86_fp80 %8, ptr %f_current, align 16, !tbaa !36
-  %9 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %3)
-  %10 = load x86_fp80, ptr %max, align 16, !tbaa !36
-  %11 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %10)
-  %cmp7 = fcmp olt x86_fp80 %9, %11
+  %7 = load x86_fp80, ptr %f0, align 16, !tbaa !36
+  store x86_fp80 %7, ptr %f_current, align 16, !tbaa !36
+  %8 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %3)
+  %9 = load x86_fp80, ptr %max, align 16, !tbaa !36
+  %10 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %9)
+  %cmp7 = fcmp olt x86_fp80 %8, %10
   %dec94 = add i64 %0, -1
   store i64 %dec94, ptr %count, align 8, !tbaa !24
   %12 = add i32 %5, -1025
   %cmp17 = icmp ult i32 %12, -2049
   %cond18 = select i1 %cmp17, i32 8, i32 2
   %conv19 = uitofp nneg i32 %cond18 to x86_fp80
-  %13 = load x86_fp80, ptr %f, align 16
+  %11 = load x86_fp80, ptr %f, align 16
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 32
-  %14 = load i8, ptr %invert.i, align 16, !range !123
-  %loadedv.i = trunc nuw i8 %14 to i1
+  %12 = load i8, ptr %invert.i, align 16, !range !123
+  %loadedv.i = trunc nuw i8 %12 to i1
   %p.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %15 = load x86_fp80, ptr %p.i, align 16
+  %13 = load x86_fp80, ptr %p.i, align 16
   br i1 %cmp7, label %land.rhs, label %land.rhs23
 
 land.rhs:                                         ; preds = %cond.end, %if.end16
-  %16 = phi x86_fp80 [ %sub23.i, %if.end16 ], [ %8, %cond.end ]
+  %14 = phi x86_fp80 [ %sub23.i, %if.end16 ], [ %7, %cond.end ]
   %multiplier.097 = phi x86_fp80 [ %mul, %if.end16 ], [ %cond, %cond.end ]
   %guess.addr.096 = phi x86_fp80 [ %div13, %if.end16 ], [ %guess, %cond.end ]
-  %cmp9 = fcmp olt x86_fp80 %16, 0xK00000000000000000000
-  %17 = load x86_fp80, ptr %f0, align 16, !tbaa !36
-  %18 = fcmp uge x86_fp80 %17, 0xK00000000000000000000
-  %cmp12 = xor i1 %cmp9, %18
+  %cmp9 = fcmp olt x86_fp80 %14, 0xK00000000000000000000
+  %15 = load x86_fp80, ptr %f0, align 16, !tbaa !36
+  %16 = fcmp uge x86_fp80 %15, 0xK00000000000000000000
+  %cmp12 = xor i1 %cmp9, %16
   br i1 %cmp12, label %while.body, label %if.then44
 
 while.body:                                       ; preds = %land.rhs
   store x86_fp80 %guess.addr.096, ptr %max, align 16, !tbaa !36
   %div13 = fdiv x86_fp80 %guess.addr.096, %multiplier.097
-  %19 = load x86_fp80, ptr %min, align 16, !tbaa !36
-  %cmp14 = fcmp olt x86_fp80 %div13, %19
+  %17 = load x86_fp80, ptr %min, align 16, !tbaa !36
+  %cmp14 = fcmp olt x86_fp80 %div13, %17
   br i1 %cmp14, label %if.then44.sink.split, label %if.end16
 
 if.end16:                                         ; preds = %while.body
   %mul = fmul x86_fp80 %multiplier.097, %conv19
   call void @llvm.lifetime.start.p0(ptr nonnull %ft.i), !noalias !129
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i), !noalias !129
-  %call.i29 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %13, x86_fp80 noundef %div13, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i), !noalias !129
+  %call.i29 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %11, x86_fp80 noundef %div13, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i), !noalias !129
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i), !noalias !129
-  %sub23.i = fsub x86_fp80 %call.i29, %15
+  %sub23.i = fsub x86_fp80 %call.i29, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i), !noalias !129
   store x86_fp80 %sub23.i, ptr %f_current, align 16, !tbaa !36
-  %20 = load i64, ptr %count, align 8, !tbaa !24
-  %dec = add i64 %20, -1
+  %18 = load i64, ptr %count, align 8, !tbaa !24
+  %dec = add i64 %18, -1
   store i64 %dec, ptr %count, align 8, !tbaa !24
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %if.end51, label %land.rhs, !llvm.loop !132
 
 land.rhs23:                                       ; preds = %cond.end, %if.end35
-  %21 = phi x86_fp80 [ %sub23.i48, %if.end35 ], [ %8, %cond.end ]
+  %19 = phi x86_fp80 [ %sub23.i48, %if.end35 ], [ %7, %cond.end ]
   %multiplier.293 = phi x86_fp80 [ %mul39, %if.end35 ], [ %cond, %cond.end ]
   %guess.addr.292 = phi x86_fp80 [ %mul31, %if.end35 ], [ %guess, %cond.end ]
-  %cmp24 = fcmp olt x86_fp80 %21, 0xK00000000000000000000
-  %22 = load x86_fp80, ptr %f0, align 16, !tbaa !36
-  %23 = fcmp uge x86_fp80 %22, 0xK00000000000000000000
-  %cmp28 = xor i1 %cmp24, %23
+  %cmp24 = fcmp olt x86_fp80 %19, 0xK00000000000000000000
+  %20 = load x86_fp80, ptr %f0, align 16, !tbaa !36
+  %21 = fcmp uge x86_fp80 %20, 0xK00000000000000000000
+  %cmp28 = xor i1 %cmp24, %21
   br i1 %cmp28, label %while.body30, label %if.then44
 
 while.body30:                                     ; preds = %land.rhs23
   store x86_fp80 %guess.addr.292, ptr %max, align 16, !tbaa !36
   %mul31 = fmul x86_fp80 %guess.addr.292, %multiplier.293
-  %24 = load x86_fp80, ptr %min, align 16, !tbaa !36
-  %cmp32 = fcmp olt x86_fp80 %mul31, %24
+  %22 = load x86_fp80, ptr %min, align 16, !tbaa !36
+  %cmp32 = fcmp olt x86_fp80 %mul31, %22
   br i1 %cmp32, label %if.then44.sink.split, label %if.end35
 
 if.end35:                                         ; preds = %while.body30
   %mul39 = fmul x86_fp80 %multiplier.293, %conv19
   call void @llvm.lifetime.start.p0(ptr nonnull %ft.i30), !noalias !133
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i31), !noalias !133
-  %call.i34 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %13, x86_fp80 noundef %mul31, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i31, ptr noundef nonnull %ft.i30), !noalias !133
+  %call.i34 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %11, x86_fp80 noundef %mul31, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i31, ptr noundef nonnull %ft.i30), !noalias !133
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i31), !noalias !133
-  %sub23.i48 = fsub x86_fp80 %call.i34, %15
+  %sub23.i48 = fsub x86_fp80 %call.i34, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i30), !noalias !133
   store x86_fp80 %sub23.i48, ptr %f_current, align 16, !tbaa !36
-  %25 = load i64, ptr %count, align 8, !tbaa !24
-  %dec21 = add i64 %25, -1
+  %23 = load i64, ptr %count, align 8, !tbaa !24
+  %dec21 = add i64 %23, -1
   store i64 %dec21, ptr %count, align 8, !tbaa !24
   %tobool22.not = icmp eq i64 %dec21, 0
   br i1 %tobool22.not, label %if.end51, label %land.rhs23, !llvm.loop !136
 
 if.then44.sink.split:                             ; preds = %while.body30, %while.body
-  %.lcssa127.sink = phi x86_fp80 [ %16, %while.body ], [ %21, %while.body30 ]
-  %guess.addr.1.ph.ph = phi x86_fp80 [ %19, %while.body ], [ %24, %while.body30 ]
+  %.lcssa128.sink = phi x86_fp80 [ %14, %while.body ], [ %19, %while.body30 ]
+  %guess.addr.1.ph.ph = phi x86_fp80 [ %17, %while.body ], [ %22, %while.body30 ]
   %multiplier.1.ph.ph = phi x86_fp80 [ %multiplier.097, %while.body ], [ %multiplier.293, %while.body30 ]
-  %fneg = fneg x86_fp80 %.lcssa127.sink
+  %fneg = fneg x86_fp80 %.lcssa128.sink
   store x86_fp80 %fneg, ptr %f_current, align 16, !tbaa !36
   br label %if.then44
 
@@ -15835,9 +15835,9 @@ if.then46:                                        ; preds = %if.then44
   br label %cleanup
 
 if.end51:                                         ; preds = %if.end35, %if.end16, %if.then44
-  %26 = load x86_fp80, ptr %max, align 16, !tbaa !36
-  %27 = load x86_fp80, ptr %min, align 16, !tbaa !36
-  %add52 = fadd x86_fp80 %26, %27
+  %24 = load x86_fp80, ptr %max, align 16, !tbaa !36
+  %25 = load x86_fp80, ptr %min, align 16, !tbaa !36
+  %add52 = fadd x86_fp80 %24, %25
   %div53 = fmul x86_fp80 %add52, 0xK3FFE8000000000000000
   %sub54 = fsub x86_fp80 %guess, %div53
   br label %cleanup
@@ -15889,95 +15889,95 @@ cond.false:                                       ; preds = %if.end
 cond.end:                                         ; preds = %if.end, %cond.false
   %cond = phi x86_fp80 [ %call.i, %cond.false ], [ 0xK40008000000000000000, %if.end ]
   call void @llvm.lifetime.start.p0(ptr nonnull %f_current)
-  %7 = load x86_fp80, ptr %f0, align 16, !tbaa !36
-  store x86_fp80 %7, ptr %f_current, align 16, !tbaa !36
-  %8 = load x86_fp80, ptr %min, align 16, !tbaa !36
-  %9 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %8)
-  %10 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %1)
-  %cmp7 = fcmp olt x86_fp80 %9, %10
+  %6 = load x86_fp80, ptr %f0, align 16, !tbaa !36
+  store x86_fp80 %6, ptr %f_current, align 16, !tbaa !36
+  %7 = load x86_fp80, ptr %min, align 16, !tbaa !36
+  %8 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %7)
+  %9 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %1)
+  %cmp7 = fcmp olt x86_fp80 %8, %9
   %dec94 = add i64 %0, -1
   store i64 %dec94, ptr %count, align 8, !tbaa !24
   %11 = add i32 %4, -1025
   %cmp16 = icmp ult i32 %11, -2049
   %cond17 = select i1 %cmp16, i32 8, i32 2
   %conv18 = uitofp nneg i32 %cond17 to x86_fp80
-  %12 = load x86_fp80, ptr %f, align 16
+  %10 = load x86_fp80, ptr %f, align 16
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 32
-  %13 = load i8, ptr %invert.i, align 16, !range !123
-  %loadedv.i = trunc nuw i8 %13 to i1
+  %11 = load i8, ptr %invert.i, align 16, !range !123
+  %loadedv.i = trunc nuw i8 %11 to i1
   %p.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %14 = load x86_fp80, ptr %p.i, align 16
+  %12 = load x86_fp80, ptr %p.i, align 16
   br i1 %cmp7, label %land.rhs, label %land.rhs23
 
 land.rhs:                                         ; preds = %cond.end, %if.end15
-  %15 = phi x86_fp80 [ %sub23.i, %if.end15 ], [ %7, %cond.end ]
+  %13 = phi x86_fp80 [ %sub23.i, %if.end15 ], [ %6, %cond.end ]
   %multiplier.097 = phi x86_fp80 [ %mul19, %if.end15 ], [ %cond, %cond.end ]
   %guess.addr.096 = phi x86_fp80 [ %mul, %if.end15 ], [ %guess, %cond.end ]
-  %cmp9 = fcmp olt x86_fp80 %15, 0xK00000000000000000000
-  %16 = load x86_fp80, ptr %f0, align 16, !tbaa !36
-  %17 = fcmp uge x86_fp80 %16, 0xK00000000000000000000
-  %cmp12 = xor i1 %cmp9, %17
+  %cmp9 = fcmp olt x86_fp80 %13, 0xK00000000000000000000
+  %14 = load x86_fp80, ptr %f0, align 16, !tbaa !36
+  %15 = fcmp uge x86_fp80 %14, 0xK00000000000000000000
+  %cmp12 = xor i1 %cmp9, %15
   br i1 %cmp12, label %while.body, label %if.then44
 
 while.body:                                       ; preds = %land.rhs
   store x86_fp80 %guess.addr.096, ptr %min, align 16, !tbaa !36
   %mul = fmul x86_fp80 %guess.addr.096, %multiplier.097
-  %18 = load x86_fp80, ptr %max, align 16, !tbaa !36
-  %cmp13 = fcmp ogt x86_fp80 %mul, %18
+  %16 = load x86_fp80, ptr %max, align 16, !tbaa !36
+  %cmp13 = fcmp ogt x86_fp80 %mul, %16
   br i1 %cmp13, label %if.then44.sink.split, label %if.end15
 
 if.end15:                                         ; preds = %while.body
   %mul19 = fmul x86_fp80 %multiplier.097, %conv18
   call void @llvm.lifetime.start.p0(ptr nonnull %ft.i), !noalias !137
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i), !noalias !137
-  %call.i29 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %12, x86_fp80 noundef %mul, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i), !noalias !137
+  %call.i29 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %10, x86_fp80 noundef %mul, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i), !noalias !137
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i), !noalias !137
-  %sub23.i = fsub x86_fp80 %call.i29, %14
+  %sub23.i = fsub x86_fp80 %call.i29, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i), !noalias !137
   store x86_fp80 %sub23.i, ptr %f_current, align 16, !tbaa !36
-  %19 = load i64, ptr %count, align 8, !tbaa !24
-  %dec = add i64 %19, -1
+  %17 = load i64, ptr %count, align 8, !tbaa !24
+  %dec = add i64 %17, -1
   store i64 %dec, ptr %count, align 8, !tbaa !24
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %if.end51, label %land.rhs, !llvm.loop !140
 
 land.rhs23:                                       ; preds = %cond.end, %if.end35
-  %20 = phi x86_fp80 [ %sub23.i48, %if.end35 ], [ %7, %cond.end ]
+  %18 = phi x86_fp80 [ %sub23.i48, %if.end35 ], [ %6, %cond.end ]
   %multiplier.293 = phi x86_fp80 [ %mul39, %if.end35 ], [ %cond, %cond.end ]
   %guess.addr.292 = phi x86_fp80 [ %div31, %if.end35 ], [ %guess, %cond.end ]
-  %cmp24 = fcmp olt x86_fp80 %20, 0xK00000000000000000000
-  %21 = load x86_fp80, ptr %f0, align 16, !tbaa !36
-  %22 = fcmp uge x86_fp80 %21, 0xK00000000000000000000
-  %cmp28 = xor i1 %cmp24, %22
+  %cmp24 = fcmp olt x86_fp80 %18, 0xK00000000000000000000
+  %19 = load x86_fp80, ptr %f0, align 16, !tbaa !36
+  %20 = fcmp uge x86_fp80 %19, 0xK00000000000000000000
+  %cmp28 = xor i1 %cmp24, %20
   br i1 %cmp28, label %while.body30, label %if.then44
 
 while.body30:                                     ; preds = %land.rhs23
   store x86_fp80 %guess.addr.292, ptr %min, align 16, !tbaa !36
   %div31 = fdiv x86_fp80 %guess.addr.292, %multiplier.293
-  %23 = load x86_fp80, ptr %max, align 16, !tbaa !36
-  %cmp32 = fcmp ogt x86_fp80 %div31, %23
+  %21 = load x86_fp80, ptr %max, align 16, !tbaa !36
+  %cmp32 = fcmp ogt x86_fp80 %div31, %21
   br i1 %cmp32, label %if.then44.sink.split, label %if.end35
 
 if.end35:                                         ; preds = %while.body30
   %mul39 = fmul x86_fp80 %multiplier.293, %conv18
   call void @llvm.lifetime.start.p0(ptr nonnull %ft.i30), !noalias !141
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i31), !noalias !141
-  %call.i34 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %12, x86_fp80 noundef %div31, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i31, ptr noundef nonnull %ft.i30), !noalias !141
+  %call.i34 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %10, x86_fp80 noundef %div31, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i31, ptr noundef nonnull %ft.i30), !noalias !141
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i31), !noalias !141
-  %sub23.i48 = fsub x86_fp80 %call.i34, %14
+  %sub23.i48 = fsub x86_fp80 %call.i34, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i30), !noalias !141
   store x86_fp80 %sub23.i48, ptr %f_current, align 16, !tbaa !36
-  %24 = load i64, ptr %count, align 8, !tbaa !24
-  %dec21 = add i64 %24, -1
+  %22 = load i64, ptr %count, align 8, !tbaa !24
+  %dec21 = add i64 %22, -1
   store i64 %dec21, ptr %count, align 8, !tbaa !24
   %tobool22.not = icmp eq i64 %dec21, 0
   br i1 %tobool22.not, label %if.end51, label %land.rhs23, !llvm.loop !144
 
 if.then44.sink.split:                             ; preds = %while.body30, %while.body
-  %.lcssa127.sink = phi x86_fp80 [ %15, %while.body ], [ %20, %while.body30 ]
-  %guess.addr.1.ph.ph = phi x86_fp80 [ %18, %while.body ], [ %23, %while.body30 ]
+  %.lcssa128.sink = phi x86_fp80 [ %13, %while.body ], [ %18, %while.body30 ]
+  %guess.addr.1.ph.ph = phi x86_fp80 [ %16, %while.body ], [ %21, %while.body30 ]
   %multiplier.1.ph.ph = phi x86_fp80 [ %multiplier.097, %while.body ], [ %multiplier.293, %while.body30 ]
-  %fneg = fneg x86_fp80 %.lcssa127.sink
+  %fneg = fneg x86_fp80 %.lcssa128.sink
   store x86_fp80 %fneg, ptr %f_current, align 16, !tbaa !36
   br label %if.then44
 
@@ -15995,9 +15995,9 @@ if.then46:                                        ; preds = %if.then44
   br label %cleanup
 
 if.end51:                                         ; preds = %if.end35, %if.end15, %if.then44
-  %25 = load x86_fp80, ptr %max, align 16, !tbaa !36
-  %26 = load x86_fp80, ptr %min, align 16, !tbaa !36
-  %add52 = fadd x86_fp80 %25, %26
+  %23 = load x86_fp80, ptr %max, align 16, !tbaa !36
+  %24 = load x86_fp80, ptr %min, align 16, !tbaa !36
+  %add52 = fadd x86_fp80 %23, %24
   %div53 = fmul x86_fp80 %add52, 0xK3FFE8000000000000000
   %sub54 = fsub x86_fp80 %guess, %div53
   br label %cleanup

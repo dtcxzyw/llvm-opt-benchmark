@@ -1004,41 +1004,41 @@ define internal void @ac3_extract_exponents_c(ptr noundef writeonly captures(non
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !18
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %17, label %7
+  br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
   %9 = add i32 %6, -65536
   %10 = icmp ult i32 %9, -131071
   %11 = lshr i32 %8, 16
-  %spec.select.i = select i1 %10, i32 %11, i32 %8
+  %spec.select11.i.neg = select i1 %10, i32 %11, i32 %8
   %spec.select11.i.neg = select i1 %10, i8 -16, i8 0
   %.not.i = icmp samesign ult i32 %spec.select.i, 256
-  %12 = lshr i32 %spec.select.i, 8
+  %11 = lshr i32 %spec.select.i, 8
   %.neg11 = add nsw i8 %spec.select11.i.neg, -8
-  %.110.i = select i1 %.not.i, i32 %spec.select.i, i32 %12
+  %.110.i = select i1 %.not.i, i32 %spec.select.i, i32 %11
   %.1.i.neg12 = select i1 %.not.i, i8 %spec.select11.i.neg, i8 %.neg11
-  %13 = zext nneg i32 %.110.i to i64
-  %14 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !45
+  %12 = zext nneg i32 %.110.i to i64
+  %13 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !45
   %.neg9 = add nsw i8 %.1.i.neg12, 23
-  %16 = sub i8 %.neg9, %15
-  br label %17
+  %15 = sub i8 %.neg9, %14
+  br label %16
 
-17:                                               ; preds = %.lr.ph, %7
-  %18 = phi i8 [ %16, %7 ], [ 24, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %18, ptr %19, align 1, !tbaa !45
+16:                                               ; preds = %.lr.ph, %7
+  %17 = phi i8 [ %15, %7 ], [ 24, %.lr.ph ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %17, ptr %18, align 1, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %17, %3
+._crit_edge:                                      ; preds = %16, %3
   ret void
 }
 

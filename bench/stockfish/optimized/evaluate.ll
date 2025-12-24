@@ -738,11 +738,11 @@ define dso_local noundef range(i32 -31506, 31507) i32 @_ZN9Stockfish4Eval8evalua
   %36 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE1EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext %35) #18
   br label %39
 
-37:                                               ; preds = %2
+37:; preds = %2
   %38 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext false) #18
   br label %39
 
-39:                                               ; preds = %37, %33
+39: ; preds = %37, %33
   %40 = phi i32 [ %36, %33 ], [ %38, %37 ]
   %41 = load i32, ptr %3, align 4
   %42 = sub nsw i32 %30, %40

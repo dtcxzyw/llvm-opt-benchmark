@@ -279,7 +279,7 @@ define dso_local noundef ptr @_ZN8simdjson8internal8to_charsEPcPKcd(ptr noundef 
   store i8 46, ptr %14, align 1, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %.012, i64 3
   store i8 48, ptr %15, align 1, !tbaa !4
-  br label %90
+  br label %88
 
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -374,24 +374,24 @@ define dso_local noundef ptr @_ZN8simdjson8internal8to_charsEPcPKcd(ptr noundef 
   %63 = icmp ult i32 %62, 19
   br i1 %63, label %64, label %69
 
-64:                                               ; preds = %59
-  %65 = getelementptr i8, ptr %.pn.i, i64 4
+63:                                               ; preds = %59
+  %64 = getelementptr i8, ptr %.pn.i, i64 4
   store i8 48, ptr %.023.i.i, align 1, !tbaa !4
-  %66 = trunc nuw nsw i32 %.0.i.i to i8
-  %67 = or disjoint i8 %66, 48
-  %68 = getelementptr i8, ptr %.pn.i, i64 5
-  store i8 %67, ptr %65, align 1, !tbaa !4
+  %65 = trunc nuw nsw i32 %.0.i.i to i8
+  %66 = or disjoint i8 %65, 48
+  %67 = getelementptr i8, ptr %.pn.i, i64 5
+  store i8 %66, ptr %64, align 1, !tbaa !4
   br label %_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit
 
-69:                                               ; preds = %59
+68:                                               ; preds = %59
   %70 = add i32 %20, 98
   %71 = icmp ult i32 %70, 199
   %72 = getelementptr i8, ptr %.pn.i, i64 4
   br i1 %71, label %73, label %79
 
-73:                                               ; preds = %69
+71:                                               ; preds = %68
   %.lhs.trunc.i.i = trunc i32 %.0.i.i to i8
-  %74 = udiv i8 %.lhs.trunc.i.i, 10
+  %72 = udiv i8 %.lhs.trunc.i.i, 10
   %75 = or disjoint i8 %74, 48
   store i8 %75, ptr %.023.i.i, align 1, !tbaa !4
   %76 = urem i8 %.lhs.trunc.i.i, 10
@@ -400,30 +400,30 @@ define dso_local noundef ptr @_ZN8simdjson8internal8to_charsEPcPKcd(ptr noundef 
   store i8 %77, ptr %72, align 1, !tbaa !4
   br label %_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit
 
-79:                                               ; preds = %69
-  %80 = udiv i32 %.0.i.i, 100
-  %81 = trunc i32 %80 to i8
-  %82 = add i8 %81, 48
-  store i8 %82, ptr %.023.i.i, align 1, !tbaa !4
-  %83 = urem i32 %.0.i.i, 100
-  %.lhs.trunc28.i.i = trunc nuw nsw i32 %83 to i8
-  %84 = udiv i8 %.lhs.trunc28.i.i, 10
-  %85 = or disjoint i8 %84, 48
-  %86 = getelementptr i8, ptr %.pn.i, i64 5
-  store i8 %85, ptr %72, align 1, !tbaa !4
-  %87 = urem i8 %.lhs.trunc28.i.i, 10
-  %88 = or disjoint i8 %87, 48
-  %89 = getelementptr i8, ptr %.pn.i, i64 6
-  store i8 %88, ptr %86, align 1, !tbaa !4
+77:                                               ; preds = %68
+  %78 = udiv i32 %.0.i.i, 100
+  %79 = trunc i32 %78 to i8
+  %80 = add i8 %79, 48
+  store i8 %80, ptr %.023.i.i, align 1, !tbaa !4
+  %81 = urem i32 %.0.i.i, 100
+  %.lhs.trunc28.i.i = trunc nuw nsw i32 %81 to i8
+  %82 = udiv i8 %.lhs.trunc28.i.i, 10
+  %83 = or disjoint i8 %82, 48
+  %84 = getelementptr i8, ptr %.pn.i, i64 5
+  store i8 %83, ptr %72, align 1, !tbaa !4
+  %85 = urem i8 %.lhs.trunc28.i.i, 10
+  %86 = or disjoint i8 %85, 48
+  %87 = getelementptr i8, ptr %.pn.i, i64 6
+  store i8 %86, ptr %84, align 1, !tbaa !4
   br label %_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit
 
-_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit: ; preds = %21, %32, %42, %64, %73, %79
-  %.0.i = phi ptr [ %28, %21 ], [ %39, %32 ], [ %50, %42 ], [ %68, %64 ], [ %78, %73 ], [ %89, %79 ]
+_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit: ; preds = %21, %32, %42, %63, %71, %77
+  %.0.i = phi ptr [ %28, %21 ], [ %39, %32 ], [ %50, %42 ], [ %67, %64 ], [ %78, %73 ], [ %87, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %90
+  br label %88
 
-90:                                               ; preds = %_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit, %13
+88:                                               ; preds = %_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit, %13
   %.0 = phi ptr [ %16, %13 ], [ %.0.i, %_ZN8simdjson8internal9dtoa_impl13format_bufferEPciiii.exit ]
   ret ptr %.0
 }

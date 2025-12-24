@@ -1325,7 +1325,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %wide.trip.count806.i = zext i32 %478 to i64
   br label %511
 
-511:                                              ; preds = %634, %.lr.ph712.i
+511:                                              ; preds = %630, %.lr.ph712.i
   %indvars.iv803.i = phi i64 [ 0, %.lr.ph712.i ], [ %indvars.iv.next804.i, %634 ]
   %512 = getelementptr inbounds nuw %struct.icomtr, ptr %483, i64 %indvars.iv803.i
   %513 = load i32, ptr %512, align 8, !tbaa !60
@@ -1338,7 +1338,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %520 = shl nuw i64 1, %519
   %521 = and i64 %520, %518
   %.not609.i = icmp eq i64 %521, 0
-  br i1 %.not609.i, label %634, label %522
+  br i1 %.not609.i, label %630, label %522
 
 522:                                              ; preds = %511
   %523 = getelementptr inbounds nuw i8, ptr %512, i64 4
@@ -1352,7 +1352,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %531 = shl nuw i64 1, %530
   %532 = and i64 %531, %529
   %.not610.i = icmp eq i64 %532, 0
-  br i1 %.not610.i, label %634, label %533
+  br i1 %.not610.i, label %630, label %533
 
 533:                                              ; preds = %522
   br i1 %.not611.i, label %534, label %552
@@ -1464,8 +1464,8 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %614 = getelementptr inbounds nuw i8, ptr %512, i64 236
   %615 = load i32, ptr %614, align 4, !tbaa !89
   %616 = sub nsw i32 %486, %615
-  %617 = add i32 %616, 9
-  %618 = icmp ult i32 %617, 19
+  %616 = add i32 %616, 9
+  %618 = icmp ult i32 %616, 19
   %619 = call i32 @llvm.abs.i32(i32 %616, i1 true)
   %.neg617.i = mul i32 %619, -10
   %620 = add i32 %.neg617.i, 100
@@ -1487,30 +1487,30 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %.0.i = phi i32 [ 70, %582 ], [ %480, %587 ]
   %.0520.i = udiv i32 %.0520.in.i, 6
   %.not619.i = icmp ult i32 %.0520.i, %.0.i
-  br i1 %.not619.i, label %634, label %633
+  br i1 %.not619.i, label %630, label %629
 
-633:                                              ; preds = %632
+629:                                              ; preds = %632
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, i32 noundef %.0520.i) #14
   br label %parseicon.exit
 
-634:                                              ; preds = %632, %522, %511
+630:                                              ; preds = %632, %522, %511
   %indvars.iv.next804.i = add nuw nsw i64 %indvars.iv803.i, 1
   %exitcond807.not.i = icmp eq i64 %indvars.iv.next804.i, %wide.trip.count806.i
   br i1 %exitcond807.not.i, label %parseicon.exit, label %511
 
-parseicon.exit:                                   ; preds = %634, %.loopexit649.i, %161, %141, %14, %17, %5, %110, %140, %160, %109, %96, %84, %72, %fmap_readn.exit.thread.i, %48, %633, %.thread.i
+parseicon.exit:                                   ; preds = %630, %.loopexit649.i, %161, %141, %14, %17, %5, %110, %140, %160, %109, %96, %84, %72, %fmap_readn.exit.thread.i, %48, %629, %.thread.i
   %.0521.i.sink = phi i32 [ 1, %633 ], [ 20, %.thread.i ], [ 0, %.loopexit649.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %634 ]
-  %635 = phi i32 [ 1, %633 ], [ 1, %.thread.i ], [ 0, %.loopexit649.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %634 ]
+  %631 = phi i32 [ 1, %633 ], [ 1, %.thread.i ], [ 0, %.loopexit649.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %634 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %636 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.0521.i.sink, ptr %636, align 4, !tbaa !51
-  %637 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %638 = load i32, ptr %637, align 4, !tbaa !52
-  %639 = add i32 %638, 1
-  store i32 %639, ptr %637, align 4, !tbaa !52
-  ret i32 %635
+  %632 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.0521.i.sink, ptr %632, align 4, !tbaa !51
+  %633 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %634 = load i32, ptr %633, align 4, !tbaa !52
+  %635 = add i32 %634, 1
+  store i32 %635, ptr %633, align 4, !tbaa !52
+  ret i32 %631
 }
 
 ; Function Attrs: nounwind uwtable

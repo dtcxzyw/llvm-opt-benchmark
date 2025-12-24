@@ -581,25 +581,25 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %164
 
-154:                                              ; preds = %151
+136:                                              ; preds = %151
   %155 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %146, i32 noundef 16, i64 noundef 0, i32 noundef 0) #10
   br label %164
 
-156:                                              ; preds = %144
+.split1:                                          ; preds = %144
   %157 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9appendIntEljmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %146, i32 noundef 10, i64 noundef 0, i32 noundef 0) #10
   br label %164
 
-158:                                              ; preds = %5
+141:                                              ; preds = %5
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %160 = load i32, ptr %159, align 4, !tbaa !42
   %161 = tail call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %160) #10
   br label %164
 
-162:                                              ; preds = %5
+143:                                              ; preds = %5
   %163 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.10, i64 noundef -1) #10
   br label %164
 
-164:                                              ; preds = %162, %158, %156, %154, %151, %142, %.split1, %137, %128, %109, %96, %91, %76, %69, %61, %54, %51, %44, %38, %28, %10
+164:; preds = %162, %158, %156, %154, %151, %142, %.split1, %137, %128, %109, %96, %91, %76, %69, %61, %54, %51, %44, %38, %28, %10
   %165 = phi i32 [ %15, %10 ], [ %161, %158 ], [ %163, %162 ], [ %30, %28 ], [ %52, %51 ], [ %55, %54 ], [ %45, %44 ], [ %42, %38 ], [ %113, %109 ], [ %103, %96 ], [ %92, %91 ], [ %64, %61 ], [ %143, %142 ], [ %140, %.split1 ], [ %129, %128 ], [ %155, %154 ], [ %152, %151 ], [ %157, %156 ], [ %70, %69 ], [ %82, %76 ], [ %138, %137 ]
   ret i32 %165
 }
