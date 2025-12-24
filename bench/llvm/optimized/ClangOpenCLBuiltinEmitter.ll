@@ -12571,7 +12571,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %355, %353, %349, %3
   store ptr %41, ptr %12, align 8, !tbaa !88, !alias.scope !335, !noalias !328
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %359, i8 noundef signext 45) #22
   %360 = load ptr, ptr %12, align 8, !tbaa !93, !alias.scope !335, !noalias !328
-  %361 = icmp ugt i32 %247, 99
+  %361 = icmp sgt i32 %247, 99
   br i1 %361, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i

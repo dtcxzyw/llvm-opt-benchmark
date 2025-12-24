@@ -728,57 +728,58 @@ define dso_local noundef range(i32 -31506, 31507) i32 @_ZN9Stockfish4Eval8evalua
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %19, %25
   %30 = sub i32 %29, %28
-  %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %32 = icmp samesign ugt i32 %31, 1050
-  br i1 %32, label %33, label %36
+  %31 = add i32 %30, -1051
+  %32 = icmp ult i32 %31, -2101
+  br i1 %32, label %33, label %37
 
 33:                                               ; preds = %2
-  %34 = icmp samesign ugt i32 %31, 2500
-  %35 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE1EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext %34) #18
-  br label %38
+  %34 = add i32 %30, -2501
+  %35 = icmp ult i32 %34, -5001
+  %36 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE1EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext %35) #18
+  br label %39
 
-36:                                               ; preds = %2
-  %37 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext false) #18
-  br label %38
+37:                                               ; preds = %2
+  %38 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext false) #18
+  br label %39
 
-38:                                               ; preds = %36, %33
-  %39 = phi i32 [ %35, %33 ], [ %37, %36 ]
-  %40 = load i32, ptr %3, align 4
-  %41 = sub nsw i32 %30, %39
-  %42 = call i32 @llvm.abs.i32(i32 %41, i1 true)
-  %43 = add nsw i32 %42, %40
-  %44 = mul nsw i32 %43, %1
-  %45 = sdiv i32 %44, 512
-  %46 = add nsw i32 %45, %1
-  %47 = mul nsw i32 %43, %39
-  %.neg = sdiv i32 %47, -32768
-  %48 = add i32 %.neg, %39
-  %49 = load ptr, ptr %20, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 20
-  %53 = load i32, ptr %52, align 4
-  %54 = add nsw i32 %53, %51
-  %55 = sdiv i32 %54, 64
-  %56 = add nsw i32 %55, 915
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  %60 = load i32, ptr %59, align 4
-  %61 = add nsw i32 %60, %58
-  %62 = mul nsw i32 %61, 9
-  %63 = add nsw i32 %56, %62
-  %64 = mul nsw i32 %63, %48
-  %65 = add nsw i32 %55, 154
-  %66 = mul nsw i32 %65, %46
-  %67 = add nsw i32 %64, %66
-  %68 = sdiv i32 %67, 1024
-  %69 = getelementptr inbounds nuw i8, ptr %49, i64 28
-  %70 = load i32, ptr %69, align 4
-  %71 = sub nsw i32 200, %70
-  %72 = mul nsw i32 %68, %71
-  %73 = sdiv i32 %72, 214
-  %.sroa.speculate.load.false.sroa.speculated = call i32 @llvm.smax.i32(i32 %73, i32 -31506)
+39:                                               ; preds = %37, %33
+  %40 = phi i32 [ %36, %33 ], [ %38, %37 ]
+  %41 = load i32, ptr %3, align 4
+  %42 = sub nsw i32 %30, %40
+  %43 = call i32 @llvm.abs.i32(i32 %42, i1 true)
+  %44 = add nsw i32 %43, %41
+  %45 = mul nsw i32 %44, %1
+  %46 = sdiv i32 %45, 512
+  %47 = add nsw i32 %46, %1
+  %48 = mul nsw i32 %44, %40
+  %.neg = sdiv i32 %48, -32768
+  %49 = add i32 %.neg, %40
+  %50 = load ptr, ptr %20, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i32, ptr %51, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 20
+  %54 = load i32, ptr %53, align 4
+  %55 = add nsw i32 %54, %52
+  %56 = sdiv i32 %55, 64
+  %57 = add nsw i32 %56, 915
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 340
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  %61 = load i32, ptr %60, align 4
+  %62 = add nsw i32 %61, %59
+  %63 = mul nsw i32 %62, 9
+  %64 = add nsw i32 %57, %63
+  %65 = mul nsw i32 %64, %49
+  %66 = add nsw i32 %56, 154
+  %67 = mul nsw i32 %66, %47
+  %68 = add nsw i32 %65, %67
+  %69 = sdiv i32 %68, 1024
+  %70 = getelementptr inbounds nuw i8, ptr %50, i64 28
+  %71 = load i32, ptr %70, align 4
+  %72 = sub nsw i32 200, %71
+  %73 = mul nsw i32 %69, %72
+  %74 = sdiv i32 %73, 214
+  %.sroa.speculate.load.false.sroa.speculated = call i32 @llvm.smax.i32(i32 %74, i32 -31506)
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.sroa.speculate.load.false.sroa.speculated, i32 31506)
   ret i32 %.sroa.speculated
 }

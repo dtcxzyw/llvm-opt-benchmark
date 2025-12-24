@@ -107,76 +107,78 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %.in.in.i44 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i43
   %.in.i45 = load i16, ptr %.in.in.i44, align 2, !tbaa !18
   %28 = zext i16 %.in.i45 to i32
-  br label %75
+  br label %77
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %.04051 = phi ptr [ %15, %.lr.ph ], [ %47, %29 ]
-  %.04150 = phi i32 [ %20, %.lr.ph ], [ %43, %29 ]
+  %.04051 = phi ptr [ %15, %.lr.ph ], [ %49, %29 ]
+  %.04150 = phi i32 [ %20, %.lr.ph ], [ %45, %29 ]
   %30 = getelementptr inbounds i16, ptr %26, i64 %indvars.iv
   %31 = load i16, ptr %30, align 2, !tbaa !18
   %32 = tail call i16 @llvm.abs.i16(i16 %31, i1 false)
-  %33 = zext i16 %32 to i64
-  %34 = getelementptr inbounds nuw i16, ptr @VP8LevelFixedCosts, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !18
-  %36 = zext i16 %35 to i32
-  %37 = tail call i16 @llvm.umin.i16(i16 %32, i16 67)
-  %38 = zext nneg i16 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %.04051, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !18
-  %41 = zext i16 %40 to i32
-  %42 = add nuw nsw i32 %.04150, %36
-  %43 = add nuw nsw i32 %42, %41
+  %33 = add i16 %31, -2
+  %34 = icmp ult i16 %33, -3
+  %35 = zext i16 %32 to i64
+  %36 = getelementptr inbounds nuw i16, ptr @VP8LevelFixedCosts, i64 %35
+  %37 = load i16, ptr %36, align 2, !tbaa !18
+  %38 = zext i16 %37 to i32
+  %39 = tail call i16 @llvm.umin.i16(i16 %32, i16 67)
+  %40 = zext nneg i16 %39 to i64
+  %41 = getelementptr inbounds nuw i16, ptr %.04051, i64 %40
+  %42 = load i16, ptr %41, align 2, !tbaa !18
+  %43 = zext i16 %42 to i32
+  %44 = add nuw nsw i32 %.04150, %38
+  %45 = add nuw nsw i32 %44, %43
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds [3 x ptr], ptr %12, i64 %indvars.iv.next
-  %narrow = tail call i16 @llvm.umin.i16(i16 %32, i16 2)
-  %45 = zext nneg i16 %narrow to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !17
+  %46 = getelementptr inbounds [3 x ptr], ptr %12, i64 %indvars.iv.next
+  %narrow = select i1 %34, i16 2, i16 %32
+  %47 = zext i16 %narrow to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %29, %.preheader
   %.pre-phi = phi i64 [ %6, %.preheader ], [ %wide.trip.count, %29 ]
-  %.041.lcssa = phi i32 [ %20, %.preheader ], [ %43, %29 ]
-  %.040.lcssa = phi ptr [ %15, %.preheader ], [ %47, %29 ]
+  %.041.lcssa = phi i32 [ %20, %.preheader ], [ %45, %29 ]
+  %.040.lcssa = phi ptr [ %15, %.preheader ], [ %49, %29 ]
   %.039.lcssa = phi i32 [ %3, %.preheader ], [ %22, %29 ]
-  %48 = getelementptr inbounds i16, ptr %26, i64 %.pre-phi
-  %49 = load i16, ptr %48, align 2, !tbaa !18
-  %50 = tail call i16 @llvm.abs.i16(i16 %49, i1 false)
-  %51 = zext i16 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr @VP8LevelFixedCosts, i64 %51
-  %53 = load i16, ptr %52, align 2, !tbaa !18
-  %54 = zext i16 %53 to i32
-  %55 = tail call i16 @llvm.umin.i16(i16 %50, i16 67)
-  %56 = zext nneg i16 %55 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %.040.lcssa, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !18
-  %59 = zext i16 %58 to i32
-  %60 = add nuw nsw i32 %.041.lcssa, %54
-  %61 = add nuw nsw i32 %60, %59
-  %62 = icmp samesign ult i32 %.039.lcssa, 15
-  br i1 %62, label %63, label %75
+  %50 = getelementptr inbounds i16, ptr %26, i64 %.pre-phi
+  %51 = load i16, ptr %50, align 2, !tbaa !18
+  %52 = tail call i16 @llvm.abs.i16(i16 %51, i1 false)
+  %53 = zext i16 %52 to i64
+  %54 = getelementptr inbounds nuw i16, ptr @VP8LevelFixedCosts, i64 %53
+  %55 = load i16, ptr %54, align 2, !tbaa !18
+  %56 = zext i16 %55 to i32
+  %57 = tail call i16 @llvm.umin.i16(i16 %52, i16 67)
+  %58 = zext nneg i16 %57 to i64
+  %59 = getelementptr inbounds nuw i16, ptr %.040.lcssa, i64 %58
+  %60 = load i16, ptr %59, align 2, !tbaa !18
+  %61 = zext i16 %60 to i32
+  %62 = add nuw nsw i32 %.041.lcssa, %56
+  %63 = add nuw nsw i32 %62, %61
+  %64 = icmp samesign ult i32 %.039.lcssa, 15
+  br i1 %64, label %65, label %77
 
-63:                                               ; preds = %._crit_edge
-  %64 = getelementptr i8, ptr @VP8EncBands, i64 %.pre-phi
-  %65 = getelementptr i8, ptr %64, i64 1
-  %66 = load i8, ptr %65, align 1, !tbaa !15
-  %67 = icmp eq i16 %50, 1
-  %68 = zext i8 %66 to i64
-  %69 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %68
-  %70 = select i1 %67, i64 1, i64 2
-  %71 = getelementptr inbounds nuw [11 x i8], ptr %69, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !15
-  %.pn.i47 = zext i8 %72 to i64
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr i8, ptr @VP8EncBands, i64 %.pre-phi
+  %67 = getelementptr i8, ptr %66, i64 1
+  %68 = load i8, ptr %67, align 1, !tbaa !15
+  %69 = icmp eq i16 %52, 1
+  %70 = zext i8 %68 to i64
+  %71 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %70
+  %72 = select i1 %69, i64 1, i64 2
+  %73 = getelementptr inbounds nuw [11 x i8], ptr %71, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !15
+  %.pn.i47 = zext i8 %74 to i64
   %.in.in.i48 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i47
   %.in.i49 = load i16, ptr %.in.in.i48, align 2, !tbaa !18
-  %73 = zext i16 %.in.i49 to i32
-  %74 = add nuw nsw i32 %61, %73
-  br label %75
+  %75 = zext i16 %.in.i49 to i32
+  %76 = add nuw nsw i32 %63, %75
+  br label %77
 
-75:                                               ; preds = %._crit_edge, %63, %27
-  %.0 = phi i32 [ %28, %27 ], [ %74, %63 ], [ %61, %._crit_edge ]
+77:                                               ; preds = %._crit_edge, %65, %27
+  %.0 = phi i32 [ %28, %27 ], [ %76, %65 ], [ %63, %._crit_edge ]
   ret i32 %.0
 }
 

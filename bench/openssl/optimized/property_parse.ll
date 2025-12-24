@@ -1423,8 +1423,8 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %put_num.exit
-  %.153 = phi ptr [ %101, %put_num.exit ], [ %16, %.lr.ph.preheader ]
-  %.02252 = phi i32 [ %100, %put_num.exit ], [ 0, %.lr.ph.preheader ]
+  %.153 = phi ptr [ %102, %put_num.exit ], [ %16, %.lr.ph.preheader ]
+  %.02252 = phi i32 [ %101, %put_num.exit ], [ 0, %.lr.ph.preheader ]
   %17 = load i32, ptr %.153, align 8, !tbaa !14
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %put_num.exit, label %19
@@ -1607,73 +1607,77 @@ put_char.exit46:                                  ; preds = %67, %70
   %86 = getelementptr inbounds nuw i8, ptr %.153, i64 16
   %87 = load i64, ptr %86, align 8, !tbaa !3
   %88 = icmp slt i64 %87, 0
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %87, i1 true)
   %spec.select27.i = select i1 %88, i64 2, i64 1
-  %89 = icmp samesign ugt i64 %spec.select.i, 9
-  br i1 %89, label %.lr.ph.i, label %._crit_edge.i
+  %89 = add i64 %87, -10
+  %90 = icmp ult i64 %89, -19
+  br i1 %90, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %85, %.lr.ph.i
-  %.129.i = phi i64 [ %90, %.lr.ph.i ], [ %spec.select27.i, %85 ]
-  %.12228.i = phi i64 [ %91, %.lr.ph.i ], [ %spec.select.i, %85 ]
-  %90 = add i64 %.129.i, 1
-  %91 = udiv i64 %.12228.i, 10
-  %92 = icmp samesign ugt i64 %.12228.i, 99
-  br i1 %92, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !32
+.lr.ph.preheader.i:                               ; preds = %85
+  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %87, i1 true)
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.129.i = phi i64 [ %91, %.lr.ph.i ], [ %spec.select27.i, %.lr.ph.preheader.i ]
+  %.12228.i = phi i64 [ %92, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.preheader.i ]
+  %91 = add i64 %.129.i, 1
+  %92 = udiv i64 %.12228.i, 10
+  %93 = icmp samesign ugt i64 %.12228.i, 99
+  br i1 %93, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %85
-  %.1.lcssa.i = phi i64 [ %spec.select27.i, %85 ], [ %90, %.lr.ph.i ]
-  %93 = load i64, ptr %7, align 8, !tbaa !30
-  %94 = add i64 %93, %.1.lcssa.i
-  store i64 %94, ptr %7, align 8, !tbaa !30
-  %95 = load i64, ptr %6, align 8, !tbaa !30
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %put_num.exit, label %97
+  %.1.lcssa.i = phi i64 [ %spec.select27.i, %85 ], [ %91, %.lr.ph.i ]
+  %94 = load i64, ptr %7, align 8, !tbaa !30
+  %95 = add i64 %94, %.1.lcssa.i
+  store i64 %95, ptr %7, align 8, !tbaa !30
+  %96 = load i64, ptr %6, align 8, !tbaa !30
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %put_num.exit, label %98
 
-97:                                               ; preds = %._crit_edge.i
-  %98 = load ptr, ptr %5, align 8, !tbaa !8
-  %99 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %98, i64 noundef %95, ptr noundef nonnull @.str.16, i64 noundef %87) #10
-  %.sink.v.i = tail call i64 @llvm.umin.i64(i64 %95, i64 %.1.lcssa.i)
-  %.sink.i47 = getelementptr inbounds nuw i8, ptr %98, i64 %.sink.v.i
-  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %95, i64 %.1.lcssa.i)
+98:                                               ; preds = %._crit_edge.i
+  %99 = load ptr, ptr %5, align 8, !tbaa !8
+  %100 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %99, i64 noundef %96, ptr noundef nonnull @.str.16, i64 noundef %87) #10
+  %.sink.v.i = tail call i64 @llvm.umin.i64(i64 %96, i64 %.1.lcssa.i)
+  %.sink.i47 = getelementptr inbounds nuw i8, ptr %99, i64 %.sink.v.i
+  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %96, i64 %.1.lcssa.i)
   store ptr %.sink.i47, ptr %5, align 8, !tbaa !8
   store i64 %storemerge.i, ptr %6, align 8, !tbaa !30
   br label %put_num.exit
 
-put_num.exit:                                     ; preds = %97, %._crit_edge.i, %84, %54, %.lr.ph
-  %100 = add nuw nsw i32 %.02252, 1
-  %101 = getelementptr inbounds i8, ptr %.153, i64 -24
-  %102 = load i32, ptr %1, align 8, !tbaa !25
-  %103 = icmp slt i32 %100, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+put_num.exit:                                     ; preds = %98, %._crit_edge.i, %84, %54, %.lr.ph
+  %101 = add nuw nsw i32 %.02252, 1
+  %102 = getelementptr inbounds i8, ptr %.153, i64 -24
+  %103 = load i32, ptr %1, align 8, !tbaa !25
+  %104 = icmp slt i32 %101, %103
+  br i1 %104, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %put_num.exit
   %.pre54 = load i64, ptr %6, align 8, !tbaa !30
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %104 = phi i64 [ %.pre54, %._crit_edge.loopexit ], [ %3, %11 ]
-  %cond = icmp eq i64 %104, 0
-  br i1 %cond, label %put_char.exit51, label %105
+  %105 = phi i64 [ %.pre54, %._crit_edge.loopexit ], [ %3, %11 ]
+  %cond = icmp eq i64 %105, 0
+  br i1 %cond, label %put_char.exit51, label %106
 
-105:                                              ; preds = %._crit_edge
-  %106 = load ptr, ptr %5, align 8, !tbaa !8
-  store i8 0, ptr %106, align 1, !tbaa !3
-  %107 = load i64, ptr %7, align 8, !tbaa !30
-  %108 = add i64 %107, 1
-  store i64 %108, ptr %7, align 8, !tbaa !30
+106:                                              ; preds = %._crit_edge
+  %107 = load ptr, ptr %5, align 8, !tbaa !8
+  store i8 0, ptr %107, align 1, !tbaa !3
+  %108 = load i64, ptr %7, align 8, !tbaa !30
+  %109 = add i64 %108, 1
+  store i64 %109, ptr %7, align 8, !tbaa !30
   br label %put_char.exit51
 
-put_char.exit51:                                  ; preds = %._crit_edge, %105
-  %.sink13.i49 = phi ptr [ %6, %105 ], [ %7, %._crit_edge ]
-  %.sink12.i50 = phi i64 [ -1, %105 ], [ 1, %._crit_edge ]
-  %109 = load i64, ptr %.sink13.i49, align 8, !tbaa !30
-  %110 = add i64 %109, %.sink12.i50
-  store i64 %110, ptr %.sink13.i49, align 8, !tbaa !30
-  %111 = load i64, ptr %7, align 8, !tbaa !30
+put_char.exit51:                                  ; preds = %._crit_edge, %106
+  %.sink13.i49 = phi ptr [ %6, %106 ], [ %7, %._crit_edge ]
+  %.sink12.i50 = phi i64 [ -1, %106 ], [ 1, %._crit_edge ]
+  %110 = load i64, ptr %.sink13.i49, align 8, !tbaa !30
+  %111 = add i64 %110, %.sink12.i50
+  store i64 %111, ptr %.sink13.i49, align 8, !tbaa !30
+  %112 = load i64, ptr %7, align 8, !tbaa !30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %put_char.exit46, %79, %50, %9, %10, %put_char.exit51
-  %.023 = phi i64 [ %111, %put_char.exit51 ], [ 1, %9 ], [ 1, %10 ], [ 0, %50 ], [ 0, %79 ], [ 0, %put_char.exit46 ]
+  %.023 = phi i64 [ %112, %put_char.exit51 ], [ 1, %9 ], [ 1, %10 ], [ 0, %50 ], [ 0, %79 ], [ 0, %put_char.exit46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.023
 }

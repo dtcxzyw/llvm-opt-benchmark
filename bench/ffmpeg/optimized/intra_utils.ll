@@ -625,37 +625,38 @@ define i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef readonly captures(none) %
   %29 = add nsw i32 %.neg44, %.1.i.neg46
   %30 = add nsw i32 %29, %.1.i43
   %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %32 = icmp samesign ugt i32 %31, 1
-  %33 = shl nuw nsw i32 %31, 1
-  %34 = sub nsw i32 60, %33
-  %35 = select i1 %32, i32 %34, i32 60
-  %36 = icmp sgt i32 %.033, %.034
-  %37 = icmp sgt i32 %4, 1
-  %or.cond3 = and i1 %37, %36
-  br i1 %or.cond3, label %38, label %44
+  %32 = add nsw i32 %30, -2
+  %33 = icmp ult i32 %32, -3
+  %34 = shl nuw nsw i32 %31, 1
+  %35 = sub nsw i32 60, %34
+  %36 = select i1 %33, i32 %35, i32 60
+  %37 = icmp sgt i32 %.033, %.034
+  %38 = icmp sgt i32 %4, 1
+  %or.cond3 = and i1 %38, %37
+  br i1 %or.cond3, label %39, label %45
 
-38:                                               ; preds = %15
-  %39 = add nuw nsw i32 %33, 8
-  %40 = select i1 %32, i32 %39, i32 8
-  %41 = icmp samesign ult i32 %4, %40
-  br i1 %41, label %42, label %44
+39:                                               ; preds = %15
+  %40 = add nuw nsw i32 %34, 8
+  %41 = select i1 %33, i32 %40, i32 8
+  %42 = icmp samesign ult i32 %4, %41
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %38
-  %43 = add nuw nsw i32 %4, 65
-  br label %49
+43:                                               ; preds = %39
+  %44 = add nuw nsw i32 %4, 65
+  br label %50
 
-44:                                               ; preds = %38, %15
-  %45 = icmp sgt i32 %.034, %.033
-  %46 = icmp slt i32 %4, 67
-  %or.cond5 = and i1 %46, %45
-  %47 = icmp sgt i32 %4, %35
-  %or.cond37 = select i1 %or.cond5, i1 %47, i1 false
-  %48 = add nsw i32 %4, -67
-  %spec.select = select i1 %or.cond37, i32 %48, i32 %4
-  br label %49
+45:                                               ; preds = %39, %15
+  %46 = icmp sgt i32 %.034, %.033
+  %47 = icmp slt i32 %4, 67
+  %or.cond5 = and i1 %47, %46
+  %48 = icmp sgt i32 %4, %36
+  %or.cond37 = select i1 %or.cond5, i1 %48, i1 false
+  %49 = add nsw i32 %4, -67
+  %spec.select = select i1 %or.cond37, i32 %49, i32 %4
+  br label %50
 
-49:                                               ; preds = %44, %42
-  %.0 = phi i32 [ %43, %42 ], [ %spec.select, %44 ]
+50:                                               ; preds = %45, %43
+  %.0 = phi i32 [ %44, %43 ], [ %spec.select, %45 ]
   ret i32 %.0
 }
 

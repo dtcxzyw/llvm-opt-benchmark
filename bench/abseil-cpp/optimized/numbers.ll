@@ -1170,7 +1170,7 @@ define dso_local noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(
 
 5:                                                ; preds = %2
   store i32 7233902, ptr %1, align 1
-  br label %265
+  br label %266
 
 6:                                                ; preds = %2
   %7 = fcmp oeq double %0, 0.000000e+00
@@ -1194,7 +1194,7 @@ define dso_local noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %1 to i64
   %17 = sub i64 %15, %16
-  br label %265
+  br label %266
 
 18:                                               ; preds = %6
   %19 = fcmp olt double %0, 0.000000e+00
@@ -1218,7 +1218,7 @@ define dso_local noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %1 to i64
   %29 = sub i64 %27, %28
-  br label %265
+  br label %266
 
 30:                                               ; preds = %23
   %31 = fcmp ult double %.0135, 0x412E847F00000000
@@ -1474,7 +1474,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %163 = ptrtoint ptr %162 to i64
   %164 = ptrtoint ptr %1 to i64
   %165 = sub i64 %163, %164
-  br label %265
+  br label %266
 
 166:                                              ; preds = %_ZN4abslL10SplitToSixEd.exit
   store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %.1139, align 1
@@ -1502,7 +1502,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %173 = ptrtoint ptr %.5 to i64
   %174 = ptrtoint ptr %1 to i64
   %175 = sub i64 %173, %174
-  br label %265
+  br label %266
 
 176:                                              ; preds = %_ZN4abslL10SplitToSixEd.exit
   store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %.1139, align 1
@@ -1536,7 +1536,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %185 = ptrtoint ptr %.6 to i64
   %186 = ptrtoint ptr %1 to i64
   %187 = sub i64 %185, %186
-  br label %265
+  br label %266
 
 188:                                              ; preds = %_ZN4abslL10SplitToSixEd.exit
   store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %.1139, align 1
@@ -1572,7 +1572,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %195 = ptrtoint ptr %.8 to i64
   %196 = ptrtoint ptr %1 to i64
   %197 = sub i64 %195, %196
-  br label %265
+  br label %266
 
 198:                                              ; preds = %_ZN4abslL10SplitToSixEd.exit
   store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %.1139, align 1
@@ -1607,7 +1607,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %205 = ptrtoint ptr %.10 to i64
   %206 = ptrtoint ptr %1 to i64
   %207 = sub i64 %205, %206
-  br label %265
+  br label %266
 
 208:                                              ; preds = %_ZN4abslL10SplitToSixEd.exit
   store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %.1139, align 1
@@ -1637,7 +1637,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %214 = ptrtoint ptr %.12 to i64
   %215 = ptrtoint ptr %1 to i64
   %216 = sub i64 %214, %215
-  br label %265
+  br label %266
 
 217:                                              ; preds = %_ZN4abslL10SplitToSixEd.exit
   %218 = getelementptr inbounds nuw i8, ptr %.1139, i64 2
@@ -1682,7 +1682,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %233 = ptrtoint ptr %.13 to i64
   %234 = ptrtoint ptr %1 to i64
   %235 = sub i64 %233, %234
-  br label %265
+  br label %266
 
 236:                                              ; preds = %_ZN4abslL10SplitToSixEd.exit
   store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %.1139, align 1, !tbaa !8
@@ -1715,44 +1715,45 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %spec.select233 = tail call i32 @llvm.abs.i32(i32 %spec.select109.i, i1 true)
   store i8 %spec.select, ptr %242, align 1, !tbaa !8
   %.16 = getelementptr inbounds nuw i8, ptr %.15, i64 2
-  %244 = icmp samesign ugt i32 %spec.select233, 99
-  br i1 %244, label %245, label %251
+  %244 = add i32 %spec.select109.i, -100
+  %245 = icmp ult i32 %244, -199
+  br i1 %245, label %246, label %252
 
-245:                                              ; preds = %.loopexit
+246:                                              ; preds = %.loopexit
   %.lhs.trunc = trunc i32 %spec.select233 to i16
-  %246 = udiv i16 %.lhs.trunc, 100
-  %.zext = zext nneg i16 %246 to i32
+  %247 = udiv i16 %.lhs.trunc, 100
+  %.zext = zext nneg i16 %247 to i32
   %.neg = mul nsw i32 %.zext, -100
-  %247 = add nsw i32 %.neg, %spec.select233
-  %248 = trunc i16 %246 to i8
-  %249 = add nuw nsw i8 %248, 48
-  %250 = getelementptr inbounds nuw i8, ptr %.15, i64 3
-  store i8 %249, ptr %.16, align 1, !tbaa !8
-  br label %251
+  %248 = add nsw i32 %.neg, %spec.select233
+  %249 = trunc i16 %247 to i8
+  %250 = add nuw nsw i8 %249, 48
+  %251 = getelementptr inbounds nuw i8, ptr %.15, i64 3
+  store i8 %250, ptr %.16, align 1, !tbaa !8
+  br label %252
 
-251:                                              ; preds = %245, %.loopexit
-  %.17 = phi ptr [ %250, %245 ], [ %.16, %.loopexit ]
-  %.1137 = phi i32 [ %247, %245 ], [ %spec.select233, %.loopexit ]
-  %252 = zext i32 %.1137 to i64
-  %253 = mul nuw nsw i64 %252, 103
-  %254 = lshr i64 %253, 10
-  %255 = trunc nuw nsw i64 %254 to i32
-  %.neg.i199 = mul i32 %255, 246
-  %256 = add i32 %.neg.i199, %.1137
-  %257 = shl i32 %256, 8
-  %258 = add i32 %257, %255
-  %259 = trunc i32 %258 to i16
-  %260 = add i16 %259, 12336
-  store i16 %260, ptr %.17, align 1
-  %261 = getelementptr inbounds nuw i8, ptr %.17, i64 2
-  store i8 0, ptr %261, align 1, !tbaa !8
-  %262 = ptrtoint ptr %261 to i64
-  %263 = ptrtoint ptr %1 to i64
-  %264 = sub i64 %262, %263
-  br label %265
+252:                                              ; preds = %246, %.loopexit
+  %.17 = phi ptr [ %251, %246 ], [ %.16, %.loopexit ]
+  %.1137 = phi i32 [ %248, %246 ], [ %spec.select233, %.loopexit ]
+  %253 = zext i32 %.1137 to i64
+  %254 = mul nuw nsw i64 %253, 103
+  %255 = lshr i64 %254, 10
+  %256 = trunc nuw nsw i64 %255 to i32
+  %.neg.i199 = mul i32 %256, 246
+  %257 = add i32 %.neg.i199, %.1137
+  %258 = shl i32 %257, 8
+  %259 = add i32 %258, %256
+  %260 = trunc i32 %259 to i16
+  %261 = add i16 %260, 12336
+  store i16 %261, ptr %.17, align 1
+  %262 = getelementptr inbounds nuw i8, ptr %.17, i64 2
+  store i8 0, ptr %262, align 1, !tbaa !8
+  %263 = ptrtoint ptr %262 to i64
+  %264 = ptrtoint ptr %1 to i64
+  %265 = sub i64 %263, %264
+  br label %266
 
-265:                                              ; preds = %161, %172, %184, %.loopexit201, %.loopexit202, %.loopexit203, %232, %251, %25, %13, %5
-  %.0 = phi i64 [ 3, %5 ], [ %17, %13 ], [ %29, %25 ], [ %264, %251 ], [ %165, %161 ], [ %175, %172 ], [ %187, %184 ], [ %197, %.loopexit201 ], [ %207, %.loopexit202 ], [ %216, %.loopexit203 ], [ %235, %232 ]
+266:                                              ; preds = %161, %172, %184, %.loopexit201, %.loopexit202, %.loopexit203, %232, %252, %25, %13, %5
+  %.0 = phi i64 [ 3, %5 ], [ %17, %13 ], [ %29, %25 ], [ %265, %252 ], [ %165, %161 ], [ %175, %172 ], [ %187, %184 ], [ %197, %.loopexit201 ], [ %207, %.loopexit202 ], [ %216, %.loopexit203 ], [ %235, %232 ]
   ret i64 %.0
 }
 

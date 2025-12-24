@@ -699,34 +699,36 @@ declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i32 @ff_msgsm_decode_block(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 -536897023, 536897024) i32 @get_rrp(i32 noundef %0) unnamed_addr #5 {
+define internal fastcc i32 @get_rrp(i32 noundef %0) unnamed_addr #5 {
   %2 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
-  %3 = icmp samesign ult i32 %2, 11059
-  br i1 %3, label %4, label %6
+  %3 = add i32 %0, 11058
+  %4 = icmp ult i32 %3, 22117
+  br i1 %4, label %5, label %7
 
-4:                                                ; preds = %1
-  %5 = shl nuw nsw i32 %2, 1
-  br label %13
+5:                                                ; preds = %1
+  %6 = shl nuw i32 %2, 1
+  br label %15
 
-6:                                                ; preds = %1
-  %7 = icmp samesign ult i32 %2, 20070
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %1
+  %8 = add i32 %0, 20069
+  %9 = icmp ult i32 %8, 40139
+  br i1 %9, label %10, label %12
 
-8:                                                ; preds = %6
-  %9 = add nuw nsw i32 %2, 11059
-  br label %13
+10:                                               ; preds = %7
+  %11 = add nuw nsw i32 %2, 11059
+  br label %15
 
-10:                                               ; preds = %6
-  %11 = lshr i32 %2, 2
-  %12 = add nuw nsw i32 %11, 26112
-  br label %13
+12:                                               ; preds = %7
+  %13 = lshr i32 %2, 2
+  %14 = add nuw nsw i32 %13, 26112
+  br label %15
 
-13:                                               ; preds = %8, %10, %4
-  %.0 = phi i32 [ %5, %4 ], [ %9, %8 ], [ %12, %10 ]
-  %14 = icmp slt i32 %0, 0
-  %15 = sub nsw i32 0, %.0
-  %16 = select i1 %14, i32 %15, i32 %.0
-  ret i32 %16
+15:                                               ; preds = %10, %12, %5
+  %.0 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %14, %12 ]
+  %16 = icmp slt i32 %0, 0
+  %17 = sub nsw i32 0, %.0
+  %18 = select i1 %16, i32 %17, i32 %.0
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

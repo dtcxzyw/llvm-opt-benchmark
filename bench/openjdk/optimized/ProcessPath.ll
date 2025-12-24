@@ -76,7 +76,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef %45, i32 noundef %17, i32 noundef %19) #14
+  tail call void %47(ptr noundef %45, i32 noundef %17, i32 noundef %19) #13
   br label %.critedge
 
 48:                                               ; preds = %36
@@ -108,7 +108,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef %62, i32 noundef %17, i32 noundef %19) #14
+  tail call void %64(ptr noundef %62, i32 noundef %17, i32 noundef %19) #13
   store i32 %17, ptr %49, align 4
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %19, ptr %65, align 4
@@ -418,7 +418,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8
-  tail call void %256(ptr noundef %254, i32 noundef %.0317, i32 noundef %.0314) #14
+  tail call void %256(ptr noundef %254, i32 noundef %.0317, i32 noundef %.0314) #13
   br label %.critedge
 
 257:                                              ; preds = %247
@@ -450,7 +450,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
-  tail call void %273(ptr noundef %271, i32 noundef %.0317, i32 noundef %.0314) #14
+  tail call void %273(ptr noundef %271, i32 noundef %.0317, i32 noundef %.0314) #13
   store i32 %.0317, ptr %258, align 4
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0314, ptr %274, align 4
@@ -488,14 +488,14 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load ptr, ptr %295, align 8
-  tail call void %296(ptr noundef %294, i32 noundef %.0317, i32 noundef %.0314) #14
+  tail call void %296(ptr noundef %294, i32 noundef %.0317, i32 noundef %.0314) #13
   br label %297
 
 297:                                              ; preds = %292, %288, %284, %275
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %299, align 8
-  tail call void %300(ptr noundef nonnull %299, i32 noundef %.0317, i32 noundef %.0314, i32 noundef %.0311, i32 noundef %.0308) #14
+  tail call void %300(ptr noundef nonnull %299, i32 noundef %.0317, i32 noundef %.0314, i32 noundef %.0311, i32 noundef %.0308) #13
   %301 = load i32, ptr %5, align 4
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %303, label %._crit_edge
@@ -544,7 +544,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %324 = load ptr, ptr %298, align 8
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %326 = load ptr, ptr %325, align 8
-  tail call void %326(ptr noundef %324, i32 noundef %.0311, i32 noundef %.0308) #14
+  tail call void %326(ptr noundef %324, i32 noundef %.0311, i32 noundef %.0308) #13
   br label %327
 
 327:                                              ; preds = %323, %319, %315
@@ -764,7 +764,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 130:                                              ; preds = %124, %129, %121
   %131 = load ptr, ptr %78, align 8
-  call void %131(ptr noundef nonnull %0) #14
+  call void %131(ptr noundef nonnull %0) #13
   br label %132
 
 132:                                              ; preds = %130, %120
@@ -1167,7 +1167,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   br i1 %340, label %370, label %341
 
 341:                                              ; preds = %335
-  %342 = call double @sqrt(double noundef %339) #14
+  %342 = call double @sqrt(double noundef %339) #13
   %343 = fcmp olt float %330, 0.000000e+00
   %344 = fneg double %342
   %.0155.i = select i1 %343, double %344, double %342
@@ -1262,7 +1262,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   br i1 %396, label %424, label %397
 
 397:                                              ; preds = %391
-  %398 = call double @sqrt(double noundef %395) #14
+  %398 = call double @sqrt(double noundef %395) #13
   %399 = fcmp olt float %386, 0.000000e+00
   %400 = fneg double %398
   %.0154.i = select i1 %399, double %400, double %398
@@ -1533,7 +1533,7 @@ ProcessCubic.exit:                                ; preds = %ProcessCubic.exit.l
 
 527:                                              ; preds = %521, %526
   %528 = load ptr, ptr %78, align 8
-  call void %528(ptr noundef %0) #14
+  call void %528(ptr noundef %0) #13
   br label %529
 
 529:                                              ; preds = %132, %115, %143, %146, %159, %158, %162, %278, %180, %281, %517, %305, %527, %518
@@ -1574,7 +1574,7 @@ ProcessCubic.exit:                                ; preds = %ProcessCubic.exit.l
 544:                                              ; preds = %537, %543, %533
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %546 = load ptr, ptr %545, align 8
-  call void %546(ptr noundef nonnull %0) #14
+  call void %546(ptr noundef nonnull %0) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %279, %160, %144, %118, %49, %._crit_edge, %544
@@ -1756,7 +1756,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %108 = fmul float %.1225, 1.024000e+03
   %109 = fptosi float %108 to i32
   %110 = load ptr, ptr %0, align 8
-  tail call void %110(ptr noundef nonnull %0, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %109, ptr noundef nonnull %1, i8 noundef zeroext %101, i8 noundef zeroext %99) #14
+  tail call void %110(ptr noundef nonnull %0, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %109, ptr noundef nonnull %1, i8 noundef zeroext %101, i8 noundef zeroext %99) #13
   br label %.thread
 
 111:                                              ; preds = %52
@@ -1797,7 +1797,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %134 = fmul float %.0229, 1.024000e+03
   %135 = fptosi float %134 to i32
   %136 = load ptr, ptr %0, align 8
-  tail call void %136(ptr noundef nonnull %0, i32 noundef %131, i32 noundef %135, i32 noundef %131, i32 noundef %133, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %53) #14
+  tail call void %136(ptr noundef nonnull %0, i32 noundef %131, i32 noundef %135, i32 noundef %131, i32 noundef %133, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %53) #13
   br label %146
 
 .thread57:                                        ; preds = %111, %117
@@ -1861,7 +1861,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %171 = fmul float %166, 1.024000e+03
   %172 = fptosi float %171 to i32
   %173 = load ptr, ptr %0, align 8
-  tail call void %173(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %170, i32 noundef %172, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %168) #14
+  tail call void %173(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %170, i32 noundef %172, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %168) #13
   br i1 %149, label %175, label %.thread
 
 174:                                              ; preds = %154, %152
@@ -1872,7 +1872,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %176 = fmul float %.0224, 1.024000e+03
   %177 = fptosi float %176 to i32
   %178 = load ptr, ptr %0, align 8
-  tail call void %178(ptr noundef nonnull %0, i32 noundef %170, i32 noundef %172, i32 noundef %170, i32 noundef %177, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %168) #14
+  tail call void %178(ptr noundef nonnull %0, i32 noundef %170, i32 noundef %172, i32 noundef %170, i32 noundef %177, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %168) #13
   br label %.thread
 
 .thread.critedge:                                 ; preds = %174, %146
@@ -1882,7 +1882,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %181 = fmul float %.0224, 1.024000e+03
   %182 = fptosi float %181 to i32
   %183 = load ptr, ptr %0, align 8
-  tail call void %183(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %180, i32 noundef %182, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %53) #14
+  tail call void %183(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %180, i32 noundef %182, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %53) #13
   br label %.thread
 
 .thread:                                          ; preds = %.thread.critedge, %84, %82, %64, %62, %38, %36, %18, %16, %.fold.split264, %175, %141, %98
@@ -1918,7 +1918,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 25:                                               ; preds = %2
   %26 = sext i32 %16 to i64
   %27 = shl nsw i64 %26, 3
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #15
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #14
   %29 = icmp sgt i32 %15, -4
   br i1 %29, label %.lr.ph.preheader, label %.lr.ph359
 
@@ -1931,7 +1931,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 .lr.ph359:                                        ; preds = %25, %.lr.ph.preheader
   %32 = zext nneg i32 %23 to i64
   %33 = mul nuw nsw i64 %32, 40
-  %34 = tail call noalias ptr @malloc(i64 noundef %33) #15
+  %34 = tail call noalias ptr @malloc(i64 noundef %33) #14
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr null, ptr %35, align 8
   %.idx = mul nuw nsw i64 %32, 56
@@ -2093,8 +2093,8 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %.pn.in = phi ptr [ %107, %102 ], [ %92, %108 ]
   %.pn = load i32, ptr %.pn.in, align 4
   %.0293 = sub nsw i32 %.0284404, %.pn
-  %113 = tail call i32 @llvm.abs.i32(i32 %98, i1 true)
-  %114 = icmp samesign ugt i32 %113, 1048576
+  %113 = add i32 %98, -1048577
+  %114 = icmp ult i32 %113, -2097153
   br i1 %114, label %115, label %125
 
 115:                                              ; preds = %111
@@ -2110,7 +2110,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br label %130
 
 125:                                              ; preds = %111
-  %126 = shl i32 %98, 10
+  %126 = shl nsw i32 %98, 10
   %127 = sdiv i32 %126, %99
   %128 = mul nsw i32 %.0293, %98
   %129 = sdiv i32 %128, %99
@@ -2223,8 +2223,8 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   store i32 %storemerge352, ptr %164, align 8
   %.pn342 = load i32, ptr %.pn342.in, align 4
   %.0281 = sub nsw i32 %.0284404, %.pn342
-  %176 = tail call i32 @llvm.abs.i32(i32 %171, i1 true)
-  %177 = icmp samesign ugt i32 %176, 1048576
+  %176 = add i32 %171, -1048577
+  %177 = icmp ult i32 %176, -2097153
   br i1 %177, label %178, label %188
 
 178:                                              ; preds = %168
@@ -2240,7 +2240,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br label %193
 
 188:                                              ; preds = %168
-  %189 = shl i32 %171, 10
+  %189 = shl nsw i32 %171, 10
   %190 = sdiv i32 %189, %172
   %191 = mul nsw i32 %.0281, %171
   %192 = sdiv i32 %191, %172
@@ -2404,7 +2404,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %249 = load ptr, ptr %3, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %251 = load ptr, ptr %250, align 8
-  tail call void %251(ptr noundef %249, i32 noundef %.0285394, i32 noundef %247, i32 noundef %233) #14
+  tail call void %251(ptr noundef %249, i32 noundef %.0285394, i32 noundef %247, i32 noundef %233) #13
   %.pre418 = load i32, ptr %.1295392, align 8
   br label %252
 
@@ -2432,7 +2432,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8
   %264 = ashr exact i32 %.0284404, 10
-  tail call void %263(ptr noundef %261, i32 noundef %.1286351, i32 noundef %7, i32 noundef %264) #14
+  tail call void %263(ptr noundef %261, i32 noundef %.1286351, i32 noundef %7, i32 noundef %264) #13
   br label %._crit_edge397.thread
 
 ._crit_edge397.thread:                            ; preds = %._crit_edge397, %260, %._crit_edge369
@@ -2445,8 +2445,8 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %267, label %.lr.ph406, label %._crit_edge407, !llvm.loop !17
 
 ._crit_edge407:                                   ; preds = %._crit_edge397.thread, %._crit_edge360
-  tail call void @free(ptr noundef %34) #14
-  tail call void @free(ptr noundef %28) #14
+  tail call void @free(ptr noundef %34) #13
+  tail call void @free(ptr noundef %28) #13
   br label %268
 
 268:                                              ; preds = %2, %._crit_edge407
@@ -2684,7 +2684,7 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
   br i1 %126, label %129, label %133
 
 129:                                              ; preds = %123
-  %130 = tail call noalias ptr @malloc(i64 noundef %128) #15
+  %130 = tail call noalias ptr @malloc(i64 noundef %128) #14
   store ptr %130, ptr %112, align 8
   %131 = sext i32 %114 to i64
   %132 = mul nsw i64 %131, 56
@@ -2692,7 +2692,7 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
   br label %135
 
 133:                                              ; preds = %123
-  %134 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %128) #16
+  %134 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %128) #15
   store ptr %134, ptr %112, align 8
   br label %135
 
@@ -2761,7 +2761,7 @@ thread-pre-split:                                 ; preds = %115, %154
   br i1 %163, label %166, label %170
 
 166:                                              ; preds = %160
-  %167 = tail call noalias ptr @malloc(i64 noundef %165) #15
+  %167 = tail call noalias ptr @malloc(i64 noundef %165) #14
   store ptr %167, ptr %112, align 8
   %168 = sext i32 %157 to i64
   %169 = mul nsw i64 %168, 56
@@ -2769,7 +2769,7 @@ thread-pre-split:                                 ; preds = %115, %154
   br label %172
 
 170:                                              ; preds = %160
-  %171 = tail call ptr @realloc(ptr noundef %156, i64 noundef %165) #16
+  %171 = tail call ptr @realloc(ptr noundef %156, i64 noundef %165) #15
   store ptr %171, ptr %112, align 8
   br label %172
 
@@ -2876,7 +2876,7 @@ define zeroext range(i8 0, 2) i8 @doFillPath(ptr noundef %0, i32 noundef %1, i32
 .sink.split:                                      ; preds = %23, %21
   %.sink = phi ptr [ %22, %21 ], [ %24, %23 ]
   %.0.ph = phi i8 [ 0, %21 ], [ 1, %23 ]
-  call void @free(ptr noundef %.sink) #14
+  call void @free(ptr noundef %.sink) #13
   br label %25
 
 25:                                               ; preds = %.sink.split, %23, %21
@@ -3199,7 +3199,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef no
   %184 = icmp slt i32 %183, 0
   %.199.i = select i1 %184, i32 %123, i32 %178
   %185 = load ptr, ptr %0, align 8
-  tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #14
+  tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #13
   %186 = icmp samesign ugt i32 %.195124.i, 2
   br i1 %186, label %.lr.ph127.i, label %DrawMonotonicQuad.exit, !llvm.loop !19
 
@@ -3207,7 +3207,7 @@ DrawMonotonicQuad.exit:                           ; preds = %.lr.ph127.i, %.preh
   %.0100.lcssa.i = phi i32 [ %117, %.preheader.i ], [ %spec.select.i, %.lr.ph127.i ]
   %.098.lcssa.i = phi i32 [ %119, %.preheader.i ], [ %.199.i, %.lr.ph127.i ]
   %187 = load ptr, ptr %0, align 8
-  tail call void %187(ptr noundef nonnull %0, i32 noundef %.0100.lcssa.i, i32 noundef %.098.lcssa.i, i32 noundef %121, i32 noundef %123, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #14
+  tail call void %187(ptr noundef nonnull %0, i32 noundef %.0100.lcssa.i, i32 noundef %.098.lcssa.i, i32 noundef %121, i32 noundef %123, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #13
   br label %188
 
 188:                                              ; preds = %52, %56, %60, %36, %40, %44, %48, %DrawMonotonicQuad.exit, %77
@@ -3620,7 +3620,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef n
 
 .thread.i:                                        ; preds = %.critedge3.i
   %254 = load ptr, ptr %0, align 8
-  tail call void %254(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %148, i32 noundef %150, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %142, i8 noundef zeroext 0) #14
+  tail call void %254(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %148, i32 noundef %150, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %142, i8 noundef zeroext 0) #13
   br label %DrawMonotonicCubic.exit
 
 255:                                              ; preds = %.critedge3.i
@@ -3643,7 +3643,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef n
   %271 = icmp slt i32 %270, 0
   %.1150.i = select i1 %271, i32 %150, i32 %265
   %272 = load ptr, ptr %0, align 8
-  tail call void %272(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %spec.select.i, i32 noundef %.1150.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %142, i8 noundef zeroext 0) #14
+  tail call void %272(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %spec.select.i, i32 noundef %.1150.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %142, i8 noundef zeroext 0) #13
   %273 = icmp sgt i32 %.2179.lcssa.i, 1
   br i1 %273, label %.preheader192.i, label %DrawMonotonicCubic.exit, !llvm.loop !22
 
@@ -3654,20 +3654,17 @@ DrawMonotonicCubic.exit:                          ; preds = %255, %.thread.i, %6
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
-
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3680,12 +3677,11 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind allocsize(1) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -1827,71 +1827,72 @@ define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i
   %49 = call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %20) #16
   call void @gtk_entry_set_text(ptr noundef %49, ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %50 = icmp samesign ugt i64 %12, 8639999999999
-  br i1 %50, label %.thread, label %.loopexit
+  %50 = add i64 %0, -8640000000000
+  %51 = icmp ult i64 %50, -17279999999999
+  br i1 %51, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %..thread_crit_edge, %5
   %.pre-phi = phi i64 [ %.pre, %..thread_crit_edge ], [ %9, %5 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.280.val, i64 128
-  %52 = getelementptr inbounds nuw i8, ptr %.280.val, i64 184
-  %53 = load ptr, ptr %52, align 8, !tbaa !121
-  %54 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %.pre-phi) #16
-  call void @gtk_label_set_text(ptr noundef %54, ptr noundef nonnull @.str.18) #16
-  %55 = tail call i64 @gtk_entry_get_type() #17
-  br label %56
+  %52 = getelementptr inbounds nuw i8, ptr %.280.val, i64 128
+  %53 = getelementptr inbounds nuw i8, ptr %.280.val, i64 184
+  %54 = load ptr, ptr %53, align 8, !tbaa !121
+  %55 = call ptr @g_type_check_instance_cast(ptr noundef %54, i64 noundef %.pre-phi) #16
+  call void @gtk_label_set_text(ptr noundef %55, ptr noundef nonnull @.str.18) #16
+  %56 = tail call i64 @gtk_entry_get_type() #17
+  br label %57
 
-56:                                               ; preds = %.thread, %56
-  %indvars.iv = phi i64 [ 2, %.thread ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
-  %58 = load ptr, ptr %57, align 8, !tbaa !85
-  %59 = call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %55) #16
-  call void @gtk_entry_set_text(ptr noundef %59, ptr noundef nonnull @.str.44) #16
+57:                                               ; preds = %.thread, %57
+  %indvars.iv = phi i64 [ 2, %.thread ], [ %indvars.iv.next, %57 ]
+  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %59 = load ptr, ptr %58, align 8, !tbaa !85
+  %60 = call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef %56) #16
+  call void @gtk_entry_set_text(ptr noundef %60, ptr noundef nonnull @.str.44) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.loopexit, label %56
+  br i1 %exitcond.not, label %.loopexit, label %57
 
-.loopexit:                                        ; preds = %56, %5
-  %.03 = phi i1 [ false, %5 ], [ %4, %56 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.280.val, i64 248
-  %61 = load ptr, ptr %60, align 8, !tbaa !68
-  %62 = tail call i64 @gtk_toggle_button_get_type() #17
-  %63 = call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %62) #16
-  %64 = call i32 @gtk_toggle_button_get_active(ptr noundef %63) #16
-  %65 = getelementptr inbounds nuw i8, ptr %.280.val, i64 240
-  %66 = load ptr, ptr %65, align 8, !tbaa !69
-  %67 = getelementptr inbounds nuw i8, ptr %.280.val, i64 220
-  %68 = load i32, ptr %67, align 4, !tbaa !76
-  %69 = icmp ne i32 %68, 0
-  %or.cond3 = and i1 %4, %69
+.loopexit:                                        ; preds = %57, %5
+  %.03 = phi i1 [ false, %5 ], [ %4, %57 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.280.val, i64 248
+  %62 = load ptr, ptr %61, align 8, !tbaa !68
+  %63 = tail call i64 @gtk_toggle_button_get_type() #17
+  %64 = call ptr @g_type_check_instance_cast(ptr noundef %62, i64 noundef %63) #16
+  %65 = call i32 @gtk_toggle_button_get_active(ptr noundef %64) #16
+  %66 = getelementptr inbounds nuw i8, ptr %.280.val, i64 240
+  %67 = load ptr, ptr %66, align 8, !tbaa !69
+  %68 = getelementptr inbounds nuw i8, ptr %.280.val, i64 220
+  %69 = load i32, ptr %68, align 4, !tbaa !76
+  %70 = icmp ne i32 %69, 0
+  %or.cond3 = and i1 %4, %70
   %or.cond3.not = xor i1 %or.cond3, true
   %or.cond5 = or i1 %.03, %or.cond3.not
-  %70 = icmp ne i64 %0, 0
-  %71 = zext i1 %70 to i32
-  %72 = select i1 %or.cond5, i32 0, i32 %71
-  call void @gtk_widget_set_sensitive(ptr noundef %66, i32 noundef %72) #16
-  %73 = load ptr, ptr %60, align 8, !tbaa !68
-  %.not = icmp eq i32 %64, 0
-  br i1 %.not, label %74, label %77
+  %71 = icmp ne i64 %0, 0
+  %72 = zext i1 %71 to i32
+  %73 = select i1 %or.cond5, i32 0, i32 %72
+  call void @gtk_widget_set_sensitive(ptr noundef %67, i32 noundef %73) #16
+  %74 = load ptr, ptr %61, align 8, !tbaa !68
+  %.not = icmp eq i32 %65, 0
+  br i1 %.not, label %75, label %78
 
-74:                                               ; preds = %.loopexit
-  %75 = load i32, ptr %67, align 4, !tbaa !76
-  %76 = icmp ne i32 %75, 0
-  %or.cond7 = and i1 %4, %76
+75:                                               ; preds = %.loopexit
+  %76 = load i32, ptr %68, align 4, !tbaa !76
+  %77 = icmp ne i32 %76, 0
+  %or.cond7 = and i1 %4, %77
   %or.cond7.not = xor i1 %or.cond7, true
   %or.cond9 = or i1 %.03, %or.cond7.not
-  %spec.select = select i1 %or.cond9, i32 0, i32 %71
-  br label %77
+  %spec.select = select i1 %or.cond9, i32 0, i32 %72
+  br label %78
 
-77:                                               ; preds = %74, %.loopexit
-  %78 = phi i32 [ 1, %.loopexit ], [ %spec.select, %74 ]
-  call void @gtk_widget_set_sensitive(ptr noundef %73, i32 noundef %78) #16
-  %79 = getelementptr inbounds nuw i8, ptr %.280.val, i64 256
-  %80 = load ptr, ptr %79, align 8, !tbaa !70
-  %81 = load i32, ptr %67, align 4, !tbaa !76
-  %82 = icmp ne i32 %81, 0
-  %83 = and i1 %.not, %82
-  %84 = zext i1 %83 to i32
-  call void @gtk_widget_set_sensitive(ptr noundef %80, i32 noundef %84) #16
+78:                                               ; preds = %75, %.loopexit
+  %79 = phi i32 [ 1, %.loopexit ], [ %spec.select, %75 ]
+  call void @gtk_widget_set_sensitive(ptr noundef %74, i32 noundef %79) #16
+  %80 = getelementptr inbounds nuw i8, ptr %.280.val, i64 256
+  %81 = load ptr, ptr %80, align 8, !tbaa !70
+  %82 = load i32, ptr %68, align 4, !tbaa !76
+  %83 = icmp ne i32 %82, 0
+  %84 = and i1 %.not, %83
+  %85 = zext i1 %84 to i32
+  call void @gtk_widget_set_sensitive(ptr noundef %81, i32 noundef %85) #16
   ret void
 }
 

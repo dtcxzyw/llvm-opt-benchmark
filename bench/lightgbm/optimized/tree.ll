@@ -18650,84 +18650,85 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
 
 33:                                               ; preds = %31, %30
   %.020 = phi ptr [ %32, %31 ], [ %29, %30 ]
-  %34 = icmp ugt i32 %spec.select, 99
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i
+  %34 = add i32 %1, -100
+  %35 = icmp ult i32 %34, -199
+  br i1 %35, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.i
-  %.020.i = phi i32 [ %35, %.lr.ph.i ], [ %13, %33 ]
-  %.01819.i = phi i32 [ %43, %.lr.ph.i ], [ %spec.select, %33 ]
-  %35 = add i32 %.020.i, -2
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %.020, i64 %36
-  %38 = urem i32 %.01819.i, 100
-  %39 = shl nuw nsw i32 %38, 1
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %40
-  %42 = load i16, ptr %41, align 2
-  store i16 %42, ptr %37, align 1
-  %43 = udiv i32 %.01819.i, 100
-  %44 = icmp ugt i32 %.01819.i, 9999
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !498
+  %.020.i = phi i32 [ %36, %.lr.ph.i ], [ %13, %33 ]
+  %.01819.i = phi i32 [ %44, %.lr.ph.i ], [ %spec.select, %33 ]
+  %36 = add i32 %.020.i, -2
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %.020, i64 %37
+  %39 = urem i32 %.01819.i, 100
+  %40 = shl nuw nsw i32 %39, 1
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %41
+  %43 = load i16, ptr %42, align 2
+  store i16 %43, ptr %38, align 1
+  %44 = udiv i32 %.01819.i, 100
+  %45 = icmp ugt i32 %.01819.i, 9999
+  br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !498
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %33
-  %.018.lcssa.i = phi i32 [ %spec.select, %33 ], [ %43, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ %13, %33 ], [ %35, %.lr.ph.i ]
-  %45 = icmp samesign ugt i32 %.018.lcssa.i, 9
-  br i1 %45, label %46, label %54
+  %.018.lcssa.i = phi i32 [ %spec.select, %33 ], [ %44, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %13, %33 ], [ %36, %.lr.ph.i ]
+  %46 = icmp samesign ugt i32 %.018.lcssa.i, 9
+  br i1 %46, label %47, label %55
 
-46:                                               ; preds = %._crit_edge.i
-  %47 = add i32 %.0.lcssa.i, -2
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %.020, i64 %48
-  %50 = shl nuw nsw i32 %.018.lcssa.i, 1
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %51
-  %53 = load i16, ptr %52, align 2
-  store i16 %53, ptr %49, align 1
+47:                                               ; preds = %._crit_edge.i
+  %48 = add i32 %.0.lcssa.i, -2
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %.020, i64 %49
+  %51 = shl nuw nsw i32 %.018.lcssa.i, 1
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %52
+  %54 = load i16, ptr %53, align 2
+  store i16 %54, ptr %50, align 1
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
-54:                                               ; preds = %._crit_edge.i
-  %55 = trunc nuw nsw i32 %.018.lcssa.i to i8
-  %56 = or disjoint i8 %55, 48
-  %57 = add i32 %.0.lcssa.i, -1
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %.020, i64 %58
-  store i8 %56, ptr %59, align 1, !tbaa !157
+55:                                               ; preds = %._crit_edge.i
+  %56 = trunc nuw nsw i32 %.018.lcssa.i to i8
+  %57 = or disjoint i8 %56, 48
+  %58 = add i32 %.0.lcssa.i, -1
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %.020, i64 %59
+  store i8 %57, ptr %60, align 1, !tbaa !157
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; preds = %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit
-  %60 = phi i64 [ %.pre14.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %26, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
-  %61 = phi i64 [ %.pre.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %.pre-phi19.i, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
-  br i1 %3, label %62, label %71
+  %61 = phi i64 [ %.pre14.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %26, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
+  %62 = phi i64 [ %.pre.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %.pre-phi19.i, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
+  br i1 %3, label %63, label %72
 
-62:                                               ; preds = %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
-  %63 = add i64 %61, 1
-  %64 = icmp ugt i64 %63, %60
-  br i1 %64, label %65, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit
+63:                                               ; preds = %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
+  %64 = add i64 %62, 1
+  %65 = icmp ugt i64 %64, %61
+  br i1 %65, label %66, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %67 = load ptr, ptr %66, align 8, !tbaa !415
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %63)
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %68 = load ptr, ptr %67, align 8, !tbaa !415
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %64)
   %.pre.i.i = load i64, ptr %17, align 8, !tbaa !413
   %.pre2.i.i = add i64 %.pre.i.i, 1
   br label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit
 
-_ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %62, %65
-  %.pre-phi.i.i = phi i64 [ %63, %62 ], [ %.pre2.i.i, %65 ]
-  %68 = phi i64 [ %61, %62 ], [ %.pre.i.i, %65 ]
-  %69 = load ptr, ptr %0, align 8, !tbaa !411
+_ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %63, %66
+  %.pre-phi.i.i = phi i64 [ %64, %63 ], [ %.pre2.i.i, %66 ]
+  %69 = phi i64 [ %62, %63 ], [ %.pre.i.i, %66 ]
+  %70 = load ptr, ptr %0, align 8, !tbaa !411
   store i64 %.pre-phi.i.i, ptr %17, align 8, !tbaa !413
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %68
-  store i8 45, ptr %70, align 1, !tbaa !157
-  br label %71
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
+  store i8 45, ptr %71, align 1, !tbaa !157
+  br label %72
 
-71:                                               ; preds = %_ZN3fmt3v1114basic_appenderIcEaSEc.exit, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
-  %72 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcjNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back_insert_iteratorIT1_EE5valueEiE4typeELi0EEES6_S6_T0_i(ptr nonnull %0, i32 noundef %spec.select, i32 noundef %13)
+72:                                               ; preds = %_ZN3fmt3v1114basic_appenderIcEaSEc.exit, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
+  %73 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcjNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back_insert_iteratorIT1_EE5valueEiE4typeELi0EEES6_S6_T0_i(ptr nonnull %0, i32 noundef %spec.select, i32 noundef %13)
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
-_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit: ; preds = %46, %54, %71
-  %.sroa.018.1 = phi ptr [ %72, %71 ], [ %0, %54 ], [ %0, %46 ]
+_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit: ; preds = %47, %55, %72
+  %.sroa.018.1 = phi ptr [ %73, %72 ], [ %0, %55 ], [ %0, %47 ]
   ret ptr %.sroa.018.1
 }
 
@@ -18993,82 +18994,83 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
 
 33:                                               ; preds = %31, %30
   %.020 = phi ptr [ %32, %31 ], [ %29, %30 ]
-  %34 = icmp ugt i64 %spec.select, 99
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i
+  %34 = add i64 %1, -100
+  %35 = icmp ult i64 %34, -199
+  br i1 %35, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.i
-  %.020.i = phi i32 [ %35, %.lr.ph.i ], [ %14, %33 ]
-  %.01819.i = phi i64 [ %42, %.lr.ph.i ], [ %spec.select, %33 ]
-  %35 = add i32 %.020.i, -2
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %.020, i64 %36
-  %38 = urem i64 %.01819.i, 100
-  %39 = shl nuw nsw i64 %38, 1
-  %40 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %39
-  %41 = load i16, ptr %40, align 2
-  store i16 %41, ptr %37, align 1
-  %42 = udiv i64 %.01819.i, 100
-  %43 = icmp ugt i64 %.01819.i, 9999
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !499
+  %.020.i = phi i32 [ %36, %.lr.ph.i ], [ %14, %33 ]
+  %.01819.i = phi i64 [ %43, %.lr.ph.i ], [ %spec.select, %33 ]
+  %36 = add i32 %.020.i, -2
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %.020, i64 %37
+  %39 = urem i64 %.01819.i, 100
+  %40 = shl nuw nsw i64 %39, 1
+  %41 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %40
+  %42 = load i16, ptr %41, align 2
+  store i16 %42, ptr %38, align 1
+  %43 = udiv i64 %.01819.i, 100
+  %44 = icmp ugt i64 %.01819.i, 9999
+  br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !499
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %33
-  %.018.lcssa.i = phi i64 [ %spec.select, %33 ], [ %42, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ %14, %33 ], [ %35, %.lr.ph.i ]
-  %44 = icmp samesign ugt i64 %.018.lcssa.i, 9
-  br i1 %44, label %45, label %52
+  %.018.lcssa.i = phi i64 [ %spec.select, %33 ], [ %43, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %14, %33 ], [ %36, %.lr.ph.i ]
+  %45 = icmp samesign ugt i64 %.018.lcssa.i, 9
+  br i1 %45, label %46, label %53
 
-45:                                               ; preds = %._crit_edge.i
-  %46 = add i32 %.0.lcssa.i, -2
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %.020, i64 %47
-  %49 = shl nuw nsw i64 %.018.lcssa.i, 1
-  %50 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %49
-  %51 = load i16, ptr %50, align 2
-  store i16 %51, ptr %48, align 1
+46:                                               ; preds = %._crit_edge.i
+  %47 = add i32 %.0.lcssa.i, -2
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %.020, i64 %48
+  %50 = shl nuw nsw i64 %.018.lcssa.i, 1
+  %51 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %50
+  %52 = load i16, ptr %51, align 2
+  store i16 %52, ptr %49, align 1
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
-52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw nsw i64 %.018.lcssa.i to i8
-  %54 = or disjoint i8 %53, 48
-  %55 = add i32 %.0.lcssa.i, -1
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %.020, i64 %56
-  store i8 %54, ptr %57, align 1, !tbaa !157
+53:                                               ; preds = %._crit_edge.i
+  %54 = trunc nuw nsw i64 %.018.lcssa.i to i8
+  %55 = or disjoint i8 %54, 48
+  %56 = add i32 %.0.lcssa.i, -1
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %.020, i64 %57
+  store i8 %55, ptr %58, align 1, !tbaa !157
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; preds = %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit
-  %58 = phi i64 [ %.pre14.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %26, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
-  %59 = phi i64 [ %.pre.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %.pre-phi19.i, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
-  br i1 %3, label %60, label %69
+  %59 = phi i64 [ %.pre14.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %26, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
+  %60 = phi i64 [ %.pre.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i ], [ %.pre-phi19.i, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit ]
+  br i1 %3, label %61, label %70
 
-60:                                               ; preds = %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
-  %61 = add i64 %59, 1
-  %62 = icmp ugt i64 %61, %58
-  br i1 %62, label %63, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit
+61:                                               ; preds = %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
+  %62 = add i64 %60, 1
+  %63 = icmp ugt i64 %62, %59
+  br i1 %63, label %64, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !415
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %61)
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %66 = load ptr, ptr %65, align 8, !tbaa !415
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %62)
   %.pre.i.i = load i64, ptr %17, align 8, !tbaa !413
   %.pre2.i.i = add i64 %.pre.i.i, 1
   br label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit
 
-_ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %60, %63
-  %.pre-phi.i.i = phi i64 [ %61, %60 ], [ %.pre2.i.i, %63 ]
-  %66 = phi i64 [ %59, %60 ], [ %.pre.i.i, %63 ]
-  %67 = load ptr, ptr %0, align 8, !tbaa !411
+_ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %61, %64
+  %.pre-phi.i.i = phi i64 [ %62, %61 ], [ %.pre2.i.i, %64 ]
+  %67 = phi i64 [ %60, %61 ], [ %.pre.i.i, %64 ]
+  %68 = load ptr, ptr %0, align 8, !tbaa !411
   store i64 %.pre-phi.i.i, ptr %17, align 8, !tbaa !413
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %66
-  store i8 45, ptr %68, align 1, !tbaa !157
-  br label %69
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %67
+  store i8 45, ptr %69, align 1, !tbaa !157
+  br label %70
 
-69:                                               ; preds = %_ZN3fmt3v1114basic_appenderIcEaSEc.exit, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
-  %70 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcmNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back_insert_iteratorIT1_EE5valueEiE4typeELi0EEES6_S6_T0_i(ptr nonnull %0, i64 noundef %spec.select, i32 noundef %14)
+70:                                               ; preds = %_ZN3fmt3v1114basic_appenderIcEaSEc.exit, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
+  %71 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcmNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back_insert_iteratorIT1_EE5valueEiE4typeELi0EEES6_S6_T0_i(ptr nonnull %0, i64 noundef %spec.select, i32 noundef %14)
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
-_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit: ; preds = %45, %52, %69
-  %.sroa.018.1 = phi ptr [ %70, %69 ], [ %0, %52 ], [ %0, %45 ]
+_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit: ; preds = %46, %53, %70
+  %.sroa.018.1 = phi ptr [ %71, %70 ], [ %0, %53 ], [ %0, %46 ]
   ret ptr %.sroa.018.1
 }
 

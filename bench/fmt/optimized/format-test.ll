@@ -173691,95 +173691,96 @@ define linkonce_odr hidden void @_ZN3fmt3v119to_stringIiTnNSt9enable_ifIXsr3std1
 
 18:                                               ; preds = %16, %2
   %.024.i = phi ptr [ %17, %16 ], [ %4, %2 ]
-  %19 = icmp ugt i32 %spec.select.i, 99
-  br i1 %19, label %.lr.ph.i31.i, label %._crit_edge.i27.i
+  %19 = add i32 %1, -100
+  %20 = icmp ult i32 %19, -199
+  br i1 %20, label %.lr.ph.i31.i, label %._crit_edge.i27.i
 
 .lr.ph.i31.i:                                     ; preds = %18, %.lr.ph.i31.i
-  %.020.i32.i = phi i32 [ %20, %.lr.ph.i31.i ], [ %15, %18 ]
-  %.01819.i33.i = phi i32 [ %28, %.lr.ph.i31.i ], [ %spec.select.i, %18 ]
-  %20 = add i32 %.020.i32.i, -2
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %.024.i, i64 %21
-  %23 = urem i32 %.01819.i33.i, 100
-  %24 = shl nuw nsw i32 %23, 1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %25
-  %27 = load i16, ptr %26, align 2
-  store i16 %27, ptr %22, align 1
-  %28 = udiv i32 %.01819.i33.i, 100
-  %29 = icmp ugt i32 %.01819.i33.i, 9999
-  br i1 %29, label %.lr.ph.i31.i, label %._crit_edge.i27.i, !llvm.loop !5035
+  %.020.i32.i = phi i32 [ %21, %.lr.ph.i31.i ], [ %15, %18 ]
+  %.01819.i33.i = phi i32 [ %29, %.lr.ph.i31.i ], [ %spec.select.i, %18 ]
+  %21 = add i32 %.020.i32.i, -2
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %.024.i, i64 %22
+  %24 = urem i32 %.01819.i33.i, 100
+  %25 = shl nuw nsw i32 %24, 1
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %26
+  %28 = load i16, ptr %27, align 2
+  store i16 %28, ptr %23, align 1
+  %29 = udiv i32 %.01819.i33.i, 100
+  %30 = icmp ugt i32 %.01819.i33.i, 9999
+  br i1 %30, label %.lr.ph.i31.i, label %._crit_edge.i27.i, !llvm.loop !5035
 
 ._crit_edge.i27.i:                                ; preds = %.lr.ph.i31.i, %18
-  %.018.lcssa.i28.i = phi i32 [ %spec.select.i, %18 ], [ %28, %.lr.ph.i31.i ]
-  %.0.lcssa.i29.i = phi i32 [ %15, %18 ], [ %20, %.lr.ph.i31.i ]
-  %30 = icmp samesign ugt i32 %.018.lcssa.i28.i, 9
-  br i1 %30, label %31, label %39
+  %.018.lcssa.i28.i = phi i32 [ %spec.select.i, %18 ], [ %29, %.lr.ph.i31.i ]
+  %.0.lcssa.i29.i = phi i32 [ %15, %18 ], [ %21, %.lr.ph.i31.i ]
+  %31 = icmp samesign ugt i32 %.018.lcssa.i28.i, 9
+  br i1 %31, label %32, label %40
 
-31:                                               ; preds = %._crit_edge.i27.i
-  %32 = add i32 %.0.lcssa.i29.i, -2
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %.024.i, i64 %33
-  %35 = shl nuw nsw i32 %.018.lcssa.i28.i, 1
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %36
-  %38 = load i16, ptr %37, align 2
-  store i16 %38, ptr %34, align 1
+32:                                               ; preds = %._crit_edge.i27.i
+  %33 = add i32 %.0.lcssa.i29.i, -2
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %.024.i, i64 %34
+  %36 = shl nuw nsw i32 %.018.lcssa.i28.i, 1
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %37
+  %39 = load i16, ptr %38, align 2
+  store i16 %39, ptr %35, align 1
   br label %_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit
 
-39:                                               ; preds = %._crit_edge.i27.i
-  %40 = trunc nuw nsw i32 %.018.lcssa.i28.i to i8
-  %41 = or disjoint i8 %40, 48
-  %42 = add i32 %.0.lcssa.i29.i, -1
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %.024.i, i64 %43
-  store i8 %41, ptr %44, align 1, !tbaa !39
+40:                                               ; preds = %._crit_edge.i27.i
+  %41 = trunc nuw nsw i32 %.018.lcssa.i28.i to i8
+  %42 = or disjoint i8 %41, 48
+  %43 = add i32 %.0.lcssa.i29.i, -1
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %.024.i, i64 %44
+  store i8 %42, ptr %45, align 1, !tbaa !39
   br label %_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit
 
-_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit: ; preds = %31, %39
-  %45 = ashr i64 %13, 32
-  %46 = getelementptr inbounds i8, ptr %.024.i, i64 %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %47, ptr %0, align 8, !tbaa !82
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %48, align 8, !tbaa !83
+_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit: ; preds = %32, %40
+  %46 = ashr i64 %13, 32
+  %47 = getelementptr inbounds i8, ptr %.024.i, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %48, ptr %0, align 8, !tbaa !82
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %49, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %49 = ptrtoint ptr %46 to i64
-  %50 = ptrtoint ptr %4 to i64
-  %51 = sub i64 %49, %50
-  store i64 %51, ptr %3, align 8, !tbaa !48
-  %52 = icmp ugt i64 %51, 15
-  br i1 %52, label %.noexc.i, label %._crit_edge.i.i
+  %50 = ptrtoint ptr %47 to i64
+  %51 = ptrtoint ptr %4 to i64
+  %52 = sub i64 %50, %51
+  store i64 %52, ptr %3, align 8, !tbaa !48
+  %53 = icmp ugt i64 %52, 15
+  br i1 %53, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit
-  %53 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %53, ptr %0, align 8, !tbaa !33
-  %54 = load i64, ptr %3, align 8, !tbaa !48
-  store i64 %54, ptr %47, align 8, !tbaa !39
+  %54 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %54, ptr %0, align 8, !tbaa !33
+  %55 = load i64, ptr %3, align 8, !tbaa !48
+  store i64 %55, ptr %48, align 8, !tbaa !39
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit
-  %55 = phi ptr [ %53, %.noexc.i ], [ %47, %_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit ]
-  switch i64 %51, label %58 [
-    i64 1, label %56
-    i64 0, label %59
+  %56 = phi ptr [ %54, %.noexc.i ], [ %48, %_ZN3fmt3v116detail5writeIcPciTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit ]
+  switch i64 %52, label %59 [
+    i64 1, label %57
+    i64 0, label %60
   ]
 
-56:                                               ; preds = %._crit_edge.i.i
-  %57 = load i8, ptr %4, align 1, !tbaa !39
-  store i8 %57, ptr %55, align 1, !tbaa !39
-  br label %59
+57:                                               ; preds = %._crit_edge.i.i
+  %58 = load i8, ptr %4, align 1, !tbaa !39
+  store i8 %58, ptr %56, align 1, !tbaa !39
+  br label %60
 
-58:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %4, i64 %51, i1 false)
-  br label %59
+59:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr nonnull align 1 %4, i64 %52, i1 false)
+  br label %60
 
-59:                                               ; preds = %58, %56, %._crit_edge.i.i
-  %60 = load i64, ptr %3, align 8, !tbaa !48
-  store i64 %60, ptr %48, align 8, !tbaa !83
-  %61 = load ptr, ptr %0, align 8, !tbaa !33
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
-  store i8 0, ptr %62, align 1, !tbaa !39
+60:                                               ; preds = %59, %57, %._crit_edge.i.i
+  %61 = load i64, ptr %3, align 8, !tbaa !48
+  store i64 %61, ptr %49, align 8, !tbaa !83
+  %62 = load ptr, ptr %0, align 8, !tbaa !33
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %61
+  store i8 0, ptr %63, align 1, !tbaa !39
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

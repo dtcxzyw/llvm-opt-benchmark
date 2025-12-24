@@ -112927,8 +112927,8 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:
   %.lhs.trunc = trunc i64 %4 to i8
   %18 = urem i8 %.lhs.trunc, 100
   %19 = shl nuw i8 %18, 1
-  %.lhs.trunc18 = trunc i64 %4 to i8
-  %20 = udiv i8 %.lhs.trunc18, 100
+  %.lhs.trunc16 = trunc i64 %4 to i8
+  %20 = udiv i8 %.lhs.trunc16, 100
   %21 = zext i8 %19 to i64
   %22 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
@@ -112954,10 +112954,10 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 38:                                               ; preds = %.lr.ph.preheader.i.i, %.thread
-  %.sink21 = phi i64 [ %30, %.lr.ph.preheader.i.i ], [ %10, %.thread ]
+  %.sink19 = phi i64 [ %30, %.lr.ph.preheader.i.i ], [ %10, %.thread ]
   %.sink = phi i8 [ %28, %.lr.ph.preheader.i.i ], [ 0, %.thread ]
   %.0.lcssa.i.i.ph = phi i8 [ %20, %.lr.ph.preheader.i.i ], [ %13, %.thread ]
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink21
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink19
   store i8 %.sink, ptr %39, align 1, !tbaa !184
   %40 = or disjoint i8 %.0.lcssa.i.i.ph, 48
   br label %_ZNSt7__cxx119to_stringEi.exit

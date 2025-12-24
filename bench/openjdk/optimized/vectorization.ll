@@ -2183,17 +2183,17 @@ _ZNK8VPointer14is_loop_memberEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
   %110 = load ptr, ptr %109, align 8
   %111 = tail call noundef i32 @_ZNK15CountedLoopNode10stride_conEv(ptr noundef nonnull align 8 dereferenceable(92) %110) #13
   %112 = sext i32 %111 to i64
-  %113 = tail call noundef i64 @llvm.abs.i64(i64 %107, i1 true)
-  %114 = icmp samesign ugt i64 %113, 1073741823
-  %115 = tail call i64 @llvm.abs.i64(i64 %112, i1 true)
-  %116 = icmp samesign ugt i64 %115, 1073741823
+  %113 = add nsw i64 %107, -1073741824
+  %114 = icmp ult i64 %113, -2147483647
+  %115 = add nsw i64 %112, -1073741824
+  %116 = icmp ult i64 %115, -2147483647
   %or.cond31 = select i1 %114, i1 true, i1 %116
   br i1 %or.cond31, label %.loopexit, label %117
 
 117:                                              ; preds = %105
   %118 = mul nsw i64 %112, %107
-  %119 = tail call noundef i64 @llvm.abs.i64(i64 %118, i1 true)
-  %120 = icmp samesign ugt i64 %119, 1073741823
+  %119 = add nsw i64 %118, -1073741824
+  %120 = icmp ult i64 %119, -2147483647
   br i1 %120, label %.loopexit, label %121
 
 121:                                              ; preds = %117
@@ -4271,9 +4271,6 @@ declare void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 derefer
 declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #1
 
 declare noundef i32 @_ZNK15CountedLoopNode10stride_conEv(ptr noundef nonnull align 8 dereferenceable(92)) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
 declare noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #1
 

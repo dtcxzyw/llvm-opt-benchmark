@@ -40,7 +40,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
   %.sink.i = phi i32 [ %16, %13 ], [ 7233902, %19 ]
   %.0.i = phi ptr [ %18, %13 ], [ %20, %19 ]
   store i32 %.sink.i, ptr %0, align 1
-  br label %279
+  br label %280
 
 21:                                               ; preds = %2
   store i8 45, ptr %0, align 1, !tbaa !5
@@ -53,7 +53,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
 25:                                               ; preds = %21
   store i8 48, ptr %22, align 1, !tbaa !5
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  br label %279
+  br label %280
 
 27:                                               ; preds = %21
   %28 = or disjoint i64 %9, 4503599627370496
@@ -402,35 +402,36 @@ _Z8trimzeroPc.exit84:                             ; preds = %256
   %265 = getelementptr inbounds nuw i8, ptr %spec.select, i64 2
   store i8 %264, ptr %262, align 1, !tbaa !5
   %266 = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %261, i1 true)
-  %267 = icmp samesign ugt i32 %266, 99
-  br i1 %267, label %268, label %_ZL8printexpPci.exit
+  %267 = add i32 %208, -101
+  %268 = icmp ult i32 %267, -199
+  br i1 %268, label %269, label %_ZL8printexpPci.exit
 
-268:                                              ; preds = %_Z8trimzeroPc.exit84
-  %269 = udiv i32 %266, 100
-  %270 = trunc i32 %269 to i8
-  %271 = add i8 %270, 48
-  %272 = getelementptr inbounds nuw i8, ptr %spec.select, i64 3
-  store i8 %271, ptr %265, align 1, !tbaa !5
-  %273 = urem i32 %266, 100
+269:                                              ; preds = %_Z8trimzeroPc.exit84
+  %270 = udiv i32 %266, 100
+  %271 = trunc i32 %270 to i8
+  %272 = add i8 %271, 48
+  %273 = getelementptr inbounds nuw i8, ptr %spec.select, i64 3
+  store i8 %272, ptr %265, align 1, !tbaa !5
+  %274 = urem i32 %266, 100
   br label %_ZL8printexpPci.exit
 
-_ZL8printexpPci.exit:                             ; preds = %_Z8trimzeroPc.exit84, %268
-  %.012.i = phi ptr [ %272, %268 ], [ %265, %_Z8trimzeroPc.exit84 ]
-  %.0.i85 = phi i32 [ %273, %268 ], [ %266, %_Z8trimzeroPc.exit84 ]
-  %274 = shl nuw nsw i32 %.0.i85, 1
-  %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr inbounds nuw i8, ptr @_ZL11kDigitTable, i64 %275
-  %277 = load i16, ptr %276, align 2
-  store i16 %277, ptr %.012.i, align 1
-  %278 = getelementptr inbounds nuw i8, ptr %.012.i, i64 2
+_ZL8printexpPci.exit:                             ; preds = %_Z8trimzeroPc.exit84, %269
+  %.012.i = phi ptr [ %273, %269 ], [ %265, %_Z8trimzeroPc.exit84 ]
+  %.0.i85 = phi i32 [ %274, %269 ], [ %266, %_Z8trimzeroPc.exit84 ]
+  %275 = shl nuw nsw i32 %.0.i85, 1
+  %276 = zext nneg i32 %275 to i64
+  %277 = getelementptr inbounds nuw i8, ptr @_ZL11kDigitTable, i64 %276
+  %278 = load i16, ptr %277, align 2
+  store i16 %278, ptr %.012.i, align 1
+  %279 = getelementptr inbounds nuw i8, ptr %.012.i, i64 2
   br label %_Z8trimzeroPc.exit
 
 _Z8trimzeroPc.exit:                               ; preds = %239, %220, %_ZL8printexpPci.exit, %243, %226
-  %.1 = phi ptr [ %278, %_ZL8printexpPci.exit ], [ %228, %226 ], [ %.0.i80, %220 ], [ %247, %243 ], [ %.0.i81, %239 ]
+  %.1 = phi ptr [ %279, %_ZL8printexpPci.exit ], [ %228, %226 ], [ %.0.i80, %220 ], [ %247, %243 ], [ %.0.i81, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %279
+  br label %280
 
-279:                                              ; preds = %_Z8trimzeroPc.exit, %25, %_ZL12printspecialPcim.exit
+280:                                              ; preds = %_Z8trimzeroPc.exit, %25, %_ZL12printspecialPcim.exit
   %.071 = phi ptr [ %.0.i, %_ZL12printspecialPcim.exit ], [ %26, %25 ], [ %.1, %_Z8trimzeroPc.exit ]
   ret ptr %.071
 }

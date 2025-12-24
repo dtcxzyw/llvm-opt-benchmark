@@ -11243,53 +11243,55 @@ if.end:                                           ; preds = %entry
   %div1 = fdiv double %guess, %3
   %call = call double @frexp(double noundef %div1, ptr noundef nonnull %e) #31
   %4 = load i32, ptr %e, align 4, !tbaa !23
-  %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %cmp2 = icmp samesign ult i32 %5, 64
+  %5 = add i32 %4, 63
+  %cmp2 = icmp ult i32 %5, 127
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
-  %div328 = lshr i32 %5, 5
+  %6 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
+  %div328 = lshr i32 %6, 5
   %call4 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %div328) #31, !tbaa !23
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
   %cond = phi double [ %call4, %cond.false ], [ 2.000000e+00, %if.end ]
   call void @llvm.lifetime.start.p0(ptr nonnull %f_current)
-  %6 = load double, ptr %f0, align 8, !tbaa !52
-  store double %6, ptr %f_current, align 8, !tbaa !52
-  %7 = tail call double @llvm.fabs.f64(double %3)
-  %8 = load double, ptr %max, align 8, !tbaa !52
-  %9 = tail call double @llvm.fabs.f64(double %8)
-  %cmp5 = fcmp olt double %7, %9
+  %7 = load double, ptr %f0, align 8, !tbaa !52
+  store double %7, ptr %f_current, align 8, !tbaa !52
+  %8 = tail call double @llvm.fabs.f64(double %3)
+  %9 = load double, ptr %max, align 8, !tbaa !52
+  %10 = tail call double @llvm.fabs.f64(double %9)
+  %cmp5 = fcmp olt double %8, %10
   %dec91 = add i64 %0, -1
   store i64 %dec91, ptr %count, align 8, !tbaa !42
-  %cmp15 = icmp samesign ugt i32 %5, 1024
+  %11 = add i32 %4, -1025
+  %cmp15 = icmp ult i32 %11, -2049
   %cond16 = select i1 %cmp15, i32 8, i32 2
   %conv17 = uitofp nneg i32 %cond16 to double
-  %10 = load double, ptr %f, align 8
-  %conv.i = fpext double %10 to x86_fp80
+  %12 = load double, ptr %f, align 8
+  %conv.i = fpext double %12 to x86_fp80
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %11 = load i8, ptr %invert.i, align 8, !range !101
-  %loadedv.i = trunc nuw i8 %11 to i1
+  %13 = load i8, ptr %invert.i, align 8, !range !101
+  %loadedv.i = trunc nuw i8 %13 to i1
   %p.i = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %12 = load double, ptr %p.i, align 8
+  %14 = load double, ptr %p.i, align 8
   br i1 %cmp5, label %land.rhs, label %land.rhs21
 
 land.rhs:                                         ; preds = %cond.end, %if.end14
-  %13 = phi double [ %sub24.i, %if.end14 ], [ %6, %cond.end ]
+  %15 = phi double [ %sub24.i, %if.end14 ], [ %7, %cond.end ]
   %multiplier.094 = phi double [ %mul, %if.end14 ], [ %cond, %cond.end ]
   %guess.addr.093 = phi double [ %div11, %if.end14 ], [ %guess, %cond.end ]
-  %cmp7 = fcmp olt double %13, 0.000000e+00
-  %14 = load double, ptr %f0, align 8, !tbaa !52
-  %15 = fcmp uge double %14, 0.000000e+00
-  %cmp10 = xor i1 %cmp7, %15
+  %cmp7 = fcmp olt double %15, 0.000000e+00
+  %16 = load double, ptr %f0, align 8, !tbaa !52
+  %17 = fcmp uge double %16, 0.000000e+00
+  %cmp10 = xor i1 %cmp7, %17
   br i1 %cmp10, label %while.body, label %if.then42
 
 while.body:                                       ; preds = %land.rhs
   store double %guess.addr.093, ptr %max, align 8, !tbaa !52
   %div11 = fdiv double %guess.addr.093, %multiplier.094
-  %16 = load double, ptr %min, align 8, !tbaa !52
-  %cmp12 = fcmp olt double %div11, %16
+  %18 = load double, ptr %min, align 8, !tbaa !52
+  %cmp12 = fcmp olt double %div11, %18
   br i1 %cmp12, label %if.then42.sink.split, label %if.end14
 
 if.end14:                                         ; preds = %while.body
@@ -11300,30 +11302,30 @@ if.end14:                                         ; preds = %while.body
   %call.i = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %conv.i, x86_fp80 noundef %conv2.i, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i), !noalias !158
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i), !noalias !158
   %conv3.i = fptrunc x86_fp80 %call.i to double
-  %sub24.i = fsub double %conv3.i, %12
+  %sub24.i = fsub double %conv3.i, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i), !noalias !158
   store double %sub24.i, ptr %f_current, align 8, !tbaa !52
-  %17 = load i64, ptr %count, align 8, !tbaa !42
-  %dec = add i64 %17, -1
+  %19 = load i64, ptr %count, align 8, !tbaa !42
+  %dec = add i64 %19, -1
   store i64 %dec, ptr %count, align 8, !tbaa !42
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %if.end49, label %land.rhs, !llvm.loop !161
 
 land.rhs21:                                       ; preds = %cond.end, %if.end33
-  %18 = phi double [ %sub24.i51, %if.end33 ], [ %6, %cond.end ]
+  %20 = phi double [ %sub24.i51, %if.end33 ], [ %7, %cond.end ]
   %multiplier.290 = phi double [ %mul37, %if.end33 ], [ %cond, %cond.end ]
   %guess.addr.289 = phi double [ %mul29, %if.end33 ], [ %guess, %cond.end ]
-  %cmp22 = fcmp olt double %18, 0.000000e+00
-  %19 = load double, ptr %f0, align 8, !tbaa !52
-  %20 = fcmp uge double %19, 0.000000e+00
-  %cmp26 = xor i1 %cmp22, %20
+  %cmp22 = fcmp olt double %20, 0.000000e+00
+  %21 = load double, ptr %f0, align 8, !tbaa !52
+  %22 = fcmp uge double %21, 0.000000e+00
+  %cmp26 = xor i1 %cmp22, %22
   br i1 %cmp26, label %while.body28, label %if.then42
 
 while.body28:                                     ; preds = %land.rhs21
   store double %guess.addr.289, ptr %max, align 8, !tbaa !52
   %mul29 = fmul double %guess.addr.289, %multiplier.290
-  %21 = load double, ptr %min, align 8, !tbaa !52
-  %cmp30 = fcmp olt double %mul29, %21
+  %23 = load double, ptr %min, align 8, !tbaa !52
+  %cmp30 = fcmp olt double %mul29, %23
   br i1 %cmp30, label %if.then42.sink.split, label %if.end33
 
 if.end33:                                         ; preds = %while.body28
@@ -11334,20 +11336,20 @@ if.end33:                                         ; preds = %while.body28
   %call.i35 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %conv.i, x86_fp80 noundef %conv2.i32, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i30, ptr noundef nonnull %ft.i29), !noalias !162
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i30), !noalias !162
   %conv3.i49 = fptrunc x86_fp80 %call.i35 to double
-  %sub24.i51 = fsub double %conv3.i49, %12
+  %sub24.i51 = fsub double %conv3.i49, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i29), !noalias !162
   store double %sub24.i51, ptr %f_current, align 8, !tbaa !52
-  %22 = load i64, ptr %count, align 8, !tbaa !42
-  %dec19 = add i64 %22, -1
+  %24 = load i64, ptr %count, align 8, !tbaa !42
+  %dec19 = add i64 %24, -1
   store i64 %dec19, ptr %count, align 8, !tbaa !42
   %tobool20.not = icmp eq i64 %dec19, 0
   br i1 %tobool20.not, label %if.end49, label %land.rhs21, !llvm.loop !165
 
 if.then42.sink.split:                             ; preds = %while.body28, %while.body
-  %.lcssa125.sink = phi double [ %13, %while.body ], [ %18, %while.body28 ]
-  %guess.addr.1.ph.ph = phi double [ %16, %while.body ], [ %21, %while.body28 ]
+  %.lcssa124.sink = phi double [ %15, %while.body ], [ %20, %while.body28 ]
+  %guess.addr.1.ph.ph = phi double [ %18, %while.body ], [ %23, %while.body28 ]
   %multiplier.1.ph.ph = phi double [ %multiplier.094, %while.body ], [ %multiplier.290, %while.body28 ]
-  %fneg = fneg double %.lcssa125.sink
+  %fneg = fneg double %.lcssa124.sink
   store double %fneg, ptr %f_current, align 8, !tbaa !52
   br label %if.then42
 
@@ -11365,9 +11367,9 @@ if.then44:                                        ; preds = %if.then42
   br label %cleanup
 
 if.end49:                                         ; preds = %if.end33, %if.end14, %if.then42
-  %23 = load double, ptr %max, align 8, !tbaa !52
-  %24 = load double, ptr %min, align 8, !tbaa !52
-  %add50 = fadd double %23, %24
+  %25 = load double, ptr %max, align 8, !tbaa !52
+  %26 = load double, ptr %min, align 8, !tbaa !52
+  %add50 = fadd double %25, %26
   %div51 = fmul double %add50, 5.000000e-01
   %sub52 = fsub double %guess, %div51
   br label %cleanup
@@ -11410,53 +11412,55 @@ if.end:                                           ; preds = %entry
   %div1 = fdiv double %3, %guess
   %call = call double @frexp(double noundef %div1, ptr noundef nonnull %e) #31
   %4 = load i32, ptr %e, align 4, !tbaa !23
-  %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %cmp2 = icmp samesign ult i32 %5, 64
+  %5 = add i32 %4, 63
+  %cmp2 = icmp ult i32 %5, 127
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
-  %div328 = lshr i32 %5, 5
+  %6 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
+  %div328 = lshr i32 %6, 5
   %call4 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %div328) #31, !tbaa !23
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
   %cond = phi double [ %call4, %cond.false ], [ 2.000000e+00, %if.end ]
   call void @llvm.lifetime.start.p0(ptr nonnull %f_current)
-  %6 = load double, ptr %f0, align 8, !tbaa !52
-  store double %6, ptr %f_current, align 8, !tbaa !52
-  %7 = load double, ptr %min, align 8, !tbaa !52
-  %8 = tail call double @llvm.fabs.f64(double %7)
-  %9 = tail call double @llvm.fabs.f64(double %3)
-  %cmp5 = fcmp olt double %8, %9
+  %7 = load double, ptr %f0, align 8, !tbaa !52
+  store double %7, ptr %f_current, align 8, !tbaa !52
+  %8 = load double, ptr %min, align 8, !tbaa !52
+  %9 = tail call double @llvm.fabs.f64(double %8)
+  %10 = tail call double @llvm.fabs.f64(double %3)
+  %cmp5 = fcmp olt double %9, %10
   %dec90 = add i64 %0, -1
   store i64 %dec90, ptr %count, align 8, !tbaa !42
-  %cmp14 = icmp samesign ugt i32 %5, 1024
+  %11 = add i32 %4, -1025
+  %cmp14 = icmp ult i32 %11, -2049
   %cond15 = select i1 %cmp14, i32 8, i32 2
   %conv16 = uitofp nneg i32 %cond15 to double
-  %10 = load double, ptr %f, align 8
-  %conv.i = fpext double %10 to x86_fp80
+  %12 = load double, ptr %f, align 8
+  %conv.i = fpext double %12 to x86_fp80
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %11 = load i8, ptr %invert.i, align 8, !range !101
-  %loadedv.i = trunc nuw i8 %11 to i1
+  %13 = load i8, ptr %invert.i, align 8, !range !101
+  %loadedv.i = trunc nuw i8 %13 to i1
   %p.i = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %12 = load double, ptr %p.i, align 8
+  %14 = load double, ptr %p.i, align 8
   br i1 %cmp5, label %land.rhs, label %land.rhs21
 
 land.rhs:                                         ; preds = %cond.end, %if.end13
-  %13 = phi double [ %sub24.i, %if.end13 ], [ %6, %cond.end ]
+  %15 = phi double [ %sub24.i, %if.end13 ], [ %7, %cond.end ]
   %multiplier.093 = phi double [ %mul17, %if.end13 ], [ %cond, %cond.end ]
   %guess.addr.092 = phi double [ %mul, %if.end13 ], [ %guess, %cond.end ]
-  %cmp7 = fcmp olt double %13, 0.000000e+00
-  %14 = load double, ptr %f0, align 8, !tbaa !52
-  %15 = fcmp uge double %14, 0.000000e+00
-  %cmp10 = xor i1 %cmp7, %15
+  %cmp7 = fcmp olt double %15, 0.000000e+00
+  %16 = load double, ptr %f0, align 8, !tbaa !52
+  %17 = fcmp uge double %16, 0.000000e+00
+  %cmp10 = xor i1 %cmp7, %17
   br i1 %cmp10, label %while.body, label %if.then42
 
 while.body:                                       ; preds = %land.rhs
   store double %guess.addr.092, ptr %min, align 8, !tbaa !52
   %mul = fmul double %guess.addr.092, %multiplier.093
-  %16 = load double, ptr %max, align 8, !tbaa !52
-  %cmp11 = fcmp ogt double %mul, %16
+  %18 = load double, ptr %max, align 8, !tbaa !52
+  %cmp11 = fcmp ogt double %mul, %18
   br i1 %cmp11, label %if.then42.sink.split, label %if.end13
 
 if.end13:                                         ; preds = %while.body
@@ -11467,30 +11471,30 @@ if.end13:                                         ; preds = %while.body
   %call.i = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %conv.i, x86_fp80 noundef %conv2.i, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i), !noalias !166
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i), !noalias !166
   %conv3.i = fptrunc x86_fp80 %call.i to double
-  %sub24.i = fsub double %conv3.i, %12
+  %sub24.i = fsub double %conv3.i, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i), !noalias !166
   store double %sub24.i, ptr %f_current, align 8, !tbaa !52
-  %17 = load i64, ptr %count, align 8, !tbaa !42
-  %dec = add i64 %17, -1
+  %19 = load i64, ptr %count, align 8, !tbaa !42
+  %dec = add i64 %19, -1
   store i64 %dec, ptr %count, align 8, !tbaa !42
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %if.end49, label %land.rhs, !llvm.loop !169
 
 land.rhs21:                                       ; preds = %cond.end, %if.end33
-  %18 = phi double [ %sub24.i51, %if.end33 ], [ %6, %cond.end ]
+  %20 = phi double [ %sub24.i51, %if.end33 ], [ %7, %cond.end ]
   %multiplier.289 = phi double [ %mul37, %if.end33 ], [ %cond, %cond.end ]
   %guess.addr.288 = phi double [ %div29, %if.end33 ], [ %guess, %cond.end ]
-  %cmp22 = fcmp olt double %18, 0.000000e+00
-  %19 = load double, ptr %f0, align 8, !tbaa !52
-  %20 = fcmp uge double %19, 0.000000e+00
-  %cmp26 = xor i1 %cmp22, %20
+  %cmp22 = fcmp olt double %20, 0.000000e+00
+  %21 = load double, ptr %f0, align 8, !tbaa !52
+  %22 = fcmp uge double %21, 0.000000e+00
+  %cmp26 = xor i1 %cmp22, %22
   br i1 %cmp26, label %while.body28, label %if.then42
 
 while.body28:                                     ; preds = %land.rhs21
   store double %guess.addr.288, ptr %min, align 8, !tbaa !52
   %div29 = fdiv double %guess.addr.288, %multiplier.289
-  %21 = load double, ptr %max, align 8, !tbaa !52
-  %cmp30 = fcmp ogt double %div29, %21
+  %23 = load double, ptr %max, align 8, !tbaa !52
+  %cmp30 = fcmp ogt double %div29, %23
   br i1 %cmp30, label %if.then42.sink.split, label %if.end33
 
 if.end33:                                         ; preds = %while.body28
@@ -11501,20 +11505,20 @@ if.end33:                                         ; preds = %while.body28
   %call.i35 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %conv.i, x86_fp80 noundef %conv2.i32, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i30, ptr noundef nonnull %ft.i29), !noalias !170
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i30), !noalias !170
   %conv3.i49 = fptrunc x86_fp80 %call.i35 to double
-  %sub24.i51 = fsub double %conv3.i49, %12
+  %sub24.i51 = fsub double %conv3.i49, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i29), !noalias !170
   store double %sub24.i51, ptr %f_current, align 8, !tbaa !52
-  %22 = load i64, ptr %count, align 8, !tbaa !42
-  %dec19 = add i64 %22, -1
+  %24 = load i64, ptr %count, align 8, !tbaa !42
+  %dec19 = add i64 %24, -1
   store i64 %dec19, ptr %count, align 8, !tbaa !42
   %tobool20.not = icmp eq i64 %dec19, 0
   br i1 %tobool20.not, label %if.end49, label %land.rhs21, !llvm.loop !173
 
 if.then42.sink.split:                             ; preds = %while.body28, %while.body
-  %.lcssa124.sink = phi double [ %13, %while.body ], [ %18, %while.body28 ]
-  %guess.addr.1.ph.ph = phi double [ %16, %while.body ], [ %21, %while.body28 ]
+  %.lcssa123.sink = phi double [ %15, %while.body ], [ %20, %while.body28 ]
+  %guess.addr.1.ph.ph = phi double [ %18, %while.body ], [ %23, %while.body28 ]
   %multiplier.1.ph.ph = phi double [ %multiplier.093, %while.body ], [ %multiplier.289, %while.body28 ]
-  %fneg = fneg double %.lcssa124.sink
+  %fneg = fneg double %.lcssa123.sink
   store double %fneg, ptr %f_current, align 8, !tbaa !52
   br label %if.then42
 
@@ -11532,9 +11536,9 @@ if.then44:                                        ; preds = %if.then42
   br label %cleanup
 
 if.end49:                                         ; preds = %if.end33, %if.end13, %if.then42
-  %23 = load double, ptr %max, align 8, !tbaa !52
-  %24 = load double, ptr %min, align 8, !tbaa !52
-  %add50 = fadd double %23, %24
+  %25 = load double, ptr %max, align 8, !tbaa !52
+  %26 = load double, ptr %min, align 8, !tbaa !52
+  %add50 = fadd double %25, %26
   %div51 = fmul double %add50, 5.000000e-01
   %sub52 = fsub double %guess, %div51
   br label %cleanup
