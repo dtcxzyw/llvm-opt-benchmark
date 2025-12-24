@@ -43712,7 +43712,7 @@ zend_ssa_next_use.exit.i:                         ; preds = %5507, %5503
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %5602)
   br label %.thread1444
 
-.thread1444:                                      ; preds = %.thread1444.sink.split, %5592, %5589, %5583, %5570, %5405
+.thread1444:                                      ; preds = %.thread1444.sink.split, %5592, %5570, %5583, %5589, %5405
   %5603 = load i8, ptr %628, align 4, !tbaa !48
   %5604 = icmp ne i8 %5603, 98
   %5605 = and i32 %.0.i4043427, -67
