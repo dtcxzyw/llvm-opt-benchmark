@@ -1583,34 +1583,29 @@ define dso_local i64 @rb_inspect(i64 noundef %0) local_unnamed_addr #2 {
   %9 = getelementptr i8, ptr %.0, i64 20
   %.val.i = load i32, ptr %9, align 4, !tbaa !43
   %.not.i = icmp eq i32 %.val.i, 1
-  br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
+  br i1 %.not.i, label %rb_enc_asciicompat.exit, label %.sink.split17
 
 rb_enc_asciicompat.exit:                          ; preds = %8
   %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0) #27
   %.not3.i = icmp eq i32 %10, 0
-  br i1 %.not3.i, label %12, label %rb_enc_asciicompat.exit.thread
+  br i1 %.not3.i, label %11, label %.sink.split17
 
-rb_enc_asciicompat.exit.thread:                   ; preds = %8, %rb_enc_asciicompat.exit
-  %11 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %3) #24
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.sink.split, label %17
+11:                                               ; preds = %rb_enc_asciicompat.exit
+  %12 = tail call ptr @rb_enc_get(i64 noundef %3) #24
+  %.not13 = icmp eq ptr %12, %.0
+  br i1 %.not13, label %15, label %.sink.split17
 
-12:                                               ; preds = %rb_enc_asciicompat.exit
-  %13 = tail call ptr @rb_enc_get(i64 noundef %3) #24
-  %.not13 = icmp eq ptr %13, %.0
-  br i1 %.not13, label %17, label %14
+.sink.split:                                      ; preds = %.sink.split17
+  %13 = tail call i64 @rb_str_escape(i64 noundef %3) #24
+  br label %15
 
-14:                                               ; preds = %12
-  %15 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %3) #24
-  %.not14 = icmp eq i32 %15, 0
-  br i1 %.not14, label %.sink.split, label %17
+.sink.split17:                                    ; preds = %11, %rb_enc_asciicompat.exit, %8
+  %14 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %3) #24
+  %.not14 = icmp eq i32 %14, 0
+  br i1 %.not14, label %.sink.split, label %15
 
-.sink.split:                                      ; preds = %14, %rb_enc_asciicompat.exit.thread
-  %16 = tail call i64 @rb_str_escape(i64 noundef %3) #24
-  br label %17
-
-17:                                               ; preds = %.sink.split, %12, %14, %rb_enc_asciicompat.exit.thread
-  %.011 = phi i64 [ %3, %rb_enc_asciicompat.exit.thread ], [ %3, %14 ], [ %3, %12 ], [ %16, %.sink.split ]
+15:                                               ; preds = %.sink.split17, %.sink.split, %11
+  %.011 = phi i64 [ %13, %.sink.split ], [ %3, %11 ], [ %3, %.sink.split17 ]
   ret i64 %.011
 }
 

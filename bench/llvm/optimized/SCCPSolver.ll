@@ -1729,8 +1729,7 @@ _ZN4llvm5APIntD2Ev.exit.i60.i:                    ; preds = %551, %548, %_ZN4llv
 
 _ZN4llvm13ConstantRangeD2Ev.exit61.i:             ; preds = %557, %554, %_ZN4llvm5APIntD2Ev.exit.i60.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.244.i, label %755, label %756
+  br label %.sink.split
 
 _ZN4llvm3isaINS_25OverflowingBinaryOperatorENS_11InstructionEEEbRKT0_.exit.i: ; preds = %.loopexit
   %558 = add nsw i32 %458, -68
@@ -1803,8 +1802,7 @@ _ZN4llvm5APIntD2Ev.exit.i64.i:                    ; preds = %583, %580, %577
 
 _ZN4llvm13ConstantRangeD2Ev.exit65.i:             ; preds = %589, %586, %_ZN4llvm5APIntD2Ev.exit.i64.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %575, label %755, label %756
+  br label %.sink.split
 
 590:                                              ; preds = %559, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorENS_11InstructionEEEbRKT0_.exit.i
   switch i8 %457, label %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread [
@@ -2241,14 +2239,18 @@ _ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueE
 
 _ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i68.i, %634, %637
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.8.i, label %755, label %756
+  br label %.sink.split
 
-755:                                              ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit61.i, %_ZN4llvm13ConstantRangeD2Ev.exit65.i, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread29, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit
+755:                                              ; preds = %.sink.split, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread29
   br label %756
 
-756:                                              ; preds = %755, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread, %_ZN4llvm13ConstantRangeD2Ev.exit65.i, %_ZN4llvm13ConstantRangeD2Ev.exit61.i, %85, %87, %452, %74
-  %.1 = phi i1 [ %.052, %74 ], [ true, %85 ], [ true, %452 ], [ true, %87 ], [ true, %755 ], [ %.052, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit ], [ %.052, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread ], [ %.052, %_ZN4llvm13ConstantRangeD2Ev.exit65.i ], [ %.052, %_ZN4llvm13ConstantRangeD2Ev.exit61.i ]
+.sink.split:                                      ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit61.i, %_ZN4llvm13ConstantRangeD2Ev.exit65.i, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit
+  %.8.i.sink = phi i1 [ %.8.i, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit ], [ %575, %_ZN4llvm13ConstantRangeD2Ev.exit65.i ], [ %.244.i, %_ZN4llvm13ConstantRangeD2Ev.exit61.i ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  br i1 %.8.i.sink, label %755, label %756
+
+756:                                              ; preds = %.sink.split, %755, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread, %85, %87, %452, %74
+  %.1 = phi i1 [ %.052, %74 ], [ true, %85 ], [ true, %452 ], [ true, %87 ], [ true, %755 ], [ %.052, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread ], [ %.052, %.sink.split ]
   %.not = icmp eq ptr %76, %27
   br i1 %.not, label %._crit_edge, label %74
 }

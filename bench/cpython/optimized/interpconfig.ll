@@ -856,32 +856,27 @@ _config_dict_get_bool.exit116:                    ; preds = %Py_DECREF.exit9.i11
 191:                                              ; preds = %186
   %192 = load i32, ptr %14, align 8, !tbaa !9
   %.not.i85 = icmp sgt i32 %192, -1
-  br i1 %.not.i85, label %193, label %Py_DECREF.exit86
+  br i1 %.not.i85, label %Py_DECREF.exit86.sink.split177, label %Py_DECREF.exit86
 
-193:                                              ; preds = %191
-  %194 = add nsw i32 %192, -1
+config_dict_get.exit.thread:                      ; preds = %80, %44, %87, %85, %51, %49, %179, %.thread155, %.thread151, %.thread147, %.thread140, %165, %156, %147, %119, %config_dict_get.exit100, %config_dict_get.exit, %169, %16, %188, %183, %172
+  %193 = load i32, ptr %14, align 8, !tbaa !9
+  %.not.i = icmp sgt i32 %193, -1
+  br i1 %.not.i, label %Py_DECREF.exit86.sink.split177, label %Py_DECREF.exit86
+
+Py_DECREF.exit86.sink.split:                      ; preds = %Py_DECREF.exit86.sink.split177
+  call void @_Py_Dealloc(ptr noundef nonnull %14) #6
+  br label %Py_DECREF.exit86
+
+Py_DECREF.exit86.sink.split177:                   ; preds = %config_dict_get.exit.thread, %191
+  %.sink180 = phi i32 [ %192, %191 ], [ %193, %config_dict_get.exit.thread ]
+  %.0.ph178 = phi i32 [ 0, %191 ], [ -1, %config_dict_get.exit.thread ]
+  %194 = add nsw i32 %.sink180, -1
   store i32 %194, ptr %14, align 8, !tbaa !9
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %Py_DECREF.exit86.sink.split, label %Py_DECREF.exit86
 
-config_dict_get.exit.thread:                      ; preds = %80, %44, %87, %85, %51, %49, %179, %.thread155, %.thread151, %.thread147, %.thread140, %165, %156, %147, %119, %config_dict_get.exit100, %config_dict_get.exit, %169, %16, %188, %183, %172
-  %196 = load i32, ptr %14, align 8, !tbaa !9
-  %.not.i = icmp sgt i32 %196, -1
-  br i1 %.not.i, label %197, label %Py_DECREF.exit86
-
-197:                                              ; preds = %config_dict_get.exit.thread
-  %198 = add nsw i32 %196, -1
-  store i32 %198, ptr %14, align 8, !tbaa !9
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %Py_DECREF.exit86.sink.split, label %Py_DECREF.exit86
-
-Py_DECREF.exit86.sink.split:                      ; preds = %197, %193
-  %.0.ph = phi i32 [ 0, %193 ], [ -1, %197 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %14) #6
-  br label %Py_DECREF.exit86
-
-Py_DECREF.exit86:                                 ; preds = %Py_DECREF.exit86.sink.split, %197, %config_dict_get.exit.thread, %193, %191, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %197 ], [ 0, %191 ], [ 0, %193 ], [ -1, %config_dict_get.exit.thread ], [ %.0.ph, %Py_DECREF.exit86.sink.split ]
+Py_DECREF.exit86:                                 ; preds = %Py_DECREF.exit86.sink.split177, %Py_DECREF.exit86.sink.split, %config_dict_get.exit.thread, %191, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %config_dict_get.exit.thread ], [ 0, %191 ], [ %.0.ph178, %Py_DECREF.exit86.sink.split ], [ %.0.ph178, %Py_DECREF.exit86.sink.split177 ]
   ret i32 %.0
 }
 

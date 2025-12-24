@@ -9642,7 +9642,7 @@ _ZN7ruff_db8vendored18VendoredFileSystem12lock_archive17h068f946a88280e97E.exit:
 33:                                               ; preds = %50, %45, %34
   %.pn23 = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %50 ], [ %46, %45 ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E"(ptr nonnull %29, i8 %31) #26
-          to label %common.resume unwind label %102
+          to label %common.resume unwind label %100
 
 34:                                               ; preds = %90, %78, %47, %_ZN7ruff_db8vendored18VendoredFileSystem12lock_archive17h068f946a88280e97E.exit
   %35 = landingpad { ptr, i32 }
@@ -9682,7 +9682,7 @@ _ZN7ruff_db8vendored18VendoredFileSystem12lock_archive17h068f946a88280e97E.exit:
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$ruff_db..vendored..NormalizedVendoredPath$GT$17h48dec2057d1f1ebcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #26
-          to label %33 unwind label %102
+          to label %33 unwind label %100
 
 47:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1772
@@ -9691,7 +9691,7 @@ _ZN7ruff_db8vendored18VendoredFileSystem12lock_archive17h068f946a88280e97E.exit:
   store ptr %44, ptr %48, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr62drop_in_place$LT$ruff_db..vendored..NormalizedVendoredPath$GT$17h48dec2057d1f1ebcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
-          to label %104 unwind label %34
+          to label %102 unwind label %34
 
 49:                                               ; preds = %.noexc
   %.sroa.66.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -9711,7 +9711,7 @@ _ZN7ruff_db8vendored18VendoredFileSystem12lock_archive17h068f946a88280e97E.exit:
 50:                                               ; preds = %70, %51
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %71, %70 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$zip..read..ZipFile$GT$17h0097fe3636dbe274E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %13) #26
-          to label %33 unwind label %102
+          to label %33 unwind label %100
 
 51:                                               ; preds = %64, %53, %75, %49
   %52 = landingpad { ptr, i32 }
@@ -9770,7 +9770,7 @@ _ZN7ruff_db8vendored18VendoredFileSystem12lock_archive17h068f946a88280e97E.exit:
   %71 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #26
-          to label %50 unwind label %102
+          to label %50 unwind label %100
 
 72:                                               ; preds = %66
   %73 = extractvalue { i64, ptr } %69, 0
@@ -9795,32 +9795,32 @@ _ZN7ruff_db8vendored18VendoredFileSystem12lock_archive17h068f946a88280e97E.exit:
 79:                                               ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %80 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  br i1 %32, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i, label %81
+  br i1 %32, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50", label %81
 
 81:                                               ; preds = %79
   %82 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h9539389daf418384E monotonic, align 8
   %83 = and i64 %82, 9223372036854775807
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i, label %85, !prof !46
+  br i1 %84, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50", label %85, !prof !46
 
 85:                                               ; preds = %81
   %86 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h48eb64b570eb50ddE()
-  br i1 %86, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i, label %87
+  br i1 %86, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50", label %87
 
 87:                                               ; preds = %85
   store atomic i8 1, ptr %80 monotonic, align 4
-  br label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i
+  br label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50"
 
-_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %87, %85, %81, %79
-  %88 = atomicrmw xchg ptr %29, i32 0 release, align 4
-  %89 = icmp eq i32 %88, 2
-  br i1 %89, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split", label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit", !prof !61
-
-"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split": ; preds = %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i36
+"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split": ; preds = %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50"
   call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h0439a4c6ca014734E(ptr noundef nonnull align 4 %29)
   br label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit"
 
-"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit": ; preds = %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split", %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i36, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i
+"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50": ; preds = %79, %81, %85, %87, %91, %93, %97, %99
+  %88 = atomicrmw xchg ptr %29, i32 0 release, align 4
+  %89 = icmp eq i32 %88, 2
+  br i1 %89, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split", label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit"
+
+"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit": ; preds = %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50", %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split"
   ret void
 
 90:                                               ; preds = %75
@@ -9828,37 +9828,32 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %87, %85, 
   invoke void @"_ZN4core3ptr39drop_in_place$LT$zip..read..ZipFile$GT$17h0097fe3636dbe274E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %13)
           to label %91 unwind label %34
 
-91:                                               ; preds = %104, %90
+91:                                               ; preds = %102, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %92 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  br i1 %32, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i36, label %93
+  br i1 %32, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50", label %93
 
 93:                                               ; preds = %91
   %94 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h9539389daf418384E monotonic, align 8
   %95 = and i64 %94, 9223372036854775807
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i36, label %97, !prof !46
+  br i1 %96, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50", label %97, !prof !46
 
 97:                                               ; preds = %93
   %98 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h48eb64b570eb50ddE()
-  br i1 %98, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i36, label %99
+  br i1 %98, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50", label %99
 
 99:                                               ; preds = %97
   store atomic i8 1, ptr %92 monotonic, align 4
-  br label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i36
+  br label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split50"
 
-_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i36: ; preds = %99, %97, %93, %91
-  %100 = atomicrmw xchg ptr %29, i32 0 release, align 4
-  %101 = icmp eq i32 %100, 2
-  br i1 %101, label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit.sink.split", label %"_ZN4core3ptr102drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$ruff_db..vendored..VendoredZipArchive$GT$$GT$17h55733387e244da51E.exit", !prof !61
-
-102:                                              ; preds = %33, %70, %50, %45
-  %103 = landingpad { ptr, i32 }
+100:                                              ; preds = %33, %70, %50, %45
+  %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #27
   unreachable
 
-104:                                              ; preds = %47
+102:                                              ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %91
 }

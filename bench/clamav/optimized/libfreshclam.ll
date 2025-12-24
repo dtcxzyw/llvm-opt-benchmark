@@ -942,7 +942,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %3
   %10 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.45) #16
-  br label %79
+  br label %76
 
 11:                                               ; preds = %3
   store ptr null, ptr %1, align 8, !tbaa !16
@@ -952,7 +952,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %11
   %14 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.46) #16
-  br label %79
+  br label %76
 
 15:                                               ; preds = %11
   %16 = call ptr @dnsquery(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %4) #16
@@ -961,7 +961,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 18:                                               ; preds = %15
   %19 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.47) #16
-  br label %79
+  br label %76
 
 20:                                               ; preds = %15
   %21 = load i32, ptr %4, align 4, !tbaa !35
@@ -972,7 +972,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 25:                                               ; preds = %20
   %26 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.50) #16
-  br label %79
+  br label %76
 
 27:                                               ; preds = %20
   %28 = call i64 @strtol(ptr noundef nonnull captures(none) %23, ptr noundef null, i32 noundef 10) #16
@@ -987,7 +987,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 35:                                               ; preds = %27
   %36 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.51, i32 noundef 12) #16
-  br label %79
+  br label %76
 
 37:                                               ; preds = %27
   %38 = call ptr @cli_strtok(ptr noundef nonnull %16, i32 noundef 4, ptr noundef nonnull @.str.49) #16
@@ -996,7 +996,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 40:                                               ; preds = %37
   %41 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.52) #16
-  br label %79
+  br label %76
 
 42:                                               ; preds = %37
   %43 = load i8, ptr %38, align 1, !tbaa !29
@@ -1007,7 +1007,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 46:                                               ; preds = %42
   %47 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.53) #16
-  br label %79
+  br label %76
 
 48:                                               ; preds = %42
   %49 = icmp eq i8 %43, 48
@@ -1016,22 +1016,22 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
   %52 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %51, i64 noundef 32) #16
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 31
   store i8 0, ptr %53, align 1, !tbaa !29
-  br i1 %49, label %78, label %54
+  br i1 %49, label %75, label %54
 
 54:                                               ; preds = %48
   %55 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.55) #17
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %56, label %78
+  br i1 %.not, label %56, label %75
 
 56:                                               ; preds = %54
   %57 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.56) #17
   %.not42 = icmp eq ptr %57, null
-  br i1 %.not42, label %58, label %78
+  br i1 %.not42, label %58, label %75
 
 58:                                               ; preds = %56
   %59 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.57) #17
   %.not43 = icmp eq ptr %59, null
-  br i1 %.not43, label %60, label %78
+  br i1 %.not43, label %60, label %75
 
 60:                                               ; preds = %58
   %61 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 45) #17
@@ -1042,39 +1042,40 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
   %63 = ptrtoint ptr %61 to i64
   %64 = ptrtoint ptr %6 to i64
   %65 = sub i64 %63, %64
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
-  %67 = call i32 @version_string_compare(ptr noundef nonnull %6, i64 noundef %65, ptr noundef nonnull %44, i64 noundef %66)
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %73, label %78
+  br label %.sink.split
 
 .critedge:                                        ; preds = %60
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
-  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
-  %71 = call i32 @version_string_compare(ptr noundef nonnull %6, i64 noundef %69, ptr noundef nonnull %44, i64 noundef %70)
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %78
+  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
+  br label %.sink.split
 
-73:                                               ; preds = %.critedge, %62
-  %74 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.58) #16
-  %75 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.59, ptr noundef nonnull %6, ptr noundef nonnull %44) #16
-  %76 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.60) #16
-  %77 = call ptr @cli_safer_strdup(ptr noundef nonnull %44) #16
-  store ptr %77, ptr %2, align 8, !tbaa !16
-  br label %78
+67:                                               ; preds = %.sink.split
+  %68 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.58) #16
+  %69 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.59, ptr noundef nonnull %6, ptr noundef nonnull %44) #16
+  %70 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.60) #16
+  %71 = call ptr @cli_safer_strdup(ptr noundef nonnull %44) #16
+  store ptr %71, ptr %2, align 8, !tbaa !16
+  br label %75
 
-78:                                               ; preds = %48, %58, %56, %54, %73, %.critedge, %62
+.sink.split:                                      ; preds = %62, %.critedge
+  %.sink = phi i64 [ %66, %.critedge ], [ %65, %62 ]
+  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
+  %73 = call i32 @version_string_compare(ptr noundef nonnull %6, i64 noundef %.sink, ptr noundef nonnull %44, i64 noundef %72)
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %67, label %75
+
+75:                                               ; preds = %.sink.split, %48, %58, %56, %54, %67
   call void @free(ptr noundef nonnull %44) #16
   store ptr %16, ptr %1, align 8, !tbaa !16
-  br label %80
+  br label %77
 
-79:                                               ; preds = %9, %13, %18, %25, %35, %40, %46
+76:                                               ; preds = %9, %13, %18, %25, %35, %40, %46
   %.033.ph = phi ptr [ %16, %46 ], [ %16, %40 ], [ %16, %35 ], [ %16, %25 ], [ null, %18 ], [ null, %13 ], [ null, %9 ]
   %.0.ph = phi i32 [ 11, %46 ], [ 11, %40 ], [ 11, %35 ], [ 11, %25 ], [ 11, %18 ], [ 11, %13 ], [ 16, %9 ]
   call void @free(ptr noundef %.033.ph) #16
-  br label %80
+  br label %77
 
-80:                                               ; preds = %78, %79
-  %.051 = phi i32 [ %.0.ph, %79 ], [ 0, %78 ]
+77:                                               ; preds = %75, %76
+  %.051 = phi i32 [ %.0.ph, %76 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

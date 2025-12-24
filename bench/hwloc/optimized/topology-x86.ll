@@ -3429,7 +3429,7 @@ hwloc_flsl_manual.exit371:                        ; preds = %795, %797
   br label %.thread416.sink.split
 
 810:                                              ; preds = %789
-  br i1 %81, label %811, label %857
+  br i1 %81, label %811, label %852
 
 811:                                              ; preds = %810
   %812 = load i32, ptr %88, align 8, !tbaa !106
@@ -3504,60 +3504,53 @@ hwloc_flsl_manual.exit371:                        ; preds = %795, %797
   %851 = load i32, ptr %783, align 4, !tbaa !107
   %.off = add i32 %851, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %852, label %.thread416
+  br i1 %switch, label %.thread416.sink.split636, label %.thread416
 
-852:                                              ; preds = %850
-  %853 = getelementptr inbounds nuw i8, ptr %790, i64 4
-  %854 = load i32, ptr %853, align 4, !tbaa !116
-  %855 = icmp eq i32 %854, 3
-  %856 = icmp eq i32 %792, 6
-  %or.cond418 = and i1 %856, %855
-  br i1 %or.cond418, label %.thread416.sink.split, label %.thread416
+852:                                              ; preds = %810
+  br i1 %82, label %853, label %.thread416
 
-857:                                              ; preds = %810
-  br i1 %82, label %858, label %.thread416
+853:                                              ; preds = %852
+  %854 = load i32, ptr %88, align 8, !tbaa !106
+  %855 = icmp eq i32 %854, 24
+  br i1 %855, label %.thread416.sink.split636, label %.thread416
 
-858:                                              ; preds = %857
-  %859 = load i32, ptr %88, align 8, !tbaa !106
-  %860 = icmp eq i32 %859, 24
-  br i1 %860, label %861, label %.thread416
-
-861:                                              ; preds = %858
-  %862 = getelementptr inbounds nuw i8, ptr %790, i64 4
-  %863 = load i32, ptr %862, align 4, !tbaa !116
-  %864 = icmp eq i32 %863, 3
-  %865 = icmp eq i32 %792, 6
-  %or.cond419 = and i1 %865, %864
-  br i1 %or.cond419, label %.thread416.sink.split, label %.thread416
-
-.thread416.sink.split:                            ; preds = %861, %852, %847, %818, %hwloc_flsl_manual.exit371
-  %.sink635 = phi i32 [ %809, %hwloc_flsl_manual.exit371 ], [ %788, %852 ], [ %822, %818 ], [ %849, %847 ], [ %782, %861 ]
+.thread416.sink.split:                            ; preds = %.thread416.sink.split636, %847, %818, %hwloc_flsl_manual.exit371
+  %.sink635 = phi i32 [ %809, %hwloc_flsl_manual.exit371 ], [ %849, %847 ], [ %822, %818 ], [ %.sink635.ph, %.thread416.sink.split636 ]
   store i32 %.sink635, ptr %794, align 4, !tbaa !127
   br label %.thread416
 
-.thread416:                                       ; preds = %.thread416.sink.split, %823, %814, %824, %827, %831, %850, %857, %861, %858, %852
+.thread416.sink.split636:                         ; preds = %853, %850
+  %.sink635.ph = phi i32 [ %788, %850 ], [ %782, %853 ]
+  %856 = getelementptr inbounds nuw i8, ptr %790, i64 4
+  %857 = load i32, ptr %856, align 4, !tbaa !116
+  %858 = icmp eq i32 %857, 3
+  %859 = icmp eq i32 %792, 6
+  %or.cond419 = and i1 %859, %858
+  br i1 %or.cond419, label %.thread416.sink.split, label %.thread416
+
+.thread416:                                       ; preds = %.thread416.sink.split636, %.thread416.sink.split, %823, %814, %824, %827, %831, %850, %852, %853
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %789, !llvm.loop !128
 
 .loopexit:                                        ; preds = %.thread416, %..loopexit_crit_edge, %779
-  %866 = phi i32 [ %.pre543, %..loopexit_crit_edge ], [ %.pre544, %779 ], [ %.pre544, %.thread416 ]
-  %867 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %868 = load ptr, ptr %867, align 8, !tbaa !19
-  %869 = call i32 @hwloc_bitmap_isset(ptr noundef %868, i32 noundef %866) #24
-  %.not256 = icmp eq i32 %869, 0
-  br i1 %.not256, label %872, label %870
+  %860 = phi i32 [ %.pre543, %..loopexit_crit_edge ], [ %.pre544, %779 ], [ %.pre544, %.thread416 ]
+  %861 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %862 = load ptr, ptr %861, align 8, !tbaa !19
+  %863 = call i32 @hwloc_bitmap_isset(ptr noundef %862, i32 noundef %860) #24
+  %.not256 = icmp eq i32 %863, 0
+  br i1 %.not256, label %866, label %864
 
-870:                                              ; preds = %.loopexit
-  %871 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %871, align 8, !tbaa !20
-  br label %874
+864:                                              ; preds = %.loopexit
+  %865 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 0, ptr %865, align 8, !tbaa !20
+  br label %868
 
-872:                                              ; preds = %.loopexit
-  %873 = call i32 @hwloc_bitmap_set(ptr noundef %868, i32 noundef %866) #23
-  br label %874
+866:                                              ; preds = %.loopexit
+  %867 = call i32 @hwloc_bitmap_set(ptr noundef %862, i32 noundef %860) #23
+  br label %868
 
-874:                                              ; preds = %872, %870
+868:                                              ; preds = %866, %864
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void

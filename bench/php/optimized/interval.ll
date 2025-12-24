@@ -389,13 +389,13 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %6 = load i32, ptr %5, align 8, !tbaa !9
   %7 = icmp eq i32 %6, 3
   %.pre = load ptr, ptr %1, align 8, !tbaa !4
-  br i1 %7, label %8, label %125
+  br i1 %7, label %8, label %119
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 232
   %10 = load i32, ptr %9, align 8, !tbaa !9
   %11 = icmp eq i32 %10, 3
-  br i1 %11, label %12, label %125
+  br i1 %11, label %12, label %119
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -406,7 +406,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %18 = load ptr, ptr %17, align 8, !tbaa !18
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %18) #9
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %125
+  br i1 %20, label %21, label %119
 
 21:                                               ; preds = %12
   %22 = load i64, ptr %4, align 8, !tbaa !31
@@ -416,7 +416,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
 
 25:                                               ; preds = %21
   %26 = icmp eq i64 %22, %23
-  br i1 %26, label %27, label %140
+  br i1 %26, label %27, label %133
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -428,7 +428,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
 
 33:                                               ; preds = %27
   %34 = icmp eq i64 %29, %31
-  br i1 %34, label %35, label %140
+  br i1 %34, label %35, label %133
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -516,7 +516,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %98 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %99 = load i64, ptr %98, align 8, !tbaa !35
   %100 = icmp eq i64 %97, %99
-  br i1 %100, label %101, label %140
+  br i1 %100, label %101, label %133
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -524,7 +524,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %104 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %105 = load i64, ptr %104, align 8, !tbaa !37
   %106 = icmp eq i64 %103, %105
-  br i1 %106, label %107, label %140
+  br i1 %106, label %107, label %133
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -532,7 +532,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %110 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %111 = load i64, ptr %110, align 8, !tbaa !39
   %112 = icmp eq i64 %109, %111
-  br i1 %112, label %113, label %140
+  br i1 %112, label %113, label %133
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -540,44 +540,36 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %116 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %117 = load i64, ptr %116, align 8, !tbaa !41
   %118 = icmp eq i64 %115, %117
-  br i1 %118, label %119, label %140
+  br i1 %118, label %.sink.split92, label %133
 
-119:                                              ; preds = %113
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %121 = load i64, ptr %120, align 8, !tbaa !43
-  %122 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %123 = load i64, ptr %122, align 8, !tbaa !43
+119:                                              ; preds = %12, %8, %3
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 192
+  %121 = load i64, ptr %120, align 8, !tbaa !46
+  %122 = getelementptr inbounds nuw i8, ptr %.pre, i64 192
+  %123 = load i64, ptr %122, align 8, !tbaa !46
   %124 = icmp sgt i64 %121, %123
-  br i1 %124, label %.sink.split, label %140
+  br i1 %124, label %.sink.split, label %125
 
-125:                                              ; preds = %12, %8, %3
-  %126 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %127 = load i64, ptr %126, align 8, !tbaa !46
-  %128 = getelementptr inbounds nuw i8, ptr %.pre, i64 192
-  %129 = load i64, ptr %128, align 8, !tbaa !46
-  %130 = icmp sgt i64 %127, %129
-  br i1 %130, label %.sink.split, label %131
+125:                                              ; preds = %119
+  %126 = icmp eq i64 %121, %123
+  br i1 %126, label %.sink.split92, label %133
 
-131:                                              ; preds = %125
-  %132 = icmp eq i64 %127, %129
-  br i1 %132, label %133, label %140
-
-133:                                              ; preds = %131
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %135 = load i64, ptr %134, align 8, !tbaa !43
-  %136 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %137 = load i64, ptr %136, align 8, !tbaa !43
-  %138 = icmp sgt i64 %135, %137
-  br i1 %138, label %.sink.split, label %140
-
-.sink.split:                                      ; preds = %125, %133, %21, %27, %35, %47, %65, %89, %119
+.sink.split:                                      ; preds = %.sink.split92, %119, %21, %27, %35, %47, %65, %89
   store ptr %4, ptr %1, align 8, !tbaa !4
   store ptr %.pre, ptr %0, align 8, !tbaa !4
-  %139 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 1, ptr %139, align 4, !tbaa !29
-  br label %140
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  store i32 1, ptr %127, align 4, !tbaa !29
+  br label %133
 
-140:                                              ; preds = %.sink.split, %33, %25, %95, %101, %107, %113, %119, %133, %131
+.sink.split92:                                    ; preds = %125, %113
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %129 = load i64, ptr %128, align 8, !tbaa !43
+  %130 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
+  %131 = load i64, ptr %130, align 8, !tbaa !43
+  %132 = icmp sgt i64 %129, %131
+  br i1 %132, label %.sink.split, label %133
+
+133:                                              ; preds = %.sink.split92, %.sink.split, %33, %25, %95, %101, %107, %113, %125
   ret void
 }
 

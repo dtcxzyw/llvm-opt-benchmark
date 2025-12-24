@@ -3779,16 +3779,14 @@ _ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit.thread
 62:                                               ; preds = %54
   %63 = add i32 %55, -71
   %64 = icmp ult i32 %63, 83
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %64, label %66, label %68
+  br label %.sink.split
 
 _ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit: ; preds = %56
   %.fr = freeze i32 %61
   %65 = icmp eq i32 %.fr, 2
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %65, label %66, label %68
+  br label %.sink.split
 
-66:                                               ; preds = %62, %_ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit.thread, %_ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit
+66:                                               ; preds = %.sink.split, %_ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit.thread
   br label %68
 
 67:                                               ; preds = %50
@@ -3798,8 +3796,13 @@ _ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit: ; pre
   %switch.select13 = select i1 %switch.selectcmp12, i8 4, i8 %switch.select
   br label %68
 
-68:                                               ; preds = %43, %.thread, %66, %_ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit, %62, %67, %52, %48, %_ZNSt6vectorISt17reference_wrapperIKS_IN4cvc58internal12NodeTemplateILb1EEESaIS4_EEESaIS8_EE9push_backEOS8_.exit
-  %.0 = phi i8 [ 0, %_ZNSt6vectorISt17reference_wrapperIKS_IN4cvc58internal12NodeTemplateILb1EEESaIS4_EEESaIS8_EE9push_backEOS8_.exit ], [ %., %48 ], [ 1, %43 ], [ %switch.select13, %67 ], [ 2, %52 ], [ 3, %66 ], [ 4, %_ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit ], [ 4, %62 ], [ 4, %.thread ]
+.sink.split:                                      ; preds = %62, %_ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit
+  %.sink = phi i1 [ %65, %_ZN4cvc58internal5proof10DotPrinter13isTheoryLemmaEPKNS0_9ProofNodeE.exit ], [ %64, %62 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br i1 %.sink, label %66, label %68
+
+68:                                               ; preds = %.sink.split, %43, %.thread, %66, %67, %52, %48, %_ZNSt6vectorISt17reference_wrapperIKS_IN4cvc58internal12NodeTemplateILb1EEESaIS4_EEESaIS8_EE9push_backEOS8_.exit
+  %.0 = phi i8 [ 0, %_ZNSt6vectorISt17reference_wrapperIKS_IN4cvc58internal12NodeTemplateILb1EEESaIS4_EEESaIS8_EE9push_backEOS8_.exit ], [ %., %48 ], [ 1, %43 ], [ %switch.select13, %67 ], [ 2, %52 ], [ 3, %66 ], [ 4, %.thread ], [ 4, %.sink.split ]
   ret i8 %.0
 }
 

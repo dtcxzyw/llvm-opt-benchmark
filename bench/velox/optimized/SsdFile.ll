@@ -12456,13 +12456,7 @@ lpad:                                             ; preds = %_ZNK5folly8Executor
   %12 = load i64, ptr %agg.tmp, align 8
   %and.i.i.i10 = and i64 %12, -4
   %tobool.not.i.i11 = icmp eq i64 %and.i.i.i10, 0
-  br i1 %tobool.not.i.i11, label %eh.resume, label %if.then.i.i12
-
-if.then.i.i12:                                    ; preds = %lpad
-  store i64 0, ptr %agg.tmp, align 8
-  %and.i.i13 = and i64 %12, 3
-  %tobool4.not.i.i14 = icmp eq i64 %and.i.i13, 0
-  br i1 %tobool4.not.i.i14, label %eh.resume.sink.split, label %eh.resume
+  br i1 %tobool.not.i.i11, label %eh.resume, label %eh.resume.sink.split45
 
 if.end6:                                          ; preds = %if.then5.i.i, %if.then.i.i, %invoke.cont, %_ZNK5folly7futures6detail10FutureBaseINS_4UnitEE19getDeferredExecutorEv.exit
   %13 = load ptr, ptr %this, align 8
@@ -12515,26 +12509,28 @@ lpad10:                                           ; preds = %if.then.i.i.i20
   %19 = load i64, ptr %agg.tmp9, align 8
   %and.i.i.i30 = and i64 %19, -4
   %tobool.not.i.i31 = icmp eq i64 %and.i.i.i30, 0
-  br i1 %tobool.not.i.i31, label %eh.resume, label %if.then.i.i32
+  br i1 %tobool.not.i.i31, label %eh.resume, label %eh.resume.sink.split45
 
-if.then.i.i32:                                    ; preds = %lpad10
-  store i64 0, ptr %agg.tmp9, align 8
-  %and.i.i33 = and i64 %19, 3
+eh.resume.sink.split:                             ; preds = %eh.resume.sink.split45
+  %.sink44.ph = inttoptr i64 %.sink44.ph.in to ptr
+  %vtable.i.i36 = load ptr, ptr %.sink44.ph, align 8
+  %vfn.i.i37 = getelementptr inbounds nuw i8, ptr %vtable.i.i36, i64 48
+  %20 = load ptr, ptr %vfn.i.i37, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %.sink44.ph) #36
+  br label %eh.resume
+
+eh.resume.sink.split45:                           ; preds = %lpad10, %lpad
+  %agg.tmp9.sink = phi ptr [ %agg.tmp, %lpad ], [ %agg.tmp9, %lpad10 ]
+  %.sink = phi i64 [ %12, %lpad ], [ %19, %lpad10 ]
+  %.pn.ph46 = phi { ptr, i32 } [ %11, %lpad ], [ %18, %lpad10 ]
+  %.sink44.ph.in = phi i64 [ %and.i.i.i10, %lpad ], [ %and.i.i.i30, %lpad10 ]
+  store i64 0, ptr %agg.tmp9.sink, align 8
+  %and.i.i33 = and i64 %.sink, 3
   %tobool4.not.i.i34 = icmp eq i64 %and.i.i33, 0
   br i1 %tobool4.not.i.i34, label %eh.resume.sink.split, label %eh.resume
 
-eh.resume.sink.split:                             ; preds = %if.then.i.i32, %if.then.i.i12
-  %.sink44.in = phi i64 [ %and.i.i.i10, %if.then.i.i12 ], [ %and.i.i.i30, %if.then.i.i32 ]
-  %.pn.ph = phi { ptr, i32 } [ %11, %if.then.i.i12 ], [ %18, %if.then.i.i32 ]
-  %.sink44 = inttoptr i64 %.sink44.in to ptr
-  %vtable.i.i36 = load ptr, ptr %.sink44, align 8
-  %vfn.i.i37 = getelementptr inbounds nuw i8, ptr %vtable.i.i36, i64 48
-  %20 = load ptr, ptr %vfn.i.i37, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %.sink44) #36
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad10, %if.then.i.i32, %if.then.i.i12, %lpad
-  %.pn = phi { ptr, i32 } [ %18, %if.then.i.i32 ], [ %11, %lpad ], [ %11, %if.then.i.i12 ], [ %18, %lpad10 ], [ %.pn.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %eh.resume.sink.split45, %eh.resume.sink.split, %lpad10, %lpad
+  %.pn = phi { ptr, i32 } [ %18, %lpad10 ], [ %11, %lpad ], [ %.pn.ph46, %eh.resume.sink.split ], [ %.pn.ph46, %eh.resume.sink.split45 ]
   resume { ptr, i32 } %.pn
 }
 

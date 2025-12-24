@@ -29130,39 +29130,35 @@ define hidden void @"_ZN197_$LT$tokenizers..processors..bert.._..$LT$impl$u20$se
     i8 99, label %12
   ]
 
-7:                                                ; preds = %22, %16, %12, %8, %5, %3
-  br label %20
+7:                                                ; preds = %.sink.split, %12, %8, %5, %3
+  br label %19
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1, !noundef !14
   %11 = icmp eq i8 %10, 101
-  br i1 %11, label %16, label %7
+  br i1 %11, label %.sink.split, label %7
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !noundef !14
   %15 = icmp eq i8 %14, 108
-  br i1 %15, label %22, label %7
+  br i1 %15, label %.sink.split, label %7
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %18 = load i8, ptr %17, align 1, !noundef !14
-  %19 = icmp eq i8 %18, 112
-  br i1 %19, label %20, label %7
+.sink.split:                                      ; preds = %8, %12
+  %.sink4 = phi i8 [ 115, %12 ], [ 112, %8 ]
+  %.sink.ph = phi i8 [ 1, %12 ], [ 0, %8 ]
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %17 = load i8, ptr %16, align 1, !noundef !14
+  %18 = icmp eq i8 %17, %.sink4
+  br i1 %18, label %19, label %7
 
-20:                                               ; preds = %16, %22, %7
-  %.sink = phi i8 [ 2, %7 ], [ 1, %22 ], [ 0, %16 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sink, ptr %21, align 1
+19:                                               ; preds = %.sink.split, %7
+  %.sink = phi i8 [ 2, %7 ], [ %.sink.ph, %.sink.split ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sink, ptr %20, align 1
   store i8 0, ptr %0, align 8
   ret void
-
-22:                                               ; preds = %12
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %24 = load i8, ptr %23, align 1, !noundef !14
-  %25 = icmp eq i8 %24, 115
-  br i1 %25, label %20, label %7
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

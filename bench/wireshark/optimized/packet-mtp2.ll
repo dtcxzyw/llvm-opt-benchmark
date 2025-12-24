@@ -1393,28 +1393,19 @@ dissect_mtp2_lssu.exit.i:                         ; preds = %99, %92
   call void @col_set_str(ptr noundef %106, i32 noundef 25, ptr noundef nonnull @.str.92)
   %107 = call i32 @tvb_reported_length(ptr noundef %.0.i)
   %.not.i20.i = icmp eq ptr %2, null
-  br i1 %4, label %108, label %.thread.i.i
+  %..i21.i = select i1 %4, i32 -6, i32 -3
+  %.23.i.i = select i1 %4, i32 6, i32 3
+  %108 = add i32 %107, %..i21.i
+  %109 = call ptr @tvb_new_subset_length(ptr noundef %.0.i, i32 noundef %.23.i.i, i32 noundef %108)
+  %110 = load ptr, ptr @mtp3_handle, align 8
+  %111 = call i32 @call_dissector(ptr noundef %110, ptr noundef %109, ptr noundef %1, ptr noundef %2)
+  br i1 %.not.i20.i, label %dissect_mtp2_su.exit, label %.sink.split.i22.i
 
-108:                                              ; preds = %105
-  %109 = add i32 %107, -6
-  %110 = call ptr @tvb_new_subset_length(ptr noundef %.0.i, i32 noundef 6, i32 noundef %109)
-  %111 = load ptr, ptr @mtp3_handle, align 8
-  %112 = call i32 @call_dissector(ptr noundef %111, ptr noundef %110, ptr noundef %1, ptr noundef %2)
-  br i1 %.not.i20.i, label %dissect_mtp2_su.exit, label %.sink.split.i21.i
-
-.thread.i.i:                                      ; preds = %105
-  %113 = add i32 %107, -3
-  %114 = call ptr @tvb_new_subset_length(ptr noundef %.0.i, i32 noundef 3, i32 noundef %113)
-  %115 = load ptr, ptr @mtp3_handle, align 8
-  %116 = call i32 @call_dissector(ptr noundef %115, ptr noundef %114, ptr noundef %1, ptr noundef %2)
-  br i1 %.not.i20.i, label %dissect_mtp2_su.exit, label %.sink.split.i21.i
-
-.sink.split.i21.i:                                ; preds = %.thread.i.i, %108
-  %.sink.i.i = phi i32 [ 6, %108 ], [ 3, %.thread.i.i ]
-  call void @proto_item_set_len(ptr noundef %10, i32 noundef %.sink.i.i)
+.sink.split.i22.i:                                ; preds = %105
+  call void @proto_item_set_len(ptr noundef %10, i32 noundef %.23.i.i)
   br label %dissect_mtp2_su.exit
 
-dissect_mtp2_su.exit:                             ; preds = %91, %dissect_mtp2_lssu.exit.i, %108, %.thread.i.i, %.sink.split.i21.i
+dissect_mtp2_su.exit:                             ; preds = %91, %dissect_mtp2_lssu.exit.i, %105, %.sink.split.i22.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

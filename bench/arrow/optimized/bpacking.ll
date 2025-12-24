@@ -242,8 +242,8 @@ define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__
 13:                                               ; preds = %11, %7, %4
   switch i32 %3, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i [
     i32 0, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i
-    i32 1, label %16
-    i32 2, label %19
+    i32 1, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.sink.split.i
+    i32 2, label %16
     i32 3, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
   ]
 
@@ -251,41 +251,32 @@ define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info) #14
-  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7
+  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit5
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8, !tbaa !15
-  %18 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 4)
-          to label %.noexc unwind label %.loopexit
-
-.noexc:                                           ; preds = %16
-  br i1 %18, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i
-
-19:                                               ; preds = %13
-  %20 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8, !tbaa !15
-  %21 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 32)
-          to label %.noexc3 unwind label %.loopexit
-
-.noexc3:                                          ; preds = %19
-  br i1 %21, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i
+  br label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.sink.split.i
 
 _ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i: ; preds = %13
-  %22 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8, !tbaa !15
-  %23 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 1984)
-          to label %.noexc4 unwind label %.loopexit
+  br label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.sink.split.i
 
-.noexc4:                                          ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
-  br i1 %23, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i
-
-_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i: ; preds = %.noexc4, %.noexc3, %.noexc, %13
-  %24 = load i32, ptr %.sroa.01.014.i.ptr, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i.ptr, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !17
+_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i: ; preds = %.noexc, %13
+  %17 = load i32, ptr %.sroa.01.014.i.ptr, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i.ptr, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
   br label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i
 
-_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i: ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i, %.noexc4, %.noexc3, %.noexc, %13, %.lr.ph.i
-  %.sroa.04.1.i = phi i32 [ %.sroa.04.013.i, %.lr.ph.i ], [ %24, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.04.013.i, %.noexc4 ], [ %.sroa.04.013.i, %.noexc ], [ %.sroa.04.013.i, %.noexc3 ], [ %.sroa.04.013.i, %13 ]
-  %.sroa.65.1.i = phi ptr [ %.sroa.65.015.i, %.lr.ph.i ], [ %26, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.65.015.i, %.noexc4 ], [ %.sroa.65.015.i, %.noexc ], [ %.sroa.65.015.i, %.noexc3 ], [ %.sroa.65.015.i, %13 ]
+_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.sink.split.i: ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i, %16, %13
+  %.sink21.i = phi i64 [ 1984, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i ], [ 32, %16 ], [ 4, %13 ]
+  %20 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8, !tbaa !15
+  %21 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %.sink21.i)
+          to label %.noexc unwind label %.loopexit
+
+.noexc:                                           ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.sink.split.i
+  br i1 %21, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i
+
+_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i: ; preds = %.noexc, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i, %13, %.lr.ph.i
+  %.sroa.04.1.i = phi i32 [ %.sroa.04.013.i, %.lr.ph.i ], [ %17, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.04.013.i, %13 ], [ %.sroa.04.013.i, %.noexc ]
+  %.sroa.65.1.i = phi ptr [ %.sroa.65.015.i, %.lr.ph.i ], [ %19, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.65.015.i, %13 ], [ %.sroa.65.015.i, %.noexc ]
   %.sroa.01.014.i.add = add nuw nsw i64 %.sroa.01.014.i.idx, 16
   %.not10.i = icmp eq i64 %.sroa.01.014.i.add, 48
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
@@ -293,53 +284,53 @@ _ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunction
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   invoke void @_ZN5arrow6Status8FromArgsIJRA36_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %1, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(36) @.str.1)
-          to label %.noexc5 unwind label %.loopexit.split-lp
+          to label %.noexc3 unwind label %.loopexit.split-lp
 
-.noexc5:                                          ; preds = %._crit_edge.thread.i
+.noexc3:                                          ; preds = %._crit_edge.thread.i
   invoke void @_ZNK5arrow6Status5AbortEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #16
-          to label %27 unwind label %28
+          to label %22 unwind label %23
 
-27:                                               ; preds = %.noexc5
+22:                                               ; preds = %.noexc3
   unreachable
 
-28:                                               ; preds = %.noexc5
-  %29 = landingpad { ptr, i32 }
+23:                                               ; preds = %.noexc3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %30 = load ptr, ptr %1, align 8, !tbaa !18
-  %.not.i10.i = icmp eq ptr %30, null
-  br i1 %.not.i10.i, label %_ZN5arrow6StatusD2Ev.exit.i, label %31, !prof !21
+  %25 = load ptr, ptr %1, align 8, !tbaa !18
+  %.not.i10.i = icmp eq ptr %25, null
+  br i1 %.not.i10.i, label %_ZN5arrow6StatusD2Ev.exit.i, label %26, !prof !21
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !22, !range !35, !noundef !36
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %_ZN5arrow6StatusD2Ev.exit.i, label %35
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !22, !range !35, !noundef !36
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %_ZN5arrow6StatusD2Ev.exit.i, label %30
 
-35:                                               ; preds = %31
+30:                                               ; preds = %26
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
   br label %_ZN5arrow6StatusD2Ev.exit.i
 
-_ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %35, %31, %28
+_ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %30, %26, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7
+  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit5
 
 _ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit: ; preds = %._crit_edge.i
   store ptr %.sroa.65.1.i, ptr @_ZZN5arrow8internal8unpack32EPKjPjiiE8dispatch.0, align 8, !tbaa !4
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #17
   ret void
 
-.loopexit:                                        ; preds = %16, %19, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
+.loopexit:                                        ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.sink.split.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7
+  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit5
 
 .loopexit.split-lp:                               ; preds = %._crit_edge.thread.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7
+  br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit5
 
-_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7: ; preds = %.loopexit, %.loopexit.split-lp, %14, %_ZN5arrow6StatusD2Ev.exit.i
-  %eh.lpad-body = phi { ptr, i32 } [ %29, %_ZN5arrow6StatusD2Ev.exit.i ], [ %15, %14 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit5: ; preds = %.loopexit, %.loopexit.split-lp, %14, %_ZN5arrow6StatusD2Ev.exit.i
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %_ZN5arrow6StatusD2Ev.exit.i ], [ %15, %14 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #17
   resume { ptr, i32 } %eh.lpad-body
 }

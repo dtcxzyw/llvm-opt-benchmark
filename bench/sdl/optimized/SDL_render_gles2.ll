@@ -944,28 +944,21 @@ define internal noundef zeroext i1 @GLES2_SupportsBlendMode(ptr noundef readonly
   br i1 %or.cond45, label %11, label %GetBlendFunc.exit
 
 11:                                               ; preds = %2
-  switch i32 %7, label %20 [
-    i32 4, label %12
-    i32 5, label %16
-  ]
+  %12 = and i32 %7, 6
+  %switch48 = icmp eq i32 %12, 4
+  br i1 %switch48, label %GetBlendFunc.exit.sink.split, label %13
 
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %14 = load i8, ptr %13, align 2, !range !5, !noundef !6
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %20, label %GetBlendFunc.exit
-
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %18 = load i8, ptr %17, align 2, !range !5, !noundef !6
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %GetBlendFunc.exit
-
-20:                                               ; preds = %12, %11, %16
+13:                                               ; preds = %11, %GetBlendFunc.exit.sink.split
   br label %GetBlendFunc.exit
 
-GetBlendFunc.exit:                                ; preds = %2, %16, %12, %20
-  %.0 = phi i1 [ false, %16 ], [ true, %20 ], [ false, %12 ], [ false, %2 ]
+GetBlendFunc.exit.sink.split:                     ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %15 = load i8, ptr %14, align 2, !range !5, !noundef !6
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %13, label %GetBlendFunc.exit
+
+GetBlendFunc.exit:                                ; preds = %GetBlendFunc.exit.sink.split, %2, %13
+  %.0 = phi i1 [ false, %2 ], [ true, %13 ], [ false, %GetBlendFunc.exit.sink.split ]
   ret i1 %.0
 }
 

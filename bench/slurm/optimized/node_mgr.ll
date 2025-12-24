@@ -12729,13 +12729,13 @@ define dso_local range(i32 0, 2048) i32 @delete_nodes(ptr noundef %0, ptr nounde
   %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.140) #15
   store ptr %7, ptr %1, align 8
   %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.135, ptr noundef %7) #15
-  br label %45
+  br label %44
 
 9:                                                ; preds = %2
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #15
   %10 = tail call ptr @nodespec_to_hostlist(ptr noundef %0, i1 noundef zeroext true, ptr noundef null) #15
   %.not33 = icmp eq ptr %10, null
-  br i1 %.not33, label %44, label %11
+  br i1 %.not33, label %43, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @hostlist_count(ptr noundef nonnull %10) #15
@@ -12817,7 +12817,7 @@ _delete_node.exit:                                ; preds = %.lr.ph
 
 36:                                               ; preds = %32, %._crit_edge
   %.not36 = icmp eq ptr %.1, null
-  br i1 %.not36, label %40, label %37
+  br i1 %.not36, label %.thread47.sink.split, label %37
 
 37:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -12828,33 +12828,32 @@ _delete_node.exit:                                ; preds = %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   call void @hostlist_destroy(ptr noundef nonnull %.1) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #15
-  br i1 %31, label %41, label %.thread47
+  br label %.thread47.sink.split
 
-40:                                               ; preds = %36
-  tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #15
-  br i1 %31, label %41, label %.thread47
-
-41:                                               ; preds = %37, %40
-  %42 = load ptr, ptr @acct_db_conn, align 8
-  %43 = call i32 @clusteracct_storage_g_cluster_tres(ptr noundef %42, ptr noundef null, ptr noundef null, i64 noundef 0, i16 noundef zeroext 11008) #15
+40:                                               ; preds = %.thread47.sink.split
+  %41 = load ptr, ptr @acct_db_conn, align 8
+  %42 = call i32 @clusteracct_storage_g_cluster_tres(ptr noundef %41, ptr noundef null, ptr noundef null, i64 noundef 0, i16 noundef zeroext 11008) #15
   br label %.thread47
 
 .thread51:                                        ; preds = %17, %14
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #15
   br label %.thread47
 
-44:                                               ; preds = %9
+43:                                               ; preds = %9
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #15
-  br label %45
+  br label %44
 
-.thread47:                                        ; preds = %37, %.thread75, %41, %40, %.thread51
-  %.0264549 = phi i32 [ 2018, %.thread51 ], [ %29, %40 ], [ %29, %41 ], [ 0, %.thread75 ], [ %29, %37 ]
+.thread47.sink.split:                             ; preds = %36, %37
+  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #15
+  br i1 %31, label %40, label %.thread47
+
+.thread47:                                        ; preds = %.thread47.sink.split, %.thread75, %40, %.thread51
+  %.0264549 = phi i32 [ 2018, %.thread51 ], [ 0, %.thread75 ], [ %29, %40 ], [ %29, %.thread47.sink.split ]
   call void @hostlist_destroy(ptr noundef nonnull %10) #15
-  br label %45
+  br label %44
 
-45:                                               ; preds = %44, %.thread47, %6
-  %.0 = phi i32 [ 2002, %6 ], [ %.0264549, %.thread47 ], [ 2018, %44 ]
+44:                                               ; preds = %43, %.thread47, %6
+  %.0 = phi i32 [ 2002, %6 ], [ %.0264549, %.thread47 ], [ 2018, %43 ]
   ret i32 %.0
 }
 

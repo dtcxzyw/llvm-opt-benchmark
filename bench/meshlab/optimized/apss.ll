@@ -1860,7 +1860,7 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identi
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %8 = icmp eq ptr %7, %6
-  br i1 %8, label %31, label %9
+  br i1 %8, label %30, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1885,9 +1885,7 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identi
   %21 = load ptr, ptr %1, align 8
   %22 = load ptr, ptr %3, align 8
   %23 = icmp ult ptr %21, %22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %23, label %31, label %30
+  br label %.sink.split
 
 24:                                               ; preds = %18, %9
   %25 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -1902,15 +1900,17 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identi
 
 _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %24
   %29 = icmp slt i32 %25, 0
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %20, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit
+  %.sink = phi i1 [ %29, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit ], [ %23, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %29, label %31, label %30
+  %spec.select = select i1 %.sink, ptr %6, ptr %7
+  br label %30
 
-30:                                               ; preds = %20, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit
-  br label %31
-
-31:                                               ; preds = %2, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit, %20, %30
-  %.sroa.0.0 = phi ptr [ %7, %30 ], [ %6, %20 ], [ %6, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit ], [ %6, %2 ]
+30:                                               ; preds = %.sink.split, %2
+  %.sroa.0.0 = phi ptr [ %spec.select, %.sink.split ], [ %6, %2 ]
   ret ptr %.sroa.0.0
 }
 
@@ -1927,9 +1927,9 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identi
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %10
 
-10:                                               ; preds = %.lr.ph, %28
-  %.013 = phi ptr [ %1, %.lr.ph ], [ %.1, %28 ]
-  %.0812 = phi ptr [ %2, %.lr.ph ], [ %.19, %28 ]
+10:                                               ; preds = %.lr.ph, %.sink.split
+  %.013 = phi ptr [ %1, %.lr.ph ], [ %.1, %.sink.split ]
+  %.0812 = phi ptr [ %2, %.lr.ph ], [ %spec.select15, %.sink.split ]
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr %3, align 8
@@ -1948,9 +1948,7 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identi
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %5, align 8
   %20 = icmp ult ptr %18, %19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %20, label %27, label %28
+  br label %.sink.split
 
 21:                                               ; preds = %15, %10
   %22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -1965,23 +1963,21 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identi
 
 _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %21
   %26 = icmp slt i32 %22, 0
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %17, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit
+  %.sink14 = phi i1 [ %26, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit ], [ %20, %17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %17, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit
-  br label %28
-
-28:                                               ; preds = %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit, %17, %27
-  %.sink = phi i64 [ 24, %27 ], [ 16, %17 ], [ 16, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit ]
-  %.19 = phi ptr [ %.0812, %27 ], [ %.013, %17 ], [ %.013, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit ]
-  %29 = getelementptr inbounds nuw i8, ptr %.013, i64 %.sink
-  %.1 = load ptr, ptr %29, align 8
+  %spec.select = select i1 %.sink14, i64 24, i64 16
+  %spec.select15 = select i1 %.sink14, ptr %.0812, ptr %.013
+  %27 = getelementptr inbounds nuw i8, ptr %.013, i64 %spec.select
+  %.1 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %28, %4
-  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19, %28 ]
+._crit_edge:                                      ; preds = %.sink.split, %4
+  %.08.lcssa = phi ptr [ %2, %4 ], [ %spec.select15, %.sink.split ]
   ret ptr %.08.lcssa
 }
 

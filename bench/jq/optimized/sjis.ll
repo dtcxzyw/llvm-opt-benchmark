@@ -63,32 +63,30 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone captures(a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
   %2 = icmp ult i32 %0, 256
-  br i1 %2, label %3, label %8
+  br i1 %2, label %.sink.split, label %3
 
 3:                                                ; preds = %1
-  %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %4
-  %6 = load i32, ptr %5, align 4, !tbaa !7
-  %7 = icmp eq i32 %6, 1
-  br i1 %7, label %17, label %16
+  %4 = icmp ult i32 %0, 65536
+  br i1 %4, label %5, label %7
 
-8:                                                ; preds = %1
-  %9 = icmp ult i32 %0, 65536
-  br i1 %9, label %10, label %16
+5:                                                ; preds = %3
+  %6 = lshr i32 %0, 8
+  br label %.sink.split
 
-10:                                               ; preds = %8
-  %11 = lshr i32 %0, 8
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !7
-  %15 = icmp eq i32 %14, 2
-  br i1 %15, label %17, label %16
+7:                                                ; preds = %.sink.split, %3
+  br label %12
 
-16:                                               ; preds = %8, %10, %3
-  br label %17
+.sink.split:                                      ; preds = %1, %5
+  %.sink = phi i32 [ %6, %5 ], [ %0, %1 ]
+  %.sink8 = phi i32 [ 2, %5 ], [ 1, %1 ]
+  %8 = zext nneg i32 %.sink to i64
+  %9 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %8
+  %10 = load i32, ptr %9, align 4, !tbaa !7
+  %11 = icmp eq i32 %10, %.sink8
+  br i1 %11, label %12, label %7
 
-17:                                               ; preds = %10, %3, %16
-  %.0 = phi i32 [ 1, %3 ], [ -400, %16 ], [ 2, %10 ]
+12:                                               ; preds = %.sink.split, %7
+  %.0 = phi i32 [ -400, %7 ], [ %.sink8, %.sink.split ]
   ret i32 %.0
 }
 
@@ -202,7 +200,7 @@ define internal i32 @property_name_to_ctype(ptr readnone captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   %3 = icmp ult i32 %1, 15
-  br i1 %3, label %4, label %33
+  br i1 %3, label %4, label %30
 
 4:                                                ; preds = %2
   %5 = icmp ult i32 %0, 128
@@ -215,55 +213,59 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   %10 = zext i16 %9 to i32
   %11 = lshr i32 %10, %1
   %12 = and i32 %11, 1
-  br label %code_to_mbclen.exit
+  br label %38
 
 13:                                               ; preds = %4
   %14 = icmp eq i32 %1, 12
   %15 = and i32 %1, 13
   %16 = icmp eq i32 %15, 5
   %or.cond3 = or i1 %14, %16
-  br i1 %or.cond3, label %17, label %code_to_mbclen.exit
+  br i1 %or.cond3, label %17, label %38
 
 17:                                               ; preds = %13
   %18 = icmp ult i32 %0, 256
-  br i1 %18, label %19, label %24
+  br i1 %18, label %.sink.split.i, label %19
 
 19:                                               ; preds = %17
-  %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !7
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %code_to_mbclen.exit, label %32
+  %20 = icmp ult i32 %0, 65536
+  br i1 %20, label %21, label %23
 
-24:                                               ; preds = %17
-  %25 = icmp ult i32 %0, 65536
-  br i1 %25, label %26, label %32
+21:                                               ; preds = %19
+  %22 = lshr i32 %0, 8
+  br label %.sink.split.i
 
-26:                                               ; preds = %24
-  %27 = lshr i32 %0, 8
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !7
-  %31 = icmp eq i32 %30, 2
-  br i1 %31, label %code_to_mbclen.exit, label %32
-
-32:                                               ; preds = %26, %24, %19
+23:                                               ; preds = %.sink.split.i, %19
   br label %code_to_mbclen.exit
 
-33:                                               ; preds = %2
-  %34 = add i32 %1, -15
-  %35 = icmp ugt i32 %34, 1
-  br i1 %35, label %code_to_mbclen.exit, label %36
+.sink.split.i:                                    ; preds = %21, %17
+  %.sink.i = phi i32 [ %22, %21 ], [ %0, %17 ]
+  %.sink8.i = phi i32 [ 2, %21 ], [ 1, %17 ]
+  %24 = zext nneg i32 %.sink.i to i64
+  %25 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !7
+  %27 = icmp eq i32 %26, %.sink8.i
+  br i1 %27, label %code_to_mbclen.exit, label %23
 
-36:                                               ; preds = %33
-  %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !21
-  %40 = tail call i32 @onig_is_in_code_range(ptr noundef %39, i32 noundef %0) #8
-  br label %code_to_mbclen.exit
+code_to_mbclen.exit:                              ; preds = %23, %.sink.split.i
+  %.0.i = phi i32 [ -400, %23 ], [ %.sink8.i, %.sink.split.i ]
+  %28 = icmp sgt i32 %.0.i, 1
+  %29 = zext i1 %28 to i32
+  br label %38
 
-code_to_mbclen.exit:                              ; preds = %32, %26, %19, %13, %33, %36, %6
-  %.0 = phi i32 [ %12, %6 ], [ 0, %13 ], [ -6, %33 ], [ %40, %36 ], [ 0, %19 ], [ 0, %32 ], [ 1, %26 ]
+30:                                               ; preds = %2
+  %31 = add i32 %1, -15
+  %32 = icmp ugt i32 %31, 1
+  br i1 %32, label %38, label %33
+
+33:                                               ; preds = %30
+  %34 = zext nneg i32 %31 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !21
+  %37 = tail call i32 @onig_is_in_code_range(ptr noundef %36, i32 noundef %0) #8
+  br label %38
+
+38:                                               ; preds = %13, %30, %33, %code_to_mbclen.exit, %6
+  %.0 = phi i32 [ %12, %6 ], [ %29, %code_to_mbclen.exit ], [ -6, %30 ], [ %37, %33 ], [ 0, %13 ]
   ret i32 %.0
 }
 

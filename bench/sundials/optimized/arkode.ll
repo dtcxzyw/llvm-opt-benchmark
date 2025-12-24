@@ -1579,7 +1579,7 @@ define range(i32 -18, 1) i32 @arkRwtSet(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = load i32, ptr %15, align 4, !tbaa !99
   switch i32 %16, label %arkRwtSetSS.exit [
     i32 0, label %17
-    i32 1, label %31
+    i32 1, label %27
   ]
 
 17:                                               ; preds = %14
@@ -1596,41 +1596,35 @@ define range(i32 -18, 1) i32 @arkRwtSet(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %26 = load i32, ptr %25, align 8, !tbaa !97
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %arkRwtSetSS.exit.sink.split, label %27
+  br i1 %.not.i, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit.sink.split26
 
-27:                                               ; preds = %17
+27:                                               ; preds = %14
   %28 = load ptr, ptr %7, align 8, !tbaa !91
-  %29 = tail call double @N_VMin(ptr noundef %28) #16
-  %30 = fcmp ugt double %29, 0.000000e+00
-  br i1 %30, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit
+  tail call void @N_VAbs(ptr noundef %8, ptr noundef %28) #16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %30 = load double, ptr %29, align 8, !tbaa !85
+  %31 = load ptr, ptr %7, align 8, !tbaa !91
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %33 = load ptr, ptr %32, align 8, !tbaa !103
+  tail call void @N_VLinearSum(double noundef %30, ptr noundef %31, double noundef 1.000000e+00, ptr noundef %33, ptr noundef %31) #16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %35 = load i32, ptr %34, align 8, !tbaa !97
+  %.not.i24 = icmp eq i32 %35, 0
+  br i1 %.not.i24, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit.sink.split26
 
-31:                                               ; preds = %14
-  %32 = load ptr, ptr %7, align 8, !tbaa !91
-  tail call void @N_VAbs(ptr noundef %8, ptr noundef %32) #16
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %34 = load double, ptr %33, align 8, !tbaa !85
-  %35 = load ptr, ptr %7, align 8, !tbaa !91
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %37 = load ptr, ptr %36, align 8, !tbaa !103
-  tail call void @N_VLinearSum(double noundef %34, ptr noundef %35, double noundef 1.000000e+00, ptr noundef %37, ptr noundef %35) #16
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %39 = load i32, ptr %38, align 8, !tbaa !97
-  %.not.i24 = icmp eq i32 %39, 0
-  br i1 %.not.i24, label %arkRwtSetSS.exit.sink.split, label %40
-
-40:                                               ; preds = %31
-  %41 = load ptr, ptr %7, align 8, !tbaa !91
-  %42 = tail call double @N_VMin(ptr noundef %41) #16
-  %43 = fcmp ugt double %42, 0.000000e+00
-  br i1 %43, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit
-
-arkRwtSetSS.exit.sink.split:                      ; preds = %31, %40, %17, %27
-  %44 = load ptr, ptr %7, align 8, !tbaa !91
-  tail call void @N_VInv(ptr noundef %44, ptr noundef %1) #16
+arkRwtSetSS.exit.sink.split:                      ; preds = %arkRwtSetSS.exit.sink.split26, %27, %17
+  %36 = load ptr, ptr %7, align 8, !tbaa !91
+  tail call void @N_VInv(ptr noundef %36, ptr noundef %1) #16
   br label %arkRwtSetSS.exit
 
-arkRwtSetSS.exit:                                 ; preds = %arkRwtSetSS.exit.sink.split, %40, %27, %14, %11, %3
-  %.019 = phi i32 [ -18, %11 ], [ 0, %3 ], [ 0, %14 ], [ -1, %27 ], [ -1, %40 ], [ 0, %arkRwtSetSS.exit.sink.split ]
+arkRwtSetSS.exit.sink.split26:                    ; preds = %27, %17
+  %37 = load ptr, ptr %7, align 8, !tbaa !91
+  %38 = tail call double @N_VMin(ptr noundef %37) #16
+  %39 = fcmp ugt double %38, 0.000000e+00
+  br i1 %39, label %arkRwtSetSS.exit.sink.split, label %arkRwtSetSS.exit
+
+arkRwtSetSS.exit:                                 ; preds = %arkRwtSetSS.exit.sink.split26, %arkRwtSetSS.exit.sink.split, %14, %11, %3
+  %.019 = phi i32 [ -18, %11 ], [ 0, %3 ], [ 0, %14 ], [ 0, %arkRwtSetSS.exit.sink.split ], [ -1, %arkRwtSetSS.exit.sink.split26 ]
   ret i32 %.019
 }
 

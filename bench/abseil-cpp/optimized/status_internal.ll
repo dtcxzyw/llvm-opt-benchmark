@@ -1464,7 +1464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %41
+  br label %40
 
 33:                                               ; preds = %25, %20
   %.0 = phi i1 [ false, %25 ], [ true, %20 ]
@@ -1474,32 +1474,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4a
   %35 = load ptr, ptr %6, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %37 = icmp eq ptr %35, %36
-  br i1 %37, label %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
+  br i1 %37, label %.sink.split, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16: ; preds = %33
   %38 = load i64, ptr %36, align 8, !tbaa !15
   %39 = add i64 %38, 1
   call void @_ZdlPvm(ptr noundef %35, i64 noundef %39) #24
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %41, label %42
+  br label %.sink.split
 
-40:                                               ; preds = %33
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %41, label %42
-
-41:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16, %.thread26, %40
-  %.pn.pn.pn22 = phi { ptr, i32 } [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16 ], [ %34, %40 ], [ %32, %.thread26 ]
+40:                                               ; preds = %.sink.split, %.thread26
+  %.pn.pn.pn22 = phi { ptr, i32 } [ %32, %.thread26 ], [ %34, %.sink.split ]
   call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 32) #24
-  br label %42
+  br label %41
 
-42:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16, %40, %41
-  %.pn.pn.pn21 = phi { ptr, i32 } [ %34, %40 ], [ %.pn.pn.pn22, %41 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16 ]
+.sink.split:                                      ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %.0, label %40, label %41
+
+41:                                               ; preds = %.sink.split, %40
+  %.pn.pn.pn21 = phi { ptr, i32 } [ %.pn.pn.pn22, %40 ], [ %34, %.sink.split ]
   resume { ptr, i32 } %.pn.pn.pn21
 }
 

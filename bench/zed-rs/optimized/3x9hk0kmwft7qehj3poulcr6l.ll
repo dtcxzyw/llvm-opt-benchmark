@@ -220,7 +220,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   store i8 %48, ptr %.sroa.978.0..sroa_idx.i, align 4, !alias.scope !18, !noalias !21
   br label %"_ZN6editor21selections_collection20SelectionsCollection3all28_$u7b$$u7b$closure$u7d$$u7d$17h0a27a2d61a56d536E.exit"
 
-50:                                               ; preds = %157, %.preheader.i
+50:                                               ; preds = %154, %.preheader.i
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %51 = load i32, ptr %9, align 8, !range !60, !alias.scope !21, !noalias !18, !noundef !11
@@ -495,30 +495,28 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx21.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.sroa.4.i, i64 3, i1 false), !noalias !24
   %144 = call noundef i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.018.sroa.3.0..sroa_idx.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %13), !range !100, !noalias !18
   %145 = icmp eq i8 %144, -1
-  br i1 %145, label %149, label %146
+  br i1 %145, label %146, label %.sink.split.i
 
 146:                                              ; preds = %143
-  %147 = call noundef i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.018.sroa.5.0..sroa_idx.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14), !range !100, !noalias !18
-  %148 = icmp eq i8 %147, 1
-  br i1 %148, label %154, label %157
+  %147 = load i32, ptr %.sroa.018.sroa.3.0..sroa_idx.i, align 8, !noalias !24, !noundef !11
+  %148 = load i32, ptr %.sroa.018.sroa.4.0..sroa_idx.i, align 4, !noalias !24, !noundef !11
+  store i32 %147, ptr %13, align 8, !alias.scope !21, !noalias !18
+  store i32 %148, ptr %15, align 4, !alias.scope !21, !noalias !18
+  br label %.sink.split.i
 
-149:                                              ; preds = %143
-  %150 = load i32, ptr %.sroa.018.sroa.3.0..sroa_idx.i, align 8, !noalias !24, !noundef !11
-  %151 = load i32, ptr %.sroa.018.sroa.4.0..sroa_idx.i, align 4, !noalias !24, !noundef !11
-  store i32 %150, ptr %13, align 8, !alias.scope !21, !noalias !18
-  store i32 %151, ptr %15, align 4, !alias.scope !21, !noalias !18
+149:                                              ; preds = %.sink.split.i
+  %150 = load i32, ptr %.sroa.018.sroa.5.0..sroa_idx.i, align 8, !noalias !24, !noundef !11
+  %151 = load i32, ptr %.sroa.018.sroa.6.0..sroa_idx.i, align 4, !noalias !24, !noundef !11
+  store i32 %150, ptr %14, align 8, !alias.scope !21, !noalias !18
+  store i32 %151, ptr %16, align 4, !alias.scope !21, !noalias !18
+  br label %154
+
+.sink.split.i:                                    ; preds = %146, %143
   %152 = call noundef i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.018.sroa.5.0..sroa_idx.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14), !range !100, !noalias !18
   %153 = icmp eq i8 %152, 1
-  br i1 %153, label %154, label %157
+  br i1 %153, label %149, label %154
 
-154:                                              ; preds = %149, %146
-  %155 = load i32, ptr %.sroa.018.sroa.5.0..sroa_idx.i, align 8, !noalias !24, !noundef !11
-  %156 = load i32, ptr %.sroa.018.sroa.6.0..sroa_idx.i, align 4, !noalias !24, !noundef !11
-  store i32 %155, ptr %14, align 8, !alias.scope !21, !noalias !18
-  store i32 %156, ptr %16, align 4, !alias.scope !21, !noalias !18
-  br label %157
-
-157:                                              ; preds = %154, %149, %146
+154:                                              ; preds = %.sink.split.i, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !24
   br label %50
 

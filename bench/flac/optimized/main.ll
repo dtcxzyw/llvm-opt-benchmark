@@ -3184,7 +3184,7 @@ declare i32 @__vfprintf_chk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) 
 define internal fastcc ptr @get_outfilename(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 152), align 8, !tbaa !77
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %sub_0, label %32
+  br i1 %4, label %sub_0, label %29
 
 sub_0:                                            ; preds = %2
   %5 = load i8, ptr %0, align 1
@@ -3207,7 +3207,7 @@ sub_1:                                            ; preds = %sub_0
 12:                                               ; preds = %.tail
   store i8 45, ptr @get_outfilename.buffer, align 16, !tbaa !31
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @get_outfilename.buffer, i64 1), align 1, !tbaa !31
-  br label %32
+  br label %29
 
 13:                                               ; preds = %.tail
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 160), align 8, !tbaa !95
@@ -3225,29 +3225,27 @@ sub_1:                                            ; preds = %sub_0
 21:                                               ; preds = %18
   %22 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) @get_outfilename.buffer, i32 noundef 46) #23
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %26, label %24
+  br i1 %23, label %.sink.split, label %24
 
 24:                                               ; preds = %21
   %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 47) #23
   %.not11 = icmp eq ptr %25, null
-  br i1 %.not11, label %29, label %26
+  br i1 %.not11, label %26, label %.sink.split
 
-26:                                               ; preds = %24, %21
+26:                                               ; preds = %24
+  store i8 0, ptr %22, align 1, !tbaa !31
+  br label %.sink.split
+
+.thread:                                          ; preds = %.sink.split, %13, %18
+  br label %29
+
+.sink.split:                                      ; preds = %21, %24, %26
   %27 = tail call i64 @flac__strlcat(ptr noundef nonnull @get_outfilename.buffer, ptr noundef %1, i64 noundef 4096) #21
   %28 = icmp ugt i64 %27, 4095
-  br i1 %28, label %.thread, label %32
+  br i1 %28, label %.thread, label %29
 
-29:                                               ; preds = %24
-  store i8 0, ptr %22, align 1, !tbaa !31
-  %30 = tail call i64 @flac__strlcat(ptr noundef nonnull @get_outfilename.buffer, ptr noundef %1, i64 noundef 4096) #21
-  %31 = icmp ugt i64 %30, 4095
-  br i1 %31, label %.thread, label %32
-
-.thread:                                          ; preds = %26, %13, %18, %29
-  br label %32
-
-32:                                               ; preds = %12, %26, %29, %.thread, %2
-  %.1 = phi ptr [ %3, %2 ], [ null, %.thread ], [ @get_outfilename.buffer, %29 ], [ @get_outfilename.buffer, %26 ], [ @get_outfilename.buffer, %12 ]
+29:                                               ; preds = %.sink.split, %12, %.thread, %2
+  %.1 = phi ptr [ %3, %2 ], [ null, %.thread ], [ @get_outfilename.buffer, %12 ], [ @get_outfilename.buffer, %.sink.split ]
   ret ptr %.1
 }
 

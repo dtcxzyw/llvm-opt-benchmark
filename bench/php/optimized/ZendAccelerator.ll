@@ -3897,52 +3897,47 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
 152:                                              ; preds = %146, %143
   %153 = load ptr, ptr %22, align 8, !tbaa !77
   %.not79 = icmp eq ptr %153, null
-  br i1 %.not79, label %158, label %154
+  br i1 %.not79, label %154, label %zend_string_copy.exit86.sink.split98
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 4
-  %156 = load i32, ptr %155, align 4, !tbaa !64
-  %157 = and i32 %156, 64
-  %.not.i85 = icmp eq i32 %157, 0
-  br i1 %.not.i85, label %zend_string_copy.exit86.sink.split, label %zend_string_copy.exit86
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %156 = load ptr, ptr %155, align 8, !tbaa !76
+  br label %zend_string_copy.exit86.sink.split98
 
-158:                                              ; preds = %152
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %160 = load ptr, ptr %159, align 8, !tbaa !76
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %162 = load i32, ptr %161, align 4, !tbaa !64
-  %163 = and i32 %162, 64
-  %.not.i84 = icmp eq i32 %163, 0
-  br i1 %.not.i84, label %zend_string_copy.exit86.sink.split, label %zend_string_copy.exit86
-
-zend_string_copy.exit86.sink.split:               ; preds = %158, %154
-  %.sink = phi ptr [ %153, %154 ], [ %160, %158 ]
-  %164 = load i32, ptr %.sink, align 4, !tbaa !63
-  %165 = add i32 %164, 1
-  store i32 %165, ptr %.sink, align 4, !tbaa !63
+zend_string_copy.exit86.sink.split:               ; preds = %zend_string_copy.exit86.sink.split98
+  %157 = load i32, ptr %.sink102, align 4, !tbaa !63
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %.sink102, align 4, !tbaa !63
   br label %zend_string_copy.exit86
 
-zend_string_copy.exit86:                          ; preds = %zend_string_copy.exit86.sink.split, %158, %154
-  %storemerge80 = phi ptr [ %160, %158 ], [ %153, %154 ], [ %.sink, %zend_string_copy.exit86.sink.split ]
-  store ptr %storemerge80, ptr %111, align 8, !tbaa !141
-  %166 = getelementptr inbounds nuw i8, ptr %storemerge80, i64 8
-  %167 = load i64, ptr %166, align 8, !tbaa !56
-  %.not.i = icmp eq i64 %167, 0
-  br i1 %.not.i, label %168, label %zend_string_hash_val.exit
+zend_string_copy.exit86.sink.split98:             ; preds = %152, %154
+  %.sink102 = phi ptr [ %156, %154 ], [ %153, %152 ]
+  %159 = getelementptr inbounds nuw i8, ptr %.sink102, i64 4
+  %160 = load i32, ptr %159, align 4, !tbaa !64
+  %161 = and i32 %160, 64
+  %.not.i84 = icmp eq i32 %161, 0
+  br i1 %.not.i84, label %zend_string_copy.exit86.sink.split, label %zend_string_copy.exit86
 
-168:                                              ; preds = %zend_string_copy.exit86
-  %169 = call i64 @zend_string_hash_func(ptr noundef nonnull %storemerge80) #26
+zend_string_copy.exit86:                          ; preds = %zend_string_copy.exit86.sink.split98, %zend_string_copy.exit86.sink.split
+  store ptr %.sink102, ptr %111, align 8, !tbaa !141
+  %162 = getelementptr inbounds nuw i8, ptr %.sink102, i64 8
+  %163 = load i64, ptr %162, align 8, !tbaa !56
+  %.not.i = icmp eq i64 %163, 0
+  br i1 %.not.i, label %164, label %zend_string_hash_val.exit
+
+164:                                              ; preds = %zend_string_copy.exit86
+  %165 = call i64 @zend_string_hash_func(ptr noundef nonnull %.sink102) #26
   br label %zend_string_hash_val.exit
 
 .critedge:                                        ; preds = %74, %80, %.thread93, %58, %53
-  %170 = load ptr, ptr @accelerator_orig_compile_file, align 8, !tbaa !39
-  %171 = call ptr %170(ptr noundef nonnull %0, i32 noundef %1) #26
-  store ptr %171, ptr %2, align 8, !tbaa !180
+  %166 = load ptr, ptr @accelerator_orig_compile_file, align 8, !tbaa !39
+  %167 = call ptr %166(ptr noundef nonnull %0, i32 noundef %1) #26
+  store ptr %167, ptr %2, align 8, !tbaa !180
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zend_string_hash_val.exit
 
-zend_string_hash_val.exit:                        ; preds = %168, %zend_string_copy.exit86, %108, %.critedge, %12, %20, %19, %43
-  %.0 = phi ptr [ null, %.critedge ], [ null, %43 ], [ null, %108 ], [ null, %12 ], [ null, %19 ], [ null, %20 ], [ %111, %zend_string_copy.exit86 ], [ %111, %168 ]
+zend_string_hash_val.exit:                        ; preds = %164, %zend_string_copy.exit86, %108, %.critedge, %12, %20, %19, %43
+  %.0 = phi ptr [ null, %.critedge ], [ null, %43 ], [ null, %108 ], [ null, %12 ], [ null, %19 ], [ null, %20 ], [ %111, %zend_string_copy.exit86 ], [ %111, %164 ]
   ret ptr %.0
 }
 

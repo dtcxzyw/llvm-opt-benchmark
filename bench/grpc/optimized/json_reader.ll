@@ -4084,7 +4084,7 @@ define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonRead
   %7 = lshr i32 %1, 6
   %8 = or disjoint i32 %7, 192
   %9 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %8)
-  br i1 %9, label %10, label %45
+  br i1 %9, label %10, label %32
 
 10:                                               ; preds = %6
   %11 = and i32 %1, 63
@@ -4093,56 +4093,47 @@ define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonRead
 
 13:                                               ; preds = %4
   %14 = icmp ult i32 %1, 65536
-  br i1 %14, label %15, label %26
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
   %16 = lshr i32 %1, 12
   %17 = or disjoint i32 %16, 224
   %18 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %17)
-  br i1 %18, label %19, label %45
+  br i1 %18, label %.sink.split26, label %32
 
-19:                                               ; preds = %15
-  %20 = and i32 %1, 63
-  %21 = or disjoint i32 %20, 128
-  %22 = lshr i32 %1, 6
-  %23 = and i32 %22, 63
-  %24 = or disjoint i32 %23, 128
-  %25 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %24)
-  br i1 %25, label %.sink.split, label %45
+19:                                               ; preds = %13
+  %20 = icmp ult i32 %1, 2097152
+  br i1 %20, label %21, label %32
 
-26:                                               ; preds = %13
-  %27 = icmp ult i32 %1, 2097152
-  br i1 %27, label %28, label %45
+21:                                               ; preds = %19
+  %22 = lshr i32 %1, 18
+  %23 = or disjoint i32 %22, 240
+  %24 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %23)
+  br i1 %24, label %25, label %32
 
-28:                                               ; preds = %26
-  %29 = lshr i32 %1, 18
-  %30 = or disjoint i32 %29, 240
-  %31 = lshr i32 %1, 6
-  %32 = and i32 %31, 63
-  %33 = or disjoint i32 %32, 128
-  %34 = and i32 %1, 63
-  %35 = or disjoint i32 %34, 128
-  %36 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %30)
-  br i1 %36, label %37, label %45
+25:                                               ; preds = %21
+  %26 = lshr i32 %1, 12
+  %27 = and i32 %26, 63
+  %28 = or disjoint i32 %27, 128
+  %29 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %28)
+  br i1 %29, label %.sink.split26, label %32
 
-37:                                               ; preds = %28
-  %38 = lshr i32 %1, 12
-  %39 = and i32 %38, 63
-  %40 = or disjoint i32 %39, 128
-  %41 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %40)
-  br i1 %41, label %42, label %45
+.sink.split:                                      ; preds = %.sink.split26, %2, %10
+  %.sink = phi i32 [ %12, %10 ], [ %1, %2 ], [ %.sink.ph, %.sink.split26 ]
+  %30 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.sink)
+  br label %32
 
-42:                                               ; preds = %37
-  %43 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %33)
-  br i1 %43, label %.sink.split, label %45
+.sink.split26:                                    ; preds = %15, %25
+  %.sink.ph.in = and i32 %1, 63
+  %.sink.ph = or disjoint i32 %.sink.ph.in, 128
+  %.sink28.in.in = lshr i32 %1, 6
+  %.sink28.in = and i32 %.sink28.in.in, 63
+  %.sink28 = or disjoint i32 %.sink28.in, 128
+  %31 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.sink28)
+  br i1 %31, label %.sink.split, label %32
 
-.sink.split:                                      ; preds = %42, %19, %2, %10
-  %.sink = phi i32 [ %21, %19 ], [ %1, %2 ], [ %12, %10 ], [ %35, %42 ]
-  %44 = tail call fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.sink)
-  br label %45
-
-45:                                               ; preds = %.sink.split, %26, %28, %37, %42, %15, %19, %6
-  %.0 = phi i1 [ false, %42 ], [ false, %37 ], [ false, %28 ], [ false, %26 ], [ false, %6 ], [ false, %19 ], [ false, %15 ], [ %44, %.sink.split ]
+32:                                               ; preds = %.sink.split26, %.sink.split, %19, %21, %25, %15, %6
+  %.0 = phi i1 [ %30, %.sink.split ], [ false, %25 ], [ false, %21 ], [ false, %19 ], [ false, %6 ], [ false, %15 ], [ false, %.sink.split26 ]
   ret i1 %.0
 }
 

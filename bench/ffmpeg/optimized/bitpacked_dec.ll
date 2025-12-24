@@ -37,29 +37,27 @@ define internal range(i32 -1094995529, 1) i32 @bitpacked_init_decoder(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %15 = load i32, ptr %14, align 8, !tbaa !30
   switch i32 %15, label %.thread [
-    i32 16, label %16
-    i32 20, label %20
+    i32 16, label %.thread.sink.split
+    i32 20, label %16
   ]
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %18 = load i32, ptr %17, align 8, !tbaa !31
-  %19 = icmp eq i32 %18, 15
-  br i1 %19, label %24, label %.thread
+  br label %.thread.sink.split
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %22 = load i32, ptr %21, align 8, !tbaa !31
-  %23 = icmp eq i32 %22, 64
-  br i1 %23, label %24, label %.thread
-
-24:                                               ; preds = %20, %16
-  %storemerge = phi ptr [ @bitpacked_decode_uyvy422, %16 ], [ @bitpacked_decode_yuv422p10, %20 ]
-  store ptr %storemerge, ptr %3, align 8, !tbaa !32
+17:                                               ; preds = %.thread.sink.split
+  store ptr %storemerge.ph, ptr %3, align 8, !tbaa !31
   br label %.thread
 
-.thread:                                          ; preds = %13, %16, %20, %1, %6, %9, %24
-  %.0 = phi i32 [ 0, %24 ], [ -1094995529, %1 ], [ -1094995529, %13 ], [ -1094995529, %9 ], [ -1094995529, %6 ], [ -1094995529, %20 ], [ -1094995529, %16 ]
+.thread.sink.split:                               ; preds = %13, %16
+  %.sink16 = phi i32 [ 64, %16 ], [ 15, %13 ]
+  %storemerge.ph = phi ptr [ @bitpacked_decode_yuv422p10, %16 ], [ @bitpacked_decode_uyvy422, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %19 = load i32, ptr %18, align 8, !tbaa !33
+  %20 = icmp eq i32 %19, %.sink16
+  br i1 %20, label %17, label %.thread
+
+.thread:                                          ; preds = %.thread.sink.split, %13, %1, %6, %9, %17
+  %.0 = phi i32 [ 0, %17 ], [ -1094995529, %1 ], [ -1094995529, %13 ], [ -1094995529, %9 ], [ -1094995529, %6 ], [ -1094995529, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -69,7 +67,7 @@ define internal i32 @bitpacked_decode(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !34
-  %9 = load ptr, ptr %6, align 8, !tbaa !32
+  %9 = load ptr, ptr %6, align 8, !tbaa !31
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, ptr noundef %3) #3
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
@@ -97,7 +95,7 @@ define internal range(i32 -2147483648, 1) i32 @bitpacked_decode_uyvy422(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %12 = load i32, ptr %11, align 8, !tbaa !31
+  %12 = load i32, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -292,9 +290,9 @@ attributes #3 = { nounwind }
 !28 = !{!5, !10, i64 112}
 !29 = !{!5, !10, i64 116}
 !30 = !{!5, !10, i64 648}
-!31 = !{!5, !10, i64 136}
-!32 = !{!33, !7, i64 0}
-!33 = !{!"BitpackedContext", !7, i64 0}
+!31 = !{!32, !7, i64 0}
+!32 = !{!"BitpackedContext", !7, i64 0}
+!33 = !{!5, !10, i64 136}
 !34 = !{!35, !10, i64 32}
 !35 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !36 = !{!10, !10, i64 0}

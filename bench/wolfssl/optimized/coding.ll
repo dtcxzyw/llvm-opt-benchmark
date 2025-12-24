@@ -739,13 +739,13 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %.0134 = phi i32 [ %13, %12 ], [ 0, %14 ], [ %11, %5 ]
   %16 = add i32 %.0134, %9
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %509, label %17
+  br i1 %.not, label %505, label %17
 
 17:                                               ; preds = %15
   %18 = load i32, ptr %3, align 4, !tbaa !3
   %19 = icmp ule i32 %16, %18
   %or.cond = or i1 %6, %19
-  br i1 %or.cond, label %.preheader, label %509
+  br i1 %or.cond, label %.preheader, label %505
 
 .preheader:                                       ; preds = %17
   %20 = icmp ugt i32 %1, 2
@@ -1707,7 +1707,7 @@ CEscape.exit199:                                  ; preds = %.thread378, %469, %
   br i1 %6, label %CEscape.exit239.thread399, label %CEscape.exit239.thread393
 
 488:                                              ; preds = %.thread335
-  br i1 %6, label %.thread406, label %489
+  br i1 %6, label %.sink.split419, label %489
 
 489:                                              ; preds = %488
   %490 = add i32 %.3, 1
@@ -1725,52 +1725,43 @@ CEscape.exit199:                                  ; preds = %.thread378, %469, %
 
 CEscape.exit239:                                  ; preds = %CEscape.exit199
   %.not418 = icmp eq i32 %.3, %16
-  br i1 %.not418, label %CEscape.exit239.thread, label %509
+  br i1 %.not418, label %CEscape.exit239.thread, label %505
 
 CEscape.exit239.thread399:                        ; preds = %487
   %.not417 = icmp eq i32 %483, %16
-  br i1 %.not417, label %.thread406, label %509
+  br i1 %.not417, label %.sink.split419, label %505
 
 CEscape.exit239.thread393:                        ; preds = %487
   %498 = zext i32 %.3 to i64
   %499 = getelementptr inbounds nuw i8, ptr %2, i64 %498
   store i8 10, ptr %499, align 1, !tbaa !7
   %.not416 = icmp eq i32 %483, %16
-  br i1 %.not416, label %CEscape.exit239.thread.thread396, label %509
+  br i1 %.not416, label %CEscape.exit239.thread.thread396, label %505
 
 CEscape.exit239.thread:                           ; preds = %CEscape.exit239
-  br i1 %6, label %.thread406, label %CEscape.exit239.thread.thread396
+  br i1 %6, label %.sink.split419, label %CEscape.exit239.thread.thread396
 
 CEscape.exit239.thread.thread396:                 ; preds = %.thread, %251, %153, %104, %51, %202, %.thread335, %489, %482, %.thread310, %347, %437, %293, %396, %.thread328, %CEscape.exit239.thread393, %CEscape.exit239.thread
   %.6257347388 = phi i32 [ %483, %CEscape.exit239.thread393 ], [ %.3, %CEscape.exit239.thread ], [ %.0252.lcssa, %293 ], [ %.4255.ph, %396 ], [ %.5256.ph325, %.thread328 ], [ %.3, %.thread335 ], [ %.3, %482 ], [ %485, %489 ], [ %.4255.ph, %.thread310 ], [ %.12.ph, %347 ], [ %.4255.ph, %437 ], [ %.9.ph, %202 ], [ %.0252355, %51 ], [ %.7.ph, %104 ], [ %.8258.ph, %153 ], [ %.10.ph, %251 ], [ %.10.ph, %.thread ]
-  %.8348386 = phi i32 [ 0, %CEscape.exit239.thread393 ], [ 0, %CEscape.exit239.thread ], [ -132, %293 ], [ -132, %396 ], [ -132, %.thread328 ], [ -132, %.thread335 ], [ -132, %482 ], [ 0, %489 ], [ -132, %.thread310 ], [ -132, %347 ], [ -132, %437 ], [ -132, %202 ], [ -132, %51 ], [ -132, %104 ], [ -132, %153 ], [ -132, %251 ], [ -132, %.thread ]
-  %500 = phi i1 [ true, %CEscape.exit239.thread393 ], [ true, %CEscape.exit239.thread ], [ false, %293 ], [ false, %396 ], [ false, %.thread328 ], [ false, %.thread335 ], [ false, %482 ], [ true, %489 ], [ false, %.thread310 ], [ false, %347 ], [ false, %437 ], [ false, %202 ], [ false, %51 ], [ false, %104 ], [ false, %153 ], [ false, %251 ], [ false, %.thread ]
-  %501 = load i32, ptr %3, align 4, !tbaa !3
-  %502 = icmp ugt i32 %501, %.6257347388
-  br i1 %502, label %503, label %506
+  %spec.select = phi i32 [ 0, %CEscape.exit239.thread393 ], [ 0, %CEscape.exit239.thread ], [ -132, %293 ], [ -132, %396 ], [ -132, %.thread328 ], [ -132, %.thread335 ], [ -132, %482 ], [ 0, %489 ], [ -132, %.thread310 ], [ -132, %347 ], [ -132, %437 ], [ -132, %202 ], [ -132, %51 ], [ -132, %104 ], [ -132, %153 ], [ -132, %251 ], [ -132, %.thread ]
+  %500 = load i32, ptr %3, align 4, !tbaa !3
+  %501 = icmp ugt i32 %500, %.6257347388
+  br i1 %501, label %502, label %.sink.split419
 
-503:                                              ; preds = %CEscape.exit239.thread.thread396
-  %504 = zext i32 %.6257347388 to i64
-  %505 = getelementptr inbounds nuw i8, ptr %2, i64 %504
-  store i8 0, ptr %505, align 1, !tbaa !7
-  store i32 %.6257347388, ptr %3, align 4, !tbaa !3
-  br i1 %500, label %507, label %509
+502:                                              ; preds = %CEscape.exit239.thread.thread396
+  %503 = zext i32 %.6257347388 to i64
+  %504 = getelementptr inbounds nuw i8, ptr %2, i64 %503
+  store i8 0, ptr %504, align 1, !tbaa !7
+  br label %.sink.split419
 
-.thread406:                                       ; preds = %CEscape.exit239.thread, %488, %CEscape.exit239.thread399
-  %.6257347389.ph = phi i32 [ %485, %488 ], [ %.3, %CEscape.exit239.thread ], [ %483, %CEscape.exit239.thread399 ]
-  store i32 %.6257347389.ph, ptr %3, align 4, !tbaa !3
-  br label %507
+.sink.split419:                                   ; preds = %502, %CEscape.exit239.thread.thread396, %CEscape.exit239.thread399, %488, %CEscape.exit239.thread
+  %.6257347388.sink = phi i32 [ %483, %CEscape.exit239.thread399 ], [ %485, %488 ], [ %.3, %CEscape.exit239.thread ], [ %.6257347388, %CEscape.exit239.thread.thread396 ], [ %.6257347388, %502 ]
+  %.0.ph = phi i32 [ -202, %CEscape.exit239.thread399 ], [ -202, %488 ], [ -202, %CEscape.exit239.thread ], [ %spec.select, %CEscape.exit239.thread.thread396 ], [ %spec.select, %502 ]
+  store i32 %.6257347388.sink, ptr %3, align 4, !tbaa !3
+  br label %505
 
-506:                                              ; preds = %CEscape.exit239.thread.thread396
-  store i32 %.6257347388, ptr %3, align 4, !tbaa !3
-  br i1 %500, label %507, label %509
-
-507:                                              ; preds = %503, %.thread406, %506
-  %508 = phi i32 [ -202, %.thread406 ], [ 0, %506 ], [ 0, %503 ]
-  br label %509
-
-509:                                              ; preds = %507, %506, %503, %CEscape.exit239.thread399, %CEscape.exit239.thread393, %CEscape.exit239, %15, %17
-  %.0 = phi i32 [ -173, %15 ], [ -154, %CEscape.exit239.thread399 ], [ -154, %CEscape.exit239 ], [ -173, %17 ], [ -154, %CEscape.exit239.thread393 ], [ %508, %507 ], [ %.8348386, %506 ], [ %.8348386, %503 ]
+505:                                              ; preds = %.sink.split419, %CEscape.exit239.thread399, %CEscape.exit239.thread393, %CEscape.exit239, %15, %17
+  %.0 = phi i32 [ -173, %15 ], [ -154, %CEscape.exit239.thread399 ], [ -154, %CEscape.exit239 ], [ -173, %17 ], [ -154, %CEscape.exit239.thread393 ], [ %.0.ph, %.sink.split419 ]
   ret i32 %.0
 }
 

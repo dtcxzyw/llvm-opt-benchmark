@@ -14,27 +14,25 @@ define internal range(i32 0, 101) i32 @smush_read_probe(ptr noundef readonly cap
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = load i32, ptr %3, align 1, !tbaa !11
   switch i32 %4, label %.thread [
-    i32 1296974163, label %5
-    i32 1296649793, label %9
+    i32 1296974163, label %.sink.split
+    i32 1296649793, label %5
   ]
 
 5:                                                ; preds = %1
+  br label %.sink.split
+
+.thread:                                          ; preds = %.sink.split, %1
+  br label %9
+
+.sink.split:                                      ; preds = %1, %5
+  %.sink5 = phi i32 [ 1380206657, %5 ], [ 1380206675, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 1, !tbaa !11
-  %8 = icmp eq i32 %7, 1380206675
-  br i1 %8, label %13, label %.thread
+  %8 = icmp eq i32 %7, %.sink5
+  br i1 %8, label %9, label %.thread
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i32, ptr %10, align 1, !tbaa !11
-  %12 = icmp eq i32 %11, 1380206657
-  br i1 %12, label %13, label %.thread
-
-.thread:                                          ; preds = %1, %5, %9
-  br label %13
-
-13:                                               ; preds = %5, %9, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 100, %9 ], [ 100, %5 ]
+9:                                                ; preds = %.sink.split, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ 100, %.sink.split ]
   ret i32 %.0
 }
 

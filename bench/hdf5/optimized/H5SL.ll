@@ -12136,7 +12136,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %283, !prof !9
+  br i1 %8, label %9, label %280, !prof !9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12722,27 +12722,28 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
 
 .thread.thread344:                                ; preds = %._crit_edge, %._crit_edge369, %._crit_edge375, %._crit_edge381, %._crit_edge387, %._crit_edge393, %._crit_edge399, %._crit_edge405, %._crit_edge363, %.thread
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %276 = load ptr, ptr %275, align 8, !tbaa !33
-  %277 = load ptr, ptr %10, align 8, !tbaa !32
-  %.not288 = icmp eq ptr %276, %277
-  br i1 %.not288, label %283, label %.sink.split
+  br label %.sink.split483
 
 .thread.thread:                                   ; preds = %268, %238, %206, %211, %172, %146, %120, %91, %95, %60, %34, %.thread
   %.2236341 = phi ptr [ %11, %.thread ], [ %267, %268 ], [ %237, %238 ], [ %205, %206 ], [ %205, %211 ], [ %171, %172 ], [ %145, %146 ], [ %119, %120 ], [ %90, %91 ], [ %90, %95 ], [ %59, %60 ], [ %33, %34 ]
-  %278 = getelementptr inbounds nuw i8, ptr %.2236341, i64 48
-  %279 = load ptr, ptr %278, align 8, !tbaa !31
-  %280 = load ptr, ptr %10, align 8, !tbaa !32
-  %.not287 = icmp eq ptr %279, %280
-  br i1 %.not287, label %283, label %.sink.split
+  %276 = getelementptr inbounds nuw i8, ptr %.2236341, i64 48
+  br label %.sink.split483
 
-.sink.split:                                      ; preds = %.thread.thread, %.thread.thread344, %268, %238, %211, %172, %146, %120, %95, %60, %34
-  %.sink482 = phi ptr [ %237, %238 ], [ %205, %211 ], [ %171, %172 ], [ %145, %146 ], [ %119, %120 ], [ %90, %95 ], [ %59, %60 ], [ %33, %34 ], [ %276, %.thread.thread344 ], [ %267, %268 ], [ %279, %.thread.thread ]
-  %281 = getelementptr inbounds nuw i8, ptr %.sink482, i64 8
-  %282 = load ptr, ptr %281, align 8, !tbaa !35
-  br label %283
+.sink.split:                                      ; preds = %.sink.split483, %268, %238, %211, %172, %146, %120, %95, %60, %34
+  %.sink482 = phi ptr [ %237, %238 ], [ %205, %211 ], [ %171, %172 ], [ %145, %146 ], [ %119, %120 ], [ %90, %95 ], [ %59, %60 ], [ %33, %34 ], [ %267, %268 ], [ %.sink, %.sink.split483 ]
+  %277 = getelementptr inbounds nuw i8, ptr %.sink482, i64 8
+  %278 = load ptr, ptr %277, align 8, !tbaa !35
+  br label %280
 
-283:                                              ; preds = %.sink.split, %2, %.thread.thread344, %.thread.thread
-  %.0225 = phi ptr [ null, %.thread.thread344 ], [ null, %2 ], [ null, %.thread.thread ], [ %282, %.sink.split ]
+.sink.split483:                                   ; preds = %.thread.thread, %.thread.thread344
+  %.sink.in = phi ptr [ %275, %.thread.thread344 ], [ %276, %.thread.thread ]
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !30
+  %279 = load ptr, ptr %10, align 8, !tbaa !32
+  %.not288 = icmp eq ptr %.sink, %279
+  br i1 %.not288, label %280, label %.sink.split
+
+280:                                              ; preds = %.sink.split483, %.sink.split, %2
+  %.0225 = phi ptr [ %278, %.sink.split ], [ null, %2 ], [ null, %.sink.split483 ]
   ret ptr %.0225
 }
 

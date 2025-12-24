@@ -134117,7 +134117,7 @@ define linkonce_odr hidden void @_ZN4entt39basic_meta_associative_container_trai
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %.not, label %15, label %8
+  br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -134128,45 +134128,40 @@ define linkonce_odr hidden void @_ZN4entt39basic_meta_associative_container_trai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, i8 0, i64 17, i1 false)
   %11 = load atomic i8, ptr @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance acquire, align 8
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
+  br i1 %12, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
 
-13:                                               ; preds = %8
-  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
-  %.not.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split
-
-15:                                               ; preds = %4
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !71
+13:                                               ; preds = %4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !71
   store ptr %1, ptr %0, align 8, !tbaa !1669
   store ptr @_ZN4entt26meta_associative_container13meta_iterator12basic_vtableILb1ESt23_Rb_tree_const_iteratorIiEEEvPKvPSt4pairINS_8meta_anyES8_E, ptr %5, align 8, !tbaa !773
   store ptr null, ptr %6, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, i8 0, i64 17, i1 false)
-  %18 = load atomic i8, ptr @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance acquire, align 8
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
+  %16 = load atomic i8, ptr @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance acquire, align 8
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
 
-20:                                               ; preds = %15
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
-  %.not.i.i.i.i.i6 = icmp eq i32 %21, 0
-  br i1 %.not.i.i.i.i.i6, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split
-
-_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split: ; preds = %20, %13
-  %.sink8.ph = phi ptr [ %10, %13 ], [ %17, %20 ]
+_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split: ; preds = %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10
   tail call void @_ZN4entt9type_infoC2ISt23_Rb_tree_const_iteratorIiEEESt15in_place_type_tIT_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
-  %22 = tail call ptr @llvm.invariant.start.p0(i64 24, ptr nonnull @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance)
+  %18 = tail call ptr @llvm.invariant.start.p0(i64 24, ptr nonnull @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
   br label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit
 
-_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit: ; preds = %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split, %20, %15, %13, %8
-  %.sink8 = phi ptr [ %17, %20 ], [ %10, %8 ], [ %10, %13 ], [ %17, %15 ], [ %.sink8.ph, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10: ; preds = %13, %8
+  %.sink8.ph11 = phi ptr [ %10, %8 ], [ %15, %13 ]
+  %19 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
+  %.not.i.i.i.i.i6 = icmp eq i32 %19, 0
+  br i1 %.not.i.i.i.i.i6, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split
+
+_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit: ; preds = %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split, %13, %8
+  %.sink8 = phi ptr [ %15, %13 ], [ %10, %8 ], [ %.sink8.ph11, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split ], [ %.sink8.ph11, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10 ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance, ptr %7, align 8, !tbaa !27
-  store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt23_Rb_tree_const_iteratorIiEEEPKvNS_8internal11any_requestERKS1_S6_, ptr %24, align 8, !tbaa !31
-  store i8 2, ptr %23, align 8, !tbaa !32
-  %25 = ptrtoint ptr %.sink8 to i64
-  store i64 %25, ptr %6, align 8, !tbaa !808
+  store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt23_Rb_tree_const_iteratorIiEEEPKvNS_8internal11any_requestERKS1_S6_, ptr %21, align 8, !tbaa !31
+  store i8 2, ptr %20, align 8, !tbaa !32
+  %22 = ptrtoint ptr %.sink8 to i64
+  store i64 %22, ptr %6, align 8, !tbaa !808
   ret void
 }
 
@@ -134182,42 +134177,37 @@ define linkonce_odr hidden void @_ZN4entt39basic_meta_associative_container_trai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, i8 0, i64 17, i1 false)
   %8 = load atomic i8, ptr @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance acquire, align 8
   %9 = icmp eq i8 %8, 0
-  br i1 %.not, label %14, label %10
+  br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %9, label %12, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
+  br i1 %9, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
 
-12:                                               ; preds = %10
-  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
-  %.not.i.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br i1 %9, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %9, label %16, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, !prof !26
-
-16:                                               ; preds = %14
-  %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
-  %.not.i.i.i.i.i6 = icmp eq i32 %17, 0
-  br i1 %.not.i.i.i.i.i6, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split
-
-_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split: ; preds = %16, %12
-  %.sink8.ph = phi ptr [ %11, %12 ], [ %15, %16 ]
+_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split: ; preds = %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10
   tail call void @_ZN4entt9type_infoC2ISt23_Rb_tree_const_iteratorIiEEESt15in_place_type_tIT_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
-  %18 = tail call ptr @llvm.invariant.start.p0(i64 24, ptr nonnull @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance)
+  %14 = tail call ptr @llvm.invariant.start.p0(i64 24, ptr nonnull @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
   br label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit
 
-_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit: ; preds = %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split, %16, %14, %12, %10
-  %.sink8 = phi ptr [ %15, %16 ], [ %11, %10 ], [ %11, %12 ], [ %15, %14 ], [ %.sink8.ph, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10: ; preds = %12, %10
+  %.sink8.ph11 = phi ptr [ %11, %10 ], [ %13, %12 ]
+  %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance) #27
+  %.not.i.i.i.i.i6 = icmp eq i32 %15, 0
+  br i1 %.not.i.i.i.i.i6, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit, label %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split
+
+_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit: ; preds = %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split, %12, %10
+  %.sink8 = phi ptr [ %13, %12 ], [ %11, %10 ], [ %.sink8.ph11, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split ], [ %.sink8.ph11, %_ZN4entt26meta_associative_container13meta_iteratorC2ILb1ESt23_Rb_tree_const_iteratorIiEEERKNS_8meta_ctxESt17integral_constantIbXT_EET0_.exit.sink.split10 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_ZZN4entt7type_idISt23_Rb_tree_const_iteratorIiEEERKNS_9type_infoEvE8instance, ptr %7, align 8, !tbaa !27
-  store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt23_Rb_tree_const_iteratorIiEEEPKvNS_8internal11any_requestERKS1_S6_, ptr %20, align 8, !tbaa !31
-  store i8 2, ptr %19, align 8, !tbaa !32
-  %21 = ptrtoint ptr %.sink8 to i64
-  store i64 %21, ptr %6, align 8, !tbaa !808
+  store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt23_Rb_tree_const_iteratorIiEEEPKvNS_8internal11any_requestERKS1_S6_, ptr %17, align 8, !tbaa !31
+  store i8 2, ptr %16, align 8, !tbaa !32
+  %18 = ptrtoint ptr %.sink8 to i64
+  store i64 %18, ptr %6, align 8, !tbaa !808
   ret void
 }
 

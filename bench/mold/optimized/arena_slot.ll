@@ -275,7 +275,7 @@ _ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit
   br i1 %74, label %75, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
 75:                                               ; preds = %_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit.thread58
-  br i1 %.2, label %76, label %95
+  br i1 %.2, label %76, label %93
 
 76:                                               ; preds = %75
   %.not40 = icmp ne ptr %.128, null
@@ -303,7 +303,7 @@ _ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit
   %88 = load atomic i64, ptr %87 acquire, align 8
   switch i64 %88, label %89 [
     i64 1, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
-    i64 0, label %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
+    i64 0, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split115
   ]
 
 89:                                               ; preds = %79
@@ -312,55 +312,51 @@ _ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit
   %92 = extractvalue { i64, i1 } %90, 0
   %.not.i.i44 = icmp ne i64 %92, 0
   %or.cond.not.i.i = select i1 %91, i1 true, i1 %.not.i.i44
-  br i1 %or.cond.not.i.i, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit, label %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
+  br i1 %or.cond.not.i.i, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split115
 
-_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i: ; preds = %89, %79
-  %93 = cmpxchg ptr %87, i64 0, i64 1 seq_cst seq_cst, align 8
-  %94 = extractvalue { i64, i1 } %93, 1
-  br i1 %94, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
-
-95:                                               ; preds = %75
-  %96 = load ptr, ptr %10, align 32, !tbaa !3
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %13
-  store ptr null, ptr %97, align 8, !tbaa !14
+93:                                               ; preds = %75
+  %94 = load ptr, ptr %10, align 32, !tbaa !3
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %13
+  store ptr null, ptr %95, align 8, !tbaa !14
   store atomic i64 %.133, ptr %6 release, align 16
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !45
-  %100 = load ptr, ptr %99, align 128, !tbaa !49
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !61
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !45
+  %98 = load ptr, ptr %97, align 128, !tbaa !49
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
+  %100 = load ptr, ptr %99, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !87
   call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, ptr nonnull elementtype(i8) %4) #1, !srcloc !88
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 232
-  %104 = load atomic i64, ptr %103 acquire, align 8
-  switch i64 %104, label %105 [
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 232
+  %102 = load atomic i64, ptr %101 acquire, align 8
+  switch i64 %102, label %103 [
     i64 1, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
-    i64 0, label %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45
+    i64 0, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split115
   ]
 
-105:                                              ; preds = %95
-  %106 = cmpxchg ptr %103, i64 %104, i64 1 seq_cst seq_cst, align 8
-  %107 = extractvalue { i64, i1 } %106, 1
-  %108 = extractvalue { i64, i1 } %106, 0
-  %.not.i.i46 = icmp ne i64 %108, 0
-  %or.cond.not.i.i47 = select i1 %107, i1 true, i1 %.not.i.i46
-  br i1 %or.cond.not.i.i47, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit, label %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45
+103:                                              ; preds = %93
+  %104 = cmpxchg ptr %101, i64 %102, i64 1 seq_cst seq_cst, align 8
+  %105 = extractvalue { i64, i1 } %104, 1
+  %106 = extractvalue { i64, i1 } %104, 0
+  %.not.i.i46 = icmp ne i64 %106, 0
+  %or.cond.not.i.i47 = select i1 %105, i1 true, i1 %.not.i.i46
+  br i1 %or.cond.not.i.i47, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split115
 
-_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45: ; preds = %105, %95
-  %109 = cmpxchg ptr %103, i64 0, i64 1 seq_cst seq_cst, align 8
+_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split: ; preds = %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split115
+  %107 = getelementptr inbounds nuw i8, ptr %.sink114.ph, i64 380
+  %108 = load i32, ptr %107, align 4, !tbaa !89
+  call void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768) %.sink114.ph, i32 noundef 0, i32 noundef %108, i1 noundef zeroext true)
+  br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
+
+_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split115: ; preds = %93, %103, %79, %89
+  %.sink = phi ptr [ %87, %79 ], [ %87, %89 ], [ %101, %103 ], [ %101, %93 ]
+  %.sink114.ph = phi ptr [ %86, %79 ], [ %86, %89 ], [ %100, %103 ], [ %100, %93 ]
+  %109 = cmpxchg ptr %.sink, i64 0, i64 1 seq_cst seq_cst, align 8
   %110 = extractvalue { i64, i1 } %109, 1
   br i1 %110, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
-_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split: ; preds = %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
-  %.sink114 = phi ptr [ %86, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i ], [ %102, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sink114, i64 380
-  %112 = load i32, ptr %111, align 4, !tbaa !89
-  call void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768) %.sink114, i32 noundef 0, i32 noundef %112, i1 noundef zeroext true)
-  br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
-
-_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; preds = %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i45, %105, %95, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i, %89, %79, %76, %_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit.thread58
+_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; preds = %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split115, %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit.sink.split, %103, %93, %89, %79, %76, %_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit.thread58
   ret ptr %.128
 }
 

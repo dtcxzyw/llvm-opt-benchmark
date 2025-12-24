@@ -138,7 +138,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 9:                                                ; preds = %6, %2
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1) #7
-  br label %107
+  br label %102
 
 10:                                               ; preds = %6
   %11 = icmp eq i64 %1, 0
@@ -156,7 +156,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #7
-  br label %107
+  br label %102
 
 .thread:                                          ; preds = %..thread_crit_edge, %10
   %16 = phi ptr [ %.pre, %..thread_crit_edge ], [ %8, %10 ]
@@ -169,7 +169,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 20:                                               ; preds = %.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i64 noundef %18, i64 noundef %.092) #7
-  br label %107
+  br label %102
 
 21:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -232,7 +232,7 @@ fmap_readn.exit.i:                                ; preds = %23
 gpt_check_mbr.exit:                               ; preds = %21, %23, %fmap_readn.exit.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %107
+  br label %102
 
 .loopexit.sink.split:                             ; preds = %36, %28, %40
   %.str.51.sink = phi ptr [ @.str.52, %28 ], [ @.str.53, %40 ], [ @.str.51, %36 ]
@@ -264,7 +264,7 @@ fmap_readn.exit:                                  ; preds = %44
 
 fmap_readn.exit.thread:                           ; preds = %44, %.loopexit, %fmap_readn.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #7
-  br label %107
+  br label %102
 
 49:                                               ; preds = %fmap_readn.exit
   %50 = sub i64 %18, %.092
@@ -297,7 +297,7 @@ fmap_readn.exit85:                                ; preds = %56
 
 fmap_readn.exit85.thread:                         ; preds = %56, %52, %fmap_readn.exit85
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #7
-  br label %107
+  br label %102
 
 61:                                               ; preds = %fmap_readn.exit85
   %62 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
@@ -307,7 +307,7 @@ fmap_readn.exit85.thread:                         ; preds = %56, %52, %fmap_read
 63:                                               ; preds = %61
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #7
-  br label %107
+  br label %102
 
 64:                                               ; preds = %49
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #7
@@ -376,52 +376,41 @@ fmap_readn.exit90:                                ; preds = %68
 93:                                               ; preds = %87
   %94 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
   %.not74 = icmp eq i32 %94, 0
-  br i1 %.not74, label %95, label %107
+  br i1 %.not74, label %95, label %102
 
 95:                                               ; preds = %93
   %96 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
   %.not75 = icmp eq i32 %96, 0
-  br i1 %.not75, label %97, label %107
+  br i1 %.not75, label %97, label %102
 
 97:                                               ; preds = %95, %87, %81
   switch i32 %.050, label %default.unreachable123 [
-    i32 1, label %98
-    i32 2, label %100
-    i32 3, label %102
+    i32 1, label %.sink.split124
+    i32 2, label %98
+    i32 3, label %99
   ]
 
 98:                                               ; preds = %97
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #7
-  %99 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
-  %.not79 = icmp eq i32 %99, 0
-  br i1 %.not79, label %106, label %107
+  br label %.sink.split124
 
-100:                                              ; preds = %97
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #7
-  %101 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
-  %.not78 = icmp eq i32 %101, 0
-  br i1 %.not78, label %106, label %107
-
-102:                                              ; preds = %97
+99:                                               ; preds = %97
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #7
-  %103 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
-  %.not76 = icmp eq i32 %103, 0
-  br i1 %.not76, label %104, label %107
-
-104:                                              ; preds = %102
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #7
-  %105 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
-  %.not77 = icmp eq i32 %105, 0
-  br i1 %.not77, label %106, label %107
+  %100 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %.not76 = icmp eq i32 %100, 0
+  br i1 %.not76, label %.sink.split124, label %102
 
 default.unreachable123:                           ; preds = %97
   unreachable
 
-106:                                              ; preds = %104, %100, %98
-  br label %107
+.sink.split124:                                   ; preds = %99, %97, %98
+  %.str.19.sink = phi ptr [ @.str.16, %97 ], [ @.str.17, %98 ], [ @.str.19, %99 ]
+  %.sink125 = phi ptr [ %4, %97 ], [ %5, %98 ], [ %5, %99 ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.19.sink) #7
+  %101 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %.sink125, i64 noundef %.092)
+  br label %102
 
-107:                                              ; preds = %gpt_check_mbr.exit, %104, %102, %100, %98, %95, %93, %106, %63, %fmap_readn.exit85.thread, %fmap_readn.exit.thread, %20, %15, %9
-  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %63 ], [ %94, %93 ], [ %96, %95 ], [ 0, %106 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ 2, %9 ]
+102:                                              ; preds = %.sink.split124, %gpt_check_mbr.exit, %99, %95, %93, %63, %fmap_readn.exit85.thread, %fmap_readn.exit.thread, %20, %15, %9
+  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %63 ], [ %94, %93 ], [ %96, %95 ], [ %101, %.sink.split124 ], [ %100, %99 ], [ 2, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.051

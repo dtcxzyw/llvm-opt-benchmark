@@ -1285,7 +1285,7 @@ define hidden range(i32 0, 40) i32 @X509_check_issued(ptr noundef %0, ptr nounde
   %4 = tail call ptr @X509_get_issuer_name(ptr noundef %1) #10
   %5 = tail call i32 @X509_NAME_cmp(ptr noundef %3, ptr noundef %4) #10
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %29
+  br i1 %.not, label %6, label %22
 
 6:                                                ; preds = %2
   tail call fastcc void @x509v3_cache_extensions(ptr noundef %0)
@@ -1298,44 +1298,33 @@ define hidden range(i32 0, 40) i32 @X509_check_issued(ptr noundef %0, ptr nounde
 9:                                                ; preds = %6
   %10 = tail call i32 @X509_check_akid(ptr noundef %0, ptr noundef nonnull %8)
   %.not18.not = icmp eq i32 %10, 0
-  br i1 %.not18.not, label %11, label %29
+  br i1 %.not18.not, label %11, label %22
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8, !tbaa !6
-  %14 = and i64 %13, 1024
-  %.not19 = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load i64, ptr %15, align 8, !tbaa !6
-  %17 = and i64 %16, 2
-  %.not20 = icmp eq i64 %17, 0
-  br i1 %.not19, label %23, label %18
+  %14 = and i64 %13, 2
+  %.not20 = icmp eq i64 %14, 0
+  br i1 %.not20, label %15, label %.sink.split
 
-18:                                               ; preds = %11
-  br i1 %.not20, label %28, label %19
+15:                                               ; preds = %11, %.sink.split
+  br label %22
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %21 = load i64, ptr %20, align 8, !tbaa !52
-  %22 = and i64 %21, 128
-  %.not23 = icmp eq i64 %22, 0
-  br i1 %.not23, label %29, label %28
+.sink.split:                                      ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %17 = load i64, ptr %16, align 8, !tbaa !6
+  %18 = and i64 %17, 1024
+  %.not19 = icmp eq i64 %18, 0
+  %.27 = select i1 %.not19, i32 32, i32 39
+  %. = select i1 %.not19, i64 4, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %20 = load i64, ptr %19, align 8, !tbaa !52
+  %21 = and i64 %20, %.
+  %.not21 = icmp eq i64 %21, 0
+  br i1 %.not21, label %22, label %15
 
-23:                                               ; preds = %11
-  br i1 %.not20, label %28, label %24
-
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %26 = load i64, ptr %25, align 8, !tbaa !52
-  %27 = and i64 %26, 4
-  %.not21 = icmp eq i64 %27, 0
-  br i1 %.not21, label %29, label %28
-
-28:                                               ; preds = %23, %24, %18, %19
-  br label %29
-
-29:                                               ; preds = %9, %24, %19, %2, %28
-  %.015 = phi i32 [ %10, %9 ], [ 0, %28 ], [ 29, %2 ], [ 39, %19 ], [ 32, %24 ]
+22:                                               ; preds = %.sink.split, %9, %2, %15
+  %.015 = phi i32 [ %10, %9 ], [ 0, %15 ], [ 29, %2 ], [ %.27, %.sink.split ]
   ret i32 %.015
 }
 

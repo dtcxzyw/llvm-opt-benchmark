@@ -2300,46 +2300,42 @@ declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(
 define internal fastcc noundef range(i32 0, 2) i32 @vga_str_to_iostate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #9 align 16 {
   %3 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #14
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %17, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.2, i64 noundef 6) #14
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %17, label %sub_0
+  br i1 %7, label %11, label %sub_0
 
 sub_0:                                            ; preds = %5
   %8 = load i8, ptr %0, align 1
   switch i8 %8, label %.tail1.thread [
-    i8 105, label %.tail
+    i8 105, label %.tail1.thread.sink.split
     i8 109, label %sub_13
   ]
 
-.tail:                                            ; preds = %sub_0
+sub_13:                                           ; preds = %sub_0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
-  %11 = icmp eq i8 %10, 111
-  br i1 %11, label %17, label %.tail1.thread
+  %.not6 = icmp eq i8 %10, 101
+  br i1 %.not6, label %.tail1.thread.sink.split, label %.tail1.thread
 
-sub_13:                                           ; preds = %sub_0
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %13 = load i8, ptr %12, align 1
-  %.not6 = icmp eq i8 %13, 101
-  br i1 %.not6, label %.tail1, label %.tail1.thread
-
-.tail1:                                           ; preds = %sub_13
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp eq i8 %15, 109
-  br i1 %16, label %17, label %.tail1.thread
-
-17:                                               ; preds = %.tail1, %.tail, %5, %2
-  %18 = phi i32 [ 0, %2 ], [ 3, %.tail1 ], [ 3, %.tail ], [ 3, %5 ]
-  store i32 %18, ptr %1, align 4
+11:                                               ; preds = %.tail1.thread.sink.split, %5, %2
+  %12 = phi i32 [ 0, %2 ], [ 3, %5 ], [ 3, %.tail1.thread.sink.split ]
+  store i32 %12, ptr %1, align 4
   br label %.tail1.thread
 
-.tail1.thread:                                    ; preds = %sub_0, %.tail, %sub_13, %17, %.tail1
-  %19 = phi i32 [ 0, %.tail1 ], [ 1, %17 ], [ 0, %sub_0 ], [ 0, %sub_13 ], [ 0, %.tail ]
-  ret i32 %19
+.tail1.thread.sink.split:                         ; preds = %sub_13, %sub_0
+  %.sink10 = phi i64 [ 1, %sub_0 ], [ 2, %sub_13 ]
+  %.sink9 = phi i8 [ 111, %sub_0 ], [ 109, %sub_13 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, %.sink9
+  br i1 %15, label %11, label %.tail1.thread
+
+.tail1.thread:                                    ; preds = %.tail1.thread.sink.split, %sub_0, %sub_13, %11
+  %16 = phi i32 [ 0, %sub_13 ], [ 1, %11 ], [ 0, %sub_0 ], [ 0, %.tail1.thread.sink.split ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

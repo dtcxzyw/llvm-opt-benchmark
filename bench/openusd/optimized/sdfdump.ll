@@ -22143,9 +22143,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_ma
   %.033 = phi i1 [ false, %79 ], [ true, %78 ]
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #38
-  br i1 %.033, label %.sink.split, label %117
+  br label %.sink.split105
 
 84:                                               ; preds = %72
   %85 = add nsw i32 %.12691, 1
@@ -22221,9 +22219,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_ma
   %.0 = phi i1 [ false, %109 ], [ true, %108 ]
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #38
-  br i1 %.0, label %.sink.split, label %117
+  br label %.sink.split105
 
 114:                                              ; preds = %.lr.ph
   %115 = add nsw i32 %.13288, 1
@@ -22235,16 +22231,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_ma
 .loopexit:                                        ; preds = %114, %86, %88, %58, %2
   ret void
 
-.sink.split:                                      ; preds = %112, %.thread73, %.thread78, %82, %.thread, %.thread70
-  %.sink104 = phi ptr [ %76, %82 ], [ %76, %.thread70 ], [ %76, %.thread ], [ %106, %.thread78 ], [ %106, %.thread73 ], [ %106, %112 ]
-  %.sink.ph = phi ptr [ %3, %82 ], [ %3, %.thread70 ], [ %3, %.thread ], [ %6, %.thread78 ], [ %6, %.thread73 ], [ %6, %112 ]
-  %.pn43.pn.pn.ph = phi { ptr, i32 } [ %83, %82 ], [ %81, %.thread70 ], [ %80, %.thread ], [ %111, %.thread78 ], [ %110, %.thread73 ], [ %113, %112 ]
+.sink.split:                                      ; preds = %.sink.split105, %.thread73, %.thread78, %.thread, %.thread70
+  %.sink104 = phi ptr [ %106, %.thread73 ], [ %76, %.thread70 ], [ %76, %.thread ], [ %106, %.thread78 ], [ %.sink104.ph, %.sink.split105 ]
+  %.sink.ph = phi ptr [ %6, %.thread73 ], [ %3, %.thread70 ], [ %3, %.thread ], [ %6, %.thread78 ], [ %.sink.ph106, %.sink.split105 ]
+  %.pn43.pn.pn.ph = phi { ptr, i32 } [ %110, %.thread73 ], [ %81, %.thread70 ], [ %80, %.thread ], [ %111, %.thread78 ], [ %.pn43.pn.pn.ph107, %.sink.split105 ]
   call void @__cxa_free_exception(ptr %.sink104) #38
   br label %117
 
-117:                                              ; preds = %.sink.split, %112, %82
-  %.sink = phi ptr [ %3, %82 ], [ %6, %112 ], [ %.sink.ph, %.sink.split ]
-  %.pn43.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %113, %112 ], [ %.pn43.pn.pn.ph, %.sink.split ]
+.sink.split105:                                   ; preds = %82, %112
+  %.sink109 = phi ptr [ %8, %112 ], [ %5, %82 ]
+  %.sink108 = phi ptr [ %7, %112 ], [ %4, %82 ]
+  %.0.sink = phi i1 [ %.0, %112 ], [ %.033, %82 ]
+  %.sink.ph106 = phi ptr [ %6, %112 ], [ %3, %82 ]
+  %.pn43.pn.pn.ph107 = phi { ptr, i32 } [ %113, %112 ], [ %83, %82 ]
+  %.sink104.ph = phi ptr [ %106, %112 ], [ %76, %82 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink109) #38
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink108) #38
+  br i1 %.0.sink, label %.sink.split, label %117
+
+117:                                              ; preds = %.sink.split105, %.sink.split
+  %.sink = phi ptr [ %.sink.ph, %.sink.split ], [ %.sink.ph106, %.sink.split105 ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn.ph, %.sink.split ], [ %.pn43.pn.pn.ph107, %.sink.split105 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #38
   resume { ptr, i32 } %.pn43.pn.pn
 

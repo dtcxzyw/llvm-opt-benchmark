@@ -2566,14 +2566,17 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit: ; preds = %.noexc, %"_ZN5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.sroa.09.2, label %.sink.split, label %141
+  br label %.sink.split57
 
-.sink.split:                                      ; preds = %139, %"_ZN4core3ptr59drop_in_place$LT$ruff_python_literal..format..FieldType$GT$17hca0700db0c45f2eeE.exit30"
+.sink.split:                                      ; preds = %.sink.split57
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc483a8d0bb0116fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   br label %141
 
-141:                                              ; preds = %.sink.split, %139, %"_ZN4core3ptr59drop_in_place$LT$ruff_python_literal..format..FieldType$GT$17hca0700db0c45f2eeE.exit30"
+.sink.split57:                                    ; preds = %149, %147, %139
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br i1 %.sroa.09.2, label %.sink.split, label %141
+
+141:                                              ; preds = %.sink.split57, %.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
@@ -2597,15 +2600,11 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit: ; preds = %.noexc, %"_ZN5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %148 = load i64, ptr %9, align 8, !range !82, !alias.scope !205, !noundef !4
   %switch.i28 = icmp slt i64 %148, -9223372036854775806
-  br i1 %switch.i28, label %"_ZN4core3ptr59drop_in_place$LT$ruff_python_literal..format..FieldType$GT$17hca0700db0c45f2eeE.exit30", label %149
+  br i1 %switch.i28, label %.sink.split57, label %149
 
 149:                                              ; preds = %147
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc483a8d0bb0116fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %"_ZN4core3ptr59drop_in_place$LT$ruff_python_literal..format..FieldType$GT$17hca0700db0c45f2eeE.exit30" unwind label %.loopexit.split-lp
-
-"_ZN4core3ptr59drop_in_place$LT$ruff_python_literal..format..FieldType$GT$17hca0700db0c45f2eeE.exit30": ; preds = %147, %149
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.sroa.09.2, label %.sink.split, label %141
+          to label %.sink.split57 unwind label %.loopexit.split-lp
 
 150:                                              ; preds = %144, %153, %.body
   %151 = landingpad { ptr, i32 }

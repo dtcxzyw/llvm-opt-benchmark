@@ -15217,9 +15217,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohma
   %.05 = phi i1 [ false, %19 ], [ true, %17 ]
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
-  br i1 %.05, label %.sink.split, label %36
+  br label %.sink.split25
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15251,9 +15249,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohma
   %.0 = phi i1 [ false, %31 ], [ true, %29 ]
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
-  br i1 %.0, label %.sink.split, label %36
+  br label %.sink.split25
 
 35:                                               ; preds = %23, %12, %8
   %.012 = phi ptr [ %14, %12 ], [ %11, %8 ], [ %6, %23 ]
@@ -15266,14 +15262,24 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohma
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink24) #27
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %33, %21
-  %.sink = phi ptr [ %16, %21 ], [ %28, %33 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.pn14.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %34, %33 ], [ %.pn14.pn.ph.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split25, %.sink.split.sink.split
+  %.sink = phi ptr [ %.sink.ph, %.sink.split.sink.split ], [ %.sink.ph27, %.sink.split25 ]
+  %.pn14.pn.ph = phi { ptr, i32 } [ %.pn14.pn.ph.ph, %.sink.split.sink.split ], [ %.pn14.pn.ph26, %.sink.split25 ]
   call void @__cxa_free_exception(ptr %.sink) #27
   br label %36
 
-36:                                               ; preds = %.sink.split, %33, %21
-  %.pn14.pn = phi { ptr, i32 } [ %22, %21 ], [ %34, %33 ], [ %.pn14.pn.ph, %.sink.split ]
+.sink.split25:                                    ; preds = %21, %33
+  %.sink30 = phi ptr [ %4, %33 ], [ %2, %21 ]
+  %.sink29 = phi ptr [ %5, %33 ], [ %3, %21 ]
+  %.0.sink = phi i1 [ %.0, %33 ], [ %.05, %21 ]
+  %.pn14.pn.ph26 = phi { ptr, i32 } [ %34, %33 ], [ %22, %21 ]
+  %.sink.ph27 = phi ptr [ %28, %33 ], [ %16, %21 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink30) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink29) #27
+  br i1 %.0.sink, label %.sink.split, label %36
+
+36:                                               ; preds = %.sink.split25, %.sink.split
+  %.pn14.pn = phi { ptr, i32 } [ %.pn14.pn.ph, %.sink.split ], [ %.pn14.pn.ph26, %.sink.split25 ]
   resume { ptr, i32 } %.pn14.pn
 
 37:                                               ; preds = %31, %19
