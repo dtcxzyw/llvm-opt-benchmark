@@ -22219,7 +22219,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_ma
   %.0 = phi i1 [ false, %109 ], [ true, %108 ]
   %113 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split105
+  br label %117
 
 114:                                              ; preds = %.lr.ph
   %115 = add nsw i32 %.13288, 1
@@ -22231,16 +22231,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_ma
 .loopexit:                                        ; preds = %114, %86, %88, %58, %2
   ret void
 
-.sink.split:                                      ; preds = %.sink.split105, %.thread73, %.thread78, %.thread, %.thread70
+.sink.split:                                      ; preds = %117, %.thread73, %.thread78, %.thread, %.thread70
   %.sink104 = phi ptr [ %106, %.thread73 ], [ %76, %.thread70 ], [ %76, %.thread ], [ %106, %.thread78 ], [ %.sink104.ph, %.sink.split105 ]
   %.sink.ph = phi ptr [ %6, %.thread73 ], [ %3, %.thread70 ], [ %3, %.thread ], [ %6, %.thread78 ], [ %.sink.ph106, %.sink.split105 ]
   %.pn43.pn.pn.ph = phi { ptr, i32 } [ %110, %.thread73 ], [ %81, %.thread70 ], [ %80, %.thread ], [ %111, %.thread78 ], [ %.pn43.pn.pn.ph107, %.sink.split105 ]
   call void @__cxa_free_exception(ptr %.sink104) #38
   br label %117
 
-.sink.split105:                                   ; preds = %82, %112
-  %.sink109 = phi ptr [ %8, %112 ], [ %5, %82 ]
-  %.sink108 = phi ptr [ %7, %112 ], [ %4, %82 ]
+117:                                              ; preds = %82, %112
+  %.sink = phi ptr [ %8, %112 ], [ %5, %82 ]
+  %.pn43.pn.pn = phi ptr [ %7, %112 ], [ %4, %82 ]
   %.0.sink = phi i1 [ %.0, %112 ], [ %.033, %82 ]
   %.sink.ph106 = phi ptr [ %6, %112 ], [ %3, %82 ]
   %.pn43.pn.pn.ph107 = phi { ptr, i32 } [ %113, %112 ], [ %83, %82 ]

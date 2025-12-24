@@ -174,17 +174,17 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   %91 = sub nsw i32 0, %90
   store i32 %91, ptr %16, align 4, !tbaa !3
   %92 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %16, i32 noundef 6) #5
-  br label %283
+  br label %287
 
 93:                                               ; preds = %.thread
-  br i1 %42, label %283, label %94
+  br i1 %42, label %287, label %94
 
 94:                                               ; preds = %93
   br i1 %87, label %95, label %96
 
 95:                                               ; preds = %94
   store i32 0, ptr %6, align 4, !tbaa !3
-  br label %283
+  br label %287
 
 96:                                               ; preds = %94
   %97 = call double @dlamch_(ptr noundef nonnull @.str.7) #5
@@ -539,13 +539,13 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
 
 269:                                              ; preds = %.lr.ph404
   %.not362 = icmp eq i32 %266, 0
-  br i1 %.not362, label %.thread375, label %.thread375.sink.split430
+  br i1 %.not362, label %.thread375, label %.thread375
 
 270:                                              ; preds = %.lr.ph404
   %271 = icmp eq i32 %.0323401, 1
   br i1 %271, label %272, label %.thread375
 
-272:                                              ; preds = %270
+272:; preds = %270
   %273 = icmp ne i32 %266, 0
   %274 = icmp ne i32 %.0321402, 0
   %275 = select i1 %273, i1 true, i1 %274
@@ -557,10 +557,10 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   store i32 %277, ptr %14, align 4, !tbaa !3
   br label %.thread375
 
-.thread375.sink.split430:                         ; preds = %272, %269
-  %.sink437 = phi i32 [ 1, %269 ], [ 2, %272 ]
-  %.0326400.sink = phi i32 [ %.0321402, %269 ], [ %.0326400, %272 ]
-  %.0329.ph431 = phi i32 [ %266, %269 ], [ 1, %272 ]
+.thread375:                                       ; preds = %272, %269
+  %.0329 = phi i32 [ 1, %269 ], [ 2, %272 ]
+  %.1324 = phi i32 [ %.0321402, %269 ], [ %.0326400, %272 ]
+  %.1322 = phi i32 [ %266, %269 ], [ 1, %272 ]
   %.1324.ph432 = phi i32 [ 0, %269 ], [ -1, %272 ]
   %.1322.ph433 = phi i32 [ %.0321402, %269 ], [ 1, %272 ]
   %.1322.ph.ph = phi i32 [ 0, %269 ], [ 1, %272 ]
@@ -575,16 +575,16 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   %.1324 = phi i32 [ 1, %270 ], [ 0, %269 ], [ %.1324.ph432, %.thread375.sink.split ], [ -1, %272 ], [ %.1324.ph432, %.thread375.sink.split430 ]
   %.1322 = phi i32 [ %.0321402, %270 ], [ %.0321402, %269 ], [ %.1322.ph.ph, %.thread375.sink.split ], [ 0, %272 ], [ %.1322.ph433, %.thread375.sink.split430 ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
-  %281 = load i32, ptr %16, align 4, !tbaa !3
-  %282 = sext i32 %281 to i64
-  %.not360.not = icmp slt i64 %indvars.iv409, %282
+  %285 = load i32, ptr %16, align 4, !tbaa !3
+  %286 = sext i32 %285 to i64
+  %.not360.not = icmp slt i64 %indvars.iv409, %286
   br i1 %.not360.not, label %.lr.ph404, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.thread375, %262, %259, %258
   store double %.1, ptr %11, align 8, !tbaa !7
-  br label %283
+  br label %287
 
-283:                                              ; preds = %93, %.loopexit, %95, %.thread367
+287:                                              ; preds = %93, %.loopexit, %95, %.thread367
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)

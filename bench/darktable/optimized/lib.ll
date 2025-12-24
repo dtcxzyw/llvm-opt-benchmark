@@ -754,7 +754,7 @@ define range(i32 0, 2) i32 @dt_lib_presets_apply(ptr noundef %0, ptr noundef %1,
 
 .thread43:                                        ; preds = %45
   %50 = call i32 @sqlite3_finalize(ptr noundef %49) #19
-  br label %74
+  br label %77
 
 51:                                               ; preds = %45
   %52 = call ptr @sqlite3_column_blob(ptr noundef %49, i32 noundef 0) #19
@@ -804,18 +804,18 @@ define range(i32 0, 2) i32 @dt_lib_presets_apply(ptr noundef %0, ptr noundef %1,
   call void @dt_gui_store_last_preset(ptr noundef %0) #19
   br label %.sink.split
 
-70:                                               ; preds = %.sink.split
-  %71 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #19
-  call void (ptr, ...) @dt_control_log(ptr noundef %71) #19
+75:                                               ; preds = %.sink.split
+  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #19
+  call void (ptr, ...) @dt_control_log(ptr noundef %76) #19
   call void @dt_lib_presets_remove(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  br label %74
+  br label %77
 
 .sink.split:                                      ; preds = %.loopexit, %69
   %72 = load ptr, ptr %4, align 8, !tbaa !63
   %73 = call i32 @sqlite3_finalize(ptr noundef %72) #19
   br i1 %.029, label %74, label %70
 
-74:                                               ; preds = %.sink.split, %.thread43, %70
+77:                                               ; preds = %.sink.split, %.thread43, %75
   %.046 = phi i32 [ 0, %.thread43 ], [ 1, %70 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.046

@@ -15907,16 +15907,16 @@ lpad36:                                           ; preds = %invoke.cont35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34) #36
   br label %eh.resume
 
-if.end42:                                         ; preds = %cleanup.sink.split
+if.end42:                                         ; preds = %return
   %16 = load i32, ptr %recursion_limit_, align 8
   %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %recursion_limit_, align 8
   store ptr %9, ptr %parse_info_tree_, align 8
   br label %return
 
-cleanup.sink.split:                               ; preds = %invoke.cont35, %invoke.cont24
-  %agg.tmp34.sink = phi ptr [ %agg.tmp23, %invoke.cont24 ], [ %agg.tmp34, %invoke.cont35 ]
-  %call38.sink = phi i1 [ %call27, %invoke.cont24 ], [ %call38, %invoke.cont35 ]
+return:                                           ; preds = %invoke.cont35, %invoke.cont24
+  %delimiter.sink = phi ptr [ %agg.tmp23, %invoke.cont24 ], [ %agg.tmp34, %invoke.cont35 ]
+  %retval.0 = phi i1 [ %call27, %invoke.cont24 ], [ %call38, %invoke.cont35 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34.sink) #36
   br i1 %call38.sink, label %if.end42, label %return
 

@@ -6322,7 +6322,7 @@ _ZNK4node10BaseObject6objectEv.exit.i.i:          ; preds = %_ZN4node17Persisten
   %call2.i.i.i = call ptr %25(ptr noundef nonnull align 8 dereferenceable(872) %24) #20
   %call25.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i, ptr %call2.i.i.i, ptr %15) #20
   %cmp.i.i.i.i26 = icmp eq ptr %call25.i.i, null
-  br i1 %cmp.i.i.i.i26, label %cleanup, label %cleanup.sink.split157
+  br i1 %cmp.i.i.i.i26, label %cleanup, label %cleanup
 
 if.else:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit
   br i1 %cmp, label %if.then62, label %do.body
@@ -6447,7 +6447,7 @@ _ZNK4node10BaseObject6objectEv.exit.i.i47:        ; preds = %_ZN4node17Persisten
   %call2.i.i.i52 = call ptr %45(ptr noundef nonnull align 8 dereferenceable(872) %44) #20
   %call25.i.i53 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i48, ptr %call2.i.i.i52, ptr %35) #20
   %cmp.i.i.i.i54 = icmp eq ptr %call25.i.i53, null
-  br i1 %cmp.i.i.i.i54, label %cleanup, label %cleanup.sink.split157
+  br i1 %cmp.i.i.i.i54, label %cleanup, label %cleanup
 
 if.end118.critedge:                               ; preds = %if.end80
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #20
@@ -6582,7 +6582,7 @@ _ZNK4node10BaseObject6objectEv.exit.i.i85:        ; preds = %_ZN4node17Persisten
   %call2.i.i.i90 = call ptr %69(ptr noundef nonnull align 8 dereferenceable(872) %68) #20
   %call25.i.i91 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i86, ptr %call2.i.i.i90, ptr %59) #20
   %cmp.i.i.i.i92 = icmp eq ptr %call25.i.i91, null
-  br i1 %cmp.i.i.i.i92, label %cleanup, label %cleanup.sink.split157
+  br i1 %cmp.i.i.i.i92, label %cleanup, label %cleanup
 
 if.end168.critedge:                               ; preds = %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch125) #20
@@ -6626,13 +6626,13 @@ _ZNK4node10BaseObject6objectEv.exit.i.i118:       ; preds = %_ZN4node17Persisten
   %call2.i.i.i123 = call ptr %81(ptr noundef nonnull align 8 dereferenceable(872) %80) #20
   %call25.i.i124 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i119, ptr %call2.i.i.i123, ptr %71) #20
   %cmp.i.i.i.i125 = icmp eq ptr %call25.i.i124, null
-  br i1 %cmp.i.i.i.i125, label %cleanup, label %cleanup.sink.split157
+  br i1 %cmp.i.i.i.i125, label %cleanup, label %cleanup
 
-cleanup.sink.split:                               ; preds = %cleanup.sink.split157
-  %call53.i.i134 = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %call25.i.i124.sink158, i32 noundef 4, ptr noundef nonnull %argv) #20
+if.end.i.i126:                                    ; preds = %cleanup
+  %call32.i.i127 = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %call25.i.i124.sink158, i32 noundef 4, ptr noundef nonnull %argv) #20
   br label %cleanup
 
-cleanup.sink.split157:                            ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i118, %_ZNK4node10BaseObject6objectEv.exit.i.i85, %_ZNK4node10BaseObject6objectEv.exit.i.i47, %_ZNK4node10BaseObject6objectEv.exit.i.i
+cleanup:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i118, %_ZNK4node10BaseObject6objectEv.exit.i.i85, %_ZNK4node10BaseObject6objectEv.exit.i.i47, %_ZNK4node10BaseObject6objectEv.exit.i.i
   %call25.i.i124.sink158 = phi ptr [ %call25.i.i91, %_ZNK4node10BaseObject6objectEv.exit.i.i85 ], [ %call25.i.i53, %_ZNK4node10BaseObject6objectEv.exit.i.i47 ], [ %call25.i.i, %_ZNK4node10BaseObject6objectEv.exit.i.i ], [ %call25.i.i124, %_ZNK4node10BaseObject6objectEv.exit.i.i118 ]
   %call32.i.i127 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %call25.i.i124.sink158) #20
   br i1 %call32.i.i127, label %cleanup.sink.split, label %cleanup

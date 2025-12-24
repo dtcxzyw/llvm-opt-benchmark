@@ -966,22 +966,22 @@ luaL_testudata.exit:                              ; preds = %7, %select.unfold
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @luaL_checkoption(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %luaL_optlstring.exit.sink.split31, label %5
+  br i1 %.not, label %luaL_optlstring.exit, label %5
 
 5:                                                ; preds = %4
   %6 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %1) #19
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %luaL_optlstring.exit, label %luaL_optlstring.exit.sink.split31
+  br i1 %7, label %luaL_optlstring.exit, label %luaL_optlstring.exit
 
-luaL_optlstring.exit.sink.split:                  ; preds = %luaL_optlstring.exit.sink.split31
-  %8 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef 4) #19
+8:                                                ; preds = %luaL_optlstring.exit
+  %9 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef 4) #19
   %9 = tail call i32 @luaL_typeerror(ptr noundef %0, i32 noundef %1, ptr noundef %8)
   br label %luaL_optlstring.exit
 
-luaL_optlstring.exit.sink.split31:                ; preds = %4, %5
+luaL_optlstring.exit:                             ; preds = %4, %5
   %10 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef null) #19
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %luaL_optlstring.exit.sink.split, label %luaL_optlstring.exit
+  br i1 %.not.i, label %8, label %luaL_optlstring.exit
 
 luaL_optlstring.exit:                             ; preds = %luaL_optlstring.exit.sink.split31, %luaL_optlstring.exit.sink.split, %5
   %11 = phi ptr [ %2, %5 ], [ null, %luaL_optlstring.exit.sink.split ], [ %10, %luaL_optlstring.exit.sink.split31 ]
@@ -989,31 +989,31 @@ luaL_optlstring.exit:                             ; preds = %luaL_optlstring.exi
   %.not2022 = icmp eq ptr %12, null
   br i1 %.not2022, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %luaL_optlstring.exit, %16
+.lr.ph:                                           ; preds = %luaL_optlstring.exit, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %luaL_optlstring.exit ]
-  %13 = phi ptr [ %18, %16 ], [ %12, %luaL_optlstring.exit ]
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %11) #20
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit.loopexit, label %16
+  %16 = phi ptr [ %21, %16 ], [ %12, %luaL_optlstring.exit ]
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %11) #20
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %.loopexit.loopexit, label %19
 
-16:                                               ; preds = %.lr.ph
+19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
-  %18 = load ptr, ptr %17, align 8, !tbaa !33
-  %.not20 = icmp eq ptr %18, null
+  %20 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
+  %21 = load ptr, ptr %20, align 8, !tbaa !33
+  %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %16, %luaL_optlstring.exit
-  %19 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef %11) #19
-  %20 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef %19)
+._crit_edge:                                      ; preds = %19, %luaL_optlstring.exit
+  %22 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef %11) #19
+  %23 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef %22)
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
-  %.017 = phi i32 [ %20, %._crit_edge ], [ %21, %.loopexit.loopexit ]
+  %.017 = phi i32 [ %23, %._crit_edge ], [ %24, %.loopexit.loopexit ]
   ret i32 %.017
 }
 

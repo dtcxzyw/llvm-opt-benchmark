@@ -1492,9 +1492,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %40, label %41
+  br i1 %.0, label %40, label %42
 
-41:                                               ; preds = %.sink.split, %40
+42:                                               ; preds = %.sink.split, %40
   %.pn.pn.pn21 = phi { ptr, i32 } [ %.pn.pn.pn22, %40 ], [ %34, %.sink.split ]
   resume { ptr, i32 } %.pn.pn.pn21
 }

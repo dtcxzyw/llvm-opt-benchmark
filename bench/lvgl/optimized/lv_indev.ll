@@ -2870,7 +2870,7 @@ indev_reset_check.exit152.thread:                 ; preds = %.indev_reset_check.
   %123 = load i8, ptr %105, align 4
   %124 = and i8 %123, 2
   %.not.i.i = icmp eq i8 %124, 0
-  br i1 %.not.i.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit.sink.split
+  br i1 %.not.i.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit
 
 .thread96.i:                                      ; preds = %..thread96_crit_edge.i, %.thread.i
   %125 = phi ptr [ %.pre107.i, %..thread96_crit_edge.i ], [ null, %.thread.i ]
@@ -2904,7 +2904,7 @@ indev_reset_check.exit38.thread.i:                ; preds = %indev_reset_check.e
   %135 = load i8, ptr %105, align 4
   %136 = and i8 %135, 2
   %.not.i39.i = icmp eq i8 %136, 0
-  br i1 %.not.i39.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit.sink.split
+  br i1 %.not.i39.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit
 
 137:                                              ; preds = %116
   %138 = icmp eq ptr %117, null
@@ -2963,7 +2963,7 @@ indev_reset_check.exit58.i:                       ; preds = %146
   %152 = load i8, ptr %105, align 4
   %153 = and i8 %152, 2
   %.not.i59.i = icmp eq i8 %153, 0
-  br i1 %.not.i59.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit.sink.split
+  br i1 %.not.i59.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit
 
 154:                                              ; preds = %.thread78.i
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
@@ -2971,14 +2971,14 @@ indev_reset_check.exit58.i:                       ; preds = %146
   %157 = load i8, ptr %105, align 4
   %158 = and i8 %157, 2
   %.not.i64.i = icmp eq i8 %158, 0
-  br i1 %.not.i64.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit.sink.split
+  br i1 %.not.i64.i, label %indev_reset_check.exit.thread.i, label %indev_click_focus.exit
 
-indev_reset_check.exit.thread.i:                  ; preds = %indev_click_focus.exit.sink.split, %154, %.thread92.i, %indev_reset_check.exit38.thread.i, %.thread96.i, %121
+indev_reset_check.exit.thread.i:                  ; preds = %indev_click_focus.exit, %154, %.thread92.i, %indev_reset_check.exit38.thread.i, %.thread96.i, %121
   %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   store ptr %159, ptr %114, align 8, !tbaa !101
   br label %indev_click_focus.exit
 
-indev_click_focus.exit.sink.split:                ; preds = %154, %.thread92.i, %indev_reset_check.exit38.thread.i, %121
+indev_click_focus.exit:                           ; preds = %154, %.thread92.i, %indev_reset_check.exit38.thread.i, %121
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i.i = load i8, ptr %105, align 4
   %.pre2.i.i = and i8 %.pre.i.i, 2

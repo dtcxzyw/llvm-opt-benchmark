@@ -4883,18 +4883,18 @@ define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_
 
 split.i:                                          ; preds = %33
   %.pre.i = and i32 %27, 2
-  %36 = icmp eq i32 %.pre.i, 0
-  br i1 %36, label %.sink.split52.i, label %.thread40.i
+  %39 = icmp eq i32 %.pre.i, 0
+  br i1 %39, label %.sink.split52.i, label %.thread40.i
 
 .thread40.i:                                      ; preds = %26, %split.i
   br label %.sink.split52.i
 
-.sink.split.i:                                    ; preds = %.sink.split52.i
+.sink.split.i:; preds = %_wait_nodes_ready.exit
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.211.sink.ph.i, i32 noundef range(i32 1, 0) %3) #16
   br label %_wait_nodes_ready.exit
 
-.sink.split52.i:                                  ; preds = %31, %28, %.thread40.i, %split.i
-  %.028.ph53.i = phi i32 [ -1, %.thread40.i ], [ -1, %split.i ], [ -1, %28 ], [ 0, %31 ]
+_wait_nodes_ready.exit:                           ; preds = %31, %28, %.thread40.i, %split.i
+  %.0 = phi i32 [ -1, %.thread40.i ], [ -1, %split.i ], [ -1, %28 ], [ 0, %31 ]
   %.str.211.sink.ph.i = phi ptr [ @.str.213, %.thread40.i ], [ @.str.212, %split.i ], [ @.str.212, %28 ], [ @.str.211, %31 ]
   %37 = tail call i32 @get_log_level() #16
   %38 = icmp sgt i32 %37, 2

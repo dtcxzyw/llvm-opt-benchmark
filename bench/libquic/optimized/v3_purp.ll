@@ -1304,10 +1304,10 @@ define hidden range(i32 0, 40) i32 @X509_check_issued(ptr noundef %0, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8, !tbaa !6
   %14 = and i64 %13, 2
-  %.not20 = icmp eq i64 %14, 0
+  %.not19 = icmp eq i64 %14, 0
   br i1 %.not20, label %15, label %.sink.split
 
-15:                                               ; preds = %11, %.sink.split
+15:; preds = %11, %.sink.split
   br label %22
 
 .sink.split:                                      ; preds = %11

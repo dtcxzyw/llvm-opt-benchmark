@@ -871,18 +871,18 @@ entry:
   %error_code.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %error_code.i, align 8
   switch i64 %1, label %if.end [
-    i64 0, label %return.sink.split
+    i64 0, label %return
     i64 65280, label %land.lhs.true6
   ]
 
 land.lhs.true6:                                   ; preds = %entry
-  br label %return.sink.split
-
-if.end:                                           ; preds = %return.sink.split, %entry
   br label %return
 
-return.sink.split:                                ; preds = %entry, %land.lhs.true6
-  %.sink6 = phi i32 [ 1, %land.lhs.true6 ], [ 0, %entry ]
+if.end:                                           ; preds = %return, %entry
+  br label %return
+
+return:                                           ; preds = %entry, %land.lhs.true6
+  %retval.0 = phi i32 [ 1, %land.lhs.true6 ], [ 0, %entry ]
   %2 = load i32, ptr %0, align 8
   %cmp3 = icmp eq i32 %2, %.sink6
   br i1 %cmp3, label %return, label %if.end

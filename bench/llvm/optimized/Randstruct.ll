@@ -311,8 +311,8 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit:     ; preds = %116, %118, %126, %1
   %139 = getelementptr inbounds nuw i64, ptr %136, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !14
   %141 = and i64 %140, %135
-  %.not.i.i.i.i = icmp ne i64 %141, 0
-  br i1 %.not.i.i.i.i, label %142, label %144
+  %.not.i.i.i.i.not = icmp ne i64 %141, 0
+  br i1 %.not.i.i.i.i.not, label %142, label %144
 
 142:                                              ; preds = %131
   %143 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %17) #18
@@ -333,7 +333,7 @@ _ZNK4llvm5APInt3sleEm.exit.thread63:              ; preds = %_ZNK4llvm5APInt18ge
   %150 = load i64, ptr %136, align 8, !tbaa !26
   %151 = icmp slt i64 %150, 3
   call void @_ZdaPv(ptr noundef nonnull %136) #19
-  br label %.sink.split
+  br label %167
 
 _ZNK4llvm5APInt3sleEm.exit:                       ; preds = %_ZNK5clang17ConstantArrayType7getSizeEv.exit
   %152 = load i64, ptr %17, align 8, !tbaa !14
@@ -344,13 +344,13 @@ _ZNK4llvm5APInt3sleEm.exit:                       ; preds = %_ZNK5clang17Constan
   %157 = ashr exact i64 %156, %155
   %158 = icmp slt i64 %157, 3
   %.not70 = select i1 %153, i1 true, i1 %158
-  br label %.sink.split
+  br label %167
 
 _ZNK4llvm5APInt3sleEm.exit.thread:                ; preds = %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i
   call void @_ZdaPv(ptr noundef nonnull %136) #19
-  br label %.sink.split
+  br label %167
 
-159:                                              ; preds = %.sink.split
+159:                                              ; preds = %167
   %160 = load ptr, ptr %15, align 8, !tbaa !3
   %161 = load i32, ptr %23, align 8, !tbaa !9
   %162 = zext i32 %161 to i64
@@ -361,8 +361,8 @@ _ZNK4llvm5APInt3sleEm.exit.thread:                ; preds = %_ZNK4llvm5APInt18ge
   store i32 %166, ptr %23, align 8, !tbaa !9
   br label %167
 
-.sink.split:                                      ; preds = %_ZNK4llvm5APInt3sleEm.exit, %_ZNK4llvm5APInt3sleEm.exit.thread, %_ZNK4llvm5APInt3sleEm.exit.thread63
-  %.sink = phi i1 [ %151, %_ZNK4llvm5APInt3sleEm.exit.thread63 ], [ %.not.i.i.i.i, %_ZNK4llvm5APInt3sleEm.exit.thread ], [ %.not70, %_ZNK4llvm5APInt3sleEm.exit ]
+167:                                              ; preds = %_ZNK4llvm5APInt3sleEm.exit, %_ZNK4llvm5APInt3sleEm.exit.thread, %_ZNK4llvm5APInt3sleEm.exit.thread63
+  %.026 = phi i1 [ %151, %_ZNK4llvm5APInt3sleEm.exit.thread63 ], [ %.not.i.i.i.i, %_ZNK4llvm5APInt3sleEm.exit.thread ], [ %.not70, %_ZNK4llvm5APInt3sleEm.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.sink, label %159, label %167
 

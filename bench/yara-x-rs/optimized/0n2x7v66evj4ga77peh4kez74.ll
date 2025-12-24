@@ -48670,21 +48670,21 @@ define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..result..Resu
   %12 = icmp ugt i64 %11, 21
   %13 = icmp ne i64 %11, 20
   tail call void @llvm.assume(i1 %13)
-  br i1 %12, label %"_ZN4core3ptr50drop_in_place$LT$x509_parser..error..X509Error$GT$17hd1154aac795d09ceE.exit.sink.split2.i", label %"_ZN4core3ptr76drop_in_place$LT$nom..internal..Err$LT$x509_parser..error..X509Error$GT$$GT$17h4164386832965352E.exit"
+  br i1 %12, label %17, label %"_ZN4core3ptr76drop_in_place$LT$nom..internal..Err$LT$x509_parser..error..X509Error$GT$$GT$17h4164386832965352E.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$x509_parser..error..X509Error$GT$17hd1154aac795d09ceE.exit.sink.split.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$x509_parser..error..X509Error$GT$17hd1154aac795d09ceE.exit.sink.split2.i"
+14:                                               ; preds = %17
   tail call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h17da03b531ea35d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sink.ph.i)
   br label %"_ZN4core3ptr76drop_in_place$LT$nom..internal..Err$LT$x509_parser..error..X509Error$GT$$GT$17h4164386832965352E.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$x509_parser..error..X509Error$GT$17hd1154aac795d09ceE.exit.sink.split2.i": ; preds = %16, %8
+17:                                               ; preds = %16, %8
   %.sink6.i = phi i64 [ %18, %16 ], [ %10, %8 ]
   %.sink.ph.i = phi ptr [ %17, %16 ], [ %9, %8 ]
   %14 = icmp sgt i64 %.sink6.i, -9223372036854775788
-  %15 = icmp ne i64 %.sink6.i, -9223372036854775805
-  tail call void @llvm.assume(i1 %15)
-  br i1 %14, label %"_ZN4core3ptr50drop_in_place$LT$x509_parser..error..X509Error$GT$17hd1154aac795d09ceE.exit.sink.split.i", label %"_ZN4core3ptr76drop_in_place$LT$nom..internal..Err$LT$x509_parser..error..X509Error$GT$$GT$17h4164386832965352E.exit"
+  %21 = icmp ne i64 %.sink6.i, -9223372036854775805
+  tail call void @llvm.assume(i1 %21)
+  br i1 %14, label %14, label %"_ZN4core3ptr76drop_in_place$LT$nom..internal..Err$LT$x509_parser..error..X509Error$GT$$GT$17h4164386832965352E.exit"
 
-16:                                               ; preds = %5
+"_ZN4core3ptr76drop_in_place$LT$nom..internal..Err$LT$x509_parser..error..X509Error$GT$$GT$17h4164386832965352E.exit": ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !range !2664, !alias.scope !2668, !noundef !7
   %19 = add i64 %18, 9223372036854775787

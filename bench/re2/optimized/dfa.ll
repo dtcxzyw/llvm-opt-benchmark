@@ -9908,7 +9908,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
 
 common.resume:                                    ; preds = %lpad.i.i.i.i.i24, %lpad4.i.i.i.i.i, %lpad.i.i.i.i.i11, %lpad.i.i.i.i.i
   %call2.i.i.i39.i.i.sink = phi ptr [ %call.i.i.i39.i.i, %lpad.i.i.i.i.i ], [ %call.i.i.i39.i.i9, %lpad.i.i.i.i.i11 ], [ %call2.i.i.i39.i.i, %lpad4.i.i.i.i.i ], [ %call2.i.i.i39.i.i, %lpad.i.i.i.i.i24 ]
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i.i.i ], [ %9, %lpad.i.i.i.i.i11 ], [ %16, %lpad4.i.i.i.i.i ], [ %15, %lpad.i.i.i.i.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i.i.i ], [ %10, %lpad.i.i.i.i.i11 ], [ %18, %lpad4.i.i.i.i.i ], [ %17, %lpad.i.i.i.i.i24 ]
   tail call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i39.i.i.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -9919,14 +9919,14 @@ lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i
 
 if.then4:                                         ; preds = %entry
   %dfa_first_once_5 = getelementptr inbounds nuw i8, ptr %this, i64 424
-  %5 = load atomic i32, ptr %dfa_first_once_5 acquire, align 8
-  %cmp.not.i2 = icmp eq i32 %5, 221
+  %6 = load atomic i32, ptr %dfa_first_once_5 acquire, align 8
+  %cmp.not.i2 = icmp eq i32 %6, 221
   br i1 %cmp.not.i2, label %return, label %if.then.i3
 
 if.then.i3:                                       ; preds = %if.then4
-  %6 = cmpxchg ptr %dfa_first_once_5, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %7 = extractvalue { i32, i1 } %6, 1
-  br i1 %7, label %if.then.i.i7, label %lor.lhs.false.i.i4
+  %7 = cmpxchg ptr %dfa_first_once_5, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %8 = extractvalue { i32, i1 } %7, 1
+  br i1 %8, label %if.then.i.i7, label %lor.lhs.false.i.i4
 
 lor.lhs.false.i.i4:                               ; preds = %if.then.i3
   %call1.i.i5 = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %dfa_first_once_5, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZN3re24Prog6GetDFAENS4_9MatchKindEE3$_1JPS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
@@ -9936,25 +9936,25 @@ lor.lhs.false.i.i4:                               ; preds = %if.then.i3
 if.then.i.i7:                                     ; preds = %lor.lhs.false.i.i4, %if.then.i3
   %call.i.i.i39.i.i9 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #22
   %dfa_mem_.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %8 = load i64, ptr %dfa_mem_.i.i.i.i.i10, align 8
-  invoke void @_ZN3re23DFAC1EPNS_4ProgENS1_9MatchKindEl(ptr noundef nonnull align 8 dereferenceable(184) %call.i.i.i39.i.i9, ptr noundef nonnull %this, i32 noundef 3, i64 noundef %8)
+  %9 = load i64, ptr %dfa_mem_.i.i.i.i.i10, align 8
+  invoke void @_ZN3re23DFAC1EPNS_4ProgENS1_9MatchKindEl(ptr noundef nonnull align 8 dereferenceable(184) %call.i.i.i39.i.i9, ptr noundef nonnull %this, i32 noundef 3, i64 noundef %9)
           to label %return.sink.split28 unwind label %lpad.i.i.i.i.i11
 
 lpad.i.i.i.i.i11:                                 ; preds = %if.then.i.i7
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.else9:                                         ; preds = %entry
   %dfa_longest_once_ = getelementptr inbounds nuw i8, ptr %this, i64 428
-  %10 = load atomic i32, ptr %dfa_longest_once_ acquire, align 4
-  %cmp.not.i16 = icmp eq i32 %10, 221
+  %12 = load atomic i32, ptr %dfa_longest_once_ acquire, align 4
+  %cmp.not.i16 = icmp eq i32 %12, 221
   br i1 %cmp.not.i16, label %return, label %if.then.i17
 
 if.then.i17:                                      ; preds = %if.else9
-  %11 = cmpxchg ptr %dfa_longest_once_, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %12 = extractvalue { i32, i1 } %11, 1
-  br i1 %12, label %if.then.i.i21, label %lor.lhs.false.i.i18
+  %13 = cmpxchg ptr %dfa_longest_once_, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %14 = extractvalue { i32, i1 } %13, 1
+  br i1 %14, label %if.then.i.i21, label %lor.lhs.false.i.i18
 
 lor.lhs.false.i.i18:                              ; preds = %if.then.i17
   %call1.i.i19 = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %dfa_longest_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZN3re24Prog6GetDFAENS4_9MatchKindEE3$_2JPS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
@@ -9963,38 +9963,38 @@ lor.lhs.false.i.i18:                              ; preds = %if.then.i17
 
 if.then.i.i21:                                    ; preds = %lor.lhs.false.i.i18, %if.then.i17
   %reversed_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2
-  %13 = load i8, ptr %reversed_.i.i.i.i.i, align 2
-  %tobool.i.i.i.i.i = trunc i8 %13 to i1
+  %15 = load i8, ptr %reversed_.i.i.i.i.i, align 2
+  %tobool.i.i.i.i.i = trunc i8 %15 to i1
   %call2.i.i.i39.i.i = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #22
   %dfa_mem_3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %14 = load i64, ptr %dfa_mem_3.i.i.i.i.i, align 8
+  %16 = load i64, ptr %dfa_mem_3.i.i.i.i.i, align 8
   br i1 %tobool.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i21
-  %div.i.i.i.i.i23 = sdiv i64 %14, 2
+  %div.i.i.i.i.i23 = sdiv i64 %16, 2
   invoke void @_ZN3re23DFAC1EPNS_4ProgENS1_9MatchKindEl(ptr noundef nonnull align 8 dereferenceable(184) %call2.i.i.i39.i.i, ptr noundef nonnull %this, i32 noundef 1, i64 noundef %div.i.i.i.i.i23)
           to label %return.sink.split28 unwind label %lpad.i.i.i.i.i24
 
 lpad.i.i.i.i.i24:                                 ; preds = %if.then.i.i.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i21
-  invoke void @_ZN3re23DFAC1EPNS_4ProgENS1_9MatchKindEl(ptr noundef nonnull align 8 dereferenceable(184) %call2.i.i.i39.i.i, ptr noundef nonnull %this, i32 noundef 1, i64 noundef %14)
+  invoke void @_ZN3re23DFAC1EPNS_4ProgENS1_9MatchKindEl(ptr noundef nonnull align 8 dereferenceable(184) %call2.i.i.i39.i.i, ptr noundef nonnull %this, i32 noundef 1, i64 noundef %16)
           to label %return.sink.split28 unwind label %lpad4.i.i.i.i.i
 
 lpad4.i.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-return.sink.split:                                ; preds = %return.sink.split28
+release.i.i.i25:                                  ; preds = %return
   tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull align 4 dereferenceable(4) %dfa_longest_once_.sink31, i1 noundef zeroext true)
   br label %return
 
-return.sink.split28:                              ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i7, %if.then.i.i
-  %.sink33 = phi i64 [ 152, %if.then.i.i7 ], [ 152, %if.then.i.i ], [ 160, %if.else.i.i.i.i.i ], [ 160, %if.then.i.i.i.i.i ]
+return:                                           ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i7, %if.then.i.i
+  %.sink = phi i64 [ 152, %if.then.i.i7 ], [ 152, %if.then.i.i ], [ 160, %if.else.i.i.i.i.i ], [ 160, %if.then.i.i.i.i.i ]
   %call2.i.i.i39.i.i.sink32 = phi ptr [ %call.i.i.i39.i.i9, %if.then.i.i7 ], [ %call.i.i.i39.i.i, %if.then.i.i ], [ %call2.i.i.i39.i.i, %if.else.i.i.i.i.i ], [ %call2.i.i.i39.i.i, %if.then.i.i.i.i.i ]
   %dfa_longest_once_.sink31 = phi ptr [ %dfa_first_once_5, %if.then.i.i7 ], [ %dfa_first_once_, %if.then.i.i ], [ %dfa_longest_once_, %if.else.i.i.i.i.i ], [ %dfa_longest_once_, %if.then.i.i.i.i.i ]
   %dfa_longest_6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 %.sink33

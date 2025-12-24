@@ -1446,9 +1446,9 @@ define void @_Z31config_default_tcp_user_timeoutbib(i1 noundef zeroext %0, i32 n
 .sink.split:                                      ; preds = %.sink.split7
   %_ZL36g_default_client_tcp_user_timeout_ms._ZL36g_default_server_tcp_user_timeout_ms = select i1 %2, ptr @_ZL36g_default_client_tcp_user_timeout_ms, ptr @_ZL36g_default_server_tcp_user_timeout_ms
   store i32 %1, ptr %_ZL36g_default_client_tcp_user_timeout_ms._ZL36g_default_server_tcp_user_timeout_ms, align 4, !tbaa !3
-  br label %5
+  br label %.sink.split
 
-5:                                                ; preds = %.sink.split7, %.sink.split
+.sink.split:                                      ; preds = %.sink.split7, %.sink.split
   ret void
 }
 

@@ -410,12 +410,12 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
   store i8 %.sroa.3.sroa.0.0.extract.trunc, ptr %.sroa.14.8..sroa_idx255, align 1, !noalias !128
   br label %.sink.split307
 
-.sink.split:                                      ; preds = %.sink.split307
+.sink.split:                                      ; preds = %65
   store i64 %62, ptr %21, align 8, !noalias !7
   br label %65
 
-.sink.split307:                                   ; preds = %59, %101
-  %.sink311 = phi i64 [ 7, %59 ], [ 18, %101 ]
+65:                                               ; preds = %59, %101
+  %storemerge = phi i64 [ 7, %59 ], [ 18, %101 ]
   %62 = add i64 %.promoted.i.i, %.sink311
   %63 = load i64, ptr %21, align 8, !noalias !7, !noundef !7
   %64 = icmp ugt i64 %62, %63

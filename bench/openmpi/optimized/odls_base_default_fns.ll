@@ -5064,19 +5064,19 @@ define internal fastcc i32 @setup_path(ptr noundef %0, ptr noundef nonnull write
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.sink.split21, label %23
 
-.sink.split:                                      ; preds = %.sink.split21
+.sink.split:; preds = %.sink.split21
   %18 = call noalias ptr @strdup(ptr noundef nonnull %3) #16
   store ptr %18, ptr %1, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %20 = call i32 @PMIx_Setenv(ptr noundef nonnull @.str.80, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %19) #16
   br label %23
 
-.sink.split21:                                    ; preds = %14, %12
+.sink.split21:; preds = %14, %12
   %21 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4096) #16
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.sink.split
 
-23:                                               ; preds = %.sink.split21, %.sink.split, %14, %12, %6
+23:; preds = %.sink.split21, %.sink.split, %14, %12, %6
   %.0 = phi i32 [ 0, %.sink.split ], [ -1, %6 ], [ -1, %12 ], [ %17, %14 ], [ -2, %.sink.split21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

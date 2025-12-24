@@ -859,7 +859,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont12.sink.split25 unwind label %lpad
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #17
   br label %ehcleanup
@@ -871,7 +871,7 @@ if.else:                                          ; preds = %entry
           to label %invoke.cont12.sink.split25 unwind label %lpad7
 
 lpad7:                                            ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6) #17
   br label %ehcleanup
@@ -881,10 +881,10 @@ invoke.cont12.sink.split:                         ; preds = %invoke.cont12.sink.
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre22) #17
   br label %invoke.cont12
 
-invoke.cont12.sink.split25:                       ; preds = %if.else, %if.then
-  %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp3, %if.else ]
-  %agg.tmp.sink28 = phi ptr [ %agg.tmp, %if.then ], [ %agg.tmp6, %if.else ]
-  %5 = load ptr, ptr %ref.tmp.sink, align 8
+invoke.cont12:                                    ; preds = %if.else, %if.then
+  %agg.tmp.sink = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp3, %if.else ]
+  %.in = phi ptr [ %agg.tmp, %if.then ], [ %agg.tmp6, %if.else ]
+  %5 = load ptr, ptr %agg.tmp.sink, align 8
   store ptr %5, ptr %authenticator, align 8
   %.pre22 = load ptr, ptr %agg.tmp.sink28, align 8
   store ptr null, ptr %ref.tmp.sink, align 8
@@ -903,19 +903,19 @@ invoke.cont12:                                    ; preds = %invoke.cont12.sink.
           to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit17 unwind label %lpad11
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit17: ; preds = %invoke.cont12
-  %6 = ptrtoint ptr %5 to i64
+  %7 = ptrtoint ptr %5 to i64
   store i16 %0, ptr %agg.result, align 8, !alias.scope !20
   %second.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %6, ptr %second.i.i, align 8, !alias.scope !20
+  store i64 %7, ptr %second.i.i, align 8, !alias.scope !20
   ret void
 
 lpad11:                                           ; preds = %invoke.cont12
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %3, %lpad ], [ %4, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad11 ], [ %4, %lpad ], [ %6, %lpad7 ]
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %authenticator) #17
   resume { ptr, i32 } %.pn
 }

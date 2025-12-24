@@ -63,21 +63,21 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone captures(a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
   %2 = icmp ult i32 %0, 256
-  br i1 %2, label %.sink.split, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %4 = icmp ult i32 %0, 65536
   br i1 %4, label %5, label %7
 
-5:                                                ; preds = %3
-  %6 = lshr i32 %0, 8
-  br label %.sink.split
+10:                                               ; preds = %3
+  %11 = lshr i32 %0, 8
+  br label %116
 
-7:                                                ; preds = %.sink.split, %3
+16:                                               ; preds = %17, %3
   br label %12
 
-.sink.split:                                      ; preds = %1, %5
-  %.sink = phi i32 [ %6, %5 ], [ %0, %1 ]
+17:                                               ; preds = %1, %10
+  %.0 = phi i32 [ %11, %5 ], [ %0, %1 ]
   %.sink8 = phi i32 [ 2, %5 ], [ 1, %1 ]
   %8 = zext nneg i32 %.sink to i64
   %9 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %8
@@ -230,15 +230,15 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   %20 = icmp ult i32 %0, 65536
   br i1 %20, label %21, label %23
 
-21:                                               ; preds = %19
+33:                                               ; preds = %19
   %22 = lshr i32 %0, 8
   br label %.sink.split.i
 
-23:                                               ; preds = %.sink.split.i, %19
+36:                                               ; preds = %.sink.split.i, %19
   br label %code_to_mbclen.exit
 
-.sink.split.i:                                    ; preds = %21, %17
-  %.sink.i = phi i32 [ %22, %21 ], [ %0, %17 ]
+code_to_mbclen.exit:                              ; preds = %21, %116
+  %.0 = phi i32 [ %22, %21 ], [ %0, %17 ]
   %.sink8.i = phi i32 [ 2, %21 ], [ 1, %17 ]
   %24 = zext nneg i32 %.sink.i to i64
   %25 = getelementptr inbounds nuw i32, ptr @EncLen_SJIS, i64 %24

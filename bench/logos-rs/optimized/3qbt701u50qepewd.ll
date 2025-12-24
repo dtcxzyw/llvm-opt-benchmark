@@ -27,7 +27,7 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
 9:                                                ; preds = %18, %10
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %19, %18 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %1) #5
-          to label %62 unwind label %60
+          to label %62 unwind label %66
 
 10:                                               ; preds = %47, %3
   %11 = landingpad { ptr, i32 }
@@ -46,7 +46,7 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %8) #5
-          to label %9 unwind label %60
+          to label %9 unwind label %66
 
 20:                                               ; preds = %12
   br i1 %17, label %23, label %21
@@ -59,7 +59,7 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   %24 = load i8, ptr %0, align 1
   %25 = and i8 %24, 2
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %50, label %.invoke.sink.split17
+  br i1 %26, label %50, label %.invoke
 
 27:                                               ; preds = %21
   br i1 %22, label %34, label %28
@@ -87,7 +87,7 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   %35 = load i8, ptr %0, align 1
   %36 = and i8 %35, 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %48, label %.invoke.sink.split17
+  br i1 %37, label %48, label %.invoke
 
 38:                                               ; preds = %28
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -123,13 +123,13 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   %51 = or i8 %24, 1
   br label %.sink.split
 
-.invoke.sink.split:                               ; preds = %.invoke.sink.split17
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %53 = load i32, ptr %52, align 4
+56:                                               ; preds = %.invoke
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %58 = load i32, ptr %57, align 4
   br label %.invoke
 
-.invoke.sink.split17:                             ; preds = %23, %34
-  %.ph18 = phi ptr [ @anon.ef210b60d2e439ef389dcbe29160292b.6, %34 ], [ @anon.ef210b60d2e439ef389dcbe29160292b.7, %23 ]
+.invoke:                                          ; preds = %23, %34
+  %62 = phi ptr [ @anon.ef210b60d2e439ef389dcbe29160292b.6, %34 ], [ @anon.ef210b60d2e439ef389dcbe29160292b.7, %23 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %55 = load i8, ptr %54, align 8
   %56 = icmp eq i8 %55, 2
@@ -140,17 +140,17 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   %58 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %2, ptr nonnull align 1 %.ph18, i64 54, i32 %57)
           to label %47 unwind label %18
 
-59:                                               ; preds = %47
+65:                                               ; preds = %47
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %1)
   ret i1 %.sroa.0.0
 
-60:                                               ; preds = %18, %9
-  %61 = landingpad { ptr, i32 }
+66:                                               ; preds = %18, %9
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-62:                                               ; preds = %9
+68:                                               ; preds = %9
   resume { ptr, i32 } %.pn
 }
 

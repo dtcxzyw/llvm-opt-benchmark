@@ -15262,14 +15262,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohma
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink24) #27
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split25, %.sink.split.sink.split
+.sink.split:                                      ; preds = %36, %.sink.split.sink.split
   %.sink = phi ptr [ %.sink.ph, %.sink.split.sink.split ], [ %.sink.ph27, %.sink.split25 ]
   %.pn14.pn.ph = phi { ptr, i32 } [ %.pn14.pn.ph.ph, %.sink.split.sink.split ], [ %.pn14.pn.ph26, %.sink.split25 ]
   call void @__cxa_free_exception(ptr %.sink) #27
   br label %36
 
-.sink.split25:                                    ; preds = %21, %33
-  %.sink30 = phi ptr [ %4, %33 ], [ %2, %21 ]
+36:                                               ; preds = %21, %33
+  %.pn14.pn = phi ptr [ %4, %33 ], [ %2, %21 ]
   %.sink29 = phi ptr [ %5, %33 ], [ %3, %21 ]
   %.0.sink = phi i1 [ %.0, %33 ], [ %.05, %21 ]
   %.pn14.pn.ph26 = phi { ptr, i32 } [ %34, %33 ], [ %22, %21 ]

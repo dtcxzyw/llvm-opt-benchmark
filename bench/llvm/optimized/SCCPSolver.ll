@@ -1729,7 +1729,7 @@ _ZN4llvm5APIntD2Ev.exit.i60.i:                    ; preds = %551, %548, %_ZN4llv
 
 _ZN4llvm13ConstantRangeD2Ev.exit61.i:             ; preds = %557, %554, %_ZN4llvm5APIntD2Ev.exit.i60.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.sink.split
+  br label %756
 
 _ZN4llvm3isaINS_25OverflowingBinaryOperatorENS_11InstructionEEEbRKT0_.exit.i: ; preds = %.loopexit
   %558 = add nsw i32 %458, -68
@@ -1802,7 +1802,7 @@ _ZN4llvm5APIntD2Ev.exit.i64.i:                    ; preds = %583, %580, %577
 
 _ZN4llvm13ConstantRangeD2Ev.exit65.i:             ; preds = %589, %586, %_ZN4llvm5APIntD2Ev.exit.i64.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.sink.split
+  br label %756
 
 590:                                              ; preds = %559, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorENS_11InstructionEEEbRKT0_.exit.i
   switch i8 %457, label %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread [
@@ -2239,13 +2239,13 @@ _ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueE
 
 _ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i68.i, %634, %637
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %.sink.split
-
-755:                                              ; preds = %.sink.split, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread29
   br label %756
 
-.sink.split:                                      ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit61.i, %_ZN4llvm13ConstantRangeD2Ev.exit65.i, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit
-  %.8.i.sink = phi i1 [ %.8.i, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit ], [ %575, %_ZN4llvm13ConstantRangeD2Ev.exit65.i ], [ %.244.i, %_ZN4llvm13ConstantRangeD2Ev.exit61.i ]
+755:                                              ; preds = %756, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread29
+  br label %756
+
+756:                                              ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit61.i, %_ZN4llvm13ConstantRangeD2Ev.exit65.i, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit
+  %.1 = phi i1 [ %.8.i, %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit ], [ %575, %_ZN4llvm13ConstantRangeD2Ev.exit65.i ], [ %.244.i, %_ZN4llvm13ConstantRangeD2Ev.exit61.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.8.i.sink, label %755, label %756
 

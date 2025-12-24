@@ -822,24 +822,24 @@ define void @Dau_DsdRemoveBraces_rec(ptr noundef %0, ptr noundef captures(none) 
 49:                                               ; preds = %.lr.ph
   %50 = load i8, ptr %storemerge59, align 1, !tbaa !8
   %51 = icmp eq i8 %50, 40
-  br i1 %51, label %.thread.sink.split, label %52
+  br i1 %51, label %.thread, label %52
 
 thread-pre-split:                                 ; preds = %.lr.ph
   %.pr = load i8, ptr %47, align 1, !tbaa !8
   br label %52
 
-52:                                               ; preds = %thread-pre-split, %49
+58:                                               ; preds = %thread-pre-split, %49
   %53 = phi i8 [ %.pr, %thread-pre-split ], [ %50, %49 ]
-  %54 = icmp eq i8 %53, 91
-  br i1 %54, label %.thread.sink.split, label %.thread
+  %60 = icmp eq i8 %53, 91
+  br i1 %60, label %.thread, label %.thread
 
-55:                                               ; preds = %.thread.sink.split
-  %56 = load ptr, ptr %1, align 8, !tbaa !3
-  store i8 32, ptr %56, align 1, !tbaa !8
+61:                                               ; preds = %.thread
+  %62 = load ptr, ptr %1, align 8, !tbaa !3
+  store i8 32, ptr %62, align 1, !tbaa !8
   store i8 32, ptr %48, align 1, !tbaa !8
   br label %.thread
 
-.thread.sink.split:                               ; preds = %52, %49
+.thread:                                          ; preds = %52, %49
   %.sink72 = phi i8 [ 41, %49 ], [ 93, %52 ]
   %57 = load i8, ptr %43, align 1, !tbaa !8
   %58 = icmp eq i8 %57, %.sink72
@@ -849,8 +849,8 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %59 = load ptr, ptr %1, align 8, !tbaa !3
   %storemerge = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %storemerge, ptr %1, align 8, !tbaa !3
-  %60 = icmp ult ptr %storemerge, %43
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  %64 = icmp ult ptr %storemerge, %43
+  br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread, %.thread68, %35, %31
   ret void

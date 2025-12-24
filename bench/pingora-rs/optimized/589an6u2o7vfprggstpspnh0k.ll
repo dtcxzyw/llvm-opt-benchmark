@@ -298,18 +298,18 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit: ; preds = %21
   store i64 %.pr, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.58.0.copyload, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split27"
+  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21"
 
 _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5344276a87fdad9E.exit", %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split27"
+  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21"
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split": ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split27"
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split": ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21"
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %16, i64 noundef range(i64 1, 0) %18, i64 noundef 1) #11
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21"
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split27": ; preds = %26, %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21": ; preds = %26, %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread
   store i8 0, ptr %16, align 1
   %27 = icmp eq i64 %18, 0
   br i1 %27, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21", label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split"

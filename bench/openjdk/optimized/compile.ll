@@ -12650,7 +12650,7 @@ define hidden void @_ZN7Compile23cleanup_expensive_nodesER12PhaseIterGVN(ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %135, label %6
+  br i1 %5, label %136, label %6
 
 6:                                                ; preds = %2
   tail call void @_ZN7Compile20sort_expensive_nodesEv(ptr noundef nonnull align 8 dereferenceable(2316) %0)
@@ -12882,11 +12882,11 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i36:           ; preds = %128, %122
   %133 = load ptr, ptr %102, align 8
   tail call void @_ZN8NodeHash11hash_insertEP4Node(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull %101) #17
   store i32 %.0.lcssa62, ptr %3, align 8
-  br label %134
-
-134:                                              ; preds = %.sink.split, %.thread
-  tail call void @_ZN12PhaseIterGVN8optimizeEv(ptr noundef nonnull align 8 dereferenceable(2416) %1) #17
   br label %135
+
+135:                                              ; preds = %.sink.split, %.thread
+  tail call void @_ZN12PhaseIterGVN8optimizeEv(ptr noundef nonnull align 8 dereferenceable(2416) %1) #17
+  br label %136
 
 .sink.split:                                      ; preds = %._crit_edge.thread, %88
   %.sink = phi i32 [ %89, %88 ], [ %.0.lcssa62, %._crit_edge.thread ]
@@ -12894,7 +12894,7 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i36:           ; preds = %128, %122
   store i32 %.sink, ptr %3, align 8
   br i1 %.129.lcssa.sink, label %134, label %135
 
-135:                                              ; preds = %.sink.split, %2, %134
+136:                                              ; preds = %.sink.split, %2, %134
   ret void
 }
 

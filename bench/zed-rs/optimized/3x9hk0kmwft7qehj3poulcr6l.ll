@@ -504,7 +504,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   store i32 %148, ptr %15, align 4, !alias.scope !21, !noalias !18
   br label %.sink.split.i
 
-149:                                              ; preds = %.sink.split.i
+149:   ; preds = %.sink.split.i
   %150 = load i32, ptr %.sroa.018.sroa.5.0..sroa_idx.i, align 8, !noalias !24, !noundef !11
   %151 = load i32, ptr %.sroa.018.sroa.6.0..sroa_idx.i, align 4, !noalias !24, !noundef !11
   store i32 %150, ptr %14, align 8, !alias.scope !21, !noalias !18

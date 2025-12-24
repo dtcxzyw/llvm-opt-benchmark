@@ -3576,22 +3576,22 @@ define internal fastcc range(i32 -1, 4) i32 @set_binary_form(ptr noundef nonnull
 sub_0:                                            ; preds = %7
   %10 = load i8, ptr %0, align 1
   switch i8 %10, label %.tail5 [
-    i8 76, label %.tail5.sink.split18
+    i8 76, label %.tail5
     i8 66, label %sub_17
   ]
 
 sub_17:                                           ; preds = %sub_0
-  br label %.tail5.sink.split18
+  br label %.tail5
 
-.tail5.sink.split:                                ; preds = %.tail5.sink.split18
+.tail5.sink.split:; preds = %.tail5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
-  %spec.select = select i1 %13, i32 %.sink16.ph, i32 -1
+  %spec.select = select i1 %13, i32 %.0, i32 -1
   br label %.tail5
 
-.tail5.sink.split18:                              ; preds = %sub_0, %sub_17
-  %.sink16.ph = phi i32 [ 3, %sub_17 ], [ 2, %sub_0 ]
+.tail5:                                           ; preds = %sub_0, %sub_17
+  %.0 = phi i32 [ 3, %sub_17 ], [ 2, %sub_0 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %.not10 = icmp eq i8 %15, 69

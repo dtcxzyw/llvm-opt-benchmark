@@ -1056,14 +1056,14 @@ define hidden void @Curl_ssl_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 196
   %7 = load i32, ptr %6, align 4, !tbaa !155
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %43, label %8
+  br i1 %.not, label %49, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !162
   %11 = tail call i32 @Curl_conn_cf_get_socket(ptr noundef %10, ptr noundef %1) #18
   %.not36 = icmp eq i32 %11, -1
-  br i1 %.not36, label %43, label %12
+  br i1 %.not36, label %49, label %12
 
 12:                                               ; preds = %8
   %13 = load i32, ptr %6, align 4, !tbaa !155
@@ -1074,14 +1074,14 @@ define hidden void @Curl_ssl_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr 
 
 15:                                               ; preds = %12
   tail call void @Curl_pollset_change(ptr noundef %1, ptr noundef %2, i32 noundef %11, i32 noundef 2, i32 noundef 1) #18
-  br i1 %.not38, label %43, label %16
+  br i1 %.not38, label %49, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2658
   %18 = load i64, ptr %17, align 2
   %19 = and i64 %18, 2147483648
   %.not42 = icmp eq i64 %19, 0
-  br i1 %.not42, label %43, label %20
+  br i1 %.not42, label %49, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4864
@@ -1093,44 +1093,44 @@ define hidden void @Curl_ssl_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr 
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !164
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.sink.split47, label %43
+  br i1 %26, label %.sink.split47, label %49
 
 27:                                               ; preds = %12
   tail call void @Curl_pollset_change(ptr noundef %1, ptr noundef %2, i32 noundef %11, i32 noundef 1, i32 noundef 2) #18
-  br i1 %.not38, label %43, label %28
+  br i1 %.not38, label %49, label %33
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2658
-  %30 = load i64, ptr %29, align 2
-  %31 = and i64 %30, 2147483648
-  %.not39 = icmp eq i64 %31, 0
-  br i1 %.not39, label %43, label %32
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2658
+  %35 = load i64, ptr %34, align 2
+  %36 = and i64 %35, 2147483648
+  %.not39 = icmp eq i64 %36, 0
+  br i1 %.not39, label %49, label %37
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %34 = load ptr, ptr %33, align 8, !tbaa !163
-  %.not40 = icmp eq ptr %34, null
-  br i1 %.not40, label %.sink.split47, label %35
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4864
+  %39 = load ptr, ptr %38, align 8, !tbaa !163
+  %.not40 = icmp eq ptr %39, null
+  br i1 %.not40, label %.sink.split47, label %40
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !164
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.sink.split47, label %43
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load i32, ptr %41, align 8, !tbaa !164
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.sink.split47, label %49
 
-.sink.split:                                      ; preds = %.sink.split47
+44:                                               ; preds = %.sink.split47
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %.str.1.sink.ph, i32 noundef %11) #18
   br label %43
 
-.sink.split47:                                    ; preds = %35, %32, %23, %20
+.sink.split47:; preds = %35, %37, %23, %20
   %.str.1.sink.ph = phi ptr [ @.str, %23 ], [ @.str, %20 ], [ @.str.1, %32 ], [ @.str.1, %35 ]
   %39 = load ptr, ptr %0, align 8, !tbaa !166
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !167
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.sink.split, label %43
+  br i1 %42, label %44, label %49
 
-43:                                               ; preds = %.sink.split47, %.sink.split, %8, %27, %28, %35, %15, %16, %23, %3
+49:                                               ; preds = %.sink.split47, %44, %8, %27, %33, %40, %15, %16, %23, %3
   ret void
 }
 

@@ -2788,7 +2788,7 @@ zslLexValueGteMin.exit.thread30:                  ; preds = %50, %43, %40, %zslL
   %72 = icmp eq ptr %59, %69
   %73 = icmp eq ptr %62, %66
   %or.cond.i.i21 = or i1 %73, %72
-  br i1 %or.cond.i.i21, label %zslLexValueLteMax.exit.thread36, label %sdscmplex.exit.thread25.sink.split
+  br i1 %or.cond.i.i21, label %zslLexValueLteMax.exit.thread36, label %sdscmplex.exit.thread25
 
 74:                                               ; preds = %58
   br i1 %63, label %sdscmplex.exit.thread25, label %75
@@ -2807,13 +2807,13 @@ zslLexValueGteMin.exit.thread30:                  ; preds = %50, %43, %40, %zslL
   %82 = icmp eq ptr %59, %79
   %83 = icmp eq ptr %62, %76
   %or.cond.i5.i22 = or i1 %83, %82
-  br i1 %or.cond.i5.i22, label %zslLexValueLteMax.exit.thread36, label %sdscmplex.exit.thread25.sink.split
+  br i1 %or.cond.i5.i22, label %zslLexValueLteMax.exit.thread36, label %sdscmplex.exit.thread25
 
-zslLexValueLteMax.exit.thread36:                  ; preds = %sdscmplex.exit.thread25.sink.split, %81, %64, %71
+84:                                               ; preds = %sdscmplex.exit.thread25, %81, %64, %71
   br label %sdscmplex.exit.thread25
 
-sdscmplex.exit.thread25.sink.split:               ; preds = %71, %81
-  %.sink66 = phi i32 [ 0, %81 ], [ -1, %71 ]
+sdscmplex.exit.thread25:                          ; preds = %71, %81
+  %.0 = phi i32 [ 0, %81 ], [ -1, %71 ]
   %84 = tail call i32 @sdscmp(ptr noundef %59, ptr noundef %62) #19
   %.fr = freeze i32 %84
   %85 = icmp sgt i32 %.fr, %.sink66

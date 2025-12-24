@@ -6801,25 +6801,25 @@ define dso_local ptr @llvm_emit_memcpy(ptr noundef %0, ptr noundef %1, i32 nound
   %type_uint.val = load ptr, ptr @type_uint, align 8
   %type_ulong.val = load ptr, ptr @type_ulong, align 8
   %9 = select i1 %6, ptr %type_uint.val, ptr %type_ulong.val
-  %10 = tail call fastcc ptr @type_lowering(ptr noundef %9)
-  %11 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %10) #10
-  %12 = load i32, ptr %10, align 8
-  %13 = icmp eq i32 %12, 31
-  br i1 %13, label %.sink.split, label %17
+  %12 = tail call fastcc ptr @type_lowering(ptr noundef %9)
+  %13 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %12) #10
+  %14 = load i32, ptr %12, align 8
+  %15 = icmp eq i32 %14, 31
+  br i1 %15, label %.sink.split, label %25
 
-.sink.split:                                      ; preds = %.sink.split47
+16:                                               ; preds = %.sink.split47
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   br label %17
 
-17:                                               ; preds = %.sink.split47, %.sink.split
+25:                                               ; preds = %.sink.split47, %16
   %.0.sink = phi i32 [ %16, %.sink.split ], [ %12, %.sink.split47 ]
   %18 = add i32 %.0.sink, -3
   %19 = icmp ult i32 %18, 5
   %20 = zext i1 %19 to i32
   %21 = tail call ptr @LLVMConstInt(ptr noundef %11, i64 noundef %5, i32 noundef %20) #10
-  %22 = tail call ptr @LLVMBuildMemCpy(ptr noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %21) #10
+  %29 = tail call ptr @LLVMBuildMemCpy(ptr noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %21) #10
   ret ptr %22
 }
 

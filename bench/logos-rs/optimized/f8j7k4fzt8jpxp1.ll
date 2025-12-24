@@ -2766,28 +2766,28 @@ define hidden zeroext i1 @_ZN13logos_codegen13is_logos_attr17hfb1f99ed0e854f5eE(
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %4, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.41, i64 5)
-  br i1 %5, label %15, label %.sink.split
+  br i1 %5, label %20, label %14
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %7, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.41, i64 5)
-  br i1 %8, label %15, label %.sink.split
+  br i1 %8, label %20, label %14
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %10, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.41, i64 5)
-  br i1 %11, label %15, label %.sink.split
+  br i1 %11, label %20, label %14
 
-12:                                               ; preds = %.sink.split
+12:                                               ; preds = %14
   %13 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %.sink14, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.30, i64 5)
-  br label %15
+  br label %20
 
-.sink.split:                                      ; preds = %9, %6, %3
-  %.sink14 = phi ptr [ %7, %6 ], [ %4, %3 ], [ %10, %9 ]
-  %14 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %.sink14, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.29, i64 5)
-  br i1 %14, label %15, label %12
+14:                                               ; preds = %9, %6, %3
+  %.sroa.013.0 = phi ptr [ %7, %6 ], [ %4, %3 ], [ %10, %9 ]
+  %15 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %.sroa.013.0, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.29, i64 5)
+  br i1 %14, label %20, label %12
 
-15:                                               ; preds = %.sink.split, %3, %6, %9, %12
+20:                                               ; preds = %14, %3, %6, %9, %12
   %.sroa.0.0 = phi i1 [ %13, %12 ], [ true, %3 ], [ true, %6 ], [ true, %9 ], [ true, %.sink.split ]
   ret i1 %.sroa.0.0
 }

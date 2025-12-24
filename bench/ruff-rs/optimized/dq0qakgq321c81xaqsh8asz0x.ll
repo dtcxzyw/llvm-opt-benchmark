@@ -2566,13 +2566,13 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit: ; preds = %.noexc, %"_ZN5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split57
+  br label %141
 
 .sink.split:                                      ; preds = %.sink.split57
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc483a8d0bb0116fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   br label %141
 
-.sink.split57:                                    ; preds = %149, %147, %139
+141:                                              ; preds = %149, %147, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.sroa.09.2, label %.sink.split, label %141
 

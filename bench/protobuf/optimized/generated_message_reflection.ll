@@ -32098,36 +32098,36 @@ if.then.i.i.i:                                    ; preds = %land.rhs.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %5 = cmpxchg ptr %3, i32 0, i32 1707250555 monotonic monotonic, align 4
   %6 = extractvalue { i32, i1 } %5, 1
-  br i1 %6, label %lor.end.sink.split6, label %lor.lhs.false.i.i.i.i.i
+  br i1 %6, label %lor.end, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
   %call1.i.i.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %lor.end.sink.split6, label %lor.end
+  br i1 %cmp.i.i.i.i.i, label %lor.end, label %lor.end
 
 lor.rhs:                                          ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %lor.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lor.rhs
-  %7 = load atomic i32, ptr %3 acquire, align 4
-  %cmp.not.i.i.i = icmp eq i32 %7, 221
+  %8 = load atomic i32, ptr %3 acquire, align 4
+  %cmp.not.i.i.i = icmp eq i32 %8, 221
   br i1 %cmp.not.i.i.i, label %lor.end, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %if.then.i.i
-  %8 = cmpxchg ptr %3, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %lor.end.sink.split6, label %lor.lhs.false.i.i.i.i
+  %9 = cmpxchg ptr %3, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %10 = extractvalue { i32, i1 } %9, 1
+  br i1 %10, label %lor.end, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then.i.i.i2
   %call1.i.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %lor.end.sink.split6, label %lor.end
+  br i1 %cmp.i.i.i.i, label %lor.end, label %lor.end
 
 lor.end.sink.split:                               ; preds = %lor.end.sink.split6
   tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext true)
   br label %lor.end
 
-lor.end.sink.split6:                              ; preds = %if.then.i.i.i2, %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i, %lor.lhs.false.i.i.i.i.i
+lor.end:                                          ; preds = %if.then.i.i.i2, %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i, %lor.lhs.false.i.i.i.i.i
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %field)
   %10 = atomicrmw xchg ptr %3, i32 221 release, align 4
   %cmp4.i.i.i.i.i = icmp eq i32 %10, 94570706

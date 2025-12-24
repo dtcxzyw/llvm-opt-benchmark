@@ -37,19 +37,19 @@ define internal range(i32 -1094995529, 1) i32 @bitpacked_init_decoder(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %15 = load i32, ptr %14, align 8, !tbaa !30
   switch i32 %15, label %.thread [
-    i32 16, label %.thread.sink.split
+    i32 16, label %.thread
     i32 20, label %16
   ]
 
 16:                                               ; preds = %13
-  br label %.thread.sink.split
+  br label %.thread
 
-17:                                               ; preds = %.thread.sink.split
+17:; preds = %.thread
   store ptr %storemerge.ph, ptr %3, align 8, !tbaa !31
   br label %.thread
 
-.thread.sink.split:                               ; preds = %13, %16
-  %.sink16 = phi i32 [ 64, %16 ], [ 15, %13 ]
+.thread:                                          ; preds = %13, %16
+  %.0 = phi i32 [ 64, %16 ], [ 15, %13 ]
   %storemerge.ph = phi ptr [ @bitpacked_decode_yuv422p10, %16 ], [ @bitpacked_decode_uyvy422, %13 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load i32, ptr %18, align 8, !tbaa !33

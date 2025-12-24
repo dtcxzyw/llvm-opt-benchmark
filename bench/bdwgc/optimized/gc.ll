@@ -1715,7 +1715,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %40 = tail call fastcc ptr @GC_generic_malloc_inner(i64 noundef %0, i32 noundef %39, i32 noundef %2)
   %41 = icmp eq ptr %40, null
   %.b.pre26 = load i1, ptr @GC_need_to_lock, align 1
-  br i1 %41, label %42, label %.sink.split
+  br i1 %41, label %42, label %49
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr @GC_oom_fn, align 8, !tbaa !12
@@ -1729,52 +1729,52 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %47 = tail call ptr %43(i64 noundef %0) #47
   br label %GC_clear_stack.exit
 
-48:                                               ; preds = %.sink.split
+48:                                               ; preds = %49
   %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #47
-  br label %50
+  br label %51
 
-.sink.split:                                      ; preds = %38, %33
-  %.sink = phi ptr [ %32, %33 ], [ %40, %38 ]
+49:                                               ; preds = %38, %33
+  %.01732 = phi ptr [ %32, %33 ], [ %40, %38 ]
   %.b.pre.sink = phi i1 [ %.b.pre, %33 ], [ %.b.pre26, %38 ]
   store ptr %1, ptr %.sink, align 8, !tbaa !12
   br i1 %.b.pre.sink, label %48, label %50
 
-50:                                               ; preds = %.sink.split, %48
+51:                                               ; preds = %49, %48
   %.b23 = load i1, ptr @GC_manual_vdb, align 1
-  br i1 %.b23, label %51, label %60
+  br i1 %.b23, label %52, label %61
 
-51:                                               ; preds = %50
-  %52 = ptrtoint ptr %.sink to i64
-  %53 = lshr i64 %52, 12
-  %54 = lshr i64 %52, 18
-  %55 = and i64 %54, 4095
-  %56 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 59912), i64 %55
-  %57 = and i64 %53, 63
-  %58 = shl nuw i64 1, %57
-  %59 = atomicrmw volatile or ptr %56, i64 %58 monotonic, align 8
-  br label %60
+52:                                               ; preds = %51
+  %53 = ptrtoint ptr %.01732 to i64
+  %54 = lshr i64 %53, 12
+  %55 = lshr i64 %53, 18
+  %56 = and i64 %55, 4095
+  %57 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 59912), i64 %56
+  %58 = and i64 %54, 63
+  %59 = shl nuw i64 1, %58
+  %60 = atomicrmw volatile or ptr %57, i64 %59 monotonic, align 8
+  br label %61
 
-60:                                               ; preds = %50, %51
+61:                                               ; preds = %51, %52
   tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #47, !srcloc !47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %61 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  store volatile ptr %61, ptr %4, align 8, !tbaa !42
+  %62 = tail call ptr @llvm.frameaddress.p0(i32 0)
+  store volatile ptr %62, ptr %4, align 8, !tbaa !42
   %.0..0..0..0..0..0..0..0..i.i = load volatile ptr, ptr %4, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %62 = atomicrmw volatile add ptr @next_random_no.random_no, i64 1 monotonic, align 8
-  %63 = trunc i64 %62 to i32
-  %64 = urem i32 %63, 13
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %GC_clear_stack.exit
+  %63 = atomicrmw volatile add ptr @next_random_no.random_no, i64 1 monotonic, align 8
+  %64 = trunc i64 %63 to i32
+  %65 = urem i32 %64, 13
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %GC_clear_stack.exit
 
-66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..i.i, i64 -16384
-  %68 = tail call align 16 ptr @llvm.ptrmask.p0.i64(ptr nonnull %67, i64 -16)
-  %69 = tail call ptr @GC_clear_stack_inner(ptr noundef nonnull %.sink, ptr noundef %68)
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..i.i, i64 -16384
+  %69 = tail call align 16 ptr @llvm.ptrmask.p0.i64(ptr nonnull %68, i64 -16)
+  %70 = tail call ptr @GC_clear_stack_inner(ptr noundef nonnull %.01732, ptr noundef %69)
   br label %GC_clear_stack.exit
 
-GC_clear_stack.exit:                              ; preds = %66, %60, %46
-  %.0 = phi ptr [ %47, %46 ], [ %.sink, %60 ], [ %.sink, %66 ]
+GC_clear_stack.exit:                              ; preds = %67, %61, %46
+  %.0 = phi ptr [ %47, %46 ], [ %.01732, %60 ], [ %.01732, %66 ]
   ret ptr %.0
 }
 

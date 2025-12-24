@@ -1680,30 +1680,30 @@ define internal fastcc i32 @int_get_rsa_md_name(ptr noundef %0, i32 noundef rang
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1011, ptr noundef nonnull @__func__.int_get_rsa_md_name) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #11
-  br label %25
+  br label %27
 
 16:                                               ; preds = %11
   %cond = icmp eq i32 %1, -1
-  br i1 %cond, label %17, label %19
+  br i1 %cond, label %17, label %21
 
 17:                                               ; preds = %16
   %18 = tail call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #11
   %.not19 = icmp eq i32 %18, 0
-  br i1 %.not19, label %.sink.split, label %21
+  br i1 %.not19, label %.sink.split, label %24
 
-19:                                               ; preds = %16
-  %20 = tail call ptr @evp_pkey_type2name(i32 noundef %1) #11
+21:                                               ; preds = %16
+  %22 = tail call ptr @evp_pkey_type2name(i32 noundef %1) #11
   br label %.sink.split
 
-21:                                               ; preds = %.sink.split, %17
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
+24:                                               ; preds = %.sink.split, %17
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef %3, ptr noundef nonnull %4, i64 noundef %5) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !76
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %23 = call i32 @evp_pkey_ctx_get_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %7) #11
-  br label %25
+  %26 = call i32 @evp_pkey_ctx_get_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %7) #11
+  br label %27
 
 .sink.split:                                      ; preds = %17, %19
   %.sink24 = phi ptr [ %20, %19 ], [ @.str.9, %17 ]
@@ -1711,8 +1711,8 @@ define internal fastcc i32 @int_get_rsa_md_name(ptr noundef %0, i32 noundef rang
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %21
 
-25:                                               ; preds = %.sink.split, %21, %15
-  %.0 = phi i32 [ -2, %15 ], [ %23, %21 ], [ -1, %.sink.split ]
+27:                                               ; preds = %.sink.split, %24, %15
+  %.0 = phi i32 [ -2, %15 ], [ %26, %21 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

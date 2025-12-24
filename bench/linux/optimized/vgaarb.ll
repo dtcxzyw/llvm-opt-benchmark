@@ -2310,23 +2310,23 @@ define internal fastcc noundef range(i32 0, 2) i32 @vga_str_to_iostate(ptr nound
 sub_0:                                            ; preds = %5
   %8 = load i8, ptr %0, align 1
   switch i8 %8, label %.tail1.thread [
-    i8 105, label %.tail1.thread.sink.split
+    i8 105, label %.tail1.thread
     i8 109, label %sub_13
   ]
 
-sub_13:                                           ; preds = %sub_0
+.tail:                                            ; preds = %sub_0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
-  %.not6 = icmp eq i8 %10, 101
-  br i1 %.not6, label %.tail1.thread.sink.split, label %.tail1.thread
+  %11 = icmp eq i8 %10, 101
+  br i1 %11, label %.tail1.thread, label %.tail1.thread
 
-11:                                               ; preds = %.tail1.thread.sink.split, %5, %2
+sub_13:                                           ; preds = %.tail1.thread, %5, %2
   %12 = phi i32 [ 0, %2 ], [ 3, %5 ], [ 3, %.tail1.thread.sink.split ]
   store i32 %12, ptr %1, align 4
   br label %.tail1.thread
 
-.tail1.thread.sink.split:                         ; preds = %sub_13, %sub_0
-  %.sink10 = phi i64 [ 1, %sub_0 ], [ 2, %sub_13 ]
+.tail1.thread:                                    ; preds = %.tail, %sub_0
+  %19 = phi i64 [ 1, %sub_0 ], [ 2, %sub_13 ]
   %.sink9 = phi i8 [ 111, %sub_0 ], [ 109, %sub_13 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10
   %14 = load i8, ptr %13, align 1
