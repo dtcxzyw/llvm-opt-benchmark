@@ -860,13 +860,16 @@ thread-pre-split:                                 ; preds = %42
   %.0494..i = select nsz i1 %280, double %.0494581.i, double %279
   %indvars.iv.next683.i = add nuw nsw i64 %indvars.iv682.i, 1
   %exitcond686.not.i = icmp eq i64 %indvars.iv.next683.i, %wide.trip.count685.i
-  br i1 %exitcond686.not.i, label %._crit_edge584.i, label %277, !llvm.loop !102
+  br i1 %exitcond686.not.i, label %._crit_edge584.loopexit.i, label %277, !llvm.loop !102
 
-._crit_edge584.i:                                 ; preds = %277, %.preheader558.i
-  %.0494.lcssa.i = phi double [ 0.000000e+00, %.preheader558.i ], [ %.0494..i, %277 ]
-  %281 = call nsz double @llvm.log10.f64(double %.0494.lcssa.i)
+._crit_edge584.loopexit.i:                        ; preds = %277
+  %281 = call nsz double @llvm.log10.f64(double %.0494..i)
   %282 = fmul nsz double %281, 2.000000e+01
-  store double %282, ptr %121, align 8, !tbaa !49
+  br label %._crit_edge584.i
+
+._crit_edge584.i:                                 ; preds = %._crit_edge584.loopexit.i, %.preheader558.i
+  %.0494.lcssa.i = phi double [ 0xFFF0000000000000, %.preheader558.i ], [ %282, %._crit_edge584.loopexit.i ]
+  store double %.0494.lcssa.i, ptr %121, align 8, !tbaa !49
   br label %283
 
 283:                                              ; preds = %._crit_edge584.i, %._crit_edge.i
@@ -893,13 +896,16 @@ thread-pre-split:                                 ; preds = %42
   %.0498..i = select nsz i1 %291, double %.0498585.i, double %290
   %indvars.iv.next688.i = add nuw nsw i64 %indvars.iv687.i, 1
   %exitcond691.not.i = icmp eq i64 %indvars.iv.next688.i, %wide.trip.count690.i
-  br i1 %exitcond691.not.i, label %._crit_edge588.i, label %288, !llvm.loop !103
+  br i1 %exitcond691.not.i, label %._crit_edge588.loopexit.i, label %288, !llvm.loop !103
 
-._crit_edge588.i:                                 ; preds = %288, %.preheader557.i
-  %.0498.lcssa.i = phi double [ 0.000000e+00, %.preheader557.i ], [ %.0498..i, %288 ]
-  %292 = call nsz double @llvm.log10.f64(double %.0498.lcssa.i)
+._crit_edge588.loopexit.i:                        ; preds = %288
+  %292 = call nsz double @llvm.log10.f64(double %.0498..i)
   %293 = fmul nsz double %292, 2.000000e+01
-  store double %293, ptr %123, align 8, !tbaa !50
+  br label %._crit_edge588.i
+
+._crit_edge588.i:                                 ; preds = %._crit_edge588.loopexit.i, %.preheader557.i
+  %.0498.lcssa.i = phi double [ 0xFFF0000000000000, %.preheader557.i ], [ %293, %._crit_edge588.loopexit.i ]
+  store double %.0498.lcssa.i, ptr %123, align 8, !tbaa !50
   br label %294
 
 294:                                              ; preds = %._crit_edge588.i, %283

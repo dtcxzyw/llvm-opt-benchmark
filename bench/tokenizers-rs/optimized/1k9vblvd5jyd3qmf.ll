@@ -17648,7 +17648,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i: 
   br i1 %417, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %418 = call noundef double @llvm.log.f64(double %415)
+  %418 = call double @llvm.log.f64(double %415)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i

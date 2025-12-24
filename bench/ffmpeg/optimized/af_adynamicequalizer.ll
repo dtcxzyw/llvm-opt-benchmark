@@ -576,14 +576,17 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   %.pre380 = load double, ptr %98, align 8, !tbaa !74
   br label %110
 
-._crit_edge316:                                   ; preds = %110, %103
-  %.0270.lcssa = phi double [ 0.000000e+00, %103 ], [ %134, %110 ]
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 120
-  %106 = load double, ptr %105, align 8, !tbaa !89
-  %107 = tail call nsz double @llvm.log10.f64(double %.0270.lcssa)
-  %108 = fmul nsz double %107, 2.000000e+01
-  %109 = tail call nsz double @llvm.maxnum.f64(double %106, double %108)
-  store double %109, ptr %105, align 8, !tbaa !89
+._crit_edge316.loopexit:                          ; preds = %110
+  %105 = tail call nsz double @llvm.log10.f64(double %134)
+  %106 = fmul nsz double %105, 2.000000e+01
+  br label %._crit_edge316
+
+._crit_edge316:                                   ; preds = %._crit_edge316.loopexit, %103
+  %.0270.lcssa = phi double [ 0xFFF0000000000000, %103 ], [ %106, %._crit_edge316.loopexit ]
+  %107 = getelementptr inbounds nuw i8, ptr %97, i64 120
+  %108 = load double, ptr %107, align 8, !tbaa !89
+  %109 = tail call nsz double @llvm.maxnum.f64(double %108, double %.0270.lcssa)
+  store double %109, ptr %107, align 8, !tbaa !89
   %indvars.iv.next359 = add nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
   br i1 %exitcond362.not, label %.loopexit, label %94, !llvm.loop !90
@@ -619,7 +622,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   %134 = tail call nsz double @llvm.maxnum.f64(double %.0270313, double %133)
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
-  br i1 %exitcond357.not, label %._crit_edge316, label %110, !llvm.loop !91
+  br i1 %exitcond357.not, label %._crit_edge316.loopexit, label %110, !llvm.loop !91
 
 135:                                              ; preds = %.lr.ph311, %258
   %indvars.iv348 = phi i64 [ %80, %.lr.ph311 ], [ %indvars.iv.next349, %258 ]
@@ -1510,14 +1513,17 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   %.pre380 = load float, ptr %111, align 4, !tbaa !108
   br label %123
 
-._crit_edge316:                                   ; preds = %123, %116
-  %.0270.lcssa = phi float [ 0.000000e+00, %116 ], [ %147, %123 ]
-  %118 = getelementptr inbounds nuw i8, ptr %110, i64 204
-  %119 = load float, ptr %118, align 4, !tbaa !109
-  %120 = tail call nsz float @llvm.log10.f32(float %.0270.lcssa)
-  %121 = fmul nsz float %120, 2.000000e+01
-  %122 = tail call nsz float @llvm.maxnum.f32(float %119, float %121)
-  store float %122, ptr %118, align 4, !tbaa !109
+._crit_edge316.loopexit:                          ; preds = %123
+  %118 = tail call nsz float @llvm.log10.f32(float %147)
+  %119 = fmul nsz float %118, 2.000000e+01
+  br label %._crit_edge316
+
+._crit_edge316:                                   ; preds = %._crit_edge316.loopexit, %116
+  %.0270.lcssa = phi float [ 0xFFF0000000000000, %116 ], [ %119, %._crit_edge316.loopexit ]
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 204
+  %121 = load float, ptr %120, align 4, !tbaa !109
+  %122 = tail call nsz float @llvm.maxnum.f32(float %121, float %.0270.lcssa)
+  store float %122, ptr %120, align 4, !tbaa !109
   %indvars.iv.next359 = add nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
   br i1 %exitcond362.not, label %.loopexit, label %107, !llvm.loop !110
@@ -1553,7 +1559,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   %147 = tail call nsz float @llvm.maxnum.f32(float %.0270313, float %146)
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
-  br i1 %exitcond357.not, label %._crit_edge316, label %123, !llvm.loop !111
+  br i1 %exitcond357.not, label %._crit_edge316.loopexit, label %123, !llvm.loop !111
 
 148:                                              ; preds = %.lr.ph311, %272
   %indvars.iv348 = phi i64 [ %93, %.lr.ph311 ], [ %indvars.iv.next349, %272 ]

@@ -5089,20 +5089,20 @@ XYZ_to_LMS.exit.i.i:                              ; preds = %138
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %158 = tail call reassoc nsz arcp contract afn float @llvm.log2.f32(float %157)
   br label %_pipe_RGB_to_Ych.exit
 
 _pipe_RGB_to_Ych.exit:                            ; preds = %12, %XYZ_to_LMS.exit.i.i
-  %.sroa.0.0 = phi nsz float [ 0.000000e+00, %12 ], [ %157, %XYZ_to_LMS.exit.i.i ]
-  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !363
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 96
-  %160 = load i32, ptr %159, align 8, !tbaa !394
-  %161 = add nsw i32 %160, 1
-  store i32 %161, ptr %159, align 8, !tbaa !394
-  %162 = tail call reassoc nsz arcp contract afn float @llvm.log2.f32(float %.sroa.0.0)
+  %.sroa.0.0 = phi float [ 0xFFF0000000000000, %12 ], [ %158, %XYZ_to_LMS.exit.i.i ]
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !363
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 96
+  %161 = load i32, ptr %160, align 8, !tbaa !394
+  %162 = add nsw i32 %161, 1
+  store i32 %162, ptr %160, align 8, !tbaa !394
   %163 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store float %162, ptr %163, align 4, !tbaa !239
+  store float %.sroa.0.0, ptr %163, align 4, !tbaa !239
   %164 = load ptr, ptr %9, align 8, !tbaa !358
-  tail call void @dt_bauhaus_slider_set(ptr noundef %164, float noundef %162) #31
+  tail call void @dt_bauhaus_slider_set(ptr noundef %164, float noundef %.sroa.0.0) #31
   %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !363
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 96
   %167 = load i32, ptr %166, align 8, !tbaa !394
