@@ -4262,7 +4262,7 @@ parseMD.exit:                                     ; preds = %._crit_edge.i230, %
   br label %parseLSig.exit
 
 .loopexit:                                        ; preds = %readNumber.exit.i223, %._crit_edge.i59.i, %1081, %readNumber.exit109.i.thread, %1030, %1066, %readNumber.exit83.thread.i, %.thread349
-  %.0.i214.ph = phi i32 [ 4, %readNumber.exit109.i.thread ], [ 4, %1030 ], [ 4, %.thread349 ], [ 4, %readNumber.exit83.thread.i ], [ 4, %1066 ], [ 20, %._crit_edge.i59.i ], [ 4, %1081 ], [ 20, %readNumber.exit.i223 ]
+  %.0.i214.ph = phi i32 [ 4, %readNumber.exit109.i.thread ], [ 20, %._crit_edge.i59.i ], [ 4, %.thread349 ], [ 4, %readNumber.exit83.thread.i ], [ 4, %1066 ], [ 4, %1030 ], [ 4, %1081 ], [ 20, %readNumber.exit.i223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28, i32 noundef %434) #26
