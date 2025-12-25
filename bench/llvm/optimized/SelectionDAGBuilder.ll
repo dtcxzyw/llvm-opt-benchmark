@@ -36896,9 +36896,8 @@ _ZN4llvm11SmallVectorINS_3EVTELj4EED2Ev.exit520:  ; preds = %._crit_edge776, %46
 
 511:                                              ; preds = %507
   %512 = icmp eq i64 %indvars.iv804, 0
-  %513 = or i64 %.sroa.0658.5, 262144
-  %spec.select734 = select i1 %512, i64 %513, i64 %.sroa.0658.5
-  %514 = or i64 %spec.select734, 131072
+  %513 = select i1 %512, i64 393216, i64 131072
+  %514 = or i64 %.sroa.0658.5, %513
   br label %515
 
 515:                                              ; preds = %511, %507, %504
@@ -79090,9 +79089,8 @@ _ZN4llvm11SmallVectorINS_3EVTELj4EED2Ev.exit:     ; preds = %._crit_edge641, %34
 
 375:                                              ; preds = %369
   %376 = icmp eq i64 %indvars.iv, 0
-  %377 = or i64 %.sroa.0543.4, 262144
-  %spec.select = select i1 %376, i64 %377, i64 %.sroa.0543.4
-  %378 = or i64 %spec.select, 131072
+  %377 = select i1 %376, i64 393216, i64 131072
+  %378 = or i64 %.sroa.0543.4, %377
   br label %.critedge
 
 .critedge:                                        ; preds = %365, %375, %369
@@ -80012,13 +80010,13 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_6SDNodeEEEDcPT0_.exit.thread: ; preds
 
 830:                                              ; preds = %828
   %831 = call noundef zeroext i1 @_ZNK4llvm8Argument12hasAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(40) %.0320661, i32 noundef 79) #38
-  %spec.select762 = select i1 %831, i32 4, i32 %.sroa.0492.2654
-  %spec.select763 = select i1 %831, i64 4294967296, i64 0
+  %spec.select = select i1 %831, i32 4, i32 %.sroa.0492.2654
+  %spec.select762 = select i1 %831, i64 4294967296, i64 0
   br label %832
 
 832:                                              ; preds = %830, %828
-  %.sroa.0492.4 = phi i32 [ %spec.select762, %830 ], [ 3, %828 ]
-  %.sroa.5494.0 = phi i64 [ %spec.select763, %830 ], [ 4294967296, %828 ]
+  %.sroa.0492.4 = phi i32 [ %spec.select, %830 ], [ 3, %828 ]
+  %.sroa.5494.0 = phi i64 [ %spec.select762, %830 ], [ 4294967296, %828 ]
   %833 = zext i32 %.3319657 to i64
   %834 = load ptr, ptr %25, align 8, !tbaa !25
   %835 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %834, i64 %833

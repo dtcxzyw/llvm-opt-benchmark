@@ -51,7 +51,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %7 = tail call i32 @uv_guess_handle(i32 noundef %2)
   %.off = add nsw i32 %7, -1
   %switch = icmp ult i32 %.off, 16
-  br i1 %switch, label %.preheader, label %39
+  br i1 %switch, label %.preheader, label %38
 
 .preheader:                                       ; preds = %4, %10
   %8 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %2, i32 noundef 3) #8
@@ -66,7 +66,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
-  br label %39
+  br label %38
 
 .critedge47:                                      ; preds = %.preheader
   %15 = and i32 %8, 3
@@ -100,7 +100,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 30:                                               ; preds = %26
   %31 = call i32 @uv__close(i32 noundef %24) #8
-  br label %39
+  br label %38
 
 .thread52:                                        ; preds = %.critedge47, %26
   %.037.ph = phi i32 [ %24, %26 ], [ %2, %.critedge47 ]
@@ -121,17 +121,16 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.03758 = phi i32 [ %.03759, %32 ], [ %2, %.thread ]
   %.03956 = phi i32 [ 0, %32 ], [ 1048576, %.thread ]
   %.not45 = icmp eq i32 %15, 1
-  %35 = or disjoint i32 %.03956, 16384
-  %spec.select49 = select i1 %.not45, i32 %.03956, i32 %35
   %.not46 = icmp eq i32 %15, 0
-  %36 = or disjoint i32 %spec.select49, 32768
-  %.2 = select i1 %.not46, i32 %35, i32 %36
-  %37 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03758, i32 noundef %.2) #8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  store i32 0, ptr %38, align 4
-  br label %39
+  %35 = select i1 %.not45, i32 32768, i32 49152
+  %.2.v = select i1 %.not46, i32 16384, i32 %35
+  %.2 = or disjoint i32 %.03956, %.2.v
+  %36 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03758, i32 noundef %.2) #8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 308
+  store i32 0, ptr %37, align 4
+  br label %38
 
-39:                                               ; preds = %4, %34, %30, %.critedge
+38:                                               ; preds = %4, %34, %30, %.critedge
   %.0 = phi i32 [ %27, %30 ], [ %14, %.critedge ], [ 0, %34 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

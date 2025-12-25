@@ -27519,93 +27519,93 @@ define dso_local noundef zeroext i1 @_ZN4llvm14AArch64TTIImpl27preferPredicateOv
   %24 = load i32, ptr %23, align 8, !tbaa !31
   %.not18 = icmp eq i32 %22, %24
   %25 = or disjoint i8 %spec.select, 4
-  %26 = select i1 %.not18, i8 %spec.select, i8 %25
-  %27 = load ptr, ptr %18, align 8, !tbaa !792
-  %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !835
+  %26 = load ptr, ptr %18, align 8, !tbaa !792
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !835
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !627
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !626
-  %.not64.not.i = icmp eq ptr %31, %33
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !627
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %32 = load ptr, ptr %31, align 8, !tbaa !626
+  %.not64.not.i = icmp eq ptr %30, %32
   br i1 %.not64.not.i, label %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit, label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %16, %.critedge40.i
-  %.03265.i = phi ptr [ %49, %.critedge40.i ], [ %31, %16 ]
-  %34 = load ptr, ptr %.03265.i, align 8, !tbaa !469
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %.sroa.049.061.i = load ptr, ptr %35, align 8, !tbaa !76
-  %.not5562.i = icmp eq ptr %.sroa.049.061.i, %36
+  %.03265.i = phi ptr [ %48, %.critedge40.i ], [ %30, %16 ]
+  %33 = load ptr, ptr %.03265.i, align 8, !tbaa !469
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %.sroa.049.061.i = load ptr, ptr %34, align 8, !tbaa !76
+  %.not5562.i = icmp eq ptr %.sroa.049.061.i, %35
   br i1 %.not5562.i, label %.critedge40.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph67.i, %.critedge38.i
   %.sroa.049.063.i = phi ptr [ %.sroa.049.0.i, %.critedge38.i ], [ %.sroa.049.061.i, %.lr.ph67.i ]
-  %37 = getelementptr inbounds i8, ptr %.sroa.049.063.i, i64 -24
-  %38 = load i8, ptr %37, align 8, !tbaa !79
-  switch i8 %38, label %.critedge38.i [
+  %36 = getelementptr inbounds i8, ptr %.sroa.049.063.i, i64 -24
+  %37 = load i8, ptr %36, align 8, !tbaa !79
+  switch i8 %37, label %.critedge38.i [
     i8 61, label %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i
-    i8 62, label %39
+    i8 62, label %38
   ]
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.049.063.i, i64 -88
-  %41 = load ptr, ptr %40, align 8, !tbaa !83
+38:                                               ; preds = %.lr.ph.i
+  %39 = getelementptr inbounds i8, ptr %.sroa.049.063.i, i64 -88
+  %40 = load ptr, ptr %39, align 8, !tbaa !83
   br label %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i
 
-_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i:   ; preds = %39, %.lr.ph.i
-  %.pn.i.i = phi ptr [ %41, %39 ], [ %37, %.lr.ph.i ]
+_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i:   ; preds = %38, %.lr.ph.i
+  %.pn.i.i = phi ptr [ %40, %38 ], [ %36, %.lr.ph.i ]
   %.in.i = getelementptr inbounds i8, ptr %.sroa.049.063.i, i64 -56
-  %42 = load ptr, ptr %.in.i, align 8, !tbaa !83
+  %41 = load ptr, ptr %.in.i, align 8, !tbaa !83
   %.1.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !380
-  %43 = call { i64, i8 } @_ZN4llvm12getPtrStrideERNS_25PredicatedScalarEvolutionEPNS_4TypeEPNS_5ValueEPKNS_4LoopERKNS_8DenseMapIS5_PKNS_4SCEVENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SC_EEEEbb(ptr noundef nonnull align 8 dereferenceable(144) %29, ptr noundef %.1.i.i, ptr noundef %42, ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(20) %3, i1 noundef zeroext true, i1 noundef zeroext false) #32
-  %44 = extractvalue { i64, i8 } %43, 0
-  %45 = extractvalue { i64, i8 } %43, 1
-  %46 = trunc nuw i8 %45 to i1
-  %47 = icmp slt i64 %44, 0
-  %.not57.i = select i1 %46, i1 %47, i1 false
+  %42 = call { i64, i8 } @_ZN4llvm12getPtrStrideERNS_25PredicatedScalarEvolutionEPNS_4TypeEPNS_5ValueEPKNS_4LoopERKNS_8DenseMapIS5_PKNS_4SCEVENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SC_EEEEbb(ptr noundef nonnull align 8 dereferenceable(144) %28, ptr noundef %.1.i.i, ptr noundef %41, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(20) %3, i1 noundef zeroext true, i1 noundef zeroext false) #32
+  %43 = extractvalue { i64, i8 } %42, 0
+  %44 = extractvalue { i64, i8 } %42, 1
+  %45 = trunc nuw i8 %44 to i1
+  %46 = icmp slt i64 %43, 0
+  %.not57.i = select i1 %45, i1 %46, i1 false
   br i1 %.not57.i, label %.thread.critedge, label %.critedge38.i
 
 .critedge38.i:                                    ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i, %.lr.ph.i
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.049.063.i, i64 8
-  %.sroa.049.0.i = load ptr, ptr %48, align 8, !tbaa !76
-  %.not55.i = icmp eq ptr %.sroa.049.0.i, %36
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.049.063.i, i64 8
+  %.sroa.049.0.i = load ptr, ptr %47, align 8, !tbaa !76
+  %.not55.i = icmp eq ptr %.sroa.049.0.i, %35
   br i1 %.not55.i, label %.critedge40.i, label %.lr.ph.i
 
 .critedge40.i:                                    ; preds = %.critedge38.i, %.lr.ph67.i
-  %49 = getelementptr inbounds nuw i8, ptr %.03265.i, i64 8
-  %.not.not.i = icmp eq ptr %49, %33
+  %48 = getelementptr inbounds nuw i8, ptr %.03265.i, i64 8
+  %.not.not.i = icmp eq ptr %48, %32
   br i1 %.not.not.i, label %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit.loopexit, label %.lr.ph67.i
 
 _ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit.loopexit: ; preds = %.critedge40.i
   %.pre = load ptr, ptr %3, align 8, !tbaa !836
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre33 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !839
-  %50 = zext i32 %.pre33 to i64
-  %51 = shl nuw nsw i64 %50, 4
+  %49 = zext i32 %.pre33 to i64
+  %50 = shl nuw nsw i64 %49, 4
   br label %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit
 
 _ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit: ; preds = %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit.loopexit, %16
-  %52 = phi i64 [ %51, %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit.loopexit ], [ 0, %16 ]
-  %53 = phi ptr [ %.pre, %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit.loopexit ], [ null, %16 ]
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %53, i64 noundef %52, i64 noundef 8) #32
+  %51 = phi i64 [ %50, %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit.loopexit ], [ 0, %16 ]
+  %52 = phi ptr [ %.pre, %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit.loopexit ], [ null, %16 ]
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %52, i64 noundef %51, i64 noundef 8) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.126 = select i1 %.not, i8 1, i8 2
   %spec.select28 = select i1 %.not18, i8 %.126, i8 %25
   br label %60
 
 .thread.critedge:                                 ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit.i
-  %54 = load ptr, ptr %3, align 8, !tbaa !836
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %56 = load i32, ptr %55, align 8, !tbaa !839
-  %57 = zext i32 %56 to i64
-  %58 = shl nuw nsw i64 %57, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %54, i64 noundef %58, i64 noundef 8) #32
+  %53 = load ptr, ptr %3, align 8, !tbaa !836
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %55 = load i32, ptr %54, align 8, !tbaa !839
+  %56 = zext i32 %55 to i64
+  %57 = shl nuw nsw i64 %56, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %53, i64 noundef %57, i64 noundef 8) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %59 = or disjoint i8 %26, 8
+  %58 = select i1 %.not18, i8 8, i8 12
+  %59 = or disjoint i8 %58, %spec.select
   br label %60
 
 60:                                               ; preds = %_ZL26containsDecreasingPointersPN4llvm4LoopEPNS_25PredicatedScalarEvolutionE.exit, %.thread.critedge

@@ -100,7 +100,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   %.sroa.0.0.i = phi i32 [ 0, %17 ], [ %.sroa.0.2.i, %.thread.i ]
   %.sroa.12.0.i = phi i32 [ 0, %17 ], [ %.sroa.12.2.i, %.thread.i ]
   %.sroa.18.0.i = phi i32 [ 0, %17 ], [ %.sroa.18.2.i, %.thread.i ]
-  %.056.i = phi i64 [ 0, %17 ], [ %92, %.thread.i ]
+  %.056.i = phi i64 [ 0, %17 ], [ %91, %.thread.i ]
   %.054.i = phi i64 [ 0, %17 ], [ %.fr63.i, %.thread.i ]
   %38 = call i64 @clock() #7
   %.fr63.i = freeze i64 %38
@@ -160,77 +160,76 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   %73 = load i32, ptr %72, align 4, !tbaa !8
   %74 = mul i32 %73, 1664525
   %75 = icmp ult i32 %40, -1000328775
-  %76 = add nsw i32 %40, 1000328775
-  %77 = select i1 %75, i32 %40, i32 %76
-  %78 = add i32 %77, 1013904223
-  %79 = add i32 %78, %74
-  store i32 %79, ptr %72, align 4, !tbaa !8
+  %76 = select i1 %75, i32 1013904223, i32 2014232998
+  %77 = add i32 %76, %40
+  %78 = add i32 %77, %74
+  store i32 %78, ptr %72, align 4, !tbaa !8
   br label %.thread.i
 
 .critedge.i:                                      ; preds = %60, %45
-  %80 = phi i64 [ %64, %60 ], [ %50, %45 ]
-  %81 = sub nsw i64 %.fr63.i, %.058.i
-  %82 = icmp sgt i64 %81, 31249
-  br i1 %82, label %83, label %.thread.i
+  %79 = phi i64 [ %64, %60 ], [ %50, %45 ]
+  %80 = sub nsw i64 %.fr63.i, %.058.i
+  %81 = icmp sgt i64 %80, 31249
+  br i1 %81, label %82, label %.thread.i
 
-83:                                               ; preds = %.critedge.i
-  br i1 %.not65.i, label %87, label %84
+82:                                               ; preds = %.critedge.i
+  br i1 %.not65.i, label %86, label %83
 
-84:                                               ; preds = %83
-  %85 = sub i64 %80, %13
-  %86 = icmp ugt i64 %85, 4
-  br i1 %86, label %get_generic_seed.exit, label %.thread.i
+83:                                               ; preds = %82
+  %84 = sub i64 %79, %13
+  %85 = icmp ugt i64 %84, 4
+  br i1 %85, label %get_generic_seed.exit, label %.thread.i
 
-87:                                               ; preds = %83
-  %88 = icmp ugt i64 %80, 64
-  br i1 %88, label %get_generic_seed.exit, label %.thread.i
+86:                                               ; preds = %82
+  %87 = icmp ugt i64 %79, 64
+  br i1 %87, label %get_generic_seed.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %87, %84, %.critedge.i, %69
-  %89 = icmp eq i64 %.fr63.i, %.054.i
-  %90 = add nsw i32 %.sroa.0.0.i, 1
+.thread.i:                                        ; preds = %86, %83, %.critedge.i, %69
+  %88 = icmp eq i64 %.fr63.i, %.054.i
+  %89 = add nsw i32 %.sroa.0.0.i, 1
   %.not66.i = icmp eq i32 %.sroa.0.0.i, %.sroa.12.0.i
-  %.sroa.0.2.i = select i1 %89, i32 %90, i32 0
-  %.sroa.12.2.i = select i1 %89, i32 %.sroa.12.0.i, i32 %.sroa.0.0.i
-  %91 = select i1 %89, i1 true, i1 %.not66.i
-  %.sroa.18.2.i = select i1 %91, i32 %.sroa.18.0.i, i32 %.sroa.12.0.i
+  %.sroa.0.2.i = select i1 %88, i32 %89, i32 0
+  %.sroa.12.2.i = select i1 %88, i32 %.sroa.12.0.i, i32 %.sroa.0.0.i
+  %90 = select i1 %88, i1 true, i1 %.not66.i
+  %.sroa.18.2.i = select i1 %90, i32 %.sroa.18.0.i, i32 %.sroa.12.0.i
   %sext.i = shl i64 %39, 32
-  %92 = ashr exact i64 %sext.i, 32
+  %91 = ashr exact i64 %sext.i, 32
   %.not67.i = icmp eq i64 %.058.i, 0
   %.2.i = select i1 %.not67.i, i64 %.fr63.i, i64 %.058.i
   br label %37
 
-get_generic_seed.exit:                            ; preds = %84, %87
+get_generic_seed.exit:                            ; preds = %83, %86
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %93 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
-  %94 = load i64, ptr %1, align 8, !tbaa !10
-  %95 = mul nsw i64 %94, 1000000000
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %97 = load i64, ptr %96, align 8, !tbaa !12
-  %98 = add nsw i64 %95, %97
+  %92 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
+  %93 = load i64, ptr %1, align 8, !tbaa !10
+  %94 = mul nsw i64 %93, 1000000000
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %96 = load i64, ptr %95, align 8, !tbaa !12
+  %97 = add nsw i64 %94, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @get_generic_seed.buffer, i64 444), align 4, !tbaa !8
-  %100 = trunc i64 %98 to i32
-  %101 = add i32 %99, %100
-  store i32 %101, ptr getelementptr inbounds nuw (i8, ptr @get_generic_seed.buffer, i64 444), align 4, !tbaa !8
-  %102 = call i32 @av_sha_init(ptr noundef nonnull %4, i32 noundef 160) #7
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @get_generic_seed.buffer, i64 444), align 4, !tbaa !8
+  %99 = trunc i64 %97 to i32
+  %100 = add i32 %98, %99
+  store i32 %100, ptr getelementptr inbounds nuw (i8, ptr @get_generic_seed.buffer, i64 444), align 4, !tbaa !8
+  %101 = call i32 @av_sha_init(ptr noundef nonnull %4, i32 noundef 160) #7
   call void @av_sha_update(ptr noundef nonnull %4, ptr noundef nonnull @get_generic_seed.buffer, i64 noundef 2048) #7
   call void @av_sha_final(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  %103 = load i32, ptr %5, align 16, !tbaa !13
-  %104 = call i32 @llvm.bswap.i32(i32 %103)
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %106 = load i32, ptr %105, align 16, !tbaa !13
-  %107 = call i32 @llvm.bswap.i32(i32 %106)
-  %108 = add i32 %107, %104
+  %102 = load i32, ptr %5, align 16, !tbaa !13
+  %103 = call i32 @llvm.bswap.i32(i32 %102)
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %105 = load i32, ptr %104, align 16, !tbaa !13
+  %106 = call i32 @llvm.bswap.i32(i32 %105)
+  %107 = add i32 %106, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %110
+  br label %109
 
 av_random_bytes.exit:                             ; preds = %8
-  %109 = load i32, ptr %6, align 4, !tbaa !8
-  br label %110
+  %108 = load i32, ptr %6, align 4, !tbaa !8
+  br label %109
 
-110:                                              ; preds = %av_random_bytes.exit, %get_generic_seed.exit
-  %.0 = phi i32 [ %108, %get_generic_seed.exit ], [ %109, %av_random_bytes.exit ]
+109:                                              ; preds = %av_random_bytes.exit, %get_generic_seed.exit
+  %.0 = phi i32 [ %107, %get_generic_seed.exit ], [ %108, %av_random_bytes.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

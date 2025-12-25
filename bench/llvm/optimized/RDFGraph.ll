@@ -10502,9 +10502,9 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i140:     ; preds = %._crit_edge
   br i1 %.not.i.i141, label %_ZN4llvm9BitVectorC2Ejb.exit150, label %_ZN4llvm9BitVectorC2Ejb.exit150.sink.split
 
 _ZN4llvm9BitVectorC2Ejb.exit150.sink.split:       ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i140, %_ZN4llvm9BitVectorC2Ejb.exit150.loopexit
-  %.sink464 = phi ptr [ %103, %_ZN4llvm9BitVectorC2Ejb.exit150.loopexit ], [ %99, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i140 ]
+  %.sink463 = phi ptr [ %103, %_ZN4llvm9BitVectorC2Ejb.exit150.loopexit ], [ %99, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i140 ]
   %.idx.i.i.i.i.i.i.i142 = shl nuw nsw i64 %98, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink464, i8 0, i64 %.idx.i.i.i.i.i.i.i142, i1 false), !tbaa !13
+  call void @llvm.memset.p0.i64(ptr align 8 %.sink463, i8 0, i64 %.idx.i.i.i.i.i.i.i142, i1 false), !tbaa !13
   br label %_ZN4llvm9BitVectorC2Ejb.exit150
 
 _ZN4llvm9BitVectorC2Ejb.exit150:                  ; preds = %_ZN4llvm9BitVectorC2Ejb.exit150.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i140
@@ -11566,24 +11566,22 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit247.thread: ; pred
   %705 = load ptr, ptr %704, align 8
   %706 = trunc nuw nsw i64 %indvars.iv384 to i32
   %707 = call noundef zeroext i1 %705(ptr noundef nonnull align 8 dereferenceable(16) %702, ptr noundef nonnull align 8 dereferenceable(70) %3, i32 noundef %706) #24
-  %708 = or disjoint i16 %spec.select138, 512
-  %.1 = select i1 %707, i16 %708, i16 %spec.select138
-  %709 = load ptr, ptr %461, align 8, !tbaa !358
-  %710 = load ptr, ptr %462, align 8, !tbaa !358
-  %711 = icmp eq ptr %709, %710
-  br i1 %711, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248
+  %708 = load ptr, ptr %461, align 8, !tbaa !358
+  %709 = load ptr, ptr %462, align 8, !tbaa !358
+  %710 = icmp eq ptr %708, %709
+  br i1 %710, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248
 
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248: ; preds = %697
-  %712 = getelementptr inbounds i8, ptr %710, i64 -8
-  %713 = load ptr, ptr %712, align 8, !tbaa !46
-  %714 = load ptr, ptr %463, align 8, !tbaa !357
-  %715 = ptrtoint ptr %714 to i64
-  %716 = ptrtoint ptr %713 to i64
-  %717 = sub i64 %715, %716
-  %718 = sdiv i64 %717, 32
-  %719 = trunc i64 %718 to i32
-  %720 = load i32, ptr %460, align 8, !tbaa !351
-  %.not.i.i.i249 = icmp ugt i32 %720, %719
+  %711 = getelementptr inbounds i8, ptr %709, i64 -8
+  %712 = load ptr, ptr %711, align 8, !tbaa !46
+  %713 = load ptr, ptr %463, align 8, !tbaa !357
+  %714 = ptrtoint ptr %713 to i64
+  %715 = ptrtoint ptr %712 to i64
+  %716 = sub i64 %714, %715
+  %717 = sdiv i64 %716, 32
+  %718 = trunc i64 %717 to i32
+  %719 = load i32, ptr %460, align 8, !tbaa !351
+  %.not.i.i.i249 = icmp ugt i32 %719, %718
   br i1 %.not.i.i.i249, label %_ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt.exit, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250
 
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250: ; preds = %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248, %697
@@ -11595,19 +11593,20 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250: ; preds = %_ZN
   br label %_ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt.exit
 
 _ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt.exit: ; preds = %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250
-  %.pre-phi.i.i.i256 = phi i64 [ %.pre6.i.i.i255, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %715, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
-  %721 = phi ptr [ %.pre5.i.i.i254, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %714, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
-  %722 = phi ptr [ %.pre4.i.i.i252, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %709, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
-  %723 = phi ptr [ %.pre.i.i.i251, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %710, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
-  %724 = or disjoint i16 %.1, 10
-  %725 = ptrtoint ptr %723 to i64
-  %726 = ptrtoint ptr %722 to i64
+  %.pre-phi.i.i.i256 = phi i64 [ %.pre6.i.i.i255, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %714, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
+  %720 = phi ptr [ %.pre5.i.i.i254, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %713, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
+  %721 = phi ptr [ %.pre4.i.i.i252, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %708, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
+  %722 = phi ptr [ %.pre.i.i.i251, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i250 ], [ %709, %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i248 ]
+  %723 = select i1 %707, i16 522, i16 10
+  %724 = or disjoint i16 %723, %spec.select138
+  %725 = ptrtoint ptr %722 to i64
+  %726 = ptrtoint ptr %721 to i64
   %727 = sub i64 %725, %726
   %728 = lshr exact i64 %727, 3
   %729 = trunc i64 %728 to i32
   %730 = add i32 %729, -1
   %731 = zext i32 %730 to i64
-  %732 = getelementptr inbounds nuw ptr, ptr %722, i64 %731
+  %732 = getelementptr inbounds nuw ptr, ptr %721, i64 %731
   %733 = load ptr, ptr %732, align 8, !tbaa !46
   %734 = ptrtoint ptr %733 to i64
   %735 = sub i64 %.pre-phi.i.i.i256, %734
@@ -11617,11 +11616,11 @@ _ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %739 = shl i32 %730, %738
   %740 = or i32 %739, %737
   %741 = add i32 %740, 1
-  %742 = getelementptr inbounds nuw i8, ptr %721, i64 32
+  %742 = getelementptr inbounds nuw i8, ptr %720, i64 32
   store ptr %742, ptr %463, align 8, !tbaa !357
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %721, i8 0, i64 24, i1 false)
-  store i16 %724, ptr %721, align 8, !tbaa !47
-  %743 = getelementptr inbounds nuw i8, ptr %721, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %720, i8 0, i64 24, i1 false)
+  store i16 %724, ptr %720, align 8, !tbaa !47
+  %743 = getelementptr inbounds nuw i8, ptr %720, i64 24
   store ptr %669, ptr %743, align 8, !tbaa !50
   %744 = load i32, ptr %465, align 4, !tbaa !50
   %745 = icmp eq i32 %744, 0
@@ -11690,7 +11689,7 @@ _ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE.exit.i266: ; preds = %773
 
 _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i260: ; preds = %_ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE.exit.i266, %761
   %.sink.i261 = phi i32 [ %760, %761 ], [ %787, %_ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE.exit.i266 ]
-  %788 = getelementptr inbounds nuw i8, ptr %721, i64 4
+  %788 = getelementptr inbounds nuw i8, ptr %720, i64 4
   store i32 %.sink.i261, ptr %788, align 4, !tbaa !126
   br label %_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit267
 
